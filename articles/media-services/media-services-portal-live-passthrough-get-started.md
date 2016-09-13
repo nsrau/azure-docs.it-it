@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/05/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
@@ -92,7 +92,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
-	![Unità di streaming](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)  
+	![Unità di streaming](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
 
@@ -126,7 +126,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 
 1. Nella finestra **Impostazioni** fare clic su **Streaming live**.
 
-	![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)  
+	![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	
 	Verrà visualizzata la finestra **Streaming live**.
 
@@ -142,20 +142,20 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Selezionare un canale a cui si vuole aggiungere un evento.
 2. Premere il pulsante **Evento live**.
 
-![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)  
+![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 
 ##Ottenere gli URL di inserimento
 
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
-![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)  
+![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ##Guardare l'evento
 
 Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta.
  
-![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)  
+![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
 Quando viene arrestato, l'evento live viene convertito automaticamente in contenuto su richiesta.
 
@@ -172,7 +172,7 @@ Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado d
 
 Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
-![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)  
+![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
 ##Passaggio successivo
 

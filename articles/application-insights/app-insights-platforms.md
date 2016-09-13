@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/01/2016"
-	ms.author="awills"/> 
+	ms.author="awills"/>
 
 # Developer Analytics: linguaggi, piattaforme e integrazioni
 

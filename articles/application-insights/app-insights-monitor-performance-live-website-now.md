@@ -285,7 +285,7 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md

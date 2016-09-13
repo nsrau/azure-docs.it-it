@@ -15,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.date="08/29/2016" 
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure nel portale
 
@@ -174,7 +174,7 @@ Un modo semplice per eseguire questa operazione consiste nell'usare la query pre
 Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al documento 669. Dopo aver caricato i dati, è possibile [tornare ai passaggi di questa procedura dettagliata](#defineDS) per creare un indice tramite la procedura guidata **Importa dati**.
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/search-get-started-portal/AzureSearch-GetStart-Docdbmenu1.png
 [2]: ./media/search-get-started-portal/AzureSearch-GetStart-DataSource.png
 [3]: ./media/search-get-started-portal/AzureSearch-GetStart-DefaultIndex.png

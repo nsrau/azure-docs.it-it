@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>  
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Caricare dati da SQL Server in Azure SQL Data Warehouse (AZCopy)
@@ -56,7 +56,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere [Overview of tables in SQL Data Warehouse][] (Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][].
+>[AZURE.NOTE] Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere [Overview of tables in SQL Data Warehouse][] \(Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][].
 
 ### Passaggio 2: Creare un file di dati di origine
 
@@ -155,7 +155,7 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 ## Passaggi successivi
 Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 
@@ -168,7 +168,7 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 <!---HONumber=AcomDC_0907_2016-->

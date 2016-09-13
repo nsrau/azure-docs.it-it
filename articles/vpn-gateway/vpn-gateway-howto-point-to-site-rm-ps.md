@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Configurare una connessione da punto a sito a una rete virtuale usando PowerShell
 
@@ -174,7 +174,7 @@ Nei client che si connettono ad Azure con una connessione da punto a sito devono
 
 4. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione verrà visualizzata in un elenco, insieme al nome della rete virtuale a cui si connette e avrà un aspetto simile al seguente:
 
-	![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Client VPN")  
+	![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Client VPN")
 
 ## <a name="cc"></a>Parte 6: Generare il certificato client
 
@@ -203,7 +203,7 @@ Installare un certificato client in ogni computer che si vuole connettere alla r
 
 3. Verrà stabilita la connessione.
 
-	![Client VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connessione del client VPN 2")  
+	![Client VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connessione del client VPN 2")
 
 ## Parte 9: Verificare la connessione
 

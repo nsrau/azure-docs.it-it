@@ -13,13 +13,13 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="08/30/2016" 
-	ms.author="daviste"/>  
+	ms.author="daviste"/>
 	
 # Application Insights Telemetry in CodeLens di Visual Studio
 
 I metodi nel codice dell'app Web possono essere annotati con dati di telemetria relativi alle eccezioni di run-time e ai tempi di risposta della richiesta. Se si installa [Visual Studio Application Insights](app-insights-overview.md) nell'applicazione, i dati di telemetria vengono visualizzati in [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) di Visual Studio, ovvero nelle note nella parte superiore di ogni funzione in cui vengono visualizzate informazioni utili, ad esempio il numero di posizioni in cui si fa riferimento alla funzione o l'utente che l'ha modificata per ultimo.
 
-![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)  
+![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
 > [AZURE.NOTE] Application Insights in CodeLens è disponibile in Visual Studio 2015 Update 3 e versioni successive o con la versione più recente dell'[estensione Developer Analytics Tools](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a). CodeLens è disponibile nelle edizioni Enterprise e Professional di Visual Studio.
 
@@ -31,7 +31,7 @@ Cercare i dati di Application Insights Telemetry negli indicatori di CodeLens de
 
 ## Eccezioni in CodeLens
 
-![Da definire](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)  
+![Da definire](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
 L'indicatore delle eccezioni di CodeLens visualizza il numero di eccezioni che si sono verificate nelle ultime 24 ore dalle 15 eccezioni più frequenti dell'applicazione in tale periodo, durante l'elaborazione della richiesta servita dal metodo.
 
@@ -50,7 +50,7 @@ Per visualizzare altri dettagli, fare clic sull'indicatore delle eccezioni di Co
 
 ## Richieste in CodeLens
 
-![Da definire](./media/app-insights-visual-studio-codelens/codelens-requests.png)  
+![Da definire](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
 L'indicatore delle richieste di CodeLens visualizza il numero di richieste HTTP servite da un metodo nelle ultime 24 ore, nonché la percentuale di tali richieste che non ha avuto esito positivo.
 
@@ -66,8 +66,8 @@ Per visualizzare altri dettagli, fare clic sull'indicatore delle richieste di Co
 
 ||
 |---|---
-|**[Uso di Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-visual-studio-trends/34.png)  
-|**[Altri dati di telemetria da Application Insights](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. | ![Visual Studio](./media/app-insights-visual-studio-trends/64.png)  
-|**[Navigazione e dashboard nel portale Application Insights](app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png)  
+|**[Uso di Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-visual-studio-trends/34.png)
+|**[Altri dati di telemetria da Application Insights](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. | ![Visual Studio](./media/app-insights-visual-studio-trends/64.png)
+|**[Navigazione e dashboard nel portale Application Insights](app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png)
 
 <!---HONumber=AcomDC_0907_2016-->

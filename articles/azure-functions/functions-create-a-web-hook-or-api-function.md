@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/30/2016"
-   ms.author="glenga"/>  
+   ms.author="glenga"/>
    
 # Creare un webhook o una funzione API di Azure
 

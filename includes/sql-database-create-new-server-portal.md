@@ -15,15 +15,15 @@ Usare la procedura seguente nel portale di Azure per creare un server logico di 
 1. Se non è ancora stato fatto, connettersi al [portale di Azure](http://portal.azure.com).
 2. Fare clic su **Nuovo**, digitare **Database SQL** e quindi fare clic su **Database SQL (nuovo server logico)**.
 
-      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)  
+      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
 
 3. Fare clic su **Database SQL (nuovo server logico)**.
 
-      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)  
+      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
 
 4. Fare clic su **Crea** per aprire un modello e creare un server logico vuoto che possa ospitare database singoli e pool di database elastici.
 
-      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)  
+      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
 
 5. Specificare i valori per le proprietà del server seguenti:
 
@@ -38,10 +38,10 @@ Usare la procedura seguente nel portale di Azure per creare un server logico di 
 
 6.  Fare clic su **Create**. Nell'area di notifica si noterà che è stata avviata la distribuzione.
 
-       ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)  
+       ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
 
 7. Attendere il completamento della distribuzione prima di procedere al passaggio successivo.
 
-       ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)  
+       ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
 <!---HONumber=AcomDC_0907_2016-->

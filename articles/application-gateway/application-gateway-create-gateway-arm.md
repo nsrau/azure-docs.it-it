@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/06/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 
 # Creare, avviare o eliminare un gateway applicazione tramite Gestione risorse di Azure

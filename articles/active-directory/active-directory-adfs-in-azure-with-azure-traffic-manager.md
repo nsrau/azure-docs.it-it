@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/01/2016"
-	ms.author="anandy;billmath"/>  
+	ms.author="anandy;billmath"/>
     
 #Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure
 
@@ -28,7 +28,7 @@ Un'infrastruttura AD FS tra aree geografiche a disponibilità elevata offre i va
 
 ##Principi di progettazione
 
-![Progettazione complessiva](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)  
+![Progettazione complessiva](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
 I principi di progettazione di base sono uguali a quelli elencati nella sezione Principi di progettazione dell'articolo Distribuzione di AD FS in Azure. Il diagramma precedente illustra una semplice estensione della distribuzione di base a un'altra area geografica. Di seguito sono riportati alcuni aspetti da considerare quando si estende la distribuzione a una nuova area geografica
 
@@ -54,7 +54,7 @@ Seguire i passaggi e le istruzioni illustrati in [Distribuzione di AD FS in Azur
 ###Etichette DNS per gli indirizzi IP pubblici di servizi di bilanciamento del carico con connessione Internet (pubblici)
 Come indicato in precedenza, Gestione traffico di Azure può fare riferimento solo alle etichette DNS come endpoint ed è quindi importante creare le etichette DNS per gli indirizzi IP pubblici dei servizi di bilanciamento del carico esterni. Lo screenshot seguente illustra come configurare l'etichetta DNS per l'indirizzo IP pubblico.
 
-![Etichetta DNS](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)  
+![Etichetta DNS](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
 ###Distribuzione di Gestione traffico di Azure
 
@@ -62,7 +62,7 @@ Seguire questa procedura per creare un profilo di Gestione traffico. Per altre i
 
 1. **Creare un profilo di Gestione traffico:** assegnare un nome univoco al profilo di Gestione traffico. Il nome del profilo fa parte del nome DNS e funge da prefisso per l'etichetta del nome di dominio di Gestione traffico. Il nome/prefisso viene aggiunto a .trafficmanager.net per creare un'etichetta DNS per Gestione traffico. Lo screenshot seguente indica il prefisso DNS di Gestione traffico impostato come mysts. L'etichetta DNS sarà quindi mysts.trafficmanager.net.
 
-    ![Creazione del profilo di Gestione traffico](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)  
+    ![Creazione del profilo di Gestione traffico](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
  
 2. **Metodo di routing del traffico:** in Gestione traffico sono disponibili tre opzioni di routing del traffico:
 
@@ -74,7 +74,7 @@ Seguire questa procedura per creare un profilo di Gestione traffico. Per altre i
    
 3.	**Configurare gli endpoint:** nella pagina di Gestione traffico, fare clic sugli endpoint e selezionare Aggiungi. Verrà aperta una pagina Aggiungi endpoint simile allo screenshot seguente
  
-    ![Configurare gli endpoint](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)  
+    ![Configurare gli endpoint](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)
  
     Seguire queste linee guida per i diversi input:
 
@@ -90,7 +90,7 @@ Seguire questa procedura per creare un profilo di Gestione traffico. Per altre i
     
 4. **Configurare il probe:** nella pagina di Gestione traffico fare clic su Configurazione. Nella pagina di configurazione è necessario modificare le impostazioni di monitoraggio per il probe sulla porta HTTP 80 e il percorso relativo /adfs/probe
 
-    ![Configurare il probe](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png)  
+    ![Configurare il probe](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png)
 
     >[AZURE.NOTE] **Assicurarsi che lo stato degli endpoint sia ONLINE dopo aver completato la configurazione**. Se tutti gli endpoint sono in stato 'Danneggiato', Gestione traffico di Azure proverà a instradare il traffico supponendo che i dati di diagnostica non siano corretti e che tutti gli endpoint siano raggiungibili.
 
@@ -106,7 +106,7 @@ Seguire questa procedura per creare un profilo di Gestione traffico. Per altre i
 
 Un test molto semplice per il routing consiste nel provare a effettuare il ping del nome DNS del servizio federativo da un computer in ogni area geografica. A seconda del metodo di routing scelto, l'endpoint effettivamente raggiunto dal ping verrà indicato nella visualizzazione del ping. Se ad esempio si seleziona il routing Prestazioni, verrà raggiunto l'endpoint più vicino all'area del client. Di seguito è riportato lo snapshot di due ping da due computer client di aree diverse, uno in Asia orientale e l'altro negli Stati Uniti occidentali.
 
-![Test di routing](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)  
+![Test di routing](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
 ###Test dell'accesso ad AD FS
 
@@ -116,11 +116,11 @@ Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiat
 2. Da qualsiasi computer esterno accedere a https://<serviziofederativo>/adfs/ls/IdpInitiatedSignon.aspx
 3. La pagina di AD FS dovrebbe essere visualizzata come segue:
 
-    ![Test AD FS - richiesta di autenticazione](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)  
+    ![Test AD FS - richiesta di autenticazione](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
 
     Dopo l'accesso verrà visualizzato un messaggio di completamento dell'operazione come il seguente:
 
-    ![Test AD FS - autenticazione completata](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)  
+    ![Test AD FS - autenticazione completata](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
  
 ##Collegamenti correlati
 * [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md)

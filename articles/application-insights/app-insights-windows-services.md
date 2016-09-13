@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/30/2016"
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 
 # Configurare manualmente Application Insights per applicazioni ASP.NET 4
@@ -26,7 +26,7 @@
 
 Application Insights consente di diagnosticare i problemi e monitorare le prestazioni e l'utilizzo dell'applicazione attiva.
 
-![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-windows-services/10-perf.png)  
+![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Prima di iniziare
@@ -42,7 +42,7 @@ Application Insights consente di diagnosticare i problemi e monitorare le presta
 
 Accedere al [portale di Azure](https://portal.azure.com/) e creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
 
-![Fare clic su Nuovo, Application Insights](./media/app-insights-windows-services/01-new-asp.png)  
+![Fare clic su Nuovo, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 Una [risorsa](app-insights-resources-roles-access-control.md) in Azure è un'istanza di un servizio. In questa risorsa la telemetria dell'app verrà analizzata e visualizzata.
 
@@ -52,7 +52,7 @@ La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli
 
 La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizzare i dati alla risorsa.
 
-![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-windows-services/02-props-asp.png)  
+![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-windows-services/02-props-asp.png)
 
 La procedura appena effettuata per creare una nuova risorsa è un buon modo di iniziare a monitorare qualsiasi applicazione. È ora possibile inviare dati a esso.
 
@@ -62,11 +62,11 @@ L'installazione e la configurazione di Application Insights SDK varia a seconda 
 
 1. In Visual Studio modificare i pacchetti NuGet del progetto dell'app Web.
 
-    ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-windows-services/03-nuget.png)  
+    ![Fare clic con il pulsante destro del mouse sul progetto e selezionare Gestisci pacchetti NuGet](./media/app-insights-windows-services/03-nuget.png)
 
 2. Installare Application Insights SDK per app Web.
 
-    ![Cercare "Application Insights"](./media/app-insights-windows-services/04-ai-nuget.png)  
+    ![Cercare "Application Insights"](./media/app-insights-windows-services/04-ai-nuget.png)
 
     *È possibile usare altri pacchetti?*
 
@@ -99,7 +99,7 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
     `<InstrumentationKey>` *chiave di strumentazione copiata* `</InstrumentationKey>`
 
-* Verificare che le proprietà di ApplicationInsights.config in Esplora soluzioni siano impostate su ** = Contenuto, Copia nella directory di output = Copia**.
+* Verificare che le proprietà di ApplicationInsights.config in Esplora soluzioni siano impostate su **= Contenuto, Copia nella directory di output = Copia**.
 
 
 
@@ -110,7 +110,7 @@ Eseguire l'applicazione premendo **F5** e provarla aprendo pagine diverse per ge
 
 In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati inviati.
 
-![Conteggio degli eventi in Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)  
+![Conteggio degli eventi in Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
 ## <a name="monitor"></a> Visualizzare i dati di telemetria
 
@@ -119,7 +119,7 @@ Tornare al [portale di Azure](https://portal.azure.com/) e passare alla risorsa 
 
 Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. Ad esempio:
 
-![Fare clic per visualizzare altri dati.](./media/app-insights-windows-services/12-first-perf.png) 
+![Fare clic per visualizzare altri dati.](./media/app-insights-windows-services/12-first-perf.png)
 
 Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.](app-insights-web-monitor-performance.md)
 
@@ -134,7 +134,7 @@ Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altr
 
 Distribuire ora l'applicazione nel server o in Azure e osservare l'accumulo dei dati.
 
-![Utilizzare Visual Studio per pubblicare l'app](./media/app-insights-windows-services/15-publish.png)  
+![Utilizzare Visual Studio per pubblicare l'app](./media/app-insights-windows-services/15-publish.png)
 
 Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'applicazione nella configurazione Release, i dati si accumulano più lentamente.
 
@@ -142,8 +142,8 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 
 Aprire le seguenti porte per il traffico in uscita nel firewall del server:
 
-+ `dc.services.visualstudio.com:443` 
-+ `f5.services.visualstudio.com:443` 
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
 
 
 #### Problemi del server di compilazione

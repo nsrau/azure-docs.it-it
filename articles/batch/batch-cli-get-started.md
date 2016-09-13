@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
    ms.date="09/06/2016"
-   ms.author="marsma"/>  
+   ms.author="marsma"/>
 
 # Introduzione all'interfaccia della riga di comando di Azure Batch
 
@@ -126,7 +126,7 @@ Anziché specificare le opzioni `-a`, `-k` e `-u` nella riga di comando per ogni
 
 Quando si creano risorse di Batch come pool e processi, è possibile specificare un file JSON contenente la configurazione della nuova risorsa anziché passarne i parametri come opzioni della riga di comando. Ad esempio:
 
-`azure batch pool create my_batch_pool.json`  
+`azure batch pool create my_batch_pool.json`
 
 Nonostante molte operazioni di creazione di risorse possano essere eseguite usando solo opzioni della riga di comando, alcune funzionalità richiedono un file in formato JSON contenente i dettagli delle risorse. È necessario usare un file JSON, ad esempio, se si vogliono specificare file di risorse per un'attività di avvio.
 

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="09/01/2016" 
-	ms.author="mandia"/>  
+	ms.author="mandia"/>
 
 # Che cosa sono i connettori e le app per le API di BizTalk
 
@@ -25,7 +25,7 @@ Un *connettore* è un tipo di app per le API incentrato sulla connettività. I c
 
 Tutti gli sviluppatori possono creare le proprie app per le API e distribuirle privatamente. Successivamente, gli sviluppatori possono condividere le app per le API create, realizzando guadagni tramite il marketplace.
 
-![Marketplace app per le API](./media/app-service-logic-what-are-biztalk-api-apps/Marketplace.png)  
+![Marketplace app per le API](./media/app-service-logic-what-are-biztalk-api-apps/Marketplace.png)
 
 Per accelerare lo sviluppo di soluzioni, il team di Azure ha aggiunto una serie di connettori al marketplace per soddisfare molti scenari comuni. Inoltre, per estendere la copertura a scenari di integrazione complessi e avanzati sono disponibili anche numerose funzionalità Premium e BizTalk.
 

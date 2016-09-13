@@ -27,11 +27,11 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 
 1. Dopo avere eseguito l'accesso al portale di Azure con l'identità dell'account Azure, fare clic su **+ Nuovo** nell'angolo superiore sinistro:
 
-    ![schermata1](../media/virtual-machines-linux-quick-create-portal/screen1.png)  
+    ![schermata1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
 2. Fare clic su **Macchine virtuali** nel **Marketplace**, quindi su **Ubuntu Server 14.04 LTS** dall'elenco di immagini **App in primo piano**. Verificare nella parte inferiore che il modello di distribuzione sia `Resource Manager` e quindi fare clic su **Crea**.
 
-    ![schermata2](../media/virtual-machines-linux-quick-create-portal/screen2.png) 
+    ![schermata2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
 3. Nella pagina **Informazioni di base** immettere:
     - Nome della macchina virtuale
@@ -42,11 +42,11 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 
     Fare clic su **OK** per continuare e scegliere le dimensioni della macchina virtuale, che saranno simili alle seguenti:
 
-    ![schermata3](../media/virtual-machines-linux-quick-create-portal/screen3.png) 
+    ![schermata3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
 4. Scegliere come dimensioni **DS1** per installare Ubuntu in un'unità SSD Premium e fare clic su **Seleziona** per configurare le impostazioni.
 
-    ![schermata4](../media/virtual-machines-linux-quick-create-portal/screen4.png) 
+    ![schermata4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
 5. In **Impostazioni** lasciare le impostazioni predefinite per i valori di archiviazione e di rete e fare clic su **OK** per visualizzare il riepilogo. Si noti che il tipo di disco è stato impostato su Premium (SSD) scegliendo DS1. La lettera **S** sta per SSD.
 
@@ -54,15 +54,15 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 
 6. Confermare le impostazioni per la nuova macchina virtuale Ubuntu e fare clic su **OK**.
 
-    ![schermata6](../media/virtual-machines-linux-quick-create-portal/screen6.png) 
+    ![schermata6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
 7. Aprire il dashboard del portale e in **Interfacce di rete** scegliere la scheda di rete.
 
-    ![schermata7](../media/virtual-machines-linux-quick-create-portal/screen7.png) 
+    ![schermata7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
 8. Aprire il menu di indirizzi IP pubblici sotto le impostazioni della scheda di rete.
 
-    ![schermata8](../media/virtual-machines-linux-quick-create-portal/screen8.png) 
+    ![schermata8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
 
 9. Usare SSH per accedere all'indirizzo IP pubblico con la chiave SSH pubblica.
 

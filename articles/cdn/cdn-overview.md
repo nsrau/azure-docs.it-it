@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/01/2016"
-	ms.author="casoper"/> 
+	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
 
@@ -31,7 +31,7 @@ L'uso della rete CDN per memorizzare nella cache gli asset dei siti Web offre di
 
 ## Funzionamento
 
-![Panoramica della rete CDN](./media/cdn-overview/cdn-overview.png) 
+![Panoramica della rete CDN](./media/cdn-overview/cdn-overview.png)
 
 1. Un utente (Alice) richiede un file, detto anche asset, usando un URL con un nome di dominio particolare, ad esempio `<endpointname>.azureedge.net`. Il servizio DNS instrada la richiesta alla località POP (Point of Presence) che offre le migliori prestazioni. In genere questo è il POP geograficamente più vicino all'utente.
 

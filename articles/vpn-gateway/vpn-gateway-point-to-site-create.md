@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/>
 
 # Configurare una connessione da punto a sito a una rete virtuale usando il portale classico
 
@@ -152,7 +152,7 @@ Per connettersi alla rete virtuale, è necessario configurare anche un client VP
 
 3. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione verrà visualizzata in un elenco, insieme al nome della rete virtuale a cui si connette e avrà un aspetto simile al seguente:
 
-	![Client VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Client VPN")  
+	![Client VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Client VPN")
 
 
 ### Parte 3: Connettersi ad Azure
@@ -165,7 +165,7 @@ Per connettersi alla rete virtuale, è necessario configurare anche un client VP
 
 3. Verrà stabilita la connessione.
 
-	![Client VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Connessione del client VPN 2")  
+	![Client VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Connessione del client VPN 2")
 
 ### Parte 4: Verificare la connessione VPN
 

@@ -115,7 +115,7 @@ Come illustrato dalle regole predefinite seguenti, il traffico che ha origine e 
 	   
            Se l'NSG della subnet ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui, anche se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per consentire il traffico.
 
-	![Elenchi di controllo di accesso e gruppi di sicurezza di rete](./media/virtual-network-nsg-overview/figure2.png)  
+	![Elenchi di controllo di accesso e gruppi di sicurezza di rete](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Anche se è possibile associare solo un singolo NSG a una subnet, una VM o una scheda di rete; è possibile associare lo stesso NSG a quante risorse si desidera.
 
@@ -124,11 +124,11 @@ Come illustrato dalle regole predefinite seguenti, il traffico che ha origine e 
 
 |Documentazione di distribuzione|Classico|Gestione risorse|
 |---|---|---|
-|Portale classico|![No](./media/virtual-network-nsg-overview/red.png)  |![No](./media/virtual-network-nsg-overview/red.png)  |
-|Portale di Azure|![Sì](./media/virtual-network-nsg-overview/green.png)  |[![Sì][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|Portale classico|![No](./media/virtual-network-nsg-overview/red.png)|![No](./media/virtual-network-nsg-overview/red.png)|
+|Portale di Azure|![Sì](./media/virtual-network-nsg-overview/green.png)|[![Sì][green]](virtual-networks-create-nsg-arm-pportal.md)|
 |PowerShell|[![Sì][green]](virtual-networks-create-nsg-classic-ps.md)|[![Sì][green]](virtual-networks-create-nsg-arm-ps.md)|
 |Interfaccia della riga di comando di Azure|[![Sì][green]](virtual-networks-create-nsg-classic-cli.md)|[![Sì][green]](virtual-networks-create-nsg-arm-cli.md)|
-|Modello ARM|![No](./media/virtual-network-nsg-overview/red.png)  |[![Sì][green]](virtual-networks-create-nsg-arm-template.md)|
+|Modello ARM|![No](./media/virtual-network-nsg-overview/red.png)|[![Sì][green]](virtual-networks-create-nsg-arm-template.md)|
 
 |**Chiave**|![Sì](./media/virtual-network-nsg-overview/green.png)Supportato.|![No](./media/virtual-network-nsg-overview/red.png)Non supportato.|
 |---|---|---|
@@ -208,7 +208,7 @@ Per dimostrare nella pratica le informazioni contenute in questo articolo, verra
 8. Accesso alla porta 1433 per tutte le VM SQL Server nel back-end solo dalla subnet front-end.
 9. Separazione del traffico di gestione (porta 3389) e del traffico di database (1433) su schede di interfaccia di rete diverse nelle VM back-end.
 
-![Gruppi di sicurezza di rete](./media/virtual-network-nsg-overview/figure1.png)  
+![Gruppi di sicurezza di rete](./media/virtual-network-nsg-overview/figure1.png)
 
 Come illustrato nel diagramma precedente, le VM *Web1* e *Web2* sono connesse alla subnet *FrontEnd* e le VM *DB1* e *DB2* sono connesse alla subnet *BackEnd*. Entrambe le subnet fanno parte delle rete virtuale *TestVNet*. Tutte le risorse vengono assegnate all'area di Azure *Stati Uniti occidentali*.
 

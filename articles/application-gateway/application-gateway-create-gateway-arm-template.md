@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/06/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 
 # Creare un gateway applicazione usando il modello di Gestione risorse di Azure
@@ -43,7 +43,7 @@ In questo scenario si apprenderà come:
 
 >[AZURE.NOTE] Tali impostazioni sono i parametri per il modello. Per personalizzare il modello è possibile modificare le regole, il listener e il protocollo SSL che apre il file azuredeploy.json.
 
-![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)  
+![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
 
 ## Scaricare e comprendere il modello di Gestione risorse di Azure
 
@@ -190,7 +190,7 @@ Vedere [Create an application gateway with public IP](https://azure.microsoft.co
 
 Fare clic su **Distribuzione in Azure**.
 
-![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)  
+![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
 ### Passaggio 3
 

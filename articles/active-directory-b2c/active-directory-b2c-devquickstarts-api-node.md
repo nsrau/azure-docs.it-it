@@ -14,11 +14,11 @@
 	ms.devlang="javascript"
 	ms.topic="hero-article"
 	ms.date="08/30/2016"
-	ms.author="brandwe"/>  
+	ms.author="brandwe"/>
 
 # Azure AD B2C: proteggere un'API Web usando Node.js
 
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->  
+<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Azure Active Directory (Azure AD) B2C permette di proteggere un'API Web usando i token di accesso OAuth 2.0. I token di accesso consentono alle app client che usano Azure AD B2C di eseguire l'autenticazione all'API. Questo articolo illustra come creare un'API di elenco attività che consenta agli utenti di aggiungere ed elencare attività. L'API Web è protetta con Azure AD B2C e consente soltanto agli utenti autenticati di gestire il proprio elenco attività.
 
@@ -98,7 +98,7 @@ Dalla riga di comando passare alla directory `azuread`. Se la directory `azuread
 
 Immettere il comando seguente:
 
-`npm install restify`  
+`npm install restify`
 
 Questo comando installa Restify.
 
@@ -158,7 +158,7 @@ Dalla riga di comando passare alla directory `azuread`, se non è già la posizi
 
 Installare Passport usando il comando seguente:
 
-`npm install passport`  
+`npm install passport`
 
 L'output del comando sarà simile al seguente:
 
@@ -176,7 +176,7 @@ Dalla riga di comando passare alla directory `azuread`, se non è già la posizi
 
 Immettere il comando seguente per installare il modulo Passport `passport-azure-ad`:
 
-`npm install passport-azure-ad`  
+`npm install passport-azure-ad`
 
 L'output del comando sarà simile al seguente:
 
@@ -193,13 +193,13 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 ├── jws@3.0.0 (jwa@1.0.1, base64url@1.0.4)
 ├── request@2.58.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, tunnel-agent@0.4.1, oauth-sign@0.8.0, isstream@0.1.2, extend@2.0.1, json-stringify-safe@5.0.1, node-uuid@1.4.3, qs@3.1.0, combined-stream@1.0.5, mime-types@2.0.14, form-data@1.0.0-rc1, http-signature@0.11.0, bl@0.9.4, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
-``  
+``
 
 ## Aggiungere i moduli MongoDB all'API Web
 
 Questo esempio usa MongoDB come archivio dati. A tale scopo installare Mongoose, un plug-in diffuso per la gestione di modelli e schemi.
 
-* `npm install mongoose`  
+* `npm install mongoose`
 
 ## Installare moduli aggiuntivi
 
@@ -207,15 +207,15 @@ A questo punto, installare gli altri moduli necessari.
 
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:
 
-`cd azuread`  
+`cd azuread`
 
 Installare i moduli nella directory `node_modules`:
 
-* `npm install assert-plus`  
+* `npm install assert-plus`
 * `npm install ejs`
 * `npm install ejs-locals`
 * `npm install express`
-* `npm install bunyan`  
+* `npm install bunyan`
 
 
 ## Creare un file server.js con le dipendenze
@@ -224,7 +224,7 @@ Il file `server.js` offre la maggior parte della funzionalità per il server API
 
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:
 
-`cd azuread`  
+`cd azuread`
 
 Creare un file `server.js` in un editor. Aggiungere le informazioni seguenti:
 
@@ -253,7 +253,7 @@ Questo file di codice passa i parametri di configurazione dal portale di Azure A
 
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:
 
-`cd azuread`  
+`cd azuread`
 
 Creare un file `config.js` in un editor. Aggiungere le informazioni seguenti:
 
@@ -293,7 +293,7 @@ Per leggere i valori dal file `config.js` creato, aggiungere il file `.config` c
 
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:
 
-`cd azuread`  
+`cd azuread`
 
 Aprire il file `server.js` in un editor. Aggiungere le informazioni seguenti:
 
@@ -361,7 +361,7 @@ Questo modello di schema è semplice ed è possibile espanderlo in base alle esi
 
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:
 
-`cd azuread`  
+`cd azuread`
 
 Aprire il file `server.js` in un editor. Aggiungere le informazioni seguenti sotto la voce di configurazione:
 
@@ -419,7 +419,7 @@ Ora verranno aggiunte le route CRUD di base, ovvero **create** e **list**, per l
 
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:
 
-`cd azuread`  
+`cd azuread`
 
 Aprire il file `server.js` in un editor. Aggiungere le informazioni seguenti sotto le voci di database create in precedenza:
 
@@ -686,7 +686,7 @@ A questo punto, il server API REST in esecuzione può essere usato in Azure AD.
 
 Dalla riga di comando passare alla directory `azuread`, se non è già la posizione corrente:
 
-`cd azuread`  
+`cd azuread`
 
 ### Usare l'oggetto OIDCBearerStrategy incluso in passport-azure-ad
 
@@ -757,7 +757,7 @@ In una nuova finestra del terminale eseguire `curl`
 
 Provare un'operazione POST di base:
 
-`$ curl -isS -X POST http://127.0.0.1:3000/api/tasks/brandon/Hello`  
+`$ curl -isS -X POST http://127.0.0.1:3000/api/tasks/brandon/Hello`
 
 ```Shell
 HTTP/1.1 401 Unauthorized

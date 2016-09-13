@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="hero-article"
 	ms.date="07/05/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Invio di notifiche push ad Android con Hub di notifica di Azure
 
@@ -62,11 +62,11 @@ A questo punto, l'hub di notifica è configurato per l'uso con GCM e sono dispon
 
 1. In Android Studio avviare un nuovo progetto Android Studio.
 
-   	![Android Studio: nuovo progetto][13]  
+   	![Android Studio: nuovo progetto][13]
 
 2. Scegliere il fattore di forma **Phone and Tablet** (Telefono e tablet) e la versione **Minimum SDK** (SDK minimo) che si vuole supportare. Quindi fare clic su **Next**.
 
-   	![Android Studio: flusso di lavoro di creazione del progetto][14]  
+   	![Android Studio: flusso di lavoro di creazione del progetto][14]
 
 3. Scegliere **Empty Activity** (Attività vuota) per l'attività principale, fare clic su **Next** (Avanti) e quindi su **Finish** (Fine).
 
@@ -231,7 +231,7 @@ A questo punto, l'hub di notifica è configurato per l'uso con GCM e sono dispon
 		                regID = hub.register(token).getRegistrationId();
 
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/it-IT/documentation/articles/notification-hubs-routing-tag-expressions/
+						// Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
@@ -431,7 +431,7 @@ A questo punto, l'hub di notifica è configurato per l'uso con GCM e sono dispon
 
 È possibile testare la ricezione delle notifiche push nell'app inviandole tramite il [portale di Azure]. Cercare la sezione **Risoluzione dei problemi** nel pannello dell'hub, come illustrato di seguito.
 
-![Hub di notifica di Azure: test dell'invio](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)  
+![Hub di notifica di Azure: test dell'invio](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
@@ -621,7 +621,7 @@ In genere, le notifiche vengono inviate tramite un server back-end. In alcuni ca
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/it-IT/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	
@@ -677,11 +677,11 @@ Verificare anche di avere aggiunto l'account Google all'emulatore in esecuzione 
 
 2. Immettere un messaggio di notifica da inviare a tutti i dispositivi Android registrati con l'hub.
 
-   	![Test in Android: invio di un messaggio][19]  
+   	![Test in Android: invio di un messaggio][19]
 
 3. Premere **Send Notification**. Su tutti i dispositivi che eseguono l'app verrà visualizzata un'istanza di `AlertDialog` con il messaggio di notifica push. I dispositivi che non eseguono l'app, ma che sono stati registrati in precedenza per le notifiche push, riceveranno una notifica in Android Notification Manager. Per visualizzarle, scorrere verso il basso dall'angolo superiore sinistro.
 
-   	![Test in Android: notifiche][21]  
+   	![Test in Android: notifiche][21]
 
 ##Passaggi successivi
 
@@ -691,7 +691,7 @@ Per segmentare gli utenti in base ai gruppi di interesse, vedere l'esercitazione
 
 Per altre informazioni generali sull'uso di Hub di notifica, vedere [Hub di notifica di Azure].
 
-<!-- Images. -->  
+<!-- Images. -->
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
@@ -716,7 +716,7 @@ Per altre informazioni generali sull'uso di Hub di notifica, vedere [Hub di noti
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800

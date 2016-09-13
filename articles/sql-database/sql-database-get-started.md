@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="07/05/2016"
-	ms.author="carlrab"/>  
+	ms.author="carlrab"/>
 
 
 # Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure

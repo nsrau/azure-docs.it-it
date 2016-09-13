@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"
-	ms.author="sethm"/> 
+	ms.author="sethm"/>
 
 # Che cos'è l'hub di eventi di Azure?
 

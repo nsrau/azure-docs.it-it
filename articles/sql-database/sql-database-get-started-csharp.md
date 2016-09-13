@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
    ms.date="09/01/2016"
-   ms.author="sstein"/>  
+   ms.author="sstein"/>
 
 # Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET
 
@@ -280,7 +280,7 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-get-started-csharp/aad.png
 [2]: ./media/sql-database-get-started-csharp/permissions.png
 [3]: ./media/sql-database-get-started-csharp/getdomain.png

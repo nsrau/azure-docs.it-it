@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/01/2016"
-   ms.author="sonyama;barbkess"/>  
+   ms.author="sonyama;barbkess"/>
 
 # Come creare un ticket di supporto per SQL Data Warehouse
  
@@ -30,7 +30,7 @@ Nel caso di problemi con SQL Data Warehouse, creare un ticket di supporto per ot
 
 3. Nel pannello Guida e supporto tecnico fare clic su **Crea un ticket di supporto**.
 
-    ![Nuova richiesta di supporto](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)  
+    ![Nuova richiesta di supporto](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
     
     <a name="request-quota-change"></a>
 
@@ -83,14 +83,14 @@ Dopo avere inviato la richiesta di supporto, si verrà contattati dal team di su
 
 È anche possibile connettersi alla community di SQL Data Warehouse in [Stack Overflow][] o nel [forum MSDN su Azure SQL Data Warehouse][].
 
-<!--Image references-->   
+<!--Image references--> 
 
 <!--Article references--> 
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 
 <!--MSDN references--> 
 
-<!--Other web references-->   
+<!--Other web references--> 
 [portale di Azure]: https://portal.azure.com/
 [Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [piano di supporto di Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/

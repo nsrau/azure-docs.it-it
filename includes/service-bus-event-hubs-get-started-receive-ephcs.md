@@ -8,17 +8,17 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 
 2. Fare clic su **Dati e archiviazione** e quindi su **Account di archiviazione**.
 
-    ![][1]  
+    ![][1]
 
 3. Nel pannello **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa. Fare quindi clic su **Crea**.
 
-    ![][2]  
+    ![][2]
 
 4. Nell'elenco degli account di archiviazione fare clic su quello appena creato.
 
 5. Nel pannello Account di archiviazione fare clic su **Chiavi di accesso**. Copiare il valore di **key1** da usare più avanti in questa esercitazione.
 
-	![][3]  
+	![][3]
 
 4. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Receiver**.
 
@@ -28,7 +28,7 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 
 6. Fare clic sulla scheda **Sfoglia**, quindi cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Assicurarsi che il nome del progetto (**Receiver**) sia specificato nella casella **Versione/i **. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-    ![][13]  
+    ![][13]
 
 	Visual Studio scarica e installa il [pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) e aggiunge un riferimento al pacchetto con tutte le relative dipendenze.
 
@@ -85,7 +85,7 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
             }
 	    }
 	}
-    ```
+    ````
 
 	Questa classe verrà chiamata da **EventProcessorHost** per elaborare eventi ricevuti dall'hub eventi. Si noti che la classe `SimpleEventProcessor` usa un cronometro per chiamare periodicamente il metodo checkpoint sul contesto di **EventProcessorHost**. Questo assicura che, se il ricevitore viene riavviato, non perderà più di cinque minuti di lavoro di elaborazione.
 
@@ -129,7 +129,7 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [portale di Azure]: https://portal.azure.com
 
-<!-- Images -->  
+<!-- Images -->
 
 [1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
 [2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png

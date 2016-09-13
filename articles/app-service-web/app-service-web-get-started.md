@@ -16,7 +16,7 @@
 	ms.topic="hero-article"
 	ms.date="05/12/2016"
 	ms.author="cephalin"
-/>  
+/>
 
 # Distribuire la prima app Web in Azure in cinque minuti
 
@@ -54,7 +54,7 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
 
         git clone <github_sample_url>
 
-    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/2-clone-sample.png)  
+    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/2-clone-sample.png)
 
     Per *&lt;github\_sample\_url>* usare uno degli URL seguenti, a seconda del framework preferito:
 
@@ -75,13 +75,13 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
 
     Seguire le istruzioni del messaggio della Guida per continuare il processo di accesso.
 
-    ![Accedere ad Azure per creare la prima app Web](./media/app-service-web-get-started/3-azure-login.png)  
+    ![Accedere ad Azure per creare la prima app Web](./media/app-service-web-get-started/3-azure-login.png)
 
 4. Creare la risorsa dell'app del servizio app in Azure con un nome app univoco usando il comando successivo. Quando richiesto, specificare il numero dell'area desiderata.
 
         azure site create --git <app_name>
 
-    ![Creare la risorsa di Azure per la prima app Web in Azure](./media/app-service-web-get-started/4-create-site.png)  
+    ![Creare la risorsa di Azure per la prima app Web in Azure](./media/app-service-web-get-started/4-create-site.png)
 
     >[AZURE.NOTE] Se non sono mai state configurate credenziali di distribuzione per la sottoscrizione di Azure, verrà chiesto di crearle. Il servizio app usa queste credenziali, e non le credenziali dell'account Azure, solo per le distribuzioni Git e gli accessi FTP.
 
@@ -91,7 +91,7 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
 
         git push azure master
 
-    ![Eseguire il push di codice nella prima app Web in Azure](./media/app-service-web-get-started/5-push-code.png)  
+    ![Eseguire il push di codice nella prima app Web in Azure](./media/app-service-web-get-started/5-push-code.png)
 
     Se è stato usato uno dei framework di linguaggio, verrà visualizzato un output diverso. Ciò dipende dal fatto che `git push` non solo inserisce il codice in Azure, ma attiva anche le attività di distribuzione nel motore di distribuzione. Se nella radice del progetto (repository) sono presenti file package.json (Node.js) o requirements.txt (Python) o se nel progetto ASP.NET è presente un file packages.config, lo script di distribuzione ripristina automaticamente i pacchetti necessari. È anche possibile [abilitare l'estensione Composer](web-sites-php-mysql-deploy-use-git.md#composer) per elaborare automaticamente i file composer.json nell'app PHP.
 
@@ -121,7 +121,7 @@ Ora si accederà al portale di Azure per visualizzare ciò che è stato creato:
 
 3. Fare clic sull'app appena creata per aprire la relativa pagina, definita [pannello](../azure-portal-overview.md), nel portale. Per praticità, anche il pannello **Impostazioni** viene aperto per impostazione predefinita.
 
-    ![Visualizzazione del portale della prima app Web in Azure](./media/app-service-web-get-started/portal-view.png)  
+    ![Visualizzazione del portale della prima app Web in Azure](./media/app-service-web-get-started/portal-view.png)
 
 Il pannello del portale dell'app del servizio app include un set completo di impostazioni e strumenti per la configurazione, il monitoraggio, la protezione e la risoluzione dei problemi dell'app. Per acquisire rapidamente familiarità con questa interfaccia, è possibile eseguire alcune semplici attività. Il numero dell'attività corrisponde al numero nello screenshot.
 

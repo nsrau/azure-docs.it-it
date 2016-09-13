@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/08/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
 > [AZURE.SELECTOR]
@@ -232,7 +232,7 @@ La query di esempio seguente è tratta dall'argomento relativo alle [operazioni 
 Vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) per un approccio senza scrittura di codice alla gestione e all'uso di Ricerca di Azure.
 
 
-<!--Image References-->  
+<!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
 [2]: ./media/search-fiddler/AzureSearch_Fiddler2_PostDocs.png
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png

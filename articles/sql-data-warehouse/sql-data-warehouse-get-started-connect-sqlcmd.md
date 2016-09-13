@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/06/2016"
-   ms.author="barbkess;sonyama"/>  
+   ms.author="barbkess;sonyama"/>
 
 # Eseguire query in Azure SQL Data Warehouse (sqlcmd)
 
@@ -82,7 +82,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere [Utilità sqlcmd][sqlcmd].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 
@@ -90,6 +90,6 @@ Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere [Utilità sql
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
-<!--Other Web references-->  
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0907_2016-->

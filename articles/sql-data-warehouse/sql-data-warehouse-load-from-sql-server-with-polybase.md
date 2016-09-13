@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>  
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Caricare dati con PolyBase in SQL Data Warehouse
@@ -252,7 +252,7 @@ Per altre informazioni, vedere [Statistiche][].
 ## Passaggi successivi
 Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][].
 
-<!--Image references-->  
+<!--Image references-->
 
 
 <!--Article references-->

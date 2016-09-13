@@ -14,14 +14,14 @@
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.date="09/01/2016"
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 
 # Panoramica dell'inoltro del bus di servizio
 
 Un componente importante del bus di servizio è un servizio di *inoltro* centralizzato, ma con carico altamente bilanciato, che consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale. L'inoltro del bus di servizio supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web, tra cui SOAP, WS-* e anche REST. Il servizio di inoltro semplifica le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
-![Concetti relativi all'inoltro](./media/service-bus-relay-overview/sb-relay-01.png)  
+![Concetti relativi all'inoltro](./media/service-bus-relay-overview/sb-relay-01.png)
 
 Il servizio di inoltro supporta la messaggistica unidirezionale tradizionale, la messaggistica richiesta-risposta e la messaggistica peer-to-peer. Supporta inoltre la distribuzione degli eventi nell'ambito di Internet per abilitare scenari di pubblicazione/sottoscrizione e le comunicazioni tramite socket bidirezionale per migliorare l'efficienza point-to-point.
 

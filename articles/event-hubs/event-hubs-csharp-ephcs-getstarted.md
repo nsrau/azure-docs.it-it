@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/02/2016"
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
 
@@ -85,7 +85,7 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
-<!-- Links -->  
+<!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [libreria dell'Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md

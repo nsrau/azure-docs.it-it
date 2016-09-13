@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/01/2016"
-	ms.author="mandia"/>  
+	ms.author="mandia"/>
 
 
 # Elenco di connettori e app per le API da usare nelle app per la logica

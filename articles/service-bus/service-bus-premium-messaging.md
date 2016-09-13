@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/02/2016"
-	ms.author="darosa;sethm"/>  
+	ms.author="darosa;sethm"/>
 
 # Livelli di messaggistica Standard e Premium del bus di servizio 
 

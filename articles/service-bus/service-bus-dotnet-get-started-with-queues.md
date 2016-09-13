@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="08/23/2016"
-    ms.author="jotaub;sethm"/>  
+    ms.author="jotaub;sethm"/>
 
 # Introduzione alle code del bus di servizio
 
@@ -113,7 +113,7 @@ Per inviare messaggi alla coda, si scriverà un'applicazione console C# in Visua
   
 3. Eseguire il programma e verificare il portale di Azure. Fare clic sul nome della coda nel pannello **Panoramica** dello spazio dei nomi. Si noti che ora il valore di **Numero di messaggi attivi** è 1.
     
-      ![Numero messaggi][queue-message]  
+      ![Numero messaggi][queue-message]
     
 ## 4\. Ricezione di messaggi dalla coda
 
@@ -181,7 +181,7 @@ Congratulazioni. È stata creata una coda ed è stato inviato e ricevuto un mess
 
 Vedere il [repository GitHub con esempi](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio di Azure.
 
-<!--Image references-->  
+<!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png

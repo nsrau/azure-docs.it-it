@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>  
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Caricare dati con PolyBase in SQL Data Warehouse
@@ -252,7 +252,7 @@ Per altre informazioni, vedere [Statistiche][].
 ## Passaggi successivi
 Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][].
 
-<!--Image references-->  
+<!--Image references-->
 
 
 <!--Article references-->
@@ -263,7 +263,7 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 [Introduzione all'utilità della riga di comando AzCopy]: ../storage/storage-use-azcopy.md
 [versione più recente di AzCopy]: ../storage/storage-use-azcopy.md
 
-<!--External references-->  
+<!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
 [copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
