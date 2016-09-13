@@ -3,7 +3,7 @@
    description="Uso di bcp per esportare dati da SQL Server a file flat, di AZCopy per importare dati nell'archivio BLOB di Azure e di PolyBase per inserire i dati in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>  
 
 
 # Caricare dati da SQL Server in Azure SQL Data Warehouse (AZCopy)
@@ -111,7 +111,7 @@ DateId |CalendarQuarter |FiscalQuarter
 
 ### Passaggio 4: creare le statistiche sui dati appena caricati
 
-SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
+SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento relativo alle [statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
 
 Da un prompt di sqlcmd, eseguire le istruzioni CREATE STATISTICS seguenti:
 
@@ -155,20 +155,20 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 ## Passaggi successivi
 Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 
 [Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 [Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
-[Statistiche]: ./sql-data-warehouse-tables-statistics.md
+[statistiche]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

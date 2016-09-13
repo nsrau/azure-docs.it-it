@@ -283,13 +283,9 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 * [Aggiungere dati di telemetria del client Web][usage] per visualizzare le eccezioni dal codice della pagina Web e consentire di inserire le chiamate di traccia.
 * [Aggiungere Application Insights SDK al codice del servizio Web][greenbrown] per poter inserire chiamate di traccia e log nel codice del server.
 
-## Video
 
-#### Monitoraggio delle prestazioni
 
-[AZURE.VIDEO app-insights-performance-monitoring]
-
-<!--Link references-->
+<!--Link references-->  
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
@@ -300,4 +296,4 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

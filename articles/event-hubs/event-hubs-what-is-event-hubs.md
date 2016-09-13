@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"
-	ms.author="sethm"/>
+	ms.author="sethm"/> 
 
 # Che cos'è l'hub di eventi di Azure?
 
@@ -30,8 +30,6 @@ Hub eventi di Azure è un servizio di elaborazione eventi che consente l'elabora
 
 Tra le altre funzionalità chiave di Hub eventi ci sono il rilevamento del comportamento nelle app per dispositivi mobili, il traffico di informazioni da Web farm, l'acquisizione di eventi nei giochi per console e la raccolta di dati di telemetria da computer industriali o veicoli connessi.
 
-Diversamente dalle [code e dagli argomenti del bus di servizio](../service-bus/service-bus-messaging-overview.md), Hub eventi è incentrato sulla gestione su vasta scala del recapito di flussi di messaggi. Le funzionalità di Hub eventi sono diverse dagli argomenti del bus di servizio, ad esempio, perché Hub eventi è fortemente orientato verso scenari di elaborazione di eventi e velocità effettiva elevata. Di conseguenza, Hub eventi non implementa alcune delle funzionalità di messaggistica disponibili per gli [argomenti](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Se tali funzionalità sono necessarie, gli argomenti rimangono la scelta ottimale.
-
 ## Passaggi successivi
 
 Per informazioni dettagliate su Hub eventi, vedere gli argomenti seguenti.
@@ -45,4 +43,4 @@ Per informazioni dettagliate su Hub eventi, vedere gli argomenti seguenti.
 [esercitazione di Hub eventi]: event-hubs-csharp-ephcs-getstarted.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

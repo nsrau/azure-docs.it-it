@@ -691,7 +691,7 @@ Per segmentare gli utenti in base ai gruppi di interesse, vedere l'esercitazione
 
 Per altre informazioni generali sull'uso di Hub di notifica, vedere [Hub di notifica di Azure].
 
-<!-- Images. -->
+<!-- Images. -->  
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
@@ -716,14 +716,14 @@ Per altre informazioni generali sull'uso di Hub di notifica, vedere [Hub di noti
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Hub di notifica di Azure]: http://msdn.microsoft.com/library/jj927170.aspx
-[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
-[Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

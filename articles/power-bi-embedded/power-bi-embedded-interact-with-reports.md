@@ -3,7 +3,7 @@
    description="Power BI Embedded, interagire con i report usando l'API JavaScript"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>  
 
 # Interagire con i report di Power BI usando l'API JavaScript
 
@@ -130,11 +130,11 @@ Oltre a inviare informazioni all'iframe, l'applicazione può anche ricevere info
 ## Passaggi successivi
 Per altre informazioni sull'API JavaScript per Power BI, vedere i collegamenti seguenti:
 
-- [JavaScript API Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki) (Wiki sull'API JavaScript)
-- [Object model reference](https://microsoft.github.io/powerbi-models/modules/_models_.html) (Informazioni di riferimento sul modello a oggetti)
+- [JavaScript API Wiki (Wiki sull'API JavaScript)](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+- [Object model reference (Informazioni di riferimento sul modello a oggetti)](https://microsoft.github.io/powerbi-models/modules/_models_.html)
 - Esempi
   - [Angular](http://azure-samples.github.io/powerbi-angular-client)
   - [Ember](https://github.com/Microsoft/powerbi-ember)
-- [Live demo](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Demo live)
+- [Live demo (Demo live)](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

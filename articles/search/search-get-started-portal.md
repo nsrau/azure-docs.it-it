@@ -14,8 +14,8 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/17/2016" 
-	ms.author="heidist"/>
+	ms.date="08/29/2016" 
+	ms.author="heidist"/>  
 
 # Introduzione a Ricerca di Azure nel portale
 
@@ -23,14 +23,14 @@ Questa introduzione senza codice permette di iniziare a usare Ricerca di Microso
 
 L'esercitazione presuppone un [database di Azure DocumentDB di esempio](#apdx-sampledata) semplice da creare usando i dati e le istruzioni, ma è anche possibile adattare questi passaggi ai dati esistenti in DocumentDB o nel database SQL.
 
-> [AZURE.NOTE] Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](../../includes/free-trial-note.md) e un [servizio di Ricerca di Azure](search-create-service-portal.md).
+> [AZURE.NOTE] Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](../../includes/free-trial-note.md) e un [servizio Ricerca di Azure](search-create-service-portal.md).
  
 ## Trovare il servizio
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Di seguito alcuni modi per trovare il dashboard.
-	- Nell'indice fare clic su **Servizi di ricerca**. L'indice elenca ogni servizio di cui è stato effettuato il provisioning nella sottoscrizione. Se è stato definito un servizio di ricerca, nell'elenco verrà visualizzato **Servizi di ricerca**.
+	- Nell'indice fare clic su **Servizi di ricerca**. L'indice elenca tutti i servizi di cui è stato effettuato il provisioning nella sottoscrizione. Se è stato definito un servizio di ricerca, nell'elenco verrà visualizzato **Servizi di ricerca**.
 	- Nell'indice fare clic su **Esplora** e quindi digitare "ricerca" nella casella di ricerca per generare un elenco di tutti i servizi di ricerca creati nelle proprie sottoscrizioni.
 
 ## Verificare lo spazio
@@ -72,9 +72,9 @@ Sempre nella procedura guidata fare clic su **Indice** e osservare l'area di pro
 
 Anche se i campi e i tipi di dati sono configurati, è comunque necessario assegnare gli attributi. Le caselle di controllo nella parte superiore dell'elenco di campi sono *attributi dell'indice* che controllano il modo in cui viene usato il campo.
 
-- **Recuperabile** indica che viene visualizzato nell'elenco dei risultati della ricerca. Deselezionando questa casella di controllo è possibile contrassegnare i singoli campi perché siano esclusi dai risultati della ricerca, ad esempio quando vengono usati solo nelle espressioni di filtro. 
-- **Filtrabile**, **Ordinabile** e **Con facet** determinano se un campo può essere usato in un filtro, un ordinamento o una struttura di esplorazione in base a facet. 
-- **Ricercabile** indica che un campo è incluso nella ricerca full-text. Le stringhe sono in genere ricercabili. I campi numerici e i campi booleani sono spesso contrassegnati come non ricercabili. 
+- **Recuperabile** indica che viene visualizzato nell'elenco dei risultati della ricerca. Deselezionando questa casella di controllo è possibile contrassegnare i singoli campi perché siano esclusi dai risultati della ricerca, ad esempio quando vengono usati solo nelle espressioni di filtro.
+- **Filtrabile**, **Ordinabile** e **Con facet** determinano se un campo può essere usato in un filtro, un ordinamento o una struttura di esplorazione in base a facet.
+- **Ricercabile** indica che un campo è incluso nella ricerca full-text. Le stringhe sono in genere ricercabili. I campi numerici e i campi booleani sono spesso contrassegnati come non ricercabili.
 
 Prima di uscire da questa pagina, contrassegnare i campi nell'indice per l'uso delle opzioni seguenti, ovvero Recuperabile, Ricercabile e così via. La maggior parte dei campi è Recuperabile. Quasi tutti i campi di tipo stringa sono ricercabili. Non è necessario impostare il campo Key come ricercabile. Alcuni campi come genre, orderableOnline, rating e tags sono anche Filtrabile, Ordinabile e Con facet.
 	
@@ -174,7 +174,7 @@ Un modo semplice per eseguire questa operazione consiste nell'usare la query pre
 Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al documento 669. Dopo aver caricato i dati, è possibile [tornare ai passaggi di questa procedura dettagliata](#defineDS) per creare un indice tramite la procedura guidata **Importa dati**.
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/search-get-started-portal/AzureSearch-GetStart-Docdbmenu1.png
 [2]: ./media/search-get-started-portal/AzureSearch-GetStart-DataSource.png
 [3]: ./media/search-get-started-portal/AzureSearch-GetStart-DefaultIndex.png
@@ -183,4 +183,4 @@ Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al d
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

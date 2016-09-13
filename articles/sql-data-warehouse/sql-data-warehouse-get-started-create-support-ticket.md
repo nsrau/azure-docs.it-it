@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>  
 
 # Come creare un ticket di supporto per SQL Data Warehouse
  
@@ -30,7 +30,7 @@ Nel caso di problemi con SQL Data Warehouse, creare un ticket di supporto per ot
 
 3. Nel pannello Guida e supporto tecnico fare clic su **Crea un ticket di supporto**.
 
-    ![Nuova richiesta di supporto](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
+    ![Nuova richiesta di supporto](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)  
     
     <a name="request-quota-change"></a>
 
@@ -38,11 +38,11 @@ Nel caso di problemi con SQL Data Warehouse, creare un ticket di supporto per ot
 
     ![Tipo di richiesta](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  Per impostazione predefinita, ogni server SQL, ad esempio myserver.database.windows.net, ha una **Quota DTU** pari a 45.000. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota creando un ticket di supporto e selezionando *Quota* come tipo di richiesta. Per calcolare le proprie esigenze a livello di DTU, è necessario sapere che ogni 100 [DWU][] di SQL Data Warehouse utilizzano 750 DTU. La quota predefinita pari a 45.000 consentirà quindi di creare fino a DW6000 (45.000 / 750) o alcuni database più piccoli con un valore minore di DWU. Se, ad esempio, si vogliono ospitare due DW6000 in un server SQL, è necessario richiedere una quota di DTU pari a 90.000. È possibile visualizzare l'utilizzo di DTU attuale nel pannello SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU.
+    >[AZURE.NOTE]  Per impostazione predefinita, ogni server SQL, ad esempio myserver.database.windows.net, ha una **Quota DTU** pari a 45.000. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota creando un ticket di supporto e selezionando *Quota* come tipo di richiesta. Per calcolare le esigenze in termini di DTU, moltiplicare 7,5 per le [DWU][] totali necessarie. Se, ad esempio, si vogliono ospitare due DW6000 in una istanza di SQL Server, è necessario richiedere una quota di DTU pari a 90.000. È possibile visualizzare l'utilizzo di DTU attuale nel pannello SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU.
 
 5. Selezionare la **sottoscrizione** che ospita il database con il problema segnalato.
 
-    ![Sottoscrizione](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
+    ![Subscription](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
 6. Selezionare **SQL Data Warehouse** come risorsa.
 
@@ -83,14 +83,14 @@ Dopo avere inviato la richiesta di supporto, si verrà contattati dal team di su
 
 È anche possibile connettersi alla community di SQL Data Warehouse in [Stack Overflow][] o nel [forum MSDN su Azure SQL Data Warehouse][].
 
-<!--Image references--> 
+<!--Image references-->   
 
 <!--Article references--> 
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 
 <!--MSDN references--> 
 
-<!--Other web references--> 
+<!--Other web references-->   
 [portale di Azure]: https://portal.azure.com/
 [Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [piano di supporto di Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
@@ -103,4 +103,4 @@ Dopo avere inviato la richiesta di supporto, si verrà contattati dal team di su
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [forum MSDN su Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

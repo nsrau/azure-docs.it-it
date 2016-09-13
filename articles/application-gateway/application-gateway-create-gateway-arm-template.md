@@ -5,7 +5,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
-   ms.author="gwallace"/>
+   ms.date="09/06/2016"
+   ms.author="gwallace"/>  
 
 
 # Creare un gateway applicazione usando il modello di Gestione risorse di Azure
@@ -28,12 +28,9 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 - [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 Questo articolo illustra come scaricare e modificare un modello di Azure Resource Manager esistente da GitHub e distribuire il modello da GitHub, da PowerShell e dall'interfaccia della riga di comando di Azure.
 
 Se si sta distribuendo il modello di Gestione risorse di Azure direttamente da GitHub, senza alcuna modifica, andare al passaggio che illustra la distribuzione di un modello da GitHub.
-
 
 ## Scenario
 
@@ -46,11 +43,7 @@ In questo scenario si apprenderà come:
 
 >[AZURE.NOTE] Tali impostazioni sono i parametri per il modello. Per personalizzare il modello è possibile modificare le regole, il listener e il protocollo SSL che apre il file azuredeploy.json.
 
-
-
-![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
-
-
+![Scenario](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)  
 
 ## Scaricare e comprendere il modello di Gestione risorse di Azure
 
@@ -89,29 +82,29 @@ In questo scenario si apprenderà come:
 10. Aprire il file salvato e modificare i valori dei parametri. Usare i valori riportati di seguito per la distribuzione del gateway applicazione descritto in questo scenario.
 
 		{
-		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 		{
-    	"location" : {
-        "value" : "West US"
-    	},
-    	"addressPrefix": {
-        "value": "10.0.0.0/16"
-    	},
-    	"subnetPrefix": {
-        "value": "10.0.0.0/24"
-    	},
-    	"skuName": {
-        "value": "Standard_Small"
-    	},
-    	"capacity": {
-        "value": 2
-    	},
-    	"backendIpAddress1": {
-        "value": "10.0.1.10"
-    	},
-    	"backendIpAddress2": {
-        "value": "10.0.1.11"
-    	}
+		"location" : {
+		"value" : "West US"
+		},
+		"addressPrefix": {
+		"value": "10.0.0.0/16"
+		},
+		"subnetPrefix": {
+		"value": "10.0.0.0/24"
+		},
+		"skuName": {
+		"value": "Standard_Small"
+		},
+		"capacity": {
+		"value": 2
+		},
+		"backendIpAddress1": {
+		"value": "10.0.1.10"
+		},
+		"backendIpAddress2": {
+		"value": "10.0.1.11"
+		}
 		}
 
 11. Salvare il file. È possibile testare il modello JSON e il modello di parametri usando strumenti online di convalida di JSON come [JSlint.com](http://www.jslint.com/).
@@ -123,8 +116,6 @@ Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e conf
 ### Passaggio 1
 
 	Login-AzureRmAccount
-
-
 
 ### Passaggio 2
 
@@ -149,43 +140,10 @@ Se necessario, creare un gruppo di risorse usando il cmdlet **New-AzureResourceG
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 
-		ResourceGroupName : AppgatewayRG
-		Location          : eastus
-		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
-	                 Actions  NotActions
-	                 =======  ==========
-	                  *
-
-		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
-
 Eseguire il cmdlet **New-AzureRmResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
 
 	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-
-L'output generato dalla riga di comando è il seguente:
-
-	DeploymentName    : testappgatewaydeployment
-	ResourceGroupName : appgatewayRG
-	ProvisioningState : Succeeded
-	Timestamp         : 9/19/2015 1:49:41 AM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-				Name             Type                       Value
-				===============  =========================  ==========
-				location         String                     East US
-				addressPrefix    String                     10.0.0.0/16
-				subnetPrefix     String                     10.0.0.0/24
-				skuName          String                     Standard_Small
-				capacity         Int                        2
-				backendIpAddress1  String                     10.0.1.10
-				backendIpAddress2  String                     10.0.1.11
-
-	Outputs           :
-
 
 ## Distribuire il modello di Gestione risorse di Azure usando l'interfaccia della riga di comando di Azure
 
@@ -220,50 +178,19 @@ Eseguire il cmdlet **azure group deployment create** per distribuire la nuova re
 
 	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-Di seguito è riportato l'output previsto per il comando precedente:
-
-	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-	info:    Executing command group deployment create
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "TestAppgatewayDeployment"
-	+ Waiting for deployment to complete
-	data:    DeploymentName     : TestAppgatewayDeployment
-	data:    ResourceGroupName  : appgatewayRG
-	data:    ProvisioningState  : Succeeded
-	data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-	data:    Mode               : Incremental
-	data:    Name               Type    Value
-	data:    -----------------  ------  --------------
-	data:    location           String  East US
-	data:    addressPrefix      String  10.0.0.0/16
-	data:    subnetPrefix       String  10.0.0.0/24
-	data:    skuName            String  Standard_Small
-	data:    capacity           Int     2
-	data:    backendIpAddress1  String  10.0.1.10
-	data:    backendIpAddress2  String  10.0.1.11
-	info:    group deployment create command OK
-
-**-g (o --resource-group)**. Nome del gruppo di risorse in cui viene creata la nuova rete virtuale.
-
-**-f (o --template-file)**. Percorso del file del modello di Gestione risorse di Azure.
-
-**-e (o --parameters-file)**. Percorso del file di parametri di Gestione risorse di Azure.
-
 ## Distribuire il modello di Gestione risorse di Azure usando il pulsante per la distribuzione
 
 Il pulsante per la distribuzione offre un altro modo per usare i modelli di Gestione risorse di Azure. Questo è un modo semplice di usare i modelli con il portale di Azure.
 
-
 ### Passaggio 1
-Vedere [Create an application gateway with public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) (Creare un gateway applicazione con IP pubblico).
 
+Vedere [Create an application gateway with public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) (Creare un gateway applicazione con IP pubblico).
 
 ### Passaggio 2
 
 Fare clic su **Distribuzione in Azure**.
 
-![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)  
 
 ### Passaggio 3
 
@@ -279,8 +206,6 @@ Selezionare **Note legali** e fare clic su **Acquista**.
 
 Nel pannello Distribuzione personalizzata fare clic su **Crea**.
 
-
-
 ## Passaggi successivi
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
@@ -292,4 +217,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

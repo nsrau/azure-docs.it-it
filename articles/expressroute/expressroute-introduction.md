@@ -75,7 +75,7 @@ Le connessioni ExpressRoute abilitano l'accesso ai servizi seguenti:
 
 - Servizi di Microsoft Azure
 - Servizi di Microsoft Office 365
-- Servizi di Microsoft CRM Online 
+- Servizi di Microsoft CRM Online
  
 Per un elenco dettagliato dei servizi supportati per ExpressRoute, visitare la pagina [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
@@ -99,7 +99,7 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
 
 ### Opzioni di larghezze di banda supportate
 
-È possibile acquistare circuiti ExpressRoute per un'ampia gamma di larghezze di banda. Viene riportato di seguito l'elenco delle larghezze di banda supportate. Controllare presso il provider di connettività l'elenco delle larghezze di banda supportate fornite.
+È possibile acquistare circuiti ExpressRoute per un'ampia gamma di larghezze di banda. Di seguito è riportato l'elenco delle larghezze di banda supportate. Controllare presso il provider di connettività l'elenco delle larghezze di banda supportate fornite.
 
 - 50 Mbps
 - 100 Mbps
@@ -118,9 +118,9 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
 
 È possibile selezionare il modello di fatturazione più adatto per le proprie esigenze. Scegliere tra i modelli di fatturazione elencati di seguito. Per altri dettagli, vedere la pagina [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-- **Dati illimitati**. Il circuito ExpressRoute viene addebitato in base a una tariffa mensile che include il trasferimento di tutti i dati in entrata e in uscita. 
+- **Dati illimitati**. Il circuito ExpressRoute viene addebitato in base a una tariffa mensile che include il trasferimento di tutti i dati in entrata e in uscita.
 - **Dati a consumo**. Il circuito ExpressRoute viene addebitato in base a una tariffa mensile. Nella tariffa è incluso il trasferimento di tutti i dati in entrata. Il trasferimento dei dati in uscita invece viene addebitato per GB di dati trasferiti. Le tariffe per il trasferimento dei dati variano in base all'area.
-- **Componente aggiuntivo ExpressRoute Premium**. ExpressRoute Premium è un componente aggiuntivo per il circuito ExpressRoute. Offre le funzionalità seguenti: 
+- **Componente aggiuntivo ExpressRoute Premium**. ExpressRoute Premium è un componente aggiuntivo per il circuito ExpressRoute. Offre le funzionalità seguenti:
 	- Estensione dei limiti di route per i peering pubblico e privato di Azure da 4.000 a 10.000 route.
 	- Connettività globale per i servizi. Un circuito ExpressRoute creato in un'area qualsiasi (esclusi i cloud nazionali) potrà accedere alle risorse di tutte le altre aree del mondo. Ad esempio, una rete virtuale creata nell'Europa occidentale è accessibile attraverso un circuito ExpressRoute fornito nella Silicon Valley.
 	- Aumento del numero di collegamenti di reti virtuali consentiti per circuito ExpressRoute da 10 a un numero superiore, a seconda della larghezza di banda del circuito.
@@ -136,4 +136,4 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

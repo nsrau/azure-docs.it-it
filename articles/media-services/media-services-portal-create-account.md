@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+	ms.date="09/07/2016"
+	ms.author="juliako"/>  
 
 
 # Creare un account Servizi multimediali di Azure con il portale di Azure
+
+> [AZURE.SELECTOR]
+- [Portale](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -36,7 +41,7 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 	AMS è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure per creare account Servizi multimediali ed eseguire diverse attività descritte qui. In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 	
 	- Brasile meridionale: sono disponibili solo unità riservate di codifica Standard e Basic.
-	- India occidentale, India meridionale: è riservato ai file multimediali e deve trovarsi nella stessa area geografica dell'account Servizi multimediali. Quando si crea un account di Servizi multimediali, è possibile scegliere un account di archiviazione esistente nella stessa area geografica oppure è possibile crearne uno nuovo, ma sempre nella stessa area. Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
+	- India occidentale, India meridionale: fornire BLOB di archiviazione per i file multimediali. Gli account di archiviazione devono trovarsi nella stessa area geografica dell'account Servizi multimediali. Quando si crea un account di Servizi multimediali, è possibile scegliere un account di archiviazione esistente nella stessa area geografica oppure è possibile crearne uno nuovo, ma sempre nella stessa area. Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
 
 ## Creare un account AMS
 
@@ -49,7 +54,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 3. In **CREARE UN ACCOUNT DEL SERVIZIO MULTIMEDIALE** immettere i valori richiesti.
 
-	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)
+	![Creare Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-new3.png)  
 	
 	1. In **Nome account** immettere il nome del nuovo account di AMS. Un nome di account di Servizi multimediali deve essere composto da tutte lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.
 	2. In Sottoscrizione selezionare una delle diverse sottoscrizioni di Azure per le quali è disponibile l'accesso.
@@ -67,7 +72,7 @@ I passaggi descritti in questa sezione illustrano come creare un account Servizi
 
 	Dopo aver creato l'account, lo stato diventa **In esecuzione**.
 
-	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)
+	![Impostazioni di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-settings.png)  
 
 	Per gestire l'account AMS, ad esempio per caricare video, codificare asset, monitorare lo stato dei processi, usare la finestra **Impostazioni**.
 
@@ -84,7 +89,7 @@ Per accedere a livello di codice all'account Servizi multimediali, sono necessar
 	Nella finestra **Gestisci chiavi** sono visualizzati il nome dell'account e le chiavi primaria e secondaria.
 3. Per copiare i valori, scegliere il pulsante Copia.
 	
-	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)
+	![Chiavi di Servizi multimediali](./media/media-services-portal-vod-get-started/media-services-keys.png)  
 
 ## Passaggi successivi
 
@@ -98,4 +103,4 @@ Ora è possibile caricare i file nell'account AMS. Per altre informazioni, veder
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

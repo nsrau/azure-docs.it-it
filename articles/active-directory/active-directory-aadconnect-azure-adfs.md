@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Active Directory Federation Services in Azure | Microsoft Azure"
 	description="Questo documento illustra come distribuire AD FS in Azure per ottenere una disponibilità elevata."
-    keywords="introduzione ad AD FS, Azure, panoramica di Azure AD Connect, AD FS in Azure, iaas, AD FS"
+    keywords="distribuire AD FS in azure, distribuire azure adfs, azure adfs, azure ad fs, distribuire adfs, distribuire ad fs, adfs in azure, distribuire adfs in azure, distribuire AD FS in azure, adfs azure, introduzione ad AD FS, Azure, AD FS in Azure, iaas, ADFS, trasferire adfs in azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -74,7 +74,7 @@ Al termine della creazione del gruppo di sicurezza di rete, esisteranno 0 regole
 
 ![Inizializzare il gruppo di sicurezza di rete](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
 
-azione dei gruppi di sicurezza di rete, associare NSG\_INT alla subnet INT e NSG\_DMZ alla subnet della rete perimetrale. Di seguito è riportato uno screenshot di esempio:
+azione dei gruppi di sicurezza di rete, associare NSG\\_INT alla subnet INT e NSG\\_DMZ alla subnet della rete perimetrale. Di seguito è riportato uno screenshot di esempio:
 
 ![Configurazione dei gruppi di sicurezza di rete](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
 
@@ -302,5 +302,6 @@ Dopo l'accesso, verrà visualizzato un messaggio di completamento dell'operazion
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 * [Configurazione e gestione di AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!-----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

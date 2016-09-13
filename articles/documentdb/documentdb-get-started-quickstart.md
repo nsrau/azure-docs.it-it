@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anhoh"/>
 
 # Esercitazione su NoSQL: Compilare un'applicazione console C# di DocumentDB
@@ -25,7 +25,7 @@
 
 Esercitazione su NoSQL per Azure DocumentDB .NET SDK Dopo avere ottenuto il progetto di avvio rapido o completato l'esercitazione, si avrà un'applicazione console che consente di creare e ridefinire le query delle risorse DocumentDB.
 
-- **[Avvio rapido](#quickstart)**: scaricare il progetto di esempio e aggiungere le informazioni di connessione per avere un'app DocumentDB in esecuzione in meno di 5 minuti.
+- **[Avvio rapido](#quickstart)**: scaricare il progetto di esempio e aggiungere le informazioni di connessione per avere un'app DocumentDB in esecuzione in meno di 10 minuti.
 - **[Esercitazione](#tutorial)**: compilare l'app di avvio rapido da zero in 30 minuti.
 
 ## Prerequisiti
@@ -36,12 +36,12 @@ Esercitazione su NoSQL per Azure DocumentDB .NET SDK Dopo avere ottenuto il prog
 
 ## Quickstart
 
-1. Scaricare il progetto di esempio da [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+1. Scaricare il file ZIP del progetto di esempio da [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) oppure clonare il repository [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
 2. Usare il portale di Azure per [creare un account DocumentDB](documentdb-create-account.md).
 3. Nel file App.config sostituire i valori di EndpointUri e PrimaryKey con i valori recuperati dal [portale di Azure](https://portal.azure.com/), passando al pannello **DocumentDB (NoSQL)**, quindi facendo clic su **Nome account** e infine su **Chiavi** nel menu della risorsa. ![Screenshot del valore di EndpointUri e PrimaryKey da sostituire in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Compilare il progetto. La finestra della console mostra le nuove risorse di cui è in corso la creazione, la query e quindi la pulizia.
     
-    ![Screenshot dell'output della console](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)
+    ![Screenshot dell'output della console](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)  
 
 ## <a id="tutorial"></a>Esercitazione
 
@@ -96,7 +96,7 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
 
 Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file program.cs. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`.
 
-![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
+![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account DocumentDB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]  
 
 Per avviare l'applicazione introduttiva, si creerà una nuova istanza di **DocumentClient**.
 
@@ -599,4 +599,4 @@ Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Panoramica della messaggistica inoltrata del bus di servizio | Microsoft Azure"
+	pageTitle="Panoramica sull'inoltro del bus di servizio | Microsoft Azure"
 	description="Panoramica dell'inoltro del bus di servizio."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
-	ms.author="sethm"/>
+	ms.date="09/01/2016"
+	ms.author="sethm"/>  
 
 
-# Messaggistica inoltrata del bus di servizio
+# Panoramica dell'inoltro del bus di servizio
 
-Il componente centrale del bus di servizio è un servizio di inoltro centralizzato, ma con carico altamente bilanciato, che consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale. Il servizio di inoltro supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web, tra cui SOAP, WS-* e anche REST. L'inoltro del bus di servizio facilita le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
+Un componente importante del bus di servizio è un servizio di *inoltro* centralizzato, ma con carico altamente bilanciato, che consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale. L'inoltro del bus di servizio supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web, tra cui SOAP, WS-* e anche REST. Il servizio di inoltro semplifica le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
-![Concetti relativi all'inoltro](./media/service-bus-relay-overview/sb-relay-01.png)
+![Concetti relativi all'inoltro](./media/service-bus-relay-overview/sb-relay-01.png)  
 
 Il servizio di inoltro supporta la messaggistica unidirezionale tradizionale, la messaggistica richiesta-risposta e la messaggistica peer-to-peer. Supporta inoltre la distribuzione degli eventi nell'ambito di Internet per abilitare scenari di pubblicazione/sottoscrizione e le comunicazioni tramite socket bidirezionale per migliorare l'efficienza point-to-point.
 
@@ -31,11 +31,11 @@ Nel modello di messaggistica inoltrata, un servizio locale si connette al serviz
 
 ## Passaggi successivi
 
-Per informazioni dettagliate sul servizio di inoltro del bus di servizio, vedere gli argomenti seguenti.
+Per informazioni dettagliate sull'inoltro del bus di servizio, vedere gli argomenti seguenti.
 
 - [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Come usare il servizio Inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
+- [Come usare il servizio Inoltro del bus di servizio di Azure](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0907_2016-->

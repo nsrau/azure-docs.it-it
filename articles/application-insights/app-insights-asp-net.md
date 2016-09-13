@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Configurare l'analisi di app Web per ASP.NET con Application Insights" 
+	pageTitle="Configurare l'analisi di app Web per ASP.NET con Application Insights | Microsoft Azure" 
 	description="Configurare l'analisi delle prestazioni, della disponibilità e dell'uso per un sito Web ASP.NET, ospitato in locale o in Azure." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="NumberByColors" 
-	manager="douge"/>  
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -117,11 +117,11 @@ Il comando esegue quindi tre operazioni:
 2. Crea una risorsa di Application Insights nel [portale di Azure](https://portal.azure.com/). È qui che verranno visualizzati i dati. Recupera la *chiave di strumentazione*, che identifica la risorsa.
 3. Inserisce la chiave di strumentazione in `ApplicationInsights.config`, in modo che l'SDK possa inviare dati di telemetria al portale.
 
-Se si vuole, è possibile eseguire questi passaggi manualmente per [ASP.NET 4](app-insights-asp-net-manual.md) o [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+Se si vuole, è possibile eseguire questi passaggi manualmente per [ASP.NET 4](app-insights-windows-services.md) o [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ### Per eseguire l'aggiornamento a future versioni di SDK
 
-Per eseguire l'aggiornamento a una [nuova versione dell'SDK](app-insights-release-notes-dotnet.md), riaprire Gestione pacchetti NuGet e filtrare i pacchetti installati. Selezionare Microsoft.ApplicationInsights.Web e scegliere Aggiorna
+Per eseguire l'aggiornamento a una [nuova versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), riaprire Gestione pacchetti NuGet e filtrare i pacchetti installati. Selezionare Microsoft.ApplicationInsights.Web e scegliere Aggiorna
 
 Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationInsights.config, salvarne una copia prima di eseguire l'aggiornamento e, successivamente, unire le modifiche nella nuova versione.
 
@@ -133,6 +133,6 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 |---|---
 |**[Uso di Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Debug con telemetria, ricerca diagnostica e drill-through nel codice.|![Visual Studio](./media/app-insights-asp-net/61.png)  
 |**[Navigazione e dashboard nel portale Application Insights](app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-asp-net/62.png)  
-|**[Altri dati di telemetria da Application Insights](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. | ![Visual Studio](./media/app-insights-asp-net/64.png)
+|**[Altri dati di telemetria da Application Insights](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. | ![Visual Studio](./media/app-insights-asp-net/64.png)  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>  
 
 # Eseguire query in Azure SQL Data Warehouse (sqlcmd)
 
@@ -26,15 +26,18 @@
 
 Questa procedura dettagliata usa l'utilità della riga di comando [sqlcmd][] per eseguire query in un'istanza di Azure SQL Data Warehouse.
 
-## 1. Connetti
+## 1\. Connetti
 
 Per iniziare a usare [sqlcmd][], aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database di SQL Data Warehouse. La stringa di connessione richiede i parametri seguenti:
 
 + **Server (-S):** server nel formato `<`Server Name`>`.database.windows.net
 + **Database (-d):** nome del database.
++ **Abilita identificatori delimitati (-I):** gli identificatori delimitati devono essere abilitati per consentire la connessione a un'istanza di SQL Data Warehouse.
+
+Per usare l'autenticazione di SQL Server è necessario aggiungere i parametri nome utente e password:
+
 + **Utente (-U):** utente del server nel formato `<`User`>`
 + **Password (-P):** password associata all'utente.
-+ **Abilita identificatori delimitati (-I):** gli identificatori delimitati devono essere abilitati per consentire la connessione a un'istanza di SQL Data Warehouse.
 
 Ad esempio, la stringa di connessione sarà simile alla seguente:
 
@@ -42,9 +45,19 @@ Ad esempio, la stringa di connessione sarà simile alla seguente:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] L'opzione -I, che abilita gli identificatori delimitati, attualmente è obbligatoria per connettersi a SQL Data Warehouse.
+Per usare l'autenticazione integrata di Azure Active Directory è necessario aggiungere i parametri di Azure Active Directory:
 
-## 2. Query
++ **Autenticazione di Azure Active Directory (-G):** consente di usare Azure Active Directory per l'autenticazione.
+
+Ad esempio, la stringa di connessione sarà simile alla seguente:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Per eseguire l'autenticazione tramite Active Directory, è necessario [abilitare l'autenticazione di Azure Active Directory](sql-data-warehouse-authentication.md).
+
+## 2\. Query
 
 Dopo la connessione sarà possibile eseguire qualsiasi istruzione Transact-SQL supportata nell'istanza. In questo esempio le query vengono inviate in modalità interattiva.
 
@@ -69,7 +82,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere [Utilità sqlcmd][sqlcmd].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 
@@ -77,6 +90,6 @@ Per altre informazioni sulle opzioni disponibili in sqlcmd, vedere [Utilità sql
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
-<!--Other Web references-->
+<!--Other Web references-->  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

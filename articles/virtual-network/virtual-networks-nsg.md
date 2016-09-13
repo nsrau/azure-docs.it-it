@@ -40,10 +40,10 @@ Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti.
 |---|---|---|---|
 |**Nome**|Nome per la regola|Deve essere univoco nell'area<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e segni meno<br/>Deve iniziare con una lettera o un numero<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura<br/>Può contenere fino a 80 caratteri|Se in un gruppo di sicurezza di rete ci sono più regole, assicurarsi di seguire una convenzione di denominazione che consenta di identificare la funzione della regola|
 |**Protocollo**|Protocollo per la regola|TCP, UDP o *|L'uso di * come protocollo include ICMP (solo traffico orizzontale destra-sinistra), oltre a UDP e TCP e può ridurre il numero di regole necessarie<br/>Al tempo stesso, l'uso di * potrebbe essere un approccio troppo ampio, quindi assicurarsi di usarlo solo quando è davvero necessario|
-|**Intervallo porte di origine**|Intervallo di porte di origine per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65635) o * (per tutte le porte)|Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare "*" nella maggior parte dei casi.<br/>Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola|
-|**Intervallo di porte di destinazione**|Intervallo di porte di destinazione per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte)|Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola
-|**Prefisso dell'indirizzo di origine**|Prefisso o tag dell'indirizzo di origine per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
-|**Prefisso dell’indirizzo di destinazione**|Prefisso o tag dell'indirizzo di destinazione per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
+|**Intervallo porte di origine**|Intervallo di porte di origine per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65635) o * (per tutte le porte)|Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare "*" nella maggior parte dei casi. <br/>Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati con una virgola
+|**Intervallo di porte di destinazione**|Intervallo di porte di destinazione per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte)|Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati con una virgola
+|**Prefisso dell'indirizzo di origine**|Prefisso o tag dell'indirizzo di origine per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
+|**Prefisso dell’indirizzo di destinazione**|Prefisso o tag dell'indirizzo di destinazione per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
 |**Direzione**|Direzione del traffico per la regola|in ingresso o in uscita|Le regole in ingresso e in uscita vengono elaborate separatamente, in base alla direzione|
 |**Priorità**|Le regole vengono controllate nell'ordine di priorità. Una volta che viene applicata una regola, non viene verificata la corrispondenza di altre regole|Numero compreso tra 100 e 4096|È possibile creare regole che saltano le priorità a 100 per volta per ogni regola, lasciando spazio per inserire nuove regole tra quelle esistenti|
 |**Accesso**|Tipo di accesso da applicare se la regola corrisponde|consentire o negare|Tenere presente che, se per un pacchetto non viene trovata una regola di consenso, il pacchetto viene rimosso|
@@ -124,13 +124,13 @@ Come illustrato dalle regole predefinite seguenti, il traffico che ha origine e 
 
 |Documentazione di distribuzione|Classico|Gestione risorse|
 |---|---|---|
-|Portale classico|![No][red]  |![No][red]  |
-|Portale di Azure|![Sì][green]  |[](virtual-networks-create-nsg-arm-pportal.md)![Sì][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Sì][green]|[](virtual-networks-create-nsg-arm-ps.md)![Sì][green]|
-|Interfaccia della riga di comando di Azure|[](virtual-networks-create-nsg-classic-cli.md)![Sì][green]|[](virtual-networks-create-nsg-arm-cli.md)![Sì][green]|
-|Modello ARM|![No][red]  |[](virtual-networks-create-nsg-arm-template.md)![Sì][green]|
+|Portale classico|![No](./media/virtual-network-nsg-overview/red.png)  |![No](./media/virtual-network-nsg-overview/red.png)  |
+|Portale di Azure|![Sì](./media/virtual-network-nsg-overview/green.png)  |[![Sì][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Sì][green]](virtual-networks-create-nsg-classic-ps.md)|[![Sì][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Interfaccia della riga di comando di Azure|[![Sì][green]](virtual-networks-create-nsg-classic-cli.md)|[![Sì][green]](virtual-networks-create-nsg-arm-cli.md)|
+|Modello ARM|![No](./media/virtual-network-nsg-overview/red.png)  |[![Sì][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Chiave**|![Sì][green]Supportato. Fare clic per visualizzare l'articolo.|![No][red]Non supportato.|
+|**Chiave**|![Sì](./media/virtual-network-nsg-overview/green.png)Supportato.|![No](./media/virtual-network-nsg-overview/red.png)Non supportato.|
 |---|---|---|
 
 ## Pianificazione
@@ -282,4 +282,4 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

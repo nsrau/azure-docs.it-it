@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/30/2016" 
-	ms.author="juliako"/>
+	ms.date="09/05/2016" 
+	ms.author="juliako"/>  
 
 
 #Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
 
-Questa esercitazione illustra come usare il portale di Azure per creare un **canale** configurato per la distribuzione pass-through.
+> [AZURE.SELECTOR]
+- [Portale](media-services-portal-live-passthrough-get-started.md)
+- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+Questa esercitazione illustra come usare il portale di Azure per creare un **canale** configurato per la distribuzione pass-through.
 
 ##Prerequisiti
 
@@ -73,12 +77,13 @@ Se occorre visualizzare le notifiche e gli errori generati dal portale di Azure,
 
 ##Configurare gli endpoint di streaming 
 
-Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a più bitrate nei formati MPEG DASH, HLS, Smooth Streaming or HDS, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un unico formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire file MP4 a bitrate multipli nei formati MPEG DASH, HLS, Smooth Streaming o HDS, senza dover ricreare i pacchetti con questi formati di streaming. Con la creazione dinamica dei pacchetti si archiviano e si pagano solo i file in un singolo formato di archiviazione e Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
 Per sfruttare i vantaggi della creazione dinamica dei pacchetti, è necessario ottenere almeno un'unità di streaming per l'endpoint di streaming da cui si prevede di distribuire il contenuto.
 
 Per creare e modificare il numero di unità riservate di streaming, seguire questa procedura:
 
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Nella finestra **Impostazioni** fare clic su **Endpoint di streaming**.
 
 2. Fare clic sull'endpoint di streaming predefinito.
@@ -87,7 +92,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
-	![Unità di streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+	![Unità di streaming](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)  
 
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
 
@@ -115,13 +120,13 @@ Se si desidera mantenere il contenuto archiviato ma non averlo disponibile per l
 
 ###Per usare il portale per creare un canale 
 
-Queste sezioni illustrano come usare l'opzione **Creazione rapida** per creare un canale pass-through.
+Questa sezione illustra come usare l'opzione **Creazione rapida** per creare un canale pass-through.
 
 Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Nella finestra **Impostazioni** fare clic su **Streaming live**.
 
-	![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+	![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)  
 	
 	Verrà visualizzata la finestra **Streaming live**.
 
@@ -132,29 +137,33 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 
 	Verrà creato un canale pass-through con il protocollo di inserimento RTMP.
 
-	Il canale, inoltre, aggiunge, avvia e pubblica un evento o un programma live predefinito. Questo evento è configurato per un intervallo di archiviazione di 8 ore.
+##Creare eventi
 
-	Per aggiungere altri eventi, fare clic sul pulsante **Live Event** (Evento live).
+1. Selezionare un canale a cui si vuole aggiungere un evento.
+2. Premere il pulsante **Evento live**.
+
+![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)  
+
 
 ##Ottenere gli URL di inserimento
 
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
-![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)  
 
-##Guardare un evento
+##Guardare l'evento
 
 Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta.
  
-![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
+![Data di creazione](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)  
 
-Una volta arrestato, l'evento live verrà convertito automaticamente in contenuto su richiesta.
+Quando viene arrestato, l'evento live viene convertito automaticamente in contenuto su richiesta.
 
 ##Eseguire la pulizia
 
 Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).
 
-- È possibile arrestare un canale solo quando tutti gli eventi o i programmi nel canale sono stati arrestati. Una volta arrestato, il canale non subirà modifiche. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
+- È possibile arrestare un canale solo quando tutti gli eventi o i programmi nel canale sono stati arrestati. Dopo l'arresto, il canale non è soggetto ad alcun addebito. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
 - È possibile eliminare un canale solo quando tutti gli eventi live nel canale sono stati eliminati.
 
 ##Visualizzare il contenuto archiviato
@@ -163,9 +172,11 @@ Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado d
 
 Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
-![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
+![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)  
 
-##Percorsi di apprendimento di Servizi multimediali
+##Passaggio successivo
+
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -173,4 +184,4 @@ Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

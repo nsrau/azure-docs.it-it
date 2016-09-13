@@ -4,17 +4,21 @@
 
 Per usare [EventProcessorHost][] è necessario avere un [account di archiviazione di Azure][]\:
 
-1. Accedere al [portale di Azure classico][] e fare clic su **NUOVO** nella parte inferiore della schermata.
+1. Accedere al [portale di Azure][] e fare clic su **Nuovo** nella parte superiore sinistra della schermata.
 
-2. Fare clic su **Servizi dati**, quindi su **Archiviazione** e infine su **Creazione rapida** e digitare un nome per l'account di archiviazione. Selezionare l'area desiderata e quindi fare clic su **Crea account di archiviazione**.
+2. Fare clic su **Dati e archiviazione** e quindi su **Account di archiviazione**.
 
-    ![][11]
+    ![][1]  
 
-3. Fare clic sull'account di archiviazione appena creato e quindi su **Gestisci chiavi di accesso**:
+3. Nel pannello **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa. Fare quindi clic su **Crea**.
 
-    ![][12]
+    ![][2]  
 
-    Copiare la chiave di accesso primaria da usare più avanti in questa esercitazione.
+4. Nell'elenco degli account di archiviazione fare clic su quello appena creato.
+
+5. Nel pannello Account di archiviazione fare clic su **Chiavi di accesso**. Copiare il valore di **key1** da usare più avanti in questa esercitazione.
+
+	![][3]  
 
 4. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Receiver**.
 
@@ -24,7 +28,7 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 
 6. Fare clic sulla scheda **Sfoglia**, quindi cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Assicurarsi che il nome del progetto (**Receiver**) sia specificato nella casella **Versione/i **. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-    ![][13]
+    ![][13]  
 
 	Visual Studio scarica e installa il [pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) e aggiunge un riferimento al pacchetto con tutte le relative dipendenze.
 
@@ -121,16 +125,17 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 [Panoramica di Hub eventi di Azure]: event-hubs-overview.md
 [Guida alla programmazione di Hub eventi]: event-hubs-programming-guide.md
 [elaborazione di eventi scalata orizzontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[account di archiviazione di Azure]: ../storage/storage-create-storage-account-classic-portal.md
+[account di archiviazione di Azure]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portale di Azure classico]: http://manage.windowsazure.com
+[portale di Azure]: https://portal.azure.com
 
-<!-- Images -->
+<!-- Images -->  
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->
