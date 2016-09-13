@@ -3,7 +3,7 @@
    description="Informazioni su PolyBase e sul relativo uso per scenari di data warehousing."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;jrj;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Caricare dati con PolyBase in SQL Data Warehouse
@@ -285,4 +285,4 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

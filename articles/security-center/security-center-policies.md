@@ -26,7 +26,7 @@ Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti d
 
 ## Impostazione di criteri di sicurezza per le sottoscrizioni
 
-I criteri di sicurezza possono essere configurati per sottoscrizione o gruppo di risorse. Per modificare i criteri di sicurezza, è necessario essere Proprietario o Collaboratore di tale sottoscrizione. Accedere al portale di Azure e seguire i passaggi precedenti per configurare i criteri di sicurezza nel Centro sicurezza di Azure:
+I criteri di sicurezza possono essere configurati per sottoscrizione o gruppo di risorse. Per modificare i criteri di sicurezza, è necessario essere Proprietario o Collaboratore di tale sottoscrizione. Accedere al portale di Azure e seguire questa procedura per configurare i criteri di sicurezza nel Centro sicurezza di Azure:
 
 1. Fare clic sul riquadro **Criteri** nel dashboard del Centro sicurezza.
 
@@ -106,4 +106,4 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

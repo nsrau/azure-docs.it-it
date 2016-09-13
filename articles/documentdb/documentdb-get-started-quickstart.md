@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anhoh"/>
 
 # Esercitazione su NoSQL: Compilare un'applicazione console C# di DocumentDB
@@ -25,7 +25,7 @@
 
 Esercitazione su NoSQL per Azure DocumentDB .NET SDK Dopo avere ottenuto il progetto di avvio rapido o completato l'esercitazione, si avrà un'applicazione console che consente di creare e ridefinire le query delle risorse DocumentDB.
 
-- **[Avvio rapido](#quickstart)**: scaricare il progetto di esempio e aggiungere le informazioni di connessione per avere un'app DocumentDB in esecuzione in meno di 5 minuti.
+- **[Avvio rapido](#quickstart)**: scaricare il progetto di esempio e aggiungere le informazioni di connessione per avere un'app DocumentDB in esecuzione in meno di 10 minuti.
 - **[Esercitazione](#tutorial)**: compilare l'app di avvio rapido da zero in 30 minuti.
 
 ## Prerequisiti
@@ -36,7 +36,7 @@ Esercitazione su NoSQL per Azure DocumentDB .NET SDK Dopo avere ottenuto il prog
 
 ## Quickstart
 
-1. Scaricare il progetto di esempio da [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+1. Scaricare il file ZIP del progetto di esempio da [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) oppure clonare il repository [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
 2. Usare il portale di Azure per [creare un account DocumentDB](documentdb-create-account.md).
 3. Nel file App.config sostituire i valori di EndpointUri e PrimaryKey con i valori recuperati dal [portale di Azure](https://portal.azure.com/), passando al pannello **DocumentDB (NoSQL)**, quindi facendo clic su **Nome account** e infine su **Chiavi** nel menu della risorsa. ![Screenshot del valore di EndpointUri e PrimaryKey da sostituire in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Compilare il progetto. La finestra della console mostra le nuove risorse di cui è in corso la creazione, la query e quindi la pulizia.
@@ -410,7 +410,7 @@ Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni. La creazione di due documenti di DocumentDB è stata completata.
 
-![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-get-started/nosql-tutorial-account-database.png) 
+![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di DocumentDB
 
@@ -465,7 +465,7 @@ Congratulazioni. L'esecuzione di una query in una raccolta di DocumentDB è stat
 
 Nel diagramma seguente viene illustrato come la sintassi di query di SQL DocumentDB viene chiamata sulla raccolta creata e la stessa logica viene applicata alla query di LINQ.
 
-![Diagramma che illustra l'ambito e il significato della query usata nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png) 
+![Diagramma che illustra l'ambito e il significato della query usata nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 La parola chiave [FROM](documentdb-sql-query.md#from-clause) è facoltativa nella query perché le query di DocumentDB sono già limitate a una singola raccolta. Di conseguenza, "FROM Families f" può essere scambiata con "FROM root r" o con il nome di qualsiasi altra variabile scelta. DocumentDB dedurrà che Families, root o il nome della variabile scelta, si riferisce per impostazione predefinita alla raccolta attuale.
 
@@ -599,4 +599,4 @@ Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/02/2016"
 	ms.author="darosa;sethm"/>
 
 # Livelli di messaggistica Standard e Premium del bus di servizio 
 
-La messaggistica negoziata del bus di servizio, che include entità di messaggistica come code e argomenti, combina funzionalità di messaggistica aziendali con una semantica di pubblicazione/sottoscrizione a livello cloud. La messaggistica del bus di servizio viene usata come backbone di comunicazione per molte soluzioni cloud di alto livello.
+La messaggistica del bus di servizio, che include entità di messaggistica come code e argomenti, unisce funzionalità di messaggistica aziendali a una semantica di pubblicazione-sottoscrizione completa a livello di cloud. La messaggistica del bus di servizio viene usata come backbone di comunicazione per molte soluzioni cloud di alto livello.
 
 Il livello di messaggistica *Premium* del bus di servizio consente di soddisfare le più comuni richieste del cliente in termini di scalabilità, prestazioni e disponibilità per le applicazioni cruciali. Anche se i set di funzionalità sono quasi identici, questi due livelli di messaggistica del bus di servizio sono progettati per soddisfare diversi casi d'uso.
 
@@ -40,17 +40,17 @@ Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloc
 
 Di seguito sono descritte alcune differenze tra i livelli di messaggistica Standard e Premium.
 
-### Entità partizionate
+### Code e argomenti partizionati
 
-Le entità partizionate sono supportate nella messaggistica Premium, ma non funzionano esattamente come nei livelli di messaggistica Standard e Basic del bus di servizio. La messaggistica Premium non usa SQL come archivio dati e non ha più la competizione possibile tra le risorse associata a una piattaforma condivisa. Di conseguenza, il partizionamento non è necessario. Il numero delle partizioni è stato modificato, da 16 partizioni nella messaggistica Standard a due partizioni in quella Premium. La presenza di due partizioni garantisce la disponibilità ed è un numero più appropriato per l'ambiente di runtime Premium. Per altre informazioni sul partizionamento, vedere [Entità di messaggistica partizionate](service-bus-partitioning.md).
+Le code e gli argomenti partizionati sono supportati nella messaggistica Premium, ma non funzionano esattamente come nei livelli di messaggistica Standard e Basic del bus di servizio. La messaggistica Premium non usa SQL come archivio dati e non ha più la competizione possibile tra le risorse associata a una piattaforma condivisa. Di conseguenza, il partizionamento non è necessario. Il numero delle partizioni è stato modificato, da 16 partizioni nella messaggistica Standard a due partizioni in quella Premium. La presenza di due partizioni garantisce la disponibilità ed è un numero più appropriato per l'ambiente di runtime Premium. Per altre informazioni sul partizionamento, vedere [Code e argomenti partizionati](service-bus-partitioning.md).
 
 ### Entità Express
 
-Poiché è in esecuzione in un ambiente di runtime completamente isolato, le entità Express non sono più necessarie nella messaggistica Premium. Di conseguenza, le entità Express non sono supportate negli spazi dei nomi Premium. Per altre informazioni sulla funzionalità Express, vedere la proprietà [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
+Dato che la messaggistica Premium viene eseguita in un ambiente di runtime completamente isolato, le entità Express non sono supportate negli spazi dei nomi Premium. Per altre informazioni sulla funzionalità Express, vedere la proprietà [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
 ## Passaggi successivi
 
-Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
+Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
 
 - [Introduzione alla messaggistica Premium del bus di servizio di Azure (post di blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introduzione alla messaggistica Premium del bus di servizio di Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
@@ -58,4 +58,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 - [Panoramica dell'architettura del bus di servizio di Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/29/2016"
+	ms.date="09/07/2016"
 	ms.author="juliako"/>
 
 
 # Creare un account Servizi multimediali di Azure con il portale di Azure
+
+> [AZURE.SELECTOR]
+- [Portale](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -36,7 +41,7 @@ Per accedere a Servizi multimediali è necessario disporre di due account associ
 	AMS è ora disponibile anche nei data center seguenti: Brasile meridionale, India occidentale, India meridionale e India centrale. È ora possibile usare il portale di Azure per creare account Servizi multimediali ed eseguire diverse attività descritte qui. In questi data center la codifica live non è tuttavia abilitata. Inoltre, non sono disponibili tutti i tipi di unità riservate di codifica.
 	
 	- Brasile meridionale: sono disponibili solo unità riservate di codifica Standard e Basic.
-	- India occidentale, India meridionale: è riservato ai file multimediali e deve trovarsi nella stessa area geografica dell'account Servizi multimediali. Quando si crea un account di Servizi multimediali, è possibile scegliere un account di archiviazione esistente nella stessa area geografica oppure è possibile crearne uno nuovo, ma sempre nella stessa area. Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
+	- India occidentale, India meridionale: fornire BLOB di archiviazione per i file multimediali. Gli account di archiviazione devono trovarsi nella stessa area geografica dell'account Servizi multimediali. Quando si crea un account di Servizi multimediali, è possibile scegliere un account di archiviazione esistente nella stessa area geografica oppure è possibile crearne uno nuovo, ma sempre nella stessa area. Se si elimina un account di Servizi multimediali, gli oggetti BLOB presenti nell'account di archiviazione associato non vengono eliminati.
 
 ## Creare un account AMS
 
@@ -98,4 +103,4 @@ Ora è possibile caricare i file nell'account AMS. Per altre informazioni, veder
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
