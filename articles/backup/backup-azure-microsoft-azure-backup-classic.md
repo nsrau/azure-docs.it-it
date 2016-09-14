@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/10/2016"
+  ms.date="08/22/2016"
   ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Preparazione del backup dei carichi di lavoro con il server di Backup di Azure
@@ -167,9 +167,9 @@ La prima copia di backup viene salvata in una risorsa di archiviazione collegata
 
 Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per verificare se il computer è connesso ad Azure, usare ```Get-DPMCloudConnection``` commandlet nella console di PowerShell del server di Backup di Azure. Se l'output del cmdlet è TRUE, la connettività è disponibile. In caso contrario, non è disponibile connettività.
 
-Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per verificare lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://account.windowsazure.com/Subscriptions).
+Allo stesso tempo è necessario che la sottoscrizione di Azure sia in uno stato integro. Per verificare lo stato della sottoscrizione e gestirla, accedere al [portale delle sottoscrizioni](https://account.windowsazure.com/Subscriptions).
 
-Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
+Dopo aver verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
 | Stato di connettività | Sottoscrizione di Azure | Backup in Azure| Backup su disco | Ripristino da Azure | Ripristino da disco |
 | -------- | ------- | --------------------- | ------------------- | --------------------------- | ----------------------- |
@@ -193,10 +193,10 @@ Dopo il ripristino della connettività ad Azure nel computer del server di Backu
 
 ### Gestione degli stati della sottoscrizione
 
-È possibile fare in modo che una sottoscrizione di Azure passi da uno stato *Scaduta* o *Deprovisioning eseguito* allo stato *Attiva*. Questa operazione tuttavia influisce sul comportamento del prodotto quando lo stato della sottoscrizione non è *Attiva*:
+È possibile modificare lo stato di una sottoscrizione di Azure da *Scaduta* o *Deprovisioning eseguito* ad *Attiva*. Questa operazione tuttavia influisce sul comportamento del prodotto quando lo stato della sottoscrizione non è *Attiva*:
 
-- Una sottoscrizione con *Deprovisioning eseguito* perde funzionalità per il periodo in cui è sottoposta a deprovisioning. Dopo l'impostazione su *Attiva*, la funzionalità di backup/ripristino del prodotto viene riattivata. I dati di backup nel disco locale possono essere recuperati anche se sono stati memorizzati con un periodo di conservazione sufficientemente elevato. I dati di backup in Azure vengono persi definitivamente quando la sottoscrizione passa allo stato *Deprovisioning eseguito*.
-- Una sottoscrizione *Scaduta* perde funzionalità solo fino a quando non viene di nuovo resa *Attiva*. Eventuali backup pianificati per il periodo in cui la sottoscrizione è *Scaduta* non verranno eseguiti.
+- Una sottoscrizione con stato *Deprovisioning eseguito* perde funzionalità per il periodo in cui è sottoposta a deprovisioning. Dopo l'impostazione su *Attiva*, la funzionalità di backup/ripristino del prodotto viene riattivata. I dati di backup nel disco locale possono essere recuperati anche se sono stati memorizzati con un periodo di conservazione sufficientemente elevato. I dati di backup in Azure, invece, vengono persi definitivamente al passaggio della sottoscrizione allo stato *Deprovisioning eseguito*.
+- Una sottoscrizione *Scaduta* perde funzionalità solo fino a quando non viene resa di nuovo *Attiva*. Eventuali backup pianificati per il periodo in cui la sottoscrizione è *Scaduta* non verranno eseguiti.
 
 
 ## Risoluzione dei problemi
@@ -214,4 +214,4 @@ Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://
 - [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 - [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

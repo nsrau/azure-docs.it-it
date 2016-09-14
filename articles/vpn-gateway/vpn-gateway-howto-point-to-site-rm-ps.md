@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configurare una connessione VPN da punto a sito a una rete virtuale usando il modello di distribuzione di Gestione risorse | Microsoft Azure"
-   description="Connettersi in modo sicuro alla rete virtuale di Azure attraverso la creazione di una connessione VPN da punto a sito."
+   pageTitle="Configurare una connessione gateway VPN da punto a sito a una rete virtuale usando il modello di distribuzione Resource Manager | Microsoft Azure"
+   description="Connettersi in modo sicuro alla rete virtuale di Azure attraverso la creazione di una connessione gateway VPN da punto a sito."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -22,7 +22,7 @@
 - [PowerShell - Gestione risorse](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portale - Classica](vpn-gateway-point-to-site-create.md)
 
-Una configurazione da punto a sito (P2S) consente di creare una connessione sicura da un singolo computer client a una rete virtuale. Una soluzione P2S è utile quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale.
+Una configurazione da punto a sito (P2S) permette di creare una connessione protetta da un singolo computer client a una rete virtuale. Una soluzione P2S è utile quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale.
 
 Questo articolo illustra la creazione di una rete virtuale con una connessione da punto a sito nel **modello di distribuzione Resource Manager**. Per questa procedura è necessario PowerShell. Attualmente non è possibile creare interamente questa soluzione nel portale di Azure.
 
@@ -65,7 +65,7 @@ Per questa configurazione si useranno i valori seguenti. Le variabili sono state
 
 - Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Installare i cmdlet di PowerShell per Azure Resource Manager (versione 1.0.2 o successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+- Installare i cmdlet di PowerShell per Azure Resource Manager (versione 1.0.2 o successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Quando si usa PowerShell per questa configurazione, assicurarsi di scegliere l'opzione Esegui come amministratore.
 
 ## <a name="declare"></a>Parte 1: Accedere e impostare le variabili
 
@@ -176,15 +176,24 @@ Nei client che si connettono ad Azure con una connessione da punto a sito devono
 
 	![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Client VPN")
 
-## <a name="cc"></a>Parte 6: Installare il certificato client
-	
-Generare e installare i certificati client (*.pfx) creati dal certificato radice nei computer client. È possibile usare qualsiasi metodo di installazione con cui si ha maggiore familiarità.
+## <a name="cc"></a>Parte 6: Generare il certificato client
 
-Se si usa un certificato radice autofirmato e non si ha familiarità con le procedure per generare un certificato client, vedere [questo articolo](vpn-gateway-certificates-point-to-site.md). Se si usa una soluzione aziendale, generare i certificati client nel formato del valore di nome comune "nome@dominio.com", anziché nel formato NetBIOS "nome di dominio\\nomeutente".
+Procedere quindi alla generazione dei certificati client. È possibile generare un certificato univoco per ogni client che stabilirà la connessione oppure usare lo stesso certificato in più client. Il vantaggio della generazione di certificati client univoci è dato dalla possibilità di revocare un certificato, se necessario. Diversamente, se tutti gli utenti usano lo stesso certificato client ed è necessario revocarlo per un client, si dovranno generare e installare nuovi certificati per tutti i client che usano il certificato per l'autenticazione.
 
-Per installare direttamente un certificato client nel computer è possibile fare doppio clic sul file PFX.
+- Se si usa una soluzione aziendale per la creazione di certificati, generare un certificato client con il valore di nome comune nel formato 'nome@dominio.com', invece che nel formato NetBIOS 'DOMINIO\\nomeutente'.
 
-## Parte 7: Connettersi ad Azure
+- Se si usa un certificato autofirmato, per generare un certificato client vedere [Usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md).
+
+## Parte 7: Installare il certificato client
+
+Installare un certificato client in ogni computer che si vuole connettere alla rete virtuale. Il certificato client è necessario per l'autenticazione. È possibile automatizzare l'installazione del certificato client oppure installarlo manualmente. La procedura seguente illustra come esportare e installare manualmente il certificato client.
+
+1. Per esportare un certificato client, è possibile usare *certmgr.msc*. Fare clic con il pulsante destro del mouse sul certificato client da esportare, scegliere **Tutte le attività** e quindi fare clic su **Esporta**.
+2. Esportare il certificato client con la chiave privata. Si tratta di un file con estensione *prx*. Assicurarsi di eseguire la registrazione o ricordare la password (chiave) impostata per il certificato.
+3. Copia il *pfx* file nel computer client. Nel computer client fare doppio clic sul file con estensione *pfx* per installarlo. Immettere la password quando richiesta. Non modificare il percorso di installazione.
+
+
+## Parte 8: Connettersi ad Azure
 
 1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Fare clic su **Connect**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. In questo caso, fare clic su **Continua** per usare privilegi elevati.
 
@@ -196,7 +205,7 @@ Per installare direttamente un certificato client nel computer è possibile fare
 
 	![Client VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connessione del client VPN 2")
 
-## Parte 8: Verificare la connessione
+## Parte 9: Verificare la connessione
 
 1. Per verificare che la connessione VPN è attiva, aprire un prompt dei comandi con privilegi elevati ed eseguire *ipconfig/all*.
 
@@ -300,6 +309,6 @@ In Azure è possibile aggiungere fino a 20 file CER di certificato radice truste
 
 ## Passaggi successivi
 
-È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare la prima macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

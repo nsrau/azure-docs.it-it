@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come distribuire contenuti in streaming da Servizi multimediali" 
+	pageTitle="Pubblicare contenuti di Servizi multimediali di Azure mediante REST" 
 	description="Informazioni su come creare un localizzatore da usare per un URL di streaming. Nel codice viene usata l'API REST." 
 	authors="Juliako" 
 	manager="erikre" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Procedura: Distribuire contenuti in streaming
+# Pubblicare contenuti di Servizi multimediali di Azure mediante REST
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portale](media-services-manage-content.md#publish)
+- [Portale](media-services-portal-publish.md)
 
-##Panoramica
+##Overview
 
 
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-rest-encode-asset.md) illustra come codificare un asset in un set MP4 a velocità in bit adattiva. Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in[questo](media-services-rest-configure-asset-delivery-policy.md)argomento) prima di creare un localizzatore.
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'argomento relativo alla [codifica di un asset](media-services-rest-encode-asset.md) illustra come codificare un asset in un set MP4 a bitrate adattivo. Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in [questo](media-services-rest-configure-asset-delivery-policy.md) argomento) prima di creare un localizzatore.
 
 È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.
 
@@ -179,7 +179,7 @@ esempio:
         OnDemandOrigin = 2,
     }
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -191,4 +191,4 @@ esempio:
 
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
+	ms.date="08/31/2016" 
 	ms.author="spelluru"/>
 
 # Attività di Pig
@@ -64,18 +64,18 @@ Proprietà | Descrizione | Obbligatorio
 name | Nome dell'attività | Sì
 description | Testo descrittivo per lo scopo dell'attività | No
 type | HDInsightPig | Sì
-inputs | Input utilizzati dall'attività Pig | No
-outputs | Output generati dall'attività Pig | Sì
+inputs | Uno o più input usati dall'attività Pig | No
+outputs | Uno o più input prodotti dall'attività Pig | Sì
 linkedServiceName | Riferimento al cluster HDInsight registrato come servizio collegato in Data factory | Sì
 script | Specificare lo script Pig inline | No
-script path | Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Si noti che il nome del file distingue tra maiuscole e minuscole. | No
+script path | Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. | No
 defines | Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Pig | No
 
 ## Esempio
 
-Si prenda ad esempio l'analisi di log di giochi, in cui si desidera verificare il tempo che gli utenti hanno dedicato a giocare alle partite avviate dalla società.
+Si prenda ad esempio l'analisi di log di giochi, in cui si desidera verificare il tempo che i giocatori hanno dedicato a giocare alle partite avviate dalla società.
  
-Di seguito è riportato il log di esempio di un gioco in cui i valori sono separati da virgola (,) e che contiene i campi ProfileID, SessionStart, Duration, SrcIPAddress e GameType.
+Il log del gioco di esempio seguente è un file separato da virgole (,). Il file contiene i campi ProfileID, SessionStart, Duration, SrcIPAddress e GameType.
 
 	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
 	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
@@ -83,7 +83,7 @@ Di seguito è riportato il log di esempio di un gioco in cui i valori sono separ
 	1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
 	.....
 
-Lo **script Pig** per elaborare tali dati sarà simile al seguente:
+Lo **script Pig** per elaborare tali dati sarà:
 
 	PigSampleIn = LOAD 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/samplein/' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
 	
@@ -93,15 +93,15 @@ Lo **script Pig** per elaborare tali dati sarà simile al seguente:
 	
 	Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
 
-Per eseguire lo script Pig in una pipeline di Data factory, è necessario seguire questa procedura:
+Per eseguire lo script Pig in una pipeline di Data Factory, seguire questa procedura:
 
-1. Creare un servizio collegato per registrare [il proprio cluster di elaborazione di HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) oppure configurare [un cluster di elaborazione di HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). In questo esempio il servizio collegato è denominato "HDInsightLinkedService".
-2.	Creare un [servizio collegato](data-factory-azure-blob-connector.md) per configurare la connessione all'archivio BLOB di Azure che ospita i dati. In questo esempio il servizio collegato è denominato "StorageLinkedService".
-3.	Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato "PigSampleIn", mentre il set di dati di output è denominato "PigSampleOut".
-4.	Copiare la query Pig come file nell'archivio BLOB di Azure configurato nel passaggio 2. Se il servizio collegato che deve ospitare i dati è diverso da quello che ospita il file di query, creare un altro servizio collegato di Archiviazione di Azure e fare riferimento a quest'ultimo per la configurazione dell'attività. Usare **scriptPath** per specificare il percorso del file di query Pig e **scriptLinkedService** per specificare l'archiviazione di Azure contenente il file script.
+1. Creare un servizio collegato per registrare [il proprio cluster di elaborazione di HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) oppure configurare [un cluster di elaborazione di HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). In questo esempio il servizio collegato è denominato **HDInsightLinkedService**.
+2.	Creare un [servizio collegato](data-factory-azure-blob-connector.md) per configurare la connessione all'archivio BLOB di Azure che ospita i dati. In questo esempio il servizio collegato è denominato **StorageLinkedService**.
+3.	Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato **PigSampleIn**, mentre il set di dati di output è denominato **PigSampleOut**.
+4.	Copiare la query Pig in un file di archiviazione BLOB di Azure configurato nel passaggio 2. Se l'archiviazione di Azure che ospita i dati è diversa da quella che ospita il file di query, creare un servizio collegato ad archiviazione di Azure separato. Fare riferimento al servizio collegato nella configurazione dell'attività. Usare **scriptPath **per specificare il percorso del file di script Pig e **scriptLinkedService**.
 	
-	> [AZURE.NOTE] In alternativa, è possibile specificare lo script Pig inline nella definizione di attività usando la proprietà **script**. Questa, tuttavia, non è la procedura consigliata poiché tutti i caratteri speciali usati nello script all'interno del documento JSON devono essere preceduti da un carattere di escape e questo può causare problemi di debug. Si consiglia di seguire il passaggio 4.
-5. Creare la pipeline riportata di seguito con l'attività HDInsightPig per elaborare i dati.
+	> [AZURE.NOTE] È anche possibile fornire lo script Pig inline nella definizione dell'attività tramite la proprietà **script**. Tuttavia, si sconsiglia questo approccio poiché è necessario eseguire l'escape di tutti i caratteri speciali dello script, con possibili problemi di debug. Si consiglia di seguire il passaggio 4.
+5. Creare la pipeline riportata con l'attività HDInsightPig. L'attività elabora i dati di input eseguendo script Pig nel cluster HDInsight.
 
 		{
 		  "name": "PigActivitySamplePipeline",
@@ -136,9 +136,9 @@ Per eseguire lo script Pig in una pipeline di Data factory, è necessario seguir
 6. Distribuire la pipeline. Per informazioni dettagliate, vedere l'argomento relativo alla [creazione di pipeline](data-factory-create-pipelines.md).
 7. Monitorare la pipeline mediante le viste di monitoraggio e gestione delle pipeline di Data factory. Per informazioni dettagliate, vedere [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-monitor-manage-pipelines.md).
 
-## Specifica dei parametri per uno script Pig mediante l'elemento defines
+## Specifica dei parametri per uno script Pig 
 
-Si consideri un esempio in cui i log di giochi vengono inseriti giornalmente nel sistema di archiviazione BLOB di Azure e memorizzati in una cartella partizionata con data e ora. Si desidera impostare i parametri per lo script Pig e passare il percorso della cartella di input in modo dinamico durante il runtime, generando l'output partizionato con data e ora.
+Si consideri l'esempio seguente: i log di giochi vengono inseriti giornalmente nel sistema di archiviazione BLOB di Azure e memorizzati in una cartella partizionata secondo data e ora. Si desidera impostare i parametri per lo script Pig e passare il percorso della cartella di input in modo dinamico durante il runtime, generando l'output partizionato con data e ora.
  
 Per impostare i parametri per lo script Pig, seguire questa procedura:
 
@@ -194,4 +194,4 @@ Per impostare i parametri per lo script Pig, seguire questa procedura:
 - [Chiamare i programmi Spark](data-factory-spark.md)
 - [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

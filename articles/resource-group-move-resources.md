@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="08/30/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -75,6 +75,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 - Gateway applicazione
 - Application Insights
 - Express Route
+- Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino.
 - Set di scalabilità di macchine virtuali
 - Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 - Gateway VPN
@@ -141,15 +142,15 @@ Per spostare una risorsa, selezionarla e quindi fare clic sul pulsante **Sposta*
 
 Specificare la sottoscrizione e il gruppo di risorse di destinazione per lo spostamento della risorsa. Se insieme a tale risorsa devono essere spostate altre risorse, queste verranno elencate.
 
-![Selezione della destinazione](./media/resource-group-move-resources/select-destination.png)  
+![Selezione della destinazione](./media/resource-group-move-resources/select-destination.png)
 
 In **Notifiche** si noterà che è in corso l'operazione di spostamento.
 
-![Visualizzare lo stato dello spostamento](./media/resource-group-move-resources/show-status.png)  
+![Visualizzare lo stato dello spostamento](./media/resource-group-move-resources/show-status.png)
 
 Al completamento dell'operazione si riceverà la notifica del risultato.
 
-![Visualizzare il risultato dello spostamento](./media/resource-group-move-resources/show-result.png)  
+![Visualizzare il risultato dello spostamento](./media/resource-group-move-resources/show-result.png)
 
 Per un'altra opzione di spostamento di risorse a un nuovo gruppo di risorse (non a una nuova sottoscrizione), selezionare la risorsa da spostare.
 
@@ -157,27 +158,27 @@ Per un'altra opzione di spostamento di risorse a un nuovo gruppo di risorse (non
 
 Selezionare **Proprietà** della risorsa.
 
-![Selezionare le proprietà](./media/resource-group-move-resources/select-properties.png)  
+![Selezionare le proprietà](./media/resource-group-move-resources/select-properties.png)
 
 Se disponibile per questo tipo di risorsa, selezionare **Cambia il gruppo di risorse**.
 
-![Cambiare il gruppo di risorse](./media/resource-group-move-resources/change-resource-group.png)  
+![Cambiare il gruppo di risorse](./media/resource-group-move-resources/change-resource-group.png)
 
 È possibile selezionare le risorse da spostare e il gruppo di risorse al quale spostarle.
 
-![Spostare le risorse](./media/resource-group-move-resources/select-group.png)  
+![Spostare le risorse](./media/resource-group-move-resources/select-group.png)
 
 Per spostare in un nuovo gruppo risorse distribuite con il modello classico è possibile usare l'icona di modifica accanto al nome del gruppo di risorse.
 
-![Spostare le risorse classiche](./media/resource-group-move-resources/edit-rg-icon.png)  
+![Spostare le risorse classiche](./media/resource-group-move-resources/edit-rg-icon.png)
 
 Selezionare le risorse da spostare tenendo presenti le [Limitazioni della distribuzione classica](#classic-deployment-limitations). Selezionare **OK** per avviare lo spostamento.
 
- ![Selezionare le risorse classiche](./media/resource-group-move-resources/select-classic-resources.png)  
+ ![Selezionare le risorse classiche](./media/resource-group-move-resources/select-classic-resources.png)
  
  Per spostare in una nuova sottoscrizione risorse distribuite con il modello classico è possibile usare l'icona di modifica accanto al nome della sottoscrizione.
  
- ![Spostare in una nuova sottoscrizione](./media/resource-group-move-resources/edit-subscription-icon.png)  
+ ![Spostare in una nuova sottoscrizione](./media/resource-group-move-resources/edit-subscription-icon.png)
  
  Tutte le risorse classiche vengono selezionate automaticamente per lo spostamento.
 
@@ -273,4 +274,4 @@ con il seguente corpo della richiesta:
 - Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,6 +1,6 @@
  <properties
-	pageTitle="Usare il plug-in HDInsight per IntelliJ IDEA per il debug remoto di applicazioni in esecuzione in cluster HDInsight Spark | Microsoft Azure"
-	description="Informazioni su come usare il plug-in HDInsight per IntelliJ IDEA per il debug remoto di applicazioni in esecuzione in cluster HDInsight Spark."
+	pageTitle="Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per il debug remoto di applicazioni in esecuzione nei cluster HDInsight Spark | Microsoft Azure"
+	description="Informazioni su come usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per il debug remoto di applicazioni in esecuzione nei cluster HDInsight Spark | Microsoft Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per il debug remoto di applicazioni Spark in cluster HDInsight Spark Linux
+# Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per il debug di applicazioni Spark in remoto nel cluster HDInsight Spark Linux
 
-Questo articolo offre indicazioni dettagliate su come usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per inviare un processo Spark in cluster HDInsight Spark e quindi eseguirne il debug remoto dal computer desktop. A tale scopo, è necessario seguire questa procedura generale:
+Questo articolo offre indicazioni dettagliate su come usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per inviare un processo Spark nel cluster HDInsight Spark e quindi eseguirne il debug remoto dal computer desktop. A tale scopo, è necessario seguire questa procedura generale:
 
 1. Creare una rete virtuale di Azure da sito a sito o da punto a sito. Le procedure descritte in questo documento presuppongono che si usi una rete da sito a sito.
 
@@ -42,7 +42,7 @@ Questo articolo offre indicazioni dettagliate su come usare il plug-in degli str
  
 * IntelliJ IDEA. In questo articolo viene usata la versione 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
  
-* Plug-in degli strumenti HDInsight per IntelliJ IDEA. Il plug-in Strumenti HDInsight per IntelliJ IDEA è disponibile come parte di Azure Toolkit for IntelliJ. Per istruzioni su come installare Azure Toolkit, vedere [Installazione di Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
+* Strumenti HDInsight nel Toolkit di Azure per IntelliJ. Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit per IntelliJ. Per istruzioni su come installare Azure Toolkit, vedere [Installazione di Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
  
 * Quando si esegue l'applicazione Spark in Scala per il debug remoto in un computer Windows, potrebbe essere restituita un'eccezione, come illustrato in [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356), causata da un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\\WinUtils\\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP\_HOME** e impostare il valore della variabile su **C\\WinUtils**.
 
@@ -97,7 +97,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 7. Ripetere questi passaggi anche per l'altro nodo head.
 
-## Passaggio 4: Creare un'applicazione Spark in Scala usando il plug-in HDInsight per IntelliJ IDEA e configurarla per il debug remoto
+## Passaggio 4: Creare un'applicazione Spark in Scala usando gli strumenti HDInsight nel Toolkit di Azure per IntelliJ e configurarla per il debug remoto
 
 1. Avviare IntelliJ IDEA e creare un nuovo progetto. Nella finestra di dialogo del nuovo progetto selezionare le opzioni seguenti e quindi fare clic su **Next**.
 
@@ -328,9 +328,9 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 ### Strumenti ed estensioni
 
-* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md) (Usare il plug-in Strumenti HDInsight per Eclipse per creare applicazioni Spark)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md) (Usare gli strumenti HDInsight nel Toolkit di Azure per Eclipse per creare applicazioni Spark)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -338,12 +338,12 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on Apache Spark cluster in HDInsight Linux (Tenere traccia ed eseguire il debug di processi in esecuzione in cluster Apache Spark in HDInsight Linux)](hdinsight-apache-spark-job-debugging.md)
+* [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

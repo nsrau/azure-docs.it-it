@@ -1,49 +1,66 @@
 <properties
- pageTitle="Usare i modelli di app per la logica nel servizio app di Azure | Microsoft Azure"
+ pageTitle="Modelli di app per la logica | Microsoft Azure"
  description="Informazioni su come usare modelli di app per la logica predefiniti per iniziare"
  authors="kevinlam1"
  manager="dwrede"
  editor=""
- services="logic-apps"
+ services="app-service\logic"
  documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
+	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="08/24/2016"
 	ms.author="klam"/>
 
-# Uso dei modelli di app per la logica
+# Modelli di app per la logica
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+## Informazioni sui modelli di app per la logica
 
-I modelli di app per la logica costituiscono un set predefinito di app per la logica integrate, che consentono di sviluppare rapidamente applicazioni di integrazione personalizzate.
+Un modello di app per la logica è un'app per la logica predefinita che è possibile usare per iniziare subito a creare il proprio flusso di lavoro.
 
-Questi modelli mostrano come usare alcuni dei numerosi connettori disponibili nel Marketplace. Sono inoltre un ottimo modo per individuare i diversi modelli che è possibile realizzare usando app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico.
+Questi modelli rappresentano un ottimo modo per individuare diversi schemi che possono essere compilati tramite le app per la logica. È possibile usare questi modelli così come sono oppure modificarli per adattarli a uno scenario specifico.
 
-Per iniziare a usare un modello di app di logica, passare al Marketplace, cercare "Modello di app per la logica" e scegliere uno dei modelli dall'elenco predefinito. In alternativa, selezionare "Trigger e azioni" durante la creazione di una nuova app per la logica e scegliere uno dei set di modelli disponibili nella finestra di progettazione.
+## Panoramica dei modelli disponibili
 
-## Modelli di esempio disponibili
+Esistono molti modelli disponibili attualmente pubblicati nella piattaforma di app per la logica. Alcune categorie di esempio, nonché i tipi di connettori usati, sono elencati di seguito.
 
-### Modelli SaaS e cloud
-Si tratta di esempi di modalità di integrazione tra diversi connettori SaaS. Sono disponibili vari esempi di integrazione di Salesforce, Box, SharePoint e altri servizi.
+### Modelli cloud dell'organizzazione
+Modelli che si integrano Dynamics CRM, Salesforce, Box, BLOB di Azure e altri connettori per le esigenze cloud dell'organizzazione. Alcuni esempi di operazioni eseguibili con questi modelli includono l'organizzazione dei lead e il backup dei dati di file aziendali.
 
-### Modelli BizTalk
-Vengono fornite configurazioni di pipeline BizTalk VETR (Validate, Extract, Transform, Route) e modelli di gestione di messaggi EDIFACT, X12 e AS2.
+### Modelli di Enterprise Integration Pack
+Configurazioni di pipeline VETER (convalida, estrazione, trasformazione, arricchimento, routing), ricezione di un documento X12 EDI tramite AS2 e conversione in formato XML, nonché gestione di messaggi X12 e AS2.
 
-### Modelli di routing dei messaggi
-Si tratta di modelli per il routing dei messaggi, inclusi richiesta-risposta sincrone, routing di messaggi tra protocolli differenti e routing basato sul contenuto.
+### Modelli di schema di protocollo
+Questi modelli sono costituiti da app per la logica che contengono schemi di protocollo, ad esempio richiesta-risposta HTTP e integrazioni tra FTP e SFTP. È possibile usarli senza apportare modifiche oppure come base per creare schemi di protocollo più complessi.
 
-### Modelli DevOps
-Sono disponibili processi automatizzati per la gestione di comuni procedure di Azure che è in genere possibile eseguire manualmente o per cui è necessario scrivere codice personalizzato. Vengono forniti modelli procedurali per l'esecuzione di processi ricorrenti, ad esempio il riavvio di una macchina virtuale ogni fine settimana o il ricevimento di una notifica ogni volta che un nuovo utente RBAC viene aggiunto a una risorsa.
+### Modelli per la produttività personale
+Gli schemi per migliorare la produttività personale includono modelli che impostano promemoria giornalieri, trasformano importanti elementi di lavoro in elenchi di attività e automatizzano le attività di lunga durata fino a un passaggio di approvazione di un singolo utente.
 
 ### Modelli cloud di livello consumer
-Vengono forniti semplici modelli che si integrano con le applicazioni di social networking come Twitter e Yammer e con i servizi di posta elettronica. Queste applicazioni sono in grado di aumentare in modo significativo la produttività degli utenti. Sono costantemente in attesa di aggiornamenti ed effettuano vari tipi di azione quando questi ultimi arrivano.
+Modelli semplici che si integrano con servizi di social media come Twitter, Slack e posta elettronica, in grado di potenziare le iniziative di marketing sui social media. Includono anche modelli di copia per il cloud, che consentono di aumentare la produttività risparmiando il tempo necessario per attività tradizionalmente ripetitive.
 
-Dopo aver selezionato uno dei modelli, completare la distribuzione seguendo la stessa procedura usata per le app per la logica create in modo autonomo. La procedura dettagliata è disponibile nell'articolo [Creare un'app per la logica](app-service-logic-create-a-logic-app.md).
- 
+## Come creare un'app per la logica usando un modello 
 
-<!---HONumber=AcomDC_0803_2016-->
+Per iniziare a usare i modelli di app per la logica, accedere alla finestra di progettazione delle app per la logica. Se si accede alla finestra di progettazione aprendo un'app per la logica esistente, l'app per la logica viene caricata automaticamente nella visualizzazione di progettazione. Se tuttavia si crea una nuova app per la logica, verrà visualizzata la schermata seguente. ![](../../includes/media/app-service-logic-templates/template7.png)
+
+In questa schermata è possibile scegliere di iniziare con un'app per la logica vuota o con un modello predefinito. Se si seleziona uno dei modelli, vengono fornite informazioni aggiuntive. In questo esempio viene usato lo schema *Quando un nuovo file viene creato in Dropbox, copialo in OneDrive*. ![](../../includes/media/app-service-logic-templates/template2.png)
+
+Se si sceglie di usare il modello, è sufficiente fare clic sul pulsante *Usa questo modello*. Verrà chiesto di accedere agli account in base ai connettori usati dal modello. Se è stata precedentemente stabilita una connessione con questi connettori, è anche possibile selezionare Continua come illustrato di seguito. ![](../../includes/media/app-service-logic-templates/template3.png)
+
+Dopo avere stabilito la connessione e aver selezionato *Continua*, l'app per la logica verrà aperta nella visualizzazione di progettazione. ![](../../includes/media/app-service-logic-templates/template4.png)
+
+Nell'esempio precedente, come nel caso di molti modelli, alcuni dei campi di proprietà obbligatori possono essere compilati all'interno dei connettori. Alcuni potrebbero comunque richiedere un valore prima di poter distribuire correttamente l'app per la logica. Se si prova a distribuire senza immettere alcuni dei campi mancanti, verrà visualizzato un messaggio di errore.
+
+Se si vuole tornare al visualizzatore dei modelli, fare clic sul pulsante *Modelli* nella barra di spostamento superiore. Tornando al visualizzatore dei modelli, eventuali modifiche non salvate andranno perse. Prima di tornare al visualizzatore dei modelli verrà visualizzato un messaggio di avviso a questo riguardo. ![](../../includes/media/app-service-logic-templates/template5.png)
+
+## Come distribuire un'app per la logica creata da un modello
+
+Dopo aver caricato il modello e apportato le modifiche necessarie, fare clic sul pulsante Salva nell'angolo superiore sinistro. In questo modo, l'app per la logica verrà salvata e pubblicata. ![](../../includes/media/app-service-logic-templates/template6.png)
+
+Per altre informazioni su come aggiungere altri passaggi in un modello di app per la logica esistente o apportare modifiche in generale, vedere [Creare una nuova app per la logica](app-service-logic-create-a-logic-app.md).
+
+<!---HONumber=AcomDC_0831_2016-->

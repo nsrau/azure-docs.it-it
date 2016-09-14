@@ -69,7 +69,7 @@ Un modello definisce le risorse di Azure create e i parametri con cui è possibi
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Stati Uniti centrali*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: * sostituire con la propria password*
+ - **administratorLoginPassword**: *sostituire con la propria password*
  - **databaseName**: *testapp1devdb*
 
 4. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di test creato nel passaggio 3, sostituendo i valori elencati a destra dei valori dei parametri nel file con i *valori* elencati a destra dei **parametri** seguenti:
@@ -360,5 +360,6 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 - [Delegare il controllo amministrativo](./active-directory/role-based-access-control-configure.md) a risorse diverse in ogni ambiente, assegnando gruppi o utenti di Microsoft Azure AD a ruoli specifici, in grado di eseguire un sottoinsieme di operazioni sulle risorse di Azure.
 - [Assegnare tag](resource-group-using-tags.md) ai gruppi di risorse per ogni ambiente e/o per le singole risorse. È possibile aggiungere un tag "Environment" ai gruppi di risorse e impostarne il valore in modo che corrisponda ai nomi di ambiente. I tag possono essere particolarmente utili quando è necessario organizzare le risorse per la fatturazione o la gestione.
 - Monitorare gli avvisi e la fatturazione per le risorse del gruppo di risorse nel [portale di Azure](https://portal.azure.com).
+
 
 <!---HONumber=AcomDC_0824_2016-->

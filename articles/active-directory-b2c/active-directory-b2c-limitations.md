@@ -24,17 +24,19 @@ Diverse funzionalità e caratteristiche di Azure Active Directory (Azure AD) B2C
 
 Se si verificano problemi durante la [creazione di un tenant di Azure AD B2C](active-directory-b2c-get-started.md), per istruzioni vedere [Creazione di un tenant di Azure Active Directory (Azure AD) o di un tenant di Azure AD B2C: problemi e soluzioni](active-directory-b2c-support-create-directory.md).
 
+Si noti che si verificano problemi noti quando si elimina un tenant B2C esistente e lo si crea nuovamente con lo stesso nome di dominio. È necessario creare un tenant B2C con un nome di dominio diverso.
+
 ## Nota sulle quote dei tenant B2C
 
 Per impostazione predefinita, in un tenant B2C il numero di utenti è limitato a 50.000. Se occorre aumentare la quota del tenant B2C, è necessario contattare il supporto tecnico.
 
 ## Problemi relativi alla personalizzazione nei messaggi di posta elettronica di verifica
 
-Il messaggio di posta elettronica di verifica predefinito include la personalizzazione "Microsoft", che verrà rimossa in futuro. Per il momento, è possibile rimuoverla tramite la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md).
+Il messaggio di posta elettronica di verifica predefinito include la personalizzazione "Microsoft", che verrà rimossa in futuro. Per il momento è possibile rimuoverla tramite la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md).
 
 ## Restrizioni relative alle applicazioni
 
-I tipi di applicazioni seguenti non sono attualmente supportati in Azure AD B2C. Per una descrizione dei tipi di applicazioni supportati, vedere [Azure AD B2C: tipi di applicazioni](active-directory-b2c-apps.md).
+I tipi di applicazioni seguenti non sono attualmente supportati in Azure AD B2C. Per una descrizione dei tipi di applicazioni supportati, vedere [Azure Active Directory B2C: tipi di applicazioni](active-directory-b2c-apps.md).
 
 ### Applicazioni a pagina singola (JavaScript)
 
@@ -60,7 +62,7 @@ Il set di librerie supportate da Microsoft che funzionano con Azure AD B2C è mo
 
 Al momento non è disponibile il supporto di librerie per altri linguaggi o piattaforme, tra cui iOS e Android. Se per la compilazione si vuole usare una piattaforma diversa da quelle indicate sopra, è consigliabile usare un SDK open source. Se necessario, vedere l'articolo di [riferimento ai protocolli OAuth 2.0 e OpenID Connect](active-directory-b2c-reference-protocols.md). Azure AD B2C implementa OAuth e OpenID Connect, che rende possibile l'uso di una libreria OAuth oppure OpenID Connect generica per l'integrazione.
 
-Le esercitazioni di avvio rapido per iOS e Android usano librerie open source testate per la compatibilità con Azure AD B2C. Tutte le esercitazioni di avvio rapido sono disponibili nella sezione [Introduzione](active-directory-b2c-overview.md#getting-started).
+Le esercitazioni di avvio rapido per iOS e Android usano librerie open source testate per la compatibilità con Azure AD B2C. Tutte le esercitazioni introduttive sono disponibili nella sezione [Introduzione](active-directory-b2c-overview.md#getting-started).
 
 ## Restrizioni relative ai protocolli
 
@@ -80,7 +82,7 @@ La [funzionalità di query differenziale nell'API Graph di Azure AD ](https://ms
 
 ## Problemi relativi alla gestione degli utenti nel portale di Azure classico
 
-Le funzionalità B2C sono accessibili nel portale di Azure, ma è possibile usare il portale di Azure classico per accedere ad altre funzionalità del tenant, compresa la gestione degli utenti. Esistono attualmente alcuni problemi noti relativi alla gestione degli utenti, nella scheda **Utenti**, nel portale di Azure classico:
+Le funzionalità B2C sono accessibili nel portale di Azure, ma è possibile usare il portale di Azure classico per accedere ad altre funzionalità del tenant, compresa la gestione degli utenti. Esistono attualmente alcuni problemi noti relativi alla gestione degli utenti nella scheda **Utenti** del portale di Azure classico:
 
 - Per un utente con un account locale, ad esempio un utente che esegue l'iscrizione con indirizzo di posta elettronica e password o con nome utente e password, il campo **Nome utente** non corrisponde all'identificatore di accesso (indirizzo di posta elettronica o nome utente) usato durante l'iscrizione. Questo avviene perché il campo visualizzato nel portale di Azure classico è il nome dell'entità utente, che non viene usato in scenari B2C. Per visualizzare l'identificatore di accesso dell'account locale, individuare l'oggetto utente in [Esplora Graph](https://graphexplorer.cloudapp.net/). Si noterà lo stesso problema con un account utente di social networking (ad esempio, un utente iscritto con Facebook, Google+ e così via), ma in tal caso non esiste un effettivo identificatore di accesso.
 
@@ -105,6 +107,6 @@ Non è attualmente possibile verificare correttamente un dominio nel [portale di
 Le richieste ai criteri di accesso, con autenticazione MFA attivata, hanno esito negativo a intermittenza nei browser Safari con errori HTTP 400 (richiesta non valida). Il problema è dovuto al fatto che in Safari i limiti per le dimensioni dei cookie sono bassi e può essere risolto in due modi:
 
 - Usare un criterio di "iscrizione o accesso" anziché un criterio di "accesso".
-- Ridurre il numero di **Attestazioni dell'applicazione** richieste nei criteri.
+- Ridurre il numero di **attestazioni dell'applicazione** richieste nei criteri.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

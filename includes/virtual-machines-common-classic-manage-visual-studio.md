@@ -122,7 +122,7 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 
 1. Se è già stato eseguito Sysprep in questa macchina virtuale, selezionare la casella **Sysprep eseguito sulla macchina virtuale**.
 
-    Sysprep è uno strumento che, tra le altre cose, rimuove i dati specifici del sistema dalla versione della macchina virtuale di Windows, rendendola un modello utilizzabile dagli altri utenti. Per altre informazioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    Sysprep è uno strumento che, tra le altre cose, rimuove i dati specifici del sistema dalla versione della macchina virtuale di Windows, rendendola un modello utilizzabile dagli altri utenti. Per altre informazioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/). Eseguire il backup della VM prima di eseguire Sysprep.
 
 1. Dopo aver terminato di configurare le impostazioni di acquisizione, scegliere **Acquisisci** per creare il checkpoint.
 
@@ -158,4 +158,4 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 
 Per ulteriori informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="08/30/2016"   
 	ms.author="juliako"/>
 
 
 #Codifica avanzata con Media Encoder Standard
 
-##Panoramica
+##Overview
 
 Questo argomento illustra come eseguire le attività di codifica avanzata con Media Encoder Standard. L'argomento illustra [come usare .NET per creare un'attività di codifica e un processo che la esegue](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). Illustra anche come specificare set di impostazioni personalizzati per l'attività di codifica. Per una descrizione degli elementi usati dai set di impostazioni, vedere [questo documento](https://msdn.microsoft.com/library/mt269962.aspx).
 
@@ -33,7 +33,7 @@ Vengono dimostrati i set di impostazioni personalizzati che eseguono le attivit�
 - [Impostazioni predefinite solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concatenare due o più file video](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 - [Ritagliare video con Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#crop)
-
+- [Inserire una traccia video quando l'input non ha video](media-services-custom-mes-presets-with-dotnet.md#no_video)
 
 ##<a id="encoding_with_dotnet"></a>Codifica con Media Services .NET SDK
 
@@ -47,7 +47,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 	    string configuration = File.ReadAllText(fileName);  
 - Aggiungere un'attività di codifica al processo.
 - Specificare l’asset di input da codificare.
-- Creare un asset di output che conterrà l'asset codificato.
+- Creare un asset di output che contenga l'asset codificato.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 - Inviare il processo.
 	
@@ -256,7 +256,7 @@ Quando si generano anteprime, non è sempre necessario specificare la larghezza 
 
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile usare uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e aggiungere il codice che genera le anteprime.
 
->[AZURE.NOTE]L'impostazione **SceneChangeDetection** nel set di impostazioni seguente può essere impostata su true solo se si esegue la codifica in un video a bitrate singolo. In caso di codifica in video a bitrate multipli e impostazione di **SceneChangeDetection** su true, il codificatore restituirà un errore.
+>[AZURE.NOTE]L'impostazione **SceneChangeDetection** nel set di impostazioni seguente può essere impostata su true solo se si esegue la codifica in un video a bitrate singolo. In caso di codifica in video a bitrate multipli e impostazione di **SceneChangeDetection** su true, il codificatore restituisce un errore.
 
 
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
@@ -448,21 +448,21 @@ Si applicano le considerazioni seguenti:
 - Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
 
 	- Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
-	- Relativi alla durata di origine se espressi con il suffisso %, ad esempio. "Start": "15%", OPPURE
-	- Timestamp se espressi nel formato HH:MM:SS. ed esempio "Start" : "00:01:00"
+	- Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
+	- Timestamp se espressi nel formato HH:MM:SS, ad esempio "Start" : "00:01:00"
 
 	È possibile combinare e associare le notazioni a piacimento.
 	
 	Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
 	
 	- Impostazioni predefinite: Start: {Best}
-- Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collegherà JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
+- Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
-##<a id="trim_video"></a>Taglio di un video (ritaglio)
+##<a id="trim_video"></a>Tagliare un video (ritaglio)
 
 Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per tagliare o ritagliare un asset acquisito o archiviato da un flusso in diretta. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Per tagliare i video è possibile usare uno dei set di impostazioni MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. Si noti che **Sources** deve essere posizionato all'inizio del set di impostazioni.
+Per tagliare i video è possibile usare uno dei set di impostazioni MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato all'inizio del set di impostazioni.
  
 ###<a id="json"></a>Set di impostazioni JSON
 	
@@ -916,7 +916,7 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 	</Sources>
 
 
-##<a id="audio_only"></a>Set di impostazioni solo audio
+##<a id="audio_only"></a>Impostazioni predefinite solo audio
 
 In questa sezione vengono illustrate due impostazioni predefinite MES solo audio: Audio AAC e Audio AAC di buona qualità.
 
@@ -968,7 +968,7 @@ In questa sezione vengono illustrate due impostazioni predefinite MES solo audio
 
 ##<a id="concatenate"></a>Concatenare due o più file video
 
-Nell'esempio seguente viene illustrato come generare un set di impostazioni per concatenare due o più file video. Lo scenario più comune è l'aggiunta di un'intestazione o una sequenza finale al video principale. L'uso previsto sono i file video modificati insieme che condividono le stesse proprietà: risoluzione video, frequenza dei fotogrammi, conteggio tracce audio e così via. Prestare attenzione a non combinare video con frequenze dei fotogrammi diverse o con un numero diverso di tracce audio.
+Nell'esempio seguente viene illustrato come generare un set di impostazioni per concatenare due o più file video. Lo scenario più comune è l'aggiunta di un'intestazione o una sequenza finale al video principale. L'uso previsto sono i file video modificati insieme che condividono proprietà: risoluzione video, frequenza dei fotogrammi, conteggio tracce audio e così via. Prestare attenzione a non combinare video con frequenze dei fotogrammi diverse o con un numero diverso di tracce audio.
 
 ###Problemi e considerazioni
 
@@ -1079,7 +1079,59 @@ Aggiornare il set di impostazioni personalizzate con gli ID degli asset che si v
 
 Vedere l'argomento [Ritagliare video con Media Encoder Standard](media-services-crop-video.md).
 
-##Percorsi di apprendimento di Media Services
+##<a id="no_video"></a>Inserire una traccia video quando l'input non ha video
+
+Per impostazione predefinita, se si invia al codificatore un input che contiene solo audio e nessun video, l'asset di output contiene file di soli dati audio. Alcuni lettori, tra cui Azure Media Player (vedere [qui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) potrebbero non essere in grado di gestire tali flussi. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia video monocromatica all'output da parte del codificatore.
+
+>[AZURE.NOTE]Forzando il codificatore a inserire una traccia video di output si accresce la dimensione dell'asset di output e perciò il costo sostenuto per l'attività di codifica. È necessario eseguire test per verificare che questo incremento abbia un impatto modesto sugli addebiti mensili.
+
+### Inserimento di video alla sola velocità in bit più bassa
+
+Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio ["H264 bitrate multipli 720p"](https://msdn.microsoft.com/library/mt269960.aspx) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica solo alla velocità in bit più bassa, anziché inserire il video a tutte le velocità in bit. A tale scopo è necessario specificare il flag "InsertBlackIfNoVideoBottomLayerOnly".
+
+È possibile usare uno dei set di impostazioni MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
+
+#### Set di impostazioni JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideoBottomLayerOnly",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Set di impostazioni XML
+
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+### Inserimento di video a tutte le velocità in bit di output
+
+Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio ["H264 bitrate multipli 720p"](https://msdn.microsoft.com/library/mt269960.aspx) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica a tutte le velocità in bit di output. In questo modo gli asset di output saranno tutti omogenei rispetto al numero di tracce video e tracce audio. A tale scopo è necessario specificare il flag "InsertBlackIfNoVideo".
+
+È possibile usare uno dei set di impostazioni MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e apportare la modifica seguente:
+
+#### Set di impostazioni JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideo",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Set di impostazioni XML
+	
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideo</Condition>
+
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -1091,4 +1143,4 @@ Vedere l'argomento [Ritagliare video con Media Encoder Standard](media-services-
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

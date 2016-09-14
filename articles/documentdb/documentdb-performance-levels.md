@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Livelli di prestazioni in DocumentDB | Microsoft Azure" 
-	description="Informazioni sul modo in cui i livelli di prestazioni in DocumentDB consentono di riservare la velocità effettiva in base a ogni raccolta." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Livelli di prestazioni in DocumentDB | Microsoft Azure"
+	description="Informazioni sul modo in cui i livelli di prestazioni in DocumentDB consentono di riservare la velocità effettiva in base a ogni raccolta."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # Livelli di prestazioni in DocumentDB
@@ -109,13 +109,13 @@ Per altre informazioni sulle modifiche ai prezzi della velocità effettiva defin
 
       ![Screenshot del nuovo pannello Database con una raccolta S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
-4. Nel pannello **Raccolte** fare clic su **Impostazioni** nella barra superiore.
+4. Nel pannello **Raccolte** fare clic su **Altro**, quindi su **Impostazioni** nella barra superiore.
 5. Nel pannello **Impostazioni** fare clic su **Piano tariffario**. La stima dei costi mensili per ogni piano viene visualizzata nel pannello **Scegliere il piano tariffario**. Per passare alla velocità effettiva definita dall'utente, fare clic su **Standard** e quindi fare clic su **Seleziona** per salvare la modifica.
 
       ![Screenshot dei pannelli Impostazioni e Scegliere il piano tariffario di DocumentDB](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
 6. Nel pannello **Impostazioni** il **Piano tariffario** passa a **Standard** e la casella **Velocità effettiva (UR/sec)** riporta un valore predefinito di 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](documentdb-request-units.md) al secondo (UR/sec). **Riepilogo dei prezzi** nella parte inferiore della pagina si aggiorna automaticamente per fornire una stima del costo mensile. Fare clic su **OK** per salvare le modifiche.
-    
+
 	![Screenshot del pannello Impostazioni che mostra dove modificare il valore della velocità effettiva](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
 7. Nel pannello **Database** è possibile verificare la nuova velocità effettiva della raccolta.
@@ -137,17 +137,17 @@ Di seguito è riportato un frammento di codice per la modifica della velocità e
 		              .Where(r => r.ResourceLink == collection.SelfLink)    
 		              .AsEnumerable()
 		              .SingleOrDefault();
-	                          
+
 	// Set the throughput to 5000 request units per second
 	offer = new OfferV2(offer, 5000);
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
 	// Set the throughput to S2
 	offer = new Offer(offer);
 	offer.OfferType = "S2";
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
@@ -172,14 +172,14 @@ Se si usano già prestazioni definite dall'utente, è possibile modificare la ve
 4. Nel pannello **Raccolte** fare clic su **Impostazioni** nella barra superiore.
 5. Nel pannello **Impostazioni** aumentare il valore nella casella **Velocità effettiva (UR/sec)** e quindi fare clic su **OK** per salvare la modifica. **Riepilogo dei prezzi** nella parte inferiore del pannello di aggiorna per visualizzare il nuovo costo stimato mensile questa tale raccolta in una singola area.
 
-    ![Schermata del pannello Impostazioni con la casella Velocità effettiva e Riepilogo dei prezzi](./media/documentdb-performance-levels/documentdb-change-throughput.png)
- 
+    ![Schermata del pannello Impostazioni con la casella Velocità effettiva e Riepilogo dei prezzi](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
+
 Se non si conosce il valore per aumentare la velocità effettiva, vedere [Stima delle esigenze di velocità effettiva](documentdb-request-units.md#estimating-throughput-needs) e [Calcolatore di unità di richiesta](https://www.documentdb.com/capacityplanner).
 
 ## Passaggi successivi
 
 Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB, esplorare queste risorse:
- 
+
 - [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Gestire la capacità e le prestazioni di DocumentDB](documentdb-manage.md)
 - [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md)
@@ -193,4 +193,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

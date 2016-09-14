@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.topic="article"
     ms.devlang="na"
-	ms.date="07/24/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: creare un tenant di Azure AD B2C
 
 Per iniziare a usare Microsoft Azure Active Directory (Azure AD) B2C, seguire i tre passaggi descritti in questo articolo.
 
-## Passaggio 1: Iscriversi per ottenere una sottoscrizione ad Azure
+## Passaggio 1: Iscriversi per ottenere una sottoscrizione di Azure
 
-Se si dispone già di una sottoscrizione ad Azure ignorare questo passaggio. In caso contrario, iscriversi per ottenere una [sottoscrizione di Azure](../active-directory/sign-up-organization.md) e accedere ad Azure AD B2C.
+Se si ha già una sottoscrizione di Azure ignorare questo passaggio. In caso contrario, iscriversi per ottenere una [sottoscrizione di Azure](../active-directory/sign-up-organization.md) e accedere ad Azure AD B2C.
 
 ## Passaggio 2: Creare un Tenant AD B2C di Azure
 
@@ -42,7 +42,7 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
 6. Il tenant è stato creato e verrà visualizzato nell'estensione Active Directory. Si ha anche il ruolo di amministratore generale del tenant. È possibile aggiungere altri amministratori generali in base alle esigenze.
 
     > [AZURE.IMPORTANT]
-	Se si prevede di usare un tenant B2C per un'app di produzione, vedere l'articolo sui [tenant B2C a livello di produzione e di anteprima](active-directory-b2c-reference-tenant-type.md).
+	Se si prevede di usare un tenant B2C per un'app di produzione, vedere l'articolo sui [tenant B2C a livello di produzione e di anteprima](active-directory-b2c-reference-tenant-type.md). Si noti che si verificano problemi noti quando si elimina un tenant B2C esistente e lo si crea nuovamente con lo stesso nome di dominio. È necessario creare un tenant B2C con un nome di dominio diverso.
 
 ## Passaggio 3: Passare al pannello delle funzionalità B2C nel portale di Azure
 
@@ -79,4 +79,4 @@ Per migliorare l'individuazione, nel portale di Azure è stato aggiunto un colle
 
 Per informazioni su come registrare un'applicazione in Azure AD B2C e creare un'applicazione di avvio rapido, vedere [Azure Active Directory B2C: registrare l'applicazione](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

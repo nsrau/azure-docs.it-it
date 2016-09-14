@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Visualizzare, modificare, creare e caricare documenti JSON con Esplora documenti di DocumentDB
@@ -25,17 +25,13 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
 
 ## Avviare Esplora documenti
 
-1. Nell'indice del portale di Azure fare clic su **Account DocumentDB**. Se **Account DocumentDB** non è visibile, fare clic su **Sfoglia** e quindi su **Account DocumentDB**.
+1. Nell'indice del portale di Azure fare clic su **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**.
 
-2. Nella parte superiore del pannello **Account DocumentDB** fare clic su **Esplora documenti**.
+2. Nel menu delle risorse fare clic su **Esplora documenti**.
  
 	![Schermata del comando Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorercommand.png)
 
- 	>[AZURE.NOTE] Esplora query viene visualizzato anche nei pannelli di database e raccolte.
-
     Nel pannello **Esplora documenti** gli elenchi a discesa **Database** e **Raccolte** vengono precompilati a seconda del contesto in cui viene avviato Esplora documenti.
-
-	![Screenshot del pannello Esplora documenti](./media/documentdb-view-json-document-explorer/documentexplorerinitial.png)
 
 ## Creare un documento
 
@@ -150,9 +146,17 @@ Esplora documenti supporta l'inserimento in blocco di uno o più documenti JSON 
 
 ## Usare documenti JSON all'esterno del portale
 
-Esplora documenti nel portale di Azure è soltanto uno dei modi in cui è possibile usare i documenti in DocumentDB. Per lavorare con i documenti è anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per un codice di esempio, vedere gli [esempi di documento .NET SDK](documentdb-dotnet-samples.md#document-examples) e gli [esempi di documento Node.js SDK](documentdb-nodejs-samples.md#document-examples).
+Esplora documenti nel portale di Azure è soltanto uno dei modi in cui è possibile usare i documenti in DocumentDB. Per lavorare con i documenti è anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per un codice di esempio, vedere gli [esempi di documento per .NET SDK](documentdb-dotnet-samples.md#document-examples) e gli [esempi di documento per Node.js SDK](documentdb-nodejs-samples.md#document-examples).
 
-Per eseguire la migrazione o importare file da un'altra origine, ad esempio file JSON, MongoDB, SQL Server, file CSV, archivio tabelle di Azure, Amazon DynamoDB o HBase, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati in DocumentDB.
+Per eseguire la migrazione o importare file da un'altra origine, ad esempio file JSON, MongoDB, SQL Server, file CSV, archiviazione tabelle di Azure, Amazon DynamoDB o HBase, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati in DocumentDB.
+
+## Risoluzione dei problemi
+
+**Sintomo**: Esplora documenti restituisce **Non sono stati trovati documenti**.
+
+**Soluzione**: assicurarsi di avere selezionato la sottoscrizione, il database e la raccolta corretti in cui sono stati inseriti i documenti. Verificare anche che si stia usando una quota di velocità effettiva all'interno dei limiti consentiti. Se si usa il livello massimo di velocità effettiva e si riceve una limitazione, ridurre l'uso delle applicazioni a funzionare con la quota massima di velocità effettiva per la raccolta.
+
+**Spiegazione**: il portale è un'applicazione come qualsiasi altra, che esegue chiamate alla raccolta e al database di DocumentDB. Se le richieste sono attualmente limitate a causa di chiamate effettuate da un'applicazione separata, anche il portale può essere limitato, causando la mancata visualizzazione delle risorse nel portale. Per risolvere il problema, correggere la causa dell'uso di velocità effettiva elevata e quindi aggiornare il pannello del portale. Informazioni su come misurare e ridurre l'uso della velocità effettiva sono reperibili nella sezione [Velocità effettiva](documentdb-performance-tips.md#throughput) dell'articolo [Suggerimenti per incrementare le prestazioni](documentdb-performance-tips.md).
 
 ## Passaggi successivi
 
@@ -160,4 +164,4 @@ Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora 
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

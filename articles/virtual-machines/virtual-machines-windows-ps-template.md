@@ -23,7 +23,7 @@ Questo articolo presenta un modello di Azure Resource Manager e illustra come us
 
 L'esecuzione della procedura illustrata in questo articolo richiede circa 20 minuti.
 
-> [AZURE.IMPORTANT] Se si desidera che la VM faccia parte di un set di disponibilità, è necessario aggiungerla in fase di creazione. Attualmente non è possibile aggiungerla dopo la sua creazione.
+> [AZURE.IMPORTANT] Se si desidera che la VM faccia parte di un set di disponibilità, è necessario aggiungerla in fase di creazione. Attualmente non è possibile aggiungere una VM a un set di disponibilità dopo la sua creazione.
 
 ## Passaggio 1: Creare il file del modello
 
@@ -216,11 +216,13 @@ Per specificare i valori per i parametri delle risorse definiti nel modello, cre
           }
         }
 
+    >[AZURE.NOTE] Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 2. Salvare il file dei parametri.
 
 ## Passaggio 3: Installare Azure PowerShell
 
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione che si vuole usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione da usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Passaggio 4: Creare un gruppo di risorse
 
@@ -281,7 +283,7 @@ Tutte le risorse devono essere distribuite in un gruppo di risorse. Per altre in
 
 ## Passaggi successivi
 
-- Se si sono verificati problemi con la distribuzione, è consigliabile leggere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Se si sono verificati problemi con la distribuzione, è consigliabile leggere l'articolo [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

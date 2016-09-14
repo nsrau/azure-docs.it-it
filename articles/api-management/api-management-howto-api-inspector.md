@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+	ms.date="08/24/2016" 
+	ms.author="sdanie"/>
 
 # Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure
 
@@ -24,7 +24,7 @@ Oltre alle operazioni di analisi, Controllo API consente anche di tenere traccia
 
 Questa guida contiene una procedura dettagliata sull'uso di Controllo API.
 
->[AZURE.NOTE] Le tracce di Controllo API sono generate e rese disponibili solo per le richieste contenenti chiavi di sottoscrizione che appartengono all’account [amministratore](api-management-howto-create-groups.md).
+>[AZURE.NOTE] Le tracce di Controllo API sono generate e rese disponibili solo per le richieste contenenti chiavi di sottoscrizione che appartengono all'account [amministratore](api-management-howto-create-groups.md).
 
 ## <a name="trace-call"> </a> Usare Controllo API per tenere traccia di una chiamata
 
@@ -48,7 +48,7 @@ Fare clic su **Try it** per provare a eseguire l'operazione **Add two integers**
 
 ![Prova][api-management-open-console]
 
-Mantenere i valori predefiniti dei parametri e selezionare la chiave di sottoscrizione per il prodotto che si desidera usare nell'elenco a discesa **subscription-key**.
+Mantenere i valori predefiniti dei parametri e selezionare la chiave di sottoscrizione per il prodotto da usare nell'elenco a discesa **subscription-key**.
 
 Per impostazione predefinita, nel portale per sviluppatori l'intestazione **Ocp-Apim-Trace** è già impostata su **true**. Questa intestazione indica se viene o meno generata una traccia.
 
@@ -229,7 +229,6 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
--	Vedere gli altri argomenti nell'esercitazione [Introduzione alla configurazione API avanzata][].
 -	Per una demo sulla traccia delle espressioni di criteri, vedere il video [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avanzare rapidamente al minuto 21:00 per vedere la demo.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
@@ -244,7 +243,6 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
 [Introduzione a Gestione API di Azure]: api-management-get-started.md
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
-[Introduzione alla configurazione API avanzata]: api-management-get-started-advanced.md
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
 
@@ -261,4 +259,4 @@ Per rivedere i valori nella traccia, scaricare il file di traccia dell'URL **ocp
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

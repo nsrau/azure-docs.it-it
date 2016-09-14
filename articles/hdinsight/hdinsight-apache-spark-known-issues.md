@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Problemi noti del cluster Apache Spark in HDInsight Linux
@@ -29,8 +29,8 @@ Quando Livy viene riavviato con una sessione interattiva (da Ambari oppure a cau
 
 Seguire questa procedura per risolvere il problema:
 
-1. Eseguire SSH nel nodo head. 
-2. Eseguire il comando seguente per trovare gli ID applicazione dei processi interattivi avviati tramite Livy. 
+1. Eseguire SSH nel nodo head.
+2. Eseguire il comando seguente per trovare gli ID applicazione dei processi interattivi avviati tramite Livy.
 
         yarn application –list
 
@@ -56,10 +56,10 @@ Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io
 
 **Soluzione:**
  
-1. Aggiungere hdiuser al gruppo Hadoop. 
-2. Indicare 777 autorizzazioni in /var/log/spark dopo la creazione del cluster. 
-3. Aggiornare il percorso del log Spark tramite Ambari in modo che corrisponda a una directory con 777 autorizzazioni.  
-4. Eseguire spark-submit come sudo.  
+1. Aggiungere hdiuser al gruppo Hadoop.
+2. Indicare 777 autorizzazioni in /var/log/spark dopo la creazione del cluster.
+3. Aggiornare il percorso del log Spark tramite Ambari in modo che corrisponda a una directory con 777 autorizzazioni.
+4. Eseguire spark-submit come sudo.
 
 ## Problemi relativi ai notebook Jupyter
 
@@ -130,7 +130,7 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Utilizzare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -138,7 +138,7 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
@@ -146,4 +146,4 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,22 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Scrivere, modificare ed eseguire query SQL per DocumentDB con Esplora query 
 
 Questo articolo offre una panoramica di Esplora query per [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di scrivere, modificare ed eseguire query SQL in una [raccolta DocumentDB](documentdb-create-collection.md).
 
-1. Nell'indice del portale di Azure fare clic su **Account DocumentDB**. Se **Account DocumentDB** non è visibile, fare clic su **Sfoglia** e quindi su **Account DocumentDB**.
+1. Nell'indice del portale di Azure fare clic su **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**.
 
-2. Nella parte superiore del pannello **Account DocumentDB** fare clic su **Esplora query**.
+2. Nel menu delle risorse fare clic su **Esplora query**.
 
 	![Screenshot del portale di Azure con Esplora query evidenziato](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-    >[AZURE.NOTE] Esplora query viene visualizzato anche nei pannelli di database e raccolte.
-
-3. Nel pannello **Esplora query** selezionare il **database** e le **raccolte** in cui eseguire la query dai rispettivi elenchi a discesa e immettere la query da eseguire.
+3. Nel pannello **Esplora query** selezionare **Database** e **Raccolte** in cui eseguire la query dai rispettivi elenchi a discesa e digitare la query da eseguire.
 
     Gli elenchi a discesa **Database** e **Raccolte** vengono precompilati a seconda del contesto in cui viene avviato Esplora query.
 
@@ -73,10 +71,10 @@ Se una query viene completata con errori, Esplora query visualizza un elenco di 
 
 ## Eseguire query SQL di DocumentDB all'esterno del portale
 
-Esplora query nel portale di Azure è solo uno dei modi in cui è possibile eseguire query SQL in DocumentDB. Per eseguire query SQL è anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per altre informazioni sull'uso degli altri metodi, vedere [Esecuzione di query SQL](documentdb-sql-query.md#executing-sql-queries).
+Esplora query nel portale di Azure è solo uno dei modi in cui è possibile eseguire query SQL in DocumentDB. Per eseguire query SQL è anche possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per altre informazioni sull'uso degli altri metodi, vedere [Esecuzione di query SQL](documentdb-sql-query.md#executing-sql-queries)
 
 ## Passaggi successivi
 
 Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora query, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [foglio informativo sulle query SQL](documentdb-sql-query-cheat-sheet.md). La pagina [Query Playground](https://www.documentdb.com/sql/demo) permette di testare le query online usando un set di dati di esempio.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

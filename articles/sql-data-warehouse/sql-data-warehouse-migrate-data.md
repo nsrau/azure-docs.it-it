@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Eseguire la migrazione dei dati
 È possibile spostare dati da differenti origini a SQL Data Warehouse con diversi strumenti, ad esempio usando ADF Copy, SSIS e bcp. Tuttavia, con l'aumento della quantità di dati, prendere in considerazione la possibilità di suddividere il processo di migrazione in passaggi. Ciò consente di ottimizzare ogni passaggio sia per le prestazioni che per la resilienza in modo da garantire una migrazione uniforme dei dati.
 
-Questo articolo descrive in primo luogo gli scenari di migrazione semplici di ADF Copy, SSIS e bcp, per poi analizzare come ottimizzare la migrazione.
+Questo articolo descrive in primo luogo i semplici scenari di migrazione di ADF Copy, SSIS e bcp, per poi analizzare come ottimizzare la migrazione.
 
 ## ADF Copy
-[ADF Copy][] fa parte di [Azure Data Factory][]. È possibile usare ADF Copy per esportare i dati in file flat che si trovano in un'archiviazione locale, in file flat remoti contenuti nell'archiviazione BLOB di Azure o direttamente in SQL Data Warehouse.
+[ADF Copy][] fa parte di [Data factory di Azure][]. È possibile usare ADF Copy per esportare i dati in file flat che si trovano in un'archiviazione locale, in file flat remoti contenuti nell'archiviazione BLOB di Azure o direttamente in SQL Data Warehouse.
 
-Se i dati sono contenuti in file flat, è necessario trasferirli nei BLOB di archiviazione di Azure prima di avviare un caricamento in SQL Data Warehouse. Dopo il trasferimento dei dati nell'archiviazione BLOB di Azure, è possibile scegliere di usare [ADF Copy][] di nuovo per effettuare il push dei dati in SQL Data Warehouse.
+Se i dati sono contenuti in file flat, è necessario trasferirli nel BLOB di archiviazione di Azure prima di avviare un caricamento in SQL Data Warehouse. Dopo il trasferimento dei dati nell'archiviazione BLOB di Azure, è possibile scegliere di usare [ADF Copy][] di nuovo per effettuare il push dei dati in SQL Data Warehouse.
 
-Anche PolyBase rappresenta un'opzione a prestazioni molto elevate per il caricamento dei dati. Questo non significa però che debbano essere usati due strumenti anziché uno. Se si vuole ottenere prestazioni ottimali, usare PolyBase. Se invece si vuole usare un unico strumento (e il volume di dati non è elevato), ADF è la soluzione ideale.
+Anche PolyBase rappresenta un'opzione a prestazioni elevate per il caricamento dei dati. Questo non significa però che debbano essere usati due strumenti anziché uno. Se si vuole ottenere prestazioni ottimali, usare PolyBase. Se invece si vuole usare un unico strumento (e il volume di dati non è elevato), ADF è la soluzione ideale.
 
 > [AZURE.NOTE] PolyBase richiede file di dati in formato UTF-8. Questa è la codifica predefinita di ADF Copy, pertanto non è necessario apportare modifiche. Questo è solo un promemoria che indica di non modificare il comportamento predefinito di ADF Copy.
 
@@ -118,7 +118,7 @@ I vantaggi derivanti dall'uso di [ExpressRoute][] sono i seguenti:
 Per altre informazioni e dati relativi ai prezzi, vedere la [documentazione relativa a ExpressRoute][].
 
 ### Servizio Importazione/Esportazione di Azure
-Il servizio Importazione/Esportazione di Azure è un processo di trasferimento dati progettato per trasferimenti di un numero elevato (GB++) o ingente (TB++) di dati in Azure. Comporta la scrittura dei dati su dischi e l'invio in un data center di Azure. Il contenuto dei dischi verrà quindi caricato nei BLOB di Archiviazione di Azure per conto dell'utente.
+Il servizio Importazione/Esportazione di Azure è un processo di trasferimento dati progettato per trasferimenti di un numero elevato (GB++) o ingente (TB++) di dati in Azure. Comporta la scrittura dei dati su dischi e l'invio in un data center di Azure. Il contenuto dei dischi verrà quindi caricato nei BLOB di archiviazione di Azure per conto dell'utente.
 
 Segue una panoramica del processo di importazione/esportazione:
 
@@ -173,6 +173,7 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
+[ADF Copy]: ../data-factory/data-factory-data-movement-activities.md
 [esempi di ADF]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
 [panoramica dello sviluppo]: sql-data-warehouse-overview-develop.md
@@ -185,7 +186,7 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
+[Data factory di Azure]: http://azure.microsoft.com/services/data-factory/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [documentazione relativa a ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
@@ -194,4 +195,4 @@ Per altre informazioni sulla migrazione, vedere l'articolo relativo alla [migraz
 [adattatore di destinazione ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentazione relativa a SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

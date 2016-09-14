@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # Monitorare la disponibilità e la velocità di risposta dei siti Web
 
-Dopo aver distribuito l'applicazione Web in qualsiasi host, è possibile configurare test Web per monitorarne la disponibilità e la velocità di risposta. [Visual Studio Application Insights](app-insights-overview.md) invia richieste Web a intervalli regolari da diversi punti in tutto il mondo e può inviare avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
+Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare test Web per monitorarne la disponibilità e la velocità di risposta. [Visual Studio Application Insights](app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
 
 ![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ Dopo aver distribuito l'applicazione Web in qualsiasi host, è possibile configu
 
 Sono disponibili due tipi di test Web:
 
-* [Test di ping URL](#set-up-a-url-ping-test): un semplice test che può essere creato nel portale di Azure.
+* [Test di ping URL](#create): un semplice test che può essere creato nel portale di Azure.
 * [Test Web in più passaggi](#multi-step-web-tests): viene creato in Visual Studio Ultimate o Visual Studio Enterprise e caricato nel portale.
 
 È possibile creare fino a 10 test Web per ogni risorsa dell'applicazione.
 
+## <a name="create"></a>1. Creare una risorsa per i report di test
 
-## Configurare un test di ping URL
-
-### <a name="create"></a>1. Creare una nuova risorsa
-
-Ignorare questo passaggio se è già stata [configurata una risorsa di Application Insights][start] per questa applicazione e si vuole visualizzare i dati sulla disponibilità nella stessa posizione.
+Ignorare questo passaggio se è già stata [configurata una risorsa di Application Insights][start] per questa applicazione e si vuole visualizzare i report di disponibilità nella stessa posizione.
 
 Accedere a [Microsoft Azure](http://azure.com), passare al [portale di Azure](https://portal.azure.com) e creare una risorsa di Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Verrà aperto il pannello Panoramica per la nuova risorsa. Per trovarlo in qualsiasi momento nel [portale di Azure](https://portal.azure.com), fare clic su **Esplora**.
+Fare clic su **Tutte le risorse** per aprire il pannello Panoramica per la nuova risorsa.
 
-### <a name="setup"></a>2. Creare un test Web
+## <a name="setup"></a>2. Creare un test di ping URL
 
 Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare clic per aprire il pannello dei test Web per l'applicazione e aggiungere un test Web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - L'**URL **deve essere visibile dalla rete Internet pubblica. Può includere una stringa di query&#151;pertanto è possibile, ad esempio, esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione viene effettuata fino a un numero massimo di 10 reindirizzamenti.
-- **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina sono richiesti nell'ambito del test. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro il timeout definito per l'intero test.
+- **Analizza richieste dipendenti**: immagini, script, file di stile e altre risorse della pagina sono richiesti nell'ambito del test. Il tempo di risposta registrato include questi tempi. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro il timeout definito per l'intero test.
 - **Abilita nuovi tentativi**: quando il test ha esito negativo, viene eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. Questa è un'impostazione consigliata. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.
 - **Frequenza test**: impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.
 - **Località di test**: sono le posizioni da cui i server inviano richieste Web all'URL indicato. Sceglierne più di una, per poter distinguere i problemi del sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
@@ -68,14 +65,14 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 
     È possibile configurare un [webhook](../azure-portal/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso. Si noti però che attualmente i parametri di query non vengono passati come proprietà.
 
-#### Testare più URL
+### Testare più URL
 
 Aggiungere altri test. Ad esempio, oltre a testare la home page, è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
 
 
-### <a name="monitor"></a>3. Visualizzare i report di disponibilità
+## <a name="monitor"></a>3. Visualizzare i risultati del test Web
 
-Dopo 1 o 2 minuti fare clic su **Aggiorna** nel pannello dei test Web o di disponibilità (l'aggiornamento non viene eseguito automaticamente).
+I risultati verranno visualizzati dopo 1-2 minuti.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Fare clic su qualsiasi barra nel grafico di riepilogo per ottenere una visualizz
 
 Questi grafici combinano i risultati per tutti i test Web di questa applicazione.
 
-#### Componenti della pagina Web
 
-Immagini, fogli di stile, script e altri componenti statici della pagina Web sottoposta a test sono richiesti nell'ambito del test.
-
-Il tempo di risposta registrato è il tempo impiegato per il caricamento completo di tutti i componenti.
-
-In caso di errore di caricamento dei componenti, il test viene contrassegnato come non riuscito.
-
-## <a name="failures"></a>In caso di errori...
+## <a name="failures"></a>In caso di errori
 
 Fare clic su un punto rosso.
 
@@ -333,4 +323,4 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

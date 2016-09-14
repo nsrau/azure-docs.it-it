@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
+   ms.date="08/29/2016"
    ms.author="rasquill"/>
 
 # Distribuire framework applicazioni comuni usando i modelli di Azure Resource Manager
@@ -23,4 +23,4 @@ I carichi di lavoro in genere richiedono molte risorse per funzionare come dovre
 
 [AZURE.INCLUDE [virtual-machines-common-app-frameworks](../../includes/virtual-machines-common-app-frameworks.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -36,7 +36,7 @@ La procedura dettagliata seguente illustra la configurazione dell'ambiente di sv
 
 1. Scaricare e decomprimere l'esempio [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) su GitHub.
 
-2. Aprire il file **PowerBI embedded.sln** in Visual Studio.
+2. Aprire il file **PowerBI embedded.sln** in Visual Studio. Potrebbe essere necessario eseguire il comando **Update-Package** nella Console di gestione pacchetti NuGET per aggiornare i pacchetti utilizzati in questa soluzione.
 
 3. Compilare la soluzione.
 
@@ -74,7 +74,7 @@ A questo punto il report di Power BI in formato PBIX è stato importato nell'**a
 L'app Web di esempio è un dashboard che esegue il rendering dei report importati nell'**area di lavoro**. Di seguito viene spiegato come configurare l'app Web di esempio.
 
 1. Nella soluzione **PowerBI Embedded** in Visual Studio fare clic con il pulsante destro del mouse sull'applicazione Web **EmbedSample** e scegliere **Imposta come progetto di avvio**.
-2. Nel file **web.config** nell'applicazione Web **EmbedSample** modificare il nome **appSettings**: **AccessKey**, **WorkspaceCollection** e il valore **WorkspaceId**.
+2. In **web.config**, nell'applicazione Web **EmbedSample** modificare il nome **appSettings**: **AccessKey**, **WorkspaceCollection** e il valore **WorkspaceId**.
 
     ```
     <appSettings>
@@ -86,7 +86,7 @@ L'app Web di esempio è un dashboard che esegue il rendering dei report importat
     ```
 3. Eseguire l'applicazione Web **EmbedSample**.
 
-Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports**. Per visualizzare il report che è stato importato, espandere il menu **Reports** e fare clic su un report. Se è stato importato il file [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), l'app Web di esempio avrà un aspetto simile al seguente:
+Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports**. Per visualizzare il report che è stato importato, espandere il menu **Reports** e fare clic su un report. Se è stato ad esempio importato l'[esempio Analyzing Sales Data PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), l'app Web sarà simile alla seguente:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -229,7 +229,7 @@ Dopo aver creato un **report**, usare un **IFrame** per incorporare il **report*
 
 ## Filtrare i report incorporati nell'applicazione
 
-È possibile filtrare un report incorporato tramite una sintassi dell'URL. A questo scopo, aggiungere un parametro della stringa di query **$filter** con un operatore **eq** all'URL iFrame src specificando il filtro. Di seguito è riportata la sintassi della query del filtro:
+È possibile filtrare un report incorporato tramite una sintassi dell'URL. A questo scopo aggiungere un parametro della stringa di query **$filter** con un operatore **eq** all'URL iFrame src specificando il filtro. Di seguito è riportata la sintassi della query del filtro:
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -245,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

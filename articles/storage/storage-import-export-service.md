@@ -40,7 +40,6 @@ Il servizio può essere usato in scenari simili ai seguenti:
 - Backup: esecuzione di backup dei dati locali da memorizzare nell'archivio BLOB di Azure.
 - Ripristino di dati: ripristino di una grande quantità di dati memorizzati nell'archivio BLOB perché vengano recapitati al percorso locale.
 
-
 ## Prerequisiti
 
 In questa sezione sono riportati i prerequisiti necessari per usare il servizio. Si consiglia di esaminarli attentamente prima di spedire le unità.
@@ -322,7 +321,7 @@ Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per p
 
 	Se è disponibile il numero di tracciabilità, selezionare il vettore di consegna dall'elenco e immettere tale numero.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
 
 6. Per immettere il numero di tracciabilità dopo la spedizione del pacco, tornare alla pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
@@ -401,9 +400,12 @@ Vedere la sezione delle domande frequenti che riporta le domande più comuni rel
 
 ## Domande frequenti ##
 
+
 **Quanto tempo sarà necessario per la copia dei dati dopo che le unità saranno giunte al data center?**
 
 Il tempo impiegato per la copia varia in base a diversi fattori, come il tipo di processo, il tipo e la dimensione dei dati da copiare, la dimensione dei dischi forniti e il carico di lavoro esistente e va da un paio di giorni a un paio di settimane. È difficile fornire una stima generale. Il servizio cerca di ottimizzare il processo copiando più unità in parallelo quando possibile. Per i processi di importazione/esportazione che richiedono una precisa tempistica invitiamo gli utenti a contattarci per avere una stima.
+
+**Quando si deve usare il servizio Importazione/Esportazione di Azure?** Se il caricamento o il download in rete richiede più di 7 giorni, è opportuno considerare l'utilizzo di Importazione/Esportazione di Microsoft Azure. Per calcolare il tempo necessario, è possibile utilizzare qualsiasi calcolatrice online oppure [scaricare](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip) quella dell'API REST di esempio per l'importazione/esportazione di Azure dal repository degli esempi di Azure, alla voce delle [calcolatrici della velocità di trasferimento dati](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html). Il valore calcolato non sarà esatto, ma solo un'indicazione approssimativa.
 
 **È possibile usare il servizio Importazione/Esportazione di Azure con un account di archiviazione di Resource Manager?**
 
@@ -501,4 +503,6 @@ Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-
 
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+- [Esempio di API REST del servizio Importazione/Esportazione di Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/03/2016"
+	ms.date="08/29/2016"
 	ms.author="marsma" />
 
 # Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch
 
-Le attività a istanze multiple permettono di eseguire un'attività di Azure Batch in più nodi di calcolo contemporaneamente per abilitare scenari high performance computing, ad esempio le applicazioni MPI (Message Passing Interface). In questo articolo si apprenderà come eseguire attività a istanze multiple usando la libreria [Batch .NET][api_net].
+Le attività a istanze multiple permettono di eseguire un'attività di Azure Batch in più nodi di calcolo contemporaneamente e di abilitare scenari high performance computing, ad esempio le applicazioni MPI (Message Passing Interface) in Batch. Questo articolo illustra come eseguire attività a istanze multiple usando la libreria [Batch .NET][api_net].
 
 ## Panoramica sulle attività a istanze multiple
 
@@ -31,7 +31,7 @@ Quando si invia a un processo un'attività con impostazioni per istanze multiple
 1. Il servizio Batch suddivide automaticamente l'attività in un'attività **primaria** e varie **sottoattività**. Pianifica quindi l'attività primaria e le sottoattività per l'esecuzione nei nodi di calcolo del pool.
 2. L'attività primaria e le sottoattività scaricano gli eventuali **file di risorse comuni** specificati nelle impostazioni per istanze multiple.
 3. Dopo aver scaricato i file di risorse comuni, l'attività primaria e le sottoattività eseguono il **comando di coordinamento** specificato nelle impostazioni per istanze multiple. Il comando di coordinamento viene usato, in genere, per avviare un servizio in background, ad esempio `smpd.exe` di [Microsoft MPI][msmpi_msdn], e consente di verificare che i nodi siano pronti per l'elaborazione di messaggi tra i nodi.
-4. Dopo l'esecuzione del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività, la **riga di comando**, anche detta "comando applicazione", dell'attività a istanze multiple viene eseguita *esclusivamente* dall'**attività primaria**. Ad esempio, in una soluzione basata su [Microsoft MPI][msmpi_msdn], qui viene eseguita l'applicazione abilitata per MPI tramite `mpiexec.exe`.
+4. Dopo l'esecuzione del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività, la *riga di comando*, anche detta "comando applicazione", dell'attività a istanze multiple viene eseguita **esclusivamente** dall'**attività primaria**. Ad esempio, in una soluzione basata su [Microsoft MPI][msmpi_msdn], qui viene eseguita l'applicazione abilitata per MPI tramite `mpiexec.exe`.
 
 > [AZURE.NOTE] Anche se distinta a livello funzionale, l'attività a istanze multiple non è un tipo di attività univoco come ad esempio [StartTask][net_starttask] o [JobPreparationTask][net_jobprep]. Si tratta semplicemente di un'attività Batch Standard, [CloudTask][net_task] in Batch .NET, per cui sono state configurate le impostazioni per istanze multiple. In questo articolo viene definita **attività a istanze multiple**.
 
@@ -53,13 +53,13 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-Le attività a istanze multiple verranno eseguite *soltanto* nei nodi all'interno di **pool creati dopo il 14 dicembre 2015**.
+Le attività a istanze multiple possono essere eseguite *soltanto* nei nodi all'interno di **pool creati dopo il 14 dicembre 2015**.
 
 > [AZURE.TIP] Quando si usano [nodi di calcolo con dimensioni A8 o A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) nel pool Batch, l'applicazione MPI può sfruttare i vantaggi legati alle prestazioni elevate e alla latenza ridotta della rete con Accesso diretto a memoria remota (RDMA) di Azure. Per l'elenco completo delle dimensioni dei nodi di calcolo disponibili per i pool di Batch, vedere [Dimensioni dei servizi cloud](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Usare StartTask per l'installazione dell'applicazione MPI
 
-Per eseguire applicazioni MPI con un'attività a istanze multiple, prima di tutto è necessario installare il software MPI nei nodi di calcolo del pool. Questo è il momento giusto per usare un oggetto [StartTask][net_starttask], che viene eseguito ogni volta che un nodo viene aggiunto a un pool o viene riavviato. Questo frammento di codice crea un oggetto StartTask che specifica il pacchetto di installazione di MS-MPI come [file di risorse][net_resourcefile] e la riga di comando che verrà eseguita dopo il download del file di risorse nel nodo.
+Per eseguire applicazioni MPI con un'attività a istanze multiple, prima di tutto è necessario installare il software MPI nei nodi di calcolo del pool. Questo è il momento giusto per usare un oggetto [StartTask][net_starttask], che viene eseguito ogni volta che un nodo viene aggiunto a un pool o viene riavviato. Questo frammento di codice crea un oggetto StartTask che specifica il pacchetto di installazione di MS-MPI come [file di risorse][net_resourcefile] e la riga di comando che viene eseguita dopo il download del file di risorse nel nodo.
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -118,9 +118,9 @@ int numberOfNodes = 10;
 myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
 ```
 
-## Comando di coordinamento e comando applicazione
+## Comando di coordinamento
 
-Il **comando di coordinamento** viene eseguita sia dall'attività primaria che dalle sottoattività. Al termine dell'esecuzione del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività, la riga di comando dell'attività a istanze multiple viene eseguita *solo* dall'attività primaria. La riga di comando viene definita **comando applicazione** per distinguerla dal comando di coordinamento.
+Il **comando di coordinamento** viene eseguita sia dall'attività primaria che dalle sottoattività.
 
 La chiamata del comando di coordinamento blocca l'esecuzione del comando applicazione da parte del servizio Batch fino a quando il comando di coordinamento non viene restituito per tutte le sottoattività. Il comando di coordinamento deve quindi avviare eventuali servizi in background necessari, verificare che siano pronti per l'uso e chiudersi. Ad esempio, questo comando di coordinamento per una soluzione con MS-MPI versione 7 avvia il servizio SMPD nel nodo e quindi viene chiuso:
 
@@ -130,19 +130,47 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 
 Si noti che l'uso di `start` in questo comando di coordinamento è necessario perché l'applicazione `smpd.exe` non viene restituita immediatamente dopo l'esecuzione. Senza l'uso del comando [start][cmd_start], questo comando di coordinamento non verrebbe restituito e bloccherebbe l'esecuzione del comando applicazione.
 
-Il **comando applicazione**, vale a dire la riga di comando specificata per l'attività a istanze multiple, viene eseguito *solo* dall'attività primaria. Per le applicazioni MS-MPI, si tratta dell'esecuzione dell'applicazione abilitata per MPI con `mpiexec.exe`. Di seguito è riportato, a titolo di esempio, il comando applicazione per una soluzione con MS-MPI versione 7:
+## Comando applicazione
+
+Al termine dell'esecuzione del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività, la riga di comando dell'attività a istanze multiple viene eseguita *solo* dall'attività primaria. La riga di comando viene definita **comando applicazione** per distinguerla dal comando di coordinamento.
+
+Per le applicazioni di MS-MPI, usare il comando applicazione per eseguire l'applicazione abilitata per MPI con `mpiexec.exe`. Di seguito è riportato, a titolo di esempio, il comando applicazione per una soluzione con MS-MPI versione 7:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
+>[AZURE.NOTE] Dato che `mpiexec.exe` in MS-MPI usa la variabile `CCP_NODES` per impostazione predefinita, come illustrato nella sezione [Variabili di ambiente](#environment-variables), questa viene esclusa dalla riga di comando del comando applicazione di esempio precedente.
+
+## Variabili di ambiente
+
+Le variabili di ambiente riportate di seguito sono disponibili nel nodo di calcolo per le applicazioni e gli script eseguiti dal comando applicazione dell'attività principale:
+
+* `CCP_NODES`
+
+  * **Disponibilità**: pool di CloudServiceConfiguration e VirtualMachineConfiguration
+  * **Formato**: `numNodes<space>nodeIP<space>numCores<space>`
+  * **Esempio**: `2 10.0.0.4 1 10.0.0.5 1`
+
+* `AZ_BATCH_NODE_LIST`
+
+  * **Disponibilità**: pool di CloudServiceConfiguration e VirtualMachineConfiguration
+  * **Formato**: `nodeIP;nodeIP`
+  * **Esempio**: `10.0.0.4;10.0.0.5`
+
+* `AZ_BATCH_HOST_LIST`
+
+  * **Disponibilità**: pool di VirtualMachineConfiguration
+  * **Formato**: `nodeIP,nodeIP`
+  * **Esempio**: `10.0.0.4,10.0.0.5`
+
 ## File di risorse
 
-Sono disponibili due set di file di risorse da prendere in considerazione per le attività a istanze multiple: **file di risorse comuni**, scaricati da *tutte le attività*, sia da quella primaria che dalle sottoattività, e **file di risorse specifici** per la stessa attività a istanze multiple, scaricati *solo dall'attività primaria*.
+Sono disponibili due set di file di risorse da prendere in considerazione per le attività a istanze multiple: **file di risorse comuni**, scaricati da *tutte* le attività, sia da quella primaria che dalle sottoattività, e **file di risorse specifici** per la stessa attività a istanze multiple, scaricati *solo dall'attività primaria*.
 
 È possibile specificare uno o più **file di risorse comuni** nelle impostazioni per istanze multiple relative a un'attività. Questi file di risorse comuni vengono scaricati da [Archiviazione di Azure](./../storage/storage-introduction.md) dall'attività primaria e da tutte le sottoattività nella directory condivisa dell'attività di ogni nodo. È possibile accedere alla directory condivisa dell'attività dalle righe del comando applicazione e del comando di coordinamento usando la variabile di ambiente `AZ_BATCH_TASK_SHARED_DIR`.
 
-I file di risorse specificati per l'attività a istanze multiple stessa vengono scaricati nella directory di lavoro dell'attività, `AZ_BATCH_TASK_WORKING_DIR`, *solo* dall'attività primaria, le sottoattività non scaricano i file di risorse specificati per l'attività a istanze multiple.
+I file di risorse specificati per l'attività a istanze multiple stessa vengono scaricati nella directory di lavoro dell'attività, `AZ_BATCH_TASK_WORKING_DIR`, *solo* dall'attività primaria. Le sottoattività non scaricano i file di risorse specificati per l'attività a istanze multiple.
 
 Il contenuto di `AZ_BATCH_TASK_SHARED_DIR` è accessibile dall'attività primaria e da tutte le sottoattività eseguite in un nodo. Un esempio di directory condivisa dell'attività è `tasks/mybatchjob/job-1/mymultiinstancetask/`. Anche l'attività primaria e le singole sottoattività hanno una directory di lavoro, accessibile unicamente dalla relativa attività con la variabile di ambiente `AZ_BATCH_TASK_WORKING_DIR`.
 
@@ -158,7 +186,7 @@ Se una delle sottoattività ha esito negativo e viene chiusa con un codice resti
 
 Quando si elimina un'attività a istanze multiple, il servizio Batch elimina anche l'attività primaria e tutte le sottoattività. Dai nodi di calcolo vengono eliminate tutte le directory delle sottoattività e i relativi file, come avviene per un'attività standard.
 
-I [TaskConstraints][net_taskconstraints] per un'attività a istanze multiple, come le proprietà [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] e [RetentionTime][net_taskconstraint_retention], vengono rispettati come per un'attività standard e si applicano all'attività primaria e a tutte le sottoattività. Tuttavia, se si modifica la proprietà [RetentionTime][net_taskconstraint_retention] dopo aver aggiunto l'attività a istanze multiple al processo, la modifica viene applicata solo all'attività primaria. Tutte le sottoattività continueranno a usare la proprietà [RetentionTime][net_taskconstraint_retention] originale.
+I [TaskConstraints][net_taskconstraints] per un'attività a istanze multiple, come le proprietà [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] e [RetentionTime][net_taskconstraint_retention], vengono rispettati come per un'attività standard e si applicano all'attività primaria e a tutte le sottoattività. Tuttavia, se si modifica la proprietà [RetentionTime][net_taskconstraint_retention] dopo aver aggiunto l'attività a istanze multiple al processo, la modifica viene applicata solo all'attività primaria. Tutte le sottoattività continuano a usare la proprietà [RetentionTime][net_taskconstraint_retention] originale.
 
 Se l'attività recente faceva parte di un'attività a istanze multiple, nell'elenco delle attività recenti di un nodo di calcolo è incluso l'ID di una sottoattività.
 
@@ -209,9 +237,9 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Passaggi successivi
 
-- Si consiglia di compilare una semplice applicazione MS-MPI da usare per il test delle attività a istanze multiple in Batch. L'articolo relativo alla [compilazione ed esecuzione di un semplice programma MS-MPI][msmpi_howto], nel blog del team Microsoft HPC & Azure Batch, contiene una procedura dettagliata per la creazione di una semplice applicazione MPI con MS-MPI.
+- Si consiglia di compilare una semplice applicazione MS-MPI da usare per il test delle attività a istanze multiple in Batch. L'articolo [How to compile and run a simple MS-MPI program][msmpi_howto] \(Come compilare ed eseguire un semplice programma MS-MPI), nel blog del team Microsoft HPC & Azure Batch, contiene una procedura dettagliata per la creazione di una semplice applicazione MPI con MS-MPI.
 
-- Per informazioni aggiornate su MS-MPI, vedere la pagina relativa a [Microsoft MPI][msmpi_msdn] in MSDN.
+- Per informazioni aggiornate su MS-MPI, vedere la pagina [Microsoft MPI][msmpi_msdn] in MSDN.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -247,4 +275,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Panoramica sulle istanze multiple"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

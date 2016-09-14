@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 #Introduzione a Linux in Azure
@@ -96,6 +96,6 @@ In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e vien
 
 In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In questo caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in dettaglio nell'esercitazione [Procedura: Come collegare un disco dati a una macchina virtuale](virtual-machines-linux-classic-attach-disk.md).
 
- - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md)
+ - **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md) e [Configurare LVM in una VM Linux in Azure](virtual-machines-linux-configure-lvm.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

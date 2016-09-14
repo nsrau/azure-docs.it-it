@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/10/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 # Panoramica del gateway applicazione
 
@@ -72,7 +72,7 @@ Il gateway applicazione di Azure monitora automaticamente l'integrità delle ist
 
 ## Configurazione e gestione
 
-È possibile creare e gestire un gateway applicazione usando le API REST e i cmdlet PowerShell.
+È possibile creare e gestire un gateway applicazione usando le API REST, i cmdlet PowerShell oppure il [portale di Azure](https://portal.azure.com/).
 
 
 ## Passaggi successivi
@@ -81,4 +81,4 @@ Dopo aver acquisito familiarità con il gateway applicazione, è possibile [crea
 
 Per informazioni su come creare un gateway applicazione usando il routing del contenuto basato su URL, vedere [Creare un gateway applicazione con il routing basato su URL](application-gateway-create-url-route-arm-ps.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -47,6 +47,7 @@ Prima di preparare l'ambiente, è importante capire le limitazioni.
 - Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
 - Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 - Il backup delle macchine virtuali Linux con estensione Docker non è supportato.
+- I dati di backup non includono le unità di rete montate collegate alla macchina virtuale.
 - La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
 - L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
 - È possibile eseguire il backup di macchine virtuali in tutte le aree pubbliche di Azure. Vedere l'[elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate. Se l'area che si sta cercando non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
@@ -322,4 +323,4 @@ Ora che è stato preparato l'ambiente per il backup della VM, il passaggio logic
 - [Pianificare l'infrastruttura di backup delle VM](backup-azure-vms-introduction.md)
 - [Gestire backup di macchine virtuali](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

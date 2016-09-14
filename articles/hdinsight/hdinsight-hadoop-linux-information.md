@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 # Informazioni sull'uso di HDInsight in Linux
@@ -96,13 +96,13 @@ HDInsight usa l'archivio BLOB di Azure come archivio predefinito, con i vantaggi
 
 Poiché è l'archivio predefinito per HDInsight, in genere non è necessario eseguire alcuna operazione per usarlo. Ad esempio, il comando seguente elencherà i file della cartella **/example/data**, disponibile nell'archivio BLOB di Azure:
 
-	hadoop fs -ls /example/data
+	hdfs dfs -ls /example/data
 
 Alcuni comandi potrebbero richiedere di specificare se si usa l'archivio BLOB. In questi casi, è possibile anteporre **wasb://** o **wasbs://**.al comando.
 
 HDInsight consente anche di associare più account di archiviazione BLOB a un cluster. Per accedere ai dati in un account di archiviazione BLOB non predefinito, è possibile usare il formato **wasbs://&lt;container-name>@&lt;nome account>.blob.core.windows.net/**. Ad esempio, il comando seguente elencherà il contenuto della directory **/example/data** per il contenitore l'account di archiviazione BLOB specificati:
 
-	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
+	hdfs dfs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### Quale archivio BLOB viene usato dal cluster?
 
@@ -130,7 +130,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
     
 2. Ottenere la chiave per l'account di archiviazione. Sostituire __GROUPNAME__ con il gruppo di risorse del passaggio precedente. Sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione:
 
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.[0].value'
 
     Verrà restituita la chiave primaria per l'account.
 
@@ -227,7 +227,6 @@ Le azioni script sono script Bash che vengono eseguiti durante il provisioning d
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph,](hdinsight-hadoop-giraph-install-linux.md)
-* [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Per informazioni su come sviluppare azioni script personalizzate, vedere [Sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -257,4 +256,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

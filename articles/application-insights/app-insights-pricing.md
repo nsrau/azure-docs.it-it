@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/27/2016" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -21,7 +21,7 @@
 
 I [prezzi][pricing] per [Application Insights di Visual Studio][start] si basano sul volume di dati per ogni applicazione. È anche disponibile un valido livello gratuito, che consente di usufruire di gran parte delle funzionalità, ma con alcune limitazioni.
 
-Ogni risorsa di Application Insights viene addebitata come un servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure.
+Ogni risorsa di Application Insights viene addebitata come servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure.
 
 [Vedere lo schema dei prezzi][pricing].
 
@@ -77,7 +77,7 @@ Se l'applicazione invia una quantità superiore alla quota mensile, è possibile
 * Non eseguire alcuna operazione. I dati della sessione continueranno a essere registrati, ma altri dati non verranno visualizzati in ricerca diagnostica o in Esplora metriche.
 
 
-### Quanto dati vengono inviati?
+## Quanto dati vengono inviati?
 
 Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei punti dati dell'applicazione, raggruppati per tipo di punto dati. (È possibile inoltre creare il grafico in Esplorazione di metrica.)
 
@@ -86,6 +86,8 @@ Il grafico nella parte inferiore del pannello dei prezzi mostra l'utilizzo dei p
 Fare clic sul grafico per altri dettagli o trascinare e fare clic su (+) per visualizzare i dettagli relativi a un intervallo di tempo.
 
 Il grafico indica il volume di dati in arrivo nel servizio Application Insights dopo il [campionamento](app-insights-sampling.md).
+
+Se il volume di dati raggiunge la quota mensile, nel grafico verrà visualizzata un'annotazione.
 
 
 ## Velocità dei dati
@@ -112,7 +114,7 @@ In caso di avvenuta limitazione, verrà visualizzata una notifica che avviserà 
 * Altrimenti, in Esplora metriche, aggiungere un nuovo grafico e selezionare **Volume punti dati** come metrica. Attivare il raggruppamento in base a **Tipo di dati**.
 
 
-### Suggerimenti per ridurre la velocità dei dati
+## Per ridurre la velocità dei dati
 
 Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
 
@@ -124,18 +126,32 @@ Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
 
 ## Campionamento
 
-Il [campionamento](app-insights-sampling.md) consente di ridurre la frequenza con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi. Il campionamento permette di evitare il superamento della quota mensile.
-
-Sono disponibili diversi tipi di campionamento. È consigliabile usare il [campionamento adattivo](app-insights-sampling.md) che si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Il campionamento viene eseguito nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete. È possibile usarlo se il framework dell'app Web è .NET. Installare quindi l'ultima versione (beta) dell'SDK.
-
-In alternativa, è possibile impostare il *campionamento per inserimento* nel pannello Quota + prezzi. Questo tipo di campionamento opera nel punto in cui i dati di telemetria provenienti dall'app raggiungono il servizio Application Insights. Non ha alcun effetto sul volume dei dati di telemetria inviati dall'app, ma riduce tuttavia il volume mantenuto dal servizio.
-
-![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-pricing/04.png)
+Il [campionamento](app-insights-sampling.md) consente di ridurre la frequenza con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi.
 
 Il campionamento consente di ridurre in modo efficace i costi e di non superare la quota mensile. L'algoritmo di campionamento conserva gli elementi correlati ai dati di telemetria, in modo che, quando si usa la ricerca, ad esempio, è possibile trovare la richiesta correlata a una particolare eccezione. L'algoritmo mantiene inoltre i conteggi corretti e consente di visualizzare in Esplora metriche i valori corretti della frequenza delle richieste, della frequenza delle eccezioni e di altri contatori.
 
+Sono disponibili diversi tipi di campionamento.
 
-## Esaminare la fattura per la sottoscrizione ad Azure
+* Il [campionamento adattivo](app-insights-sampling.md) è l'opzione predefinita per ASP.NET SDK e si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Il campionamento viene eseguito automaticamente nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete.
+* Il *campionamento per inserimento* è un'alternativa che opera nel punto in cui i dati di telemetria provenienti dall'app raggiungono il servizio Application Insights. Non ha alcun effetto sul volume dei dati di telemetria inviati dall'app, ma riduce tuttavia il volume mantenuto dal servizio. È possibile usarlo per ridurre la quota che i dati di telemetria usano da browser e altri SDK.
+
+Per impostare il campionamento per inserimento, impostare il controllo nel pannello Quota + prezzi:
+
+![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-pricing/04.png)
+
+> [AZURE.WARNING] Il valore visualizzato nel riquadro Campioni mantenuti indica solo il valore impostato per il campionamento per inserimento. Non visualizza la frequenza di campionamento che opera nell'SDK all'interno dell'app.
+> 
+> Se i dati di telemetria in ingresso sono già stati campionati nell'SDK, il campionamento per inserimento non verrà applicato.
+ 
+Per individuare la frequenza di campionamento effettiva indipendentemente dal punto in cui è stata applicata, usare una [query di Analisi](app-insights-analytics.md) simile alla seguente:
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+In ogni record conservato, `itemCount` indica il numero di record originali che rappresenta, uguale a 1 + il numero di record precedenti scartati.
+
+## Esaminare la fattura per la sottoscrizione di Azure
 
 Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure. È possibile visualizzare i dettagli della fattura Azure nella sezione Fatturazione del portale di Azure oppure nel [portale di fatturazione di Azure](https://account.windowsazure.com/Subscriptions).
 
@@ -145,7 +161,7 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
 ## Limiti del nome
 
-1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. I [nomi di metriche e di proprietà][api] sono globali per una chiave di strumentazione.
+1.	Al massimo 200 nomi di metrica univoci e 200 nomi di proprietà univoci per l'applicazione. Le metriche includono l'invio di dati tramite TrackMetric, nonché le misurazioni di altri tipi di dati, ad esempio gli eventi. I [nomi di metriche e di proprietà][api] sono globali per ogni chiave di strumentazione.
 2.	Le [proprietà][apiproperties] possono essere usate per le operazioni di filtro e di raggruppamento solo quando hanno meno di 100 valori univoci per ogni proprietà. Dopo che il numero di valori univoci ha superato i 100, è ancora possibile cercare la proprietà, ma non è più possibile usarla per le operazioni di filtro o di raggruppamento.
 3.	Proprietà standard, ad esempio Nome richiesta e URL pagina sono limitate a 1000 valori univoci alla settimana. Superati i 1000 valori univoci, i valori aggiuntivi vengono contrassegnati come "Altri valori". I valori originali possono essere ancora usati per la ricerca full-text e il filtro.
 
@@ -165,4 +181,4 @@ Se l'applicazione sta per superare questi limiti, considerare la possibilità di
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -291,6 +291,15 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
+## Funzionalità non supportate e restrizioni
+
+Le seguenti funzionalità dell'API .NET di Service Bus non sono al momento supportate con AMQP:
+
+ * Transazioni
+ * Invio tramite destinazione del trasferimento
+
+Per altre informazioni, vedere [Funzionalità non supportate, restrizioni e differenze di comportamento](service-bus-amqp-dotnet.md#unsupported-features-restrictions-and-behavioral-differences).
+
 ## Riepilogo
 
 Questo articolo illustra come accedere alle funzionalità di messaggistica negoziata del bus di servizio (code e pubblicazione/sottoscrizione di argomenti) da applicazioni .NET tramite AMQP 1.0 e l'API .NET del bus di servizio.
@@ -307,4 +316,4 @@ Ora che è stata letta una panoramica del bus di servizio e di AMQP con .NET, ve
  
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

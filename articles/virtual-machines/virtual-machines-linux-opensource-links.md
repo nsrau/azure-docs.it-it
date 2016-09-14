@@ -39,7 +39,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 ## Esercitazioni
 
-- [Installare lo stack LAMP in una macchina virtuale Linux in Azure](virtual-machines-linux-install-lamp-stack.md)
+- [Installare lo stack LAMP in una macchina virtuale Linux in Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Applicazione Web Ruby on Rails in una macchina virtuale di Azure](virtual-machines-linux-classic-ruby-rails-web-app.md)
 - [Procedura: installare Apache Qpid Proton-C per AMQP e bus di servizio](../service-bus/service-bus-amqp-apache.md)
 
@@ -189,4 +189,4 @@ Poiché l'ambito relativo a DevOps, gestione e ottimizzazione è in continua e r
 
 - [Plug-in di Packer per Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/19/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Dettagli sulla migrazione ad Archiviazione Premium
@@ -47,9 +47,9 @@ Se il data warehouse è stato creato prima delle date riportate di seguito, si s
 | Stati Uniti centro-meridionali | 27 maggio 2016 |
 | Asia sudorientale | 24 maggio 2016 |
 | Europa occidentale | 25 maggio 2016 |
-| Stati Uniti centro-occidentali | Archiviazione Premium non ancora disponibile |
+| Stati Uniti centro-occidentali | 26 agosto 2016 |
 | Stati Uniti occidentali | 26 maggio 2016 |
-| Stati Uniti occidentali 2 | Archiviazione Premium non ancora disponibile |
+| Stati Uniti occidentali 2 | 26 agosto 2016 |
 
 ## Dettagli sulla migrazione automatica
 Per impostazione predefinita, la migrazione automatica del database verrà eseguita tra le 18.00 e le 06.00, ora locale dell'area di appartenenza, in base alla [pianificazione della migrazione automatica][] riportata di seguito. Durante la migrazione non sarà possibile usare il Data Warehouse esistente. In base alle stime la migrazione richiederà circa un'ora per TB di archiviazione per ogni data warehouse. Microsoft si assicurerà che non vengano addebitati costi durante il processo di migrazione automatica.
@@ -133,7 +133,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Passaggi successivi
-Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Se si verificano problemi relativi alle prestazioni, è consigliabile ricompilare gli indici columnstore cluster usando il seguente script. Lo script di seguito forzerà alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati verranno ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle di Data Warehouse.
+Con il passaggio ad Archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Per ottenere il massimo dei vantaggi delle prestazioni per questa modifica, si consiglia di ricreare gli indici columnstore cluster usando il seguente script. Lo script di seguito forzerà alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati verranno ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle di Data Warehouse.
 
 **Prerequisiti:**
 
@@ -207,4 +207,4 @@ In caso di problemi con il data warehouse, [creare un ticket di supporto][] e sp
 [Archiviazione Premium per una maggiore prevedibilità delle prestazioni]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

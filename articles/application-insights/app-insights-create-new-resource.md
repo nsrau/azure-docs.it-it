@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare una nuova risorsa di Application Insights" 
+	pageTitle="Creare una nuova risorsa di Application Insights | Microsoft Azure" 
 	description="Impostare il monitoraggio di Application Insights per una nuova applicazione live. Approccio basato sul Web." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
-# Creare una nuova risorsa di Application Insights
+# Creare una risorsa di Application Insights
 
 Application Insights di Visual Studio visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. In molti casi questa operazione può essere eseguita automaticamente dall'IDE, ovvero la modalità consigliata in cui è disponibile. In alcuni casi è tuttavia necessario creare una risorsa manualmente.
 
@@ -27,7 +27,7 @@ Se non si ha ancora un [account Microsoft, è possibile ottenerne uno ora](http:
 
 È necessaria anche una sottoscrizione di [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID.
 
-In alternativa, è possibile creare una nuova sottoscrizione. L'account gratuito consente di provare tutte le funzionalità in Azure. Alla scadenza del periodo di valutazione, l'utente potrebbe trovare appropriata la sottoscrizione con pagamento in base al consumo, perché non si incorre in alcun addebito per i servizi gratuiti.
+In alternativa è possibile creare una nuova sottoscrizione. L'account gratuito consente di provare tutte le funzionalità in Azure. Alla scadenza del periodo di valutazione, l'utente potrebbe trovare appropriata la sottoscrizione con pagamento in base al consumo, perché non si incorre in alcun addebito per i servizi gratuiti.
 
 Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [http://portal.azure.com](https://portal.azure.com) usando il proprio Live ID.
 
@@ -40,7 +40,7 @@ In [portal.azure.com](https://portal.azure.com) aggiungere una nuova risorsa di 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
 
-* Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche][metrics]. Se il proprio tipo di app non viene visualizzato, scegliere uno dei tipi Web per le pagine Web e uno dei tipi telefono per gli altri dispositivi.
+* Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche][metrics]. Se il tipo dell'app non è visualizzato, scegliere ASP.NET.
 * Un **gruppo di risorse** è utile per gestire le proprietà come il controllo di accesso. Se sono già state create altre risorse di Azure, è possibile inserire questa nuova risorsa nello stesso gruppo.
 * La **sottoscrizione** è il proprio account di pagamento in Azure.
 * Il **percorso** è la posizione in cui vengono mantenuti i propri dati e attualmente non è modificabile.
@@ -78,7 +78,12 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
 È possibile scrivere uno [script di PowerShell](app-insights-powershell-script-create-resource.md) per creare automaticamente una risorsa.
 
+## Passaggi successivi
 
+* [Creare un dashboard](app-insights-dashboards.md)
+* [Ricerca diagnostica](app-insights-diagnostic-search.md)
+* [Esplorare le metriche](app-insights-metrics-explorer.md)
+* [Scrivere query di Analisi](app-insights-analytics.md)
 
 
 <!--Link references-->
@@ -90,4 +95,4 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0831_2016-->

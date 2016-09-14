@@ -87,7 +87,7 @@ Per altre informazioni sulle app per dispositivi mobili di Azure, vedere la [map
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [funzionalità di autenticazione]: ./app-service-mobile-auth.md
 [funzionalità dati]: ./app-service-mobile-offline-data-sync.md
-[funzionalità di notifica push]: ../notification-hubs/notification-hubs-overview.md
+[funzionalità di notifica push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -103,4 +103,4 @@ Per altre informazioni sulle app per dispositivi mobili di Azure, vedere la [map
 [ambienti del servizio app]: ../app-service-web/app-service-app-service-environment-intro.md
 [mappa di apprendimento]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

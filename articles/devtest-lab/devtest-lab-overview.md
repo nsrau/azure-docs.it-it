@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 #Che cosa sono i lab di sviluppo/test?
@@ -32,8 +32,10 @@ Lab di sviluppo e test di Azure è un servizio che consente agli sviluppatori e 
 
 > [AZURE.VIDEO what-is-azure-devtest-labs]
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##Passaggi successivi
 
 [Perché Lab di sviluppo e test?](devtest-lab-why.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

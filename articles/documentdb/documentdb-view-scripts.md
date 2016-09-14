@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Creare ed eseguire stored procedure, trigger e funzioni definite dall'utente usando Esplora script di DocumentDB
@@ -23,17 +23,13 @@ Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure Do
 
 ## Avviare Esplora script
 
-1. Nel portale di Azure, nell'indice, fare clic su **Account DocumentDB**. Se **Account DocumentDB** non è visibile, fare clic su **Sfoglia** e quindi su **Account DocumentDB**.
+1. Nell'indice del portale di Azure fare clic su **DocumentDB (NoSQL)**. Se **Account DocumentDB** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**.
 
-2. Nella parte superiore del pannello **Account DocumentDB** fare clic su **Esplora script**.
+2. Nel menu delle risorse fare clic su **Esplora script**.
 
 	![Schermata del comando Esplora script](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-    >[AZURE.NOTE] Esplora script viene visualizzato anche nei pannelli di database e raccolte.
-
     Gli elenchi a discesa **Database** e **Raccolta** vengono precompilati a seconda del contesto in cui viene avviato Esplora script. Ad esempio, se viene avviato da un pannello di database, viene prepopolato il database corrente. Se viene avviato da un pannello della raccolta, viene prepopolata la raccolta corrente.
-
-	![Schermata di Esplora script](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
 4.  Usare gli elenchi a discesa **Database** e **Raccolta** per modificare facilmente la raccolta da cui sono attualmente visualizzati gli script senza dover chiudere e riavviare Esplora script.
 
@@ -89,7 +85,7 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 
 ## Eseguire una stored procedure
 
-> [AZURE.WARNING] L’esecuzione di stored procedure in Esplora script non è ancora supportata per le raccolte partizionate lato server. Per ulteriori informazioni, visitare [Partizionamento e ridimensionamento in DocumentDB](documentdb-partition-data.md).
+> [AZURE.WARNING] L’esecuzione di stored procedure in Esplora script non è ancora supportata per le raccolte partizionate lato server. Per altre informazioni, visitare [Partizionamento e ridimensionamento in DocumentDB](documentdb-partition-data.md).
 
 Esplora script consente di eseguire stored procedure lato server dal portale di Azure.
 
@@ -111,12 +107,12 @@ Esplora script consente di eseguire stored procedure lato server dal portale di 
 
 ## Usare gli script all'esterno del portale
 
-Esplora script del portale di Azure è solo uno dei modi per utilizzare stored procedure, trigger e funzioni definite dall'utente in DocumentDB. Gli script possono essere utilizzati anche con l'API REST e gli [SDK client](documentdb-sdk-dotnet.md). La documentazione dell'API REST include esempi dell'utilizzo di [stored procedure mediante REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [funzioni definite dall'utente mediante REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e [trigger mediante REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Sono inoltre disponibili esempi che mostrano come [utilizzare gli script mediante C#](documentdb-dotnet-samples.md#server-side-programming-examples) e [utilizzare gli script mediante Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
+Esplora script del portale di Azure è solo uno dei modi per utilizzare stored procedure, trigger e funzioni definite dall'utente in DocumentDB. Gli script possono essere usati anche con l'API REST e gli [SDK client](documentdb-sdk-dotnet.md). La documentazione dell'API REST include esempi dell'uso di [stored procedure mediante REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [funzioni definite dall'utente mediante REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e [trigger mediante REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Sono inoltre disponibili esempi che mostrano come [usare gli script mediante C#](documentdb-dotnet-samples.md#server-side-programming-examples) e [usare gli script mediante Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
 
 ## Passaggi successivi
 
-Per ulteriori informazioni sulla programmazione lato server di DocumentDB, vedere l'articolo relativo a [Stored procedure, trigger del database e funzioni definite dall’utente](documentdb-programming.md).
+Per altre informazioni sulla programmazione lato server di DocumentDB, vedere l'articolo relativo a [Stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->
