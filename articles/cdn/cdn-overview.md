@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -41,7 +41,7 @@ L'uso della rete CDN per memorizzare nella cache gli asset dei siti Web offre di
 
 4. Il server perimetrale memorizza il file nella cache e lo restituisce al richiedente originale (Alice). Il file rimane nella cache del server perimetrale fino alla scadenza del valore TTL. Se l'origine ha specificato un valore TTL, il valore predefinito è di sette giorni.
 
-5. Altri utenti (ad esempio Bob) possono quindi richiedere lo stesso file usando lo stesso URL e anche essere indirizzati allo stesso POP.
+5. Altri utenti possono quindi richiedere lo stesso file usando lo stesso URL e anche essere indirizzati allo stesso POP.
 
 6. Se il valore TTL per il file non è ancora scaduto, il server perimetrale restituisce il file dalla cache, offrendo quindi un'esperienza utente più veloce ed efficiente.
 
@@ -53,22 +53,25 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **Rete CDN di Azure Stan
 | | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | Facile integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Gestione tramite [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) o [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Supporto di HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Bilanciamento del carico. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Protezione DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Protezione [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | IPv4/IPv6 dual stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Supporto del nome di dominio personalizzato.](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Memorizzazione nella cache della stringa di query](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Filtro di paese](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
 | [Eliminazione veloce](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Precaricamento Asset](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [Analisi del core](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| Gestione tramite [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) o [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Supporto HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
 | [Report HTTP avanzati](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Statistiche in tempo reale](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [Avvisi in tempo reale](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Motore di distribuzione di contenuti personalizzabile, basato su regole](cdn-rules-engine.md) | | | **&#x2713;** |
+| Impostazioni cache/intestazioni (con il [motore regole](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Riscrittura/reindirizzamento URL (con il [motore regole](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Regole per dispositivi mobili (con il [motore regole](cdn-rules-engine.md)) | | | **&#x2713;** |
 
 >[AZURE.TIP] Per esaminare una funzionalità presente nella rete CDN di Azure, inviare [Commenti e suggerimenti](https://feedback.azure.com/forums/169397-cdn).
 
@@ -84,4 +87,4 @@ Informazioni su come automatizzare la rete CDN di Azure con [.NET](./cdn-app-dev
 
 Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

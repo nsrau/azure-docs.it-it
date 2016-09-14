@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/15/2016"
+	ms.date="08/31/2016"
 	ms.author="cabailey"/>
 
 # Registrazione dell'insieme di credenziali delle chiavi di Azure #
@@ -43,7 +43,7 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Insieme di credenziali delle chiavi esistente e già in uso.
-- Azure PowerShell ** versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.
+- Azure PowerShell **versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.
 - Spazio di archiviazione sufficiente in Azure per i log dell'insieme di credenziali delle chiavi.
 
 
@@ -51,7 +51,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
 
@@ -75,7 +75,7 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
 
->[AZURE.NOTE]  Se si sceglie di usare un account di archiviazione esistente, questo dovrà usare la stessa sottoscrizione dell'insieme di credenziali delle chiavi e il modello di distribuzione di Gestione risorse, invece del modello di distribuzione classica.
+>[AZURE.NOTE]  Se si sceglie di usare un account di archiviazione esistente, questo dovrà usare la stessa sottoscrizione dell'insieme di credenziali delle chiavi e il modello di distribuzione Resource Manager, anziché il modello di distribuzione classica.
 
 ## <a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log ##
 
@@ -86,21 +86,29 @@ Nell'esercitazione introduttiva, il nome dell'insieme di credenziali delle chiav
 
 ## <a id="enable"></a>Abilitare la registrazione ##
 
-Per abilitare la registrazione dell'insieme di credenziali delle chiavi, si userà il cmdlet Set-AzureRmDiagnosticSetting e le variabili create per il nuovo account di archiviazione e l'insieme di credenziali delle chiavi. Si imposterà anche il flag **-Enabled** su **$true** e la categoria su AuditEvent, la sola disponibile per la registrazione dell'insieme di credenziali delle chiavi:
+Per abilitare la registrazione dell'insieme di credenziali delle chiavi, si userà il cmdlet Set-AzureRmDiagnosticSetting e le variabili create per il nuovo account di archiviazione e l'insieme di credenziali delle chiavi. Il flag **-Enabled** verrà impostato su **$true** e la categoria su AuditEvent, la sola disponibile per la registrazione dell'insieme di credenziali delle chiavi:
 
-   
+
 	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
-
 
 L'output includerà:
 
-**Log**
+	StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
+	ServiceBusRuleId   :
+	StorageAccountName :
+		Logs
+		Enabled           : True
+		Category          : AuditEvent
+		RetentionPolicy
+		Enabled : False
+		Days    : 0
 
-**Enabled: True**
-
-**Category: AuditEvent**
 
 Conferma che la registrazione è abilitata per l'insieme di credenziali delle chiavi. Le informazioni vengono salvate nell'account di archiviazione.
+
+Facoltativamente è possibile impostare criteri di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente. Ad esempio, specificare i criteri di conservazione impostando il flag **-RetentionEnabled** su **$true** e il parametro **-RetentionInDays** su **90** per fare in modo che i log che risalgono a più di 90 giorni prima vengano eliminati automaticamente.
+
+	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
 
 Informazioni registrate:
 
@@ -118,7 +126,7 @@ I log dell'insieme di credenziali delle chiavi vengono archiviati nel contenitor
 
 L'output sarà simile al seguente:
 
-**Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI del contenitore: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Name**
@@ -129,10 +137,10 @@ L'output sarà simile al seguente:
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
- 
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
 
-Come si vede dall'output, i BLOB seguono una convenzione di denominazione: **resourceId=<ID risorsa di Azure Resource Manager>/y=<anno>/m=<mese>/d=<giorno del mese>/h=<ora>/m=<minuti>/filename.json**
+
+Come si vede dall'output, i BLOB seguono una convenzione di denominazione: **resourceId=<ID risorsa ARM>/y=<anno>/m=<mese>/d=<giorno del mese>/h=<ora>/m=<minuto>/nomefile.json**
 
 I valori di data e ora sono nel formato UTC.
 
@@ -162,15 +170,15 @@ Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 
-- Se si vogliono scaricare tutti i log per il mese di gennaio 2016, usare `-Blob '*/year=2016/m=01/*'`:
+- Per scaricare tutti i log per il mese di gennaio 2016, usare `-Blob '*/year=2016/m=01/*'`:
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 A questo punto si può iniziare a osservare il contenuto dei log. Prima di continuare, ci sono altri due parametri di Get-AzureRmDiagnosticSetting che può essere necessario conoscere:
 
-- Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa insieme di credenziali delle chiavi: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
- 
-- Per disabilitare la registrazione per la risorsa insieme di credenziali delle chiavi: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+- Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa insieme di credenziali delle chiavi, usare: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+
+- Per disabilitare la registrazione per la risorsa insieme di credenziali delle chiavi, usare: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
 ## <a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi ##
@@ -178,7 +186,7 @@ A questo punto si può iniziare a osservare il contenuto dei log. Prima di conti
 I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Questo è un esempio di voce di log generata dall'esecuzione di `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
 	{
-    	"records": 
+    	"records":
     	[
         	{
         	    "time": "2016-01-05T01:32:01.2691226Z",
@@ -218,10 +226,10 @@ La tabella seguente elenca i nomi dei campi e le descrizioni.
 | identity | Identità del token presentato al momento dell'esecuzione della richiesta API REST. In genere si tratta di un "utente", una "entità servizio" o una combinazione "utente+appId" come nel caso di una richiesta generata da un cmdlet di Azure PowerShell.|
 | properties | Questo campo conterrà informazioni diverse in base all'operazione (operationName). Nella maggior parte dei casi contiene informazioni sul client (la stringa useragent passata dal client), l'URI esatto della richiesta API REST e il codice di stato HTTP. Quando un oggetto viene restituito come risultato di una richiesta, ad esempio KeyCreate o VaultGet, conterrà anche l'URI della chiave (come "id"), l'URI dell'insieme di credenziali o l'URI del segreto.|
 
- 
 
 
-I valori del campo **operationName** sono in formato OggettoVerbo. Ad esempio:
+
+I valori del campo **operationName** sono nel formato OggettoVerbo. Ad esempio:
 
 - Tutte le operazioni sull'insieme di credenziali delle chiavi hanno il formato 'Vault`<action>`', ad esempio `VaultGet` e `VaultCreate`.
 
@@ -242,7 +250,7 @@ La tabella seguente include un elenco di operationName con il comando API REST c
 | KeyCreate | [Creare una chiave](https://msdn.microsoft.com/it-IT/library/azure/dn903634.aspx)|
 | KeyGet | [Ottenere informazioni su una chiave](https://msdn.microsoft.com/it-IT/library/azure/dn878080.aspx)|
 | KeyImport | [Importare una chiave in un insieme di credenziali](https://msdn.microsoft.com/it-IT/library/azure/dn903626.aspx)|
-| KeyBackup | [Eseguire il backup di una chiave](https://msdn.microsoft.com/it-IT/library/azure/dn878058.aspx).|
+| KeyBackup | [Eseguire il backup di una chiave](https://msdn.microsoft.com/it-IT/library/azure/dn878058.aspx)|
 | KeyDelete | [Eliminare una chiave](https://msdn.microsoft.com/it-IT/library/azure/dn903611.aspx)|
 | KeyRestore | [Ripristinare una chiave](https://msdn.microsoft.com/it-IT/library/azure/dn878106.aspx)|
 | KeySign | [Firmare con una chiave](https://msdn.microsoft.com/it-IT/library/azure/dn878096.aspx)|
@@ -272,6 +280,6 @@ Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell�
 
 Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Per un'esercitazione sulla rotazione delle chiavi e il controllo del log con l'insieme di credenziali delle chiavi di Azure, vedere [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md).
+Per un'esercitazione sulla rotazione delle chiavi e il controllo dei log con l'insieme di credenziali delle chiavi di Azure, vedere [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/24/2016" 
 	ms.author="mimig"/>
 
 # Come creare una raccolta DocumentDB usando il portale di Azure
@@ -22,11 +22,11 @@ PPer utilizzare Microsoft Azure DocumentDB, è necessario disporre di un[Documen
 
 Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-is-a-documentdb-collection)
 
-1.  Nell'indice del [portale di Azure](https://portal.azure.com/) fare clic su **Account DocumentDB** e nel pannello **Account DocumentDB** selezionare l'account in cui aggiungere una raccolta.
+1.  Nell'indice del [portale di Azure](https://portal.azure.com/) fare clic su **DocumentDB (NoSQL)** e quindi selezionare l'account in cui aggiungere una raccolta nel pannello **DocumentDB (NoSQL)**.
 
     ![Schermata che evidenzia gli account di DocumentDB nell'indice, l'account nel pannello Account DocumentDB e il database nel pannello dell’account DocumentDB, nella sezione Database](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    Se **Account DocumentDB** non è visibile nell'indice, fare clic su **More Services** (Altri servizi) e quindi su **Account DocumentDB**. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
+    Se **Account DocumentDB** non è visibile nell'indice, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
 
 2. Nella sezione **Database** del pannello **Account DocumentDB** per l'account selezionato selezionare il database in cui aggiungere una raccolta.
 
@@ -91,4 +91,4 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 
 Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

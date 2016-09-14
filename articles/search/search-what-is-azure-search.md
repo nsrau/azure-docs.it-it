@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Che cos'è la Ricerca di Azure?
@@ -83,4 +83,4 @@ Dopo avere compilato l'indice di Ricerca di Azure, è ora possibile [eseguire qu
 
 Se non si dispone di un account Azure, è possibile provare una sessione gratuita di 60 minuti senza effettuare l'iscrizione obbligatoria. Andare al sito [Prova il Servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selezionare "App Web". Quindi selezionare il modello di "ASP.NET + Ricerca di Azure" per iniziare.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

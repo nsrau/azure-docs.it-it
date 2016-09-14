@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="08/25/2016"
 	ms.author="anhoh"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
@@ -35,15 +35,15 @@ La tabella seguente descrive le quote DocumentDB. Le quote elencate con un aster
 ##<a id="RequestQuotaIncrease"></a> Richiedere una modifica delle quote
 I passaggi seguenti mostrano come richiedere una modifica delle quote.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Sfoglia** e quindi su **Guida e supporto**.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **More Services** (Altri servizi) e quindi su **Guida e supporto**.
 
 	![Schermata di avvio di Guida e supporto](media/documentdb-increase-limits/helpsupport.png)
 
-2. Nel pannello **Guida e supporto tecnico**, fare clic su **Crea un ticket di supporto**.
+2. Nel pannello **Guida e supporto** fare clic su **Nuova richiesta di supporto**.
 
 	![Schermata di creazione di un ticket di supporto](media/documentdb-increase-limits/getsupport.png)
 
-3. Nel pannello **Nuova richiesta di assistenza**, fare clic su **Nozioni di base**. Successivamente, impostare **Tipo di rilascio** su **Quota**, **Sottoscrizione** su sottoscrizione che ospita l’account DocumentDB, **Tipo di quota** su **DocumentDB** e **Piano di supporto** su **SUPPORTO Quota - compreso**. Infine, fare clic su **Next**.
+3. Nel pannello **Nuova richiesta di assistenza**, fare clic su **Nozioni di base**. Impostare quindi **Tipo di problema** su **Quota**, **Sottoscrizione** sulla sottoscrizione che ospita l'account DocumentDB, **Tipo di quota** su **DocumentDB** e **Piano di supporto** su **Quota SUPPORT - Included** (SUPPORTO quota - compreso). Fare clic su **Avanti**.
 
 	![Schermata del tipo di richiesta del ticket di supporto](media/documentdb-increase-limits/supportrequest1.png)
 
@@ -53,8 +53,6 @@ I passaggi seguenti mostrano come richiedere una modifica delle quote.
 
 5. Infine, inserire le informazioni di contatto nel pannello **Informazioni di contatto** e fare clic su **Crea**.
 
-	![Schermata di selezione delle risorse del ticket di supporto](media/documentdb-increase-limits/supportrequest3.png)
-
 Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettronica il numero della richiesta di supporto. È inoltre possibile visualizzare la richiesta di supporto facendo clic su **Gestire le richieste di supporto** nel pannello **Guida + supporto**.
 
 ![Schermata del pannello Richieste di supporto](media/documentdb-increase-limits/supportrequest4.png)
@@ -63,4 +61,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 ##<a name="NextSteps"></a> Passaggi successivi
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

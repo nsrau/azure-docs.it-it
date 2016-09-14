@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/31/2016"
+    ms.date="08/25/2016"
     ms.author="spyros;sethm" />
 
 # Pull di dati pubblici in Hub eventi di Azure
@@ -47,4 +47,4 @@ Per distribuire la soluzione, clonare o scaricare l'applicazione [GenericWebToEH
 
 Vedere altri esempi relativi a Hub eventi nella [raccolta di esempi di Azure](https://azure.microsoft.com/documentation/samples/?service=event-hubs) e su [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -81,7 +81,7 @@ Perché un dispositivo si connetta all'hub, è comunque necessario aggiungerlo a
 
 ### Confronto con un gateway personalizzato
 
-Il modello di servizio token è il metodo consigliato per implementare uno schema di autenticazione/registro di identità personalizzato con l'hub IoT. È consigliabile perché l'hub IoT continua a gestire la maggior parte del traffico della soluzione. Tuttavia, in alcuni casi lo schema di autenticazione personalizzato è talmente legato al protocollo che è necessario un servizio che elabora tutto il traffico (*gateway personalizzato*). Esempi di servizio sono le [chiavi precondivise e Transport Layer Security][lnk-tls-psk]. Per altre informazioni, vedere l'argomento relativo al [gateway del protocollo][lnk-protocols].
+Il modello di servizio token è il metodo consigliato per implementare uno schema di autenticazione/registro di identità personalizzato con l'hub IoT. È consigliabile perché l'hub IoT continua a gestire la maggior parte del traffico della soluzione. Tuttavia, in alcuni casi lo schema di autenticazione personalizzato è talmente legato al protocollo che è necessario un servizio che elabora tutto il traffico (*gateway personalizzato*). Esempi di servizio sono le [chiavi precondivise e Transport Layer Security][lnk-tls-psk]. Per altre informazioni, vedere l'articolo relativo al [gateway del protocollo][lnk-protocols].
 
 ## Heartbeat dispositivo <a id="heartbeat"></a>
 
@@ -106,7 +106,7 @@ Per ulteriori informazioni sulla pianificazione della distribuzione dell'hub IoT
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Guida per sviluppatori][lnk-devguide]
-- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal-manage]
 - [Proteggere la soluzione IoT sin dall'inizio][lnk-securing]
@@ -138,4 +138,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-sas-token]: iot-hub-sas-tokens.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

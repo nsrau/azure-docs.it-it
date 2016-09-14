@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="edmacauley"
    manager="paulettm"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="05/16/2016"
-   ms.author="edmaca"/>  
+   ms.author="edmaca"/>
 
 # Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio
 
@@ -34,14 +34,14 @@ U-SQL è un linguaggio estremamente scalabile e facilmente estendibile per la pr
 
     Una volta installato Strumenti di Data Lake per Visual Studio, verrà visualizzato un nodo "Analisi Data Lake" in Esplora server sotto il nodo "Azure". Per aprire Esplora server, premere CTRL+ALT+S.
 
-- **Eseguire le procedure descritte nelle due sezioni seguenti, disponibili nell'articolo [Introduzione a Analisi di Azure Data Lake con il portale di Azure](data-lake-analytics-get-started-portal.md)**.
+- **Eseguire le procedure descritte nelle due sezioni seguenti, disponibili nell'articolo [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)**.
 
 	- [Creare un account di Analisi Data Lake di Azure](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [Caricare SearchLog.tsv nell'account di archiviazione predefinito di Data Lake](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     Per comodità, uno script di esempio di PowerShell per la creazione di un servizio di Analisi Data Lake e per il caricamento di file dei dati di origine è disponibile in [Appendice: Esempio di PowerShell per la preparazione dell'esercitazione](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-	Data Lake Tools non supporta la creazione degli account Analisi Data Lake. Sarà quindi necessario creare questi account tramite il portale di Azure, Azure PowerShell, .NET SDK o l'interfaccia della riga di comando di Azure. Per eseguire un processo di Analisi Data Lake, sanno necessari alcuni dati. Anche se Data Lake Tools supporta il caricamento di dati, si userà il portale per caricare i dati di esempio e seguire più facilmente questa esercitazione.
+	Data Lake Tools non supporta la creazione degli account Analisi Data Lake. Sarà quindi necessario creare questi account con il portale di Azure, Azure PowerShell, .NET SDK o l'interfaccia della riga di comando di Azure. Per eseguire un processo di Analisi Data Lake, sanno necessari alcuni dati. Anche se Data Lake Tools supporta il caricamento di dati, si userà il portale per caricare i dati di esempio e seguire più facilmente questa esercitazione.
 
 ## Connect to Azure
 
@@ -49,8 +49,8 @@ U-SQL è un linguaggio estremamente scalabile e facilmente estendibile per la pr
 
 1. Aprire Visual Studio.
 2. Scegliere **Esplora server** dal menu **Visualizza** per aprire Esplora server. In alternativa, premere **[CTRL] + [ALT] + S**.
-3. Fare clic con il pulsante destro del mouse su **Azure**, fare clic su "Connetti a sottoscrizioni di Microsoft Azure" e quindi seguire le istruzioni.
-4. Da **Esplora server** espandere **Azure** e quindi **Analisi Data Lake**. Verrà visualizzato l'elenco degli account di Analisi Data Lake personali, se disponibili. Non è possibile creare account di Analisi Data Lake da Visual Studio. Per creare un account, vedere [Introduzione a Analisi di Azure Data Lake con il portale di Azure](data-lake-analytics-get-started-portal.md) o [Introduzione a Analisi di Azure Data Lake con Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+3. Fare clic con il pulsante destro del mouse su **Azure**, scegliere "Connessione alla sottoscrizione di Microsoft Azure" e quindi seguire le istruzioni.
+4. Da **Esplora server** espandere **Azure** e quindi **Analisi Data Lake**. Verrà visualizzato l'elenco degli account di Analisi Data Lake personali, se disponibili. Non è possibile creare account di Analisi Data Lake da Visual Studio. Per creare un account, vedere [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md) o [Esercitazione: Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Caricare i file dei dati di origine
 
@@ -84,7 +84,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 1. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 2. Selezionare il tipo **Progetto U-SQL**.
 
-	![Nuovo progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)  
+	![Nuovo progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
 3. Fare clic su **OK**. Visual Studio crea una soluzione con un file **Script.usql**.
 4. Immettere lo script seguente in **Script.usql**:
@@ -132,8 +132,8 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 
     - **Espandere* le colonne con il simbolo**
 
-        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.  
-    	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Facendo clic a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto *. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia verso il basso.  
+    	![Espansione di * in Strumenti di Visual Studio per Data Lake](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
 
@@ -155,23 +155,23 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 
 	- **Inserimento di percorsi di Azure**
 
-		Con Strumenti di Data Lake per Visual Studio non sarà più necessario ricordare il percorso del file di Azure e digitarlo manualmente, ma sarà sufficiente fare clic con il pulsante destro del mouse sull'editor e selezionare Inserisci percorso di Azure. Selezionare il file nella finestra di dialogo del browser relativo al BLOB di Azure. Fare clic su **OK**. Il percorso del file verrà inserito nel codice personale.
+		Con Data Lake Tools per Visual Studio non sarà più necessario ricordare il percorso del file di Azure e digitarlo manualmente, ma sarà sufficiente fare clic con il pulsante destro del mouse nell'editor e scegliere Insert Azure Path (Inserisci percorso di Azure). Selezionare il file nella finestra di dialogo del browser relativo al BLOB di Azure. Fare clic su **OK**. Il percorso del file verrà inserito nel codice personale.
 
 5. Specificare l'account di Analisi Data Lake, il database e lo schema. È possibile selezionare **(local)** per eseguire lo script in locale per finalità di testing. Per altre informazioni, vedere [Eseguire U-SQL in locale](#run-u-sql-locally).
 
-	![Invio progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)  
+	![Invio progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
     Per altre informazioni, vedere [Usare il catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
-5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi scegliere l'opzione per la **compilazione dello script**. Verificare il risultato nel riquadro di output.
-6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi fare clic su **Invia script**. In alternativa, è possibile fare clic su **Invia** nel pannello Script.usql. Vedere l'immagine sopra riportata. Fare clic sulla freccia rivolta verso il basso accanto al pulsante di invio per accedere alle opzioni avanzate.
+5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi scegliere **Build Script** (Compila script). Verificare il risultato nel riquadro di output.
+6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Script.usql** e quindi scegliere **Submit Script** (Invia script). In alternativa, è possibile fare clic su **Invia** nel pannello Script.usql. Vedere l'immagine sopra riportata. Fare clic sulla freccia rivolta verso il basso accanto al pulsante di invio per accedere alle opzioni avanzate.
 7. Specificare **Nome processo**, verificare il nome presente in **Account di Analisi** e quindi fare doppio clic su **Invia**. Al termine della procedura di invio, nella finestra dei risultati di Strumenti di Data Lake per Visual Studio saranno disponibili i risultati dell'operazione di invio e il collegamento al processo.
 
-	![Invio progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)  
+	![Invio progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
 
 8. Per visualizzare lo stato attuale del processo, è necessario fare clic sul pulsante Aggiorna per aggiornare la schermata. Al termine del processo, verranno visualizzate le schede relative a **Grafico del processo**, **Operazioni sui metadati**, **Cronologia dello stato** e **Diagnostica**:
 
-	![Grafico delle prestazioni del processo di Analisi Data Lake per Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)  
+	![Grafico delle prestazioni del processo di Analisi Data Lake per Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
 	* Riepilogo del processo. Mostra le informazioni di riepilogo del processo corrente, tra cui lo stato, lo stato di avanzamento, il tempo di esecuzione, il nome di runtime, l'autore dell'invio e così via.
 	* Dettagli del processo. Visualizza informazioni dettagliate sul processo corrente, tra cui lo script, le risorse e la vista relativa all'esecuzione del vertice.
@@ -242,7 +242,7 @@ Il video seguente illustra la funzionalità di esecuzione in locale di U-SQL:
     Per gli script eseguiti nel servizio di Data Lake, gli account di archiviazione predefiniti verranno utilizzati come cartella radice e ne verrà di conseguenza effettuata la ricerca.
 
 ### Testare gli script SQL U in locale
-Per istruzioni su come sviluppare script U-SQL, vedere [Sviluppare script U-SQL](#develop-and-test-u-sql-scripts). Per compilare ed eseguire gli script SQL U in locale, selezionare **(Local)** nell'elenco a discesa del cluster e quindi fare clic su **Invia**. Assicurarsi di avere i dati appropriati a cui si fa riferimento - o fare riferimento al percorso assoluto o inserire i dati nella cartella DataRoot.
+Per istruzioni su come sviluppare script U-SQL, vedere [Sviluppare script U-SQL](#develop-and-test-u-sql-scripts). Per compilare ed eseguire script U-SQL in locale, selezionare **(Local)** (Locale) nell'elenco a discesa del cluster e quindi fare clic su **Invia**. Assicurarsi di avere i dati appropriati a cui si fa riferimento - o fare riferimento al percorso assoluto o inserire i dati nella cartella DataRoot.
 
 ![Invio del progetto Visual Studio U-SQL in locale](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
 
@@ -255,7 +255,7 @@ Esistono due modi per eseguire i file C# personalizzati:
 - Scrivere assembly nel file dietro il codice e l'assembly verrà automaticamente registrata ed eliminata al termine dello script.
 - Creare un progetto di assembly C# e registrare la dll di output per l'account locale tramite uno script come riportato di seguito. Si noti che il percorso è relativo allo script anziché alla cartella DataRoot.
 
-![Utilizzare gli assembly in esecuzione locale U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)  
+![Utilizzare gli assembly in esecuzione locale U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
 
 ### Eseguire il debug degli script e delle assembly C# in locale
 
@@ -279,11 +279,12 @@ La procedura seguente funziona solo in Visual Studio 2015. Nella versione preced
 
 Per iniziare a usare Analisi Data Lake usando vari tipi di strumenti, vedere:
 
-- [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
+- [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
 - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introduzione ad Analisi Data Lake mediante .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Debug dei processi U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 
-Per visualizzare altri argomenti relativi allo sviluppo:
+Per vedere altri argomenti relativi allo sviluppo:
 
 - [Analizzare blog mediante Analisi Data Lake](data-lake-analytics-analyze-weblogs.md)
 - [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -362,4 +363,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

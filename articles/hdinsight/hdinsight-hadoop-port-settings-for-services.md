@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/14/2016"
+ms.date="08/30/2016"
 ms.author="larryfr"/>
 
 # Porte e URI usati da HDInsight
@@ -34,7 +34,7 @@ Per aggiungere altre macchine alla rete virtuale, creare innanzitutto la rete vi
 
 Tutti i nodi di un cluster HDInsight si trovano all'interno di una rete virtuale Azure e non sono accessibile direttamente da Internet. Un gateway pubblico fornisce accesso a Internet per le porte seguenti, comuni a tutti i tipi di cluster HDInsight.
 
-| Service | Porta | Protocollo | Descrizione |
+| Service | Port | Protocol | Descrizione |
 | ---- | ---------- | -------- | ----------- | ----------- |
 | sshd | 22 | SSH | Connette i client a sshd sul nodo head 0. Vedere [Uso di SSH con HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | sshd | 22 | SSH | Connette i client a sshd sul nodo perimetrale (solo HDInsight Premium). Vedere [Introduzione all'uso di R Server su HDInsight](hdinsight-hadoop-r-server-get-started.md) |
@@ -47,7 +47,7 @@ Tutti i nodi di un cluster HDInsight si trovano all'interno di una rete virtuale
 
 Gli elementi seguenti sono disponibili per tipi di cluster specifici:
 
-| Service | Porta | Protocollo |Tipo di cluster | Descrizione |
+| Service | Port | Protocol |Tipo di cluster | Descrizione |
 | ------------ | ---- |  ----------- | --- | ----------- |
 | Stargate | 443 | HTTPS | HBase | API REST HBase Vedere [Introduzione all'uso di HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
 | Livy | 443 | HTTPS | Spark | API REST Spark Vedere [Inviare processi Spark in modalità remota mediante Livy](hdinsight-apache-spark-livy-rest-interface.md) |
@@ -57,16 +57,18 @@ Gli elementi seguenti sono disponibili per tipi di cluster specifici:
 
 Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
-| Porta | Credenziali |
+| Port | Credenziali |
 | ---- | ----------- |
 | 22 o 23 | Le credenziali utente SSH specificate durante la creazione del cluster |
 | 443 | Il nome di accesso (impostazione predefinita: admin) e la password impostati durante la creazione del cluster |
 
 ## Porte non pubbliche
 
+> [AZURE.NOTE] Alcuni servizi sono disponibili solo su tipi di cluster specifici. Ad esempio, HBase è disponibile solo su tipi di cluster HBase.
+
 ### Porte HDFS
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- | 
 | Interfaccia utente Web NameNode | Nodi head | 30070 | HTTPS | Interfaccia utente Web per visualizzare lo stato corrente |
 | Servizio metadati NameNode | nodi head | 8020 | IPC | Metadati del file system 
@@ -74,9 +76,10 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | DataNode | Tutti i nodi di lavoro | 30010 | &nbsp; | Trasferimento dati |
 | DataNode | Tutti i nodi di lavoro | 30020 | IPC | Operazioni sui metadati |
 | NameNode secondario | Nodi head | 50090 | HTTP | Checkpoint per i metadati NameNode |
+
 ### Porte YARN
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- |
 | Interfaccia utente Web di Resource Manager | Nodi head | 8088 | HTTP | Interfaccia utente Web per Resource Manager |
 | Interfaccia utente Web di Resource Manager | Nodi head | 8090 | HTTPS | Interfaccia utente Web per Resource Manager |
@@ -90,7 +93,7 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
 ### Porte Hive
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- |
 | HiveServer2 | Nodi head | 10001 | Thrift | Servizio per la connessione a livello di programmazione ad Hive (Thrift/JDBC) |
 | HiveServer | Nodi head | 10000 | Thrift | Servizio per la connessione a livello di programmazione ad Hive (Thrift/JDBC) |
@@ -98,13 +101,13 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
 ### Porte WebHCat
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- |
 | Server WebHCat | Nodi head | 30111 | HTTP | API Web su HCatalog e su altri servizi Hadoop |
 
 ### Porte MapReduce
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- |
 | JobHistory | Nodi head | 19888 | HTTP | Interfaccia utente Web di MapReduce JobHistory |
 | JobHistory | Nodi head | 10020 | &nbsp; | Server di MapReduce JobHistory |
@@ -112,25 +115,32 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
 ### Oozie
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- |
 | Server di Oozie | Nodi head | 11000 | HTTP | URL per il servizio Oozie |
 | Server di Oozie | Nodi head | 11001 | HTTP | Porta per l'amministrazione di Oozie |
 
 ### Metriche di Ambari
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- |
 | TimeLine (cronologia delle applicazioni) | Nodi head | 6188 | HTTP | L'interfaccia utente Web del servizio TimeLine |
 | TimeLine (cronologia delle applicazioni) | Nodi head | 30200 | RPC | L'interfaccia utente Web del servizio TimeLine |
 
 ### Porte HBase
 
-| Service | Nodo/i | Porta | Protocollo | Descrizione |
+| Service | Nodo/i | Port | Protocol | Descrizione |
 | ------- | ------- | ---- | -------- | ----------- |
 | HMaster | Nodi head | 16000 | &nbsp; | &nbsp; |
 | Interfaccia utente Web informativa di HMaster | Nodi head | 16010 | HTTP | La porta per l'interfaccia utente Web Master HBase |
 | Server dell'area | Tutti i nodi di lavoro | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | La porta usata dai client per connettersi a ZooKeeper |
 
-<!---HONumber=AcomDC_0713_2016-->
+### Porte Kafka
+
+| Service | Nodo/i | Port | Protocol | Descrizione |
+| ------- | ------- | ---- | -------- | ----------- |
+| Gestore | Nodi di lavoro | 9092 | [Protocollo di trasmissione Kafka](http://kafka.apache.org/protocol.html) | Usato per la comunicazione di client |
+| &nbsp; | Nodi Zookeeper | 2181 | &nbsp; | La porta usata dai client per connettersi a ZooKeeper |
+
+<!---HONumber=AcomDC_0831_2016-->

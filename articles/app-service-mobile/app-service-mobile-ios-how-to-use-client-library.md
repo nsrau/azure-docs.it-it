@@ -502,7 +502,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>Procedura: Autenticare gli utenti con Active Directory Authentication Library
 
-È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
+È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso del metodo `loginWithProvider:completion:`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa. Per iOS è consigliabile, ma non obbligatorio, che l'URI di reindirizzamento sia nel formato `<app-scheme>://<bundle-id>`. Per altri dettagli, vedere il [progetto di avvio rapido iOS per ADAL](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem).
 
@@ -591,7 +591,7 @@ e il Pod:
 
 ## <a name="facebook-sdk"></a>Procedura: Autenticare gli utenti con Facebook SDK for iOS
 
-È possibile usare Facebook SDK for iOS per consentire l'accesso degli utenti all'applicazione tramite Facebook. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
+È possibile usare Facebook SDK for iOS per consentire l'accesso degli utenti all'applicazione tramite Facebook. Questa procedura è spesso preferibile all'uso del metodo `loginWithProvider:completion:`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Facebook seguendo l'esercitazione [Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook](app-service-mobile-how-to-configure-facebook-authentication.md).
 
@@ -669,7 +669,7 @@ e il Pod:
 
 ## <a name="twitter-fabric"></a>Procedura: Autenticare gli utenti con Twitter Fabric for iOS
 
-È possibile usare Fabric for iOS per consentire l'accesso degli utenti all'applicazione tramite Twitter. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
+È possibile usare Fabric for iOS per consentire l'accesso degli utenti all'applicazione tramite Twitter. Questa procedura è spesso preferibile all'uso del metodo `loginWithProvider:completion:`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Twitter seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Twitter](app-service-mobile-how-to-configure-twitter-authentication.md).
 
@@ -741,6 +741,68 @@ e il Pod:
 		}
 	}
 
+## <a name="google-sdk"></a>Procedura: Autenticare gli utenti con Google Sign-In SDK for iOS
+
+È possibile usare Google Sign-In SDK for iOS per consentire l'accesso degli utenti all'applicazione tramite un account Google. Questa procedura è spesso preferibile all'uso del metodo `loginWithProvider:completion:`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
+
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Google seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Google](app-service-mobile-how-to-configure-google-authentication.md).
+
+2. Installare Google SDK for iOS seguendo le istruzioni nel documento [Start integrating Google Sign-In into your iOS app](https://developers.google.com/identity/sign-in/ios/start-integrating) (Iniziare a integrare l'accesso di Google nell'app iOS). È possibile ignorare la sezione "Authenticate with a Backend Server" (Eseguire l'autenticazione con un server back-end) perché il servizio app provvederà a questa operazione.
+
+3. Aggiungere al codice il codice seguente per il metodo `signIn:didSignInForUser:withError:` del delegato, a seconda del linguaggio usato.
+
+**Objective-C**:
+
+	    NSDictionary *payload = @{
+	                              @"id_token":user.authentication.idToken,
+	                              @"authorization_code":user.serverAuthCode
+	                              };
+	    
+	    [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
+	        // ...
+	    }];
+
+**Swift**:
+
+		let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
+		client.loginWithProvider("google", token: payload) { (user, error) in
+			// ...
+		}
+
+4. Aggiungere anche il codice seguente a `application:didFinishLaunchingWithOptions:` nel delegato dell'app, sostituendo "SERVER\_CLIENT\_ID" con lo stesso ID usato per configurare il servizio app nel passaggio 1.
+
+**Objective-C**:
+
+ 		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+ 
+ 
+ **Swift**:
+ 
+		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
+
+ 
+ 5. Aggiungere il codice seguente all'applicazione in una classe UIViewController che implementi il protocollo `GIDSignInUIDelegate`, in base al linguaggio usato. Si noti che l'utente viene disconnesso prima di accedere nuovamente e anche se non è necessario immettere le credenziali una seconda volta, verrà visualizzata una finestra di dialogo di consenso. Ciò consente di ottenere un nuovo codice di autenticazione server, necessario in un passaggio precedente. Chiamare questo metodo solo quando il token della sessione è scaduto.
+ 
+ **Objective-C**:
+
+		#import <Google/SignIn.h>
+		// ...
+		- (void)authenticate
+		{
+			    [GIDSignIn sharedInstance].uiDelegate = self;
+				[[GIDSignIn sharedInstance] signOut];
+			    [[GIDSignIn sharedInstance] signIn];
+ 		}
+ 
+ **Swift**:
+ 	
+		// ...
+		func authenticate() {
+			GIDSignIn.sharedInstance().uiDelegate = self
+			GIDSignIn.sharedInstance().signOut()
+			GIDSignIn.sharedInstance().signIn()
+		}
+ 		
 <!-- Anchors. -->
 
 [What is Mobile Services]: #what-is
@@ -792,4 +854,4 @@ e il Pod:
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

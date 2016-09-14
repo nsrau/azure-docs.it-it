@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/25/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -31,9 +31,13 @@ L'anteprima di Azure Active Directory Identity Protection è attualmente disponi
 
 ### Identity Protection e domini federati
 
-L'anteprima di Azure Active Directory Identity Protection presenta le limitazioni seguenti in combinazione con i domini federati:
+Azure Active Directory Identity Protection presenta le limitazioni seguenti in combinazione con i domini federati:
 
-- Per i domini federati sono consentiti solo criteri di sicurezza relativi al rischio di accesso. I criteri di sicurezza relativi al rischio utente non sono attualmente consentiti per i domini federati
+- Per far sì che i criteri di sicurezza per il rischio utente funzionino per i domini federati
+
+	- Il [writeback delle password](active-directory-passwords-getting-started.md) deve essere abilitato per il dominio federato, in modo che la modifica della password nel cloud possa essere scritta nuovamente in locale.
+
+	- È necessario assegnare una licenza di Azure AD Premium all'utente finale.
 
 - Gli eventi di rischio vengono rilevati solo per le app federate con Azure Active Directory
 
@@ -87,7 +91,7 @@ Ma Azure Active Directory Identity Protection è più di un semplice strumento d
 
 Gli eventi di rischio sono eventi contrassegnati come sospetti da Identity Protection e indicano che un'identità potrebbe essere compromessa. Per un elenco completo degli eventi di rischio, vedere l'articolo [Tipi di eventi di rischio rilevati da Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md).
 
-Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'attività di Azure AD nel portale di gestione di Azure. La tabella seguente riporta un elenco dei vari tipi di eventi di rischio e i report di **Anomalie dell'attività di Azure AD corrispondenti**. Microsoft continua a investire in questo spazio e intende migliorare la precisione di rilevamento degli eventi di rischio esistenti e aggiungere nuovi tipi di eventi di rischio in modo continuativo.
+Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'attività di Azure AD nel portale di gestione di Azure. La tabella seguente riporta un elenco dei vari tipi di eventi di rischio e i report di **Anomalie dell'attività di Azure AD** corrispondenti. Microsoft continua a investire in questo spazio e intende migliorare la precisione di rilevamento degli eventi di rischio esistenti e aggiungere nuovi tipi di eventi di rischio in modo continuativo.
 
 
 
@@ -166,7 +170,7 @@ Il livello di rischio utente viene calcolato usando le informazioni seguenti:
 
 ## Chiusura manuale degli eventi di rischio
 
-Nella maggior parte dei casi, per chiudere automaticamente gli eventi di rischio si procede con azioni di correzione come la reimpostazione della password di protezione. Tuttavia, questo potrebbe non essere sempre possibile. <br> Ad esempio, quando:
+Nella maggior parte dei casi, per chiudere automaticamente gli eventi di rischio si procede con azioni di correzione come la reimpostazione della password di protezione. Tuttavia, questo potrebbe non essere sempre possibile. <br> Ad esempio quando:
 
 - Un utente con eventi di rischio attivi è stato eliminato
 - Un'analisi rivela che un evento di rischio segnalato è stato eseguito dall'utente legittimo
@@ -179,11 +183,11 @@ Dal momento che gli eventi di rischio **attivi** vengono conteggiati nel calcolo
 
 - **Contrassegna come falso positivo**: in alcuni casi è possibile analizzare un evento di rischio e scoprire che è stato erroneamente contrassegnato come rischioso. È possibile ridurre il numero di tali occorrenze contrassegnando l'evento di rischio come falso positivo. Questo permetterà agli algoritmi di Machine Learning di migliorare la classificazione di eventi simili in futuro. Lo stato dell'evento falso positivo viene impostato come **chiuso** e non viene più conteggiato nel rischio utente.
 
-- **Ignora**: se non sono state intraprese azioni di correzione ma si vuole rimuovere l'evento di rischio dall'elenco attivo, è possibile contrassegnarlo come da ignorare e il relativo stato verrà impostato come chiuso. Gli eventi ignorati non vengono conteggiati nel rischio utente. Questa opzione deve essere usata solo in circostanze particolari.
+- **Ignora**: se non sono state intraprese azioni di correzione, ma si vuole rimuovere l'evento di rischio dall'elenco attivo, è possibile contrassegnarlo come da ignorare e il relativo stato verrà impostato come chiuso. Gli eventi ignorati non vengono conteggiati nel rischio utente. Questa opzione deve essere usata solo in circostanze particolari.
 
 - **Riattiva**: gli eventi di rischio che sono stati chiusi manualmente, scegliendo **Risolvi**, **Contrassegna come falso positivo** o **Ignora**, possono essere riattivati impostando nuovamente lo stato dell'evento su **attivo**. Gli eventi di rischio riattivati vengono conteggiati nel calcolo del livello di rischio utente. Gli eventi di rischio chiusi tramite correzione, ad esempio la reimpostazione della password di protezione, non possono essere riattivati.
 
-**Per aprire la finestra di dialogo di configurazione correlata**:
+**Per aprire la relativa finestra di dialogo di configurazione**:
 
 1. Nel pannello **Azure AD Identity Protection** fare clic su **Utenti contrassegnati per il rischio**. <br><br> ![Reimpostazione manuale della password](./media/active-directory-identityprotection/408.png "Reimpostazione manuale della password") <br>
 
@@ -210,11 +214,11 @@ La finestra di dialogo correlata fornisce due metodi diversi per reimpostare una
 
 **Reimposta password**: selezionare **Richiedi all'utente di reimpostare la password** per consentire all'utente di eseguire il ripristino automatico se è registrato per l'autenticazione a più fattori. Durante l'accesso successivo all'utente verrà richiesto di risolvere correttamente una richiesta di autenticazione a più fattori e quindi di modificare la password. Questa opzione non è disponibile se l'account utente non è già registrato per l'autenticazione a più fattori.
 
-**Password provvisoria**: selezionare **Genera password provvisoria** per annullare immediatamente la password esistente e creare una nuova password provvisoria per l'utente. Inviare la nuova password provvisoria a un indirizzo di posta elettronica alternativo dell'utente o al responsabile dell'utente. La password è provvisoria, quindi verrà richiesto all'utente di modificarla al momento dell'accesso.
+**Password provvisoria**: selezionare **Genera una password provvisoria** per annullare immediatamente la password esistente e creare una nuova password provvisoria per l'utente. Inviare la nuova password provvisoria a un indirizzo di posta elettronica alternativo dell'utente o al responsabile dell'utente. La password è provvisoria, quindi verrà richiesto all'utente di modificarla al momento dell'accesso.
 
 <br> ![Criterio](./media/active-directory-identityprotection/71.png "Criterio") <br>
 
-**Per aprire la finestra di dialogo di configurazione correlata**:
+**Per aprire la relativa finestra di dialogo di configurazione**:
 
 1. Nel pannello **Azure AD Identity Protection** fare clic su **Utenti contrassegnati per il rischio**. <br><br> ![Reimpostazione manuale della password](./media/active-directory-identityprotection/408.png "Reimpostazione manuale della password") <br>
 
@@ -243,7 +247,7 @@ Azure AD Identity Protection consente di gestire le azioni di mitigazione e corr
 - Esaminare e valutare l'impatto di una modifica prima di attivarla: <br><br> ![Criteri di rischio utente](./media/active-directory-identityprotection/504.png "Criteri di rischio utente") <br>
 
 
-La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti. Tuttavia, esclude dai criteri gli utenti contrassegnati per il rischio con una soglia **bassa** o **media**. Questa scelta potrebbe non garantire la protezione delle identità o dei dispositivi in precedenza sospettati o ritenuti essere compromessi.
+La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti. Esclude tuttavia dai criteri gli utenti contrassegnati per il rischio con una soglia **bassa** o **media**. Questa scelta potrebbe non garantire la protezione delle identità o dei dispositivi in precedenza sospettati o ritenuti essere compromessi.
 
 Quando si impostano i criteri:
 
@@ -264,7 +268,7 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 - [Flusso di account compromessi bloccati](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
 
-**Per aprire la finestra di dialogo di configurazione correlata**:
+**Per aprire la relativa finestra di dialogo di configurazione**:
 
 1. Nel pannello **Azure AD Identity Protection** fare clic su **Impostazioni**. <br><br> ![Criteri di rischio utente](./media/active-directory-identityprotection/401.png "Criteri di rischio utente") <br>
 
@@ -313,7 +317,7 @@ Azure AD Identity Protection consente di gestire le azioni di mitigazione degli 
 - Esaminare e valutare l'impatto di una modifica prima di attivarla: <br><br> ![Criteri di rischio di accesso](./media/active-directory-identityprotection/704.png "Criteri di rischio di accesso") <br>
 
  
-La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti.<br> Tuttavia, esclude dai criteri gli accessi contrassegnati per il rischio con una soglia **bassa** o **media**. Questa scelta potrebbe non impedire a un utente malintenzionato di sfruttare un'identità compromessa.
+La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti.<br> Tuttavia, esclude dai criteri gli accessi contrassegnati per il rischio con una soglia **bassa** o **media**. Questa scelta può non impedire a un utente malintenzionato di sfruttare un'identità compromessa.
 
 Quando si impostano i criteri:
 
@@ -325,9 +329,9 @@ Quando si impostano i criteri:
 
 - Usare una soglia **alta** durante il rollout iniziale dei criteri o se è necessario ridurre al minimo gli avvisi visualizzati dagli utenti finali.
 
-- Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce altri passaggi di verifica dell'accesso per l'utente, ma garantisce una maggiore sicurezza.
+- Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce richieste di accesso aggiuntive per l'utente, ma garantisce una maggiore sicurezza.
 
-L'impostazione predefinita consigliata per la maggior parte delle organizzazioni è la configurazione di una regola per una soglia **media**, che permette di bilanciare usabilità e sicurezza.
+La scelta consigliata come valore predefinito per la maggior parte delle organizzazioni è la configurazione di una regola per una soglia **media**, che permette di bilanciare usabilità e sicurezza.
 
  
 I criteri di rischio di accesso:
@@ -352,7 +356,7 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 
 
-**Per aprire la finestra di dialogo di configurazione correlata**:
+**Per aprire la relativa finestra di dialogo di configurazione**:
 
 1. Nel pannello **Azure AD Identity Protection** fare clic su **Impostazioni**. <br><br> ![Registrazione MFA](./media/active-directory-identityprotection/401.png "Registrazione MFA") <br>
 
@@ -392,7 +396,7 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 
 
-**Per aprire la finestra di dialogo di configurazione correlata**:
+**Per aprire la relativa finestra di dialogo di configurazione**:
 
 1. Nel pannello **Azure AD Identity Protection** fare clic su **Impostazioni**. <br><br> ![Registrazione MFA](./media/active-directory-identityprotection/401.png "Registrazione MFA") <br>
 
@@ -412,4 +416,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
  - [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
  - [Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

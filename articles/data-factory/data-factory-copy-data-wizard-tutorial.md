@@ -25,7 +25,7 @@
 - [Uso dell'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
-In questa esercitazione viene usata la Copia guidata di Data Factory per creare una pipeline con l'attività di copia in una data factory. È prima di tutto necessario creare una data factory nel portale di Azure e quindi usare la Copia guidata per creare servizi collegati, set di dati e una pipeline di Data Factory con un'attività di copia che copia i dati da un archivio BLOB di Azure a un database SQL di Azure.
+In questa esercitazione viene usata la Copia guidata di Data Factory per creare una pipeline con l'attività di copia in una data factory. Per prima cosa, si crea una data factory usando il portale di Azure. Successivamente, si usa la Copia guidata per creare servizi collegati, set di dati e una pipeline di Data Factory con un'attività di copia che copia i dati da un archivio BLOB di Azure a un database SQL di Azure. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
 > [AZURE.IMPORTANT] Leggere l'articolo [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e completare i prerequisiti prima di eseguire questa esercitazione.
 
@@ -57,7 +57,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 	> [AZURE.NOTE] Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 
 9. Fare clic sull'hub **NOTIFICHE** a sinistra e cercare le notifiche del processo di creazione. Fare clic su **X** per chiudere il pannello **NOTIFICHE**, se è aperto.
-10. Al termine della creazione, il pannello **DATA FACTORY** avrà un aspetto simile al seguente.
+10. Al termine della creazione verrà visualizzato il pannello **DATA FACTORY**, come illustrato nell'immagine seguente.
 
     ![Home page di Data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -102,11 +102,11 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 
 	![Strumento di copia - Mapping tabella](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. Nella pagina **Mapping dello schema** fare clic su **Avanti**.
-11. Verificare le informazioni nella pagina **Riepilogo** e fare clic su **Fine**. Vengono creati due servizi collegati, due set di dati (input e output) e una pipeline nella data factory, da cui è stata avviata la Copia guidata.
+11. Verificare le informazioni nella pagina **Riepilogo** e fare clic su **Fine**. La procedura guidata crea due servizi collegati, due set di dati (input e output) e una pipeline nella data factory da cui è stata avviata la Copia guidata.
 12. Nella pagina **La distribuzione è riuscita** fare clic su **Click here to monitor copy pipeline** (Fare clic qui per monitorare la pipeline di copia).
 
 	![Strumento di copia - La distribuzione è riuscita](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
-13. Per informazioni su come monitorare la pipeline appena creata, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
+13. Per informazioni su come monitorare la pipeline creata, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
 	![App di monitoraggio](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
  
@@ -120,4 +120,4 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 | [Set di dati](data-factory-create-datasets.md) | Questo articolo fornisce informazioni sui set di dati in Azure Data Factory.
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

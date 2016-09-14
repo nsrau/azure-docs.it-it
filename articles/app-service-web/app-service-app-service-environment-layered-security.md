@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="08/30/2016" 
 	ms.author="stefsch"/>
 
 # Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app
 
-## Panoramica ##
+## Overview ##
  
 Dato che gli ambienti del servizio app forniscono un ambiente di runtime isolato distribuito in una rete virtuale, gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione fisico.
 
@@ -41,7 +41,7 @@ Poiché i [gruppi di sicurezza di rete][NetworkSecurityGroups] vengono applicati
 - **L'app per le API back-end dovrà chiamare se stessa?** Un aspetto delicato e a volte trascurato è lo scenario in cui l'applicazione back-end deve chiamare se stessa. Se un'applicazione API back-end in un ambiente del servizio app deve chiamare se stessa, anche questa chiamata viene considerata una chiamata "Internet". Nell'architettura di esempio è necessario consentire l'accesso anche dall'indirizzo IP in uscita dell'ambiente del servizio app "apiase".
 
 ## Configurazione del gruppo di sicurezza di rete ##
-Una volta noto il set di indirizzi IP in uscita, il passaggio successivo consiste nel creare un gruppo di sicurezza di rete. Poiché gli ambienti del servizio app attualmente sono supportati solo nelle reti virtuali "v1", la [configurazione del gruppo di sicurezza di rete][NetworkSecurityGroupsClassic] viene eseguita usando il supporto per il gruppo di sicurezza di rete classico in Powershell.
+Una volta noto il set di indirizzi IP in uscita, il passaggio successivo consiste nel creare un gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere creati sia per le reti virtuali basate su Resource Manager che per le reti virtuali classiche. Gli esempi seguenti illustrano la creazione e configurazione di un gruppo di sicurezza di rete in una rete virtuale classica usando Powershell.
 
 Per l'architettura di esempio, gli ambienti si trovano negli Stati Uniti centro-meridionali e quindi viene creato un gruppo di sicurezza di rete vuoto in tale area:
 
@@ -89,9 +89,9 @@ Con il gruppo di sicurezza di rete applicato alla subnet, solo ai tre ambienti d
 
 
 ## Informazioni e collegamenti aggiuntivi ##
-Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [File LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
-Configurare [gruppi di sicurezza di rete][NetworkSecurityGroupsClassic] in reti virtuali classiche.
+Informazioni sui [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
 Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambienti del servizio app.
 
@@ -104,11 +104,10 @@ Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambient
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[NetworkSecurityGroupsClassic]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps/
 [InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

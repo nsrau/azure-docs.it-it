@@ -65,7 +65,7 @@ Di seguito sono riportati i limiti per una singola esecuzione di app per la logi
 
 |Nome|Limite|Note|
 |----|----|----|
-|Elementi ForEach|10\.000|È possibile usare l'[azione di query](../connectors/connectors-native-query.md) per filtrare matrici di dimensioni superiori, se necessario|
+|Elementi ForEach|5\.000|È possibile usare l'[azione di query](../connectors/connectors-native-query.md) per filtrare matrici di dimensioni superiori, se necessario|
 |Iterazioni Until|10\.000||
 |Elementi SplitOn|10\.000||
 |Parallelismo ForEach|20|È possibile impostare un ForEach sequenziale aggiungendo `"operationOptions": "Sequential"` all'azione `foreach`|
@@ -134,4 +134,4 @@ Le chiamate effettuate direttamente da un'app per la logica (tramite [HTTP](../c
 - [Le app per la logica consentono di automatizzare i processi aziendali](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

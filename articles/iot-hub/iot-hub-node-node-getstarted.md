@@ -30,7 +30,7 @@ Al termine di questa esercitazione si avranno tre applicazioni console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-+ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
++ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
 + Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
 
@@ -48,7 +48,7 @@ In questa sezione si scriverà un'app console di Node.js che consente di creare 
     npm init
     ```
 
-2. Eseguire questo comando al prompt dei comandi nella cartella **createdeviceidentity** per installare il pacchetto **azure-iothub**:
+2. Eseguire questo comando al prompt dei comandi nella cartella **createdeviceidentity** per installare il pacchetto SDK del servizio **azure-iothub**:
 
     ```
     npm install azure-iothub --save
@@ -184,7 +184,7 @@ In questa sezione si creerà un'app console di Node.js che simula un dispositivo
     npm init
     ```
 
-2. Eseguire questo comando al prompt dei comandi nella cartella **simulateddevice** per installare il pacchetto **azure-iot-device-amqp**:
+2. Eseguire questo comando al prompt dei comandi nella cartella **simulateddevice** per installare il pacchetto SDK per dispositivi **azure-iot-device** e il pacchetto **azure-iot-device-amqp**:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -201,7 +201,7 @@ In questa sezione si creerà un'app console di Node.js che simula un dispositivo
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Aggiungere una variabile **connectionString** e usarla per creare un client del dispositivo. Sostituire **{youriothostname}** con il nome dell'hub IoT creato nella sezione *Creare un hub IoT* e **{yourdevicekey}** con il valore della chiave del dispositivo generato nella sezione *Creare un'identità del dispositivo*:
+5. Aggiungere una variabile **connectionString** e usarla per creare un client dispositivo. Sostituire **{youriothostname}** con il nome dell'hub IoT creato nella sezione *Creare un hub IoT* e **{yourdevicekey}** con il valore della chiave del dispositivo generato nella sezione *Creare un'identità del dispositivo*:
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -264,7 +264,7 @@ A questo punto è possibile eseguire le applicazioni.
 
     ![][7]
 
-2. Eseguire questo comando al prompt dei comandi della cartella **simulateddevice** per iniziare a inviare dati di telemetria all'hub IoT:
+2. Eseguire questo comando al prompt dei comandi nella cartella **simulateddevice** per iniziare a inviare dati di telemetria all'hub IoT:
 
     ```
     node SimulatedDevice.js
@@ -312,4 +312,4 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

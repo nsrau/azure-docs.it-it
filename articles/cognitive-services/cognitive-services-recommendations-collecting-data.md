@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/31/2016"
 	ms.author="luisca"/>
 
 #  Raccolta dei dati per eseguire il training del modello #
@@ -51,17 +51,17 @@ Con funzionalità:
 
 #### Dettagli relativi al formato
 
-| Nome | Obbligatorio | Tipo | Descrizione |
+| Name | Mandatory | Tipo | Descrizione |
 |:---|:---|:---|:---|
-| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. | 
-| Item Name | Sì| Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. | 
-| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. | 
-| Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 | Descrizione dell'elemento. | 
-| Elenco delle funzionalità | No | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000 ; numero massimo di funzionalità: 20| Elenco con valori delimitati da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare la raccomandazione relativa al modello.
+| Item Id |Sì | [A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50 | Identificatore univoco di un elemento. |
+| Item Name | Sì | Qualsiasi carattere alfanumerico<br> Lunghezza massima: 255 | Nome dell'elemento. |
+| Item Category | Sì | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 255 | Categoria alla quale appartiene l'elemento (ad esempio, libri di cucina, letteratura e così via); può essere vuoto. |
+| Descrizione | No, a meno che siano presenti funzionalità (può essere vuoto) | Qualsiasi carattere alfanumerico<br> Lunghezza massima: 4000 | Descrizione dell'elemento. |
+| Elenco di funzionalità | No | Qualsiasi carattere alfanumerico <br> Lunghezza massima: 4000, numero massimo di funzionalità: 20 | Elenco delimitato da virgole di nome funzionalità=valore funzionalità che è possibile usare per migliorare il modello di raccomandazione.|
 
 #### Caricamento di un file di catalogo
 
-Esaminare il [riferimento all'API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e1) per il caricamento di un file di catalogo.
+Per caricare un file di catalogo, vedere il [riferimento all'API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e1).
 
 Si noti che il contenuto del file di catalogo deve essere passato come corpo della richiesta.
 
@@ -84,7 +84,7 @@ Per usare le funzionalità come parte della compilazione è necessario:
 
 2. Attivare la compilazione della classifica. L'analisi sarà eseguita in base all'importanza/classifica delle funzionalità.
 
-3. Attivare una compilazione di elementi consigliati, impostando i parametri di compilazione seguenti: impostare useFeaturesInModel su true, allowColdItemPlacement su true e modelingFeatureList su un elenco delimitato da virgole delle caratteristiche che si desidera usare per migliorare il modello. Per altre informazioni, vedere l'articolo relativo ai [parametri per i tipi di compilazione di elementi consigliati](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0).
+3. Attivare una compilazione di elementi consigliati, impostando i parametri di compilazione seguenti: impostare useFeaturesInModel su true, allowColdItemPlacement su true e modelingFeatureList su un elenco delimitato da virgole delle caratteristiche che si desidera usare per migliorare il modello. Per altre informazioni, vedere i [parametri per il tipo di compilazione di elementi consigliati](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0).
 
 
 ## Dati di utilizzo ##
@@ -95,12 +95,12 @@ Il file di dati di utilizzo presenta il formato CSV (valori delimitati da virgol
 
 
 
-| Nome | Obbligatorio | Tipo | Descrizione
+| Nome | Mandatory | Tipo | Descrizione
 |-------|------------|------|---------------
-|User Id| Sì|[A-z], [a-z], [0-9], [\_] &#40;Carattere di sottolineatura&#41;, [-] &#40;Trattino&#41;<br> Lunghezza max: 255 |Identificatore univoco di un utente. 
-|ID elemento|Sì|[A-z], [a-z], [0-9], [&#95;] &#40;Carattere di sottolineatura&#41;, [-] &#40;Trattino&#41;<br> Lunghezza max: 50|Identificatore univoco di un elemento. 
-|Ora|Sì|Data nel formato: AAAA/MM/GGTOO:MM:SS (ad es. 2013/06/20T10:00:00)|Ora dei dati. 
-|Evento|No | Uno dei seguenti:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| Il tipo di transazione. |
+|User Id| Sì|[A-z], [a-z], [0-9], [\_] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 255 |Identificatore univoco di un utente.
+|Item Id|Sì|[A-z], [a-z], [0-9], [&#95;] &#40;carattere di sottolineatura&#41;, [-] &#40;trattino&#41;<br> Lunghezza massima: 50|Identificatore univoco di un elemento.
+|Time|Sì|Data in formato: AAAA/MM/GGTHH:MM:SS (ad esempio 2013/06/20T10:00:00)|Ora dei dati.
+|Evento|No | Uno dei seguenti:<br>• Clic<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Acquisto| Tipo di transazione. |
 
 #### Righe di esempio in un file di dati di utilizzo
 
@@ -113,9 +113,9 @@ Il file di dati di utilizzo presenta il formato CSV (valori delimitati da virgol
 
 #### Caricamento di un file di dati di utilizzo
 
-Esaminare il [riferimento all'API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e2) per il caricamento di un file di dati di utilizzo. Si noti che è necessario passare il contenuto del file di dati di utilizzo come corpo della chiamata HTTP.
+Per caricare file di dati di utilizzo, vedere il [riferimento all'API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e2). Si noti che è necessario passare il contenuto del file di dati di utilizzo come corpo della chiamata HTTP.
 
->  Nota:
+>  Note:
 
 >  Dimensione massima file: 200 MB. È possibile caricare diversi file di dati di utilizzo.
 
@@ -129,4 +129,4 @@ Una buona regola consiste nella distribuzione della maggior parte degli elementi
 
 Dopo aver creato un modello, è possibile eseguire una [valutazione offline](cognitive-services-recommendations-buildtypes.md) per controllare il potenziale andamento del modello.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

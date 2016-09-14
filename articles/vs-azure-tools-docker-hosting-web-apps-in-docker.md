@@ -18,7 +18,7 @@
 
 # Distribuire un contenitore ASP.NET in un host Docker remoto
 
-## Panoramica
+## Overview
 Docker è un motore contenitore leggero, simile in qualche modo a una macchina virtuale, che è possibile usare per ospitare applicazioni e servizi. In questa esercitazione viene usata l'estensione [Visual Studio 2015 Tools per Docker](http://aka.ms/DockerToolsForVS) per distribuire un'app ASP.NET Core in un host Docker in Azure con PowerShell.
 
 ## Prerequisiti
@@ -39,7 +39,7 @@ La procedura seguente illustrerà la creazione di un'app ASP.NET 5 di base che v
 
 ## 3\. Usare lo script di PowerShell DockerTask.ps1 
 
-1.  Aprire un prompt dei comandi di PowerShell nella directory radice del progetto. 
+1.  Aprire un prompt dei comandi di PowerShell nella directory radice del progetto.
 
     ```
     PS C:\Src\WebApplication1>
@@ -64,7 +64,7 @@ La procedura seguente illustrerà la creazione di un'app ASP.NET 5 di base che v
     > [AZURE.NOTE] Se si usa la versione beta di Docker, omettere l'argomento -Machine
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
     > ```  
 
 
@@ -77,7 +77,7 @@ La procedura seguente illustrerà la creazione di un'app ASP.NET 5 di base che v
     > [AZURE.NOTE] Se si usa la versione beta di Docker, omettere l'argomento -Machine
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
     > ```
 
 	Una volta completata l'esecuzione di Docker, i risultati visualizzati dovrebbero essere simili ai seguenti:
@@ -89,4 +89,4 @@ La procedura seguente illustrerà la creazione di un'app ASP.NET 5 di base che v
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

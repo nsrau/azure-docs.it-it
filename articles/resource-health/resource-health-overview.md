@@ -36,11 +36,11 @@ Sono disponibili 2 modalità per accedere a Integrità risorse per i servizi mes
 Il pannello Integrità risorsa nel portale di Azure offre informazioni dettagliate sull'integrità della risorsa e le azioni consigliate, che variano a seconda dell'integrità corrente della risorsa. Questo pannello offre un'esperienza ottimale quando si eseguono query in Integrità risorse perché facilita l'accesso ad altre risorse all'interno del portale. Come accennato in precedenza, il set di azioni consigliate nel pannello Integrità risorsa variano in base allo stato di integrità corrente:
 
 * Risorse integre: poiché non è stato rilevato alcun problema che possa influire sull'integrità della risorsa, le azioni sono incentrate sul processo di risoluzione dei problemi. È ad esempio possibile accedere al pannello Risoluzione dei problemi, che offre indicazioni su come risolvere i problemi più comunemente riscontrati dai clienti.
-* Risorsa non integra: per i problemi causati da Azure, nel pannello verranno visualizzate le azioni intraprese da Microsoft per recuperare la risorsa. Per i problemi causati da azioni eseguite dagli utenti, il pannello elencherà una serie di interventi che i clienti possono intraprendere per risolvere il problema e recuperare la risorsa.  
+* Risorsa non integra: per i problemi causati da Azure, nel pannello verranno visualizzate le azioni intraprese da Microsoft per recuperare la risorsa. Per i problemi causati da azioni eseguite dagli utenti, il pannello elencherà una serie di interventi che i clienti possono intraprendere per risolvere il problema e recuperare la risorsa.
 
 Dopo aver effettuato l'accesso al portale di Azure, esistono due modi per accedere al pannello Integrità risorsa:
 
-####Aprire il pannello della risorsa
+###Aprire il pannello della risorsa
 Aprire il pannello per una determinata risorsa. Nel pannello Impostazioni visualizzato accanto al pannello della risorsa, fare clic su Integrità risorsa per aprire il pannello Integrità risorsa.
 
 ![Pannello Integrità risorsa](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
@@ -58,31 +58,6 @@ Facendo clic sul riquadro verrà visualizzato il pannello della sottoscrizione d
 
 ![Riquadro Integrità risorsa](./media/resource-health-overview/resourceHealthTile.png)
 
-### API di integrità risorse
-Oltre alla funzionalità del portale di Azure è disponibile un gruppo di API utilizzabili per eseguire query sull'integrità delle risorse. Queste API consentono agli utenti di richiedere informazioni sull'integrità attuale di tutte le risorse presenti in una sottoscrizione, tutte le risorse presenti in un gruppo di risorse o l'integrità di una singola risorsa.
-
-Un'altra API consente agli utenti di richiedere informazioni cronologiche sullo stato di una singola risorsa. La risposta è una raccolta di stati di integrità delle risorse per gli ultimi 14 giorni. Se la risorsa potrebbe essere stata influenzata da un'interruzione del servizio dichiarata, lo stato di integrità includerà un'annotazione denominata serviceImpactingEvents con altri dettagli sull'interruzione.
-
-Prima di usare l'API per eseguire query sull'integrità delle risorse è necessario registrare la sottoscrizione con il servizio inviando una richiesta POST all'URL seguente: volume
- 
-        //Register the subscription with the Resource health resource provider
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
-        
-Di seguito sono riportati esempi su come chiamare l'API di integrità risorse
-
-        // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET the health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
-        
-        //GET the historical health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-
-
 ## Cosa significa lo stato di integrità delle risorse?
 Esistono 4 possibili stati di integrità per la risorsa.
 
@@ -95,9 +70,9 @@ Il servizio non ha rilevato problemi nella piattaforma che potrebbero incidere s
 
 In questo caso, il servizio ha rilevato un problema nella piattaforma che riduce la disponibilità della risorsa, ad esempio il nodo in cui è in esecuzione la macchina virtuale si è riavviato in modo imprevisto. Questo stato è indicato da un'icona di avviso rossa. Altre informazioni sul problema vengono visualizzate nella sezione centrale del pannello, tra cui:
 
-1.	Azioni intraprese da Microsoft per recuperare la risorsa 
+1.	Azioni intraprese da Microsoft per recuperare la risorsa
 2.	Sequenza temporale dettagliata del problema, incluso il tempo di risoluzione previsto
-3.	Elenco di azioni consigliate agli utenti 
+3.	Elenco di azioni consigliate agli utenti
 
 ![La risorsa non è disponibile](./media/resource-health-overview/Unavailable.png)
 
@@ -130,6 +105,6 @@ I segnali che indicano l'integrità della risorsa possono presentare ritardi fin
 Integrità risorsa segnala lo stato del database SQL, non di SQL Server. Anche se questo approccio offre un quadro più realistico dell'integrità, è necessario prendere in considerazione più componenti e servizi per determinare l'integrità del database. Il segnale corrente si basa sugli accessi al database e ciò significa che per i database che ricevono regolarmente accessi, incluse le richieste di esecuzione di query, l'integrità verrà visualizzata regolarmente. Se non è stato effettuato l'accesso al database per un periodo di 10 minuti o oltre, verrà impostato lo stato Sconosciuta. Ciò non significa che il database non sia disponibile, ma solo che non è stato generato alcun segnale perché non sono stati eseguiti accessi. Con la connessione al database e l'esecuzione di una query verranno inviati i segnali necessari per determinare e aggiornare lo stato di integrità del database.
 
 ## Commenti e suggerimenti
-Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). È anche possibile comunicare con [Twitter](https://twitter.com/azuresupport) o i [forum MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). È possibile inoltre comunicare tramite [Twitter](https://twitter.com/azuresupport) o i [forum MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

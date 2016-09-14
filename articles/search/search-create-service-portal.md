@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/13/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure
@@ -38,7 +38,7 @@ La guida presuppone che sia già stata eseguita la sottoscrizione di Azure e si 
 
 
 ## Selezionare una sottoscrizione in cui mantenere il servizio
-Se è disponibile più di una sottoscrizione, è possibile selezionare quale sottoscrizione debba includere il servizio di Ricerca di Azure.
+Se sono disponibili più sottoscrizioni, è possibile selezionare la sottoscrizione che deve includere il servizio di Ricerca di Azure.
 
 ## Selezionare un gruppo di risorse per il servizio
 Creare un nuovo gruppo di risorse o selezionarne uno esistente. Un gruppo di risorse è una raccolta di servizi e risorse di Azure utilizzate insieme. Se ad esempio si utilizza la Ricerca di Azure per l'indicizzazione di un database SQL, entrambi i servizi devono essere parte dello stesso gruppo di risorse.
@@ -76,4 +76,4 @@ Dopo il provisioning di un servizio di Ricerca di Azure, è possibile [definire 
 
 Per una breve esercitazione, vedere [Introduzione a Ricerca di Azure nel portale](search-get-started-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2016"
+   ms.date="08/23/2016"
    ms.author="alkohli" />
 
 # Attivare o arrestare il dispositivo StorSimple 
@@ -189,39 +189,13 @@ Potrebbe essere necessario arrestare un dispositivo StorSimple in esecuzione se 
 
 ### Dispositivo con enclosure principale<a name="8100a"> 
 
-Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione dal portale di Azure classico. L'unico modo per arrestare il sistema è tramite Windows PowerShell per StorSimple. Per arrestare il dispositivo in modo ordinato e controllato, accedere a Windows PowerShell per StorSimple e attenersi alla procedura seguente.
+Per arrestare il dispositivo in modo ordinato e controllato, è possibile usare il portale di Azure classico oppure Windows PowerShell per StorSimple.
 
 >[AZURE.IMPORTANT] Non arrestare un dispositivo in esecuzione utilizzando il pulsante di alimentazione sul retro del dispositivo.
 >
 >Prima di spegnere il dispositivo, assicurarsi che tutti i componenti del dispositivo siano integri. Nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware** e verificare che lo stato di tutti i componenti sia verde. Questo vale solo per un sistema integro. Se il dispositivo viene arrestato per la sostituzione di un componente che non funziona correttamente, verrà visualizzato lo stato di errore (rosso) o danneggiato (giallo) per i rispettivi componenti nello **Stato hardware**.
 
-È possibile accedere a Windows PowerShell per StorSimple connettendosi alla console seriale del dispositivo o usando la comunicazione remota di Windows PowerShell. Dopo l'accesso a Windows PowerShell per StorSimple, eseguire la procedura seguente per arrestare un dispositivo in esecuzione.
-
-#### Per arrestare un dispositivo in esecuzione
-
-1. Connettersi alla console seriale del dispositivo.
-
-2. Nel menu visualizzato, verificare che il controller a cui si è connessi sia il controller**Standby**. Se non è il controller in standby, disconnettersi dal controller e connettersi a un altro controller.
-
-3. Nel menu della console seriale, scegliere **Opzione 1** per eseguire l’accesso completo al controller standby.
-
-4. Al prompt dei comandi, digitare:
-
-    `Stop-HCSController`
-
-    Questo dovrebbe chiudere il controller in standby corrente.
-
-    >[AZURE.IMPORTANT] Attendere che il controller si arresti completamente prima di procedere al passaggio successivo.
-
-5. Per verificare che la chiusura sia stata completata, controllare la parte posteriore del dispositivo. Il LED di errore del controller deve essere rosso.
-
-6. Connettersi al controller attivo tramite la console seriale e seguire la stessa procedura per arrestarlo.
-
-7. Una volta che i due controller sono completamente arrestati, il LED di stato di entrambi i controller deve lampeggiare rosso.
-
-8. Se è necessario disattivare completamente il dispositivo in questa fase, posizionare gli interruttori di alimentazione dei moduli PCM (Power and Cooling Modules) su OFF.
-
-9. Per verificare che il dispositivo venga arrestato completamente, verificare che tutte le luci nella parte posteriore del dispositivo siano spente.
+Dopo aver effettuato l'accesso a Windows PowerShell per StorSimple o al portale di Azure classico, seguire i passaggi della procedura [Arrestare un dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device).
 
 ### Dispositivo con enclosure EBOD<a name="8600a">
 
@@ -229,7 +203,7 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 #### Per arrestare un dispositivo in esecuzione con enclosure EBOD
 
-1. Eseguire tutti i passaggi elencati in[Dispositivo con solo un’enclosure principale](#8100a).
+1. Eseguire tutti i passaggi della procedura [Arrestare un dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) per l'enclosure principale.
 
 2. Dopo che l'enclosure principale è stata arrestata, arrestare l'enclosure EBOD girando entrambi gli interruttori del Power and Cooling Module (PCM).
 
@@ -241,4 +215,4 @@ Attualmente non è possibile arrestare un dispositivo StorSimple in esecuzione d
 
 [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

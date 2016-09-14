@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/31/2016"
+   ms.date="08/25/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limiti di capacità di SQL Data Warehouse
 
-Le tabelle seguenti contengono i valori massimi consentiti per vari componenti di Azure SQL Data Warehouse.
+Le tabelle seguenti contengono i valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 
 
 ## Gestione del carico di lavoro
@@ -28,7 +28,7 @@ Le tabelle seguenti contengono i valori massimi consentiti per vari componenti d
 | [Unità Data Warehouse (DWU)][]| Risorse di calcolo, memoria e I/O | 6000 |
 | Connessione del database | Sessioni simultanee aperte | 1024<br/><br/>È supportato un massimo di 1024 connessioni attive, ciascuna delle quali può inviare richieste a un database SQL Data Warehouse contemporaneamente. Si noti che sono previsti dei limiti sul numero di query effettivamente eseguibili in contemporanea. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione.|
 | Connessione del database | Memoria massima per le istruzioni preparate | 20 MB |
-| [Gestione del carico di lavoro][] | Numero massimo di query simultanee | 32<br/><br/> Per impostazione predefinita, SQL Data Warehouse esegue un massimo di 32 query simultanee, le query restanti vengono inserite in coda.<br/><br/>Quando gli utenti vengono assegnati a una classe di risorse superiore, il livello di concorrenza può diminuire. Alcune query, come ad esempio le query DMV, possono essere sempre eseguite.|
+| [Gestione del carico di lavoro][] | Numero massimo di query simultanee | 32<br/><br/> Per impostazione predefinita, SQL Data Warehouse può eseguire un massimo di 32 query simultanee, le query restanti vengono inserite in coda.<br/><br/>Quando gli utenti vengono assegnati a una classe di risorse superiore o quando SQL Data Warehouse è configurato con un DWU basso, il livello di concorrenza può diminuire. Alcune query, come ad esempio le query DMV, possono essere sempre eseguite.|
 | [Tempdb][] | Dimensioni massime del database Tempdb | 399 GB per DW100. Pertanto il database Tempdb DWU1000 ha come dimensioni 3,99 TB |
 
 
@@ -36,13 +36,13 @@ Le tabelle seguenti contengono i valori massimi consentiti per vari componenti d
 
 | Categoria | Descrizione | Massima |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Database | Dimensioni massime | 240 TB compressi su disco<br/><br/>Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti. La compressione columnstore cluster è stimata a 5x, ovvero la dimensione non compressa del database potrebbe crescere a circa 1 PB quando tutte le tabelle sono columnstore cluster (il tipo di tabella predefinito).|
+| Database | Dimensioni massime | 240 TB compressi su disco<br/><br/>Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti. La compressione stimata per columnstore cluster è 5X. Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito).|
 | Tabella | Dimensioni massime | 60 TB compressi su disco |
 | Tabella | Tabelle per database | 2 miliardi |
 | Tabella | Colonne per tabella | 1024 colonne |
-| Tabella | Byte per colonna | 8000 byte |
-| Tabella | Byte per riga, dimensioni definite | 8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina abilitata. Come SQL Server, SQL Data Warehouse supporta l'archiviazione di dati di overflow della riga che consente di spostare colonne a lunghezza variabile all'esterno delle righe. Nel record principale viene archiviata solo una radice di 24 byte per le colonne di lunghezza variabile spostate all'esterno delle righe. Per altre informazioni, vedere l'argomento [Dati di overflow della riga che superano 8 KB][] nella documentazione online di SQL Server.<br/><br/>Per un elenco delle dimensioni dei tipi di dati di SQL Data Warehouse, vedere l'argomento [CREATE TABLE (Azure SQL Data Warehouse)][]. |
-| Tabella | Partizioni per tabella | 15\.000<br/><br/>Per ottenere prestazioni elevate è consigliabile ridurre al minimo il numero di partizioni necessarie pur supportando i requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano.|
+| Tabella | Byte per colonna | Dipende dalla colonna [tipo di dati][]. Il limite è 8000 per i tipi di dati char, 4000 per nvarchar o 2 GB per i tipi di dati MAX.|
+| Tabella | Byte per riga, dimensioni definite | 8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Come SQL Server, SQL Data Warehouse supporta l'archiviazione di dati di overflow della riga che consente di spostare **colonne a lunghezza variabile** all'esterno delle righe. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per ulteriori informazioni, vedere l'articolo di MSDN [Dati di overflow della riga che superano 8 KB][].|
+| Tabella | Partizioni per tabella | 15\.000<br/><br/>Per ottenere prestazioni elevate è consigliabile ridurre al minimo il numero di partizioni necessarie e allo stesso tempo continuare a supportare i requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano.|
 | Table | Caratteri per valore limite della partizione.| 4000 |
 | Indice | Indici non in cluster per tabella. | 999<br/><br/>Si applica solo alle tabelle rowstore.|
 | Indice | Indici in cluster per tabella. | 1<br><br/>Si applica sia alle tabelle rowstore che alle tabelle columnstore.|
@@ -61,7 +61,7 @@ Le tabelle seguenti contengono i valori massimi consentiti per vari componenti d
 
 | Categoria | Descrizione | Massima |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Operazioni di caricamento di PolyBase | Byte per riga | 32\.768<br/><br/>Le operazioni di caricamento di PolyBase sono limitate al caricamento di righe inferiori a 32 KB che non possono essere caricate in VARCHR(MAX), NVARCHAR(MAX) o VARBINARY(MAX). Questo limite verrà presto rimosso.<br/><br/>
+| Operazioni di caricamento di PolyBase | Byte per riga | 32\.768<br/><br/>Le operazioni di caricamento di PolyBase sono limitate al caricamento di righe inferiori a 32.000 che non possono essere caricate in VARCHR(MAX), NVARCHAR(MAX) o VARBINARY(MAX). Questo limite verrà presto rimosso.<br/><br/>
 
 
 ## Query
@@ -106,10 +106,10 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [panoramica degli argomenti di riferimento di SQL Data Warehouse]: ./sql-data-warehouse-overview-reference.md
 [Gestione del carico di lavoro]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
+[tipo di dati]: ./sql-data-warehouse-tables-data-types.md
 
 <!--MSDN references-->
 [Dati di overflow della riga che superano 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
-[CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Errore interno: è stato raggiunto un limite per i servizi di gestione delle espressioni]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

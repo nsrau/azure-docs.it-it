@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Partner e località di peering per ExpressRoute
@@ -31,7 +31,7 @@ Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopoliti
 |---|---|---|
 |**America del Nord**|Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Canada orientale|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**America del Sud**|Brasile meridionale|Sao Paulo|
-|**Europa**|Europa settentrionale, Europa occidentale|Amsterdam, Dublino, Londra, Newport(Galles)+, Parigi|
+|**Europa**|Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale|Amsterdam, Dublino, Londra, Newport(Galles)+, Parigi|
 |**Asia**|Asia orientale, Asia sudorientale|Hong Kong, Singapore|
 |**Giappone**|Giappone occidentale, Giappone orientale|Osaka, Tokyo|
 |**Australia**|Australia sudorientale, Australia orientale|Melbourne, Sydney|
@@ -83,7 +83,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **MTN** | Supportato | Supportato | Londra |
 | **NEXTDC** | Supportato | Supportato | Melbourne, Sydney |
 | **NTT Communications** | Supportato | Supportato | Londra, Los Angeles, Osaka, Tokyo |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** | Supportato | Supportato | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Supportato | Singapore |
 | **Softbank** | Supportato | Supportato | Osaka, Tokyo | 
@@ -171,4 +171,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

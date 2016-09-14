@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="08/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuzione di tabelle in SQL Data Warehouse
@@ -137,24 +137,28 @@ Le colonne di distribuzione non sono aggiornabili. Occorre quindi selezionare un
 
 ### Selezionare una colonna di distribuzione per distribuire i dati in modo uniforme
 
-Dal momento che le prestazioni di un sistema distribuito equivalgono a quelle della distribuzione più lenta, è importante dividere il carico di lavoro in modo uniforme tra le distribuzioni per ottenere un'esecuzione bilanciata in tutto il sistema. Il modo in cui il carico lavoro viene diviso in un sistema distribuito dipende da dove si trovano i dati per ogni distribuzione. Per questo motivo è molto importante selezionare la colonna di distribuzione appropriata per distribuire i dati, in modo che ogni distribuzione abbia lo stesso carico di lavoro e impieghi lo stesso tempo a completarlo. Quando il carico di lavoro è diviso in modo uniforme nel sistema, si parla di esecuzione bilanciata. Quando i dati non sono divisi in modo uniforme nel sistema e non sono bilanciati, si parla di **asimmetria dei dati**.
+Dal momento che le prestazioni di un sistema distribuito equivalgono a quelle della distribuzione più lenta, è importante dividere il carico di lavoro in modo uniforme tra le distribuzioni per ottenere un'esecuzione bilanciata in tutto il sistema. Il modo in cui il carico lavoro viene diviso in un sistema distribuito dipende da dove si trovano i dati per ogni distribuzione. Per questo motivo è molto importante selezionare la colonna di distribuzione appropriata per distribuire i dati, in modo che ogni distribuzione abbia lo stesso carico di lavoro e impieghi lo stesso tempo a completarlo. Quando lavoro è diviso equamente nel sistema, i dati vengono bilanciati tra le distribuzioni. Quando i dati non sono bilanciati in modo uniforme, si parla di **differenze di dati**.
 
 Per dividere i dati in modo uniforme ed evitare asimmetrie dei dati, selezionare la colonna di distribuzione tenendo presente quanto segue:
 
 1. Selezionare una colonna che contiene un numero significativo di valori distinct.
-2. Evitare di distribuire i dati in colonne con una frequenza elevata di alcuni valori o di valori Null.
-3. Evitare di distribuire i dati in colonne data.
-4. Evitare di distribuire i dati in colonne con meno di 60 valori.
+2. Evitare di distribuire dati in colonne con pochi valori distinti.
+3. Evitare di distribuire dati in colonne con una frequenza elevata di valori Null.
+4. Evitare di distribuire i dati in colonne data.
 
-Dato che per ogni valore viene eseguito l'hash in una delle 60 distribuzioni, per ottenere una distribuzione uniforme è consigliabile selezionare una colonna altamente univoca che fornisca ben oltre 60 valori univoci. Per illustrare questo concetto, si consideri il caso estremo di una colonna contenente solo 40 valori univoci. Se la colonna è stata selezionata come chiave di distribuzione, i dati per la tabella potrebbero essere distribuiti solo in una parte del sistema, lasciando 20 distribuzioni senza dati o elaborazioni da eseguire. Al contrario, le altre 40 distribuzioni avrebbero un carico di lavoro maggiore rispetto a una distribuzione uniforme su 60 distribuzioni.
+Dato che per ogni valore viene eseguito l'hash in 1 delle 60 distribuzioni, per ottenere una distribuzione uniforme è consigliabile selezionare una colonna altamente univoca che contenga più di 60 valori univoci. Per illustrare questo concetto, si consideri il caso di una colonna contenente solo 40 valori univoci. Se la colonna è stata selezionata come chiave di distribuzione, i dati per la tabella potrebbero essere ricevuti su 40 distribuzioni al massimo, lasciando 20 distribuzioni senza dati o elaborazioni da eseguire. Al contrario, le altre 40 distribuzioni avrebbero un carico di lavoro maggiore rispetto a una distribuzione uniforme su 60 distribuzioni. Questo scenario è un esempio di differenza di dati.
 
-Se si vuole distribuire una tabella in una colonna che ammette un numero elevato di valori Null, tutti i valori Null verranno inseriti nella stessa distribuzione, che avrà un carico di lavoro maggiore rispetto alle altre e causerà il rallentamento dell'intero sistema. Anche la distribuzione in una colonna data può causare asimmetrie di elaborazione, in caso di query altamente selettive sulla data con poche date coinvolte in una query.
+Nel sistema MPP, ogni passaggio della query che tutte le distribuzioni completino la loro parte di lavoro. Se una distribuzione svolge più lavoro rispetto alle altre, allora le risorse delle altre distribuzioni vengono essenzialmente sprecate nell'attesa della distribuzione occupata. Quando si lavoro non viene distribuito uniformemente tra tutte le distribuzioni, si parla di **differenza di elaborazioni**. La differenza di elaborazioni causa un rallentamento delle query rispetto a quando un carico di lavoro può essere distribuito uniformemente in tutte le distribuzioni. La differenza di dati porta alla differenza di elaborazioni.
+
+Evitare di distribuire su una colonna con un elevato numero di valori Null, poiché questi verranno ricevuti nella stessa distribuzione. Anche la distribuzione in una colonna di data può causare una differenza di elaborazioni, perché tutti i dati per una determinata data verranno ricevuti nella stessa distribuzione. Se più utenti eseguono query che applicano tutte un filtro alla stessa data, solo 1 delle 60 distribuzioni svolgerà tutto il lavoro, dal momento che una determinata data sarà solo in una distribuzione. In questo scenario le query verranno probabilmente eseguite 60 volte più lentamente rispetto a quando i dati vengono distribuiti uniformemente in tutte le distribuzioni.
 
 Quando non sono disponibili colonne candidate, è consigliabile usare il metodo di distribuzione round robin.
 
 ### Selezionare una colonna di distribuzione per ridurre al minimo lo spostamento dei dati
 
-Ridurre al minimo lo spostamento dei dati selezionando la colonna di distribuzione appropriata è una delle strategie principali per l'ottimizzazione delle prestazioni di SQL Data Warehouse. In genere lo spostamento dei dati si verifica quando le tabelle vengono unite in join o vengono eseguite aggregazioni. Tutte le colonne usate nelle clausole `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` sono candidate **ottimali** per la distribuzione hash. D'altro canto, le colonne nella clausola `WHERE` **non** sono candidate ottimali come colonne hash, perché limitano le distribuzioni che fanno parte della query.
+Ridurre al minimo lo spostamento dei dati selezionando la colonna di distribuzione appropriata è una delle strategie principali per l'ottimizzazione delle prestazioni di SQL Data Warehouse. In genere lo spostamento dei dati si verifica quando le tabelle vengono unite in join o vengono eseguite aggregazioni. Tutte le colonne usate nelle clausole `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` sono candidate **ottimali** per la distribuzione hash.
+
+D'altro canto, le colonne nella clausola `WHERE` **non** sono candidate ottimali come colonne hash, perché limitano le distribuzioni che fanno parte della query, causando una differenza di elaborazioni. Un buon esempio di una colonna che su si potrebbe essere tentati di distribuire, ma che spesso può causare una differenza di elaborazioni è una colonna di data.
 
 In generale, se sono disponibili due tabelle dei fatti di grandi dimensioni, spesso coinvolte in un join, le prestazioni migliori si otterranno con la distribuzione di entrambe le tabelle in una delle colonne di join. Se è presente una tabella che non è mai stata unita a un'altra tabella dei fatti di grandi dimensioni, esaminare le colonne che sono spesso nella clausola `GROUP BY`.
 
@@ -172,14 +176,14 @@ Quando i dati di una tabella sono distribuiti mediante il metodo di distribuzion
 
 ### Identificazione dell'asimmetria dei dati
 
-Un modo semplice per identificare eventuali asimmetrie dei dati in una tabella consiste nell'uso di `DBCC PDW_SHOWSPACEUSED`. Questo è un metodo molto semplice e rapido per vedere il numero di righe della tabella archiviate in ognuna delle 60 distribuzioni del database. Tenere presente che per ottenere prestazioni più bilanciate, le righe nella tabella distribuita vanno suddivise in modo uniforme in tutte le distribuzioni.
+Un modo semplice per identificare una differenza nelle tabelle consiste nell'uso di `DBCC PDW_SHOWSPACEUSED`. Questo è un metodo molto semplice e rapido per vedere il numero di righe della tabella archiviate in ognuna delle 60 distribuzioni del database. Tenere presente che per ottenere prestazioni più bilanciate, le righe nella tabella distribuita vanno suddivise in modo uniforme in tutte le distribuzioni.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Per iniziare, creare la vista [dbo.vTableSizes][] usando il codice SQL fornito nell'articolo [Overview of tables in SQL Data Warehouse][Overview] \(Panoramica sulle tabelle in SQL Data Warehouse). Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
+Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata. Per iniziare, creare la vista [dbo.vTableSizes][] usando il codice SQL fornito nell'articolo [Panoramica delle tabelle][Overview]. Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
 
 ```sql
 select *
@@ -198,7 +202,7 @@ order by two_part_name, row_count
 
 ### Risoluzione delle asimmetrie di distribuzione
 
-Non tutte le asimmetrie sono sufficienti a giustificare una correzione. In alcuni casi, le prestazioni di una tabella in alcune query possono compensare il danno causato dalla distribuzione asimmetrica. Per decidere se sia necessario risolvere la differenza dati di una tabella, è necessario conoscere nel modo più completo possibile i volumi di dati e le query del carico di lavoro. Per esaminare l'impatto dell'asimmetria, è possibile seguire la procedura riportata nell'articolo [Monitoraggio del carico di lavoro mediante DMV][] per monitorare l'impatto dell'asimmetria sulle prestazioni delle query e, in particolare, l'impatto sul tempo di completamento delle query nelle singole distribuzioni.
+Non tutte le asimmetrie sono sufficienti a giustificare una correzione. In alcuni casi, le prestazioni di una tabella in alcune query possono compensare il danno causato dalla distribuzione asimmetrica. Per decidere se sia necessario risolvere la differenza dati di una tabella, è necessario conoscere nel modo più completo possibile i volumi di dati e le query del carico di lavoro. Per esaminare l'impatto della differenza sulle prestazioni delle query e, in particolare, sul tempo di completamento delle query nelle singole distribuzioni, è possibile seguire la procedura riportata nell'articolo [Monitoraggio delle query][].
 
 La distribuzione è essenzialmente l'individuazione del giusto equilibrio fra la minimizzazione della differenza dati e la minimizzazione dello spostamento dei dati. Questi obiettivi possono essere contrastanti e talvolta può essere necessario tollerare una determinata differenza dati per poter ridurre lo spostamento dei dati. Ad esempio, quando la colonna di distribuzione corrisponde con un'elevata frequenza alla colonna condivisa di join e aggregazioni, si ridurrà al minimo lo spostamento dei dati. Il vantaggio di uno spostamento dei dati minimo potrebbe essere quello di compensare l'impatto negativo della differenza dati.
 
@@ -288,7 +292,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][], [indice][], [partizione][], [tipi di dati][], [statistiche][] e [tabelle temporanee][Temporary].
 
-Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per Azure SQL Data Warehouse][].
+Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][].
 
 
 <!--Image references-->
@@ -305,8 +309,8 @@ Per una panoramica delle procedure consigliate, vedere [Procedure consigliate pe
 [Statistiche]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporanee]: ./sql-data-warehouse-tables-temporary.md
-[Procedure consigliate per Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[Monitoraggio del carico di lavoro mediante DMV]: ./sql-data-warehouse-manage-monitor.md
+[Procedure consigliate per SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Monitoraggio delle query]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
 <!--MSDN references-->
@@ -314,4 +318,4 @@ Per una panoramica delle procedure consigliate, vedere [Procedure consigliate pe
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

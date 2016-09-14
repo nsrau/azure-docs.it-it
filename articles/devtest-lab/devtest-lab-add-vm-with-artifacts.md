@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere una macchina virtuale con elementi a un lab
@@ -64,7 +64,7 @@ Questo articolo descrive come creare una macchina virtuale nel lab usando gli el
 
 1. Selezionare **Elementi** e dall'elenco di elementi selezionare e configurare gli elementi da aggiungere all'immagine di base. **Nota:** se non si ha familiarità con DevTest Labs o con la configurazione di elementi, passare alla sezione [Aggiungere un elemento esistente in una macchina virtuale](#add-an-existing-artifact-to-a-vm) e tornare qui al termine dell'operazione.
 
-1. Se si vuole visualizzare o copiare il modello ARM (Azure Resource Manager), passare alla sezione [Salvare il modello ARM](#save-arm-template) e tornare qui al termine dell'operazione.
+1. Se si vuole visualizzare o copiare il modello di Azure Resource Manager, passare alla sezione [Save Azure Resource Manager template](#save-arm-template) (Salva modello di Azure Resource Manager) e tornare qui al termine dell'operazione.
 
 1. Selezionare **Crea** per aggiungere la macchina virtuale specificata al lab.
 
@@ -116,9 +116,9 @@ I passaggi seguenti illustrano come visualizzare o modificare i parametri di un 
 
 1. Selezionare **OK** per chiudere il pannello **Selected Artifacts** (Elementi selezionati).
 
-## Salvare il modello ARM
+## Salvare il modello di Azure Resource Manager
 
-Un modello ARM permette di definire una distribuzione ripetibile in modo dichiarativo. I passaggi seguenti illustrano come salvare il modello ARM per la macchina virtuale da creare. Dopo il salvataggio, è possibile usare il modello ARM per [distribuire nuove macchine virtuali con Azure PowerShell](../resource-group-overview.md#template-deployment).
+Un modello di Azure Resource Manager permette di definire una distribuzione ripetibile in modo dichiarativo. I passaggi seguenti illustrano come salvare il modello di Azure Resource Manager per la VM da creare. Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per [distribuire nuove VM con Azure PowerShell](../resource-group-overview.md#template-deployment).
 
 1. Nel pannello **Lab VM** (VM lab) selezionare **View ARM Template** (Visualizza modello ARM).
 
@@ -134,10 +134,12 @@ Un modello ARM permette di definire una distribuzione ripetibile in modo dichiar
 
 1. Salvare il file per usarlo in seguito.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Passaggi successivi
 
-- Dopo aver creato la macchina virtuale, è possibile connettersi alla macchina virtuale selezionando **Connetti** nel pannello della macchina virtuale.
-- Leggere le informazioni su come [creare elementi personalizzati per la macchina virtuale di DevTest Labs](devtest-lab-artifact-author.md).
+- Dopo avere creato la VM, è possibile connettersi ad essa selezionando **Connetti** nel pannello della VM.
+- Informazioni su come [creare elementi personalizzati per la VM di DevTest Labs](devtest-lab-artifact-author.md).
 - Esplorare la [raccolta dei modelli ARM di avvio rapido di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

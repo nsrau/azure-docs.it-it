@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Concedere le autorizzazioni utente per specifici criteri di lab
 
-## Panoramica
+## Overview
 
 In questo articolo viene illustrato come usare PowerShell per concedere agli utenti autorizzazioni per un particolare criterio di lab. In questo modo, le autorizzazioni possono essere applicate in base alle esigenze di ciascun utente. Ad esempio, è possibile concedere a un determinato utente la possibilità di modificare le impostazioni dei criteri delle macchine virtuali, ma non i criteri dei costi.
 
@@ -60,9 +60,9 @@ Lo script di PowerShell seguente offre alcuni esempi di esecuzione di queste att
     $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
 
 ##Assegnazione agli utenti delle autorizzazioni per un criterio specifico tramite ruoli personalizzati
-Dopo aver definito i ruoli personalizzati, è possibile assegnarli agli utenti. Per assegnare un ruolo personalizzato a un utente, è innanzitutto necessario ottenere il valore **ObjectId** che rappresenta l'utente. A tale scopo, usare il cmdlet **Get-AzureRmADUser**.
+Dopo aver definito i ruoli personalizzati, è possibile assegnarli agli utenti. Per assegnare un ruolo personalizzato a un utente, è necessario prima ottenere il valore **ObjectId** che rappresenta l'utente. A tale scopo, usare il cmdlet **Get-AzureRmADUser**.
 
-Nell'esempio seguente, il valore **ObjectId** dell'utente *SomeUser* è 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
+Nell'esempio seguente il valore **ObjectId** dell'utente *SomeUser* è 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
     PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
 
@@ -70,7 +70,7 @@ Nell'esempio seguente, il valore **ObjectId** dell'utente *SomeUser* è 05DEFF7B
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Dopo aver ottenuto il valore **ObjectId** dell'utente e il nome di un ruolo personalizzato, è possibile assegnare il ruolo all'utente usando il cmdlet **New AzureRmRoleAssignment**:
+Dopo avere ottenuto il valore **ObjectId** dell'utente e il nome di un ruolo personalizzato, è possibile assegnare il ruolo all'utente usando il cmdlet **New AzureRmRoleAssignment**:
 
     PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
 
@@ -80,6 +80,8 @@ Nell'esempio precedente viene usato il criterio **AllowedVmSizesInLab**. È poss
 - MaxVmsAllowedPerLab
 - AllowedVmSizesInLab
 - LabVmsShutdown
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Passaggi successivi
 
@@ -95,4 +97,4 @@ Dopo aver concesso le autorizzazioni utente per specifici criteri di lab, consid
 
 - [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

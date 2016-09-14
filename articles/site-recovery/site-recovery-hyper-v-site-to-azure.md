@@ -113,12 +113,15 @@ Configurare una rete di Azure. È necessario configurare una rete di Azure affin
 - A seconda del modello di risorsa da usare per le VM di Azure di cui si esegue il failover, la rete di Azure deve essere configurata in [modalità Azure Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o in [modalità classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - È consigliabile configurare una rete prima di iniziare. In caso contrario, sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è supportata per le reti usate per la distribuzione di Site Recovery.
 
 ### Configurare un account di archiviazione di Azure
 
 - Per contenere i dati replicati in Azure è necessario un account di archiviazione di Azure Standard.
-- A seconda del modello di risorsa da usare per le VM di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Azure Resource Manager](../storage/storage-create-storage-account.md) o in [modalità classica](../storage/storage-create-storage-account-classic-portal.md).
+- A seconda del modello di risorsa da usare per le VM di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità di Azure Resource Manager](../storage/storage-create-storage-account.md) o in [modalità classica](../storage/storage-create-storage-account-classic-portal.md).
 - È consigliabile configurare un account di archiviazione prima di iniziare. In caso contrario, sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery. L'account deve risiedere nella stessa area dell'insieme di credenziali di Servizi di ripristino.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è supportata per gli account di archiviazione usati per la distribuzione di Site Recovery.
 
 ### Preparare gli host Hyper-V
 
@@ -158,7 +161,7 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 
 	![Scegliere gli obiettivi](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)
 
-3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Sì, con Hyper-V**. Scegliere **No** per confermare che non si usa VMM. Fare quindi clic su **OK**.
+3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Sì, con Hyper-V**. Scegliere **No** per confermare che non si sta usando VMM. Fare quindi clic su **OK**.
 
 	![Scegliere gli obiettivi](./media/site-recovery-hyper-v-site-to-azure/choose-goals2.png)
 
@@ -168,7 +171,7 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 Configurare il sito Hyper-V, installare il provider di Azure Site Recovery e l'agente di Servizi di ripristino negli host Hyper-V e registrare gli host nell'insieme di credenziali.
 
 
-1. Fare clic su **Passaggio 1: Preparare l'infrastruttura** > **Origine**. Per aggiungere un nuovo sito Hyper-V come contenitore per i cluster o gli host Hyper-V, fare clic su **+ Sito Hyper-V**.
+1. Fare clic su **Passaggio 2: Preparare l'infrastruttura** > **Origine**. Per aggiungere un nuovo sito Hyper-V come contenitore per i cluster o gli host Hyper-V, fare clic su **+ Sito Hyper-V**.
 
 	![Impostare l'origine](./media/site-recovery-hyper-v-site-to-azure/set-source1.png)
 
@@ -176,7 +179,7 @@ Configurare il sito Hyper-V, installare il provider di Azure Site Recovery e l'a
 
 	![Impostare l'origine](./media/site-recovery-hyper-v-site-to-azure/set-source2.png)
 
-3. Click **+ Server Hyper-V** per aggiungere un server al sito.
+3. Fare clic su **+ Server Hyper-V** per aggiungere un server al sito.
 4. In **Aggiungi server** > **Tipo di server** verificare che sia disponibile **Server Hyper-V**. Assicurarsi che il server Hyper-V da aggiungere sia conforme ai [prerequisiti](#on-premises-prerequisites) e che possa accedere agli URL specificati.
 4. Scaricare il file di installazione del provider di Azure Site Recovery. Sarà necessario eseguire questo file per installare sia il provider che l'agente di Servizi di ripristino in ogni host Hyper-V.
 5. Scaricare la chiave di registrazione, che sarà necessaria durante l'installazione. La chiave è valida per cinque giorni dal momento in cui viene generata.
@@ -252,7 +255,7 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 
 	![Rete](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)
 
-	Per creare una rete con il modello di distribuzione classica è necessario usare il [portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+	Per creare una rete con il modello di distribuzione classica è necessario usare [il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 	
 
 ## Passaggio 4: Configurare le impostazioni di replica
@@ -269,7 +272,7 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 
 	![Criteri di replica](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
 
-Quando si creano nuovi criteri, questi vengono associati automaticamente al sito Hyper-V. Fare clic su **OK**. È possibile associare un sito Hyper-V e le VM in esso contenute a più criteri di replica in **Impostazioni** > **Replica** > nome criteri > **Associa sito Hyper-V**.
+Quando si creano nuovi criteri, questi vengono associati automaticamente al sito Hyper-V. Fare clic su **OK**. È possibile associare un sito Hyper-V e le VM che contiene a più criteri di replica in **Impostazioni** > **Replica** > nome criteri > **Associa sito Hyper-V**.
 
 ## Passaggio 5: Pianificazione della capacità
 
@@ -339,11 +342,11 @@ Per abilitare la replica, procedere come descritto di seguito.
 
 	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication6.png)
 
-12. In **Impostazioni della replica** > **Configura impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Impostazioni** > **Criteri di replica** > nome dei criteri > **Modifica impostazioni**. Le modifiche applicate verranno usate per i computer di cui è già in corso la replica e per i nuovi computer.
+12. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Impostazioni** > **Criteri di replica** > nome dei criteri > **Modifica impostazioni**. Le modifiche applicate verranno usate per i computer di cui è già in corso la replica e per i nuovi computer.
 
 	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
-È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 ### Visualizzare e gestire le proprietà della macchina virtuale
 
@@ -381,7 +384,7 @@ Per testare la distribuzione è possibile eseguire un failover di test per una s
 
 - Per eseguire un failover di test, è consigliabile creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. [Altre informazioni](site-recovery-failover.md#run-a-test-failover) sull'esecuzione dei failover di test.
 - Per ottenere prestazioni ottimali quando si esegue un failover in Azure, installare l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita la risoluzione dei problemi. Installare l'agente [Linux](https://github.com/Azure/WALinuxAgent) o [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-- Per testare completamente la distribuzione è necessario che l'infrastruttura per il computer replicato funzioni come previsto. Per testare Active Directory e DNS è possibile creare una macchina virtuale come controller di dominio con DNS ed eseguirne la replica in Azure usando Azure Site Recovery. Per altre informazioni, vedere [Considerazioni sul failover di test](site-recovery-active-directory.md#considerations-for-test-failover).
+- Per testare completamente la distribuzione è necessario che l'infrastruttura per il computer replicato funzioni come previsto. Per testare Active Directory e DNS è possibile creare una macchina virtuale come controller di dominio con DNS ed eseguirne la replica in Azure usando Azure Site Recovery. Per altre informazioni, vedere le [considerazioni sul failover di test di Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
 - Per eseguire un failover non pianificato anziché un failover di test, tenere presente quanto segue:
 
 	- È consigliabile arrestare i computer primari prima di eseguire un failover non pianificato. Questo permette di evitare che il computer di origine e quello di replica siano in esecuzione nello stesso momento.
@@ -395,7 +398,7 @@ Per connettersi alle macchine virtuali di Azure con RDP dopo il failover, seguir
 
 - Per l'accesso tramite Internet, abilitare RDP e assicurarsi che vengano aggiunte regole TCP e UDP per Internet **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** -> **App e funzionalità consentite** per tutti i profili.
 - Per l'accesso tramite una connessione da sito a sito, abilitare RDP nel computer e assicurarsi che il protocollo RDP sia consentito in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio** e **private**.
-- Installare l'[agente di macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) nel computer locale.
+- Installare l'[agente della VM di Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) nel computer locale.
 - Verificare che il criterio SAN del sistema operativo sia impostato su OnlineAll. [Altre informazioni](https://support.microsoft.com/kb/3031135)
 - Disabilitare il servizio IPSec prima di eseguire il failover.
 
@@ -456,7 +459,7 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 	![Informazioni di base](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 
 2. Nel riquadro **Integrità** è possibile monitorare i server del sito in cui si verifica il problema e gli eventi generati da Site Recovery nelle ultime 24 ore.
-3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. Per analizzare i processi, accedere a **Impostazioni** -> **Processi** -> **Processi di Site Recovery**.
+3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. Per analizzare i processi, accedere a **Impostazioni** -> **Processi** -> **Site Recovery jobs** (Processi di Site Recovery).
 
 
 
@@ -466,4 +469,4 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 
 Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

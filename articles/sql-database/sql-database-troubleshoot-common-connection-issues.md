@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 # Risoluzione dei problemi di connessione al database SQL di Azure
 
 Quando la connessione al database SQL di Azure non riesce, vengono visualizzati [messaggi di errore](sql-database-develop-error-messages.md). Questo articolo tratta un argomento centrale che aiuta l'utente a risolvere i problemi di connettività del database SQL di Azure. Presenta le [cause comuni](#cause) dei problemi di connessione, consiglia [uno strumento di risoluzione dei problemi](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) che aiuta a identificare il problema e fornisce i passaggi necessari per risolvere gli [errori temporanei](#troubleshoot-transient-errors) e gli [errori persistenti o non temporanei](#troubleshoot-the-persistent-errors). Infine elenca [tutti gli articoli pertinenti sui problemi di connettività del database SQL di Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-In caso di problemi di connessione, provare i passaggi di risoluzione dei problemi descritti in questo articolo.
+In caso di problemi di connessione, provare i passaggi di risoluzione dei problemi descritti in questo articolo. 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
@@ -71,7 +71,7 @@ Se l'applicazione non riesce a connettersi in maniera costante al database SQL d
 La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessione che riguardano direttamente il servizio database SQL di Azure.
 
 
-| & nbsp; | Titolo | Descrizione |
+| &nbsp; | Titolo | Descrizione |
 | --: | :-- | :-- |
 | 1 | [Risoluzione dei problemi di connessione al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md) | Questa è la pagina di destinazione per la risoluzione dei problemi di connettività del database SQL di Azure. Descrive come identificare e risolvere gli errori temporanei e gli errori permanenti o non temporaneo del database SQL di Azure. |
 | 2 | [Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL](sql-database-connectivity-issues.md) | Informazioni su come risolvere, diagnosticare ed evitare un errore di connessione SQL o errore temporaneo nel database SQL di Azure. |
@@ -101,4 +101,4 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 - [Il percorso di apprendimento per l'uso del database SQL di Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [Il percorso di apprendimento per l'uso delle funzionalità e degli strumenti dei database elastici](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

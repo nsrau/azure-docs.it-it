@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2016" 
+	ms.date="08/19/2016" 
 	ms.author="bradsev;garye" />
 
 
@@ -22,7 +22,7 @@
 Questo argomento illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e fornisce una breve spiegazione delle metriche disponibili per questa attività. L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni:
 
 * Regressione
-* Classificazione binaria 
+* Classificazione binaria
 * Classificazione multiclasse
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -165,7 +165,7 @@ Eseguire l'esperimento e fare clic sulla porta di output di [Evaluate Model][eva
 Figura 11. Risultati di valutazione della classificazione a più classi.
 
 ###Uso della convalida incrociata###
-Come accennato in precedenza, è possibile ripetere il training, il calcolo del punteggio e le valutazioni in modo automatico usando il modulo [Cross-Validate Model][cross-validate-model]. Sarà necessario un set di dati, un modello non sottoposto a training e un modulo [Cross-Validate Model][cross-validate-model] \(vedere la figura seguente). È nuovamente necessario impostare la colonna delle etichette sul modulo [Cross-Validate Model][cross-validate-model] (indice della colonna 5 in questo caso). Dopo aver eseguito l'esperimento e selezionato la porta destra di output del modulo [Cross-Validate Model][cross-validate-model], è possibile controllare i valori metrici per ogni sezione, nonché la deviazione media e standard. Le metriche visualizzate sono simili a quelle illustrate nel caso della classificazione binaria. Tuttavia, si tenga presente che, nella classificazione a più classi, il calcolo dei veri positivi/negativi e dei falsi positivi/negativi è effettuato con un conteggio su una base specifica per ogni classe, poiché non esiste una classe positiva o negativa complessiva. Ad esempio, quando si esegue il calcolo della precisione o del richiamo della classe "Iris-setosa", si presuppone che questa sia la classe positiva e le altre quelle negative.
+Come accennato in precedenza, è possibile ripetere il training, il calcolo del punteggio e le valutazioni in modo automatico usando il modulo [Cross-Validate Model][cross-validate-model]. Sarà necessario un set di dati, un modello non sottoposto a training e un modulo [Cross-Validate Model][cross-validate-model] \(vedere la figura seguente). È nuovamente necessario impostare la colonna delle etichette sul modulo [Cross-Validate Model][cross-validate-model] \(indice della colonna 5 in questo caso). Dopo aver eseguito l'esperimento e selezionato la porta destra di output del modulo [Cross-Validate Model][cross-validate-model], è possibile controllare i valori metrici per ogni sezione, nonché la deviazione media e standard. Le metriche visualizzate sono simili a quelle illustrate nel caso della classificazione binaria. Tuttavia, si tenga presente che, nella classificazione a più classi, il calcolo dei veri positivi/negativi e dei falsi positivi/negativi è effettuato con un conteggio su una base specifica per ogni classe, poiché non esiste una classe positiva o negativa complessiva. Ad esempio, quando si esegue il calcolo della precisione o del richiamo della classe "Iris-setosa", si presuppone che questa sia la classe positiva e le altre quelle negative.
  
 ![Convalida incrociata di un modello di classificazione multiclasse](media/machine-learning-evaluate-model-performance/12.png)
 
@@ -189,4 +189,4 @@ Figura 13. Risultati della convalida incrociata di un modello di classificazione
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

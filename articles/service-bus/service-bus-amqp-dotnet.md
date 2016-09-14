@@ -95,11 +95,9 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 
 Le seguenti funzionalità dell'API .NET del bus di servizio non sono al momento supportate con AMQP:
 
--   Transazioni.
+-   Transazioni
 
--   Invio tramite destinazione del trasferimento.
-
--   Ricezione con scalabilità orizzontale
+-   Invio tramite destinazione del trasferimento
 
 Esistono anche alcune piccole differenze di comportamento dell'API .NET del bus di servizio durante l'uso di AMQP, rispetto al protocollo predefinito:
 
@@ -139,4 +137,4 @@ Per altre informazioni, vedere i collegamenti seguenti:
 [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

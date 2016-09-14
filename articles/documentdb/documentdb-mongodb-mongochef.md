@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="08/25/2016" 
 	ms.author="stbaro"/>
 
 # Usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB
@@ -30,7 +30,7 @@ Per aggiungere l'account DocumentDB con supporto del protocollo per MongoDB a ge
 
 1. Recuperare le informazioni su DocumentDB con supporto del protocollo per MongoDB usando [queste](documentdb-connect-mongodb-account.md) istruzioni.
 
-	![Screenshot del pannello Stringa di connessione](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+	![Screenshot del pannello Stringa di connessione](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 
 2. Fare clic su **Connect** (Connetti) per aprire la gestione connessioni, quindi fare clic su **New Connection** (Nuova connessione).
 
@@ -132,4 +132,4 @@ Per creare un database, una raccolta e documenti usando MongoChef, seguire quest
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

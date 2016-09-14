@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/17/2016"
+  ms.date="08/30/2016"
   ms.author="andrl"/>
 
 # Portale della community
@@ -120,7 +120,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Relatore | Percorso | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Capital City .NET Users Group](https://www.meetup.com/tally-dot-net/events/233070827/) (Gruppo di utenti .NET della capitale) | Santosh Hari | Tallahassee, FL | 1 settembre 2016 | n/d |
+| [Capital City .NET Users Group (Gruppo di utenti .NET della capitale)](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, FL | 1 settembre 2016 | n/d |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu e Tara Jana | Atlanta, GA | Dal 26 al 30 settembre, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
 | [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Da definire | New York, NY | 26-29 settembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
 
@@ -163,14 +163,14 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [@Scale Seattle](http://www.atscaleconference.com/) | Dharma Shukla | Seattle, WA | 17 giugno 2015 | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Bruno Lopes | Lisbona, Portogallo | 15 giugno 2015 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [SQL Saturday #417 - Sri Lanka 2015](http://www.sqlsaturday.com/417/Sessions/Details.aspx?sid=21415) | Mihail Mateev | Colombo, Sri Lanka | 6 giugno 2015 | n/d |
-| [Meetup: Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) (Meetup sulla scalabilità a Seattle) | Dharma Shukla | Seattle, WA | 27 maggio 2015 | N/D |
+| [Meetup: Seattle Scalability Meetup (Meetup sulla scalabilità a Seattle)](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | Seattle, WA | 27 maggio 2015 | N/D |
 | [SQL Saturday #377 - Kiev 2015](http://www.sqlsaturday.com/377/Sessions/Details.aspx?sid=20322) | Mihail Mateev | Kiev, Ucraina | 23 maggio 2015 | N/D |
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) | Dharma Shukla | New York, NY | 19 maggio 2015 | [Azure DocumentDB: Massively-Scalable,­ Multi-Tenant Document Database Service](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | Londra, Regno Unito | 19 maggio 2015 | N/D |
 | [DevIntersection](https://devintersection.com/) | Andrew Liu | Scottsdale, Arizona | 18-21 maggio 2015 | n/d |
 | [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Andrew Liu | Seattle, WA | 14 maggio 2015 | n/d |
 | [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [Video: SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) (Ultime novità di DocumentDB) [Video: DocumentDB and Azure HDInsight: Better Together](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) (Vantaggi dell'uso combinato di DocumentDB e Azure HDInsight) |
-| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1° maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
+| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1 maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Spagna](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | Madrid, Spagna | 25 aprile 2015 | [#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | Copenhagen, Danimarca | 16 aprile 2015 | N/D |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Jamie Rance | Charlotte, NC | 8 aprile 2015 | n/d |
@@ -210,7 +210,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Partner di formazione | Descrizione |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/it-IT/training-courses/developing-solutions-with-azure-documentdb-10554) offre formazione a cura delle persone che hanno contribuito a creare Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/it-IT/training-courses/deploying-web-apps-to-azure-app-service-16629) | [**Microsoft Virtual Academy**](https://mva.microsoft.com/it-IT/training-courses/deploying-web-apps-to-azure-app-service-16629) offre formazione a cura delle persone che hanno contribuito a creare Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) è uno dei principali partner Microsoft a offrire formazione su Azure. Un abbonato MSDN può usare i vantaggi di cui dispone per accedere alla formazione su Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) offre formazione tecnica approfondita su Microsoft Azure. È possibile scegliere tra sessioni di formazione svolte da docenti in loco e classi remote a cura di autorevoli professionisti del settore della formazione. |
 
@@ -268,4 +268,4 @@ Procedura guidata | Immagine
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

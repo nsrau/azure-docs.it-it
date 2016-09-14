@@ -32,7 +32,7 @@ Questi modelli di Azure Resource Manager del bus di servizio e dell'hub eventi s
 - [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
 - [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 - [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
-- [Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer](service-bus-resource-manager-namespace-event-hub.md)
+- [Creare uno spazio dei nomi del bus di servizio con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 
 ## Distribuire con PowerShell
 
@@ -253,4 +253,4 @@ Finora sono stati illustrati il flusso di lavoro di base e i comandi per la dist
 [Distribuire le risorse con i modelli di Azure Resource Manager]: ../resource-group-template-deploy.md
 [Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

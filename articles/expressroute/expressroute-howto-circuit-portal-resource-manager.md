@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute
@@ -136,15 +136,15 @@ Selezionare un circuito per visualizzarne lo stato.
 Per altre informazioni su limiti e limitazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
 
-## Eliminazione e deprovisioning di un circuito ExpressRoute
+## Deprovisioning ed eliminazione di un circuito ExpressRoute
 
 È possibile eliminare il circuito ExpressRoute selezionando l'icona di **eliminazione**. Tenere presente quanto segue:
 
 - È necessario scollegare tutte le reti virtuali dal circuito ExpressRoute. Se l'operazione non riesce, controllare se sono presenti reti virtuali collegate al circuito.
 
-- Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è abilitato, verrà modificato in **Disabilitazione in corso**. Collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
+- Se lo stato di provisioning del provider del servizio del circuito ExpressRoute è **Provisioning in corso** o **Provisioning eseguito**, è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito su tale lato. Le risorse continueranno a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
 
-- Se il provider di servizi ha effettuato il deprovisioning del circuito (stato di provisioning del provider di servizi impostato su **Senza provisioning**) prima dell'esecuzione del cmdlet precedente, verrà effettuato il deprovisioning del circuito e non verrà più applicata la fatturazione corrispondente.
+- Se il provider di servizi ha eseguito il deprovisioning del circuito, ovvero lo stato di provisioning del provider di servizi è impostato su **Senza provisioning**, è possibile eliminare il circuito. Non verrà più applicata la fatturazione corrispondente.
 
 ## Passaggi successivi
 
@@ -153,4 +153,4 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 - [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 - [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

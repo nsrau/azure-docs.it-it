@@ -13,10 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/28/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Guida alla pubblicazione del servizio dati per Azure Marketplace
+
+>[AZURE.IMPORTANT] **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se si dispone di un'applicazione IaaS o di un servizio per gli sviluppatori che si desidera pubblicare in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Dopo aver completato il passaggio 1, [Creazione e registrazione dell'account](marketplace-publishing-accounts-creation-registration.md), sono state fornite indicazioni sui [requisiti generali non tecnici](marketplace-publishing-pre-requisites.md) e [tecnici](marketplace-publishing-data-service-creation-prerequisites.md) delle offerte di servizi dati in Azure Marketplace. Adesso verranno illustrati i passaggi per la creazione di un'offerta di un servizio dati sul [portale di pubblicazione][link-pubportal] per Azure Marketplace.
 
 ## 1\. Accedere al portale di pubblicazione.
@@ -49,13 +52,13 @@ Fare clic sulla scheda **Procedura dettagliata** ed esaminare tutti i passaggi n
 
 Ciascuna offerta può contenere più piani, tuttavia è necessario disporre di almeno un (1) piano. La sottoscrizione da parte degli utenti riguarda uno dei piani dell'offerta. Ciascun piano definisce il modo in cui gli utenti finali potranno utilizzare il servizio.
 
-Al momento, Azure Marketplace supporta solo il modello basato su transazioni di sottoscrizione mensile per i servizi dati, ad esempio l'utente finale pagherà un canone mensile in base al prezzo del piano specifico sottoscritto e potrà usufruire del numero di transazioni previsto dal piano su base mensile.
+Al momento Azure Marketplace supporta solo il modello basato su transazioni di sottoscrizione mensile per i servizi dati, ad esempio l'utente finale pagherà un canone mensile in base al prezzo del piano specifico sottoscritto e potrà usufruire del numero di transazioni previsto dal piano su base mensile.
 
 Di solito, ciascuna transazione viene definita come il numero di record restituiti dal servizio dati in base alla query inviata al servizio. Il valore predefinito è 100. Il numero di transazioni restituite per ciascuna query corrisponde al numero di record diviso per 100 e arrotondato per eccesso al numero intero più vicino.
 
 Il monitoraggio (misurazione) del numero di transazioni utilizzate da ciascuna query è responsabilità del livello di servizio di Azure Marketplace.
 
-> [AZURE.IMPORTANT] Gli utenti finali che hanno raggiunto il limite delle transazioni durante il mese non potranno continuare a utilizzare il servizio fino alla fine del relativo ciclo di sottoscrizione mensile.
+> [AZURE.IMPORTANT] Gli utenti finali che hanno raggiunto il limite delle transazioni durante il mese non potranno continuare a usare il servizio fino alla fine del relativo ciclo di sottoscrizione mensile.
 
 > Facoltativamente, il piano o uno dei piani possono comprendere un numero illimitato di transazioni.
 
@@ -139,10 +142,10 @@ Una volta creata l'offerta del servizio dati, verificare di aver completato le i
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 - Per apprendere il processo di mapping generale e lo scopo di OData , leggere questo articolo [Mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md) per esaminare le definizioni, le strutture e le istruzioni.
-- Per ricevere formazione e informazioni sui nodi specifici e i relativi parametri, leggere questo articolo [Nodi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) per le definizioni e le spiegazioni e per esempi e casi di utilizzo contestuali.
+- Per ricevere formazione e informazioni sui nodi specifici e i relativi parametri, leggere l'articolo relativo ai [nodi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) per definizioni, spiegazioni, esempi e casi di utilizzo contestuali.
 - Per esaminare gli esempi, leggere questo articolo [Esempi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) per consultare il codice di esempio e apprendere la sintassi del codice e il contesto.
 
 
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

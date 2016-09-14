@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="04/15/2016"
+ ms.date="08/29/2016"
  ms.author="rasquill"/>
 
 #Gestire le estensioni delle macchine virtuali
@@ -24,4 +24,4 @@ Illustra come trovare, aggiungere, modificare o rimuovere estensioni di VM con m
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

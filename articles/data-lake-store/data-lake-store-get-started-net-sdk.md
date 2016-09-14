@@ -27,12 +27,12 @@
 - [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
 - [Node.JS](data-lake-store-manage-use-nodejs.md)
 
-Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake, vedere [Azure Data Lake Store](data-lake-store-overview.md).
+Informazioni su come usare [.NET SDK con Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) per creare un account Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake, vedere [Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Prerequisiti
 
 * Visual Studio 2013 o 2015. Le istruzioni seguenti fanno riferimento a Visual Studio 2015.
-* Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 * **Creare un'applicazione di Azure Active Directory**. Esistono due modalità di autenticazione con Azure Active Directory: **interattiva** e **non interattiva**. I prerequisiti sono diversi a seconda della modalità di autenticazione.
 	* **Per l'autenticazione interattiva** (usata in questo articolo): in Azure Active Directory è necessario creare un'**applicazione client nativa**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
@@ -40,7 +40,7 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 		- Impostare autorizzazioni delegate
 
 	* **Per l'autenticazione non interattiva**: in Azure Active Directory è necessario creare un'**applicazione Web**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
-		- Ottenere l'**ID client** il **Segreto client** e l'**URI di reindirizzamento** per l'applicazione
+		- Ottenere l'**ID client**, il **segreto client** e l'**URI di reindirizzamento** per l'applicazione
 		- Impostare autorizzazioni delegate
 		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse.
 
@@ -58,7 +58,7 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 	|----------|-----------------------------|
 	| Categoria | Templates/Visual C#/Windows |
 	| Modello | Applicazione console |
-	| Name | CreateADLApplication |
+	| Nome | CreateADLApplication |
 
 4. Fare clic su **OK** per creare il progetto.
 
@@ -122,15 +122,15 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 			}
 		}
 
-Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .NET disponibili per eseguire operazioni come autenticare gli utenti, creare un account Archivio Data Lake, caricare i file e così via. Per un esempio completo relativo all'utilizzo di Archivio Data Lake, vedere l'[Appendice](#appendix-sample-code) alla fine di questo articolo.
+Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .NET disponibili per eseguire operazioni come autenticare gli utenti, creare un account Archivio Data Lake, caricare i file e così via. Per un esempio completo su come usare Data Lake Store, vedere l'[Appendice](#appendix-sample-code) alla fine di questo articolo.
 
 ## Autenticare l'utente
 
 Per l'autenticazione tramite Azure Active Directory, è possibile procedere in due modi.
 
-* **Interattiva**, in cui l'utente accede tramite l'applicazione. Viene implementata nel metodo `AuthenticateUser` del frammento di codice seguente.
+* **Interattivo**, con cui l'utente accede usando l'applicazione. Viene implementato nel metodo `AuthenticateUser` del frammento di codice seguente.
 
-* **Non interattiva**, in cui l'applicazione fornisce le proprie credenziali. Viene implementata nel metodo `AuthenticateAppliaction` del frammento di codice seguente.
+* **Non interattivo**, con cui l'applicazione fornisce le proprie credenziali. Viene implementato nel metodo `AuthenticateAppliaction` del frammento di codice seguente.
 
 ### Autenticazione interattiva
 
@@ -139,7 +139,7 @@ Il frammento seguente illustra il metodo `AuthenticateUser` che è possibile usa
  	// Authenticate the user with AAD through an interactive popup.
     // You need to have an application registered with AAD in order to authenticate.
     //   For more information and instructions on how to register your application with AAD, see:
-    //   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -157,7 +157,7 @@ Il frammento seguente illustra il metodo `AuthenticateApplication` che è possib
 	// Authenticate the application with AAD through the application's secret key.
 	// You need to have an application registered with AAD in order to authenticate.
 	//   For more information and instructions on how to register your application with AAD, see:
-	//   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+	//   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -170,7 +170,7 @@ Il frammento seguente illustra il metodo `AuthenticateApplication` che è possib
 	
 ## Creare un account Archivio Data Lake
 
-Il frammento seguente illustra il metodo `CreateAccount` che è possibile usare per creare un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `CreateAccount` che è possibile usare per creare un account Data Lake Store.
 
 	// Create Data Lake Store account
     public static void CreateAccount()
@@ -179,9 +179,9 @@ Il frammento seguente illustra il metodo `CreateAccount` che è possibile usare 
         _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
     } 
 
-## Elencare tutti gli account Archivio Data Lake all'interno di una sottoscrizione
+## Elencare tutti gli account Data Lake Store all'interno di una sottoscrizione
 
-Il frammento di codice seguente illustra il metodo `ListAdlStoreAccounts` che è possibile usare per elencare tutti gli account Archivio Data Lake all'interno di una determinata sottoscrizione di Azure.
+Il frammento seguente illustra il metodo `ListAdlStoreAccounts` che è possibile usare per elencare tutti gli account Data Lake Store all'interno di una determinata sottoscrizione di Azure.
 
 	// List all ADLS accounts within the subscription
 	public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
@@ -200,7 +200,7 @@ Il frammento di codice seguente illustra il metodo `ListAdlStoreAccounts` che è
 
 ## Creare una directory
 
-Il frammento seguente illustra il metodo `CreateDirectory` che è possibile usare per creare una directory in un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `CreateDirectory` che è possibile usare per creare una directory in un account Data Lake Store.
 
 	// Create a directory
     public static void CreateDirectory(string path)
@@ -210,7 +210,7 @@ Il frammento seguente illustra il metodo `CreateDirectory` che è possibile usar
 
 ## Caricare un file in Archivio Data Lake.
 
-Il frammento seguente illustra il metodo `UploadFile` che è possibile usare per caricare file in un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `UploadFile` che è possibile usare per caricare file in un account Data Lake Store.
 
 	// Upload a file
     public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
@@ -221,9 +221,11 @@ Il frammento seguente illustra il metodo `UploadFile` che è possibile usare per
         uploader.Execute();
     }
 
+DataLakeStoreUploader supporta il caricamento e il download ricorsivi tra un percorso di file o cartella locale e Data Lake Store.
+
 ## Ottenere informazioni su un file o una directory
 
-Il frammento seguente illustra il metodo `GetItemInfo` che è possibile usare per recuperare informazioni su un file o una directory disponibile in Archivio Data Lake.
+Il frammento seguente illustra il metodo `GetItemInfo` che è possibile usare per recuperare informazioni su un file o una directory disponibile in Data Lake Store.
 
 	// Get file or directory info
     public static FileStatusProperties GetItemInfo(string path)
@@ -233,7 +235,7 @@ Il frammento seguente illustra il metodo `GetItemInfo` che è possibile usare pe
 
 ## Elencare file o directory
 
-Il frammento seguente illustra il metodo `ListItem` che è possibile usare per elencare il file e le directory in un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `ListItem` che è possibile usare per elencare il file e le directory in un account Data Lake Store.
 	
 	// List files and directories
     public static List<FileStatusProperties> ListItems(string directoryPath)
@@ -253,7 +255,7 @@ Il frammento seguente illustra il metodo `ConcatenateFiles` da usare per concate
 
 ## Aggiungere a un file
 
-Il frammento seguente illustra il metodo `AppendToFile` da usare per aggiungere dati a un file già archiviato in un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `AppendToFile` da usare per aggiungere dati a un file già archiviato in un account Data Lake Store.
 
 	// Append to file
     public static void AppendToFile(string path, string content)
@@ -265,7 +267,7 @@ Il frammento seguente illustra il metodo `AppendToFile` da usare per aggiungere 
 
 ## Scaricare un file
 
-Il frammento seguente illustra il metodo `DownloadFile` da usare per scaricare un file da un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `DownloadFile` da usare per scaricare un file da un account Data Lake Store.
 
 	// Download file
     public static void DownloadFile(string srcPath, string destPath)
@@ -280,7 +282,7 @@ Il frammento seguente illustra il metodo `DownloadFile` da usare per scaricare u
 
 ## Eliminare un account Archivio Data Lake
 
-Il frammento seguente illustra il metodo `DeleteAccount` che è possibile usare per eliminare un account Archivio Data Lake.
+Il frammento seguente illustra il metodo `DeleteAccount` che è possibile usare per eliminare un account Data Lake Store.
 
 	// Delete account
     public static void DeleteAccount()
@@ -290,11 +292,11 @@ Il frammento seguente illustra il metodo `DeleteAccount` che è possibile usare 
 
 ## Appendice: Codice di esempio
 
-Il frammento seguente è un esempio di codice completo che è possibile copiare e incollare nell'applicazione per vedere un'operazione end-to-end nell'Archivio Data Lake. Prima di eseguire il frammento di codice, assicurarsi di specificare i valori richiesti, ad esempio nome dell'Archivio Data Lake, nome del gruppo di risorse e così via. È anche necessario fornire i valori richiesti per l'autenticazione di Azure Active Directory, ad esempio **<APPLICATION-CLIENT-ID>**, **<APPLICATION-REPLY-URI>** e **<SUBSCRIPTION-ID>**.
+Il frammento seguente è un esempio di codice completo che è possibile copiare e incollare nell'applicazione per vedere un'operazione end-to-end nell'Archivio Data Lake. Prima di eseguire il frammento di codice, assicurarsi di specificare i valori richiesti, ad esempio nome dell'Archivio Data Lake, nome del gruppo di risorse e così via. È anche necessario specificare i valori necessari per l'autenticazione di Azure Active Directory, ad esempio **<APPLICATION-CLIENT-ID>**, **<APPLICATION-REPLY-URI>** e **<SUBSCRIPTION-ID>**.
 
 Anche se il frammento di codice seguente fornisce i metodi per entrambi gli approcci, ovvero interattivo e non interattivo, il blocco di codice non interattivo è impostato come commento. Questo metodo richiede l'immissione dell'ID client dell'applicazione AAD e dell'URI di reindirizzamento. Il collegamento nella sezione dei prerequisiti include le istruzioni per ottenere tali valori.
 
->[AZURE.NOTE] Per modificare il frammento di codice e usare invece il metodo `AuthenticateApplication` non interattivo, oltre all'ID client e all'URI di risposta del client è necessario specificare anche la chiave di autenticazione client come input del metodo. Per informazioni anche su come generare e recuperare la chiave di autenticazione client, vedere l'articolo [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
+>[AZURE.NOTE] Per modificare il frammento di codice e usare invece il metodo non interattivo (`AuthenticateApplication`), oltre all'ID client e all'URI di risposta del client è necessario specificare anche la chiave di autenticazione client come input del metodo. Per informazioni anche su come generare e recuperare la chiave di autenticazione client, vedere l'articolo [Usare il portale per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse](../resource-group-create-service-principal-portal.md).
 	
 Assicurarsi infine che il nome file e percorso locale forniti esistano già nel computer. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [repository Git di Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
@@ -400,7 +402,7 @@ Assicurarsi infine che il nome file e percorso locale forniti esistano già nel 
             // Authenticate the user with AAD through an interactive popup.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -415,7 +417,7 @@ Assicurarsi infine che il nome file e percorso locale forniti esistano già nel 
             // Authenticate the application with AAD through the application's secret key.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/it-IT/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -524,6 +526,8 @@ Assicurarsi infine che il nome file e percorso locale forniti esistano già nel 
 
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Informazioni di riferimento su .NET SDK con Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Data Lake Store REST Reference](https://msdn.microsoft.com/library/mt693424.aspx) (Informazioni di riferimento su REST per Data Lake Store)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

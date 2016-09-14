@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="carlrab"/>
 
 # Usare SQL Server Management Studio per determinare la compatibilità del database SQL prima di eseguire la migrazione al database SQL di Azure
@@ -38,19 +38,19 @@ In questo articolo viene illustrato come determinare se un database del server S
 
 	![Esportare un'applicazione livello dati dal menu Attività](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. Nell'esportazione guidata, fare clic su **Avanti** e quindi nella scheda **Impostazioni** configurare l'esportazione per salvare il file BACPAC su un percorso disco locale o in un BLOB di Azure. Un file BACPAC verrà salvato solo se non sono presenti problemi di compatibilità del database. Eventuali problemi di compatibilità verranno visualizzati nella console.
+4. Nell'esportazione guidata, fare clic su **Avanti** e quindi nella scheda **Impostazioni** configurare l'esportazione per salvare il file BACPAC su un percorso disco locale o in un BLOB di Azure. Un file BACPAC viene salvato se non sono presenti problemi di compatibilità del database. Eventuali problemi di compatibilità vengono visualizzati nella console.
 
 	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
-5. Fare clic sulla scheda **Avanzate** e deselezionare la casella di controllo **Seleziona tutto** per evitare l'esportazione dei dati. In questa fase l'obiettivo principale consiste nella verifica della compatibilità.
+5. Per evitare l'esportazione dei dati, fare clic sulla scheda **Avanzata** e deselezionare la casella di controllo **Seleziona tutto**. In questa fase l'obiettivo principale consiste nella verifica della compatibilità.
 
 	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. Fare clic su **Avanti** e quindi su **Fine**. Eventuali problemi di compatibilità verranno visualizzati dopo la convalida dello schema da parte della procedura guidata.
+6. Fare clic su **Avanti** e quindi su **Fine**. Eventuali problemi di compatibilità vengono visualizzati dopo la convalida dello schema da parte della procedura guidata.
 
 	![Esportazione impostazioni](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
-7. Se non vengono visualizzati errori, il database sarà compatibile e sarà possibile iniziare la migrazione. Se sono presenti errori, sarà necessario risolverli. Per visualizzare gli errori, fare clic su **Errore** per **Convalida schema**. ![Impostazioni di esportazione](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
+7. Se non vengono visualizzati errori, il database sarà compatibile e sarà possibile iniziare la migrazione. È necessario risolvere eventuali errori. Per visualizzare gli errori, fare clic su **Errore** per **Convalida schema**. ![Impostazioni di esportazione](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
 8.	Se il file *.BACPAC è stato generato, il database è compatibile con il database SQL ed è possibile eseguire la migrazione.
 
@@ -64,7 +64,7 @@ In questo articolo viene illustrato come determinare se un database del server S
 ## Risorse aggiuntive
 
 - [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md) (Funzionalità di Transact-SQL parzialmente supportate o non supportate)
+- [Transact-SQL partially or unsupported functions (Funzionalità di Transact-SQL parzialmente supportate o non supportate)](sql-database-transact-sql-information.md)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Eseguire la migrazione di database non SQL Server mediante SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

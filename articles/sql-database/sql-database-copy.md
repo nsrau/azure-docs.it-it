@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-È possibile utilizzare i [backup automatici del database SQL](sql-database-automated-backups.md) di Azure per creare una copia del database SQL. Durante l'operazione viene copiata la coda del log di transazione e quindi usati il backup completo, differenziale e dei log di transazione che fanno parte dei backup automatici per creare un backup coerente con il database di origine al momento del backup del log di transazione finale.
+È possibile utilizzare i [backup automatici del database SQL](sql-database-automated-backups.md) di Azure per creare una copia del database SQL. Durante l'operazione viene copiata la coda del log di transazione e quindi vengono usati i backup completo, differenziale e dei log di transazione che fanno parte dei backup automatici per creare un backup coerente con il database di origine al momento del backup del log di transazione finale.
 
 È possibile creare la copia del database nello stesso server o su un altro server. Il livello di servizio e il livello di prestazioni (piano tariffario) della copia del database sono gli stessi del database di origine. Al termine del processo di copia, la copia diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.
 
@@ -57,4 +57,4 @@ Per copiare un database SQL è necessario quanto segue:
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

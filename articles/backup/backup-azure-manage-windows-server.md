@@ -279,11 +279,15 @@ R.2 Un avviso viene generato entro 5 minuti dall'errore di backup di Azure.
 
 **D3. Esiste un caso in cui non viene inviato un messaggio di posta elettronica se le notifiche sono configurate?**
 
-R3. Se le notifiche sono configurate su base oraria e un avviso viene generato e risolto entro l'ora, non verrà inviato un messaggio di posta elettronica.
+R3. Di seguito sono indicati i casi in cui la notifica non verrà inviata per ridurre la frequenza degli avvisi:
+
+   - Se le notifiche sono configurate su base oraria e un avviso viene generato e risolto entro l'ora
+   - Il processo viene annullato.
+   - Secondo processo di backup non riuscito perché è in corso il processo di backup originale.
 
 ## Passaggi successivi
 - [Ripristino di Windows Server o Windows Client da Azure](backup-azure-restore-windows-server.md)
 - Per altre informazioni sul servizio Backup di Azure, vedere [Panoramica di Backup di Azure](backup-introduction-to-azure-backup.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="05/22/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 
@@ -67,8 +67,8 @@ Esistono quattro tipi di informazioni necessari per chiamare il servizio RRS o B
 
 1.	La **chiave API** del servizio, disponibile nel dashboard dei servizi
 2.	L'**URI della richiesta** del servizio, disponibile nella pagina della Guida dell'API del servizio scelto
-3.	Le **intestazioni ** e il **corpo della richiesta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
-4.	Le **intestazioni ** e il **corpo della risposta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
+3.	Le **intestazioni** e il **corpo della richiesta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
+4.	Le **intestazioni** e il **corpo della risposta** API previsti, disponibili nella pagina della Guida dell'API del servizio scelto
 
 Nei due esempi seguenti, il linguaggio c# viene utilizzato per illustrare che il codice necessario e la piattaforma di destinazione è un desktop di Windows 8.
 
@@ -265,13 +265,13 @@ Quando si crea un processo batch per l'endpoint di servizio di Azure Machine Lea
 
 * **Input**: rappresenta un riferimento al BLOB in cui viene archiviato il processo batch di input.
 * **GlobalParameters**: rappresenta il set di parametri globali che è possibile definire per l'esperimento. Un esperimento di Azure Machine Learning può avere contemporaneamente parametri obbligatori e facoltativi che personalizzano l'esecuzione del servizio e tutti i parametri obbligatori, se disponibili, devono essere forniti dal chiamante. Questi parametri vengono specificati come una raccolta di coppie chiave-valore.
-* **Outputs**: se il servizio ha definito uno o più output, il chiamante può reindirizzarli verso un percorso BLOB di Azure. Ciò consente di salvare l'output del servizio in un percorso preferito e con un nome prevedibile. In caso contrario, il nome del BLOB di output viene generato casualmente. 
+* **Outputs**: se il servizio ha definito uno o più output, il chiamante può reindirizzarli verso un percorso BLOB di Azure. Ciò consente di salvare l'output del servizio in un percorso preferito e con un nome prevedibile. In caso contrario, il nome del BLOB di output viene generato casualmente.
 
     Si noti che il servizio prevede che l'output del contenuto, in base al tipo, venga salvato in formati supportati:
   - Output di set di dati: possono essere salvati come file con estensione **csv, tsv, arff**.
   - Output di modelli sottoposti a training: possono essere salvati come file con estensione **ilearner**.
 
-  Gli override del percorso di output vengono specificati come una raccolta di coppie *<output name  blob reference>*, dove il *nome di output* è il nome definito dall'utente per un nodo di output specifico (visualizzato anche nella pagina della Guida dell'API del servizio) e un *riferimento al BLOB* è un riferimento al percorso di un BLOB di Azure verso cui l'output deve essere reindirizzato.
+  Gli override del percorso di output vengono specificati come una raccolta di coppie *<nome output, riferimento al BLOB>*, dove il *nome output* è il nome definito dall'utente per un nodo di output specifico (visualizzato anche nella pagina della Guida dell'API del servizio) e *riferimento al BLOB* è un riferimento al percorso di un BLOB di Azure verso cui l'output deve essere reindirizzato.
 
 Tutti questi parametri di creazione del processo possono essere facoltativi, a seconda della natura del servizio. I servizi per cui non sono definiti nodi di input, ad esempio, non richiedono il passaggio di un parametro *Input*. Analogamente, la funzionalità di override del percorso di output è completamente facoltativa. In caso contrario, gli output verranno archiviati nell'account di archiviazione predefinito configurato per l'area di lavoro di Azure Machine Learning. Di seguito, viene illustrato un payload di richiesta di esempio passato all'API REST, per un servizio in cui vengono fornite solo le informazioni di input:
 
@@ -314,8 +314,8 @@ La creazione di un processo batch ne comporta la registrazione nel sistema e l'i
 *StatusCode* può avere uno dei valori seguenti:
 
 * Not started
-* Running
-* Failed
+* In esecuzione
+* Operazione non riuscita
 * Cancelled
 * Finished
 
@@ -355,7 +355,7 @@ La proprietà *Results* viene popolata solo se il processo è stato completato c
 
 Il [pacchetto NuGet BES SDK](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fornisce funzioni che semplificano la chiamata a BES per assegnare un punteggio in modalità batch. Per installare il pacchetto NuGet in Visual Studio, nel menu **Strumenti** selezionare **Gestione pacchetti NuGet** e quindi fare clic su **Console di Gestione pacchetti**.
 
-Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono includere moduli di input del servizio Web. Ciò significa che prevedono che l'input sia fornito mediante la chiamata al servizio Web sotto forma di riferimento a un percorso BLOB. È inoltre possibile non utilizzare un modulo di input del servizio Web e utilizzare invece un modulo **Importazione dei dati**. In questo caso, per ottenere i dati il modulo **Importazione dei dati** in genere legge da un database SQL usando una query in fase di esecuzione. È possibile usare parametri del servizio Web per scegliere in modo dinamico altri server o tabelle e così via. L'SDK supporta entrambi questi modelli.
+Gli esperimenti Azure Machine Learning distribuiti come servizi Web possono includere moduli di input del servizio Web. Ciò significa che prevedono che l'input sia fornito mediante la chiamata al servizio Web sotto forma di riferimento a un percorso BLOB. È inoltre possibile non usare un modulo di input del servizio Web e utilizzare invece un modulo **Importazione dati**. In questo caso, per ottenere i dati il modulo **Importazione dati** in genere legge da un database SQL usando una query in fase di esecuzione. È possibile usare parametri del servizio Web per scegliere in modo dinamico altri server o tabelle e così via. L'SDK supporta entrambi questi modelli.
 
 L'esempio di codice riportato di seguito illustra come inviare e monitorare un processo batch su un endpoint di servizio di Azure Machine Learning tramite BES SDK. Per informazioni dettagliate su impostazioni e chiamate, osservare i commenti.
 
@@ -488,7 +488,7 @@ L'esempio di codice riportato di seguito illustra come inviare e monitorare un p
 	}
 
 #### Codice di esempio Java per BES
-Come mostrato di seguito, l'API REST del servizio di esecuzione batch accetta l'elemento JSON costituito da un riferimento a un file con estensione csv di esempio di input e a un file con estensione csv di esempio di output e crea un processo in Azure ML per eseguire le stime batch. È possibile visualizzare il codice completo in [GitHub](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Questo esempio Java richiede la [libreria Apache HTTP Client](https://hc.apache.org/downloads.cgi).
+Come mostrato di seguito, l'API REST del servizio di esecuzione batch accetta l'elemento JSON costituito da un riferimento a un file con estensione csv di esempio di input e a un file con estensione csv di esempio di output e crea un processo in Azure ML per eseguire le stime batch. È possibile visualizzare il codice completo in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Questo esempio Java richiede la [libreria Apache HTTP Client](https://hc.apache.org/downloads.cgi).
 
 
 	{ "GlobalParameters": {}, 
@@ -685,4 +685,4 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

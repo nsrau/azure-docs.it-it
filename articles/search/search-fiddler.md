@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/08/2016"
+	ms.date="08/08/2016"
 	ms.author="heidist"/>
 
 # Utilizzare Fiddler per valutare e testare le API REST di Ricerca di Azure
@@ -192,7 +192,7 @@ Il codice della risposta dovrebbe essere 200 e l'output della risposta dovrebbe 
 
    ![][4]
 
-La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)](http://msdn.microsoft.com/library/dn798927.aspx) su MSDN. Molte query di esempio descritte in questo argomento includono gli spazi che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler.
+La query di esempio seguente è tratta dall'argomento relativo alle [operazioni sull'indice di ricerca (API Ricerca di Azure)](http://msdn.microsoft.com/library/dn798927.aspx) su MSDN. Molte delle query di esempio descritte in questo argomento includono spazi, che non sono consentiti in Fiddler. Sostituire tutti gli spazi con un carattere + prima di incollare la stringa di query ed eseguirla in Fiddler.
 
 **Prima della sostituzione degli spazi:**
 
@@ -239,4 +239,4 @@ Vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) per
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->
