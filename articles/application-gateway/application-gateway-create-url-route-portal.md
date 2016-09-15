@@ -67,7 +67,7 @@ Il pannello **Add path-based rule** (Aggiungi regola basata sul percorso) contie
 - **Pool back-end**: questa impostazione definisce il back-end da usare per la regola.
 - **Impostazione HTTP**: questa impostazione definisce le impostazioni HTTP da usare per la regola.
 
->[AZURE.IMPORTANT] Percorsi: elenco dei modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "*" è alla fine. Alcuni esempi validi: /xyz, /xyz* o /xyz/*.
+>[AZURE.IMPORTANT] Percorsi: elenco dei modelli di percorso usati per la corrispondenza. Ognuno deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "\*" è alla fine. Alcuni esempi validi: /xyz, /xyz* o /xyz/*.
 
 ![Pannello Add path-based rule (Aggiungi regola basata sul percorso)][2]
 
@@ -84,4 +84,4 @@ Per informazioni su come configurare l'offload SSL con un gateway applicazione d
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->
