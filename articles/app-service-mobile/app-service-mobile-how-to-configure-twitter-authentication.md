@@ -33,8 +33,6 @@ Per completare la procedura descritta in questo argomento è necessario avere un
 
 3. Digitare i valori per **Name** e **Description** per la nuova app. Incollare l’**URL** dell’applicazione per il valore **Website**. Nella casella **Callback URL** incollare quindi il valore di **URL callback** copiato in precedenza. Si tratta del gateway dell'app per dispositivi mobili con il percorso _/.auth/login/twitter/callback_ come suffisso. Ad esempio `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assicurarsi che sia in uso lo schema HTTPS.
 
-	> [AZURE.NOTE]Se si utilizza il gateway del servizio app anziché la funzionalità Autenticazione/Autorizzazione, l'URL di reindirizzamento utilizza l'URL del gateway URL con il percorso _/signin-twitter_.
-
 3.  Nella parte inferiore della pagina, leggere e accettare le condizioni di utilizzo. Fare clic su **Creare l'applicazione Twitter**. L'app verrà registrata e verranno visualizzati i dettagli dell'applicazione.
 
 4. Fare clic sulla scheda **Impostazioni**, selezionare **Consentire l'uso dell'applicazione per l'accesso con Twitter** e quindi fare clic su **Aggiornare le impostazioni**.
@@ -79,4 +77,4 @@ Per completare la procedura descritta in questo argomento è necessario avere un
 [portale di Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

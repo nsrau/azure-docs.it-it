@@ -56,7 +56,8 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 | [TransactionSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.transactionsizeexceededexception_methods.aspx) | Nella transazione sono presenti troppe operazioni. | Ridurre il numero di operazioni presenti nella transazione. | Ripetere l'operazione non serve. |
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | È stata inoltrata una richiesta per un'operazione di runtime su un'entità disattivata. | Attivare l'entità. | Se nel frattempo l'entità è stata attivata, può essere utile ripetere l'operazione. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | Un payload del messaggio supera il limite di 256 KB. Il limite di 256 KB è la dimensione totale del messaggio, che può includere proprietà di sistema ed eventuali overhead .NET. | Ridurre le dimensioni del payload del messaggio e quindi ripetere l'operazione. | Ripetere l'operazione non serve. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | | Ripetere l'operazione non serve. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | È stata tentata un'operazione su una transazione in dubbio oppure si è tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. | L'applicazione deve gestire questa eccezione (come caso speciale) perché è possibile che sia già stato eseguito il commit della transazione. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | | Ripetere l'operazione non serve. | - 
+| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | È stata tentata un'operazione su una transazione in dubbio oppure si è tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. | L'applicazione deve gestire questa eccezione (come caso speciale) perché è possibile che sia già stato eseguito il commit della transazione. | - |
 
 ## QuotaExceededException
 
@@ -86,4 +87,4 @@ Per questo errore, esistono due cause comuni: una configurazione errata o un err
 
 Per informazioni complete sull'API .NET del bus di servizio e di Hub eventi, vedere la [documentazione di Azure su MSDN](https://msdn.microsoft.com/library/azure/mt419900.aspx).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->
