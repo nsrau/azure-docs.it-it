@@ -31,4 +31,4 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 
    ![Accesso](./media/azure-getting-started-portal-login/login.png)  
 
-<!---HONumber=AcomDC_0912_2016-->
+<!---HONumber=AcomDC_0912_2016--->
