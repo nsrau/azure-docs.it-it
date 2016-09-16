@@ -7,7 +7,7 @@ Latest Freshness check:  2016-04-11 , carlrab.
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
--->
+-->  
 ## Connettersi al portale di Azure con una sottoscrizione
 
 Per connettersi al portale di Azure, è necessaria una sottoscrizione.
@@ -29,6 +29,6 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 
 1. Nella **pagina di accesso** specificare le credenziali per la sottoscrizione.
 
-   ![Accesso](./media/azure-getting-started-portal-login/login.png)
+   ![Accesso](./media/azure-getting-started-portal-login/login.png)  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0912_2016--->

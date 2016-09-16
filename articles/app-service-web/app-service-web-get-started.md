@@ -1,6 +1,6 @@
-<properties
-	pageTitle="Distribuire la prima app Web in Azure in cinque minuti | Microsoft Azure"
-	description="Informazioni facilità di esecuzione delle app Web nel servizio app mediante la distribuzione di un'app di esempio con pochi passaggi. In cinque minuti sarà possibile eseguire vere e proprie attività di sviluppo con risultati immediati."
+<properties 
+	pageTitle="Distribuire la prima app Web in Azure in cinque minuti | Microsoft Azure" 
+	description="Informazioni sulla facilità di esecuzione delle app Web nel servizio app mediante la distribuzione di un'app di esempio. È possibile eseguire rapidamente vere e proprie attività di sviluppo con risultati immediati." 
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -14,47 +14,84 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/12/2016"
+	ms.date="09/09/2016" 
 	ms.author="cephalin"
-/>
-
+/>  
+	
 # Distribuire la prima app Web in Azure in cinque minuti
-
-[AZURE.INCLUDE [schede](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Questa esercitazione illustra come distribuire la prima app Web nel [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Il servizio app consente di creare app Web, [back-end di app per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/) e [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-Con poche operazioni sarà possibile:
+Si apprenderà come:
 
-- Distribuire un'app Web di esempio (scegliere tra ASP.NET, PHP, Node.js, Java o Python).
-- Visualizzare l'app eseguita dinamicamente in pochi secondi.
+- Creare un'app Web nel servizio app di Azure.
+- Distribuire codice di esempio scegliendo tra ASP.NET, PHP, Node.js, Java o Python.
+- Vedere il codice in esecuzione nell'ambiente di produzione.
 - Aggiornare l'app Web nello stesso modo in cui si effettua il [push dei commit Git](https://git-scm.com/docs/git-push).
-
-Verrà anche fornita una panoramica del [portale di Azure](https://portal.azure.com) e si esamineranno le funzionalità disponibili nel portale.
 
 ## Prerequisiti
 
-- [Installare Git](http://www.git-scm.com/downloads).
-- [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+- [Installare Git](http://www.git-scm.com/downloads). Verificare l'esito positivo dell'installazione eseguendo `git --version` da un nuovo prompt dei comandi di Windows, una finestra di PowerShell, una shell di Linux o un terminale OS X.
 - Ottenere un account Microsoft Azure. Se non è disponibile un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] Verificare il funzionamento di un'app Web. È possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e creare un'app iniziale temporanea, senza necessità di indicare una carta di credito e senza impegno.
+>[AZURE.NOTE] È possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
 
-## Distribuire un'app Web
+<a name="create"></a>
+## Creare un'app Web
 
-Verrà ora distribuita un'app Web in Servizio app di Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account Azure.
 
-1. Aprire un nuovo prompt dei comandi di Windows, una finestra di PowerShell, una shell di Linux o un terminale di OS X. Eseguire `git --version` e `azure --version` per verificare che Git e l'interfaccia della riga di comando di Azure siano installati nel computer.
+2. Nel menu a sinistra fare clic su **Nuovo** > **Web e dispositivi mobili** > **App Web**.
 
-    ![Installazione di prova degli strumenti dell'interfaccia della riga di comando per la prima app Web in Azure](./media/app-service-web-get-started/1-test-tools.png)
+    ![Iniziare a creare la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-portal.png)  
 
-    Se gli strumenti non sono stati installati, vedere i [Prerequisiti](#Prerequisites) per i collegamenti di download.
+3. Nel pannello di creazione dell'app usare le impostazioni seguenti per la nuova app:
 
-1. Passare alla directory di lavoro `CD` e clonare l'app di esempio come segue:
+    - **Nome dell'app**: digitare un nome univoco.
+    - **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
+    - **Piano di servizio app/Località**: fare clic per configurare e quindi scegliere **Crea nuovo** per impostare il nome, la località e il piano tariffario del piano di servizio app. È possibile usare il piano tariffario **gratuito**.
+
+    Al termine, il pannello di creazione dell'app dovrebbe avere un aspetto simile al seguente:
+
+    ![Configurare la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-settings.png)  
+
+3. Fare clic su **Crea** nella parte inferiore della schermata. È possibile fare clic sull'icona delle **notifiche** in alto per visualizzare lo stato di avanzamento.
+
+    ![Notifica sulla creazione della prima app Web in Azure](./media/app-service-web-get-started/create-web-app-started.png)  
+
+4. Al termine della distribuzione dovrebbe essere visualizzato il messaggio di notifica seguente. Fare clic sul messaggio per aprire il pannello della distribuzione.
+
+    ![Messaggio di distribuzione terminata per la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-finished.png)  
+
+5. Nel pannello **La distribuzione è riuscita** fare clic sul collegamento **Risorsa** per aprire il pannello della nuova app Web.
+
+    ![Collegamento Risorsa per la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-resource.png)  
+
+## Distribuire codice nell'app Web
+
+L'esercitazione passa ora a illustrare come distribuire codice in Azure tramite Git.
+
+5. Nel pannello dell'app Web scorrere verso il basso fino alla voce **Opzioni di distribuzione** o cercarla e fare clic su di essa.
+
+    ![Opzioni di distribuzione per la prima app Web in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)  
+
+6. Fare clic su **Scegliere l'origine** > **Repository Git locale** > **OK**.
+
+7. Tornare al pannello dell'app Web e fare clic su **Credenziali di distribuzione**.
+
+8. Impostare le credenziali di distribuzione e fare clic su **Salva**.
+
+7. Tornare al pannello dell'app Web e scorrere verso il basso fino alla voce **Proprietà** o cercarla e fare clic su di essa. Fare clic sul pulsante **Copia** accanto a **URL GIT**.
+
+    ![Pannello Proprietà per la prima app Web in Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)  
+
+    A questo punto è possibile distribuire il codice con Git.
+
+1. Nel terminale della riga di comando passare a una directory di lavoro, `CD`, e clonare l'app di esempio come segue:
 
         git clone <github_sample_url>
 
-    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/2-clone-sample.png)
+    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/html-git-clone.png)  
 
     Per *&lt;github\_sample\_url>* usare uno degli URL seguenti, a seconda del framework preferito:
 
@@ -65,75 +102,46 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
     - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
     - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. Passare al repository dell'app di esempio. Ad esempio:
+2. Passare al repository dell'app di esempio. Ad esempio,
 
         cd app-service-web-html-get-started
 
-3. Accedere ad Azure come segue:
+3. Configurare il Git remoto per l'app Azure con l'URL GIT copiato dal portale in uno dei passaggi precedenti.
 
-        azure login
+        git remote add azure <giturlfromportal>
 
-    Seguire le istruzioni del messaggio della Guida per continuare il processo di accesso.
-
-    ![Accedere ad Azure per creare la prima app Web](./media/app-service-web-get-started/3-azure-login.png)
-
-4. Creare la risorsa dell'app del servizio app in Azure con un nome app univoco usando il comando successivo. Quando richiesto, specificare il numero dell'area desiderata.
-
-        azure site create --git <app_name>
-
-    ![Creare la risorsa di Azure per la prima app Web in Azure](./media/app-service-web-get-started/4-create-site.png)
-
-    >[AZURE.NOTE] Se non sono mai state configurate credenziali di distribuzione per la sottoscrizione di Azure, verrà chiesto di crearle. Il servizio app usa queste credenziali, e non le credenziali dell'account Azure, solo per le distribuzioni Git e gli accessi FTP.
-
-    Ora l'app viene creata in Azure. La directory corrente viene inizializzata da Git e connessa alla nuova app del servizio app come Git remoto. È possibile passare all'URL dell'app, http://&lt;app_name>.azurewebsites.net, per visualizzare la pagina HTML predefinita. A questo punto, inserire il proprio codice.
-
-4. Distribuire il codice di esempio nella nuova app del servizio app nello stesso modo in cui si effettua il push del codice con Git:
+4. Distribuire il codice di esempio nell'app Azure nello stesso modo in cui si effettua il push del codice con Git:
 
         git push azure master
 
-    ![Eseguire il push di codice nella prima app Web in Azure](./media/app-service-web-get-started/5-push-code.png)
+    ![Eseguire il push di codice nella prima app Web in Azure](./media/app-service-web-get-started/html-git-push.png)  
 
     Se è stato usato uno dei framework di linguaggio, verrà visualizzato un output diverso. Ciò dipende dal fatto che `git push` non solo inserisce il codice in Azure, ma attiva anche le attività di distribuzione nel motore di distribuzione. Se nella radice del progetto (repository) sono presenti file package.json (Node.js) o requirements.txt (Python) o se nel progetto ASP.NET è presente un file packages.config, lo script di distribuzione ripristina automaticamente i pacchetti necessari. È anche possibile [abilitare l'estensione Composer](web-sites-php-mysql-deploy-use-git.md#composer) per elaborare automaticamente i file composer.json nell'app PHP.
 
-La distribuzione dell'app in Servizio app di Azure è stata completata.
-
-## Visualizzare l'app eseguita dinamicamente
-
-Per visualizzare l'app eseguita dinamicamente in Azure, eseguire questo comando da qualsiasi directory del repository:
-
-    azure site browse
+L'operazione è terminata. A questo punto il codice è in esecuzione in Azure. Nel browser passare a http://*&lt;appname>*.azurewebsites.net per vederlo in azione.
 
 ## Eseguire aggiornamenti dell'app
 
-Ora è possibile usare Git per effettuare il push dalla radice del progetto (repository) in qualsiasi momento per poter eseguire un aggiornamento del sito attivo. La procedura è uguale alla prima distribuzione dell'app in Azure. Quando ad esempio si vuole effettuare il push di una nuova modifica testata in locale, eseguire questi comandi dalla radice del progetto (repository):
+Ora è possibile usare Git per effettuare il push dalla radice del progetto (repository) in qualsiasi momento per poter eseguire un aggiornamento del sito attivo. La procedura è simile a quella usata per la prima distribuzione del codice. Ad esempio, quando si vuole effettuare il push di una nuova modifica testata in locale, è sufficiente eseguire i comandi seguenti dalla radice del progetto (repository):
 
     git add .
     git commit -m "<your_message>"
     git push azure master
 
-## Visualizzare l'app nel portale di Azure
-
-Ora si accederà al portale di Azure per visualizzare ciò che è stato creato:
-
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account Microsoft a cui è associata la sottoscrizione di Azure.
-
-2. Nella barra a sinistra fare clic su **Servizi app**.
-
-3. Fare clic sull'app appena creata per aprire la relativa pagina, definita [pannello](../azure-portal-overview.md), nel portale. Per praticità, anche il pannello **Impostazioni** viene aperto per impostazione predefinita.
-
-    ![Visualizzazione del portale della prima app Web in Azure](./media/app-service-web-get-started/portal-view.png)
-
-Il pannello del portale dell'app del servizio app include un set completo di impostazioni e strumenti per la configurazione, il monitoraggio, la protezione e la risoluzione dei problemi dell'app. Per acquisire rapidamente familiarità con questa interfaccia, è possibile eseguire alcune semplici attività. Il numero dell'attività corrisponde al numero nello screenshot.
-
-1. Arrestare l'app.
-2. Riavviare l'app.
-3. Fare clic sul collegamento **Gruppo di risorse** per visualizzare tutte le risorse distribuite nel gruppo di risorse.
-4. Fare clic su **Impostazioni** > **Proprietà** per visualizzare altre informazioni sull'app.
-5. Fare clic su **Strumenti** per accedere a strumenti utili per il monitoraggio e la risoluzione dei problemi.
-
 ## Passaggi successivi
 
-- Ottimizzare l'app di Azure. Proteggerla con l'autenticazione. Ridimensionarla in base alla richiesta. Configurare alcuni avvisi sulle prestazioni. Tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
-- Oltre a Git e all'interfaccia della riga di comando di Azure, è possibile distribuire in altri modi le app Web in Azure. Vedere [Distribuire l'app nel servizio app di Azure](../app-service-web/web-sites-deploy.md). Individuare le procedure di sviluppo e distribuzione per il framework di linguaggio selezionando il framework nella parte superiore dell'articolo.
+Trovare la procedura di sviluppo e distribuzione più adatta al framework del linguaggio:
 
-<!---HONumber=AcomDC_0907_2016-->
+> [AZURE.SELECTOR]
+- [.NET](web-sites-dotnet-get-started.md)
+- [PHP](app-service-web-php-get-started.md)
+- [Node.JS](app-service-web-nodejs-get-started.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+- [Java](web-sites-java-get-started.md)
+
+In alternativa è possibile fare ulteriori prove con la prima app Web, ad esempio:
+
+- Provare [altri modi per distribuire il codice in Azure](../app-service-web/web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
+- Ottimizzare l'app di Azure. Autenticare gli utenti. Ridimensionarla in base alla richiesta. Configurare alcuni avvisi sulle prestazioni. Tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
+
+<!---HONumber=AcomDC_0914_2016---->
