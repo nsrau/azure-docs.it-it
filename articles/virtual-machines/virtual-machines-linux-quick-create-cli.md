@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creare rapidamente una VM Linux in Azure tramite l'interfaccia della riga di comando | Microsoft Azure"
+   pageTitle="Creare una VM Linux in Azure tramite l'interfaccia della riga di comando | Microsoft Azure"
    description="Creare una VM Linux in Azure tramite l'interfaccia della riga di comando."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -13,91 +13,102 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="08/18/2016"
-   ms.author="v-livech"/>
+   ms.date="09/08/2016"
+   ms.author="v-livech"/>  
 
 
 # Creare una VM Linux in Azure tramite l'interfaccia della riga di comando
 
-Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux in Azure usando il comando `azure vm quick-create` dell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una VM con un'infrastruttura di base che è possibile usare per creare un prototipo o testare un concetto rapidamente. L'articolo richiede un account Azure ([fare clic qui per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) connessa (`azure login`) e in modalità Resource Manager (`azure config mode arm`). È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md).
+Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux in Azure usando il comando `azure vm quick-create` nell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una VM all'interno di un'infrastruttura di base protetta, che può essere usata per creare un prototipo o testare un concetto rapidamente. Per proseguire con la lettura di questo articolo, è necessario quanto segue:
 
-## Breve riepilogo del comando
+- Un account Azure. È possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Un solo comando per distribuire una VM CoreOS e collegare la chiave SSH
+- Accesso tramite `azure login` per l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+
+- Interfaccia della riga di comando di Azure impostata _obbligatoriamente_ sulla modalità Azure Resource Manager `azure config mode arm`.
+
+È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md).
+
+## Comandi rapidi
+
+L'esempio seguente mostra come distribuire una VM CoreOS e collegare la chiave SSH (Secure Shell). Gli argomenti possono variare.
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 ```
 
-## Distribuire la VM Linux
+Le sezioni seguenti illustrano il comando e i relativi requisiti usando Ubuntu Server 14.04 LTS come distribuzione di Linux.
 
-Ora verrà illustrato il comando e verrà spiegato ogni passaggio usando RedHat Enterprise Linux 7.2.
+## Alias del comando VM quick-create
 
-## Usare un alias ImageURN
-
-Il comando `quick-create` dell'interfaccia della riga di comando di Azure include alias con mapping alle distribuzioni di sistema operativo più comuni. La tabella seguente elenca gli alias di distribuzione, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Tutte le distribuzioni che usano `quick-create` includono per impostazione predefinita macchine virtuali basate su risorse di archiviazione SSD per offrire prestazioni elevate.
+Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine](virtual-machines-linux-cli-ps-findimage.md) o [caricare un'immagine personalizzata](virtual-machines-linux-create-upload-generic.md).
 
 | Alias | Autore | Offerta | SKU | Versione |
 |:----------|:----------|:-------------|:------------|:--------|
-| CentOS | OpenLogic | Centos | 7,2 | più recenti |
+| CentOS | OpenLogic | CentOS | 7,2 | più recenti |
 | CoreOS | CoreOS | CoreOS | Stabile | più recenti |
 | Debian | credativ | Debian | 8 | più recenti |
 | openSUSE | SUSE | openSUSE | 13\.2 | più recenti |
-| RHEL | Redhat | RHEL | 7,2 | più recenti |
-| UbuntuLTS | Canonical | UbuntuServer | 14\.04.4-LTS | più recenti |
+| RHEL | Red Hat | RHEL | 7,2 | più recenti |
+| UbuntuLTS | Canonical | Ubuntu Server | 14\.04.4-LTS | più recenti |
 
+Le sezioni seguenti illustrano come usare l'alias `UbuntuLTS` per l'opzione **ImageURN** `-Q` per distribuire Ubuntu Server 14.04.4 LTS.
 
+## Procedura dettagliata
 
-Per l'opzione **ImageURN** (`-Q`), verrà usato `RHEL` per distribuire una VM RedHat Enterprise Linux 7.2. Questi alias `quick-create` rappresentano una minima parte del sistema operativo disponibile in Azure. Per trovare altre immagini nel Marketplace, [cercare un'immagine](virtual-machines-linux-cli-ps-findimage.md) oppure è possibile [caricare un'immagine personalizzata](virtual-machines-linux-create-upload-generic.md).
+L'esempio `quick-create` precedente ha solo chiamato il flag `-M` per identificare la chiave pubblica SSH da caricare durante la disabilitazione delle password SSH. Viene quindi chiesto di specificare quanto segue.
 
-Nella procedura dettagliata di comando seguente sostituire i prompt con i valori dell'ambiente locale.
+- Nome del gruppo di risorse: per il primo gruppo di risorse di Azure in genere viene accettata una stringa qualsiasi.
+- Nome della VM.
+- Località: westus o westeurope sono opzioni predefinite valide.
+- Linux: per indicare ad Azure quale sistema operativo viene usato.
+- Nome utente
 
-Seguire le istruzioni e immettere i nomi personalizzati
+L'esempio seguente mostra come specificare tutti i valori in modo che non vengano richieste ulteriori conferme. Il funzionamento è garantito, purché sia disponibile un file `~/.ssh/id_rsa.pub` come file di chiave pubblica in formato ssh-rsa.
 
 ```bash
-azure vm quick-create -M ~/.ssh/id_rsa.pub -Q RHEL
+azure vm quick-create \
+-g exampleResourceGroup \
+-n exampleVMName \
+-l westus \
+-y Linux \
+-u exampleAdminUser \
+-M ~/.ssh/id_rsa.pub \
+-Q UbuntuLTS
 ```
 
 L'output dovrebbe essere simile al blocco di output seguente.
 
 ```bash
 info:    Executing command vm quick-create
-Resource group name: rhel-quick
-Virtual machine name: rhel
-Location name: westus
-Operating system Type [Windows, Linux]: linux
-User name: ops
 + Listing virtual machine sizes available in the location "westus"
-+ Looking up the VM "rhel"
-info:    Verifying the public key SSH file: /Users/ops/.ssh/id_rsa.pub
++ Looking up the VM "exampleVMName"
+info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account cli1630678171193501687
-info:    Could not find the storage account "cli1630678171193501687", trying to create new one
-+ Creating storage account "cli1630678171193501687" in "westus"
-+ Looking up the storage account cli1630678171193501687
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-info:    An nic with given name "rhel-westu-1630678171-nic" not found, creating a new one
-+ Looking up the virtual network "rhel-westu-1630678171-vnet"
++ Looking up the storage account cli16330708391032639673
++ Looking up the NIC "examp-westu-1633070839-nic"
+info:    An nic with given name "examp-westu-1633070839-nic" not found, creating a new one
++ Looking up the virtual network "examp-westu-1633070839-vnet"
 info:    Preparing to create new virtual network and subnet
-+ Creating a new virtual network "rhel-westu-1630678171-vnet" [address prefix: "10.0.0.0/16"] with subnet "rhel-westu-1630678171-snet" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "rhel-westu-1630678171-vnet"
-+ Looking up the subnet "rhel-westu-1630678171-snet" under the virtual network "rhel-westu-1630678171-vnet"
+/ Creating a new virtual network "examp-westu-1633070839-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-westu-1633070839-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-westu-1633070839-vnet"
++ Looking up the subnet "examp-westu-1633070839-snet" under the virtual network "examp-westu-1633070839-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-info:    PublicIP with given name "rhel-westu-1630678171-pip" not found, creating a new one
-+ Creating public ip "rhel-westu-1630678171-pip"
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-+ Creating NIC "rhel-westu-1630678171-nic"
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-+ Looking up the storage account clisto909893658rhel
-+ Creating VM "rhel"
-+ Looking up the VM "rhel"
-+ Looking up the NIC "rhel-westu-1630678171-nic"
-+ Looking up the public ip "rhel-westu-1630678171-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/rhel-quick/providers/Microsoft.Compute/virtualMachines/rhel
++ Looking up the public ip "examp-westu-1633070839-pip"
+info:    PublicIP with given name "examp-westu-1633070839-pip" not found, creating a new one
++ Creating public ip "examp-westu-1633070839-pip"
++ Looking up the public ip "examp-westu-1633070839-pip"
++ Creating NIC "examp-westu-1633070839-nic"
++ Looking up the NIC "examp-westu-1633070839-nic"
++ Looking up the storage account clisto1710997031examplev
++ Creating VM "exampleVMName"
++ Looking up the VM "exampleVMName"
++ Looking up the NIC "examp-westu-1633070839-nic"
++ Looking up the public ip "examp-westu-1633070839-pip"
+data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
 data:    ProvisioningState               :Succeeded
-data:    Name                            :rhel
+data:    Name                            :exampleVMName
 data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
@@ -106,22 +117,22 @@ data:      Size                          :Standard_DS1
 data:
 data:    Storage Profile:
 data:      Image reference:
-data:        Publisher                   :RedHat
-data:        Offer                       :RHEL
-data:        Sku                         :7.2
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :clic5abbc145c0242c1-os-1462425492101
+data:        Name                        :clic7fadb847357e9cf-os-1473374894359
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://cli1630678171193501687.blob.core.windows.net/vhds/clic5abbc145c0242c1-os-1462425492101.vhd
+data:          Uri                       :https://cli16330708391032639673.blob.core.windows.net/vhds/clic7fadb847357e9cf-os-1473374894359.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :rhel
-data:      User Name                     :ops
+data:      Computer Name                 :exampleVMName
+data:      User Name                     :exampleAdminUser
 data:      Linux Configuration:
 data:        Disable Password Auth       :true
 data:
@@ -129,43 +140,69 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-32-0F-DD
+data:          MAC Address               :00-0D-3A-33-42-FB
 data:          Provisioning State        :Succeeded
-data:          Name                      :rhel-westu-1630678171-nic
+data:          Name                      :examp-westu-1633070839-nic
 data:          Location                  :westus
-data:            Public IP address       :104.42.236.196
-data:            FQDN                    :rhel-westu-1630678171-pip.westus.cloudapp.azure.com
+data:            Public IP address       :138.91.247.29
+data:            FQDN                    :examp-westu-1633070839-pip.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://clisto909893658rhel.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://clisto1710997031examplev.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Connettersi alla VM con SSH tramite la porta 22 e l'indirizzo IP pubblico elencato nell'output. È anche possibile usare il nome FQDN elencato.
+Connettersi alla macchina virtuale usando l'indirizzo IP pubblico elencato nell'output. È anche possibile usare il nome di dominio completo (FQDN) elencato.
 
 ```bash
-ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
+ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
+
 Il processo di accesso dovrebbe essere simile a quanto segue:
 
 ```bash
-The authenticity of host 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com (104.42.236.196)' can't be established.
-RSA key fingerprint is 0e:81:c4:36:2d:eb:3c:5a:dc:7e:65:8a:3f:3e:b0:cb.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,104.42.236.196' (RSA) to the list of known hosts.
-[ops@rhel ~]$ ls -a
-.  ..  .bash_logout  .bash_profile  .bashrc  .cache  .config  .ssh
+Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Thu Sep  8 22:50:57 UTC 2016
+
+  System load: 0.63              Memory usage: 2%   Processes:       81
+  Usage of /:  39.6% of 1.94GB   Swap usage:   0%   Users logged in: 0
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+exampleAdminUser@exampleVMName:~$
 ```
 
 ## Passaggi successivi
 
-Il comando `azure vm quick-create` consente di distribuire rapidamente una macchina virtuale per poter accedere a una shell bash e iniziare a lavorare. L'uso di `vm quick-create` non offre i vantaggi aggiuntivi di un ambiente complesso. Per distribuire una VM Linux personalizzata per l'infrastruttura, è possibile vedere questi articoli.
+Il comando `azure vm quick-create` consente di distribuire rapidamente una macchina virtuale per poter accedere a una shell bash e iniziare a lavorare. L'uso di `vm quick-create`, tuttavia, non consente un controllo esteso né permette di creare un ambiente più complesso. Per informazioni su come distribuire una VM Linux personalizzata per l'infrastruttura, è possibile vedere gli articoli seguenti:
 
 - [Usare un modello di Azure Resource Manager per creare una distribuzione specifica](virtual-machines-linux-cli-deploy-templates.md)
-- [Creare un ambiente personalizzato per una VM Linux usando direttamente i comandi dell'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md).
-- [Creare una VM Linux protetta usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md)
+- [Creare una VM Linux usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+È anche possibile [usare il driver di Azure `docker-machine` con vari comandi per creare rapidamente una VM Linux come host docker](virtual-machines-linux-docker-machine.md).
+
+<!---HONumber=AcomDC_0914_2016-->
