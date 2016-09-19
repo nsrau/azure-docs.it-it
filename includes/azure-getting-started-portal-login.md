@@ -7,7 +7,7 @@ Latest Freshness check:  2016-04-11 , carlrab.
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
--->  
+-->
 ## Connettersi al portale di Azure con una sottoscrizione
 
 Per connettersi al portale di Azure, è necessaria una sottoscrizione.
