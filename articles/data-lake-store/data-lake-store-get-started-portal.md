@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
-   ms.author="nitinme"/>
+   ms.date="09/13/2016"
+   ms.author="nitinme"/>  
 
 # Introduzione all’Archivio Data Lake di Azure tramite il portale di Azure.
 
@@ -35,16 +35,6 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="signup"></a>Abilitare la sottoscrizione di Azure per l'anteprima pubblica di Data Lake Store.
-
-È innanzitutto necessario richiedere che la sottoscrizione di Azure sia abilitata per l'anteprima pubblica di Archivio Data Lake. Attenersi ai passaggi indicati di seguito:
-
-1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
-2. Fare clic su **NUOVO**, fare clic su **Dati + archiviazione**, e quindi fare clic su **Archivio Data Lake di Azure**.
-3. Nel pannello **nuovo archivio Data Lake**, fare clic su **Iscriversi per visualizzare l’anteprima**. Leggere le informazioni e quindi fare clic su **OK**. Quando la sottoscrizione è stata abilitata per l'anteprima pubblica, si riceverà un messaggio di posta elettronica.
-
-	![Iscriversi per l'anteprima pubblica](./media/data-lake-store-get-started-portal/preview-signup.png "Creare un nuovo account di Azure Data Lake")
-
 ## Apprendimento rapido con i video
 
 Guardare i video seguenti per iniziare a usare Archivio Data Lake.
@@ -60,9 +50,9 @@ Guardare i video seguenti per iniziare a usare Archivio Data Lake.
 
 3. Nel pannello **nuovo archivio Data Lake**, fornire i valori come illustrato nella schermata riportata di seguito:
 
-	![Creare un nuovo account di Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Creare un nuovo account di Azure Data Lake")
+	![Creare un nuovo account di Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Creare un nuovo account di Azure Data Lake")  
 
-	- **Sottoscrizione**. Selezionare la sottoscrizione in cui si desidera creare un nuovo account archivio Data Lake.
+	- **Sottoscrizione**. Selezionare la sottoscrizione in cui si vuole creare un nuovo account Data Lake Store.
 	- **Gruppo di risorse** Selezionare un gruppo di risorse esistente, o fare clic su **Crea un gruppo di risorse** per crearne uno. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per altre informazioni, vedere [Gruppi di risorse in Azure](resource-group-overview.md#resource-groups).
 	- **Posizione**: selezionare una posizione in cui si desidera creare l'account Archivio Data Lake
 
@@ -72,7 +62,7 @@ Guardare i video seguenti per iniziare a usare Archivio Data Lake.
 
 6. Espandere l’elenco a discesa **Essentials** per visualizzare le informazioni relative all'account Archivio Data Lake, ad esempio la risorsa di gruppo di cui fa parte, la posizione e così via. Scegliere l’icona **Avvio rapido** per visualizzare i collegamenti ad altre risorse correlate a Archivio Data Lake
 
-	![Account di Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Account di Azure Data Lake")
+	![Account di Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Account di Azure Data Lake")  
 
 ## <a name="createfolder"></a>Creare delle cartelle in Azure Data Lake Store
 
@@ -82,15 +72,15 @@ Guardare i video seguenti per iniziare a usare Archivio Data Lake.
 
 2. Nel pannello dell’account Archivio Data Lake, fare clic su **Esplora dati**.
 
-	![Creare delle cartelle nell’account di Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare delle cartelle nell’account di Data Lake Store")
+	![Creare delle cartelle nell’account di Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare delle cartelle nell’account di Data Lake Store")  
 
 3. Nel pannello dell’ Archivio Data Lake, fare clic su **Nuova cartella**, immettere un nome per la nuova cartella e quindi fare clic su **OK**.
 	
-	![Creare delle cartelle nell’account di Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creare delle cartelle nell’account di Data Lake Store")
+	![Creare delle cartelle nell’account di Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creare delle cartelle nell’account di Data Lake Store")  
 	
 	La cartella appena creata verrà elencata nel pannello **Esplora dati**. È possibile creare cartelle nidificate fino a qualsiasi livello.
 
-	![Creare delle cartelle nell’account di Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creare delle cartelle nell’account di Data Lake")
+	![Creare delle cartelle nell’account di Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creare delle cartelle nell’account di Data Lake")  
 
 
 ## <a name="uploaddata"></a>Caricare dati in Archivio Data Lake di Azure
@@ -99,18 +89,18 @@ Guardare i video seguenti per iniziare a usare Archivio Data Lake.
 
 Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-![Caricare dati](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Caricare dati")
+![Caricare dati](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Caricare dati")  
 
 
 ## <a name="properties"></a>Proprietà e azioni disponibili sui dati archiviati
 
 Fare clic sul file appena aggiunto per aprire il pannello **Proprietà**. Le proprietà associate al file e alle azioni che è possibile eseguire nel file sono disponibili in questo pannello. È inoltre possibile copiare il percorso completo al file nell'account dell’Archivio Data Lake di Azure, evidenziato nella casella rossa nella schermata riportata di seguito.
 
-![Proprietà sui dati](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Proprietà sui dati")
+![Proprietà sui dati](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Proprietà sui dati")  
 
 * Fare clic su **Anteprima** per visualizzare un'anteprima del file direttamente dal browser. È possibile specificare anche il formato dell'anteprima. Fare clic su **Anteprima**, fare clic su **Formato** nel pannello **Anteprima File** e nell pannello **Formato di Anteprima del file** specificare opzioni quali il numero di righe da visualizzare, la codifica da utilizzare, il delimitatore da utilizzare e così via.
 
-  ![Formato anteprima del file](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Formato anteprima del file")
+  ![Formato anteprima del file](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Formato anteprima del file")  
 
 * Fare clic su **Download** per scaricare il file nel computer.
 
@@ -128,7 +118,7 @@ Fare clic sul file appena aggiunto per aprire il pannello **Proprietà**. Le pro
 
 Per eliminare un account di Archivio Data Lake di Azure, dal pannello dell’account dell’Archivio Data Lake, fare clic su **Elimina**. Per confermare l'azione, verrà chiesto di immettere il nome dell'account che si desidera eliminare. Immettere il nome dell’account e quindi fare clic su **Elimina**.
 
-![Eliminare account di Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminare account di Data Lake")
+![Eliminare account di Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminare account di Data Lake")  
 
 
 ## Passaggi successivi
@@ -138,4 +128,4 @@ Per eliminare un account di Archivio Data Lake di Azure, dal pannello dell’acc
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Accesso ai log di diagnostica per Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

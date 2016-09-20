@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -55,4 +55,4 @@ Per iniziare a usare PowerShell per Machine Learning, scaricare il [pacchetto de
 
 Il modulo PowerShell verrà continuamente migliorato ed esteso durante questo periodo di anteprima. Monitorare i [blog di Cortana Intelligence e di Machine Learning](https://blogs.technet.microsoft.com/machinelearning/) per altre informazioni e notizie aggiornate.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

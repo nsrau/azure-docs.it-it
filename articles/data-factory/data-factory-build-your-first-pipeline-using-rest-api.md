@@ -15,22 +15,19 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/16/2016"
-	ms.author="spelluru"/>
+	ms.author="spelluru"/>  
 
-# Creare la prima data factory di Azure usando l'API REST di Data Factory
+# Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [AZURE.SELECTOR]
-- [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
-- [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
-- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Uso dell'API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-In questo articolo viene illustrato come usare l'API REST di Data Factory per creare la prima data factory di Azure.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-## Prerequisiti
-
-- Vedere la [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md). Questo articolo fornisce informazioni sui concetti di base di Azure Data Factory.
+## Ulteriori prerequisiti
 - Installare [Curl](https://curl.haxx.se/dlwiz/) nel computer. Lo strumento CURL viene usato insieme ai comandi REST per creare una data factory.
 - Seguire le istruzioni disponibili in [questo articolo](../resource-group-create-service-principal-portal.md) per:
 	1. Creare un'applicazione Web denominata **ADFGetStartedApp** in Azure Active Directory.
@@ -375,7 +372,7 @@ In questo passaggio viene usata l'API REST di Azure Data Factory per monitorare 
 
 Eseguire il comando Invoke e il comando successivo fino a quando la sezione non avrà stato **Pronta** o **Non riuscita**. Quando lo stato della sezione è Pronto, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB. La creazione di un cluster HDInsight su richiesta di solito richiede tempo.
 
-![Dati di output](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
+![Dati di output](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)  
 
 > [AZURE.IMPORTANT] Il file di input viene eliminato quando la sezione viene elaborata correttamente. Per eseguire di nuovo la sezione o ripetere l'esercitazione, caricare quindi il file di input (input.log) nella cartella inputdata del contenitore adfgetstarted.
 
@@ -405,4 +402,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Monitorare e gestire le pipeline con i pannelli del portale di Azure.](data-factory-monitor-manage-pipelines.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline con i pannelli del portale di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

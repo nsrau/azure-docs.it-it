@@ -4,8 +4,8 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
-   editor="cgronlun"/>  
+   manager="jhubbard" 
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -48,7 +48,7 @@ Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archi
 
 	- **Nome**: nome dell'account di Analytics.
 	- **Data Lake Store**: ogni account di Data Lake Analytics ha un account di Data Lake Store dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
-	- **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analisi.
+	- **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analytics.
 	- **Gruppo di risorse**. Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Gestione risorse di Azure consente di usare le risorse dell'applicazione come singolo gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
 	- **Località**. Selezionare un data center di Azure per l'account di Analisi Data Lake.
 7. Selezionare **Aggiungi alla Schermata iniziale**. Questa impostazione è necessaria per l'esecuzione dell'esercitazione.
@@ -156,4 +156,4 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 - Per registrare informazioni di diagnostica, vedere [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Accesso ai log di diagnostica per Azure Data Lake Analytics)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -15,8 +15,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
-   ms.author="rogardle"/>
+   ms.date="09/13/2016"
+   ms.author="rogardle"/>  
 
 
 # Connettersi a un cluster del servizio contenitore di Azure
@@ -37,8 +37,6 @@ Ora aprire una shell ed eseguire il comando seguente, dove:
 **PORT** è la porta dell'endpoint da esporre. Per Swarm, è la porta 2375. Per DC/OS usare la porta 80. **USERNAME** è il nome utente specificato al momento della distribuzione del cluster. **DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster. **REGION** è l'area in cui si trova il gruppo di risorse. **PATH\_TO\_PRIVATE\_KEY** [FACOLTATIVO] è il percorso della chiave privata che corrisponde alla chiave pubblica specificata durante la creazione del cluster del servizio contenitore. Usare questa opzione con il flag -i.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > La porta di connessione SSH è la 2200, non la porta 22 standard.
@@ -48,8 +46,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 Per aprire un tunnel per gli endpoint correlati a DC/OS, eseguire un comando simile al seguente:
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -66,8 +62,6 @@ In modo analogo, è possibile raggiungere le API REST per ogni applicazione attr
 Per aprire un tunnel per l'endpoint Swarm, eseguire un comando simile al seguente:
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -89,7 +83,7 @@ Immettere un nome host che include il nome utente dell'amministratore cluster e 
 
 Selezionare **SSH** e **Authentication** (Autenticazione). Aggiungere il file di chiave privata per l'autenticazione.
 
-![Configurazione PuTTY 2](media/putty2.png)
+![Configurazione PuTTY 2](media/putty2.png)  
 
 Selezionare **Tunnels** (Tunnel) e configurare le porte inoltrate seguenti:
 - **Source Port:** corrisponde alla preferenza dell'utente. Usare 80 per il controller di dominio/sistema operativo o 2375 per Swarm.
@@ -103,7 +97,7 @@ L'esempio seguente è configurato per DC/OS, ma avrà un aspetto simile anche pe
 
 Al termine, salvare la configurazione di connessione e connettere la sessione PuTTY. Dopo la connessione, è possibile visualizzare la configurazione della porta nel registro eventi di PuTTY.
 
-![Log eventi di PuTTY](media/putty4.png)
+![Log eventi di PuTTY](media/putty4.png)  
 
 Dopo avere configurato il tunnel per DC/OS, è possibile accedere all'endpoint correlato da:
 
@@ -120,4 +114,4 @@ Distribuire e gestire contenitori con DC/OS o Swarm:
 - [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
 - [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

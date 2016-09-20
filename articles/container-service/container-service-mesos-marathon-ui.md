@@ -60,7 +60,7 @@ Protocol | TCP
 Per eseguire il mapping statico della porta del contenitore su una porta dell'agente è necessario usare la modalità JSON. A tale scopo impostare la procedura guidata New Application su **JSON Mode** usando l'interruttore. Specificare quindi il codice seguente sotto la sezione `portMappings` della definizione dell'applicazione. Questo esempio associa la porta 80 del contenitore alla porta 80 dell'agente DC/OS. Dopo aver apportato questa modifica è possibile uscire dalla modalità JSON della procedura guidata.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Interfaccia utente New Application--esempio con porta 80](media/dcos/dcos13.png)
@@ -75,7 +75,7 @@ Tornare alla pagina principale di Marathon, dove ora viene visualizzato lo stato
 
 Quando si passa di nuovo all'interfaccia utente Web di DC/OS (http://localhost/) si noterà che nel cluster DC/OS è in esecuzione un'attività, in questo caso un contenitore in formato Docker.
 
-![Interfaccia utente Web di DC/OS--attività in esecuzione nel cluster](media/dcos/dcos8.png)
+![Interfaccia utente Web di DC/OS--attività in esecuzione nel cluster](media/dcos/dcos8.png)  
 
 Viene anche visualizzato il nodo del cluster in cui viene eseguita l'attività.
 
@@ -91,7 +91,7 @@ Al termine dell'operazione di ridimensionamento verranno visualizzate più istan
 
 ![Dashboard dell'interfaccia utente Web di DC/OS--attività distribuita tra agenti](media/dcos/dcos11.png)
 
-![Interfaccia utente Web di DC/OS--nodi](media/dcos/dcos12.png)
+![Interfaccia utente Web di DC/OS--nodi](media/dcos/dcos12.png)  
 
 ## Passaggi successivi
 
@@ -101,4 +101,4 @@ Approfondimento sul servizio contenitore di Azure con Mesos
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

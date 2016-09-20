@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/22/2016"
-	ms.author="marsma"/>
+	ms.date="09/08/2016"
+	ms.author="marsma"/> 
 
 # Panoramica delle funzionalità di Batch per sviluppatori
 
@@ -81,8 +81,6 @@ Tutti i nodi di Calcolo in Batch includono anche:
 - Impostazioni del **firewall** configurate per controllare l'accesso.
 - [Accesso remoto](#connecting-to-compute-nodes) ai nodi Windows (Remote Desktop Protocol (RDP)) e Linux (Secure Shell (SSH)).
 
-> [AZURE.NOTE] Supporto Linux in Batch è attualmente disponibile in anteprima. Per altri dettagli, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
-
 ## Pool
 
 Un pool è una raccolta di nodi in cui viene eseguita l'applicazione. Il pool può essere creato manualmente dall'utente o automaticamente dal servizio Batch quando si specifica il lavoro da eseguire. È possibile creare e gestire un pool che soddisfi i requisiti relativi alle risorse dell'applicazione. Un pool può essere usato solo dall'account Batch in cui è stato creato. Un account Batch può avere più pool.
@@ -145,7 +143,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
 
 - **Pacchetti dell'applicazione**
 
-	È possibile specificare [pacchetti dell'applicazione](#application-packages) da distribuire nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione specificati per un pool vengono installati in ogni nodo di calcolo aggiunto al pool e ogni volta che un nodo viene riavviato o ne viene ricreata l'immagine.
+	È possibile specificare [pacchetti dell'applicazione](#application-packages) da distribuire nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione specificati per un pool vengono installati in ogni nodo di calcolo aggiunto al pool e ogni volta che un nodo viene riavviato o ne viene ricreata l'immagine. I pacchetti dell'applicazione non sono attualmente supportati nei nodi di calcolo Linux.
 
 - **Network configuration**
 
@@ -195,7 +193,7 @@ Quando si crea un'attività, è possibile specificare:
 
 	È importante notare che la riga di comando non viene effettivamente eseguita in una shell. Non può quindi usare in modo nativo i vantaggi delle funzionalità della shell, ad esempio l'espansione delle [variabili di ambiente](#environment-settings-for-tasks), incluso `PATH`. Per usare queste funzionalità, è necessario richiamare la shell nella riga di comando, ad esempio avviando `cmd.exe` nei nodi Windows o `/bin/sh` in Linux:
 
-	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
+	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%` 
 
 	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
@@ -294,12 +292,12 @@ Le variabili di ambiente seguenti vengono impostate dal servizio Batch e sono ac
 
 | Nome di variabile di ambiente | Descrizione |
 |---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME` | Nome dell'account a cui appartiene l'attività. |
+| `AZ_BATCH_ACCOUNT_NAME`  | Nome dell'account a cui appartiene l'attività. |
 | `AZ_BATCH_JOB_ID` | ID del processo a cui appartiene l'attività. |
 | `AZ_BATCH_JOB_PREP_DIR` | Percorso completo della directory di attività di preparazione sul nodo. |
 | `AZ_BATCH_JOB_PREP_WORKING_DIR` | Percorso completo della directory di lavoro di attività di preparazione sul nodo. |
 | `AZ_BATCH_NODE_ID` | ID del nodo in cui è in esecuzione l'attività. |
-| `AZ_BATCH_NODE_ROOT_DIR` | Percorso completo della directory radice nel nodo. |
+| `AZ_BATCH_NODE_ROOT_DIR`  | Percorso completo della directory radice nel nodo. |
 | `AZ_BATCH_NODE_SHARED_DIR` | Percorso completo della directory condivisa nel nodo. |
 | `AZ_BATCH_NODE_STARTUP_DIR` | Percorso completo della directory delle attività di avvio del nodo di calcolo nel nodo. |
 | `AZ_BATCH_POOL_ID` | ID del pool in cui è in esecuzione l'attività. |
@@ -518,4 +516,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

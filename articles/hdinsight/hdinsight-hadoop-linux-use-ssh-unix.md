@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/30/2016"
-   ms.author="larryfr"/>
+   ms.author="larryfr"/>  
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:
 
@@ -101,7 +101,7 @@ Quando si usa il [Portale di Azure][preview-portal] per creare un cluster HDInsi
 
 Se si seleziona **CHIAVE PUBBLICA SSH**, incollare la chiave pubblica (contenuta nel file con l’estensione **pub**) nel campo __SSH PublicKey__ oppure selezionare __Seleziona un file__ per cercare e selezionare il file di chiave pubblica.
 
-![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
+![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)  
 
 > [AZURE.NOTE] Il file della chiave è semplicemente un file di testo. Il contenuto dovrebbe essere simile al seguente:
 > ```
@@ -219,7 +219,7 @@ Usare la procedura seguente per connettersi ai nodi di lavoro per il cluster.
 
 3. Quando si apre l'editor nano, copiare e incollare il contenuto della chiave pubblica per il nuovo account utente. Usare infine **Ctrl-X** per salvare il file e uscire dall'editor.
 
-	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)
+	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)  
 
 4. Usare il comando seguente per specificare il nuovo account utente come proprietario della cartella .ssh e del contenuto.
 
@@ -247,4 +247,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

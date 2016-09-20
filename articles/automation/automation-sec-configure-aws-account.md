@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/17/2016"
-   ms.author="magoedte"/>
+   ms.date="09/12/2016"
+   ms.author="magoedte"/> 
 
 # Autenticare runbook con Amazon Web Services
 I runbook di automazione di Azure consentono di automatizzare le attività comuni relative alle risorse in Amazon Web Services (AWS). Esattamente come avviene per le risorse in Azure, con i runbook di Automazione è possibile automatizzare numerose attività in AWS. A questo scopo, sono necessari due elementi:
@@ -36,4 +36,4 @@ Dopo aver creato e copiato le chiavi di sicurezza di AWS, sarà necessario crear
 
 - Vedere l'articolo della soluzione [Automazione della distribuzione di una macchina virtuale in Amazon Web Services](../automation/automation-scenario-aws-deployment.md) per informazioni su come creare runbook per automatizzare le attività in AWS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

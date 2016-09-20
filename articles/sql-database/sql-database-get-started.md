@@ -137,4 +137,4 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 [Informazioni sul database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0914_2016-->

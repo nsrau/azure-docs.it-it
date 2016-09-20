@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -41,9 +41,9 @@ Il servizio API di Machine Learning consente di distribuire i modelli predittivi
 
 Vedere [Connessione a un servizio Web di Azure Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md) per altre informazioni.
 
-**Dove sono elencati i servizi Web classici? Dove sono elencati nuovi servizi Web basati su Azure Resource Manager?**
+**Dove sono elencati i servizi Web classici? Dove sono elencati i nuovi servizi Web basati su Azure Resource Manager?**
 
-I servizi Web classici sono elencati nella scheda Servizi Web di [Machine Learning Studio](http://studio.azureml.net). I nuovi servizi Web basati su Azure Resource Manager sono elencati nel portale [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) (Servizi Web Microsoft Azure Machine Learning). Non è disponibile un elenco incrociato.
+I servizi Web classici sono elencati nella scheda Servizi Web di [Machine Learning Studio](http://studio.azureml.net). I nuovi servizi Web basati su Azure Resource Manager sono elencati nel portale [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) (Servizi Web di Microsoft Azure Machine Learning). Non è disponibile un elenco incrociato.
 
 ## Domande sui servizi Web di Microsoft Azure Machine Learning
 
@@ -224,7 +224,7 @@ No.
 
 **Esiste una latenza di base prevista per tutti i servizi Web?**
 
-Vedere [Limiti relativi alle sottoscrizioni](../azure-subscription-service-limits.md)
+Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)
 
 ### Uso
 
@@ -379,7 +379,7 @@ Un'ora di calcolo API è l'unità di fatturazione per il tempo impiegato per l'e
 
 **Quanto tempo è necessario in genere per una tipica chiamata API di produzione?**
 
-Nonostante i tempi delle chiamate API di produzione possano variare in modo significativo, in genere da centinaia di millisecondi a pochi secondi, a seconda della complessità dei modelli di elaborazione dei dati e di apprendimento automatico possono essere necessari anche alcuni minuti. Il modo migliore per stimare i tempi delle chiamate API di produzione consiste nell'usare come benchmark un modello nel servizio Machine Learning.
+I tempi delle chiamate API di produzione possano variare in modo significativo, in genere da centinaia di millisecondi a pochi secondi, ma a seconda della complessità dei modelli di elaborazione dei dati e di apprendimento automatico possono essere necessari anche alcuni minuti. Il modo migliore per stimare i tempi delle chiamate API di produzione consiste nell'usare come benchmark un modello nel servizio Machine Learning.
 
 **Che cos'è un'ora di calcolo di Studio?**
 
@@ -395,7 +395,7 @@ Il livello Gratuito di Machine Learning non richiede né consente l'archiviazion
 
 **In che modo Machine Learning supporta attività a disponibilità elevata?**
 
-Nonostante i tempi delle chiamate API di produzione possano variare in modo significativo, in genere da centinaia di millisecondi a pochi secondi, a seconda della complessità dei modelli di elaborazione dei dati e di apprendimento automatico possono essere necessari anche alcuni minuti. Il modo migliore per stimare i tempi delle chiamate API di produzione consiste nell'usare come benchmark un modello nel servizio Machine Learning.
+I tempi delle chiamate API di produzione possano variare in modo significativo, in genere da centinaia di millisecondi a pochi secondi, ma a seconda della complessità dei modelli di elaborazione dei dati e di apprendimento automatico possono essere necessari anche alcuni minuti. Il modo migliore per stimare i tempi delle chiamate API di produzione consiste nell'usare come benchmark un modello nel servizio Machine Learning.
 
 **In quale tipologia specifica di risorse di calcolo verranno eseguite le chiamate API di produzione?**
 
@@ -423,7 +423,7 @@ Nota: a seconda dell'utilizzo previsto, può essere più conveniente eseguire l'
 
 **Cosa succede quando si cambiano i livelli del piano (per aggiornamento o downgrade)?**
 
-Il piano precedente viene eliminato e la fatturazione dell'utilizzo corrente viene ripartita. Per il resto del periodo viene creato un nuovo piano con le intere qualità incluse del livello di aggiornamento o downgrade.
+Il piano precedente viene eliminato e la fatturazione dell'utilizzo corrente viene ripartita. Per il resto del periodo viene creato un nuovo piano con le intere quantità incluse del livello di aggiornamento o downgrade.
 
 Nota: le quantità incluse vengono allocate per periodo e le quantità inutilizzate non vengono rinnovate.
 
@@ -448,7 +448,7 @@ I piani creati in questo modo rientrano nell'area dell'utente, in cui il servizi
 
 Può essere opportuno definire i piani di fatturazione prima di distribuire il servizio, ad esempio se si vogliono distribuire i servizi in aree diverse dalla propria area predefinita.
 
-In tal caso, è possibile accedere al portale Azure Machine Learning Web Services (Servizi Web Microsoft Azure Machine Learning) e passare alla pagina Plans (Piani). In questa pagina è possibile aggiungere ed eliminare piani, nonché modificare i piani esistenti.
+In tal caso, è possibile accedere al portale Azure Machine Learning Web Services (Servizi Web di Microsoft Azure Machine Learning) e passare alla pagina Plans (Piani). In questa pagina è possibile aggiungere ed eliminare piani, nonché modificare i piani esistenti.
 
 **Quale piano è consigliabile scegliere come punto di partenza?**
 
@@ -470,7 +470,7 @@ Sì. I prezzi dei piani variano in base all'area. Quando si distribuisce un serv
 
 **Come si controlla se si è verificata un'eccedenza nell'utilizzo del servizio Web?**
 
-È possibile visualizzare l'utilizzo in tutti i propri piani nella pagina Plans (Piani) del portale Azure Machine Learning Web Services (Servizi Web Microsoft Azure Machine Learning). Accedere al portale e fare clic sull'opzione di menu Plans (Piani).
+È possibile visualizzare l'utilizzo in tutti i propri piani nella pagina Plans (Piani) del portale Azure Machine Learning Web Services (Servizi Web di Microsoft Azure Machine Learning). Accedere al portale e fare clic sull'opzione di menu Plans (Piani).
 
 Nelle colonne Transactions (Transazioni) e Compute (Calcolo) della tabella vengono visualizzate le quantità incluse del piano e la percentuale usata.
 
@@ -496,7 +496,7 @@ Il livello Gratuito di Azure Machine Learning è concepito per offrire un'introd
 
 **Cosa includono il livello e i piani Standard di Azure Machine Learning?**
 
-Il livello Standard di Azure Machine Learning è una versione di produzione a pagamento di Azure Machine Learning Studio. La tariffa mensile del servizio Azure ML Studio viene fatturata per postazione ed è ripartita per i mesi parziali. Le ore sperimentazione in Azure ML Studio vengono fatturate per ora di calcolo per sperimentazione attiva. La fatturazione è ripartita per ore parziali.
+Il livello Standard di Azure Machine Learning è una versione di produzione a pagamento di Azure Machine Learning Studio. La tariffa mensile del servizio Azure ML Studio viene fatturata per postazione ed è ripartita per i mesi parziali. Le ore di sperimentazione in Azure ML Studio vengono fatturate per ora di calcolo per sperimentazione attiva. La fatturazione è ripartita per ore parziali.
 
 La fatturazione del servizio API di Azure ML varia a seconda che si tratti di un servizio Web classico o di un nuovo servizio Web.
 
@@ -524,7 +524,7 @@ Oltre agli addebiti precedenti, nel caso dei nuovi servizi Web vengono aggregati
 
 **Come ci si iscrive al livello Standard di Azure ML?**
 
-Per creare un'area di lavoro del livello Standard di ML è prima di tutto necessario avere accesso a una sottoscrizione di Azure. È possibile iscriversi per ottenere una sottoscrizione della versione di valutazione gratuita di Azure di 30 giorni ed eseguire in seguito l'aggiornamento a una sottoscrizione di Azure a pagamento oppure acquistare direttamente una sottoscrizione di Azure a pagamento. Dopo aver ottenuto l'accesso alla sottoscrizione, è possibile creare un'area di lavoro di Machine Learning dal portale di Microsoft Azure classico. Vedere le [istruzioni dettagliate](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Per creare un'area di lavoro di ML di livello Standard è prima di tutto necessario avere accesso a una sottoscrizione di Azure. È possibile iscriversi per ottenere una sottoscrizione della versione di valutazione gratuita di Azure di 30 giorni ed eseguire in seguito l'aggiornamento a una sottoscrizione di Azure a pagamento oppure acquistare direttamente una sottoscrizione di Azure a pagamento. Dopo aver ottenuto l'accesso alla sottoscrizione, è possibile creare un'area di lavoro di Machine Learning dal portale di Microsoft Azure classico. Vedere le [istruzioni dettagliate](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 In alternativa, si può essere invitati dal proprietario di un'area di lavoro di livello Standard di ML ad accedere alla sua area di lavoro.
 
@@ -582,4 +582,4 @@ L'accesso guest è un'esperienza di valutazione limitata che consente di creare 
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

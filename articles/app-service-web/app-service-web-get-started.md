@@ -144,4 +144,4 @@ In alternativa è possibile fare ulteriori prove con la prima app Web, ad esempi
 - Provare [altri modi per distribuire il codice in Azure](../app-service-web/web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
 - Ottimizzare l'app di Azure. Autenticare gli utenti. Ridimensionarla in base alla richiesta. Configurare alcuni avvisi sulle prestazioni. Tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0914_2016---->
+<!---HONumber=AcomDC_0914_2016-->

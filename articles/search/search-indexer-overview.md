@@ -4,9 +4,9 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
-    tags="azure-portal"/>  
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -76,4 +76,4 @@ Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede
 - [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure (anteprima)](search-howto-index-csv-blobs.md)
 - [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure (anteprima)](search-howto-index-json-blobs.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

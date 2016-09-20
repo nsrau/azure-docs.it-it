@@ -4,8 +4,8 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
-   editor="cgronlun"/>  
+   manager="jhubbard" 
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -67,7 +67,7 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
     - [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
     - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-    - [Accessing Diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Accesso ai log di diagnostica per Azure Data Lake Analytics)
+    - [Accessing Diagnostics logs for Azure Data Lake Analytics (Accesso ai log di diagnostica per Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 
 - Esercitazione end-to-end
     - [Usare le esercitazioni interattive di Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
@@ -78,4 +78,4 @@ Azure Data Lake Analytics è un nuovo servizio appositamente sviluppato per semp
     - [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
     - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

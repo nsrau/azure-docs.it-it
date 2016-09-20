@@ -9,70 +9,72 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/23/2016"
-   ms.author="osamazia"/>
+   ms.author="osamazia"/>  
 
 # Routing asimmetrico con più percorsi di rete
 
-Questo articolo illustra come il traffico inoltrato e quello di ritorno possano seguire route differenti quando sono disponibili più percorsi tra origine e destinazione.
+Questo articolo illustra il modo in cui il traffico di rete di inoltro e di ritorno può seguire route diverse quando sono disponibili più percorsi tra l'origine e la destinazione di rete.
 
-Per comprendere il routing asimmetrico occorre avere chiari due concetti. Uno è l'impatto della presenza di più percorsi di rete. L'altro è il comportamento dei dispositivi che mantengono lo stato, ad esempio i firewall. Questi sono detti dispositivi con stato. Una combinazione di questi due fattori crea scenari in cui il traffico viene eliminato da un dispositivo con stato perché non ha rilevato il traffico originato dal dispositivo stesso.
+Per comprendere il routing asimmetrico è importante comprendere due concetti, ovvero l'effetto della presenza di più percorsi di rete e il modo in cui i dispositivi, ad esempio un firewall, mantengono lo stato. Questi tipi di dispositivi sono detti dispositivi con stato. Una combinazione di questi due fattori crea scenari in cui il traffico di rete viene rilasciato da un dispositivo con stato perché il dispositivo con stato non ha rilevato il traffico originato dal dispositivo stesso.
 
 ## Più percorsi di rete
 
-Quando una rete aziendale ha un solo collegamento a Internet tramite il provider di servizi Internet, tutto il traffico da e verso Internet passa per lo stesso percorso. Spesso le aziende acquistano più circuiti, per avere percorsi ridondanti e migliorare i tempi di attività della rete. In questi casi il traffico in uscita dalla rete verso Internet e il traffico di ritorno potrebbero passare per collegamenti diversi. Questo fenomeno è comunemente noto come routing asimmetrico, perché il traffico di ritorno segue un percorso diverso rispetto al flusso originale.
+Quando una rete aziendale ha un solo collegamento a Internet tramite il provider di servizi Internet, tutto il traffico da e verso Internet passa per lo stesso percorso. Spesso le aziende acquistano più circuiti, per avere percorsi ridondanti e migliorare i tempi di attività della rete. In questo caso è possibile che il traffico in uscita dalla rete, verso Internet, passi attraverso un collegamento e il traffico di ritorno passi attraverso un collegamento diverso. Questa approccio viene definito comunemente routing asimmetrico. Nel routing asimmetrico il traffico di rete segue un percorso diverso rispetto al flusso originale.
 
-![Routing3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
+![Rete con più percorsi](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)  
 
-La descrizione precedente si riferisce a Internet, ma è applicabile anche ad altre combinazioni di più percorsi, ad esempio nel caso di un percorso Internet e un percorso privato per la stessa destinazione, di più percorsi privati per la stessa destinazione e così via.
+Anche se si verifica principalmente su Internet, il routing asimmetrico è applicabile anche ad altre combinazioni di percorsi multipli. È ad esempio applicabile a un percorso Internet e un percorso privato per la stessa destinazione e a più percorsi privati per la stessa destinazione.
 
-Per calcolare il percorso migliore per raggiungere la destinazione, ogni router lungo il tragitto dall'origine alla destinazione si basa su un calcolo proprio. La determinazione del miglior percorso possibile si basa su due fattori principali.
+Ogni router lungo il percorso, dall'origine alla destinazione, calcola il percorso migliore per raggiungere una destinazione. La determinazione del miglior percorso possibile da parte del router si basa su due fattori principali:
 
-1.	Il routing tra le reti esterne è basato sul protocollo di routing noto come BGP, che sta per Border Gateway Protocol. Il protocollo BGP riceve annunci dai vicini ed esegue alcuni passaggi per determinare il percorso migliore per la destinazione, che poi installa nella relativa tabella di routing.
-2.	La lunghezza della subnet mask associata a una route. Se vengono ricevuti più annunci per lo stesso indirizzo IP ma con subnet mask diverse, viene preferito l'annuncio con la subnet mask più lunga perché è considerata una route più specifica.
+-	Il routing tra le reti esterne è basato sul protocollo di routing, ovvero il protocollo BGP (Border Gateway Protocol). Il protocollo BGP riceve annunci dai vicini e li sottopone ad alcune procedure per determinare il percorso migliore per la destinazione specificata, quindi archivia il percorso migliore nella tabella di routing.
+-	La lunghezza di una subnet mask associata a una route influenza i percorsi di routing. Se un router riceve più annunci per lo stesso indirizzo IP ma con subnet mask diverse, il router attribuisce la priorità all'annuncio con una subnet mask più lunga perché viene considerata una route più specifica.
 
 ## Dispositivi con stato
 
-I router esaminano l'intestazione del pacchetto IP per il routing. Alcuni dispositivi, però, vanno più in profondità all'interno del pacchetto. In genere vengono esaminate le intestazioni fino al livello 4, TCP/UDP, ma a volte questi dispositivi arrivano fino al livello 7, ovvero il livello applicazione. Si tratta di dispositivi di sicurezza o di dispositivi di ottimizzazione della larghezza di banda. Un esempio comune di dispositivo con stato è rappresentato dal firewall. Quest'ultimo consente o nega il passaggio di un pacchetto attraverso le relative interfacce in base a diversi campi quali protocollo, porta TCP/UDP e intestazioni degli URL. Il controllo del pacchetto comporta un carico di elaborazione pesante per il dispositivo. Per migliorare le prestazioni, il firewall controlla il primo pacchetto di un flusso. Se il passaggio del pacchetto è consentito, conserva le informazioni sul flusso nella tabella dello stato. Il passaggio di tutti i pacchetti successivi correlati a questo flusso viene consentito in base alla decisione iniziale. Quando un pacchetto, che fa parte di un flusso esistente, arriva al firewall e questo non ha informazioni sullo stato precedenti, il firewall elimina il pacchetto.
+I router esaminano l'intestazione di un pacchetto IP per il routing. Alcuni dispositivi analizzano i pacchetti in modo più approfondito. Questi dispositivi esaminano in genere le intestazioni di tipo Layer4, ovvero TCP (Transmission Control Protocol) o UDP (User Datagram Protocol) oppure addirittura di tipo Layer7 (livello dell'applicazione). Si tratta di dispositivi di sicurezza o di dispositivi di ottimizzazione della larghezza di banda.
+
+Un esempio comune di dispositivo con stato è rappresentato dal firewall. Quest'ultimo consente o nega il passaggio di un pacchetto attraverso le relative interfacce in base a diversi campi quali protocollo, porta TCP/UDP e intestazioni degli URL. Questo livello di controllo del pacchetto comporta un carico di elaborazione elevato per il dispositivo. Per migliorare le prestazioni, il firewall controlla il primo pacchetto di un flusso. Se il passaggio del pacchetto è consentito, conserva le informazioni sul flusso nella tabella dello stato. Il passaggio di tutti i pacchetti successivi correlati a questo flusso viene consentito in base alla valutazione iniziale. È possibile che un pacchetto incluso in un flusso esistente arrivi al firewall. Se non ha informazioni precedenti sullo stato del pacchetto, il firewall rilascia il pacchetto.
 
 ## Routing asimmetrico con ExpressRoute
 
-Quando ci si connette a Microsoft tramite ExpressRoute, nella rete si verificano i cambiamenti seguenti.
+Quando ci si connette a Microsoft tramite Azure ExpressRoute, la rete subisce le modifiche seguenti:
 
-1.	Sono presenti più collegamenti a Microsoft. Un collegamento è rappresentato dalla connessione Internet esistente, mentre l'altro avviene tramite ExpressRoute. Parte del traffico diretto a Microsoft può passare per Internet ma tornare tramite ExpressRoute o viceversa.
-2.	Tramite ExpressRoute si ricevono indirizzi IP più specifici. Il traffico dalla rete a Microsoft per i servizi offerti tramite ExpressRoute, quindi, preferisce sempre ExpressRoute.
+-	Sono presenti più collegamenti a Microsoft. Un collegamento è rappresentato dalla connessione Internet esistente, mentre l'altro avviene tramite ExpressRoute. Parte del traffico diretto a Microsoft può passare per Internet ma tornare tramite ExpressRoute o viceversa.
+-	Tramite ExpressRoute si ricevono indirizzi IP più specifici. Per il traffico dalla rete a Microsoft per i servizi offerti tramite ExpressRoute, quindi, i router preferiscono sempre ExpressRoute.
 
-Di seguito vengono proposti alcuni scenari per illustrare l'impatto di questi fattori. Si supponga di avere un solo circuito per Internet e di utilizzare tutti i servizi Microsoft tramite Internet. Il traffico dalla rete a Microsoft e viceversa attraversa lo stesso collegamento Internet e passa per il firewall. Il firewall registra il flusso non appena rileva il primo pacchetto e ai pacchetti di ritorno viene consentito il passaggio perché il flusso è già presente nella tabella dello stato.
+Per comprendere l'effetto di queste due modifiche sulla rete, è possibile esaminare alcuni scenari. Si supponga ad esempio di avere un solo circuito per Internet e di utilizzare tutti i servizi Microsoft tramite Internet. Il traffico dalla rete a Microsoft e viceversa attraversa lo stesso collegamento Internet e passa per il firewall. Il firewall registra il flusso non appena rileva il primo pacchetto e ai pacchetti di ritorno viene consentito il passaggio perché il flusso è già presente nella tabella dello stato.
 
-![Routing1](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
+![Routing asimmetrico con ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)  
 
 
-A questo punto si abilita ExpressRoute e si utilizzano i servizi offerti da Microsoft tramite ExpressRoute. Tutti gli altri servizi Microsoft vengono utilizzati tramite Internet. Si distribuisce un firewall di confine separato che si connette a ExpressRoute. Tramite ExpressRoute, Microsoft annuncia alla rete prefissi più specifici per servizi specifici. Per tali prefissi l'infrastruttura di routing sceglierà ExpressRoute come percorso preferito. Se gli indirizzi IP pubblici non vengono annunciati a Microsoft tramite ExpressRoute, Microsoft comunica con gli indirizzi IP pubblici tramite Internet. Quindi, il traffico inoltrato dalla rete a Microsoft userà ExpressRoute mentre il traffico di ritorno da Microsoft userà Internet. Quando il firewall di confine rileva un pacchetto di risposta per un flusso non presente nella tabella dello stato, elimina il traffico di ritorno.
+A questo punto si abilita ExpressRoute e si utilizzano i servizi offerti da Microsoft tramite ExpressRoute. Tutti gli altri servizi Microsoft vengono utilizzati tramite Internet. Si distribuisce un firewall di confine separato connesso a ExpressRoute. Tramite ExpressRoute, Microsoft annuncia alla rete prefissi più specifici per servizi specifici. Per tali prefissi l'infrastruttura di routing sceglie ExpressRoute come percorso preferito. Se gli indirizzi IP pubblici non vengono annunciati a Microsoft tramite ExpressRoute, Microsoft comunica con gli indirizzi IP pubblici tramite Internet. Il traffico inoltrato dalla rete a Microsoft usa ExpressRoute e il traffico di ritorno da Microsoft usa Internet. Quando il firewall di confine rileva un pacchetto di risposta per un flusso non presente nella tabella dello stato, elimina il traffico di ritorno.
 
-Se si sceglie di usare lo stesso pool NAT sia per ExpressRoute che per Internet, si avranno problemi simili con i client negli indirizzi IP privati della rete. La richiesta di servizi come Windows Update passerà per Internet, dato che gli indirizzi IP per questi servizi non vengono annunciati tramite ExpressRoute. Tuttavia, il traffico di ritorno passerà per ExpressRoute. Se Microsoft riceve un indirizzo IP con la stessa subnet mask da Internet e da ExpressRoute, preferisce ExpressRoute a Internet. Se un firewall o un altro dispositivo con stato al confine della rete, connesso a ExpressRoute, non ha informazioni precedenti sul flusso, elimina i pacchetti che appartengono a tale flusso.
+Se si sceglie di usare lo stesso pool NAT (Network Address Translation) sia per ExpressRoute che per Internet, si verificano problemi simili con i client negli indirizzi IP privati della rete. La richiesta di servizi come Windows Update passa per Internet, poiché gli indirizzi IP per questi servizi non vengono annunciati tramite ExpressRoute. Tuttavia, il traffico di ritorno passa per ExpressRoute. Se Microsoft riceve un indirizzo IP con la stessa subnet mask da Internet e da ExpressRoute, preferisce ExpressRoute a Internet. Se un firewall o un altro dispositivo con stato al confine della rete e connesso a ExpressRoute non ha informazioni precedenti sul flusso, elimina i pacchetti che appartengono a tale flusso.
 
 ## Soluzioni per il routing asimmetrico
 
-Il problema del routing asimmetrico può essere risolto principalmente in due modi. Uno tramite il routing e l'altro tramite Source NAT (SNAT).
+Sono disponibili due opzioni principali per risolvere il problema del routing asimmetrico, ovvero il routing e l'uso di Source NAT.
 
-1. Routing
+### Routing
 
-    - È necessario assicurarsi che gli indirizzi IP pubblici vengano annunciati ai collegamenti WAN appropriati. Ad esempio, se si vuole usare Internet per il traffico di autenticazione ed ExpressRoute per il traffico di posta elettronica, gli indirizzi IP pubblici ADFS non devono essere annunciati tramite ExpressRoute. Analogamente, il server ADFS locale non deve essere esposto agli indirizzi IP ricevuti tramite ExpressRoute. Le route ricevute tramite ExpressRoute sono più specifiche. Questo fa di ExpressRoute il percorso preferito per il traffico di autenticazione diretto a Microsoft dando luogo al routing asimmetrico.
+Assicurarsi che gli indirizzi IP pubblici vengano annunciati ai collegamenti WAN (Wide Area Network) appropriati. Se ad esempio si vuole usare Internet per il traffico di autenticazione ed ExpressRoute per il traffico di posta elettronica, è necessario non annunciare gli indirizzi IP pubblici di Active Directory Federation Services (AD FS) tramite ExpressRoute. È analogamente necessario non esporre alcun server AD FS locale per gli indirizzi IP ricevuti dal router tramite ExpressRoute. Le route ricevute tramite ExpressRoute sono più specifiche. Questo fa di ExpressRoute il percorso preferito per il traffico di autenticazione diretto a Microsoft, dando luogo al routing asimmetrico.
 
-    - Per usare ExpressRoute per l'autenticazione, è necessario assicurarsi che gli indirizzi IP pubblici ADFS vengano annunciati tramite ExpressRoute senza NAT. In questo modo il traffico proveniente da Microsoft e diretto al server ADFS locale passerà per ExpressRoute mentre il traffico di ritorno dal cliente a Microsoft preferirà ExpressRoute a Internet.
+Per usare ExpressRoute per l'autenticazione, è necessario assicurarsi che gli indirizzi IP pubblici AD FS vengano annunciati tramite ExpressRoute senza NAT. In questo modo il traffico proveniente da Microsoft e diretto a un server AD FS locale passa attraverso ExpressRoute. Il traffico di ritorno dal cliente a Microsoft usa ExpressRoute perché questa è la route predefinita su Internet.
 
-2. Source NAT
+### Source NAT
 
-	Un altro metodo per risolvere i problemi di routing asimmetrico è il Source NAT (SNAT). Si supponga, ad esempio, di non aver annunciato l'indirizzo IP pubblico del server SMTP locale tramite ExpressRoute perché si intende usare Internet per questa comunicazione. Una richiesta originata da Microsoft e diretta al server SMTP locale attraversa Internet. Tramite il Source NAT la richiesta in ingresso viene inviata a un indirizzo IP interno. Il traffico di ritorno dal server SMTP passerà per il firewall di confine usato per il NAT, anziché attraverso ExpressRoute. In questo modo il traffico di ritorno passerà per Internet.
+È possibile risolvere i problemi del routing asimmetrico anche tramite SNAT. Si supponga ad esempio che l'indirizzo IP pubblico di un server SMTP (Simple Mail Transfer Protocol) locale non sia stato annunciato tramite ExpressRoute perché si intende usare Internet per questo tipo di comunicazioni. Una richiesta originata da Microsoft e diretta al server SMTP locale attraversa Internet. Tramite SNAT la richiesta in ingresso viene inviata a un indirizzo IP interno. Il traffico inverso dal server SMTP viene indirizzato al firewall di confine, usato per NAT, invece che a ExpressRoute. Il traffico di ritorno viene restituito tramite Internet.
 
 
-![Routing2](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+![Configurazione della rete con Source NAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)  
 
 ## Rilevamento del routing asimmetrico
 
-Il modo migliore per verificare che il traffico attraversi il percorso previsto è il comando traceroute. Se il traffico dal server SMTP locale a Microsoft deve passare per Internet, eseguire il comando traceroute dal server SMTP a Office 365. Il risultato permetterà di verificare che il traffico in uscita dalla rete sia effettivamente diretto verso Internet e non verso ExpressRoute.
+Il modo migliore per assicurarsi che il traffico attraversi il percorso previsto è il comando traceroute. Se il traffico dal server SMTP locale a Microsoft deve passare per Internet, eseguire il comando traceroute dal server SMTP a Office 365. Il risultato permette di verificare che il traffico in uscita dalla rete sia effettivamente diretto verso Internet e non verso ExpressRoute.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

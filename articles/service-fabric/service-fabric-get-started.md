@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/13/2016"
+   ms.author="ryanwi"/>  
 
 # Preparare l'ambiente di sviluppo
  Per compilare ed eseguire [applicazioni di Service Fabric][1] nel computer di sviluppo, installare il runtime, l'SDK e gli strumenti. È anche necessario abilitare l'esecuzione di script Windows PowerShell inclusi nell'SDK.
@@ -32,10 +32,9 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 ## Installare il runtime, l'SDK e gli strumenti
 
-Installazione guidata piattaforma Web offre tre configurazioni per lo sviluppo di Service Fabric:
+Installazione guidata piattaforma Web offre due configurazioni per lo sviluppo di Service Fabric:
 
-- [Installare il runtime di Service Fabric, l'SDK e gli strumenti per Visual Studio 2015 Update 2 o versione successiva][full-bundle-vs2015]
-- [Installare il runtime di Service Fabric, l'SDK e gli strumenti per Visual Studio "15" Preview][full-bundle-dev15]
+- [Installare il runtime di Service Fabric, l'SDK e gli strumenti per Visual Studio 2015 (richiede Visual Studio 2015 Update 2 o versione successiva)][full-bundle-vs2015]
 - [Installare il runtime di Service Fabric e solo l'SDK, senza gli strumenti per Visual Studio][core-sdk]
 
 ## Consentire l'esecuzione di script di PowerShell
@@ -58,9 +57,9 @@ Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire 
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015-2_1 "Collegamento WebPI VS 2015"
-[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15-2_1 "Collegamento WebPI Dev15"
-[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Collegamento WebPI Core SDK"
+[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Collegamento WebPI VS 2015"
+[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Collegamento WebPI Dev15"
+[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Collegamento WebPI Core SDK"
 [powershell5-download]: https://www.microsoft.com/it-IT/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->
