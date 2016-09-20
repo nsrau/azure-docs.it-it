@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/07/2016"
 	ms.author="andkjell"/>
 
 
@@ -24,7 +24,7 @@
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
-La scheda Ricerca metaverse è utile per la risoluzione dei problemi relativi ai dati. Nella parte superiore è possibile creare una query mediante una combinazione di attributi. Quando si è soddisfatti della query, fare clic su **Search** (Cerca). Il risultato sarà visualizzato nella griglia inferiore. È possibile scegliere quali colonne visualizzare tramite **Column Settings** (Impostazioni colonne).
+La scheda Metaverse Search (Ricerca metaverse) è utile per la risoluzione dei problemi relativi ai dati. Nella parte superiore è possibile creare una query con una combinazione di attributi. Quando si è soddisfatti della query, fare clic su **Search** (Cerca). Il risultato sarà visualizzato nella griglia inferiore. È possibile scegliere quali colonne visualizzare tramite **Column Settings** (Impostazioni colonne).
 
 Nei risultati della ricerca selezionare un oggetto e **Properties** (Proprietà) per visualizzare le [proprietà dell'oggetto metaverse](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
 
@@ -33,4 +33,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

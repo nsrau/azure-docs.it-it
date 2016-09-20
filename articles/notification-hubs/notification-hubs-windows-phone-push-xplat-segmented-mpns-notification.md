@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 
-##Panoramica
+##Overview
 
 Questo argomento descrive come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per Windows Phone 8.0/8.1 Silverlight. Se si sviluppano app per Windows Store o Windows Phone 8.1, fare riferimento alla versione [Windows Universal](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md). Al termine dell'esercitazione, si sarà appreso a effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app nelle quali le notifiche devono essere inviate a gruppi di utenti che hanno dichiarato un interesse, ad esempio lettori di feed RSS, app per fan di musica e così via.
 
@@ -187,14 +187,14 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
         }
 
 
-    Questa classe utilizza lo spazio di memorizzazione isolato per archiviare le categorie di notizie che il dispositivo deve ricevere. Contiene inoltre i metodi di registrazione per queste categorie tramite una registrazione delle notifiche [modello](notification-hubs-templates.md).
+    Questa classe utilizza lo spazio di memorizzazione isolato per archiviare le categorie di notizie che il dispositivo deve ricevere. Contiene inoltre i metodi di registrazione per queste categorie tramite una registrazione delle notifiche [modello](notification-hubs-templates-cross-platform-push-messages.md).
 
 
 4. Nel file di progetto App.xaml.cs aggiungere la proprietà seguente alla classe **App**: Sostituire i segnaposto `<hub name>` e `<connection string with listen access>` con il nome dell'hub di notifica e la stringa di connessione per *DefaultListenSharedAccessSignature* ottenuta in precedenza.
 
 		public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
 
-	> [AZURE.NOTE] Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
+	> [AZURE.NOTE] Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completa viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
 
 5. In MainPage.xaml.cs aggiungere la riga seguente:
 
@@ -224,9 +224,9 @@ L'app può quindi archiviare un set di categorie nell'archiviazione locale del d
 
 ##Registrazione per le notifiche
 
-Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale.
+Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio utilizzando le categorie archiviate nell'archiviazione locale.
 
-> [AZURE.NOTE] Poiché l'URI di canale assegnato dal Servizio notifica push Microsoft può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. Questo esempio esegue la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite di frequente, oltre una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
+> [AZURE.NOTE] Poiché l'URI di canale assegnato dal Servizio notifica push Microsoft può cambiare in qualsiasi momento, è necessario ripetere la registrazione per le notifiche di frequente per evitare errori di notifica. Questo esempio esegue la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
 
 1. Aprire il file App.xaml.cs e aggiungere il modificatore **async** al metodo **Application\_Launching** e sostituire il codice di registrazione di Hub di notifica aggiunto in [Introduzione ad Hub di notifica] con il codice seguente:
@@ -266,7 +266,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 
 [AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-##Eseguire l'app e generare notifiche
+##Esecuzione dell'app e generazione di notifiche
 
 1. In Visual Studio premere F5 per compilare e avviare l'app.
 
@@ -321,4 +321,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

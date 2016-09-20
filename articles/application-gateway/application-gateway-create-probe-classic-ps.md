@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-service-management"
-/>  
+/>
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
@@ -24,9 +24,9 @@
 - [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 - [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
-<BR>  
+<BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
+[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](application-gateway-create-probe-ps.md).
 
@@ -47,35 +47,13 @@ Per creare il gateway, usare il cmdlet **New-AzureApplicationGateway**, sostitue
 
 L'esempio seguente mostra come creare un gateway applicazione usando una rete virtuale denominata "testvnet1" e una subnet denominata "subnet-1".
 
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
-
-
- *Description*, *InstanceCount* e *GatewaySize* sono parametri facoltativi.
-
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 Per convalidare la creazione del gateway, è possibile usare il cmdlet **Get-AzureApplicationGateway**.
 
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-	Name          : AppGwTest
-	Description   :
-	VnetName      : testvnet1
-	Subnets       : {Subnet-1}
-	InstanceCount : 2
-	GatewaySize   : Medium
-	State         : Stopped
-	VirtualIPs    : {}
-	DnsName       :
+	Get-AzureApplicationGateway AppGwTest
 
 >[AZURE.NOTE]  Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
-
 
  *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
 
@@ -87,10 +65,9 @@ Per convalidare la creazione del gateway, è possibile usare il cmdlet **Get-Azu
 
 Nell'esempio seguente viene usato un file XML per configurare tutte le impostazioni del gateway applicazione ed eseguirne il commit nella risorsa del gateway applicazione.
 
-### Passaggio 1  
+### Passaggio 1
 
 Copiare il testo seguente in Blocco note.
-
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
@@ -161,7 +138,6 @@ L'esempio seguente mostra come usare un file di configurazione per impostare il 
 
 >[AZURE.IMPORTANT] L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
 
-
 Viene aggiunto un nuovo elemento di configurazione <Probe> per configurare i probe personalizzati.
 
 I parametri di configurazione sono:
@@ -183,7 +159,7 @@ Per modificare la configurazione corrente di un gateway applicazione sono necess
 
 Ottenere il file XML usando get-AzureApplicationGatewayConfig. Il file XML di configurazione verrà esportato e potrà essere modificato per aggiungere un'impostazione di probe.
 
-	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
 ### Passaggio 2
@@ -200,6 +176,7 @@ Aprire il file XML in un editor di testo. Aggiungere una sezione `<probe>` dopo 
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
+    </Probes>
 
 Nella sezione backendHttpSettings del file XML aggiungere il nome del probe, come nell'esempio seguente:
 
@@ -214,12 +191,11 @@ Nella sezione backendHttpSettings del file XML aggiungere il nome del probe, com
 
 Salvare il file XML.
 
-
 ### Passaggio 3
 
 Aggiornare la configurazione del gateway applicazione con il nuovo file XML usando **Set-AzureApplicationGatewayConfig**. Il gateway applicazione verrà aggiornato con la nuova configurazione.
 
-	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Passaggi successivi
@@ -228,4 +204,4 @@ Per configurare l'offload SSL (Secure Sockets Layer), vedere [Configurare un gat
 
 Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

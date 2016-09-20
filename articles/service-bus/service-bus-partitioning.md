@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Entità di messaggistica partizionate | Microsoft Azure"
-    description="Descrive come partizionare le entità di messaggistica usando più broker messaggi."
+    pageTitle="Code e argomenti partizionati | Microsoft Azure"
+    description="Descrive come partizionare code e argomenti del bus di servizio usando più broker messaggi."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
@@ -12,16 +12,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/01/2016"
+    ms.date="09/02/2016"
     ms.author="sethm;hillaryc" />
 
-# Entità di messaggistica partizionate
+# Code e argomenti partizionati
 
 Il bus di servizio di Azure usa più broker messaggi per elaborare i messaggi e più archivi di messaggistica per archiviarli. Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Il bus di servizio consente anche il partizionamento delle code o degli argomenti tra più broker messaggi e archivi di messaggistica. Questo significa che la velocità effettiva complessiva di una coda o di un argomento partizionato non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea dell'alimentazione di un archivio di messaggistica non determina la mancanza di disponibilità di una coda o di un argomento partizionato. Le code e gli argomenti partizionati possono contenere tutte le funzionalità avanzate del bus di servizio, ad esempio il supporto delle transazioni e delle sessioni.
 
 Per altre informazioni sugli elementi interni del bus di servizio, vedere l'argomento [Architettura del bus di servizio][].
 
-## Code e argomenti partizionati
+## Funzionamento
 
 Ogni coda o argomento partizionato è costituito da più frammenti. Ogni frammento viene memorizzato in un archivio di messaggistica differente e gestito da un broker messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
 
@@ -33,7 +33,7 @@ I messaggi a una coda o a un argomento partizionato non presentano costi aggiunt
 
 Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, è necessario usare Azure SDK 2.2 o versione successiva oppure specificare `api-version=2013-10` nelle richieste HTTP.
 
-È possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è di 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 * 16). È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure classico][].
+È possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 * 16). È possibile visualizzare le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][].
 
 Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][] o [TopicDescription.EnablePartitioning][] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-In alternativa, è possibile creare una coda o un argomento partizionato in Visual Studio o nel [portale di Azure classico][]. Quando si crea una nuova coda o un nuovo argomento nel portale, selezionare l'opzione **Abilita partizionamento** nella scheda **Configura** della finestra della coda o dell'argomento. In Visual Studio fare clic sulla casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
+In alternativa, è possibile creare una coda o un argomento partizionato in Visual Studio o nel [portale di Azure][]. Quando si crea una nuova coda o un nuovo argomento nel portale, selezionare l'opzione **Abilita partizionamento** nel pannello **Impostazioni generali** della finestra **Impostazioni** della coda o dell'argomento su **true**. In Visual Studio fare clic sulla casella di controllo **Abilita partizionamento** nella finestra di dialogo **Nuova coda** o **Nuovo argomento**.
 
 ## Uso delle chiavi di partizione
 
@@ -61,7 +61,7 @@ In base allo scenario vengono usate come chiave di partizione proprietà dei mes
 
 **PartitionKey**: se per un messaggio è impostata la proprietà [BrokeredMessage.PartitionKey][], ma non la proprietà [BrokeredMessage.SessionId][], il bus di servizio usa la proprietà [PartitionKey][] come chiave di partizione. Se per il messaggio sono impostate le proprietà [SessionId][] e [PartitionKey][], queste devono avere un valore identico. Se la proprietà [PartitionKey][] è impostata su un valore diverso rispetto a quello della proprietà [SessionId][], il bus di servizio restituisce un'eccezione **InvalidOperationException**. La proprietà [PartitionKey][] deve essere usata se un mittente invia messaggi transazionali che non sono in grado di riconoscere le sessioni. La chiave di partizione assicura che tutti i messaggi inviati all'interno di una transazione vengano gestiti dallo stesso broker di messaggistica.
 
-**MessageId**: se per la coda o l'argomento la proprietà [QueueDescription.RequiresDuplicateDetection][] è impostata su **true** e le proprietà [BrokeredMessage.SessionId][] o [BrokeredMessage.PartitionKey][] non sono impostate, la proprietà [BrokeredMessage.MessageId][] verrà usata come chiave di partizione (tenere presente che le librerie di Microsoft .NET e AMQP assegnano automaticamente un ID messaggio, se questo non viene assegnato dall'applicazione mittente). In questo caso tutte le copie dello stesso messaggio vengono gestite dallo stesso broker messaggi. Questo consente al bus di servizio di rilevare ed eliminare i messaggi duplicati. Se la proprietà [QueueDescription.RequiresDuplicateDetection][] non è impostata su **true**, il bus di servizio non considera la proprietà [MessageId][] come chiave di partizione.
+**MessageId**: se per la coda o l'argomento la proprietà [QueueDescription.RequiresDuplicateDetection][] è impostata su **true** e le proprietà [BrokeredMessage.SessionId][] o [BrokeredMessage.PartitionKey][] non sono impostate, la proprietà [BrokeredMessage.MessageId][] verrà usata come chiave di partizione. (tenere presente che le librerie di Microsoft .NET e AMQP assegnano automaticamente un ID messaggio, se questo non viene assegnato dall'applicazione mittente). In questo caso tutte le copie dello stesso messaggio vengono gestite dallo stesso broker messaggi. Questo consente al bus di servizio di rilevare ed eliminare i messaggi duplicati. Se la proprietà [QueueDescription.RequiresDuplicateDetection][] non è impostata su **true**, il bus di servizio non considera la proprietà [MessageId][] come chiave di partizione.
 
 ### Senza l'uso di una chiave di partizione
 
@@ -89,11 +89,11 @@ committableTransaction.Commit();
 
 Se le proprietà che fungono da chiave di partizione sono impostate, il bus di servizio aggiunge il messaggio a un frammento specifico. Questo comportamento si verifica indipendentemente dall'uso di una transazione. È consigliabile non specificare una chiave di partizione, a meno che non sia necessario.
 
-## Usare le sessioni con entità partizionate
+## Uso delle sessioni con entità partizionate
 
 Per inviare un messaggio transazionale a un argomento o una coda in grado di riconoscere la sessione, il messaggio deve avere la proprietà [BrokeredMessage.SessionId][] impostata. Se è specificata anche la proprietà [BrokeredMessage.PartitionKey][], questa deve avere un valore identico a quello della proprietà [SessionId][]. Se i valori sono diversi, il bus di servizio restituisce un'eccezione **InvalidOperationException**.
 
-A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se si prova a eseguire questa operazione, il bus di servizio restituisce un'eccezione **InvalidOperationException**. ad esempio:
+A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se si prova a eseguire questa operazione, il bus di servizio restituisce un'eccezione **InvalidOperationException**. Ad esempio:
 
 ```
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -116,7 +116,7 @@ Il bus di servizio supporta l'inoltro automatico dei messaggi da, a o tra entit�
 - **Funzionalità a coerenza elevata**: se un'entità usa funzionalità come le sessioni, il rilevamento dei duplicati o il controllo esplicito della chiave di partizionamento, le operazioni di messaggistica vengono indirizzate sempre a frammenti specifici. In caso di traffico elevato in uno dei frammenti o di stato non integro dell'archivio sottostante, queste operazioni hanno esito negativo e la disponibilità viene ridotta. La coerenza è complessivamente molto più elevata rispetto alle entità non partizionate. I problemi si verificano solo per un sottoinsieme del traffico, invece che per tutto il traffico.
 - **Gestione**: le operazioni di tipo Create, Update e Delete devono essere eseguite su tutti i frammenti dell'entità. Se un frammento non è integro, potrebbero verificarsi errori per queste operazioni. Per l'operazione Get è necessario aggregare da tutti i frammenti le informazioni quali il numero di messaggi. Se un frammento non è integro, lo stato di disponibilità dell'entità risulta limitato.
 - **Scenari con volumi ridotti di messaggi**: per questi scenari, in particolare se si usa il protocollo HTTP, potrebbe essere necessario eseguire più operazioni di ricezione per ottenere tutti i messaggi. Per le richieste di ricezione, il front-end esegue una ricezione su tutti i frammenti e memorizza nella cache tutte le risposte ricevute. Una richiesta di ricezione successiva sulla stessa connessione sarebbe avvantaggiata dalla memorizzazione nella cache e le latenze di ricezione saranno minori. Se tuttavia sono presenti più connessioni o si usa HTTP, ciò crea una nuova connessione per ogni richiesta. Non è quindi possibile assicurare che la richiesta venga ricevuta sullo stesso nodo. Se tutti i messaggi esistenti sono bloccati e memorizzati nella cache in un altro front-end, l'operazione di ricezione restituisce **null**. I messaggi raggiungeranno infine la scadenza e verranno ricevuti di nuovo. È consigliabile usare la connessione keep-alive HTTP.
-- **Esaminare/Visualizzare l'anteprima dei messaggi**: PeekBatch non restituisce sempre il numero di messaggi specificato nella [proprietà MessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx), a causa di due motivi comuni. Il primo motivo consiste nel fatto che le dimensioni aggregate della raccolta di messaggi superano le dimensioni massime peri a 256 KB. L'altro motivo dipende dal fatto che, se la [proprietà EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) della coda o dell'argomento è impostata su **true**, è possibile che una partizione non includa una quantità di messaggi sufficiente per completare il numero di messaggi richiesto. In genere, se un'applicazione vuole ricevere un numero specifico di messaggi, deve chiamare ripetutamente [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) fino a ottenere tale numero di messaggi o fino a quando non siano più presenti messaggi di cui visualizzare l'anteprima. Per altre informazioni, inclusi esempi di codice, vedere [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) o [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
+- **Esaminare/Visualizzare l'anteprima dei messaggi**: PeekBatch non restituisce sempre il numero di messaggi specificato nella [proprietà MessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx). a causa di due motivi comuni. Il primo motivo consiste nel fatto che le dimensioni aggregate della raccolta di messaggi superano le dimensioni massime peri a 256 KB. L'altro motivo dipende dal fatto che, se la [proprietà EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) della coda o dell'argomento è impostata su **true**, è possibile che una partizione non includa una quantità di messaggi sufficiente per completare il numero di messaggi richiesto. In genere, se un'applicazione vuole ricevere un numero specifico di messaggi, deve chiamare ripetutamente [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) fino a ottenere tale numero di messaggi o fino a quando non siano più presenti messaggi di cui visualizzare l'anteprima. Per altre informazioni, inclusi esempi di codice, vedere [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) o [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
 
 ## Funzionalità aggiunte di recente
 
@@ -126,18 +126,17 @@ Il bus di servizio supporta l'inoltro automatico dei messaggi da, a o tra entit�
 
 ## Limiti delle entità partizionate
 
-Nell'implementazione corrente il bus di servizio impone alle code o agli argomenti partizionati i limiti seguenti:
+Attualmente il bus di servizio impone alle code o agli argomenti partizionati i limiti seguenti:
 
 -   Le code e gli argomenti partizionati non supportano l'invio di messaggi che appartengono a sessioni diverse in una singola transazione.
--   Il bus di servizio attualmente consente fino a 100 code o argomenti partizionati per spazio dei nomi. Ogni coda o argomento partizionato viene conteggiato ai fini della quota di 10.000 entità per spazio dei nomi.
--   Le code e gli argomenti partizionati non sono supportati nelle versioni 1.0 e 1.1 del bus di servizio per Windows Server.
+-   Il bus di servizio attualmente consente fino a 100 code o argomenti partizionati per spazio dei nomi. Ogni coda o argomento partizionato viene conteggiato ai fini della quota di 10.000 entità per spazio dei nomi (non si applica al livello Premium).
 
 ## Passaggi successivi
 
 Per altre informazioni sul partizionamento delle entità di messaggistica, vedere [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio][].
 
   [Architettura del bus di servizio]: service-bus-architecture.md
-  [portale di Azure classico]: http://manage.windowsazure.com
+  [portale di Azure]: https://portal.azure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
@@ -153,4 +152,4 @@ Per altre informazioni sul partizionamento delle entità di messaggistica, veder
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

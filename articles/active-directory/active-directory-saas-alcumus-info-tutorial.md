@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 Questa esercitazione descrive l’integrazione di Alcumus Info Exchange con Azure Active Directory (Azure AD). L'integrazione di Alcumus Info Exchange con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere ad Alcumus Info Exchange. 
+- È possibile controllare in Azure AD chi può accedere ad Alcumus Info Exchange.
 - È possibile abilitare gli utenti per l'accesso automatico ad Alcumus Info Exchange (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
@@ -31,8 +31,8 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Alcumus Info Exchange, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di [Azure AD](https://azure.microsoft.com/).
-- Sottoscrizione di [Alcumus Info Exchange](http://www.alcumusgroup.com/) abilitata per l'accesso Single Sign-On.
+- Sottoscrizione di [Azure AD](https://azure.microsoft.com/)
+- Sottoscrizione di [Alcumus Info Exchange](http://www.alcumusgroup.com/) abilitata per l'accesso Single Sign-On
 
 
 > [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -41,13 +41,13 @@ Per configurare l'integrazione di Azure AD con Alcumus Info Exchange, sono neces
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
-1. Aggiunta di Alcumus Info Exchange dalla raccolta 
+1. Aggiunta di Alcumus Info Exchange dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Alcumus Info Exchange in Azure AD, è necessar
 
 **Per aggiungere Alcumus Info Exchange dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -172,7 +172,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_06.png)
   
@@ -188,12 +188,12 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 	e. Fare clic su **Avanti**.
 
 
-7. Nella pagina **Ottieni password temporanea**, fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
  
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png)
 
@@ -272,4 +272,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

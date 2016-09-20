@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Questo argomento illustra come usare Servizi mobili di Azure per inviare notifiche push a un'app per Android. L'esercitazione consente di aggiungere notifiche push al progetto di guida introduttiva tramite Google Cloud Messaging (GCM). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
+In questo argomento viene illustrato come utilizzare Servizi mobili di Azure per inviare notifiche push a un'app per Android. L'esercitazione consente di aggiungere notifiche push al progetto di guida introduttiva tramite Google Cloud Messaging (GCM). Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. Prima di iniziare questa esercitazione, è necessario completare [Introduzione a Servizi mobili] per connettere il progetto al servizio mobile. Di conseguenza, per completare l'esercitazione è necessario anche Visual Studio 2013.
 
@@ -82,7 +82,7 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 
 + [Inviare notifiche basate su modelli ad altri sottoscrittori] <br/>Informazioni su come usare i modelli per inviare notifiche push da un servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
 
-Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
+Per altre informazioni su Servizi mobili e su Hub di notifica, vedere i seguenti argomenti:
 
 * [Informazioni su Hub di notifica] <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
@@ -114,6 +114,6 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 [Informazioni su Hub di notifica]: ../notification-hubs-overview.md
 [Inviare notifiche di trasmissione ai sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Inviare notifiche basate su modelli ad altri sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Inviare notifiche basate su modelli ad altri sottoscrittori]: ../notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

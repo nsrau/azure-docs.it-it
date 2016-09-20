@@ -24,14 +24,8 @@ Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli 
 
 Per il modello completo, vedere il [modello di Hub eventi e del gruppo di consumer][] su GitHub.
 
->[AZURE.NOTE] Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
->
->-    [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
->-    [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
->-    [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
->
->Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare Hub eventi.
+>[AZURE.NOTE]
+Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][] e cercare Hub eventi.
 
 ## Distribuzione
 
@@ -156,14 +150,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibile imparare a gestire queste risorse. Leggere gli articoli seguenti:
 
-- [Gestire il bus di servizio di Azure mediante Automazione di Azure](service-bus-automation-manage.md)
-- [Gestire Hub eventi con PowerShell](service-bus-powershell-how-to-provision.md)
 - [Gestire le risorse del bus di Hub eventi con Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Creazione di modelli di Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=event+hubs
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [modello di Hub eventi e del gruppo di consumer]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

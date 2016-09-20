@@ -13,7 +13,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
 ms.date="08/10/2016"
-ms.author="adegeo"/>  
+ms.author="adegeo"/>
 
 # Come aggiornare un servizio cloud
 
@@ -35,11 +35,12 @@ Il servizio deve definire almeno due istanze di un ruolo per aggiornarlo sul pos
 Questo argomento contiene le informazioni seguenti sugli aggiornamenti di Azure:
 
 -   [Modifiche consentite al servizio durante un aggiornamento](#AllowedChanges)
+-   [Come avviene un aggiornamento](#howanupgradeproceeds)
 -   [Ripristino dello stato precedente di un aggiornamento](#RollbackofanUpdate)
 -   [Avvio di più operazioni di mutazione durante una distribuzione](#multiplemutatingoperations)
 -   [Distribuzione di ruoli nei domini di aggiornamento](#distributiondfroles)
--   [Come avviene un aggiornamento](#howanupgradeproceeds)
 
+<a name="AllowedChanges"></a>
 ## Modifiche consentite al servizio durante un aggiornamento
 La tabella seguente mostra le modifiche consentite a un servizio durante un aggiornamento:
 
@@ -72,6 +73,7 @@ Gli elementi seguenti non sono supportati durante un aggiornamento:
 
 Se intende eseguire altri aggiornamenti alla definizione del servizio, ad esempio la riduzione della dimensione di una risorsa locale, è necessario eseguire invece un aggiornamento dello scambio di indirizzi VIP. Per altre informazioni, vedere [Scambiare la distribuzione](https://msdn.microsoft.com/library/azure/ee460814.aspx).
 
+<a name="howanupgradeproceeds"></a>
 ## Come avviene un aggiornamento
 È possibile decidere se aggiornare tutti i ruoli del servizio oppure uno solo. In entrambi i casi, tutte le istanze di ogni ruolo che verrà aggiornato e appartiene al primo dominio di aggiornamento verranno arrestate, aggiornate e riportate online. Quando sono di nuovo online, vengono arrestate, aggiornate e riportate online le istanze nel secondo dominio di aggiornamento. Un servizio cloud non può avere più di un aggiornamento attivo per volta. L'aggiornamento viene sempre eseguito usando la versione più recente del servizio cloud.
 
@@ -124,6 +126,7 @@ Durante un aggiornamento automatico, il controller di infrastruttura di Azure va
 ### Timeout dell'avvio dell’istanza del ruolo
 Il controller di infrastruttura attende 30 minuti affinché ogni istanza del ruolo raggiunga uno stato avviato. Se la durata del timeout scade, il controller di infrastruttura prosegue all'istanza del ruolo successivo.
 
+<a name="RollbackofanUpdate"></a>
 ## Ripristino dello stato precedente di un aggiornamento
 Azure offre flessibilità nella gestione dei servizi durante un aggiornamento perché consente di avviare altre operazioni su un servizio, dopo che la richiesta di aggiornamento iniziale è stata accettata dal controller di infrastruttura di Azure. Un ripristino dello stato precedente può essere eseguito solo quando una modifica della configurazione o un aggiornamento è nello stato **in corso** durante la distribuzione. Un aggiornamento viene considerato in corso finché almeno un'istanza del servizio non è ancora stata aggiornata alla nuova versione. Per verificare se un ripristino dello stato precedente è consentito, controllare che il valore del flag RollbackAllowed, restituito dalle operazioni [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), sia impostato su true.
 
@@ -153,6 +156,7 @@ Il ripristino dello stato precedente di un aggiornamento può essere utile, ad e
 
 Durante la distribuzione dell'aggiornamento chiamare [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in modalità manuale e iniziare ad analizzare i domini di aggiornamento. Se a un certo punto, durante il monitoraggio dell'aggiornamento, si nota che alcune istanze del ruolo nei primi domini di aggiornamento esaminati non rispondono più, chiamare l'operazione [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) nella distribuzione, che lascerà invariate le istanze non ancora aggiornate e ripristinerà il Service Pack e la configurazione precedenti delle istanze aggiornate.
 
+<a name="multiplemutatingoperations"></a>
 ## Avvio di più operazioni di mutazione durante una distribuzione
 In alcuni casi potrebbe essere necessario avviare più operazioni di mutazione simultanee in una distribuzione in corso. Ad esempio, eseguendo l'aggiornamento di un servizio, mentre l'aggiornamento viene distribuito nel servizio, potrebbe essere necessario apportare alcune modifiche, come il ripristino dello stato precedente dell'aggiornamento, l'applicazione di un aggiornamento diverso o anche l'eliminazione della distribuzione. Questa necessità, ad esempio, potrebbe presentarsi se l'aggiornamento di un servizio contiene un codice con errori che fa arrestare più volte in modo anomalo un'istanza del ruolo aggiornata. In questo caso, il controller di infrastruttura di Azure non potrà far proseguire l'applicazione di tale aggiornamento perché il numero di istanze integre nel dominio aggiornato non è sufficiente. Questa condizione viene chiamata *distribuzione bloccata*. Per sbloccare la distribuzione, ripristinare lo stato precedente dell'aggiornamento o applicare un nuovo aggiornamento sopra quello non riuscito.
 
@@ -166,6 +170,7 @@ Due operazioni, [Get Deployment](https://msdn.microsoft.com/library/azure/ee4608
 
 Per chiamare la versione di questi metodi che restituisce il flag Locked, è necessario impostare l'intestazione della richiesta su "x-ms-version: 2011-10-01" o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
+<a name="distributiondfroles"></a>
 ## Distribuzione di ruoli nei domini di aggiornamento
 Azure distribuisce in tutti i domini di aggiornamento lo stesso numero di istanze di un ruolo, che è possibile configurare come parte del file di definizione del servizio (.csdef). Il numero massimo di domini di aggiornamento è 20 e quello predefinito è 5. Per altre informazioni su come modificare il file csdef, vedere [Schema di definizione del servizio di Azure (file .csdef)](cloud-services-model-and-package.md#csdef).
 
@@ -182,4 +187,4 @@ Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in u
 ## Passaggi successivi
 [Come gestire i servizi cloud](cloud-services-how-to-manage.md) [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md) [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

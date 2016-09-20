@@ -18,7 +18,7 @@
 
 # Hosting ad alta densità nel servizio app di Azure#
 
-Quando si usa il servizio app di Azure, l'applicazione è distinta dalla capacità allocata in base a due concetti.
+Quando si usa il servizio app, l'applicazione viene distinta dalla capacità ad essa allocata in base a due concetti:
 
 - **Applicazione:** rappresenta l'app e la relativa configurazione di runtime. Include ad esempio la versione di .NET che dovrà essere caricata dal runtime, le impostazioni dell'app e così via.
 
@@ -101,4 +101,4 @@ Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 
 1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni sito, per concedere risorse aggiuntive in base alle esigenze. Ad esempio, per un sito a uso elevato è possibile impostare **numberOfWorkers** su **3** per avere maggiore capacità di elaborazione per l'app corrispondente, mentre per siti di uso inferiore è possibile impostare **numberOfWorkers** su **1**.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

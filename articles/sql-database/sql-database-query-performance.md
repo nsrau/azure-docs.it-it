@@ -22,10 +22,7 @@
 La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'attività complessa che richiede un'esperienza significativa e un investimento elevato in termini di tempo. Le Informazioni dettagliate sulle prestazioni delle query consentono di dedicare meno tempo alla risoluzione dei problemi delle prestazioni del database, offrendo i vantaggi seguenti:​
 
 - Informazioni più approfondite sull'utilizzo delle risorse del database (DTU).
-- Query principali a livello di utilizzo di CPU, che possono essere ottimizzate per migliorare le prestazioni.
-  - CPU
-  - Durata
-  - Conteggio delle esecuzioni
+- Query principali a livello di CPU/durata/conteggio delle esecuzioni, che possono essere potenzialmente ottimizzate per migliorare le prestazioni.
 - La possibilità di eseguire il drill-down nei dettagli di una query, visualizzarne il testo e la cronologia di utilizzo delle risorse.
 - Le annotazioni relative all'ottimizzazione delle prestazioni che descrivono le azioni eseguite da [SQL Azure Database Advisor](sql-database-advisor.md)
 
@@ -244,4 +241,4 @@ Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database S
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -227,30 +227,6 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di Azur
 
 - I nomi delle code del bus di servizio possono avere una lunghezza massima di 260 caratteri e presentano regole di denominazione meno restrittive. I nomi delle code del bus di servizio possono contenere lettere, numeri, punti, trattini e caratteri di sottolineatura.
 
-## Prestazioni
-
-Questa sezione confronta le code di Azure e quelle del bus di servizio relativamente alle prestazioni.
-
-|Criteri di confronto|Code di Azure|Code del bus di servizio|
-|---|---|---|
-|Velocità effettiva massima|**Fino a 2000 messaggi al secondo**<br/><br/>(in base al benchmark con messaggi di 1 KB)|**Fino a 2000 messaggi al secondo**<br/><br/>(in base al benchmark con messaggi di 1 KB)|
-|Latenza media|**10 ms**<br/><br/>(con l'algoritmo di [Nagle di TCP](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) disabilitato)|**20-25 ms**|
-|Comportamento di limitazione|**Rifiuto con codice HTTP 503**<br/><br/>(le richieste limitate non vengono considerate fatturabili)|**Rifiuto con codice eccezione/HTTP 503**<br/><br/>(le richieste limitate non vengono considerate fatturabili)|
-
-### Informazioni aggiuntive
-
-- Una singola coda di Azure può elaborare fino a 2000 transazioni al secondo. Una transazione è un'operazione **Put**, **Get** o **Delete**. L'invio di un singolo messaggio a una coda (**Put**) viene contato come una transazione, ma la ricezione di un messaggio è spesso un processo a due passaggi che comporta il recupero (**Get**), seguito da una richiesta di rimozione del messaggio dalla coda (**Delete**). Di conseguenza, un'operazione di rimozione dalla coda completata comporta in genere due transazioni. L'impatto di questo inconveniente può essere ridotto mediante il recupero in batch di più messaggi. È infatti possibile eseguire un'operazione di recupero **Get** per un numero massimo di 32 messaggi, seguita da un'operazione di eliminazione **Delete** per ciascuno di essi. Per ottenere una migliore velocità effettiva è possibile creare più code (un account di archiviazione può avere un numero illimitato di code).
-
-- Quando l'applicazione raggiunge la velocità effettiva massima per una coda di Azure, il servizio di accodamento restituisce in genere un errore HTTP 503 in cui si indica che il server è occupato. In questo caso, tramite l'applicazione deve essere attivata la logica di ripetizione dei tentativi con ritardo esponenziale backoff.
-
-- Quando si gestiscono messaggi di piccole dimensioni (minori di 10 KB) da un servizio ospitato ubicato nello stesso percorso (area) dell'account di archiviazione, la latenza media delle code di Azure è 10 millisecondi.
-
-- Sia tramite le code di Azure sia tramite quelle del bus di servizio viene applicato il comportamento di limitazione rifiutando richieste a una coda limitata. Tuttavia, le richieste limitate non vengono considerate come fatturabili da entrambi i tipi di code.
-
-- Per ottenere una velocità effettiva più elevata, usare più code del bus di servizio. Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](service-bus-performance-improvements.md).
-
-- Quando viene raggiunta la velocità effettiva massima per una coda del bus di servizio, viene restituita al client della coda una risposta [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx), se si usa l'API di messaggistica .NET, o HTTP 503, se si usa l'API REST, per indicare che è in corso la limitazione della coda.
-
 ## Autenticazione e autorizzazione
 
 Questa sezione illustra le funzionalità di autenticazione e autorizzazione supportate dalle code di Azure e da quelle del bus di servizio.
@@ -313,4 +289,4 @@ Gli articoli seguenti offrono indicazioni e informazioni sull'uso delle code di 
 [portale di Azure classico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

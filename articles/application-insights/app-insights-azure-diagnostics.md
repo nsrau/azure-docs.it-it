@@ -25,7 +25,7 @@ Questo articolo descrive in dettaglio la configurazione dell'acquisizione della 
 
 ## Ottenere una risorsa di Application Insights
 
-Per un'esperienza ottimale, [aggiungere Application Insights SDK a ogni ruolo dell'app Servizi cloud](app-insights-cloudservices.md) o [a qualsiasi app si eseguirà nella VM](app-insights-get-started.md). Sarà quindi possibile inviare i dati di diagnostica da analizzare e visualizzare nella stessa risorsa di Application Insights.
+Per un'esperienza ottimale, [aggiungere Application Insights SDK a ogni ruolo dell'app Servizi cloud](app-insights-cloudservices.md) o [a qualsiasi app si eseguirà nella VM](app-insights-overview.md). Sarà quindi possibile inviare i dati di diagnostica da analizzare e visualizzare nella stessa risorsa di Application Insights.
 
 In alternativa, per non usare l'SDK, ad esempio se l'app è già attiva, è sufficiente [creare una nuova risorsa di Application Insights](app-insights-create-new-resource.md) nel portale di Azure. Scegliere **Diagnostica di Azure** come tipo di applicazione.
 
@@ -146,4 +146,4 @@ Esistono tuttavia alcune limitazioni relative a questa funzionalità di cui è i
 * [Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [File di configurazione di Diagnostica di Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,25 +1,25 @@
 #### Tipo VPN - modello di distribuzione Resource Manager
 
-| | **Basato su route** | **Basato su criteri** |
-|-----------------------------------|--------------------|------------------|
-| **Da sito a sito** | yes | yes |
-| **Tra reti virtuali** | yes | no |
-| **Multisito** | yes | no |
-| **Coesistenza tra Da sito a sito ed ExpressRoute** | non ancora disponibile | no |
-| **Da punto a sito** | yes | no |
-| **Classico a Gestione risorse** | yes | no |
+| | **RouteBased** | **PolicyBased** |
+|-----------------------------------|-------------|------------------|
+| **Da sito a sito** | Supportato | Supportato |
+| **Tra reti virtuali** | Supportato | Non supportato |
+| **Multisito** | Supportato | Non supportato |
+| **Coesistenza tra Da sito a sito ed ExpressRoute** | Supportato | Non supportato |
+| **Da punto a sito** | Supportato | Non supportato |
+| **Classico a Gestione risorse** | Supportato | Non supportato |
 
 
 #### Tipo VPN - modello di distribuzione classica
 
 
 | | **Dinamico** | **Statico** |
-|---------------------------------------------|--------------------|--------------|
-| **Da sito a sito** | yes | yes |
-| **Tra reti virtuali** | yes | no |
-| **Multisito** | yes | no |
-| **Coesistenza tra Da sito a sito ed ExpressRoute** | yes | no |
-| **Da punto a sito** | yes | no |
-| **Classico a Gestione risorse** | yes | no |
+|---------------------------------------------|--------------|--------------|
+| **Da sito a sito** | Supportato | Supportato |
+| **Tra reti virtuali** | Supportato | Non supportato |
+| **Multisito** | Supportato | Non supportato |
+| **Coesistenza tra Da sito a sito ed ExpressRoute** | Supportato | Non supportato |
+| **Da punto a sito** | Supportato | Non supportato |
+| **Classico a Gestione risorse** | Supportato | Non supportato |
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0907_2016-->

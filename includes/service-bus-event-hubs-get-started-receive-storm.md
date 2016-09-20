@@ -10,7 +10,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 
 2. Copiare il file `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` nell'ambiente di sviluppo locale. Il file contiene il componente events-storm-spout.
 
-3. Usare il seguente comando per installare il pacchetto nell'archivio Maven locale. Ciò consentirà di aggiungerlo come riferimento nel progetto Storm in un passaggio successivo.
+3. Usare il comando seguente per installare il pacchetto nell'archivio Maven locale. Ciò consentirà di aggiungerlo come riferimento nel progetto Storm in un passaggio successivo.
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
@@ -226,6 +226,6 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 
 <!-- Images -->
 
-[12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
+
+<!---HONumber=AcomDC_0907_2016-->

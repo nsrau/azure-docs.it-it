@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Monitorare le metriche del servizio in Microsoft Azure | Microsoft Azure"
+	pageTitle="Panoramica delle metriche in Microsoft Azure | Microsoft Azure"
 	description="Informazioni su come personalizzare i grafici di monitoraggio in Azure."
 	authors="rboucher"
 	manager=""
@@ -14,9 +14,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
-# Monitorare le metriche del servizio
+# Panoramica delle metriche in Microsoft Azure
 
 Tutti i servizi di Azure tengono traccia delle metriche chiave che consentono di monitorare l'integrità, le prestazioni, la disponibilità e l'utilizzo dei dispositivi. È possibile visualizzare queste metriche nel portale di Azure e usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per accedere al set completo di metriche a livello di codice.
 
@@ -72,4 +72,4 @@ Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com
 * Usare [Application Insights per app JavaScript e pagine Web](../application-insights/app-insights-web-track-usage.md) per ottenere l'analisi client sui browser che visitano una pagina Web.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

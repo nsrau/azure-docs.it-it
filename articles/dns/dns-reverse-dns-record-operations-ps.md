@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="09/05/2016"
    ms.author="smalone" />
 
 # Come gestire i record DNS inversi per i servizi tramite PowerShell
@@ -68,4 +68,4 @@ Se si desidera aggiungere il DNS inverso a un indirizzo IP pubblico esistente ch
 
 [AZURE.INCLUDE [DOMANDE FREQUENTI](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

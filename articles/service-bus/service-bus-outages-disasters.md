@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/02/2016"
     ms.author="sethm" />
 
 # Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
@@ -27,7 +27,7 @@ Il termine "emergenza" indica la perdita permanente di un'unità di scala del bu
 
 Il bus di servizio usa più archivi di messaggistica per memorizzare messaggi inviati a code o argomenti. Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo.
 
-Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi servizio che è affiliato a un data center. Il bus di servizio non abilita la replica geografica automatica dei dati, né consente a uno spazio dei nomi di estendersi su più data center.
+Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi di servizio che è affiliato a un data center. Il bus di servizio non abilita la replica geografica automatica dei dati, né consente a uno spazio dei nomi di estendersi su più data center.
 
 ## Protezione da interruzioni del servizio di controllo di accesso (ACS)
 
@@ -85,14 +85,6 @@ Quando si usa la replica passiva, negli scenari seguenti è possibile che i mess
 
 L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di servizio][] illustra la modalità di replica passiva delle entità di messaggistica.
 
-## Coda permanente sul lato client
-
-Se l'applicazione può tollerare un'entità del bus di servizio temporaneamente non disponibile ma non deve perdere alcun messaggio, il mittente può usare una coda permanente sul lato client in grado di archiviare localmente tutti i messaggi che non possono essere inviati al bus di servizio. Quando l'entità del bus di servizio torna disponibile, tutti i messaggi memorizzati nel buffer verranno inviati a tale entità. Nell'esempio relativo al [mittente del messaggio permanente][] viene implementata una coda di questo tipo con l'ausilio di Microsoft Message Queuing. In alternativa, i messaggi possono essere scritti sul disco locale.
-
-Una coda permanente sul lato client, quindi, mantiene l'ordine dei messaggi e protegge l'applicazione client da possibili eccezioni nel caso in cui l'entità del bus di servizio diventi non disponibile. Può essere usata con transazioni semplici e distribuite.
-
-> [AZURE.NOTE] Questo esempio è adatto agli scenari dell'Infrastruttura distribuita come servizio (IaaS) in cui viene eseguito il mapping del disco locale o del disco per MSMQ a un account di archiviazione e i messaggi vengono archiviati in modo affidabile con MSMQ. Non è invece adatto agli scenari della Piattaforma distribuita come servizio (PaaS), ad esempio Servizi cloud e le applicazioni Web.
-
 ## Passaggi successivi
 
 Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti:
@@ -102,13 +94,12 @@ Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti
 
   [Autenticazione del bus di servizio]: service-bus-authentication-and-authorization.md
   [Entità di messaggistica partizionate]: service-bus-partitioning.md
-  [Modelli di messaggistica asincrona e disponibilità elevata]: service-bus-async-messaging.md
+  [Modelli di messaggistica asincrona e disponibilità elevata]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
   [replica geografica con i messaggi inoltrati del bus di servizio]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [replica geografica con i messaggi negoziati del bus di servizio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-  [mittente del messaggio permanente]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuità aziendale del database SQL di Azure]: ../sql-database/sql-database-business-continuity.md
   [Indicazioni tecniche sulla resilienza di Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

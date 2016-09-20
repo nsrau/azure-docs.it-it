@@ -82,50 +82,7 @@ Sarà necessario includere l'istruzione import seguente nel file in cui si vuole
     // Include the following import statement to use blob APIs.
     #import <AZSClient/AZSClient.h>
 
-## Configurazione dell'applicazione per l'accesso all'archiviazione BLOB
-
-Per autenticare l'applicazione per accedere ai servizi di archiviazione, è possibile procedere in due modi:
-
-- Chiave condivisa: usare la Chiave condivisa solo a scopo di test
-- Firma di accesso condiviso: usare la firma di accesso condiviso per le applicazioni per la produzione
-
-### Chiave condivisa
-L'autenticazione con la chiave condivisa implica che l'applicazione userà il nome account e la chiave dell'account per accedere ai servizi di archiviazione. Per mostrare rapidamente come usare l'archivio BLOB da iOS, in questa guida introduttiva verrà usata l'autenticazione con la chiave condivisa.
-
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Il nome account e la chiave dell'account, che concedono l'accesso completo in lettura/scrittura all'account di archiviazione associato, verranno distribuiti a ogni persona che scarica l'app. Questa procedura **non** è consigliabile perché si rischia che la chiave venga compromessa da client non attendibili.
-
-Quando si usa l'autenticazione con la chiave condivisa, si creerà una stringa di connessione. La stringa di connessione è costituita da:
-
-- **DefaultEndpointsProtocol**: è possibile scegliere HTTP o HTTPS. Tuttavia, è vivamente consigliato l'uso di HTTPS.
-- **Nome account**: nome dell'account di archiviazione
-- **Chiave account**: se si utilizza il [portale di Azure](https://portal.azure.com), passare all’account di archiviazione e fare clic sull’icona **Chiavi** per trovare queste informazioni. Se si utilizza il [portale di Azure classico](https://manage.windowsazure.com), passare all'account di archiviazione nel portale e fare clic su **Gestisci chiavi di accesso**.
-
-Ecco come appare nell'applicazione:
-
-    // Create a storage account object from a connection string.
-    AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here" error:&accountCreationError];
-
-### Firme di accesso condiviso
-Per un'applicazione iOS, il metodo consigliato per autenticare una richiesta da parte di un client in base all'archivio BLOB è di usare una firma di accesso condiviso. La firma di accesso condiviso consente di concedere a un client l'accesso a una risorsa per un periodo di tempo specificato, con un set di autorizzazioni specificato. Il proprietario dell'account di archiviazione dovrà generare una firma di accesso condiviso che verrà utilizzata dai client iOS. Per generare la firma di accesso condiviso da distribuire ai client, è possibile che si voglia scrivere un apposito servizio separato. A scopo di test, è possibile usare Esplora archivi di Microsoft Azure per generare una firma di accesso condiviso. Quando si crea la firma di accesso condiviso, è possibile specificare l'intervallo di tempo in cui la firma di accesso condiviso è valida e le autorizzazioni che la firma di accesso condiviso concede al client.
-
-L'esempio seguente mostra come usare Esplora archivi di Microsoft Azure per generare una firma di accesso condiviso.
-
-1. Se non è già stato fatto, [installare Esplora archivi di Microsoft Azure](http://storageexplorer.com)
-
-2. connessione alla sottoscrizione.
-
-3. Fare clic sull'account di archiviazione e quindi sulla scheda "Azioni" in basso a sinistra. Fare clic su "Get Shared Access Signature" (Ottieni firma di accesso condiviso) per generare una "stringa di connessione" per la firma di accesso condiviso.
-
-4. Di seguito è riportato un esempio di una stringa di connessione della firma di accesso condiviso che concede le autorizzazioni di lettura e scrittura a livello di servizio, contenitore e oggetto per il servizio BLOB dell'account di archiviazione.
-
-        SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net
-
-6. Nell'applicazione iOS ora è possibile ottenere un riferimento all'account usando la stringa di connessione nel modo seguente:
-
-		// Get a reference to your Storage account
-    	AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net" error:&accountCreationError];
-
-Come si può osservare, quando si usa una firma di accesso condiviso, non si espongono il nome account e la chiave dell'account nell'applicazione iOS. Per altre informazioni sulla firma di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+[AZURE.INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Operazioni asincrone
 > [AZURE.NOTE] Tutti i metodi che eseguono una richiesta al servizio sono operazioni asincrone. Negli esempi di codice si noterà che questi metodi hanno un gestore completamento. Il codice nel gestore completamento verrà eseguito **dopo** il completamento della richiesta. Il codice dopo il gestore completamento verrà eseguito **mentre** la richiesta è in corso.
@@ -412,4 +369,4 @@ A questo punto, dopo avere appreso a usare l'archiviazione BLOB da iOS, seguire 
 
 In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

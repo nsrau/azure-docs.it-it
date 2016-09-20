@@ -18,7 +18,7 @@
 
 # Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 
-## Panoramica
+## Overview
 
 Azure offre diagnostica integrata per facilitare il debug di un'[app Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione, oltre a come accedere alle informazioni registrate da Azure.
 
@@ -79,7 +79,7 @@ Benché tutti e tre i percorsi di archiviazione offrano le stesse informazioni d
 
 > [AZURE.NOTE] Le informazioni memorizzate nell'**archivio tabelle** o **nell'archivio BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione che possano funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene lo strumento Esplora archivi, che può essere utilizzato per esplorare l'archiviazione tabelle o BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](/downloads/#).
 
-> [AZURE.NOTE] È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**. Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite**. Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ##<a name="download"></a> Procedura: Scaricare i log
 
@@ -111,7 +111,7 @@ Per scaricare i file di log, avviare una nuova istanza di Azure PowerShell e uti
 
 In tal modo, i log dell'app Web specificata dal parametro **-Name** verranno salvati in un file denominato **logs.zip** nella directory corrente.
 
-> [AZURE.NOTE] Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Download con l'interfaccia della riga di comando di Azure
 
@@ -121,14 +121,14 @@ Per scaricare i file di log mediante l'interfaccia della riga di comando di Azur
 
 In tal modo, i log dell'app Web denominata "nomeappWeb" verranno salvati in un file denominato **diagnostics.zip** nella directory corrente.
 
-> [AZURE.NOTE] Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ## Procedura: visualizza i registri in Application Insights
 
 Visual Studio Application Insights fornisce strumenti per il filtro e ricerca dei registri e per correlare i registri con le richieste e altri eventi.
 
 1. Aggiungere Application Insights al progetto in Visual Studio
- * Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere Aggiungi Application Insights. Informazioni dettagliate dei passaggi che includono la creazione di una risorsa di Application Insights. [Altre informazioni](../application-insights/app-insights-start-monitoring-app-health-usage.md)
+ * Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere Aggiungi Application Insights. Informazioni dettagliate dei passaggi che includono la creazione di una risorsa di Application Insights. [Altre informazioni](../application-insights/app-insights-asp-net.md)
 2. Aggiungere il pacchetto di Listener di traccia al progetto.
  * In Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere Gestisci pacchetti NuGet. Selezionare `Microsoft.ApplicationInsights.TraceListener` [ulteriori](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Caricare il progetto ed eseguire la generazione di dati del log.
@@ -162,7 +162,7 @@ Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **-Path*
 
 Per visualizzare un elenco di percorsi disponibili usare il parametro -ListPath.
 
-> [AZURE.NOTE] Se Azure PowerShell non è stato installato o configurato per l'utilizzo della sottoscrizione di Azure, vedere [Come utilizzare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Streaming con l'interfaccia della riga di comando di Azure
 
@@ -180,7 +180,7 @@ Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Procedura: Comprendere i log di diagnostica
 
@@ -224,7 +224,7 @@ Durante la registrazione sull'archiviazione BLOB, i dati vengono memorizzati in 
 
 Nome proprietà|Valore/formato
 ---|---
-Date|Data e ora in cui si è verificato l'evento
+Data|Data e ora in cui si è verificato l'evento
 Level|Livello dell'evento (ad esempio, errore, avviso, informazione)
 ApplicationName|Nome dell'app Web
 InstanceId|Istanza dell'app Web nella quale si è verificato l'evento
@@ -270,4 +270,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

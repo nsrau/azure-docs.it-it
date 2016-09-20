@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/01/2016"
    ms.author="rickbyh"/>
 
 # Autenticazione e autorizzazione per database SQL: concessione dell'accesso 
@@ -40,7 +40,7 @@ Quando viene creata un'istanza logica di SQL, viene creato un singolo account di
 È possibile configurare come amministratore anche un account di Azure Active Directory. Tale account può essere un singolo utente di Azure AD oppure un gruppo di Azure AD contenente diversi utenti di Azure AD. La configurazione di un amministratore di Azure AD è facoltativa, ma è necessaria se si vuole usare l'autenticazione di Windows per gli account di Azure AD per la connessione al database SQL. Per altre informazioni sulla configurazione dell'accesso con Azure Active Directory, vedere [Connessione al database SQL oppure a SQL Data Warehouse con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) e [Supporto di SSMS per l'autenticazione MFA di Azure AD con database SQL e SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 ### Configurazione del firewall
-Quando è configurato un firewall a livello di server, l'account sottoscrittore del database SQL di Azure e l'account di Azure Active Directory possono connettersi al database master virtuale e a tutti i database utente. Il firewall a livello di server può essere configurato con il portale. Dopo che è stata stabilita una connessione, è possibile configurare anche regole aggiuntive del firewall a livello di server con l'istruzione Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Per altre informazioni sulla configurazione del firewall, vedere [Procedura: Configurare un firewall del database SQL di Azure con il portale di Azure](sql-database-configure-firewall-settings.md).
+Quando è configurato un firewall a livello di server, l'account sottoscrittore del database SQL di Azure e l'account di Azure Active Directory possono connettersi al database master e a tutti i database utente. Il firewall a livello di server può essere configurato con il portale. Dopo che è stata stabilita una connessione, è possibile configurare anche regole aggiuntive del firewall a livello di server con l'istruzione Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Per altre informazioni sulla configurazione del firewall, vedere [Procedura: Configurare un firewall del database SQL di Azure con il portale di Azure](sql-database-configure-firewall-settings.md).
 
 ### Percorso di accesso degli amministratori
 
@@ -161,4 +161,4 @@ Nel database SQL possono essere concesse o negate singolarmente oltre 100 autori
 
 [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

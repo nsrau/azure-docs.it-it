@@ -25,7 +25,7 @@ I servizi presentano tuttavia molte differenze, illustrate in dettaglio nella ta
 | Area | Hub IoT | Hub eventi |
 | ---- | ------- | ---------- |
 | Modelli di comunicazione | Abilita la messaggistica da dispositivo a cloud e da cloud a dispositivo. | Consente solo l'ingresso di eventi, considerato di solito per scenari da dispositivo a cloud. |
-| Supporto dei protocolli del dispositivo | Supporta AMQP, AMQP su WebSocket, MQTT e HTTP/1. L'hub IoT funziona anche con il [Gateway del protocollo Azure IoT][lnk-azure-protocol-gateway], un'implementazione di gateway del protocollo personalizzabile per supportare i protocolli personalizzati. | Supporta AMQP, AMQP su WebSocket e HTTP/1. |
+| Supporto dei protocolli del dispositivo | Supporta MQTT, AMQP, AMQP su WebSocket e HTTP/1. L'hub IoT funziona anche con il [Gateway del protocollo Azure IoT][lnk-azure-protocol-gateway], un'implementazione di gateway del protocollo personalizzabile per supportare i protocolli personalizzati. | Supporta AMQP, AMQP su WebSocket e HTTP/1. |
 | Sicurezza | Garantisce l’identità per dispositivo e il controllo di accesso revocabile. Vedere la [sezione protezione della Guida per gli sviluppatori di hub IoT]. | Garantisce [criteri di accesso condivisi][Event Hub - security] a livello di Hub eventi, con supporto limitato per la revoca tramite [criteri dell'entità di pubblicazione][Event Hub publisher policies]. Per le soluzioni IoT è spesso necessario implementare una soluzione personalizzata per supportare le credenziali per dispositivo e le misure antispoofing. |
 | Monitoraggio delle operazioni | Consente alle soluzioni IoT di sottoscrivere un'ampia gamma di eventi di gestione delle identità dei dispositivi e di connettività, ad esempio errori di autenticazione di singoli dispositivi, limitazione ed eccezioni con un formato non valido. Questi eventi consentono di identificare rapidamente i problemi di connettività a livello di singolo dispositivo. | Espone solo le metriche aggregate. |
 | Scalabilità | È ottimizzato per supportare milioni di dispositivi connessi simultaneamente. | Può supportare un numero più limitato di connessioni simultanee: fino a 5000 connessioni AMQP, in base a quanto descritto in [Quote del bus di servizio Azure][]. D'altra parte, Hub eventi consente di specificare la partizione per ogni messaggio inviato. |
@@ -40,7 +40,7 @@ Non è insolito usare sia l'hub IoT che Hub eventi nella stessa soluzione, lasci
 
 Per ulteriori informazioni sulla pianificazione della distribuzione dell'hub IoT, vedere [Scalabilità, disponibilità elevata e ripristino di emergenza][lnk-scaling].
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Guida per sviluppatori][lnk-devguide]
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
@@ -61,4 +61,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

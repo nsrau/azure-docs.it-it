@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 
-##Panoramica
+##Overview
 
 Il supporto per le notifiche push in Azure consente di accedere a un'infrastruttura push facile da usare, multipiattaforma e con scalabilità orizzontale, che semplifica considerevolmente l'implementazione delle notifiche push sia per le applicazioni consumer sia per quelle aziendali per piattaforme mobili. In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Un back-end WebAPI ASP.NET viene usato per autenticare i client. Usando l’utente client autenticato, un tag viene aggiunto automaticamente dal back-end per la registrazione delle notifiche. Questo tag viene usato per l’invio tramite il back-end per generare notifiche per un utente specifico. Per altre informazioni sulla registrazione per le notifiche tramite il back-end di un'app, vedere l'argomento della guida [Registrazione dal back-end dell'app](http://msdn.microsoft.com/library/dn743807.aspx). Questa esercitazione si basa sull'hub di notifica e sul progetto creato nell'esercitazione [Introduzione ad Hub di notifica].
 
@@ -383,8 +383,8 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 
 <!-- URLs. -->
 [Introduzione ad Hub di notifica]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Push sicuro]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
+[Push sicuro]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

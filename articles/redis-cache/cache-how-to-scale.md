@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="09/07/2016" 
 	ms.author="sdanie"/>
 
 # Come ridimensionare Cache Redis di Azure
 
 >[AZURE.NOTE] Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima.
 
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile ridimensionare la cache usando il pannello **Modifica piano tariffario** nel [portale di Azure](https://portal.azure.com).
+Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare le dimensioni della cache utilizzando il pannello **Modifica livello di prezzo** nel [portale di Azure](https://portal.azure.com).
 
 ## Quando è necessario ridimensionare la cache
 
@@ -51,7 +51,7 @@ Selezionare il piano tariffario desiderato dal pannello **Piano tariffario** e f
 >-	Non è possibile passare da un piano tariffario superiore a uno inferiore.
 >    -    Non è possibile passare da una cache **Premium** a una cache **Standard** o **Basic**.
 >    -    Non è possibile passare da una cache **Standard** a una cache **Basic**.
->-	È possibile passare da una cache **Basic** a una cache **Standard**, ma non modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
+>-	È possibile scalare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile eseguire successivamente un'operazione di ridimensionamento in base ai propri requisiti.
 >-	Non è possibile passare direttamente da una cache **Basic** a una cache **Premium**. È necessario passare da **Basic** a **Standard** con una prima operazione di ridimensionamento e quindi da **Standard** a **Premium** con una successiva operazione.
 >-	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
 
@@ -145,7 +145,7 @@ No, il nome della cache e le chiavi restano invariati durante un'operazione di r
 
 -	Quando una cache **Basic** viene ridimensionata, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
 -	Quando una cache **Basic** viene ridimensionata in una cache**Standard**, generalmente i dati nella cache vengono mantenuti.
--	Quando si aumenta la dimensione di una cache **Standard** o si passa a un piano tariffario superiore oppure quando si aumenta la dimensione di una cache **Premium**, in genere tutti i dati vengono mantenuti. Quando si riduce la dimensione di una cache **Standard** o **Premium**, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e la nuova dimensione configurata. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache). 
+-	Quando si aumenta la dimensione di una cache **Standard** o si passa a un piano tariffario superiore oppure quando si aumenta la dimensione di una cache **Premium**, in genere tutti i dati vengono mantenuti. Quando si riduce la dimensione di una cache **Standard** o **Premium**, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e la nuova dimensione configurata. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ### L'impostazione databases personalizzata viene modificata durante il ridimensionamento?
 
@@ -199,4 +199,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

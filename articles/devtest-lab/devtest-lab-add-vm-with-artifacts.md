@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Aggiungere una macchina virtuale con elementi a un lab | Microsoft Azure"
-	description="Informazioni su come aggiungere una macchina virtuale con elementi in DevTest Labs"
+	pageTitle="Aggiungere una VM con elementi a un lab in Azure DevTest Labs | Microsoft Azure"
+	description="Informazioni su come aggiungere una VM con elementi in Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/30/2016"
 	ms.author="tarcher"/>
 
-# Aggiungere una macchina virtuale con elementi a un lab
+# Aggiungere una VM con elementi a un lab in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
-
-## Panoramica
 
 È possibile creare una macchina virtuale lab a partire da un elemento di *base* costituito da un'[immagine personalizzata](./devtest-lab-create-template.md), da una [formula](./devtest-lab-manage-formulas.md) o da un'[immagine di Marketplace](./devtest-lab-configure-marketplace-images.md).
 
@@ -36,25 +34,23 @@ Questo articolo descrive come creare una macchina virtuale nel lab usando gli el
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e poi **DevTest Labs** dall'elenco.
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
-1. Nell'elenco di lab selezionare il lab in cui si vuole creare la nuova macchina virtuale.
+1. Nell'elenco di lab selezionare il lab in cui si vuole creare la nuova VM.
 
-1. Nel pannello del lab selezionare **+ Lab VM** (+ VM lab) come illustrato nella figura seguente. ![Pulsante Add Lab VM (Aggiungi VM lab)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+1. Nel pannello **Panoramica** del lab selezionare **+ Macchina virtuale**. ![Pulsante Aggiungi VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
 1. Nel pannello **Scegli una base** selezionare una base per la macchina virtuale.
 
-1. Nel pannello **macchina virtuale di Lab**, immettere un nome per la nuova macchina virtuale nella casella di testo **nome macchina virtuale di Lab**.
+1. Nel pannello **Macchina virtuale** immettere un nome per la nuova macchina virtuale nella casella di testo **Nome macchina virtuale**.
 
 	![Pannello Lab VM (VM lab)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
 1. Immettere un **Nome utente** a cui verranno concessi privilegi di amministratore nella macchina virtuale.
 
-1. Se il sistema operativo della base selezionata è Linux, specificare il tipo di autenticazione *Password* o *Chiave pubblica SSH*.
-
-1. A seconda del tipo di autenticazione specificato, immettere una password o una chiave pubblica SSH.
-
-1. Selezionare **Dimensioni macchina virtuale**, quindi uno degli elementi predefiniti che specificano le memorie centrali del processore, le dimensioni della RAM e le dimensioni dell'unità disco rigido della macchina virtuale da creare.
+1. Se si desidera usare una password archiviata nell'*archivio segreto*, selezionare **Usa segreti dall'archivio segreto** e specificare un valore chiave corrispondente al segreto (password). In alternativa, è sufficiente immettere una password nel campo di testo etichettato **Digita un valore**.
+ 
+1. Selezionare **Dimensioni macchina virtuale** e uno degli elementi predefiniti che specificano le memorie centrali del processore, la dimensione della RAM e le dimensioni dell'unità disco rigido della VM da creare.
 
 1. Selezionare **Rete virtuale**, quindi la rete virtuale desiderata.
 
@@ -76,11 +72,11 @@ Questo articolo descrive come creare una macchina virtuale nel lab usando gli el
 
 Durante la creazione di una macchina virtuale, è possibile aggiungere elementi esistenti. Ogni lab include elementi del repository pubblico degli elementi di DevTest Labs ed elementi creati e aggiunti al repository degli elementi personale. Per istruzioni sulla creazione di elementi, vedere l'articolo contenente informazioni su [Creare elementi personalizzati per le macchine virtuali di DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Nel pannello **Lab VM** (VM lab) selezionare **Elementi**.
+1. Nel pannello **Macchina virtuale** selezionare **Elementi**.
 
-1. Nel pannello **Aggiungi elementi** selezionare l'elemento specifico.
+1. Nel pannello **Aggiungi elementi** selezionare l'elemento desiderato.
 
-![Pannello Add Artifacts (Aggiungi elementi)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
+	![Pannello Add Artifacts (Aggiungi elementi)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
 1. Immettere i valori dei parametri obbligatori e i parametri facoltativi necessari.
 
@@ -98,7 +94,7 @@ Per impostazione predefinita, le azioni degli elementi vengono eseguite nell'ord
 
     ![Numero di elementi aggiunti alla macchina virtuale](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. Trascinare e rilasciare gli elementi nell'elenco in base all'ordine desiderato. **Nota:** se si verificano problemi di trascinamento dell'elemento, assicurarsi di trascinare dal lato sinistro dell'elemento.
+1. Per specificare l'ordine in cui eseguire gli elementi, trascinare e rilasciare gli elementi nell'ordine desiderato. **Nota:** se si verificano problemi di trascinamento dell'elemento, assicurarsi di trascinare dal lato sinistro dell'elemento.
 
 1. Selezionare **OK** al termine dell'operazione.
 
@@ -120,9 +116,9 @@ I passaggi seguenti illustrano come visualizzare o modificare i parametri di un 
 
 Un modello di Azure Resource Manager permette di definire una distribuzione ripetibile in modo dichiarativo. I passaggi seguenti illustrano come salvare il modello di Azure Resource Manager per la VM da creare. Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per [distribuire nuove VM con Azure PowerShell](../resource-group-overview.md#template-deployment).
 
-1. Nel pannello **Lab VM** (VM lab) selezionare **View ARM Template** (Visualizza modello ARM).
+1. Nel pannello **Macchina virtuale** selezionare **Visualizza modello ARM**.
 
-1. Nel pannello **View Azure Resource Manager Template** (Visualizza modello di Azure Resource Manager) selezionare tutto il testo del modello.
+1. Nel pannello **Visualizza modello Azure Resource Manager** selezionare il testo del modello.
 
 1. Copiare il testo selezionato negli Appunti.
 
@@ -142,4 +138,4 @@ Un modello di Azure Resource Manager permette di definire una distribuzione ripe
 - Informazioni su come [creare elementi personalizzati per la VM di DevTest Labs](devtest-lab-artifact-author.md).
 - Esplorare la [raccolta dei modelli ARM di avvio rapido di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

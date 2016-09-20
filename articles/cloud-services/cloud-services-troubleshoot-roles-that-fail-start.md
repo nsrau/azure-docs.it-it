@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/03/2016"
+   ms.date="09/02/2016"
    ms.author="v-six" />
 
 # Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
@@ -103,7 +103,7 @@ Ad esempio:
 
 Per ottenere risultati ottimali con questo metodo di diagnosi, è consigliabile usare un computer o una macchina virtuale in cui è presente un'installazione pulita di Windows. Per simulare in modo ottimale l'ambiente Azure, usare Windows Server 2008 R2 x64.
 
-1. Installare la versione autonoma di [Azure SDK](https://azure.microsoft.com/downloads/)
+1. Installare la versione autonoma di [Azure SDK](https://azure.microsoft.com/downloads/).
 
 2. Nel computer di sviluppo compilare il progetto di servizio cloud.
 
@@ -163,4 +163,4 @@ Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/docu
 
 Per informazioni su come risolvere i problemi dei ruoli del servizio cloud utilizzando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/03/2016"
+	ms.date="08/03/2016"
 	ms.author="heidist"/>
 
 # Limiti dei servizi in Ricerca di Azure
 
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal piano tariffario scelto per Ricerca di Azure: **gratuito**, **Basic** o **Standard**.
 
-- Il servizio **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure. È un'opzione senza costi aggiuntivi per i sottoscrittori che consente di provare il servizio prima di iscriversi per usare risorse dedicate. 
+- Il servizio **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure. È un'opzione senza costi aggiuntivi per i sottoscrittori che consente di provare il servizio prima di iscriversi per usare risorse dedicate.
 - Il piano **Basic** fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte.
 - Il piano **Standard** prevede computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello, inclusa la configurazione minima. Il piano Standard è disponibile in quattro livelli: S1, S2, S3 e ad alta densità S3 (S3 HD). S3 e S3 HD sono attualmente in fase di anteprima e disponibili al 50% durante il periodo di anteprima.
 
@@ -97,4 +97,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 2 chiavi di amministrazione al massimo per ogni servizio
 - 50 chiavi di query al massimo per ogni servizio
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

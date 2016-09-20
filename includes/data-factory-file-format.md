@@ -44,9 +44,9 @@ Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar 
 
 ### Scenari di utilizzo di firstRowAsHeader e skipLineCount
 
-- Si desidera copiare da un'origine non basata su file in un file di testo e aggiungere una riga di intestazione contenente i metadati dello schema (ad esempio: schema SQL). Per questo scenario, specificare firstRowAsHeader come true nel set di dati di output.
-- Si desidera copiare da un file di testo contenente una riga di intestazione a un sink non basato su file ed eliminare tale riga. Specificare firstRowAsHeader come true nel set di dati di input.
-- Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non sono né dati né un'intestazione. Specificare skipLineCount per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è inoltre possibile specificare firstRowAsHeader. Se sono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
+- Si desidera copiare da un'origine non basata su file in un file di testo e aggiungere una riga di intestazione contenente i metadati dello schema (ad esempio: schema SQL). Per questo scenario specificare **firstRowAsHeader** come true nel set di dati di output.
+- Si desidera copiare da un file di testo contenente una riga di intestazione a un sink non basato su file ed eliminare tale riga. Specificare **firstRowAsHeader** come true nel set di dati di input.
+- Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non sono né dati né un'intestazione. Specificare **skipLineCount** per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è inoltre possibile specificare **firstRowAsHeader**. Se sono specificati sia **skipLineCount** e **firstRowAsHeader**, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input
 
 ### Specifica di AvroFormat
 Se il formato è impostato su AvroFormat, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
@@ -251,4 +251,4 @@ Tenere presente quanto segue:
 -	Tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION)
 -	Il file ORC dispone di tre [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

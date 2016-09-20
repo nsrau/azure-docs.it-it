@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="09/06/2016"
 	ms.author="luisca"/>
 
 #  Raccolta dei dati per eseguire il training del modello #
@@ -45,9 +45,9 @@ Senza funzionalità:
 
 Con funzionalità:
 
-    AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
+    AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
+    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
+    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
 #### Dettagli relativi al formato
 
@@ -78,6 +78,25 @@ Ciò vuol dire che, se il motore dispone di informazioni sul violino, ad esempio
 
 Le funzionalità vengono importate come parte dei dati del catalogo e quindi la relativa classificazione (o l'importanza della funzionalità nel modello) viene associata durante una compilazione della classifica. La classificazione delle funzionalità può cambiare in base al modello di dati di utilizzo e al tipo di elementi. Per la coerenza dei dati di utilizzo e degli elementi, è opportuno che le fluttuazioni siano limitate. La classificazione delle funzionalità è espressa mediante un numero non negativo. Il numero 0 significa che la funzionalità non è stata classificata, ad esempio nel caso il cui l'API venga richiamata prima che sia completata la prima compilazione della classifica. La data in cui è stata attribuita la classificazione è detta aggiornamento del punteggio.
 
+
+###Le funzionalità sono di tipo categorico
+
+Ciò significa che è necessario creare funzionalità simili a una categoria. Ad esempio, price=9.34 non è una funzionalità categorica, mentre una funzionalità come priceRange=Under5Dollars lo è. Un altro errore comune consiste nell'usare il nome dell'elemento come funzionalità. Così facendo, il nome di un elemento diventa univoco e non descrive una categoria. Assicurarsi che le funzionalità rappresentino categorie di elementi.
+
+
+###Quante e quali funzionalità è necessario usare
+
+
+In definitiva, la build Raccomandazioni supporta la creazione di un modello con un massimo di 20 funzionalità. È possibile assegnare più di 20 funzionalità agli elementi del catalogo, ma occorrerà eseguire una compilazione di classificazione, selezionando solo le funzionalità con una classificazione elevata. Una funzionalità con una classificazione pari o superiore a 2.0 è da considerare valida.
+
+
+###Quando vengono effettivamente usate le funzionalità
+
+Le funzionalità vengono usate dal modello quando non sono disponibili dati di transazione sufficienti per fornire raccomandazioni solo sulle informazioni relative alla transazione. Le funzionalità avranno quindi il maggiore impatto sugli "elementi ad accesso sporadico", ovvero gli elementi con poche transazioni. Se per tutti gli elementi sono disponibili informazioni sulla transazione sufficienti, potrebbe non essere necessario aggiungere funzionalità al modello.
+
+
+###Uso delle funzionalità del prodotto
+
 Per usare le funzionalità come parte della compilazione è necessario:
 
 1. Assicurarsi che il catalogo includa le funzionalità quando viene caricato.
@@ -85,6 +104,9 @@ Per usare le funzionalità come parte della compilazione è necessario:
 2. Attivare la compilazione della classifica. L'analisi sarà eseguita in base all'importanza/classifica delle funzionalità.
 
 3. Attivare una compilazione di elementi consigliati, impostando i parametri di compilazione seguenti: impostare useFeaturesInModel su true, allowColdItemPlacement su true e modelingFeatureList su un elenco delimitato da virgole delle caratteristiche che si desidera usare per migliorare il modello. Per altre informazioni, vedere i [parametri per il tipo di compilazione di elementi consigliati](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0).
+
+
+
 
 
 ## Dati di utilizzo ##
@@ -129,4 +151,4 @@ Una buona regola consiste nella distribuzione della maggior parte degli elementi
 
 Dopo aver creato un modello, è possibile eseguire una [valutazione offline](cognitive-services-recommendations-buildtypes.md) per controllare il potenziale andamento del modello.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

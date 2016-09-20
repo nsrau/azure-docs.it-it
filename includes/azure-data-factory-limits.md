@@ -16,7 +16,7 @@ Numero di tentativi delle esecuzioni di attività pipeline | 1000 | MaxInt (32 b
 
 <sup>1</sup>pipeline, set di dati e oggetti servizio collegato rappresentano un raggruppamento logico del carico di lavoro. I limiti per questi oggetti non riguardano le quantità di dati che è possibile spostare ed elaborare con il servizio di Azure Data Factory. Data Factory è progettato per la scalabilità e la gestione di petabyte di dati.
 
-<sup>2</sup>memorie centrali HDInsight su richiesta vengono distribuite al di fuori della sottoscrizione che contiene la factory di dati. Di conseguenza, il limite massimo è il limite principale imposto dalla Data Factory per le memorie centrali HDInsight su richiesta e che è diverso dal limite principale associato alla sottoscrizione Azure.
+<sup>2</sup>memorie centrali HDInsight su richiesta vengono distribuite al di fuori della sottoscrizione che contiene la data factory. Di conseguenza, il limite massimo è il limite principale imposto dalla Data Factory per le memorie centrali HDInsight su richiesta e che è diverso dal limite principale associato alla sottoscrizione Azure.
 
 
 **Risorsa** | **Limite inferiore predefinito** | **Limite minimo**
@@ -30,4 +30,4 @@ Valore di timeout del tentativo | 1 secondo | 1 secondo
 
 Gestione risorse di Azure presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](../azure-subscription-service-limits.md#resource-group-limits).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

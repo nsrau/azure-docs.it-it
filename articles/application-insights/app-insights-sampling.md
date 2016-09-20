@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Campionamento della telemetria in Application Insights" 
+	pageTitle="Campionamento della telemetria in Application Insights | Microsoft Azure" 
 	description="Come tenere sotto controllo il volume della telemetria." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -20,27 +20,30 @@
 *Application Insights è disponibile in anteprima.*
 
 
-Il campionamento è una funzionalità di Application Insights che consente di raccogliere e archiviare un set ridotto di telemetria mantenendo però un'analisi statisticamente corretta dei dati dell'applicazione. Riduce il traffico e consente di evitare la [limitazione della larghezza di banda della rete](app-insights-pricing.md#data-rate). I dati vengono filtrati in modo che gli elementi correlati vengano consentiti e sia quindi possibile spostarsi tra gli elementi quando si conducono indagini diagnostiche. Quando i conteggi delle metriche vengono presentati nel portale, vengono nuovamente normalizzati tenendo in considerazione il campionamento, per ridurre al minimo gli effetti sulle statistiche.
+La funzionalità di campionamento di [Visual Studio Application Insights](app-insights-overview.md) è l'approccio consigliato per ridurre il traffico e l'archiviazione di dati di telemetria mantenendo però un'analisi statisticamente corretta dei dati dell'applicazione. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nel corso delle indagini diagnostiche. Quando i conteggi delle metriche vengono presentati nel portale, vengono nuovamente normalizzati tenendo in considerazione il campionamento, per ridurre al minimo gli effetti sulle statistiche.
 
-Il campionamento attualmente è disponibile nella versione beta e in futuro potrebbe essere soggetto a modifiche.
+Il campionamento riduce il traffico e consente di rispettare le quote dati mensili ed evitare la limitazione.
 
 ## In breve:
 
 * Il campionamento mantiene un record su *n* e rimuove il resto. Ad esempio, potrebbe mantenere 1 un evento su 5, corrispondente a una frequenza di campionamento del 20%.
-* Se l'applicazione invia molti dati di telemetria, il campionamento si verifica automaticamente. Il campionamento automatico interviene solo in presenza di volumi elevati e solo in applicazioni server Web ASP.NET.
-* È inoltre possibile impostare il campionamento manualmente, nella pagina del portale relativa ai prezzi (per ridurre il volume dei dati di telemetria mantenuti e rispettare la quota mensile) o nel file con estensione config di ASP.NET SDK, per ridurre anche il traffico di rete.
-* La frequenza di campionamento corrente è una proprietà di ogni record. Nella finestra di ricerca aprire un evento, ad esempio una richiesta. Espandere tutte le proprietà tramite i puntini di sospensione "…" per trovare la proprietà "* count", ad esempio, "request count" o "event count", a seconda del tipo di telemetria. Se è > 1, il campionamento è in corso. Se è uguale a 3, il campionamento è al 33%: ogni record mantenuto rappresenta tre record generati originariamente.
+* Nelle app server Web ASP.NET, il campionamento viene eseguito automaticamente se l'applicazione invia molti dati di telemetria.
+* È anche possibile impostare il campionamento manualmente, nella pagina del portale relativa ai prezzi oppure nel file con estensione config di ASP.NET SDK, per ridurre anche il traffico di rete.
 * Se si registrano eventi personalizzati e ci si vuole assicurare che gli eventi di un set vengano mantenuti o rimossi insieme, verificare che abbiano lo stesso valore OperationId.
+* Il divisore di campionamento *n* è indicato in ogni record nella proprietà `itemCount`, visualizzata nella ricerca con il nome descrittivo "Conteggio delle richieste" o "Conteggio degli eventi". Quando il campionamento non è in esecuzione, `itemCount==1`.
 * Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](app-insights-analytics-tour.md#counting-sampled-data). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
 
 
 ## Tipi di campionamento
 
+
 Esistono tre diversi metodi di campionamento:
 
-* **Campionamento adattivo**, che regola automaticamente il volume dei dati di telemetria inviati dall'SDK nell'app ASP.NET. Si tratta di un'opzione predefinita dell'SDK versione 2.0.0-beta3.
-* **Campionamento a frequenza fissa**, che riduce il volume dei dati di telemetria inviati sia dal server ASP.NET che dai browser degli utenti. È necessario impostare la frequenza.
+* **Campionamento adattivo**, che regola automaticamente il volume dei dati di telemetria inviati dall'SDK nell'app ASP.NET. Si tratta di un'opzione predefinita dell'SDK versione 2.0.0-beta3. Attualmente disponibile solo per la telemetria lato server di ASP.NET.
+* **Campionamento a frequenza fissa**, che riduce il volume dei dati di telemetria inviati sia dal server ASP.NET che dai browser degli utenti. È necessario impostare la frequenza. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
 * **Campionamento per inserimento**, che riduce il volume dei dati di telemetria mantenuto dal servizio Application Insights in base a una frequenza impostata dall'utente. Non riduce il traffico di telemetria, ma consente all'utente di rispettare la quota mensile.
+
+Se è in esecuzione il campionamento adattivo o a frequenza fissa, il campionamento per inserimento è disabilitato.
 
 ## Campionamento per inserimento
 
@@ -369,4 +372,10 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
  * Inizializzare un'istanza separata di TelemetryClient con una nuova TelemetryConfiguration (non con quello predefinito attivo). Usarla per inviare gli eventi rari.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+## Passaggi successivi
+
+* L'[applicazione di filtri](app-insights-api-filtering-sampling.md) può garantire un controllo più rigoroso sui dati inviati dall'SDK.
+
+<!---HONumber=AcomDC_0907_2016-->

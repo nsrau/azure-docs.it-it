@@ -34,7 +34,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 | [Collaboratore BizTalk](#biztalk-contributor) | È in grado di gestire i servizi BizTalk |
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) | È in grado di gestire i database ClearDB MySQL |
 | [Collaboratore](#contributor) | È in grado di gestire tutto ad eccezione degli accessi. |
-| [Collaboratore Data Factory](#data-factory-contributor) | È in grado gestire le Data factory |
+| [Collaboratore Data Factory](#data-factory-contributor) | Può creare e gestire data factory e le relative risorse figlio. |
 | [Utente DevTest Labs](#devtest-labs-user) | Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali |
 | [Collaboratore account DocumentDB](#documentdb-account-contributor) | Può gestire gli account DocumentDB |
 | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) | È in grado di gestire account Intelligent Systems |
@@ -151,12 +151,12 @@ Può gestire tutto ad eccezione degli accessi.
 | Microsoft.Authorization/*/Write | Non può creare ruoli e assegnazioni di ruoli |
 
 ### Collaboratore Data Factory
-È in grado gestire le Data factory
+Creare e gestire data factory e le relative risorse figlio.
 
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
-| Microsoft.DataFactory/dataFactories/* | È in grado gestire Data factory |
+| Microsoft.DataFactory/dataFactories/* | Creare e gestire data factory e le relative risorse figlio. |
 | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
@@ -534,4 +534,4 @@ Consente di gestire l’accesso degli utenti alle risorse di Azure
 - [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
 - [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->
