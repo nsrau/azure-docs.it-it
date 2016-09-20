@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -116,7 +116,7 @@ Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Apache
 * Analisi di social media
 * ETL (Extract Transform Load)
 * Monitoraggio della rete
-* Ricerca
+* Search
 * Mobile Engagement
 
 ##Come vengono elaborati i dati in HDInsight Storm?
@@ -225,4 +225,4 @@ Per altre informazioni sulle soluzioni di analisi in tempo reale con Apache Stor
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -16,7 +16,7 @@
 	ms.topic="hero-article"
 	ms.date="09/09/2016" 
 	ms.author="cephalin"
-/>  
+/>
 	
 # Distribuire la prima app Web in Azure in cinque minuti
 
@@ -43,7 +43,7 @@ Si apprenderà come:
 
 2. Nel menu a sinistra fare clic su **Nuovo** > **Web e dispositivi mobili** > **App Web**.
 
-    ![Iniziare a creare la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-portal.png)  
+    ![Iniziare a creare la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-portal.png)
 
 3. Nel pannello di creazione dell'app usare le impostazioni seguenti per la nuova app:
 
@@ -53,19 +53,19 @@ Si apprenderà come:
 
     Al termine, il pannello di creazione dell'app dovrebbe avere un aspetto simile al seguente:
 
-    ![Configurare la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-settings.png)  
+    ![Configurare la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-settings.png)
 
 3. Fare clic su **Crea** nella parte inferiore della schermata. È possibile fare clic sull'icona delle **notifiche** in alto per visualizzare lo stato di avanzamento.
 
-    ![Notifica sulla creazione della prima app Web in Azure](./media/app-service-web-get-started/create-web-app-started.png)  
+    ![Notifica sulla creazione della prima app Web in Azure](./media/app-service-web-get-started/create-web-app-started.png)
 
 4. Al termine della distribuzione dovrebbe essere visualizzato il messaggio di notifica seguente. Fare clic sul messaggio per aprire il pannello della distribuzione.
 
-    ![Messaggio di distribuzione terminata per la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-finished.png)  
+    ![Messaggio di distribuzione terminata per la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-finished.png)
 
 5. Nel pannello **La distribuzione è riuscita** fare clic sul collegamento **Risorsa** per aprire il pannello della nuova app Web.
 
-    ![Collegamento Risorsa per la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-resource.png)  
+    ![Collegamento Risorsa per la prima app Web in Azure](./media/app-service-web-get-started/create-web-app-resource.png)
 
 ## Distribuire codice nell'app Web
 
@@ -73,7 +73,7 @@ L'esercitazione passa ora a illustrare come distribuire codice in Azure tramite 
 
 5. Nel pannello dell'app Web scorrere verso il basso fino alla voce **Opzioni di distribuzione** o cercarla e fare clic su di essa.
 
-    ![Opzioni di distribuzione per la prima app Web in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)  
+    ![Opzioni di distribuzione per la prima app Web in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
 6. Fare clic su **Scegliere l'origine** > **Repository Git locale** > **OK**.
 
@@ -83,7 +83,7 @@ L'esercitazione passa ora a illustrare come distribuire codice in Azure tramite 
 
 7. Tornare al pannello dell'app Web e scorrere verso il basso fino alla voce **Proprietà** o cercarla e fare clic su di essa. Fare clic sul pulsante **Copia** accanto a **URL GIT**.
 
-    ![Pannello Proprietà per la prima app Web in Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)  
+    ![Pannello Proprietà per la prima app Web in Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
 
     A questo punto è possibile distribuire il codice con Git.
 
@@ -91,7 +91,7 @@ L'esercitazione passa ora a illustrare come distribuire codice in Azure tramite 
 
         git clone <github_sample_url>
 
-    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/html-git-clone.png)  
+    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started/html-git-clone.png)
 
     Per *&lt;github\_sample\_url>* usare uno degli URL seguenti, a seconda del framework preferito:
 
@@ -114,7 +114,7 @@ L'esercitazione passa ora a illustrare come distribuire codice in Azure tramite 
 
         git push azure master
 
-    ![Eseguire il push di codice nella prima app Web in Azure](./media/app-service-web-get-started/html-git-push.png)  
+    ![Eseguire il push di codice nella prima app Web in Azure](./media/app-service-web-get-started/html-git-push.png)
 
     Se è stato usato uno dei framework di linguaggio, verrà visualizzato un output diverso. Ciò dipende dal fatto che `git push` non solo inserisce il codice in Azure, ma attiva anche le attività di distribuzione nel motore di distribuzione. Se nella radice del progetto (repository) sono presenti file package.json (Node.js) o requirements.txt (Python) o se nel progetto ASP.NET è presente un file packages.config, lo script di distribuzione ripristina automaticamente i pacchetti necessari. È anche possibile [abilitare l'estensione Composer](web-sites-php-mysql-deploy-use-git.md#composer) per elaborare automaticamente i file composer.json nell'app PHP.
 
@@ -144,4 +144,4 @@ In alternativa è possibile fare ulteriori prove con la prima app Web, ad esempi
 - Provare [altri modi per distribuire il codice in Azure](../app-service-web/web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
 - Ottimizzare l'app di Azure. Autenticare gli utenti. Ridimensionarla in base alla richiesta. Configurare alcuni avvisi sulle prestazioni. Tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0914_2016---->
+<!---HONumber=AcomDC_0914_2016-->

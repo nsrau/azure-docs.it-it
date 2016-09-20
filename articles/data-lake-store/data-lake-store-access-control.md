@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -286,7 +286,7 @@ No.
 
 * [http://www.vanemery.com/Linux/ACL/POSIX\_ACL\_on\_Linux.html](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
 
-* [HDFS Permission Guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Guida alle autorizzazioni HDFS)
+* [HDFS Permission Guide (Guida alle autorizzazioni HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 * [Domande frequenti su POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
 
@@ -296,7 +296,7 @@ No.
 
 * [ACL POSIX in Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
 
-* [ACL: Using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
+* [ACL: Using Access Control Lists on Linux (ACL: uso di elenchi di controllo di accesso in Linux)](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## Vedere anche
 
@@ -304,4 +304,4 @@ No.
 
 * [Introduzione all’analisi dei dati di Data Lake di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

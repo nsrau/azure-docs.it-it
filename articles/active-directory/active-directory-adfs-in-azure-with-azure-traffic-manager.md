@@ -19,7 +19,7 @@
     
 #Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure
 
-[Distribuzione di AD FS in Azure](.\active-directory-aadconnect-azure-adfs.md) offre istruzioni dettagliate sulla distribuzione di una semplice infrastruttura AD FS per l'organizzazione in Azure. Questo articolo illustra i passaggi successivi per creare una distribuzione di AD FS tra aree geografiche in Azure usando [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Gestione traffico di Azure consente di creare per l'organizzazione un'infrastruttura AD FS geograficamente distribuita e a disponibilità e prestazioni elevate tramite una serie di metodi di routing messi a disposizione per soddisfare diverse esigenze.
+[Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md) offre istruzioni dettagliate sulla distribuzione di una semplice infrastruttura AD FS per l'organizzazione in Azure. Questo articolo illustra i passaggi successivi per creare una distribuzione di AD FS tra aree geografiche in Azure usando [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Gestione traffico di Azure consente di creare per l'organizzazione un'infrastruttura AD FS geograficamente distribuita e a disponibilità e prestazioni elevate tramite una serie di metodi di routing messi a disposizione per soddisfare diverse esigenze.
 
 Un'infrastruttura AD FS tra aree geografiche a disponibilità elevata offre i vantaggi seguenti:
 
@@ -49,7 +49,7 @@ I principi di progettazione di base sono uguali a quelli elencati nella sezione 
 ##Passaggi per l'integrazione di Gestione traffico di Azure
 
 ###Distribuire AD FS nella nuova area geografica
-Seguire i passaggi e le istruzioni illustrati in [Distribuzione di AD FS in Azure](.\active-directory-aadconnect-azure-adfs.md) per distribuire la stessa topologia nella nuova area geografica.
+Seguire i passaggi e le istruzioni illustrati in [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md) per distribuire la stessa topologia nella nuova area geografica.
 
 ###Etichette DNS per gli indirizzi IP pubblici di servizi di bilanciamento del carico con connessione Internet (pubblici)
 Come indicato in precedenza, Gestione traffico di Azure può fare riferimento solo alle etichette DNS come endpoint ed è quindi importante creare le etichette DNS per gli indirizzi IP pubblici dei servizi di bilanciamento del carico esterni. Lo screenshot seguente illustra come configurare l'etichetta DNS per l'indirizzo IP pubblico.
@@ -131,4 +131,4 @@ Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiat
 * [Gestire un profilo di Gestione traffico di Azure](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Aggiungere, disabilitare, abilitare o eliminare gli endpoint](../traffic-manager/traffic-manager-endpoints.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

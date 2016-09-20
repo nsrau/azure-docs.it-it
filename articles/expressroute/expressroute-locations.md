@@ -29,7 +29,7 @@ Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopoliti
 
 |**Area geopolitica**|**Aree di Azure**|**Località per ExpressRoute**|
 |---|---|---|
-|**America del Nord**|Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Canada orientale|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
+|**America del Nord**|Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Canada orientale|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**America del Sud**|Brasile meridionale|Sao Paulo|
 |**Europa**|Europa settentrionale, Europa occidentale, Regno Unito occidentale, Regno Unito meridionale|Amsterdam, Dublino, Londra, Newport(Galles)+, Parigi|
 |**Asia**|Asia orientale, Asia sudorientale|Hong Kong, Singapore|
@@ -43,9 +43,9 @@ Nella tabella seguente vengono fornite informazioni su aree e confini geopolitic
 
 |**Area geopolitica**|**Aree di Azure**|**Località per ExpressRoute**|
 |---|---|---|---|
-|**Cloud del governo degli Stati Uniti**|Stati Uniti - Iowa, Virginia|Chicago, Dallas+, New York, Washington DC|
+|**Cloud del governo degli Stati Uniti**|Stati Uniti - Iowa, Virginia|Chicago, Dallas, New York, Washington DC|
 |**Cina**|Cina meridionale, Cina orientale|Pechino, Shanghai|
-|**Germania**|Germania centrale, Germania orientale|Berlino, Francoforte|
+|**Germania**|Germania centrale, Germania orientale|Berlino+, Francoforte|
 
 
 La connettività tra diverse aree geopolitiche non è supportata nello standard SKU EspressRoute. È necessario attivare il componente aggiuntivo premium ExpressRoute per supportare la connettività globale. La connettività per ambienti cloud nazionale non è supportata. È possibile utilizzare il provider di connettività in caso di necessità.
@@ -88,7 +88,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Supportato | Singapore |
 | **Softbank** | Supportato | Supportato | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Supportato | Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silicon Valley, Singapore, Washington DC |
-| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Londra |
+| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Dublino, Londra |
 | **Telefonica** | Supportato | Presto disponibile | Sao Paulo |
 | **Telenor** | Supportato | Supportato | Amsterdam, Londra |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Imminente | Melbourne, Sydney |
@@ -105,7 +105,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Provider di servizi** |**Microsoft Azure** | **Office 365** | **Località** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Chicago, Dallas+, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Chicago, Dallas, New York, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supportato | Supportato | Chicago, New York +, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supportato | Supportato | Chicago, Dallas+, New York, Washington DC |
 
@@ -171,4 +171,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

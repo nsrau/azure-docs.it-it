@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introduzione all’Archivio Data Lake di Azure tramite il portale di Azure.
@@ -35,16 +35,6 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="signup"></a>Abilitare la sottoscrizione di Azure per l'anteprima pubblica di Data Lake Store.
-
-È innanzitutto necessario richiedere che la sottoscrizione di Azure sia abilitata per l'anteprima pubblica di Archivio Data Lake. Attenersi ai passaggi indicati di seguito:
-
-1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
-2. Fare clic su **NUOVO**, fare clic su **Dati + archiviazione**, e quindi fare clic su **Archivio Data Lake di Azure**.
-3. Nel pannello **nuovo archivio Data Lake**, fare clic su **Iscriversi per visualizzare l’anteprima**. Leggere le informazioni e quindi fare clic su **OK**. Quando la sottoscrizione è stata abilitata per l'anteprima pubblica, si riceverà un messaggio di posta elettronica.
-
-	![Iscriversi per l'anteprima pubblica](./media/data-lake-store-get-started-portal/preview-signup.png "Creare un nuovo account di Azure Data Lake")
-
 ## Apprendimento rapido con i video
 
 Guardare i video seguenti per iniziare a usare Archivio Data Lake.
@@ -62,7 +52,7 @@ Guardare i video seguenti per iniziare a usare Archivio Data Lake.
 
 	![Creare un nuovo account di Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Creare un nuovo account di Azure Data Lake")
 
-	- **Sottoscrizione**. Selezionare la sottoscrizione in cui si desidera creare un nuovo account archivio Data Lake.
+	- **Sottoscrizione**. Selezionare la sottoscrizione in cui si vuole creare un nuovo account Data Lake Store.
 	- **Gruppo di risorse** Selezionare un gruppo di risorse esistente, o fare clic su **Crea un gruppo di risorse** per crearne uno. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per altre informazioni, vedere [Gruppi di risorse in Azure](resource-group-overview.md#resource-groups).
 	- **Posizione**: selezionare una posizione in cui si desidera creare l'account Archivio Data Lake
 
@@ -138,4 +128,4 @@ Per eliminare un account di Archivio Data Lake di Azure, dal pannello dell’acc
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Accesso ai log di diagnostica per Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

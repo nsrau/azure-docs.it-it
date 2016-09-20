@@ -64,7 +64,7 @@ Se non si ha familiarità con DocumentDB, è possibile guardare [questo](https:/
 
     ![Screenshot del pannello Gruppo di risorse: inizio dello sviluppo dell'applicazione](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-6.png)
 
-    ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
@@ -93,4 +93,4 @@ Per altre informazioni su DocumentDB, vedere le risorse seguenti:
 -	[Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modello di risorse gerarchico e concetti relativi a DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0914_2016-->
