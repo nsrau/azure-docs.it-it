@@ -121,7 +121,7 @@ Ottenere tutte le reti virtuali nella sottoscrizione con il comando seguente.
 	
 Verrà visualizzato un risultato simile al seguente:
 
-![Schermata della riga di comando con evidenziato l'intero nome della rete virtuale.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)  
+![Schermata della riga di comando con evidenziato l'intero nome della rete virtuale.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
 Nell'esempio precedente il valore **virtualNetworkName** è l'intero nome **"Gruppo classicubuntu16 classicubuntu16"**.
 

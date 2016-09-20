@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="09/01/2016"
-   ms.author="stepsic"/>  
+   ms.author="stepsic"/>
 
 # App API JavaScript
 
@@ -94,9 +94,9 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 
  
 
-<!--References -->  
+<!--References -->
 
-<!--Links -->  
+<!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -171,7 +171,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 		    [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
 	    }
 
-	This method handles notifications received when the app is running by displaying a simple **UIAlert**.
+	Questo metodo gestisce le notifiche ricevute quando l'app è in esecuzione visualizzando un semplice **UIAlert**.
 
 11. In ViewController.m, aggiungere un'istruzione import per AppDelegate.h e copiare il codice seguente nel metodo **subscribe** generato da XCode. Questo codice aggiornerà la registrazione della notifica per utilizzare i nuovi tag di categoria selezionati dall'utente nell'interfaccia utente.
 
@@ -347,7 +347,7 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
@@ -359,7 +359,7 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Usare Hub di notifica per la trasmissione di notizie localizzate]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started

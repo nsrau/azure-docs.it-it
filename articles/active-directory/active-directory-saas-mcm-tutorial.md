@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="08/30/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con MCM
   
@@ -63,23 +63,23 @@ Per configurare l'integrazione di MCM in Azure AD è necessario aggiungere MCM d
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applicazioni")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Aggiungere un'applicazione dalla raccolta")  
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Aggiungere un'applicazione dalla raccolta")
 
 6.  Nella **casella di ricerca** digitare **MCM**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Raccolta di applicazioni")  
+    ![Raccolta di applicazioni](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Raccolta di applicazioni")
 
 7.  Nel riquadro dei risultati selezionare **MCM** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-    ![MCM](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_001.png "MCM")  
+    ![MCM](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_001.png "MCM")
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con MCM in base a un utente test di nome "Britta Simon".
@@ -104,15 +104,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1.  Nella pagina di integrazione dell'applicazione **MCM** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configura accesso Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a MCM** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Single Sign-On di Microsoft Azure AD")  
+    ![Single Sign-On di Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Single Sign-On di Microsoft Azure AD")
 
 3.  Nella pagina Configurare le impostazioni dell'app seguire questa procedura:
 
-    ![Configura URL app](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configura URL app")  
+    ![Configura URL app](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configura URL app")
 
     a. Nella casella di testo **URL di accesso** digitare `https://myaba.co.uk/client-access/<company name>/saml.php`.
 	
@@ -120,40 +120,40 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4.  Nella pagina **Configura accesso Single Sign-On in MCM** fare clic su **Scarica metadati** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configura accesso Single Sign-On")
 
 5. Per configurare l'accesso Single Sign-On per l'applicazione, contattare il team di supporto MCM. Allegare il file dei metadati scaricato e condividerlo con il team MCM perché possa svolgere le proprie attività di configurazione di SSO.
 
 6.  Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configura accesso Single Sign-On")
 
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configura accesso Single Sign-On")  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configura accesso Single Sign-On")
 
 
 ### Creazione di un utente test di Azure AD
 
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
-![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_00.png)  
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_00.png)
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_01.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_01.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_02.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_02.png)
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_03.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_03.png)
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
@@ -167,7 +167,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_05.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_05.png)
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -181,11 +181,11 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_06.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_06.png)
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_07.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_07.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -202,27 +202,27 @@ In questa sezione viene creato un utente di nome Britta Simon in MCM. Collaborar
   
 L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a MCM.
 	
-![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Assegna utenti")  
+![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Assegna utenti")
 
 **Per assegnare Britta Simon a MCM seguire questa procedura:**
 
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
     
-	![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assegna utenti")  
+	![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assegna utenti")
 
 2. Nell'elenco delle applicazioni selezionare **MCM**.
     
-	![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_08.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_08.png)
 
 1. Scegliere **Utenti** dal menu in alto.
     
-	![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assegna utenti")  
+	![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assegna utenti")
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
     
-	![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assegna utenti")  
+	![Assegna utenti](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assegna utenti")
 
 
 ### Test dell'accesso Single Sign-On

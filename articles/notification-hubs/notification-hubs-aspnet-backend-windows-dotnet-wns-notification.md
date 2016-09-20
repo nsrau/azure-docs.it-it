@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 #Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
 
@@ -381,7 +381,7 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Introduzione ad Hub di notifica]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Push sicuro]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md

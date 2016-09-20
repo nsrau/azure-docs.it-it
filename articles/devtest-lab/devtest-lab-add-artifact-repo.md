@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Aggiungere un repository di elementi Git a un lab in Azure DevTest Labs
 
@@ -100,7 +100,7 @@ Per ottenere l'URL clone del repository di Visual Studio Team Services e il toke
 
 1. Nel pannello **Repository elementi** selezionare **+Aggiungi**.
 
-	![Pulsante Aggiungi repository elementi](./media/devtest-lab-add-artifact-repo/add-artifact-repo.png)  
+	![Pulsante Aggiungi repository elementi](./media/devtest-lab-add-artifact-repo/add-artifact-repo.png)
  
 1. Nel secondo pannello **Repository elementi** specificare quanto segue:
 
@@ -110,7 +110,7 @@ Per ottenere l'URL clone del repository di Visual Studio Team Services e il toke
     - **Ramo**: immettere il ramo per ottenere le definizioni degli elementi.
     - **Token di accesso personale**: immettere il token di accesso personale ottenuto in precedenza da GitHub o Visual Studio Team Services.
      
-	![Pannello Repository elementi](./media/devtest-lab-add-artifact-repo/artifact-repo-blade.png)  
+	![Pannello Repository elementi](./media/devtest-lab-add-artifact-repo/artifact-repo-blade.png)
 
 1. Selezionare **Salva**.
 

@@ -17,13 +17,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/29/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Panoramica del monitoraggio dell'integrità del gateway applicazione
 
 Per impostazione predefinita, il gateway applicazione di Azure monitora l'integrità di tutte le risorse nel pool back-end e rimuove automaticamente dal pool le risorse considerate non integre. Il gateway applicazione continua a monitorare le istanze non integre e le riaggiunge al pool back-end integro, dopo che sono diventate disponibili e rispondono ai probe di integrità.
 
-![Esempio di probe del gateway applicazione][1]  
+![Esempio di probe del gateway applicazione][1]
 
 Oltre al monitoraggio del probe di integrità predefinito, è anche possibile personalizzare il probe di integrità in base ai requisiti dell'applicazione. In questo articolo vengono illustrati i probe di integrità predefiniti e personalizzati.
 

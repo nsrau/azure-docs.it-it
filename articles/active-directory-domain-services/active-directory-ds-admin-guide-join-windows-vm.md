@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Aggiungere una macchina virtuale Windows Server a un dominio gestito
 
@@ -22,7 +22,7 @@
 - [Portale di Azure classico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 - [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 
-<br>  
+<br>
 
 Questo articolo illustra come aggiungere una macchina virtuale che esegue Windows Server 2012 R2 a un dominio gestito di Servizi di dominio Azure AD, usando il portale di Azure classico.
 
@@ -42,7 +42,7 @@ Seguire questa procedura per creare una macchina virtuale Windows aggiunta alla 
 
 4. Nella seconda schermata è possibile scegliere un nome computer, una dimensione e il nome e la password dell'amministratore. Scegliere il livello e la dimensione necessari per eseguire l'app o il carico di lavoro. Il nome utente selezionato qui corrisponde a un utente amministratore locale del computer. Non immettere in questo campo le credenziali di un account utente di dominio.
 
-    ![Configurare la macchina virtuale](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)  
+    ![Configurare la macchina virtuale](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
 
 5. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Assicurarsi di selezionare la rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD dall'elenco a discesa **Area/Gruppo di affinità/Rete virtuale**. Specificare un **Nome DNS del servizio cloud** appropriato per la macchina virtuale.
 
@@ -67,7 +67,7 @@ Seguire questa procedura per connettersi alla macchina virtuale.
 
 1. Passare al nodo **Macchine virtuali** nel portale classico. Selezionare la macchina virtuale creata nel passaggio 1 e fare clic su **Connetti** sulla barra dei comandi nella parte inferiore della finestra.
 
-    ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)  
+    ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
 2. Il portale classico richiederà di aprire o salvare un file con estensione rdp, usato per connettersi alla macchina virtuale. Dopo aver terminato il download, fare clic sul file per aprirlo.
 
@@ -83,7 +83,7 @@ Seguire questa procedura per aggiungere la macchina virtuale Windows Server al d
 
 2. Fare clic su **Server locale** nel riquadro sinistro della finestra di Server Manager.
 
-    ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)  
+    ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
 3. Fare clic su **GRUPPO DI LAVORO** nella sezione **PROPRIETÀ**. Verrà aperta la pagina **Proprietà del sistema**. Per l'aggiunta al dominio, fare clic su **Cambia**.
 
@@ -91,11 +91,11 @@ Seguire questa procedura per aggiungere la macchina virtuale Windows Server al d
 
 4. Specificare il nome di dominio del dominio gestito dai Servizi di dominio Azure AD nella casella di testo **Dominio** e fare clic su **OK**.
 
-    ![Specificare il dominio per l'aggiunta](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)  
+    ![Specificare il dominio per l'aggiunta](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
 5. Verrà richiesta l'immissione delle credenziali per l'aggiunta al dominio. Assicurarsi di **specificare le credenziali per un utente appartenente al gruppo di amministratori dei controller di dominio di Azure AD**. Solo i membri di questo gruppo hanno i privilegi necessari per aggiungete computer al dominio gestito.
 
-    ![Specificare le credenziali per l'aggiunta a un dominio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)  
+    ![Specificare le credenziali per l'aggiunta a un dominio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
 6. È possibile specificare le credenziali in uno dei modi seguenti:
 
@@ -105,7 +105,7 @@ Seguire questa procedura per aggiungere la macchina virtuale Windows Server al d
 
 7. Dopo l'aggiunta al dominio verrà visualizzato il messaggio di benvenuto seguente. Riavviare la macchina virtuale per completare l'operazione di aggiunta al dominio.
 
-    ![Messaggio di benvenuto al dominio](./media/active-directory-domain-services-admin-guide/join-domain-done.png)  
+    ![Messaggio di benvenuto al dominio](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
 
 ## Risoluzione dei problemi di aggiunta al dominio

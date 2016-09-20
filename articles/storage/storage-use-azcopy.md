@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="micurd"/>  
+	ms.author="micurd"/>
 
 # Trasferire dati con l'utilità della riga di comando AzCopy
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Gestire le formule dei lab di sviluppo/test per creare macchine virtuali
 
@@ -46,15 +46,15 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
 
 1. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
 
-    ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)  
+    ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
 1. Nel pannello **Formule lab** selezionare **+ Aggiungi**.
 
-    ![Aggiungere una formula](./media/devtest-lab-manage-formulas/add-formula.png)  
+    ![Aggiungere una formula](./media/devtest-lab-manage-formulas/add-formula.png)
 
 1. Nel pannello **Scegli una base** selezionare la base (immagine personalizzata, immagine Marketplace o formula) da cui si desidera creare la formula.
 
-    ![Elenco base](./media/devtest-lab-manage-formulas/base-list.png)  
+    ![Elenco base](./media/devtest-lab-manage-formulas/base-list.png)
 
 1. Specificare i valori seguenti nel pannello **Crea formula**:
 
@@ -69,7 +69,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
 	- **Indirizzo IP pubblico**: se i criteri del lab sono impostati per consentire gli indirizzi IP pubblici per la subnet selezionata, scegliere **Sì** o **No** per indicare se si desidera o meno rendere pubblico l'indirizzo IP. In caso contrario, questa opzione è disabilitata e impostata su **No**.
 	- **Elementi**: selezionare e configurare gli elementi che verranno aggiunti all'immagine di base. I valori delle stringhe sicure non vengono salvati con la formula. Pertanto, i parametri degli elementi corrispondenti a stringhe sicure non vengono visualizzati.
 
-    	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula.png)  
+    	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
 1. Selezionare **Crea** per creare la formula.
 
@@ -86,15 +86,15 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 
 1. Nel pannello **Panoramica** del lab selezionare la VM dalla quale creare la formula.
 
-	![Macchine virtuali di lab](./media/devtest-lab-manage-formulas/my-vms.png)  
+	![Macchine virtuali di lab](./media/devtest-lab-manage-formulas/my-vms.png)
 
 1. Nel pannello della VM selezionare **Crea formula (base riutilizzabile)**.
 
-	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)  
+	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
 1. Nel pannello **Crea formula** immettere un **Nome** e una **Descrizione** della nuova formula.
 
-	![Pannello Crea formula](./media/devtest-lab-manage-formulas/create-formula-blade.png)  
+	![Pannello Crea formula](./media/devtest-lab-manage-formulas/create-formula-blade.png)
 
 1. Fare clic su **OK** per creare la formula.
 
@@ -112,7 +112,7 @@ Per modificare una formula, seguire questa procedura:
 
 1. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
 
-    ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)  
+    ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
 1. Nel pannello **Formule lab** selezionare la formula che si vuole modificare.
 

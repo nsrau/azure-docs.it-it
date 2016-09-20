@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="02/02/2016"
-    ms.author="sewhee"/>  
+    ms.author="sewhee"/>
 
 # Bilanciamento del carico per i servizi di infrastruttura di Azure
 

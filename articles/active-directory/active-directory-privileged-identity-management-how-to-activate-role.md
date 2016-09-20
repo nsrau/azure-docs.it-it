@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/02/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management
 
@@ -48,7 +48,7 @@ Quando è necessario usare un ruolo, è possibile richiedere l'attivazione trami
 4. Selezionare **Attiva**. Verrà visualizzato il pannello **Richiedi l'attivazione del ruolo**.
 5. Alcuni ruoli richiedono l'autenticazione Multi-Factor Authentication (MFA) prima di poter attivare il ruolo. È sufficiente eseguire l'autenticazione una volta per sessione.
 
-    ![Schermata Verifica con MFA prima dell'attivazione del ruolo][2]  
+    ![Schermata Verifica con MFA prima dell'attivazione del ruolo][2]
 
 6. Immettere il motivo della richiesta di attivazione nel campo di testo. Alcuni ruoli richiedono di specificare un numero di ticket.
 7. Selezionare **OK**. Il ruolo sarà ora attivato e la modifica del ruolo sarà visibile in Microsoft Online Services.
@@ -60,14 +60,14 @@ Un ruolo attivato si disattiva automaticamente quando viene raggiunto il limite 
 Prima del raggiungimento del limite di tempo, è possibile disattivare un ruolo manualmente nell'applicazione Azure AD Privileged Identity Management. Selezionare **Attiva il mio ruolo**, scegliere il ruolo che non più necessario usare e selezionare **Disattiva**.
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
 Per altre informazioni su Azure AD Privileged Identity Management, vedere i collegamenti seguenti.
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Caso di utilizzo - Profilo clienti
 
@@ -35,7 +35,7 @@ L'obiettivo di Contoso consiste nell'identificare opportunità di up-selling o c
 
 Questo semplice caso di utilizzo esemplifica la modalità di utilizzo di Azure Data Factory per inserire, preparare, trasformare, analizzare e pubblicare i dati.
 
-![Flusso di lavoro end-to-end](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)  
+![Flusso di lavoro end-to-end](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
 
 Questa figura illustra come vengono visualizzate le pipeline di dati nel portale di Azure dopo la distribuzione.
 

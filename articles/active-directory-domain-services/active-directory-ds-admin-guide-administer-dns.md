@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Amministrare DNS in un dominio gestito dai Servizi di dominio Azure AD
 I Servizi di dominio Azure Active Directory includono un server DNS (Domain Name System, sistema dei nomi di dominio) che fornisce la risoluzione DNS per il dominio gestito. In alcuni casi potrebbe essere necessario configurare DNS nel dominio gestito. Potrebbe anche essere necessario creare record DNS per i computer non aggiunti al dominio, configurare indirizzi IP virtuali per servizi di bilanciamento del carico oppure impostare server d'inoltro DNS esterni. Per questo motivo, agli utenti che appartengono al gruppo "AAD DC Administrators" vengono concessi privilegi di amministrazione DNS nel dominio gestito.
@@ -33,7 +33,7 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 
 5. È necessario disporre delle credenziali di un **account utente appartenente al gruppo 'AAD DC Administrators'** nella directory per poter amministrare DNS per il dominio gestito.
 
-<br>  
+<br>
 
 ## Attività 1: Eseguire il provisioning di una macchina virtuale aggiunta a un dominio per amministrare in remoto DNS per il dominio gestito
 I domini gestiti di Servizi di dominio Azure AD possono essere gestiti in remoto con i familiari strumenti di amministrazione di Active Directory, ad esempio il Centro di amministrazione di Active Directory o AD PowerShell. Analogamente, il DNS per il dominio gestito può essere amministrato in remoto usando gli strumenti di amministrazione del server DNS.
@@ -48,7 +48,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione DNS ne
 
 1. Accedere al nodo **Macchine virtuali** nel portale di Azure classico. Selezionare la macchina virtuale creata nell'attività 1 e fare clic su **Connetti** sulla barra dei comandi nella parte inferiore della finestra.
 
-    ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)  
+    ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
 2. Il portale classico richiederà di aprire o salvare un file con estensione rdp, usato per connettersi alla macchina virtuale. Dopo aver terminato il download, fare clic sul file con estensione rdp.
 
@@ -56,7 +56,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione DNS ne
 
 4. Dalla schermata Start aprire **Server Manager**. Fare clic su **Aggiungi ruoli e funzionalità** nel riquadro centrale della finestra di Server Manager.
 
-    ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)  
+    ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 
 5. Nella pagina **Prima di iniziare** di **Aggiunta guidata ruoli e funzionalità**, fare clic su **Avanti**.
 
@@ -74,7 +74,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione DNS ne
 
 9. Nella pagina **Funzionalità** fare clic per espandere il nodo **Strumenti di amministrazione remota del server**, quindi fare clic per espandere il nodo **Strumenti di amministrazione ruoli**. Selezionare la funzionalità **Strumenti per server DNS** dall'elenco di strumenti di amministrazione ruoli, come illustrato di seguito.
 
-	![Pagina Funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)  
+	![Pagina Funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 
 10. Nella pagina **Conferma** fare clic su **Installa** per installare la funzionalità Strumenti per server DNS nella macchina virtuale. Quando l'installazione della funzionalità viene completata correttamente, fare clic su **Chiudi** per uscire dall'**Aggiunta guidata ruoli e funzionalità**.
 
@@ -88,13 +88,13 @@ Dopo aver installato la funzionalità Strumenti per server DNS nella macchina vi
 
 1. Dalla schermata Start fare clic su **Strumenti di amministrazione**. Verrà visualizzata la console **DNS** installata nella macchina virtuale.
 
-	![Strumenti di amministrazione - Console DNS](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)  
+	![Strumenti di amministrazione - Console DNS](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
 
 2. Fare clic su **DNS** per avviare la console di gestione DNS.
 
 3. Nella finestra di dialogo **Connessione al server DNS** fare clic sull'opzione **Il computer seguente** e immettere il nome di dominio DNS del dominio gestito, ad esempio 'contoso100.com'.
 
-    ![Console DNS - connettersi al dominio](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)  
+    ![Console DNS - connettersi al dominio](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 
 4. La console DNS si connette al dominio gestito. Verrà visualizzata una vista simile alla seguente.
 

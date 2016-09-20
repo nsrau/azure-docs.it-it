@@ -13,7 +13,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/01/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
 
@@ -107,22 +107,22 @@ In questo caso, "WinGame" è il nome visualizzato nel portale di Application Ins
 
 Per visualizzare un conteggio degli eventi, aprire un pannello [Esplora metriche](app-insights-metrics-explorer.md), aggiungere un nuovo grafico e selezionare gli eventi.
 
-![](./media/app-insights-api-custom-events-metrics/01-custom.png)  
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
 Per confrontare il conteggio di eventi diversi, impostare il tipo di grafico a Griglia e raggruppare in base al nome dell’evento:
 
-![](./media/app-insights-api-custom-events-metrics/07-grid.png)  
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
 Nella griglia, fare clic su un nome di evento per visualizzare le singole occorrenze di quell'evento.
 
-![Eseguire il drill-through degli eventi](./media/app-insights-api-custom-events-metrics/03-instances.png)  
+![Eseguire il drill-through degli eventi](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Per visualizzare altri dettagli, fare clic su qualsiasi occorrenza.
 
 Per concentrarsi sugli eventi specifici in ricerca o in Esplora metriche, impostare il filtro del pannello sui nomi degli eventi a cui si è interessati:
 
-![Aprire i filtri, espandere il nome dell’evento e selezionare uno o più valori](./media/app-insights-api-custom-events-metrics/06-filter.png)  
+![Aprire i filtri, espandere il nome dell’evento e selezionare uno o più valori](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## Tenere traccia delle metriche
 
@@ -164,7 +164,7 @@ Infatti, è possibile eseguire questa operazione in un thread in background:
 
 Per visualizzare i risultati, aprire Esplora metriche e aggiungere un nuovo grafico. Impostarlo in modo che visualizzi le metriche.
 
-![Aggiungere un nuovo grafico o selezionare un grafico e selezionare le metriche in Personalizzato](./media/app-insights-api-custom-events-metrics/03-track-custom.png)  
+![Aggiungere un nuovo grafico o selezionare un grafico e selezionare le metriche in Personalizzato](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 Esistono tuttavia alcuni [limiti sul numero di metriche](#limits) da usare.
 
@@ -172,7 +172,7 @@ Esistono tuttavia alcuni [limiti sul numero di metriche](#limits) da usare.
 
 In un'app per dispositivo o pagine Web i dati di telemetria delle visualizzazioni pagina vengono inviati per impostazione predefinita quando viene caricata ogni schermata o pagina. È tuttavia possibile modificare questa impostazione per tenere traccia delle visualizzazioni pagina in momenti diversi o aggiuntivi. Ad esempio, in un'app che visualizza schede o pannelli, è possibile tenere traccia di una "pagina" ogni volta che l'utente apre un nuovo pannello.
 
-![Sezione Utilizzo nel pannello Panoramica](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)  
+![Sezione Utilizzo nel pannello Panoramica](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
 
 I dati relativi a utente e sessione vengono inviati come proprietà insieme alle visualizzazioni pagina, in modo che i grafici utente e sessione si attivino in presenza dei dati di telemetria delle visualizzazioni pagina.
 
@@ -202,7 +202,7 @@ Per impostazione predefinita, gli intervalli di tempo indicati come "Tempo di ca
 In alternativa, è possibile:
 
 * Impostare una durata esplicita nella chiamata [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview).
- * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`  
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
 * Usare le chiamate relative ai tempi di visualizzazione della pagina `startTrackPage` e `stopTrackPage`.
 
 *JavaScript*
@@ -476,27 +476,27 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, di valori delle propr
 
 **Se è stata usata la metrica**, aprire Esplora metriche e selezionare la metrica dal gruppo personalizzato:
 
-![Aprire Esplora metrica, selezionare il grafico e selezionare la metrica](./media/app-insights-api-custom-events-metrics/03-track-custom.png)  
+![Aprire Esplora metrica, selezionare il grafico e selezionare la metrica](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 *Se non viene visualizzata l'unità di misura, o se l'intestazione personalizzata non è presente, chiudere il pannello di selezione e riprovare più tardi. A volte potrebbe essere necessaria un'ora per aggregare le metriche attraverso la pipeline.*
 
 **Se si usano proprietà e metriche**, segmentare la metrica in base alla proprietà:
 
 
-![Impostare Raggruppamento e quindi selezionare la proprietà in Raggruppa per](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)  
+![Impostare Raggruppamento e quindi selezionare la proprietà in Raggruppa per](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
 
 
 
 In **Ricerca diagnostica** è possibile visualizzare le proprietà e le metriche di singole occorrenze di un evento.
 
 
-![Selezionare un'istanza e quindi scegliere '...'](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)  
+![Selezionare un'istanza e quindi scegliere '...'](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
 
 
 Usare il campo Ricerca per visualizzare le occorrenze di eventi con un valore della proprietà particolare.
 
 
-![Digitare un termine in Ricerca](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)  
+![Digitare un termine in Ricerca](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
 [Altre informazioni sulle espressioni di ricerca][diagnostic].
 
@@ -521,7 +521,7 @@ Se si preferisce, è possibile raccogliere i parametri di un evento in un oggett
 
 Quando l'app Web riceve una richiesta HTTP, il modulo di rilevamento delle richieste di Application Insights assegna un ID alla richiesta e imposta lo stesso valore come ID operazione corrente. L'ID operazione viene cancellato quando viene inviata la risposta alla richiesta. Alle chiamate di rilevamento effettuate durante l'operazione viene assegnato lo stesso ID operazione (a condizione che utilizzino il valore predefinito TelemetryContext). Ciò consente di correlare gli eventi relativi a una particolare richiesta quando si esegue la verifica nel portale.
 
-![Elementi correlati](./media/app-insights-api-custom-events-metrics/21.png)  
+![Elementi correlati](./media/app-insights-api-custom-events-metrics/21.png)
 
 Se si esegue il monitoraggio degli eventi non associati a una richiesta HTTP, o se non si utilizza il modulo di rilevamento delle richieste (ad esempio, se si sta monitorando un processo back-end) è possibile configurare il contesto dell'operazione utilizzando questo modello:
 
@@ -772,7 +772,7 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 [Risoluzione dei problemi][qna]
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md

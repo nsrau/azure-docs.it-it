@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
  
 # Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 
@@ -98,7 +98,7 @@ In caso contrario, il tipo di progetto non è supportato direttamente dagli Stru
 
 *Il comando di menu "Apri Application Insights" apre il portale di Azure, ma si verifica un errore di accesso negato.*
 
-![](./media/app-insights-asp-net-troubleshoot-no-data/access-denied.png)  
+![](./media/app-insights-asp-net-troubleshoot-no-data/access-denied.png)
 
 Le ultime informazioni di accesso Microsoft usate nel browser predefinito non hanno accesso alla [risorsa creata quando Application Insights è stato aggiunto all'app](app-insights-asp-net.md). Le cause possibili sono due:
 
@@ -147,7 +147,7 @@ Correzione:
 
 + Eseguire l'applicazione in modalità di debug in Visual Studio (F5). Usare l'applicazione per generare alcuni dati di telemetria. Verificare che gli eventi registrati vengano visualizzati nella finestra di output di Visual Studio.
 
-    ![](./media/app-insights-asp-net-troubleshoot-no-data/output-window.png)  
+    ![](./media/app-insights-asp-net-troubleshoot-no-data/output-window.png)
 
 + Nel portale di Application Insights aprire [Diagnostic Search](app-insights-diagnostic-search.md) (Ricerca diagnostica). I dati vengono in genere visualizzati prima qui.
 + Fare clic sul pulsante Aggiorna. Il pannello viene automaticamente aggiornato periodicamente, ma è anche possibile farlo manualmente. L'intervallo di aggiornamento è più lungo per intervalli di tempo maggiori.
@@ -156,7 +156,7 @@ Correzione:
  + In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse e scegliere Application Insights, Configura. Reimpostare l'app per l'invio di dati di telemetria alla risorsa corretta.
  + Se le chiavi non corrispondono, assicurarsi di aver usato le stesse credenziali di accesso in Visual Studio e nel portale.
 
-    ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)  
+    ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
     
 + Nel [dashboard della schermata iniziale di Microsoft Azure](https://portal.azure.com) esaminare la mappa relativa all'integrità del servizio. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
 + Controllare anche il [blog sullo stato](http://blogs.msdn.com/b/applicationinsights-status/).

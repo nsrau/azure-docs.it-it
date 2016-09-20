@@ -24,7 +24,7 @@ Eseguire questa procedura per effettuare il provisioning di una macchina virtual
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-    ![Dashboard del portale di Azure](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)  
+    ![Dashboard del portale di Azure](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 
 2. Fare clic su **Nuovo** nel riquadro a sinistra e digitare **Red Hat** nella barra di ricerca, come illustrato nello screenshot seguente. Nei risultati della ricerca vengono visualizzate le voci per Red Hat Enterprise Linux. Fare clic su **Red Hat Enterprise Linux 7.2**.
 
@@ -32,7 +32,7 @@ Eseguire questa procedura per effettuare il provisioning di una macchina virtual
 
 3. I risultati della ricerca nel riquadro **Tutto** dovrebbero elencare l'immagine di Red Hat Enterprise Linux 7.2. Fare clic su **Red Hat Enterprise Linux 7.2** per visualizzare altre informazioni sull'immagine della macchina virtuale.
 
-    ![Selezionare RHEL nei risultati](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-select-rhel-image.png)  
+    ![Selezionare RHEL nei risultati](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-select-rhel-image.png)
 
 4. Nel riquadro **Red Hat Enterprise Linux 7.2** dovrebbero essere visualizzate altre informazioni sull'immagine della macchina virtuale. Nell'elenco a discesa **Selezionare un modello di distribuzione** selezionare **Classico**. Quindi, fare clic sul pulsante **Crea**.
 
@@ -40,11 +40,11 @@ Eseguire questa procedura per effettuare il provisioning di una macchina virtual
 
 5. Nel riquadro **Crea macchina virtuale** immettere il **Nome host** per la nuova macchina virtuale. Specificare anche il nome utente di un amministratore locale nel campo **Nome utente** e la relativa **Password**. Si può anche scegliere di usare una chiave SSH per l'autenticazione dell'utente amministratore locale. Selezionare anche un **Piano tariffario** per la macchina virtuale.
 
-    ![Creare una macchina virtuale: dettagli di base](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)  
+    ![Creare una macchina virtuale: dettagli di base](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
 6. Fare clic su **Configurazione facoltativa**. Viene visualizzato un riquadro denominato **Configurazione facoltativa**. Nel riquadro **Configurazione facoltativa** fare clic su **Rete**.
 
-    ![Creare una macchina virtuale: configurare una rete virtuale](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)  
+    ![Creare una macchina virtuale: configurare una rete virtuale](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
 
 7. Verrà visualizzato un riquadro denominato **Rete**. Nel riquadro **Rete** fare clic su **Rete virtuale** per selezionare la rete virtuale in cui deve essere distribuita la macchina virtuale Linux. Verrà visualizzato il riquadro **Rete virtuale**. Nel riquadro **Rete virtuale** scegliere l'opzione **Usa una rete virtuale esistente**. Quindi selezionare la rete virtuale in cui è disponibile Servizi di dominio Azure AD. In questo esempio viene selezionata la rete virtuale 'MyPreviewVNet'.
 
@@ -97,7 +97,7 @@ Dopo la connessione alla macchina virtuale, l'attività successiva consiste nell
 
     Dopo alcuni minuti, il pacchetto realmd dovrebbe essere installato nella macchina virtuale.
 
-    ![realmd installato](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)  
+    ![realmd installato](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
 
 3. **Installare sssd:** il pacchetto realmd dipende da sssd per l'esecuzione di operazioni di aggiunta a un dominio. Nel terminale PuTTY digitare il comando seguente.
 
@@ -135,7 +135,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 
     kinit bob@CONTOSO100.COM
 
-    ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)  
+    ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
 
     Verificare che il nome di dominio sia scritto in lettere maiuscole; in caso contrario kinit avrà esito negativo.
 

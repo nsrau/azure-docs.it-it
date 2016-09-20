@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/06/2016"
-   ms.author="toddabel"/>  
+   ms.author="toddabel"/>
 
 
 # Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale

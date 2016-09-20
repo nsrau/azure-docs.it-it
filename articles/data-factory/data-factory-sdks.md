@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Guida di riferimento per gli sviluppatori di Data factory di Azure
 

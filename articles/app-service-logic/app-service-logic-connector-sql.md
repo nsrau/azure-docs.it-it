@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="09/01/2016"
-   ms.author="sameerch"/>  
+   ms.author="sameerch"/>
 
 
 # Uso del connettore Microsoft SQL e aggiunta all'app per la logica
@@ -144,7 +144,7 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-sql/Create.png
 [5]: ./media/app-service-logic-connector-sql/LogicApp1.png
 [6]: ./media/app-service-logic-connector-sql/LogicApp2.png

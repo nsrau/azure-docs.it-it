@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2016"
-	ms.author="davidmu"/>  
+	ms.author="davidmu"/>
 
 # Ridimensionamento automatico e set di scalabilità di macchine virtuali
 

@@ -37,7 +37,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 2. Nella finestra di SSH digitare il comando seguente. L'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
 
-	`sudo waagent -deprovision+user`  
+	`sudo waagent -deprovision+user`
 
 	Questo comando prova a pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione esegue le attività seguenti:
 
@@ -61,11 +61,11 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 6. Assicurarsi che sia attiva la modalità Gestione dei servizi:
 
-	`azure config mode asm`  
+	`azure config mode asm`
 
 7. Arrestare la macchina virtuale già sottoposta al deprovisioning nei passaggi precedenti con:
 
-	`azure vm shutdown <your-virtual-machine-name>`  
+	`azure vm shutdown <your-virtual-machine-name>`
 
 	>[AZURE.NOTE] È possibile individuare tutte le macchine virtuali create nella sottoscrizione utilizzando `azure vm list`
 
@@ -77,11 +77,11 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 9.	La nuova immagine è ora disponibile nell'elenco delle immagini che possono essere utilizzate per configurare nuove macchine virtuali. È possibile visualizzarla con il comando:
 
-	`azure vm image list`  
+	`azure vm image list`
 
 	Verrà visualizzata nell'elenco **IMMAGINI** del [portale di Azure classico][].
 
-	![Acquisizione dell'immagine eseguita correttamente](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)  
+	![Acquisizione dell'immagine eseguita correttamente](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 
 ## Passaggi successivi

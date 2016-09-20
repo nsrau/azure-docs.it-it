@@ -19,7 +19,7 @@ Quando si usa l'autenticazione con la chiave condivisa, si creerà una [stringa 
 
 Ecco un esempio di stringa di connessione che usa l'autenticazione con la chiave condivisa:
 
-`"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"`  
+`"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"`
 
 ### Firme di accesso condiviso
 Per un'applicazione mobile, il metodo consigliato per autenticare una richiesta da parte di un client in base al servizio di archiviazione di Azure è di usare una firma di accesso condiviso. La firma di accesso condiviso consente di concedere a un client l'accesso a una risorsa per un periodo di tempo specificato, con un set di autorizzazioni specificato. Il proprietario dell'account di archiviazione dovrà generare una firma di accesso condiviso che verrà usata dai client mobili. Per generare la firma di accesso condiviso da distribuire ai client, è possibile che si voglia scrivere un apposito servizio separato. A scopo di test, è possibile usare [Esplora archivi di Microsoft Azure](http://storageexplorer.com) o il [portale di Azure](https://portal.azure.com) per generare una firma di accesso condiviso. Quando si crea la firma di accesso condiviso, è possibile specificare l'intervallo di tempo in cui la firma di accesso condiviso è valida e le autorizzazioni che la firma di accesso condiviso concede al client.
@@ -34,7 +34,7 @@ L'esempio seguente mostra come usare Esplora archivi di Microsoft Azure per gene
 
 4. Di seguito è riportato un esempio di una stringa di connessione della firma di accesso condiviso che concede le autorizzazioni di lettura e scrittura a livello di servizio, contenitore e oggetto per il servizio BLOB dell'account di archiviazione.
 
-  `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`  
+  `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
 Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
 

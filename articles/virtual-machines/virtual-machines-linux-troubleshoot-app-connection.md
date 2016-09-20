@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Risoluzione dei problemi: non è possibile avviare, accedere o connettersi a un'applicazione in esecuzione in una macchina virtuale di Azure
 

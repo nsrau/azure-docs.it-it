@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/01/2016"
-   ms.author="andkjell"/>  
+   ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni
 L'obiettivo di questo argomento è descrivere le attività operative per il servizio di sincronizzazione Azure AD Connect.

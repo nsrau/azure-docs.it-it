@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/18/2016" 
-	ms.author="tomfitz"/>  
+	ms.author="tomfitz"/>
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
 

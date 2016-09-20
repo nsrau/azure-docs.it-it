@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="08/29/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 #Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 

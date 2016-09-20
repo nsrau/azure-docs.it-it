@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="glimoli;genli"/>  
+	ms.author="glimoli;genli"/>
 
 # Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure
 Per caricare una macchina virtuale di Windows da una posizione locale ad Azure, è necessario preparare correttamente il disco rigido virtuale (VHD). Esistono alcune procedure consigliate da svolgere prima di caricare un disco VHD in Azure. L'esecuzione di `sysprep` è una procedura abituale, ma rappresenta solo un passaggio nella generalizzazione di un'immagine. Questo articolo descrive come preparare un disco rigido virtuale di Windows da caricare in Microsoft Azure.

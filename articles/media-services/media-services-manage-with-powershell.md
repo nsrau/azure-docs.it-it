@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/04/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Gestire gli account di Servizi multimediali di Azure con PowerShell

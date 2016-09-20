@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/30/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 #  Campionamento in Application Insights
 
@@ -85,7 +85,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Frequenza di destinazione che l'algoritmo adattivo deve raggiungere **su ogni host server**. Se l'app Web viene eseguita su più host, ridurre questo valore per non superare la frequenza di destinazione del traffico nel portale di Application Insights.
 
-* `<EvaluationInterval>00:00:15</EvaluationInterval>`  
+* `<EvaluationInterval>00:00:15</EvaluationInterval>`
 
     Intervallo in base al quale la frequenza corrente della telemetria viene rivalutata. La valutazione viene eseguita come media mobile. Potrebbe essere necessario ridurre questo intervallo se la telemetria è responsabile di burst improvvisi.
 

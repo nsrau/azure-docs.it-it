@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>  
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gestire e monitorare i backup della macchina virtuale di Azure
 

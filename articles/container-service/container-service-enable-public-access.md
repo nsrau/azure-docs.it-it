@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/26/2016"
-   ms.author="adegeo"/>  
+   ms.author="adegeo"/>
 
 # Abilitare l'accesso pubblico a un'applicazione del servizio contenitore di Azure
 
@@ -30,11 +30,11 @@ Prima di tutto è necessario aprire la porta desiderata.
 2. Trovare il gruppo di risorse in cui è stato distribuito il servizio contenitore di Azure.
 3. Selezionare il servizio di bilanciamento del carico dell'agente, che ha un nome simile a **XXXX-agent-lb-XXXX**.
 
-    ![Servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/agent-load-balancer.png)  
+    ![Servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/agent-load-balancer.png)
 
 4. Fare clic su **Probe** e quindi su **Aggiungi**.
 
-    ![Probe del servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/add-probe.png)  
+    ![Probe del servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/add-probe.png)
 
 5. Compilare il form dei probe e fare clic su **OK**.
 
@@ -49,7 +49,7 @@ Prima di tutto è necessario aprire la porta desiderata.
 
 6. Tornare alle proprietà del servizio di bilanciamento del carico dell'agente, fare clic su **Regole di bilanciamento del carico** e quindi su **Aggiungi**.
 
-    ![Regole del servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/add-balancer-rule.png)  
+    ![Regole del servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/add-balancer-rule.png)
 
 7. Compilare il modulo del servizio di bilanciamento del carico e fare clic su **OK**.
 
@@ -71,11 +71,11 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
 2. Trovare il gruppo di risorse in cui è stato distribuito il servizio contenitore di Azure.
 3. Selezionare il gruppo di sicurezza di rete dell'agente **pubblico**, che ha un nome simile a **XXXX-agent-public-nsg-XXXX**.
 
-    ![Gruppo di sicurezza di rete del servizio contenitore di Azure](media/container-service-dcos-agents/agent-nsg.png)  
+    ![Gruppo di sicurezza di rete del servizio contenitore di Azure](media/container-service-dcos-agents/agent-nsg.png)
 
 4. Selezionare **Regole di sicurezza in ingresso** e quindi fare clic su **Aggiungi**.
 
-    ![Regole del gruppo di sicurezza di rete del servizio contenitore di Azure](media/container-service-dcos-agents/add-firewall-rule.png)  
+    ![Regole del gruppo di sicurezza di rete del servizio contenitore di Azure](media/container-service-dcos-agents/add-firewall-rule.png)
 
 5. Compilare la regola del firewall per consentire la porta pubblica e fare clic su **OK**.
 

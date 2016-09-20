@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
 
@@ -34,7 +34,7 @@ Il ridimensionamento automatico di Azure Insights di applica solo a
 
 Il ridimensionamento automatico consente di avere la giusta quantità di risorse in esecuzione per gestire il carico dell'applicazione, senza sprecare denaro a causa di risorse rimaste inattive. Consente di aggiungere o rimuovere automaticamente le risorse di calcolo in base a un set di regole. La figura 1 illustra questo concetto.
 
-![Descrizione del concetto di ridimensionamento automatico](./media/monitoring-autoscale-overview/AutoscaleConcept.png)  
+![Descrizione del concetto di ridimensionamento automatico](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
 **Figure 1: Descrizione del concetto di ridimensionamento automatico**
 
@@ -54,7 +54,7 @@ L'elenco completo dei valori configurabili è disponibile nel [API REST di ridim
 ## Diagramma concettuale  
 La figura 2 mostra una panoramica concettuale del ridimensionamento automatico, seguita da una spiegazione delle parti del diagramma.
 
-![Aggiunta di una regola](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)  
+![Aggiunta di una regola](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
 
 **Figura 2: Panoramica del processo di ridimensionamento automatico**
 
@@ -85,7 +85,7 @@ Le regole possono attivare uno o più tipi di azioni.
 
 Le regole di ridimensionamento automatico hanno la struttura seguente in un modello di Azure Resource Manager.
 
-![Struttura delle regole di ridimensionamento automatico di Azure Resource Manager](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure2.png)  
+![Struttura delle regole di ridimensionamento automatico di Azure Resource Manager](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure2.png)
 
 È possibile elencare più profili. Ogni profilo può avere più regole. I percorsi e i metodi di notifica sono inclusi dopo i profili. Gli esempi di notifica includono un webhook con l'URI o messaggi di posta elettronica con i relativi indirizzi.
 

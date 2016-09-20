@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.date="08/08/2016" 
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 #Come implementare l'esplorazione in base a facet in Ricerca di Azure
 
@@ -264,7 +264,7 @@ Ricerca di Azure semplifica la creazione degli intervalli fornendo due approcci 
 
 **Approccio 2: usare un elenco di valori**<br/> Per dati numerici, è possibile usare un elenco di valori. Prendere in considerazione l'intervallo di facet per listPrice, sottoposto a rendering come segue:
 
-  ![][5]  
+  ![][5]
 
 L'intervallo è specificato nel file **CatalogSearch.cs** in cui viene usato un elenco di valori:
 
@@ -278,7 +278,7 @@ Per filtrare i documenti in base a un intervallo selezionato dall'utente, è pos
 
 Nell'applicazione di esempio nell'espressione di filtro vengono utilizzati i parametri **priceFrom** e **priceTo** per impostare gli endpoint. Il metodo **BuildFilter** in **CatalogSearch.cs** contiene l'espressione di filtro che fornisce i documenti all'interno di un intervallo.
 
-  ![][6]  
+  ![][6]
 
 <a name="geofacets"></a>
 ##Esplorazione in base a facet basata su GeoPoint
@@ -306,21 +306,21 @@ La demo Adventure Works di Ricerca di Azure in Codeplex contiene gli esempi desc
 
 	Inizialmente, solo la casella di ricerca è visibile. È possibile fare clic sul pulsante di ricerca per ottenere tutti i risultati o digitare un termine di ricerca.
 
-	![][7]  
+	![][7]
  
 4.	Immettere un termine di ricerca, ad esempio bicicletta, quindi fare clic sul pulsante di **ricerca**. La query viene eseguita rapidamente.
  
 	Una struttura di esplorazione in base a facet viene inoltre restituita con i risultati della ricerca. Nell'URL i facet per i colori, le categorie e i prezzi sono null. Nella pagina dei risultati di ricerca la struttura di esplorazione in base a facet include conteggi per ogni risultato facet.
 
-	 ![][8]  
+	 ![][8]
  
 5.	Fare clic su un colore, una categoria e una fascia di prezzo. I facet sono null in una ricerca iniziale, ma come assumono i valori, vengono eliminati i risultati della ricerca di elementi che non corrispondono. Si noti che l'URI visualizza le modifiche apportate alla query.
 
-	![][9]  
+	![][9]
  
 6.	Per cancellare la query di collaborazione in modo che sia possibile provare i comportamenti di query diversi, fare clic su **AdventureWorks Catalog** nella parte superiore della pagina.
 
-	![][10]  
+	![][10]
  
 <a name="nextstep"></a>
 ##Passaggio successivo
@@ -334,7 +334,7 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
 È anche possibile guardare gli [approfondimenti su Ricerca di Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Al minuto 45:25 è presente una dimostrazione su come implementare i facet.
 
-<!--Anchors-->  
+<!--Anchors-->
 [How to build it]: #howtobuildit
 [Build the presentation layer]: #presentationlayer
 [Build the index]: #buildindex
@@ -357,7 +357,7 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 [9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 
-<!--Link references-->  
+<!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md

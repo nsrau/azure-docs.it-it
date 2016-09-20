@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="07/21/2016"
-	ms.author="krisragh"/>  
+	ms.author="krisragh"/>
 
 # Aggiungere notifiche push all'app per iOS e al back-end JavaScript
 
@@ -64,7 +64,7 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [AZURE.INCLUDE [Sottoporre a test le notifiche push nell'app](../../includes/test-push-notifications-in-app.md)]
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 
 <!-- Images. -->

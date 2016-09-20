@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="07/22/2016"
-	ms.author="mikeray"/>  
+	ms.author="mikeray"/>
 
 # Usare Archiviazione di Azure per il backup e il ripristino di SQL Server
 

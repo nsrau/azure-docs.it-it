@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="andkjell"/>  
+	ms.author="andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Synchronization Service Manager
@@ -22,7 +22,7 @@
 [Operazioni](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connettori](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Finestra di progettazione metaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Ricerca metaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 --- | --- | --- | ---
 
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
 La scheda Metaverse Search (Ricerca metaverse) è utile per la risoluzione dei problemi relativi ai dati. Nella parte superiore è possibile creare una query con una combinazione di attributi. Quando si è soddisfatti della query, fare clic su **Search** (Cerca). Il risultato sarà visualizzato nella griglia inferiore. È possibile scegliere quali colonne visualizzare tramite **Column Settings** (Impostazioni colonne).
 

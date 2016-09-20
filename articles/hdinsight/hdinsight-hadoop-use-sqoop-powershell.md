@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Eseguire processi Sqoop con Azure PowerShell per Hadoop in HDInsight
 

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/04/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>  
+   ms.author="rickbyh;barbkess;sonyama"/>
 
 # Autenticazione in Azure SQL Data Warehouse
 

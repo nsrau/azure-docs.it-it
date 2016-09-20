@@ -92,7 +92,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | Standard\_A6 | 4 | 28 | 285 | 8 | 8x500 | 2/alta |
 | Standard\_A7 | 8 | 56 | 605 | 16 | 16x500 | 4/alta |
 
-<br>  
+<br>
 ## Serie A - Istanze a elevato utilizzo di calcolo
 
 Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
@@ -105,7 +105,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard\_A10 | 8 | 56 | 382 | 16 | 16x500 | 2/alta |
 | Standard\_A11 | 16 | 112 | 382 | 16 | 16x500 | 4/molto alta |
 
-<br>  
+<br>
 ## Serie D
 
 
@@ -120,7 +120,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard\_D13 | 8 | 56 | 400 | 16 | 16x500 | 8/alta |
 | Standard\_D14 | 16 | 112 | 800 | 32 | 32x500 | 8/molto alta |
 
-<br>  
+<br>
 ## Serie Dv2
 
 | Dimensione | Core CPU | Memoria: GiB | Dimensioni del disco locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
@@ -136,7 +136,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard\_D14\_v2 | 16 | 112 | 800 | 32 | 32x500 | 8/estremamente alta |
 | Standard\_D15\_v2 | 20 | 140 | 1\.000 | 40 | 40x500 | 8/estremamente alta |
 
-<br>  
+<br>
 ## Serie DS*
 
 
@@ -191,7 +191,7 @@ MBps = 10^6 byte al secondo.
 | Standard\_F8 | 8 | 16 | 128 | 16 | 16x500 | 8/alta |
 | Standard\_F16 | 16 | 32 | 256 | 32 | 32x500 | 8/estremamente alta |
 
-<br>  
+<br>
 ## Serie Fs*
 
 | Dimensione | Core CPU | Memoria: GiB | Dimensioni del disco SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
@@ -207,7 +207,7 @@ MBps = 10^6 byte al secondo.
 *La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie Fs può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
-<br>  
+<br>
 ## Serie G
 
 | Dimensione | Core CPU | Memoria: GiB | Dimensioni unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
@@ -220,7 +220,7 @@ MBps = 10^6 byte al secondo.
 
 
 
-<br>  
+<br>
 ## Serie GS*
 
 

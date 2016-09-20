@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="09/06/2016"
-     ms.author="obloch"/>  
+     ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK per C: altre informazioni sulla libreria serializer
 

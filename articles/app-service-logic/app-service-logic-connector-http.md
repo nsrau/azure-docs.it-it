@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="08/31/2016"
-   ms.author="prkumar"/>  
+   ms.author="prkumar"/>
 
 
 # Uso del listener e dell'azione HTTP e aggiunta all'app per la logica
@@ -77,7 +77,7 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 > [AZURE.NOTE] Se si vuole iniziare a usare le app per la logica di Azure prima di creare un account di Azure, passare alla pagina che consente di [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
 [2]: ./media/app-service-logic-connector-http/2.png
 [3]: ./media/app-service-logic-connector-http/3.png

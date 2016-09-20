@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="07/21/2016"
-	ms.author="ricksal"/>  
+	ms.author="ricksal"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -90,7 +90,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, vedere i seguenti
 
 * [Come usare la libreria client di Android per Servizi mobili] <br/>Altre informazioni su come usare Servizi mobili con Android.
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 [Create a new mobile service]: #create-service
 [Download the service locally]: #download-the-service-locally
@@ -105,7 +105,7 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, vedere i seguenti
 
 <!-- Images. -->
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-android-get-started.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545

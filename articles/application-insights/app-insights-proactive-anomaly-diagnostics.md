@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/31/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 #  Diagnostica proattiva delle anomalie
 
@@ -71,7 +71,7 @@ I commenti e suggerimenti degli utenti sono molto graditi. Inviare commenti su c
 
 Aprire il report delle anomalie dal messaggio di posta elettronica o dall'elenco delle anomalie.
 
-![Nell'avviso di posta elettronica fare clic sul collegamento per aprire il report delle anomalie in Azure](./media/app-insights-proactive-anomaly-diagnostics/03.png)  
+![Nell'avviso di posta elettronica fare clic sul collegamento per aprire il report delle anomalie in Azure](./media/app-insights-proactive-anomaly-diagnostics/03.png)
 
 
 * Nell'area **Quando** è visualizzata l'ora in cui è stato rilevato il problema.

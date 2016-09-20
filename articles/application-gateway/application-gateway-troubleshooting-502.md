@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/02/2016"
-   ms.author="amitsriva" />  
+   ms.author="amitsriva" />
 
 # Risoluzione degli errori del gateway non valido nel gateway applicazione
 

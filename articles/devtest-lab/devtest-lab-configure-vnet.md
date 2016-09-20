@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Configurare una rete virtuale per Azure DevTest Labs
 
@@ -37,7 +37,7 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Selezionare **+ Aggiungi**.
 
-	![Aggiungere una rete virtuale esistente al lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)  
+	![Aggiungere una rete virtuale esistente al lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
 1. Nel pannello **Rete virtuale** selezionare **[Selezionare rete virtuale]**.
 
@@ -47,7 +47,7 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 
 1. Dopo aver selezionato una rete virtuale, viene visualizzato nuovamente il pannello **Rete virtuale** con diversi campi abilitati.
 
-	![Selezionare una rete virtuale esistente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)  
+	![Selezionare una rete virtuale esistente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
 
 1. Specificare una descrizione per la combinazione rete virtuale/lab.
 

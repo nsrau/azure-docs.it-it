@@ -17,7 +17,7 @@
     ms.tgt_pltfrm="na"
     ms.date="08/29/2016"
     ms.author="liamca"
-/>  
+/>
 
 # Esempi di sintassi di query Lucene per la creazione di query in Ricerca di Azure
 
@@ -103,7 +103,7 @@ Una ricerca con espressione regolare trova una corrispondenza in base al contenu
 
 **Esempio 8**: fare clic con il pulsante destro del mouse sulla query. Cercare i processi con il termine Senior o Junior.
 
-- `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`  
+- `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
 L'URL per questo esempio non visualizza correttamente la pagina. Come soluzione alternativa, copiare l'URL seguente e incollarlo nell'indirizzo URL del browser: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 

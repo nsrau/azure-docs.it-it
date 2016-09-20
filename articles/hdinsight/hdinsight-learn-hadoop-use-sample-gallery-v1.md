@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="09/02/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 # Informazioni su Hadoop tramite la raccolta di introduzione HDInsight
 
@@ -34,7 +34,7 @@ La raccolta di introduzione HDInsight fornisce un modo semplice e rapido per imp
 * [Informazioni su Hadoop tramite la raccolta di introduzione HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md)
 
 
-![Soluzioni della raccolta di introduzione HDInsight Hadoop, Storm e HBase con dati di esempio.][hdinsight.sample.gallery]  
+![Soluzioni della raccolta di introduzione HDInsight Hadoop, Storm e HBase con dati di esempio.][hdinsight.sample.gallery]
 
 Il seguente video clip mostra come eseguire l'esempio relativo all'analisi delle tendenze Twitter:
 

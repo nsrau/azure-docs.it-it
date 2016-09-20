@@ -14,7 +14,7 @@
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>  
+	ms.tgt_pltfrm="NA"/>
 
 
 # Importare un file BACPAC per creare un database SQL di Azure
@@ -62,7 +62,7 @@ Aprire il pannello di SQL Server:
 
 1.  Selezionare il livello di prezzo per il nuovo database e fare clic su **Seleziona**. Non è supportata l'importazione di un database direttamente in un pool elastico, ma è possibile importarlo prima in un database singolo e poi spostare il database in un pool.
 
-    ![selezionare un livello di prezzo][3]  
+    ![selezionare un livello di prezzo][3]
 
 1.  Immettere un **NOME DATABASE** per il database che verrà creato dal file BACPAC.
 2.  Scegliere il tipo di autenticazione e quindi specificare le informazioni di autenticazione per il server.
@@ -95,7 +95,7 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 - Per informazioni su come connettersi ed eseguire query su un database SQL importato, vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-import/import-database.png
 [2]: ./media/sql-database-import/storage-options.png
 [3]: ./media/sql-database-import/pricing-tier.png

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/06/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
 
@@ -126,7 +126,7 @@ I parametri usati sono:
 - **-Hostname e path**: percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se si ha un sito Web http://contoso.com/, ad esempio, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
 - **UnhealthyThreshold**: numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.
 
-<BR>  
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Creare pipeline predittive con le attività di Azure Machine Learning   
 ## Overview
@@ -300,7 +300,7 @@ Le pipeline di Big Data, con attività come Pig e Hive, possono generare uno o p
 
 Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è possibile specificare il BLOB di Azure come input. I file nell'archivio BLOB di Azure possono essere file di output, ad esempio 000000\_0, generati da uno script Pig e Hive in esecuzione in HDInsight. Il modulo Reader consente di leggere i file, senza estensioni, configurando la voce **Path to container, directory or blob** (Percorso del contenitore, della directory o del BLOB). La parte relativa al **percorso del contenitore** punta al contenitore, mentre **directory o BLOB** punta alla cartella che contiene i file, come illustrato nell'immagine seguente. L'asterisco (*) **specifica che tutti i file nel contenitore o nella cartella, ovvero data/aggregateddata/year=2014/month-6/***, vengono letti come parte dell'esperimento.
 
-![Proprietà del Blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)  
+![Proprietà del Blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
 
 ### Esempio 
@@ -462,7 +462,7 @@ La tabella seguente descrive i servizi Web usati in questo esempio. Per altre in
  
 L'immagine seguente illustra la relazione tra gli endpoint di training e di assegnazione dei punteggi in Azure ML.
 
-![Servizi Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)  
+![Servizi Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
 
 È possibile richiamare il **servizio Web di training** usando **Attività di esecuzione batch di Azure ML**. Richiamare il servizio Web di training è la stessa operazione che si esegue per richiamare un servizio Web di Azure ML, il servizio Web di assegnazione dei punteggi, per la valutazione dei dati. Le sezioni precedenti descrivono in dettaglio come richiamare un servizio Web di Azure ML da una pipeline di Azure Data Factory.
@@ -476,7 +476,7 @@ Questa sezione include una pipeline di esempio che usa **Attività di esecuzione
 
 Ecco la vista diagramma della pipeline di esempio. Come si può vedere, Attività di esecuzione batch di Azure ML accetta l'input di training e genera un output di training (file iLearner). Attività della risorsa di aggiornamento di Azure ML accetta questo output di training e aggiorna il modello nell'endpoint di servizio Web di assegnazione dei punteggi. Attività della risorsa di aggiornamento non produce un output. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
 
-![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)  
+![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 
 #### Servizio collegato di archiviazione BLOB di Azure:
@@ -595,7 +595,7 @@ Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedu
 - Fare clic su **ESECUZIONE BATCH** per ottenere il valore dell'URI per LA proprietà JSON **mlEndpoint**.
 - Fare clic su **AGGIORNA RISORSA** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
 
-![Endpoint aggiornabile](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)  
+![Endpoint aggiornabile](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
  
 #### Set di dati di output del segnaposto:
@@ -623,7 +623,7 @@ Attività della risorsa di aggiornamento di Azure ML non produce un output. Tutt
 #### Pipeline
 La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure ML accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
 
-![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)  
+![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 
 	{

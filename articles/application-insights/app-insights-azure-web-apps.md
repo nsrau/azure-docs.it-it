@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Monitoraggio delle prestazioni dell'applicazione web di Azure
 
@@ -38,7 +38,7 @@ Application Insights può fornire ulteriori dati di telemetria installando un SD
 
 In Visual Studio 2013 Update 2 o versione successiva aggiungere Application Insights SDK al progetto.
 
-![Fare clic con il pulsante destro del mouse sul progetto Web e scegliere Aggiungi Application Insights](./media/app-insights-azure-web-apps/03-add.png)  
+![Fare clic con il pulsante destro del mouse sul progetto Web e scegliere Aggiungi Application Insights](./media/app-insights-azure-web-apps/03-add.png)
 
 Se viene chiesto di effettuare l'accesso, usare le credenziali dell'account Azure.
 
@@ -55,7 +55,7 @@ L’SDK fornisce un'API per [scrivere dati di telemetria personalizzati](../appl
 
 Se l'SDK non è stato aggiunto in Visual Studio, è necessario configurare una risorsa di Application Insights in Azure, in cui i dati di telemetria vengono archiviati, analizzati e visualizzati.
 
-![Fare clic su Aggiungi, Servizi per gli sviluppatori, Application Insights. Scegliere il tipo di app ASP.NET.](./media/app-insights-azure-web-apps/01-new.png)  
+![Fare clic su Aggiungi, Servizi per gli sviluppatori, Application Insights. Scegliere il tipo di app ASP.NET.](./media/app-insights-azure-web-apps/01-new.png)
 
 
 ## Abilitare un'estensione
@@ -66,11 +66,11 @@ Se l'SDK non è stato aggiunto in Visual Studio, è necessario configurare una r
 
     Se si sta strumentalizzando un'applicazione web:
 
-![Impostazioni, Estensioni, Aggiungere, Application Insights](./media/app-insights-azure-web-apps/05-extend.png)  
+![Impostazioni, Estensioni, Aggiungere, Application Insights](./media/app-insights-azure-web-apps/05-extend.png)
 
 Oppure, se si usa una macchina virtuale:
 
-![Fare clic sul riquadro di analisi](./media/app-insights-azure-web-apps/10-vm1.png)  
+![Fare clic sul riquadro di analisi](./media/app-insights-azure-web-apps/10-vm1.png)
 
 
 
@@ -80,13 +80,13 @@ Oppure, se si usa una macchina virtuale:
 
 2. Fare clic su qualsiasi grafico per visualizzare altri dettagli:
 
-    ![Nel pannello di panoramica di Application Insights, fare clic su un grafico](./media/app-insights-azure-web-apps/07-dependency.png)  
+    ![Nel pannello di panoramica di Application Insights, fare clic su un grafico](./media/app-insights-azure-web-apps/07-dependency.png)
 
     È possibile [personalizzare i pannelli delle metriche](../application-insights/app-insights-metrics-explorer.md).
 
 3. Fare ancora clic per visualizzare i singoli eventi e le relative proprietà:
 
-    ![Fare clic su un tipo di evento per aprire una ricerca filtrata su tale tipo](./media/app-insights-azure-web-apps/08-requests.png)  
+    ![Fare clic su un tipo di evento per aprire una ricerca filtrata su tale tipo](./media/app-insights-azure-web-apps/08-requests.png)
 
     Si noti il collegamento "…" per aprire tutte le proprietà.
 

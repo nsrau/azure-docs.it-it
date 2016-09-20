@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/06/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Backup automatici del database SQL
 

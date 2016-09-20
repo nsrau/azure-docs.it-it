@@ -230,7 +230,7 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
 [Register for notifications]: #register
 [Send notifications from your back-end]: #send

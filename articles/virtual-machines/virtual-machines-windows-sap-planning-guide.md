@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
    ms.date="08/18/2016"
-   ms.author="sedusch"/>  
+   ms.author="sedusch"/>
 
 # SAP NetWeaver in macchine virtuali (VM) Windows - Guida alla pianificazione e all'implementazione
 
@@ -409,7 +409,7 @@ Per distribuire correttamente un sistema SAP in Azure, è necessario che i siste
 
 ### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>Solo cloud: distribuzioni di macchine virtuali in Azure senza dipendenze dalla rete locale dei clienti
  
-![Singola macchina virtuale con scenario dimostrativo o di formazione SAP distribuito in Azure][planning-guide-figure-100]  
+![Singola macchina virtuale con scenario dimostrativo o di formazione SAP distribuito in Azure][planning-guide-figure-100]
 
 Questo è lo scenario tipico per sistemi di formazione o dimostrativi, in cui tutti i componenti software SAP e non SAP vengono installati in una singola VM. I sistemi SAP di produzione non sono supportati in questo scenario di distribuzione. Questo scenario rispetta in genere i requisiti seguenti:
 
@@ -422,13 +422,13 @@ Questo è lo scenario tipico per sistemi di formazione o dimostrativi, in cui tu
 * Nel caso di scenari dimostrativi e di formazione realizzati in più macchine virtuali, è necessario avere un'istanza di Active Directory/OpenLDAP e/o il servizio DNS per ogni set di VM.
 
 
-![Gruppo di VM che rappresenta un scenario dimostrativo o di formazione in un servizio cloud di Azure][planning-guide-figure-200]  
+![Gruppo di VM che rappresenta un scenario dimostrativo o di formazione in un servizio cloud di Azure][planning-guide-figure-200]
 
 È importante ricordare che le macchine virtuali in ogni set devono essere distribuite in parallelo e che i nomi delle macchine virtuali in ogni set sono uguali.
 
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Più sedi locali: distribuzione di una o più VM SAP in Azure che devono essere completamente integrate con la rete locale
  
-![VPN con connettività da sito a sito (cross-premise)][planning-guide-figure-300]  
+![VPN con connettività da sito a sito (cross-premise)][planning-guide-figure-300]
 
 Questo scenario è uno scenario cross-premise con molti modelli di distribuzione possibili. Può essere descritto semplicemente come l'esecuzione di alcune parti del panorama applicativo SAP in locale e di altre parti del panorama applicativo SAP in Azure. Tutti gli aspetti dell'esecuzione di parte dei componenti SAP in Azure devono essere trasparenti per gli utenti finali. Il sistema STMS (SAP Correction and Transport System), i servizi di comunicazione RFC, stampa e sicurezza, ad esempio l'accesso Single Sign-On, e così via funzioneranno perfettamente per i sistemi SAP in esecuzione in Azure. Lo scenario cross-premise tuttavia descrive anche uno scenario in cui il panorama applicativo SAP completo viene eseguito in Azure con l'estensione del dominio e del DNS del cliente in Azure.
 
@@ -501,7 +501,7 @@ Altre informazioni sull'uso dei modelli di Azure Resource Manager sono disponibi
 
 * [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure][virtual-machines-linux-cli-deploy-templates]
 * [Gestire le macchine virtuali usando Gestione risorse di Azure e PowerShell][virtual-machines-deploy-rmtemplates-powershell]
-* <https://azure.microsoft.com/documentation/templates/>  
+* <https://azure.microsoft.com/documentation/templates/>
 
 Un'altra funzionalità interessante è costituita dalla possibilità di creare immagini dalle macchine virtuali, in modo da potere preparare alcuni repository da cui sarà possibile distribuire rapidamente istanze di macchine virtuali che soddisfano i requisiti specifici.
 
@@ -541,7 +541,7 @@ ___
 > Nelle macchine virtuali Linux viene montata come /mnt/resource o /mnt. Per informazioni dettagliate, vedere:
 > 
 > * [Come collegare un disco dati a una macchina virtuale Linux][virtual-machines-linux-how-to-attach-disk]
-> * <http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx>  
+> * <http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx>
 
 ___
 
@@ -574,10 +574,10 @@ Per informazioni sulle diverse opzioni di ridondanza, vedere anche la tabella al
 
 Altre informazioni su Archiviazione di Azure sono disponibili qui:
 
-* <https://azure.microsoft.com/documentation/services/storage/>  
+* <https://azure.microsoft.com/documentation/services/storage/>
 * <https://azure.microsoft.com/services/site-recovery>
 * <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>
-* <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>  
+* <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
 
 #### Archiviazione Standard di Azure
@@ -701,14 +701,14 @@ Microsoft Azure ExpressRoute consente la creazione di connessioni private tra i 
 
 Altri dettagli su Azure ExpressRoute e sulle offerte sono disponibili qui:
 
-* <https://azure.microsoft.com/documentation/services/expressroute/>  
+* <https://azure.microsoft.com/documentation/services/expressroute/>
 * <https://azure.microsoft.com/pricing/details/expressroute/>
-* <https://azure.microsoft.com/documentation/articles/expressroute-faqs/>  
+* <https://azure.microsoft.com/documentation/articles/expressroute-faqs/>
 
 ExpressRoute abilita più sottoscrizioni di Azure tramite un circuito ExpressRoute, come illustrato qui
 
-* <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/>  
-* <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>  
+* <https://azure.microsoft.com/documentation/articles/expressroute-howto-linkvnet-arm/>
+* <https://azure.microsoft.com/documentation/articles/expressroute-howto-circuit-arm/>
 
 
 #### Tunneling forzato in caso di scenari cross-premise
@@ -738,7 +738,7 @@ Le quote descritte rappresentano i valori massimi teorici. Il limite di IOPS per
 
 È possibile usare l'albero delle decisioni seguente come strumento approssimativo per decidere se un sistema SAP è adatto ai servizi inclusi in Macchine virtuali di Azure e alle relative funzionalità oppure se un sistema esistente deve essere configurato in modo diverso per essere distribuito in Azure.
  
-![Albero delle decisioni relativo alla possibilità di distribuire SAP in Azure][planning-guide-figure-700]  
+![Albero delle decisioni relativo alla possibilità di distribuire SAP in Azure][planning-guide-figure-700]
 
 **Passaggio 1**: le informazioni più importanti da cui iniziare sono i requisiti SAPS per uno specifico sistema SAP. I requisiti SAPS devono essere suddivisi tra la parte DBMS e la parte dell'applicazione SAP, anche se il sistema SAP è già distribuito in locale in una configurazione a 2 livelli. Per i sistemi esistenti, i valori SAPS correlati all'hardware in uso spesso possono essere determinati o stimati in base agli attuali benchmark SAP. I risultati sono consultabili qui: <http://global.sap.com/campaigns/benchmark/index.epx>. Per i sistemi SAP appena distribuiti, è necessario eseguire un esercizio di ridimensionamento per determinare i requisiti SAPS del sistema. Vedere anche questo post di blog e il documento allegato per il ridimensionamento di SAP in Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
@@ -761,7 +761,7 @@ Le quote descritte rappresentano i valori massimi teorici. Il limite di IOPS per
 ### Portale di Azure
 Il portale di Azure è una delle tre interfacce con cui gestire le distribuzioni di macchine virtuali di Azure. Le attività di gestione di base, come la distribuzione di macchine virtuali da immagini, possono essere eseguite dal portale di Azure. Un'altra attività che il portale di Azure riesce a gestire in modo ottimale è la creazione di account di archiviazione, reti virtuali e altri componenti di Azure. Tuttavia, funzionalità quali il caricamento di dischi rigidi virtuali da locale ad Azure o la copia di un disco rigido virtuale in Azure sono attività che richiedono strumenti di terze parti o l'amministrazione con PowerShell o l'interfaccia della riga di comando.
  
-![Portale di Microsoft Azure: panoramica delle macchine virtuali][planning-guide-figure-800]  
+![Portale di Microsoft Azure: panoramica delle macchine virtuali][planning-guide-figure-800]
 
 [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
@@ -1016,12 +1016,12 @@ I dischi dati vengono archiviati come file VHD nell'account di archiviazione di 
 
 ##### Strumenti di archiviazione di Azure
 
-* <http://azurestorageexplorer.codeplex.com/releases/view/125870>  
+* <http://azurestorageexplorer.codeplex.com/releases/view/125870>
 
 Edizioni professionali degli strumenti di esplorazione di Archiviazione di Azure sono disponibili qui:
 
-* <http://www.cerebrata.com/>  
-* <http://clumsyleaf.com/products/cloudxplorer>  
+* <http://www.cerebrata.com/>
+* <http://clumsyleaf.com/products/cloudxplorer>
 
 
 La copia di un disco rigido virtuale all'interno di un account di archiviazione è un processo che richiede solo pochi secondi, analogo a quello di un hardware SAN che crea snapshot con copia lenta e copia su scrittura. Dopo aver creato una copia del file VHD è possibile collegarla a una macchina virtuale o usarla come immagine per collegare le copie del file VHD alle macchine virtuali.
@@ -1102,7 +1102,7 @@ In teoria la gestione della struttura di una macchina virtuale e dei dischi rigi
 * Uno o più dischi rigidi virtuali che contengono il file di log DBMS del database SAP e il file di log dell'area di archiviazione temporanea di DBMS, se supportato dal sistema DBMS. Se i requisiti per le operazioni di I/O al secondo del log del database sono elevati, è necessario eseguire lo striping di più dischi rigidi virtuali per raggiungere il volume di operazioni di I/O al secondo richiesto.
 * Numero di dischi rigidi virtuali contenenti uno o due file del database SAP e file di dati temporanei di DBMS, se supportati dal sistema DBMS.
 
-![Configurazione di riferimento di una VM IaaS di Azure per SAP][planning-guide-figure-1300]  
+![Configurazione di riferimento di una VM IaaS di Azure per SAP][planning-guide-figure-1300]
 
 [comment]: <> (MShermannd TODO describe Linux structure )
 
@@ -1165,7 +1165,7 @@ Nella maggior parte degli scenari è necessario creare altri dischi per distribu
 
 **Nota**: i dischi rigidi virtuali possono essere collegati in qualsiasi momento a una sola VM.
  
-![Collegare e scollegare dischi con l'archiviazione standard di Azure][planning-guide-figure-1400]  
+![Collegare e scollegare dischi con l'archiviazione standard di Azure][planning-guide-figure-1400]
 
 È necessario decidere se creare un nuovo disco rigido virtuale vuoto, che verrebbe creato nello stesso account di archiviazione della macchina virtuale di base, o se selezionare un disco rigido virtuale esistente caricato in precedenza da collegare al momento alla macchina virtuale.
 
@@ -1278,7 +1278,7 @@ come illustrato in: <https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938
 
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Scenario di formazione/dimostrativo di una singola VM con SAP NetWeaver
  
-![Esecuzione di singoli sistemi dimostrativi SAP delle VM con gli stessi nomi di VM, isolati nei servizi cloud di Azure][planning-guide-figure-1700]  
+![Esecuzione di singoli sistemi dimostrativi SAP delle VM con gli stessi nomi di VM, isolati nei servizi cloud di Azure][planning-guide-figure-1700]
 
 In questo scenario (vedere il capitolo [Solo cloud][planning-guide-2.1] di questo documento) viene implementato un tipico scenario di sistema di formazione/dimostrativo, in cui lo scenario completo di formazione/dimostrativo è contenuto all'interno di un'unica VM. Si presuppone che la distribuzione venga eseguita con i modelli di immagine di VM. Si suppone inoltre che più macchine virtuali di formazione/dimostrative debbano essere distribuite con macchine virtuali con lo stesso nome.
 
@@ -1467,7 +1467,7 @@ Il nome delle macchine virtuali deve essere univoco all'interno del gruppo di ri
 
 #### Configurare la rete per la comunicazione tra le diverse macchine VM
  
-![Set di VM all'interno di una rete virtuale di Azure][planning-guide-figure-1900]  
+![Set di VM all'interno di una rete virtuale di Azure][planning-guide-figure-1900]
 
 Per impedire conflitti di denominazione con cloni dello stesso scenario di formazione/dimostrativo, è necessario creare una rete virtuale di Azure per ogni scenario. La risoluzione dei nomi DNS verrà fornita da Azure oppure è possibile configurare il proprio server DNS all'esterno di Azure (l'argomento non verrà ulteriormente trattato in questo documento). In questo scenario non viene configurato alcun DNS personalizzato. Per tutte le macchine virtuali all'interno di una rete virtuale di Azure verrà abilitata la comunicazione usando nomi host.
 
@@ -1544,7 +1544,7 @@ ___
 ___
 
  
-![Stampa di rete][planning-guide-figure-2200]  
+![Stampa di rete][planning-guide-figure-2200]
 
 
 
@@ -1602,7 +1602,7 @@ Procedura:
 * In questo scenario il sistema QAS locale sarà il controller di dominio di CTS. Chiamare la transazione STMS. Viene visualizzata la finestra di dialogo TMS. Viene visualizzata la finestra di dialogo Configure Transport Domain (questa finestra di dialogo viene visualizzata solo se non è stato ancora configurato un dominio di trasporto).
 * Assicurarsi che l'utente TMSADM creato automaticamente sia autorizzato (SM59 -> ABAP Connection -> TMSADM@E61.DOMAIN\_E61 -> Details -> Utilities(M) -> Authorization Test). La schermata iniziale della transazione STMS dovrebbe indicare che il sistema SAP ora sta funzionando come controller di dominio di trasporto, come illustrato di seguito:
  
-![Schermata iniziale della transazione STMS sul controller di dominio][planning-guide-figure-2300]  
+![Schermata iniziale della transazione STMS sul controller di dominio][planning-guide-figure-2300]
 
 #### Inclusione dei sistemi SAP nel dominio di trasporto
 
@@ -1656,7 +1656,7 @@ Dal mese di febbraio 2014 l'agente VM di Azure che consente la gestione di speci
 
 I blocchi predefiniti di base della soluzione di monitoraggio in Azure per SAP hanno un aspetto simile al seguente:
  
-![Componenti dell'estensione di Microsoft Azure][planning-guide-figure-2400]  
+![Componenti dell'estensione di Microsoft Azure][planning-guide-figure-2400]
 
 Come illustrato nel diagramma a blocchi precedente, una parte della soluzione di monitoraggio per SAP è ospitata nell'immagine VM di Azure e nella raccolta di estensioni di Azure, che è un archivio replicato globalmente gestito da Azure Operations. È responsabilità del team congiunto SAP/MS impegnato nell'implementazione di SAP collaborare con Azure Operations alla pubblicazione di nuove versioni dell'estensione di monitoraggio di Azure per SAP. L'estensione di monitoraggio di Azure per SAP userà l'estensione Diagnostica di Microsoft Azure o l'estensione Diagnostica di Azure per Linux per ottenere le informazioni necessarie.
 
@@ -1692,7 +1692,7 @@ Uno scenario di distribuzione speciale di alcuni clienti riguarda l'esposizione 
 
 L'URI del portale iniziale è http (s):`<Portalserver`>: 5XX00/irj, dove il valore della porta è costituito da un numero superiore a 50.000 (numero di sistema × 100). L'URI del portale predefinito del sistema SAP 00 è `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj. Per maggiori informazioni, consultare <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
  
-![Configurazione dell'endpoint][planning-guide-figure-2800]  
+![Configurazione dell'endpoint][planning-guide-figure-2800]
 
 Se si vuole personalizzare l'URL e/o le porte di SAP Enterprise Portal, consultare la documentazione seguente:
 
@@ -1760,7 +1760,7 @@ Anziché inserire tutte le VM virtuali in un singolo account di archiviazione di
 
 Un'architettura di esempio di un sistema SAP NetWeaver che usa la disponibilità elevata dell'infrastruttura di Azure potrebbe avere un aspetto simile al seguente:
  
-![Utilizzo della disponibilità elevata dell'infrastruttura di Azure per ottenere una disponibilità "più elevata" delle applicazioni SAP][planning-guide-figure-2900]  
+![Utilizzo della disponibilità elevata dell'infrastruttura di Azure per ottenere una disponibilità "più elevata" delle applicazioni SAP][planning-guide-figure-2900]
 
 Per i componenti SAP critici sono stati ottenuti fino a questo momento i risultati seguenti:
 
@@ -1786,7 +1786,7 @@ Non esiste alcun numero infinito di domini di errore e di aggiornamento che può
 
 Se si distribuiscono poche istanze dei server applicazioni SAP nelle relative VM dedicate e si suppone che siano presenti cinque domini di aggiornamento, alla fine emerge il quadro seguente. Il numero massimo effettivo di domini di errore e di aggiornamento all'interno di un set di disponibilità potrebbe cambiare in futuro:
  
-![Disponibilità elevata dei i server applicazioni SAP in Azure][planning-guide-figure-3000]  
+![Disponibilità elevata dei i server applicazioni SAP in Azure][planning-guide-figure-3000]
 
 Maggiori informazioni sono disponibili in questa documentazione: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
@@ -1826,7 +1826,7 @@ Di seguito sono riportati due esempi di architettura SAP NetWeaver a disponibili
 
 ##### ![Windows][Logo_Windows] Disponibilità elevata in Windows
 
-![Architettura a disponibilità elevata dell'applicazione SAP NetWeaver con SQL Server in IaaS di Azure][planning-guide-figure-3200]  
+![Architettura a disponibilità elevata dell'applicazione SAP NetWeaver con SQL Server in IaaS di Azure][planning-guide-figure-3200]
 
 I costrutti di Azure seguenti vengono usati per il sistema SAP NetWeaver, allo scopo di ridurre al minimo l'impatto esercitato dai problemi dell'infrastruttura e dall'applicazione di patch agli host:
 

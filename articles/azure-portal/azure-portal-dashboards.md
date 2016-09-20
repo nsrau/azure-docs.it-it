@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="na"
    ms.date="09/06/2016"
-   ms.author="sewatson"/>  
+   ms.author="sewatson"/>
 
 # Creazione e condivisione di dashboard nel portale di Azure
 
@@ -24,33 +24,33 @@
 
 Dall'introduzione dei dashboard, avvenuta alcuni mesi fa, si è verificata una costante riduzione delle personalizzazioni dei pannelli, mentre le personalizzazioni dei dashboard sono in rapido aumento. Questa netta tendenza di utilizzo dimostra che gli utenti preferiscono personalizzare i dashboard piuttosto che i pannelli. Per supportare tale tendenza, Microsoft rimuoverà la possibilità di personalizzare i pannelli e si concentrerà sul miglioramento delle funzionalità dei dashboard. Se è stato personalizzato un pannello, tale personalizzazione verrà presto rimossa. Per mantenerla, aggiungere i riquadri personalizzati a un dashboard. È sufficiente fare clic con il pulsante destro del mouse sul riquadro e scegliere **Aggiungi al dashboard** come illustrato nell'immagine seguente.
 
-![Salvare un riquadro personalizzato](./media/azure-portal-dashboards/save-customization.png)  
+![Salvare un riquadro personalizzato](./media/azure-portal-dashboards/save-customization.png)
 
 ## Creare un dashboard
 
 Per creare un dashboard, selezionare il pulsante **Nuovo dashboard** accanto al nome del dashboard corrente.
 
-![Creare un dashboard](./media/azure-portal-dashboards/new-dashboard.png)  
+![Creare un dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
 Questa azione crea un nuovo dashboard privato vuoto e attiva la modalità di personalizzazione, in cui è possibile assegnare un nome al dashboard e aggiungere o ridisporre i riquadri. In questa modalità, nell'area del menu di navigazione a sinistra viene visualizzata la raccolta di riquadri comprimibile. La raccolta di riquadri consente di trovare i riquadri per le risorse di Azure in vari modi: è possibile eseguire la ricerca per [gruppo di risorse](../resource-group-overview.md#resource-groups), per tipo di risorsa, per [tag](../resource-group-using-tags.md) oppure in base al nome della risorsa.
 
-![Personalizzare il dashboard](./media/azure-portal-dashboards/customize-dashboard.png)  
+![Personalizzare il dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
 Per aggiungere i riquadri, trascinarli nel punto desiderato della superficie del dashboard.
 
 Per i riquadri non associati a una particolare risorsa è disponibile una nuova categoria denominata **Generale**. In questo esempio viene aggiunto il riquadro Markdown, che viene usato per aggiungere contenuto personalizzato al dashboard. Il riquadro supporta testo normale, la [sintassi markdown](https://daringfireball.net/projects/markdown/syntax) e un set limitato di HTML. Per motivi di sicurezza, non è possibile eseguire operazioni come inserire tag `<script>` o usare determinati elementi di stile CSS che potrebbero interferire con il portale.
 
-![Aggiungere Markdown](./media/azure-portal-dashboards/add-markdown.png)  
+![Aggiungere Markdown](./media/azure-portal-dashboards/add-markdown.png)
 
 ## Modificare un dashboard
 
 Dopo aver creato il dashboard, è possibile aggiungere riquadri dalla raccolta di riquadri oppure la rappresentazione in forma di riquadro dei pannelli. Verrà ora aggiunta la rappresentazione del gruppo di risorse. È possibile eseguire l'aggiunta cercando l'elemento oppure dal pannello dei gruppi di risorse. Con entrambi gli approcci si ottiene l'aggiunta della rappresentazione in forma di riquadro del gruppo di risorse.
 
-![Aggiungere al dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)  
+![Aggiungere al dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
 Al termine dell'aggiunta, l'elemento viene visualizzato nel dashboard.
 
-![Visualizzare il dashboard](./media/azure-portal-dashboards/view-dashboard.png)  
+![Visualizzare il dashboard](./media/azure-portal-dashboards/view-dashboard.png)
 
 Dopo aver aggiunto un riquadro Markdown e un gruppo di risorse al dashboard, è possibile ridimensionare e ridisporre i riquadri in un layout idoneo.
 
@@ -59,19 +59,19 @@ Passando il puntatore e selezionando "…" o facendo clic con il pulsante destro
 1. **Rimuovi dal dashboard** consente di rimuovere il riquadro dal dashboard
 2.	**Personalizza** consente di passare alla modalità di personalizzazione
 
-![Personalizzare un riquadro](./media/azure-portal-dashboards/customize-tile.png)  
+![Personalizzare un riquadro](./media/azure-portal-dashboards/customize-tile.png)
 
 Selezionando Personalizza è possibile ridimensionare e riordinare i riquadri. Per ridimensionare un riquadro, selezionare le nuove dimensioni nel menu contestuale come illustrato nell'immagine seguente.
 
-![Ridimensionare il riquadro](./media/azure-portal-dashboards/resize-tile.png)  
+![Ridimensionare il riquadro](./media/azure-portal-dashboards/resize-tile.png)
 
 In alternativa, se il riquadro supporta qualsiasi dimensione è possibile trascinare l'angolo inferiore destro fino a ottenere le dimensioni desiderate.
 
-![Ridimensionare il riquadro](./media/azure-portal-dashboards/resize-corner.png)  
+![Ridimensionare il riquadro](./media/azure-portal-dashboards/resize-corner.png)
 
 Dopo aver ridimensionato i riquadri, visualizzare il dashboard.
 
-![Visualizzare il riquadro](./media/azure-portal-dashboards/view-tile.png)  
+![Visualizzare il riquadro](./media/azure-portal-dashboards/view-tile.png)
 
 Al termine della personalizzazione di un dashboard, per uscire dalla modalità di personalizzazione è sufficiente selezionare **Fine personalizzazione** oppure fare clic con il pulsante destro del mouse e scegliere **Fine personalizzazione** dal menu contestuale.
 
@@ -79,7 +79,7 @@ Al termine della personalizzazione di un dashboard, per uscire dalla modalità d
 
 Quando si crea un dashboard, per impostazione predefinita il dashboard è privato e può quindi essere visualizzato solo dall'utente da cui è stato creato. Per renderlo visibile ad altri utenti, usare il pulsante **Condividi** visualizzato insieme agli altri comandi relativi ai dashboard.
 
-![Condividere il dashboard](./media/azure-portal-dashboards/share-dashboard.png)  
+![Condividere il dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
 Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per facilitare l'integrazione dei dashboard nell'ecosistema, i dashboard condivisi sono stati implementati come risorse di Azure. Non è quindi possibile eseguire la condivisione digitando un indirizzo di posta elettronica. L'accesso alle informazioni visualizzate nella maggior parte dei riquadri del portale è regolato dal [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md). Dal punto di vista del controllo di accesso, i dashboard condivisi non sono diversi da una macchina virtuale o da un account di archiviazione.
 
@@ -87,15 +87,15 @@ Si supponga di avere una sottoscrizione di Azure e che ai membri del team siano 
 
 Per praticità, l'esperienza di pubblicazione del portale propone un modello che prevede l'inserimento dei dashboard in un gruppo di risorse denominato **dashboards** (dashboard).
 
-![Pubblicare il dashboard](./media/azure-portal-dashboards/publish-dashboard.png)  
+![Pubblicare il dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
 
 È anche possibile scegliere di pubblicare un dashboard in uno specifico gruppo di risorse. Il controllo di accesso del dashboard corrisponderà al controllo di accesso del gruppo di risorse. Gli utenti che possono gestire le risorse nel gruppo di risorse avranno accesso anche ai dashboard.
 
-![Pubblicare il dashboard in un gruppo di risorse](./media/azure-portal-dashboards/publish-to-resource-group.png)  
+![Pubblicare il dashboard in un gruppo di risorse](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
 Al termine della pubblicazione del dashboard, il riquadro **Condivisione e controllo di accesso** verrà aggiornato e visualizzerà informazioni sulla pubblicazione del dashboard e un collegamento per gestire l'accesso degli utenti. Il collegamento consente di aprire il pannello relativo al controllo degli accessi in base al ruolo standard che viene usato per gestire l'accesso per qualsiasi risorsa di Azure. È possibile tornare a questa visualizzazione in qualsiasi momento selezionando **Condividi**.
 
-![Gestire il controllo di accesso](./media/azure-portal-dashboards/manage-access.png)  
+![Gestire il controllo di accesso](./media/azure-portal-dashboards/manage-access.png)
 
 ## Passaggi successivi
 

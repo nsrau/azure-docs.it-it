@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="09/07/2016"
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 # Matrice di supporto di Azure Site Recovery
 

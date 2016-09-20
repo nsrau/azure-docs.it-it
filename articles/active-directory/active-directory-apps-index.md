@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/>
 
 #Indice di articoli per la gestione di applicazioni in Azure Active Directory
 

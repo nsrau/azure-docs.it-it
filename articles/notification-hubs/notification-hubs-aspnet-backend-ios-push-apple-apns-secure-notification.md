@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 #Push sicuro degli hub di notifica di Azure
 

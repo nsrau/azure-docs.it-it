@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/02/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure
 

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/02/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
 
@@ -45,7 +45,7 @@ Questo scenario illustrerà come:
 - Creare una subnet denominata Appgatewaysubnet che usa 10.0.0.0/28 come blocco CIDR.
 - Configurare un certificato per l'offload SSL.
 
-![Esempio dello scenario][scenario]  
+![Esempio dello scenario][scenario]
 
 >[AZURE.NOTE] La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
 

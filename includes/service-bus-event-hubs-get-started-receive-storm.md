@@ -16,7 +16,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 
 4. In Eclipse creare un nuovo progetto Maven (fare clic su **File**, quindi su **Nuovo** e infine su **Progetto**).
 
-	![][12]  
+	![][12]
 
 5. Selezionare **Usa percorso predefinito dello spazio di lavoro** e quindi fare clic su **Avanti**.
 
@@ -219,12 +219,12 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 
 	La classe crea un nuovo Spout di Hub eventi, usando le proprietà nel file di configurazione per crearne un'istanza. È importante notare che questo esempio crea tante attività Spout quante sono le partizioni nell'hub eventi, in modo da usare il massimo parallelismo consentito dall'hub eventi stesso.
 
-<!-- Links -->  
+<!-- Links -->
 [Panoramica di Hub eventi]: ../articles/event-hubs/event-hubs-overview.md
 [HDInsight Storm]: ../articles/hdinsight/hdinsight-storm-overview.md
 [esercitazione di analisi dei sensori con HDInsight]: ../articles/hdinsight/hdinsight-storm-sensor-data-analysis.md
 
-<!-- Images -->  
+<!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
 

@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="support-article"
 	ms.date="09/01/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Procedura dettagliata di risoluzione dei problemi SSH
 
@@ -26,7 +26,7 @@ Se il client SSH non riesce a raggiungere il servizio SSH nella VM, i motivi pos
 
 Il diagramma seguente illustrati i componenti coinvolti.
 
-![Diagramma che mostra i componenti del servizio SSH](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot1.png)  
+![Diagramma che mostra i componenti del servizio SSH](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot1.png)
 
 I passaggi seguenti sono utili per isolare l'origine dell'errore e individuare le soluzioni.
 
@@ -72,7 +72,7 @@ L'impossibilità per il client SSH nel computer in uso di raggiungere il servizi
 
 Per escludere il computer in uso come origine dell'errore, verificare che sia in grado di stabilire connessioni SSH a un altro computer locale basato su Linux.
 
-![Diagramma che evidenzia i componenti del computer client SSH](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)  
+![Diagramma che evidenzia i componenti del computer client SSH](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
 
 Se non è possibile stabilire una connessione, eseguire i controlli seguenti sul computer:
 
@@ -94,7 +94,7 @@ Se si usa l'autenticazione del certificato, verificare la presenza delle seguent
 
 Per escludere il dispositivo periferico dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure. Se si accede alla VM tramite una connessione Azure ExpressRoute o VPN da sito a sito, passare al paragrafo [Origine 4: gruppi di sicurezza di rete](#nsg).
 
-![Diagramma che evidenzia il dispositivo periferico dell'organizzazione](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)  
+![Diagramma che evidenzia il dispositivo periferico dell'organizzazione](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
 Se non si dispone di un computer connesso direttamente a Internet, creare e usare una nuova VM di Azure nel relativo gruppo di risorse o servizio cloud. Per altre informazioni, vedere [Creare una macchina virtuale con Linux in Azure](virtual-machines-linux-quick-create-cli.md). Dopo aver completato i test, eliminare il gruppo di risorse o la VM e il servizio cloud.
 
@@ -112,7 +112,7 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni dei disposi
 
 Per escludere l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
 
-![Diagramma che evidenzia l'endpoint del servizio cloud e l'elenco di controllo di accesso](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)  
+![Diagramma che evidenzia l'endpoint del servizio cloud e l'elenco di controllo di accesso](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
 Se non si dispone di un'altra macchina virtuale nella stessa rete virtuale, è possibile crearne facilmente una nuova. Per altre informazioni, vedere [Creare una VM Linux in Azure tramite l'interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md). Dopo aver completato i test, eliminare la macchina virtuale aggiuntiva.
 
@@ -133,7 +133,7 @@ I gruppi di sicurezza di rete consentono di avere un controllo più granulare de
 
 L'ultima origine di possibili problemi corrisponde alla stessa macchina virtuale di Azure.
 
-![Diagramma che evidenzia la macchina virtuale di Azure basata su Linux](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)  
+![Diagramma che evidenzia la macchina virtuale di Azure basata su Linux](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
 Se non è stato ancora fatto, seguire le istruzioni [per reimpostare una password o SSH per le macchine virtuali basate su Linux](virtual-machines-linux-classic-reset-access.md).
 

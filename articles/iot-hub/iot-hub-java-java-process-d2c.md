@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="09/01/2016"
-     ms.author="dobett"/>  
+     ms.author="dobett"/>
 
 # Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT usando Java
 
@@ -114,7 +114,7 @@ In questa sezione viene modificata l'applicazione del dispositivo simulato creat
 
 4. Salvare e chiudere il file simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
-    > [AZURE.NOTE] Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling] (Gestione degli errori temporanei).
+    > [AZURE.NOTE] Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling] \(Gestione degli errori temporanei).
 
 5. Per compilare l'applicazione **simulated-device** con Maven, eseguire questo comando al prompt dei comandi nella cartella simulated-device:
 
@@ -154,7 +154,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria 
 
 2. Nell'elenco delle code del bus di servizio fare clic su **d2ctutorial** e quindi su **Configura**. Creare due criteri di accesso condiviso, uno chiamato **send** con autorizzazioni di **Invio** e uno chiamato **listen** con autorizzazioni di **Ascolto**. Prendere nota dei valori della **chiave primaria** di entrambi i criteri, che serviranno più avanti nel corso dell'esercitazione. Al termine, fare clic su **Salva** nella parte inferiore.
 
-    ![Configurare una coda nel portale di Azure][31]  
+    ![Configurare una coda nel portale di Azure][31]
 
 ### Creare il processore di eventi
 
@@ -683,7 +683,7 @@ A questo punto è possibile eseguire le tre applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Eseguire process-interactive-messages][processinteractive]  
+    ![Eseguire process-interactive-messages][processinteractive]
 
 2.	Per eseguire l'applicazione **process-d2c-messages**, in un prompt dei comandi o nella shell passare alla cartella process-d2c-messages ed eseguire il comando seguente:
 
@@ -691,7 +691,7 @@ A questo punto è possibile eseguire le tre applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Eseguire process-d2c-messages][processd2c]  
+    ![Eseguire process-d2c-messages][processd2c]
 
 3.	Per eseguire l'applicazione **simulated-device**, in un prompt dei comandi o nella shell passare alla cartella simulated-device ed eseguire il comando seguente:
 
@@ -699,7 +699,7 @@ A questo punto è possibile eseguire le tre applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Eseguire simulated-device][simulateddevice]  
+    ![Eseguire simulated-device][simulateddevice]
 
 > [AZURE.NOTE] Per visualizzare gli aggiornamenti nel file BLOB, potrebbe essere necessario ridurre la costante **MAX\_BLOCK\_SIZE** nella classe **StoreEventProcessor** a un valore inferiore, ad esempio **1024**. Questa modifica è utile perché raggiungere il limite di dimensione del blocco con i dati inviati dal dispositivo simulato può richiedere tempo. Con una dimensione del blocco ridotta, la creazione e l'aggiornamento del BLOB richiedono meno tempo. Tuttavia, una dimensione del blocco maggiore rende l'applicazione più scalabile.
 
@@ -713,7 +713,7 @@ Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la
 
 Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
-<!-- Images. -->  
+<!-- Images. -->
 [simulateddevice]: ./media/iot-hub-java-java-process-d2c/runsimulateddevice.png
 [processinteractive]: ./media/iot-hub-java-java-process-d2c/runprocessinteractive.png
 [processd2c]: ./media/iot-hub-java-java-process-d2c/runprocessd2c.png
@@ -743,7 +743,7 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
-<!-- Links -->  
+<!-- Links -->
 [Informazioni sugli account di archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Introduzione all'Hub eventi]: ../event-hubs/event-hubs-java-ephjava-getstarted.md
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: ../storage/storage-scalability-targets.md

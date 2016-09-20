@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="08/27/2016"
-   ms.author="kyliel"/>  
+   ms.author="kyliel"/>
 
 #Introduzione a FreeBSD in Azure
 Questo argomento offre una panoramica dell'esecuzione di una macchina virtuale FreeBSD in Azure.

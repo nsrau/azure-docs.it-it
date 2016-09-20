@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/02/2016"
-   ms.author="amitsriva" />  
+   ms.author="amitsriva" />
 
 # Registrazione diagnostica per il gateway applicazione
 
@@ -32,11 +32,11 @@ La registrazione di controllo viene abilitata automaticamente per ogni risorsa d
 
 1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il formato sarà: /subscriptions/<ID sottoscrizione>/resourceGroups/<nome gruppo di risorse>/providers/Microsoft.Storage/storageAccounts/<nome account di archiviazione>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. Per reperire queste informazioni è possibile usare il portale di anteprima.
 
-	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)  
+	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
 
 2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il formato sarà: /subscriptions/<ID sottoscrizione>/resourceGroups/<nome gruppo di risorse>/providers/Microsoft.Network/applicationGateways/<nome gateway applicazione>. Per reperire queste informazioni è possibile usare il portale di anteprima.
 
-	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)  
+	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente.
 

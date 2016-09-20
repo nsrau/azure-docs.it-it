@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="mblythe"/>  
+   ms.author="mblythe"/>
 
 # Scenari comuni di Power BI Embedded
 

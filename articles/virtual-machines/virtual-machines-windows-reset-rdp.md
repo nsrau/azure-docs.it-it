@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una VM Windows
 
@@ -30,7 +30,7 @@
 ### Portale di Azure
 Selezionare la macchina virtuale facendo clic su **Esplora** > **Macchine virtuali** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimposta password**. Viene visualizzato il pannello per la reimpostazione della password:
 
-![Pagina di reimpostazione della password](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)  
+![Pagina di reimpostazione della password](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
 Immettere il nome utente e una nuova password, quindi fare clic su **Salva**. Provare a connettersi di nuovo alla macchina virtuale.
 

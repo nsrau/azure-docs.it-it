@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="09/07/2016"
-     ms.author="dobett"/>  
+     ms.author="dobett"/>
 
 # Creare un hub IoT tramite PowerShell
 
@@ -143,7 +143,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->  
+<!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/

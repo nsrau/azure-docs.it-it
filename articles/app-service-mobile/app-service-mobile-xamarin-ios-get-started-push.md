@@ -152,8 +152,8 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 L'esercitazione è stata completata.
 
-<!-- Images. -->  
+<!-- Images. -->
 
-<!-- URLs. -->  
+<!-- URLs. -->
 
 <!---HONumber=AcomDC_0907_2016-->

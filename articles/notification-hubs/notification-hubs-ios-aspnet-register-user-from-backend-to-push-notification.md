@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 
@@ -225,13 +225,13 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 <!-- Images. -->
 [0]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios

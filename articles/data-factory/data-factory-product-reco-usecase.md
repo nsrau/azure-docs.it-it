@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Caso d'uso - Consigli sui prodotti 
 
@@ -46,7 +46,7 @@ Il rivenditore online usa un archivio BLOB di Azure, un server SQL locale, un da
 
 Tutti i dati vengono combinati e inseriti in un sistema di raccomandazione dei prodotti allo scopo di fornire consigli personalizzati in base agli interessi e alle azioni dei clienti, mentre questi consultano i prodotti nel catalogo disponibile sul sito Web del catalogo. Ai clienti vengono mostrati anche prodotti collegati al prodotto che stanno visualizzando, definiti sulla base di modelli generali di uso del sito non correlati a un utente specifico.
 
-![diagramma caso d'uso](./media/data-factory-product-reco-usecase/diagram-1.png)  
+![diagramma caso d'uso](./media/data-factory-product-reco-usecase/diagram-1.png)
 
 Ogni giorno, gigabyte di file di log Web non elaborati vengono generati dal sito Web del rivenditore online come file semistrutturati. I file di blog non elaborati e i dati sugli utenti e del catalogo prodotti vengono integrati a intervalli regolari in un account di archiviazione BLOB di Azure mediante servizi di spostamento dei dati distribuiti globalmente da Data Factory. I file di log non elaborati relativi a un dato giorno vengono partizionati (per anno e mese) nell'archiviazione BLOB per l'archiviazione a lungo termine. [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) viene usato per partizionare i file di log non elaborati nell'archiviazione BLOB ed elaborare i log acquisiti scalandoli mediante gli script Hive e Pig. I blog partizionati vengono quindi elaborati per estrarre gli input necessari per un sistema di raccomandazione Machine Learning per generare consigli personalizzati sui prodotti.
 

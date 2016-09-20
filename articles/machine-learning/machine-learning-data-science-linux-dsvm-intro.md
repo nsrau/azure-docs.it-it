@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="gokuma;bradsev" />  
+	ms.author="gokuma;bradsev" />
 
 # Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati
 

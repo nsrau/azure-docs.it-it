@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.date="09/06/2016" 
-	ms.author="jackma"/>  
+	ms.author="jackma"/>
 
 # Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure
 

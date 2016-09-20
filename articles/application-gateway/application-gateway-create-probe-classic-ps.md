@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/09/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
@@ -24,7 +24,7 @@
 - [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 - [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
-<BR>  
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 

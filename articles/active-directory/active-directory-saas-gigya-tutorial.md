@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="09/01/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Gigya
   
@@ -45,11 +45,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Gigy
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-gigya-tutorial/IC700994.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-gigya-tutorial/IC700994.png "Applicazioni")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-gigya-tutorial/IC749321.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-gigya-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -70,29 +70,29 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 1.  Nella pagina di integrazione dell'applicazione **Gigya** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configura accesso Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Gigya** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configura accesso Single Sign-On")
 
 3.  Nella casella di testo **URL di accesso** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.gigya.com*" e quindi fare clic su **Avanti**.
 
-    ![Configura URL app](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configura URL app")  
+    ![Configura URL app](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configura URL app")
 
 4.  Nella pagina **Configura accesso Single Sign-On in Gigya** fare clic su **Download certificato** e quindi salvare il file di certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789531.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789531.png "Configura accesso Single Sign-On")
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Sign On come amministratore.
 
 6.  Passare a **Settings > SAML Login**, quindi fare clic sul pulsante **Add**.
 
-    ![SAML Login](./media/active-directory-saas-gigya-tutorial/IC789532.png "SAML Login")  
+    ![SAML Login](./media/active-directory-saas-gigya-tutorial/IC789532.png "SAML Login")
 
 7.  Nella sezione **SAML Login** seguire questa procedura:
 
-    ![SAML Configuration](./media/active-directory-saas-gigya-tutorial/IC789533.png "SAML Configuration")  
+    ![SAML Configuration](./media/active-directory-saas-gigya-tutorial/IC789533.png "SAML Configuration")
 
     1.  Nella casella di testo **Name** digitare un nome per la configurazione.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Gigya** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer** (Autorità di certificazione).
@@ -107,7 +107,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789534.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789534.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
   
 Per consentire agli utenti di Azure AD di accedere a Gigya, è necessario eseguirne il provisioning in Gigya. Nel caso di Gigya, il provisioning è un'attività manuale.
@@ -118,11 +118,11 @@ Per consentire agli utenti di Azure AD di accedere a Gigya, è necessario esegui
 
 2.  Passare a **Admin > Manage Users** e quindi fare clic su **Invite Users**.
 
-    ![Gestisci utenti](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gestisci utenti")  
+    ![Gestisci utenti](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gestisci utenti")
 
 3.  Nella finestra di dialogo Invite Users seguire questa procedura:
 
-    ![Invite Users](./media/active-directory-saas-gigya-tutorial/IC789536.png "Invite Users")  
+    ![Invite Users](./media/active-directory-saas-gigya-tutorial/IC789536.png "Invite Users")
 
     1.  Nella casella di testo **Email** digitare l'alias di posta elettronica di un account di Azure Active Directory valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Invite User**.
@@ -141,7 +141,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 2.  Nella **pagina di integrazione dell'applicazione Gigya** fare clic su **Assegna utenti**.
 
-    ![Assegna utenti](./media/active-directory-saas-gigya-tutorial/IC789537.png "Assegna utenti")  
+    ![Assegna utenti](./media/active-directory-saas-gigya-tutorial/IC789537.png "Assegna utenti")
 
 3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 

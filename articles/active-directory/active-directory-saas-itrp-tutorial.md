@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="09/07/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ITRP
   
@@ -45,11 +45,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per ITRP
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-itrp-tutorial/IC700994.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-itrp-tutorial/IC700994.png "Applicazioni")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-itrp-tutorial/IC749321.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-itrp-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -70,35 +70,35 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 1.  Nella pagina di integrazione dell'applicazione **ITRP** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configura accesso Single Sign-On")
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a ITRP** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configura accesso Single Sign-On")
 
 3.  Nella casella di testo **URL di accesso ITRP** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://\<nome-tenant>.ITRP.com*" e quindi fare clic su **Avanti**.
 
-    ![Configura URL app](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configura URL app")  
+    ![Configura URL app](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configura URL app")
 
 4.  Nella pagina **Configura accesso Single Sign-On in ITRP** fare clic su **Download certificato** per scaricare il file di certificato e quindi salvarlo localmente come **C:\\ITRP.cer**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configura accesso Single Sign-On")
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di ITRP come amministratore.
 
 6.  Nel barra degli strumenti in alto fare clic su **Impostazioni**.
 
-    ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775570.png "ITRP")  
+    ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775570.png "ITRP")
 
 7.  Nel riquadro di navigazione sinistro selezionare **Single Sign-On**.
 
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775571.png "Single Sign-On")  
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775571.png "Single Sign-On")
 
 8.  Nella sezione di configurazione per Single Sign-On seguire questa procedura:
 
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")  
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")
 
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")  
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
 
     1.  Fare clic su **Abilita**.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in ITRP** del portale di Azure classico copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Remote Logout URL** (URL disconnessione remota).
@@ -111,7 +111,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
   
 Per consentire agli utenti di Azure AD di accedere a ITRP, è necessario eseguirne il provisioning in ITRP. Nel caso di ITRP, il provisioning è un'attività manuale.
@@ -122,19 +122,19 @@ Per consentire agli utenti di Azure AD di accedere a ITRP, è necessario eseguir
 
 2.  Nel barra degli strumenti in alto fare clic su **Records**.
 
-    ![Amministratore](./media/active-directory-saas-itrp-tutorial/IC775575.png "Amministratore")  
+    ![Amministratore](./media/active-directory-saas-itrp-tutorial/IC775575.png "Amministratore")
 
 3.  Dal menu popup selezionare**Persone**.
 
-    ![Persone](./media/active-directory-saas-itrp-tutorial/IC775587.png "Persone")  
+    ![Persone](./media/active-directory-saas-itrp-tutorial/IC775587.png "Persone")
 
 4.  Fare clic su **Aggiungi nuova persona** ("+").
 
-    ![Amministratore](./media/active-directory-saas-itrp-tutorial/IC775576.png "Amministratore")  
+    ![Amministratore](./media/active-directory-saas-itrp-tutorial/IC775576.png "Amministratore")
 
 5.  Nella finestra di dialogo Add New Person seguire questa procedura:
 
-    ![Utente](./media/active-directory-saas-itrp-tutorial/IC775577.png "Utente")  
+    ![Utente](./media/active-directory-saas-itrp-tutorial/IC775577.png "Utente")
 
     1.  Nelle caselle di testo **Name** ed **Email** digitare il nome l'indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Save**.
@@ -151,7 +151,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 2.  Nella **pagina di integrazione dell'applicazione ITRP** fare clic su **Assegna utenti**.
 
-    ![Assegna utenti](./media/active-directory-saas-itrp-tutorial/IC775588.png "Assegna utenti")  
+    ![Assegna utenti](./media/active-directory-saas-itrp-tutorial/IC775588.png "Assegna utenti")
 
 3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 

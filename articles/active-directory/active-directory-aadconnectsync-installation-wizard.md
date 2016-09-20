@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="andkjell"/>  
+	ms.author="andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: eseguire l'installazione guidata una seconda volta
@@ -23,11 +23,11 @@ La prima volta che si esegue l'installazione guidata di Azure AD Connect, viene 
 
 L'installazione guidata si trova nel menu Start **Azure AD Connect**.
 
-![Menu Start](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)  
+![Menu Start](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
 
 Quando si avvia l'installazione guidata viene visualizzata una pagina con le opzioni seguenti:
 
-![Pagina con un elenco di attività aggiuntive](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)  
+![Pagina con un elenco di attività aggiuntive](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
 Se con Azure AD Connect è stato installato AD FS saranno disponibili ancora più opzioni. Le opzioni aggiuntive per AD FS sono descritte in [Gestione di AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
@@ -38,7 +38,7 @@ Selezionare una delle attività e fare clic su **Avanti** per continuare.
 ## Visualizzazione della configurazione corrente
 Questa opzione consente di visualizzare rapidamente le opzioni attualmente configurate.
 
-![Pagina con un elenco di tutte le opzioni e il relativo stato](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)  
+![Pagina con un elenco di tutte le opzioni e il relativo stato](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
 Fare clic su **Indietro** per tornare alla pagina precedente. Se si seleziona **Esci**, l'installazione guidata verrà chiusa.
 

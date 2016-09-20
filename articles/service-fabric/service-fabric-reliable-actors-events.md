@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/30/2016"
-   ms.author="amanbha"/>  
+   ms.author="amanbha"/>
 
 
 # Eventi relativi agli attori

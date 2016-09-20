@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Amministrare un dominio gestito di Servizi di dominio Azure Active Directory
 Questo articolo illustra come amministrare un dominio gestito di Servizi di dominio Azure Active Directory (AD).
@@ -33,7 +33,7 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 
 5. È necessario disporre delle credenziali di un **account utente appartenente al gruppo 'AAD DC Administrators'** nella directory per poter amministrare il dominio gestito.
 
-<br>  
+<br>
 
 
 ## Attività amministrative che è possibile eseguire in un dominio gestito
@@ -78,7 +78,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione di Act
 
 1. Passare al nodo **Macchine virtuali** nel portale di Azure classico. Selezionare la macchina virtuale creata nell'attività 1 e fare clic su **Connetti** sulla barra dei comandi nella parte inferiore della finestra.
 
-    ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)  
+    ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
 2. Il portale classico richiederà di aprire o salvare un file con estensione rdp, usato per connettersi alla macchina virtuale. Dopo aver terminato il download, fare clic sul file per aprirlo.
 
@@ -86,7 +86,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione di Act
 
 4. Dalla schermata Start aprire **Server Manager**. Fare clic su **Aggiungi ruoli e funzionalità** nel riquadro centrale della finestra di Server Manager.
 
-    ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)  
+    ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 
 5. Nella pagina **Prima di iniziare** di **Aggiunta guidata ruoli e funzionalità** fare clic su **Avanti**.
 
@@ -104,7 +104,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione di Act
 
 9. Nella pagina **Funzionalità** fare clic per espandere il nodo **Strumenti di amministrazione remota del server**, quindi fare clic per espandere il nodo **Strumenti di amministrazione ruoli**. Selezionare la funzionalità **Strumenti per Servizi di dominio Active Directory e AD LDS** dall'elenco di strumenti di amministrazione ruoli.
 
-	![Pagina Funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)  
+	![Pagina Funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
 
 10. Nella pagina **Conferma** fare clic su **Installa** per installare la funzionalità Strumenti per Servizi di dominio Active Directory e AD LDS nella macchina virtuale. Dopo aver completato correttamente l'installazione della funzionalità, fare clic su **Chiudi** per uscire dall'**Aggiunta guidata ruoli e funzionalità**.
 
@@ -118,23 +118,23 @@ Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtu
 
 1. Dalla schermata Start fare clic su **Strumenti di amministrazione**. Gli strumenti di amministrazione di AD risulteranno installati nella macchina virtuale.
 
-	![Strumenti di amministrazione installati nel server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)  
+	![Strumenti di amministrazione installati nel server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 
 2. Fare clic su **Centro di amministrazione di Active Directory**.
 
-	![Centro di amministrazione di Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)  
+	![Centro di amministrazione di Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 
 3. Per esplorare il dominio, fare clic sul nome di dominio nel riquadro a sinistra, ad esempio 'contoso100.com'. Si noti che due contenitori si chiamano rispettivamente "AADDC Computers" e "AADDC Users".
 
-    ![Centro di amministrazione di Active Directory - Visualizza dominio](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)  
+    ![Centro di amministrazione di Active Directory - Visualizza dominio](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
 
 4. Fare clic sul contenitore denominato **AADDC Users** per visualizzare tutti gli utenti e i gruppi appartenenti al dominio gestito. In questo contenitore verranno visualizzati gli account utente e gruppi del tenant Azure Active Directory. Si noti che, in questo esempio, nel contenitore sono disponibili un account utente per l'utente 'bob' e un gruppo denominato 'AAD DC Administrators'.
 
-    ![Centro di amministrazione di Active Directory - Utenti del dominio](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)  
+    ![Centro di amministrazione di Active Directory - Utenti del dominio](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
 
 5. Fare clic sul contenitore denominato **AADDC Computers** per visualizzare i computer aggiunti al dominio gestito. Verrà visualizzata una voce per la macchina virtuale corrente aggiunta al dominio. In questo contenitore 'AADDC computers' saranno visualizzati tutti gli account computer per tutti i computer aggiunti al dominio gestito di Servizi di dominio Azure AD.
 
-    ![Centro di amministrazione di Active Directory - Computer aggiunti al dominio](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)  
+    ![Centro di amministrazione di Active Directory - Computer aggiunti al dominio](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
 
 <br>
 

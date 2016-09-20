@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="micurd"/>  
+	ms.author="micurd"/>
 
 # Come usare l'archiviazione BLOB da Xamarin
 

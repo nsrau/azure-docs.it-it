@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Panoramica sul monitoraggio in Microsoft Azure
 
@@ -24,13 +24,13 @@ Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio
 
 Il diagramma seguente mostra una visualizzazione concettuale del monitoraggio di Azure, incluso il tipo di log che è possibile raccogliere e cosa fare con i dati.
 
-![Modello logico per il monitoraggio e la diagnostica per risorse non di calcolo](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)  
+![Modello logico per il monitoraggio e la diagnostica per risorse non di calcolo](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)
 
 Figura 1: Modello logico per il monitoraggio e la diagnostica per le risorse non di calcolo
 
-<br/>  
+<br/>
 
-![Modello logico per il monitoraggio e la diagnostica per risorse di calcolo](./media/monitoring-overview/monitoring-azure-resources-compute.png)  
+![Modello logico per il monitoraggio e la diagnostica per risorse di calcolo](./media/monitoring-overview/monitoring-azure-resources-compute.png)
 
 Figura 2: Modello concettuale per il monitoraggio e la diagnostica per le risorse di calcolo
 

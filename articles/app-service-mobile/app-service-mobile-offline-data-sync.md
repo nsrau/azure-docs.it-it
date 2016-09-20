@@ -97,7 +97,7 @@ Quando si usano le tabelle di sincronizzazione, il codice client controlla quand
 * [Xamarin Android: Abilitare la sincronizzazione offline]
 * [Abilitare la sincronizzazione offline per l'app di Windows]
 
-<!-- Links -->  
+<!-- Links -->
 [.NET SDK per client]: app-service-mobile-dotnet-how-to-use-client-library.md
 [ Android: Abilitare la sincronizzazione offline]: app-service-mobile-android-get-started-offline-data.md
 [iOS: Abilitare la sincronizzazione offline]: app-service-mobile-ios-get-started-offline-data.md

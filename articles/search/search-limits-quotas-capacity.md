@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/03/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Limiti dei servizi in Ricerca di Azure
 

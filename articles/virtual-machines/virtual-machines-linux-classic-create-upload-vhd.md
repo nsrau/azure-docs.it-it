@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux
 

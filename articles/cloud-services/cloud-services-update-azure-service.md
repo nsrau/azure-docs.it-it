@@ -13,7 +13,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
 ms.date="08/10/2016"
-ms.author="adegeo"/>  
+ms.author="adegeo"/>
 
 # Come aggiornare un servizio cloud
 
@@ -135,7 +135,7 @@ Azure offre flessibilità nella gestione dei servizi durante un aggiornamento pe
 Il ripristino dello stato precedente di un aggiornamento in corso ha gli effetti seguenti sulla distribuzione:
 
 -   Le istanze del ruolo che non erano ancora state aggiornate alla nuova versione non vengono aggiornate, perché tali istanze stanno già eseguendo la versione di destinazione del servizio.
--   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (*.cspkg) o al file di configurazione del service (*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
+-   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (\*.cspkg) o al file di configurazione del service (\*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
 
 Questa funzionalità viene fornita dalle funzioni seguenti:
 

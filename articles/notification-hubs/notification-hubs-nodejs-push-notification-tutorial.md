@@ -41,7 +41,7 @@ Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e d
 
 ##Creazione di un'applicazione Node.js
 
-Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sito Web con WebMatrix].
+Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] \(usando Windows PowerShell) o [Sito Web con WebMatrix].
 
 ##Configurare l'applicazione per l'uso di Hub di notifica
 

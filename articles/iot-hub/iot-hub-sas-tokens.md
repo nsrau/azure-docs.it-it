@@ -112,8 +112,8 @@ Gli endpoint per il dispositivo sono, indipendentemente dal protocollo:
 
 | Endpoint | Funzionalità |
 | ----- | ----------- |
-| `{iot hub host name}/devices/{deviceId}/messages/events`   | Invio di messaggi da dispositivo a cloud. |
-| `{iot hub host name}/devices/{deviceId}/devicebound`   | Ricezione di messaggi da cloud a dispositivo. |
+| `{iot hub host name}/devices/{deviceId}/messages/events` | Invio di messaggi da dispositivo a cloud. |
+| `{iot hub host name}/devices/{deviceId}/devicebound` | Ricezione di messaggi da cloud a dispositivo. |
 
 ### Usare una chiave simmetrica nel registro identità
 
@@ -180,9 +180,9 @@ Queste sono le funzioni del servizio esposte sugli endpoint:
 | Endpoint | Funzionalità |
 | ----- | ----------- |
 | `{iot hub host name}/devices` | Creazione, aggiornamento, recupero ed eliminazione delle identità dispositivo. |
-| `{iot hub host name}/messages/events`   | Ricezione di messaggi da dispositivo a cloud. |
-| `{iot hub host name}/servicebound/feedback`   | Ricezione di feedback per messaggi da cloud a dispositivo. |
-| `{iot hub host name}/devicebound`   | Invio di messaggi da cloud a dispositivo. |
+| `{iot hub host name}/messages/events` | Ricezione di messaggi da dispositivo a cloud. |
+| `{iot hub host name}/servicebound/feedback` | Ricezione di feedback per messaggi da cloud a dispositivo. |
+| `{iot hub host name}/devicebound` | Invio di messaggi da cloud a dispositivo. |
 
 Ad esempio, un servizio che usa il criterio di accesso condiviso già esistente denominato **registryRead** creerebbe un token con i parametri seguenti:
 
@@ -213,7 +213,7 @@ Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'aut
 
 ## Registrare un certificato client X.509 per un dispositivo
 
-L'[SDK Azure IoT Service per C#][lnk-service-sdk] (versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato client X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati client X.509.
+L'[SDK Azure IoT Service per C#][lnk-service-sdk] \(versione 1.0.8+) supporta la registrazione di un dispositivo che usa un certificato client X.509 per l'autenticazione. Anche altre API come quelle per l'importazione e l'esportazione dei dispositivi supportano i certificati client X.509.
 
 ### Supporto di C#
 
@@ -240,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Usare un certificato client X.509 durante le operazioni di runtime
 
-[Azure IoT SDK per dispositivi per .NET][lnk-client-sdk] (versione 1.0.11+) supporta l'uso dei certificati client X.509.
+[Azure IoT SDK per dispositivi per .NET][lnk-client-sdk] \(versione 1.0.11+) supporta l'uso dei certificati client X.509.
 
 ### Supporto di C#
 

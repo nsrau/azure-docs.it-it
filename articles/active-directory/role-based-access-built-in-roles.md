@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
 	ms.date="08/25/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 #Controllo degli accessi in base al ruolo: ruoli predefiniti
 

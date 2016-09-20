@@ -196,7 +196,7 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
 
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 [Template concepts]: #concepts
 [The app user interface]: #ui
 [Building the Windows Store client app]: #building-client
@@ -205,7 +205,7 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
 
 <!-- Images. -->
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users

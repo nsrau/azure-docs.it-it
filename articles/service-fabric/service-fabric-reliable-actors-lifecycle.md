@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/30/2016"
-   ms.author="amanbha"/>  
+   ms.author="amanbha"/>
 
 
 # Ciclo di vita degli attori, Garbage Collection automatica ed eliminazione manuale
@@ -126,7 +126,7 @@ Si noti che un attore non può chiamare un'operazione di eliminazione su se stes
  - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
 <!---HONumber=AcomDC_0907_2016-->

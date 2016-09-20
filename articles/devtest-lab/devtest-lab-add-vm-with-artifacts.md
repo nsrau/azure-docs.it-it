@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Aggiungere una VM con elementi a un lab in Azure DevTest Labs
 
@@ -44,7 +44,7 @@ Questo articolo descrive come creare una macchina virtuale nel lab usando gli el
 
 1. Nel pannello **Macchina virtuale** immettere un nome per la nuova macchina virtuale nella casella di testo **Nome macchina virtuale**.
 
-	![Pannello Lab VM (VM lab)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)  
+	![Pannello Lab VM (VM lab)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
 1. Immettere un **Nome utente** a cui verranno concessi privilegi di amministratore nella macchina virtuale.
 
@@ -76,7 +76,7 @@ Durante la creazione di una macchina virtuale, è possibile aggiungere elementi 
 
 1. Nel pannello **Aggiungi elementi** selezionare l'elemento desiderato.
 
-	![Pannello Add Artifacts (Aggiungi elementi)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)  
+	![Pannello Add Artifacts (Aggiungi elementi)](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
 1. Immettere i valori dei parametri obbligatori e i parametri facoltativi necessari.
 
@@ -92,7 +92,7 @@ Per impostazione predefinita, le azioni degli elementi vengono eseguite nell'ord
 
 1. Nella parte superiore del pannello **Aggiungi elementi** selezionare il collegamento che indica il numero di elementi aggiunti alla macchina virtuale.
 
-    ![Numero di elementi aggiunti alla macchina virtuale](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)  
+    ![Numero di elementi aggiunti alla macchina virtuale](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. Per specificare l'ordine in cui eseguire gli elementi, trascinare e rilasciare gli elementi nell'ordine desiderato. **Nota:** se si verificano problemi di trascinamento dell'elemento, assicurarsi di trascinare dal lato sinistro dell'elemento.
 

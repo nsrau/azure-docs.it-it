@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
 	ms.date="09/01/2016"
-	ms.author="sdanie" />  
+	ms.author="sdanie" />
 
 # Provider di stato della sessione ASP.NET per Cache Redis di Azure
 

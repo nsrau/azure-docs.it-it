@@ -675,9 +675,9 @@ Dopo aver creato un DACPAC all'interno di processi di database elastici, è poss
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-powershell/cmd-prompt.png
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
-<!--anchors-->  
+<!--anchors-->
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/08/2016"
-   ms.author="iainfou"/>  
+   ms.author="iainfou"/>
 
 # Apertura di porte a una VM tramite il portale di Azure
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -36,7 +36,7 @@ Selezionare il nuovo gruppo di sicurezza di rete. È ora possibile creare una re
 
 Fornire un nome per la regola. La porta 80 è già inserita per impostazione predefinita. Questo pannello consente di modificare l'origine, il protocollo e la destinazione durante l'aggiunta di regole ulteriori al gruppo di sicurezza di rete:
 
-![Creare una regola in entrata](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)  
+![Creare una regola in entrata](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
 Il passaggio finale consiste nell'associare il gruppo di sicurezza di rete con una subnet o un'interfaccia di rete specifica. Per associare il gruppo di sicurezza di rete a una subnet:
 
@@ -44,7 +44,7 @@ Il passaggio finale consiste nell'associare il gruppo di sicurezza di rete con u
 
 Selezionare la rete virtuale, quindi selezionare la subnet appropriata:
 
-![Associare un gruppo di sicurezza di rete con una rete virtuale](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)  
+![Associare un gruppo di sicurezza di rete con una rete virtuale](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
 
 È stato creato un gruppo di sicurezza di rete, è stata creata una regola in entrata che consente il traffico sulla porta 80 ed è stata associata a una subnet. Tutte le VM che si connettono a questa subnet sono raggiungibili sulla porta 80.
 

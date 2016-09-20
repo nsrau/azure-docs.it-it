@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="nickfloyd@newrelic.com"/>  
+	ms.author="nickfloyd@newrelic.com"/>
 
 
 # Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure

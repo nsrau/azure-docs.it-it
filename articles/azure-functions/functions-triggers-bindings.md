@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/27/2016"
-	ms.author="chrande"/>  
+	ms.author="chrande"/>
 
 # Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure
 

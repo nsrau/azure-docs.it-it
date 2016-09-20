@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/07/2016" 
-	ms.author="stefsch"/>  
+	ms.author="stefsch"/>
 
 # Scalabilità distribuita a livello geografico con ambienti del servizio app
 
@@ -86,13 +86,13 @@ Come passaggio finale è necessario che il dominio personalizzato dell'app punti
 
 Usando gli strumenti di gestione del dominio del registrar, è necessario creare un record CNAME che dal dominio personalizzato punti al dominio di Gestione traffico. L'immagine seguente mostra un esempio di come appare la configurazione di questo CNAME:
 
-![CNAME per il dominio personalizzato][CNAMEforCustomDomain]  
+![CNAME per il dominio personalizzato][CNAMEforCustomDomain]
 
 Anche se questo aspetto non viene trattato in questo argomento, tenere presente che per ogni singola istanza dell'app deve essere registrato anche il dominio personalizzato. In caso contrario, se una richiesta raggiunge un'istanza dell'app e per l'app non è stato registrato il dominio personalizzato, la richiesta non riuscirà.
 
 In questo esempio il dominio personalizzato è *www.scalableasedemo.com* e a ogni istanza dell'applicazione è associato il dominio personalizzato.
 
-![Dominio personalizzato][CustomDomain]  
+![Dominio personalizzato][CustomDomain]
 
 Per un riepilogo della procedura di registrazione di un dominio personalizzato con le app del Servizio app di Azure, vedere l'articolo seguente relativo alla [registrazione di domini personalizzati][RegisterCustomDomain].
 
@@ -109,7 +109,7 @@ Come risultato finale della configurazione di Gestione traffico e del DNS, il fl
 
 L'immagine della console seguente mostra una ricerca DNS del dominio personalizzato dell'app di esempio risolta correttamente in un'istanza dell'app eseguita in uno dei tre ambienti del servizio app di esempio, in questo caso il secondo dei tre ambienti del servizio app:
 
-![Ricerca DNS][DNSLookup]  
+![Ricerca DNS][DNSLookup]
 
 ## Informazioni e collegamenti aggiuntivi ##
 Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
@@ -120,13 +120,13 @@ Documentazione sul [supporto di Azure Resource Manager per Gestione traffico di 
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- LINKS -->  
+<!-- LINKS -->
 [AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
 [ARMTrafficManager]: https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]: https://azure.microsoft.com/it-IT/documentation/articles/web-sites-custom-domain-name/
+[RegisterCustomDomain]: https://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/
 
 
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-geo-distributed-scale/ConceptualArchitecture-1.png
 [CNAMEforCustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png

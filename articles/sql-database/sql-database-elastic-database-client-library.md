@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/06/2016"
-    ms.author="ddove"/>  
+    ms.author="ddove"/>
 
 # Creazione di database cloud scalabili
 
@@ -69,8 +69,8 @@ La libreria è disponibile come software open source in [GitHub](https://github.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--Anchors-->  
-<!--Image references-->  
+<!--Anchors-->
+<!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
 <!---HONumber=AcomDC_0907_2016-->

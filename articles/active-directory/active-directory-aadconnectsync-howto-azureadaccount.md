@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="andkjell"/>  
+	ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure Active Directory Connect: come gestire l'account del servizio Azure Active Directory
 L'account di servizio utilizzato da Azure Active Directory Connector è progettato per non richiedere manutenzione. Questo argomento descrive come reimpostare le credenziali in caso di necessità, ad esempio se un amministratore globale ha erroneamente reimpostato la password dell'account del servizio con PowerShell.

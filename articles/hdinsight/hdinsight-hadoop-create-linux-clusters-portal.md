@@ -40,7 +40,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 2. Fare clic su **NUOVO**, fare clic su **Analisi di dati** e quindi fare clic su **HDInsight**.
 
-    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")  
+    ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
 3. Inserire il **Nome cluster**: il nome deve essere univoco a livello globale.
 4. Fare clic su **Selezionare il tipo di cluster**, quindi selezionare:
 
@@ -101,7 +101,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 	* **Rete virtuale**: selezionare una rete virtuale di Azure e la subnet, se si desidera posizionare il cluster in una rete virtuale.
 
-		![Pannello della rete virtuale](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Specificare i dettagli della rete virtuale")  
+		![Pannello della rete virtuale](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Specificare i dettagli della rete virtuale")
 
     	Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -125,7 +125,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 	* Fare clic su **Account di archiviazione collegati** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Nel pannello **Chiavi di archiviazione di Azure**, fare clic su **Aggiungi una chiave di archiviazione**, quindi selezionare un account di archiviazione esistente o creare un nuovo account.
 
-		![Pannello risorse di archiviazione aggiuntive](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.9.png "Specificare gli account di archiviazione aggiuntivi")  
+		![Pannello risorse di archiviazione aggiuntive](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.9.png "Specificare gli account di archiviazione aggiuntivi")
 
 		Dopo aver creato un cluster, è anche possibile aggiungere altri account di archiviazione. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -137,13 +137,13 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 	| Durante il provisioning | Provisioning completato |
 	| ------------------ | --------------------- |
-	| ![Indicatore del provisioning nella Schermata iniziale](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioning.png)   | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioned.png) |
+	| ![Indicatore del provisioning nella Schermata iniziale](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioning.png) | ![Sezione del cluster su cui è stato effettuato il provisioning](./media/hdinsight-hadoop-create-linux-cluster-portal/provisioned.png) |
 
 	> [AZURE.NOTE] La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale, o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
 
 11. Al termine della procedura di creazione, fare clic sul riquadro per il cluster dalla Schermata iniziale per avviare il pannello del cluster. Il pannello del cluster fornisce informazioni essenziali sui cluster, ad esempio nome, gruppo di risorse che a cui appartiene, percorso, sistema operativo, URL per il dashboard del cluster e così via.
 
-	![Pannello del cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.Cluster.Blade.png "Proprietà del cluster")  
+	![Pannello del cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.Cluster.Blade.png "Proprietà del cluster")
 
 	Usare le informazioni seguenti per comprendere le icone nella parte superiore di questo pannello e nella sezione **Informazioni di base**:
 

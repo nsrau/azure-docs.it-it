@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="johnkem"/>  
+	ms.author="johnkem"/>
 
 # Panoramica del log attività di Azure
 Il **log attività di Azure** fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione e di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET)
@@ -48,13 +48,13 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" del p
 
 1. Passare al pannello **Log attività** usando il menu sul lato sinistro del portale.
 
-    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)  
+    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Fare clic sul pulsante **Esporta** nella parte superiore del pannello.
 
-    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)  
+    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Nel pannello visualizzato è possibile selezionare le aree per cui esportare gli eventi, l'account di archiviazione in cui salvarli, il tempo di mantenimento degli eventi nel servizio di archiviazione, espresso in giorni (0 giorni mantiene i log per sempre), e lo spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione degli eventi.
 
-    ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)  
+    ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
 
 ### Configurare i profili di log tramite i cmdlet di Azure PowerShell

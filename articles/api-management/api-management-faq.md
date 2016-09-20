@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="mijiang"/>  
+	ms.author="mijiang"/>
 
 # Domande frequenti su Gestione API di Azure
 

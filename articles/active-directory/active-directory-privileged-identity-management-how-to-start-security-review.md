@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/02/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Come avviare una verifica dell'accesso in Azure AD Privileged Identity Management
 
@@ -81,7 +81,7 @@ Fino al termine del periodo di verifica, è possibile ricordare agli utenti di c
 ## Sommario PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png

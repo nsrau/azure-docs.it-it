@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/29/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>  
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica
 

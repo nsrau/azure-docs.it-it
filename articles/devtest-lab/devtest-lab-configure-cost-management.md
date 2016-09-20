@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Visualizzare la tendenza dei costi mensili stimati per il lab in Azure DevTest Labs
 
@@ -36,7 +36,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
 1. La schermata seguente illustra un esempio di grafico dei costi.
 
-    ![Grafico dei costi](./media/devtest-lab-configure-cost-management/graph.png)  
+    ![Grafico dei costi](./media/devtest-lab-configure-cost-management/graph.png)
 
 Il valore del **Costo stimato** corrisponde al costo attualmente stimato per il mese di calendario corrente. Il **Costo previsto** corrisponde al costo stimato per l'intero mese di calendario corrente, calcolato sulla base del costo del lab dei cinque giorni precedenti.
  

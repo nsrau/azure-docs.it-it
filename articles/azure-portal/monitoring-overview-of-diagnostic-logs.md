@@ -14,12 +14,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="johnkem"/>  
+	ms.author="johnkem"/>
 
 # Panoramica dei log di diagnostica di Azure
 I **log di diagnostica di Azure** sono log generati da una risorsa che forniscono dati completi e frequenti sul funzionamento di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa. Ad esempio, i log eventi del sistema di Windows sono una categoria di log di diagnostica per le macchine virtuali, mentre i log delle code, delle tabelle e dei BLOB sono categorie di log di diagnostica per gli account di archiviazione. I log di diagnostica sono diversi dal [log attività](monitoring-overview-activity-logs.md), precedentemente noto come log di controllo o log operativo, che fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Non tutte le risorse supportano il nuovo tipo di log di diagnostica descritto di seguito. L'elenco dei servizi supportati seguente illustra i tipi di risorse che supportano i nuovi log di diagnostica.
 
-![Posizione logica dei log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)  
+![Posizione logica dei log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
 
 ## Che cosa si può fare con i log di diagnostica
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
@@ -52,7 +52,7 @@ La raccolta dei log di diagnostica può essere abilitata durante la creazione di
 1.	Andare a **Nuovo** e scegliere la risorsa a cui si è interessati.
 2.	Dopo aver configurato le impostazioni di base e aver selezionato una dimensione, nel pannello **Impostazioni**, in **Monitoraggio** selezionare **Abilitato** e scegliere un account di archiviazione in cui archiviare i log di diagnostica. Per l'invio della diagnostica a un account di archiviazione vengono addebitate le normali tariffe dati per l'archiviazione e le transazioni.
 
-    ![Abilitare i log di diagnostica durante la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)  
+    ![Abilitare i log di diagnostica durante la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Fare clic su **OK** e creare la risorsa.
 
 Per abilitare i log di diagnostica nel portale di Azure dopo la creazione di una risorsa, seguire questa procedura:
@@ -60,7 +60,7 @@ Per abilitare i log di diagnostica nel portale di Azure dopo la creazione di una
 1.	Passare al pannello della risorsa e aprire il pannello **Diagnostica**.
 2.	Fare clic su **Sì** e selezionare un account di archiviazione e/o un hub eventi.
 
-    ![Abilitare i log di diagnostica dopo la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)  
+    ![Abilitare i log di diagnostica dopo la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	In **Log** selezionare le **categorie di log** da raccogliere o trasmettere.
 4.	Fare clic su **Save**.
 

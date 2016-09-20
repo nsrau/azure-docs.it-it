@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="adegeo"/>  
+   ms.author="adegeo"/>
 
 # Pool di agenti DC/OS per il servizio contenitore di Azure
 

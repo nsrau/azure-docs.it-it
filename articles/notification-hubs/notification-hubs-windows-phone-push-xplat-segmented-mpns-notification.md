@@ -313,7 +313,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 
-<!-- URLs.-->  
+<!-- URLs.-->
 [Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
 [Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/

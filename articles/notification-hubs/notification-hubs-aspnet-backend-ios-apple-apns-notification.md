@@ -452,7 +452,7 @@ Il supporto per le notifiche push in Azure consente di accedere a un'infrastrutt
 
 3. Verrà visualizzata una finestra popup che informa che la registrazione è stata completata. Fare clic su **OK**.
 
-	![][3]  
+	![][3]
 
 4. Nel campo di testo **Recipient username tag* (Tag nome utente destinatario) immettere il tag del nome utente usato con la registrazione da un altro dispositivo.
 5. Immettere un messaggio di notifica e fare clic su **Send Notification**. Solo i dispositivi che hanno una registrazione con il tag del nome utente del destinatario riceveranno il messaggio di notifica. Viene inviato solo a tali utenti.

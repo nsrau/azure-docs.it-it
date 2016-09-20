@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/>
 
 # Personalizzare cluster HDInsight basati su Linux tramite Azione script
 
@@ -458,7 +458,7 @@ Questa sezione offre esempi dei diversi modi in cui è possibile applicare le az
     * __Head__, __Lavoro__ e __Zookeeper__: selezionare i nodi a cui applicare lo script. In questo esempio sono selezionati Head, Lavoro e Zookeeper.
     * __PARAMETRI__: se lo script accetta parametri, immetterli qui. In questo esempio immettere il nome dell'account di archiviazione e la relativa chiave:
 
-		![hdinsight azioni script con salvataggio permanente account di archiviazione per eseguire cluster](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-persisted-script-action-add-storage-account.png)  
+		![hdinsight azioni script con salvataggio permanente account di archiviazione per eseguire cluster](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-persisted-script-action-add-storage-account.png)
 
 		Nella schermata `contosodata` è un account di archiviazione di Azure esistente, mentre la seconda riga corrisponde alla chiave dell'account di archiviazione.
     * __CON SALVATAGGIO PERMANENTE__: selezionare questa voce per salvare lo script in modo permanente e applicarlo ai nuovi nodi di lavoro quando si aumentano le prestazioni del cluster.
@@ -598,8 +598,8 @@ Lo script di esempio seguente mostra come usare i cmdlet per alzare di livello e
 | `azure hdinsight script-action persisted list <clustername>` | Recuperare un elenco di azioni script con salvataggio permanente |
 | `azure hdinsight script-action persisted show <clustername> <scriptname>` | Recuperare informazioni su una specifica azione script con salvataggio permanente |
 | `azure hdinsight script-action history list <clustername>` | Recuperare una cronologia delle azioni script applicate al cluster |
-| `azure hdinsight script-action history show <clustername> <scriptname>`   | Recuperare informazioni su un'azione script specifica |
-| `azure hdinsight script action persisted set <clustername> <scriptexecutionid>`   | Alzare di livello un'azione script ad hoc per renderla un'azione script persistente |
+| `azure hdinsight script-action history show <clustername> <scriptname>` | Recuperare informazioni su un'azione script specifica |
+| `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | Alzare di livello un'azione script ad hoc per renderla un'azione script persistente |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` | Abbassare di livello un'azione script persistente per renderla un'azione script ad hoc |
 
 > [AZURE.IMPORTANT] L'uso di `azure hdinsight script-action persisted delete` non annulla le operazioni eseguite da uno script, rimuove semplicemente il flag persistente in modo che lo script non venga eseguito nei nuovi nodi di ruoli di lavoro aggiunti al cluster.
@@ -636,7 +636,7 @@ Se la creazione del cluster non è riuscita a causa di un errore nell'azione di 
 
 * I registri di archiviazione sono disponibili in `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-	![Schermata delle operazioni](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)  
+	![Schermata delle operazioni](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
 	In questo percorso i registri sono organizzati per nodi head, nodi di lavoro e nodi zookeeper. Di seguito sono riportati alcuni esempi:
 	* **Nodo head**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`

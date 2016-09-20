@@ -13,7 +13,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/30/2016" 
-	ms.author="borooji"/>  
+	ms.author="borooji"/>
 
 # Filtri e pre-elaborazione della telemetria in Application Insights SDK
 
@@ -466,7 +466,7 @@ Il codice del canale di persistenza è disponibile in [github](https://github.co
 * [Risoluzione dei problemi][qna]
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md

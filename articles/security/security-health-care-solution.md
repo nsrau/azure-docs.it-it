@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/06/2016"
-   ms.author="terrylan"/>  
+   ms.author="terrylan"/>
 
 # Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Azure
 

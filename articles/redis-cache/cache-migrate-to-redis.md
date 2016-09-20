@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
     ms.date="09/07/2016"
-    ms.author="sdanie" />  
+    ms.author="sdanie" />
 
 # Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure
 
@@ -80,7 +80,7 @@ Prima che le applicazioni client possano essere configurate per la Cache Redis d
 
 Per disinstallare il pacchetto NuGet del Servizio cache gestita, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Selezionare il nodo **Pacchetti installati** e digitare W**indowsAzure.Caching** nella casella di ricerca dei pacchetti installati. Selezionare **Windows** **Azure Cache** (o **Windows** **Azure Caching** a seconda della versione del pacchetto NuGet), fare clic su **Disinstalla** e quindi su **Chiudi**.
 
-![Disinstallare il pacchetto NuGet del Servizio cache gestita di Azure](./media/cache-migrate-to-redis/IC757666.jpg)  
+![Disinstallare il pacchetto NuGet del Servizio cache gestita di Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 
 La disinstallazione del pacchetto NuGet del Servizio cache gestita rimuove gli assembly del Servizio cache gestita e le voci del Servizio cache gestita dal file app.config o web.config dell'applicazione client. Poiché alcune impostazioni personalizzate potrebbero non essere rimosse quando si disinstalla il pacchetto NuGet, aprire web.config o app.config e verificare che gli elementi seguenti siano stati completamente rimossi.
 

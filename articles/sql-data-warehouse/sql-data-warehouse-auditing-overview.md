@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/29/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>  
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # Servizio di controllo di Azure SQL Data Warehouse
 
@@ -135,7 +135,7 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command *AzureSql*` per visualizzare l'elenco dei cmdlet disponibili.
 
 
-<!--Anchors-->  
+<!--Anchors-->
 [Nozioni di base sul controllo del database]: #subheading-1
 [Configurare il controllo per il database]: #subheading-2
 [Analizzare i log di controllo e i report]: #subheading-3
@@ -149,6 +149,6 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->  
+<!--Link references-->
 
 <!---HONumber=AcomDC_0907_2016-->

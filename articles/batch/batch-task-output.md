@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
 	ms.date="09/07/2016"
-	ms.author="marsma" />  
+	ms.author="marsma" />
 
 # Salvare in modo permanente l'output dei processi processo e delle attività di Azure Batch
 
@@ -22,7 +22,7 @@ Le attività eseguite in Batch in genere producono output che deve essere archiv
 
 Usando la tecnica descritta in questo articolo, è anche possibile visualizzare l'output delle attività in **File di output salvati** e **Log salvati** nel [portale di Azure][portal].
 
-![Selettori File di output salvati e Log salvati nel portale][1]  
+![Selettori File di output salvati e Log salvati nel portale][1]
 
 >[AZURE.NOTE] La libreria di classi .NET [Azure Batch File Conventions][nuget_package] illustrata in questo articolo è attualmente in anteprima. Alcune funzionalità descritte in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale.
 
@@ -203,7 +203,7 @@ Per abilitare la visualizzazione degli output nel portale, è necessario soddisf
 
 Per visualizzare gli output delle attività e i log nel portale di Azure, passare all'attività di cui si vuole visualizzare l'output, quindi fare clic su **File di output salvati** o **Log salvati**. L'immagine illustra l'opzione **ile di output salvato** per l'attività con ID "007":
 
-![Pannello dei file di output delle attività nel portale di Azure][2]  
+![Pannello dei file di output delle attività nel portale di Azure][2]
 
 ## Esempio di codice
 
@@ -223,7 +223,7 @@ La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di
 
 ### Installazione delle applicazioni e staging dei dati
 
-Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per inserire file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e contiene alcune considerazioni specifiche per ogni metodo.
+Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] \(Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per inserire file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e contiene alcune considerazioni specifiche per ogni metodo.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/it-IT/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/26/2016"
-	ms.author="guybo"/>  
+	ms.author="guybo"/>
 
 # Distribuire un'applicazione nei set di scalabilità delle macchine virtuali
 

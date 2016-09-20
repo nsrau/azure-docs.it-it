@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 #  Domande frequenti su fatturazione e sottoscrizione di Azure
 

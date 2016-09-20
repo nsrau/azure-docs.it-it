@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="06/29/2016"
-   ms.author="mblythe"/>  
+   ms.author="mblythe"/>
 
 # Anteprima della risoluzione dei problemi di Microsoft Power BI Embedded
 In questo articolo vengono illustrate risposte per la risoluzione dei problemi di **Power BI Embedded**.

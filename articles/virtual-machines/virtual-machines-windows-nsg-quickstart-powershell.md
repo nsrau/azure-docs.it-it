@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/08/2016"
-   ms.author="iainfou"/>  
+   ms.author="iainfou"/>
 
 # Apertura di porte a una VM tramite PowerShell
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]

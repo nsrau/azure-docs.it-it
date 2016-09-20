@@ -173,8 +173,8 @@ Causa: la macchina virtuale di destinazione non può convalidare il nome e la pa
 
 Un computer basato su Windows può convalidare le credenziali di un account locale o di un account di dominio.
 
-- Per gli account locali, usare la sintassi *NomeComputer*\*NomeUtente* (ad esempio: SQL1\\Admin4798).
-- Per gli account di dominio usare la sintassi *NomeDominio*\*NomeUtente* (ad esempio: CONTOSO\\peterodman).
+- Per gli account locali, usare la sintassi *NomeComputer* \\ *NomeUtente* (ad esempio: SQL1\\Admin4798).
+- Per gli account di dominio usare la sintassi *NomeDominio* \\ *NomeUtente* (ad esempio: CONTOSO\\peterodman).
 
 Se la VM è stata innalzata al livello di controller di dominio in una nuova foresta Active Directory, l'account amministratore locale con il quale è stato eseguito l'accesso viene convertito in un account equivalente con la stessa password nella nuova foresta e nel nuovo dominio. L'account locale viene quindi eliminato.
 

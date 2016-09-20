@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="09/01/2016"
-   ms.author="stepsic"/>  
+   ms.author="stepsic"/>
 
 # Iniziare a usare il connettore Azure Resource e aggiungerlo all'app per la logica
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
@@ -93,9 +93,9 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-<!--References -->  
+<!--References -->
 
-<!--Links -->  
+<!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
 <!---HONumber=AcomDC_0907_2016-->

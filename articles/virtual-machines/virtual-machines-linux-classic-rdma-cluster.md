@@ -14,7 +14,7 @@ ms.service="virtual-machines-linux"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
  ms.date="08/17/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 

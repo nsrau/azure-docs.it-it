@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/03/2016"
-   ms.author="barbkess;sonyama"/>  
+   ms.author="barbkess;sonyama"/>
 
 # Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)
 
@@ -115,7 +115,7 @@ Per comprendere più facilmente altri concetti importanti sulle prestazioni, ved
 - [Managing statistics on tables in SQL Data Warehouse (Gestione delle statistiche nelle tabelle in SQL Data Warehouse)][]
 - [Procedure consigliate][]
 
-<!--Image reference-->  
+<!--Image reference-->
 
 <!--Article references-->
 [Unità Data Warehouse (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -149,7 +149,7 @@ Per comprendere più facilmente altri concetti importanti sulle prestazioni, ved
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
 
 <!---HONumber=AcomDC_0907_2016-->

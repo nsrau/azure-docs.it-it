@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="jeedes"/>  
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Qlik Sense Enterprise
@@ -62,28 +62,28 @@ Per configurare l'integrazione di Qlik Sense Enterprise in Azure AD, è necessar
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]  
+	![Active Directory][1]
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]  
+	![Applicazioni][2]
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]  
+	![Applicazioni][3]
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-	![Applicazioni][4]  
+	![Applicazioni][4]
 
 6. Nella casella di ricerca digitare **Qlik Sense Enterprise**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_01.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_01.png)
 
 7. Nel riquadro dei risultati selezionare **Qlik Sense Enterprise** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_02.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_02.png)
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Qlik Sense Enterprise con un utente test di nome "Britta Simon".
@@ -109,11 +109,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Qlik Sense Enterprise** nel portale classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 	 
-	![Configura accesso Single Sign-On][6]  
+	![Configura accesso Single Sign-On][6]
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Qlik Sense Enterprise** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_03.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_03.png)
 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
@@ -127,7 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 4. Nella pagina **Configura accesso Single Sign-On in Qlik Sense Enterprise** seguire questa procedura:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_05.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_05.png)
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer. Sarà necessario modificare questo file di metadati prima del caricamento sul server Qlik Sense.
 
@@ -137,7 +137,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 	> [AZURE.NOTE] Prima di caricare i metadati IdP sul server Qlik Sense, è necessario modificare il file rimuovendo informazioni in modo da garantire il corretto funzionamento tra Azure AD e il server Qlik Sense.
 
-	![Qlik Sense][qs24]  
+	![Qlik Sense][qs24]
 
 	a. Aprire il file FederationMetaData.xml scaricato da Azure in un editor di testo.
 
@@ -151,19 +151,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. In QMC fare clic sulla voce di menu Virtual Proxy (Proxy virtuale).
 
-	![Qlik Sense][qs6]  
+	![Qlik Sense][qs6]
 
 8. Nella parte inferiore della schermata fare clic sul pulsante Create new (Crea nuovo).
 
-	![Qlik Sense][qs7]  
+	![Qlik Sense][qs7]
 
 9. Viene visualizzata la schermata per la modifica del proxy virtuale. Sul lato destro della schermata è disponibile un menu per la visualizzazione delle opzioni di configurazione.
 
-	![Qlik Sense][qs9]  
+	![Qlik Sense][qs9]
 
 10. Dopo aver selezionato l'opzione di menu Identification (Identificazione), immettere le informazioni di identificazione per la configurazione del proxy virtuale di Azure.
 
-	![Qlik Sense][qs8]  
+	![Qlik Sense][qs8]
 	
 	a. Il campo Description (Descrizione) contiene un nome descrittivo per la configurazione del proxy virtuale. Immettere un valore per la descrizione.
 	
@@ -175,7 +175,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 11. Fare clic sull'opzione di menu Authentication (Autenticazione) per renderla visibile. Verrà visualizzata la schermata Authentication (Autenticazione).
 
-	![Qlik Sense][qs10]  
+	![Qlik Sense][qs10]
 
 	a. L'elenco a discesa **Anonymous access mode** (Modalità accesso anonimo) determina se gli utenti anonimi potranno accedere a Qlik Sense tramite il proxy virtuale. L'opzione predefinita è No anonymous user (Nessun utente anonimo).
 
@@ -197,33 +197,33 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 12. Fare clic sull'opzione di menu Load balancing (Bilanciamento del carico) per renderla visibile. Verrà visualizzata la schermata Load balancing (Bilanciamento del carico).
 
-	![Qlik Sense][qs11]  
+	![Qlik Sense][qs11]
 
 13. Fare clic sul pulsante Add new server node (Aggiungi nuovo nodo server), selezionare uno o più nodi motore a cui Qlik Sense invierà le sessioni ai fini del bilanciamento del carico e fare clic su Add (Aggiungi).
 
-	![Qlik Sense][qs12]  
+	![Qlik Sense][qs12]
 
 14. Fare clic sull'opzione di menu Advanced (Avanzate) per renderla visibile. Verrà visualizzata la schermata Advanced (Avanzate).
 
-	![Qlik Sense][qs13]  
+	![Qlik Sense][qs13]
 
 	a. Host white list (Elenco host consentiti) identifica i nomi host accettati per la connessione al server Qlik Sense. **Immettere il nome host che gli utenti specificheranno per la connessione al server Qlik Sense.** Il nome host è lo stesso valore specificato in SAML host URI (URI host SAML) senza https://.
 
 15. Fare clic sul pulsante Apply (Applica).
 
-	![Qlik Sense][qs14]  
+	![Qlik Sense][qs14]
 
 16. Fare clic su OK per accettare il messaggio di avviso che indica che i proxy collegati al proxy virtuale verranno riavviati.
 
-	![Qlik Sense][qs15]  
+	![Qlik Sense][qs15]
 
 17. Sul lato destro della schermata verrà visualizzato il menu Associated items (Elementi associati). Fare clic sull'opzione di menu Proxies (Proxy).
 
-	![Qlik Sense][qs16]  
+	![Qlik Sense][qs16]
 
 18. Verrà visualizza la schermata relativa ai proxy. Fare clic sul pulsante Link (Collega) in basso per collegare un proxy al proxy virtuale.
 
-	![Qlik Sense][qs17]  
+	![Qlik Sense][qs17]
 
 19. Selezionare il nodo proxy che supporterà la connessione proxy virtuale e fare clic sul pulsante Link (Collega). Al termine del collegamento, il proxy verrà incluso nell'elenco dei proxy associati.
 
@@ -231,50 +231,50 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 20. Dopo circa 5-10 secondi verrà visualizzato il messaggio per l'aggiornamento di QMC. Fare clic sul pulsante Refresh QMC (Aggiorna QMC).
 
-	![Qlik Sense][qs20]  
+	![Qlik Sense][qs20]
 
 21. Dopo l'aggiornamento di QMC, fare clic sulla voce di menu Virtual proxies (Proxy virtuali). La nuova voce del proxy virtuale SAML sarà elencata nella tabella visualizzata. Fare clic sulla voce del proxy virtuale.
 
-	![Qlik Sense][qs51]  
+	![Qlik Sense][qs51]
 
 22. Nella parte inferiore della schermata verrà attivato il pulsante Download SP metadata (Scarica metadati SP). Fare clic sul pulsante Download SP metadata (Scarica metadati SP) per salvare i metadati in un file.
 
-	![Qlik Sense][qs52]  
+	![Qlik Sense][qs52]
 
 23. Aprire il file di metadati SP. Osservare le voci **entityID** e **AssertionConsumerService**. Questi valori sono uguali ai valori **Identificatore** e **URL di accesso** nella configurazione dell'applicazione di Azure AD. Se non corrispondono, è consigliabile modificarli nella configurazione guidata dell'app di Azure AD.
 
-	![Qlik Sense][qs53]  
+	![Qlik Sense][qs53]
 
 24. Nel portale di Azure classico selezionare la conferma della configurazione e quindi fare clic su **Avanti**.
 	
-	![Accesso Single Sign-On di Azure AD][10]  
+	![Accesso Single Sign-On di Azure AD][10]
 
 25. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
  
-	![Accesso Single Sign-On di Azure AD][11]  
+	![Accesso Single Sign-On di Azure AD][11]
 
 
 ### Creazione di un utente test di Azure AD
 In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
 
-![Creare un utente di Azure AD][20]  
+![Creare un utente di Azure AD][20]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_09.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_09.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_03.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_03.png)
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_04.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_04.png)
 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura: ![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_05.png)
 
@@ -298,11 +298,11 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_07.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_07.png)
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_08.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_08.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -318,27 +318,27 @@ In questa sezione viene creato un utente chiamato Britta Simon in Qlik Sense Ent
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Qlik Sense Enterprise.
 
-![Assegna utente][200]  
+![Assegna utente][200]
 
 **Per assegnare Britta Simon a Qlik Sense Enterprise, seguire questa procedura:**
 
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-	![Assegna utente][201]  
+	![Assegna utente][201]
 
 2. Nell'elenco delle applicazioni selezionare **Qlik Sense Enterprise**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_50.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_50.png)
 
 3. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][203]  
+	![Assegna utente][203]
 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
 
 5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]  
+	![Assegna utente][205]
 
 
 ## Test dell'accesso Single Sign-On
@@ -354,7 +354,7 @@ Quando si fa clic sul riquadro Qlik Sense Enterprise nel pannello di accesso, si
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_general_02.png

@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="09/06/2016"
-     ms.author="obloch"/>  
+     ms.author="obloch"/>
 
 # Introduzione ad Azure IoT device SDK per C
 
@@ -72,7 +72,7 @@ Ecco comunque alcuni suggerimenti per completare più facilmente la procedura de
 
 -   Quando si installa l'utilità **CMake**, scegliere l'opzione per aggiungere **CMake** alla variabile di sistema PATH per **tutti gli utenti**. Funziona correttamente anche l'aggiunta all'**utente corrente**:
 
-  ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)  
+  ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
 
 
 -   Prima di aprire il **Prompt dei comandi per gli sviluppatori per VS2015**, installare gli strumenti da riga di comando di Git. Per installare questi strumenti, completare i passaggi seguenti:

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
 	ms.date="09/06/2016"
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 
 # Esempi per sviluppatori del Catalogo dati

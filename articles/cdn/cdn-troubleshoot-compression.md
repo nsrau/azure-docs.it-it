@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="casoper"/>  
+	ms.author="casoper"/>
     
 # Risoluzione dei problemi della compressione dei file CDN
 
@@ -28,7 +28,7 @@ La compressione per l'endpoint è abilitata, ma i file vengono restituiti non co
 
 >[AZURE.TIP] Per verificare se i file restituiti sono compressi, è necessario usare uno strumento come [Fiddler](http://www.telerik.com/fiddler) o gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser. Verificare le intestazioni della risposta HTTP restituite con il contenuto della rete CDN memorizzato nella cache. Se è presente un'intestazione denominata `Content-Encoding` con un valore **gzip**, **bzip2** o **deflate**, il contenuto è compresso.
 >
->![Intestazione Content-Encoding](./media/cdn-troubleshoot-compression/cdn-content-header.png)  
+>![Intestazione Content-Encoding](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 
 ## Causa
 
@@ -51,7 +51,7 @@ Per prima cosa, eseguire una rapida verifica dell'integrità della richiesta. Pe
 
 > [AZURE.NOTE] I profili della **rete CDN di Azure fornita da Akamai** supportano solo la codifica **gzip**.
 
-![Intestazioni di richiesta CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)  
+![Intestazioni di richiesta CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### Verificare le impostazioni di compressione (profilo di rete CDN Standard)
 
@@ -62,7 +62,7 @@ Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare cli
 - Verificare se la compressione è abilitata.
 - Verificare che il tipo MIME per il contenuto da comprimere sia incluso nell'elenco dei formati compressi.
 
-![Impostazioni di compressione CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)  
+![Impostazioni di compressione CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
 ### Verificare le impostazioni di compressione (profilo di rete CDN Premium)
 
@@ -74,7 +74,7 @@ Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare cli
 - Verificare che l'elenco dei **Tipi di file** contenga un elenco di tipi MIME delimitati da virgole (senza spazi).
 - Verificare che il tipo MIME per il contenuto da comprimere sia incluso nell'elenco dei formati compressi.
 
-![Impostazioni di compressione CDN premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)  
+![Impostazioni di compressione CDN premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
 ### Verificare che il contenuto venga memorizzato nella cache
 
@@ -85,7 +85,7 @@ Usando gli strumenti per sviluppatori del browser, controllare le intestazioni d
 - Controllare l'intestazione della risposta **Server**. L'intestazione deve avere il formato **Piattaforma (POP/ID server)**, come illustrato nell'esempio seguente.
 - Controllare che l'intestazione della risposta **X-Cache**. corrisponda a **HIT**.
 
-![Intestazioni di risposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)  
+![Intestazioni di risposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
 ### Verificare che il file soddisfi i requisiti di dimensione
 

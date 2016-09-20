@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/02/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Come eseguire una verifica dell'accesso in Azure AD Privileged Identity Management
 
@@ -48,11 +48,11 @@ L'approvazione o la negazione dell'accesso indica semplicemente al revisore se s
 5. Chiudere il pannello **Rivedi ruoli Azure Active Directory**.
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 

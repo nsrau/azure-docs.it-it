@@ -17,7 +17,7 @@
    ms.workload="data-services"
    ms.date="09/01/2016"
    ms.author="jeffstok"
-/>  
+/>
 
 # Opzioni di Archiviazione di Azure per R Server su HDInsight (anteprima)
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="06/30/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Come gestire le impostazioni di attivazione del ruolo in Azure AD Privileged Identity Management
 
@@ -63,7 +63,7 @@ Per ulteriori informazioni sull'utilizzo dell’MFA con PIM, vedere [Come richie
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

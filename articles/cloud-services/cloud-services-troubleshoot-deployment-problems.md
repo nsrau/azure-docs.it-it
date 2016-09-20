@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="09/02/2016"
-   ms.author="v-six" />  
+   ms.author="v-six" />
 
 # Risolvere eventuali problemi di distribuzione dei servizi cloud
 

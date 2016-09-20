@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/31/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
  
 # Diagnostica proattiva degli errori
 
@@ -25,7 +25,7 @@ Al termine della configurazione di [Application Insights per il progetto](app-in
 
 Ecco un avviso di esempio.
 
-![Esempio di avviso intelligente che l'analisi del cluster riguardo all'errore](./media/app-insights-proactive-failure-diagnostics/010.png)  
+![Esempio di avviso intelligente che l'analisi del cluster riguardo all'errore](./media/app-insights-proactive-failure-diagnostics/010.png)
 
 > [AZURE.NOTE] Per impostazione predefinita, si riceve un messaggio di posta elettronica più breve rispetto a quello dell’esempio. Tuttavia, è possibile [passare a questo formato dettagliato](#configure-alerts).
 
@@ -64,11 +64,11 @@ Analogamente agli [avvisi impostati manualmente](app-insights-alerts.md), è pos
 
 Aprire la pagina degli avvisi. La funzionalità di diagnostica attiva è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente si trova in uno stato di avviso.
 
-![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-proactive-failure-diagnostics/021.png)  
+![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-proactive-failure-diagnostics/021.png)
 
 Fare clic sull'avviso per configurarlo.
 
-![Configurazione](./media/app-insights-proactive-failure-diagnostics/031.png)  
+![Configurazione](./media/app-insights-proactive-failure-diagnostics/031.png)
 
 
 Si noti che è possibile disabilitare la diagnostica attiva, ma non eliminarla (o crearne un'altra).
@@ -95,20 +95,20 @@ Per approfondire l'analisi, i collegamenti in ogni sezione consentono di passare
 In questo esempio facendo clic sul collegamento per la visualizzazione dei dettagli degli errori di dipendenza si apre il pannello di ricerca di Application Insights nell'istruzione SQL con la causa radice: i valori Null sono stati forniti nei campi obbligatori e non hanno superato la convalida durante l'operazione di salvataggio.
 
 
-![Ricerca diagnostica](./media/app-insights-proactive-failure-diagnostics/051.png)  
+![Ricerca diagnostica](./media/app-insights-proactive-failure-diagnostics/051.png)
 
 ## Esaminare gli avvisi recenti
 
 Per esaminare gli avvisi nel portale, aprire **Impostazioni, Log di controllo**.
 
-![Riepilogo degli avvisi](./media/app-insights-proactive-failure-diagnostics/041.png)  
+![Riepilogo degli avvisi](./media/app-insights-proactive-failure-diagnostics/041.png)
 
 
 Fare clic su un avviso per visualizzarne i dettagli completi.
 
 In alternativa, fare clic su **Rilevamento proattivo** per accedere direttamente all'avviso più recente:
 
-![Riepilogo degli avvisi](./media/app-insights-proactive-failure-diagnostics/070.png)  
+![Riepilogo degli avvisi](./media/app-insights-proactive-failure-diagnostics/070.png)
 
 
 

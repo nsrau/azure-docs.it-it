@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="08/07/2016"
-	ms.author="byvinyal"/>  
+	ms.author="byvinyal"/>
 
 # Hosting ad alta densità nel servizio app di Azure#
 

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
     ms.date="08/31/2016"
-    ms.author="sstein"/>  
+    ms.author="sstein"/>
 
 # Importare un file BACPAC per creare un database SQL di Azure tramite PowerShell
 

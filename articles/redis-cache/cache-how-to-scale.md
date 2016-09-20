@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/07/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Come ridimensionare Cache Redis di Azure
 
@@ -192,7 +192,7 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 
   
-<!-- IMAGES -->  
+<!-- IMAGES -->
 [redis-cache-pricing-tier-part]: ./media/cache-how-to-scale/redis-cache-pricing-tier-part.png
 
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png

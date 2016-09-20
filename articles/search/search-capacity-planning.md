@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/29/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro in Ricerca di Azure
 

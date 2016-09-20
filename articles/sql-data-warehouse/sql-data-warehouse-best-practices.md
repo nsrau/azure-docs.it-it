@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/04/2016"
-   ms.author="sonyama;barbkess"/>  
+   ms.author="sonyama;barbkess"/>
 
 # Procedure consigliate per Azure SQL Data Warehouse
 
@@ -39,7 +39,7 @@ Vedere anche [Transazioni in SQL Data Warehouse][] e [Ottimizzazione delle trans
 
 A differenza di SQL Server, che rileva e crea o aggiorna automaticamente le statistiche sulle colonne, SQL Data Warehouse richiede la manutenzione manuale delle statistiche. Anche se per il futuro è prevista la modifica di questo comportamento, per il momento è consigliabile gestire le statistiche per garantire l'ottimizzazione dei piani di SQL Data Warehouse. La qualità dei piani creati dall'utilità di ottimizzazione dipende dalla qualità delle statistiche disponibili. **La creazione di statistiche campionate su ogni colonna è un modo semplice per iniziare a usare le statistiche.** È altrettanto importante aggiornare le statistiche quando vengono apportate modifiche significative ai dati. Un approccio conservativo consiste nell'aggiornare le statistiche ogni giorno o dopo ogni operazione di caricamento. Sono sempre necessari compromessi tra le prestazioni e il costo di creazione e aggiornamento delle statistiche. Se si ritiene che la gestione di tutte le statistiche richieda troppo tempo, è consigliabile provare a scegliere in modo più selettivo le colonne con le statistiche o quelle che richiedono aggiornamenti frequenti. Potrebbe ad esempio essere consigliabile aggiornare le colonne di data, in cui potrebbero venire aggiunti nuovi valori ogni giorno. **Il massimo vantaggio è offerto dalle statistiche su colonne usate nei join, colonne usate nella clausola WHERE e colonne presenti in GROUP BY.**
 
-Vedere anche [Managing statistics on tables in SQL Data Warehouse][] (Gestione delle statistiche nelle tabelle in SQL Data Warehouse), [CREATE STATISTICS (Transact-SQL)][] e [UPDATE STATISTICS (Transact-SQL)][]
+Vedere anche [Managing statistics on tables in SQL Data Warehouse][] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse), [CREATE STATISTICS (Transact-SQL)][] e [UPDATE STATISTICS (Transact-SQL)][]
 
 ## Raggruppare le istruzioni INSERT in batch
 
@@ -51,7 +51,7 @@ Vedere anche [INSERT (Transact-SQL)][]
 
 SQL Data Warehouse supporta il caricamento e l'esportazione dei dati attraverso diversi strumenti, tra cui Azure Data Factory, PolyBase e BCP. Per piccole quantità di dati in cui le prestazioni non sono fondamentali, qualsiasi strumento può essere adeguato per soddisfare le esigenze. Quando tuttavia si caricano o si esportano grandi volumi di dati oppure sono necessarie prestazioni elevate, PolyBase è la scelta migliore. PolyBase è progettato per sfruttare l'architettura MPP (Massively Parallel Processing, elaborazione parallela massiva) di SQL Data Warehouse ed è quindi in grado di caricare ed esportare grandi volumi di dati più velocemente di qualsiasi altro strumento. Le operazioni di caricamento di PolyBase possono essere eseguite usando CTAS o INSERT INTO. **L'uso di CTAS riduce al minimo la registrazione delle transazioni e rappresenta il modo più rapido per caricare i dati.** Azure Data Factory supporta anche le operazioni di caricamento di PolyBase. PolyBase supporta una vasta gamma di formati di file, inclusi i file GZIP. **Per aumentare al massimo la velocità effettiva quando si usano file di testo GZIP, suddividere i file in 60 o più file per ottimizzare il parallelismo del caricamento.** Per una velocità effettiva totale maggiore, prendere in considerazione il caricamento simultaneo dei dati.
 
-Vedere anche [Caricare i dati in SQL Data Warehouse][], [Guida per l'uso di PolyBase in SQL Data Warehouse][], [Azure SQL Data Warehouse loading patterns and strategies][] (Strategie e modelli di caricamento di Azure SQL Data Warehouse), [Caricare i dati con Azure Data Factory][], [Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] e [Create Table As Select (CTAS) in SQL Data Warehouse][].
+Vedere anche [Caricare i dati in SQL Data Warehouse][], [Guida per l'uso di PolyBase in SQL Data Warehouse][], [Azure SQL Data Warehouse loading patterns and strategies][] \(Strategie e modelli di caricamento di Azure SQL Data Warehouse), [Caricare i dati con Azure Data Factory][], [Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] e [Create Table As Select (CTAS) in SQL Data Warehouse][].
 
 ## Caricare ed eseguire query su tabelle esterne
 

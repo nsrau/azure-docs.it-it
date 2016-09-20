@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/18/2016"
-   ms.author="amsriva"/>  
+   ms.author="amsriva"/>
 
 # Supporto di WebSocket nel gateway applicazione
 

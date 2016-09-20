@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/17/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Raccolta, conservazione e archiviazione di dati in Application Insights 
 
@@ -251,7 +251,7 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties

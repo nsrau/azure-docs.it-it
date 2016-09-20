@@ -106,7 +106,7 @@ L'uso dei metodi descritti in precedenza per il caricamento di set di dati di pi
 
 Quando i dati sono disponibili in Archivio Data Lake è possibile eseguire l'analisi sui dati tramite le applicazioni Big Data supportate. Attualmente, è possibile usare Azure HDInsight e Analisi Data Lake per eseguire processi di analisi dei dati sui dati archiviati in Archivio Data Lake.
 
-![Analizzare i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/analyze-data.png "Analizzare i dati in Archivio Data Lake")  
+![Analizzare i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/analyze-data.png "Analizzare i dati in Archivio Data Lake")
 
 Esaminare gli esempi seguenti.
 
@@ -140,7 +140,7 @@ In questi casi, è possibile usare le opzioni seguenti:
 
 È possibile usare più servizi per creare rappresentazioni visive dei dati archiviati in Archivio Data Lake.
 
-![Visualizzare i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Archivio Data Lake")  
+![Visualizzare i dati in Archivio Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Archivio Data Lake")
 
 * Iniziare usando [Azure Data Factory per spostare i dati da Data Lake Store ad Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
 * Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) per creare la rappresentazione visiva dei dati.

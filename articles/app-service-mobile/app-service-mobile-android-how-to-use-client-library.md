@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="07/21/2016"
-	ms.author="ricksal"/>  
+	ms.author="ricksal"/>
 
 
 # Come usare la libreria client Android per le app per dispositivi mobili
@@ -792,7 +792,7 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 
 È possibile utilizzare questo metodo generale ogni volta in cui si dispone di un oggetto complesso che non è automaticamente serializzabile in JSON e nella tabella di Servizi mobili.
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
@@ -829,7 +829,7 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033

@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="ddove" />  
+	ms.author="ddove" />
 
 # Introduzione ai processi di Database Elastici
 
@@ -439,12 +439,12 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
 [2]: ./media/sql-database-elastic-query-getting-started/portal.png
 [3]: ./media/sql-database-elastic-query-getting-started/tiers.png
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
-<!--anchors-->  
+<!--anchors-->
 
 <!---HONumber=AcomDC_0907_2016-->

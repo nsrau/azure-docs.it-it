@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)*
 

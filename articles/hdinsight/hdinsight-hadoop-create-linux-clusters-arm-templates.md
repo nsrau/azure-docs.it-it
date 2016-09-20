@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/02/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager
 
@@ -51,7 +51,7 @@ Per individuare lo schema JSON per determinati elementi, è possibile eseguire l
 2. Configurare gli elementi necessari per lo schema JSON.
 3. Prima di fare clic su **Crea**, scegliere le **Opzioni di automazione** come illustrato nella schermata seguente:
 
-    ![Creare cluster Hadoop in HDInsight tramite le opzioni di automazione dello schema del modello di Resource Manager](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)  
+    ![Creare cluster Hadoop in HDInsight tramite le opzioni di automazione dello schema del modello di Resource Manager](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
 
     Il portale crea un modello di Resource Manager in base alle configurazioni.
 ## Distribuire con PowerShell

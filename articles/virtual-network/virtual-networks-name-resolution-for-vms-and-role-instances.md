@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="telmos" />  
+   ms.author="telmos" />
 
 # Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo
 

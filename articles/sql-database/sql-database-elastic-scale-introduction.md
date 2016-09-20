@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/06/2016"
-    ms.author="ddove"/>  
+    ms.author="ddove"/>
 
 # Aumentare il numero di istanze con il database SQL di Azure
 
@@ -102,8 +102,8 @@ Per visualizzare le specifiche del pool di database elastici, vedere [Consideraz
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--Anchors-->  
-<!--Image references-->  
+<!--Anchors-->
+<!--Image references-->
 [1]: ./media/sql-database-elastic-scale-introduction/tools.png
 [2]: ./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png

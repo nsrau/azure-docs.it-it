@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/07/2016"
-	ms.author="jroth" />  
+	ms.author="jroth" />
 
 # Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -124,11 +124,11 @@ Per le VM che supportano Archiviazione Premium (serie DS, DSv2 e GS), si consigl
 
 - Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati. È possibile farlo in Gestione configurazione SQL Server facendo clic con il pulsante destro del mouse sull'istanza di SQL Server e selezionando Proprietà. Le impostazioni per il log degli errori e il file di traccia possono essere modificate nella scheda **Parametri di avvio**. La Directory dump si specifica nella scheda **Avanzate**. La schermata illustra dove cercare il parametro di avvio del log degli errori.
 
-	![Schermata del log degli errori di SQL](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)  
+	![Schermata del log degli errori di SQL](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)
 
 - Configurare il percorso predefinito del file di backup e del file di database. Seguire i consigli elencati in questo argomento ed eseguire le modifiche nella finestra Proprietà server. Per le istruzioni, vedere l'articolo dedicato alla [Visualizzazione o modifica dei percorsi predefiniti per i file di dati e di log (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). Le schermata seguente illustra come apportare tali modifiche.
 
-	![File di log e di backup di SQL](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)  
+	![File di log e di backup di SQL](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 
 - Attivare le pagine bloccate per ridurre le operazioni di I/O e le attività di paging. Per altre informazioni, vedere l'articolo [Abilitazione dell'opzione Blocco di pagine in memoria (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 

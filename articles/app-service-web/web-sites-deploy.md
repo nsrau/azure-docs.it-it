@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="cephalin;dariac"/>  
+	ms.author="cephalin;dariac"/>
     
 # Distribuire l'app nel servizio app di Azure
 

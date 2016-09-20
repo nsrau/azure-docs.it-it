@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 
 # Monitorare e gestire le pipeline di Data factory di Azure
@@ -46,19 +46,19 @@ Questa sezione illustra anche come avviene la transizione di una sezione da uno 
 1.	Accedere al [portale di Azure](https://portal.azure.com).
 2.	Fare clic su **Esplora tutto** e selezionare **Data factory**.
 	
-	![Esplora tutto -> Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)  
+	![Esplora tutto -> Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
 	Dovrebbero essere visualizzate tutte le data factory presenti nel pannello **Data factory**.
 4. Nel pannello Data factory selezionare la data factory desiderata per visualizzare la relativa home page (pannello **Data factory**).
 
-	![Pannello Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)  
+	![Pannello Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### Vista diagramma della data factory
 La vista diagramma di una data factory fornisce un'unica console da cui monitorare e gestire la data factory e i relativi asset.
 
 Per la visualizzazione diagramma della data factory, fare clic su **Diagramma** nella home page della data factory.
 
-![Vista diagramma](./media/data-factory-monitor-manage-pipelines/diagram-view.png)  
+![Vista diagramma](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 È possibile eseguire lo zoom avanti, lo zoom indietro, lo zoom 100%, adattare alla finestra, bloccare il layout del diagramma e posizionare automaticamente pipeline e tabelle. È inoltre possibile visualizzare le informazioni sull'origine dei dati (mostrare elementi upstream e downstream degli elementi selezionati).
  
@@ -66,20 +66,20 @@ Per la visualizzazione diagramma della data factory, fare clic su **Diagramma** 
 ### Attività all'interno di una pipeline 
 1. Fare clic con il pulsante destro del mouse sulla pipeline e scegliere **Apri pipeline** per visualizzare tutte le attività della pipeline, oltre ai set di dati di input e output relativi a queste attività. Questa funzionalità è utile quando la pipeline è costituita da più di una attività e si desidera conoscere l'origine operativa di una singola pipeline.
 
-	![Menu Apri pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)  
+	![Menu Apri pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)
 2. Nell'esempio seguente sono visibili due attività nella pipeline con gli input e gli output. L'attività denominata **JoinData** di tipo attività Hive HDInsight e **EgressDataAzure** di tipo attività di copia sono nella stessa pipeline di esempio.
 	
-	![Attività all'interno di una pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)  
+	![Attività all'interno di una pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. Per tornare alla Home page di Data Factory, fare clic sul collegamento Data Factory nella barra di navigazione in alto a sinistra.
 
-	![Ritorno a Data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)  
+	![Ritorno a Data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
 ### Visualizzare lo stato di ogni attività all'interno di una pipeline
 Per visualizzare lo stato corrente di un'attività, visualizzare lo stato di uno dei set di dati generati dall'attività.
 
 Ad esempio: nell'esempio seguente **BlobPartitionHiveActivity** è stata eseguita correttamente e ha generato un set di dati denominato **PartitionedProductsUsageTable** con lo stato **Pronto**.
 
-![Stato della pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)  
+![Stato della pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
 Facendo doppio clic su **PartitionedProductsUsageTable** nella visualizzazione diagramma, vengono presentate tutte le sezioni generate da esecuzioni diverse dell'attività all'interno di una pipeline. Si noti che **BlobPartitionHiveActivity** è stata eseguita correttamente ogni mese negli ultimi otto mesi e ha generato le sezioni con lo stato **Pronto**.
 
@@ -146,24 +146,24 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 
 Per visualizzare i dettagli di una sezione, fare clic sulla voce di una sezione nel pannello **Sezioni aggiornate di recente**.
 
-![Dettagli della sezione](./media/data-factory-monitor-manage-pipelines/slice-details.png)  
+![Dettagli della sezione](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
 Se la sezione è stata eseguita più volte, vengono visualizzate più righe nell'elenco **Esecuzioni attività**.
 
-![Esecuzioni di attività per una sezione](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)  
+![Esecuzioni di attività per una sezione](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
 Per visualizzare i dettagli di un'esecuzione attività, fare clic sulla voce di un'esecuzione nell'elenco **Esecuzioni attività**. L'elenco presenta tutti i file di log con eventuali messaggi di errore. Questa funzionalità è utile per visualizzare i log ed eseguirne il debug senza dover uscire dalla data factory.
 
-![Dettagli esecuzione attività](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)  
+![Dettagli esecuzione attività](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
 Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**. Questa funzionalità è utile quando lo stato della sezione è **In attesa** e si desidera conoscere le dipendenze upstream su cui la sezione è in attesa.
 
-![Sezioni upstream non pronte](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)  
+![Sezioni upstream non pronte](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
 ### Diagramma di stato del set di dati
 Una volta che una data factory è stata distribuita e le pipeline hanno un periodo attivo valido, le sezioni del set di dati passano da uno stato a un altro. Attualmente lo stato delle sezioni segue il diagramma di stato seguente:
 
-![Diagramma di stato](./media/data-factory-monitor-manage-pipelines/state-diagram.png)  
+![Diagramma di stato](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
 Il flusso di transizione di stato del set dati nella data factory è il seguente: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
@@ -180,7 +180,7 @@ Lo stato iniziale delle sezioni è **In attesa** in modo da soddisfare le condiz
 
 Ad esempio: nella schermata seguente è stato identificato un problema relativo a **PartitionProductsUsagePipeline** nella data factory **productrecgamalbox1dev** e si desidera sospendere la pipeline.
 
-![Pipeline da sospendere](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)  
+![Pipeline da sospendere](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
 Per sospendere una pipeline, eseguire il comando di PowerShell seguente.
 
@@ -209,19 +209,19 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 
 1.	Fare clic su **Con errori** nel riquadro **Set di dati** della home page data factory.
 	
-	![Riquadro Set di dati con errore](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)  
+	![Riquadro Set di dati con errore](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	Nel pannello **Set di dati con errori** fare clic sulla tabella che interessa.
 
-	![Pannello Set di dati con errori](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)  
+	![Pannello Set di dati con errori](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
 3.	Nel pannello **TABELLA** fare clic sulla sezione con errori con **STATO** impostato su **Non riuscito**.
 
-	![Pannello Tabella con sezione con errori](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)  
+	![Pannello Tabella con sezione con errori](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	Nel pannello **SEZIONE DI DATI** fare clic sull'esecuzione dell’attività non riuscita.
 	
-	![Sezione dati con un errore](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)  
+	![Sezione dati con un errore](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
 5.	Nel pannello **DETTAGLI ESECUZIONE ATTIVITÀ** è possibile scaricare i file associati all'elaborazione di HDInsight. Fare clic su Scarica in corrispondenza di Stato/stderr per scaricare il file di log degli errori che contiene i dettagli dell'errore stesso.
 
-	![Pannello Dettagli esecuzione attività con errore](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)  
+	![Pannello Dettagli esecuzione attività con errore](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)
 
 #### Usare PowerShell per eseguire il debug di un errore
 1.	Avviare **Azure PowerShell**.
@@ -282,7 +282,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
 
 Dopo avere risolto i problemi relativi agli errori in una pipeline e averne eseguito il debug, è possibile eseguire nuovamente le operazioni non riuscite passando alla sezione degli errori e facendo clic sul pulsante **Esegui** sulla barra dei comandi.
 
-![Nuova esecuzione di una sezione non riuscita](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)  
+![Nuova esecuzione di una sezione non riuscita](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
 Se non è possibile eseguire la convalida della sezione a causa di un errore relativo ai criteri (ad esempio, dati non disponibili), è possibile correggere l'errore ed eseguire nuovamente la convalida facendo clic sul pulsante **Convalida** sulla barra dei comandi. ![Correzione di errori e convalida](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
@@ -413,7 +413,7 @@ Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribu
 
 - È possibile visualizzare tutti gli eventi generati dopo aver fatto clic sul riquadro **Operazioni**. Gli avvisi possono essere configurati per qualsiasi operazione visibile nel pannello **Eventi**:
 
-	![Operazioni](./media/data-factory-monitor-manage-pipelines/operations.png)  
+	![Operazioni](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Vedere l’articolo [Cmdlet di Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) per i cmdlet PowerShell che è possibile usare per gli avvisi add/get/remove. Ecco alcuni esempi di uso del cmdlet **Get-AlertRule**:
@@ -490,7 +490,7 @@ Per abilitare le metriche, fare clic sul pannello Data Factory seguente:
 
 Nel pannello **Diagnostica** fare clic sul pulsante di **attivazione**, selezionare l'account di archiviazione e salvare.
 
-![Abilitazione di metriche](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)  
+![Abilitazione di metriche](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
 Dopo avere salvato, potrebbe trascorrere anche un'ora prima che le metriche siano visibili nel pannello di monitoraggio, perché l'aggregazione delle metriche viene eseguita ogni ora.
 
@@ -502,11 +502,11 @@ Per configurare avvisi relativi alle metriche, fare clic sulle opzioni seguenti 
 Inserire i dettagli per la regola di avviso, specificare gli indirizzi di posta elettronica e fare clic su **OK**.
 
 
-![Configurazione di avvisi relativi alle metriche](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)  
+![Configurazione di avvisi relativi alle metriche](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
 
 Al termine, nel riquadro Regole di avviso dovrebbe essere visualizzata una nuova regola di avviso come la seguente:
 
-![Regole di avviso abilitate](./media/data-factory-monitor-manage-pipelines/alert-rule-enabled.png)  
+![Regole di avviso abilitate](./media/data-factory-monitor-manage-pipelines/alert-rule-enabled.png)
 
 Congratulazioni. È stata configurata la prima regola di avviso relativa alle metriche. Ora si dovrebbero ricevere le notifiche ogni volta che la regola di avviso corrisponde nella finestra di tempo indicata.
 
@@ -592,10 +592,10 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 ## Spostare una data factory in un gruppo di risorse diverso o una sottoscrizione diversa
 È possibile spostare una data factory in un gruppo di risorse diverso o in una sottoscrizione diversa usando il pulsante **Sposta** della barra dei comandi nella home page della data factory.
 
-![Spostare una data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)  
+![Spostare una data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
 È inoltre possibile spostare le risorse correlate (ad esempio avvisi associati alla data factory) insieme alla data factory.
 
-![Finestra di dialogo Sposta risorse](./media/data-factory-monitor-manage-pipelines/MoveResources.png)  
+![Finestra di dialogo Sposta risorse](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
 <!---HONumber=AcomDC_0907_2016-->

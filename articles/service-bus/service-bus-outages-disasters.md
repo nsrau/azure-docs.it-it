@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="09/02/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 

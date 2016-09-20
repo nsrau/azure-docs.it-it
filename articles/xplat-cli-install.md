@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="danlep"/>  
+	ms.author="danlep"/>
     
 # Installare l'interfaccia della riga di comando di Azure
 
@@ -52,7 +52,7 @@ Sono disponibili anche i pacchetti di programmi di installazione dell'interfacci
 
 * [Windows installer][windows-installer]
 
-* [File tar per Linux][linux-installer] (richiede Node.js e npm): installare eseguendo `sudo npm install -g <path to downloaded tar file>`
+* [File tar per Linux][linux-installer] \(richiede Node.js e npm): installare eseguendo `sudo npm install -g <path to downloaded tar file>`
 
 
 ## Opzione 3. Usare un contenitore Docker

@@ -30,10 +30,10 @@ Per archiviare i log di diagnostica usando uno dei metodi indicati di seguito, d
 1. Nel portale fare clic sul pannello delle risorse per la risorsa in cui si vuole abilitare dell'archiviazione dei log di diagnostica.
 2. Nella sezione **Monitoraggio** del menu delle impostazioni della risorsa selezionare **Diagnostica**.
 
-    ![Sezione di monitoraggio del menu Risorse](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)  
+    ![Sezione di monitoraggio del menu Risorse](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)
 3. Selezionare la casella per **Esporta in Account di archiviazione**, quindi selezionare un account di archiviazione. Facoltativamente, impostare un numero di giorni per la conservazione di questi log usando i dispositivi di scorrimento **Conservazione (giorni)** . Se il valore di conservazione è zero giorni, i log vengono conservati all'infinito.
 
-	![Pannello Log di diagnostica](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)  
+	![Pannello Log di diagnostica](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)
 4. Fare clic su **Save**.
 
 I log di diagnostica vengono archiviati nell'account di archiviazione non appena vengono generati dati di un nuovo evento.

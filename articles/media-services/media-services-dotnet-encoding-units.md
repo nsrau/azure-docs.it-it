@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
  	ms.date="09/01/2016"
-	ms.author="juliako;milangada;gtrifonov"/>  
+	ms.author="juliako;milangada;gtrifonov"/>
 
 
 #Come scalare la codifica con .NET SDK

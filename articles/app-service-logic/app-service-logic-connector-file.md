@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="rajram"/>  
+	ms.author="rajram"/>
 
 # Iniziare a usare il connettore File e aggiungerlo all'app per la logica
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
@@ -78,13 +78,13 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
-<!-- Image reference -->  
+<!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
 [5]: ./media/app-service-logic-connector-file/img5.PNG
 [6]: ./media/app-service-logic-connector-file/img6.PNG
 [7]: ./media/app-service-logic-connector-file/img7.PNG
 
-<!-- Links -->  
+<!-- Links -->
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [definizione delle API del connettore file]: https://msdn.microsoft.com/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md

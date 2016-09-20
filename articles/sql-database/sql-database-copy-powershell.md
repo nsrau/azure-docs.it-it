@@ -14,7 +14,7 @@
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>  
+	ms.tgt_pltfrm="NA"/>
 
 
 # Copiare un database SQL di Azure con PowerShell

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>  
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Guida per l'uso di PolyBase in SQL Data Warehouse
@@ -175,7 +175,7 @@ $write.Dispose()
 ## Passaggi successivi
 Per ulteriori informazioni sullo spostamento di dati in SQL Data Warehouse, vedere [Panoramica sulla migrazione di dati][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md

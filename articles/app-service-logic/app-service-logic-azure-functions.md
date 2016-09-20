@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="09/01/2016"
-   ms.author="jehollan"/>  
+   ms.author="jehollan"/>
 
 # Uso delle funzioni di Azure con le app per la logica
 
@@ -66,7 +66,7 @@ La finestra di progettazione genera quindi un modello di funzione che è possibi
 
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 

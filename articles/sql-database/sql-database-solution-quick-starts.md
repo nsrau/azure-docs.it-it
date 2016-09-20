@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
    ms.date="09/06/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Avvio rapido: esplorare soluzioni del database SQL di Azure
 
