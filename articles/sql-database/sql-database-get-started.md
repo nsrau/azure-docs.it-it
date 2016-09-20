@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/07/2016"
-	ms.author="carlrab"/>  
+	ms.author="carlrab"/>
 
 
 # Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure
@@ -42,76 +42,76 @@ Per eseguire le stesse attività è possibile usare [C#](sql-database-get-starte
 1. Se non è ancora stato fatto, connettersi al [portale di Azure](http://portal.azure.com).
 2. Fare clic su **Nuovo**, quindi su **Dati e archiviazione** e cercare **Database SQL**.
 
-    ![Nuovo database SQL 1](./media/sql-database-get-started/sql-database-new-database-1.png)  
+    ![Nuovo database SQL 1](./media/sql-database-get-started/sql-database-new-database-1.png)
 
 3. Fare clic su **Database SQL** per aprire il relativo pannello. Il contenuto del pannello Database SQL varia a seconda del numero di sottoscrizioni e di oggetti esistenti, ad esempio i server.
 
-    ![Nuovo database SQL 2](./media/sql-database-get-started/sql-database-new-database-2.png)  
+    ![Nuovo database SQL 2](./media/sql-database-get-started/sql-database-new-database-2.png)
 
 4. Nella casella di testo **Nome database** specificare un nome per il primo database, ad esempio "database-personale". Un segno di spunta verde indica che è stato specificato un nome valido.
 
-    ![Nuovo database SQL 3](./media/sql-database-get-started/sql-database-new-database-3.png)  
+    ![Nuovo database SQL 3](./media/sql-database-get-started/sql-database-new-database-3.png)
 
 5. Se sono disponibili più sottoscrizioni, selezionarne una.
 6. In **Gruppo di risorse** fare clic su **Crea nuovo** e specificare un nome per il primo gruppo di risorse, ad esempio "gruppo-di-risorse-personale". Un segno di spunta verde indica che è stato specificato un nome valido.
 
-    ![Nuovo database SQL 4](./media/sql-database-get-started/sql-database-new-database-4.png)  
+    ![Nuovo database SQL 4](./media/sql-database-get-started/sql-database-new-database-4.png)
 
 7. In **Selezionare l'origine** fare clic su **Esempio** e quindi in **Selezionare l'esempio** fare clic su **AdventureWorksLT [V12]**.
 
-    ![Nuovo database SQL 5](./media/sql-database-get-started/sql-database-new-database-5.png)  
+    ![Nuovo database SQL 5](./media/sql-database-get-started/sql-database-new-database-5.png)
 
 8. In **Server** fare clic su **Configurare le impostazioni necessarie**.
 
-    ![Nuovo database SQL 6](./media/sql-database-get-started/sql-database-new-database-6.png)  
+    ![Nuovo database SQL 6](./media/sql-database-get-started/sql-database-new-database-6.png)
 
 9. Nel pannello Server fare clic su **Crea un nuovo server**. Verrà creato un database SQL di Azure all'interno di un oggetto server, che può essere un nuovo server o un server esistente.
 
-    ![Nuovo database SQL 7](./media/sql-database-get-started/sql-database-new-database-7.png)  
+    ![Nuovo database SQL 7](./media/sql-database-get-started/sql-database-new-database-7.png)
 
 10. Esaminare il pannello **Nuovo server** per sapere quali informazioni è necessario fornire per il nuovo server.
 
-    ![Nuovo database SQL 8](./media/sql-database-get-started/sql-database-new-database-8.png)  
+    ![Nuovo database SQL 8](./media/sql-database-get-started/sql-database-new-database-8.png)
 
 11. Nella casella di testo **Nome del server** specificare un nome per il server, ad esempio "nuovo-oggetto-server-personale". Un segno di spunta verde indica che è stato specificato un nome valido.
 
-    ![Nuovo database SQL 9](./media/sql-database-get-started/sql-database-new-database-9.png)  
+    ![Nuovo database SQL 9](./media/sql-database-get-started/sql-database-new-database-9.png)
  
 12. In **Account di accesso amministratore server** specificare un nome utente per l'account di accesso amministratore per questo server, ad esempio "account-amministratore-personale". Questo è noto come account di accesso dell'entità server. Un segno di spunta verde indica che è stato specificato un nome valido.
 
-    ![Nuovo database SQL 10](./media/sql-database-get-started/sql-database-new-database-10.png)  
+    ![Nuovo database SQL 10](./media/sql-database-get-started/sql-database-new-database-10.png)
 
 13. In **Password** e **Conferma password** specificare una password per l'account di accesso dell'entità server, ad esempio "p@ssw0rd1". Un segno di spunta verde indica che è stata specificata una password valida.
 
-    ![Nuovo database SQL 11](./media/sql-database-get-started/sql-database-new-database-11.png)  
+    ![Nuovo database SQL 11](./media/sql-database-get-started/sql-database-new-database-11.png)
  
 14. In **Località** selezionare un data center adatto alla propria località, ad esempio "Australia orientale".
 
-    ![Nuovo database SQL 12](./media/sql-database-get-started/sql-database-new-database-12.png)  
+    ![Nuovo database SQL 12](./media/sql-database-get-started/sql-database-new-database-12.png)
 
 15. Si noti che **Crea server V12 (ultimo aggiornamento) offre soltanto la possibilità di creare una versione corrente del server SQL Azure.
 
-    ![Nuovo database SQL 13](./media/sql-database-get-started/sql-database-new-database-13.png)  
+    ![Nuovo database SQL 13](./media/sql-database-get-started/sql-database-new-database-13.png)
 
 16. Si noti che, per impostazione predefinita, la casella di controllo **Consenti ai servizi di Azure di accedere al server** è selezionata e non può essere modificata da qui. Si tratta di un'opzione avanzata. Per modificarla è possibile usare le impostazioni firewall del server per l'oggetto server, anche se nella maggior parte degli scenari non è necessario.
 
-    ![Nuovo database SQL 14](./media/sql-database-get-started/sql-database-new-database-14.png)  
+    ![Nuovo database SQL 14](./media/sql-database-get-started/sql-database-new-database-14.png)
 
 17. Nel pannello Nuovo server rivedere le selezioni effettuate e quindi fare clic su **Seleziona** per scegliere il nuovo server per il nuovo database.
 
-    ![Nuovo database SQL 15](./media/sql-database-get-started/sql-database-new-database-15.png)  
+    ![Nuovo database SQL 15](./media/sql-database-get-started/sql-database-new-database-15.png)
 
 18. In **Piano tariffario** nel pannello Database SQL fare clic su **Standard S2** e quindi su **Basic** per scegliere il piano tariffario meno costoso per il primo database. È comunque possibile modificare il piano tariffario in un secondo momento.
 
-    ![Nuovo database SQL 16](./media/sql-database-get-started/sql-database-new-database-16.png)  
+    ![Nuovo database SQL 16](./media/sql-database-get-started/sql-database-new-database-16.png)
 
 19. Nel pannello Database SQL rivedere le selezioni effettuate e quindi fare clic su **Crea** per creare il primo server e il primo database. I valori specificati vengono convalidati e viene avviata la distribuzione.
 
-    ![Nuovo database SQL 17](./media/sql-database-get-started/sql-database-new-database-17.png)  
+    ![Nuovo database SQL 17](./media/sql-database-get-started/sql-database-new-database-17.png)
 
 20. Sulla barra degli strumenti del portale fare clic sull'icona delle **Notifiche** per controllare lo stato della distribuzione.
 
-    ![Nuovo database SQL 18](./media/sql-database-get-started/sql-database-new-database-18.png)  
+    ![Nuovo database SQL 18](./media/sql-database-get-started/sql-database-new-database-18.png)
 
 >[AZURE.IMPORTANT]Al termine della distribuzione, il nuovo server SQL Azure e il database vengono creati in Azure. Per connettersi al nuovo server o database con gli strumenti di SQL Server è necessario creare una regola firewall del server per aprire il firewall del database SQL alle connessioni provenienti dall'esterno di Azure.
 

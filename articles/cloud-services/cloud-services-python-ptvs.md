@@ -24,7 +24,7 @@ Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Pyt
 ## Prerequisiti
 
  - Visual Studio 2013 o 2015
- - [Python Tools for Visual Studio][] (PTVS)
+ - [Python Tools for Visual Studio][] \(PTVS)
  - [Strumenti di Azure SDK per VS 2013][] o [Strumenti di Azure SDK per VS 2015][]
  - [Python 2.7 a 32 bit][] o [Python 3.5 a 32 bit][]
 
@@ -341,7 +341,7 @@ Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lav
 - [Argomenti del bus di servizio][]
 
 
-<!--Link references-->  
+<!--Link references-->
 
 [definizione di servizio cloud]: cloud-services-choose-me.md
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md

@@ -112,7 +112,7 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli con un URL HTTP, è possibile usare il modulo [Import Data][import-data] (Importa dati). Per quantità di dati maggiori, trasferirli prima di tutto in Archiviazione di Azure e quindi usare il modulo [Import Data][import-data] (Importa dati) per passarli all'esperimento.
+Se la quantità di dati è limitata e si vuole esporli con un URL HTTP, è possibile usare il modulo [Import Data][import-data] \(Importa dati). Per quantità di dati maggiori, trasferirli prima di tutto in Archiviazione di Azure e quindi usare il modulo [Import Data][import-data] \(Importa dati) per passarli all'esperimento.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -201,7 +201,7 @@ No, non esistono ambienti REPL per R in Studio.
 
 **È possibile compilare un modulo Python personalizzato?**
 
-Anche se non attualmente, è possibile usare uno o più moduli [Execute Python Script][python] (Esegui script Python) per ottenere lo stesso risultato.
+Anche se non attualmente, è possibile usare uno o più moduli [Execute Python Script][python] \(Esegui script Python) per ottenere lo stesso risultato.
 
 **Esiste un ambiente REPL per Python?**
 
@@ -244,7 +244,7 @@ Una volta distribuito un modello predittivo, è possibile monitorarlo dal portal
 
 **Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
 
-Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È anche possibile scriverla nell'archivio BLOB di Azure. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È anche possibile scrivere l'output in un database o una tabella usando il modulo [Export Data][export-data] (Esporta dati).
+Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È anche possibile scriverla nell'archivio BLOB di Azure. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È anche possibile scrivere l'output in un database o una tabella usando il modulo [Export Data][export-data] \(Esporta dati).
 
 **È possibile creare servizi Web solo da modelli creati in Machine Learning Studio?**
 
@@ -268,7 +268,7 @@ No.
 
 **Quanti dati è possibile usare per il training?**
 
-I moduli in Machine Learning Studio supportano set di dati fino a 10 GB di dati numerici ad alta densità per i casi di utilizzo comuni. Se un modulo richiede più input, la dimensione totale per la somma di tutti gli input è pari a 10 GB. È anche possibile campionare set di dati di dimensioni maggiori tramite query di Hive o del database SQL di Azure oppure tramite la pre-elaborazione con moduli [Learning by Counts][counts] (Apprendimento in base a conteggi) prima dell'inserimento.
+I moduli in Machine Learning Studio supportano set di dati fino a 10 GB di dati numerici ad alta densità per i casi di utilizzo comuni. Se un modulo richiede più input, la dimensione totale per la somma di tutti gli input è pari a 10 GB. È anche possibile campionare set di dati di dimensioni maggiori tramite query di Hive o del database SQL di Azure oppure tramite la pre-elaborazione con moduli [Learning by Counts][counts] \(Apprendimento in base a conteggi) prima dell'inserimento.
 
 I seguenti tipi di dati possono espandersi in set di dati di dimensioni maggiori durante la normalizzazione della funzionalità e sono limitati a meno di 10 GB:
 

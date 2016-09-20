@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/13/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store tramite la riga di comando di Azure
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/13/2016"
-	ms.author="billmath;andkjell"/>  
+	ms.author="billmath;andkjell"/>
 
 # Introduzione alle impostazioni rapide per Azure AD Connect
 **Impostazioni rapide** di Azure AD Connect viene usato quando è presente una topologia a singola foresta e si usa la [sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md) per l'autenticazione. **Impostazioni rapide** è l'opzione predefinita e viene usata nello scenario distribuito più comune. Questa opzione richiede solo pochi clic per estendere la directory locale nel cloud.

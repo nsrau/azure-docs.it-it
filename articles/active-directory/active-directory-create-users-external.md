@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/02/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Aggiungere utenti da altre directory o società partner in Azure Active Directory
 

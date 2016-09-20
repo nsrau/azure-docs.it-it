@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 08/16/2016-->  
+<!--author=alkohli last changed: 08/16/2016-->
 
 #### Per creare un volume
 
@@ -38,7 +38,7 @@
 	 
      > [AZURE.NOTE] Una volta abilitato qui, il backup non può essere annullato. Sarà necessario modificare il volume per cambiare questa impostazione.
 
-     ![Aggiungi volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)  
+     ![Aggiungi volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
 4. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Verrà creato un volume con le impostazioni specificate.
 

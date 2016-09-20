@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 #Azure AD Connect in Microsoft Cloud per la Germania: anteprima pubblica
 
@@ -47,7 +47,7 @@ Dopo l'accesso al portale di Azure, seguire questa procedura:
 
 Dovrebbe essere visualizzata la seguente schermata:
 
-![Pannello Azure AD Connect](media\active-directory-aadconnect-germany\germany1.png)  
+![Pannello Azure AD Connect](media\active-directory-aadconnect-germany\germany1.png)
 
  
 La tabella seguente illustra le funzionalità visualizzate nel pannello.

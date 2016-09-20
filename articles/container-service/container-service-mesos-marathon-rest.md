@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="nepeters"/>  
+   ms.author="nepeters"/>
 
 # Gestione di contenitori tramite l'API REST
 

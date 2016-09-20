@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/07/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Passaggio successivo *(anteprima)*: Abilitare la sincronizzazione password in Servizi di dominio Azure AD.
 
@@ -29,7 +29,7 @@ I passaggi sono diversi a seconda che l'organizzazione abbia una directory di Az
 - [Directory di Azure AD solo cloud](active-directory-ds-getting-started-password-sync.md)
 - [Directory di Azure AD sincronizzata](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
-<br>  
+<br>
 
 ### Tenant sincronizzati - Abilita la sincronizzazione di hash di credenziali NTLM e Kerberos in Azure AD
 Un tenant di Azure AD viene impostato per la sincronizzazione con la directory locale dell'organizzazione con Azure AD Connect. Per impostazione predefinita, Azure AD Connect non sincronizza gli hash delle credenziali NTLM e Kerberos con Azure AD. Per usare Servizi di dominio Azure AD, è necessario configurare Azure AD Connect per sincronizzare gli hash delle credenziali necessari per l'autenticazione NTLM e Kerberos. I passaggi seguenti consentono di sincronizzare gli hash delle credenziali necessari con il tenant di Azure AD.

@@ -210,7 +210,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 - [Introduzione alle app Web in Servizio app di Azure](app-service-web-get-started.md)
 - [Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)]
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Azure CLI]: ../xplat-cli-install.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
@@ -230,7 +230,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [app Web]: ./app-service-web-overview.md
 [YEOMAN]: http://yeoman.io/
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
 [iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png

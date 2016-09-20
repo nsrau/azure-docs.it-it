@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/12/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Creare un lab di sviluppo/test di Azure
 
@@ -42,7 +42,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
     
 	1. Selezionare la **Sottoscrizione** da associare al lab.
     
-	1. Selezionare un **Percorso ** in cui archiviare il lab.
+	1. Selezionare un **Percorso** in cui archiviare il lab.
     
 	1. Selezionare **Arresto automatico** per indicare se si vogliono abilitare e definire i parametri per l'arresto automatico di tutte le macchine virtuali del lab.
 	
@@ -50,7 +50,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
     
 	1. Selezionare **Create**.
 
-    ![Creare un pannello lab](./media/devtest-lab-create-lab/create-devtestlab-blade.png)  
+    ![Creare un pannello lab](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

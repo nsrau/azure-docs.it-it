@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/08/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Indicizzatori in Ricerca di Azure
 > [AZURE.SELECTOR]

@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/14/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>  
+   ms.author="edmaca"/>
 
 # Panoramica di Microsoft Azure Data Lake Analytics
 

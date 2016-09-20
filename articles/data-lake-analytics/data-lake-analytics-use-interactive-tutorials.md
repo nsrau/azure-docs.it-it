@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>  
+   ms.author="edmaca"/>
 
 
 # Usare le esercitazioni interattive di Azure Data Lake Analytics
@@ -54,7 +54,7 @@ Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archi
 5. Fare clic su **Crea** nella parte inferiore del pannello.
 6. Immettere o selezionare le informazioni seguenti:
 
-    ![Pannello del portale di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)  
+    ![Pannello del portale di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Nome**: nome dell'account di Analytics.
 	- **Data Lake Store**: ogni account di Data Lake Analytics ha un account di Data Lake Store dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.

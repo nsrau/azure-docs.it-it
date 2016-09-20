@@ -15,7 +15,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/17/2016"
-    ms.author="cgronlun;tedway;olgali"/> 
+    ms.author="cgronlun;tedway;olgali"/>
 
 
 # Introduzione all'apprendimento automatico nel cloud
@@ -32,7 +32,7 @@ Per una breve panoramica, guardare la serie di video [Analisi scientifica dei da
 
 Azure Machine Learning è un potente servizio di analisi predittive basate sul cloud che consente di creare e distribuire rapidamente modelli predittivi come soluzioni di analisi. Quando si usa il cloud di Azure per eseguire esperimenti di apprendimento automatico o compilare soluzioni, non è necessario acquistare infrastrutture o hardware costosi.
 
-![Che cos'è l'apprendimento automatico? Flusso di lavoro di base per rendere operativa l'analisi predittiva in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png) 
+![Che cos'è l'apprendimento automatico? Flusso di lavoro di base per rendere operativa l'analisi predittiva in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning fornisce non solo gli strumenti per l'analisi predittiva dei modelli, ma anche un servizio completamente gestito che è possibile usare per distribuire i modelli predittivi come servizi Web pronti all'uso. Azure Machine Learning fornisce gli strumenti per creare soluzioni di analisi predittiva complete nel cloud: creare rapidamente, testare, rendere operativi e gestire i modelli predittivi.
 
@@ -52,13 +52,13 @@ Azure Machine Learning include tutto quanto è necessario per creare soluzioni d
 
 In [Machine Learning Studio](machine-learning-what-is-ml-studio.md) è possibile creare rapidamente modelli predittivi trascinando, rilasciando e connettendo i moduli. È possibile [provarlo gratuitamente](https://studio.azureml.net/?selectAccess=true&o=2) sperimentando con facilità diverse combinazioni.
 
-![Cos'è l'analisi predittiva: esempio di esperimento di analisi predittiva in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png) 
+![Cos'è l'analisi predittiva: esempio di esperimento di analisi predittiva in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * In [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) è possibile provare soluzioni di analisi create da altri o contribuire con le proprie. Inviare domande o commenti sugli esperimenti nella community oppure condividere collegamenti a esperimenti tramite social network come LinkedIn e Twitter.
 * Usare una grande libreria di [moduli e algoritmi di Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio per implementare rapidamente i modelli predittivi. Scegliere tra esperimenti di esempio, pacchetti R e Python e i migliori algoritmi di aziende Microsoft, come Xbox e Bing. Estendere i moduli di Studio con gli script [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizzati.
 
 
-	![Provare gli esperimenti predittivi o pubblicare il proprio esperimento in Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png) 
+	![Provare gli esperimenti predittivi o pubblicare il proprio esperimento in Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 
 ### Rendere operative le soluzioni di analisi predittiva: acquistare servizi Web o pubblicare i propri
 
@@ -122,7 +122,7 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 È possibile apprendere le nozioni di base sulle analisi predittive e sull'apprendimento automatico tramite un'[esercitazione dettagliata](machine-learning-create-experiment.md) e [gli esempi](machine-learning-sample-experiments.md).
 
 
-<!-- Module References --> 
+<!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
 <!---HONumber=AcomDC_0914_2016-->

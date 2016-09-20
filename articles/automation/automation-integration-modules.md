@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.date="09/12/2016"
-   ms.author="magoedte" />  
+   ms.author="magoedte" />
 
 # Moduli di integrazione di Automazione di Azure
 
@@ -151,7 +151,7 @@ Nonostante i moduli di integrazione siano essenzialmente moduli di PowerShell, e
        )
     }
     ```
-<br>  
+<br>
 3. Definire il tipo di output per tutti cmdlet del modulo. Definendo un tipo di output per un cmdlet, IntelliSense in fase di progettazione consente di determinare le proprietà di output del cmdlet da usare durante la creazione. È particolarmente utile durante la creazione grafica di runbook di automazione, in cui la conoscenza in fase di progettazione è essenziale per facilitare l'esperienza dell'utente con il modulo.<br> ![Tipo di output di runbook grafici](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> Si ottiene così una funzionalità simile al "completamento automatico" dell'output di un cmdlet in PowerShell ISE, senza che sia necessario eseguirlo.<br> ![PowerShell e IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 4. I cmdlet del modulo non devono accettare tipi di oggetto complessi per i parametri. Flusso di lavoro PowerShell si differenzia da PowerShell perché archivia i tipi complessi in formato deserializzato. I tipi primitivi vengono mantenuti come primitive, mentre i tipi complessi vengono convertiti nelle rispettive versioni deserializzate, che sono essenzialmente contenitori delle proprietà. Se è stato usato il cmdlet **Get-Process** in un runbook o un flusso di lavoro di PowerShell, viene restituito un oggetto di tipo [Deserialized.System.Diagnostic.Process] anziché il tipo [System.Diagnostic.Process] previsto. Questo tipo ha le stesse proprietà del tipo non deserializzato, ma nessun metodo. Se si cerca di passare questo valore come parametro a un cmdlet, che si aspetta un valore [System.Diagnostic.Process] per il parametro, viene visualizzato l'errore seguente: *Impossibile elaborare la trasformazione degli argomenti nel parametro 'process'. Errore: "Impossibile convertire il valore "System.Diagnostics.Process (CcmExec)" di tipo "Deserialized.System.Diagnostics.Process" nel tipo "System.Diagnostics.Process".* Ciò è dovuto alla mancata corrispondenza di tipo tra il tipo [System.Diagnostic.Process] previsto e il tipo [Deserialized.System.Diagnostic.Process] fornito. Per evitare il problema, assicurarsi che i cmdlet del modulo non accettino tipi complessi per i parametri. Di seguito è illustrato il modo errato di procedere.
 
@@ -199,6 +199,6 @@ Nonostante i moduli di integrazione siano essenzialmente moduli di PowerShell, e
 ## Passaggi successivi
 
 - Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
-- Per altre informazioni sulla creazione di moduli di PowerShell, vedere [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Scrittura di un modulo di Windows PowerShell).
+- Per altre informazioni sulla creazione di moduli di PowerShell, vedere [Writing a Windows PowerShell Module (Scrittura di un modulo di Windows PowerShell)](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
 
 <!---HONumber=AcomDC_0914_2016-->

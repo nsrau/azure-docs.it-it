@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="09/08/2016"
-   ms.author="glenga"/>  
+   ms.author="glenga"/>
 
 #Creare la prima funzione di Azure
 

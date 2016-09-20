@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/13/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Introduzione all'archivio Azure Data Lake mediante Azure PowerShell
 
@@ -62,14 +62,14 @@ Vedere la sezione Prerequisiti in [Uso di Azure PowerShell con Azure Resource Ma
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-	![Creare un gruppo di risorse di Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Creare un gruppo di risorse di Azure")  
+	![Creare un gruppo di risorse di Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Creare un gruppo di risorse di Azure")
 
 2. Creare un account di Azure Data Lake Store. Il nome specificato deve contenere solo lettere minuscole e numeri.
 
 		$dataLakeStoreName = "<your new Data Lake Store name>"
     	New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-	![Creare un account di Azure Data Lake Store](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Creare un account di Azure Data Lake Store")  
+	![Creare un account di Azure Data Lake Store](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Creare un account di Azure Data Lake Store")
 
 3. Verificare che l'account sia stato creato correttamente.
 
@@ -95,7 +95,7 @@ Vedere la sezione Prerequisiti in [Uso di Azure PowerShell con Azure Resource Ma
 
 	Verrà visualizzato un output simile al seguente:
 
-	![Verificare la directory](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificare la directory")  
+	![Verificare la directory](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificare la directory")
 
 
 ## Caricare dati in Azure Data Lake Store

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/13/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 
 # Caricare dati da CSV in Azure SQL Data Warehouse (file flat)
@@ -117,11 +117,11 @@ DateId |CalendarQuarter |FiscalQuarter
 
 Per eseguire la migrazione di un database SQL Server, vedere [Migrazione di un database SQL Server al database SQL nel cloud](sql-database-cloud-migrate.md).
 
-<!--MSDN references-->  
+<!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
 <!---HONumber=AcomDC_0914_2016-->

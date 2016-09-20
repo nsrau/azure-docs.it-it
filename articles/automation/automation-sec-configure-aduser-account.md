@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/12/2016"
-   ms.author="magoedte" />  
+   ms.author="magoedte" />
 
 # Autenticare i runbook con Azure Service Management e Azure Resource Manager
 

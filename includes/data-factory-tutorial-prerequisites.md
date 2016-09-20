@@ -12,7 +12,7 @@ In questa esercitazione si segue questa procedura:
 3.	Creare **set di dati** di input e di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività.
 3.	Creare la **pipeline**. Una pipeline può comprendere una o più attività (esempi: attività di copia, attività Hive HDInsight). Questo esempio usa un'attività Hive di HDInsight che esegue uno script Hive. Lo script crea prima di tutto una tabella esterna che fa riferimento ai dati di log Web non elaborati presenti nell'archiviazione BLOB di Azure e quindi esegue il partizionamento dei dati non elaborati, per anno e per mese.
  
-![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-tutorial-prerequisites/data-factory-tutorial-diagram-view.png)  
+![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-tutorial-prerequisites/data-factory-tutorial-diagram-view.png)
 
 
 In questa esercitazione, adfgetstarted (contenitore) = > inputdata (cartella) contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2014. Ecco le righe di esempio per ogni mese nel file di input.

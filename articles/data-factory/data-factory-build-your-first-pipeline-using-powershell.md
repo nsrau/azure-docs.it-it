@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/16/2016"
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Esercitazione: Creare la prima data factory di Azure con Azure PowerShell
 > [AZURE.SELECTOR]
@@ -349,7 +349,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 
 	È possibile continuare a eseguire questo cmdlet fino a quando la sezione non passa allo stato **Pronto** oppure **Operazione non riuscita**. Quando lo stato della sezione è Pronto, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB. La creazione di un cluster HDInsight su richiesta di solito richiede tempo.
 
-	![Dati di output](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png) 
+	![Dati di output](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 
 > [AZURE.IMPORTANT] Il file di input viene eliminato quando la sezione viene elaborata correttamente. Per eseguire di nuovo la sezione o ripetere l'esercitazione, caricare quindi il file di input (input.log) nella cartella inputdata del contenitore adfgetstarted.

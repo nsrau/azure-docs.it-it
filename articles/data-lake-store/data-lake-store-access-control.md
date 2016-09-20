@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/06/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Controllo di accesso in Azure Data Lake Store
 
@@ -28,11 +28,11 @@ Esistono due tipologie di elenchi di controllo di accesso (ACL): **ACL di access
 
 * **ACL predefiniti**: "modello" di ACL associato a una cartella che determina gli ACL di accesso per tutti gli elementi figlio creati in tale cartella. I file non hanno ACL predefiniti.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-1.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-2.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 >[AZURE.NOTE] La modifica dell'ACL predefinito per un elemento padre non influisce sull'ACL di accesso o sull'ACL predefinito degli elementi figlio già esistenti.
 
@@ -80,21 +80,21 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 
 ### Autorizzazioni necessarie per la lettura di un file
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-3.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
 * Per il file da leggere, il chiamante deve avere autorizzazioni **Lettura**
 * Per tutte le cartelle della struttura di cartelle contenenti il file, il chiamante deve avere autorizzazioni **Esecuzione**
 
 ### Autorizzazioni necessarie per l'aggiunta a un file
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-4.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
 * Per il file a cui si intende eseguire l'aggiunta, il chiamante deve avere autorizzazioni **Scrittura**
 * Per tutte le cartelle contenenti il file, il chiamante deve avere autorizzazioni **Esecuzione**
 
 ### Autorizzazioni necessarie per l'eliminazione di un file
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-5.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
 * Per la cartella padre, il chiamante deve avere autorizzazioni **Scrittura + Esecuzione**
 * Per tutte le altre cartelle nel percorso del file, il chiamante deve avere autorizzazioni **Esecuzione**
@@ -103,7 +103,7 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 
 ### Autorizzazioni necessarie per l'enumerazione di una cartella
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-6.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
 * Per la cartella di cui si intende eseguire l'enumerazione, il chiamante deve avere autorizzazioni **Lettura + Esecuzione**
 * Per tutte le cartelle predecessore, il chiamante deve avere autorizzazioni **Esecuzione**
@@ -112,15 +112,15 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 
 Nel pannello **Esplora dati** dell'account Data Lake Store fare clic su **Accesso** per visualizzare gli ACL per un file o una cartella. Nella schermata seguente fare clic su Accesso per visualizzare gli ACL per la cartella **catalog** dell'account **mydatastore**.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
 Successivamente, nel pannello **Accesso** fare clic su **Visualizzazione semplice** per passare alla visualizzazione semplificata.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
 Fare clic su **Visualizzazione avanzata** per passare alla visualizzazione più avanzata.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## Superuser
 
@@ -165,7 +165,7 @@ Il gruppo proprietario può essere modificato da:
 
 La figura seguente rappresenta l'algoritmo di controllo dell'accesso per gli account Data Lake Store.
 
-![Algoritmo per gli ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)  
+![Algoritmo per gli ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
 
 
 ## Proprietà mask e "autorizzazioni valide"
@@ -178,15 +178,15 @@ La proprietà **mask** è un valore RWX usato per limitare l'accesso per **utent
 
 Verranno ora esaminati alcuni esempi. Di seguito, la proprietà mask è impostata su **RWX** e non rimuove quindi alcuna autorizzazione. Si noti che le autorizzazioni valide per l'utente non anonimo, il gruppo proprietario e il gruppo con nome non vengono modificate durante il controllo dell'accesso.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
 
 Nell'esempio seguente, la proprietà mask è impostata su **R-X**. Di conseguenza, al momento del controllo dell'accesso **disattiva l'autorizzazione di scrittura** per l'**utente non anonimo**, il **gruppo proprietario** e il **gruppo con nome**.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
 
 Per riferimento, di seguito è illustrata la visualizzazione nel portale di Azure della proprietà mask per un file o una cartella.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 >[AZURE.NOTE] Per un nuovo account Data Lake Store, l'impostazione predefinita di mask per l'ACL di accesso e l'ACL predefinito della cartella radice ("/") è RWX.
 
@@ -201,7 +201,7 @@ Quando si crea un nuovo file o una nuova cartella in una cartella esistente, l'A
 
 Quando si crea una cartella o un file figlio, l'ACL predefinito dell'elemento padre viene copiato come ACL di accesso della cartella o del file figlio. Se **altri** utenti hanno autorizzazioni RWX nell'ACL predefinito dell'elemento padre, vengono completamente rimosse dall'ACL di accesso dell'elemento figlio.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
 
 Nella maggior parte degli scenari, le informazioni sopra riportate costituiscono tutto quanto è necessario sapere in merito al modo in cui viene determinato l'ACL di accesso di un elemento figlio. Se si ha familiarità con i sistemi POSIX e si vuole comprendere in modo approfondito come viene ottenuta questa trasformazione, vedere la sezione [Ruolo di umask nella creazione dell'ACL di accesso per nuovi file e cartelle](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) più avanti in questo articolo.
  
@@ -210,7 +210,7 @@ Nella maggior parte degli scenari, le informazioni sopra riportate costituiscono
 
 Quando viene creata una cartella figlio in una cartella padre, l'ACL predefinito della cartella padre viene copiato, così com'è, nell'ACL predefinito della cartella figlio.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
 ## Argomenti avanzati per informazioni dettagliate sugli ACL in Data Lake Store
 
@@ -228,7 +228,7 @@ In un sistema HDFS, umask è in genere un'opzione di configurazione a livello di
 
 La figura seguente illustra il funzionamento di questa proprietà umask. L'effetto in definitiva è la rimozione dell'autorizzazione **Lettura + Scrittura + Esecuzione** per gli **altri** utenti. Dato che in umask non sono specificati bit per l'**utente proprietario** e il **gruppo proprietario**, tali autorizzazioni non vengono trasformate.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)  
+![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
 
 ### Sticky bit
 

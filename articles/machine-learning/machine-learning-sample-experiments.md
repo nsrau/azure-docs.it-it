@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/17/2016"
-    ms.author="cgronlun;chhavib;olgali"/> 
+    ms.author="cgronlun;chhavib;olgali"/>
 
 # Copiare gli esperimenti di esempio per creare nuovi esperimenti di apprendimento automatico
 Questo articolo illustra come iniziare con gli esperimenti di esempio di [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) invece di creare esperimenti di apprendimento automatico da zero. È possibile usare gli esempi per compilare la propria soluzione di apprendimento automatico.
@@ -47,7 +47,7 @@ Per esplorare tutti gli esperimenti:
 
     > [AZURE.NOTE] Per aprire un esperimento in Machine Learning Studio, è necessario accedere con le credenziali dell'account Microsoft. Se non si dispone ancora di un'area di lavoro di Machine Learning, verrà creata un'area di lavoro di valutazione gratuita. [Informazioni sulla versione di valutazione gratuita di Machine Learning.](https://azure.microsoft.com/pricing/details/machine-learning/)
 
-    ![](./media/machine-learning-sample-experiments/example-experiment.png) 
+    ![](./media/machine-learning-sample-experiments/example-experiment.png)
 
 
 ## Usare un modello in Machine Learning Studio

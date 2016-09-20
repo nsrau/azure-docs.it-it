@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/08/2016"
-   ms.author="v-livech"/>  
+   ms.author="v-livech"/>
 
 
 # Creare una VM Linux in Azure tramite l'interfaccia della riga di comando

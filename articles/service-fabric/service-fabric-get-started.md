@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/13/2016"
-   ms.author="ryanwi"/>  
+   ms.author="ryanwi"/>
 
 # Preparare l'ambiente di sviluppo
  Per compilare ed eseguire [applicazioni di Service Fabric][1] nel computer di sviluppo, installare il runtime, l'SDK e gli strumenti. È anche necessario abilitare l'esecuzione di script Windows PowerShell inclusi nell'SDK.

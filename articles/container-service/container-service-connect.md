@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="rogardle"/>  
+   ms.author="rogardle"/>
 
 
 # Connettersi a un cluster del servizio contenitore di Azure
@@ -83,7 +83,7 @@ Immettere un nome host che include il nome utente dell'amministratore cluster e 
 
 Selezionare **SSH** e **Authentication** (Autenticazione). Aggiungere il file di chiave privata per l'autenticazione.
 
-![Configurazione PuTTY 2](media/putty2.png)  
+![Configurazione PuTTY 2](media/putty2.png)
 
 Selezionare **Tunnels** (Tunnel) e configurare le porte inoltrate seguenti:
 - **Source Port:** corrisponde alla preferenza dell'utente. Usare 80 per il controller di dominio/sistema operativo o 2375 per Swarm.
@@ -97,7 +97,7 @@ L'esempio seguente è configurato per DC/OS, ma avrà un aspetto simile anche pe
 
 Al termine, salvare la configurazione di connessione e connettere la sessione PuTTY. Dopo la connessione, è possibile visualizzare la configurazione della porta nel registro eventi di PuTTY.
 
-![Log eventi di PuTTY](media/putty4.png)  
+![Log eventi di PuTTY](media/putty4.png)
 
 Dopo avere configurato il tunnel per DC/OS, è possibile accedere all'endpoint correlato da:
 

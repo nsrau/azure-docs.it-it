@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
     ms.date="09/14/2016"
-    ms.author="sstein"/>  
+    ms.author="sstein"/>
 
 # Creare un pool di database elastici con C&#x23;
 

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/13/2016"
-	ms.author="billmath;andkjell"/>  
+	ms.author="billmath;andkjell"/>
 
 # Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](active-directory-aadconnect-get-started-express.md) non soddisfa la distribuzione o la topologia.
@@ -43,7 +43,7 @@ Specificare i gruppi di sincronizzazione personalizzati | Per impostazione prede
 ### Accesso utente
 Dopo l'installazione dei componenti necessari, viene richiesta la selezione del metodo di accesso Single Sign-On degli utenti. La tabella seguente fornisce una breve descrizione delle opzioni disponibili. Per una descrizione completa dei metodi di accesso, vedere [Accesso utente](active-directory-aadconnect-user-signin.md).
 
-![Accesso utente](./media/active-directory-aadconnect-get-started-custom/usersignin.png)  
+![Accesso utente](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
 Opzione Single Sign-On | Descrizione
 ------------- | -------------
@@ -134,7 +134,7 @@ Per limitare gli attributi da sincronizzare in Azure AD, selezionare prima di tu
 
 In base ai servizi selezionati nel passaggio precedente, questa pagina visualizza tutti gli attributi che vengono sincronizzati. Questo elenco è una combinazione di tutti i tipi di oggetti da sincronizzare. Se sono presenti alcuni attributi particolari che non è necessario sincronizzare, è possibile deselezionarli.
 
-![Funzionalità facoltative: attributi](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)  
+![Funzionalità facoltative: attributi](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
 >[AZURE.WARNING]
 La rimozione degli attributi può influire sulle funzionalità. Per procedure consigliate e indicazioni, vedere gli [attributi sincronizzati](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
@@ -228,7 +228,7 @@ Per altre informazioni, vedere [Modalità di staging](active-directory-aadconnec
 ### Verificare la configurazione della federazione
 Azure AD Connect verifica automaticamente le impostazioni DNS quando si fa clic sul pulsante Verifica.
 
-![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)  
+![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 
 ![Verificare](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 

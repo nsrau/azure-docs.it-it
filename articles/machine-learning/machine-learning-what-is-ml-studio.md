@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/09/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/>
 
 # Informazioni su Azure Machine Learning Studio
 
@@ -35,7 +35,7 @@ Per sviluppare un modello di analisi predittiva, in genere si usano dati proveni
 
 Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire un modello di analisi predittiva.
 
-![Diagramma di Azure ML Studio: Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.][ml-studio-overview]  
+![Diagramma di Azure ML Studio: Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.][ml-studio-overview]
 
 ## Introduzione a Machine Learning Studio
 
@@ -110,7 +110,7 @@ Quando il modello di analisi predittiva è pronto, è possibile distribuirlo com
 
 [ml-studio-overview]: ./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
 
-<!-- Module References -->  
+<!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/
 [elementary-statistics]: https://msdn.microsoft.com/library/azure/3086b8d4-c895-45ba-8aa9-34f0c944d4d3/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

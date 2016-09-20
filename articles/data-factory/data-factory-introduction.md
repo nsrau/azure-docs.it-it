@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="09/08/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Introduzione al servizio Azure Data Factory, un servizio di integrazione dati nel cloud
 
@@ -24,7 +24,7 @@ Data factory è un servizio di integrazione delle informazioni basato sul cloud 
 
 Data factory usa origini dati nel cloud e locali, oltre ai servizi SaaS, per inserire, preparare, trasformare, analizzare e pubblicare i dati. È possibile usare Data factory per la composizione di servizi in pipeline di flussi di dati gestite per trasformare i dati mediante servizi quali [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) per le esigenze di calcolo relative ai Big Data e tramite [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) per rendere operative le soluzioni di analisi, in modo da superare le visualizzazioni di monitoraggio tabulari e avvalersi delle visualizzazioni avanzate offerte da Data factory per visualizzare rapidamente le derivazioni e le dipendenze tra le pipeline di dati. Data Factory permette di monitorare tutte le pipeline dei flussi di dati da un'unica visualizzazione unificata per individuare rapidamente i problemi e configurare avvisi di monitoraggio.
 
-![Diagramma: Panoramica di Data Factory, un servizio di integrazione dei dati](./media/data-factory-introduction/what-is-azure-data-factory.png)  
+![Diagramma: Panoramica di Data Factory, un servizio di integrazione dei dati](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **Figura 1.** Data Factory permette di raccogliere i dati da molte origini dati locali diverse, quindi di inserirli, prepararli, trasformarli e analizzarli e infine pubblicare dati pronti per l'utilizzo.
 
@@ -36,7 +36,7 @@ Data factory usa origini dati nel cloud e locali, oltre ai servizi SaaS, per ins
 
 Le entità principali di Data factory interagiscono tra loro per definire i dati di input e di output, gli eventi di elaborazione e la pianificazione e le risorse necessarie per eseguire il flusso di dati desiderato.
 
-![Diagramma: Data Factory, servizio di integrazione dei dati cloud - Concetti chiave](./media/data-factory-introduction/data-integration-service-key-concepts.png)  
+![Diagramma: Data Factory, servizio di integrazione dei dati cloud - Concetti chiave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **Figura 2.** Relazioni tra set di dati, attività, pipeline e servizio collegato
 

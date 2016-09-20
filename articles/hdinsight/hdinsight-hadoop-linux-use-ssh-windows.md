@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/30/2016"
-   ms.author="larryfr"/>  
+   ms.author="larryfr"/>
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Windows:
 
@@ -69,7 +69,7 @@ Se si prevede di usare chiavi SSH con il cluster, attenersi alle seguenti inform
 
 3. Spostare il puntatore del mouse nell'area al di sotto dell'indicatore di stato finché la relativa barra non si riempie. Spostando il mouse si generano dati casuali che vengono usati per generare la chiave.
 
-	![moving the mouse around](./media/hdinsight-hadoop-linux-use-ssh-windows/movingmouse.png)  
+	![moving the mouse around](./media/hdinsight-hadoop-linux-use-ssh-windows/movingmouse.png)
 
 	Dopo che la chiave è stata generata, verrà visualizzata la chiave pubblica.
 
@@ -117,13 +117,13 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioni
 
 1. Aprire PuTTY.
 
-	![putty interface](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)  
+	![putty interface](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)
 
 2. Se è stata specificata una chiave SSH quando è stato creato l'account utente, è necessario effettuare il passaggio seguente per selezionare la chiave privata da usare durante l'autenticazione nel cluster:
 
 	In **Category** espandere **Connection**, **SSH** e selezionare **Auth**. Infine, fare clic su **Browse** e selezionare il file ppk che contiene la chiave privata.
 
-	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)  
+	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
 3. In **Category** selezionare **Session**. Nella schermata **Basic options for your PuTTY session** immettere l'indirizzo SSH del server HDInsight nel campo **Host name (or IP address)**. Quando ci si connette a un cluster è possibile usare due indirizzi SSH.
 
@@ -165,7 +165,7 @@ Se è stata specificata una chiave SSH quando è stato creato l'account utente, 
 
     Nella sezione **Authentication parameters** abilitare **Allow agent forwarding**. In questo modo PuTTY passa automaticamente l'autenticazione del certificato tramite la connessione al nodo head del cluster durante la connessione ai nodi di lavoro.
 
-    ![allow agent forwarding](./media/hdinsight-hadoop-linux-use-ssh-windows/allowforwarding.png)  
+    ![allow agent forwarding](./media/hdinsight-hadoop-linux-use-ssh-windows/allowforwarding.png)
 
 6. Connettersi al cluster come descritto in precedenza. Se si usa una chiave SSH per l'autenticazione, non è necessario selezionare la chiave: la chiave SSH aggiunta a Pageant verrà usata per l'autenticazione del cluster.
 
@@ -209,7 +209,7 @@ Se è necessario aggiungere altri account al cluster, eseguire i passaggi seguen
 
 4. Quando si apre l'editor nano, copiare e incollare il contenuto della chiave pubblica per il nuovo account utente. Usare infine **Ctrl-X** per salvare il file e uscire dall'editor.
 
-	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-windows/nano.png)  
+	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-windows/nano.png)
 
 5. Usare il comando seguente per specificare il nuovo account utente come proprietario della cartella .ssh e del contenuto.
 

@@ -15,7 +15,7 @@
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
    	ms.date="06/29/2016"
-   	ms.author="jgao"/>  
+   	ms.author="jgao"/>
 
 # Pubblicare applicazioni HDInsight in Azure Marketplace
 
@@ -71,11 +71,11 @@ Creare un file ZIP contenente tutti i file necessari per installare le applicazi
 		
 	>Si noti che il nome dello script è composto da tre parti:
 		
-	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
-	>	2. A "-" for readability.
-	>	3. A unique string function with the application name as the parameter.
+	>	1. Un prefisso del nome file che includerà il nome dell'applicazione o un nome rilevante per l'applicazione.
+	>	2. Un "-" per migliorare la leggibilità.
+	>	3. Una funzione stringa univoca con il nome dell'applicazione come parametro.
 
-	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	Ad esempio, la stringa indicata sopra alla fine diventerà: hue-install-v0-4wkahss55hlas nell'elenco di azioni script persistenti. Per un payload JSON di esempio, vedere [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Tutti gli script necessari.
 

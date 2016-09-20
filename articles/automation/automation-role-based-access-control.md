@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/12/2016"
-   ms.author="magoedte;sngun"/>  
+   ms.author="magoedte;sngun"/>
 
 # Controllo degli accessi in base al ruolo in Automazione di Azure
 

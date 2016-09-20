@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="09/13/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Introduzione a DocumentDB: un Database NoSQL JSON
 
@@ -63,7 +63,7 @@ Tutte le risorse disponibili in DocumentDB sono modellate e archiviate come docu
 
 La figura seguente mostra le relazioni tra le risorse di DocumentDB:
 
-![La relazione gerarchica tra le risorse in DocumentDB, un database NoSQL JSON][1]  
+![La relazione gerarchica tra le risorse in DocumentDB, un database NoSQL JSON][1]
 
 Un account di database è costituito da un insieme di database, ognuno dei quali include più raccolte, che possono contenere stored procedure, trigger, UDF, documenti e allegati correlati. Un database include anche utenti associati, ognuno dei quali ha un insieme di autorizzazioni per accedere alle diverse raccolte, stored procedure, trigger, UDF, documenti o allegati disponibili. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono risorse definite dal sistema con schemi noti, i documenti, le stored procedure, i trigger, le funzioni UDF e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
 

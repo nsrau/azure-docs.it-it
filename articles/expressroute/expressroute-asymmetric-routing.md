@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/23/2016"
-   ms.author="osamazia"/>  
+   ms.author="osamazia"/>
 
 # Routing asimmetrico con più percorsi di rete
 
@@ -25,7 +25,7 @@ Per comprendere il routing asimmetrico è importante comprendere due concetti, o
 
 Quando una rete aziendale ha un solo collegamento a Internet tramite il provider di servizi Internet, tutto il traffico da e verso Internet passa per lo stesso percorso. Spesso le aziende acquistano più circuiti, per avere percorsi ridondanti e migliorare i tempi di attività della rete. In questo caso è possibile che il traffico in uscita dalla rete, verso Internet, passi attraverso un collegamento e il traffico di ritorno passi attraverso un collegamento diverso. Questa approccio viene definito comunemente routing asimmetrico. Nel routing asimmetrico il traffico di rete segue un percorso diverso rispetto al flusso originale.
 
-![Rete con più percorsi](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)  
+![Rete con più percorsi](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
 Anche se si verifica principalmente su Internet, il routing asimmetrico è applicabile anche ad altre combinazioni di percorsi multipli. È ad esempio applicabile a un percorso Internet e un percorso privato per la stessa destinazione e a più percorsi privati per la stessa destinazione.
 
@@ -49,7 +49,7 @@ Quando ci si connette a Microsoft tramite Azure ExpressRoute, la rete subisce le
 
 Per comprendere l'effetto di queste due modifiche sulla rete, è possibile esaminare alcuni scenari. Si supponga ad esempio di avere un solo circuito per Internet e di utilizzare tutti i servizi Microsoft tramite Internet. Il traffico dalla rete a Microsoft e viceversa attraversa lo stesso collegamento Internet e passa per il firewall. Il firewall registra il flusso non appena rileva il primo pacchetto e ai pacchetti di ritorno viene consentito il passaggio perché il flusso è già presente nella tabella dello stato.
 
-![Routing asimmetrico con ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)  
+![Routing asimmetrico con ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
 
 A questo punto si abilita ExpressRoute e si utilizzano i servizi offerti da Microsoft tramite ExpressRoute. Tutti gli altri servizi Microsoft vengono utilizzati tramite Internet. Si distribuisce un firewall di confine separato connesso a ExpressRoute. Tramite ExpressRoute, Microsoft annuncia alla rete prefissi più specifici per servizi specifici. Per tali prefissi l'infrastruttura di routing sceglie ExpressRoute come percorso preferito. Se gli indirizzi IP pubblici non vengono annunciati a Microsoft tramite ExpressRoute, Microsoft comunica con gli indirizzi IP pubblici tramite Internet. Il traffico inoltrato dalla rete a Microsoft usa ExpressRoute e il traffico di ritorno da Microsoft usa Internet. Quando il firewall di confine rileva un pacchetto di risposta per un flusso non presente nella tabella dello stato, elimina il traffico di ritorno.
@@ -71,7 +71,7 @@ Per usare ExpressRoute per l'autenticazione, è necessario assicurarsi che gli i
 È possibile risolvere i problemi del routing asimmetrico anche tramite SNAT. Si supponga ad esempio che l'indirizzo IP pubblico di un server SMTP (Simple Mail Transfer Protocol) locale non sia stato annunciato tramite ExpressRoute perché si intende usare Internet per questo tipo di comunicazioni. Una richiesta originata da Microsoft e diretta al server SMTP locale attraversa Internet. Tramite SNAT la richiesta in ingresso viene inviata a un indirizzo IP interno. Il traffico inverso dal server SMTP viene indirizzato al firewall di confine, usato per NAT, invece che a ExpressRoute. Il traffico di ritorno viene restituito tramite Internet.
 
 
-![Configurazione della rete con Source NAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)  
+![Configurazione della rete con Source NAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## Rilevamento del routing asimmetrico
 

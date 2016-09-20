@@ -129,7 +129,7 @@ Per ulteriori informazioni sulla creazione di modelli di apprendimento automatic
 [12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
-<!--Article references--> 
+<!--Article references-->
 [Azure Machine Learning studio]: https://studio.azureml.net/
 [Introduzione a Machine Learning in Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [caricare manualmente i dati di esempio]: sql-data-warehouse-load-sample-databases.md
