@@ -14,16 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
-   ms.author="smalone" />
+   ms.date="09/05/2016"
+   ms.author="smalone" />  
 
 # Come gestire i record DNS inversi per i servizi tramite l'interfaccia della riga di comando di Azure
 
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
-<BR>
-[AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
-<BR>
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
+[AZURE.INCLUDE [DNS-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)] <BR> [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
 
 ## Convalida dei record DNS inversi
 Per impedire che qualcun altro possa creare record DNS inversi mappati ai propri domini DNS, Azure consente la creazione di un record DNS inverso solo se una delle condizioni seguenti è vera:
@@ -60,4 +56,4 @@ Se si desidera aggiungere il DNS inverso a un indirizzo IP pubblico esistente ch
 
 [AZURE.INCLUDE [DOMANDE FREQUENTI](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

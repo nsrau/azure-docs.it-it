@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Reimpostare la password o il desktop remoto in una VM Windows | Microsoft Azure"
-	description="Reimpostare la password di amministratore o i servizi Desktop remoto in una VM Windows creata con il modello di distribuzione di gestione risorse."
+	pageTitle="Reimpostare la password o la configurazione di Desktop remoto in una VM Windows | Microsoft Azure"
+	description="Informazioni su come reimpostare la password di un account o i servizi Desktop remoto in una VM Windows tramite il portale di Azure o Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
-	ms.author="iainfou"/>
+	ms.date="09/01/2016"
+	ms.author="iainfou"/>  
 
 # Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una VM Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Se non è possibile connettersi a una macchina virtuale Windows perché si è dimenticata la password o per un problema di configurazione del servizio Desktop remoto, è possibile reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto. È possibile usare il portale di Azure o l'estensione di accesso alla VM in Azure PowerShell per reimpostare la password. Se si usa PowerShell, verificare che nel computer di lavoro sia installato il modulo PowerShell più recente e di aver effettuato la connessione alla sottoscrizione di Azure. Per la procedura dettagliata, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+È possibile reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto, se non si riesce ad eseguire la connessione a una macchina virtuale Windows. È possibile usare il portale di Azure o l'estensione di accesso alla VM in Azure PowerShell per reimpostare la password. Se si usa PowerShell, verificare che nel computer di lavoro sia installato il modulo PowerShell più recente e di avere eseguito la connessione alla sottoscrizione di Azure. Per la procedura dettagliata, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 > [AZURE.TIP] È possibile verificare la versione di PowerShell installata usando `Import-Module Azure, AzureRM; Get-Module Azure, AzureRM | Format-Table Name, Version`.
 
 ## VM Windows nel modello di distribuzione di Resource Manager
 
 ### Portale di Azure
-Selezionare la macchina virtuale facendo clic su **Esplora** > **Macchine virtuali** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimposta password**. Verrà visualizzato il pannello di reimpostazione delle password, come illustrato di seguito:
+Selezionare la macchina virtuale facendo clic su **Esplora** > **Macchine virtuali** > *macchina virtuale Windows* > **Tutte le impostazioni** > **Reimposta password**. Viene visualizzato il pannello per la reimpostazione della password:
 
-![Pagina di reimpostazione della password](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
+![Pagina di reimpostazione della password](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)  
 
 Immettere il nome utente e una nuova password, quindi fare clic su **Salva**. Provare a connettersi di nuovo alla macchina virtuale.
 
@@ -55,7 +55,7 @@ Usare l'estensione VMAccess per impostare le nuove credenziali come indicato di 
 		-Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 
 
-Sostituire `myRG`, `myVM`, `myVMAccess` e posizione con i valori pertinenti alla propria configurazione.
+Sostituire `myRG`, `myVM` e `myVMAccess` e la posizione con i valori pertinenti per la propria configurazione.
 
 
 #### **Reimpostare la configurazione del servizio Desktop remoto**
@@ -93,7 +93,7 @@ Dopo aver immesso il nuovo nome utente e la nuova password, fare clic su **Salva
 
 ### Estensione VMAccess e PowerShell
 
-Assicurarsi che l'agente di macchine virtuali sia installato nella macchina virtuale. Per usare l'agente di macchine virtuali è sufficiente che quest'ultimo sia disponibile. Non è necessario che sia installata l'estensione VMAccess. Verificare che l'agente di macchine virtuali sia già installato usando il comando seguente. Sostituire "myCloudService" e "myVM" con i nomi rispettivamente del servizio cloud e della VM. Per scoprire questi nomi eseguire `Get-AzureVM` senza parametri.
+Assicurarsi che l'agente di macchine virtuali sia installato nella macchina virtuale. Per usare l'agente di macchine virtuali è sufficiente che quest'ultimo sia disponibile. Non è necessario che sia installata l'estensione VMAccess. Verificare che l'agente di macchine virtuali sia già installato usando il comando seguente. Sostituire "myCloudService" e "myVM" con i nomi rispettivamente del servizio cloud e della VM. Per individuare questi nomi eseguire `Get-AzureVM` senza parametri.
 
 	$vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 	write-host $vm.VM.ProvisionGuestAgent
@@ -143,4 +143,4 @@ Questo comando imposta il valore fDenyTSConnections del Registro di sistema su 0
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

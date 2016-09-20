@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/07/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="08/29/2016" 
+   ms.author="rortloff;barbkess;sonyama"/>  
 
 # Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
 
@@ -58,7 +58,7 @@ La crittografia può essere confermata con le seguenti viste a gestione dinamica
 - [sys.databases]
 - [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
 
-<!--MSDN references-->
+<!--MSDN references-->  
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 [sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
 [sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
@@ -70,6 +70,6 @@ La crittografia può essere confermata con le seguenti viste a gestione dinamica
 [4]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png
 [5]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png
 
-<!--Link references-->
+<!--Link references-->  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

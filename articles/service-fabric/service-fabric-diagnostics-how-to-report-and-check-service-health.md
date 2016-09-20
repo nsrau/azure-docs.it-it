@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/07/2016"
-   ms.author="toddabel"/>
+   ms.date="09/06/2016"
+   ms.author="toddabel"/>  
 
 # Creare report e verificare l'integrità dei servizi
 Quando si verificano problemi nei servizi, la possibilità di rispondere e correggere interruzioni ed eventi imprevisti dipende dalla capacità di rilevare i problemi in tempi rapidi. Se si segnalano problemi ed errori allo strumento di gestione dell'integrità di Azure Service Fabric dal codice del servizio, è possibile usare gli strumenti standard di monitoraggio dell'integrità forniti da Service Fabric per verificare lo stato di integrità.
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## Passaggi successivi
 [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

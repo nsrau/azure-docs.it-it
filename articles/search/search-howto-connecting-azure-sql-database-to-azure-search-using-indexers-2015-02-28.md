@@ -28,7 +28,7 @@ In questo articolo verranno illustrati i meccanismi di utilizzo degli indicizzat
 
 Per impostare e configurare un indicizzatore SQL di Azure, è possibile chiamare l’[API REST di Ricerca di Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) per creare e gestire **indicizzatori** e **origini dati**.
 
-È inoltre possibile utilizzare la [Classe indicizzatore](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) nel [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), o la procedura guidata per l’importazione dei dati o il [portale di Azure classico](https://portal.azure.com) per creare e pianificare un indicizzatore.
+È inoltre possibile utilizzare la [Classe indicizzatore](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) nel [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), o la procedura guidata per l’importazione dei dati o il [Portale Azure](https://portal.azure.com) per creare e pianificare un indicizzatore.
 
 Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate). È definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
@@ -36,19 +36,19 @@ Un **indicizzatore** è una risorsa che connette le origini dati agli indici di 
  
 - Eseguire una copia occasionale dei dati per popolare un indice.
 - Aggiornare un indice con le modifiche nell'origine dati in base a una pianificazione.
-- Eseguire aggiornamenti su richiesta in un indice in base alle esigenze. 
+- Eseguire aggiornamenti su richiesta in un indice in base alle esigenze.
 
 ## Quando usare l’indicizzatore SQL di Azure
 
 In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL di Azure potrebbe non essere appropriato. Se i dati soddisfano i seguenti requisiti, è possibile utilizzare l’indicizzatore SQL di Azure:
 
 - Tutti i dati provengono da una singola tabella o vista
-	- Se i dati sono sparsi tra più tabelle, è possibile creare una vista e utilizzarla con l'indicizzatore. Tuttavia, tenere presente che se si utilizza una vista, non si sarà in grado di utilizzare il rilevamento delle modifiche integrato di SQL Server. Per ulteriori informazioni, vedere questa sezione. 
-- I tipi di dati utilizzati nell'origine dati sono supportati dall’indicizzatore. È supportata la maggior parte dei tipi SQL, ma non tutti. Per ulteriori informazioni, vedere [Mapping dei tipi di dati per gli indicizzatori in Ricerca di Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
-- Non sono necessari aggiornamenti quasi in tempo reale dell’indice quando viene modificata una riga. 
-	- L'indicizzatore può reindicizzare la tabella al massimo ogni 5 minuti. Se i dati vengono modificati di frequente ed è necessario riflettere le modifiche nell’indice entro pochi secondi o pochi minuti, è consigliabile utilizzare direttamente l’[API dell’indice di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx). 
-- Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in una pianificazione, lo schema consente di identificare in modo efficiente le righe modificate (ed eliminate, se applicabili). Per ulteriori informazioni, vedere "Acquisizione delle righe modificate ed eliminate", di seguito. 
-- La dimensione dei campi indicizzati in una riga non supera la dimensione massima di una richiesta di indicizzazione di Ricerca di Azure, vale a dire 16 MB. 
+	- Se i dati sono sparsi tra più tabelle, è possibile creare una vista e utilizzarla con l'indicizzatore. Tuttavia, tenere presente che se si utilizza una vista, non si sarà in grado di utilizzare il rilevamento delle modifiche integrato di SQL Server. Per ulteriori informazioni, vedere questa sezione.
+- I tipi di dati utilizzati nell'origine dati sono supportati dall’indicizzatore. È supportata la maggior parte dei tipi SQL, ma non tutti. Per ulteriori informazioni, vedere [Mapping dei tipi di dati per gli indicizzatori in Ricerca di Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105).
+- Non sono necessari aggiornamenti quasi in tempo reale dell’indice quando viene modificata una riga.
+	- L'indicizzatore può reindicizzare la tabella al massimo ogni 5 minuti. Se i dati vengono modificati di frequente ed è necessario riflettere le modifiche nell’indice entro pochi secondi o pochi minuti, è consigliabile utilizzare direttamente l’[API dell’indice di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx).
+- Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in una pianificazione, lo schema consente di identificare in modo efficiente le righe modificate (ed eliminate, se applicabili). Per ulteriori informazioni, vedere "Acquisizione delle righe modificate ed eliminate", di seguito.
+- La dimensione dei campi indicizzati in una riga non supera la dimensione massima di una richiesta di indicizzazione di Ricerca di Azure, vale a dire 16 MB.
 
 ## Creare e utilizzare un indicizzatore SQL di Azure
 
@@ -159,7 +159,7 @@ Di seguito è illustrato ciò che accade:
 
 1. L’esecuzione del primo indicizzatore comincia il 1 marzo 2015 alle 12:00 UTC più o meno.
 1. Si supponga che l'esecuzione richieda 20 minuti (o un tempo qualsiasi inferiore a 1 ora).
-1. La seconda esecuzione inizia il 1 marzo 2015 alle 13.00, più o meno 
+1. La seconda esecuzione inizia il 1 marzo 2015 alle 13.00, più o meno
 1. Si supponga ora che l'esecuzione richieda più di un'ora (affinché ciò si verifichi sarebbero necessari molti documenti, ma si tratta di un esempio utile), ad esempio minuti 70, in modo che si completi intorno alle 02:10.
 1. Ora sono le 02:00, l’ora dell’inizio della terza esecuzione. Tuttavia, poiché la seconda esecuzione delle 01:00 è ancora in esecuzione, la terza esecuzione viene ignorata. La terza esecuzione inizia alle 03:00.
 
@@ -175,7 +175,7 @@ Se il database SQL supporta il [rilevamento delle modifiche](https://msdn.micros
 
 Il rilevamento delle modifiche integrato è supportata a partire dalle seguenti versioni di database di SQL Server:
  
-- SQL Server 2008 R2 e versioni successive, se si utilizza SQL Server nelle macchine virtuali di Azure. 
+- SQL Server 2008 R2 e versioni successive, se si utilizza SQL Server nelle macchine virtuali di Azure.
 - Database SQL di Azure V12, se si utilizza il database SQL di Azure SQL.
 
 Quando si usano i criteri di rilevamento delle modifiche integrati di SQL, non specificare criteri di rilevamento dell'eliminazione dei dati separati, perché questi ultimi includono il supporto predefinito per l'identificazione delle righe eliminate.
@@ -198,8 +198,8 @@ Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indi
 
 Sebbene i criteri di rilevamento delle modifiche siano consigliati, non sarà possibile utilizzarli se i dati sono in una vista o se si utilizza una versione precedente del database SQL di Azure. In questo caso, è consigliabile utilizzare i criteri di limite massimo. Questi criteri possono essere utilizzati se la tabella contiene una colonna che soddisfa i criteri seguenti:
 
-- Tutti gli inserimenti specificano un valore per la colonna. 
-- Tutti gli aggiornamenti a un elemento modificano anche il valore della colonna. 
+- Tutti gli inserimenti specificano un valore per la colonna.
+- Tutti gli aggiornamenti a un elemento modificano anche il valore della colonna.
 - Il valore di questa colonna aumenta a ogni modifica.
 - Le query che usano una clausola `WHERE` simile a `WHERE [High Water Mark Column] > [Current High Water Mark Value]` possono essere eseguite in modo efficiente.
 
@@ -257,10 +257,10 @@ Si noti che **softDeleteMarkerValue** deve essere una stringa. Utilizzare la rap
 
 **D:** Posso utilizzare l'indicizzatore SQL di Azure SQL con i database SQL in esecuzione sulle macchine virtuali IaaS in Azure?
 
-A: Sì. Tuttavia, è necessario consentire al servizio di ricerca di connettersi al database:
+A: Sì. Tuttavia, è necessario consentire al servizio di ricerca di connettersi al database facendo le seguenti due cose. Per altre informazioni, vedere l'articolo [Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-1. Configurare il firewall per consentire l'accesso all'indirizzo IP del servizio di ricerca. 
-2. Può anche essere necessario configurare il database con un certificato attendibile per consentire al servizio di ricerca di aprire le connessioni SSL al database.
+1. Può essere necessario configurare il database con un certificato attendibile per consentire al servizio di ricerca di aprire le connessioni SSL al database.
+2. Configurare il firewall per consentire l'accesso all'indirizzo IP del servizio di ricerca.
 
 **D:** Posso utilizzare l'indicizzatore SQL di Azure SQL con i database SQL in esecuzione locale?
 
@@ -278,4 +278,4 @@ A: Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un no
 
 A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un’indicizzazione e dei carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il ridimensionamento del servizio di ricerca.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

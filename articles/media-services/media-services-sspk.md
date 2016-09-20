@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016"  
-	ms.author="xpouyat"/>
+	ms.date="09/06/2016"  
+	ms.author="xpouyat"/>  
 
 #Licenza per Microsoft® Smooth Streaming Client Porting Kit
 
@@ -90,6 +90,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Alticast Corporation
 - Amazon Digital Services, Inc.
 - AVC Multimedia Software Co., Ltd.
+- Cavium, Inc.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Fluendo S.A.
@@ -129,6 +130,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 - Filmflex Movies Limited
 - Fluendo S.A.
 - Gibson Innovations Limited
+- Haier Information Applicantion S.R.L
 - HANDAN BroadInfoCom Co., Ltd.
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
@@ -165,4 +167,4 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

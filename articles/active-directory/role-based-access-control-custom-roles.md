@@ -52,7 +52,7 @@ Ecco un esempio di ruolo personalizzato, che consente il monitoraggio e il riavv
   ]
 }
 ```
-## Actions
+## Azioni
 La proprietà **Actions** di un ruolo personalizzato specifica le operazioni di Azure a cui il ruolo concede l'accesso. Si tratta di una raccolta di stringhe di operazione che identificano operazioni a protezione diretta dei provider di risorse di Azure. Le stringhe di operazione che contengono caratteri jolly (*) concedono l'accesso a tutte le operazioni corrispondenti alla stringa di operazione. Ad esempio:
 
 -	`*/read` concede l'accesso a operazioni di lettura per tutti i tipi di risorsa di tutti i provider di risorse di Azure.
@@ -63,7 +63,7 @@ La proprietà **Actions** di un ruolo personalizzato specifica le operazioni di 
 Usare `Get-AzureRmProviderOperation` in PowerShell o `azure provider operations show` nell'interfaccia della riga di comando di Azure per elencare le operazioni dei provider di risorse di Azure. È anche possibile usare questi comandi per verificare la validità di una stringa di operazione e per espandere le stringhe di operazione con caratteri jolly.
 
 ```
-Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
@@ -97,7 +97,7 @@ Ecco alcuni esempi di ambiti assegnabili validi:
 ## Controllo di accesso ai ruoli personalizzati
 La proprietà **AssignableScopes** del ruolo personalizzato controlla anche quali utenti possono visualizzare, modificare ed eliminare il ruolo.
 
-- È necessario specificare gli utenti autorizzati a creare un ruolo personalizzato. I ruoli Proprietario e Amministratore Accessi utenti di sottoscrizioni, gruppi di risorse e risorse possono quindi creare ruoli personalizzati da usare in questi ambiti. L'utente che crea il ruolo deve poter eseguire l'operazione `Microsoft.Authorization/roleDefinition/write` in tutte le proprietà **AssignableScopes** del ruolo.
+- È necessario specificare gli utenti autorizzati a creare un ruolo personalizzato. I ruoli Proprietario e Amministratore Accessi utenti di sottoscrizioni, gruppi di risorse e risorse possono creare ruoli personalizzati da usare in questi ambiti. L'utente che crea il ruolo deve poter eseguire l'operazione `Microsoft.Authorization/roleDefinition/write` in tutte le proprietà **AssignableScopes** del ruolo.
 
 - È necessario specificare gli utenti autorizzati a modificare un ruolo personalizzato. I ruoli Proprietario e Amministratore Accessi utenti di sottoscrizioni, gruppi di risorse e risorse possono modificare i ruoli personalizzati in questi ambiti. Gli utenti devono poter eseguire l'operazione `Microsoft.Authorization/roleDefinition/write` in tutte le proprietà **AssignableScopes** di un ruolo personalizzato.
 
@@ -111,4 +111,4 @@ La proprietà **AssignableScopes** del ruolo personalizzato controlla anche qual
 	- [API REST](role-based-access-control-manage-access-rest.md)
 - [Ruoli predefiniti](role-based-access-built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

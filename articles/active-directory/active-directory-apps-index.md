@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="markvi;liviodlc"/>
+	ms.date="09/02/2016"
+	ms.author="markvi"/>  
 
 #Indice di articoli per la gestione di applicazioni in Azure Active Directory
 
@@ -70,7 +70,7 @@ Per abilitare l'accesso Single Sign-On per le app che non supportano la federazi
 | :---: | --- |
 | Introduzione al funzionamento dell'accesso Single Sign-On basato su password e breve panoramica tecnica. | [Single Sign-On basato su password con Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Riepilogo degli scenari correlati alla condivisione degli account e del modo in cui questi problemi vengono risolti da Azure AD. | [Condivisione di account con Azure AD](active-directory-sharing-accounts.md) |
-| Modifica automatica della password per determinate app a intervalli regolari. | [Rollover automatizzato delle password (anteprima)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
+| Modifica automatica della password per determinate app a intervalli regolari. | [Rollover automatizzato delle password (anteprima)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Guide alla distribuzione e alla risoluzione dei problemi per la versione per Internet Explorer dell'estensione per la gestione delle password di Azure AD. | [Come distribuire Access Panel Extension per Internet Explorer con Criteri di gruppo](active-directory-saas-ie-group-policy.md)<br /><br />[Risoluzione dei problemi di Access Panel Extension per Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 L'accesso Single Sign-On basato su password è disponibile per tutte le edizioni di Azure AD fino a un massimo di dieci app per utente. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supporta un numero illimitato di applicazioni. Se l'organizzazione dispone di [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), è possibile [usare i gruppi per assegnare l'accesso alle applicazioni](#managing-access-to-applications). Il rollover automatizzato delle password è una funzionalità di [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -228,4 +228,4 @@ Per visualizzare i report inclusi nelle diverse edizioni di Azure Active Directo
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
-	ms.author="luisca"/>
+	ms.date="08/26/2016" 
+	ms.author="luisca"/>  
 
 #Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning
 
 
 **Che cos'è RECOMMENDATIONS?**
+
+> Documentazione relativa alla precedente API Recommendations del DataMarket, che sarà deprecata entro il 31/12/2016. È consigliabile passare da ora all'[API Recommendations di Servizi cognitivi](https://www.microsoft.com/cognitive-services/it-IT/recommendations-api).
+
+
 
 RECOMMENDATIONS in Azure Machine Learning è un motore di raccomandazioni self-service in esecuzione in Azure, ideale per le organizzazioni e le attività che si basano sulle raccomandazioni per il cross-selling e l'upselling ai clienti. Si tratta di un'implementazione di "filtro collaborativo" che usa la fattorizzazione di matrice come algoritmo di base. Gli sviluppatori di applicazioni possono accedere a RECOMMENDATIONS tramite le API REST.
 
@@ -32,7 +36,7 @@ RECOMMENDATIONS accetta come input un elemento o un insieme di elementi e restit
 **Sono previste limitazioni per l'utilizzo?**
 
 L'utilizzo di Recommendations ha le limitazioni seguenti:
-* Numero massimo di modelli per ogni sottoscrizione: 10
+* Numero massimo di modelli per sottoscrizione: 10
 * Numero massimo di elementi che possono essere inclusi nel catalogo: 100.000
 * Il numero massimo di punti di utilizzo mantenuti è ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
 * La dimensione massima dei dati che possono essere inviati per posta elettronica (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
@@ -63,7 +67,7 @@ Una sottoscrizione a pagamento è una sottoscrizione per cui sono previste tarif
 
 Quando si aggiorna una sottoscrizione:
 
-* Le transazioni rimanenti nella sottoscrizione precedente non verranno aggiunte alla nuova sottoscrizione. 
+* Le transazioni rimanenti nella sottoscrizione precedente non verranno aggiunte alla nuova sottoscrizione.
 * Sarà necessario pagare il prezzo completo per la nuova sottoscrizione, anche se nella sottoscrizione precedente sono presenti transazioni non usate.
 
 Processo per aggiornare una sottoscrizione:
@@ -135,4 +139,4 @@ Il supporto tecnico è disponibile tramite il sito del [supporto tecnico di Micr
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -67,7 +67,7 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 
 [AZURE.INCLUDE [Sottoporre a test le notifiche push nell'app](../../includes/test-push-notifications-in-app.md)]
 
-<!-- Anchors.  -->
+<!-- Anchors.  -->  
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
@@ -118,7 +118,7 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [116]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-16.png
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -130,6 +130,6 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
+[Send template-based notifications to subscribers]: ../notification-hubs-ios-xplat-localized-apns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

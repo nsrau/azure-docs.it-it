@@ -97,7 +97,7 @@ Il servizio è ora configurato per l'uso con le notifiche push in iOS.
 
 3. Nello stesso file, eseguire l'override dell'evento **RegisteredForRemoteNotifications**. In questo codice ci si sta registrando per una semplice notifica del modello che verrà inviata a tutte le piattaforme supportate dal server.
 
-	Per ulteriori informazioni sui modelli con Hub di notifica, vedere [Modelli](../notification-hubs/notification-hubs-templates.md).
+	Per ulteriori informazioni sui modelli con Hub di notifica, vedere [Modelli](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -152,8 +152,8 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
 L'esercitazione è stata completata.
 
-<!-- Images. -->
+<!-- Images. -->  
 
-<!-- URLs. -->
+<!-- URLs. -->  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

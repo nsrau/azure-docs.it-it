@@ -13,8 +13,8 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/04/2016" 
-	ms.author="heidist"/>
+	ms.date="08/04/2016" 
+	ms.author="heidist"/>  
 
 # Come usare i profili di assegnazione dei punteggi in Ricerca di Azure
 
@@ -112,7 +112,7 @@ Altre informazioni sulla sintassi di ricerca e sui parametri di query. Vedere [r
 
 Per altre informazioni sulla creazione degli indici, [Guardare questo video](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) per comprendere le nozioni di base.
 
-<!--Anchors-->
+<!--Anchors-->  
 [Prerequisites]: #sub-1
 [Download the sample application]: #sub-2
 [Edit app.config]: #sub-3
@@ -120,10 +120,10 @@ Per altre informazioni sulla creazione degli indici, [Guardare questo video](htt
 [Build and run the application]: #sub-5
 [Next steps]: #next-steps
 
-<!--Image references-->
+<!--Image references-->  
 [12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

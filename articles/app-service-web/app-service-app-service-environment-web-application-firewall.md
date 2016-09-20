@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/17/2016" 
-	ms.author="naziml"/>
+	ms.author="naziml"/>  
 
 # Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 
@@ -26,7 +26,9 @@
 ## Configurazione ##
 Per questo documento si configurerà l'ambiente del servizio app dietro più istanze con carico bilanciato di Barracuda WAF, in modo che solo il traffico proveniente dal firewall WAF possa raggiungere l'ambiente del servizio app che non sarà accessibile dalla rete perimetrale. Gestione traffico di Azure sarà invece davanti alle istanze di Barracuda WAF per bilanciare il carico tra i data center e le aree di Azure. Il diagramma generale della configurazione sarà simile al seguente.
 
-![Architettura][Architecture]
+![Architettura][Architecture]  
+
+> Nota: con l'introduzione del [supporto del bilanciamento del carico interno per l'ambiente del servizio app](app-service-environment-with-internal-load-balancer.md), è possibile configurare l'ambiente del servizio app in modo che risulti inaccessibile dalla rete perimetrale e sia disponibile solo per la rete privata.
 
 ## Configurazione dell'ambiente del servizio app ##
 Per configurare un ambiente del servizio app, fare riferimento alla [documentazione](app-service-web-how-to-create-an-app-service-environment.md) sull'argomento. Una volta creato un ambiente del servizio app, è possibile creare in questo ambiente le [app Web](app-service-web-overview.md), le [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md) e le [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md) che saranno protette dietro il firewall WAF che verrà configurato nella sezione successiva.
@@ -37,7 +39,7 @@ Sul sito Barracuda è disponibile un [articolo dettagliato](https://campus.barra
 ### Aggiunta di endpoint al servizio cloud ###
 Una volta create 2 o più istanze di macchine virtuali WAF nel servizio cloud, è possibile usare il [portale di Azure](https://portal.azure.com/) per aggiungere endpoint HTTP e HTTPS usati dall'applicazione, come illustrato nell'immagine seguente.
 
-![Configurare l'endpoint][ConfigureEndpoint]
+![Configurare l'endpoint][ConfigureEndpoint]  
 
 Se le applicazioni usano altri endpoint, assicurarsi di aggiungerli tutti a questo elenco.
 
@@ -76,7 +78,7 @@ Se l'applicazione richiede l'autenticazione, assicurarsi di disporre di qualche 
 
 Per inoltrare i ping di Gestione traffico dal firewall WAF all'applicazione, è necessario configurare Website Translations in Barracuda WAF per inoltrare il traffico all'applicazione, come illustrato nell'esempio seguente.
 
-![Website Translations][WebsiteTranslations]
+![Website Translations][WebsiteTranslations]  
 
 ## Protezione del traffico verso l'ambiente del servizio app con i gruppi di sicurezza di rete (NSG)##
 Attenersi alla [documentazione sul controllo del traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md) per informazioni dettagliate sulla limitazione del traffico all'ambiente del servizio app dal firewall WAF usando solo l'indirizzo VIP del servizio cloud. Ecco un comando di Powershell di esempio per eseguire questa attività per la porta TCP 80.
@@ -88,7 +90,7 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 
 > Nota: l'indirizzo VIP del servizio cloud cambia quando si elimina e si ricrea il servizio cloud. In questo caso, assicurarsi di aggiornare l'indirizzo IP nel gruppo di risorse di rete.
  
-<!-- IMAGES -->
+<!-- IMAGES -->  
 [Architecture]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
 [ConfigureEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureEndpoint.png
 [AddManagementEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/AddManagementEndpoint.png
@@ -99,4 +101,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

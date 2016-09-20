@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/24/2016" 
-	ms.author="awills"/>
+	ms.author="awills"/>  
  
 # Application Insights per le applicazioni web Java che sono già live
 
@@ -36,7 +36,7 @@ Se è disponibile un'applicazione Web già in esecuzione nel server J2EE, è pos
     ![Inserire un nome, scegliere l'app Web Java e fare clic su Crea](./media/app-insights-java-live/02-create.png)
 4. Ottenere la chiave di strumentazione della nuova risorsa. Questa chiave dovrà a breve essere incollata nel progetto di codice.
 
-    ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-live/03-key.png)
+    ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-live/03-key.png) 
 
 ## 2\. Scaricare l'SDK
 
@@ -107,9 +107,9 @@ Per ottenere risultati più accurati, il filtro deve essere mappato prima di tut
 
 Potrebbe essere necessario [impostare le eccezioni per l'invio dei dati in uscita](app-insights-ip-addresses.md).
 
-## 5\. Riavviare la propria app web.
+## 6\. Riavviare la propria app web.
 
-## 6\. Visualizzare i dati di telemetria in Application Insights
+## 7\. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
@@ -143,4 +143,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -15,14 +15,14 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="spelluru"/>
+	ms.author="spelluru"/>  
 
 # Spostare dati con l'attività di copia
 
 ## Overview
 In Data Factory di Azure, è possibile usare l'attività di copia per copiare i dati di diverse forme da varie origini dati locali e nel cloud in Azure. Dopo la copia, è possibile trasformare o analizzare ulteriormente i dati. L'attività di copia può essere usata anche per pubblicare risultati di trasformazione e analisi per Business Intelligence (BI) e l'uso delle applicazioni.
 
-![Ruolo dell'attività di copia](media/data-factory-data-movement-activities/copy-activity.png)
+![Ruolo dell'attività di copia](media/data-factory-data-movement-activities/copy-activity.png)  
 
 L'attività di copia è un servizio [disponibile a livello globale](#global) sicuro, affidabile e scalabile. Questo articolo fornisce informazioni dettagliate sullo spostamento dei dati in Data factory e sull'attività di copia.
 
@@ -31,7 +31,7 @@ Prima di tutto, verrà illustrato come avviene la migrazione dei dati tra due ar
 > [AZURE.NOTE] Per informazioni sulle attività in generale, vedere l'articolo [Pipeline e attività in Azure Data Factory](data-factory-create-pipelines.md).
 
 ### Copiare dati tra due archivi dati cloud
-Nei casi in cui sia l'archivio dati di origine che l'archivio dati sink (destinazione) si trovano nel cloud, l'attività di copia prevede le fasi seguenti per copiare/spostare i dati dall'origine al sink. Il servizio su cui si basa l'attività di copia:
+Nei casi in cui sia l'archivio dati di origine che l'archivio dati sink si trovano nel cloud, l'attività di copia viene sottoposta alle fasi seguenti per copiare i dati dall'origine al sink. Il servizio su cui si basa l'attività di copia:
 
 1. Legge i dati dall'archivio dati di origine.
 2. Esegue la serializzazione/deserializzazione, compressione/decompressione, il mapping di colonne e la conversione dei tipi. Esegue tali operazioni sulla base delle configurazioni del set di dati di input, del set di dati di output e dell'attività di copia.
@@ -39,15 +39,15 @@ Nei casi in cui sia l'archivio dati di origine che l'archivio dati sink (destina
 
 Il servizio sceglie automaticamente l'area ottimale per eseguire lo spostamento dei dati. Questa area è in genere quella più vicino all'archivio dati sink.
 
-![Copia da cloud a cloud](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
+![Copia da cloud a cloud](./media/data-factory-data-movement-activities/cloud-to-cloud.png)  
 
 
 ### Copiare dati tra un archivio dati locale e un archivio dati cloud
-Per spostare in modo sicuro i dati tra gli archivi dati locali protetti da firewall aziendale e un archivio dati cloud, è necessario installare il Gateway di gestione dati sul computer locale. Il Gateway di gestione dati è un agente che consente lo spostamento e l'elaborazione ibridi dei dati. Il Gateway di gestione dati può essere installato sullo stesso computer dell'archivio dati o su un computer separato che è in grado di accedere all'archivio dati.
+Per spostare in modo sicuro i dati tra gli archivi dati locali e un archivio dati cloud, è necessario installare il gateway di gestione dati sul computer locale. Il Gateway di gestione dati è un agente che consente lo spostamento e l'elaborazione ibridi dei dati. Il Gateway di gestione dati può essere installato sullo stesso computer dell'archivio dati o su un computer separato che è in grado di accedere all'archivio dati.
 
 In questo scenario, il Gateway di gestione dati esegue la serializzazione/deserializzazione, la compressione/decompressione, il mapping di colonne e la conversione del tipo. I dati non transitano attraverso il servizio Data Factory di Azure. Gateway di gestione dati scrive direttamente i dati nell'archivio di destinazione.
 
-![Copia da locale a cloud](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
+![Copia da locale a cloud](./media/data-factory-data-movement-activities/onprem-to-cloud.png)  
 
 Per un'introduzione e una procedura dettagliata, vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). Per informazioni dettagliate sull'agente, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).
 
@@ -65,7 +65,7 @@ Altro | [Salesforce](data-factory-salesforce-connector.md)<br/> [ODBC generico](
 
 > [AZURE.NOTE] Gli archivi dati contrassegnati da un asterisco (*) possono essere locali o in IaaS di Azure e richiederanno l'installazione del [Gateway di gestione dati](data-factory-data-management-gateway.md) in un computer IaaS locale o in Azure.
 
-Per spostare i dati da e verso un archivio dati che non è supportato dall'attività di copia, è possibile usare l'**attività personalizzata** in Data Factory con la logica personalizzata per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
+Per spostare dati da e verso un archivio dati che non è supportato dall'attività di copia, usare l'**attività personalizzata** in Data Factory con la logica personalizzata per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
 
 ### Formati di file supportati
 È possibile usare l'attività di copia per copiare i file così come sono tra due archivi dati basati su file, come BLOB di Azure, File System e Hadoop Distributed File System (HDFS). A tale scopo, è possibile ignorare la [sezione Formato](data-factory-create-datasets.md) in entrambe le definizioni di set di dati di input e output. I dati vengono copiati in modo efficiente senza serializzazione/deserializzazione.
@@ -79,17 +79,19 @@ L'attività di copia legge e scrive anche nei file in formati specificati: testo
 
 
 ## <a name="global"></a>Spostamento dei dati disponibile a livello globale
-Il servizio su cui si basa l'attività di copia è disponibile a livello globale nelle aree geografiche seguenti, anche se Azure Data Factory è disponibile solo negli Stati Uniti occidentali, negli Stati Uniti orientali e in Europa settentrionale. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e di solito consente di evitare passaggi tra diverse aree. Per la disponibilità del servizio Data Factory e lo spostamento dei dati in un'area, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services).
+Azure Data Factory è disponibile solo nelle seguenti aree: Stati Uniti occidentali, Stati Uniti orientali ed Europa settentrionale. Tuttavia, il servizio alla base dell'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e di solito consente di evitare passaggi tra diverse aree. Per la disponibilità del servizio Data Factory e lo spostamento dei dati in un'area, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services).
 
 ### Copiare dati tra archivi dati cloud
-Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel cloud, Azure Data Factory usa una distribuzione del servizio nell'area più vicina alla posizione del sink nella stessa area geografica per eseguire lo spostamento dei dati. Consultare la tabella seguente per il mapping:
+Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel cloud, Data Factory usa una distribuzione del servizio nell'area più vicina al sink nella stessa area geografica per spostare i dati. Consultare la tabella seguente per il mapping:
 
 Area dell'archivio dati di destinazione | Area usata per lo spostamento dei dati
 :----------------------------------- | :----------------------------
 Stati Uniti orientali | Stati Uniti orientali
 Stati Uniti orientali 2 | Stati Uniti orientali 2
-Stati Uniti centrali | Stati Uniti centrali
 Stati Uniti occidentali | Stati Uniti occidentali
+Stati Uniti occidentali 2 | Stati Uniti occidentali
+Stati Uniti centrali | Stati Uniti centrali
+Stati Uniti centro-occidentali | Stati Uniti centrali
 Stati Uniti centro-settentrionali | Stati Uniti centro-settentrionali
 Stati Uniti centro-meridionali | Stati Uniti centro-meridionali
 Europa settentrionale | Europa settentrionale
@@ -122,7 +124,7 @@ La copia guidata di Data Factory aiuta a creare una pipeline con l'attività di 
 
 Per tutti i tipi di attività sono disponibili proprietà JSON come nome, descrizione, tabelle di input e output e criteri. Le proprietà disponibili nella sezione `typeProperties` dell'attività variano per ogni tipo di attività.
 
-Nel caso dell'attività di copia, la sezione `typeProperties` varia a seconda dei tipi di origine e sink. Fare clic su un'origine o un sink nella sezione relativa [alle origini e ai sink supportati](#supported-data-stores) per informazioni sulle proprietà supportate dall'attività di copia per l'archivio dati.
+Per l'attività di copia, la sezione `typeProperties` varia a seconda dei tipi di origine e sink. Fare clic su un'origine o un sink nella sezione relativa [alle origini e ai sink supportati](#supported-data-stores) per informazioni sulle proprietà supportate dall'attività di copia per l'archivio dati.
 
 Di seguito è riportata una definizione JSON di esempio:
 
@@ -183,11 +185,11 @@ Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'att
 1. Conversione dai tipi di origine nativi al tipo .NET.
 2. Conversione dal tipo .NET al tipo di sink nativo.
 
-Per trovare il mapping di un sistema di tipo nativo a un tipo .NET per un archivio dati, vedere l'argomento relativo all'archivio dati corrispondente. Fare clic sul link specifico della [Archivi dati e formati supportati](#supported-data-stores). È possibile usare tali mapping per determinare i tipi appropriati durante la creazione di tabelle, in modo che durante l'attività di copia vengano eseguite le conversioni corrette.
+Il mapping di un sistema di tipo nativo a un tipo .NET per un archivio dati è disponibile nell'articolo corrispondente sull'archivio dati. Fare clic sul link specifico della [Archivi dati e formati supportati](#supported-data-stores). È possibile usare tali mapping per determinare i tipi appropriati durante la creazione di tabelle, in modo che durante l'attività di copia vengano eseguite le conversioni corrette.
 
 
 ## Passaggi successivi
-- Per informazioni su come usare l'attività di copia per spostare i dati da un archivio dati di origine a un archivio dati sink, vedere l'articolo [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Per ulteriori informazioni sull'attività di copia, vedere [Copiare i dati dall'archiviazione BLOB di Azure al database SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Per informazioni sullo spostamento dei dati da un archivio di dati locale a un archivio di dati cloud, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="andkjell"/>
+	ms.date="08/31/2016"
+	ms.author="andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: eseguire l'installazione guidata una seconda volta
@@ -23,11 +23,11 @@ La prima volta che si esegue l'installazione guidata di Azure AD Connect, viene 
 
 L'installazione guidata si trova nel menu Start **Azure AD Connect**.
 
-![Menu Start](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
+![Menu Start](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)  
 
-Quando si avvia l'installazione guidata, viene visualizzata una pagina con le seguenti opzioni:
+Quando si avvia l'installazione guidata viene visualizzata una pagina con le opzioni seguenti:
 
-![Pagina con un elenco di attività aggiuntive](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
+![Pagina con un elenco di attività aggiuntive](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)  
 
 Se con Azure AD Connect è stato installato AD FS saranno disponibili ancora più opzioni. Le opzioni aggiuntive per AD FS sono descritte in [Gestione di AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
@@ -38,9 +38,9 @@ Selezionare una delle attività e fare clic su **Avanti** per continuare.
 ## Visualizzazione della configurazione corrente
 Questa opzione consente di visualizzare rapidamente le opzioni attualmente configurate.
 
-![Pagina con un elenco di tutte le opzioni e il relativo stato](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
+![Pagina con un elenco di tutte le opzioni e il relativo stato](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)  
 
-Fare clic su **Indietro** per tornare alla pagina precedente. Se si seleziona **Esci**, l'installazione guidata viene chiusa.
+Fare clic su **Indietro** per tornare alla pagina precedente. Se si seleziona **Esci**, l'installazione guidata verrà chiusa.
 
 ## Personalizzazione delle opzioni di sincronizzazione
 Questa opzione consente di apportare modifiche alla configurazione della sincronizzazione. Viene visualizzato un sottoinsieme di opzioni dal percorso di installazione personalizzato della configurazione. Queste opzioni vengono visualizzate anche se inizialmente è stata usata l'installazione rapida.
@@ -50,14 +50,14 @@ Questa opzione consente di apportare modifiche alla configurazione della sincron
 - Remove Group filtering (Rimozione dei filtri di gruppo).
 - [Change optional features](active-directory-aadconnect-get-started-custom.md#optional-features) (Modifica delle funzionalità facoltative).
 
-Le altre opzioni dell'installazione iniziale non possono essere modificate e non sono disponibili. Sono incluse le opzioni seguenti:
+Le altre opzioni dell'installazione iniziale non possono essere modificate e non sono disponibili. Queste opzioni sono:
 
 - Modifica dell'attributo da usare per userPrincipalName e sourceAnchor.
 - Modifica del metodo di abbinamento per gli oggetti di un'altra foresta.
 - Abilitazione dei filtri basati sui gruppi.
 
 ## Aggiorna lo schema della directory
-Questa opzione viene usata se lo schema è stato modificato in una delle foreste AD DS locali. Ad esempio potrebbe essere installato Exchange o l'aggiornamento a uno schema di Windows Server 2012 con oggetti dispositivo. In questo caso è necessario indicare ad Azure AD Connect di leggere nuovamente lo schema da AD DS e aggiornare la propria cache. In questo modo verranno anche rigenerate le regole di sincronizzazione. Se si aggiunge lo schema di Exchange, ad esempio, le regole di sincronizzazione per Exchange vengono aggiunte alla configurazione.
+Questa opzione viene usata se lo schema è stato modificato in una delle foreste AD DS locali. Potrebbe ad esempio essere installato Exchange o l'aggiornamento a uno schema di Windows Server 2012 con oggetti dispositivo. In questo caso è necessario indicare ad Azure AD Connect di leggere nuovamente lo schema da AD DS e aggiornare la propria cache. Con questa azione verranno anche rigenerate le regole di sincronizzazione. Se si aggiunge lo schema di Exchange, ad esempio, le regole di sincronizzazione per Exchange vengono aggiunte alla configurazione.
 
 Quando si seleziona questa opzione, vengono elencate tutte le directory presenti nella configurazione. È possibile mantenere l'impostazione predefinita e aggiornare tutte le foreste oppure deselezionare alcune di esse.
 
@@ -75,10 +75,13 @@ Questa opzione consente di passare dalla sincronizzazione password alla federazi
 
 Per altre informazioni su questa opzione, vedere [Accesso utente](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
-
 ## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+- Per altre informazioni sul modello di configurazione usato dal servizio di sincronizzazione Azure AD Connect, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+**Argomenti generali**
+
+- [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
+- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/11/2016"
-   ms.author="tomfitz"/>
+   ms.author="tomfitz"/>  
 
 # Funzioni del modello di Azure Resource Manager
 
@@ -35,7 +35,7 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 - [sub](#sub)
 
 
-<a id="add" />
+<a id="add" />  
 ### add
 
 **add(operand1, operand2)**
@@ -71,7 +71,7 @@ L'esempio seguente aggiunge due parametri.
       }
     }
 
-<a id="copyindex" />
+<a id="copyindex" />  
 ### copyIndex
 
 **copyIndex(offset)**
@@ -99,7 +99,7 @@ L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel n
     ]
 
 
-<a id="div" />
+<a id="div" />  
 ### div
 
 **div(operand1, operand2)**
@@ -135,7 +135,7 @@ L'esempio seguente mostra come dividere un parametro per un altro parametro.
       }
     }
 
-<a id="int" />
+<a id="int" />  
 ### int
 
 **int(valueToConvert)**
@@ -156,7 +156,7 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
     }
 
 
-<a id="mod" />
+<a id="mod" />  
 ### mod
 
 **mod(operand1, operand2)**
@@ -192,14 +192,14 @@ L'esempio seguente restituisce il resto della divisione di un parametro per un a
       }
     }
 
-<a id="mul" />
+<a id="mul" />  
 ### mul
 
 **mul(operand1, operand2)**
 
 Restituisce la moltiplicazione dei due numeri interi forniti.
 
-| Parametro | Obbligatorio | Description
+| Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
 | operand1 | Sì | Primo numero intero da moltiplicare.
 | operand2 | Sì | Secondo numero intero da moltiplicare.
@@ -285,14 +285,14 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 - [Uri](#uri)
 
 
-<a id="base64" />
+<a id="base64" />  
 ### base64
 
 **base64 (inputString)**
 
 Restituisce la rappresentazione base64 della stringa di input.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | inputString | Sì | Il valore di stringa da restituire come rappresentazione base64.
 
@@ -303,7 +303,7 @@ L'esempio seguente mostra come usare la funzione base64.
       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-<a id="concat" />
+<a id="concat" />  
 ### Funzione per valori stringa: concat
 
 **concat (string1, string2, string3, ...)**
@@ -350,7 +350,7 @@ L'esempio seguente restituisce il numero di caratteri in una stringa.
     }
         
 
-<a id="padleft" />
+<a id="padleft" />  
 ### padLeft
 
 **padLeft(valueToPad, totalLength, paddingCharacter)**
@@ -372,7 +372,7 @@ Nell'esempio seguente viene illustrato come il valore del parametro fornito dall
         "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
     }
 
-<a id="replace" />
+<a id="replace" />  
 ### replace
 
 **replace(originalString, oldCharacter, newCharacter)**
@@ -400,7 +400,7 @@ Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla str
 
 Restituisce una stringa con tutti i caratteri dopo il numero specificato nella stringa.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | originalValue | Sì | Stringa da usare.
 | numberToSkip | Sì | Numero di caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti i caratteri nella stringa. Se è maggiore della lunghezza della stringa, viene restituita una stringa vuota. 
@@ -433,7 +433,7 @@ L'esempio seguente ignora il numero specificato di caratteri nella stringa.
     }
 
 
-<a id="split" />
+<a id="split" />  
 ### split
 
 **split(inputString, delimiterString)**
@@ -470,7 +470,7 @@ L'esempio seguente mostra come suddividere la stringa di input usando una virgol
       }
     }
 
-<a id="string" />
+<a id="string" />  
 ### string
 
 **string(valueToConvert)**
@@ -506,7 +506,7 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
       "intString": "[string(parameters('jsonInt'))]"
     }
 
-<a id="substring" />
+<a id="substring" />  
 ### substring
 
 **substring (stringToParse, startIndex, lenght)**
@@ -534,7 +534,7 @@ Nell'esempio seguente si estraggono i primi tre caratteri da un parametro.
 
 Restituisce una stringa con il numero specificato di caratteri dall'inizio della stringa.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | originalValue | Sì | Stringa da cui prendere i caratteri.
 | numberToTake | Sì | Numero di caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa vuota. Se è maggiore della lunghezza della stringa specificata, vengono restituiti tutti i caratteri nella stringa.
@@ -566,7 +566,7 @@ L'esempio seguente prende il numero specificato di caratteri dalla stringa.
       }
     }
 
-<a id="tolower" />
+<a id="tolower" />  
 ### toLower
 
 **toLower(stringToChange)**
@@ -606,7 +606,7 @@ Nell'esempio seguente il valore del parametro fornito dall'utente viene converti
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
-<a id="trim" />
+<a id="trim" />  
 ### Trim
 
 **trim (stringToTrim)**
@@ -626,39 +626,39 @@ Nell'esempio seguente vengono eliminati i caratteri spazi vuoti dal valore del p
         "trimAppName": "[trim(parameters('appName'))]"
     }
 
-<a id="uniquestring" />
+<a id="uniquestring" />  
 ### uniqueString
 
 **uniqueString (baseString, ...)**
 
-Crea una stringa univoca in base ai valori forniti come parametri.
+Crea una stringa hash deterministica in base ai valori forniti come parametri.
 
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
 | baseString | Sì | Stringa usata nella funzione hash per creare una stringa univoca.
 | parametri aggiuntivi in base alle esigenze | No | È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità.
 
-Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che rappresentano il livello di univocità per il risultato. È possibile specificare se il nome è univoco per la sottoscrizione, il gruppo di risorse o la distribuzione.
+Questa funzione è utile quando è necessario creare un nome univoco per una risorsa. È possibile specificare i valori dei parametri che limitano l'ambito di univocità per il risultato. È possibile specificare se il nome è univoco nella sottoscrizione, nel gruppo di risorse o nella distribuzione.
 
-Il valore restituito non è una stringa casuale, ma il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è necessariamente univoco a livello globale. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome più facile da riconoscere. L'esempio seguente illustra il formato del valore restituito. Naturalmente, il valore effettivo varia in base ai parametri forniti.
+Il valore restituito non è una stringa casuale, ma il risultato di una funzione hash. Il valore restituito ha una lunghezza di 13 caratteri. Non è globalmente univoco. È possibile combinare il valore con un prefisso dalla convenzione di denominazione scelta per creare un nome significativo. L'esempio seguente illustra il formato del valore restituito. Naturalmente, il valore effettivo varia in base ai parametri forniti.
 
     tcvhiyu5h2o5o
 
 Gli esempi seguenti mostrano come usare uniqueString per creare un valore univoco per livelli di uso comune.
 
-Valore univoco basato su una sottoscrizione
+Con ambito univoco nella sottoscrizione
 
     "[uniqueString(subscription().subscriptionId)]"
 
-Valore univoco basato su un gruppo di risorse
+Con ambito univoco nel gruppo di risorse
 
     "[uniqueString(resourceGroup().id)]"
 
-Valore univoco basato su una distribuzione per un gruppo di risorse
+Con ambito univoco nella distribuzione per un gruppo di risorse
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
     
-Nell'esempio seguente viene illustrato come creare un nome univoco per un account di archiviazione in base al gruppo di risorse.
+L'esempio seguente illustra come creare un nome univoco per un account di archiviazione basato su gruppo di risorse. In questo gruppo di risorse il nome non è univoco se costruito nello stesso modo.
 
     "resources": [{ 
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
@@ -667,7 +667,7 @@ Nell'esempio seguente viene illustrato come creare un nome univoco per un accoun
 
 
 
-<a id="uri" />
+<a id="uri" />  
 ### Uri
 
 **uri (baseUri, relativeUri)**
@@ -747,13 +747,13 @@ Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Crea
 
 Per un esempio relativo all'uso di length con un valore stringa, vedere la sezione [Funzione per valori stringa length](#lengthstring).
 
-<a id="skip" />
+<a id="skip" />  
 ### Funzione di matrice: skip
 **skip(originalValue, numberToSkip)**
 
 Restituisce una matrice con tutti gli elementi dopo il numero specificato nella matrice.
 
-| Parametro | Obbligatorio | Descrizione
+| Parametro | Obbligatorio | Description
 | :--------------------------------: | :------: | :----------
 | originalValue | Sì | Matrice da usare.
 | numberToSkip | Sì | Numero di elementi da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi nella matrice. Se è maggiore della lunghezza della matrice, viene restituita una matrice vuota. 
@@ -786,7 +786,7 @@ L'esempio seguente ignora il numero specificato di elementi nella matrice.
       }
     }
 
-<a id="take" />
+<a id="take" />  
 ### Funzione di matrice: take
 **take(originalValue, numberToTake)**
 
@@ -919,7 +919,7 @@ L'esempio seguente mostra un uso semplificato della funzione parameters.
        }
     ]
 
-<a id="variables" />
+<a id="variables" />  
 ### variables
 
 **variables (variableName)**
@@ -1006,7 +1006,7 @@ L'oggetto restituito da listKeys è nel formato seguente:
       ]
     }
 
-<a id="providers" />
+<a id="providers" />  
 ### provider
 
 **providers (providerNamespace, [resourceType])**
@@ -1035,7 +1035,7 @@ L'esempio seguente mostra come usare la funzione provider:
 	    }
     }
 
-<a id="reference" />
+<a id="reference" />  
 ### reference
 
 **reference (resourceName or resourceIdentifier, [apiVersion])**
@@ -1089,7 +1089,7 @@ L'esempio seguente fa riferimento a un account di archiviazione in un gruppo di 
 
 Le proprietà nell'oggetto restituito variano in base al tipo di risorsa.
 
-<a id="resourcegroup" />
+<a id="resourcegroup" />  
 ### resourceGroup
 
 **resourceGroup()**
@@ -1121,7 +1121,7 @@ L'esempio seguente usa il percorso del gruppo di risorse per assegnare il percor
        }
     ]
 
-<a id="resourceid" />
+<a id="resourceid" />  
 ### resourceId
 
 **resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
@@ -1217,4 +1217,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

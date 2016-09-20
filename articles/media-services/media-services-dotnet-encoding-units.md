@@ -13,26 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/26/2016"
-	ms.author="juliako;milangada;gtrifonov"/>
+ 	ms.date="09/01/2016"
+	ms.author="juliako;milangada;gtrifonov"/>  
 
 
 #Come scalare la codifica con .NET SDK
 
-
 > [AZURE.SELECTOR]
-- [Portale](media-services-portal-encoding-units.md)
+- [Portale](media-services-portal-scale-media-processing.md)
 - [.NET](media-services-dotnet-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-##Panoramica
+##Overview
 
-Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità di elaborazione dei processi di codifica. È possibile scegliere uno dei seguenti tipi di unità riservata: S1, S2 o S3. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata Standard rispetto a quando si usa il tipo Basic. Per altre informazioni, vedere il blog sui tipi di unità riservata di codifica scritto da [Milan Gada](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
-
-Oltre al tipo di unità riservata, è possibile specificare il provisioning dell'account con unità riservate di codifica. Il numero delle unità riservate di codifica sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account. Se, ad esempio, il proprio account dispone di cinque unità riservate, è possibile eseguire simultaneamente cinque attività multimediali, purché siano presenti attività da elaborare. Le attività rimanenti verranno messe in coda e prelevate in sequenza per l'elaborazione non appena un'attività in esecuzione viene completata. Se per un account non sono state fornite unità riservate, le attività verranno prelevate in sequenza. In questo caso, il tempo di attesa tra il completamento di un'attività e l'avvio di quella successiva dipende dalle risorse disponibili nel sistema.
-
+>[AZURE.IMPORTANT] Per altre informazioni sul ridimensionamento dell'elaborazione multimediale, vedere questo argomento di [panoramica](media-services-scale-media-processing-overview.md).
+ 
 Per cambiare il tipo di unità riservata e il numero di unità riservate di codifica mediante l'SDK per .NET, seguire questa procedura:
 
 	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
@@ -59,13 +56,13 @@ Per aprire un ticket di supporto, seguire questa procedura:
 
 1. Come tipo di supporto, selezionare "Tecnico".
 
-1. Fare clic su "Crea ticket".
+1. Fare clic su "Create Ticket".
 
 1. Selezionare "Servizi multimediali di Azure" dall'elenco dei prodotti visualizzato nella pagina successiva.
 
 1. Selezionare un tipo di problema appropriato per la situazione specifica.
 
-1. Fare clic su Continua.
+1. Fare clic su Continue.
 
 1. Seguire le istruzioni nella pagina successiva e quindi immettere i dettagli relativi al problema.
 
@@ -73,7 +70,7 @@ Per aprire un ticket di supporto, seguire questa procedura:
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -81,4 +78,4 @@ Per aprire un ticket di supporto, seguire questa procedura:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/31/2016"
-   ms.author="stepsic"/>
+   ms.date="09/01/2016"
+   ms.author="stepsic"/>  
 
 # Iniziare a usare il connettore Azure Resource e aggiungerlo all'app per la logica
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
@@ -39,7 +39,7 @@ Metrica supera la soglia | Si attiva quando una metrica soddisfa una determinata
 
 ### Azione
 
-Analogamente, è possibile fornire un numero elevato di azioni nella sottoscrizione Azure:
+Analogamente, è possibile includere un numero elevato di azioni nella sottoscrizione Azure.
 
 In **Gruppi di risorse** è possibile:
 
@@ -54,7 +54,7 @@ In **Risorse** è possibile:
 
 Nome | Descrizione
 ---- | -----------
-Elencare risorse | Elencare le risorse nella sottoscrizione in base ai diversi tipi di filtri.
+Elencare risorse | Elencare le risorse nella sottoscrizione in base a diversi tipi di filtri.
 Ottenere una risorsa | Ottenere una singola risorsa in base al relativo ID risorsa.
 Creare o aggiornare una risorsa | Creare una risorsa o aggiornare una risorsa esistente. È necessario fornire tutte le proprietà per tale risorsa.
 Azione risorsa | Eseguire qualsiasi altra operazione su una risorsa. È necessario conoscere il nome dell'azione e il payload (se presente) eseguito dall'azione.
@@ -78,7 +78,7 @@ In **Eventi** relativi alle risorse è possibile:
 
 Nome | Descrizione
 ---- | -----------
-Ottenere eventi | Ottenere gli eventi in una sottoscrizione o di una risorsa.
+Ottenere eventi | Ottenere gli eventi in una sottoscrizione o per una risorsa.
 
 In **Metriche** relative alle risorse è possibile:
 
@@ -93,9 +93,9 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-<!--References -->
+<!--References -->  
 
-<!--Links -->
+<!--Links -->  
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

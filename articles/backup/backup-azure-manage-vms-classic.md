@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>
+	ms.date="08/31/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>  
 
 # Gestire e monitorare i backup della macchina virtuale di Azure
 
@@ -193,7 +193,7 @@ Per visualizzare i log operazioni corrispondenti all'insieme di credenziali per 
 
 1. Nel portale di Azure passare a **Servizi di gestione** e quindi fare clic sulla scheda **Log operazioni**.
 
-    ![Log operazioni](./media/backup-azure-manage-vms/ops-logs.png)
+    ![Log delle operazioni](./media/backup-azure-manage-vms/ops-logs.png)
 
 2. Nell'area dei filtri selezionare **Backup** come *Tipo* e specificate il nome dell'insieme di credenziali per il backup in *nome servizio* e fare clic su **Invia**.
 
@@ -219,7 +219,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **ResourceId**: è possibile ottenere queste informazioni dalla finestra popup Log operazioni come descritto nella sezione precedente. ResourceUri nella finestra popup dei dettagli di un'operazione è il valore di ResourceId da fornire per questo cmdlet.
 
-**OperationName**: questa proprietà è in questo formato "Microsoft.Backup/backupvault/<EventName>" dove EventName può essere uno dei seguenti eventi: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**OperationName**: viene usato il formato "Microsoft.Backup/backupvault/<NomeEvento>", dove NomeEvento può essere uno dei valori seguenti: Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy.
 
 **Status**: i valori supportati sono Started, Succeeded e Failed.
 
@@ -227,9 +227,9 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **Name**: nome della regola di avviso.
 
-**CustomEmail**: specificare l'indirizzo di posta elettronica del cliente a cui inviare notifiche di avvisi
+**CustomEmail**: specificare l'indirizzo di posta elettronica personalizzato a cui dovrà essere inviata la notifica di avviso.
 
-**SendToServiceOwners**: questa opzione invia la notifica dell'avviso a tutti gli amministratori e i coamministratori della sottoscrizione. Può essere utilizzato nel cmdlet **New-AzureRmAlertRuleEmail**
+**SendToServiceOwners**: questa opzione invia la notifica di avviso a tutti gli amministratori e i coamministratori della sottoscrizione. Può essere usata nel cmdlet **New AzureRmAlertRuleEmail**.
 
 ### Limitazioni per gli avvisi
 Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
@@ -242,4 +242,4 @@ Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 
 - [Ripristinare una macchina virtuale](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

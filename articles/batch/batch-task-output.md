@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/06/2016"
+	ms.date="09/07/2016"
 	ms.author="marsma" />  
 
 # Salvare in modo permanente l'output dei processi processo e delle attività di Azure Batch
 
 Le attività eseguite in Batch in genere producono output che deve essere archiviato e quindi recuperato in un secondo momento da altre attività del processo, dall'applicazione client che ha eseguito il processo o entrambe. L'output può essere costituito da file creati dall'elaborazione dei dati di input o da file di log associati all'esecuzione di attività. Questo articolo presenta una libreria di classi .NET che usa una tecnica basata su convenzioni per salvare in modo permanente l'output delle attività nell'archivio BLOB di Azure, rendendolo disponibile anche dopo l'eliminazione di pool, processi e nodi di calcolo.
 
-Usando la tecnica descritta in questo articolo, sarà anche possibile visualizzare l'output delle attività in **File di output salvati** e **Log salvati** nel [portale di Azure][portal].
+Usando la tecnica descritta in questo articolo, è anche possibile visualizzare l'output delle attività in **File di output salvati** e **Log salvati** nel [portale di Azure][portal].
 
 ![Selettori File di output salvati e Log salvati nel portale][1]  
 
->[AZURE.NOTE] Il metodo di archiviazione e recupero dei file descritto di seguito fornisce una funzionalità simile al modo in cui il servizio **App Batch ** (ora deprecato) gestisce gli output delle relative attività.
+>[AZURE.NOTE] La libreria di classi .NET [Azure Batch File Conventions][nuget_package] illustrata in questo articolo è attualmente in anteprima. Alcune funzionalità descritte in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## Considerazioni sull'output delle attività
 
@@ -34,9 +34,9 @@ Quando si progetta una soluzione Batch, è necessario considerare diversi fattor
 
 * **Archiviazione dell'output**: per salvare in modo permanente i dati di output delle attività in un archivio permanente, è possibile usare [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) nel codice dell'attività per caricare il relativo output in un contenitore di archiviazione BLOB. Se si implementa un contenitore e una convenzione di denominazione dei file, l'applicazione client o altre attività nel processo possono quindi individuare e scaricare l'output in base alla convenzione.
 
-* **Recupero dell'output**: è possibile recuperare l'output delle attività direttamente dai nodi di calcolo nel pool o da Archiviazione di Azure se le attività salvano in modo permanente il relativo output. Per recuperare l'output di un'attività direttamente da un nodo di calcolo, è necessario il nome del file e il relativo percorso di output nel nodo. Se si salva in modo permanente l'output in Archiviazione di Azure, le attività downstream o l'applicazione client deve avere il percorso completo del file in Archiviazione di Azure per scaricarlo tramite Azure Storage SDK.
+* **Recupero dell'output**: è possibile recuperare l'output delle attività direttamente dai nodi di calcolo nel pool o da Archiviazione di Azure se le attività salvano in modo permanente il relativo output. Per recuperare l'output di un'attività direttamente da un nodo di calcolo, è necessario il nome del file e il relativo percorso di output nel nodo. Se si salva in modo permanente l'output in Archiviazione di Azure, le attività downstream o l'applicazione client deve avere il percorso completo del file in Archiviazione di Azure per scaricarlo usando Azure Storage SDK.
 
-* **Visualizzazione dell'output**: quando si passa a un'attività di Batch nel portale di Azure e si seleziona **ile nel nodo**, vengono visualizzati tutti i file associati all'attività, non solo i file di output a cui si è interessati. Anche in questo caso, i file nei nodi di calcolo sono disponibili solo finché il nodo esiste e solo durante periodo di conservazione dei file impostato per l'attività. Per visualizzare l'output delle attività salvato in modo permanente in Archiviazione di Azure nel portale o in un'applicazione come [Azure Storage Explorer][storage_explorer], è necessario conoscerne la posizione e passare direttamente al file.
+* **Visualizzazione dell'output**: quando si passa a un'attività di Batch nel portale di Azure e si seleziona **File nel nodo**, vengono visualizzati tutti i file associati all'attività, non solo i file di output a cui si è interessati. Anche in questo caso, i file nei nodi di calcolo sono disponibili solo finché il nodo esiste e solo durante periodo di conservazione dei file impostato per l'attività. Per visualizzare l'output delle attività salvato in modo permanente in Archiviazione di Azure nel portale o in un'applicazione come [Azure Storage Explorer][storage_explorer], è necessario conoscerne la posizione e passare direttamente al file.
 
 ## Guida per l'output salvato in modo permanente
 
@@ -91,7 +91,7 @@ await job.PrepareOutputStorageAsync(linkedStorageAccount);
 
 ### Archiviare gli output delle attività
 
-Una volta preparato un contenitore nell'archivio BLOB, le attività possono salvare l'output nel contenitore tramite la classe [TaskOutputStorage][net_taskoutputstorage] disponibile nella libreria File Conventions.
+Dopo avere preparato un contenitore nell'archivio BLOB, le attività possono salvare l'output nel contenitore usando la classe [TaskOutputStorage][net_taskoutputstorage] disponibile nella libreria File Conventions.
 
 Nel codice dell'attività, creare prima di tutto un oggetto [TaskOutputStorage][net_taskoutputstorage] e quindi, dopo che l'attività ha completato tutte le relative operazioni, chiamare il metodo [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] per salvarne l'output in Archiviazione di Azure.
 
@@ -113,7 +113,7 @@ Il parametro "output kind" consente di classificare i file salvati in modo perma
 
 Questi tipi di output consentono di specificare il tipo di output da elencare, quando in seguito si eseguono query su Batch per visualizzare gli output salvati in modo permanente per una determinata attività. In altre parole, quando si elencano gli output per un'attività, è possibile filtrare l'elenco in base a uno dei tipi di output. Ad esempio, "Scaricare l'output di *anteprima* per l'attività *109*." Altre informazioni su come elencare e recuperare gli output sono disponibili in [Recuperare l'output](#retrieve-output) più avanti nell'articolo.
 
->[AZURE.TIP] Il tipo di output indica anche dove verrà visualizzati un file specifico nel portale di Azure. *TaskOutput*: i file classificati saranno visualizzati in "File di output delle attività" e i file di *TaskLog* saranno visualizzati in "Task logs" (Log delle attività).
+>[AZURE.TIP] Il tipo di output indica anche dove viene visualizzato un file specifico nel portale di Azure. *TaskOutput*: i file classificati vengono visualizzati in "File di output delle attività" e i file di *TaskLog* vengono visualizzati in "Task logs" (Log delle attività).
 
 ### Archiviare gli output del processo
 
@@ -129,7 +129,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-Come con TaskOutputKind per gli output di un'attività, usare il parametro [JobOutputKind][net_joboutputkind] per classificare i file salvati in modo permanente di un processo. Ciò consente di eseguire query in seguito, per ottenere l'elenco di un tipo specifico di output. JobOutputKind include tipi di output e di anteprima e supporta la creazione di tipi personalizzati.
+Come con TaskOutputKind per gli output di un'attività, usare il parametro [JobOutputKind][net_joboutputkind] per classificare i file salvati in modo permanente di un processo. Questo parametro consente di eseguire query in seguito, per ottenere l'elenco di un tipo specifico di output. JobOutputKind include tipi di output e di anteprima e supporta la creazione di tipi personalizzati.
 
 ### Archiviare i log delle attività
 
@@ -138,23 +138,33 @@ Oltre a salvare un file in una risorsa di archiviazione permanente quando un'att
 Nel frammento di codice seguente, viene usato [SaveTrackedAsync][net_savetrackedasync] per aggiornare `stdout.txt` in Archiviazione di Azure ogni 15 secondi durante l'esecuzione dell'attività:
 
 ```csharp
+TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
 string logFilePath = Path.Combine(
 	Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
 
+// The primary task logic is wrapped in a using statement that sends updates to
+// the stdout.txt blob in Storage every 15 seconds while the task code runs.
 using (ITrackedSaveOperation stdout =
-		taskStorage.SaveTrackedAsync(
+		await taskStorage.SaveTrackedAsync(
 		TaskOutputKind.TaskLog,
 		logFilePath,
 		"stdout.txt",
 		TimeSpan.FromSeconds(15)))
 {
 	/* Code to process data and produce output file(s) */
+
+	// We are tracking the disk file to save our standard output, but the
+	// node agent may take up to 3 seconds to flush the stdout stream to
+	// disk. So give the file a moment to catch up.
+ 	await Task.Delay(stdoutFlushDelay);
 }
 ```
 
-`Code to process data and produce output file(s)` è semplicemente un segnaposto per il codice eseguito normalmente da un'attività. Ad esempio, potrebbe essere disponibile codice che scarica i dati da Archiviazione di Azure ed esegue una sorta di calcolo o di trasformazione dei dati. La parte importante di questo frammento di codice è dimostrare come è possibile eseguire il wrapping di tale codice in un blocco `using` per aggiornare periodicamente un file con [SaveTrackedAsync][net_savetrackedasync].
+`Code to process data and produce output file(s)` è semplicemente un segnaposto per il codice eseguito normalmente da un'attività. Ad esempio, potrebbe essere disponibile codice che scarica i dati da Archiviazione di Azure ed esegue un calcolo o una trasformazione dei dati. La parte importante di questo frammento di codice è dimostrare come è possibile eseguire il wrapping di tale codice in un blocco `using` per aggiornare periodicamente un file con [SaveTrackedAsync][net_savetrackedasync].
 
->[AZURE.NOTE] Quando si abilita il rilevamento file con SaveTrackedAsync, solo le *aggiunte* al file rilevato vengono salvate in modo permanente in Archiviazione di Azure. È consigliabile usare questo metodo solo per il rilevamento dei file di log non a rotazione o altri file aggiunti, ovvero i dati vengono aggiunti solo alla fine del file quando questo viene aggiornato.
+`Task.Delay` è necessario alla fine di questo blocco `using` per assicurarsi che l'agente del nodo abbia tempo di scaricare i contenuti dell'output standard nel file stdout.txt del nodo. L'agente del nodo è un programma che viene eseguito in ogni nodo del pool e fornisce l'interfaccia di comando e controllo tra il nodo e il servizio Batch. Senza questo ritardo, è possibile perdere gli ultimi secondi dell'output. Questo ritardo potrebbe non essere necessario per tutti i file.
+
+>[AZURE.NOTE] Quando si abilita il rilevamento file con SaveTrackedAsync, solo le *aggiunte* al file rilevato vengono salvate in modo permanente in Archiviazione di Azure. Usare questo metodo solo per il rilevamento dei file di log non a rotazione o altri file aggiunti, ovvero i dati vengono aggiunti solo alla fine del file quando questo viene aggiornato.
 
 ## Recuperare l'output
 
@@ -213,7 +223,7 @@ La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di
 
 ### Installazione delle applicazioni e staging dei dati
 
-Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per inserire file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e contiene alcune considerazioni specifiche utili per ogni metodo.
+Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per inserire file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e contiene alcune considerazioni specifiche per ogni metodo.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/it-IT/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -242,4 +252,4 @@ Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuz
 [1]: ./media/batch-task-output/task-output-01.png "Selettori File di output salvati e Log salvati nel portale"
 [2]: ./media/batch-task-output/task-output-02.png "Pannello dei file di output delle attività nel portale di Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

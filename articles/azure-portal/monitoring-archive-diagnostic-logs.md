@@ -23,17 +23,17 @@ Questo articolo illustra come è possibile usare il portale di Azure, i cmdlet d
 Prima di iniziare, è necessario [creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in cui archiviare i log di diagnostica. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche il log attività e le metriche di diagnostica, può avere senso usare tale account di archiviazione anche per i log di diagnostica per tenere tutti i dati di monitoraggio in una posizione centrale. L'account di archiviazione usato deve essere un account di archiviazione per utilizzo generico, non un account di archiviazione BLOB.
 
 ## Impostazioni di diagnostica
-Per archiviare i log di diagnostica usando uno dei metodi indicati di seguito, definire una **Impostazione di diagnostica** per una risorsa specifica. Un'impostazione di diagnostica per una risorsa definisce le categorie di log archiviati o trasmessi e gli output (account di archiviazione e/o hub eventi). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi di ogni categoria di log archiviati in un account di archiviazione. Se un criterio di conservazione viene impostato su zero, gli eventi per tale categoria di log vengono archiviati a tempo indeterminato. [Altre informazioni sulle impostazioni di diagnostica sono disponibili qui](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+Per archiviare i log di diagnostica usando uno dei metodi indicati di seguito, definire una **Impostazione di diagnostica** per una risorsa specifica. Un'impostazione di diagnostica per una risorsa definisce le categorie di log archiviati o trasmessi e gli output (account di archiviazione e/o hub eventi). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi di ogni categoria di log archiviati in un account di archiviazione. Se un criterio di conservazione è impostato su zero, gli eventi per tale categoria di log vengono archiviati per un periodo illimitato (per sempre). Diversamente, un criterio di conservazione può essere qualsiasi numero di giorni compreso tra 1 e 2147483647. [Altre informazioni sulle impostazioni di diagnostica sono disponibili qui](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 
 ## Archiviare i log di diagnostica tramite il portale
 
 1. Nel portale fare clic sul pannello delle risorse per la risorsa in cui si vuole abilitare dell'archiviazione dei log di diagnostica.
 2. Nella sezione **Monitoraggio** del menu delle impostazioni della risorsa selezionare **Diagnostica**.
 
-    ![Sezione di monitoraggio del menu Risorse](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)
+    ![Sezione di monitoraggio del menu Risorse](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)  
 3. Selezionare la casella per **Esporta in Account di archiviazione**, quindi selezionare un account di archiviazione. Facoltativamente, impostare un numero di giorni per la conservazione di questi log usando i dispositivi di scorrimento **Conservazione (giorni)** . Se il valore di conservazione è zero giorni, i log vengono conservati all'infinito.
 
-	![Pannello Log di diagnostica](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)
+	![Pannello Log di diagnostica](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)  
 4. Fare clic su **Save**.
 
 I log di diagnostica vengono archiviati nell'account di archiviazione non appena vengono generati dati di un nuovo evento.
@@ -51,7 +51,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | Categorie | No | Elenco delimitato da virgole di categorie di log da abilitare. |
 | Enabled | Sì | Valore booleano che indica se la diagnostica viene abilitata o disabilitata per questa risorsa. |
 | RetentionEnabled | No | Valore booleano che indica se un criterio di conservazione è abilitato per questa risorsa. |
-| RetentionInDays | No | Numero di giorni per cui gli eventi devono essere conservati. Se il valore è zero, i log vengono conservati all'infinito. |
+| RetentionInDays | No | Numero di giorni per cui gli eventi devono essere conservati, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono conservati all'infinito. |
 
 ## Archiviare il log attività tramite l'interfaccia della riga di comando multipiattaforma
 
@@ -124,4 +124,4 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 - [Trasmettere log di diagnostica di Azure a Hub eventi](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Altre informazioni sui log di diagnostica](monitoring-overview-of-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

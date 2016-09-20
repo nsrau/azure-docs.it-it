@@ -15,12 +15,15 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+	ms.author="spelluru"/>  
 
 # Spostare dati da e verso il BLOB di Azure mediante Azure Data Factory
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da e verso BLOB di Azure acquisendo i dati BLOB da un altro archivio dati. Questo articolo si basa sull'articolo relativo alle attività di spostamento dei dati, che offre una panoramica generale dello spostamento dei dati con l'attività di copia e delle combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da e verso BLOB di Azure acquisendo i dati BLOB da un altro archivio dati. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia e delle combinazioni di archivio dati supportate.
 
-> [AZURE.NOTE] Questo connettore Blob di Azure attualmente supporta solo la copia da e verso i BLOB in blocchi. Supporta sia l'archiviazione di Azure per scopi generici sia gli archivi BLOB ad accesso frequente e sporadico.
+> [AZURE.NOTE]
+L'attività di copia supporta la copia dei dati da/in account di archiviazione di Azure per utilizzo generico e archivi BLOB ad accesso frequente o sporadico.
+> 
+> L'attività supporta la lettura da BLOB in blocchi, di aggiunta o di pagine, ma supporta la scrittura solo in BLOB in blocchi.
 
 ## Copia di dati guidata
 Il modo più semplice di creare una pipeline in grado di copiare i dati da/in Archiviazione BLOB di Azure consiste nell’utilizzare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -449,18 +452,18 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><br/>**MergeFiles: (valore predefinito)** unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. | No |
 
-**BlobSource** supporta anche le due proprietà seguenti, che verranno presto deprecate.
+**BlobSource** supporta anche le due proprietà seguenti per la compatibilità con le versioni precedenti.
 
 - **treatEmptyAsNull**: specifica se considerare una stringa vuota o Null come valore Null.
 - **skipHeaderLineCount**: specifica il numero di righe che devono essere ignorate. È applicabile solo quando il set di dati di input usa TextFormat.
 
-Analogamente, **BlobSink** supporta la proprietà seguente, che verrà presto deprecata.
+In modo analogo, **BlobSink** supporta la proprietà seguente per la compatibilità con le versioni precedenti.
 
 - **blobWriterAddHeader**: specifica se aggiungere un'intestazione di definizioni di colonna durante la scrittura di un set di dati di output.
 
 Ora i set di dati supportano le proprietà seguenti che implementano la stessa funzionalità: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-La tabella seguente vengono fornisce indicazioni sull'uso delle nuove proprietà del set di dati al posto delle proprietà del sink o dell'origine BLOB che verranno presto deprecate.
+La tabella seguente fornisce indicazioni sull'uso delle nuove proprietà del set di dati al posto di queste proprietà del sink o dell'origine BLOB.
 
 | Proprietà dell'attività di copia | Proprietà del set di dati |
 | :---------------------- | :---------------- | 
@@ -494,4 +497,4 @@ false | mergeFiles | Per una cartella di origine Cartella1 con la struttura segu
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

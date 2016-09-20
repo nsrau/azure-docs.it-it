@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Risoluzione per le macchine virtuali e le istanze del ruolo"
-   description="Scenari di risoluzione dei nomi per Azure IaaS, soluzioni ibride, tra diversi servizi cloud, Active Directory e utilizzando il proprio server DNS"
+   description="Scenari di risoluzione dei nomi per Azure IaaS, soluzioni ibride, tra diversi servizi cloud, Active Directory e utilizzando il proprio server DNS "
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
-   ms.author="telmos" />
+   ms.date="08/31/2016"
+   ms.author="telmos" />  
 
 # Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo
 
@@ -35,8 +35,8 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui VM e istanze del r
 | Risoluzione dei nomi tra istanze del ruolo o macchine virtuali situate in diverse reti virtuali | Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server)| Solo nome di dominio completo |
 | Risoluzione dei nomi servizi e computer locali da istanze del ruolo o macchine virtuali in Azure | Server DNS gestiti dal cliente, ad esempio controller di dominio locale, controller di dominio di sola lettura locale o server DNS secondario sincronizzati tramite trasferimenti di zona. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server)|Solo nome di dominio completo |
 | Risoluzione di nomi host di Azure da computer locali | Inoltra le query a un server proxy DNS gestito dal cliente nella rete virtuale corrispondente. Il server proxy inoltra le query ad Azure per la risoluzione. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server)| Solo nome di dominio completo |
-| DNS inversi per indirizzi IP interni | [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) | N/D |
-| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale| Non applicabile Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale.| N/D |
+| DNS inversi per indirizzi IP interni | [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) | n/d |
+| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale| Non applicabile Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale.| n/d |
 
 
 
@@ -89,9 +89,9 @@ Sono disponibili molti pacchetti di memorizzazione nella cache DNS diversi, ad e
 - **Ubuntu (usa resolvconf)**:
 	- installare il pacchetto dnsmasq ("sudo apt-get install dnsmasq").
 - **SUSE (usa netconf)**:
-	- installare il pacchetto dnsmasq ("sudo zypper install dnsmasq") 
-	- abilitare il servizio dnsmasq ("systemctl enable dnsmasq.service") 
-	- avviare il servizio dnsmasq ("systemctl start dnsmasq.service") 
+	- installare il pacchetto dnsmasq ("sudo zypper install dnsmasq")
+	- abilitare il servizio dnsmasq ("systemctl enable dnsmasq.service")
+	- avviare il servizio dnsmasq ("systemctl start dnsmasq.service")
 	- modificare "/etc/sysconfig/network/config" e sostituire NETCONFIG\_DNS\_FORWARDER="" con "dnsmasq"
 	- aggiornare resolv.conf ("netconfig update") per impostare la cache come resolver DNS locale
 - **OpenLogic (usa NetworkManager)**:
@@ -107,8 +107,8 @@ Sono disponibili molti pacchetti di memorizzazione nella cache DNS diversi, ad e
 
 DNS è principalmente un protocollo UDP. Poiché il protocollo UDP non garantisce il recapito dei messaggi, la logica di ripetizione dei tentativi viene gestita nel protocollo DNS stesso. Ogni client DNS (sistema operativo) può includere una logica di ripetizione dei tentativi diversa, in base alle preferenze degli autori.
 
- - I sistemi operativi Windows eseguono un nuovo tentativo dopo 1 secondo e ne eseguono un altro dopo 2, 4 e altri 4 secondi. 
- - La configurazione di Linux predefinita esegue il tentativo dopo 5 secondi. È consigliabile modificare questa impostazione in modo da eseguire 5 tentativi a intervalli di 1 secondo.  
+ - I sistemi operativi Windows eseguono un nuovo tentativo dopo 1 secondo e ne eseguono un altro dopo 2, 4 e altri 4 secondi.
+ - La configurazione di Linux predefinita esegue il tentativo dopo 5 secondi. È consigliabile modificare questa impostazione in modo da eseguire 5 tentativi a intervalli di 1 secondo.
 
 Per verificare le impostazioni correnti in una macchina virtuale Linux, aprire il file 'cat /etc/resolv.conf' e osservare la riga 'options', ad esempio:
 
@@ -117,13 +117,13 @@ Per verificare le impostazioni correnti in una macchina virtuale Linux, aprire i
 Il file resolv.conf è solitamente generato automaticamente e non deve essere modificato. La procedura specifica per aggiungere la riga 'options' varia a seconda del distro:
 
 - **Ubuntu** (usa resolvconf):
-	- aggiungere la riga per le opzioni in '/etc/resolveconf/resolv.conf.d/head' 
+	- aggiungere la riga per le opzioni in '/etc/resolveconf/resolv.conf.d/head'
 	- eseguire 'resolvconf -u' per aggiornare
 - **SUSE** (usa netconf):
-	- aggiungere 'timeout:1 attempts:5' al parametro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" in '/etc/sysconfig/network/config' 
+	- aggiungere 'timeout:1 attempts:5' al parametro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" in '/etc/sysconfig/network/config'
 	- eseguire 'netconfig update' per aggiornare
 - **OpenLogic** (usa NetworkManager):
-	- aggiungere 'echo "options timeout:1 attempts:5"' in '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- aggiungere 'echo "options timeout:1 attempts:5"' in '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- eseguire 'service network restart' per aggiornare
 
 ## Risoluzione dei nomi usando il server DNS
@@ -139,13 +139,13 @@ Quando si usa la risoluzione dei nomi di Azure, un suffisso DNS interno (*.inter
 
 Se necessario, è possibile determinare il suffisso DNS interno usando PowerShell o l'API:
 
--  Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite la risorsa [scheda di interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx) o il cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
+-  Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite la risorsa [scheda di interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx) o il cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).
 -  Nei modelli di distribuzione classica il suffisso è disponibile tramite una chiamata all'[API GetDeployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
 Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà necessario fornire una soluzione DNS personalizzata. Questa soluzione DNS dovrà:
 
--  Fornire una soluzione di risoluzione dei nomi host appropriata, ad esempio tramite [DNS dinamico](virtual-networks-name-resolution-ddns.md). Si noti che se si usa il DNS dinamico potrebbe essere necessario disabilitare lo scavenging del record DNS, perché i lease DHCP di Azure sono molto lunghi e potrebbero rimuovere i record DNS anticipatamente. 
+-  Fornire una soluzione di risoluzione dei nomi host appropriata, ad esempio tramite [DNS dinamico](virtual-networks-name-resolution-ddns.md). Si noti che se si usa il DNS dinamico potrebbe essere necessario disabilitare lo scavenging del record DNS, perché i lease DHCP di Azure sono molto lunghi e potrebbero rimuovere i record DNS anticipatamente.
 -  Fornire una soluzione di risoluzione ricorsiva appropriata per consentire la risoluzione dei nomi di dominio esterni.
 -  Essere accessibile (tramite TCP e UDP sulla porta 53) dai client che gestisce e in grado di accedere a Internet.
 -  Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
@@ -181,6 +181,6 @@ Modello di distribuzione classica:
 
 - [Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710)
 - [Schema di configurazione di Rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
-- [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md) 
+- [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

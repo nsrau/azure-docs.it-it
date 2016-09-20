@@ -13,13 +13,13 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/26/2016" 
-	ms.author="awills"/>
+	ms.author="awills"/>  
 
 # Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows
 
 *Application Insights è disponibile in anteprima.*
 
-[Visual Studio Application Insights](app-insights-get-started.md) e [HockeyApp](https://hockeyapp.net) consentono di monitorare l'utilizzo e le prestazioni dell'applicazione distribuita.
+[Visual Studio Application Insights](app-insights-overview.md) e [HockeyApp](https://hockeyapp.net) consentono di monitorare l'utilizzo e le prestazioni dell'applicazione distribuita.
 
 > [AZURE.IMPORTANT] È consigliabile usare [HockeyApp](https://hockeyapp.net) per distribuire e monitorare applicazioni desktop e app per dispositivi. Con HockeyApp è possibile gestire la distribuzione, i test live e i commenti degli utenti, oltre a monitorare i report di utilizzo e di arresto anomalo. È anche possibile [esportare ed eseguire una query sui dati di telemetria con Analisi](app-insights-hockeyapp-bridge-app.md).
 
@@ -89,4 +89,4 @@
 * [Scrivere query di Analisi](app-insights-analytics.md)
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

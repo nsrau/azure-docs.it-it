@@ -14,7 +14,7 @@ ms.service="virtual-machines-linux"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
  ms.date="08/17/2016"
- ms.author="danlep"/>
+ ms.author="danlep"/>  
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 
@@ -35,11 +35,11 @@ Di seguito vengono riportati i metodi utilizzabili per creare un cluster Linux R
 
 * **Script dell'interfaccia della riga di comando di Azure**: come verrà illustrato più avanti in questo articolo, usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) per eseguire lo script della distribuzione di un cluster delle VM Linux di dimensioni A8 o A9. L'interfaccia della riga di comando in modalità Service Management crea i nodi del cluster in modo seriale nel modello di distribuzione classica, quindi la distribuzione di molti nodi di calcolo potrebbe richiedere alcuni minuti. Nel modello di distribuzione classica, per poter essere connesse attraverso la rete RDMA le VM A8 o A9 devono essere distribuite nello stesso servizio cloud.
 
-* **Modelli di Azure Resource Manager**: usare il modello di distribuzione di Resource Manager per distribuire più VM Linux A8 e A9 in un cluster di elaborazione in grado di sfruttare la rete RDMA per eseguire i carichi di lavoro MPI. Per distribuire la soluzione desiderata, è possibile [creare un modello personalizzato](../resource-group-authoring-templates.md) o vedere la [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per accedere ai modelli forniti da Microsoft o dalla community. I modelli di Gestione risorse riescono a fornire un modo veloce e affidabile per distribuire un cluster Linux. Nel modello di distribuzione di Resource Manager, per poter essere connesse attraverso la rete RDMA le VM A8 o A9 devono essere distribuite nello stesso set di disponibilità.
+* **Modelli di Azure Resource Manager**: usare il modello di distribuzione di Resource Manager per distribuire un cluster di VM A8 e A9 che si connette alla rete RDMA per eseguire i carichi di lavoro MPI. Per distribuire la soluzione desiderata, è possibile [creare un modello personalizzato](../resource-group-authoring-templates.md) o vedere la [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per accedere ai modelli forniti da Microsoft o dalla community. I modelli di Gestione risorse riescono a fornire un modo veloce e affidabile per distribuire un cluster Linux. Nel modello di distribuzione di Resource Manager, per poter essere connesse attraverso la rete RDMA le VM A8 o A9 devono essere distribuite nello stesso set di disponibilità.
 
 ## Distribuzione di esempio nel modello classico
 
-I passaggi seguenti mostrano come usare l'interfaccia della riga di comando di Azure per distribuire una VM HPC SUSE Linux Enterprise Server (SLES) 12 da Azure Marketplace, installare Intel MPI Library e altre personalizzazioni e creare un'immagine di VM personalizzata. Usare quindi l'immagine per lo script della distribuzione di un cluster di VM A8 o A9.
+I passaggi seguenti mostrano come usare l'interfaccia della riga di comando di Azure per distribuire una VM HPC SUSE Linux Enterprise Server (SLES) 12 da Azure Marketplace, installare Intel MPI Library e creare un'immagine di VM personalizzata. Usare quindi l'immagine per lo script della distribuzione di un cluster di VM A8 o A9.
 
 >[AZURE.TIP]  Usare una procedura simile per distribuire un cluster di VM A8 o A9 dall'immagine HPC 6.5 o 7.1 basata su CentOS in Azure Marketplace. Le differenze sono indicate nella procedura. Ad esempio, poiché le immagini HPC basate su CentOS includono Intel MPI, non è necessario installare Intel MPI separatamente nelle VM create da queste immagini.
 
@@ -107,7 +107,7 @@ Quando la macchina virtuale completa il provisioning, assegnare una porta SSH al
     >
     >Nelle immagini HPC basate su CentOS dal Marketplace gli aggiornamenti del kernel sono disabilitati nel file di configurazione **yum**. Dal momento che i driver Linux RDMA vengono distribuiti come pacchetto RPM, i relativi aggiornamenti potrebbero non funzionare se il kernel viene aggiornato.
 
-* **Aggiornamenti dei driver Linux RDMA**: se è stata distribuita una VM HPC SLES 12, è necessario aggiornare i driver RDMA. Per dettagli, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12).
+* **Aggiornamenti dei driver Linux RDMA**: se è stata distribuita una VM HPC SLES 12, è necessario aggiornare i driver RDMA. Per dettagli, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
 
 * **Intel MPI**: se è stata distribuita una VM HPC SLES 12, scaricare e installare il runtime di Intel MPI Library 5 dal sito Intel.com eseguendo comandi simili ai seguenti. Questo passaggio non è necessario se è stata distribuita una VM HPC 6.5 o 7.1 basata su CentOS.
 
@@ -129,7 +129,7 @@ Quando la macchina virtuale completa il provisioning, assegnare una porta SSH al
 
     >[AZURE.NOTE]A scopo di test, è inoltre possibile impostare memlock su illimitato. Ad esempio: `<Nome utente o gruppo> hard memlock unlimited.
 
-* **Chiavi SSH per VM SLES 12**: generare chiavi SSH per stabilire una relazione di trust per il proprio account utente tra tutti i nodi di calcolo del cluster HPC SLES 12 quando vengono eseguiti processi MPI. Se è stata distribuita una VM HPC basata su CentOS, non seguire questo passaggio. Vedere le istruzioni più avanti nell'articolo per configurare un trust SSH senza password tra i nodi del cluster dopo aver acquisito l'immagine e distribuito il cluster.
+* **Chiavi SSH per VM SLES 12**: generare chiavi SSH per stabilire una relazione di trust per il proprio account utente tra i nodi di calcolo del cluster HPC SLES 12 quando vengono eseguiti processi MPI. Se è stata distribuita una VM HPC basata su CentOS, non seguire questo passaggio. Vedere le istruzioni più avanti nell'articolo per configurare un trust SSH senza password tra i nodi del cluster dopo aver acquisito l'immagine e distribuito il cluster.
 
     Usare il comando seguente per creare chiavi SSH. Quando viene richiesto, premere INVIO per generare le chiavi nel percorso predefinito senza impostare una passphrase.
 
@@ -398,4 +398,4 @@ In un cluster funzionante con due nodi dovrebbe venire visualizzato un output si
 
 * Provare un [modello di avvio rapido ](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) per creare un cluster Intel Lustre usando un'immagine basata HPC su CentOS. Per informazioni dettagliate, vedere questo [post di blog](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

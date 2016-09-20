@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare un hub IoT usando un modello di Gestione risorse di Azure e PowerShell | Microsoft Azure"
+	pageTitle="Creare un hub IoT usando un modello di Resource Manager e PowerShell | Microsoft Azure"
 	description="Seguire questa esercitazione per iniziare a usare modelli di Gestione risorse per creare un hub IoT con PowerShell."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/19/2016"
-     ms.author="dobett"/>
+     ms.date="09/07/2016"
+     ms.author="dobett"/>  
 
 # Creare un hub IoT tramite PowerShell
 
@@ -22,16 +22,16 @@
 
 ## Introduzione
 
-È possibile usare Gestione risorse di Azure per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene illustrato come usare un modello di Resource Manager per creare un hub IoT con PowerShell.
+È possibile utilizzare Gestione risorse di Azure per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene illustrato come usare un modello di Resource Manager per creare un hub IoT con PowerShell.
 
 > [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
 
-Per completare questa esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
 
-> [AZURE.TIP] L'articolo [Uso di Azure PowerShell con Gestione risorse di Azure][lnk-powershell-arm] fornisce altre informazioni su come usare gli script di PowerShell e i modelli di Gestione risorse di Azure per creare risorse di Azure.
+> [AZURE.TIP] L'articolo [Uso di Azure PowerShell con Gestione risorse di Azure][lnk-powershell-arm] fornisce altre informazioni su come usare gli script di PowerShell e i modelli di Resource Manager per creare risorse di Azure.
 
 ## Connettersi alla sottoscrizione di Azure
 
@@ -56,9 +56,9 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## Inviare un modello per creare un hub IoT
 
-Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È anche possibile utilizzare un modello per apportare modifiche a un hub IoT esistente.
+Utilizzare un modello JSON per creare un hub IoT nel gruppo di risorse. È anche possibile utilizzare un modello per apportare modifiche a un hub IoT esistente.
 
-1. Usare un editor di testo per creare un modello di Gestione risorse di Azure denominato **template.json** con la definizione di risorsa seguente per creare un nuovo hub IoT standard. In questo esempio l'hub IoT viene aggiunto all'area **Stati Uniti orientali**, vengono creati due gruppi di consumer (**cg1** e **cg2**) sull'endpoint compatibile con Hub eventi e viene usata la versione **2016-02-03** dell'API. Questo modello prevede anche che il nome dell'hub IoT venga passato come un parametro denominato **hubName**.
+1. Usare un editor di testo per creare un modello di Resource Manager denominato **template.json** con la definizione di risorsa seguente per creare un nuovo hub IoT standard. In questo esempio l'hub IoT viene aggiunto all'area **Stati Uniti orientali**, vengono creati due gruppi di consumer (**cg1** e **cg2**) sull'endpoint compatibile con Hub eventi e viene usata la versione **2016-02-03** dell'API. Questo modello prevede anche che il nome dell'hub IoT venga passato come un parametro denominato **hubName**. Per un elenco aggiornato delle località in cui è supportato l'hub IoT, vedere lo [Stato di Azure][lnk-status].
 
     ```
     {
@@ -122,11 +122,11 @@ Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È
 
 5. È possibile verificare che l'applicazione abbia aggiunto il nuovo hub IoT visitando il [portale][lnk-azure-portal] e visualizzare l'elenco di risorse, oppure utilizzando il cmdlet PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE] Questa applicazione di esempio aggiunge un hub IoT Standard S1 che verrà addebitato. È possibile eliminare l'hub IoT tramite il [portale][lnk-azure-portal] o utilizzando il cmdlet PowerShell **Remove AzureRmResource** al termine.
+> [AZURE.NOTE] Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. È possibile eliminare l'hub IoT tramite il [portale][lnk-azure-portal] o utilizzando il cmdlet PowerShell **Remove AzureRmResource** al termine.
 
 ## Passaggi successivi
 
-Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure con PowerShell, può essere opportuno ottenere informazioni più dettagliate:
+Dopo aver distribuito un hub IoT usando un modello di Resource Manager con PowerShell, può essere opportuno ottenere informazioni più dettagliate:
 
 - Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].
 - Per ulteriori informazioni sulle funzionalità di Gestione risorse di Azure, leggere la [Panoramica su Gestione risorse di Azure][lnk-azure-rm-overview].
@@ -143,9 +143,10 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -159,4 +160,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

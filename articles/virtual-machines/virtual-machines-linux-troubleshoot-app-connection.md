@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="iainfou"/>
+	ms.date="08/31/2016"
+	ms.author="iainfou"/>  
 
 # Risoluzione dei problemi: non è possibile avviare, accedere o connettersi a un'applicazione in esecuzione in una macchina virtuale di Azure
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

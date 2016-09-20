@@ -14,8 +14,8 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="06/20/2016"
-  ms.author="cjiang"/>
+  ms.date="09/06/2016"
+  ms.author="cjiang"/>  
 
 # Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Windows in Azure
 
@@ -84,4 +84,4 @@ In base ai vincoli del servizio cloud usato per creare la nuova VM, si potrebbe 
 ## Passaggi successivi
 Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione classica con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

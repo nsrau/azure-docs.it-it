@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
-   ms.author="carlrab"/>
+   ms.date="09/06/2016"
+   ms.author="carlrab"/>  
 
 # Backup automatici del database SQL
 
@@ -58,8 +58,8 @@ Il periodo di conservazione è determinato dal livello di servizio associato al 
 ## Passaggi successivi
 
 - Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
-- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)
+- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 - Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md)
 - Per un quadro generale, vedere la [panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

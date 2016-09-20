@@ -34,8 +34,8 @@ Le applicazioni ospitate nel servizio app di Azure possono [raggiungere un livel
 3. Comprendere e sfruttare correttamente la piattaforma di hosting dell'app.
 	* Quali funzionalità è necessario sfruttare per raggiungere gli obiettivi di scalabilità?
 
-Questa sezione aiuta a comprendere tutti i fattori e a escogitare una strategia che sfrutti le funzionalità del servizio app necessarie per raggiungere gli obiettivi di scalabilità.
+Questa sezione consente di comprendere tutti i fattori e definire una strategia che sfrutti le funzionalità del servizio app necessarie per raggiungere i propri obiettivi di scalabilità.
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

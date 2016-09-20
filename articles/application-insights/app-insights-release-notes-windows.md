@@ -16,28 +16,15 @@
  
 # Note sulla versione per Application Insights SDK per Windows Phone e Store
 
-[Application Insights SDK](app-insights-windows-get-started.md) invia dati di telemetria sull'app attiva ad [Application Insights](https://azure.microsoft.com/services/application-insights/), dove è possibile analizzarne l'utilizzo e le prestazioni.
+Application Insights SDK invia dati di telemetria sull'app live ad [Application Insights](https://azure.microsoft.com/services/application-insights/), in cui è possibile analizzarne l'utilizzo e le prestazioni.
 
-
-#### Per installare l'SDK nell'applicazione
-
-Vedere [Introduzione ad Application Insights per app di Windows Phone e Store](app-insights-windows-get-started.md).
-
-#### Per eseguire l'aggiornamento all'SDK più recente 
-
-* Eseguire una copia del file ApplicationInsights.config per mantenere eventuali personalizzazioni eseguite.
-* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-* Impostare il filtro in modo da visualizzare i pacchetti installati. 
-* Selezionare i pacchetti di Application Insights installati e scegliere Aggiorna.
-* Confrontare la vecchia e la nuova versione di ApplicationInsights.xml. Unire di nuovo eventuali personalizzazioni apportate alla versione precedente.
-* Ricompilare la soluzione.
 
 ## Versione 1.1.1
 
 ### Windows SDK
 
-- Correggere un blocco durante l'arresto anomalo quando si utilizza l’SDK per Windows Phone Silverlight. Dopo questa modifica, qualsiasi arresto anomalo che si verifica dopo ~ 2 secondi dalla chiamata a WindowsAppInitialier.InitializeAsync(...) verrà mantenuto nel disco e verrà inviato al successivo avvio dell'applicazione. Se si verifica un arresto anomalo prima di ~ 2 secondi dalla chiamata, verrà ignorato.  
-- Impostare le dipendenze di NuGet su una versione specifica di Core e Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
+- Correggere un blocco durante l'arresto anomalo quando si utilizza l’SDK per Windows Phone Silverlight. Dopo questa modifica, qualsiasi arresto anomalo che si verifica dopo ~ 2 secondi dalla chiamata a WindowsAppInitialier.InitializeAsync(...) verrà mantenuto nel disco e verrà inviato al successivo avvio dell'applicazione. Se si verifica un arresto anomalo prima di ~ 2 secondi dalla chiamata, verrà ignorato.
+- Impostare le dipendenze di NuGet su una versione specifica di Core e Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).
 
 ### SDK di base
 
@@ -95,4 +82,4 @@ Anteprima del 28/04/2015
 
 Per le versioni precedenti non sono disponibili le note sulla versione.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0907_2016-->

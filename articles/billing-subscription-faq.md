@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="genli"/>
+	ms.date="09/07/2016"
+	ms.author="genli"/>  
 
 #  Domande frequenti su fatturazione e sottoscrizione di Azure
 
@@ -34,6 +34,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative alla fa
 
 - [Come si ottiene la copia di una fattura?](#how-do-i-get-a-copy-of-my-invoice)
 - [Non viene visualizzata alcuna fattura per l'ultimo periodo di fatturazione. Perché?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [Come si effettua un pagamento?](#how-do-i-make-a-payment)
 
 ## Versione di valutazione gratuita
 
@@ -314,4 +315,10 @@ Visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.mic
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-<!---HONumber=AcomDC_0824_2016-->
+### Come si effettua un pagamento?
+
+Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento verrà effettuato automaticamente.
+
+Se è stata configurata una [modalità di pagamento con fattura](https://azure.microsoft.com/pricing/invoicing/), inviare il pagamento al destinatario indicato nella parte inferiore della fattura. Per altre informazioni, [contattare il supporto tecnico](billing-how-to-create-billing-support-ticket.md).
+
+<!---HONumber=AcomDC_0907_2016-->

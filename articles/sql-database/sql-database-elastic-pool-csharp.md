@@ -27,7 +27,7 @@
 
 Questo articolo illustra come creare un [pool di database elastici](sql-database-elastic-pool.md) per database SQL da un'applicazione che usa tecniche di sviluppo di database C#.
 
-> [AZURE.NOTE] I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-powershell.md) in un unico passaggio.
+> [AZURE.NOTE] I pool elastici sono disponibili a livello generale in tutte le aree di Azure ad eccezione di Stati Uniti centro-settentrionali e India occidentale, dove sono attualmente in anteprima. La disponibilità generale dei pool elastici in queste aree verrà offerta al più presto. In più, al momento i pool elastici non supportano i database che utilizzano [OLTP o Analytics in memoria](sql-database-in-memory.md).
 
 Negli esempi viene usata la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
 
@@ -63,11 +63,11 @@ Per creare un'applicazione e registrarla nell'Active Directory corrente proceder
 
 2. Selezionare la directory per l'autenticazione dell'applicazione e fare clic sul relativo **nome**.
 
-    ![Selezionare una directory.][4]
+    ![Selezionare una directory.][4]  
 
 3. Nella pagina della directory fare clic su **APPLICAZIONI**.
 
-    ![Fare clic su Applicazioni.][5]
+    ![Fare clic su Applicazioni.][5]  
 
 4. Fare clic su **AGGIUNGI** per creare un'applicazione.
 
@@ -81,11 +81,11 @@ Per creare un'applicazione e registrarla nell'Active Directory corrente proceder
 
 6. Specificare un **URI DI REINDIRIZZAMENTO**. Non è necessario che sia un endpoint effettivo, è sufficiente un URI valido.
 
-    ![Aggiunta di un'applicazione][8]
+    ![Aggiunta di un'applicazione][8]  
 
 7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client è necessario nel codice).
 
-    ![Acquisire l'ID client][9]
+    ![Acquisire l'ID client][9]  
 
 
 1. Nella parte inferiore della pagina fare clic su **Aggiungi applicazione**.
@@ -106,7 +106,7 @@ Il nome di dominio è obbligatorio per il codice. Un modo semplice per identific
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare il mouse sul proprio nome nell'angolo superiore destro e osservare il dominio visualizzato nella finestra popup. Sostituire **domain.onmicrosoft.com** nel frammento di codice con il valore per l'account.
 
-    ![Identificare il nome di dominio][3]
+    ![Identificare il nome di dominio][3]  
 
 
 
@@ -562,7 +562,7 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 
 [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-elastic-pool-csharp/aad.png
 [2]: ./media/sql-database-elastic-pool-csharp/permissions.png
 [3]: ./media/sql-database-elastic-pool-csharp/getdomain.png
@@ -573,4 +573,4 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

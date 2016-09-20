@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="johnkem"/>
+	ms.author="johnkem"/>  
 
 # Panoramica del log attività di Azure
 Il **log attività di Azure** fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione e di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET)
@@ -39,7 +39,7 @@ Un **profilo di log** controlla la modalità di esportazione del log attività. 
 - Destinazione del log attività, ad esempio un account di archiviazione o un hub eventi.
 - Categorie di eventi da inviare, ad esempio scrittura, eliminazione o azione.
 - Aree o località da esportare.
-- Tempo di conservazione del log attività in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
+- Tempo di conservazione del log attività in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. In caso contrario, il valore può essere un numero qualsiasi di giorni compreso tra 1 e 2147483647. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
 
 Queste impostazioni possono essere configurate tramite l'opzione "Esporta" del pannello Log attività nel portale oppure a livello di codice, tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn931927.aspx), i cmdlet di PowerShell o l'interfaccia della riga di comando. Una sottoscrizione può avere un solo profilo di log.
 
@@ -48,13 +48,13 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" del p
 
 1. Passare al pannello **Log attività** usando il menu sul lato sinistro del portale.
 
-    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+    ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)  
 2. Fare clic sul pulsante **Esporta** nella parte superiore del pannello.
 
-    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. Nel pannello visualizzato è possibile selezionare le aree per cui esportare gli eventi, l'account di archiviazione in cui salvarli, il tempo di conservazione degli eventi nel servizio di archiviazione, espresso in giorni, e lo spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione degli eventi.
+    ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)  
+3. Nel pannello visualizzato è possibile selezionare le aree per cui esportare gli eventi, l'account di archiviazione in cui salvarli, il tempo di mantenimento degli eventi nel servizio di archiviazione, espresso in giorni (0 giorni mantiene i log per sempre), e lo spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione degli eventi.
 
-    ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+    ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)  
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
 
 ### Configurare i profili di log tramite i cmdlet di Azure PowerShell
@@ -74,7 +74,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId | No | ID risorsa dell'account di archiviazione in cui salvare il log attività. |
 | serviceBusRuleId | No | ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratterà di una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Località | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-| RetentionInDays | Sì | Numero di giorni per cui gli eventi devono essere conservati. Se il valore è zero, i log vengono conservati all'infinito. |
+| RetentionInDays | Sì | Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono archiviati per un periodo illimitato. |
 | Categorie | No | Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 #### Rimozione di un profilo di log
@@ -103,7 +103,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId | No | ID risorsa dell'account di archiviazione in cui salvare il log attività. |
 | serviceBusRuleId | No | ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratterà di una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`. |
 | locations | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-| retentionInDays | Sì | Numero di giorni per cui gli eventi devono essere conservati. Se il valore è zero, i log vengono conservati all'infinito. |
+| retentionInDays | Sì | Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
 | categories | No | Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 #### Rimozione di un profilo di log
@@ -223,4 +223,4 @@ Per ogni evento nel log attività esiste un BLOB JSON simile al seguente:
 - [Altre informazioni sul log attività (in precedenza, log di controllo)](../resource-group-audit.md)
 - [Trasmettere il log attività di Azure a Hub eventi](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

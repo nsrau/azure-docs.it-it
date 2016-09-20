@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/07/2016"
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="08/29/2016"
+   ms.author="rortloff;barbkess;sonyama"/>  
 
 # Introduzione a Transparent Data Encryption (TDE)
 
@@ -54,6 +54,8 @@ Per disabilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
+NOTA: prima di modificare le impostazioni TDE, è necessario interrompere la sospensione del SQL Data Warehouse.
+
 ##Verifica della crittografia
 
 Per verificare lo stato della crittografia per un SQL Data Warehouse, seguire questa procedura:
@@ -77,13 +79,13 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 - [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
 
 
-<!--Anchors-->
+<!--Anchors-->  
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 [sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
 [sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->
 
-<!--Link references-->
+<!--Link references-->  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

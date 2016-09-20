@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/02/2016"
+	ms.date="08/30/2016"
 	ms.author="glenga"/>
 
 # Associazioni di app per dispositivi mobili in Funzioni di Azure
@@ -42,7 +42,7 @@ Per impostare questo URL come variabile di ambiente nell'app per le funzioni:
 
 2. Nell'app per le funzioni fare clic su **Tutte le impostazioni**, scorrere verso il basso fino a **Impostazioni dell'applicazione**, quindi in **Impostazioni app** digitare un nuovo **Nome** per la variabile di ambiente, incollare l'URL nel campo **Valore** assicurandosi di usare lo schema HTTPS, quindi fare clic su **Salva** e chiudere il pannello dell'app per le funzioni per tornare al portale Funzioni.
 
-	![Aggiungere una variabile di ambiente come impostazione dell'app](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
+	![Aggiungere una variabile di ambiente come impostazione dell'app](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)  
 
 È ora possibile impostare la nuova variabile di ambiente come campo *connection* delle associazioni.
 
@@ -169,4 +169,4 @@ Questo esempio di codice Node.js inserisce un nuovo record in un endpoint tabell
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

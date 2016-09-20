@@ -17,25 +17,25 @@
  
 # Application Insights - Introduzione
 
-[Visual Studio Application Insights](app-insights-get-started.md) è un servizio di analisi dei dati estendibile che consente di monitorare l'applicazione Web attiva, che consente di rilevare e diagnosticare problemi di prestazioni e comprendere ciò che gli utenti effettivamente fanno con l'applicazione. È stata progettata per aiutare gli sviluppatori a migliorare continuamente le prestazioni e la facilità di utilizzo. È compatibile con le applicazioni eseguibili su una vasta gamma di piattaforme, tra cui .NET o J2EE, con hosting in locale o nel cloud.
+Visual Studio Application Insights è un servizio di analisi estendibile che consente di monitorare un'applicazione Web live. Permette di rilevare e diagnosticare problemi di prestazioni e comprendere le operazioni effettivamente eseguite dagli utenti nell'applicazione. Il servizio è progettato per aiutare gli sviluppatori a migliorare continuamente le prestazioni e l'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET o J2EE, ospitate in locale o nel cloud.
 
-![Creare grafici relativi alle statistiche sulle attività degli utenti o eseguire il drill-down in eventi specifici.](./media/app-insights-overview/00-sample.png)
+![Creare grafici relativi alle statistiche sulle attività degli utenti o eseguire il drill-down in eventi specifici.](./media/app-insights-overview/00-sample.png)  
 
-[Guardare l'introduzione animata](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+[Osservare l'animazione dell'introduzione](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## Come funziona?
 
-Installare un piccolo pacchetto di instrumentazione nell'applicazione e configurare una risorsa di Application Insights nel Portale di Microsoft Azure. L’instrumentazione monitora l'app e invia i dati di telemetria al portale. Il portale consente di visualizzare grafici statistici e offre strumenti di ricerca avanzati che consentono di diagnosticare i problemi.
+Si installa un piccolo pacchetto di strumentazione nell'applicazione e si configura una risorsa di Application Insights nel portale di Microsoft Azure. La strumentazione monitora l'app e invia i dati di telemetria al portale. Il portale consente di visualizzare grafici statistici e offre strumenti di ricerca avanzati che consentono di diagnosticare i problemi.
 
-![L’instrumentazione di Application Insights nell'app invia la telemetria alla risorsa di Application Insights nel Portale di Azure.](./media/app-insights-overview/01-scheme.png)
+![L’instrumentazione di Application Insights nell'app invia la telemetria alla risorsa di Application Insights nel Portale di Azure.](./media/app-insights-overview/01-scheme.png)  
 
 
-Application Insights include più [moduli di strumentazione standard](app-insights-configuration-with-applicationinsights-config.md) che raccolgono diversi tipi di dati telemetria, ad esempio i tempi di risposta alle richieste, le eccezioni e le chiamate a dipendenze. È anche possibile [scrivere codice per inviare dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md) al portale.
+Application Insights include più [moduli di strumentazione standard](app-insights-configuration-with-applicationinsights-config.md) che raccolgono diversi tipi di dati di telemetria, ad esempio i tempi di risposta alle richieste, le eccezioni e le chiamate a dipendenze. È anche possibile [scrivere codice per inviare dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md) al portale.
 
 
 ### Informazioni sul sovraccarico
 
-L'impatto sulle prestazioni delle applicazioni è molto ridotto. Le chiamate di rilevamento non sono bloccanti e vengono riunite in batch e inviate in un thread separato.
+L'impatto sulle prestazioni dell'app è molto ridotto. Le chiamate di rilevamento non sono bloccanti e vengono riunite in batch e inviate in un thread separato.
 
 ## Funzione
 
@@ -86,11 +86,11 @@ Application Insights è uno dei molti servizi ospitati in Microsoft Azure e rice
 
 ## Esplorazione delle metriche
 
-Eseguire l'applicazione (in modalità di debug sulla macchina di sviluppo o tramite distribuzione su un server) e utilizzarla per un po’. Accedere al [portale di Azure](https://portal.azure.com).
+Eseguire l'applicazione (in modalità di debug sulla macchina di sviluppo o tramite distribuzione su un server) e usarla per un po’. Accedere quindi al [portale di Azure](https://portal.azure.com).
 
 Andare al pannello Panoramica di Application Insights dell'applicazione:
 
-![Pannello Panoramica](./media/app-insights-overview/01-find.png)
+![Pannello Panoramica](./media/app-insights-overview/01-find.png)  
 
 La panoramica consente di visualizzare immediatamente le prestazioni dell'applicazione. È possibile confrontare il carico (in termini di frequenza di richieste) con l'ora in cui l’app ci impiega troppo per rispondere alle richieste. Se si verifica un aumento eccessivo del tempo di risposta quando aumenta il carico, esiste la possibilità di allocare altre risorse in supporto all'applicazione. Se si verifica un maggior numero di risposte non riuscite dopo aver distribuito una nuova build, è possibile eseguire il rollback.
 
@@ -99,7 +99,7 @@ La panoramica consente di visualizzare immediatamente le prestazioni dell'applic
 
 Fare clic su qualsiasi grafico per visualizzare un set di grafici più dettagliato. Ad esempio, il grafico relativo al tempo di risposta del server rimanda ai grafici che mostrano la frequenza delle richieste, i tempi di risposta e i tempi di risposta delle dipendenze (vale a dire, i servizi richiamati dall'app).
 
-![Pannello Server](./media/app-insights-overview/04.png)
+![Pannello Server](./media/app-insights-overview/04.png)  
 
 Il grafico delle dipendenze è utile perché consente di verificare se i database e le API REST utilizzati dall'app rispondono correttamente o causano ritardi.
 
@@ -107,11 +107,11 @@ Il grafico delle dipendenze è utile perché consente di verificare se i databas
 
 Provare a modificare uno dei grafici seguenti. Ad esempio, se l'applicazione Web viene eseguita su una raccolta di istanze del server, è possibile confrontare i tempi di risposta sulle diverse istanze del server:
 
-![modificare il grafico](./media/app-insights-overview/05.png)
+![modificare il grafico](./media/app-insights-overview/05.png)  
 
 1. Passare il cursore del mouse sul grafico e fare clic su Modifica.
 2. Scegliere una metrica. È possibile visualizzare più metriche in un solo grafico, ma soltanto secondo alcune combinazioni: potrebbe essere necessario deselezionare una metrica prima di poter selezionare quella desiderata.
-3. Per segmentare una metrica in base a una proprietà, utilizzare Raggruppa per. In questo esempio, vengono visualizzate delle righe separate per i diversi tempi di risposta.
+3. Per segmentare una metrica in base a una proprietà, usare Raggruppa per. In questo esempio, vengono visualizzate delle righe separate per i diversi tempi di risposta.
 
     Tenere presente che è necessario selezionare una proprietà valida per la metrica, altrimenti il grafico non visualizzerà alcun dato.
 4. Selezionare un tipo di grafico. I grafici a barre e ad aree offrono una visualizzazione in pila adatta per il tipo di aggregazione 'Sum'.
@@ -126,25 +126,25 @@ Fare clic su un grafico delle metriche per cercare i dati dell’istanza con i f
 
 In alternativa, è possibile ottenere direttamente i dati dell’istanza dalla ricerca nella pagina Panoramica:
 
-![Istanze di ricerca](./media/app-insights-overview/06.png)
+![Istanze di ricerca](./media/app-insights-overview/06.png)  
 
-Utilizzare i filtri per concentrarsi su particolari tipi di evento e sui valori delle proprietà selezionate:
+Usare i filtri per concentrarsi su particolari tipi di evento e sui valori delle proprietà selezionate:
 
-![Filtrare in base ai dettagli delle proprietà](./media/app-insights-overview/07.png)
+![Filtrare in base ai dettagli delle proprietà](./media/app-insights-overview/07.png)  
 
 Fare clic su "..." per visualizzare l’elenco completo delle proprietà, oppure aprire altri eventi associati alla stessa richiesta. In questo esempio, la richiesta non riuscita dispone di un report delle eccezioni associate:
 
-![Elementi correlati e dettagli delle proprietà](./media/app-insights-overview/08.png)
+![Elementi correlati e dettagli delle proprietà](./media/app-insights-overview/08.png)  
 
-Aprire un evento - in questo esempio l'eccezione correlata - e creare un elemento di lavoro (se si utilizza Visual Studio Team Services per tenere traccia delle attività).
+Aprire un evento - in questo esempio l'eccezione correlata - e creare un elemento di lavoro (se si usa Visual Studio Team Services per tenere traccia delle attività).
  
-![Creazione di un elemento di lavoro](./media/app-insights-overview/09.png)
+![Creazione di un elemento di lavoro](./media/app-insights-overview/09.png)  
 
-## Analisi
+## Analytics
 
 [Analisi](app-insights-analytics.md) è una funzionalità di ricerca e analisi ancora più avanzata, in cui è possibile scrivere query di tipo SQL sui dati di telemetria per cercare problemi specifici o per compilare informazioni statistiche.
 
-![Analytics](./media/app-insights-overview/10.png)
+![Analytics](./media/app-insights-overview/10.png)  
 
 Aprire la finestra dell'esercitazione per visualizzare ed eseguire esempi di query sui dati oppure vedere la più esaustiva [procedura dettagliata di esercitazione](app-insights-analytics-tour.md). IntelliSense visualizza istruzioni con le query che possono essere usate. Sono anche disponibili [informazioni di riferimento complete sul linguaggio](app-insights-analytics-reference.md).
 
@@ -169,13 +169,13 @@ Ad esempio, se la pagina Web è un'applicazione di gioco a pagina singola, è po
 
 A quel punto è possibile creare un grafico con i conteggi degli eventi personalizzati, segmentandoli in base al nome dell’evento:
 
-![Analytics](./media/app-insights-overview/11.png)
+![Analytics](./media/app-insights-overview/11.png)  
 
 ### Analisi di log
 
 A fini diagnostici, è disponibile un evento `TrackTrace(message)` personalizzato che può essere usato per le tracce esecuzione. Nelle funzionalità Ricerca e Analytics, è possibile cercare nei contenuti del messaggio, che possono essere più lunghi del nome di un evento.
 
-Se si utilizza già un framework di registrazione come Log4Net, NLog, Log4J o System.Diagnostic.Trace, allora le chiamate di traccia possono essere acquisite da Application Insights e verranno visualizzate insieme ad altri dati di telemetria. Gli strumenti di Visual Studio aggiungono il modulo SDK appropriato.
+Se si usa già un framework di registrazione come Log4Net, NLog, Log4J o System.Diagnostic.Trace, allora le chiamate di traccia possono essere acquisite da Application Insights e verranno visualizzate insieme ad altri dati di telemetria. Gli strumenti di Visual Studio aggiungono il modulo SDK appropriato.
 
 ## Dashboard
 
@@ -183,7 +183,7 @@ Molte applicazioni sono costituite da alcuni componenti, come ad esempio un serv
 
 Per monitorare l'intero sistema, è possibile selezionare i grafici più interessanti delle diverse app e aggiungerli a un [dashboard](app-insights-dashboards.md) di Azure, in modo da controllare continuamente l'intero sistema.
 
-![Dashboard](./media/app-insights-overview/12.png)
+![Dashboard](./media/app-insights-overview/12.png)  
 
 È infatti possibile creare più dashboard, tra cui ad esempio: un dashboard per il team con cui monitorare l’integrità ngenerale del sistema; un dashboard di progettazione che consente di concentrarsi sull'uso di diverse funzionalità; un dashboard per i componenti in fase di test e così via.
 
@@ -199,7 +199,7 @@ Se si utilizza Visual Studio per sviluppare l'applicazione, l’utente può cont
 
 La finestra di ricerca mostra gli eventi che sono stati registrati. Se è stato eseguito l'accesso ad Azure durante la configurazione di Application Insights, sarà possibile cercare gli stessi eventi nel portale.
 
-![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-visual-studio/34.png)
+![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-visual-studio/34.png)  
 
 La ricerca di testo libero funziona in tutti i campi degli eventi. Ad esempio, è possibile cercare parte dell'URL di una pagina, il valore di una proprietà, come la città del client, o parole specifiche in un log di traccia.
 
@@ -208,7 +208,7 @@ Fare clic su qualsiasi evento per visualizzarne le proprietà dettagliate.
 È anche possibile aprire la scheda Elementi correlati per poter diagnosticare le richieste non riuscite o le eccezioni.
 
 
-![](./media/app-insights-visual-studio/41.png)
+![](./media/app-insights-visual-studio/41.png)  
 
 
 
@@ -216,21 +216,21 @@ Fare clic su qualsiasi evento per visualizzarne le proprietà dettagliate.
 
 In Visual Studio 2015 o versione successiva Hub diagnostica mostra i dati di telemetria del server Application Insights man mano che vengono generati. Questo avviene anche se si è scelto di installare solo l'SDK, senza connetterlo a una risorsa nel portale di Azure.
 
-![Aprire la finestra Strumenti di diagnostica e controllare gli eventi di Application Insights.](./media/app-insights-visual-studio/31.png)
+![Aprire la finestra Strumenti di diagnostica e controllare gli eventi di Application Insights.](./media/app-insights-visual-studio/31.png)  
 
 
 ### Eccezioni
 
-Se è stato [impostato il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md), nella finestra Ricerca verranno visualizzati i report eccezioni.
+Se è stato [configurato il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md), i report eccezioni verranno visualizzati nella finestra di ricerca.
 
 Fare clic su un'eccezione per ottenere un'analisi dello stack. Se il codice dell'app è aperto in Visual Studio, è possibile fare clic nell'analisi dello stack per visualizzare la relativa riga del codice.
 
 
-![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/17.png)
+![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/17.png)  
 
 Nella riga CodeLens sopra ogni metodo viene inoltre visualizzato un conteggio delle eccezioni registrate da Application Insights nelle ultime 24 ore.
 
-![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/21.png)
+![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/21.png)  
 
 
 ### Monitoraggio locale
@@ -241,7 +241,7 @@ Nella riga CodeLens sopra ogni metodo viene inoltre visualizzato un conteggio de
 
 Questo è consigliabile se è già stata pubblicata una versione precedente dell'app. Si vuole però evitare di combinare la telemetria delle sessioni di debug con la telemetria nel portale di Application Insights dell'app pubblicata.
 
-È utile anche se si vuole eseguire il debug di [telemetria personalizzata](app-insights-api-custom-events-metrics.md) prima di inviare i dati di telemetria al portale.
+È utile anche se si vuole eseguire il debug di alcuni [dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md) prima di inviarli al portale.
 
 
 * *Inizialmente, Application Insights è stato interamente configurato per inviare i dati di telemetria al portale. Ora però si vuole fare in modo che i dati di telemetria vengano visualizzati solo in Visual Studio.*
@@ -253,11 +253,11 @@ Questo è consigliabile se è già stata pubblicata una versione precedente dell
 
 Tendenze è uno strumento di Visual Studio per la visualizzazione del comportamento dell'app nel tempo.
 
-Scegliere **Esplora tendenze di telemetria** usando il pulsante della barra degli strumenti di Application Insights o la finestra Ricerca di Application Insights. Scegliere una delle cinque query più comuni per iniziare. È possibile analizzare set di dati diversi in base ai tipi di dati di telemetria, agli intervalli di tempo e ad altre proprietà.
+Scegliere **Esplora tendenze di telemetria** usando il pulsante della barra degli strumenti di Application Insights o la finestra di ricerca di Application Insights. Scegliere una delle cinque query più comuni per iniziare. È possibile analizzare set di dati diversi in base ai tipi di dati di telemetria, agli intervalli di tempo e ad altre proprietà.
 
 Per trovare le anomalie nei dati, scegliere una delle opzioni relative alle anomalie nell'elenco a discesa del tipo di visualizzazione. Le opzioni di filtro nella parte inferiore della finestra permettono di trovare facilmente subset specifici dei dati di telemetria.
 
-![Tendenze](./media/app-insights-visual-studio/51.png)
+![Tendenze](./media/app-insights-visual-studio/51.png)  
 
 
 ## Rilascio di una nuova build
@@ -266,7 +266,7 @@ Per trovare le anomalie nei dati, scegliere una delle opzioni relative alle anom
 
 Flusso di metriche live mostra le metriche dell’applicazione in questo esatto momento, con una latenza quasi in tempo reale di 1 secondo. Ciò è molto utile quando si sta rilasciando una nuova compilazione e si desidera assicurarsi che tutto funzioni come previsto oppure si sta indagando su un evento imprevisto in tempo reale.
 
-![Nel pannello Panoramica fare clic su Flusso attivo](./media/app-insights-metrics-explorer/live-stream.png)
+![Nel pannello Panoramica fare clic su Flusso attivo](./media/app-insights-metrics-explorer/live-stream.png)  
 
 A differenza di Esplora metriche, Flusso di metriche live consente di visualizzare un set fisso di metriche. I dati vengono mantenuti finché si trovano nel grafico, poi vengono eliminati.
 
@@ -274,7 +274,7 @@ A differenza di Esplora metriche, Flusso di metriche live consente di visualizza
 
 Le [annotazioni sulla versione](app-insights-annotations.md) nei grafici delle metriche indicano dove è stata distribuita una nuova build e consentono di verificare facilmente se le modifiche hanno avuto effetto sulle prestazioni dell'applicazione. Possono essere create automaticamente dal [sistema di compilazione di Visual Studio Team Services](https://www.visualstudio.com/it-IT/get-started/build/build-your-app-vs) nonché essere [create dall'utente da PowerShell](#create-annotations-from-powershell).
 
-![Esempi di annotazioni con correlazione visibile con il tempo di risposta del server](./media/app-insights-annotations/00.png)
+![Esempi di annotazioni con correlazione visibile con il tempo di risposta del server](./media/app-insights-annotations/00.png)  
 
 Le annotazioni sulla versione sono una funzionalità della build basata sul cloud e del servizio versione di Visual Studio Team Services.
 
@@ -286,11 +286,11 @@ Application Insights offre tre tipi di avviso, che vengono inviati tramite e-mai
 
 ### Diagnostica proattiva 
 
-La [diagnostica proattiva](app-insights-nrt-proactive-diagnostics.md)** viene impostata automaticamente. Non è necessario che venga configurata dall'utente. Se il sito dispone di traffico sufficiente, l’utente riceve un messaggio e-mail in caso di un aumento delle richieste non riuscite che appare insolito per la fascia oraria del giorno o per la frequenza delle richieste. L’avviso contiene le informazioni di diagnostica.
+La [diagnostica proattiva](app-insights-nrt-proactive-diagnostics.md) viene impostata automaticamente. Non è necessario che venga configurata dall'utente. Se il sito dispone di traffico sufficiente, l’utente riceve un messaggio e-mail in caso di un aumento delle richieste non riuscite che appare insolito per la fascia oraria del giorno o per la frequenza delle richieste. L’avviso contiene le informazioni di diagnostica.
 
 Ecco un avviso di esempio.
 
-![Esempio di avviso intelligente che l'analisi del cluster riguardo all'errore](./media/app-insights-nrt-proactive-diagnostics/010.png)
+![Esempio di avviso intelligente che l'analisi del cluster riguardo all'errore](./media/app-insights-nrt-proactive-diagnostics/010.png)  
 
 Un secondo tipo di rilevamento proattivo individua le correlazioni tra gli errori e i fattori come la posizione, il sistema operativo del client o il tipo di browser.
 
@@ -298,13 +298,13 @@ Un secondo tipo di rilevamento proattivo individua le correlazioni tra gli error
 
 È possibile configurare [avvisi relativi alle metriche](app-insights-alerts.md) per essere informati quando una qualsiasi metrica, relativa ad esempio a numero di errori, memoria o visualizzazioni pagina, supera un valore di soglia per un determinato periodo.
 
-![In Esplora metriche scegliere Regole di avviso, Aggiungi avviso](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
+![In Esplora metriche scegliere Regole di avviso, Aggiungi avviso](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)  
 
 ### Disponibilità
 
 I [test Web della disponibilità](app-insights-monitor-web-app-availability.md) inviano richieste al sito da server in varie località del mondo. Indicano quando il sito non è disponibile in Internet o risponde lentamente.
 
-![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+![Esempio di test Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)  
 
 ## Esporta
 
@@ -313,10 +313,10 @@ Esistono diversi modi per ottenere i dati di telemetria dal portale di Applicati
 * L'[esportazione continua](app-insights-export-telemetry.md) è ideale se si vogliono mantenere grandi volumi di dati di telemetria più a lungo rispetto al periodo di conservazione standard.
 * Il [pulsante Esporta](app-insights-metrics-explorer.md#export-to-excel) nella parte superiore del pannello delle metriche o della ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel.
 * [Analisi](app-insights-analytics.md) offre un linguaggio avanzato di query per la telemetria e consente anche di esportare i risultati.
-* L'API REST di accesso ai dati può essere utilizzato per cercare ed estrarre i dati. È possibile eseguire le query di Analytics.
+* L'API REST di accesso ai dati può essere usata per cercare ed estrarre i dati. È possibile eseguire le query di Analytics.
 * Se si vogliono [esplorare i dati in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), non è necessario usare l'esportazione continua.
 
-![Visualizzare dati in Power BI](./media/app-insights-overview/210.png)
+![Visualizzare dati in Power BI](./media/app-insights-overview/210.png)  
  
 ## Gestione dati
 
@@ -330,7 +330,7 @@ Il [campionamento](app-insights-sampling.md) è un meccanismo per ridurre il cos
 
 ## Passaggi successivi
 
-Introduzione in fase di runtime a:
+Introduzione in fase di esecuzione a:
 
 * [Server IIS](app-insights-monitor-performance-live-website-now.md)
 * [Server J2EE](app-insights-java-live.md)
@@ -383,8 +383,7 @@ Introduzione in fase di sviluppo a:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

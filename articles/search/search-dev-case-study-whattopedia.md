@@ -12,8 +12,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="05/17/2016" 
-	ms.author="heidist"/>
+	ms.date="08/29/2016" 
+	ms.author="heidist"/>  
 
 # Case study per gli sviluppatori di Ricerca di Azure
 
@@ -36,7 +36,7 @@ La nostra attività consiste nell’attrarre acquirenti tramite un'esperienza di
 
  ![][7]
 
-Dopo essersi registrati per una sottoscrizione, il rivenditore prende in carico il proprio profilo esistente (creato inizialmente da noi dai dati acquistati) e lo aggiorna con altri dati sulle promozioni, i marchi disponibili o con degli annunci. È possibile segnalare in maniera autonoma le capacità in-house, le lingue parlate, le valute accettate, gli acquisti senza tasse, in modo da attirare meglio gli acquirenti alla ricerca di questi servizi.
+Dopo essersi registrati per una sottoscrizione, il rivenditore prende in carico il proprio profilo esistente (creato inizialmente da noi dai dati acquistati) e lo aggiorna con altri dati sulle promozioni, i marchi disponibili o con annunci. È possibile segnalare in maniera autonoma le capacità in-house, le lingue parlate, le valute accettate, gli acquisti senza tasse, in modo da attirare meglio gli acquirenti alla ricerca di questi servizi.
 
 ## Chi siamo
 
@@ -110,7 +110,7 @@ Di seguito viene descritto come abbiamo creato il prototipo.
 
 **Configurazione del servizio Ricerca di Azure**
 
-1. Abbiamo effettuato l’accesso al portale di Azure classico e aggiunto il servizio di ricerca alla sottoscrizione. Abbiamo utilizzato la versione condivisa (gratuita con la sottoscrizione).
+1. Abbiamo effettuato l'accesso al portale di Azure classico e aggiunto il servizio di ricerca alla sottoscrizione. Abbiamo usato la versione condivisa (gratuita con la sottoscrizione).
 2. Creazione di un indice. Per il prototipo, abbiamo utilizzato l'interfaccia utente del portale per definire i campi di ricerca e creare i profili di assegnazione dei punteggi. Il nostro profilo di assegnazione dei punteggi si basa sui dati di posizione: paese | città |indirizzo (vedere: Aggiunta di profili di assegnazione dei punteggi).
 3. Copia dell’URL del servizio e della chiave API di amministrazione nei file di configurazione. Questa chiave si trova nella pagina del servizio di ricerca del portale e viene utilizzata per l'autenticazione al servizio.
 	
@@ -118,7 +118,7 @@ Di seguito viene descritto come abbiamo creato il prototipo.
 
 1. Lettura di tutti i rivenditori del database.
 2. Chiamata all'API del servizio Ricerca di Azure per caricare i rivenditori uno alla volta (vedere: http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Impostazione di una proprietà nel database in cui il rivenditore è indicizzato per l’indicizzazione incrementale. Tale operazione è stata eseguita aggiungendo un campo relativo all’indicizzatore nel quale viene archiviato lo stato dell’indice di ciascun profilo (indicizzato oppure no). 
+3. Impostazione di una proprietà nel database in cui il rivenditore è indicizzato per l’indicizzazione incrementale. Tale operazione è stata eseguita aggiungendo un campo relativo all’indicizzatore nel quale viene archiviato lo stato dell’indice di ciascun profilo (indicizzato oppure no).
 
 Vedere l'appendice per il frammento di codice che consente di compilare il processo dell'indicizzatore.
 
@@ -400,7 +400,7 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
           
 
 
-<!--Anchors-->
+<!--Anchors-->  
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
@@ -415,10 +415,10 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 [9]: ./media/search-dev-case-study-whattopedia/WhatToPedia-Archicture.png
 
 
-<!--Link references-->
+<!--Link references-->  
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

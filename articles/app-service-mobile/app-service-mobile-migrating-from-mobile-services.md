@@ -353,7 +353,7 @@ Se si usa un sito ASP.NET, le modifiche al file `Web.config` non funzioneranno. 
 </configuration>
 ```
 
-Per altre informazioni, vedere la documentazione [XDT transform samples] \(Esempi di trasformazioni XDT) in GitHub.
+Per altre informazioni, vedere la documentazione [XDT transform samples] (Esempi di trasformazioni XDT) in GitHub.
 
 ### Non è possibile aggiungere a Gestione traffico servizi mobili di cui è stata eseguita la migrazione
 
@@ -381,17 +381,17 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Prezzi di Servizio app]: https://azure.microsoft.com/pricing/details/app-service/
+[Prezzi di Servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service-web/web-sites-scale.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentazione sulla distribuzione del servizio app di Azure]: ../app-service-web/web-sites-deploy.md
 [portale di Azure classico]: https://manage.windowsazure.com
 [portale di Azure]: https://portal.azure.com
-[area di Azure]: https://azure.microsoft.com/regions/
+[area di Azure]: https://azure.microsoft.com/it-IT/regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
 [distribuzione continua]: ../app-service-web/app-service-continuous-deployment.md
-[convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[convertire gli spazi dei nomi di tipo Misto]: https://azure.microsoft.com/it-IT/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomi di dominio personalizzati]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -400,7 +400,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [registrazione]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Confronto tra Servizi mobili e il servizio app]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Hub di notifica]: ../notification-hubs/notification-hubs-overview.md
+[Hub di notifica]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [monitoraggio delle prestazioni]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [eseguire un backup degli script e del database SQL di Servizi mobili]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -409,4 +409,4 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

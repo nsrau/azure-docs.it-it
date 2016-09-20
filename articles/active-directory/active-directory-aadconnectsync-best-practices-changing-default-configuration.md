@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="markvi;andkjell"/>
+	ms.author="markvi;andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita
@@ -46,7 +46,7 @@ Non eliminare una regola di sincronizzazione predefinita. Verrà ricreata durant
 
 In alcuni casi l'installazione guidata ha generato una configurazione che non funziona per la topologia dell'utente. Ad esempio, se è disponibile una topologia di foresta di account o di risorse, ma lo schema nella foresta di account è stato esteso con lo schema di Exchange, per le foresta di account e per quella di risorse vengono quindi create regole per Exchange. In questo caso è necessario disabilitare la regola di sincronizzazione per Exchange.
 
-![Regola di sincronizzazione disabilitata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
+![Regola di sincronizzazione disabilitata](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)  
 
 Nella figura precedente l'installazione guidata ha rilevato un vecchio schema di Exchange 2003 nella foresta di account. Questa estensione dello schema è stata aggiunta prima dell'introduzione della foresta di risorse nell'ambiente di Fabrikam. Per assicurarsi che non vengano sincronizzati gli attributi dall'implementazione di Exchange precedente, la regola di sincronizzazione deve essere disabilitata come illustrato.
 
@@ -58,8 +58,10 @@ Selezionare **Sì** per creare una copia della regola. Viene quindi aperta la re
 In questa regola clonata, apportare le modifiche necessarie all'ambito, al join e alle trasformazioni.
 
 ## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+**Argomenti generali**
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
+- [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

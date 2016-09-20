@@ -20,7 +20,7 @@
 # Invio di notifiche push con Hub di notifica di Azure e Node.js
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-##Panoramica
+##Overview
 
 > [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
 
@@ -31,7 +31,7 @@ Gli scenari presentati includono l'invio di notifiche push ad applicazioni nelle
 * Android
 * iOS
 * Windows Phone
-* Piattaforma UWP (Universal Windows Platform) 
+* Piattaforma UWP (Universal Windows Platform)
 
 Per ulteriori informazioni sugli hub di notifica, vedere la sezione [Passaggi successivi](#next).
 
@@ -39,9 +39,9 @@ Per ulteriori informazioni sugli hub di notifica, vedere la sezione [Passaggi su
 
 Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per informazioni dettagliate sull'infrastruttura del servizio, vedere la pagina [Hub di notifica di Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
-##Creare un'applicazione Node.js
+##Creazione di un'applicazione Node.js
 
-Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un’applicazione Node.js, vedere [Creare e distribuire un’applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix].
+Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sito Web con WebMatrix].
 
 ##Configurare l'applicazione per l'uso di Hub di notifica
 
@@ -218,4 +218,4 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

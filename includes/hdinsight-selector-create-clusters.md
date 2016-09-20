@@ -6,12 +6,12 @@
 - [Linux | Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 - [Linux | API REST](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 - [Linux | .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-- [Linux | Modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+- [Linux | Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 - [Windows | Panoramica](hdinsight-provision-clusters.md)
 - [Windows | Portale di Azure](hdinsight-hadoop-create-windows-clusters-portal.md)
 - [Windows | Interfaccia della riga di comando di Azure](hdinsight-hadoop-create-windows-clusters-cli.md)
 - [Windows | Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
 - [Windows | .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-- [Windows | Modelli di Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+- [Windows | Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0907_2016-->

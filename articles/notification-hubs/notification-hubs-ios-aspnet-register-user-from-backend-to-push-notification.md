@@ -14,22 +14,22 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.author="wesmc"/>  
 
 # Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 
 > [AZURE.SELECTOR]
-- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
 
 
-##Panoramica
+##Overview
 
 Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Utilizzo di Hub di notifica per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per ulteriori informazioni sullo scenario di notifica agli utenti, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti].
 
 ##Aggiornamento dell'app  
 
-1. Nel file MainStoryboard\_iPhone.storyboard aggiungere i seguenti componenti dalla libreria di oggetti:
+1. Nel file MainStoryboard\_iPhone.storyboard aggiungere i componenti seguenti dalla libreria di oggetti:
 
 	+ **Etichetta**: "Push to User with Notification Hubs"
 	+ **Etichetta**: "InstallationId"
@@ -47,7 +47,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
    	![][1]
 
-   	Il file BreakingNewsViewController.h dovrebbe ora contenere il seguente codice:
+   	Il file BreakingNewsViewController.h dovrebbe ora contenere il codice seguente:
 
 		@property (weak, nonatomic) IBOutlet UILabel *installationId;
 		@property (weak, nonatomic) IBOutlet UITextField *User;
@@ -225,15 +225,15 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
 
 Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
-<!-- Anchors. -->
+<!-- Anchors. -->  
 
 <!-- Images. -->
 [0]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

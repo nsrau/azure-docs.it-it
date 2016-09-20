@@ -14,7 +14,7 @@
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+	ms.tgt_pltfrm="NA"/>  
 
 
 # Copiare un database SQL di Azure con PowerShell
@@ -31,7 +31,7 @@ La procedura seguente illustra come copiare un database SQL con PowerShell nello
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
+- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione di Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
 - Database SQL di Azure. Se non si dispone di un database SQL, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
 - Azure PowerShell. Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -64,6 +64,11 @@ Questo comando invia la richiesta di copia del database al servizio. A seconda d
     # Copy a database to the same server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
 
+Uso dei cmdlet di Azure Resource Manager:
+
+    # Copy a database to the same server
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -CopyDatabaseName $PartnerDatabaseName
+
 ### Copiare un database SQL in un server diverso
 
 Questo comando invia la richiesta di copia del database al servizio. A seconda delle dimensioni del database, l'operazione di copia potrebbe richiedere alcuni minuti.
@@ -71,6 +76,10 @@ Questo comando invia la richiesta di copia del database al servizio. A seconda d
     # Copy a database to a different server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerServer $PartnerServerName -PartnerDatabase $PartnerDatabaseName
     
+Uso dei cmdlet di Azure Resource Manager:
+
+    # Copy a database to a different server
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -CopyServerName $PartnerServerName -CopyDatabaseName $PartnerDatabaseName
 
 ## Monitorare lo stato dell'operazione di copia
 
@@ -125,4 +134,4 @@ Per risolvere gli account di accesso al termine dell'operazione di copia, vedere
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

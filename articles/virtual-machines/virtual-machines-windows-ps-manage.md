@@ -21,7 +21,7 @@
 
 ## Installare Azure PowerShell
  
-Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione che si vuole usare e accedere all'account Azure.
+Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione da usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Impostare variabili
 
@@ -168,7 +168,7 @@ Verrà visualizzata una schermata simile alla seguente:
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-## Aggiornare una macchina virtuale
+## Ridimensionare una macchina virtuale
 
 Questo esempio illustra come aggiornare le dimensioni della macchina virtuale.
         
@@ -222,4 +222,4 @@ Il file di script può contenere codice analogo al seguente per inizializzare i 
 
 Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

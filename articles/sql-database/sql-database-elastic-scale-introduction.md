@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/27/2016"
-    ms.author="ddove"/>
+    ms.date="09/06/2016"
+    ms.author="ddove"/>  
 
 # Aumentare il numero di istanze con il database SQL di Azure
 
@@ -33,10 +33,10 @@ In questo grafico, i colori del database rappresentano gli schemi. I database co
 1. Un set di **database SQL di Azure** è ospitato in Azure tramite l'architettura di partizionamento orizzontale.
 2. La **libreria client di database elastici** viene utilizzata per gestire un set di partizioni.
 3. Un subset dei database viene inserito in un **pool di database elastici**. Vedere l'articolo su [che cos'è un pool](sql-database-elastic-pool.md).
-4. Un **Processo di database elastico** esegue gli script T-SQL in tutti i database.
+4. Un **Processo di database elastico** esegue gli script T-SQL pianificati o ad-hoc in tutti i database.
 5. Lo **strumento di suddivisione-unione** viene utilizzato per spostare i dati da una partizione a un’altra.
 6. La **query di database elastico** consente di scrivere una query che si estende a tutti i database nel set di partizioni.
-7. **Transazioni di database elastico** è una funzionalità che consente di eseguire transazioni che si estendono su più database. 
+7. **Transazioni di database elastico** è una funzionalità che consente di eseguire transazioni che si estendono su più database.
 
 
 ![Strumenti di database elastici][1]
@@ -102,11 +102,11 @@ Per visualizzare le specifiche del pool di database elastici, vedere [Consideraz
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--Anchors-->
-<!--Image references-->
+<!--Anchors-->  
+<!--Image references-->  
 [1]: ./media/sql-database-elastic-scale-introduction/tools.png
 [2]: ./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="jgao"/>
+	ms.date="09/02/2016"
+	ms.author="jgao"/>  
 
 # Gestire cluster Hadoop in HDInsight tramite .NET SDK
 
@@ -28,7 +28,7 @@ Ecco come gestire cluster HDInsight usando [HDInsight.NET SDK](https://msdn.micr
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 
 ##Connettersi ad Azure HDInsight
@@ -169,7 +169,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 	L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)  
 
 	Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
@@ -289,4 +289,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

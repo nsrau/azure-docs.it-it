@@ -13,22 +13,22 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
-	ms.author="heidist" />
+	ms.date="08/29/2016"
+	ms.author="heidist" />  
 
 # API di gestione: versione 2015-02-28
 
-Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. In questo documento viene descritta la versione **2015-02-28** dell’API REST di gestione di Ricerca di Azure. E’ stata quindi sostituita dalle versioni più recenti. Per la versione più recente, vedere [API REST di gestione di ricerca di Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) su MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. Questo documento descrive la versione **2015-02-28* dell'API REST di gestione di Ricerca di Azure. E’ stata quindi sostituita dalle versioni più recenti. Per la versione più recente, vedere [API REST di gestione di ricerca di Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) su MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ##Operazioni di gestione del servizio
 
 L'API REST di gestione del servizio Ricerca di Azure fornisce l'accesso a livello di codice a gran parte delle funzionalità disponibili tramite il portale, consentendo agli amministratori di automatizzare le operazioni seguenti:
 
 - Creazione o eliminazione di un servizio Ricerca di Azure.
-- Creare, rigenerare o recuperare `api-keys` per automatizzare le normali modifiche alle chiavi di amministrazione utilizzate per l'autenticazione delle operazioni di ricerca dei dati. 
+- Creare, rigenerare o recuperare `api-keys` per automatizzare le normali modifiche alle chiavi di amministrazione utilizzate per l'autenticazione delle operazioni di ricerca dei dati.
 - Regolare la scalabilità di un servizio di Ricerca di Azure in risposta alle modifiche nei requisiti di volume di query o archiviazione.
 
-Per amministrare completamente il servizio a livello di codice, saranno necessarie due API: l'API REST di gestione di Ricerca di Azure e l’[API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) comune. L'API di Gestione risorse viene utilizzata per operazioni generali non specifiche del servizio, ad esempio l’esecuzione di query dei dati di sottoscrizione, l’elenco delle georilevazioni e così via. Per creare e gestire i servizi di Ricerca di Azure nella sottoscrizione, assicurarsi che la richiesta HTTP includa l'endpoint di Gestione risorse, l’ID sottoscrizione, il provider (in questo caso, Ricerca di Azure) e l'operazione di ricerca specifica del servizio.
+Per amministrare completamente il servizio a livello di codice, saranno necessarie due API: l'API REST di gestione di Ricerca di Azure e l’[API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) comune. L'API di Gestione risorse viene usata per operazioni generali non specifiche del servizio, ad esempio l'esecuzione di query dei dati di sottoscrizione, l'elenco delle georilevazioni e così via. Per creare e gestire i servizi di Ricerca di Azure nella sottoscrizione, assicurarsi che la richiesta HTTP includa l'endpoint di Gestione risorse, l'ID sottoscrizione, il provider (in questo caso Ricerca di Azure) e l'operazione di ricerca specifica del servizio.
 
 [Introduzione all'API REST di gestione di Ricerca di Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) è una procedura dettagliata del codice di esempio nella quale vengono illustrate le operazioni di configurazione delle applicazioni e di gestione dei servizi. L’applicazione di esempio invia richieste all’API di Gestione risorse di Azure e all’API di gestione dei servizi per Ricerca di Azure, illustrando, in tal modo, come mettere insieme un’applicazione logica che utilizzi entrambe le API.
 
@@ -62,43 +62,43 @@ Le operazioni includono le API indicate di seguito.
 
 - <a name="CreateService">Create Search Service</a>
 
-    `PUT	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`
+    `PUT	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`  
 
 - <a name="GetService">Get Search Service</a>
 
-    `GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`
+    `GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`  
 
 - <a name="ListService">List Search Services</a>
 
-    `GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2015-02-28`
+    `GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2015-02-28`  
 
 - <a name="DeleteService">Delete Search Service</a>
 
-    `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`
+    `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`  
 
 - <a name="UpdateService">Update Search Service</a>
 
-    `PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`
+    `PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28`  
 
 - <a name="ListAdminKey">List Admin Keys</a>
 
-    `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listAdminKeys?api-version=2015-02-28`
+    `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listAdminKeys?api-version=2015-02-28`  
 
 - <a name="RegenAdminKey">Regenerate Admin Key</a>
 
-    `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/regenerateAdminKey/[keyKind]?api-version=2015-02-28`
+    `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/regenerateAdminKey/[keyKind]?api-version=2015-02-28`  
 
 - <a name="CreateQueryKey">Create Query Key</a>
 
-    `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/createQueryKey/[name]?api-version=2015-02-28`
+    `POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/createQueryKey/[name]?api-version=2015-02-28`  
 
 - <a name="ListQueryKey">List Query Keys</a>
 
-    `GET	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listQueryKeys?api-version=2015-02-28`
+    `GET	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listQueryKeys?api-version=2015-02-28`  
 
 - <a name="DeleteQueryKey">Delete Query Keys</a>
 
-    `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/deleteQueryKey/[key]?api-version=2015-02-28`
+    `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/deleteQueryKey/[key]?api-version=2015-02-28`  
 
 <a name="ServiceOps"></a>
 ##Operazioni di servizio
@@ -129,7 +129,7 @@ Le operazioni **Create Search Service** effettuano il provisioning di un nuovo s
 
 `resourceGroupName`: richiesto. Il nome del gruppo di risorse all'interno della sottoscrizione dell'utente. È possibile ottenere questo valore dall'API di Gestione risorse di Azure o dal portale.
 
-`serviceName`: richiesto. Nome del servizio di ricerca all’interno del gruppo di risorse specificato. I nomi di servizio devono contenere solo lettere minuscole, cifre o trattini, non possono utilizzare il trattino come primi due caratteri o come ultimo carattere, non possono contenere trattini consecutivi e devono essere di lunghezza compresa tra 2 e 15 caratteri. Poiché tutti i nomi sono nomi di servizio <name> devono essere univoci a livello globale. Due servizi all'interno della stessa sottoscrizione o dello stesso gruppo di risorse o tra le sottoscrizioni e i gruppi di risorse non possono avere lo stesso nome. Non è possibile modificare il nome del servizio una volta creato.
+`serviceName`: richiesto. Nome del servizio di ricerca all’interno del gruppo di risorse specificato. I nomi di servizio devono contenere solo lettere minuscole, cifre o trattini, non possono utilizzare il trattino come primi due caratteri o come ultimo carattere, non possono contenere trattini consecutivi e devono essere di lunghezza compresa tra 2 e 15 caratteri. Poiché tutti i nomi presentano in definitiva la forma <nome>.search.windows.net, devono essere univoci a livello globale. Due servizi all'interno della stessa sottoscrizione o dello stesso gruppo di risorse o tra le sottoscrizioni e i gruppi di risorse non possono avere lo stesso nome. Non è possibile modificare il nome del servizio una volta creato.
 
 `api-version`: richiesto. Specifica la versione del protocollo utilizzato per la richiesta. La versione corrente è `2015-02-28`.
 
@@ -151,7 +151,7 @@ Le operazioni **Create Search Service** effettuano il provisioning di un nuovo s
 
 `tags`: facoltativo. Elenco di coppie chiave-valore che descrivono la risorsa. Questi tag possono essere utilizzati nella visualizzazione e nel raggruppamento di una risorsa tra gruppi di risorse. È possibile fornire un massimo di 10 tag per una risorsa. Ogni tag deve avere una chiave non superiore a 128 caratteri con un valore che non superi i 256 caratteri.
 
-`sku`: richiesto. I valori validi sono `free` e `standard`. Sebbene anche `standard2` sia valido, può essere utilizzato solo quando è abilitato per la sottoscrizione di Azure dal supporto tecnico Microsoft. `free` esegue il provisioning del servizio in cluster condivisi. `standard` esegue il provisioning del servizio in cluster dedicati. È possibile creare un solo servizio di ricerca a livello di prezzo gratuito. Gli altri servizi di ricerca devono essere creati a livello di prezzo standard. Per impostazione predefinita, un servizio viene creato con una partizione e una replica. Il prezzo delle repliche e delle partizioni aggiuntive viene definito in termini di unità di ricerca. Per dettagli, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md). Una volta creato il servizio, non è possibile modificare l’`sku`.
+`sku`: richiesto. I valori validi sono `free` e `standard`. Sebbene anche `standard2` sia valido, può essere usato solo quando è abilitato per la sottoscrizione di Azure dal supporto tecnico Microsoft. `free` esegue il provisioning del servizio in cluster condivisi. `standard` esegue il provisioning del servizio in cluster dedicati. È possibile creare un solo servizio di ricerca a livello di prezzo gratuito. Gli altri servizi di ricerca devono essere creati a livello di prezzo standard. Per impostazione predefinita, un servizio viene creato con una partizione e una replica. Il prezzo delle repliche e delle partizioni aggiuntive viene definito in termini di unità di ricerca. Per dettagli, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md). Una volta creato il servizio, non è possibile modificare l’`sku`.
 
 `replicaCount`: facoltativo. Il valore predefinito è 1. I valori validi sono da 1 a 6. Valido solo quando `sku` è `standard`.
 
@@ -211,7 +211,7 @@ Per HTTP 200 e 201, il corpo della risposta contiene la definizione del servizio
 
 - `free`: cluster condiviso
 - `standard`: cluster dedicato
-- `standard2`: utilizzare solo sotto la supervisione del supporto tecnico Microsoft. 
+- `standard2`: utilizzare solo sotto la supervisione del supporto tecnico Microsoft.
 
 `replicaCount`: indica il numero di repliche presenti nel servizio. I valori validi sono da 1 a 6.
 
@@ -224,7 +224,7 @@ Per HTTP 200 e 201, il corpo della risposta contiene la definizione del servizio
 - `deleting`: il servizio di ricerca viene eliminato.
 - `degraded`: le prestazioni del servizio di ricerca vengono diminuite. Ciò può verificarsi quando il cluster ha rilevato un errore che può impedire o meno che il servizio funzioni correttamente.
 - `disabled`: la ricerca è disabilitata. In questo stato, il servizio rifiuterà tutte le richieste API.
-- `error`: il servizio di ricerca è in stato di errore. 
+- `error`: il servizio di ricerca è in stato di errore.
 
 **Nota**: se il servizio è nello stato `degraded`, `disabled` o `error`, il team di Ricerca di Azure sta investigando attivamente il problema sottostante. I servizi dedicati in questi stati sono ancora addebitabili in base al numero di unità di ricerca di cui è stato effettuato il provisioning.
 
@@ -234,7 +234,7 @@ Per HTTP 200 e 201, il corpo della risposta contiene la definizione del servizio
 
 - `succeeded`: il provisioning viene completato correttamente.
 - `provisioning`: viene effettuato il provisioning del servizio.
-- `failed`: non è stato possibile effettuare il provisioning del servizio. 
+- `failed`: non è stato possibile effettuare il provisioning del servizio.
 
 Il provisioning è uno stato intermedio che si verifica quando viene stabilita la capacità del servizio. Una volta configurata la capacità, `provisioningState` passa a "riuscito" o "non riuscito". Le applicazioni client possono eseguire il polling dello stato del provisioning (la scelta consigliata per l’intervallo di polling è da 30 secondi a un minuto) utilizzando l’operazione **Get Search Service** per controllare quando viene completata un'operazione. Se si utilizza il servizio gratuito, questo valore tende a tornare come "riuscito", direttamente nella chiamata di creazione del servizio. Ciò avviene perché il servizio gratuito utilizza una capacità che è già configurata.
 
@@ -327,7 +327,7 @@ HTTP 200 (OK) in caso di esito positivo.
 - `deleting`: il servizio di ricerca viene eliminato.
 - `degraded`: le prestazioni del servizio di ricerca vengono diminuite. Ciò può verificarsi quando il cluster ha rilevato un errore che può impedire o meno che il servizio funzioni correttamente.
 - `disabled`: la ricerca è disabilitata. In questo stato, il servizio rifiuterà tutte le richieste API.
-- `error`: il servizio di ricerca è in stato di errore. 
+- `error`: il servizio di ricerca è in stato di errore.
  
 **Nota**: se il servizio è nello stato `degraded`, `disabled` o `error`, il team di Ricerca di Azure sta investigando attivamente il problema sottostante. I servizi dedicati in questi stati sono ancora addebitabili in base al numero di unità di ricerca di cui è stato effettuato il provisioning.
  
@@ -343,7 +343,7 @@ HTTP 200 (OK) in caso di esito positivo.
 <a name="ListService"></a>
 ### List Search Services
 
-L’operazione **List Services** restituisce un elenco di tutti i servizi di ricerca nella sottoscrizione di un gruppo di risorse specifico. Questa operazione restituisce le definizioni dei servizi, meno le chiavi api di amministrazione. Utilizzare l’operazione **Get Admin Keys** per recuperare le chiavi di amministrazione.
+L'operazione **List Services** restituisce un elenco di tutti i servizi di ricerca nella sottoscrizione di un gruppo di risorse specifico. Questa operazione restituisce le definizioni dei servizi, meno le chiavi api di amministrazione. Utilizzare l’operazione **Get Admin Keys** per recuperare le chiavi di amministrazione.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2015-02-28
     
@@ -634,7 +634,7 @@ L’operazione **Regenerate Admin Keys** elimina e rigenera la chiave primaria o
 - `primary`
 - `secondary`
 
-###Request Headers###
+###Intestazioni richiesta###
 
 `Content-Type`: richiesto. Impostare questa intestazione su application/json.
 
@@ -690,7 +690,7 @@ L’operazione **Create Query Key** genera una nuova chiave di query per il serv
 
 `name`: richiesto. Il nome della nuova chiave.
 
-###Request Headers###
+###Intestazioni richiesta###
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
@@ -742,7 +742,7 @@ L’operazione **List Query Keys** restituisce le chiavi di query per il servizi
 	
 `listQueryKeys`: elemento obbligatorio. Questa azione consente di recuperare le chiavi di query per il servizio di ricerca.
 
-###Request Headers###
+###Intestazioni richiesta###
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
@@ -806,7 +806,7 @@ A differenza delle chiavi di amministrazione, le chiavi di query non vengono rig
 
 `key`: richiesto. La chiave da eliminare.
 
-###Request Headers###
+###Intestazioni richiesta###
 
 `x-ms-client-request-id`: facoltativo. Valore GUID generato dal client che identifica la richiesta. Se specificato, questo valore viene incluso nelle informazioni di risposta per consentire il mapping della richiesta.
 
@@ -826,6 +826,6 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
 
 ###Contenuto risposta###
 
-Nessuna.
+Nessuno.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="ddove" />
+	ms.date="09/06/2016"
+	ms.author="ddove" />  
 
 # Introduzione ai processi di Database Elastici
 
 I processi di database elastici (anteprima) per il database SQL di Azure consentono di eseguire in maniera affidabile script T-SQL che si estendono su più database e effettuano tentativi automatici per garantire il completamento delle operazioni . Per ulteriori informazioni sulla funzionalità dei processi di database elastici, vedere la [panoramica della funzionalità](sql-database-elastic-jobs-overview.md).
 
-Questo argomento supporta l'esempio trovato in [Introduzione agli strumenti del Database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come creare e gestire processi di gestione di un gruppo di database correlati.
+Questo argomento supporta l'esempio presentato in [Introduzione agli strumenti del Database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come creare e gestire processi di gestione di un gruppo di database correlati. Non è necessario usare gli strumenti di scalabilità elastica per sfruttare i vantaggi dei processi elastici.
 
 ## Prerequisiti
 
@@ -209,7 +209,7 @@ Il seguente script PowerShell può essere utilizzato per visualizzare i dettagli
 
 ## Recuperare gli errori all'interno delle esecuzioni delle attività di processo
 
-L'oggetto JobTaskExecution include una proprietà per il ciclo di vita dell'attività insieme ad una proprietà del messaggio. Se un'esecuzione delle attività di processo ha esito negativo,la proprietà del ciclo di vita verrà impostata su *Non riuscita* e la proprietà del messaggio verrà impostata sul messaggio di eccezione risultante e il relativo stack. Se un processo ha esito negativo, è importante visualizzare i dettagli delle attività di processo che non sono riuscite per un determinato processo.
+L'oggetto JobTaskExecution include una proprietà per il ciclo di vita dell'attività insieme ad una proprietà del messaggio. Se un'esecuzione delle attività di processo ha esito negativo,la proprietà del ciclo di vita verrà impostata su*Non riuscita*e la proprietà del messaggio verrà impostata sul messaggio di eccezione risultante e il relativo stack. Se un processo ha esito negativo, è importante visualizzare i dettagli delle attività di processo che non sono riuscite per un determinato processo.
 
 	$jobExecutionId = "{Job Execution Id}"
 	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -238,7 +238,7 @@ Criteri di esecuzione che attualmente consentono la definizione di:
 * Timeout del processo: tempo totale prima che un processo venga annullato dai processi di database elastici.
 * Intervallo tra tentativi iniziale: intervallo di attesa prima del primo tentativo.
 * Intervallo massimo di tentativi: estremità degli intervalli tra i tentativi da utilizzare.
-* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi. Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2). 
+* Coefficiente di backoff dell’intervallo tra tentativi: coefficiente utilizzato per calcolare l’intervallo successivo tra i tentativi. Viene utilizzata la seguente formula: (Intervallo tentativi iniziale) * Math.pow((Coefficiente di backoff dell’intervallo), (Numero di tentativi) - 2).
 * Numero massimo di tentativi: Il numero massimo di tentativi all'interno di un processo.
 
 Il criterio di esecuzione predefinito utilizza i valori seguenti:
@@ -439,12 +439,12 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
 [2]: ./media/sql-database-elastic-query-getting-started/portal.png
 [3]: ./media/sql-database-elastic-query-getting-started/tiers.png
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
-<!--anchors-->
+<!--anchors-->  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

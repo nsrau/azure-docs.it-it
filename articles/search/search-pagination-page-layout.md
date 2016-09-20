@@ -13,8 +13,8 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/17/2016" 
-	ms.author="heidist"/>
+	ms.date="08/29/2016" 
+	ms.author="heidist"/>  
 
 #Come impaginare i risultati della ricerca in Ricerca di Azure#
 
@@ -107,11 +107,11 @@ Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.c
 - [Esplorazione in base a facet in Ricerca di Azure](search-faceted-navigation.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG
 [2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
 [3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

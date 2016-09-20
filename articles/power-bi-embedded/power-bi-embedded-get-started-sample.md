@@ -3,7 +3,7 @@
    description="Power BI Embedded - Uso di SDK per aggiungere report di Power BI interattivi nell'applicazione di Business Intelligence"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/14/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Introduzione all'esempio di Power BI Embedded
 
@@ -44,15 +44,15 @@ La procedura dettagliata seguente illustra la configurazione dell'ambiente di sv
 
 5. Per effettuare il provisioning di una nuova **Area di lavoro**, selezionare l'opzione 5, **Provision a new workspace in an existing workspace collection**.
 
-    ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
+    ![](media\powerbi-embedded-get-started-sample\console-option-5.png)  
 
-6. Immettere il nome della **raccolta di aree di lavoro** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) nell'introduzione a Microsoft Power BI Embedded.
+6. Immettere il nome della **raccolta di aree di lavoro ** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) nell'introduzione a Microsoft Power BI Embedded.
 
-    ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
+    ![](media\powerbi-embedded-get-started-sample\azure-portal.png)  
 
 7. Copiare e salvare l'**ID area di lavoro** appena creato per poterlo usare successivamente. Dopo aver creato l'**ID area di lavoro**, è possibile trovarlo nel **portale di Azure**.
 
-    ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
+    ![](media\powerbi-embedded-get-started-sample\workspace-id.png)  
 
 8. Per importare un file PBIX nell'**area di lavoro**, selezionare l'opzione **6. Import PBIX Desktop file into an existing workspace**. In mancanza di un file PBIX adatto, è possibile scaricare l'esempio [Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 
@@ -88,11 +88,11 @@ L'app Web di esempio è un dashboard che esegue il rendering dei report importat
 
 Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports**. Per visualizzare il report che è stato importato, espandere il menu **Reports** e fare clic su un report. Se è stato ad esempio importato l'[esempio Analyzing Sales Data PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), l'app Web sarà simile alla seguente:
 
-![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
+![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)  
 
 Dopo aver selezionato un report, l'applicazione Web **EmbedSample** sarà simile alla seguente:
 
-![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
+![](media\powerbi-embedded-get-started-sample\sample-web-app.png)  
 
 
 ## Esplorare il codice di esempio
@@ -224,7 +224,7 @@ Task<ActionResult> Report(string reportId)
 
 Dopo aver creato un **report**, usare un **IFrame** per incorporare il **report** di Power BI. Ecco un frammento di codice da powerbi.js nell'esempio di **Microsoft Power BI Embedded**.
 
-![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
+![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)  
 
 
 ## Filtrare i report incorporati nell'applicazione
@@ -245,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

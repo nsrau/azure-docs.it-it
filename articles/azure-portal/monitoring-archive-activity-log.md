@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="johnkem"/>
+	ms.author="johnkem"/>  
 
 # Archiviare il log attività di Azure
 In questo articolo viene illustrato come è possibile usare il portale di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma per archiviare il [**log attività di Azure**](monitoring-overview-activity-logs.md) in un account di archiviazione. Questa opzione è utile per conservare il log attività per più di 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi per non più di 90 giorni, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni senza abilitare l'archiviazione.
@@ -23,18 +23,18 @@ In questo articolo viene illustrato come è possibile usare il portale di Azure,
 Prima di iniziare, è necessario [creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in cui poter archiviare il log attività. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche log di diagnostica e metriche, può avere senso non solo usare tale account di archiviazione per il log attività, ma anche tenere tutti i dati di monitoraggio in una posizione centrale. L'account di archiviazione usato deve essere un account di archiviazione per utilizzo generico, non un account di archiviazione BLOB.
 
 ## Profilo del log
-Per archiviare il log attività con uno dei metodi seguenti, impostare il **profilo del log** per una sottoscrizione. Il profilo del log definisce il tipo di eventi archiviati o trasmessi e gli output (account di archiviazione e/o hub eventi). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi archiviati in un account di archiviazione. Se il criterio di conservazione viene impostato su zero, gli eventi vengono archiviati a tempo indeterminato. [Fare clic qui per altre informazioni sui profili dei log](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+Per archiviare il log attività con uno dei metodi seguenti, impostare il **profilo del log** per una sottoscrizione. Il profilo del log definisce il tipo di eventi archiviati o trasmessi e gli output (account di archiviazione e/o hub eventi). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi archiviati in un account di archiviazione. Se il criterio di conservazione viene impostato su zero, gli eventi vengono archiviati a tempo indeterminato. In caso contrario, si può impostare un valore qualsiasi compreso tra 1 e 2147483647. [Fare clic qui per altre informazioni sui profili dei log](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
 
 ## Archiviare il log attività con il portale
 1. Nel portale fare clic sul collegamento **Log attività** a sinistra. Se il collegamento Log attività non è visualizzato, fare prima clic sul collegamento **Altri servizi**.
 
-    ![Passare al pannello Log attività](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+    ![Passare al pannello Log attività](media/monitoring-archive-activity-log/act-log-portal-navigate.png)  
 2. Nella parte superiore del pannello fare clic su **Esporta**.
 
     ![Fare clic sul pulsante Esporta](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
 3. Nel pannello visualizzato selezionare la casella **Esporta in un account di archiviazione** e selezionare un account di archiviazione.
 
-    ![Impostare un account di archiviazione](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+    ![Impostare un account di archiviazione](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)  
 4. Usando il dispositivo di scorrimento o la casella di testo, definire un numero di giorni per cui gli eventi del log attività devono essere conservati nell'account di archiviazione. Se si preferisce che i dati rimangano nell'account di archiviazione a tempo indeterminato, impostare questo numero su zero.
 5. Fare clic su **Save**.
 
@@ -46,8 +46,8 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Proprietà | Obbligatorio | Description |
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | No | ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-| Località | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays | Sì | Numero di giorni per cui gli eventi devono essere conservati. Se il valore è zero, i log vengono conservati all'infinito. |
+| Località | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/it-IT/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays | Sì | Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
 | Categorie | Sì | Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 ## Archiviare il log attività con l'interfaccia della riga di comando
 ```
@@ -58,8 +58,8 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 |-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | Sì | Nome del profilo di log. |
 | storageId | No | ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-| locations | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays | Sì | Numero di giorni per cui gli eventi devono essere conservati. Se il valore è zero, i log vengono conservati all'infinito. |
+| locations | Sì | Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree [visitando questa pagina](https://azure.microsoft.com/it-IT/regions) o usando [l'API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| retentionInDays | Sì | Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono archiviati per un periodo illimitato. |
 | categories | Sì | Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 ## Schema di archiviazione del log attività
@@ -153,7 +153,7 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 
 ## Passaggi successivi
 - [Introduzione all'archivio BLOB di Azure con .NET](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
-- [Stream the Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md) (Trasmettere il log attività a Hub eventi)
-- [Read more about the Activity Log](monitoring-overview-activity-logs.md) (Altre informazioni sul log attività)
+- [Stream the Activity Log to Event Hubs (Trasmettere il log attività a Hub eventi)](monitoring-stream-activity-logs-event-hubs.md)
+- [Read more about the Activity Log (Altre informazioni sul log attività)](monitoring-overview-activity-logs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

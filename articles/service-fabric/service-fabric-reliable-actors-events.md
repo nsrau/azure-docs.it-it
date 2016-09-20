@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/13/2016"
-   ms.author="amanbha"/>
+   ms.date="08/30/2016"
+   ms.author="amanbha"/>  
 
 
 # Eventi relativi agli attori
@@ -78,4 +78,4 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
  - [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

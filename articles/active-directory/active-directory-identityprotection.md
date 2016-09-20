@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="markvi"/>
+	ms.date="09/07/2016"
+	ms.author="markvi"/>  
 
 #Azure Active Directory Identity Protection 
 
@@ -24,9 +24,6 @@ Azure Active Directory Identity Protection è un servizio di sicurezza che forni
 ## Limitazioni per l'anteprima corrente
 Questa sezione elenca le limitazioni che si applicano all'anteprima corrente di Azure Active Directory Identity Protection.
 
-### Limitazione per paese o area geografica
-
-L'anteprima di Azure Active Directory Identity Protection è attualmente disponibile solo per le directory con il valore **Stati Uniti** per **Paese o area geografica**. <br><br> ![Correzione](./media/active-directory-identityprotection/222.png "Correzione")
 
 
 ### Identity Protection e domini federati
@@ -62,7 +59,7 @@ Ma Azure Active Directory Identity Protection è più di un semplice strumento d
 
 - Raccomandazioni personalizzate per migliorare il comportamento di sicurezza in generale evidenziando le vulnerabilità.
 
-<br>
+<br>  
 
 **Analisi degli eventi di rischio:**
 
@@ -74,7 +71,7 @@ Ma Azure Active Directory Identity Protection è più di un semplice strumento d
 
 - Accesso semplificato ad azioni di correzione come la reimpostazione della password.
 
-<br>
+<br>  
 
 **Criteri di accesso condizionale basati sul rischio:**
 
@@ -102,8 +99,7 @@ Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'
 | Accessi da dispositivi infetti | Accessi da dispositivi potenzialmente infetti |
 | Accessi da indirizzi IP anonimi | Accessi da origini sconosciute |
 | Accessi da indirizzi IP con attività sospette |	Accessi da indirizzi IP con attività sospette |
-| Accessi da posizioni non note | - | 
-| Eventi di blocco (non nell'anteprima pubblica) | - |
+| Accessi da posizioni non note | - | | Eventi di blocco (non nell'anteprima pubblica) | - |
 
 I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come eventi di rischio in Azure AD Identity Protection e non sono quindi disponibili in Identity Protection. Questi report sono ancora disponibili nel portale di gestione di Azure, ma in futuro saranno deprecati perché progressivamente sostituiti dagli eventi di rischio di Identity Protection.
 
@@ -121,7 +117,7 @@ Il livello di rischio è un'indicazione della gravità, misurata come alta, medi
 - **Bassa**: evento di rischio con livello di gravità basso e attendibilità bassa. Questi eventi potrebbero non richiedere un'azione immediata, ma in combinazione con altri eventi di rischio possono essere fortemente indicativi di una compromissione dell'identità.
 
 
-![Livello di rischio](./media/active-directory-identityprotection/01.png "Livello di rischio")
+![Livello di rischio](./media/active-directory-identityprotection/01.png "Livello di rischio")  
 
  
 
@@ -257,7 +253,7 @@ Quando si impostano i criteri:
 
 - Usare una soglia **alta** durante il rollout iniziale dei criteri o se è necessario ridurre al minimo gli avvisi visualizzati dagli utenti finali.
 
-- Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce altri passaggi di verifica dell'accesso per l'utente, ma garantisce una maggiore sicurezza.
+- Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce richieste di accesso aggiuntive per l'utente, ma garantisce una maggiore sicurezza.
 
 L'impostazione predefinita consigliata per la maggior parte delle organizzazioni è la configurazione di una regola per una soglia **media**, che permette di bilanciare usabilità e sicurezza.
 
@@ -416,4 +412,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
  - [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
  - [Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

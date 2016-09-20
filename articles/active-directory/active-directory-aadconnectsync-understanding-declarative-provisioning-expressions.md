@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="08/31/2016"
+	ms.author="markusvi;andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
@@ -39,7 +39,7 @@ Gli attributi sono fortemente tipizzati. Una funzione accetta solo gli attributi
 ### Funzioni
 Il provisioning dichiarativo usa molte funzioni per rendere possibile la trasformazione dei valori dell'attributo. Queste funzioni possono essere annidate, in modo che il risultato di una funzione venga passato a un'altra.
 
-`Function1(Function2(Function3()))`
+`Function1(Function2(Function3()))`  
 
 L'elenco completo delle funzioni è disponibile nel [riferimento di funzione](active-directory-aadconnectsync-functions-reference.md).
 
@@ -77,11 +77,19 @@ Le funzioni possono essere usate con gli attributi a valore singolo e multivalor
 
 Ad esempio `Trim([proxyAddresses])` esegue un trimming di ogni valore nell'attributo proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` Per ogni valore con una chiocciola (@), sostituire il dominio con @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Cercare l'indirizzo SIP e rimuoverlo dai valori.
 
-## Risorse aggiuntive
+## Passaggi successivi
 
-- [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-- [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
-- [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
+- Per altre informazioni sul modello di configurazione, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Per informazioni sull'uso del provisioning dichiarativo predefinito, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita](active-directory-aadconnectsync-understanding-default-configuration.md).
+- Per informazioni su come apportare una modifica pratica con il provisioning dichiarativo, vedere [Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita](active-directory-aadconnectsync-change-the-configuration.md).
+
+**Argomenti generali**
+
+- [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**Argomenti di riferimento**
+
+- [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

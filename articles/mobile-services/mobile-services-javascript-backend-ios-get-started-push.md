@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+	ms.author="krisragh"/>  
 
 # Aggiungere notifiche push all'app per iOS e al back-end JavaScript
 
@@ -64,7 +64,7 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [AZURE.INCLUDE [Sottoporre a test le notifiche push nell'app](../../includes/test-push-notifications-in-app.md)]
 
 
-<!-- Anchors. -->
+<!-- Anchors. -->  
 
 
 <!-- Images. -->
@@ -119,7 +119,7 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
+[Send template-based notifications to subscribers]: ../notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

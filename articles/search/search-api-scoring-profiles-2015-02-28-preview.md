@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -14,13 +14,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="05/18/2016" />
+	ms.date="08/29/2016" />  
 
 # Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)
 
 > [AZURE.NOTE] Questo articolo descrive i profili di punteggio in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente non esiste alcuna differenza tra la `2015-02-28` versione documentata in [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e `2015-02-28-Preview` la versione descritta qui. Questo documento è comunque disponibile per garantire la copertura completa dell'API dal punto di vista della documentazione.
 
-## Panoramica
+## Overview
 
 L'assegnazione di punteggio fa riferimento al calcolo di un punteggio di ricerca per ogni elemento restituito nei risultati della ricerca. Il punteggio è un indicatore della rilevanza di un elemento nel contesto dell'operazione di ricerca attuale. Maggiore è il punteggio, più rilevante sarà l'elemento. Nei risultati della ricerca gli elementi vengono classificati dal maggiore al minore, in base ai punteggi di ricerca calcolati per ogni elemento.
 
@@ -55,7 +55,7 @@ Per usare il profilo di punteggio, la query viene formulata in modo da specifica
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)](search-api-2015-02-28-preview/#SearchDocs).
+Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)](search-api-2015-02-28-preview.md#SearchDocs).
 
 Fare clic su [Esempio](#example) per esaminare un esempio più dettagliato del profilo di punteggio.
 
@@ -162,7 +162,7 @@ Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.
 
 La proprietà `weights` di un profilo di punteggio specifica le coppie nome-valore che assegnano un peso relativo a un campo. Nell'[esempio](#example), ai campi albumTitle, genre e artistName viene applicata una priorità pari rispettivamente a 1.5, 5 e 2. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, poiché se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di 'genre' in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex`, 'rock' viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.
 
-### Functions ###
+### Funzioni ###
 
 Le funzioni vengono usate quando sono necessari calcoli aggiuntivi per contesti specifici. I tipi di funzione validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione dispone di parametri univoci.
 
@@ -175,10 +175,10 @@ Le funzioni vengono usate quando sono necessari calcoli aggiuntivi per contesti 
 
   - Il tipo di funzione (freshness, magnitude, distance, tag) deve essere scritto in lettere minuscole.
   - Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.
-  - Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice](search-api-2015-02-28/#createindex).
+  - Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [Creare un indice](search-api-2015-02-28.md#createindex).
   - Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.
 
-Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice](search-api-2015-02-28-preview/#createindex) e [Aggiungere o aggiornare documenti](search-api-2015-02-28-preview/#AddOrUpdateDocuments). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
+Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni relative a queste operazioni, vedere [Creare un indice](search-api-2015-02-28-preview.md#createindex) e [Aggiungere o aggiornare documenti](search-api-2015-02-28-preview.md#AddOrUpdateDocuments). Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.
 
 <a name="bkmk_template"></a>
 ## Modello
@@ -243,8 +243,8 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 |----------|-------------|
 | `name` | Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata). |
 | `text` | Contiene la proprietà Weights. |
-| `weights` | Facoltativo. Coppia nome-valore che specifica un nome campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo. È possibile specificare il nome campo senza un peso corrispondente. I pesi vengono usati per indicare l'importanza di un campo rispetto a un altro. |
-| `functions` | Facoltativo. Si noti che la funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili. |
+| `weights` | facoltativo. Coppia nome-valore che specifica un nome campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo. È possibile specificare il nome campo senza un peso corrispondente. I pesi vengono usati per indicare l'importanza di un campo rispetto a un altro. |
+| `functions` | facoltativo. Si noti che la funzione di assegnazione di punteggio può essere applicata solo a campi filtrabili. |
 | `type` | Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono `magnitude`, `freshness`, `distance` e `tag`. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole. |
 | `boost` | Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1. |
 | `fieldName` | Obbligatorio per le funzioni di assegnazione di punteggio. Una funzione di assegnazione di punteggio può essere applicata solo a campi che fanno parte della raccolta di campi dell'indice e che sono filtrabili. Ogni tipo di funzione introduce inoltre restrizioni aggiuntive (il valore freshness viene usato con campi datetime, il valore magnitude con campi di tipo Integer o Double, il valore distance con campi location e il valore tag con campi string o string collection). È possibile specificare solo un campo per ogni definizione di funzione. Ad esempio, per usare il valore magnitude due volte nello stesso profilo, sarà necessario includere due definizioni di magnitude, una per ogni campo. |
@@ -255,12 +255,12 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 | `magnitude:constantBoostBeyondRange` | I valori validi sono true o false (predefinito). Se impostato su true, l'aumento completo della priorità continuerà a essere applicato a documenti che includono un valore per il campo di destinazione maggiore rispetto al limite superiore dell'intervallo. Se false, l'aumento di priorità di questa funzione non verrà applicato ai documenti che includono un valore per il campo di destinazione che non rientra nell'intervallo. |
 | `freshness` | La funzione freshness per l'assegnazione di punteggio viene usata per modificare i punteggi di classificazione per gli elementi in base ai valori dei campi DateTimeOffset fields. Ad esempio, un elemento con una data più recente può essere classificato con una priorità maggiore rispetto agli elementi meno recenti. (Si noti che è anche possibile classificare elementi come eventi di calendario con date future in modo che gli elementi più vicini possano essere classificate in un livello superiore rispetto agli elementi più lontani nel futuro.) Nella versione attuale del servizio un'estremità dell'intervallo sarà fissata all'ora attuale. L'altra estremità è un momento del passato basato su `boostingDuration`. Per aumentare la priorità di un intervallo di tempo nel futuro usare un valore negativo di `boostingDuration`. La frequenza della modifica dell'aumento di priorità da un intervallo massimo e un intervallo minimo viene determinata dall'interpolazione applicata al profilo di punteggio (vedere la figura seguente). Per invertire il fattore di aumento di priorità applicato, scegliere un fattore di aumento di priorità inferiore a 1. |
 | `freshness:boostingDuration` | Imposta un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Per informazioni sulla sintassi ed esempi, vedere [Impostare boostingDuration][#bkmk\_boostdur] nella sezione seguente. |
-| `distance` | La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene specificata come parte della query in un parametro (usando il parametro di query `scoringParameter`) sotto forma di argomento lon,lat. |
-| `distance:referencePointParameter` | Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview/#SearchDocs). |
+| `distance`   | La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene specificata come parte della query in un parametro (usando il parametro di query `scoringParameter`) sotto forma di argomento lon,lat. |
+| `distance:referencePointParameter` | Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview.md#SearchDocs). |
 | `distance:boostingDistance` | Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità. |
 | `tag` | La funzione per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base ai tag nei documenti e nelle query di ricerca. La priorità di documenti con tag in comune con la query di ricerca verrà aumentata. I tag per la query di ricerca vengono specificati come parametro di assegnazione dei punteggi in ogni richiesta di ricerca (usando il parametro di query `scoringParameter`). |
-| `tag:tagsParameter` | Parametro da passare nelle query per specificare i tag per una particolare richiesta. `scoringParameter` è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview/#SearchDocs). |
-| `functionAggregation` | Facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono `sum` (impostazione predefinita), `average`, `minimum`, `maximum` e `firstMatching`. Un punteggio di ricerca è un singolo valore calcolato da più variabili, con funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento di priorità aggregato, che viene quindi applicato al punteggio di base del documento. Il punteggio di base è basato sul valore tf-idf calcolato dal documento e dalla query di ricerca. |
+| `tag:tagsParameter` | Parametro da passare nelle query per specificare i tag per una particolare richiesta. `scoringParameter` è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview.md#SearchDocs). |
+| `functionAggregation` | facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono `sum` (impostazione predefinita), `average`, `minimum`, `maximum` e `firstMatching`. Un punteggio di ricerca è un singolo valore calcolato da più variabili, con funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento di priorità aggregato, che viene quindi applicato al punteggio di base del documento. Il punteggio di base è basato sul valore tf-idf calcolato dal documento e dalla query di ricerca. |
 | `defaultScoringProfile` | Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo tf-idf). È possibile impostare qui un nome di profilo di punteggio predefinito, in modo che Ricerca di Azure usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo. |
 
 <a name="bkmk_interpolation"></a>
@@ -280,7 +280,7 @@ Le interpolazioni permettono di definire il coefficiente angolare in base al qua
 
 `boostingDuration` è un attributo della funzione freshness. Consente di impostare un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Ad esempio, per aumentare la priorità di una linea di prodotti o una marca per un periodo promozionale di 10 giorni, è necessario specificare tale periodo come "P10D" per questi documenti. O per migliorare gli eventi previsti per la settimana successiva specificare "-P7D".
 
-Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: `][-]P\[nD]\[T\[nH]\[nM]\[nS]\]]`.
+Il valore `boostingDuration` deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore di durata ISO 8601). Il modello è: `[-]P[nD][T[nH][nM][nS]]`.
 
 La tabella seguente fornisce alcuni esempi.
 
@@ -295,7 +295,7 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 
 **Vedere anche** [API REST di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) su MSDN <br/> [Creare un indice (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) su MSDN<br/> [Aggiungere un profilo di punteggio a un indice di ricerca](http://msdn.microsoft.com/library/azure/dn798928.aspx) su MSDN<br/>
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -228,13 +228,13 @@ A questo punto è possibile testare le notifiche push. Eseguire l'applicazione e
 
 	Assicurarsi di distribuire o eseguire il debug su un dispositivo virtuale che ha le API Google API impostate come destinazione, come illustrato di seguito nel gestore del dispositivo virtuale Android (AVD).
 
-	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
+	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)  
 
 	Se si vuole usare un emulatore x86 più veloce, [installare il driver HAXM](https://taco.visualstudio.com/it-IT/docs/run-app-apache/#HAXM) e configurare l'emulatore per usarlo.
 
 	Aggiungere un account Google nel dispositivo Android facendo clic su **App** > **Impostazioni** > **Aggiungi account**, quindi seguire le istruzioni per aggiungere un account Google esistente nel dispositivo. È consigliabile usare un account esistente piuttosto che crearne uno nuovo.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)  
 
 	Eseguire l'app todolist come fatto in precedenza e inserire un nuovo elemento todo. Questa volta, viene visualizzata un'icona di notifica nell'area di notifica. È possibile aprire la cassetta della notifica per visualizzare il testo completo della notifica.
 
@@ -369,7 +369,7 @@ Informazioni su come usare gli SDK.
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
-<!-- URLs -->
+<!-- URLs -->  
 [aggiungendo l'autenticazione]: app-service-mobile-cordova-get-started-users.md
 [avvio rapido di Apache Cordova]: app-service-mobile-cordova-get-started.md
 [avvio rapido di Apache Cordova ]: app-service-mobile-cordova-get-started.md
@@ -381,9 +381,9 @@ Informazioni su come usare gli SDK.
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx
-[Hub di notifica di Azure]: ../notification-hubs/notification-hubs-overview.md
+[Hub di notifica di Azure]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/22/2016"
-   ms.author="carlrab"/>
+   ms.date="09/06/2016"
+   ms.author="carlrab"/>  
 
 # Avvio rapido: esplorare soluzioni del database SQL di Azure
 
@@ -27,7 +27,7 @@ La demo e l'esercitazione pratica di [Azure SQL Database WingTipTickets](https:/
 
 ## Raccogliere e monitorare i dati sull'utilizzo delle risorse in più pool
 
-La [Guida introduttiva: Telemetria di pool elastici con PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) offre una soluzione per la raccolta e il monitoraggio dell'utilizzo delle risorse del database SQL di Azure su più pool in una sottoscrizione. In presenza di un numero elevato di database in una sottoscrizione, è difficile monitorare separatamente i singoli pool elastici.
+La [Guida introduttiva: Telemetria di pool elastici con PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) offre una soluzione per la raccolta e il monitoraggio dell'utilizzo delle risorse del database SQL su più pool in una sottoscrizione. In presenza di un numero elevato di database in una sottoscrizione, è difficile monitorare separatamente i singoli pool elastici.
 
 Per risolvere il problema, è possibile combinare i cmdlet di PowerShell per database SQL e le query T-SQL per raccogliere dati sull'utilizzo delle risorse da più pool e i relativi database. Ciò consente di monitorare e analizzare in modo più efficiente l'utilizzo delle risorse.
 
@@ -71,4 +71,4 @@ L'[applicazione demo di Contoso](https://github.com/Microsoft/azure-sql-security
 
 [Esplorare le esercitazioni sul database SQL di Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

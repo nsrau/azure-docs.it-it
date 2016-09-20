@@ -22,10 +22,10 @@
 Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/library/dn223264.aspx) in MSDN.
 
 > [AZURE.NOTE] Di seguito è riportato un esempio di riferimento per l'implementazione degli invii di notifiche in Python. Non si tratta dell'SDK Python di Hub di notifica.
+>
+> L'esempio è scritto in Python 3.4.
 
-> [AZURE.NOTE] L'esempio è scritto in Python 3.4.
-
-In questo argomento viene illustrato come:
+Questo argomento illustra come:
 
 * Compilare un client REST per le funzionalità di Hub di notifica in Python.
 * Inviare notifiche tramite l'interfaccia di Python alle API REST di Hub di notifica.
@@ -334,7 +334,7 @@ Notare le intestazioni che vengono inviate quando si inoltra una notifica di tip
 
 	hub.send_windows_notification(wns_payload)
 
-![][2]
+![][2]  
 
 ### Inviare la notifica specificando un tag (o un'espressione tag)
 
@@ -342,7 +342,7 @@ Si noti l'intestazione HTTP Tags che viene aggiunta alla richiesta HTTP (nell'es
 
 	hub.send_windows_notification(wns_payload, "sports")
 
-![][3]
+![][3]  
 
 ### Inviare la notifica specificando più tag
 
@@ -351,7 +351,7 @@ Si noti come l'intestazione HTTP Tags cambia quando vengono inviati più tag.
 	tags = {'sports', 'politics'}
 	hub.send_windows_notification(wns_payload, tags)
 
-![][4]
+![][4]  
 
 ### Notifica basata su modelli
 
@@ -367,24 +367,24 @@ Si noti che l'intestazione HTTP Format cambia e che il corpo del payload viene i
 		template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 		hub.send_template_notification(template_payload)
 
-![][5]
+![][5]  
 
 
 ## Passaggi successivi
-In questo argomento è stato illustrato come creare un semplice client REST Python per Hub di notifica. A questo punto è possibile:
+Questo argomento ha illustrato come creare un semplice client REST Python per Hub di notifica. A questo punto è possibile:
 
 * Scaricare l'intero [esempio di wrapper REST Python], che contiene tutto il codice sopra indicato.
 * Visualizzare altre informazioni sulla funzionalità di aggiunta tag di Hub di notifica nell'[esercitazione sull'invio delle ultime notizie]
 * Per altre informazioni sulla funzionalità relativa ai modelli di Hub di notifica, vedere l'[esercitazione sull'invio di notizie localizzate]
 
-<!-- URLs -->
+<!-- URLs -->  
 [esempio di wrapper REST Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
 [Introduzione a Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [esercitazione Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [esercitazione sull'invio delle ultime notizie]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [esercitazione sull'invio di notizie localizzate]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
-<!-- Images. -->
+<!-- Images. -->  
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png
 [2]: ./media/notification-hubs-python-backend-how-to/BroadcastScenario.png
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
@@ -392,4 +392,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Pyth
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

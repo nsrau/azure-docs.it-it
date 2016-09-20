@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
-     ms.author="obloch"/>
+     ms.date="09/06/2016"
+     ms.author="obloch"/>  
 
 # Microsoft Azure IoT device SDK per C: altre informazioni sulla libreria serializer
 
@@ -60,7 +60,7 @@ In questo esempio non vengono illustrati i tipi di dati aggiuntivi supportati da
 
 I tipi di dati seguenti sono supportati nei modelli creati con la libreria **serializer**.
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 |-------------------------|----------------------------------------|
 | double | Numero a virgola mobile a precisione doppia |
 | int | Intero a 32 bit |
@@ -671,10 +671,10 @@ Questo articolo conclude anche la serie in tre parti relativa allo sviluppo di a
 
 Per ulteriori informazioni sullo sviluppo dell'hub IoT, vedere gli [SDK dell'hub IoT][lnk-sdks].
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
@@ -685,4 +685,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,20 +1,22 @@
 ### Modifiche del cmdlet Tag nella versione più recente di PowerShell
 
-La versione di agosto 2016 di Azure PowerShell include alcune importanti modifiche all'utilizzo dei tag. Prima di continuare, controllare la versione del modulo AzureRm.Resources.
+La versione di agosto 2016 di [Azure PowerShell 2.0][powershell] include alcune importanti modifiche nell'uso dei tag. Prima di continuare, controllare la versione del modulo AzureRm.Resources.
 
-    (Get-Module -ListAvailable | Where-Object{ $_.Name -eq 'AzureRm.Resources' }) | Select Version, Name | Format-List
+    Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
 Se l'ultimo aggiornamento di Azure PowerShell è precedente al mese di agosto 2016, i risultati dovrebbero mostrare una versione inferiore alla 3.0.
 
-    Version : 2.0.2
-    Name    : AzureRM.Resources
+    Version
+    -------
+    2.0.2
 
 Se l'ultimo aggiornamento di Azure PowerShell è successivo al mese di agosto 2016, i risultati dovrebbero mostrare una versione superiore alla 3.0.
 
-    Version : 3.0.1
-    Name    : AzureRM.Resources
-
-Se la versione del modulo è la 3.0.1 o successiva, si dispone dei cmdlet più recenti per l'utilizzo dei tag. Se la versione è precedente alla 3.0.1, è possibile continuare a utilizzarla, ma si potrebbe considerare la possibilità di effettuare l'aggiornamento alla versione più recente. La versione più recente include una serie di modifiche che semplificano l'utilizzo dei tag. Entrambe gli approcci sono illustrati in questo argomento.
+    Version
+    -------
+    3.0.1
+    
+Se la versione del modulo è la 3.0.1 o successiva, si dispone dei cmdlet più recenti per l'utilizzo dei tag. Questa versione del modulo Risorse di Azure viene installata automaticamente durante l'installazione o l'aggiornamento di Azure PowerShell tramite PowerShell Gallery, PowerShellGet o Installazione guidata piattaforma Web. Se la versione è precedente alla 3.0.1, è possibile continuare a utilizzarla, ma si potrebbe considerare la possibilità di effettuare l'aggiornamento alla versione più recente. La versione più recente include una serie di modifiche che semplificano l'utilizzo dei tag. Entrambe gli approcci sono illustrati in questo argomento.
 
 ### Aggiornare lo script per le modifiche nella versione più recente 
 
@@ -228,4 +230,7 @@ In questo modo vengono restituiti i nomi dei tag e il conteggio del numero di ri
 
 Usare il cmdlet **New-AzureRmTag** per aggiungere nuovi tag alla tassonomia. Questi tag vengono inclusi nel completamento automatico anche se non sono stati ancora applicati a risorse o gruppi di risorse. Per rimuovere una coppia nome-valore di un tag, rimuovere prima il tag dalle eventuali risorse che ne fanno uso, quindi usare il cmdlet **Remove-AzureRmTag** per rimuoverlo dalla tassonomia.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+[powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
+
+<!---HONumber=AcomDC_0907_2016-->

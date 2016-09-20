@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="andkjell"/>
+	ms.date="09/07/2016"
+	ms.author="andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: Synchronization Service Manager
@@ -31,4 +31,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

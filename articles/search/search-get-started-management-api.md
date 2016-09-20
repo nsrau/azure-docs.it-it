@@ -13,8 +13,8 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
-	ms.author="heidist"/>
+	ms.date="08/08/2016" 
+	ms.author="heidist"/>  
 
 # Introduzione all'API REST di gestione di Ricerca di Azure
 > [AZURE.SELECTOR]
@@ -136,10 +136,10 @@ In questa sezione verrà illustrato come modificare la soluzione in Visual Studi
 	![][9]
 
 5. Fornire `TenantID.`
-	- Tornare ad Active Directory | SearchTutorial (servizio). 
-	- Fare clic su **applicazioni** nella barra superiore. 
-	- Fare clic su **Visualizza endpoint** nella parte inferiore della pagina. 
-	- Copiare l'endpoint di autorizzazione OAUTH 2.0 nella parte inferiore dell'elenco. 
+	- Tornare ad Active Directory | SearchTutorial (servizio).
+	- Fare clic su **applicazioni** nella barra superiore.
+	- Fare clic su **Visualizza endpoint** nella parte inferiore della pagina.
+	- Copiare l'endpoint di autorizzazione OAUTH 2.0 nella parte inferiore dell'elenco.
 	- Incollare l'endpoint in TenantID, rimuovendo il valore di tutti i parametri URI tranne l'ID tenant.
 
     Supponendo di avere "https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0", eliminare tutto tranne "55e324c7-1656-4afe-8dc3-43efcd4ffa50".
@@ -160,7 +160,7 @@ Aggiungere un punto di interruzione alla prima chiamata al metodo in modo da pot
 
 L'applicazione di esempio crea un servizio Ricerca di Azure gratuito per una sottoscrizione di Azure esistente. Se esiste già un servizio gratuito per la sottoscrizione, l'applicazione di esempio non riuscirà. È consentito un solo servizio di ricerca gratuito per ogni sottoscrizione.
 
-1. Aprire Program.cs da Esplora soluzioni e passare alla funzione Main(string void). 
+1. Aprire Program.cs da Esplora soluzioni e passare alla funzione Main(string void).
  
 3. Si noti che **ExecuteArmRequest** viene utilizzato per eseguire le richieste all'endpoint di gestione risorse di Azure, `https://management.azure.com/subscriptions` per un oggetto specificato `subscriptionID`. Questo metodo viene usato in tutto il programma per eseguire le operazioni con l'API di Gestione risorse o con l'API di gestione di Ricerca di Azure.
 
@@ -168,7 +168,7 @@ L'applicazione di esempio crea un servizio Ricerca di Azure gratuito per una sot
 
 4. Viene richiesto di eseguire l'accesso con un nome utente e una password validi per la sottoscrizione.
 
-5. Un nuovo servizio Ricerca di Azure viene quindi registrato con il provider di Gestione risorse di Azure. Anche questa è la **ExecuteArmRequest** metodo, utilizzato questa volta per creare il servizio di Ricerca in Azure per la sottoscrizione tramite `providers/Microsoft.Search/register`..
+5. Un nuovo servizio Ricerca di Azure viene quindi registrato con il provider di Gestione risorse di Azure. Anche in questo caso, si tratta del metodo **ExecuteArmRequest**, usato questa volta per creare il servizio di Ricerca in Azure per la sottoscrizione tramite `providers/Microsoft.Search/register`.
 
 6. Il resto del programma utilizza il [API REST di gestione di Ricerca di Azure](http://msdn.microsoft.com/library/dn832684.aspx). Si noti che il `api-version` per questa API è diversa dalla versione api di gestione risorse di Azure.ure. Ad esempio, `/listAdminKeys?api-version=2014-07-31-Preview` viene illustrato il `api-version` dell'API REST gestione Ricerca di Azure.
 
@@ -185,7 +185,7 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 - Altre informazioni sull'integrazione di un'applicazione client con Active Directory. Vedere [integrazione di applicazioni in Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151122.aspx).
 - Informazioni sulle altre operazioni di gestione dei servizi in Azure. Vedere [gestione dei servizi](http://msdn.microsoft.com/library/azure/dn578292.aspx).
 
-<!--Anchors-->
+<!--Anchors-->  
 [Download the sample application]: #Download
 [Configure the application]: #config
 [Explore the application]: #explore
@@ -199,7 +199,7 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 [9]: ./media/search-get-started-management-api/Azure-Search-MGMT-AD-ConfigPage.PNG
 [10]: ./media/search-get-started-management-api/Azure-Search-MGMT-AD-OAuthEndpoint.PNG
 
-<!--Link references-->
+<!--Link references-->  
 [Manage your search solution in Microsoft Azure]: search-manage.md
 [Azure Search development workflow]: search-workflow.md
 [Create your first azure search solution]: search-create-first-solution.md
@@ -208,4 +208,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

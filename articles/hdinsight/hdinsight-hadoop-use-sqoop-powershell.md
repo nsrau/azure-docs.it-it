@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
-	ms.author="jgao"/>
+	ms.date="09/02/2016"
+	ms.author="jgao"/>  
 
 # Eseguire processi Sqoop con Azure PowerShell per Hadoop in HDInsight
 
@@ -180,4 +180,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

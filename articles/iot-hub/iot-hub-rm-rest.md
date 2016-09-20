@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/16/2016"
-     ms.author="dobett"/>
+     ms.author="dobett"/>  
 
 # Esercitazione: Creare un hub IoT tramite un programma C# e l'API REST
 
@@ -94,7 +94,7 @@ Usare l'[API REST dell'hub IoT][lnk-rest-api] per creare un hub IoT nel gruppo d
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Aggiungere il codice seguente al metodo **CreateIoTHub** per descrivere l'hub IoT per creare e generare una rappresentazione JSON:
+3. Aggiungere il codice seguente al metodo **CreateIoTHub** per descrivere l'hub IoT per creare e generare una rappresentazione JSON (per un elenco aggiornato delle località in cui è supportato l'hub IoT, vedere lo [Stato di Azure][lnk-status]):
 
     ```
     var description = new
@@ -173,7 +173,7 @@ Usare l'[API REST dell'hub IoT][lnk-rest-api] per creare un hub IoT nel gruppo d
 Dopo aver distribuito un hub IoT mediante l'API REST, può essere opportuno ottenere informazioni più dettagliate:
 
 - Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].
-- Per altre informazioni sulle funzionalità di Azure Resource Manager, leggere la [Panoramica su Azure Resource Manager][lnk-azure-rm-overview].
+- Per ulteriori informazioni sulle funzionalità di Gestione risorse di Azure, leggere la [Panoramica su Gestione risorse di Azure][lnk-azure-rm-overview].
 
 Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere quanto segue:
 
@@ -187,9 +187,10 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -202,4 +203,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

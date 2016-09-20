@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/04/2016"
-	ms.author="danlep"/>
+	ms.author="danlep"/>  
 
 # Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell
 
@@ -76,7 +76,15 @@ Impostare la sottoscrizione di Azure per la sessione corrente. Sostituire tutti 
 	$subscr="<subscription name>"
 	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
 
-## Passaggio 4: Eseguire i comandi per la migrazione delle risorse IaaS
+## Passaggio 4: Verificare che siano disponibili sufficienti memorie centrali delle macchine virtuali di Azure Resource Manager nell'area di Azure di cui fa parte la distribuzione corrente o la rete virtuale
+
+È possibile usare il comando PowerShell seguente per controllare la quantità corrente di memorie centrali in Azure Resource Manager. Per altre informazioni sulle quote di memoria centrale, vedere [Limiti e Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+
+```
+Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
+```
+
+## Passaggio 5: Eseguire i comandi per la migrazione delle risorse IaaS
 
 >[AZURE.NOTE] Tutte le operazioni descritte di seguito sono idempotenti. Se vengono rilevati errori diversi da una funzionalità non supportata o un errore di configurazione, è consigliabile provare a ripetere l'operazione di preparazione, interruzione o commit. La piattaforma tenterà di ripetere l'azione.
 
@@ -181,4 +189,4 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 - [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

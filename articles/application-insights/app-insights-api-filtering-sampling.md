@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Campionamento, filtro e pre-elaborazione in Application Insights SDK" 
-	description="Scrivere plug-in per l'SDK per filtrare, campionare o aggiungere proprietà ai dati prima che la telemetria venga inviata al portale di Application Insights." 
+	pageTitle="Filtri e pre-elaborazione in Application Insights SDK | Microsoft Azure" 
+	description="Scrivere processori e inizializzatori di telemetria per l'SDK per filtrare i dati o aggiungere proprietà prima dell'invio della telemetria al portale di Application Insights." 
 	services="application-insights"
     documentationCenter="" 
 	authors="beckylino" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
-	ms.author="borooji"/>
+	ms.date="08/30/2016" 
+	ms.author="borooji"/>  
 
-# Campionamento, filtro e pre-elaborazione della telemetria in Application Insights SDK
+# Filtri e pre-elaborazione della telemetria in Application Insights SDK
 
 *Application Insights è disponibile in anteprima.*
 
@@ -23,58 +23,16 @@
 
 Queste funzionalità attualmente sono disponibili per ASP.NET SDK.
 
-* Il [campionamento](#sampling) riduce il volume della telemetria senza effetti sulle statistiche. Tiene insieme i punti dati correlati per poter passare da uno all'altro quando si diagnostica un problema. Nel portale i conteggi totali vengono moltiplicati per compensare il campionamento.
-* L'[applicazione di filtri](#filtering) consente di selezionare o di modificare la telemetria nell'SDK prima che venga inviata al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. Questo approccio alla riduzione del traffico è più semplice del campionamento. Offre un controllo maggiore su ciò che viene trasmesso, ma occorre tenere presente che avrà effetto sulle statistiche, ad esempio se si filtrano tutte le richieste riuscite.
-* [Aggiunta di proprietà](#add-properties) a qualsiasi telemetria inviata dall'app, inclusa la telemetria dai moduli standard. È possibile, ad esempio, aggiungere valori calcolati oppure i numeri di versione in base a cui filtrare i dati nel portale.
+* Il [campionamento](app-insights-sampling.md) riduce il volume della telemetria senza effetti sulle statistiche. Tiene insieme i punti dati correlati per poter passare da uno all'altro quando si diagnostica un problema. Nel portale i conteggi totali vengono moltiplicati per compensare il campionamento.
+* L'[applicazione di filtri con processori di telemetria](#filtering) consente di selezionare o di modificare i dati di telemetria nell'SDK prima che vengano inviati al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. L'applicazione di filtri è però un approccio di riduzione del traffico più semplice rispetto al campionamento. Offre un controllo maggiore su ciò che viene trasmesso, ma è necessario tenere presente che influisce sulle statistiche, ad esempio se si filtrano tutte le richieste riuscite.
+* Gli [inizializzatori di telemetria aggiungono proprietà](#add-properties) a tutti i dati di telemetria inviati dall'app, inclusi quelli dei moduli standard. È possibile, ad esempio, aggiungere valori calcolati oppure i numeri di versione in base a cui filtrare i dati nel portale.
 * [L'API SDK](app-insights-api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
+
 
 Prima di iniziare:
 
-* Installare [Application Insights SDK per ASP.NET v2](app-insights-asp-net.md) nell'app. 
+* Installare [Application Insights SDK per ASP.NET v2](app-insights-asp-net.md) nell'app.
 
-
-## Campionamento
-
-Il [campionamento](app-insights-sampling.md) è il modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nella diagnosi. I conteggi eventi vengono modificati in Esplora metriche per compensare gli elementi filtrati.
-
-* È consigliabile usare il campionamento adattivo. Regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Attualmente disponibile solo per la telemetria lato server di ASP.NET. 
-* Il [Campionamento a frequenza fissa](app-insights-sampling.md) è inoltre disponibile. Specificare la percentuale di campionamento. Disponibile per il codice dell'app Web ASP.NET e per le pagine Web JavaScript. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
-* Il campionamento per inserimento diventa attivo non appena i dati di telemetria vengono ricevuti nel portale di Application Insights e pertanto può essere usato indipendentemente dall'SDK in uso. Non riduce il traffico dei dati di telemetria sulla rete, ma riduce il volume elaborato e memorizzato in Application Insights. Solo i dati di telemetria mantenuti vengono conteggiati nella quota mensile. 
-
-### Per abilitare il campionamento per inserimento
-
-Dalla barra Impostazioni aprire il pannello Quota + prezzi. Fare clic su Campionamento e selezionare un rapporto di campionamento.
-
-L'inserimento non funziona se l'SDK sta eseguendo il campionamento fisso o adattivo. Quando la frequenza di campionamento nell'SDK è inferiore al 100%, l'impostazione di campionamento di inserimento viene ignorata.
-
-### Per abilitare il campionamento adattivo
-
-**Aggiornare i pacchetti del progetto NuGet** all'ultima versione *preliminare* di Application Insights: fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
-
-In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) è possibile regolare la frequenza massima della telemetria che l'algoritmo adattivo deve raggiungere:
-
-    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-
-### Campionamento lato client
-
-Per ottenere il campionamento a frequenza fissa sui dati dalle pagine Web, immettere una riga aggiuntiva nel [frammento di Application Insights](app-insights-javascript.md) inserito (in genere una pagina master, ad esempio \_Layout.cshtml):
-
-*JavaScript*
-
-```JavaScript
-
-	}({ 
-
-	samplingPercentage: 10.0, 
-
-	instrumentationKey:...
-	}); 
-```
-
-* Impostare una percentuale (10 in questo esempio) uguale a 100/N dove N è un numero intero, ad esempio 50 (=100/2), 33,33 (=100/3), 25 (=100/4) o 10 (=100/10). 
-* Se si abilita il [campionamento a frequenza fissa](app-insights-sampling.md) sul lato server, il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
-
-[Altre informazioni sul campionamento](app-insights-sampling.md).
 
 <a name="filtering"></a>
 ## Filtro: ITelemetryProcessor
@@ -85,7 +43,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 > [AZURE.WARNING] Se si filtra la telemetria inviata dall'SDK usando i processori, le statistiche visualizzate nel portale possono essere alterate e può risultare difficile seguire gli elementi correlati.
 > 
-> In alternativa, valutare la possibilità di usare il [campionamento](#sampling).
+> In alternativa, valutare la possibilità di usare il [campionamento](app-insights-sampling.md).
 
 ### Creare un processore di telemetria
 
@@ -140,7 +98,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
     
 
     ```
-2. Inserirlo in ApplicationInsights.config: 
+2. Inserirlo in ApplicationInsights.config:
 
 ```XML
 
@@ -153,7 +111,7 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 
 ```
 
-(Si noti che questa è la stessa sezione utilizzata per inizializzare un filtro di campionamento.)
+È la stessa sezione in cui viene inizializzato un filtro di campionamento.
 
 È possibile passare i valori della stringa dal file .config fornendo proprietà denominate come pubbliche nella classe.
 
@@ -239,7 +197,7 @@ public void Process(ITelemetry item)
 
 #### Diagnosticare i problemi di dipendenza
 
-[Questo blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) descrive un progetto per la diagnosi dei problemi di dipendenza basata sull'invio automatico di normali ping alle dipendenze.
+[Questo blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) descrive un progetto per diagnosticare i problemi di dipendenza con l'invio automatico di ping regolari alle dipendenze.
 
 
 <a name="add-properties"></a>
@@ -380,6 +338,112 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 * I processori di telemetria consentono di sostituire o rimuovere completamente un elemento di telemetria.
 * I processori di telemetria non elaborano dati di telemetria dei contatori delle prestazioni.
 
+
+
+## Canale di persistenza 
+
+Se l'app viene eseguita in ambienti in cui la connessione Internet non è sempre disponibile o è lenta, è possibile usare il canale di persistenza invece del canale in memoria predefinito.
+
+Il canale in memoria predefinito perde tutti i dati di telemetria che non sono stati inviati prima della chiusura dell'app. Anche se è possibile usare `Flush()` per provare a inviare i dati rimanenti nel buffer, i dati andranno comunque persi in assenza di una connessione Internet o in caso di arresto dell'app prima del completamento della trasmissione.
+
+Al contrario, il canale di persistenza memorizza la telemetria in un file prima di inviare i dati al portale. `Flush()` assicura che i dati siano archiviati nel file. Gli eventuali dati non inviati prima della chiusura dell'app rimangono nel file. Al riavvio dell'app, i dati saranno inviati se è disponibile una connessione Internet. I dati si accumulano nel file per tutto il tempo necessario, finché non sarà disponibile una connessione.
+
+### Per usare il canale di persistenza
+
+1. Importare il pacchetto NuGet [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
+2. Includere questo codice nell'app in una posizione di inizializzazione appropriata:
+ 
+    ```C# 
+
+      using Microsoft.ApplicationInsights.Channel;
+      using Microsoft.ApplicationInsights.Extensibility;
+      ...
+
+      // Set up 
+      TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
+ 
+      TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+    
+    ``` 
+3. Usare `telemetryClient.Flush()` prima della chiusura dell'app, per assicurare che i dati siano inviati al portale o salvati nel file.
+
+    Si noti che Flush () è sincrono per il canale di persistenza, ma asincrono per altri canali.
+
+ 
+Il canale di persistenza è ottimizzato per gli scenari con dispositivi in cui il numero di eventi prodotti dall'applicazione è relativamente piccolo e la connessione è spesso inaffidabile. Questo canale scriverà gli eventi prima sul disco in uno spazio di archiviazione affidabile e quindi proverà a inviarli.
+
+#### Esempio
+
+Si supponga di voler monitorare le eccezioni non gestite. Sottoscrivere l'evento `UnhandledException`. Includere nel callback una chiamata a Flush per garantire la persistenza della telemetria.
+ 
+```C# 
+
+AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
+ 
+... 
+ 
+private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
+{ 
+    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
+    excTelemetry.SeverityLevel = SeverityLevel.Critical; 
+    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
+ 
+    telemetryClient.TrackException(excTelemetry); 
+ 
+    telemetryClient.Flush(); 
+} 
+
+``` 
+
+All'arresto dell'app verrà visualizzato un file in `%LocalAppData%\Microsoft\ApplicationInsights` che contiene gli eventi compressi.
+ 
+Al prossimo avvio dell'applicazione il canale usa questo file e recapita la telemetria ad Application Insights, se possibile.
+
+#### Esempio di test
+
+```C#
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Send data from the last time the app ran
+            System.Threading.Thread.Sleep(5 * 1000);
+
+            // Set up persistence channel
+
+            TelemetryConfiguration.Active.InstrumentationKey = "YOUR KEY";
+            TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+
+            // Send some data
+
+            var telemetry = new TelemetryClient();
+
+            for (var i = 0; i < 100; i++)
+            {
+                var e1 = new Microsoft.ApplicationInsights.DataContracts.EventTelemetry("persistenceTest");
+                e1.Properties["i"] = "" + i;
+                telemetry.TrackEvent(e1);
+            }
+
+            // Make sure it's persisted before we close
+            telemetry.Flush();
+        }
+    }
+}
+
+```
+
+
+Il codice del canale di persistenza è disponibile in [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel).
+
+
 ## Documentazione di riferimento
 
 * [Panoramica API](app-insights-api-custom-events-metrics.md)
@@ -397,14 +461,12 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 ## <a name="next"></a>Passaggi successivi
 
 
-[Cercare eventi e log][diagnostic]
-
-[Esempi e procedure dettagliate](app-insights-code-samples.md)
-
-[Risoluzione dei problemi][qna]
+* [Cercare eventi e log][diagnostic]
+* [Campionamento](app-insights-sampling.md)
+* [Risoluzione dei problemi][qna]
 
 
-<!--Link references-->
+<!--Link references-->  
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
@@ -421,4 +483,4 @@ Qual è la differenza tra processori di telemetria e inizializzatori di telemetr
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

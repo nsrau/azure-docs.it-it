@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016"
+	ms.date="09/04/2016"
 	ms.author="juliako"/>  
 
 
 #Gestire gli account di Servizi multimediali di Azure con PowerShell
 
 > [AZURE.SELECTOR]
-- [Portale](media-services-create-account.md)
+- [Portale](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
@@ -67,7 +67,7 @@ Caratteri jolly accettati? |false
 
 Specifica il nome del servizio multimediale.
 
-Alias |Name
+Alias |Nome
 ---|---
 Obbligatorio? |true
 Posizione? |1
@@ -504,4 +504,4 @@ Vedere i percorsi di apprendimento di Servizi multimediali.
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

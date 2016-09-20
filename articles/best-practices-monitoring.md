@@ -662,6 +662,6 @@ In molti casi, i processi batch possono generare report in base a una pianificaz
 - [Come usare le code del bus di servizio](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [SQL Server Business Intelligence in Macchine virtuali di Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Ricevere notifiche di avviso](./azure-portal/insights-receive-alert-notifications.md) e [Tenere traccia dell'integrità del servizio](./azure-portal/insights-service-health.md)
-- [Application Insights](./application-insights/app-insights-get-started.md)
+- [Application Insights](./application-insights/app-insights-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

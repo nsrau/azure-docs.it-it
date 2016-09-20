@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="07/21/2016"
-	ms.author="ricksal"/>
+	ms.author="ricksal"/>  
 
 
 # Come usare la libreria client Android per le app per dispositivi mobili
@@ -152,7 +152,7 @@ Il [secondo overload](http://azure.github.io/azure-mobile-apps-android-client/co
 
 ###<a name="binding"></a>Procedura: Associare dati all'interfaccia utente
 
-Il data binding riguarda tre componenti:
+L'associazione dati riguarda tre componenti:
 
 - Origine dati
 - Layout della schermata
@@ -498,7 +498,7 @@ Nel codice seguente viene illustrato come eliminare un'istanza, in questo caso l
 
 ### <a name="json_get"></a>Procedura: Restituire tutte le righe di una tabella non tipizzata
 
-Il seguente codice illustra come recuperare un'intera tabella. Poiché si sta usando una tabella JSONO, è possibile recuperare in modo selettivo solo alcune colonne della tabella.
+Nel codice seguente viene illustrato come recuperare un'intera tabella. Poiché si sta usando una tabella JSONO, è possibile recuperare in modo selettivo solo alcune colonne della tabella.
 
     public void showAllUntyped(View view) {
         new AsyncTask<Void, Void, Void>() {
@@ -532,7 +532,7 @@ Il seguente codice illustra come recuperare un'intera tabella. Poiché si sta us
         }.execute();
     }
 
-È possibile applicare filtri, ordinare ed eseguire il paging concatenando i metodi che hanno gli stessi dei metodi usati nel modello di programmazione tipizzato.
+È possibile applicare filtri, ordinare ed eseguire il paging concatenando i metodi con gli stessi nomi di quelli utilizzati nel modello di programmazione tipizzato.
 
 
 
@@ -612,7 +612,7 @@ Quando si prova a usare un token scaduto, viene visualizzata una risposta di tip
 
 * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato effettuato il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
 
-* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. Questo è disponibile nel portale nella scheda **Avanzate** in **Impostazioni di Azure Active Directory**.
+* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. Questo è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
 
 * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
 
@@ -678,7 +678,7 @@ Quando si prova a usare un token scaduto, viene visualizzata una risposta di tip
 
 ## Procedura: Aggiungere notifiche push all'app
 
-È disponibile una [panoramica](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) che descrive come Hub di notifica di Microsoft Azure supporti un'ampia gamma di notifiche push.
+È disponibile una [panoramica](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps) che descrive come Hub di notifica di Microsoft Azure supporti un'ampia gamma di notifiche push.
 
 In [questa esercitazione](app-service-mobile-android-get-started-push.md) viene inviata una notifica push ogni volta che viene inserito un record.
 
@@ -790,9 +790,9 @@ Finora in tutti gli esempi di serializzazione offerti hanno riguardato tipi prim
 
 Per un esempio relativo a questa operazione, vedere il post del blog relativo alla <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">personalizzazione della serializzazione tramite la libreria <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> nel client Android di Servizi mobili</a>.
 
-È possibile usare questo metodo generale ogni volta in cui si dispone di un oggetto complesso che non è automaticamente serializzabile in JSON e nella tabella di Servizi mobili.
+È possibile utilizzare questo metodo generale ogni volta in cui si dispone di un oggetto complesso che non è automaticamente serializzabile in JSON e nella tabella di Servizi mobili.
 
-<!-- Anchors. -->
+<!-- Anchors. -->  
 
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
@@ -829,7 +829,7 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
@@ -837,4 +837,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

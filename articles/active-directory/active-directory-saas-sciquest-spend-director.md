@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
-	ms.author="jeedes"/>
+	ms.date="09/01/2016"
+	ms.author="jeedes"/>  
 
 
 # Esercitazione: Integrazione di Azure Active Directory con SciQuest Spend Director
 
 Questa esercitazione descrive l’integrazione di SciQuest Spend Director con Azure Active Directory (Azure AD). L'integrazione di SciQuest Spend Director con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a SciQuest Spend Director. 
+- È possibile controllare in Azure AD chi può accedere a SciQuest Spend Director.
 - È possibile abilitare gli utenti per l'accesso automatico a SciQuest Spend Director (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
@@ -32,7 +32,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con SciQuest Spend Director, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione di SciQuest Spend Director abilitata per l'accesso Single Sign-On.
+- Sottoscrizione di SciQuest Spend Director abilitata per l'accesso Single Sign-On
 
 
 > [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -41,13 +41,13 @@ Per configurare l'integrazione di Azure AD con SciQuest Spend Director, sono nec
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di SciQuest Spend Director dalla raccolta 
+1. Aggiunta di SciQuest Spend Director dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
@@ -56,19 +56,19 @@ Per configurare l'integrazione di SciQuest Spend Director in Azure AD, è necess
 
 **Per aggiungere SciQuest Spend Director dalla raccolta, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]
+	![Active Directory][1]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]
+	![Applicazioni][2]  
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]
+	![Applicazioni][3]  
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -114,11 +114,11 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 	![Configurare le impostazioni dell'app][10]
  
-     3\.1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione SciQuest Spend Director usando il modello seguente: **https://.*sciquest.com/.**
+     3\.1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione SciQuest Spend Director usando il modello seguente: *https://.*sciquest.com/.**
 
      3\.2. Nella casella di testo **URL di risposta** digitare lo stesso valore immesso nella casella di testo **URL di accesso**.
 
-     3\.3. Fare clic su **Avanti**.
+     3\.3. Fare clic su **Next**.
  
 4. Nella pagina **Configura accesso Single Sign-On in SciQuest Spend Director** fare clic su **Scarica metadati**, quindi salvare il file di metadati localmente nel computer.
 
@@ -128,7 +128,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-	![Cos'è Azure AD Connect][15]
+	![Cos'è Azure AD Connect][15]  
 
 10. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
 
@@ -144,18 +144,18 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Cos'è Azure AD Connect][100]
+	![Cos'è Azure AD Connect][100]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per visualizzare l’elenco di utenti, fare clic su **Utenti** nel menu in alto.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 
-	![Cos'è Azure AD Connect][101]
+	![Cos'è Azure AD Connect][101]  
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Cos'è Azure AD Connect][102]
+	![Cos'è Azure AD Connect][102]  
 
-5. Nella pagina **Informazioni sull’utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
 	![Cos'è Azure AD Connect][103]
 
@@ -165,9 +165,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
   
 	c. Fare clic su Avanti.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Cos'è Azure AD Connect][104]
+	![Cos'è Azure AD Connect][104]  
 
 	a. Nella casella di testo **Nome** digitare **Britta**.
   
@@ -179,13 +179,13 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
   
 	e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea**, fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Cos'è Azure AD Connect][105]
+	![Cos'è Azure AD Connect][105]  
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Cos'è Azure AD Connect][106]
+	![Cos'è Azure AD Connect][106]  
 
 	a. Prendere nota del valore visualizzato in **Nuova password**.
   
@@ -221,7 +221,7 @@ In questa sezione viene descritto come abilitare Britta Simon all'uso dell'acces
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Cos'è Azure AD Connect][203]
+	![Cos'è Azure AD Connect][203]  
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
@@ -229,7 +229,7 @@ In questa sezione viene descritto come abilitare Britta Simon all'uso dell'acces
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Cos'è Azure AD Connect][205]
+	![Cos'è Azure AD Connect][205]  
 
 
 
@@ -243,7 +243,7 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_01.png
 [2]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_02.png
 [3]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png
@@ -270,4 +270,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

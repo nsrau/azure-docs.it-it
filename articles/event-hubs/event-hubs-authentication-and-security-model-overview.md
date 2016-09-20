@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="08/16/2016"
-    ms.author="sethm;clemensv" />
+    ms.author="sethm;clemensv" />  
 
 # Panoramica sull’autenticazione di Hub eventi e sul modello di protezione
 
@@ -39,7 +39,7 @@ Tutti i token sono firmati con una chiave SAS. In genere, tutti i token sono fir
 
 Quando si crea uno spazio dei nomi di Hub eventi, Hub eventi di Azure genera una chiave di firma di accesso condiviso a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo specifico Hub eventi. Nella parte restante di questo argomento, si presuppone che questa chiave sia denominata `EventHubSendKey`.
 
-L'esempio seguente crea una chiave di solo invio durante la creazione dell'hub eventi:
+Nell'esempio seguente viene creata una chiave di solo invio durante la creazione dell'Hub eventi:
 
 ```
 // Create namespace manager.
@@ -101,57 +101,17 @@ La versione corrente del bus di servizio non supporta regole di firma di accesso
 
 In assenza di autenticazione SAS per gruppi di consumer singoli, è possibile utilizzare chiavi SAS per proteggere tutti i gruppi di consumer con una chiave comune. Questo approccio consente a un'applicazione di utilizzare dati di tutti i gruppi di consumer di un Hub eventi.
 
-### Creazione di identità del servizio, relying party e regole in ACS
-
-ACS supporta diversi modi per creare identità del servizio, relying party e regole, ma il modo più semplice consiste nell'utilizzare il [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Ad esempio:
-
-1. Creare un'identità del servizio per un **EventHubSender**. Questa operazione restituisce il nome dell'identità del servizio creata e la relativa chiave:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
-
-2. Concedere a **EventHubSender** l’invio di attestazioni per l'Hub eventi:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
-
-3. Creare un'identità del servizio per un destinatario del gruppo di consumer 1:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
-
-4. Concedere a `consumergroup1receiver` l’attesa di attestazioni per **ConsumerGroup1**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
-
-5. Creare un'identità del servizio per un destinatario per il **gruppo di consumer 2**:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
-
-6. Concedere a `consumergroup2receiver` l’attesa di attestazioni a **ConsumerGroup2**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
-
 ## Passaggi successivi
 
 Per altre informazioni su Hub eventi, vedere gli argomenti seguenti:
 
 - [Panoramica di Hub eventi]
-- Un'[applicazione di esempio completa che usa Hub eventi].
 - Una [soluzione di messaggistica accodata] che usa le code di Bus di servizio.
+- Un'[applicazione di esempio completa che usa Hub eventi].
 
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

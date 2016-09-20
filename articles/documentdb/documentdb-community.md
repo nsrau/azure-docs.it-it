@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/30/2016"
+  ms.date="09/01/2016"
   ms.author="andrl"/>
 
 # Portale della community
@@ -120,9 +120,9 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Relatore | Percorso | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Capital City .NET Users Group (Gruppo di utenti .NET della capitale)](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, FL | 1 settembre 2016 | n/d |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu e Tara Jana | Atlanta, GA | Dal 26 al 30 settembre, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
 | [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Da definire | New York, NY | 26-29 settembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Capital City .NET Users Group (Gruppo di utenti .NET della capitale)](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | 3 novembre 2016 | n/d |
 
 
 *I relatori o coloro che ospitano un evento [possono fare clic qui](mailto:askdocdb@microsoft.com) per ottenere assistenza.*
@@ -170,7 +170,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [DevIntersection](https://devintersection.com/) | Andrew Liu | Scottsdale, Arizona | 18-21 maggio 2015 | n/d |
 | [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Andrew Liu | Seattle, WA | 14 maggio 2015 | n/d |
 | [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [Video: SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) (Ultime novità di DocumentDB) [Video: DocumentDB and Azure HDInsight: Better Together](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) (Vantaggi dell'uso combinato di DocumentDB e Azure HDInsight) |
-| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1 maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
+| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1° maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Spagna](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | Madrid, Spagna | 25 aprile 2015 | [#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | Copenhagen, Danimarca | 16 aprile 2015 | N/D |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Jamie Rance | Charlotte, NC | 8 aprile 2015 | n/d |
@@ -229,7 +229,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 ## Contattare il team
 
-![Team](./media/documentdb-community/documentdb-team.png)
+![Team](./media/documentdb-community/documentdb-team.png)  
 
 È necessaria l'assistenza tecnica? Altre domande? NoSQL è una buona scelta per le proprie esigenze? È possibile [pianificare una chat 1:1 direttamente con il team di progettazione di DocumentDB](http://www.askdocdb.com/). È anche possibile inviare un messaggio di [posta elettronica](mailto:askdocdb@microsoft.com) o un tweet a [@DocumentDB](https://twitter.com/DocumentDB).
 
@@ -268,4 +268,4 @@ Procedura guidata | Immagine
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

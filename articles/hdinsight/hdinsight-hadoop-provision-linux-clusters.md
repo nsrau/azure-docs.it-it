@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/08/2016"
+   	ms.date="09/06/2016"
    	ms.author="jgao"/>
 
 
@@ -133,7 +133,7 @@ Hadoop Distributed File System (HDFS) originale usa molti dischi locali nel clus
 
 Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi (account di archiviazione collegati) a cui il cluster potrà accedere. Il cluster può accedere anche a eventuali contenitori di archiviazione BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB. Per ulteriori informazioni, vedere [gestione dell'accesso alle risorse di archiviazione Azure](../storage/storage-manage-access-to-resources.md).
 
-![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
+![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)  
 
 >[AZURE.NOTE] Un contenitore di archiviazione BLOB offre un raggruppamento di un set di BLOB, come illustrato nell'immagine seguente.
 
@@ -151,7 +151,7 @@ Oltre all'archivio BLOB di Azure, è possibile usare anche [Azure Data Lake Stor
 
 Il cluster HDInsight e l'account di archiviazione predefinito devono trovarsi nella stessa località di Azure.
 
-![Aree di Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
+![Aree di Azure](./media/hdinsight-provision-clusters/Azure.regions.png)  
 
 Per un elenco di aree supportate, fare clic sull'elenco a discesa **Area** in [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -216,6 +216,8 @@ La fatturazione inizia con la creazione del cluster e si interrompe quando il cl
 
 In alcuni casi potrebbe essere necessario aggiungere altre risorse al cluster, ad esempio se sono presenti più account di archiviazione di Azure per diverse aree geografiche o per diversi servizi, ma si vuole analizzare tutti gli account con HDInsight.
 
+Quando si crea un cluster HDInsight o dopo aver creato un cluster, è possibile aggiungere account di archiviazione. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
+
 Per altre informazioni sugli archivi BLOB secondari, vedere [Uso dell'archivio BLOB di Azure compatibile con HDFS con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). Per altre informazioni sull'uso degli archivi Data Lake secondari, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
@@ -237,7 +239,7 @@ Con una [rete virtuale di Azure](https://azure.microsoft.com/documentation/servi
 
 * Connettere le risorse cloud tra loro in una rete privata (solo cloud).
 
-	![Diagramma di una configurazione solo cloud](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+	![Diagramma di una configurazione solo cloud](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)  
 
 * Connettere le risorse cloud alla rete del data center locale (da sito a sito o da punto a sito) usando una rete privata virtuale (VPN)
 
@@ -289,7 +291,7 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 
 | Cluster creati con | Web browser | Riga di comando | API REST | SDK | Linux, Mac OS X o Unix | Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| Il [portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Data factory di Azure](hdinsight-hadoop-create-linux-clusters-adf.md) | ✔ | ✔ | ✔ |✔ | ✔ | ✔ |
 | [Interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
@@ -297,4 +299,4 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | & nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

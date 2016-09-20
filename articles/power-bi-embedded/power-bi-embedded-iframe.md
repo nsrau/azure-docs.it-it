@@ -3,7 +3,7 @@
    description="Informazioni su come usare Power BI Embedded con REST "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="tsmatsuz"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/02/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Come usare Power BI Embedded con REST
 
@@ -39,18 +39,18 @@ Power BI Embedded è uno dei servizi di Azure. Le spese di utilizzo vengono adde
 
 Ogni area di lavoro di Power BI Embedded è destinata a un cliente (tenant) ed è possibile aggiungere molte aree di lavoro in ogni raccolta di aree di lavoro. In ogni raccolta di aree di lavoro viene usata la stessa chiave di accesso. In effetti, la raccolta di aree di lavoro è il limite di sicurezza per Power BI Embedded.
 
-![](media\power-bi-embedded-iframe\create-workspace.png)
+![](media\power-bi-embedded-iframe\create-workspace.png)  
 
 Al termine della creazione della raccolta di aree di lavoro, copiare la chiave di accesso dal portale di Azure.
 
-![](media\power-bi-embedded-iframe\copy-access-key.png)
+![](media\power-bi-embedded-iframe\copy-access-key.png)  
 
 > [AZURE.NOTE] È inoltre possibile eseguire il provisioning della raccolta di aree di lavoro e ottenere la chiave di accesso tramite l'API REST. Per altre informazioni, vedere [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx) (API del provider di risorse di Power BI).
 
 ## Creare file con estensione pbix con Power BI Desktop
 Successivamente, è necessario creare la connessione dati e i report da incorporare. Per questa attività, non è disponibile alcun codice o programmazione. È sufficiente usare Power BI Desktop. In questo articolo non verrà analizzato l'uso di Power BI Desktop nel dettaglio. Per assistenza, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). Per questo esempio, sarà sufficiente usare l'[esempio di analisi delle vendite al dettaglio](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
 
-![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
+![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)  
 
 ## Creare un'area di lavoro di Power BI
 
@@ -443,7 +443,7 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 
 Ed ecco il risultato:
 
-![](media\power-bi-embedded-iframe\view-report.png)
+![](media\power-bi-embedded-iframe\view-report.png)  
 
 Al momento, Power BI Embedded mostra solo il report nell'iframe. Tuttavia, è consigliabile consultare il [blog di Power BI](). I miglioramenti futuri potrebbero usare le API lato client che consentiranno di inviare informazioni nell'iframe, nonché di ottenere informazioni. Ci sono tanti aspetti interessanti.
 
@@ -451,4 +451,4 @@ Al momento, Power BI Embedded mostra solo il report nell'iframe. Tuttavia, è co
 ## Vedere anche
 - [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

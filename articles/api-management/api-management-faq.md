@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Domande frequenti su Gestione API di Azure | Microsoft Azure" 
-	description="Risposte alle domande più comuni, modelli e procedure consigliate per Gestione API di Azure." 
+	description="Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="miaojiang" 
@@ -14,16 +14,16 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="mijiang"/>
+	ms.author="mijiang"/>  
 
 # Domande frequenti su Gestione API di Azure
 
-Risposte alle domande più comuni, modelli e procedure consigliate per Gestione API di Azure.
+Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
 
 ## Domande frequenti
 
 -	[Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team)
--	[Che cosa significa se una funzionalità è disponibile in anteprima?](#what-does-it-mean-if-a-feature-is-in-preview)
+-	[Che cosa significa se una funzionalità è in anteprima?](#what-does-it-mean-when-a-feature-is-in-preview)
 -	[Quali sono le opzioni supportate per proteggere la connessione tra il gateway di Gestione API e i servizi back-end?](#what-are-the-supported-options-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services)
 -	[Come copiare un'istanza di Gestione API in una nuova istanza?](#how-can-i-copy-an-api-management-instance-to-a-new-instance)
 -	[È possibile gestire l'istanza di Gestione API a livello di codice?](#can-i-manage-my-api-management-instance-programmatically)
@@ -39,6 +39,7 @@ Risposte alle domande più comuni, modelli e procedure consigliate per Gestione 
 -	[È possibile usare un certificato SSL autofirmato per un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Perché si ottiene un errore di autenticazione quando si cerca di clonare il repository GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 -	[Gestione API funziona con Express Route?](#does-api-management-work-with-express-route)
+-	[È possibile spostare un'istanza di Gestione API da una sottoscrizione a un'altra?](#can-i-move-api-management-instance-from-one-subscription-to-another)
 
 
 ### Come porre una domanda al team di Gestione API?
@@ -47,9 +48,9 @@ Risposte alle domande più comuni, modelli e procedure consigliate per Gestione 
 -	È anche possibile inviare un messaggio di posta elettronica all'indirizzo: `apimgmt@microsoft.com`.
 -	È possibile inviare una [richiesta di funzionalità](https://feedback.azure.com/forums/248703-api-management).
 
-### Che cosa significa se una funzionalità è disponibile in anteprima?
+### Che cosa significa se una funzionalità è in anteprima?
 
-Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per inviare commenti e suggerimenti sulle funzionalità in anteprima, usare uno dei metodi descritti in [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team).
+Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per inviare commenti e suggerimenti sulle funzionalità in anteprima, usare uno dei meccanismi descritti in [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
 ### Quali sono le opzioni supportate per proteggere la connessione tra il gateway di Gestione API e i servizi back-end?
 
@@ -57,7 +58,7 @@ Esistono diverse opzioni supportate.
 
 1. Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Configurare le impostazioni API](api-management-howto-create-apis.md#configure-api-settings).
 2. Usare l'autenticazione reciproca SSL come descritto in [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure](api-management-howto-mutual-certificates.md).
-3. Usare gli elenchi di IP consentiti nel servizio back-end. Se si usa un'istanza di Gestione API del piano tariffario Standard o Premium, l'indirizzo IP del gateway rimane costante ed è possibile configurare l'elenco degli IP consentiti per autorizzare questo indirizzo IP. È possibile recuperare l'indirizzo IP dell'istanza di Gestione API nel **dashboard** del portale di Azure classico.
+3. Usare gli elenchi di IP consentiti nel servizio back-end. Se si usa un'istanza di Gestione API di livello Standard o Premium, l'indirizzo IP del gateway rimane costante ed è possibile configurare l'elenco degli IP consentiti per autorizzare questo indirizzo IP. È possibile recuperare l'indirizzo IP dell'istanza di Gestione API nel **dashboard** del portale di Azure classico.
 4. È possibile connettere l'istanza di Gestione API a una rete virtuale di Azure (classico). Per altre informazioni, vedere [Come configurare connessioni VPN in Gestione API di Azure](api-management-howto-setup-vpn.md).
 
 ### Come copiare un'istanza di Gestione API in una nuova istanza?
@@ -77,15 +78,15 @@ Sì, è possibile gestire l'istanza usando l'[API REST di Gestione API](https://
 Per aggiungere un utente, seguire questa procedura:
 
 1. Accedere al nuovo [portale di Azure](https://portal.azure.com)
-2. Passare al gruppo di risorse che contiene l'istanza di Gestione API che interessa
+2. Passare al gruppo di risorse contenente l'istanza di Gestione API desiderata
 3. Aggiungere l'utente al ruolo "Collaboratore di Gestione Api"
 
 Al termine dell'operazione, il collaboratore appena aggiunto può usare i [cmdlet](https://msdn.microsoft.com/library/mt613507.aspx) di Azure PowerShell per accedere come amministratore:
 
 1. Usare il cmdlet `Login-AzureRmAccount` per accedere
 2. Impostare il contesto per la sottoscrizione che contiene il servizio usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
-3. Ottenere il token SSO usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
-4. Copiare e incollare l'URL nel browser per consentire all'utente di accedere al portale di amministrazione
+3. Ottenere l'URL di accesso Single Sign-On usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
+4. Usare l'URL per ottenere l'accesso al portale di amministrazione
 
 
 ### Perché il criterio da aggiungere non è abilitato nell'editor dei criteri?
@@ -97,28 +98,28 @@ Se il criterio che si vuole aggiungere non è abilitato, verificare di essere ne
 
 -	Gestione API consente di configurare separatamente le API che rappresentano diverse versioni. Ad esempio, possono essere disponibili `MyAPI v1` e `MyAPI v2` come due API distinte e gli sviluppatori possono scegliere la versione da usare.
 -	È anche possibile configurare l'API con un URL del servizio che non include un segmento di versione, ad esempio: `https://my.api`. È quindi possibile configurare un segmento di versione per il modello di [URL di riscrittura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) di ogni operazione. Si può avere ad esempio un'operazione con un [modello di URL](api-management-howto-add-operations.md#url-template) `/resource` e un modello di [riscrittura URL](api-management-howto-add-operations.md#rewrite-url-template) `/v1/Resource`. In questo modo è possibile modificare il valore del segmento di versione in ogni operazione separatamente.
--	Per mantenere un segmento di versione "predefinito" nell'URL del servizio API, in alcune operazioni è possibile specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
+-	Per mantenere un segmento di versione "predefinito" nell'URL del servizio dell'API, in alcune operazioni è possibile specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
 
 ### Come si configurano più ambienti di API, ad esempio sandbox e produzione?
 
-Attualmente le opzioni disponibili sono:
+Le opzioni attualmente possibili sono:
 
 -	È possibile ospitare API distinte nello stesso tenant
 -	È possibile ospitare le stesse API in diversi tenant
 
 ### SOAP è supportato in Gestione API?
 
-Attualmente, il supporto per SOAP è disponibile solo all'interno di Gestione API di Azure. La funzionalità è ancora in fase di analisi. A questo proposito, sarebbe molto interessante ricevere dai clienti esempi di WSDL con la descrizione delle funzionalità che ritengono necessarie. Per contattare Microsoft, usare le informazioni riportate nella sezione [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team)
+Attualmente, viene offerto un supporto limitato per SOAP all'interno di Gestione API di Azure. La funzionalità è ancora in fase di analisi. A questo proposito, sarebbe interessante ricevere esempi dei documenti WSDL degli utenti, che sarebbero utili a convalidare l'approccio adottato. Per contattare Microsoft, usare le informazioni riportate nella sezione [Come porre una domanda al team di Gestione API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
-Se è necessario usare la funzionalità, vedere i suggerimenti di alcuni utenti delle community, ad esempio [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) (Utilizzo di un servizio WCF SOAP su HTTP nell'ambito di Gestione API di Azure).
+Se è necessario usare la funzionalità, vedere i suggerimenti di alcuni membri della community, ad esempio [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) (Utilizzo di un servizio WCF SOAP su HTTP nell'ambito di Gestione API di Azure).
 
-Implementare la soluzione in questo modo richiede in parte la configurazione manuale dei criteri, non supporta l'importazione e l'esportazione di WSDL e gli utenti dovranno costituire il corpo delle richieste effettuate usando la console di test nel portale per sviluppatori.
+Implementare la soluzione in questo modo richiede in parte la configurazione manuale di criteri, non supporta l'importazione e l'esportazione di WSDL e richiede agli utenti di costituire il corpo delle richieste effettuate usando la console di test nel portale per sviluppatori.
 
 ### L'indirizzo IP del gateway di Gestione API è costante? Può essere usato nelle regole del firewall?
 
-Nei livelli Standard e Premium l'indirizzo IP pubblico (VIP) del tenant di Gestione API è statico per la durata del tenant, con le eccezioni indicate di seguito. Si noti che ai tenant di livello Premium configurati per la distribuzione in più aree viene assegnato un indirizzo IP pubblico per ogni area.
+Nei livelli Standard e Premium, l'indirizzo IP pubblico (VIP) del tenant di Gestione API è statico per la durata del tenant, con le eccezioni indicate di seguito. Si noti che ai tenant di livello Premium configurati per la distribuzione in più aree viene assegnato un indirizzo IP pubblico per ogni area.
 
-L'indirizzo IP verrà modificato nelle circostanze seguenti:
+L'indirizzo IP viene modificato nelle circostanze seguenti:
 
 -	Il servizio viene eliminato e ricreato
 -	La sottoscrizione al servizio viene sospesa, ad esempio per mancato pagamento, e ripristinata
@@ -133,7 +134,7 @@ Per informazioni sulla configurazione di questo scenario, vedere [Using ADFS in 
 
 ### Quale metodo di routing usa Gestione API quando è distribuita in più posizioni geografiche? 
 
-Gestione API usa il [Metodo di routing del traffico Prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Il traffico in ingresso viene indirizzato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Per altre informazioni sui metodi di routing, vedere [Metodi di routing del traffico di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
+Gestione API usa il [Metodo di routing del traffico Prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Il traffico in ingresso viene instradato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Per altre informazioni sui metodi di routing, vedere [Metodi di routing del traffico di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### È possibile creare un'istanza del servizio Gestione API usando un modello ARM?
 
@@ -149,10 +150,14 @@ Sì. Eseguire questi passaggi:
 
 ### Perché si ottiene un errore di autenticazione quando si cerca di clonare il repository GIT? 
 
-Se si usa GIT Credential Manager o si cerca di clonare il repository con Visual Studio, potrebbe verificarsi un problema noto con la finestra di dialogo Credenziale Windows che limita la lunghezza della password a solo 127 caratteri e quindi tronca la password generata. Microsoft sta lavorando per abbreviare la password. Per ora usare GIT Bash per la clonazione.
+Se si usa GIT Credential Manager o si cerca di clonare il repository con Visual Studio, potrebbe verificarsi un problema noto con la finestra di dialogo delle credenziali di Windows, che limita la lunghezza della password a 127 caratteri e tronca quindi la password generata. Microsoft sta lavorando per abbreviare la password. Per ora, per la clonazione usare GIT Bash.
 
 ### Gestione API funziona con Express Route?
 
 È possibile usarlo.
 
-<!---HONumber=AcomDC_0831_2016-->
+### È possibile spostare un'istanza di Gestione API da una sottoscrizione a un'altra?
+
+Sì. Seguire le istruzioni disponibili in questo [articolo](../resource-group-move-resources.md).
+
+<!---HONumber=AcomDC_0907_2016-->

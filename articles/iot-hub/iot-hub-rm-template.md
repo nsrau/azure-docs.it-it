@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/16/2016"
-     ms.author="dobett"/>
+     ms.author="dobett"/>  
 
 # Creare un hub IoT usando un programma C# con un modello di Resource Manager | Microsoft Azure
 
@@ -75,7 +75,7 @@ Usare un modello JSON e un file di parametri per creare un hub IoT nel gruppo di
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, fare clic su **Aggiungi** e infine su **Nuovo elemento**. Aggiungere un file JSON denominato **template.json** al progetto.
 
-2. Sostituire il contenuto di **template.json** con la seguente definizione di risorsa per aggiungere un hub IoT standard per l'area **Stati Uniti orientali**:
+2. Sostituire il contenuto di **template.json** con la seguente definizione di risorsa per aggiungere un hub IoT standard per l'area **Stati Uniti orientali** (per un elenco aggiornato delle località in cui è supportato l'hub IoT, vedere lo [Stato di Azure][lnk-status]):
 
     ```
     {
@@ -217,9 +217,10 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -233,4 +234,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -49,7 +49,8 @@ Creare una nuova app nel [portale di registrazione delle applicazioni](https://a
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 - Aggiungere la piattaforma **Mobile** per l'app.
-- Copiare l'**URI di reindirizzamento** dal portale. È necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+
+> Nota: il portale di registrazione delle applicazioni offre un valore per **URI di reindirizzamento**. In questo esempio, tuttavia, è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
 ## Scaricare la libreria di terze parti NXOAuth2 e creare un'area di lavoro
@@ -196,4 +197,4 @@ Una volta eseguita l'autenticazione, premere il pulsante **Request Protected Res
 
 È consigliabile ricevere notifiche sui problemi di sicurezza. A tale scopo, visitare [Security TechCenter](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

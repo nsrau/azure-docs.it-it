@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="mahthi"/>
+	ms.author="mahthi"/>  
 
 # Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 
@@ -97,13 +97,14 @@ Gestione risorse | Controllo degli accessi in base al ruolo (RBAC) per le risors
 Calcolo | Più subnet associate a una macchina virtuale | Aggiornare la configurazione delle subnet in modo che faccia riferimento solo alle subnet.
 Calcolo | Macchine virtuali appartenenti a una rete virtuale, ma senza assegnazione esplicita di una subnet | È facoltativamente possibile eliminare la VM.
 Calcolo | Macchine virtuali con avvisi e criteri di ridimensionamento automatico | La migrazione viene eseguita e queste impostazioni vengono eliminate. È quindi consigliabile valutare l'ambiente prima di eseguire la migrazione. In alternativa, è possibile riconfigurare le impostazioni relative agli avvisi al termine della migrazione.
-Calcolo | Estensioni XML della VM (Visual Studio Debugger, Web Deploy e Remote Debugging) | Questa operazione non è supportata. È consigliabile rimuovere queste estensioni dalla macchina virtuale per continuare la migrazione.
+Calcolo | Estensioni XML della VM (BGInfo 1.*, Visual Studio Debugger, Web Deploy e Remote Debugging) | Questa operazione non è supportata. È consigliabile rimuovere queste estensioni dalla macchina virtuale per continuare la migrazione oppure verranno rimosse automaticamente durante il processo di migrazione.
 Calcolo | Diagnostica di avvio con archiviazione Premium | Disabilitare la funzionalità di diagnostica di avvio per le VM prima di proseguire con la migrazione. Sarà possibile riabilitare la diagnostica di avvio nello stack di Resource Manager al termine della migrazione. Inoltre, i BLOB in uso per le schermate e i registri seriali devono essere eliminati in modo da non ricevere addebiti in relazione a essi.
 Calcolo | Servizi cloud che includono ruoli Web/di lavoro | Non supportato attualmente.
 Rete | Reti virtuali contenenti macchine virtuali e ruoli Web/di lavoro | Non supportato attualmente.
 Servizio app di Azure | Rete virtuale contenente ambienti del servizio app | Non supportato attualmente.
 HDInsight di Azure | Rete virtuale contenente servizi HDInsight | Non supportato attualmente.
 Servizi del ciclo di vita Microsoft Dynamics | Rete virtuale contenente macchine virtuali gestite da Dynamics Lifecycle Services | Non supportato attualmente.
+Calcolo | Estensioni del Centro sicurezza di Azure con una rete virtuale che dispone di un gateway VPN o ER con server DNS locale | Il Centro sicurezza di Azure installa automaticamente le estensioni nelle macchine virtuali per monitorarne la protezione e generare avvisi. Queste estensioni vengono in genere installate automaticamente se i criteri di sicurezza del Centro sicurezza di Azure sono abilitati nella sottoscrizione. Dal momento che non è attualmente supportata la migrazione di gateway e che il gateway deve essere eliminato prima di procedere all'esecuzione del commit della migrazione, l'accesso Internet all'account di archiviazione della VM viene perso quando si elimina il gateway. In questo caso la migrazione si interrompe poiché il BLOB di stato dell'agent guest non può essere popolato. È consigliabile disabilitare i criteri di sicurezza del Centro sicurezza di Azure nella sottoscrizione 3 ore prima di procedere con la migrazione.
 
 ## Esperienza di migrazione
 
@@ -205,7 +206,7 @@ Durante la migrazione le risorse si trasformano dal modello di distribuzione cla
 
 **Che cosa succede se sono attualmente in uso Azure Site Recovery o i servizi di backup di Azure?**
 
-Il supporto per Azure Site Recovery e per il backup per le VM in Resource Manager è stato aggiunto di recente. Siamo lavorando per abilitare anche la capacità di supportare la migrazione delle VM in Resource Manager. È attualmente consigliabile non eseguire la migrazione se si usano queste funzionalità.
+Per eseguire la migrazione di macchine virtuali abilitate per il backup, vedere [È stato eseguito il backup delle macchine virtuali in modalità classica nell'insieme di credenziali per il backup. Si vuole eseguire la migrazione delle macchine virtuali dalla modalità classica alla modalità Resource Manager. Come è possibile eseguirne il backup nell'insieme di credenziali di Servizi di ripristino?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
 
 **È possibile convalidare la sottoscrizione o le risorse per verificare se sono idonee per la migrazione?**
 
@@ -227,6 +228,7 @@ Tutti i nomi di risorse specificati in modo esplicito nel modello di distribuzio
 
 Questo messaggio viene ricevuto quando la VM non dispone di connettività in uscita a Internet. L'agente VM usa la connettività in uscita per raggiungere l'account di archiviazione di Azure in modo da aggiornare lo stato dell'agente ogni 5 minuti.
 
+
 ## Passaggi successivi
 Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS classiche in Resource Manager, è possibile avviare la migrazione delle risorse.
 
@@ -235,4 +237,4 @@ Dopo avere compreso i concetti fondamentali della migrazione di risorse IaaS cla
 - [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ottenere il massimo da Application Insights" 
+	pageTitle="Sfruttare al meglio le funzionalità di Application Insights | Microsoft Azure" 
 	description="Dopo l'introduzione a Application Insights, ecco un riepilogo delle funzionalità che è possibile esplorare." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>  
 
 # Altri dati di telemetria da Application Insights
@@ -60,16 +60,19 @@ Se l'app viene eseguita come app Web di Azure, passare al pannello di controllo 
 
 È possibile usare questo metodo per [abilitare il monitoraggio delle prestazioni in fase di esecuzione](app-insights-monitor-performance-live-website-now.md) anche se le app non sono state instrumentate in Visual Studio.
 
+## Monitoraggio sul lato client
 
-## Prestazioni del browser
+È stato installato l'SDK che invia i dati di telemetria dal lato server (back-end) dell'applicazione. Ora è possibile aggiungere il monitoraggio sul lato client, che fornisce dati su utenti, sessioni, visualizzazioni di pagina ed eventuali eccezioni o arresti anomali verificatisi nel browser. Sarà anche possibile scrivere codice personalizzato per tenere traccia del modi in cui gli utenti interagiscono con l'app, a un livello di dettaglio che include i clic e le sequenze di tasto.
 
-Per ottenere dati di telemetria dai browser client, aggiungere il frammento JavaScript di Application Insights alle pagine Web.
+Per ottenere dati di telemetria dai browser client, aggiungere il frammento JavaScript di Application Insights a ogni pagina Web.
 
 1. In Azure aprire la risorsa di Application Insights per l'app.
 2. Aprire Avvio rapido e quindi il monitoraggio dell'applicazione lato client e copiare il frammento.
 3. Incollarlo in modo che risulti incluso nell'intestazione di ogni pagina Web. In genere si ottiene questo risultato incollando il frammento nella pagina di layout master.
 
-![Estensione in Azure](./media/app-insights-asp-net-more/100.png)
+![Estensione in Azure](./media/app-insights-asp-net-more/100.png)  
+
+Si noti che il codice contiene la chiave di strumentazione che identifica la risorsa dell'applicazione.
 
 ### Vantaggi
 
@@ -78,6 +81,27 @@ Per ottenere dati di telemetria dai browser client, aggiungere il frammento Java
 * [Dati sull'utilizzo e sulle prestazioni dei client](app-insights-javascript.md) nel pannello Browser.
 
 ![Estensione in Azure](./media/app-insights-asp-net-more/090.png)  
+
+
+[Altre informazioni sul rilevamento delle pagine Web.](app-insights-web-track-usage.md)
+
+
+
+## Rilevare la versione dell’applicazione
+
+Assicurarsi che `buildinfo.config` sia generato dal processo di MSBuild. Nel file con estensione csproj, aggiungere:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quando sono disponibili le informazioni di compilazione, il modulo Web di Application Insights aggiunge automaticamente la **versione dell'applicazione** come proprietà a ogni elemento di telemetria. Questo consente di filtrare in base alla versione quando si eseguono [ricerche diagnostiche](app-insights-diagnostic-search.md) o quando si [esplorano le metriche](app-insights-metrics-explorer.md).
+
+Si noti tuttavia che il numero di versione di build viene generato solo da Build MS, non dallo sviluppatore di build in Visual Studio.
+
 
 ## Test Web di disponibilità
 
@@ -121,4 +145,4 @@ I pacchetti di Application Insights aggiunti al codice forniscono un'API che pu�
 |**API di accesso ai dati**<br/>Presto disponibile.|
 |[**Campionamento in Application Insights**](app-insights-sampling.md)<br/>Riduce la frequenza di dati e consente di rimanere entro il limite del proprio piano tariffario.|![Riquadro del campionamento](./media/app-insights-asp-net-more/030.png)  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

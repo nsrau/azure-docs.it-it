@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/17/2016"
-   ms.author="kgremban"/>
+   ms.date="09/02/2016"
+   ms.author="kgremban"/>  
 
 # Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
 
 ## Avvisi di sicurezza
 Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività sospette o non sicure nel proprio ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
 
-![Schermata Avvisi di sicurezza del dashboard di PIM][1]
+![Schermata Avvisi di sicurezza del dashboard di PIM][1]  
 
 
 
@@ -30,7 +30,7 @@ Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività s
 | **I ruoli vengono assegnati all'esterno di PIM** | Un amministratore è stato assegnato a un ruolo in modo permanente, all'esterno dell'interfaccia PIM. | Verificare la nuova assegnazione del ruolo. Poiché gli altri servizi possono solo assegnare amministratori permanenti, modificare il valore in un'assegnazione idonea, se necessario. |
 | **I ruoli vengono attivati con una frequenza eccessiva** | È stato eseguito un numero eccessivo di riattivazioni dello stesso ruolo nel tempo consentito nelle impostazioni. | Contattare l'utente per verificare il motivo per cui ha attivato il ruolo con una frequenza elevata. Il limite temporale potrebbe essere troppo breve per completare le attività oppure è possibile che l'utente usi script per attivare automaticamente un ruolo. |
 | **I ruoli non richiedono l'autenticazione MFA per l'attivazione** | Sono presenti ruoli con impostazioni in cui l'autenticazione MFA non è abilitata. | È richiesta l'autenticazione MFA per i ruoli con i privilegi più elevati, ma è consigliabile abilitare l'autenticazione MFA per l'attivazione di tutti i ruoli. |
-| **Gli amministratori non usano i ruoli con privilegi** | Sono presenti amministratori temporanei che non hanno attivato i loro ruoli di recente. | Avviare una verifica di accesso per determinare gli utenti che non necessitano più dell'accesso. |
+| **Gli amministratori non usano i ruoli con privilegi** | Sono presenti amministratori idonei che non hanno attivato i ruoli di recente. | Avviare una verifica di accesso per determinare gli utenti che non necessitano più dell'accesso. |
 | **Il numero di amministratori globali presenti è eccessivo** | Sono presenti più amministratori globali di quanti consigliati. | Se il numero di amministratori globali è elevato, è probabile che ottengano più autorizzazioni di quelle necessarie. Trasferire gli utenti a ruoli con privilegi meno elevati o rendere alcuni utenti idonei per il ruolo anziché assegnare i privilegi in modo permanente. |
 
 ## Configurare le impostazioni degli avvisi di sicurezza
@@ -65,14 +65,14 @@ Questo avviso viene attivato se un utente non attiva un ruolo dopo un determinat
 
 - **Numero di giorni**: specificare il numero di giorni, da 0 a 100, per cui un utente può non attivare un ruolo.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 
-<!--Image references-->
+<!--Image references-->  
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

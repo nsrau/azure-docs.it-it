@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="06/09/2016"
-    ms.author="sdanie" />
+    ms.date="09/07/2016"
+    ms.author="sdanie" />  
 
 # Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure
 
@@ -33,7 +33,7 @@ I passaggi seguenti sono necessari per eseguire la migrazione di un'applicazione
 	-	Connettersi alla cache con la classe ConnectionMultiplexer
 	-	Accedere ai tipi di dati primitivi nella cache
 	-	Gestire gli oggetti .NET nella cache
--	Eseguire la migrazione dello stato della sessione ASP.NET e della memorizzazione nella cache di output alla Cache Redis di Azure 
+-	Eseguire la migrazione dello stato della sessione ASP.NET e della memorizzazione nella cache di output alla Cache Redis di Azure
 
 ## Eseguire il mapping delle funzionalità del Servizio cache gestita alla Cache Redis di Azure
 
@@ -80,7 +80,7 @@ Prima che le applicazioni client possano essere configurate per la Cache Redis d
 
 Per disinstallare il pacchetto NuGet del Servizio cache gestita, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Selezionare il nodo **Pacchetti installati** e digitare W**indowsAzure.Caching** nella casella di ricerca dei pacchetti installati. Selezionare **Windows** **Azure Cache** (o **Windows** **Azure Caching** a seconda della versione del pacchetto NuGet), fare clic su **Disinstalla** e quindi su **Chiudi**.
 
-![Disinstallare il pacchetto NuGet del Servizio cache gestita di Azure](./media/cache-migrate-to-redis/IC757666.jpg)
+![Disinstallare il pacchetto NuGet del Servizio cache gestita di Azure](./media/cache-migrate-to-redis/IC757666.jpg)  
 
 La disinstallazione del pacchetto NuGet del Servizio cache gestita rimuove gli assembly del Servizio cache gestita e le voci del Servizio cache gestita dal file app.config o web.config dell'applicazione client. Poiché alcune impostazioni personalizzate potrebbero non essere rimosse quando si disinstalla il pacchetto NuGet, aprire web.config o app.config e verificare che gli elementi seguenti siano stati completamente rimossi.
 
@@ -179,4 +179,4 @@ La Cache Redis di Azure include provider sia per lo stato della sessione ASP.NET
 
 Per esercitazioni, esempi, video e altro ancora, vedere la [documentazione sulla Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

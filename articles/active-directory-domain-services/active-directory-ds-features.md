@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="maheshu"/>
+	ms.date="08/31/2016"
+	ms.author="maheshu"/>  
 
 # Servizi di dominio Azure AD *(anteprima)*
 
@@ -27,7 +27,7 @@ Nella versione di anteprima di Servizi di dominio Azure AD sono disponibili le f
 
 - **Una sola istanza di dominio per ogni directory di Azure AD:** è possibile creare un singolo dominio di Active Directory per ogni directory di Azure AD.
 
-- **Creare domini con nomi personalizzati:** è possibile creare domini con nomi personalizzati (ad esempio contoso.local) tramite Servizi di dominio Azure AD. Ciò vale sia per i nomi di dominio verificati che per quelli non verificati. Facoltativamente, è inoltre possibile creare un dominio con il suffisso di dominio predefinito (ad esempio *. onmicrosoft.com) offerto dalla directory di Azure AD.
+- **Creare domini con nomi personalizzati:** è possibile creare domini con nomi personalizzati, ad esempio 'contoso100.com', tramite Servizi di dominio Azure AD. Ciò vale sia per i nomi di dominio verificati che per quelli non verificati. Facoltativamente, è inoltre possibile creare un dominio con il suffisso di dominio predefinito (ad esempio *. onmicrosoft.com) offerto dalla directory di Azure AD.
 
 - **Integrazione con Azure AD:** non è necessario configurare o gestire la replica con Servizi di dominio Azure AD. Gli account utente, le appartenenze ai gruppi e le credenziali utente (password) dalla directory di Azure AD sono automaticamente disponibili in Servizi di dominio Azure AD. I nuovi utenti, i gruppi o le modifiche per gli attributi eseguite nel tenant di Azure AD o nella directory locale vengono sincronizzati automaticamente in Servizi di dominio Azure AD.
 
@@ -51,4 +51,4 @@ Nella versione di anteprima di Servizi di dominio Azure AD sono disponibili le f
 
 - **Usare strumenti familiari di gestione:** è possibile usare strumenti di gestione di Windows Server Active Directory familiari come Centro di amministrazione di Active Directory o Active Directory PowerShell per amministrare i domini forniti da Servizi di dominio Azure AD.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

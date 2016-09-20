@@ -7,14 +7,14 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />  
 
 # Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
@@ -23,8 +23,6 @@
 - [Portale di Azure](application-gateway-create-probe-portal.md)
 - [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 - [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
-
-<BR>  
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -45,21 +43,19 @@ Usare Login-AzureRmAccount per l'autenticazione.
 
 Controllare le sottoscrizioni per l'account.
 
-		get-AzureRmSubscription
-
-Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.<BR>
+	Get-AzureRmSubscription
 
 ### Passaggio 3
 
 Scegliere quali sottoscrizioni Azure usare. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Passaggio 4
 
-Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si sta usando un gruppo di risorse esistente.
+Creare un gruppo di risorse. Ignorare questo passaggio se si usa un gruppo di risorse esistente.
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
@@ -89,7 +85,7 @@ Creare una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg"
 
 Assegnare una variabile di subnet per la creazione di un gateway applicazione nei passaggi successivi.
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 ## Creare un indirizzo IP pubblico per la configurazione front-end
 
@@ -103,7 +99,6 @@ Creare una risorsa IP pubblica "publicIP01" nel gruppo di risorse "appgw-rg" per
 
 È necessario impostare tutti gli elementi di configurazione prima di creare il gateway applicazione. La procedura seguente consente di creare gli elementi di configurazione necessari per una risorsa del gateway applicazione.
 
-
 ### Passaggio 1
 
 Creare una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
@@ -114,7 +109,7 @@ Creare una configurazione IP del gateway applicazione denominata "gatewayIP01". 
 ### Passaggio 2
 
 
-Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere gli endpoint di indirizzi IP dell'applicazione.
+Configurare il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Tali valori saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere gli endpoint di indirizzi IP dell'applicazione.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -126,22 +121,20 @@ Il probe personalizzato viene configurato in questo passaggio.
 
 I parametri usati sono:
 
-- **-Interval**: configura i controlli dell'intervallo di probe, in secondi.
-- **-Timeout**: definisce il timeout del probe per un controllo della risposta HTTP.
-- **-Hostname e -path**: percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se si ha un sito Web http://contoso.com/, ad esempio, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
-- **-UnhealthyThreshold**: numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.
+- **Interval**: configura i controlli dell'intervallo di probe, in secondi.
+- **Timeout**: definisce il timeout del probe per un controllo della risposta HTTP.
+- **-Hostname e path**: percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se si ha un sito Web http://contoso.com/, ad esempio, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.
+- **UnhealthyThreshold**: numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.
 
-<BR>
+<BR>  
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-
 ### Passaggio 4
 
-Configurare le impostazioni del gateway applicazione "poolsetting01" per il traffico nel pool back-end. Questo passaggio prevede anche una configurazione di timeout per la risposta del pool back-end a una richiesta del gateway applicazione. Quando una risposta del back-end raggiunge un limite di timeout, il gateway applicazione annulla la richiesta. È diverso dal timeout del probe che è solo per la risposta back-end ai controlli del probe.
+Configurare le impostazioni del gateway applicazione "poolsetting01" per il traffico nel pool back-end. Questo passaggio prevede anche una configurazione di timeout per la risposta del pool back-end a una richiesta del gateway applicazione. Quando una risposta del back-end raggiunge un limite di timeout, il gateway applicazione annulla la richiesta. Questo valore è diverso dal timeout di un probe, che riguarda solo la risposta del back-end ai controlli del probe.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
-
 
 ### Passaggio 5
 
@@ -213,7 +206,7 @@ Aggiungere il probe al timeout e alla configurazione dell'impostazione del pool 
 
 Salvare la configurazione nel gateway applicazione usando **Set-AzureRmApplicationGateway**.
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 ## Rimuovere un probe da un gateway applicazione esistente
 
@@ -237,12 +230,16 @@ Rimuovere la configurazione del probe dal gateway applicazione usando **Remove-A
 Aggiornare l'impostazione del pool back-end per rimuovere l'impostazione del probe e del timeout usando **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
-	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
+	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 ### Passaggio 4
 
 Salvare la configurazione nel gateway applicazione usando **Set-AzureRmApplicationGateway**.
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
-<!---HONumber=AcomDC_0810_2016-->
+## Passaggi successivi
+
+Per informazioni sulla configurazione dell'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-arm.md)
+
+<!---HONumber=AcomDC_0907_2016-->

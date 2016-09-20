@@ -154,7 +154,7 @@ Le opzioni disponibili sono due:
 Scegliendo **Per browser e applicazioni native**, i criteri di accesso vengono applicati alle applicazioni tramite:
 
 - Browser (ad esempio, Edge in Windows 10, Safari in iOS e così via)
-- Applicazioni che utilizzano la libreria dell'applicazione Active Directory in qualsiasi piattaforma oppure l'API di Gestione account Web in Windows 10
+- Applicazioni che usano Active Directory Authentication Library (ADAL) in qualsiasi piattaforma oppure l'API di Gestione account Web in Windows 10
 
 >[AZURE.NOTE] Per ulteriori informazioni sui browser supportati e altre considerazioni per l'utente finale che accede alle applicazioni con protezione CA in base al dispositivo, vedere [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md).
 
@@ -173,4 +173,4 @@ Nelle applicazioni di Office 365 Exchange Online è presente una sezione aggiunt
 
 - [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

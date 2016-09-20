@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="09/03/2016"
+   ms.author="barbkess;sonyama"/>  
 
 # Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)
 
@@ -98,20 +98,24 @@ Per riavviare un database, usare uno di questi metodi singoli.
 - [Riavviare le risorse di calcolo con PowerShell][]
 - [Riavviare le risorse di calcolo con le API REST][]
 
+## Autorizzazioni
+
+Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER DATABASE][]. La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL][], in particolare Microsoft.Sql/servers/databases/action.
+
 <a name="next-steps-bk"></a>
 
 ## Passaggi successivi
 Per comprendere più facilmente altri concetti importanti sulle prestazioni, vedere gli articoli seguenti:
 
 - [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][]
-- [Overview of tables in SQL Data Warehouse][] \(Panoramica sulle tabelle in SQL Data Warehouse)
+- [Overview of tables in SQL Data Warehouse (Panoramica sulle tabelle in SQL Data Warehouse)][]
 - [Distribuzione di tabelle in SQL Data Warehouse][]
 - [Indicizzazione di tabelle in SQL Data Warehouse][]
 - [Partizionamento delle tabelle][]
-- [Managing statistics on tables in SQL Data Warehouse][] \(Gestione delle statistiche nelle tabelle in SQL Data Warehouse)
+- [Managing statistics on tables in SQL Data Warehouse (Gestione delle statistiche nelle tabelle in SQL Data Warehouse)][]
 - [Procedure consigliate][]
 
-<!--Image reference-->
+<!--Image reference-->  
 
 <!--Article references-->
 [Unità Data Warehouse (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -132,17 +136,20 @@ Per comprendere più facilmente altri concetti importanti sulle prestazioni, ved
 [Riavviare le risorse di calcolo con le API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
 [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse]: ./sql-data-warehouse-develop-concurrency.md
-[Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
+[Overview of tables in SQL Data Warehouse (Panoramica sulle tabelle in SQL Data Warehouse)]: ./sql-data-warehouse-tables-overview.md
 [Distribuzione di tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-distribute.md
 [Indicizzazione di tabelle in SQL Data Warehouse]: ./sql-data-warehouse-tables-index.md
 [Partizionamento delle tabelle]: ./sql-data-warehouse-tables-partition.md
-[Managing statistics on tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-statistics.md
+[Managing statistics on tables in SQL Data Warehouse (Gestione delle statistiche nelle tabelle in SQL Data Warehouse)]: ./sql-data-warehouse-tables-statistics.md
 [Procedure consigliate]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
-<!--MSDN references-->
+[Collaboratore Database SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
 
-<!--Other Web references-->
+<!--MSDN references-->
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+
+<!--Other Web references-->  
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

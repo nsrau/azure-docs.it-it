@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli;trinadhk"/>
+	ms.date="09/01/2016"
+	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>  
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -50,7 +50,7 @@ PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Usare il cmdlet **Get-AzureRMBackupVault** per elencare gli insiemi di credenziali di backup in un abbonamento.
+Usare il cmdlet **Get-AzureRMBackupVault** per elencare gli insiemi di credenziali di backup in una sottoscrizione.
 
 
 ## Installazione dell'agente di Backup di Azure
@@ -80,25 +80,16 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - |
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch |
-| /m | Accetta Microsoft Update | - |
-| /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - |
-| /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - |
-| /ph | Indirizzo host proxy | - |
-| /po | Numero porta host proxy | - |
-| /pu | Nome utente host proxy | - |
-| /pw | Password proxy | - |
+| /q | Installazione non interattiva | - | | /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent | | /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch | | /m | Accetta Microsoft Update | - | | /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | | /ph | Indirizzo host proxy | - | | /po | Numero porta host proxy | - | | /pu | Nome utente host proxy | - | | /pw | Password proxy | - |
 
 
 ## Registrazione del servizio Backup di Azure
 Per poter eseguire la registrazione con il servizio Backup di Azure, è necessario assicurarsi che i [prerequisiti](backup-configure-vault.md) siano soddisfatti. È necessario:
 
-- Disporre di una sottoscrizione di Azure valida
-- Ottieni un archivio di backup
+- Avere una sottoscrizione di Azure valida
+- Avere un insieme di credenziali di backup
 
-Per scaricare le credenziali dell'insieme di credenziali, eseguire il cmdlet **Get AzureRMBackupVaultCredentials** nella console di Azure PowerShell e archiviarle in una posizione pratica, ad esempio *C:\\Download*.
+Per scaricare le credenziali dell'insieme di credenziali, eseguire il cmdlet **Get AzureRMBackupVaultCredentials** nella console di Azure PowerShell e archiviarle in una posizione pratica, ad esempio * C:\\Download*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -599,5 +590,4 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 - [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 - [Backup di server Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0803_2016-->
-
+<!---HONumber=AcomDC_0907_2016-->

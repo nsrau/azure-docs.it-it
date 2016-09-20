@@ -14,5 +14,7 @@ Se i controlli di convalida per il DNS inverso danno esito negativo, l'operazion
 Il DNS inverso non è supportato per i siti Web di Azure. Il DNS inverso è supportato per i ruoli PaaS e le macchine virtuali IaaS di Azure.
 ### È possibile configurare più record DNS inversi per il servizio cloud?
 No. Azure supporta un singolo record DNS inverso per ogni servizio cloud di Azure. Ogni servizio cloud di Azure tuttavia può avere un proprio record DNS inverso.
+### È possibile inviare messaggi di posta elettronica a domini esterni dai servizi di calcolo di Azure?
+No. Come spiegato [qui](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), i servizi di calcolo di Azure non supportano l'invio di messaggi di posta elettronica a domini esterni.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0907_2016-->

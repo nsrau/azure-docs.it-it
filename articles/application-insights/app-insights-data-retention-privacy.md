@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/17/2016" 
-	ms.author="awills"/>
+	ms.author="awills"/>  
 
 # Raccolta, conservazione e archiviazione di dati in Application Insights 
 
@@ -26,7 +26,7 @@ Innanzitutto, chiariamo alcuni aspetti:
 
 * È improbabile che i moduli di telemetria standard che seguono un comportamento predefinito possano inviare dati sensibili al servizio. I dati di telemetria riguardano metriche di carico, prestazioni e utilizzo, report di eccezioni e altri dati di diagnostica. I principali dati utente visibili nei report di diagnostica sono URL, ma l'app non deve in ogni caso inserire dati sensibili in testo normale in un URL.
 * È possibile scrivere codice che invia dati di telemetria personalizzati aggiuntivi per agevolare la diagnostica e il monitoraggio dell'utilizzo. Questa flessibilità è un'eccellente funzionalità di Application Insights. Sarebbe possibile, per errore, scrivere il codice in modo che includa dati personali e altri dati sensibili. Pertanto, se l'applicazione utilizza questo tipo di dati, è consigliabile applicare processi di revisione efficaci a tutto il codice creato.
-* Durante lo sviluppo e il test dell'app, è facile controllare ciò che viene inviato dall’SDK. I dati vengono visualizzati nelle finestre di output del debug dell’IDE e del browser. 
+* Durante lo sviluppo e il test dell'app, è facile controllare ciò che viene inviato dall’SDK. I dati vengono visualizzati nelle finestre di output del debug dell’IDE e del browser.
 * I dati vengono archiviati nei server di [Microsoft Azure](http://azure.com) negli Stati Uniti. L'app può essere eseguita ovunque. Azure offre [processi di sicurezza efficaci e soddisfa una vasta gamma di standard di conformità](https://azure.microsoft.com/support/trust-center/). Solo lo sviluppatore dell’app e il team designato hanno accesso ai dati. Il personale Microsoft può avere accesso limitato ai dati solo in determinate circostanze con il consenso dello sviluppatore. I dati sono crittografati durante il transito, anche se non lo sono nel server.
 
 Nella parte restante di questo articolo verranno elaborate ulteriormente queste risposte. Questa parte è progettata per essere indipendente dal resto, pertanto è possibile mostrarla ai colleghi che non fanno parte del proprio team.
@@ -67,7 +67,7 @@ Le categorie principali sono:
 * [Pagine Web](app-insights-javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, eccezioni, chiamate AJAX.
 * Contatori delle prestazioni: memoria, CPU, IO, occupazione della rete.
 * Contesto client e server: sistema operativo, impostazioni locali, tipo di dispositivo, browser, risoluzione dello schermo.
-* [Eccezioni](app-insights-asp-net-exceptions.md) e arresti anomali: **dump dello stack**, ID compilazione, tipo di CPU. 
+* [Eccezioni](app-insights-asp-net-exceptions.md) e arresti anomali: **dump dello stack**, ID compilazione, tipo di CPU.
 * [Dipendenze](app-insights-asp-net-dependencies.md): chiamate ai servizi esterni, ad esempio REST, SQL, AJAX; URI o stringa di connessione, durata, esito positivo, comando.
 * [Test di disponibilità](app-insights-monitor-web-app-availability.md): durata del test e passaggi, risposte.
 * [Log di traccia](app-insights-search-diagnostic-logs.md) e [dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md): **tutto ciò che viene registrato nei log o i dati di telemetria**.
@@ -112,11 +112,11 @@ Microsoft usa i dati solo al fine di fornire il servizio all'utente.
 
 ## Dove vengono archiviati i dati? 
 
-* Negli Stati Uniti. 
+* Negli Stati Uniti.
 
 #### È possibile archiviarli altrove, ad esempio in Europa? 
 
-* Attualmente no. 
+* Attualmente no.
 
 #### Significa che l'app deve essere ospitata negli Stati Uniti?
 
@@ -193,10 +193,9 @@ Gli SDK sono diversi per le piattaforme specifiche e sono disponibili vari compo
 Azione | Classi di dati raccolte (vedere la tabella seguente)
 ---|---
 [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
-[Installare Status Monitor su IIS][redfield].|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Installare Status Monitor su IIS.][redfield]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Aggiungere Application Insights SDK a un'app Web Java][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Aggiungere JavaScript SDK a una pagina Web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
-[Aggiungere SDK a un'app di Windows Store][windows]|DeviceContext<br/>Users<br/>Crash data
 [Definire le proprietà predefinite][apiproperties]|**Properties** in tutti gli eventi standard e personalizzati
 [Chiamare TrackMetric][api]|Valori numerici<br/>**Properties**
 [Chiamare Track*][api]|Nome evento<br/>**Properties**
@@ -218,24 +217,24 @@ ClientContext |Sistema operativo, impostazioni locali, lingua, rete, risoluzione
 Session | ID sessione
 ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. 
 Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser.
-Metrics | Nome e valore della metrica.
-Events | Nome e valore dell'evento.
+Metrica | Nome e valore della metrica.
+Eventi | Nome e valore dell'evento.
 PageViews | URL e nome della pagina o della schermata.
 Client perf | URL/nome pagina, tempo di caricamento del browser.
 Ajax | Chiamate HTTP dalla pagina Web al server
-Richieste |URL, durata, codice di risposta.
+Requests |URL, durata, codice di risposta.
 Dependencies|Tipo (SQL, HTTP, ...), stringa di connessione o URI, sincrono/asincrono, durata, esito positivo, istruzione SQL (con Monitoraggio stato)
 **Eccezioni** | Tipo, **messaggio**, stack di chiamate, file di origine e numero di riga, ID thread.
 Crashes | ID processo, ID processo padre, ID thread di arresto anomalo, patch applicazione, ID, compilazione, tipo di eccezione, indirizzo, motivo, simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU.
 Trace | **Messaggio** e livello di gravità.
 Perf counters | Tempo processore, memoria disponibile, frequenza di richieste, frequenza di eccezioni, byte privati del processo, velocità di I/O, durata richiesta, lunghezza coda richiesta.
-Availability | Codice di risposta del test Web, durata di ogni passo del test, nome del test, timestamp, esito positivo, tempo di risposta, posizione del test
+Disponibilità | Codice di risposta del test Web, durata di ogni passo del test, nome del test, timestamp, esito positivo, tempo di risposta, posizione del test
 Diagnostica di SDK | Messaggio di traccia o eccezione 
 
 È possibile [disattivare alcuni dei dati modificando ApplicationInsights.config][config]
 
 
-## Crediti
+## Credits
 
 Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [http://www.maxmind.com](http://www.maxmind.com).
 
@@ -252,7 +251,7 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
 
 
-<!--Link references-->
+<!--Link references-->  
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
@@ -264,8 +263,7 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

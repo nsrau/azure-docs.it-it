@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+	ms.date="09/01/2016"
+	ms.author="juliako"/>  
 
 # Modificare il tipo di unità riservata
 
@@ -27,7 +27,7 @@
 
 ## Overview
 
-Per ottenere altre informazioni sul ridimensionamento dell'elaborazione multimediale, vedere questo argomento di [panoramica](media-services-scale-media-processing-overview.md).
+>[AZURE.IMPORTANT] Per altre informazioni sul ridimensionamento dell'elaborazione multimediale, vedere questo argomento di [panoramica](media-services-scale-media-processing-overview.md).
 
 ## Ridimensionare l'elaborazione di contenuti multimediali
 
@@ -41,7 +41,7 @@ Per modificare il tipo di unità riservata e il numero di unità riservate, effe
 
 	Per cambiare il **TIPO DI UNITÀ RISERVATA**, scegliere S1, S2 o S3.
 
-	![Pagina relativa ai processori](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
+	![Pagina relativa ai processori](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)  
 
 3. Fare clic sul pulsante SAVE per salvare le modifiche apportate.
 
@@ -57,4 +57,4 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/29/2016"
-     ms.author="obloch"/>
+     ms.date="09/06/2016"
+     ms.author="obloch"/>  
 
 # Introduzione ad Azure IoT device SDK per C
 
@@ -41,7 +41,7 @@ Il repository include l'intera famiglia di Azure IoT device SDK. Questo articolo
   ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
 * L'implementazione di base dell'SDK si trova nella cartella **iothub\_client** contenente l'implementazione del livello di API più basso nell'SDK: la libreria **IoTHubClient**. La libreria **IoTHubClient** contiene le API di implementazione di messaggistica non elaborata per inviare all'hub IoT i messaggi e per riceverli. Se si usa questa libreria, è necessario implementare la serializzazione dei messaggi seguendo l'esempio di serializzazione illustrato sotto, mentre gli altri dettagli della comunicazione con l'hub IoT vengono gestiti automaticamente.
-* La cartella **serializer** contiene le funzioni di supporto e gli esempi che mostrano come serializzare i dati prima dell'invio all'hub IoT di Azure tramite la libreria client. Si noti che l'uso del serializer, fornito solo per comodità, non è obbligatorio. Se si usa la libreria **serializer**, iniziare definendo un modello che specifica gli eventi da inviare all'hub IoT, oltre ai messaggi che si prevede di ricevere dall'hub stesso. Dopo aver definito il modello, l'SDK offre una superficie API che consente di usare facilmente eventi e messaggi senza doversi occupare dei dettagli relativi alla serializzazione. La libreria dipende da altre librerie open source che implementano il trasporto con diversi protocolli (AMQP, MQTT).
+* La cartella **serializer** contiene le funzioni di supporto e gli esempi che mostrano come serializzare i dati prima dell'invio all'hub IoT di Azure tramite la libreria client. Si noti che l'uso del serializer, fornito solo per comodità, non è obbligatorio. Se si usa la libreria **serializer**, iniziare definendo un modello che specifica gli eventi da inviare all'hub IoT, oltre ai messaggi che si prevede di ricevere dall'hub stesso. Dopo la definizione del modello, l'SDK fornisce tuttavia una superficie dell'API che consente di utilizzare facilmente eventi e messaggi senza doversi occupare dei dettagli relativi alla serializzazione. La libreria dipende dall'implementazione del trasporto tramite diversi protocolli (AMQP, MQTT) da parte di altre librerie open source.
 * La libreria **IoTHubClient** dipende da altre librerie open source:
    * La libreria [Azure C shared utility](https://github.com/Azure/azure-c-shared-utility), che offre funzionalità comuni per le attività di base, come stringa, manipolazione elenco, I/O e così via, necessarie in diversi SDK per C relativi ad Azure.
    * La libreria [Azure uAMQP](https://github.com/Azure/azure-uamqp-c), che è l'implementazione lato client di AMQP ottimizzata per i dispositivi con vincoli di risorse.
@@ -72,7 +72,7 @@ Ecco comunque alcuni suggerimenti per completare più facilmente la procedura de
 
 -   Quando si installa l'utilità **CMake**, scegliere l'opzione per aggiungere **CMake** alla variabile di sistema PATH per **tutti gli utenti**. Funziona correttamente anche l'aggiunta all'**utente corrente**:
 
-  ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
+  ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)  
 
 
 -   Prima di aprire il **Prompt dei comandi per gli sviluppatori per VS2015**, installare gli strumenti da riga di comando di Git. Per installare questi strumenti, completare i passaggi seguenti:
@@ -471,10 +471,10 @@ Per informazioni su come usare le capacità di gestione dei dispositivi nell'**S
 
 Per ulteriori informazioni sullo sviluppo dell'hub IoT, vedere gli [SDK dell'hub IoT][lnk-sdks].
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
 
@@ -488,4 +488,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -3,7 +3,7 @@
    description="Informazioni dettagliate sulla sicurezza a livello di riga con Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>  
 
 # Sicurezza a livello di riga con Power BI Embedded
 
@@ -102,4 +102,4 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 ## Vedere anche
 [Row-level security (RLS) with Power BI](https://powerbi.microsoft.com/it-IT/documentation/powerbi-admin-rls/) (Sicurezza a livello di riga con Power BI)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->
