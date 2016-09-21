@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Capriza in Azure AD, è necessario aggiungere 
 
 **Per aggiungere Capriza dalla raccolta, seguire questa procedura:**
 
-1. Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -89,7 +89,7 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual �
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Capriza, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Creazione di un utente test di Capriza](#creating-a-capriza-test-user)**: per avere una controparte di Britta Simon in Capriza collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -118,7 +118,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Capriza adottando il modello seguente: **“https://companyname.capriza.com/tenantid”**.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in Capriza**, seguire questa procedura:
@@ -173,7 +173,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
@@ -189,7 +189,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png)
 
@@ -199,7 +199,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Fare clic su **Complete**.
+    b. Fare clic su **Completa**.
 
 
 
@@ -270,4 +270,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

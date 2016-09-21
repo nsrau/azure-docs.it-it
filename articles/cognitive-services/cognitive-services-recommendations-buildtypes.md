@@ -34,7 +34,7 @@ Supponendo che si esegua il training del modello in base agli acquisti effettuat
 
 La compilazione di elementi consigliati presenta due funzionalità che la rendono interessante:
 
-**La compilazione di elementi consigliati supporta il posizionamento di *elementi ad accesso sporadico***
+**La compilazione di elementi consigliati supporta il posizionamento di *elementi ad accesso* sporadico**
 
 Gli elementi che non vengono usati di frequente sono detti elementi ad accesso sporadico. Se, ad esempio, si riceve una spedizione di un telefono mai venduto in precedenza, il sistema non può dedurre le raccomandazioni per questo prodotto in base alle sole transazioni. Ciò significa che il sistema deve apprendere dalle informazioni relative al prodotto stesso.
 
@@ -263,4 +263,4 @@ Verrà attivata una compilazione che usa solo un subset dei dati per il training
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0824_2016-->
+<!-----HONumber=AcomDC_0824_2016-->

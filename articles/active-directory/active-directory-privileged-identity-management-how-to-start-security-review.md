@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Come avviare una verifica dell'accesso in Azure AD Privileged Identity Management
 
-Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi devono esaminare periodicamente i ruoli assegnati agli utenti. Questo documento illustra i passaggi per l'avvio di una verifica della sicurezza in Azure AD Privileged Identity Management (PIM).
+Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi devono esaminare periodicamente i ruoli assegnati agli utenti. Questo documento illustra i passaggi per l'avvio di una verifica dell'accesso in Azure AD Privileged Identity Management (PIM).
 
-## Avviare una verifica della sicurezza
+## Avviare una verifica dell'accesso
 > [AZURE.NOTE] Se l'applicazione PIM non è stata aggiunta al dashboard nel portale di Azure, vedere i passaggi descritti in [Introduzione ad Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
 
-Nella pagina principale dell'applicazione PIM sono disponibili tre opzioni per avviare una verifica della sicurezza:
+Nella pagina principale dell'applicazione PIM sono disponibili tre opzioni per avviare una verifica dell'accesso:
 
 - **Verifiche di accesso** > **Aggiungi**
 - **Ruoli** > pulsante **Verifica**
@@ -53,21 +53,22 @@ Ogni verifica è incentrata su un solo ruolo. A meno che non si abbia avviato la
 
 ### Decidere chi eseguirà la verifica
 
-Sono disponibili due opzioni per l'esecuzione di una verifica. È possibile farlo personalmente, approvando o negando l'accesso a tutti gli utenti in un ruolo. In alternativa è possibile fare in modo che ogni utente verifichi il proprio accesso.
+Sono disponibili tre opzioni per l'esecuzione di una verifica. La revisione può essere assegnata a un altro utente, essere eseguita personalmente oppure ogni utente può verificare il proprio accesso.
 
 1. Passare a **Selezionare i revisori**
 
     ![Schermata Selezionare i revisori][4]
 
 2. Scegliere una delle opzioni disponibili:
-    - **Me** (Io): utile se si vuole visualizzare in anteprima come funzionano le verifiche di accesso o se si vuole eseguire una verifica per conto di utenti che non possono eseguire questa operazione.
+    - **Seleziona il revisore**: usare questa opzione quando non è noto chi abbia bisogno dell'accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
+    - **Me** (Io): utile se si vuole visualizzare in anteprima come funzionano le verifiche dell'accesso o se si vuole eseguire una verifica per conto di utenti che non possono eseguire questa operazione.
     - **Members review themselves** (I membri verificano se stessi): usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruoli.
 
 ### Avviare la verifica
 
-Infine è disponibile l'opzione per richiedere agli utenti di fornire un motivo se approvano l'accesso. Se si vuole, aggiungere una descrizione della verifica e selezionare **Avvia**.
+Infine è disponibile l'opzione per richiedere agli utenti di fornire un motivo se approvano l'accesso. Se si vuole, aggiungere una descrizione della verifica e selezionare **Start** (Avvia).
 
-Assicurarsi di informare gli utenti che è presente una verifica di accesso in attesa per loro e mostrare [Come eseguire una verifica dell'accesso](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+È necessario informare gli utenti che è presente una verifica dell'accesso in attesa e illustrare [come eseguire una verifica dell'accesso](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
 ## Gestire la verifica di accesso
 
@@ -87,4 +88,4 @@ Fino al termine del periodo di verifica, è possibile ricordare agli utenti di c
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

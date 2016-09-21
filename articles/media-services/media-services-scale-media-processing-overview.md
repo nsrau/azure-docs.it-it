@@ -57,7 +57,14 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
 ##Passaggio successivo
 
-[Usare il portale di Azure per ridimensionare l'elaborazione multimediale](media-services-portal-scale-media-processing.md)
+Ottenere l'attività di elaborazione dei media scalabili con una di queste tecnologie:
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [Portale](media-services-portal-scale-media-processing.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##Percorsi di apprendimento di Servizi multimediali
 
@@ -67,4 +74,4 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -159,7 +159,7 @@ Questo esempio illustra la configurazione della risorsa nel modello:
 
 Nell'esempio precedente vengono create due regole per definire le azioni di ridimensionamento automatico. La prima regola definisce l'azione di aumento delle istanze e la seconda regola definisce l'azione di riduzione del numero di istanze. Questi valori vengono forniti nelle regole:
 
-- **metricName**: corrisponde al contatore delle prestazioni definito nella variabile wadperfcounter per l'estensione di diagnostica. Nell'esempio precedente viene usato il contatore Conteggio dei thread.  
+- **metricName**: corrisponde al contatore delle prestazioni definito nella variabile wadperfcounter per l'estensione di diagnostica. Nell'esempio precedente viene usato il contatore Conteggio dei thread.
 - **metricResourceUri**: si tratta dell'identificatore di risorsa del set di scalabilità di macchine virtuali. Questo identificatore contiene il nome del gruppo di risorse, il nome del provider di risorse e il nome del set di scalabilità per il ridimensionamento.
 - **timeGrain**: corrisponde alla granularità delle metriche che vengono raccolte. Nell'esempio precedente i dati vengono raccolti con un intervallo di un minuto. Questo valore viene usato in combinazione con timeWindow.
 - **statistic**: determina il modo in cui vengono combinate le metriche per consentire l'azione di ridimensionamento automatico. I valori possibili sono: Average, Min, Max.
@@ -215,7 +215,7 @@ Dopo un periodo di attesa di cinque minuti, se il numero medio di thread nelle m
 ## Analisi delle azioni di ridimensionamento
 
 - [Portale di Azure](): attualmente è possibile ottenere una quantità limitata di informazioni tramite il portale.
-- [Esplora risorse di Azure](): si tratta dello strumento migliore per esplorare lo stato corrente del set di scalabilità. Seguire questo percorso per visualizzare la nuova istanza del set di scalabilità creato: sottoscrizioni > {sottoscrizione} > gruppi di risorse > {gruppo di risorse} > provider > Microsoft.Compute > virtualMachineScaleSets > {set di scalabilità} > virtualMachines
+- [Esplora risorse di Azure](): si tratta dello strumento migliore per esplorare lo stato corrente del set di scalabilità. Seguire questo percorso per visualizzare l'istanza del set di scalabilità creato: sottoscrizioni > {sottoscrizione} > resourceGroups > {gruppo di risorse} > provider > Microsoft.Compute > virtualMachineScaleSets > {set di scalabilità} > virtualMachines
 - Azure PowerShell: per ottenere alcune informazioni, usare il comando seguente:
 
         Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
@@ -228,5 +228,6 @@ Dopo un periodo di attesa di cinque minuti, se il numero medio di thread nelle m
 - Per un esempio di come creare un set di scalabilità configurando il ridimensionamento automatico, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-autoscale.md).
 - Per alcuni esempi delle funzionalità di monitoraggio di Azure Insights, vedere [Esempi di avvio rapido di PowerShell in Azure Insights](../azure-portal/insights-powershell-samples.md).
 - Per informazioni sulle funzionalità di notifica, vedere [Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) e [Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Informazioni sugli [scenari di scalabilità automatica avanzata](./virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

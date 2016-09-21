@@ -137,13 +137,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD
 
 5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Aravo e fornire gli elementi seguenti:
 
-	- File del **certificato scaricato**
+	- File del **certificato scaricato**
 
-	- **URL dell'autorità di certificazione**
+	- **URL dell'autorità di certificazione**
 
-	-  **URL SSO SAML**
+	- **URL SSO SAML**
 
-	- **URL servizio Single Sign-Out**
+	- **URL servizio Single Sign-Out**
 
 6. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
@@ -279,4 +279,4 @@ Quando si fa clic sul riquadro Aravo nel pannello di accesso, si dovrebbe accede
 [204]: ./media/active-directory-saas-aravo-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-aravo-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

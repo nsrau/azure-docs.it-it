@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestire le formule dei lab di sviluppo/test per creare macchine virtuali | Microsoft Azure"
-	description="È possibile creare, aggiornare e rimuovere le formule dei lab di sviluppo/test e usarle per creare nuove macchine virtuali."
+	pageTitle="Gestire le formule in Azure DevTest Labs per creare VM | Microsoft Azure"
+	description="È possibile creare, aggiornare e rimuovere le formule in Azure DevTest Labs e usarle per creare nuove VM."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,50 +13,46 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/30/2016"
 	ms.author="tarcher"/>
 
 # Gestire le formule dei lab di sviluppo/test per creare macchine virtuali
 
-## Panoramica
-
-Le formule, ad esempio le [immagini personalizzate](./devtest-lab-create-template.md) e le [immagini Marketplace](./devtest-lab-configure-marketplace-images.md), offrono un meccanismo in grado di velocizzare il provisioning delle macchine virtuali. Una formula è un elenco di valori predefiniti di proprietà usati nei lab di sviluppo/test per creare macchine virtuali. Quando si crea una macchina virtuale da una formula, i valori predefiniti possono essere modificati o usati così come sono.
+Una formula è un elenco di valori predefiniti di proprietà usati in Azure DevTest Labs per creare una macchina virtuale (VM). Quando si crea una macchina virtuale da una formula, i valori predefiniti possono essere modificati o usati così come sono. Le formule, ad esempio le [immagini personalizzate](./devtest-lab-create-template.md) e le [immagini Marketplace](./devtest-lab-configure-marketplace-images.md), offrono un meccanismo in grado di velocizzare il provisioning delle VM.
 
 Questo articolo spiega come eseguire le attività seguenti:
 
-- [Creare una nuova formula](#create-a-new-formula)
-- [Usare una formula per creare una nuova macchina virtuale](#use-a-formula-to-create-a-new-vm)
+- [Creare una formula](#create-a-formula)
+- [Usare una formula per il provisioning di una VM](#use-a-formula-to-provision-a-vm)
 - [Modificare una formula](#modify-a-formula)
 - [Eliminare una formula](#delete-a-formula)
 
-> [AZURE.NOTE] Le formule sono simili alle [immagini personalizzate](./devtest-lab-create-template.md) poiché ognuna consente di creare un'immagine di base da un disco rigido virtuale usato per eseguire il provisioning di una macchina virtuale. Per decidere quale formula è più corretta per un ambiente specifico, vedere l'articolo relativo al [confronto tra immagini personalizzate e formule nei lab di sviluppo/test](./devtest-lab-comparing-vm-base-image-types.md).
+> [AZURE.NOTE] Ad esempio, le formule, come [custom images](./devtest-lab-create-template.md), consentono di creare un'immagine di base da un file VHD. L'immagine di base può quindi essere usata per il provisioning di una nuova VM. Per decidere quale formula è più corretta per un ambiente specifico, vedere l'articolo relativo al [confronto tra immagini personalizzate e formule nei lab di sviluppo/test](./devtest-lab-comparing-vm-base-image-types.md).
 
-## Creare una nuova formula
-Tutti gli utenti con autorizzazione *Utenti* per i lab di sviluppo/test possono creare macchine virtuali in un lab usando una formula come base. È possibile creare le formule in due modi:
+## Creare una formula
+Tutti gli utenti con autorizzazione *Utenti* per i lab di sviluppo/test possono creare macchine virtuali usando una formula come base. È possibile creare le formule in due modi:
 
-- Da zero: quando si vogliono definire tutte le caratteristiche della formula da zero.
+- Da una base: quando si vogliono definire tutte le caratteristiche della formula.
 - Da una macchina virtuale di lab già esistente: quando si vuole creare una formula basata sulle impostazioni di una macchina virtuale esistente.
 
-### Creare una nuova formula da zero
-La procedura seguente consente di creare una nuova formula da zero.
+### Creare una formula di base
+Nella procedura seguente sono descritti i passaggi per creare una formula da un'immagine personalizzata, un'immagine Marketplace o un'altra formula.
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. Viene visualizzato il pannello **Impostazioni** del lab selezionato.
-
-1. Nel pannello **Impostazioni** del lab selezionare **Formule**.
+1. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
 
     ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
 1. Nel pannello **Formule lab** selezionare **+ Aggiungi**.
 
-    ![Aggiungere una nuova formula](./media/devtest-lab-manage-formulas/add-formula.png)
+    ![Aggiungere una formula](./media/devtest-lab-manage-formulas/add-formula.png)
 
-1. Nel pannello **Scegli una base** selezionare l'immagine personalizzata o l'immagine Marketplace da cui si desidera creare la formula.
+1. Nel pannello **Scegli una base** selezionare la base (immagine personalizzata, immagine Marketplace o formula) da cui si desidera creare la formula.
 
     ![Elenco base](./media/devtest-lab-manage-formulas/base-list.png)
 
@@ -64,52 +60,57 @@ La procedura seguente consente di creare una nuova formula da zero.
 
 	- **Nome formula**: immettere un nome per la formula. Questo valore verrà visualizzato nell'elenco delle immagini di base quando si crea una macchina virtuale. Il nome viene convalidato durante la digitazione e, se non è valido, un messaggio indicherà i requisiti per un nome valido.
 	- **Descrizione**: immettere una descrizione significativa per la formula. Questo valore è disponibile dal menu di scelta rapida della formula quando si crea una macchina virtuale.
+	- **Nome utente**: immettere un nome utente a cui verranno concessi privilegi di amministratore.
+	- **Password**: immettere o scegliere dall'elenco a discesa un valore associato al segreto (password) che si desidera usare per l'utente specificato.
 	- **Immagine**: questo campo visualizza il nome dell'immagine di base selezionata nel pannello precedente.
-	- **Dimensioni macchina virtuale**: selezionare uno degli elementi predefiniti che specificano le memorie centrali del processore, la dimensione della RAM e le dimensioni dell'unità disco rigido della macchina virtuale da creare.
-	- **Rete virtuale**: selezionare questa opzione, quindi la rete virtuale desiderata.
-	- **Subnet**: selezionare questa opzione, quindi la subnet desiderata.
-	- **Indirizzo IP pubblico**: se i criteri del lab sono impostati per consentire gli indirizzi IP pubblici per la subnet selezionata, specificare se l'indirizzo IP deve essere pubblico selezionando **Sì** o **No**. In caso contrario, questa opzione è disabilitata e impostata su **No**.
-	- **Elementi**: selezionare questa opzione, quindi, dall’elenco di elementi, selezionare e configurare gli elementi che si vuole aggiungere all’immagine di base. Si noti che i parametri degli elementi che sono stringhe protette non vengono visualizzati, poiché la formula non salva i valori delle stringhe protette.
+	- **Dimensioni macchina virtuale**: selezionare uno degli elementi predefiniti che specificano i core del processore, la dimensione della RAM e le dimensioni dell'unità disco rigido della VM da creare.
+	- **Rete virtuale**: specificare la rete virtuale desiderata.
+	- **Subnet**: specificare la subnet desiderata.
+	- **Indirizzo IP pubblico**: se i criteri del lab sono impostati per consentire gli indirizzi IP pubblici per la subnet selezionata, scegliere **Sì** o **No** per indicare se si desidera o meno rendere pubblico l'indirizzo IP. In caso contrario, questa opzione è disabilitata e impostata su **No**.
+	- **Elementi**: selezionare e configurare gli elementi che verranno aggiunti all'immagine di base. I valori delle stringhe sicure non vengono salvati con la formula. Pertanto, i parametri degli elementi corrispondenti a stringhe sicure non vengono visualizzati.
 
     	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
-1. Selezionare **Crea** per creare la formula. Dopo che è stata creata, la formula è elencata nel pannello **Lab formulas** (Formule del lab).
+1. Selezionare **Crea** per creare la formula.
 
-	![Formula appena creata](./media/devtest-lab-manage-formulas/newly-created-formula.png)
-
-### Creare una nuova formula da una macchina virtuale di lab
+### Creare una formula da una VM
 La procedura seguente consente di creare una formula basata su una macchina virtuale già esistente.
 
-> [AZURE.NOTE] Solo le macchine virtuali create dopo il 30 marzo 2016 supportano la creazione di una nuova formula da una macchina virtuale di lab.
+> [AZURE.NOTE] Per creare una formula da una VM, la VM deve essere stata creata dopo il 30 marzo 2016.
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. Nel pannello del lab individuare la sezione **Macchine virtuali personali** e selezionare la macchina virtuale da cui si vuole creare la nuova formula.
+1. Nel pannello **Panoramica** del lab selezionare la VM dalla quale creare la formula.
 
 	![Macchine virtuali di lab](./media/devtest-lab-manage-formulas/my-vms.png)
 
-1. Nel pannello **Impostazioni** della macchina virtuale selezionare **Crea formula**.
+1. Nel pannello della VM selezionare **Crea formula (base riutilizzabile)**.
 
 	![Creare una formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
-1. Nel pannello **Crea formula** immettere un **nome** e una **descrizione** per la nuova formula e selezionare **OK**. Dopo che è stata creata, la formula è elencata nel pannello **Lab formulas** (Formule del lab).
+1. Nel pannello **Crea formula** immettere un **Nome** e una **Descrizione** della nuova formula.
 
 	![Pannello Crea formula](./media/devtest-lab-manage-formulas/create-formula-blade.png)
+
+1. Fare clic su **OK** per creare la formula.
+
+## Usare una formula per il provisioning di una VM
+Dopo aver creato una formula, è possibile creare una VM in base a tale formula. La procedura è descritta nella sezione [Aggiungere una macchina virtuale con elementi](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts).
 
 ## Modificare una formula
 Per modificare una formula, seguire questa procedura:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. Nel pannello **Impostazioni** del lab selezionare **Formule**.
+1. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
 
     ![Menu Formula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
@@ -122,7 +123,7 @@ Per eliminare una formula, seguire questa procedura:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
@@ -140,8 +141,6 @@ Per eliminare una formula, seguire questa procedura:
 
 1. Selezionare **Sì** nella finestra di dialogo di conferma dell'eliminazione.
 
-    ![Menu di scelta rapida Formula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
-
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Post di blog correlati
@@ -151,4 +150,4 @@ Per eliminare una formula, seguire questa procedura:
 ## Passaggi successivi
 Dopo avere creato una formula da usare durante la creazione di una VM, il passaggio successivo consiste nell'[aggiungere una VM al lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/14/2016"
+   ms.date="09/01/2016"
    ms.author="jehollan"/>
 
 # Uso delle funzioni di Azure con le app per la logica
@@ -26,7 +26,7 @@
 
 ## Creare una funzione per le app per la logica
 
-È consigliabile creare una nuova funzione nel portale delle funzioni di Azure usando i modelli **Generic Node Webhook** o **Generic C# Webhook**. Verrà popolato automaticamente un modello che accetta `application/json` da un'app per la logica. Le funzioni che usano questi modelli vengono individuate automaticamente ed elencate nella finestra di progettazione delle app per la logica in **Funzioni di Azure nell'area**.
+È consigliabile creare una nuova funzione nel portale Funzioni di Azure usando i modelli **Generic Webhook - Node** (Webhook generico - Node) o **Generic Webhook - C#** (Webhook generico - C#). Verrà popolato automaticamente un modello che accetta `application/json` da un'app per la logica. Le funzioni che usano questi modelli vengono individuate automaticamente ed elencate nella finestra di progettazione delle app per la logica in **Funzioni di Azure nell'area**.
 
 Le funzioni webhook accettano una richiesta e la passano al metodo tramite una variabile `data`. È possibile accedere alle proprietà del payload usando una notazione punto come `data.foo`. Ad esempio, una semplice funzione JavaScript che converte un valore DateTime in una stringa di dati ha un aspetto simile a quello dell'esempio seguente:
 
@@ -70,4 +70,4 @@ La finestra di progettazione genera quindi un modello di funzione che è possibi
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

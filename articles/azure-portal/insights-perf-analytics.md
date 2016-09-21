@@ -12,20 +12,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="awills"/>
 
 # Monitoraggio delle prestazioni dell'applicazione web di Azure
 
-Nel[portale Azure](https://portal.azure.com)è possibile impostare il monitoraggio per raccogliere le statistiche e informazioni dettagliate sulle dipendenze delle applicazioni nel[applicazioni web di Azure](../app-service-web/app-service-web-overview.md)o di[macchine virtuali](../virtual-machines/virtual-machines-linux-about.md).
+Nel [portale di Azure](https://portal.azure.com) è possibile configurare il monitoraggio delle prestazioni applicative per le [app Web di Azure](../app-service-web/app-service-web-overview.md).o per le [macchine virtuali](../virtual-machines/virtual-machines-linux-about.md). Le soluzioni di monitoraggio delle prestazioni instrumentano l'app per l'invio dei dati di telemetria relativi alle proprie attività. Le metriche e i dati di telemetria risultanti possono essere usati per diagnosticare i problemi, migliorare le prestazioni e valutare l'utilizzo.
 
-Azure supporta Application Performance Monitoring (APM) sfruttando le estensioni. Le estensioni vengono installate nell'applicazione e raccolgono i dati e li riferiscono ai servizi di monitoraggio.
+## Fase di esecuzione o fase di compilazione
 
-**Application Insights** e **New Relic** sono due delle estensioni disponibili di monitoraggio delle prestazioni. Per utilizzarli, è necessario installare un agente in fase di esecuzione. Con Application Insights, è inoltre disponibile l'opzione di compilare il codice con un SDK. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato.
+È possibile configurare il monitoraggio instrumentando l'app in uno dei due modi seguenti:
 
-## Application Insights
+* **Fase di esecuzione**: è possibile selezionare un'estensione di monitoraggio delle prestazioni quando l'app Web è già attiva. Non è necessario ricompilarla o reinstallarla. Si ottiene un set di pacchetti standard che monitorano i tempi di risposta, le percentuali di riuscita, le eccezioni, le dipendenze e così via.
 
-### (Facoltativo) Ricompilare l'applicazione con l'SDK...
+    **Application Insights** e **New Relic** sono due delle estensioni di monitoraggio delle prestazioni disponibili per la fase di esecuzione.
+ 
+* **Fase di compilazione**: è possibile installare un pacchetto nell'app durante lo sviluppo. Questa opzione è più versatile. Oltre agli stessi pacchetti standard, è possibile scrivere codice per personalizzare la telemetria o per inviare dati di telemetria personalizzati. È possibile registrare attività specifiche o registrare eventi in base alla semantica del dominio dell'app.
+
+    **Application Insights** offre pacchetti per la fase di compilazione.
+
+
+## Compilare l'app con il pacchetto di Application Insights
 
 Application Insights può fornire ulteriori dati di telemetria installando un SDK nell'applicazione.
 
@@ -46,7 +53,7 @@ L’SDK fornisce un'API per [scrivere dati di telemetria personalizzati](../appl
 
 ### ... oppure configurare una risorsa manualmente
 
-Se l'SDK non è stato aggiunto in Visual Studio, è necessario configurare la risorsa di Application Insights in Azure, in cui i dati di telemetria vengono archiviati, analizzati e visualizzati.
+Se l'SDK non è stato aggiunto in Visual Studio, è necessario configurare una risorsa di Application Insights in Azure, in cui i dati di telemetria vengono archiviati, analizzati e visualizzati.
 
 ![Fare clic su Aggiungi, Servizi per gli sviluppatori, Application Insights. Scegliere il tipo di app ASP.NET.](./media/insights-perf-analytics/01-new.png)
 
@@ -75,7 +82,7 @@ Oppure, se si usa una macchina virtuale:
 
     ![Nel pannello di panoramica di Application Insights, fare clic su un grafico](./media/insights-perf-analytics/07-dependency.png)
 
-    È possibile [personalizzare il riquadro delle metriche](../application-insights/app-insights-metrics-explorer.md).
+    È possibile [personalizzare i pannelli delle metriche](../application-insights/app-insights-metrics-explorer.md).
 
 3. Fare ancora clic per visualizzare i singoli eventi e le relative proprietà:
 
@@ -93,7 +100,7 @@ Per le ricerche più avanzate nei dati di telemetria, usare il [linguaggio di qu
 Come si inviano i dati a un'altra risorsa di Application Insights?
 
 * *Se Application Insights è stato aggiunto al codice in Visual Studio:* fare clic con il pulsante destro del mouse sul progetto, scegliere **Application Insights > Configura** e quindi scegliere la risorsa. Sarà possibile creare una nuova risorsa. Ricompilare e ridistribuire.
-* *In caso contrario:* In Azure passare al pannello di controllo dell'app Web e aprire **> Estensioni**. Eliminare l'estensione di Application Insights. Aprire quindi **Strumenti > Prestazioni**, 'fare clic qui', scegliere Application Insights e quindi la risorsa. Per creare una nuova risorsa di Application Insights eseguire prima questa operazione.
+* *In caso contrario:* in Azure passare al pannello di controllo dell'app Web e aprire **Strumenti > Estensioni**. Eliminare l'estensione di Application Insights. Aprire quindi **Strumenti > Prestazioni**, "fare clic qui", scegliere Application Insights e quindi la risorsa desiderata. Per creare una nuova risorsa di Application Insights eseguire prima questa operazione.
 
 
 ## Passaggi successivi
@@ -102,6 +109,6 @@ Come si inviano i dati a un'altra risorsa di Application Insights?
 * [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
 * Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](../application-insights/app-insights-web-track-usage.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
-* [Configurare test Web di disponibilità](../application-insights/app-insights-monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.
+* Configurare test Web come illustrato in [Monitorare la disponibilità e la velocità di risposta dei siti Web](../application-insights/app-insights-monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

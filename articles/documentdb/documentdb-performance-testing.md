@@ -88,7 +88,7 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET riporta
 	DocumentDBBenchmark completed successfully.
 
 
-**Passaggio 4 (se necessario)**: la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Se occorre assistenza con questo passaggio, contattare Microsoft tramite l'[apposita pagina](askdocdb@microsoft.com) o creando un ticket di supporto.
+**Passaggio 4 (se necessario)**: la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Per richiedere assistenza per questa operazione, scrivere un e-mail a askdocdb@microsoft.com o compilare un ticket di supporto.
 
 Quando l'app è in esecuzione, è possibile provare diversi [criteri di indicizzazione](documentdb-indexing-policies.md) e [livelli di coerenza](documentdb-consistency-levels.md) per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
 
@@ -103,4 +103,4 @@ In questo articolo è stato illustrato come eseguire test delle prestazioni e de
 * [Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

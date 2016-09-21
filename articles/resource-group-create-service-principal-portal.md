@@ -118,7 +118,7 @@ Se l'applicazione accede alle risorse per conto dell'utente connesso, è necessa
 
 1. Selezionare **Aggiungi applicazione**.
 
-2. Nell'elenco selezionare **API di gestione del servizio Microsoft Azure**. Quindi, fare clic sull'icona di completamento.
+2. Nell'elenco selezionare **API Gestione dei servizi di Microsoft Azure**. Quindi, fare clic sull'icona di completamento.
 
       ![seleziona app](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -208,4 +208,4 @@ Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come en
 - Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md).
 - Per una dimostrazione video di questi passaggi, vedere l'articolo relativo all'[abilitazione della gestione a livello di codice di una risorsa di Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

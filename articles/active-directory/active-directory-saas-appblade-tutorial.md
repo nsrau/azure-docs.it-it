@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di AppBlade in Azure AD, è necessario aggiungere
 
 **Per aggiungere AppBlade dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Active Directory][1]
 
@@ -91,7 +91,7 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual �
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con AppBlade, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Creazione di un utente test di AppBlade](#creating-a-appblade-test-user)**: per avere una controparte di Britta Simon in AppBlade collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -121,7 +121,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione AppBlade adottando il modello seguente: **“https://companyname.appblade.com/saml/tenantid”**.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in AppBlade** seguire questa procedura:
@@ -130,13 +130,13 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
-5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto AppBlade all'indirizzo **support@appblade.com** allegando al messaggio di posta elettronica il file di metadati scaricato. Richiedere inoltre al team di configurare il valore per **SSO Issuer URL** come **https://appblade.com/saml**. Questa impostazione è necessaria per il corretto funzionamento dell'accesso Single Sign-On.
+5. Per configurare l'accesso Single Sign-On per l'applicazione, contattare il team di supporto AppBlade all'indirizzo **support@appblade.com** allegando al messaggio di posta elettronica il file di metadati scaricato. Richiedere inoltre al team di configurare il valore per **SSO Issuer URL** come **https://appblade.com/saml**. Questa impostazione è necessaria per il corretto funzionamento dell'accesso Single Sign-On.
 
 
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
 
 	![Accesso Single Sign-On di Azure AD][10]
 
@@ -164,7 +164,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-appblade-tutorial/create_aaduser_04.png)
 
@@ -176,7 +176,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
@@ -229,7 +229,7 @@ Questa sezione descrive come abilitare Britta Simon per l’utilizzo dell’acce
 
 	![Assegna utente][201]
 
-2. Nell’elenco di applicazioni selezionare **AppBlade**.
+2. Nell'elenco di applicazioni selezionare **AppBlade**.
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_50.png)
 
@@ -274,4 +274,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

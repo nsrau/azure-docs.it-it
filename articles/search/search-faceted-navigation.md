@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 #Come implementare l'esplorazione in base a facet in Ricerca di Azure
@@ -57,8 +57,8 @@ Il punto di partenza è una pagina dell'applicazione che consente un'esplorazion
 
 1.	Una query inviata a Ricerca di Azure specifica la struttura dell'esplorazione in base a facet tramite uno o più parametri di query del facet. Ad esempio, la query potrebbe includere `facet=Rating`, ad esempio con l’opzione `:values` o `:sort` per specificare ulteriormente la presentazione.
 2.	Il livello di presentazione consente di eseguire il rendering di una pagina di ricerca che permette l'esplorazione in base ai facet specificati nella richiesta.
-3.	A fronte di una struttura di esplorazione in base a facet che include la classificazione, l'utente fa clic su "4" per indicare che devono essere visualizzati solo i prodotti con una valutazione pari a 4 stelle o superiore. 
-4.	In risposta, l'applicazione invia una query che include `$filter=Rating ge 4` 
+3.	A fronte di una struttura di esplorazione in base a facet che include la classificazione, l'utente fa clic su "4" per indicare che devono essere visualizzati solo i prodotti con una valutazione pari a 4 stelle o superiore.
+4.	In risposta, l'applicazione invia una query che include `$filter=Rating ge 4`
 5.	Il livello di presentazione aggiorna la pagina con un set di risultati ridotto, contenente solo gli elementi che soddisfano i nuovi criteri (in questo caso, i prodotti valutati con 4 stelle e superiore).
 
 Il facet è un parametro di query, da non confondere con l'input della query. Non viene mai usato come criterio di selezione in una query. Al contrario, occorre concepire i parametri di query di un facet come input per la struttura di navigazione che viene restituita nella risposta. Per ogni parametro di query del facet fornito, Ricerca di Azure restituirà quanti documenti sono presenti nei risultati parziali per ogni valore del facet.
@@ -152,7 +152,7 @@ Di seguito sono elencati alcuni promemoria di ciò che è necessario eliminare:
 
 - Per ogni campo da usare per l'esplorazione in base a facet, è necessario stabilire se contiene valori adatti all'uso come filtri nella ricerca mirata. I valori devono essere brevi, descrittivi sufficientemente distintivi per offrire una scelta definita tra opzioni concorrenti.
 - Errori di ortografia o valori quasi corrispondenti. Se si effettua l'esplorazione in base a facet per Colore e i valori dei campi includono Arancione e Arncione (un errore di ortografia), un'esplorazione in base a facet in base al campo colore comporterebbe la selezione di entrambi.
-- Il testo con maiuscole e minuscole e può inoltre provocare danni all'esplorazione in base a facet con arancione e Arancione visualizzati come due valori diversi. 
+- Il testo con maiuscole e minuscole e può inoltre provocare danni all'esplorazione in base a facet con arancione e Arancione visualizzati come due valori diversi.
 - Le versioni singolari e plurali dello stesso valore possono comportare un facet separato.
 
 Come si può immaginare, la scrupolosità di preparazione dei dati è un aspetto essenziale dell'esplorazione in base a facet.
@@ -178,7 +178,7 @@ Quando un utente fa clic su "Red" per indicare che devono essere visualizzati so
 
 Nell'elenco seguente vengono riepilogate alcune procedure consigliate.
 
-- **Precisione**<br/> Usare i filtri. Se si usano solo le espressioni di ricerca, lo stemming può comportare la restituzione di un documento che non dispone del valore di facet esatto in uno dei relativi campi. 
+- **Precisione**<br/> Usare i filtri. Se si usano solo le espressioni di ricerca, lo stemming può comportare la restituzione di un documento che non dispone del valore di facet esatto in uno dei relativi campi.
 
 - **Campi di destinazione**<br/> In un drill-down di un'esplorazione in base a facet, è possibile includere solo i documenti che contengono il valore del facet in un campo specifico (collaborazione), non in qualsiasi punto in tutti i campi disponibili per la ricerca. L'aggiunta di un filtro mette in evidenza il campo di destinazione indirizzando il servizio alla ricerca solo nel campo di esplorazione in base a facet per un valore corrispondente.
 
@@ -250,7 +250,7 @@ In determinate circostanze, si noterà che i conteggi facet non corrispondono ai
 
 I conteggi di facet possono essere inesatti grazie all'architettura di partizionamento orizzontale. Ogni indice di ricerca include più partizioni e ciascuno di essi segnala i principali N facet per numero di documenti, che viene quindi combinato in un singolo risultato. Se alcune partizioni dispongono di diversi valori corrispondenti a differenza di altre, è probabile che alcuni valori di facet siano mancanti o non calcolati nei risultati.
 
-Sebbene questo comportamento potrebbe cambiare in qualsiasi momento, se si verifica subito, è possibile risolverlo "gonfiando" artificialmente il conteggio:<number> per un numero molto elevato di documenti e applicare il report completo di ogni partizione. Se il valore del conteggio è maggiore o uguale al numero di valori univoci nel campo, vengono garantiti risultati accurati. Tuttavia, quando i conteggi di documenti sono veramente elevati, si verifica una riduzione delle prestazioni. Si consiglia, pertanto, di usare questa opzione con cautela.
+Sebbene questo comportamento potrebbe cambiare in qualsiasi momento, se si verifica subito, è possibile risolverlo "gonfiando" artificialmente il conteggio:<numero> per un numero molto elevato di documenti e applicare il report completo di ogni partizione. Se il valore del conteggio è maggiore o uguale al numero di valori univoci nel campo, vengono garantiti risultati accurati. Tuttavia, quando i conteggi di documenti sono veramente elevati, si verifica una riduzione delle prestazioni. Si consiglia, pertanto, di usare questa opzione con cautela.
 
 <a name="rangefacets"></a>
 ##Esplorazione in base a facet basata sui valori di intervallo
@@ -287,7 +287,7 @@ Nell'applicazione di esempio nell'espressione di filtro vengono utilizzati i par
 
 Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** e **geo.intersects**.
 
-- La funzione **geo.distance** restituisce la distanza in chilometri tra due punti, uno è un campo e una è una costante passata come parte del filtro. 
+- La funzione **geo.distance** restituisce la distanza in chilometri tra due punti, uno è un campo e una è una costante passata come parte del filtro.
 
 - La funzione **geo.intersects** restituisce true se un punto specificato si trova all'interno di un poligono specificato, dove il punto è un campo e il poligono è specificato come un elenco costante di coordinate passato come parte del filtro.
 
@@ -298,7 +298,7 @@ Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** 
 
 La demo Adventure Works di Ricerca di Azure in Codeplex contiene gli esempi descritti nel presente articolo. Quando si lavora con i risultati, controllare l'URL per le modifiche nella costruzione delle query. Questa applicazione è casualmente incaricata all'accodamento i facet all'URI a ogni selezione.
 
-1.	Configurare l'applicazione di esempio per usare l'URL e la chiave api del servizio. 
+1.	Configurare l'applicazione di esempio per usare l'URL e la chiave api del servizio.
 
 	Si noti lo schema definito nel file Program.cs del progetto CatalogIndexer. Specifica campi di esplorazione in base a facet per colore, listPrice, dimensioni, peso, categoryName e modelName. Solo alcuni di questi (colore, listPrice, categoryName) vengono effettivamente implementate nell'esplorazione in base a facet.
 
@@ -323,7 +323,7 @@ La demo Adventure Works di Ricerca di Azure in Codeplex contiene gli esempi desc
 	![][10]
  
 <a name="nextstep"></a>
-##Passaggi successivi
+##Passaggio successivo
 
 Per verificare le proprie conoscenze, è possibile aggiungere un campo di facet per *modelName*. L'indice è già impostato per il facet, pertanto non è richiesta alcuna modifica all'indice. Sarà, tuttavia, necessario modificare il codice HTML in modo che includa un nuovo facet per i modelli e aggiungere il campo di facet per il costruttore di query.
 
@@ -369,4 +369,4 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

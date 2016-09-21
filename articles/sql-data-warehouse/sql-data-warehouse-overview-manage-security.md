@@ -21,12 +21,10 @@
 > [AZURE.SELECTOR]
 - [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
 - [Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md)
-- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
-- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
 - [Servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md)
 - [SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
+- [Transparent Data Encryption (portale)](sql-data-warehouse-encryption-tde.md)
+- [Transparent Data Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Questo articolo illustra i concetti di base relativi alla protezione del proprio database di Azure SQL Data Warehouse. In particolare l'articolo spiega come iniziare a usare le risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database.
 
@@ -34,10 +32,9 @@ Questo articolo illustra i concetti di base relativi alla protezione del proprio
 
 La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
 
-Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client è necessario creare una regola firewall di livello server tramite il portale di Azure classico, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per accedere ad Azure SQL Data Warehouse dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433. Per altre informazioni, vedere [Configurare le regole del firewall per il database SQL di Azure - Panoramica][], [sp\_set\_firewall\_rule][] e [sp\_set\_database\_firewall\_rule][].
+Le regole del firewall vengono usate dal server e dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inclusi nell'elenco di IP consentiti. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client è necessario creare una regola firewall di livello server tramite il portale di Azure, l'API REST o PowerShell. Come procedura consigliata, si suggerisce di limitare gli intervalli di indirizzi IP consentiti attraverso il firewall del server quanto più possibile. Per accedere ad Azure SQL Data Warehouse dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433. Per altre informazioni, vedere [Configurare le regole del firewall per il database SQL di Azure - Panoramica][], [sp\_set\_firewall\_rule][] e [sp\_set\_database\_firewall\_rule][].
 
-Le connessioni a SQL Data Warehouse possono essere crittografate mediante l'impostazione della modalità di crittografia nella stringa di connessione. La sintassi per l'attivazione della crittografia per la connessione varia a seconda del protocollo. Per semplificare l'impostazione della stringa di connessione, passare al database nel portale di Azure. In *Informazioni di base* fare clic su *Mostra stringhe di connessione del database*.
-
+Le connessioni a SQL Data Warehouse vengono crittografate per impostazione predefinita. La modifica delle impostazioni di connessione per disabilitare la crittografia viene ignorata.
 
 ## Autenticazione
 
@@ -125,4 +122,4 @@ Per informazioni dettagliate ed esempi di connessione a SQL Data Warehouse con p
 <!--Other Web references-->
 [Controllo di accesso basato sui ruoli nel portale di Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -63,6 +63,7 @@ Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse
 - [Servizi multimediali](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
 - [Servizi mobili](#mobile-services-limits)
+- [Monitoraggio](#monitoring-limits)
 - [Autenticazione a più fattori](#multi-factor-authentication)
 - [Rete](#networking-limits)
 - [Servizio di Hub di notifica](#notification-hub-service-limits)
@@ -219,6 +220,10 @@ Per informazioni più dettagliate su altri limiti, quali le dimensioni dei docum
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
+### Limiti relativi al monitoraggio
+
+[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+
 ### Limiti relativi al servizio di Hub di notifica
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -305,4 +310,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

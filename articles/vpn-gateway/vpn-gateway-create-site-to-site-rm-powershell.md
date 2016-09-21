@@ -124,7 +124,7 @@ Azure usa il prefisso di indirizzo IP che viene specificato per identificare il 
 
 Quando si usano gli esempi di PowerShell, tenere presente quanto segue:
 	
-- Il*GatewayIPAddress*è l'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT.
+- Il *GatewayIPAddress* è l'indirizzo IP del dispositivo VPN locale. Il dispositivo VPN non può trovarsi dietro un NAT.
 - *AddressPrefix* corrisponde allo spazio degli indirizzi locale.
 
 Per aggiungere un gateway di rete locale con un solo prefisso di indirizzo:
@@ -222,4 +222,4 @@ Se è necessario modificare i prefissi per il gateway di rete locale, usare le i
 
 - Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!----HONumber=AcomDC_0831_2016-->

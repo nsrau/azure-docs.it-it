@@ -400,7 +400,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [registrazione]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Confronto tra Servizi mobili e il servizio app]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Hub di notifica]: ../notification-hubs/notification-hubs-overview.md
+[Hub di notifica]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [monitoraggio delle prestazioni]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [eseguire un backup degli script e del database SQL di Servizi mobili]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -409,4 +409,4 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

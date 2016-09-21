@@ -29,6 +29,6 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 
 1. Nella **pagina di accesso** specificare le credenziali per la sottoscrizione.
 
-   ![Accesso](./media/azure-getting-started-portal-login/login.png)
+   ![Accesso](./media/azure-getting-started-portal-login/login.png)  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0912_2016--->

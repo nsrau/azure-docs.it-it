@@ -107,9 +107,9 @@ Per ottenere risultati più accurati, il filtro deve essere mappato prima di tut
 
 Potrebbe essere necessario [impostare le eccezioni per l'invio dei dati in uscita](app-insights-ip-addresses.md).
 
-## 5\. Riavviare la propria app web.
+## 6\. Riavviare la propria app web.
 
-## 6\. Visualizzare i dati di telemetria in Application Insights
+## 7\. Visualizzare i dati di telemetria in Application Insights
 
 Tornare alla risorsa di Application Insights nel [portale di Microsoft Azure](https://portal.azure.com).
 
@@ -143,4 +143,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -41,13 +41,13 @@ L'impostazione dei criteri di accesso condizionale basato su dispositivo consent
 Nel portale di gestione di Azure, è possibile impostare questo criterio accedendo all'applicazione desiderata nella relativa directory.
 
  
-  ![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applicazioni")  
+  ![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applicazioni")
 
 
 Dopo aver selezionato l'applicazione, fare clic sulla scheda **Configura** per impostare i criteri di accesso condizionale.
 
 
-  ![Regole di accesso basato su dispositivo](./media/active-directory-conditional-access-policy-connected-applications/02.png "Regole di accesso basato su dispositivo")  
+  ![Regole di accesso basato su dispositivo](./media/active-directory-conditional-access-policy-connected-applications/02.png "Regole di accesso basato su dispositivo")
 
 
  
@@ -75,7 +75,7 @@ Le opzioni disponibili sono due:
 
 - **Gruppi**: per gli utenti membri di uno o più gruppi.
 
-![Applica a](./media/active-directory-conditional-access-policy-connected-applications/11.png "Applica a")  
+![Applica a](./media/active-directory-conditional-access-policy-connected-applications/11.png "Applica a")
 
 
 Selezionando **Escludi**, è possibile escludere utenti da questi criteri durante l'accesso all'applicazione. Ciò risulta utile quando è necessario abilitare determinati utenti per l'accesso temporaneo all'applicazione. Selezionare questa opzione, ad esempio, se alcuni utenti possiedono dispositivi non predisposti per l'accesso condizionale (non ancora registrati, non conformi e così via).
@@ -97,7 +97,7 @@ Per l'accesso condizionale basato su dispositivo, sono supportati i dispositivi 
 
 Presto sarà disponibile il supporto per dispositivi Mac.
 
-  ![Dispositivi](./media/active-directory-conditional-access-policy-connected-applications/04.png "Applicazioni")  
+  ![Dispositivi](./media/active-directory-conditional-access-policy-connected-applications/04.png "Applicazioni")
 
 
 
@@ -110,7 +110,7 @@ Le opzioni disponibili sono due:
 
 - **Solo i dispositivi selezionati devono essere compatibili**: questa opzione richiede che solo le piattaforme dei dispositivi selezionati siano conformi. Alle piattaforme non selezionate o ad altre piattaforme che accedono all'applicazione sarà consentito l'accesso.
 
-  ![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/05.png "Applicazioni")  
+  ![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/05.png "Applicazioni")
 
 
 
@@ -148,13 +148,13 @@ Le opzioni disponibili sono due:
 - Solo per le applicazioni native.
 
 
-![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/08.png "Applicazioni")  
+![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/08.png "Applicazioni")
 
 
 Scegliendo **Per browser e applicazioni native**, i criteri di accesso vengono applicati alle applicazioni tramite:
 
 - Browser (ad esempio, Edge in Windows 10, Safari in iOS e così via)
-- Applicazioni che utilizzano la libreria dell'applicazione Active Directory in qualsiasi piattaforma oppure l'API di Gestione account Web in Windows 10
+- Applicazioni che usano Active Directory Authentication Library (ADAL) in qualsiasi piattaforma oppure l'API di Gestione account Web in Windows 10
 
 >[AZURE.NOTE] Per ulteriori informazioni sui browser supportati e altre considerazioni per l'utente finale che accede alle applicazioni con protezione CA in base al dispositivo, vedere [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md).
 
@@ -164,13 +164,13 @@ Scegliendo **Per browser e applicazioni native**, i criteri di accesso vengono a
 
 Nelle applicazioni di Office 365 Exchange Online è presente una sezione aggiuntiva denominata **Exchange Activesync**. In questa sezione è possibile bloccare l'accesso alla posta elettronica alle applicazioni di posta elettronica basate su Exchange Active Sync.
 
-![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/09.png "Applicazioni")  
+![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/09.png "Applicazioni")
  
-![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/10.png "Applicazioni")  
+![Applicazioni](./media/active-directory-conditional-access-policy-connected-applications/10.png "Applicazioni")
 
  
 ## Argomenti aggiuntivi
 
 - [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

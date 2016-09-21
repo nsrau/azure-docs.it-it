@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/29/2016"
+   	ms.date="09/14/2016"
    	ms.author="jgao"/>
 
 # Installare applicazioni HDInsight
@@ -23,11 +23,11 @@ Un'applicazione HDInsight è un'applicazione che gli utenti possono installare i
 
 Attualmente è disponibile un'applicazione pubblicata:
 
-- **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offre agli analisti un modo interattivo per rilevare, analizzare e visualizzare i risultati nei Big Data . Effettuare il pull di altre origini dati con facilità per individuare nuove relazioni e ottenere rapidamente le risposte necessarie.
+- **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offre agli analisti un modo interattivo per rilevare, analizzare e visualizzare i risultati nei Big Data. Consente di effettuare il pull di altre origini dati con facilità per individuare nuove relazioni e ottenere rapidamente le risposte necessarie.
 
 >[AZURE.NOTE] Datameer è attualmente supportata solo nei cluster Azure HDInsight versione 3.2.
 
-Nelle istruzioni fornite in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resouce Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello. Vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello. Vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Prerequisiti
 
@@ -56,7 +56,7 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
 
 6. Fare clic su una delle applicazioni, accettare le condizioni legali e quindi fare clic su **Seleziona**.
 
-È possibile vedere lo stato di installazione dell'applicazione dalle notifica del portale facendo clic sull'icona a forma di campana nella parte superiore del portale. Dopo l'installazione dell'applicazione, questa verrà visualizzata nel pannello App installate.
+È possibile vedere lo stato di installazione dell'applicazione dalle notifiche del portale facendo clic sull'icona a forma di campana nella parte superiore del portale. Dopo l'installazione dell'applicazione, questa verrà visualizzata nel pannello App installate.
 
 ## Installare applicazioni durante la creazione del cluster
 
@@ -67,13 +67,13 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **NUOVO**, su **Dati e analisi** e quindi su **HDInsight**.
 3. Immettere il **Nome cluster**: deve essere un nome univoco globale.
-4. Fare clic su **Sottoscrizione** per selezionare la sottoscrizione di Azure che sarà usata per il cluster.
+4. Fare clic su **Sottoscrizione** per selezionare la sottoscrizione di Azure utilizzata per il cluster.
 5. Fare clic su **Selezionare il tipo di cluster** e quindi selezionare:
 
-    - **Tipo di cluster**: in caso di dubbi su quale voce scegliere, selezionare **Hadoop**. È il tipo di cluster più diffuso.
+    - **Tipo di cluster**: in caso di dubbi su questa opzione, scegliere **Hadoop**. È il tipo di cluster più diffuso.
     - **Sistema operativo**: selezionare **Linux**.
-    - **Versione**: in caso di dubbi, usare la versione predefinita. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
-    - **Cluster Tier**: (Livello cluster) Azure HDInsight include offerte cloud per Big Data in due categorie, piano Standard e piano Premium. Per altre informazioni, vedere [Livelli di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+    - **Versione**: utilizzare la versione predefinita, in caso di dubbi. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
+    - **Livello del cluster**: HDInsight di Azure fornisce offerte cloud per i Big Data in due categorie: livello Standard e livello Premium. Per altre informazioni, vedere [Livelli di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
 6. Fare clic su **Applicazioni**, fare clic su una delle applicazioni pubblicate e quindi su **Seleziona**.
 6. Fare clic su **Credenziali** e quindi immettere una password per l'utente amministratore. È anche necessario immettere un valore nel campo **Nome utente SSH** e un valore in **PASSWORD** o **CHIAVE PUBBLICA**, che verranno usati per autenticare l'utente SSH. Si consiglia di utilizzare una chiave pubblica. Fare clic su **Seleziona** nella parte inferiore per salvare la configurazione delle credenziali.
 8. Fare clic su **Origine dati**, selezionare uno degli account di archiviazione esistenti oppure crearne uno nuovo da usare come account di archiviazione predefinito per il cluster.
@@ -121,5 +121,6 @@ Vedere [Risolvere i problemi di installazione](hdinsight-apps-install-custom-app
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: Installare un'applicazione HDInsight): informazioni su come definire le applicazioni HDInsight.
 - [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
 - [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informazioni su come chiamare i modelli di Azure Resource Manager per creare cluster HDInsight.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Usare nodi perimetrali vuoti in HDInsight): informazioni su come usare un nodo perimetrale vuoto per l'accesso a cluster HDInsight, il test di applicazioni HDInsight e l'hosting di applicazioni HDInsight.
 
-<!-----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

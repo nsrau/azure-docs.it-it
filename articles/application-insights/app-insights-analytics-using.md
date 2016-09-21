@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2016" 
+	ms.date="09/06/2016" 
 	ms.author="danha"/>
 
 
@@ -125,11 +125,14 @@ Per impostazione predefinita, i risultati vengono inizialmente visualizzati in u
 
 ## Aggiungi al dashboard
 
-Per aggiungere un diagramma a uno dei [dashboard condivisi](app-insights-dashboards.md), è sufficiente fare clic sul segnaposto. Potrebbe essere necessario [aggiornare il pacchetto dei prezzi dell'app](app-insights-pricing.md) per attivare questa funzionalità.
+Per aggiungere un diagramma o una tabella a uno dei [dashboard condivisi](app-insights-dashboards.md), è sufficiente fare clic sulla puntina. Potrebbe essere necessario [aggiornare il pacchetto dei prezzi dell'app](app-insights-pricing.md) per attivare questa funzionalità.
 
 ![Fare clic sulla puntina](./media/app-insights-analytics-using/pin-01.png)
 
 Ciò significa che, quando si crea un dashboard per monitorare le prestazioni o l'utilizzo dei servizi Web, è possibile includere analisi piuttosto complesse insieme ad altre metriche.
+
+È possibile aggiungere una tabella al dashboard se contiene un massimo di quattro colonne. Verranno visualizzate solo le prime sette righe.
+
 
 #### Aggiornamento del dashboard
 
@@ -183,4 +186,4 @@ Dopo aver eseguito una query, è possibile scaricare un file con estensione csv.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

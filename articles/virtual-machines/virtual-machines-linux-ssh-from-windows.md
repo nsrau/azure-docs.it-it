@@ -26,7 +26,6 @@ description="Informazioni su come generare e usare chiavi SSH in un computer Win
 
 In questo argomento viene descritto come creare e usare i file di chiavi pubbliche e private in formato **ssh rsa** e **pem** in Windows, utilizzabili per la connessione alle macchine virtuali Linux in Azure con il comando **ssh**. Se si dispone già di file **pem**, è possibile usarli per creare macchine virtuali Linux a cui è possibile connettersi con **ssh**. Molti altri comandi usano il protocollo **SSH** e i file di chiavi per eseguire operazioni in modo sicuro, in particolare **scp** o [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), che consente di copiare file in modo sicuro da e verso computer che supportano connessioni **SSH**.
 
-> [AZURE.NOTE] Se si ha un po' di tempo, fornire il proprio feedback per aiutarci a migliorare la documentazione sulle VM Linux di Azure eseguendo questo [sondaggio rapido](https://aka.ms/linuxdocsurvey) sulle propria esperienza. Ogni risposta è utile.
 
 ## Quali programmi sono necessari per SSH e la creazione delle chiavi?
 
@@ -168,4 +167,4 @@ Il modo più semplice per risolvere questo problema consiste nell'impostare la v
 5.	Fare clic su **Open** per connettersi alla macchina virtuale.
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

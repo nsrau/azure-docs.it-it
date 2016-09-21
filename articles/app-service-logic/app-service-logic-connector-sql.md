@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/16/2016"
+   ms.date="09/01/2016"
    ms.author="sameerch"/>
 
 
@@ -31,7 +31,7 @@ Connettersi a un'istanza di SQL Server in locale o a un database SQL di Azure pe
 ## Trigger e azioni
 I *trigger* sono eventi che si verificano, ad esempio quando si aggiorna un ordine o quando viene aggiunto un nuovo cliente. Un'*azione* è il risultato del trigger. Quando ad esempio si aggiorna un ordine, viene inviato un avviso al venditore oppure quando si aggiunge un nuovo cliente, viene inviato un messaggio di benvenuto.
 
-Il connettore SQL può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni pacchetto (che saranno discusse nel dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML.
+Il connettore SQL può essere usato come trigger o come azione in un'app per la logica e supporta i dati nei formati JSON e XML. Per ogni tabella inclusa nelle impostazioni del pacchetto (discusse in dettaglio più avanti in questo argomento), esiste un set di azioni JSON e uno di azioni XML.
 
 Per il connettore SQL sono disponibili i trigger e le azioni seguenti:
 
@@ -54,9 +54,9 @@ Server Name | Sì | Immettere il nome dell'istanza di SQL Server, ad esempio *SQ
 Port | No | Il valore predefinito è 1433.
 User Name | Sì | Immettere un nome utente che può accedere all'istanza di SQL Server. Se ci si connette a un'istanza di SQL Server locale, immettere le credenziali di autenticazione SQL.
 Password | Sì | Immettere il nome utente e la password.
-Database Name | Sì | Immettere il database a cui connettersi, ad esempio *Customers* o *dbo/orders*.
+Nome database | Sì | Immettere il database a cui connettersi, ad esempio *Customers* o *dbo/orders*.
 On-Premises | Sì | Il valore predefinito è False. Immettere False per la connessione a un database SQL di Azure. Immettere True per la connessione a un'istanza di SQL Server locale.
-Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/)
+Stringa di connessione del bus di servizio | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/)
 Partner Server Name | No | Se il server primario non è disponibile, è possibile immettere un server partner come server alternativo o di backup.
 Tables | No | Elencare le tabelle di database che possono essere aggiornate dal connettore. Immettere ad esempio *OrdersTable* o *EmployeeTable*. Se non viene immessa alcuna tabella, è possibile usare tutte le tabelle. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
 Stored procedure | No | Immettere una stored procedure esistente che può essere chiamata dal connettore, ad esempio *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Per usare questo connettore come azione, è necessario usare tabelle e/o stored procedure valide.
@@ -155,4 +155,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/07/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -24,9 +24,6 @@ Azure Active Directory Identity Protection è un servizio di sicurezza che forni
 ## Limitazioni per l'anteprima corrente
 Questa sezione elenca le limitazioni che si applicano all'anteprima corrente di Azure Active Directory Identity Protection.
 
-### Limitazione per paese o area geografica
-
-L'anteprima di Azure Active Directory Identity Protection è attualmente disponibile solo per le directory con il valore **Stati Uniti** per **Paese o area geografica**. <br><br> ![Correzione](./media/active-directory-identityprotection/222.png "Correzione")
 
 
 ### Identity Protection e domini federati
@@ -257,7 +254,7 @@ Quando si impostano i criteri:
 
 - Usare una soglia **alta** durante il rollout iniziale dei criteri o se è necessario ridurre al minimo gli avvisi visualizzati dagli utenti finali.
 
-- Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce altri passaggi di verifica dell'accesso per l'utente, ma garantisce una maggiore sicurezza.
+- Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce richieste di accesso aggiuntive per l'utente, ma garantisce una maggiore sicurezza.
 
 L'impostazione predefinita consigliata per la maggior parte delle organizzazioni è la configurazione di una regola per una soglia **media**, che permette di bilanciare usabilità e sicurezza.
 
@@ -416,4 +413,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
  - [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
  - [Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

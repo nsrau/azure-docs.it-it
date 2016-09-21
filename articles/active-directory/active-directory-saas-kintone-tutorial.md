@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/09/2016" 
+    ms.date="09/01/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Kintone
@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Kintone** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://company.kintone.com*" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://company.kintone.com*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configura URL app")
 
@@ -100,16 +100,16 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 9.  Fare clic su **Abilita autenticazione SAML**.
 
-    ![SAML Authentication](./media/active-directory-saas-kintone-tutorial/IC785882.png "SAML Authentication")
+    ![Autenticazione SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "Autenticazione SAML")
 
 10. Nella sezione SAML Authentication seguire questa procedura:
 
-    ![SAML Authentication](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML Authentication")
+    ![Autenticazione SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Autenticazione SAML")
 
-    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL**.
-    3.  Per caricare il certificato scaricato, fare clic su **Sfoglia**.
-    4.  Fare clic su **Salva**.
+    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL** (URL disconnessione).
+    3.  Per caricare il certificato scaricato, fare clic su **Browse**.
+    4.  Fare clic su **Save**.
 
 11. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -118,7 +118,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
   
 Per consentire agli utenti di Azure AD di accedere a Kintone, è necessario eseguirne il provisioning in Kintone. Nel caso di Kintone, il provisioning è un'attività manuale.
 
-###Per eseguire il provisioning di un account utente, seguire questa procedura:
+###Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 
 1.  Accedere al sito aziendale di **Kintone** come amministratore.
 
@@ -155,7 +155,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Kintone** fare clic su **Assegna utenti**.
+2.  Nella **pagina di integrazione dell'applicazione Kintone** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-kintone-tutorial/IC785891.png "Assegna utenti")
 
@@ -165,4 +165,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

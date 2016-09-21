@@ -14,14 +14,14 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/07/2016"
+   	ms.date="09/02/2016"
    	ms.author="jgao"/>
 
 #Creare cluster basati su Linux in HDInsight tramite .NET SDK
 
 [AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
-.NET SDK per HDInsight fornisce librerie client .NET che semplificano l'uso di HDInsight da un'applicazione .NET Framework. In questo documento viene illustrato come creare un cluster HDInsight basato su Linux tramite l’SDK di .NET.
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDInsight da un'applicazione .NET Framework. In questo documento viene illustrato come creare un cluster HDInsight basato su Linux tramite l’SDK di .NET.
 
 > [AZURE.IMPORTANT] I passaggi descritti in questo documento creano un cluster con un nodo di lavoro. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14GB di RAM.
 >
@@ -394,4 +394,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 - [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

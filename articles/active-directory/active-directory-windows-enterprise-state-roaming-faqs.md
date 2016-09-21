@@ -122,6 +122,7 @@ Se l'organizzazione utilizza già il roaming in Windows 10 con la sottoscrizione
 
 - Se si tenta di accedere al dispositivo Windows utilizzando una smart card, anche virtuale, la sincronizzazione delle impostazioni cesserà di funzionare. È possibile che questo problema venga risolto da aggiornamenti futuri a Windows 10.
 - Per consentire il funzionamento della sincronizzazione dei Preferiti di Internet Explorer, sarà necessario l'aggiornamento cumulativo di luglio per Windows 10 (build 10586.494 o versione successiva).
+- I dati protetti con Windows Information Protection non vengono sincronizzati in Enterprise State Roaming. Nei computer in cui è abilitata la funzionalità Windows Information Protection, inoltre, non verrà eseguita la sincronizzazione del tema.
 - In determinate condizioni, l'Enterprise State Roaming potrebbe non riuscire a sincronizzare i dati se è configurata la funzione Azure Multi-Factor Authentication.
     - Se nel portale di Azure Active Directory il dispositivo è configurato per richiedere la [Multi-Factor Authentication](multi-factor-authentication.md), potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero riuscire comunque a sincronizzare l'accesso ai dispositivi Windows 10 tramite il PIN [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) o eseguendo la Multi-Factor Authentication durante l'accesso ad altri servizi Azure, come Office 365.
     - La sincronizzazione può non riuscire se l'amministratore configura in Active Directory Federation Services il criterio di accesso condizionale Multi-Factor Authentication e il token di accesso al dispositivo scade. Per accedere e disconnettersi, usare sempre il PIN [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
@@ -135,4 +136,4 @@ Se l'organizzazione utilizza già il roaming in Windows 10 con la sottoscrizione
 - [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Output della trasformazione dei dati: opzioni di l'archiviazione, analisi | Microsoft Azure"
-	description="Informazioni su come destinare gli output di trasformazione dei dati di Analisi di flusso a opzioni di archiviazione dei dati e su come usare Power BI per i risultati dell'analisi."
+	pageTitle="Output di Analisi di flusso: opzioni per archiviazione, analisi | Microsoft Azure"
+	description="Informazioni sulla destinazione di opzioni di output dei dati di Analisi di flusso tra cui Power BI per i risultati dell'analisi."
 	keywords="trasformazione dei dati, risultati dell'analisi, opzioni di archiviazione dati"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
@@ -14,18 +14,28 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="08/29/2016"
 	ms.author="jeffstok"/>
 
-# Destinare gli output di trasformazione dei dati di Analisi di flusso a strumenti di analisi e opzioni di archiviazione dei dati
+# Output di Analisi di flusso: opzioni per archiviazione, analisi
 
-Quando si crea un processo di Analisi di flusso, una considerazione da fare riguarda l'uso dell'output di trasformazione dei dati. Come si visualizzeranno i risultati del processo di Analisi di flusso? Quali strumenti si usano per visualizzare i risultati dell'analisi dei dati? È necessaria un'opzione di archiviazione dei dati?
+Quando si crea un processo di Analisi di flusso, una considerazione da fare riguarda l'uso dei dati risultanti. Come si visualizzeranno i risultati del processo di Analisi di flusso e dove saranno archiviati?
 
 Per poter abilitare un'ampia gamma di modelli dell'applicazione, Analisi di flusso di Azure offre metodi diversi per archiviare l'output e visualizzare i risultati dell'analisi. In questo modo è possibile sia visualizzare facilmente l'output del processo che ottenere flessibilità nell'uso e nell'archiviazione dell'output del processo per il data warehouse e altri scopi. Qualsiasi elemento output configurato nel processo deve esistere prima che il processo venga avviato e gli eventi avviino il flusso. Ad esempio, se si utilizza l'archiviazione Blob come output, il processo non creerà un account di archiviazione automaticamente. Deve essere creato dall'utente prima che venga avviato il processo ASA.
 
 ## Archivio Azure Data Lake
 
 Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Questa archiviazione consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative. Attualmente la creazione e la configurazione di output di Archivio Data Lake è supportata solo nel portale di Azure classico. Inoltre, Analisi di flusso deve essere autorizzato ad accedere ad Archivio Data Lake. I dettagli sull'autorizzazione e su come iscriversi per l'anteprima di Archivio Data Lake (se necessario) sono forniti nell'[articolo relativo agli output di Archivio Data Lake](stream-analytics-data-lake-output.md).
+
+### Autorizzare un Archivio Azure Data Lake
+
+Quando Archivio Data Lake è selezionato come output nel portale di gestione di Azure, viene richiesto di autorizzare una connessione a un Archivio Data Lake esistente.
+
+![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
+
+Compilare quindi le proprietà per l'output di Archivio Data Lake come illustrato di seguito:
+
+![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione necessari per la creazione di un output di Archivio Data Lake.
 
@@ -40,8 +50,8 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 <td>È un nome descrittivo usato nelle query per indirizzare l'output delle query ad Archivio Data Lake in uso.</td>
 </tr>
 <tr>
-<td>Account di Archivio Data Lake</td>
-<td>Nome dell'account di archiviazione a cui si sta inviando l'output. Verrà visualizzato un elenco a discesa degli account di Archivio Data Lake ai quali ha accesso l'utente connesso al portale.</td>
+<td>Nome account</td>
+<td>Nome dell'account di archiviazione Data Lake a cui si sta inviando l'output. Verrà visualizzato un elenco a discesa degli account di Archivio Data Lake ai quali ha accesso l'utente connesso al portale.</td>
 </tr>
 <tr>
 <td>Schema prefisso percorso [<I>facoltativo</I>]</td>
@@ -74,6 +84,13 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 </tbody>
 </table>
 
+### Rinnovare l'autorizzazione per Archivio Data Lake
+
+Se la password dell'account di Archivio Data Lake è stata modificata dopo la creazione o l'ultima autenticazione del processo, sarà necessario autenticare nuovamente l'account.
+
+![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+
+
 ## Database SQL
 
 Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso eseguiranno la scrittura in una tabella esistente di un database SQL di Azure. Si noti che lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. Un [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) può anche essere specificato come output tramite l'opzione di output del database SQL (si tratta di una funzionalità di anteprima). La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
@@ -85,7 +102,7 @@ Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) p
 | Server Name | Nome server del database SQL di Azure |
 | Nome utente | Nome utente che ha accesso in scrittura al database |
 | Password | Password per connettersi al database |
-| Tabella | Nome della tabella in cui verrà scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole e lo schema della tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
+| Table | Nome della tabella in cui verrà scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole e lo schema della tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
 
 > [AZURE.NOTE] Attualmente l'offerta relativa al database SQL di Azure è supportata per un output di processi in Analisi di flusso. Non è tuttavia supportata una macchina virtuale di Azure che esegue SQL Server con un database collegato. Questo comportamento sarà soggetto a modifiche nelle versioni future.
 
@@ -190,9 +207,9 @@ Dopo aver autenticato l'account Power BI, è possibile configurare le proprietà
 | Nome proprietà | Descrizione |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias di output | È un nome descrittivo usato nelle query per indirizzare l'output delle query a questo output di Power BI. |
+| Area di lavoro del gruppo | Per abilitare la condivisione dei dati con altri utenti Power BI, è possibile selezionare i gruppi all'interno dell'account Power BI o scegliere "Area di lavoro personale" se non si vuole eseguire la scrittura in un gruppo. L'aggiornamento di un gruppo esistente richiede il rinnovo dell'autenticazione di Power BI. | 
 | Nome del set di dati | Immettere un nome per il set di dati che dovrà essere usato dall'output di Power BI |
 | Nome tabella | Immettere un nome per la tabella nel set di dati dell'output di Power BI. Attualmente, l’output di Power BI da processi di Analisi di flusso può avere solo una tabella in un set di dati |
-| Nome gruppo | Per abilitare la condivisione dei dati con altri utenti di Power BI, scrivere i dati nei gruppi. È possibile selezionare i gruppi all'interno dell'account Power BI o scegliere "My Workspace" se non si vuole eseguire la scrittura in un gruppo. L'aggiornamento di un gruppo esistente richiede il rinnovo dell'autenticazione di Power BI. |
 
 Per una procedura dettagliata di configurazione di un output di Power BI e del dashboard, vedere l'articolo [Analisi dei flussi di Azure e Power BI](stream-analytics-power-bi-dashboard.md).
 
@@ -285,7 +302,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 </tr>
 <tr>
 <td>Modello del nome di raccolta</td>
-<td>Il modello del nome di raccolta per le raccolte da utilizzare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0.<BR>Ad esempio, Di seguito sono gli input validi:<BR>MyCollection{partition}<BR>MyCollection<BR>Si noti che le raccolte devono esistere prima che il processo di analisi di flusso sia avviato e non verranno create automaticamente.</td>
+<td>Il modello del nome di raccolta per le raccolte da utilizzare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0.<BR>ad esempio Di seguito sono gli input validi:<BR>MyCollection{partition}<BR>MyCollection<BR>Si noti che le raccolte devono esistere prima che il processo di analisi di flusso sia avviato e non verranno create automaticamente.</td>
 </tr>
 <tr>
 <td>Chiave di partizione</td>
@@ -300,7 +317,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:
@@ -318,4 +335,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

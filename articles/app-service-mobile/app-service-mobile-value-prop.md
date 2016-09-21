@@ -103,4 +103,4 @@ Per altre informazioni sulle app per dispositivi mobili di Azure, vedere la [map
 [ambienti del servizio app]: ../app-service-web/app-service-app-service-environment-intro.md
 [mappa di apprendimento]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

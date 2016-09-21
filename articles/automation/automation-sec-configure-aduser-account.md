@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
 
 # Autenticare i runbook con Azure Service Management e Azure Resource Manager
@@ -26,7 +26,7 @@ Questo articolo descrive le procedure da eseguire per configurare un account ute
 2. Selezionare **Active Directory** e quindi il nome della directory dell'organizzazione.
 3. Selezionare la scheda **Utenti** e quindi nell'area di comando selezionare **Aggiungi utente**.
 4. Nella pagina **Informazioni sull'utente** in **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
-5. Immettere un nome utente.  
+5. Immettere un nome utente.
 6. Selezionare il nome di directory associata alla sottoscrizione di Azure nella pagina Active Directory.
 7. Nella pagina **Profilo utente** specificare nome e cognome, un nome descrittivo e un utente dall'elenco **Ruoli**. Non selezionare **Abilita Multi-Factor Authentication**.
 8. Prendere nota del nome completo dell'utente e della password temporanea.
@@ -45,10 +45,10 @@ In questa sezione verranno eseguite le procedure seguenti per creare un nuovo ac
 1. Accedere al portale di Azure classico come amministratore del servizio per la sottoscrizione di Azure da gestire.
 2. Selezionare **Automazione**.
 3. Nella pagina **Automazione** selezionare **Crea un account di Automazione**.
-4. Nella casella **Crea un account di Automazione** digitare un nome per il nuovo account di Automazione e selezionare un'area dall'elenco a discesa **Area**.  
+4. Nella casella **Crea un account di Automazione** digitare un nome per il nuovo account di Automazione e selezionare un'area dall'elenco a discesa **Area**.
 5. Fare clic su **OK** per accettare le impostazioni e creare l'account.
 6. Al termine della creazione, verrà visualizzato nell'elenco della pagina **Automazione**.
-7. Fare clic sull'account per visualizzare la pagina Dashboard.  
+7. Fare clic sull'account per visualizzare la pagina Dashboard.
 8. Nella pagina del dashboard di Automazione selezionare **Asset**.
 9. Nella pagina **Asset** selezionare l'opzione **Aggiungi impostazioni** nella parte inferiore della pagina.
 10. Nella pagina **Aggiungi impostazioni** selezionare **Aggiungi credenziali**.
@@ -64,7 +64,7 @@ In questa sezione verranno eseguite le procedure seguenti per creare un nuovo ac
 3. Nel pannello Account di automazione fare clic su **Aggiungi**.<br>![Aggiungi account di Automazione](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 2. Nella casella **Nome** del pannello **Aggiungi account di Automazione** digitare un nome per il nuovo account di Automazione.
 5. Se si hanno più sottoscrizioni, specificare quella per il nuovo account, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
-3. Selezionare il valore **No** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.  
+3. Selezionare il valore **No** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.
 
     >[AZURE.NOTE] Se si sceglie di non creare l'account RunAs selezionando **No**, verrà visualizzato un messaggio di avviso nel pannello **Aggiungi account di Automazione**. Durante la creazione e l'assegnazione al ruolo **Collaboratore** nella sottoscrizione, l'account non ha un'identità di autenticazione corrispondente nel servizio directory delle sottoscrizioni e, di conseguenza, non ha accesso alle risorse nella sottoscrizione. Questo impedisce ai runbook che fanno riferimento a questo account di autenticarsi ed eseguire attività sulle risorse di Azure Resource Manager.
 
@@ -76,7 +76,7 @@ Al termine della creazione delle credenziali, sarà necessario creare un asset c
 
 ## Usare le credenziali in un Runbook
 
-È possibile recuperare le credenziali in un Runbook tramite l'attività [Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx) e quindi usarle con [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per connettersi alla sottoscrizione di Azure. Se le credenziali appartengono a un amministratore di più sottoscrizioni di Azure, occorre usare anche [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx) per specificare la sottoscrizione corretta. L'esempio di Windows PowerShell seguente illustra il codice presente in genere all'inizio della maggior parte dei Runbook di automazione di Azure.
+È possibile recuperare le credenziali in un runbook usando l'attività [Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx) e quindi usarle con [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per connettersi alla sottoscrizione di Azure. Se le credenziali appartengono a un amministratore di più sottoscrizioni di Azure, occorre usare anche [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx) per specificare la sottoscrizione corretta. L'esempio di Windows PowerShell seguente illustra il codice presente in genere all'inizio della maggior parte dei Runbook di automazione di Azure.
 
     $cred = Get-AutomationPSCredential –Name "myuseraccount.onmicrosoft.com"
 	Add-AzureAccount –Credential $cred
@@ -87,4 +87,4 @@ Al termine della creazione delle credenziali, sarà necessario creare un asset c
 ## Passaggi successivi
 * Esaminare i vari tipi di runbook e le procedure per creare runbook personalizzati nell'articolo [Tipi di runbook di Automazione di Azure](../automation/automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

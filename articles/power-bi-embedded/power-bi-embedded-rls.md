@@ -3,7 +3,7 @@
    description="Informazioni dettagliate sulla sicurezza a livello di riga con Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Sicurezza a livello di riga con Power BI Embedded
 
@@ -83,7 +83,7 @@ I filtri possono essere ora applicati anche dalla tabella Sales alla tabella **I
 2.	**File** -> **Opzioni e impostazioni** -> **DirectQuery** -> **Consenti misure senza limitazioni in modalità DirectQuery**.
 
 
-Per altre informazioni sui filtri incrociati bidirezionali, scaricare il white paper [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop] (Filtro incrociato bidirezionale in SQL Server Analysis Services 2016 e Power BI Desktop) (http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
+Per altre informazioni sui filtri incrociati bidirezionali, scaricare il white paper [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop] \(Filtro incrociato bidirezionale in SQL Server Analysis Services 2016 e Power BI Desktop) (http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
 
 Queste sono tutte le operazioni da eseguire in Power BI Desktop, ma per consentire il funzionamento delle regole di sicurezza a livello di riga in Power BI Embedded è necessario ancora un passaggio. Gli utenti vengono autenticati e autorizzati dall'applicazione e i token dell'app vengono usati per concedere l'accesso a un report specifico di Power BI Embedded. Power BI Embedded non ha informazioni specifiche sull'identità dell'utente. Per consentire il funzionamento della sicurezza a livello di riga, sarà necessario passare contesto aggiuntivo come parte del token dell'app:
 -	**username** (facoltativo): usata con la sicurezza a livello di riga, questa stringa può semplificare l'identificazione dell'utente quando si applicano le regole di sicurezza a livello di riga. Vedere l'articolo relativo all'uso della sicurezza a livello di riga con Power BI Embedded.
@@ -102,4 +102,4 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 ## Vedere anche
 [Row-level security (RLS) with Power BI](https://powerbi.microsoft.com/it-IT/documentation/powerbi-admin-rls/) (Sicurezza a livello di riga con Power BI)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

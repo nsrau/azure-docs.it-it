@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/17/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma"/>
 
 # Introduzione al client Python di Azure Batch
@@ -23,8 +23,6 @@
 - [Python](batch-python-tutorial.md)
 
 Questo articolo illustra i concetti di base relativi ad [Azure Batch][azure_batch] e al client [Python di Batch][py_azure_sdk] esaminando una piccola applicazione scritta in Python. Verrà illustrato il modo in cui due script di esempio usano il servizio Batch per elaborare un carico di lavoro parallelo in macchine virtuali Linux nel cloud e come interagiscono con [Archiviazione di Azure](./../storage/storage-introduction.md) per lo staging e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
-
-> [AZURE.NOTE] Supporto Linux in Batch è attualmente disponibile in anteprima. Alcuni aspetti della funzionalità illustrati in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale. I [pacchetti dell'applicazione](batch-application-packages.md) **non sono attualmente supportati** nei nodi di calcolo Linux.
 
 ![Flusso di lavoro della soluzione Batch (di base)][11]<br/>
 
@@ -660,4 +658,4 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

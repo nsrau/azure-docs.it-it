@@ -13,37 +13,40 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/07/2016"
 	ms.author="tarcher"/>
 
 # Gestire immagini personalizzate di Azure DevTest Labs per creare macchine virtuali
 
-Dopo aver [creato un lab](devtest-lab-create-lab.md) è possibile [aggiungere macchine virtuali nel lab](devtest-lab-add-vm-with-artifacts.md). Quando si crea una macchina virtuale, si specifica una *base* che può essere un'*immagine personalizzata* o un'*immagine di Marketplace*. In questo articolo si apprenderà come [creare un'immagine personalizzata da un disco rigido virtuale](#create-a-custom-image-from-a-vhd) per creare successivamente una macchina virtuale da tale immagine personalizzata. È anche possibile [creare un'immagine personalizzata da una macchina virtuale](#create-a-custom-image-from-a-vm) per la successiva creazione rapida di macchine virtuali.
+In Azure DevTest Labs, le immagini personalizzate consentono di creare rapidamente VM, senza dover attendere l'installazione di tutto il software necessario nel computer di destinazione. Le immagini personalizzate consentono di preinstallare tutto il software necessario in un file VHD da utilizzare per creare una VM. Poiché il software è già installato, creare la VM richiede molto meno tempo. Inoltre, con le immagini personalizzate è possibile clonare le VM, creando l'immagine personalizzata da una VM e usandola quindi per creare le VM.
+
+In questo articolo viene spiegato come:
+
+- [Creare un'immagine personalizzata da un file VHD](#create-a-custom-image-from-a-vhd-file) e usarla per creare una VM.
+- [Creare un'immagine personalizzata da una VM](#create-a-custom-image-from-a-vm) per clonare velocemente una VM.
 
 ## Creare un'immagine personalizzata da un file VHD
 
-Questa sezione descrive come creare un'immagine personalizzata da un file VHD. Si noti che è necessario accedere a un file VHD valido per eseguire tutti i passaggi di questa sezione.
+Questa sezione descrive come creare un'immagine personalizzata da un file VHD. Per eseguire tutti i passaggi di questa sezione, è necessario accedere a un file VHD valido.
 
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. Verrà visualizzato il pannello **Impostazioni** del lab selezionato.
+1. Nel pannello del lab selezionare **Configurazione**.
 
-1. Nel pannello **Impostazioni** del lab selezionare **Immagini personalizzate**.
-
-    ![Opzione per le immagini personalizzate](./media/devtest-lab-create-template/lab-settings-custom-images.png)
+1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate**.
 
 1. Nel pannello **Immagini personalizzate** selezionare **+ Immagine personalizzata**.
 
     ![Aggiungere un'immagine personalizzata](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Immettere il nome dell'immagine personalizzata. Il nome viene visualizzato nell'elenco delle immagini di base durante la creazione di una nuova macchina virtuale.
+1. Immettere il nome dell'immagine personalizzata. Il nome viene visualizzato nell'elenco delle immagini di base durante la creazione di una VM.
 
-1. Immettere la descrizione dell'immagine personalizzata. La descrizione viene visualizzata nell'elenco delle immagini di base durante la creazione di una nuova macchina virtuale.
+1. Immettere la descrizione dell'immagine personalizzata. La descrizione viene visualizzata nell'elenco delle immagini di base durante la creazione di una VM.
 
 1. Selezionare **File VHD**.
 
@@ -67,7 +70,7 @@ Questa sezione descrive come creare un'immagine personalizzata da un file VHD. S
 
 ###Caricare un file VHD
 
-Per aggiungere una nuova immagine personalizzata, è necessario accedere a un file VHD.
+Per aggiungere un'immagine personalizzata, è necessario accedere a un file VHD.
 
 1. Nel pannello **File VHD** selezionare l'opzione **Carica un disco rigido virtuale con PowerShell**.
 
@@ -76,25 +79,27 @@ Per aggiungere una nuova immagine personalizzata, è necessario accedere a un fi
 1. Il pannello successivo visualizzerà le istruzioni per la modifica e l'esecuzione di uno script di PowerShell che carica un file VHD nella sottoscrizione di Azure. **Nota:** questo processo può richiedere molto tempo a seconda delle dimensioni del file VHD e della velocità della connessione.
 
 ## Creare un'immagine personalizzata da una macchina virtuale
-Se è presente una macchina virtuale già configurata, è possibile creare un'immagine personalizzata da tale macchina virtuale e successivamente usare l'immagine personalizzata per creare altre macchine virtuali identiche. I passaggi seguenti illustrano come creare un'immagine personalizzata da una macchina virtuale:
+Se è già stata configurata una VM, è possibile creare un'immagine personalizzata da tale VM e quindi usare l'immagine personalizzata per creare altre VM identiche. I passaggi seguenti illustrano come creare un'immagine personalizzata da una macchina virtuale:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Esplora** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.
 
-1. Nel pannello **Panoramica** del lab selezionare la macchina virtuale dalla quale creare l'immagine personalizzata.
+1. Nel pannello del lab selezionare **My virtual machines** (Macchine virtuali personali).
+ 
+1. Nel pannello **My virtual machines** (Macchine virtuali personali) del lab selezionare la VM da cui creare l'immagine personalizzata.
 
 1. Nel pannello della macchina virtuale selezionare **Crea immagine personalizzata (disco rigido virtuale)**.
 
 	![Voce di menu Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Nel pannello **Immagine personalizzata** immettere un nome e una descrizione per l'immagine personalizzata. Queste informazioni verranno visualizzate nell'elenco delle immagini di base quando si crea una macchina virtuale.
+1. Nel pannello **Immagine personalizzata** immettere un nome e una descrizione per l'immagine personalizzata. Queste informazioni vengono visualizzate nell'elenco delle immagini di base quando si crea una VM.
 
 	![Pannello Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Indicare se è stato eseguito sysprep nella macchina virtuale. Se non è stato eseguito sysprep nella macchina virtuale, specificare se si vuole che venga eseguito sysprep quando viene creata una macchina virtuale da questa immagine personalizzata.
+1. Indicare se è stato eseguito sysprep nella macchina virtuale. Se non è stato eseguito sysprep nella VM, specificare se si desidera eseguirlo quando si crea una VM da questa immagine personalizzata.
 
 1. Selezionare **OK** al termine per creare l'immagine personalizzata.
 
@@ -109,4 +114,4 @@ Se è presente una macchina virtuale già configurata, è possibile creare un'im
 
 Dopo aver aggiunto un'immagine personalizzata da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale al lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

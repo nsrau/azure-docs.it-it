@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # Gestione dei contenitori con Docker Swarm
@@ -123,4 +123,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 [Altre informazioni su Docker Swarm](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->
