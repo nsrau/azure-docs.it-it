@@ -224,7 +224,9 @@ In un sistema HDFS, umask è in genere un'opzione di configurazione a livello di
 
 | Gruppo utenti | Impostazione | Effetto sull'ACL di accesso di un nuovo elemento figlio |
 |------------ |---------|---------------------------------------|
-| Utente proprietario | --- | Nessun effetto | | Gruppo proprietario| --- | Nessun effetto | | Altri | RWX | Rimozione Lettura + Scrittura + Esecuzione |
+| Utente proprietario | --- | Nessun effetto |
+| Gruppo proprietario| --- | Nessun effetto |
+| Altri | RWX | Rimozione Lettura + Scrittura + Esecuzione |
 
 La figura seguente illustra il funzionamento di questa proprietà umask. L'effetto in definitiva è la rimozione dell'autorizzazione **Lettura + Scrittura + Esecuzione** per gli **altri** utenti. Dato che in umask non sono specificati bit per l'**utente proprietario** e il **gruppo proprietario**, tali autorizzazioni non vengono trasformate.
 
