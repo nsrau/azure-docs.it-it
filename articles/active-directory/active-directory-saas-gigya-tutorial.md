@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/09/2016" 
+    ms.date="09/01/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Gigya
@@ -64,7 +64,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Gigy
     ![Gigya](./media/active-directory-saas-gigya-tutorial/IC789527.png "Gigya")
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione ad Gigya tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione ad Gigya tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso Gigya** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.gigya.com*" e fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*http://company.gigya.com*" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configura URL app")
 
@@ -95,15 +95,15 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![SAML Configuration](./media/active-directory-saas-gigya-tutorial/IC789533.png "SAML Configuration")
 
     1.  Nella casella di testo **Name** digitare un nome per la configurazione.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Gigya** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer**.
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Gigya** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **Single Sign-On Service URL**.
-    4.  Nella pagina **Configura accesso Single Sign-On in Gigya** nel portale di Azure classico copiare il valore di **Formato identificatore nome** e quindi incollarlo nella casella di testo **Name ID Format**.
-    5.  Creare un file **con codifica Base 64** dal certificato scaricato.
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Gigya** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer** (Autorità di certificazione).
+    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in Gigya** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **Single Sign-On Service URL** (URL servizio Single Sign-On).
+    4.  Nella pagina **Configura accesso Single Sign-On in Gigya** nel portale di Azure classico copiare il valore di **Formato identificatore nome** e quindi incollarlo nella casella di testo **Name ID Format** (Formato ID nome).
+    5.  Creare un file con **codifica Base 64** dal certificato scaricato.
         
-		>[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+		>[AZURE.TIP]Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e incollarlo nella casella di testo **Certificato X.509**.
-    7.  Fare clic su **Save Settings**.
+    7.  Fare clic su **Salva impostazioni**.
 
 8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -112,13 +112,13 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
   
 Per consentire agli utenti di Azure AD di accedere a Gigya, è necessario eseguirne il provisioning in Gigya. Nel caso di Gigya, il provisioning è un'attività manuale.
 
-###Per eseguire il provisioning di un account utente, seguire questa procedura:
+###Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 
 1.  Accedere al sito aziendale di **Gigya** come amministratore.
 
 2.  Passare a **Admin > Manage Users** e quindi fare clic su **Invite Users**.
 
-    ![Manage Users](./media/active-directory-saas-gigya-tutorial/IC789535.png "Manage Users")
+    ![Gestisci utenti](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gestisci utenti")
 
 3.  Nella finestra di dialogo Invite Users seguire questa procedura:
 
@@ -139,7 +139,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Gigya** fare clic su **Assegna utenti**.
+2.  Nella **pagina di integrazione dell'applicazione Gigya** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-gigya-tutorial/IC789537.png "Assegna utenti")
 
@@ -149,4 +149,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

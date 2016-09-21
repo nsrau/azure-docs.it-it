@@ -52,7 +52,7 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 
 | Problema | Risoluzione |
 | :----------------------------------| :---------------------------------------------- |
-| Messaggio 40847: Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 45000. | Ridurre il [DWU][] del database che si sta tentando di creare oppure [richiedere un aumento della quota][].|
+| Messaggio 40847: Non è stato possibile eseguire l'operazione perché il server avrebbe superato la quota di DTU consentita di 45000. | Ridurre il [DWU][] del database che si sta tentando di creare oppure [richiedere un aumento della quota][].|
 | Analisi dell'uso dello spazio | Per comprendere l'uso dello spazio nel sistema, vedere la [tabella sulle dimensioni][].|
 | Aiuto nella gestione delle tabelle | Per aiuto nella gestione delle tabelle, vedere l'articolo [Panoramica delle tabelle][Overview]. Questo articolo comprende anche collegamenti ad argomenti dettagliati come quelli su [tipi di dati delle tabelle][Data types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index], [partizionamento di una tabella][Partition], [conservazione delle statistiche delle tabelle][Statistics] e [tabelle temporanee][Temporary].|
 
@@ -139,4 +139,4 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

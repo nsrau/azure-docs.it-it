@@ -163,7 +163,7 @@ MBps = 10^6 byte al secondo.
 
 | Dimensione | Core CPU | Memoria: GiB | Dimensioni del disco SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 |------------------|-----------|--------------|---------------------------|----------------|-------------------------------------------------|-------------------------------------------------|------------------------------|
-| Standard\_DS1\_v2 | 1 | 3,5 | 7 | 2 | 4\.000/32 (43) | 3\.200/48 | 4/moderata |
+| Standard\_DS1\_v2 | 1 | 3,5 | 7 | 2 | 4\.000/32 (43) | 3\.200/48 | 1/moderata |
 | Standard\_DS2\_v2 | 2 | 7 | 14 | 4 | 8\.000/64 (86) | 6\.400/96 | 2/alta |
 | Standard\_DS3\_v2 | 4 | 14 | 28 | 8 | 16\.000/128 (172) | 12\.800/192 | 4/alta |
 | Standard\_DS4\_v2 | 8 | 28 | 56 | 16 | 32\.000/256 (344) | 25\.600/384 | 8/alta |
@@ -285,4 +285,4 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 - Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 - Per altre informazioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-Performance Computing (HPC).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

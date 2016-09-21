@@ -37,7 +37,7 @@ Attualmente non è possibile.
 
 #### È possibile segnalare gli stessi prefissi della propria rete virtuale?
 
-No, la segnalazione degli stessi prefissi degli indirizzi della rete virtuale verrà bloccata o filtrata dalla piattaforma Azure.
+No, la segnalazione degli stessi prefissi degli indirizzi della rete virtuale verrà bloccata o filtrata dalla piattaforma Azure. È tuttavia possibile pubblicizzare un prefisso che rappresenta un superset di ciò che si trova all'interno della rete virtuale. Ad esempio, la rete virtuale potrebbe usare lo spazio di indirizzi 10.10.0.0/16 e si potrebbe pubblicizzare 10.0.0.0/8.
 
 ### È possibile usare BGP con le connessioni tra reti virtuali?
 
@@ -79,4 +79,4 @@ Il gateway di rete locale di Azure specifica i prefissi di indirizzo iniziali pe
 
 È necessario aggiungere una route host dell'indirizzo IP del peer BGP di Azure nel dispositivo VPN che punta al tunnel VPN S2S IPsec. Ad esempio, se l'indirizzo IP del peer VPN di Azure è "10.12.255.30", è necessario aggiungere una route host per "10.12.255.30" con un'interfaccia nexthop dell'interfaccia del tunnel IPsec corrispondente nel dispositivo VPN.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

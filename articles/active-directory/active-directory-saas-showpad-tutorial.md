@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di Showpad in Azure AD, è necessario aggiungere 
 
 **Per aggiungere Showpad dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Applicazioni][1]
 
@@ -95,7 +95,7 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Showpad, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Showpad](#creating-a-showpad-test-user)**: per avere una controparte di Britta Simon in Showpad collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -204,7 +204,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     a. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
@@ -220,7 +220,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_07.png)
 
@@ -304,4 +304,4 @@ Quando si fa clic sul riquadro **Showpad** nel pannello di accesso, si dovrebbe 
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

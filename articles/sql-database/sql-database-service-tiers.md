@@ -19,7 +19,9 @@
 
 # Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
 
-[Il database SQL di Azure](sql-database-technical-overview.md) include più livelli di servizio per gestire diversi di carichi di lavoro. È possibile [modificare i livelli di servizio](sql-database-scale-up.md) in qualsiasi momento con tempi di inattività minimi per l'applicazione, in genere meno di 4 secondi. È anche possibile [creare un database singolo](sql-database-get-started.md) con caratteristiche e prezzi definiti. Oppure è possibile gestire tutti i database [creando un pool di database elastici](sql-database-elastic-pool-create-portal.md). In entrambi i casi, tra le opzioni incluse vi sono le edizioni **Basic**, **Standard**, e **Premium**. Le opzioni di database in questi livelli sono simili per i database autonomi e i pool elastici, ma per questi ultimi esistono altre considerazioni. Questo articolo fornisce i dettagli relativi ai livelli di servizio per i database autonomi e per i pool elastici.
+Il [database SQL di Azure](sql-database-technical-overview.md) offre tre livelli di servizio con diversi livelli di prestazioni per la gestione di carichi di lavoro differenti. Ogni livello di prestazioni offre un set di risorse superiore progettato per garantire un aumento della velocità effettiva. È possibile gestire ogni database nel proprio [livello di servizio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con il proprio livello di prestazioni. È anche possibile gestire più database in un [pool elastico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un set di risorse condiviso. Le risorse disponibili per i database autonomi sono espressi in unità di transazione di database (DTU) e per i pool elastici in unità di transazione di database elastico o eDTU. Per altre informazioni su DTU ed eDTU, vedere [Unità di transazione di database (DTU) e unità di transazione di database elastico (eDTU)](sql-database-what-is-a-DTU.md).
+
+In entrambi i casi, i livelli di servizio includono **Basic**, **Standard** e **Premium**. Le opzioni di database in questi livelli sono simili per i database autonomi e i pool elastici, ma per questi ultimi esistono altre considerazioni. Questo articolo fornisce i dettagli relativi ai livelli di servizio per i database autonomi e per i pool elastici.
 
 ## Livelli di servizio e opzioni di database
 I livelli di servizio Basic, Standard e Premium garantiscono un tempo di attività previsto dal contratto di servizio del 99,99% e offrono prestazioni prevedibili, opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. Nella tabella seguente sono riportati esempi dei livelli ottimali adatti ai carichi di lavoro di diverse applicazioni.
@@ -39,24 +41,18 @@ Le caratteristiche delle prestazioni riportate di seguito si applicano a databas
 
 [AZURE.INCLUDE [Tabella livelli di servizio database SQL](../../includes/sql-database-service-tiers-table.md)]
 
-Per una migliore comprensione delle DTU, vedere la [sezione DTU](#understanding-dtus) in questo argomento.
-
 >[AZURE.NOTE] Per una spiegazione dettagliata di tutte le altre righe in questa tabella dei livelli di servizio, vedere [Limiti e funzionalità dei livelli di servizio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Livelli di servizio e di prestazioni per pool elastici in eDTU
 Oltre a creare e a ridimensionare un database autonomo, è anche possibile gestire più database all'interno di un [pool elastico](sql-database-elastic-pool.md). Tutti i database in un pool elastico condividono un set comune di risorse. Le caratteristiche delle prestazioni sono misurate dalle *unità di transazione del database elastico* (eDTU). Come con i database autonomi, per i pool sono disponibili tre livelli di servizio: **Basic**, **Standard** e **Premium**. Per i pool questi tre livelli definiscono i limiti delle prestazioni complessive e diverse funzionalità.
 
-I pool consentono ai database di condividere e utilizzare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database autonomo in un pool Standard può passare dall'uso di 0 eDTU al numero massimo di eDTU impostato per il database quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md).
+I pool consentono ai database di condividere e usare risorse DTU senza dover assegnare un livello di prestazioni specifico a ogni database nel pool. Ad esempio, un database autonomo in un pool Standard può passare dall'uso di 0 eDTU al numero massimo di eDTU impostato per il database quando si configura il pool. I pool consentono a più database con carichi di lavoro diversi di usare in modo efficiente le risorse eDTU disponibili per l'intero pool. Per altre informazioni relative alle considerazioni su prezzi e prestazioni per un pool di database elastici, vedere [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
 La tabella seguente descrive le caratteristiche dei livelli di servizio del pool.
 
 [AZURE.INCLUDE [Tabella dei livelli di servizio del database SQL per i pool elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Ogni database all'interno di un pool è anche conforme alle caratteristiche del database autonomo per quel livello. Ad esempio, il pool Basic ha un limite di 4800 - 28800 per il numero massimo di sessioni per pool. Un database singolo all'interno del pool Basic ha un limite di 300 sessioni.
-
-## Informazioni sulle DTU
-
-[AZURE.INCLUDE [Descrizione di DTU del database SQL](../../includes/sql-database-understanding-dtus.md)]
 
 ## Scelta di un piano di servizio
 
@@ -92,4 +88,4 @@ Dopo aver determinato il livello di servizio per il pool, è possibile determina
 
 Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant di tipo software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

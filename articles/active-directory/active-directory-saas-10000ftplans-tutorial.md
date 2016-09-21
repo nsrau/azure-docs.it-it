@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di 10,000ft Plans in Azure AD, è necessario aggi
 
 **Per aggiungere 10,000ft Plans dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory][1]
 
@@ -132,7 +132,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 5. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il [team di supporto di 10,000ft Plans](mailto:support@10000ft.com), allegare il certificato scaricato e specificare l'URL autorità di certificazione, l'URL SSO SAML e l'URL disconnessione.
@@ -165,11 +165,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_04.png)
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_05.png)
 
@@ -177,9 +177,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_06.png)
 
@@ -274,4 +274,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

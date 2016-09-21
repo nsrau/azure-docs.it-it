@@ -40,9 +40,9 @@ Gli strumenti Visual Studio e Developer Analytics offrono un'esperienza di devOp
 ![Ciclo devops app Web](./media/app-insights-developer-analytics/040.png)
 
 * Uno sviluppatore archivia i dati nel repository di codice o li unisce nel ramo principale. Il repository nell'illustrazione è Git, ma potrebbe essere [Controllo della versione di Team Foundation](https://www.visualstudio.com/docs/tfvc/overview).
-* Le modifiche attivano compilazione e unit test. Il servizio di compilazione può essere in [Visual Studio Team Services o nella controparte locale, Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview). 
-* Se compilazione e unit test hanno esito positivo possono [attivare una distribuzione automatica](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). L'host di app Web può essere il server Web in uso o Microsoft Azure. 
-* I dati di telemetria provenienti dall'app attiva vengono inviati ad [Application Insights](app-insights-overview.md), sia dal server che [dai browser client](app-insights-javascript.md), dove è possibile analizzare le prestazioni dell'app e dei modelli di utilizzo. I potenti [strumenti di ricerca](app-insights-analytics.md) consentono di diagnosticare eventuali problemi. Gli [avvisi](app-insights-alerts.md) segnalano un problema non appena si presenta. 
+* Le modifiche attivano compilazione e unit test. Il servizio di compilazione può essere in [Visual Studio Team Services o nella controparte locale, Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview).
+* Se compilazione e unit test hanno esito positivo possono [attivare una distribuzione automatica](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). L'host di app Web può essere il server Web in uso o Microsoft Azure.
+* I dati di telemetria provenienti dall'app attiva vengono inviati ad [Application Insights](app-insights-overview.md), sia dal server che [dai browser client](app-insights-javascript.md), dove è possibile analizzare le prestazioni dell'app e dei modelli di utilizzo. I potenti [strumenti di ricerca](app-insights-analytics.md) consentono di diagnosticare eventuali problemi. Gli [avvisi](app-insights-alerts.md) segnalano un problema non appena si presenta.
 * Il ciclo di sviluppo successivo riceve le informazioni risultanti dall'analisi dei dati di telemetria attivi.
 
 ### Applicazioni per dispositivi e desktop
@@ -71,10 +71,18 @@ I passaggi sono essenzialmente gli stessi per ogni componente dell'applicazione,
 3. App per dispositivi:
  * Caricare una compilazione di debug in HockeyApp. Da qui è possibile distribuirla a un team di utenti test. Ogni volta che si caricano le compilazioni successive, il team riceverà una notifica.
  * Quando si configura il servizio di compilazione continua, creare una definizione della versione che usi il passaggio del plug-in per il caricamento in HockeyApp.
+
+### Analisi ed esportazione per la telemetria di HockeyApp
+
+È possibile esaminare la telemetria dei log e personalizzata di HockeyApp con le funzionalità di analisi ed esportazione continua di Application Insights [configurando un bridge](app-insights-hockeyapp-bridge-app.md).
+
+
+
+## Passaggi successivi
  
 Di seguito sono riportate le istruzioni dettagliate per i diversi tipi di app:
 
-* [App Web ASP.NET](app-insights-asp-net.md) 
+* [App Web ASP.NET](app-insights-asp-net.md)
 * [App Web Java](app-insights-java-get-started.md)
 * [App Web Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [App iOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
@@ -84,4 +92,4 @@ Di seguito sono riportate le istruzioni dettagliate per i diversi tipi di app:
 * [App Windows Phone 8 e 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
 * [App Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

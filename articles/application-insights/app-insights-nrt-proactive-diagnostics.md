@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Diagnostica proattiva quasi in tempo reale in Application Insights" 
+	pageTitle="Diagnostica proattiva quasi in tempo reale in Application Insights | Microsoft Azure" 
 	description="Avvisa su modelli di errore insoluti nell'app e fornisce analisi diagnostica. Non è necessaria alcuna configurazione." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,7 @@
 
 Questa funzionalità funziona per le app Web Java e ASP.NET ospitate nel cloud o nei server aziendali. Funziona anche per qualsiasi app che genera dati di telemetria di richiesta, ad esempio, un ruolo di lavoro che chiama [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Dopo aver configurato [Application Insights per il progetto](app-insights-get-started.md) e non appena l’applicazione genera una determinata quantità minima di dati di telemetria, la funzionalità di diagnostica attiva quasi in tempo reale impiega 24 ore per apprendere il comportamento normale dell'app prima di essere attivata e inviare avvisi.
+Al termine della configurazione di [Application Insights per il progetto](app-insights-overview.md), non appena l'app genera una quantità minima di dati di telemetria la funzionalità di diagnostica proattiva quasi in tempo reale impiega 24 ore per apprendere il comportamento normale dell'app prima di essere attivata e inviare avvisi.
 
 Ecco un avviso di esempio.
 
@@ -121,14 +121,14 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
     La funzionalità di diagnostica proattiva quasi in tempo reale adatta automaticamente la soglia in risposta alle condizioni attuali.
 
-    La funzionalità di diagnostica proattiva quasi in tempo reale avvia automaticamente il processo di diagnostica. 
+    La funzionalità di diagnostica proattiva quasi in tempo reale avvia automaticamente il processo di diagnostica.
 * Anche il [rilevamento proattivo](app-insights-proactive-detection.md) usa l'intelligenza artificiale per individuare modelli insoliti nella metrica, senza richiedere alcuna configurazione. A differenza della diagnostica proattiva quasi in tempo reale, lo scopo del rilevamento proattivo consiste nel trovare i segmenti dei molteplici modi di utilizzo che potrebbero essere gestiti in modo non corretto, ad esempio da pagine specifiche in un tipo specifico di browser. L'analisi viene eseguita ogni giorno e se viene trovato un risultato, è probabilmente molto meno urgente di un avviso. Al contrario, viene eseguita l'analisi per la diagnostica proattiva quasi in tempo reale viene eseguita continuamente sui dati di telemetria in ingresso e l'utente riceverà una notifica entro pochi minuti se la frequenza degli errori del server sono maggiori del previsto.
 
 ## Se si riceve un avviso della funzionalità di diagnostica proattiva quasi in tempo reale
 
 *Perché ho ricevuto questo avviso?*
 
-*	È stato rilevato un incremento anomalo delle richieste non riuscite rispetto al valore normale del periodo precedente. Dopo aver analizzato errori e dati di telemetria associati, si consiglia di esaminare più approfonditamente l'eventuale problema. 
+*	È stato rilevato un incremento anomalo delle richieste non riuscite rispetto al valore normale del periodo precedente. Dopo aver analizzato errori e dati di telemetria associati, si consiglia di esaminare più approfonditamente l'eventuale problema.
 
 *La notifica indica la sicura presenza di un problema?*
 
@@ -144,7 +144,7 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
 
-*	Sì. In Regole di avviso fare clic sulla regola Diagnostica proattiva per configurarla. È possibile disabilitare l'avviso o modificare i destinatari dell'avviso. 
+*	Sì. In Regole di avviso fare clic sulla regola Diagnostica proattiva per configurarla. È possibile disabilitare l'avviso o modificare i destinatari dell'avviso.
 
 *Non trovo più il messaggio di posta elettronica. Dove trovo le notifiche nel portale?*
 
@@ -159,4 +159,17 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *L'invio di commenti e suggerimenti sarà molto apprezzato. Utilizzare l'indirizzo di posta elettronica:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Passaggi successivi
+
+Gli strumenti di diagnostica seguenti consentono di controllare la telemetria dall'app:
+
+* [Esplora metriche](app-insights-metrics-explorer.md)
+* [Esplora ricerche](app-insights-diagnostic-search.md)
+* [Linguaggio avanzato di query di Analisi](app-insights-analytics-tour.md)
+
+Diagnostica proattiva è completamente automatica, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.
+
+* [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
+* [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
+
+<!---HONumber=AcomDC_0907_2016-->

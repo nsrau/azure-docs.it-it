@@ -4,4 +4,4 @@ Inserire domande nei forum Azure. [Visitare MSDN](http://go.microsoft.com/fwlink
 
 Contrassegnare le domande con la parola chiave `azure-functions`. [Visitare Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0912_2016-->

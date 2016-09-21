@@ -16,22 +16,18 @@
 	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
-# Creare la prima data factory di Azure con Microsoft Visual Studio
+# Esercitazione: Creare la prima data factory di Azure con Microsoft Visual Studio
 > [AZURE.SELECTOR]
-- [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
-- [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
-- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [Uso dell'API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-Questo articolo descrive come usare Microsoft Visual Studio per creare la prima data factory di Azure.
-
-## Prerequisiti
-
-1. Prima di procedere è **necessario** leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi richiesti.
-2. Per potere pubblicare entità di Data Factory in Azure Data Factory, è necessario essere un **amministratore della sottoscrizione di Azure**. Si tratta di una limitazione attuale.
+## Ulteriori prerequisiti
+2. Per potere pubblicare entità di Data Factory in da Visual Studio Azure Data Factory, è necessario essere un **amministratore della sottoscrizione di Azure**.
 3. È necessario disporre dei seguenti prodotti installati nel computer in uso:
 	- Visual Studio 2013 o Visual Studio 2015
 	- Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
@@ -50,9 +46,9 @@ Le procedure dettagliate seguenti illustrano come creare e distribuire entità d
 	![Esplora soluzioni](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ## Creazione di servizi collegati
-Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. Il nome e le impostazioni per la data factory vengono specificati in un secondo momento, quando si pubblica la soluzione Data Factory.
+Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input. Il nome e le impostazioni per la data factory vengono specificati in un secondo momento, quando si pubblica la soluzione Data Factory.
 
-In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline. È necessario identificare l'archivio dati/i servizi di calcolo usati nello scenario e collegare tali servizi alla data factory creando servizi collegati.
+In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline. Identificare l'archivio dati/i servizi di calcolo usati nello scenario e collegare tali servizi alla data factory creando servizi collegati.
 
 #### Creare il servizio collegato Archiviazione di Azure
 In questo passaggio l'account di archiviazione di Azure viene collegato alla data factory. Per questa esercitazione viene usato lo stesso account di archiviazione di Azure per archiviare i dati di input/output e il file di script HQL.
@@ -96,11 +92,11 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
 	Tenere presente quanto segue:
 	
-	- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
-	- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-	- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
+	- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+	- È possibile usare il **proprio cluster HDInsight** anziché un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+	- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che viene elaborata una sezione, a meno che non esista un cluster attivo (**timeToLive**). Il cluster viene eliminato al termine dell'elaborazione.
 	
-		Man mano che vengono elaborate più sezioni, vengono visualizzati molti contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+		Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
 
 	Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 4. Salvare il file **HDInsightOnDemandLinkedService1.json**.
@@ -188,7 +184,7 @@ Viene creato ora il set di dati di output per rappresentare i dati di output arc
 
 
 ### Creare una pipeline
-In questo passaggio viene creata la prima pipeline con un'attività **HDInsightHive**. Si noti che la sezione di input è disponibile ogni mese (frequenza: Month, intervallo: 1), la sezione di output viene generata ogni mese e anche la proprietà dell'utilità di pianificazione dell'attività è impostata su una frequenza mensile (vedere sotto). Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel codice JSON seguente sono illustrate in fondo a questa sezione.
+In questo passaggio viene creata la prima pipeline con un'attività **HDInsightHive**. La sezione di input è disponibile ogni mese (frequency: Month, interval: 1), la sezione di output viene generata ogni mese e anche la proprietà dell'utilità di pianificazione dell'attività è impostata su una frequenza mensile. Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel codice JSON seguente sono illustrate in fondo a questa sezione.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Pipeline**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
 2. Selezionare **Pipeline di trasformazione Hive** dell'elenco e fare clic su **Aggiungi**.
@@ -251,7 +247,7 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata da **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 
-	> [AZURE.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+	> [AZURE.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
 3. Salvare il file **HiveActivity1.json**.
 
 ### Aggiungere partitionweblogs.hql e input.log come dipendenza 
@@ -293,7 +289,7 @@ Tenere presente quanto segue:
 		È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
 	
 			Get-AzureRmResourceProvider
-	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Il provider verrà registrato automaticamente.
+	- Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Questa azione registra automaticamente il provider.
 - 	Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 - 	Per creare istanze di data factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
 
@@ -301,8 +297,9 @@ Tenere presente quanto segue:
 ## Monitorare la pipeline
 
 6. Accedere al [portale di Azure](https://portal.azure.com/) e seguire questa procedura:
-	1. Fare clic su **Sfoglia** e selezionare **Data factory**. ![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-	2. Selezionare **FirstDataFactoryUsingVS** dall'elenco di data factory.
+	1. Fare clic su **Sfoglia** e selezionare **Data factory**.
+	 	![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	2. Selezionare **FirstDataFactoryUsingVS** dall'elenco di data factory. 
 7. Nella home page della data factory fare clic su **Diagramma**.
   
 	![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -325,6 +322,7 @@ Tenere presente quanto segue:
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Al termine dell'elaborazione lo stato della sezione è **Pronta**.
+
 	>[AZURE.IMPORTANT] La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).
 
 	![Set di dati](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -381,7 +379,7 @@ Per aggiungere un file di configurazione per ogni ambiente, seguire questa proce
 2. Selezionare **Config** nell'elenco di modelli installati a sinistra, selezionare **File di configurazione**, immettere un **nome** per il file di configurazione e fare clic su **Aggiungi**.
 
 	![Aggiungere un file di configurazione](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
-3. Aggiungere i parametri di configurazione e i valori nel formato indicato di seguito:
+3. Aggiungere i parametri di configurazione e i valori nel formato seguente.
 
 		{
 		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
@@ -401,7 +399,7 @@ Per aggiungere un file di configurazione per ogni ambiente, seguire questa proce
 
 	Questo esempio configura la proprietà connectionString di un servizio collegato Archiviazione di Azure e di un servizio collegato Azure SQL. Si noti che la sintassi per specificare il nome è [JsonPath](http://goessner.net/articles/JsonPath/).
 
-	Se JSON ha una proprietà con una matrice di valori come indicato di seguito:
+	Se JSON ha una proprietà con una matrice di valori come indicato nel codice seguente:
 
 		"structure": [
 	  		{
@@ -414,7 +412,7 @@ Per aggiungere un file di configurazione per ogni ambiente, seguire questa proce
 			}
 		],
 	
-	È necessario eseguire la configurazione come indicato di seguito nel file di configurazione (usare l'indicizzazione in base zero):
+	Configurare le proprietà come illustrato nel file di configurazione seguente, ovvero usare l'indicizzazione in base zero:
 		
 		{
             "name": "$.properties.structure[0].name",
@@ -457,7 +455,7 @@ Per pubblicare entità in un progetto di Data factory di Azure usando il file di
 5. Verificare che il nome del file JSON sia presente nella pagina **Riepilogo** e fare clic su **Avanti**.
 6. Fare clic su **Fine** al termine dell'operazione di distribuzione.
 
-Quando si esegue la distribuzione, i valori del file di configurazione vengono usati per impostare i valori per le proprietà nei file JSON per le entità di Data factory (servizi collegati, tabelle o pipeline) prima che le entità vengano distribuite nel servizio Data factory di Azure.
+Quando si esegue la distribuzione, i valori del file di configurazione vengono usati per impostare i valori per le proprietà nei file JSON per le entità di Data Factory prima che le entità vengano distribuite nel servizio Azure Data Factory.
 
 ## Riepilogo 
 In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo lo script Hive in un cluster Hadoop di HDInsight. È stato usato l'editor di Data Factory nel portale di Azure per eseguire questa procedura:
@@ -482,4 +480,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 | [Set di dati](data-factory-create-datasets.md) | Questo articolo fornisce informazioni sui set di dati in Azure Data Factory.
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

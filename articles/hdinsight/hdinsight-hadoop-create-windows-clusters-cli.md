@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Windows in HDInsight tramite l'interfaccia della riga di comando di Azure
@@ -41,7 +41,7 @@ Usare il comando seguente per collegarsi ad Azure:
 
 	azure login
 
-Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
+Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
 Usare il comando seguente per passare alla modalità di Gestione risorse di Azure:
 
@@ -69,7 +69,7 @@ Per ottenere assistenza, utilizzare l’opzione **-h**. Ad esempio:
 
 - **Posizione**: uno dei data center di Azure che supporta cluster HDInsight. Per un elenco di percorsi supportati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-- **Account di archiviazione predefinito**: HDInsight usa un contenitore di archiviazione BLOB di Azure come file system predefinito. Per creare un cluster HDInsight, è necessario un account di archiviazione di Azure.
+- **Account di archiviazione predefinito**: HDInsight usa un contenitore di archiviazione BLOB di Azure come file system predefinito. Per creare un cluster HDInsight è necessario un account di archiviazione di Azure.
 
 	Per creare un nuovo account di archiviazione di Azure:
 
@@ -90,9 +90,9 @@ Per ottenere assistenza, utilizzare l’opzione **-h**. Ad esempio:
 
 	Per dettagli sull'acquisizione delle informazioni dal portale di Azure, vedere la sezione relativa alla gestione dell'account di archiviazione di [Informazioni sugli account di archiviazione Azure](../storage/storage-create-storage-account#manage-your-storage-account).
 
-- **(Facoltativo) Contenitore di BLOB predefinito**: il comando **azure hdinsight cluster create** crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile usare il comando seguente:
+- **(Facoltativo) Contenitore di BLOB predefinito**: il comando **azure hdinsight cluster create** crea il contenitore se non esiste. Se si sceglie di creare il contenitore prima, è possibile utilizzare il comando seguente:
 
-	azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
+	azure storage container create --account-name "<Nome Account Archiviazione>" --account-key <Chiave Account Archiviazione> [NomeContenitore]
 
 Dopo aver preparato l'account di archiviazione, è possibile creare un cluster.
 
@@ -139,4 +139,4 @@ Per informazioni generali sull'azione di script, vedere [Personalizzare cluster 
 - [Gestire cluster Hadoop in HDInsight tramite la CLI di Azure](hdinsight-administer-use-command-line.md)
 - [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

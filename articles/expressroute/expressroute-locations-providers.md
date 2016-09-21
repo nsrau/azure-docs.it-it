@@ -43,9 +43,9 @@ Nella tabella seguente vengono fornite informazioni su aree e confini geopolitic
 
 |**Area geopolitica**|**Aree di Azure**|**Località per ExpressRoute**|
 |---|---|---|---|
-|**Cloud del governo degli Stati Uniti**|Stati Uniti - Iowa, Virginia|Chicago, Dallas+, New York, Washington DC|
+|**Cloud del governo degli Stati Uniti**|Stati Uniti - Iowa, Virginia|Chicago, Dallas, New York, Washington DC|
 |**Cina**|Cina meridionale, Cina orientale|Pechino, Shanghai|
-|**Germania**|Germania centrale, Germania orientale|Berlino, Francoforte|
+|**Germania**|Germania centrale, Germania orientale|Berlino+, Francoforte|
 
 
 La connettività tra diverse aree geopolitiche non è supportata nello standard SKU EspressRoute. È necessario attivare il componente aggiuntivo premium ExpressRoute per supportare la connettività globale. La connettività per ambienti cloud nazionale non è supportata. È possibile utilizzare il provider di connettività in caso di necessità.
@@ -65,7 +65,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Dallas** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
-| **Dublino** | Colt |
+| **Dublino** | Colt, Telecity Group |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londra** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Las Vegas** | Level 3 Communications+, Megaport
@@ -94,7 +94,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Posizione** |**Provider di servizi** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** | Equinix+, Verizon+ |
+| **Dallas** | Equinix, Verizon+ |
 | **New York** | Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
@@ -156,4 +156,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

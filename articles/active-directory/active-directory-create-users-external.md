@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,9 +14,13 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/02/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Aggiungere utenti da altre directory o società partner in Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Portale di Azure](active-directory-create-users-external-azure-portal.md)
+- [Portale di Azure classico](active-directory-create-users-external.md)
 
 Questo articolo illustra come aggiungere utenti da altre directory in Azure Active Directory o aggiungere utenti da società partner. Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione e di utenti che possiedono account Microsoft, vedere [Aggiungere nuovi utenti o utenti con account Microsoft in Azure Active Directory](active-directory-create-users.md). Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
 
@@ -84,4 +88,4 @@ Se un utente viene eliminato nella home directory o se viene annullato il relati
 - [Gestire password in Azure AD](active-directory-manage-passwords.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

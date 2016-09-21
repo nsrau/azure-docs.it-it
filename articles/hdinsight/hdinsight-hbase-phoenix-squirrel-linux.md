@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight  
@@ -36,10 +36,10 @@ Quando ci si connette a un cluster HBase, sarà necessario connettersi a uno dei
 
 **Per scoprire il nome host del Zookeeper**
 
-1. Aprire Ambari passando ad **https://<ClusterName>.azurehdinsight.net**.
+1. Aprire Ambari da **https://<NomeCluster>.azurehdinsight.net**.
 2. Immettere il nome utente e la password HTTP (cluster) per effettuare l’accesso.
-3. Nel menu a sinistra fare clic su **ZooKeeper**. L’elenco mostrerà 3 voci **ZooKeeper Server**.
-4. Fare clic su una delle voci **ZooKeeper Server** dell’elenco. Nel riquadro Riepilogo, trovare il **Nome host**. È simile a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+3. Nel menu a sinistra fare clic su **ZooKeeper**. L'elenco mostrerà 3 voci **ZooKeeper Server**.
+4. Fare clic su una delle voci **ZooKeeper Server** dell'elenco. Nel riquadro Riepilogo trovare il **Nome host**. Il formato è simile a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **Per usare SQLLine**
 
@@ -71,7 +71,7 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight. Per alt
 
 - [Panoramica di HDInsight HBase][hdinsight-hbase-overview]\: HBase è un database NoSQL open source Apache basato su Hadoop che fornisce un accesso casuale e coerenza assoluta a grandi quantità di dati non strutturati e semistrutturati.
 - [Provisioning di cluster HBase in Rete virtuale di Azure][hdinsight-hbase-provision-vnet]\: con l'integrazione con la rete virtuale, i cluster HBase possono essere distribuiti alle stessa rete virtuale delle applicazioni in modo che queste ultime possano comunicare direttamente con HBase.
-- [Configurare la replica HBase in HDInsight](hdinsight-hbase-geo-replication.md): informazioni su come configurare la replica HBase in due data center di Azure. 
+- [Configurare la replica HBase in HDInsight](hdinsight-hbase-geo-replication.md): informazioni su come configurare la replica HBase in due data center di Azure.
 - [Analisi dei sentimenti Twitter con HBase in HDInsight][hbase-twitter-sentiment]\: informazioni su come eseguire [l'analisi dei sentimenti](http://en.wikipedia.org/wiki/Sentiment_analysis) dei Big Data in tempo reale usando HBase in un cluster Hadoop in HDInsight.
 
 [azure-portal]: https://portal.azure.com
@@ -95,4 +95,4 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight. Per alt
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

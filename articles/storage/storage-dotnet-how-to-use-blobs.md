@@ -365,7 +365,7 @@ Per impostazione predefinita, Archiviazione di Azure garantisce la sicurezza dei
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere ai dati BLOB in tale account. L'autenticazione delle richieste per l'archiviazione BLOB richiede la chiave di accesso dell'account per impostazione predefinita. È tuttavia possibile rendere disponibile ad altri utenti determinati dati BLOB. Sono disponibili due opzioni:
 
 - **Accesso anonimo**: è possibile rendere disponibili pubblicamente per l'accesso anonimo un contenitore o i BLOB in esso inclusi. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
-- **Firme di accesso condiviso**: è possibile fornire ai client una firma di accesso condiviso che consente l'accesso delegato a una risorsa nell'account di archiviazione, con le autorizzazioni specificate e per un intervallo specificato. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+- **Firme di accesso condiviso**: è possibile fornire ai client una firma di accesso condiviso che consente l'accesso delegato a una risorsa nell'account di archiviazione, con le autorizzazioni specificate e per un intervallo specificato. Vedere [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Uso di firme di accesso condiviso) per altre informazioni.
 
 ### Crittografia dei dati BLOB
 
@@ -407,4 +407,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

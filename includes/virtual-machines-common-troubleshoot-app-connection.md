@@ -1,6 +1,6 @@
-Esistono vari motivi per cui non è possibile avviare o connettersi a un'applicazione in esecuzione in una macchina virtuale di Azure, ad esempio l'applicazione non è in esecuzione e in ascolto sulle porte previste, la porta in ascolto è bloccata o le regole di rete non consentono il passaggio corretto del traffico all'applicazione. In questo articolo viene descritto un approccio metodico per rilevare e correggere il problema.
+Ci sono varie ragioni alla base dell'impossibilità di avviare o di connettersi a un'applicazione in esecuzione su una macchina virtuale (VM) di Azure. I motivi includono un'applicazione non in esecuzione o in attesa sulle porte previste, la porta di ascolto bloccata o regole di rete che non consentono la trasmissione corretta del traffico all'applicazione. In questo articolo viene descritto un approccio metodico per rilevare e correggere il problema.
 
-Se si sono verificati problemi durante la connessione alla macchina virtuale tramite RDP o SSH, consultare prima uno dei seguenti articoli:
+Se si sono verificati problemi durante la connessione alla VM tramite RDP o SSH, consultare prima uno dei seguenti articoli:
 
  - [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
  - [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
@@ -118,4 +118,4 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

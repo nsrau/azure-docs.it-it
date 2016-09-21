@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Aggiungere una macchina virtuale di Red Hat Enterprise Linux 7 a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale di Red Hat Enterprise Linux (RHEL) 7 a un dominio gestito di Servizi di dominio Azure AD.
 
 ## Eseguire il provisioning di una macchina virtuale di Red Hat Enterprise Linux
-Completare la procedura seguente per eseguire il provisioning di una macchina virtuale RHEL 7 con il portale di Azure.
+Eseguire questa procedura per effettuare il provisioning di una macchina virtuale RHEL 7 con il portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
     ![Dashboard del portale di Azure](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 
-2. Fare clic su **Nuovo** nel riquadro a sinistra e digitare **Red Hat** nella barra di ricerca, come illustrato nella schermata seguente. Nei risultati della ricerca vengono visualizzate le voci per Red Hat Enterprise Linux. Fare clic su **Red Hat Enterprise Linux 7.2**.
+2. Fare clic su **Nuovo** nel riquadro a sinistra e digitare **Red Hat** nella barra di ricerca, come illustrato nello screenshot seguente. Nei risultati della ricerca vengono visualizzate le voci per Red Hat Enterprise Linux. Fare clic su **Red Hat Enterprise Linux 7.2**.
 
     ![Selezionare RHEL nei risultati](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-find-rhel-image.png)
 
@@ -42,11 +42,11 @@ Completare la procedura seguente per eseguire il provisioning di una macchina vi
 
     ![Creare una macchina virtuale: dettagli di base](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
-6. Fare clic su **Configurazione facoltativa**. Viene visualizzato un riquadro denominato **Configurazione facoltativa**. Nel riquadro **Configurazione facoltativa** fare clic su **Rete** come illustrato nella schermata seguente.
+6. Fare clic su **Configurazione facoltativa**. Viene visualizzato un riquadro denominato **Configurazione facoltativa**. Nel riquadro **Configurazione facoltativa** fare clic su **Rete**.
 
     ![Creare una macchina virtuale: configurare una rete virtuale](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
 
-7. Dovrebbe essere visualizzato un riquadro denominato **Rete**. Nel riquadro **Rete** fare clic su **Rete virtuale** per selezionare la rete virtuale a cui deve essere distribuita la macchina virtuale Linux. Viene aperto il riquadro **Rete virtuale**. Nel riquadro **Rete virtuale** scegliere l'opzione **Usa una rete virtuale esistente**. Quindi selezionare la rete virtuale in cui è disponibile Servizi di dominio Azure AD. In questo esempio viene selezionata la rete virtuale 'MyPreviewVNet'.
+7. Verrà visualizzato un riquadro denominato **Rete**. Nel riquadro **Rete** fare clic su **Rete virtuale** per selezionare la rete virtuale in cui deve essere distribuita la macchina virtuale Linux. Verrà visualizzato il riquadro **Rete virtuale**. Nel riquadro **Rete virtuale** scegliere l'opzione **Usa una rete virtuale esistente**. Quindi selezionare la rete virtuale in cui è disponibile Servizi di dominio Azure AD. In questo esempio viene selezionata la rete virtuale 'MyPreviewVNet'.
 
     ![Creare una macchina virtuale: selezionare una rete virtuale](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-select-vnet.png)
 
@@ -137,7 +137,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 
     ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
 
-    Verificare che il nome di dominio sia scritto in lettere maiuscole; in caso contrario, kinit non riuscirà.
+    Verificare che il nome di dominio sia scritto in lettere maiuscole; in caso contrario kinit avrà esito negativo.
 
 3. Aggiungere il computer al dominio. Nel terminale PuTTY digitare il comando seguente. Verificare che l'utente specificato uguale a quello specificato nel passaggio precedente ('kinit').
 
@@ -149,17 +149,17 @@ Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe ess
 
 
 ## Verificare l'aggiunta a un dominio
-È possibile verificare rapidamente se il computer è stato aggiunto correttamente al dominio gestito. Questa operazione può essere eseguita con la connessione alla macchina virtuale RHEL appena aggiunta a un dominio usando ssh e un account utente di dominio e quindi verificando se l'account utente viene risolto correttamente.
+È possibile verificare rapidamente se il computer è stato aggiunto correttamente al dominio gestito. Connettersi alla macchina virtuale RHEL appena aggiunta a un dominio usando SSH e un account utente di dominio e quindi verificando se l'account utente viene risolto correttamente.
 
-1. Nel terminale PuTTY digitare il comando seguente per connettere la macchina virtuale RHEL appena aggiunta a un dominio con SSH. Usare un account di dominio appartenente all'account gestito, ad esempio, in questo caso, 'bob@CONTOSO100.COM'.
+1. Nel terminale PuTTY digitare il comando seguente per connettere la macchina virtuale RHEL appena aggiunta a un dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso 'bob@CONTOSO100.COM'.
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 
-2. Nel terminale PuTTY digitare il comando seguente per vedere se la directory home dell'utente è stata inizializzata correttamente.
+2. Nel terminale PuTTY digitare il comando seguente per vedere se la home directory dell'utente è stata inizializzata correttamente.
 
 	pwd
 
-3. Nel terminale PuTTY digitare il comando seguente per vedere se i membri del gruppo dell'utente sono stati risolti correttamente.
+3. Nel terminale PuTTY digitare il comando seguente per vedere se i membri del gruppo sono stati risolti correttamente.
 
     id
 
@@ -172,9 +172,15 @@ Di seguito è riportato un esempio dell'output di questi comandi.
 Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join).
 
 
-## Altre informazioni
-- [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
+## Contenuti correlati
+- [Servizi di dominio Azure AD: introduzione](./active-directory-ds-getting-started.md)
+
+- [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Creare chiavi SSH in Linux e Mac per le VM Linux in Azure](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+
 - [Installazione di Kerberos](https://access.redhat.com/documentation/it-IT/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/it-IT/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

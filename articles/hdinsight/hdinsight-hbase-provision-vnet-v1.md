@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Effettuare il provisioning di cluster HBase in Rete virtuale di Azure
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Per eseguire script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere [Uso del cmdlet Set-ExecutionPolicy][2].
 
-	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
+	Prima di eseguire script di Azure PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
 
 		Add-AzureAccount
 
@@ -103,10 +103,10 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
 5. Attendere che il valore di **STATO** per il nuovo account di archiviazione sia modificato in **Online**.
 6. Fare clic sul nuovo account di archiviazione nell'elenco per selezionarlo.
 7. Fare clic su **MANAGE ACCESS KEYS** nella parte inferiore della pagina.
-8. Prendere nota del nome dell'account di archiviazione e della chiave di accesso primaria o di quella secondaria (funzionano entrambe le chiavi). Sarà necessario usarli più avanti nell'esercitazione.
+8. Prendere nota del nome dell'account di archiviazione e della chiave di accesso primaria o di quella secondaria (funzionano entrambe le chiavi). Sarà necessario utilizzarli più avanti nell'esercitazione.
 9. Nella parte superiore della pagina fare clic su **CONTENITORE**.
 10. Fare clic su **AGGIUNGI** nella parte inferiore della pagina.
-11. Immettere il nome del contenitore. Il contenitore sarà usato come contenitore predefinito per il cluster HBase. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster. Lasciare il campo **ACCESSO** impostato su **Privato**.  
+11. Immettere il nome del contenitore. Il contenitore sarà usato come contenitore predefinito per il cluster HBase. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster. Lasciare il campo **ACCESSO** impostato su **Privato**.
 12. Fare clic sul segno di spunta per creare il contenitore.
 
 **Per effettuare il provisioning di un cluster HBase usando il portale di Azure classico**
@@ -166,7 +166,7 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
 			<ul>
 				<li><strong>Usare l'archiviazione esistente</strong></li>
 				<li><strong>Crea nuova archiviazione</strong></li>
-				<li><strong>Usare l'archiviazione da un'altra sottoscrizione</strong></li>
+				<li><strong>Use Storage From Another Subscription</strong></li>
 			</ul>
 			</td></tr>
 		<tr><td>Nome account</td>
@@ -382,7 +382,7 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
 
 ##Passaggi successivi
 
-In questa esercitazione si è appreso come effettuare il provisioning di un cluster HBase. Per ulteriori informazioni, vedere:
+In questa esercitazione si è appreso come effettuare il provisioning di un cluster HBase. Per altre informazioni, vedere:
 
 - [Introduzione all'uso di HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md)
@@ -436,4 +436,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Dettagli di provisioning per il nuovo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster?"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

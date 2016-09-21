@@ -35,33 +35,35 @@ Dopo l'installazione dell'interfaccia della riga di comando di Azure, [connetter
 
 
 
-## Installare un pacchetto npm
+## Opzione 1. Installare un pacchetto npm
 
 Per installare l'interfaccia della riga di comando da un pacchetto npm, è necessario che nel sistema siano installati npm e la versione più recente di Node.js. Quindi, eseguire il comando seguente per installare il pacchetto dell'interfaccia della riga di comando di Azure. Nelle distribuzioni di Linux potrebbe essere necessario usare **sudo** per la corretta esecuzione del comando __npm__.
 
 	npm install azure-cli -g
 
-> [AZURE.NOTE]Se è necessario installare o aggiornare Node.js e npm per il sistema operativo, vedere la documentazione all'indirizzo [Nodejs.org](https://nodejs.org/en/download/package-manager/). È consigliabile installare la versione più recente di Node.js LTS (4.x). Se si usa una versione precedente, potrebbero verificarsi errori di installazione.
+> [AZURE.NOTE]Se è necessario installare o aggiornare Node.js e npm per il sistema operativo, vedere la documentazione all'indirizzo [Nodejs.org](https://nodejs.org/en/download/package-manager/). È consigliabile installare la versione più recente di Node.js LTS (4.x). Se si usa una versione precedente, potrebbero verificarsi errori di installazione. Per altre informazioni su npm, vedere [npmjs.com](https://www.npmjs.com/).
 
-## Usare un programma di installazione
+## Opzione 2. Usare un programma di installazione
 
 Sono disponibili anche i pacchetti di programmi di installazione dell'interfaccia della riga di comando seguenti:
 
 
-* [Programma di installazione di OS X][mac-installer]
+* [Programma di installazione di Mac OS X][mac-installer]
 
 * [Windows installer][windows-installer]
 
 * [File tar per Linux][linux-installer] \(richiede Node.js e npm): installare eseguendo `sudo npm install -g <path to downloaded tar file>`
 
 
-## Usare un contenitore Docker
+## Opzione 3. Usare un contenitore Docker
 
-In un host Docker, eseguire:
+Se è stato configurato un host Docker, è possibile eseguire l'interfaccia della riga di comando di Azure in un contenitore Docker. Eseguire:
 
 ```
 docker run -it microsoft/azure-cli
 ```
+
+Per altre informazioni su Docker, vedere [docker.com](https://docs.docker.com/engine/understanding-docker/).
 
 ## Eseguire i comandi dell'interfaccia della riga di comando di Azure
 Una volta installata l'interfaccia della riga di comando di Azure, eseguire il comando **azure** dall'interfaccia (Bash, terminale, prompt dei comandi e così via). Ad esempio, per eseguire il comando della Guida, digitare quanto segue:
@@ -83,7 +85,7 @@ azure --version
 
 È ora possibile iniziare la distribuzione. Per accedere a tutti i comandi dell'interfaccia della riga di comando per usare le proprie risorse, [connettersi alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE] Quando si usa per la prima volta l'interfaccia della riga di comando di Azure versione 0.9.20 o successive, viene visualizzato un messaggio che chiede se consentire a Microsoft di raccogliere informazioni sull'uso dell'interfaccia della riga di comando. La partecipazione è facoltativa. Se si sceglie di partecipare, è possibile interrompere in qualsiasi momento eseguendo `azure telemetry --disable`. Per abilitare la partecipazione in qualsiasi momento, eseguire `azure telemetry --enable`.
+>[AZURE.NOTE] Quando si usa per la prima volta l'interfaccia della riga di comando di Azure, viene visualizzato un messaggio che chiede se consentire a Microsoft di raccogliere informazioni sull'uso dell'interfaccia della riga di comando. La partecipazione è facoltativa. Se si sceglie di partecipare, è possibile interrompere in qualsiasi momento eseguendo `azure telemetry --disable`. Per abilitare la partecipazione in qualsiasi momento, eseguire `azure telemetry --enable`.
 
 
 ## Aggiornare l'interfaccia della riga di comando
@@ -128,4 +130,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

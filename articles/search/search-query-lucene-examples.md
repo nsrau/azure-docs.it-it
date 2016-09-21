@@ -15,7 +15,7 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="05/17/2016"
+    ms.date="08/29/2016"
     ms.author="liamca"
 />
 
@@ -31,9 +31,9 @@ Fare clic con il pulsante destro del mouse sugli URL degli esempi di query per a
 
 ## Visualizzazione degli esempi in questo articolo
 
-Tutti gli esempi di questo articolo specificano il parser di query Lucene tramite il parametro di ricerca queryType. Quando si usa il parser di query Lucene dal codice, il parametro **queryType** va specificato in ogni richiesta. I valori validi includono **simple**|**full**, dove **simple** è l'impostazione predefinita e **full** corrisponde al parser di query Lucene. Per informazioni dettagliate su come specificare i parametri di query, vedere l'articolo relativo alla[ricerca di documenti (API REST del servizio Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+Tutti gli esempi di questo articolo specificano il parser di query Lucene tramite il parametro di ricerca **queryType**. Quando si usa il parser di query Lucene dal codice, il parametro **queryType** va specificato in ogni richiesta. I valori validi includono **simple**|**full**, dove **simple** è l'impostazione predefinita e **full** corrisponde al parser di query Lucene. Per informazioni dettagliate su come specificare i parametri di query, vedere l'articolo relativo alla [ricerca di documenti (API REST del servizio Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-**Esempio 1**: fare clic con il pulsante destro del mouse sul frammento di query seguente per aprirlo in una nuova pagina del browser che carica JSFiddle ed esegue la query.
+**Esempio 1**: fare clic con il pulsante destro del mouse sul frammento di query seguente per aprirlo in una nuova pagina del browser che carica JSFiddle ed esegue la query:
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 Questa query restituisce documenti dall'indice delle offerte di lavoro, caricato in un servizio sandbox.
@@ -129,4 +129,4 @@ Provare a specificare il parser di query Lucene nel codice. I collegamenti segue
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

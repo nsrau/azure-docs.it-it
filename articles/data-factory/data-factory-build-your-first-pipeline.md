@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/17/2016"
+	ms.date="09/06/2016"
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop 
@@ -30,19 +30,17 @@ Questa esercitazione mostra come compilare la prima istanza di Azure Data Factor
 
 Questo articolo fornisce una **panoramica** dell'esercitazione e istruzioni dettagliate per soddisfare i **prerequisiti** per l'esercitazione. Dopo aver completato le operazioni preliminari, usare una delle opzioni seguenti per l'esercitazione: l'editor di Data factory nel portale di Azure, Visual Studio, Azure PowerShell e il modello di Azure Resource Manager.
 
-Si noti che questo articolo non fornisce una panoramica dei concetti relativi ad Azure Data Factory. Per una panoramica dei concetti correlati al servizio, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
+Questo articolo non fornisce una panoramica dei concetti relativi ad Azure Data Factory. Per una panoramica dei concetti correlati al servizio, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
 
 ## Contenuto dell'esercitazione	
-**Azure Data Factory** consente di creare attività di **spostamento** e di **elaborazione** dati come flusso di lavoro basato sui dati o pipeline. Si apprende come creare la prima pipeline di dati con l'attività di elaborazione o trasformazione dati che usa un cluster Azure HDInsight per trasformare e analizzare i blog e pianificare la pipeline per l'esecuzione su base mensile.
+**Azure Data Factory** consente di creare attività di **spostamento** e di **elaborazione** dati come flusso di lavoro basato sui dati o pipeline. Si impara a creare la prima pipeline di dati con un'attività di elaborazione (o di trasformazione) dei dati. Questa attività usa il cluster Azure HDInsight per trasformare e analizzare i blog.
 
 In questa esercitazione si segue questa procedura:
 
 1.	Creare la **data factory**. Una data factory può contenere una o più pipeline di dati che spostano ed elaborano i dati.
 2.	Creare i **servizi collegati**. Creare un servizio collegato per collegare un archivio dati o un servizio di calcolo alla data factory. Un archivio dati come Archiviazione di Azure contiene i dati di input/output delle attività nella pipeline. Un servizio di calcolo come Azure HDInsight elabora/trasforma i dati.
 3.	Creare **set di dati** di input e di output. Un set di dati di input rappresenta l'input per un'attività nella pipeline, un set di dati di output rappresenta l'output dell'attività.
-3.	Creare la **pipeline**. Una pipeline può comprendere una o più attività, ad esempio attività di copia per copiare dati da un'origine a una destinazione o attività Hive di HDInsight per trasformare i dati di input usando uno script Hive per generare dati di output. Questo esempio usa un'attività Hive di HDInsight che esegue uno script Hive. Lo script crea prima di tutto una tabella esterna che fa riferimento ai dati di log Web non elaborati presenti nell'archiviazione BLOB di Azure e quindi esegue il partizionamento dei dati non elaborati, per anno e per mese.
-
-La prima pipeline, denominata **MyFirstPipeline**, usa un'attività Hive per trasformare e analizzare un log Web che viene caricato nella cartella **inputdata** presente nel contenitore **adfgetstarted** (adfgetstarted/inputdata) nell'archivio BLOB di Azure.
+3.	Creare la **pipeline**. Una pipeline può comprendere una o più attività (esempi: attività di copia, attività Hive HDInsight). Questo esempio usa un'attività Hive di HDInsight che esegue uno script Hive. Lo script crea prima di tutto una tabella esterna che fa riferimento ai dati di log Web non elaborati presenti nell'archiviazione BLOB di Azure e quindi esegue il partizionamento dei dati non elaborati, per anno e per mese.
  
 ![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
@@ -160,7 +158,7 @@ In questa sezione vengono eseguite le attività seguenti:
 		  month(date)
 		FROM WebLogsRaw
 
-In fase di runtime, l'attività Hive nella pipeline di Data factory passa i valori per i parametri inputtable e partitionedtable come illustrato di seguito, dove storageaccountname è il nome dell'account di archiviazione di Azure:
+In fase di runtime, l'attività Hive nella pipeline di Data Factory passa i valori per i parametri inputtable e partitionedtable come illustrato nel seguente frammento di codice. storageaccountname è il nome dell'account di archiviazione di Azure.
 
 		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -196,15 +194,15 @@ Questa sezione fornisce istruzioni sull'uso dello strumento **AzCopy** per copia
 	 
 2. Per preparare l'archiviazione di Azure per l'esercitazione:
 	1. Scaricare l'[ultima versione di **AzCopy**](http://aka.ms/downloadazcopy) o l'[ultima versione di anteprima](http://aka.ms/downloadazcopypr). Per istruzioni sull'uso dell'utilità, vedere l'articolo [Come usare AzCopy](../storage/storage-use-azcopy.md).
-	2. Dopo avere installato AzCopy, è possibile aggiungerlo al percorso del sistema eseguendo il comando seguente al prompt dei comandi.
+	2. Dopo avere installato AzCopy, aggiungerlo al percorso del sistema eseguendo il comando seguente al prompt dei comandi.
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Passare alla cartella C:\\adfgetstarted ed eseguire il comando seguente per caricare il file **input.log** nell'account di archiviazione (contenitore **adfgetstarted** e cartella **inputdata**). Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
+	3. Accedere alla cartella c:\\adfgetstarted ed eseguire il comando seguente. Questo comando carica il file **input.log** nell'account di archiviazione (contenitore **adfgetstarted** e cartella **inputdata**). Sostituire **StorageAccountName** con il nome del proprio account di archiviazione e **Storage Key** con la chiave dell'account di archiviazione.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] Il comando precedente crea un contenitore denominato **adfgetstarted** nell'archivio BLOB di Azure e copia il file **input.log** dall'unità locale alla cartella **inputdata** nel contenitore.
+		> [AZURE.NOTE] Questo comando crea un contenitore denominato **adfgetstarted** nell'archiviazione BLOB di Azure e copia il file **input.log** dall'unità locale alla cartella **inputdata** nel contenitore.
 	
 	5. Al termine del caricamento del file, viene visualizzato un output simile al seguente da AzCopy.
 	
@@ -228,4 +226,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

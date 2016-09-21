@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Personalizzare cluster HDInsight tramite Bootstrap
@@ -46,14 +46,14 @@ Sono disponibili 3 metodi per usare Bootstrap:
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
 - Usare .NET SDK
-- Usare il modello di Gestione risorse
+- Usare un modello di Azure Resource Manager
 
 Per informazioni sull'installazione di componenti aggiuntivi nel cluster HDInsight durante la creazione, vedere:
 
 - [Personalizzare cluster HDInsight mediante Azione di script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 - [Personalizzare cluster HDInsight mediante Azione di script (Windows)](hdinsight-hadoop-customize-cluster.md)
 
-## Usare Azure PowerShell
+## Uso di Azure PowerShell
 
 Il codice PowerShell seguente personalizza una configurazione Hive:
 
@@ -114,9 +114,9 @@ Per altre informazioni, vedere il blog di Azim Uddin relativo alla [personalizza
 
 Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## Usare il modello di Gestione risorse di Azure
+## Usare i modelli di Resource Manager
 
-È possibile usare Bootstrap nel modello di Gestione risorse di Azure:
+È possibile usare bootstrap in un modello di Resource Manager:
 
     "configurations": {
         …
@@ -128,7 +128,7 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
     }
 
 
-![hdinsight hadoop personalizzare cluster bootstrap modello di gestione risorse di azure](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![hdinsight hadoop personalizzare cluster bootstrap modello di azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 
 
@@ -261,4 +261,4 @@ Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostaz
 
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

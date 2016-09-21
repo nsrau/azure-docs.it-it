@@ -52,8 +52,9 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js][NO
 
     Nel browser passare a <http://localhost:3000> per verificare che sia possibile visualizzare la home page di Express. Dopo aver verificato la corretta esecuzione dell'app, usare `Ctrl-C` per arrestarla.
     
-1. Accedere ad Azure come indicato di seguito. Per questa operazione è necessaria l'[interfaccia della riga di comando di Azure](#prereq):
+1. Passare alla modalità ASM e accedere ad Azure (a questo scopo, è necessaria l'[interfaccia della riga di comando di Azure](#prereq)):
 
+        azure config mode asm
         azure login
 
     Seguire le istruzioni per continuare l'accesso in un browser usando un account con la sottoscrizione di Azure.
@@ -236,4 +237,4 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

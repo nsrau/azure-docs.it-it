@@ -3,7 +3,7 @@
    description="Power BI Embedded - Uso di SDK per aggiungere report di Power BI interattivi nell'applicazione di Business Intelligence"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/14/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Introduzione all'esempio di Power BI Embedded
 
@@ -245,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

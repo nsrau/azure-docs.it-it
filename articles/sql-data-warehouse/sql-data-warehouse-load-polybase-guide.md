@@ -3,7 +3,7 @@
    description="Linee guida e consigli per l'uso di PolyBase in scenari di SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Guida per l'uso di PolyBase in SQL Data Warehouse
@@ -206,4 +206,4 @@ Per ulteriori informazioni sullo spostamento di dati in SQL Data Warehouse, vede
 
 <!-- External Links -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

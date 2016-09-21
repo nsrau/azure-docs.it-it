@@ -72,7 +72,7 @@ Aggiungere altri test. Ad esempio, oltre a testare la home page, è possibile ve
 
 ## <a name="monitor"></a>3. Visualizzare i risultati del test Web
 
-I risultati verranno visualizzati dopo 1-2 minuti.
+I risultati verranno visualizzati dopo 1-2 minuti nel pannello Test Web.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -323,4 +323,4 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

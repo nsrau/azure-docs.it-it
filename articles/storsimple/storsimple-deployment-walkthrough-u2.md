@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale (Aggiornamento 2)
@@ -22,7 +22,7 @@
 - [Aggiornamento 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
 - [Versione di disponibilità generale (GA)](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
-## Panoramica
+## Overview
 
 Benvenuti nella distribuzione del dispositivo Microsoft Azure StorSimple. Queste esercitazioni per la distribuzione si applicano all'aggiornamento 2 di StorSimple serie 8000. Questa serie di esercitazioni include un elenco di controllo della configurazione, di prerequisiti di configurazione e i passaggi di configurazione dettagliati per il dispositivo StorSimple.
 
@@ -113,7 +113,7 @@ Un servizio StorSimple Manager può gestire più dispositivi StorSimple. Effettu
 
 > [AZURE.IMPORTANT] Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> * Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. 
+> * Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate.
 > * Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
@@ -213,7 +213,7 @@ L’aggiornamento del dispositivo può richiedere diverse ore. Eseguire i passag
 
 #### Per aggiornare il dispositivo
 
-1.	Nella pagina **Avvio rapido** del dispositivo fare clic su **Dispositivi**. Selezionare il dispositivo fisico, fare clic su **Manutenzione** quindi fare clic su **Analisi aggiornamenti**.  
+1.	Nella pagina **Avvio rapido** del dispositivo fare clic su **Dispositivi**. Selezionare il dispositivo fisico, fare clic su **Manutenzione** quindi fare clic su **Analisi aggiornamenti**.
 
 2.	Viene creato un processo che consente di cercare gli aggiornamenti disponibili. Se sono disponibili aggiornamenti, **Analisi aggiornamenti** diventa **Installa aggiornamenti**. Fare clic su **Installa aggiornamenti**.
 
@@ -245,4 +245,4 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un backup manual
 - Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

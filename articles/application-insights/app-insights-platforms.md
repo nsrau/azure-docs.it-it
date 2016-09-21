@@ -37,7 +37,7 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 + [ASP.NET - per app già attive](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-+ [App Web e macchine virtuali di Azure](../azure-portal/insights-perf-analytics.md)
++ [App Web e macchine virtuali di Azure](app-insights-azure-web-apps.md)
 + [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
 + [CRM Online da Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
@@ -84,4 +84,4 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 
 Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibile crearne uno. A tale scopo, esaminare il codice degli SDK esistenti incluso nel [progetto di Application Insights SDK su GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

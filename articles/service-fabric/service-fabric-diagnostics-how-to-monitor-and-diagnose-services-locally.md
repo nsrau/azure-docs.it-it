@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/20/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 
@@ -49,8 +49,8 @@ Per i progetti creati a partire da **modelli di servizio** (con o senza stato), 
 
 Per i progetti creati da **modelli di attore** (con o senza stato):
 
-1. Aprire il file **"NomeProgetto".cs**, dove *NomeProgetto* è il nome scelto per il progetto di Visual Studio.  
-2. Trovare il codice `ActorEventSource.Current.ActorMessage(this, "Doing Work");` nel metodo *DoWorkAsync*. Questo è un esempio di una traccia ETW personalizzata scritta dal codice dell'applicazione.  
+1. Aprire il file **"NomeProgetto".cs**, dove *NomeProgetto* è il nome scelto per il progetto di Visual Studio.
+2. Trovare il codice `ActorEventSource.Current.ActorMessage(this, "Doing Work");` nel metodo *DoWorkAsync*. Questo è un esempio di una traccia ETW personalizzata scritta dal codice dell'applicazione.
 3. Nel file **ActorEventSource.cs** si noterà un overload per il metodo `ActorEventSource.ActorMessage`, che è opportuno usare per eventi ad alta frequenza dovuti a motivi di prestazioni.
 
 Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sarà possibile compilare, distribuire ed eseguire nuovamente l'applicazione in modo che gli eventi risultino visibili nel visualizzatore degli eventi di diagnostica. Se si esegue il debug dell'applicazione con **F5**, il visualizzatore verrà aperto automaticamente.
@@ -60,4 +60,4 @@ Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnost
 * [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Uso di ElasticSearch come archivio di traccia dell'applicazione dell'infrastruttura di servizi](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

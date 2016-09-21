@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/12/2016"
+	ms.date="09/01/2016"
 	ms.author="sdanie" />
 
 # Provider di stato della sessione ASP.NET per Cache Redis di Azure
@@ -98,7 +98,7 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 
 - Provider di stato della sessione SQL Server: questo provider archivia lo stato della sessione in SQL Server. È consigliabile usare questo provider per rendere permanente lo stato della sessione in una risorsa di archiviazione persistente. È possibile ridimensionare l'app Web, ma l'uso di SQL Server per la sessione avrà effetto sulle prestazioni dell'app Web.
 
-- Provider di stato della sessione in memoria distribuito, ad esempio provider di stato della sessione di Cache Redis: questo provider offre il meglio di entrambe le soluzioni. L'app Web può avere un provider di stato della sessione semplice, veloce e scalabile. Tuttavia, è necessario ricordare che questo provider archivia lo stato della sessione in una cache e l'app deve tenere in considerazione tutte le caratteristiche associate quando comunica con una cache in memoria distribuita, ad esempio in caso di errori di rete temporanei. Per le procedure consigliate sull'uso della cache, vedere il [materiale sussidiario sulla memorizzazione nella cache](https://github.com/mspnp/azure-guidance/blob/master/Caching.md) nel [materiale sussidiario sulla progettazione e l'implementazione delle applicazioni cloud di Azure](https://github.com/mspnp/azure-guidance) di Microsoft Patterns & Practices.
+- Provider di stato della sessione in memoria distribuito, ad esempio provider di stato della sessione di Cache Redis: questo provider offre il meglio di entrambe le soluzioni. L'app Web può avere un provider di stato della sessione semplice, veloce e scalabile. Tuttavia, è necessario ricordare che questo provider archivia lo stato della sessione in una cache e l'app deve tenere in considerazione tutte le caratteristiche associate quando comunica con una cache in memoria distribuita, ad esempio in caso di errori di rete temporanei. Per le procedure consigliate sull'uso della cache, vedere il [materiale sussidiario sulla memorizzazione nella cache](../best-practices-caching.md) nel [materiale sussidiario sulla progettazione e l'implementazione delle applicazioni cloud di Azure](https://github.com/mspnp/azure-guidance) di Microsoft Patterns & Practices.
 
 Per altre informazioni sullo stato della sessione e altre procedure consigliate, vedere [Procedure consigliate per lo sviluppo Web (compilazione di app reali per il cloud con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
@@ -106,4 +106,4 @@ Per altre informazioni sullo stato della sessione e altre procedure consigliate,
 
 Vedere [Provider di cache di output ASP.NET per la Cache Redis di Azure](cache-aspnet-output-cache-provider.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

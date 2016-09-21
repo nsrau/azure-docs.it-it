@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Consentire l'accesso esterno a una VM mediante PowerShell | Microsoft Azure"
-   description="Informazioni su come aprire una porta o creare un endpoint che consenta l'accesso esterno alla VM Windows tramite il modello di distribuzione di Resource Manager e Azure PowerShell"
+   pageTitle="Aprire porte a una VM di Azure tramite PowerShell | Microsoft Azure"
+   description="Informazioni su come aprire una porta o creare un endpoint alla VM Windows tramite il modello di distribuzione di Azure Resource Manager e Azure PowerShell"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,11 +16,11 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Consentire l'accesso esterno alla VM mediante PowerShell
+# Apertura di porte a una VM tramite PowerShell
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Comandi rapidi
-Per creare un gruppo di sicurezza di rete e le regole del controllo di accesso, è necessario che [sia installata la versione più recente di Azure PowerShell](../powershell-install-configure.md). È possibile [eseguire questi passaggi anche tramite il portale di Azure](virtual-machines-windows-nsg-quickstart-portal.md).
+Per creare un gruppo di sicurezza di rete e le regole del controllo di accesso, è necessario che [sia installata la versione più recente di Azure PowerShell](../powershell-install-configure.md). È possibile anche [eseguire questi passaggi tramite il portale di Azure](virtual-machines-windows-nsg-quickstart-portal.md).
 
 È prima di tutto necessario creare una regola per consentire il traffico HTTP sulla porta TCP 80, immettendo il proprio nome e una descrizione:
 
@@ -63,7 +63,7 @@ I comandi rapidi seguenti consentono di rendere operativo il traffico verso la V
 
 È possibile definire le regole dell'elenco di controllo di accesso e i gruppi di sicurezza di rete come parte dei modelli di Azure Resource Manager. Per altre informazioni, leggere l'articolo [Come creare NSG utilizzando un modello](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Se si deve usare il port forwarding per eseguire il mapping di una sola porta esterna a una porta interna nella VM, è necessario usare un servizio di bilanciamento del carico e le regole Network Address Translation (NAT). Ad esempio, si desidera esporre la porta TCP 8080 esternamente e che il traffico venga indirizzato sulla porta TCP 80 in una VM. Per altre informazioni, leggere l'articolo relativo alla [creazione di un servizio di bilanciamento del carico per Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+Se si deve usare il port forwarding per eseguire il mapping di una sola porta esterna verso una porta interna della VM, usare un servizio di bilanciamento del carico e le regole Network Address Translation (NAT). Ad esempio, si desidera esporre la porta TCP 8080 esternamente e che il traffico venga indirizzato sulla porta TCP 80 in una VM. Per altre informazioni, leggere l'articolo relativo alla [creazione di un servizio di bilanciamento del carico per Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## Passaggi successivi
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
@@ -72,4 +72,4 @@ In questo esempio viene creata una regola semplice per consentire il traffico HT
 - [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 - [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

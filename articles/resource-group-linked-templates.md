@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
 # Uso di modelli collegati con Azure Resource Manager
@@ -29,7 +29,7 @@ Per creare un collegamento tra due modelli, aggiungere una risorsa di distribuzi
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -53,7 +53,7 @@ Il servizio Resource Manager deve poter accedere al modello collegato. Non è po
 
 Anche se il modello collegato deve essere disponibile esternamente, non è necessario che sia pubblicamente disponibile. È possibile aggiungere il modello a un account di archiviazione privato accessibile solo al proprietario dell'account di archiviazione. Creare quindi un token di firma di accesso condiviso per consentire l'accesso durante la distribuzione. Aggiungere il token con firma di accesso condiviso all'URI del modello collegato. Per conoscere la procedura per la configurazione di un modello in un account di archiviazione e per la generazione di un token con firma di accesso condiviso, consultare [Distribuire le risorse con i modelli di Resource Manager e Azure PowerShell](resource-group-template-deploy.md) o [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md).
 
-Nell'esempio seguente viene illustrato un modello padre che si collega a un altro modello. È possibile accedere al modello nidificato con un token con firma di accesso condiviso passato come parametro.
+Nell'esempio seguente viene illustrato un modello padre che si collega a un altro modello. È possibile accedere al modello collegato con un token di firma di accesso condiviso passato come parametro.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -61,7 +61,7 @@ Nell'esempio seguente viene illustrato un modello padre che si collega a un altr
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
               "mode": "incremental",
@@ -82,7 +82,7 @@ Nell'esempio successivo viene utilizzata la proprietà **parametersLink** per il
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -161,7 +161,7 @@ Specificare il valore della variabile per la risorsa di distribuzione.
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "incremental",
@@ -200,7 +200,7 @@ L'esempio seguente mostra il modello **existingStorageAccount.json**.
       }
     }
 
-L'esempio seguente mostra il modello **newStorageAccount.json**. Si noti che, oltre al modello di account di archiviazione esistente, negli output viene restituito l'oggetto account di archiviazione. Il modello master funziona con entrambi i modelli annidati.
+L'esempio seguente mostra il modello **newStorageAccount.json**. Si noti che, oltre al modello di account di archiviazione esistente, negli output viene restituito l'oggetto account di archiviazione. Il modello master funziona con entrambi i modelli collegati.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -247,7 +247,7 @@ Il file **parent.json** è costituito da:
       "resources": [
         {
           "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
+          "name": "linkedTemplate",
           "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
@@ -261,7 +261,7 @@ Il file **parent.json** è costituito da:
       "outputs": {
         "result": {
           "type": "object",
-          "value": "[reference('nestedTemplate').outputs.result]"
+          "value": "[reference('linkedTemplate').outputs.result]"
         }
       }
     }
@@ -300,4 +300,4 @@ Viene richiesto di fornire il token di firma di accesso condiviso come parametro
 - Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md)
 - Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

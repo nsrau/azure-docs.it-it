@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
 # Accedere e disconnettersi dalle app Web con Azure AD
@@ -21,7 +21,7 @@
 
 Passport viene usato per:
 
-- Connettere l'utente all'app con Azure AD e Modello app 2.0.
+- Connettere l'utente all'app con Azure AD.
 - Visualizzare alcune informazioni relative all'utente.
 - Disconnettere l'utente dall'app.
 
@@ -36,7 +36,7 @@ A questo scopo è necessario:
 
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonare la struttura:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
@@ -205,7 +205,7 @@ app.configure(function() {
 
 // Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID
@@ -414,4 +414,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

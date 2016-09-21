@@ -23,7 +23,7 @@
 
 Alcuni argomenti di queste linee guida sono in fase di definizione e possono cambiare in futuro. I commenti degli utenti saranno molto apprezzati.
 
-## Panoramica
+## Overview
 UN’API web RESTful progettata attentamente definisce le risorse, relazioni e gli schemi di navigazione che sono accessibili alle applicazioni del client. Quando implementi e distribuisci un’API web, è necessario considerare i requisiti fisici dell'ambiente di hosting web API e il modo in cui viene creata l'API web, anziché la struttura logica dei dati. Questa guida illustra le procedure consigliate per l'implementazione e la pubblicazione di un'API web al fine di renderla disponibile alle applicazioni client. I problemi di sicurezza sono descritti separatamente nel documento Linee guida alla Sicurezza API. Informazioni dettagliate sulla progettazione di un’API web sono reperibili nel documento Linee guida alla progettazione di un’API.
 
 ## Considerazioni per l'implementazione di un'API Web RESTful
@@ -1068,7 +1068,7 @@ Ulteriori informazioni che descrivono come eseguire queste attività sono reperi
 Gli sviluppatori che creano applicazioni client in genere richiedono informazioni su come accedere alle API Web e la documentazione relativa a parametri, tipi di dati, tipi restituiti e codici restituiti che descrivono le diverse richieste e risposte tra il servizio Web e l'applicazione client.
 
 ### Documentare le operazioni REST per un'API Web
-Il Servizio di gestione API di Azure include un portale per sviluppatori che descrive le operazioni REST esposte da un'API Web. Quando un prodotto è stato pubblicato viene visualizzato nel portale. Gli sviluppatori possono utilizzare il portale di registrazione per l'accesso; l'amministratore può quindi approvare o rifiutare la richiesta. Se lo sviluppatore viene approvato, gli viene assegnata una chiave di sottoscrizione che viene utilizzata per autenticare le chiamate dalle applicazioni client che sviluppa. Questa chiave deve essere fornita con ogni chiamata di API Web; in caso contrario, verrà rifiutata.
+Il Servizio di gestione API di Azure include un portale per sviluppatori che descrive le operazioni REST esposte da un'API Web. Quando un prodotto è stato pubblicato viene visualizzato nel portale. Gli sviluppatori possono utilizzare il portale di registrazione per l'accesso; l'amministratore può quindi approvare o rifiutare la richiesta. Se lo sviluppatore viene approvato, gli viene assegnata una chiave di sottoscrizione che viene usata per autenticare le chiamate dalle applicazioni client che sviluppa. Questa chiave deve essere fornita con ogni chiamata di API Web; in caso contrario, verrà rifiutata.
 
 Questo portale fornisce inoltre:
 
@@ -1108,9 +1108,9 @@ Se l’API Web è stata implementata utilizzando il modello API Web ASP.NET (in 
 
 - I diversi ruoli utente di accesso all'API Web.
 
-È possibile visualizzare questi dati in tempo reale dal portale di gestione di Azure. È inoltre possibile creare un test Web per monitorare 'integrità dell'API Web. Un test Web invia una richiesta periodica a un URI specificato nell'API Web e acquisisce la risposta. È possibile specificare la definizione di una risposta corretta (ad esempio, il codice di stato HTTP 200) e se la richiesta non restituisce questa risposta è possibile disporre di un avviso da inviare a un amministratore. Se necessario, l'amministratore può riavviare il server che ospita l'API Web se l’esito è negativo.
+È possibile visualizzare questi dati in tempo reale dal portale di gestione di Azure. È inoltre possibile creare un test Web per monitorare l'integrità dell'API Web. Un test Web invia una richiesta periodica a un URI specificato nell'API Web e acquisisce la risposta. È possibile specificare la definizione di una risposta corretta (ad esempio, il codice di stato HTTP 200) e se la richiesta non restituisce questa risposta è possibile disporre di un avviso da inviare a un amministratore. Se necessario, l'amministratore può riavviare il server che ospita l'API Web se l’esito è negativo.
 
-La pagina [Application Insights - Avvia il monitoraggio dell'integrità e dell'utilizzo dell'app](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) del sito Web Microsoft fornisce ulteriori informazioni.
+Altre informazioni sono disponibili nella pagina [Application Insights: introduzione ad ASP.NET](../articles/application-insights/app-insights-asp-net.md) del sito Web Microsoft.
 
 ### Monitoraggio di un'API Web tramite il Servizio di gestione API
 
@@ -1147,8 +1147,8 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina[Gestione API](https://azure.microsoft.com/services/api-management/) sul sito Web Microsoft descrive come pubblicare un prodotto che fornisce un accesso sicuro e controllato a un'API Web.
 - La pagina[Riferimento API REST gestione API di Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) sul sito Web Microsoft descrive come utilizzare l'API REST di gestione per creare applicazioni di gestione personalizzate.
 - La pagina [Metodi di routing di Gestione traffico](../articles/traffic-manager/traffic-manager-routing-methods.md) sul sito Web Microsoft riepiloga come Gestione traffico di Azure può essere usato per le richieste di bilanciamento del carico tra più istanze di un sito Web che ospita un'API Web.
-- La pagina [Application Insights - Avvia il monitoraggio dell'integrità e dell'utilizzo dell'app](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) sul sito Web Microsoft fornisce informazioni dettagliate sull'installazione e configurazione di Application Insights in un progetto API Web ASP.NET.
+- La pagina [Application Insights: introduzione ad ASP.NET](../articles/application-insights/app-insights-asp-net.md) del sito Web Microsoft fornisce informazioni dettagliate sull'installazione e sulla configurazione di Application Insights in un progetto Web API.
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

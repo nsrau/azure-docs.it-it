@@ -33,7 +33,7 @@ I log di diagnostica per le risorse non di calcolo vengono configurati tramite l
 
 - Destinazione dei log di diagnostica, ad esempio un account di archiviazione, un hub eventi e/o OMS Log Analytics.
 - Categorie di log da inviare.
-- Tempo di conservazione di ogni categoria di log in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
+- Tempo di conservazione di ogni categoria di log in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. In caso contrario, questo valore può variare da 1 a 2147483647. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
 
 È possibile configurare facilmente queste impostazioni usando il pannello Diagnostica della risorsa nel portale di Azure, i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'[API REST di Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -50,13 +50,17 @@ La raccolta dei log di diagnostica può essere abilitata durante la creazione di
 È possibile abilitare i log di diagnostica nel portale di Azure quando si creano alcuni tipi di risorsa. A tale scopo, seguire questa procedura:
 
 1.	Andare a **Nuovo** e scegliere la risorsa a cui si è interessati.
-2.	Dopo aver configurato le impostazioni di base e aver selezionato una dimensione, nel pannello **Impostazioni**, in **Monitoraggio** selezionare **Abilitato** e scegliere un account di archiviazione in cui archiviare i log di diagnostica. Per l'invio della diagnostica a un account di archiviazione vengono addebitate le normali tariffe dati per l'archiviazione e le transazioni. ![Abilitare i log di diagnostica durante la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+2.	Dopo aver configurato le impostazioni di base e aver selezionato una dimensione, nel pannello **Impostazioni**, in **Monitoraggio** selezionare **Abilitato** e scegliere un account di archiviazione in cui archiviare i log di diagnostica. Per l'invio della diagnostica a un account di archiviazione vengono addebitate le normali tariffe dati per l'archiviazione e le transazioni.
+
+    ![Abilitare i log di diagnostica durante la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Fare clic su **OK** e creare la risorsa.
 
 Per abilitare i log di diagnostica nel portale di Azure dopo la creazione di una risorsa, seguire questa procedura:
 
 1.	Passare al pannello della risorsa e aprire il pannello **Diagnostica**.
-2.	Fare clic su **Sì** e selezionare un account di archiviazione e/o un hub eventi. ![Abilitare i log di diagnostica dopo la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+2.	Fare clic su **Sì** e selezionare un account di archiviazione e/o un hub eventi.
+
+    ![Abilitare i log di diagnostica dopo la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	In **Log** selezionare le **categorie di log** da raccogliere o trasmettere.
 4.	Fare clic su **Save**.
 
@@ -104,10 +108,35 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 | Archivio Data Lake | [Accesso ai log di diagnostica per Archivio Data Lake di Azure](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Analisi Data Lake | [Accesso ai log di diagnostica per Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | App per la logica | Nessuno schema disponibile |
+| Azure Batch | Nessuno schema disponibile |
+| Automazione di Azure | Nessuno schema disponibile |
+
+## Categorie di log supportate per tipo di risorsa
+
+|Tipo di risorsa|Categoria|Nome visualizzato della categoria|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Log del processo|
+|Microsoft.Automation/automationAccounts|JobStreams|Flussi del processo|
+|Microsoft.Batch/batchAccounts|ServiceLog|Log del servizio|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Log di controllo|
+|Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
+|Microsoft.DataLakeStore/accounts|Audit|Log di controllo|
+|Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
+|Microsoft.KeyVault/vaults|AuditEvent|Log di controllo|
+|Microsoft.Logic/workflows|WorkflowRuntime|Eventi di diagnostica del runtime del flusso di lavoro|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Event del gruppo di sicurezza di rete|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contatore di regole del gruppo di sicurezza di rete|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento del flusso di regole del gruppo di sicurezza di rete|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventi di avviso del servizio di bilanciamento del carico|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stato di integrità dei probe del servizio di bilanciamento del carico|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log di accesso del gateway applicazione|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log delle prestazioni del gateway applicazione|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log del firewall del gateway applicazione|
+|Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
 
 ## Passaggi successivi
 - [Trasmettere log di diagnostica di Azure a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Modificare le impostazioni di diagnostica usando l'API REST di Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-- [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md) (Analizzare i log con OMS Log Analytics)
+- [Analyze the logs with OMS Log Analytics (Analizzare i log con OMS Log Analytics)](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

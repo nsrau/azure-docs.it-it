@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 # Esercitazione: Integrazione di Azure Active Directory con Insperity ExpensAble
@@ -32,7 +32,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Insperity ExpensAble, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione di Insperity ExpensAble abilitata per l'accesso Single Sign-On.
+- Sottoscrizione di Insperity ExpensAble abilitata per l'accesso Single Sign-On
 
 
 > [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -89,7 +89,7 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual �
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Insperity ExpensAble, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Creazione di un utente test di Insperity ExpensAble](#creating-a-insperityexpensable-test-user)**: per avere una controparte di Britta Simon in Insperity ExpensAble collegata alla relativa rappresentazione in Azure AD.
 5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -118,7 +118,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Nella casella di testo **URL di accesso** digitare l’URL utilizzato dagli utenti per accedere all’applicazione Insperity ExpensAble adottando il modello seguente: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
-	b. Fare clic su **Avanti**.
+	b. Fare clic su **Next**.
 
 4. Nella pagina **Configura accesso Single Sign-On in Insperity ExpensAble** seguire questa procedura:
 
@@ -126,7 +126,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto di Insperity ExpensAble. Dopo l'assegnazione del caso, inviare tramite posta elettronica il file del certificato scaricato. Specificare anche l'URL dell'autorità di certificazione e l'URL servizio Single Sign-On in modo da configurarli per l'integrazione SSO.
@@ -159,7 +159,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_04.png)
 
@@ -171,7 +171,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
@@ -187,17 +187,17 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **Crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_07.png)
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_08.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Fare clic su **Complete**.
+    b. Fare clic su **Completa**.
 
 
 
@@ -217,7 +217,7 @@ Questa sezione descrive come abilitare Britta Simon per l'utilizzo dell'accesso 
 
 **Per assegnare Britta Simon a Insperity ExpensAble, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory scegliere **Applicazioni** dal menu in alto.
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
 	![Assegna utente][201]
 
@@ -231,7 +231,7 @@ Questa sezione descrive come abilitare Britta Simon per l'utilizzo dell'accesso 
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** nella barra degli strumenti in basso.
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
 	![Assegna utente][205]
 
@@ -266,4 +266,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-insperityexpensable-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

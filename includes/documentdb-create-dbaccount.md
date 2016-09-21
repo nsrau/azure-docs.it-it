@@ -18,7 +18,8 @@
 	
     - Per semplificare l'accesso all'account e alle risorse che verranno create in futuro, selezionare **Aggiungi al dashboard**.
 
-4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. Per verificare lo stato della distribuzione, è possibile monitorare l'avanzamento nella Schermata iniziale. ![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. Per verificare lo stato della distribuzione, è possibile monitorare l'avanzamento nella Schermata iniziale.  
+    ![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	o dall'Hub di notifica.
 
@@ -36,4 +37,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!----HONumber=AcomDC_0831_2016-->

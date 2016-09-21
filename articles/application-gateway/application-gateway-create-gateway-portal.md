@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />
 
 # Creare un gateway applicazione con il portale
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. L'applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](application-gateway-create-gateway-portal.md)
@@ -27,10 +27,6 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 - [PowerShell per Azure classico](application-gateway-create-gateway.md)
 - [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 - [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
-
-<BR>
-
-
 
 ## Scenario
 
@@ -75,7 +71,6 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 
 >[AZURE.NOTE] A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. È opportuno usare gateway Small a scopo di sviluppo/test e non per la produzione.
 
-
 ### Passaggio 3
 
 Dopo che sono state definite le impostazioni di base, il passaggio successivo consiste nel definire la rete virtuale da usare. La rete virtuale ospita l'applicazione per cui il gateway applicazione esegue il bilanciamento del carico.
@@ -88,7 +83,7 @@ Fare clic su **Scegliere una rete virtuale** per configurare la rete virtuale.
 
 Nel pannello *Scegli rete virtuale* fare clic su **Crea nuovo**.
 
-*Anche se non illustrato in questo scenario, a questo punto si potrebbe selezionare una rete virtuale esistente.*
+Anche se non illustrato in questo scenario, a questo punto si potrebbe selezionare una rete virtuale esistente. Se si usa una rete virtuale esistente, è importante sapere che per poter essere usata la rete virtuale deve avere una subnet vuota o una subnet contenente solo risorse gateway applicazione.
 
 ![Pannello Scegli rete virtuale][4]
 
@@ -147,7 +142,7 @@ Questi passaggi creano un gateway applicazione di base con le impostazioni prede
 
 Per informazioni su come creare probe di integrità personalizzati, vedere [Creare un probe personalizzato per un gateway applicazione con il portale](application-gateway-create-probe-portal.md)
 
-Per informazioni su come configurare l'offload SSL ed evitare costose attività di decrittografia SSL nei server Web, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-arm.md)
+Per informazioni su come configurare l'offload SSL ed evitare costose attività di decrittografia SSL nei server Web, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
@@ -162,4 +157,4 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

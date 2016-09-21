@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 #Usare Sqoop con Hadoop in HDInsight
@@ -44,14 +44,14 @@ Il cluster HDInsight include alcuni dati di esempio. In questa esercitazione si 
 
     | Campo | Tipo di dati |
     | ----- | --------- |
-    | clientid | stringa |
-    | querytime | stringa |
-    | market | stringa |
-    | deviceplatform | stringa |
+    | clientid | string |
+    | querytime | string |
+    | market | string |
+    | deviceplatform | string |
     | devicemake | stringa |
-    | devicemodel | stringa |
-    | state | stringa |
-    | country | stringa |
+    | devicemodel | string |
+    | state | string |
+    | country | string |
     | querydwelltime | double |
     | sessionid | bigint |
     | sessionpagevieworder | bigint |
@@ -62,23 +62,23 @@ Sarà necessario innanzitutto esportare *sample.log* e *hivesampletable* nel dat
 
 ## Creare un cluster e un database SQL
 
-Questa sezione spiega come creare un cluster e gli schemi del database SQL per eseguire l'esercitazione con il portale di Azure e un modello ARM. Se si preferisce usare Azure PowerShell, vedere l'[appendice A](#appendix-a---a-powershell-sample).
+Questa sezione spiega come creare un cluster e gli schemi del database SQL per eseguire l'esercitazione con il portale di Azure e un modello di Azure Resource Manager. Se si preferisce usare Azure PowerShell, vedere l'[appendice A](#appendix-a---a-powershell-sample).
 
-1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.
+1. Fare clic sull'immagine seguente per aprire un modello di Azure Resource Manager nel Portale di Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Il modello ARM è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    Il modello di Resource Manager è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
-    Il modello di Azure Resource Manager chiama un pacchetto bacpac per distribuire gli schemi della tabella nel database SQL. Anche il pacchetto bacpac è disponibile in un contenitore BLOB pubblico, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se si vuole usare un contenitore privato per i file bacpac, usare i valori seguenti nel modello:
+    Il modello di Resource Manager chiama un pacchetto bacpac per distribuire gli schemi della tabella nel database SQL. Anche il pacchetto bacpac è disponibile in un contenitore BLOB pubblico, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se si vuole usare un contenitore privato per i file bacpac, usare i valori seguenti nel modello:
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
     
 2. Nel pannello Parametri immettere le informazioni seguenti:
 
-    - **ClusterName** (NomeCluster): immettere un nome per il cluster Hadoop che verrà creato.
-    - **Cluster login name and password** (Nome utente e password di accesso del cluster): il nome dell'account di accesso predefinito è admin.
+    - **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
+    - **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin.
     - **SSH user name and password** (Nome utente e password SSH).
     - **SQL database server login name and password** (Nome utente e password di accesso al server di database SQL).
 
@@ -89,7 +89,7 @@ Questa sezione spiega come creare un cluster e gli schemi del database SQL per e
     |Nome server del database SQL di Azure|<ClusterName>dbserver|
     |Nome del database SQL di Azure|<ClusterName>db|
     
-    Annotare questi valori. Sarà necessario usarli più avanti nell'esercitazione.
+    Annotare questi valori. Sarà necessario utilizzarli più avanti nell'esercitazione.
     
 3\. Fare clic su **OK** per salvare i parametri.
 
@@ -629,4 +629,4 @@ L'esempio di PowerShell esegue questa procedura:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

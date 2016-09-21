@@ -58,8 +58,26 @@ Passare ora dall'interfaccia della riga di comando alla modalità `asm`.
 
 	azure config mode asm
 
+## Passaggio 3: Verificare che siano disponibili sufficienti memorie centrali delle macchine virtuali di Azure Resource Manager nell'area di Azure di cui fa parte la distribuzione corrente o la rete virtuale
 
-## Passaggio 3: Opzione 1 - Eseguire la migrazione delle macchine virtuali a un servizio cloud 
+Per questo passaggio è necessario passare alla modalità `arm`. A tale scopo, eseguire il comando seguente.
+
+```
+azure config mode arm
+```
+
+È possibile usare il comando dell'interfaccia della riga di comando seguente per controllare la quantità corrente di memorie centrali in Azure Resource Manager. Per altre informazioni sulle quote di memoria centrale, vedere [Limiti e Azure Resource Manager](../articles/azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+
+```
+azure vm list-usage -l "<Your VNET or Deployment's Azure region"
+```
+
+Dopo aver verificato questo passaggio, è possibile passare nuovamente alla modalità `asm`.
+
+	azure config mode asm
+
+
+## Passaggio 4: Opzione 1 - Eseguire la migrazione delle macchine virtuali a un servizio cloud 
 
 Ottenere l'elenco dei servizi cloud con il comando seguente e selezionare il servizio cloud di cui si vuole eseguire la migrazione. Si noti che se le VM nel servizio cloud si trovano in una rete virtuale o hanno ruoli Web/di lavoro, verrà visualizzato un messaggio di errore.
 
@@ -93,7 +111,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 
 	
-## Passaggio 3: Opzione 2 - Eseguire la migrazione delle macchine virtuali a una rete virtuale
+## Passaggio 4: Opzione 2 - Eseguire la migrazione delle macchine virtuali a una rete virtuale
 
 Selezionare la rete virtuale per cui si vuole eseguire la migrazione. Si noti che se la rete virtuale contiene ruoli Web/di lavoro o VM con configurazioni non supportate, verrà visualizzato un messaggio di errore di convalida.
 
@@ -105,7 +123,7 @@ Verrà visualizzato un risultato simile al seguente:
 
 ![Schermata della riga di comando con evidenziato l'intero nome della rete virtuale.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-Nell'esempio precedente, il valore **virtualNetworkName** è l'intero nome **"Gruppo classicubuntu16 classicubuntu16"**.
+Nell'esempio precedente il valore **virtualNetworkName** è l'intero nome **"Gruppo classicubuntu16 classicubuntu16"**.
 
 Preparare la rete virtuale scelta per la migrazione con il comando seguente.
 
@@ -119,7 +137,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 
 	azure network vnet commit-migration <virtualNetworkName>
 
-## Passaggio 4: Eseguire la migrazione di un account di archiviazione
+## Passaggio 5: Eseguire la migrazione di un account di archiviazione
 
 Dopo aver completato la migrazione delle macchine virtuali, si consiglia di migrare l'account di archiviazione.
 
@@ -140,4 +158,4 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 - [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

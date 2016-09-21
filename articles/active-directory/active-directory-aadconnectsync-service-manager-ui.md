@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/07/2016"
 	ms.author="andkjell"/>
 
 
@@ -28,11 +28,11 @@ L'interfaccia utente di **Synchronization Service Manager** si usa per configura
 
 L'interfaccia utente di **Synchronization Service Manager** si avvia dal menu Start. Il nome dell'interfaccia è **Servizio di sincronizzazione** ed è disponibile nel gruppo **Azure AD Connect**. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
 
-Fare clic sui collegamenti nella parte superiore di questo argomento per visualizzare altre informazioni sulle diverse schede dell’interfaccia utente.
+Fare clic sui collegamenti nella parte superiore di questo argomento per visualizzare altre informazioni sulle diverse schede dell'interfaccia utente.
 
 ## Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

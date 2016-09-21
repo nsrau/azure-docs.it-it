@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -132,7 +132,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 
     - **Espandere* le colonne con il simbolo**
 
-        Facendo clic a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto *. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia verso il basso.  
+        Facendo clic a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto *. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia verso il basso. 
     	![Espansione di * in Strumenti di Visual Studio per Data Lake](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
@@ -363,4 +363,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

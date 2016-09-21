@@ -14,12 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/15/2016"
+   ms.date="09/02/2016"
    ms.author="amitsriva" />
 
-#Risoluzione degli errori del gateway non valido nel gateway applicazione
+# Risoluzione degli errori del gateway non valido nel gateway applicazione
 
-##Panoramica
+## Overview
+
 Dopo aver configurato un gateway applicazione di Azure, uno degli errori che gli utenti possono incontrare è "Errore del server: 502 - Risposta non valida ricevuta dal server Web in funzione come server proxy o gateway". Ciò può verificarsi a causa dei principali motivi seguenti:
 
 - Il pool back-end del gateway applicazione di Azure non è configurato o è vuoto.
@@ -28,55 +29,59 @@ Dopo aver configurato un gateway applicazione di Azure, uno degli errori che gli
 - Configurazione non valida o inappropriata dei probe di integrità personalizzati.
 - Problemi di timeout della richiesta o di connettività con le richieste degli utenti.
 
+## BackendAddressPool vuoto
 
-##BackendAddressPool vuoto
-###Causa
-Se il gateway applicazione non dispone di macchine virtuali o set di scalabilità di macchine virtuali configurati nel pool di indirizzi back-end, non può indirizzare le richieste del cliente e genera un errore di gateway non valido.
+### Causa
 
-###Soluzione
-Verificare che il pool di indirizzi back-end non sia vuoto. Questa operazione può essere eseguita tramite PowerShell, l'interfaccia della riga di comando o il portale.
+Se nel pool di indirizzi back-end non sono presenti VM o set di scalabilità di macchine virtuali configurati, il gateway applicazione non può instradare le richieste del cliente e genera un errore di gateway non valido.
 
-	
+### Soluzione
+
+Verificare che il pool di indirizzi back-end non sia vuoto. A tale scopo è possibile usare PowerShell, l'interfaccia della riga di comando o il portale.
+
 	Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 
-L'output del cmdlet precedente non dovrebbe contenere pool di indirizzi back-end vuoti. Di seguito è riportato un esempio in cui vengono restituiti due pool configurati con indirizzi IP o FQDN (nome di dominio completo) per le macchine virtuali back-end. Lo stato del provisioning di BackendAddressPool deve essere "Succeeded".
+L'output del cmdlet precedente dovrebbe contenere un pool di indirizzi back-end non vuoto. Di seguito è riportato un esempio in cui vengono restituiti due pool configurati con indirizzi IP o FQDN (nome di dominio completo) per le macchine virtuali back-end. Lo stato del provisioning di BackendAddressPool deve essere "Succeeded".
 	
-		BackendAddressPoolsText: 
-				[{
-					"BackendAddresses": [{
-						"ipAddress": "10.0.0.10",
-						"ipAddress": "10.0.0.11"
-					}],
-					"BackendIpConfigurations": [],
-					"ProvisioningState": "Succeeded",
-					"Name": "Pool01",
-					"Etag": "W/"00000000-0000-0000-0000-000000000000"",
-					"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-				}, {
-					"BackendAddresses": [{
-						"Fqdn": "xyx.cloudapp.net",
-						"Fqdn": "abc.cloudapp.net"
-					}],
-					"BackendIpConfigurations": [],
-					"ProvisioningState": "Succeeded",
-					"Name": "Pool02",
-					"Etag": "W/"00000000-0000-0000-0000-000000000000"",
-					"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-				}]
-	
-	
+	BackendAddressPoolsText: 
+			[{
+				"BackendAddresses": [{
+					"ipAddress": "10.0.0.10",
+					"ipAddress": "10.0.0.11"
+				}],
+				"BackendIpConfigurations": [],
+				"ProvisioningState": "Succeeded",
+				"Name": "Pool01",
+				"Etag": "W/"00000000-0000-0000-0000-000000000000"",
+				"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+			}, {
+				"BackendAddresses": [{
+					"Fqdn": "xyx.cloudapp.net",
+					"Fqdn": "abc.cloudapp.net"
+				}],
+				"BackendIpConfigurations": [],
+				"ProvisioningState": "Succeeded",
+				"Name": "Pool02",
+				"Etag": "W/"00000000-0000-0000-0000-000000000000"",
+				"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+			}]
+
+
 ## Istanze non integre in BackendAddressPool
 
-###Causa
-Se tutte le istanze di BackendAddressPool non sono integre, il gateway applicazione non avrà back-end su cui instradare la richiesta dell'utente. Questo potrebbe anche verificarsi quando le istanze back-end sono integre ma non dispongono dell'applicazione richiesta distribuita.
+### Causa
 
-###Soluzione
-Verificare che le istanze siano integre e che l'applicazione sia configurata correttamente. Controllare se le istanze back-end siano in grado di rispondere a un ping da un'altra macchina virtuale nella stessa rete virtuale. Se configurato con un endpoint pubblico, verificare che sia valida la richiesta del browser per l'applicazione Web.
+Se tutte le istanze di BackendAddressPool non sono integre, il gateway applicazione non avrà back-end a cui instradare la richiesta dell'utente. Questo potrebbe anche verificarsi quando le istanze back-end sono integre ma non è stata distribuita l'applicazione necessaria.
 
+### Soluzione
 
-##Problemi con il probe di integrità predefinito
-###Causa
-Gli errori 502 possono anche indicare che il probe di integrità predefinito non è in grado di raggiungere le macchine virtuali back-end. Quando viene eseguito il provisioning di un'istanza del gateway applicazione, viene automaticamente configurato il probe di integrità predefinito per ogni BackendAddressPool tramite le proprietà del BackendHttpSetting. Per impostare il probe non è necessaria alcuna azione da parte dell'utente. In particolare, quando viene configurata una regola di bilanciamento del carico, viene creata un'associazione tra BackendHttpSetting e BackendAddressPool. Il probe predefinito viene configurato per ognuna di queste associazioni e il gateway applicazione avvia una connessione di controllo di integrità periodica su ogni istanza nel BackendAddressPool, sulla porta specificata nell'elemento BackendHttpSetting. La tabella seguente elenca i valori associati al probe di integrità predefinito.
+Verificare che le istanze siano integre e che l'applicazione sia configurata correttamente. Controllare se le istanze back-end riescono a rispondere a un ping da un'altra VM nella stessa rete virtuale. Se configurato con un endpoint pubblico, verificare che sia valida la richiesta del browser per l'applicazione Web.
+
+## Problemi con il probe di integrità predefinito
+
+### Causa
+
+Gli errori 502 possono anche indicare frequentemente che il probe di integrità predefinito non riesce a raggiungere le VM back-end. Quando viene eseguito il provisioning di un'istanza del gateway applicazione, viene automaticamente configurato il probe di integrità predefinito per ogni BackendAddressPool tramite le proprietà del BackendHttpSetting. Per impostare il probe non è necessaria alcuna azione da parte dell'utente. In particolare, quando viene configurata una regola di bilanciamento del carico, viene creata un'associazione tra BackendHttpSetting e BackendAddressPool. Il probe predefinito viene configurato per ognuna di queste associazioni e il gateway applicazione avvia una connessione di controllo di integrità periodica su ogni istanza nel BackendAddressPool, sulla porta specificata nell'elemento BackendHttpSetting. La tabella seguente elenca i valori associati al probe di integrità predefinito.
 
 
 |Proprietà probe | Valore | Descrizione|
@@ -86,7 +91,8 @@ Gli errori 502 possono anche indicare che il probe di integrità predefinito non
 | Timeout | 30 | Timeout di probe in secondi |
 | Soglia non integra | 3 | Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
-###Soluzione
+### Soluzione
+
 - Verificare che sia stato configurato un sito predefinito e che sia in ascolto su 127.0.0.1.
 - Se BackendHttpSetting specifica una porta diversa da 80, il sito predefinito deve essere configurato per ascoltare tale porta.
 - La chiamata a http://127.0.0.1:port deve restituire un codice risultato HTTP di 200. Questo valore deve essere restituito entro il periodo di timeout di 30 secondi.
@@ -95,15 +101,16 @@ Gli errori 502 possono anche indicare che il probe di integrità predefinito non
 - Se la macchina virtuale è stata configurata tramite Azure Resource Manager e si trova all'esterno della rete virtuale in cui è distribuito il gateway applicazione, è necessario configurare un [Gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per consentire l'accesso alla porta desiderata.
 
 
-##Problemi con il probe di integrità personalizzato
-###Causa
-Il probe di integrità personalizzato consente una maggiore flessibilità per la ricerca di comportamenti predefiniti del probe. Quando si usano i probe personalizzati, gli utenti possono configurare l'intervallo di probe, l'URL e il percorso da testare, nonché il numero di risposte non riuscite da accettare prima di contrassegnare l'istanza del pool back-end come non integra. Vengono aggiunte le seguenti proprietà aggiuntive.
+## Problemi con il probe di integrità personalizzato
 
+### Causa
+
+Il probe di integrità personalizzato consente una maggiore flessibilità per la ricerca di comportamenti predefiniti del probe. Quando si usano probe personalizzati, gli utenti possono configurare l'intervallo di probe, l'URL e il percorso da testare, nonché il numero di risposte non riuscite da accettare prima di contrassegnare l'istanza del pool back-end come non integra. Vengono aggiunte le seguenti proprietà aggiuntive.
 
 |Proprietà probe| Descrizione|
 |---|---|
 | Nome | Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
-| Protocollo | Protocollo usato per inviare il probe. HTTP è il solo protocollo valido |
+| Protocol | Protocollo usato per inviare il probe. HTTP è il solo protocollo valido |
 | Host | Nome host per inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. Questo nome è diverso dal nome host della macchina virtuale. |
 | Path | Percorso relativo del probe. Il percorso valido inizia da "/". Il probe viene inviato a <protocollo>://<host>:<porta><percorso> |
 | Interval | Intervallo di probe in secondi. Si tratta dell'intervallo di tempo tra due probe consecutivi.|
@@ -111,27 +118,30 @@ Il probe di integrità personalizzato consente una maggiore flessibilità per la
 | Soglia non integra | Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
 
-###Soluzione
-Verificare che il probe di integrità personalizzato sia configurato correttamente in base alla tabella riportata sopra. Oltre alle procedure di risoluzione dei problemi indicate in alto, verificare anche quanto segue.
+### Soluzione
+
+Verificare che il probe di integrità personalizzato sia configurato correttamente in base alla tabella precedente. In aggiunta alle procedure di risoluzione dei problemi precedenti, verificare anche quanto segue:
 
 - Verificare che il protocollo sia impostato solo su HTTP. HTTP non è attualmente supportato.
 - Verificare che il probe sia specificato correttamente secondo le istruzioni della [guida](application-gateway-create-probe-ps.md).
 - Se il gateway applicazione è configurato per un singolo sito, per impostazione predefinita il nome dell'host deve essere specificato come "127.0.0.1", se non diversamente configurato nel probe personalizzato.
-- Verificare che la chiamata a http://\< host >: < porta >< percorso > restituisca un codice risultato HTTP di 200.
+- Verificare che la chiamata a http://\<host>: <porta><percorso> restituisca un codice risultato HTTP di 200.
 - Assicurarsi che Intervallo, Timeout e Soglia non integra siano compresi in intervalli accettabili.
 
+## Timeout della richiesta
 
-##Timeout della richiesta
-###Causa
-Quando viene ricevuta una richiesta dell'utente, il gateway applicazione applica le regole configurate per la richiesta e indirizza la richiesta su un'istanza del pool back-end. Attende per un intervallo di tempo configurabile la risposta dall'istanza back-end. Per impostazione predefinita, l'intervallo è impostato su **30 secondi**. Se il gateway applicazione non riceve una risposta dall'applicazione back-end in questo intervallo, la richiesta dell'utente visualizza l'errore 502.
+### Causa
 
-###Soluzione
-Il gateway applicazione consente agli utenti di configurare questa impostazione tramite BackendHttpSetting, applicabile a pool diversi. I diversi pool back-end possono avere BackendHttpSetting differenti e quindi una diversa configurazione per la richiesta di timeout.
+Quando viene ricevuta una richiesta dell'utente, il gateway applicazione applica le regole configurate alla richiesta e la instrada a un'istanza del pool back-end. Attende quindi la risposta dall'istanza back-end per un intervallo di tempo configurabile. Per impostazione predefinita, l'intervallo è impostato su **30 secondi**. Se il gateway applicazione non riceve una risposta dall'applicazione back-end in questo intervallo, alla richiesta dell'utente viene assegnato un errore 502.
+
+### Soluzione
+
+Il gateway applicazione consente agli utenti di configurare questa impostazione tramite BackendHttpSetting, applicabile a pool diversi. I diversi pool back-end possono avere BackendHttpSetting differenti e quindi una diversa configurazione del timeout della richiesta.
 
 	New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 
-##Passaggi successivi
+## Passaggi successivi
 
-Se i passaggi precedenti non risolvono il problema, aprire un [ticket al supporto tecnico](https://azure.microsoft.com/support/options/).
+Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->
