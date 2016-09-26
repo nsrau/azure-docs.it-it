@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/11/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
 
@@ -54,7 +54,7 @@ Azure Active Directory Identity Protection è, del resto, ben più di un semplic
 
 - Raccomandazioni personalizzate per migliorare il comportamento di sicurezza in generale evidenziando le vulnerabilità.
 
-<br>  
+<br>
 
 **Analisi degli eventi di rischio:**
 
@@ -66,7 +66,7 @@ Azure Active Directory Identity Protection è, del resto, ben più di un semplic
 
 - Accesso semplificato ad azioni di correzione come la reimpostazione della password.
 
-<br>  
+<br>
 
 **Criteri di accesso condizionale basati sul rischio:**
 
@@ -94,7 +94,8 @@ Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'
 | Accessi da dispositivi infetti | Accessi da dispositivi potenzialmente infetti |
 | Accessi da indirizzi IP anonimi | Accessi da origini sconosciute |
 | Accessi da indirizzi IP con attività sospette |	Accessi da indirizzi IP con attività sospette |
-| Accessi da posizioni non note | - | | Eventi di blocco (non nell'anteprima pubblica) | - |
+| Accessi da posizioni non note | - | 
+| Eventi di blocco (non nell'anteprima pubblica) | - |
 
 I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come eventi di rischio in Azure AD Identity Protection e non sono quindi disponibili in Identity Protection. Questi report sono ancora disponibili nel portale di gestione di Azure, ma in futuro saranno deprecati perché progressivamente sostituiti dagli eventi di rischio di Identity Protection.
 
@@ -112,7 +113,7 @@ Il livello di rischio è un'indicazione della gravità, misurata come alta, medi
 - **Bassa**: evento di rischio con livello di gravità basso e attendibilità bassa. Questi eventi potrebbero non richiedere un'azione immediata, ma in combinazione con altri eventi di rischio possono essere fortemente indicativi di una compromissione dell'identità.
 
 
-![Livello di rischio](./media/active-directory-identityprotection/01.png "Livello di rischio")  
+![Livello di rischio](./media/active-directory-identityprotection/01.png "Livello di rischio")
 
  
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="jaymathe" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -113,7 +113,7 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [3]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img3.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 

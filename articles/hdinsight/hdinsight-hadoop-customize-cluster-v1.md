@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/17/2016" 
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 # Personalizzare cluster HDInsight mediante l'azione script
 

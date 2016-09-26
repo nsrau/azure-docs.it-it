@@ -132,7 +132,7 @@ A tale scopo, seguire questa procedura:
 
     Verrà visualizzata la stessa home page di Sails.js.
     
-    ![](./media/app-service-web-nodejs-sails/sails-in-azure.png)  
+    ![](./media/app-service-web-nodejs-sails/sails-in-azure.png)
 
 ## Risoluzione dei problemi di distribuzione
 

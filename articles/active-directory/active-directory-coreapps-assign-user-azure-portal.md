@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Assegnare un utente o un gruppo a un'app aziendale in anteprima di Azure Active Directory
 
@@ -26,9 +26,9 @@
 
 2. Selezionare **Altri servizi**, immettere Azure Active Directory nella casella di testo e quindi selezionare **Invio**.
 
-3. Nel pannello **Azure Active Directory - ** *nomedirectory*, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
+3. Nel pannello **Azure Active Directory -** *nomedirectory*, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 
-  ![Apertura di app aziendali](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)  
+  ![Apertura di app aziendali](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
 
 4. Nel pannello **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Verrà visualizzato un elenco di app che è possibile gestire.
 
@@ -36,13 +36,13 @@
 
 6. Nel pannello ***nomeapp***, vale a dire il pannello con il nome dell'app selezionata nel titolo, selezionare **Utenti e gruppi**.
 
-  ![Selezione del comando Tutte le applicazioni](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)  
+  ![Selezione del comando Tutte le applicazioni](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
 
 7. Nel pannello ***nomeapp*** **- Assegnazione di utenti e gruppi**, selezionare il comando **Aggiungi**.
 
 8. Nel pannello **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 
-  ![Assegnare un utente o gruppo all'app](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)  
+  ![Assegnare un utente o gruppo all'app](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
 
 9. Nel pannello **Utenti e gruppi**, selezionare uno o più utenti o gruppi dall'elenco e fare clic sul pulsante **Seleziona** nella parte inferiore del pannello.
 

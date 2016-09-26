@@ -6,7 +6,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="03/07/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 
 # Esercitazione di Hadoop: Introduzione ad Hadoop e a una query Hive in HDInsight in Windows

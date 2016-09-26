@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
     ms.date="09/12/2016"
-    ms.author="magoedte;sngun" />  
+    ms.author="magoedte;sngun" />
 
 # Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -35,7 +35,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
 
 1. Nel pannello Account di automazione del portale di Azure fare clic su **Impostare il controllo codice sorgente.**
  
-    ![Impostare il controllo codice sorgente](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)  
+    ![Impostare il controllo codice sorgente](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
 2. Viene aperto il pannello **Controllo codice sorgente** dove è possibile configurare i dettagli dell'account GitHub. Ecco l'elenco dei parametri da configurare:
 
@@ -72,7 +72,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
     |:---|:---|
     | Nome | Microsoft.Azure.Automation.SourceControl.Connection |
     | Tipo | String |
-    | Valore | {"Branch":<*Nome del ramo*>,"RunbookFolderPath":<*Percorso della cartella runbook*>,"ProviderType":<*ha un valore 1 per GitHub*>,"Repository":<*Nome del repository*>,"Username":<*Nome utente di GitHub*>} | <br>  
+    | Valore | {"Branch":<*Nome del ramo*>,"RunbookFolderPath":<*Percorso della cartella runbook*>,"ProviderType":<*ha un valore 1 per GitHub*>,"Repository":<*Nome del repository*>,"Username":<*Nome utente di GitHub*>} | <br>
 
 
     * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken** contiene il valore sicuro crittografato di OAuthToken.
@@ -101,7 +101,7 @@ L'archiviazione del runbook consente di effettuare il push delle modifiche appor
 
 2. Dopo aver modificato il runbook, salvarlo e fare clic su **Archivia** nel pannello **Modifica**.
 
-    ![Pulsante Archivia](media/automation-source-control-integration/automation_06_CheckinButton.png)  
+    ![Pulsante Archivia](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
      >[AZURE.NOTE] L'archiviazione da Automazione di Azure sovrascriverà il codice attualmente presente nel controllo del codice sorgente. L'istruzione della riga di comando Git equivalente per l'archiviazione è **git add + git commit + git push**

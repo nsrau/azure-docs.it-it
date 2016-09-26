@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory
 
@@ -26,17 +26,17 @@ Questo articolo illustra come assegnare un ruolo amministrativo a un utente in a
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
 3.  Nel pannello **Utenti e gruppi** selezionare **Tutti gli utenti**.
 
-    ![Apertura del pannello Tutti gli utenti](./media/active-directory-users-assign-role-azure-portal/create-users-opit-ITers-blade.png)  
+    ![Apertura del pannello Tutti gli utenti](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 
 4. Nel pannello **Utenti e gruppi - Tutti gli utenti** selezionare un utente nell'elenco.
 
 5. Nel pannello per l'utente prescelto selezionare **Ruolo della directory** e quindi assegnare l'utente a un ruolo nell'elenco **Ruolo della directory**. Per altre informazioni sui ruoli utente e di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md).
 
-	  ![Assegnazione di un utente a un ruolo](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)  
+	  ![Assegnazione di un utente a un ruolo](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 
 6. Selezionare **Salva**.
 

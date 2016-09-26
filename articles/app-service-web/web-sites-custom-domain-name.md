@@ -81,7 +81,7 @@ Per eseguire il mapping di un nome dominio personalizzato usando un record A è 
 
 6.  Prendere nota dell'indirizzo IP sopra la sezione Nomi host.
 
-    ![Eseguire il mapping del nome di dominio personalizzato al record A: ottenere l'indirizzo IP per l'app del servizio app di Azure](./media/web-sites-custom-domain-name/virtual-ip-address.png)  
+    ![Eseguire il mapping del nome di dominio personalizzato al record A: ottenere l'indirizzo IP per l'app del servizio app di Azure](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
 7.  Tenere aperto questo pannello del portale. Verrà usato di nuovo dopo aver creato i record DNS.
 
@@ -191,7 +191,7 @@ Nel pannello **Domini personalizzati** del portale di Azure (vedere il [passaggi
 
 4.	Aggiungere il nome di dominio completo del dominio personalizzato all'elenco, ad esempio **www.contoso.com**.
 
-    ![Eseguire il mapping di un nome di dominio personalizzato a un'app Azure: aggiungere il nome di dominio all'elenco di nomi di dominio](./media/web-sites-custom-domain-name/add-custom-domain.png)  
+    ![Eseguire il mapping di un nome di dominio personalizzato a un'app Azure: aggiungere il nome di dominio all'elenco di nomi di dominio](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
     >[AZURE.NOTE] Azure tenterà di verificare il nome di dominio usato. Assicurarsi che si tratti dello stesso nome di dominio per cui è stato creato un record DNS nel [passaggio 2](#createdns).
 
@@ -246,7 +246,7 @@ Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS 
 [Introduzione al servizio DNS di Azure](../dns/dns-getstarted-create-dnszone.md) [Creare record DNS per un'app Web in un dominio personalizzato](../dns/dns-web-sites-custom-domain.md) [Delegare un dominio al servizio DNS di Azure](../dns/dns-domain-delegation.md)
 
 
-<!-- Images -->  
+<!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
 <!---HONumber=AcomDC_0914_2016-->

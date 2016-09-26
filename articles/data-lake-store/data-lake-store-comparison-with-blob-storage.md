@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/15/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Confronto tra Azure Data Lake Store e l'archivio BLOB di Azure
 

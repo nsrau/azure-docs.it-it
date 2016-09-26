@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -311,7 +311,7 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 [9]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-to-hive.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 <!---HONumber=AcomDC_0914_2016-->

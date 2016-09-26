@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -15,14 +15,14 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Spostare dati con l'attività di copia
 
 ## Overview
 In Data Factory di Azure, è possibile usare l'attività di copia per copiare i dati di diverse forme da varie origini dati locali e nel cloud in Azure. Dopo la copia, è possibile trasformare o analizzare ulteriormente i dati. L'attività di copia può essere usata anche per pubblicare risultati di trasformazione e analisi per Business Intelligence (BI) e l'uso delle applicazioni.
 
-![Ruolo dell'attività di copia](media/data-factory-data-movement-activities/copy-activity.png)  
+![Ruolo dell'attività di copia](media/data-factory-data-movement-activities/copy-activity.png)
 
 L'attività di copia è un servizio [disponibile a livello globale](#global) sicuro, affidabile e scalabile. Questo articolo fornisce informazioni dettagliate sullo spostamento dei dati in Data factory e sull'attività di copia.
 
@@ -39,7 +39,7 @@ Nei casi in cui sia l'archivio dati di origine che l'archivio dati sink si trova
 
 Il servizio sceglie automaticamente l'area ottimale per eseguire lo spostamento dei dati. Questa area è in genere quella più vicino all'archivio dati sink.
 
-![Copia da cloud a cloud](./media/data-factory-data-movement-activities/cloud-to-cloud.png)  
+![Copia da cloud a cloud](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
 
 
 ### Copiare dati tra un archivio dati locale e un archivio dati cloud
@@ -47,7 +47,7 @@ Per spostare in modo sicuro i dati tra gli archivi dati locali e un archivio dat
 
 In questo scenario, il Gateway di gestione dati esegue la serializzazione/deserializzazione, la compressione/decompressione, il mapping di colonne e la conversione del tipo. I dati non transitano attraverso il servizio Data Factory di Azure. Gateway di gestione dati scrive direttamente i dati nell'archivio di destinazione.
 
-![Copia da locale a cloud](./media/data-factory-data-movement-activities/onprem-to-cloud.png)  
+![Copia da locale a cloud](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
 Per un'introduzione e una procedura dettagliata, vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md). Per informazioni dettagliate sull'agente, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).
 

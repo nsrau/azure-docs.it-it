@@ -27,7 +27,7 @@
 
     ![Screenshot del pannello Gruppo di risorse: inizio dello sviluppo dell'applicazione](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)
 
-    ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps

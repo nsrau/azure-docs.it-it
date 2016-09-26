@@ -6,7 +6,7 @@
    authors="erihur"
    manager="stevenpo"
    editor=""
-   tags="billing"/>  
+   tags="billing"/>
 
 <tags
    ms.service="billing"
@@ -43,7 +43,7 @@ Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina rela
 
 3. Fare clic su **Cronologia di fatturazione**.
 
-    ![Riepilogo - cronologia fatturazione -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)  
+    ![Riepilogo - cronologia fatturazione -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
 4. La sezione **Cronologia di fatturazione** include un elenco dei rendiconti dei periodi di fatturazione precedenti, oltre al periodo attuale non fatturato. Il rendiconto per il periodo attuale è una stima degli addebiti fino al momento in cui è stata generata la stima. Queste informazioni vengono aggiornate solo una volta al giorno e potrebbero non includere tutti gli utilizzi effettuati alla data corrente. È possibile che la fattura mensile non corrisponda a questa stima.
 
@@ -57,7 +57,7 @@ Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina rela
 
 6. Fare clic su **Scarica fattura** per visualizzare una copia della fattura precedente.
 
-    ![Riepilogo - cronologia fatturazione 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)  
+    ![Riepilogo - cronologia fatturazione 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
 > [AZURE.NOTE] Gli addebiti elencati negli estratti conto per i clienti internazionali sono solo a scopo di valutazione, perché le banche hanno costi diversi per i tassi di conversione.
@@ -73,7 +73,7 @@ Offerta dell'impegno | Spesa detratta dall'impegno prepagato | [File di esempio]
 
 La sezione relativa alle informazioni sull'account identifica le informazioni pertinenti relative all'utilizzo e al profilo dell'utente.
 
-![intestazione](./media/billing-understand-your-bill/Header.png)  
+![intestazione](./media/billing-understand-your-bill/Header.png)
 
 | Termine | Descrizione |
 |---------------------|-----------------------------------------------------------------------------------------------------|
@@ -89,7 +89,7 @@ La sezione relativa alle informazioni sull'account identifica le informazioni pe
 
 La sezione relativa al **riepilogo della fattura** riassume le transazioni avvenute dall'ultima fattura e gli addebiti per l'utilizzo attuale.
 
-![riepilogo fattura](./media/billing-understand-your-bill/InvoiceSummary.png)  
+![riepilogo fattura](./media/billing-understand-your-bill/InvoiceSummary.png)
 
 Nella sezione della fattura relativa a saldo precedente, pagamenti e saldo in sospeso sono riepilogate le transazioni avvenute dall'ultima fattura.
 
@@ -114,7 +114,7 @@ La sezione Costi attuali della fattura contiene informazioni dettagliate sui cos
 ## Comprendere le informazioni aggiuntive
 La pagina delle informazioni aggiuntive contiene riferimenti ad altre risorse utili per comprendere la fattura e alcuni collegamenti per visualizzare i dati sull'utilizzo e altri dati correlati alla fattura.
 
-![informazioni aggiuntive](./media/billing-understand-your-bill/AdditionalInformation.png)  
+![informazioni aggiuntive](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Uso dettagliato
 Un collegamento all'interno della descrizione inclusa nella sezione dei **dati sull'utilizzo dettagliati** permette di passare al Centro account in cui è possibile visualizzare i dati sull'utilizzo dettagliati per questa sottoscrizione. Sono ora disponibili due versioni disponibili per il download: **versione 1 CSV**, che contiene i campi di utilizzo e la convenzione di denominazione precedente e **versione 2 CSV**, che contiene i nomi descrittivi del cliente per ognuna delle categorie e altri campi che consentiranno di comprendere quali servizi di Microsoft Azure si utilizzano. Si noti che nella versione 1 del file CSV non sono presenti dettagli di Azure Resource Manager. Le informazioni di Azure Resource Manager sono reperibili nella versione 2 del file con estensione csv.
@@ -166,13 +166,13 @@ In base all'utilizzo, potrebbero essere presenti migliaia di righe relative ai d
 
 
 
-![csv2screenshot](./media/billing-understand-your-bill/csv2screenshot.png)  
+![csv2screenshot](./media/billing-understand-your-bill/csv2screenshot.png)
 
 
 
 Nel file CSV le voci sono suddivise per mostrare un elenco che indica la quantità consumata di ogni risorsa nel periodo di fatturazione corrente.
 
-![csv snapshot](./media/billing-understand-your-bill/csvsnapshotportal.png)  
+![csv snapshot](./media/billing-understand-your-bill/csvsnapshotportal.png)
 
 Le colonne seguenti indicano i dettagli che influiscono sulle tariffe all'inizio del periodo di fatturazione:
 
@@ -199,11 +199,11 @@ Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per 
 
 - **ID istanza**: il campo ID istanza rappresenta l’ID specificato dall’utente per il servizio di provisioning. Attualmente, esistono due formati in cui è rappresentata l'ID istanza: il nome della risorsa o l'ID di risorsa completo. I servizi Microsoft Azure sono in fase di transizione alla rappresentazione dell'ID istanza in un formato di ID risorsa completo standardizzato: _**/subscriptions/<ID sottoscrizione>/resourcegroups/<nome gruppo di risorse>/providers/<nome provider>/<nome risorsa>**_. Nel momento in cui i servizi passano al nuovo formato sarà possibile osservare il campo ID istanza che passa dal semplice nome della risorsa a ID risorsa. L'ID risorsa è il formato usato dall'[API di Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) per identificare le risorse in una sottoscrizione.
 
-![instanceid](./media/billing-understand-your-bill/instanceid.png)  
+![instanceid](./media/billing-understand-your-bill/instanceid.png)
 
 - **Informazioni aggiuntive**: la colonna Informazioni aggiuntive del file CSV dei dati di utilizzo specifica i metadati specifici del servizio. Ad esempio, un tipo di immagine per una macchina virtuale. Attualmente, un servizio genera metadati specifici del servizio in più colonne, nei campi Informazioni aggiuntive, Informazioni servizio 1 e Informazioni servizio 2. I servizi di Microsoft Azure verranno standardizzati e i metadati specifici del servizio verranno generati solo nella colonna Informazioni aggiuntive. Vedere lo snapshot del formato standardizzato di seguito:
 
-![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)  
+![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Tag**: questa colonna contiene i tag delle risorse specificati dall'utente. I tag possono essere utilizzati per raggruppare i record di fatturazione. Ad esempio, è possibile utilizzare i tag per distribuire i costi per reparto mediante il servizio. Ulteriori informazioni sull’[uso dei tag per organizzare le risorse di Azure ](./resource-group-using-tags.md). Di seguito sono indicati i servizi che supportano la creazione di tag:
 
@@ -213,7 +213,7 @@ Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per 
 
     - Servizi di rete di cui viene eseguito il provisioning mediante l’[API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
-![tags](./media/billing-understand-your-bill/tags.png)  
+![tags](./media/billing-understand-your-bill/tags.png)
 
 
 ## Passaggi successivi
@@ -235,10 +235,10 @@ OLD MSDN Articles
 - [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
 - [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 - [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
--->  
+-->
 
 
 
-<!--Image references-->  
+<!--Image references-->
 
 <!---HONumber=AcomDC_0914_2016-->

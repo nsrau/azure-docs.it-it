@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Disabilitare gli accessi utente per un'app aziendale in anteprima di Azure Active Directory
@@ -29,7 +29,7 @@ Disabilitare un'applicazione aziendale in modo da impedire l'accesso degli utent
 
 3. Nel pannello **Azure Active Directory - *nomedirectory***, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 
-	![Apertura di app aziendali](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)  
+	![Apertura di app aziendali](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
 
 4. Nel pannello **Applicazioni aziendali** selezionare **All applications** (Tutte le applicazioni). Viene visualizzato un elenco di app che è possibile gestire.
 
@@ -37,7 +37,7 @@ Disabilitare un'applicazione aziendale in modo da impedire l'accesso degli utent
 
 6. Nel pannello ***nomeapp***, vale a dire il pannello con il nome dell'app selezionata nel titolo, selezionare **Proprietà**.
 
-	![Selezione del comando All applications (Tutte le applicazioni)](./media/active-directory-coreapps-disable-app-azure-portal/select-app.png)  
+	![Selezione del comando All applications (Tutte le applicazioni)](./media/active-directory-coreapps-disable-app-azure-portal/select-app.png)
 
 7. Nel pannello ***nomeapp*** **-Proprietà** selezionare **No** per **Enabled for users to sign-in?** (Abilitato per l'accesso degli utenti?).
 

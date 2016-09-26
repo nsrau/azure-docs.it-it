@@ -5,7 +5,7 @@ services="active-directory"
 documentationCenter=""
 authors="curtand"
 manager="femila"
-editor=""/>  
+editor=""/>
 
 <tags
 ms.service="active-directory"
@@ -14,7 +14,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
 ms.date="09/12/2016"
-ms.author="curtand"/>  
+ms.author="curtand"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda specifiche della lingua nella pagina di accesso in anteprima di Azure Active Directory
 
@@ -36,13 +36,13 @@ Per evitare confusione, molte aziende vogliono applicare un aspetto coerente a t
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-branding-localize-azure-portal/user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-branding-localize-azure-portal/user-management.png)
 
 3. Nel pannello **Utenti e gruppi** selezionare **Company branding** (Informazioni personalizzate distintive dell'azienda).
 
 4. Nel pannello **Utenti e gruppi - Company branding (Informazioni personalizzate distintive dell'azienda)** selezionare il comando **Aggiungi lingua**.
 
-    ![Aggiungere elementi personalizzati distintivi dell'azienda specifiche della lingua](./media/active-directory-branding-localize-azure-portal/add-language.png)  
+    ![Aggiungere elementi personalizzati distintivi dell'azienda specifiche della lingua](./media/active-directory-branding-localize-azure-portal/add-language.png)
 
 5. Modificare gli elementi da personalizzare. Tutti gli elementi sono facoltativi.
 

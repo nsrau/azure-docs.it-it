@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Modificare il nome o il logo di un'app aziendale in anteprima di Azure Active Directory
 
@@ -28,7 +28,7 @@
 
 3. Nel pannello **Azure Active Directory - *nomedirectory***, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 
-	![Apertura di app aziendali](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)  
+	![Apertura di app aziendali](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
 
 4. Nel pannello **Applicazioni aziendali** selezionare **All applications** (Tutte le applicazioni). Verrà visualizzato un elenco di app che è possibile gestire.
 
@@ -36,11 +36,11 @@
 
 6. Nel pannello ***nomeapp***, vale a dire il pannello con il nome dell'app selezionata nel titolo, selezionare **Proprietà**.
 
-	![Selezione del comando Proprietà](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)  
+	![Selezione del comando Proprietà](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
 
 7. Nel pannello ***nomeapp*** **-Proprietà** cercare un file da usare come nuovo logo o modificare il nome dell'app o eseguire entrambe le operazioni.
 
-	![Modifica del logo dell'app o del comando nameproperties](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)  
+	![Modifica del logo dell'app o del comando nameproperties](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
 
 8. Selezionare il comando **Salva**.
 

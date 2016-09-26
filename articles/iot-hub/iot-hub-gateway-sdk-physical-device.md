@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="chipalost"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -78,10 +78,10 @@ Questa esercitazione presuppone che si usi un dispositivo [SensorTag di Texas In
 
 Prima di iniziare, verificare che sia possibile connettere il dispositivo Edison alla rete wireless. Per configurare il dispositivo Edison, è necessario connetterlo a un computer host. Sono disponibili guide introduttive di Intel per i sistemi operativi seguenti:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introduzione alla scheda di sviluppo Intel Edison su Windows a 64 bit)
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introduzione alla scheda di sviluppo Intel Edison su Windows a 32 bit)
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Introduzione alla scheda di sviluppo Intel Edison su Mac OS X)
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introduzione alla scheda Intel® Edison su Linux)
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introduzione alla scheda di sviluppo Intel Edison su Windows a 64 bit)
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introduzione alla scheda di sviluppo Intel Edison su Windows a 32 bit)
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Introduzione alla scheda di sviluppo Intel Edison su Mac OS X)
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introduzione alla scheda Intel® Edison su Linux)
 
 Per configurare il dispositivo Edison e acquisire familiarità con tale dispositivo, è consigliabile eseguire tutti i passaggi descritti in questi articoli introduttivi tranne l'ultimo, relativo alla scelta dell'IDE, che non è necessario ai fini dell'esercitazione corrente. Al termine della procedura di configurazione del dispositivo Edison, l'utente avrà:
 
@@ -408,7 +408,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->  
+<!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md

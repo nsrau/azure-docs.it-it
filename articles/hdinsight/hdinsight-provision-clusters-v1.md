@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="mumian" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"

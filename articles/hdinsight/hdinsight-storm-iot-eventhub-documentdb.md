@@ -5,7 +5,7 @@
  documentationCenter=""
  authors="Blackmist"
  manager="jhubbard"
- editor="cgronlun"/>  
+ editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="08/23/2016"
-ms.author="larryfr"/>  
+ms.author="larryfr"/>
 
 #Elaborare i dati del sensore veicolo dagli hub eventi di Azure usando Apache Storm in HDInsight
 

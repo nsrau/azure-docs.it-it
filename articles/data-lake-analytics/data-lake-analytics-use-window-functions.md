@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>  
+   ms.author="edmaca"/>
 
 
 # Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake  

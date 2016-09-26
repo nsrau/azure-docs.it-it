@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="tomarcher"
 	manager="douge"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="devtest-lab"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Definizione dei criteri di lab in Azure DevTest Labs
 
@@ -38,7 +38,7 @@ Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
 1. Il pannello **Impostazioni criteri** contiene un menu di impostazioni che è possibile specificare:
 
-	![Pannello Impostazioni criteri](./media/devtest-lab-set-lab-policy/policies.png)  
+	![Pannello Impostazioni criteri](./media/devtest-lab-set-lab-policy/policies.png)
 
 	Per ulteriori informazioni sull'impostazione di un criterio, selezionarlo dall'elenco seguente:
 
@@ -58,7 +58,7 @@ I criteri per l'impostazione delle dimensioni consentite per le macchine virtual
 
 1. Nel pannello **Impostazioni criteri** del lab selezionare **Dimensioni consentite per le macchine virtuali**.
 
-	![Dimensioni consentite per le macchine virtuali](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)  
+	![Dimensioni consentite per le macchine virtuali](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
  
 1. Selezionare **On** per abilitare i criteri e **Off** per disabilitarli.
 
@@ -72,7 +72,7 @@ I criteri per **Macchine virtuali per utente** consentono di specificare il nume
 
 1. Nel pannello **Impostazioni criteri** del lab selezionare **Macchine virtuali per utente**.
 
-	![Macchine virtuali per utente](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)  
+	![Macchine virtuali per utente](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
 1. Selezionare **On** per abilitare i criteri e **Off** per disabilitarli.
 
@@ -86,7 +86,7 @@ I criteri per **Macchine virtuali per lab** consentono di specificare il numero 
 
 1. Nel pannello **Impostazioni criteri** del lab selezionare **Macchine virtuali per lab**.
 
-	![Macchine virtuali per lab](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)  
+	![Macchine virtuali per lab](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)
 
 1. Selezionare **On** per abilitare i criteri e **Off** per disabilitarli.
 
@@ -100,7 +100,7 @@ I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel 
 
 1. Nel pannello **Impostazioni criteri** del lab selezionare **Arresto automatico**.
 
-	![Arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown.png)  
+	![Arresto automatico](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
 1. Selezionare **On** per abilitare i criteri e **Off** per disabilitarli.
 
@@ -116,7 +116,7 @@ I criteri di avvio automatico consentono di specificare l'ora in cui devono esse
 
 1. Nel pannello **Impostazioni criteri** del lab selezionare **Avvio automatico**.
 
-	![Avvio automatico](./media/devtest-lab-set-lab-policy/auto-start.png)  
+	![Avvio automatico](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 1. Selezionare **On** per abilitare i criteri e **Off** per disabilitarli.
 

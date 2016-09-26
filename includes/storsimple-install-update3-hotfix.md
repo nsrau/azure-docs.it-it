@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 09/01/16-->  
+<!--author=alkohli last changed: 09/01/16-->
 
 #### Scaricare gli hotfix
 
@@ -12,7 +12,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
     Verrà visualizzato l'elenco degli hotfix, ad esempio, **Cumulative Software Bundle Update 3.0 for StorSimple 8000 Series** (Aggiornamento cumulativo del pacchetto software 3.0 per StorSimple serie 8000).
 
-    ![Cercare nel catalogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)  
+    ![Cercare nel catalogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
 4. Fare clic su **Aggiungi**. L'aggiornamento viene aggiunto al carrello.
 
@@ -35,7 +35,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
 
 5. Per installare l'hotfix, al prompt dei comandi, digitare:
 
-    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`  
+    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
     Utilizzare l’IP anziché il DNS nel percorso condivisione nel comando precedente. Il parametro di credenziale viene utilizzato soltanto se si accede a una condivisione autenticata.
 
@@ -93,13 +93,13 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
 
 8. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare:
 
-    `Get-HcsSystem`  
+    `Get-HcsSystem`
 
     Dovrebbero essere visualizzate le seguenti versioni:
 
-    - `HcsSoftwareVersion: 6.3.9600.17759`  
+    - `HcsSoftwareVersion: 6.3.9600.17759`
     - `CisAgentVersion:  1.0.9343.0`
-    - `MdsAgentVersion: 30.0.4698.16`  
+    - `MdsAgentVersion: 30.0.4698.16`
 
 	Se i numeri di versione non vengono modificati dopo aver applicato l'aggiornamento, significa che non è stato possibile applicare l'aggiornamento rapido. Se si verifica ciò, contattare [il supporto tecnico di Microsoft](storsimple-contact-microsoft-support.md) per assistenza.
 	
@@ -107,7 +107,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
 
 9. Ripetere i passaggi da 3 a 5 per installare il driver LSI e l'hotfix del firmware **KB3186859**. Dopo aver installato l'hotfix, usare il cmdlet `Get-HcsSystem`. La versione LSI deve essere:
 
-	- `Lsisas2Version: 2.0.78.00`  
+	- `Lsisas2Version: 2.0.78.00`
 	
 10. Ripetere i passaggi da 3 a 5 per installare l'aggiornamento Storport e Spaceport **KB3121261**.
 

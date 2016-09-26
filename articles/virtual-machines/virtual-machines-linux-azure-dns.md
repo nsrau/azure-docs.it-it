@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/06/2016"
-   ms.author="rclaus" />  
+   ms.author="rclaus" />
 
 # Opzioni di risoluzione dei nomi DNS per VM Linux in Azure
 

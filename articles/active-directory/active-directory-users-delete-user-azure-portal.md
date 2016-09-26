@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Eliminare un utente da una directory in anteprima di Azure Active Directory
 
@@ -26,17 +26,17 @@ Questo articolo illustra come eliminare un utente da una directory in anteprima 
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-users-delete-user-azure-portal/create-users-user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-users-delete-user-azure-portal/create-users-user-management.png)
 
 3.  Nel pannello **Utenti e gruppi** selezionare **Utenti**.
 
-    ![Apertura del pannello Utenti](./media/active-directory-users-delete-user-azure-portal/create-users-opit-ITers-blade.png)  
+    ![Apertura del pannello Utenti](./media/active-directory-users-delete-user-azure-portal/create-users-open-users-blade.png)
 
 4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco.
 
 5. Nel pannello per l'utente selezionato, selezionare **Panoramica**, quindi nella barra dei comandi selezionare **Elimina**.
 
-    ![Selezione del comando Elimina](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)  
+    ![Selezione del comando Elimina](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
 
 ## Passaggi successivi

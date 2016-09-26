@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="v-shysun"/>  
+	ms.author="v-shysun"/>
 
 # Suggerimenti sull'ottimizzazione delle prestazioni del database SQL
 È possibile modificare il [livello di servizio](sql-database-service-tiers.md) di un singolo database o aumentare il numero di eDTU del pool di database elastici in qualsiasi momento per migliorare le prestazioni, ma è consigliabile innanzitutto identificare le opportunità per migliorare e ottimizzare le prestazioni delle query. Spesso le prestazioni non ottimali del database sono dovute a indici mancanti e query non ottimizzate correttamente. Questo articolo fornisce indicazioni per l'ottimizzazione delle prestazioni nel database SQL.

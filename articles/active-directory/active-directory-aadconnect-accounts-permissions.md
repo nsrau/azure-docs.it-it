@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="AndKjell"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"  
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="09/13/2016"
-   ms.author="andkjell;billmath"/>  
+   ms.author="andkjell;billmath"/>
 
 
 # Azure AD Connect: account e autorizzazioni
@@ -107,7 +107,7 @@ Se si usano le impostazioni rapide, viene creato un account in Active Directory 
 ### Account del servizio di sincronizzazione Azure AD Connect
 Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account, preceduto da **AAD_**, viene usato per l'esecuzione del servizio di sincronizzazione effettivo. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server o un proxy che richiede l'autenticazione, l'account del servizio **AAD_** deve trovarsi nel dominio.
 
-![Account del servizio di sincronizzazione](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)  
+![Account del servizio di sincronizzazione](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 L'account viene creato con una password lunga e complessa priva di scadenza.
 
@@ -126,7 +126,7 @@ Il nome del server in cui viene usato l'account può essere identificato nella s
 
 L'account del servizio viene creato con una password lunga e complessa priva di scadenza. Viene concesso un ruolo speciale per gli **account di sincronizzazione della directory** che dispone solo delle autorizzazioni per eseguire attività di sincronizzazione della directory. Questo specifico ruolo integrato non può essere concesso all'esterno della procedura di Azure AD Connect e il portale di Azure mostra questo account con il ruolo **utente**.
 
-![Ruolo dell'account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)  
+![Ruolo dell'account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
 
 ## Passaggi successivi
 

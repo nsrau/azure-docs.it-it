@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Gestire le impostazioni per un gruppo in anteprima di Azure Active Directory
@@ -27,21 +27,21 @@ Questo articolo illustra come cambiare le impostazioni per un gruppo in anteprim
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-  ![Apertura di Gestione utenti](./media/active-directory-groups-settings-azure-portal/search-user-management.png)  
+  ![Apertura di Gestione utenti](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 
 3.  Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
 
-  ![Apertura del pannello Gruppi](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)  
+  ![Apertura del pannello Gruppi](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare un gruppo.
 
 5. Nel pannello **Gruppo - *nomegruppo*** selezionare **Proprietà**.
 
-  ![Apertura del pannello Proprietà](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)  
+  ![Apertura del pannello Proprietà](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 
 6. Al termine della modifica delle proprietà per il gruppo, selezionare **Salva**.
 
-  ![Salvataggio delle modifiche alle proprietà](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)  
+  ![Salvataggio delle modifiche alle proprietà](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
 
 ## Informazioni aggiuntive

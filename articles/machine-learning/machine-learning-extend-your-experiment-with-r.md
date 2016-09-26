@@ -38,11 +38,11 @@ L'elenco dei pacchetti installati può cambiare. Per ottenere l'elenco completo 
 
 In questo modo l'elenco dei pacchetti viene inviato alla porta di output del modulo [Execute R Script][execute-r-script]. Per visualizzare l'elenco di pacchetti, connettere un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv] all'output di sinistra del modulo [Execute R Script][execute-r-script], eseguire l'esperimento, quindi fare clic sull'output del modulo di conversione e selezionare **Download**.
 
-![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)  
+![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
--->  
+-->
 
 ## Importazione di pacchetti
 

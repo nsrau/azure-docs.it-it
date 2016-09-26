@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="mumian" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="09/02/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 # Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight  
 

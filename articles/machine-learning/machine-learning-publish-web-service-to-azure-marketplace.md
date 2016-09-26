@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="BharathS" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/08/2016" 
-	ms.author="bharaths"/>  
+	ms.author="bharaths"/>
 
 # Pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace 
 

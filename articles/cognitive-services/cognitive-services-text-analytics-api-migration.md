@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/05/2016"
-	ms.author="onewth"/>  
+	ms.author="onewth"/>
 
 # Aggiornamento alla versione 2 dell'API di analisi del testo #
 

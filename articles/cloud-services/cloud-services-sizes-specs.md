@@ -13,7 +13,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
  ms.date="08/10/2016"
- ms.author="adegeo"/>  
+ ms.author="adegeo"/>
 
 # Dimensioni dei servizi cloud
 

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/13/2016"
-	ms.author="v-shysun"/>  
+	ms.author="v-shysun"/>
 
 # Domande frequenti su SQL Server in macchine virtuali di Azure
 

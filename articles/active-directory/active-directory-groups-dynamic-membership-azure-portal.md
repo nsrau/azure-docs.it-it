@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Utilizzo degli attributi per creare regole avanzate per l'appartenenza al gruppo in anteprima di Azure Active Directory
@@ -28,19 +28,19 @@ Il portale di Azure offre la possibilità di creare regole avanzate per consenti
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-  ![Apertura di Gestione utenti](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)  
+  ![Apertura di Gestione utenti](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 
 3.  Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
 
-  ![Apertura del pannello Gruppi](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)  
+  ![Apertura del pannello Gruppi](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare il comando **Aggiungi**.
 
-  ![Aggiungere un nuovo gruppo](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)  
+  ![Aggiungere un nuovo gruppo](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 
 5. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Dynamic User** (Utente dinamico) o **Dynamic Device** (Dispositivo dinamico), a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Add dynamic query** (Aggiungi query dinamica). Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
 
-  ![Aggiungere una regola di appartenenza dinamica](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)  
+  ![Aggiungere una regola di appartenenza dinamica](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
 6. Nel pannello **Dynamic membership rules** (Regole di appartenenza dinamiche) immettere la regola nella casella **Add dynamic membership advanced rule** (Aggiungi regola avanzata di appartenenza dinamica), premere Invio e quindi selezionare **Crea** nella parte inferiore del pannello.
 

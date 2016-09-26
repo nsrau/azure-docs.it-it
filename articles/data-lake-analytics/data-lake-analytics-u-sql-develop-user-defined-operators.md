@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="edmacauley" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -37,7 +37,7 @@ Informazioni su come sviluppare operatori definiti dall'utente da utilizzare e r
 1. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 2. Selezionare il tipo **Progetto U-SQL**.
 
-	![Nuovo progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)  
+	![Nuovo progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
 3. Fare clic su **OK**. Visual Studio crea una soluzione con un file Script.usql.
 4. In **Esplora soluzioni** espandere Script.usql e fare clic due volte su **Script.usql.cs**.

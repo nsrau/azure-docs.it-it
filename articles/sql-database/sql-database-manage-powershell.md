@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="sstein"/>  
+	ms.author="sstein"/>
 
 # Gestire il database SQL di Azure con PowerShell
 

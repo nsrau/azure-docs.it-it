@@ -114,7 +114,7 @@ A questo punto è necessario accedere come applicazione per eseguire operazioni.
 
 2. A questo punto si devono immettere le credenziali. Per il nome utente, usare l'**ApplicationId** usato durante la creazione dell'applicazione. Per la password, usare quella specificata durante la creazione dell'account.
 
-     ![immettere le credenziali](./media/resource-group-authenticate-service-principal/arm-get-credential.png)  
+     ![immettere le credenziali](./media/resource-group-authenticate-service-principal/arm-get-credential.png)
 
 2. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Active Directory. Se è disponibile solo una sottoscrizione, è possibile usare:
 

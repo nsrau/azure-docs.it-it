@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 # Gestire NSG tramite il portale di anteprima
 

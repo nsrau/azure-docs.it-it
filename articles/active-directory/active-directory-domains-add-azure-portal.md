@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeffsta"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Aggiungere un nome di dominio personalizzato ad anteprima di Azure Active Directory
 
@@ -30,19 +30,19 @@ L'organizzazione usa uno o più nomi di dominio per svolgere attività commercia
 
 2.  Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)
 
 3. Nel pannello ***nome directory*** selezionare **Nomi di dominio**.
 
 4. Nel pannello ***Nome directory* - Nomi di dominio** selezionare il comando **Aggiungi**.
 
-  ![Selezione del comando Aggiungi](./media/active-directory-domains-add-azure-portal/add-command.png)  
+  ![Selezione del comando Aggiungi](./media/active-directory-domains-add-azure-portal/add-command.png)
 
 5. Nel pannello **Nome di dominio** immettere il nome del dominio personalizzato nella casella, ad esempio 'contoso.com' e quindi selezionare **Aggiungi dominio**. Assicurarsi di includere .com, .net o altre estensioni di primo livello.
 
 6. Nel pannello ***nomedominio***, vale a dire il pannello visualizzato con il nuovo nome di dominio nel titolo, ottenere le informazioni relative alla voce DNS che Azure AD userà per verificare che l'azienda disponga di un nome di dominio personalizzato.
 
-  ![ottenere informazioni relative alla voce DNS](./media/active-directory-domains-add-azure-portal/get-dns-info.png)  
+  ![ottenere informazioni relative alla voce DNS](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
 
 Dopo aver aggiunto il nome di dominio, Azure AD deve verificare che sia di proprietà dell'organizzazione. Per consentire ad Azure AD di eseguire questa verifica, è necessario aggiungere una voce DNS nel file di zona DNS per il nome di dominio. Questa attività viene eseguita nel sito Web del registrar per il nome di dominio.
 
@@ -66,7 +66,7 @@ Un nome di dominio può essere verificato solo dopo la propagazione dei record D
 
 2.  Selezionare **Sfoglia**, immettere Gestione utenti nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)
 
 3. Nel pannello **Gestione utenti - Nomi di dominio** selezionare il nome di dominio non verificato che si vuole verificare.
 

@@ -6,7 +6,7 @@
    	authors="mumian"
    	manager="jhubbard"
    	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
    	ms.service="hdinsight"
@@ -133,7 +133,7 @@ Hadoop Distributed File System (HDFS) originale usa molti dischi locali nel clus
 
 Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi (account di archiviazione collegati) a cui il cluster potrà accedere. Il cluster può accedere anche a eventuali contenitori di archiviazione BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB. Per ulteriori informazioni, vedere [gestione dell'accesso alle risorse di archiviazione Azure](../storage/storage-manage-access-to-resources.md).
 
-![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)  
+![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
 >[AZURE.NOTE] Un contenitore di archiviazione BLOB offre un raggruppamento di un set di BLOB, come illustrato nell'immagine seguente.
 
@@ -151,7 +151,7 @@ Oltre all'archivio BLOB di Azure, è possibile usare anche [Azure Data Lake Stor
 
 Il cluster HDInsight e l'account di archiviazione predefinito devono trovarsi nella stessa località di Azure.
 
-![Aree di Azure](./media/hdinsight-provision-clusters/Azure.regions.png)  
+![Aree di Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
 
 Per un elenco di aree supportate, fare clic sull'elenco a discesa **Area** in [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -239,7 +239,7 @@ Con una [rete virtuale di Azure](https://azure.microsoft.com/documentation/servi
 
 * Connettere le risorse cloud tra loro in una rete privata (solo cloud).
 
-	![Diagramma di una configurazione solo cloud](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)  
+	![Diagramma di una configurazione solo cloud](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
 
 * Connettere le risorse cloud alla rete del data center locale (da sito a sito o da punto a sito) usando una rete privata virtuale (VPN)
 

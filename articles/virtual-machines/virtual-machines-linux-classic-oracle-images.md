@@ -15,7 +15,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
   ms.date="09/06/2016"
-  ms.author="rclaus" />  
+  ms.author="rclaus" />
 
 #Elenco delle immagini di macchine virtuali Oracle
 

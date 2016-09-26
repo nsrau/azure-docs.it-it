@@ -8,7 +8,7 @@
    manager="carmonm"
    editor=""
    tags="azure-service-management"
-/>  
+/>
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di Azure classico
 

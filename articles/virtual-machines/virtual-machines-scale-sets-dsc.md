@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-service-management,azure-resource-manager"
-   keywords=""/>  
+   keywords=""/>
 
 <tags
    ms.service="virtual-machines-scale-sets"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
    ms.date="08/29/2016"
-   ms.author="zachal"/>  
+   ms.author="zachal"/>
 
 # Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/>
 
 
 # Passaggio 1 della procedura dettagliata: Creare un'area di lavoro di Machine Learning

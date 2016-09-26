@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/17/2016"
-	ms.author="garye;bradsev" />  
+	ms.author="garye;bradsev" />
 
 
 # Importare i dati in Azure Machine Learning Studio da un altro esperimento

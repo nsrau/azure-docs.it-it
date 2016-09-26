@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -106,7 +106,7 @@ La raccolta fa ora parte di Cortana Intelligence Gallery.
 
 <!--
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
--->  
+-->
 
 ## Suggerimenti per la pubblicazione e per creare una documentazione di alta qualità
 
@@ -151,7 +151,7 @@ Ora è possibile visualizzare l'esperimento in Cortana Intelligence Gallery e co
 ## Esprimere un'opinione.
 La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Per specificare gli aspetti della raccolta che più si apprezzano o che si ritiene possano essere migliorati, è possibile usare gli emoticon.
 
-![Commenti e suggerimenti](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)  
+![Commenti e suggerimenti](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
 ## Domande frequenti
 **È possibile apportare modifiche al flusso di lavoro di un esperimento già pubblicato nella raccolta?**

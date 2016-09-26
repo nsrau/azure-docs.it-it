@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/22/2016"
-   ms.author="jeffstok"/>  
+   ms.author="jeffstok"/>
 
 
 # Installazione di RStudio con R Server su HDInsight (anteprima)
@@ -88,7 +88,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 			* **Source port**: la porta del client che si desidera inoltrare. Ad esempio **8787**.
 			* **Destination** (Destinazione): la destinazione che deve essere mappata al computer client locale. Ad esempio **localhost:8787**.
 
-			![Creazione di un tunnel SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Creazione di un tunnel SSH")  
+			![Creazione di un tunnel SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Creazione di un tunnel SSH")
 
 		4. Fare infine clic su **Add** per aggiungere le impostazioni, quindi su **Open** per aprire una connessione SSH.
 		5. Quando richiesto, accedere al server. Verrà stabilita una sessione SSH e verrà abilitato il tunnel.
@@ -99,7 +99,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 9. Verrà richiesto di immettere il nome utente e la password SSH per connettersi al cluster. Se si usa una chiave SSH durante la creazione del cluster, è necessario immettere la password creata nel passaggio 5.
 
-	![Connessione a R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Creazione di un tunnel SSH")  
+	![Connessione a R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Creazione di un tunnel SSH")
 
 10. Per verificare se l'installazione di RStudio è riuscita, eseguire uno script di test che esegue i processi MapReduce e Spark basati su R nel cluster. Tornare alla console SSH e immettere i comandi seguenti per scaricare lo script di test da eseguire in RStudio.
 
@@ -113,7 +113,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 11. In RStudio verrà visualizzato lo script di test che è stato scaricato. Fare doppio clic sul file per aprirlo, selezionare il contenuto del file e quindi fare clic su **Esegui**. L'output verrà visualizzato nel riquadro **Console**.
  
-	![Verifica dell'installazione](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Verifica dell'installazione")  
+	![Verifica dell'installazione](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Verifica dell'installazione")
 
 In alternativa è possibile digitare `source(testhdi.r)` o `source(testhdi_spark.r)` per eseguire lo script.
 

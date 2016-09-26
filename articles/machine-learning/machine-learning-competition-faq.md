@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="hning86"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="haining;chlovel;garye"/>  
+	ms.author="haining;chlovel;garye"/>
 
 # Domande frequenti sui concorsi Microsoft Cortana Intelligence
 

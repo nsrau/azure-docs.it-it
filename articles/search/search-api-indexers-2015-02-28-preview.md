@@ -14,7 +14,7 @@ ms.workload="search"
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
 ms.date="09/07/2016" 
-ms.author="eugenesh" />  
+ms.author="eugenesh" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)#
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Aggiungere nuovi utenti ad anteprima di Azure Active Directory
@@ -29,11 +29,11 @@ Questo articolo illustra come aggiungere nuovi utenti all'organizzazione nell'an
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-users-create-azure-portal/create-users-user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 
 3.  Nel pannello **Utenti e gruppi** selezionare **Tutti gli utenti**, quindi selezionare **Aggiungi**.
 
-    ![Selezione del comando Aggiungi](./media/active-directory-users-create-azure-portal/create-users-add-command.png)  
+    ![Selezione del comando Aggiungi](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
 
 4.  Immettere i dettagli per l'utente, ad esempio **nome** e **nome utente**. La parte del nome di dominio del nome utente deve essere il nome di dominio "foo.onmicrosoft.com" del nome di dominio predefinito iniziale o un nome di dominio verificato, non federato, ad esempio "contoso.com".
 

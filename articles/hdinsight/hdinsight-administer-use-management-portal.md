@@ -6,7 +6,7 @@
 	tags="azure-portal"
 	authors="mumian"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.date="09/14/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
@@ -41,14 +41,14 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 	- Scegliere **Nuovo** dal menu di sinistra per creare un nuovo cluster:
 	
-		![Pulsante Nuovo cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)  
+		![Pulsante Nuovo cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
 	- Scegliere **Cluster HDInsight** dal menu di sinistra.
 	
-		![Pulsante Cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)  
+		![Pulsante Cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
 
 	Se **HDInsight** non è visualizzato nel menu di sinistra, fare clic su **Sfoglia**.
 
-	![Pulsante Sfoglia del portale di Azure](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)  
+	![Pulsante Sfoglia del portale di Azure](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ##Creare i cluster
 
@@ -93,7 +93,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 
 	**Utilizzo**:
 	
-	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)  
+	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
 	
 5. Fare clic su **Impostazioni**.
 
@@ -173,7 +173,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 	L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)  
+	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 

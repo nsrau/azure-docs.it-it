@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="03/29/2016"
-   ms.author="kundanap"/>  
+   ms.author="kundanap"/>
 
 # Utilizzo dell’estensione di script personalizzato per VM Linux con modelli di Azure Resource Manager
 

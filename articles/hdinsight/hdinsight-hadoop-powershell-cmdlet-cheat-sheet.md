@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -19,7 +19,7 @@
 
 # Foglio informativo del cmdlet Microsoft Azure HDInsight PowerShell per attività comuni di Hadoop
 
-Microsoft Azure HDInsight fornisce cmdlet PowerShell per eseguire attività di Hadoop su un cluster. Il **foglio informativo del cmdlet Azure HDInsight PowerShell ** è realizzato per fornire i cmdlet di PowerShell per le attività più comuni di Hadoop, ad esempio creare un cluster, eseguire i processi, eliminare un cluster e così via. Il foglio informativo fornisce inoltre un elenco di tutti i cmdlet PowerShell disponibili per Microsoft Azure HDInsight.
+Microsoft Azure HDInsight fornisce cmdlet PowerShell per eseguire attività di Hadoop su un cluster. Il **foglio informativo del cmdlet Azure HDInsight PowerShell** è realizzato per fornire i cmdlet di PowerShell per le attività più comuni di Hadoop, ad esempio creare un cluster, eseguire i processi, eliminare un cluster e così via. Il foglio informativo fornisce inoltre un elenco di tutti i cmdlet PowerShell disponibili per Microsoft Azure HDInsight.
 
 ## Foglio informativo di HDInsight: modello di gestione dei servizi
 

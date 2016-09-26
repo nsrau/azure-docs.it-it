@@ -6,7 +6,7 @@
 	tags="azure-portal"
 	authors="Blackmist" 
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/>
 
 # Accedere ai log delle applicazioni YARN in HDInsight basato su Linux 
 

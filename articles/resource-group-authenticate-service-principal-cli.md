@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="09/07/2016"
-   ms.author="tomfitz"/>  
+   ms.author="tomfitz"/>
 
 # Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse
 

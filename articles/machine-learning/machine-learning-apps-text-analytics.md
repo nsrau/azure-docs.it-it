@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="onewth"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"

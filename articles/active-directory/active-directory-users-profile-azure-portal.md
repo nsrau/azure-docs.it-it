@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Aggiungere o modificare informazioni sul profilo per un utente in anteprima di Azure Active Directory
 
@@ -26,17 +26,17 @@ Questo articolo illustra come aggiungere informazioni sul profilo utente, ad ese
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 
 3.  Nel pannello **Utenti e gruppi*** selezionare **Utenti**.
 
-    ![Apertura del pannello Utenti](./media/active-directory-users-profile-azure-portal/create-users-opit-ITers-blade.png)  
+    ![Apertura del pannello Utenti](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
 
 4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco.
 
 5. Nel pannello per l'utente selezionato selezionare **Profilo**.
 
-    ![Apertura delle informazioni di lavoro](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)  
+    ![Apertura delle informazioni di lavoro](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
 
 6. Aggiungere o modificare le informazioni sul profilo e quindi nella barra dei comandi selezionare **Salva**.
 

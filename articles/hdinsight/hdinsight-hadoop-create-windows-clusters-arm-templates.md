@@ -6,7 +6,7 @@
    tags="azure-portal"
    authors="mumian"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="07/25/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Windows in HDInsight tramite modelli di Azure Resource Manager
 

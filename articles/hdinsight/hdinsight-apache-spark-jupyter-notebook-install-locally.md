@@ -6,7 +6,7 @@
 	authors="nitinme" 
 	manager="jhubbard" 
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 
 # Installare Jupyter Notebook nel computer e connetterlo al cluster Apache Spark in HDInsight Linux

@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="mumian" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="07/25/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 # Configurare la replica geografica di HBase in HDInsight
 

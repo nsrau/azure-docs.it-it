@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/13/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Set di dati in Azure Data Factory
 Questo articolo descrive i set di dati in Azure Data Factory e include esempi di database offset/style, anchorDateTime e offset.

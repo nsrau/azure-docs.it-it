@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/11/2016"
-	ms.author="nisoneji"/>  
+	ms.author="nisoneji"/>
 
 
 # Eseguire la replica di macchine virtuali VMware locali o server fisici in un sito secondario

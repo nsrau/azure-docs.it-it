@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="ireiter" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/04/2016" 
-	ms.author="ireiter"/>  
+	ms.author="ireiter"/>
 
 
 #Binomial Distribution Suite

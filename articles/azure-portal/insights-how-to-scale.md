@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Scalare il conteggio delle istanze manualmente o automaticamente
 

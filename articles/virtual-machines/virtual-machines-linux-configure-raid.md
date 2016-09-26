@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="rclaus"/>  
+	ms.author="rclaus"/>
 
 
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -68,16 +68,16 @@ Per eseguire questo esempio è necessario creare un'immagine personalizzata per 
 
 Prima di iniziare, verificare che sia possibile connettere la scheda Edison alla rete wireless. Per configurare la scheda Edison, è necessario connetterla a un computer host. In seguito si userà il computer host per eseguire il flashing della scheda Edison con l'immagine personalizzata creata. Intel offre un set di guide introduttive che includono guide per i sistemi operativi seguenti:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introduzione alla scheda di sviluppo Intel Edison in Windows a 64 bit).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introduzione alla scheda di sviluppo Intel Edison in Windows a 32 bit).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introduzione alla scheda Intel® Edison in Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introduzione alla scheda di sviluppo Intel Edison in Windows a 64 bit).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introduzione alla scheda di sviluppo Intel Edison in Windows a 32 bit).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introduzione alla scheda Intel® Edison in Linux).
 
 Per configurare la scheda Edison e acquisire familiarità con questo dispositivo, è consigliabile eseguire tutti i passaggi descritti in questi articoli introduttivi tranne:
 
 - L'esecuzione del flashing del firmware più recente, perché viene aggiornato come parte di questa esercitazione, quindi non è necessario completare il passaggio in questa fase.
 - L'ultimo passaggio, relativo alla scelta dell'IDE, che non è necessario per l'esercitazione corrente.
 
-Dopo avere configurato la scheda Edison e installato i driver necessari nel computer host, assicurarsi che sia possibile connettersi alla scheda Edison con un terminale seriale. La pagina [Setting up a serial terminal][lnk-serial-connection] (Configurazione di un terminale seriale) nel sito Web Intel include collegamenti a istruzioni di configurazione per i sistemi operativi host, ad esempio Windows e Linux.
+Dopo avere configurato la scheda Edison e installato i driver necessari nel computer host, assicurarsi che sia possibile connettersi alla scheda Edison con un terminale seriale. La pagina [Setting up a serial terminal][lnk-serial-connection] \(Configurazione di un terminale seriale) nel sito Web Intel include collegamenti a istruzioni di configurazione per i sistemi operativi host, ad esempio Windows e Linux.
 
 È necessario completare anche queste attività
 
@@ -90,7 +90,7 @@ Per creare un'immagine personalizzata per la scheda Edison, è necessario un amb
 
 > [AZURE.NOTE] L'esecuzione dello script che crea l'immagine personalizzata può richiedere fino a 6 ore in un computer con 4 core CPU. È possibile ridurre il tempo usando un computer più potente con più core CPU.
 
-Per i passaggi in questa sezione, sono stati consultati gli articoli seguenti: [Intel Edison Board Support Package][lnk-inteledison-bsp] (Pacchetto per il supporto della scheda Intel Edison), [Manually Building Yocto Images for the Intel Edison Board from Source][lnk-hackgnar] (Creazione manuale delle immagini Yocto per la scheda Intel Edison dall'origine) e [Creating a Custom Linux Kernel for the Edison (release 2.1)][lnk-shawnhymel] (Creazione di un kernel Linux personalizzato per Edison - versione 2.1).
+Per i passaggi in questa sezione, sono stati consultati gli articoli seguenti: [Intel Edison Board Support Package][lnk-inteledison-bsp] \(Pacchetto per il supporto della scheda Intel Edison), [Manually Building Yocto Images for the Intel Edison Board from Source][lnk-hackgnar] \(Creazione manuale delle immagini Yocto per la scheda Intel Edison dall'origine) e [Creating a Custom Linux Kernel for the Edison (release 2.1)][lnk-shawnhymel] \(Creazione di un kernel Linux personalizzato per Edison - versione 2.1).
 
 1. Accedere al computer Ubuntu 14.04 ed eseguire il comando seguente nella cartella principale per scaricare il pacchetto di origine Edison:
     

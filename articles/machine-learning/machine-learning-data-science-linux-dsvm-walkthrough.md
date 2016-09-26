@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="bradsev;paulsh" />  
+	ms.author="bradsev;paulsh" />
 
 
 # Analisi scientifica dei dati in una macchina virtuale Linux per l'analisi scientifica dei dati
@@ -146,7 +146,7 @@ Quindi, creare un albero delle decisioni per classificare i messaggi di posta el
 
 Il risultato è il seguente:
 
-![1](./media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)  
+![1](./media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)
 
 Per determinarne le prestazioni sul set di training, usare il codice seguente:
 

@@ -5,7 +5,7 @@
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
- editor=""/>  
+ editor=""/>
 
 <tags
  ms.service="iot-hub"
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="09/13/2016"
- ms.author="dobett"/>  
+ ms.author="dobett"/>
 
 # SDK hub IoT
 

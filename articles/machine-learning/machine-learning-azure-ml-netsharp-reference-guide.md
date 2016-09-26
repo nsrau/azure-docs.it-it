@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="jeannt" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="jeannt"/>  
+	ms.author="jeannt"/>
 
 
 
@@ -225,7 +225,7 @@ Per altre informazioni sui livelli di pooling, vedere gli articoli seguenti:
 ## Aggregazioni di normalizzazione delle risposte
 La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri in un articolo relativo alla [classificazione ImageNet con reti neurali convoluzionali avanzate](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Per ottenere questo risultato vengono usati tre parametri, ovvero ***α***, ***β*** e ***k***, nonché una struttura convoluzionale (o forma di intorno). Ogni neurone nel livello di destinazione ***y*** corrisponde a un neurone ***x*** nel livello di origine. Il livello di attivazione di ***y*** è definito dalla formula seguente, dove ***f*** corrisponde al livello di attivazione di un neurone e ***Nx*** è il kernel o l'insieme contenente i neuroni nell'intorno di ***x***, come definito dalla struttura convoluzionale seguente:
 
-![][1]  
+![][1]
 
 Le aggregazioni di normalizzazione delle risposte supportano tutti gli attributi convoluzionali, ad eccezione di **Sharing**, **MapCount** e **Weights**.
  
@@ -313,7 +313,7 @@ In alternativa, è possibile specificare questo concetto con due dichiarazioni d
 
 	share { Data1 => H1, Data2 => H2 } // share weights  
 
-<!-- -->  
+<!-- -->
 
 	share { 1 => H1, 1 => H2 } // share biases  
 

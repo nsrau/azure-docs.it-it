@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeffsta"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand;jeffsta"/>  
+	ms.author="curtand;jeffsta"/>
 
 # Gestione dei nomi di dominio personalizzati in anteprima di Azure Active Directory
 
@@ -28,7 +28,7 @@ Quando viene creata la directory, il nome di dominio iniziale, ad esempio "conto
 
 2.  Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)
 
 3. Nel pannello ***nome directory*** selezionare **Nomi di dominio**.
 
@@ -36,7 +36,7 @@ Quando viene creata la directory, il nome di dominio iniziale, ad esempio "conto
 
 5.  Nel pannello ***nomedominio***, vale a dire il pannello visualizzato con il nuovo nome di dominio nel titolo, selezionare **Make primary** (Rendi primario). Confermare la scelta quando viene richiesto.
 
-    ![Rendere primario un nome di dominio](./media/active-directory-domains-manage-azure-portal/make-primary.png)  
+    ![Rendere primario un nome di dominio](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
 Per il nome di dominio primario per la directory è possibile impostare qualsiasi dominio personalizzato verificato che non sia federato. La modifica del dominio primario per la directory non comporta la modifica dei nomi utente per gli utenti esistenti.
 

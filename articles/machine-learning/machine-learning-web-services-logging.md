@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
 	ms.date="08/09/2016"
-	ms.author="raymondl;garye"/>  
+	ms.author="raymondl;garye"/>
 
 #Abilitare la registrazione per i servizi Web di Machine Learning  
 

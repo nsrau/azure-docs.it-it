@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2016"
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/>
 
 #Usare Maven per compilare applicazioni Java che usano HBase con HDInsight basato su Linux (Hadoop)
 

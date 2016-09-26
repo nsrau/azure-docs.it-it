@@ -13,7 +13,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na" 
 ms.topic="article" 
 ms.date="09/06/2016" 
-ms.author="adegeo"/>  
+ms.author="adegeo"/>
 
 # Abilitare la comunicazione delle istanze del ruolo in azure
 

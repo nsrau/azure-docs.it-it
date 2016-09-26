@@ -7,7 +7,7 @@
    authors="iainfoulds"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines-linux"

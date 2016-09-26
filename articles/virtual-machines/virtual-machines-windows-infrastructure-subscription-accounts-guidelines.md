@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Linee guida per le sottoscrizioni e gli account
 
@@ -48,19 +48,19 @@ Per usare Azure sono necessarie una o più sottoscrizioni ad Azure. Nell'ambito 
 
 A causa del limite di due livelli gerarchici nella relazione di account/sottoscrizione è importante allineare la convenzione di denominazione degli account e delle sottoscrizioni alle esigenze di fatturazione. Se ad esempio un'azienda globale usa Azure, può scegliere di disporre di un account per ogni area e fare in modo che le sottoscrizioni vengano gestite a livello di area:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)  
+![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
 È ad esempio possibile usare la struttura seguente:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)  
+![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
 Se in un'area si decide di associare più sottoscrizioni a un determinato gruppo, la convenzione di denominazione deve incorporare un modo per codificare i dati aggiuntivi sia nel nome account che nel nome della sottoscrizione. Questa organizzazione consente di elaborare i dati di fatturazione per generare nuovi livelli di gerarchia durante la fatturazione dei report:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)  
+![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
 L'organizzazione potrebbe avere un aspetto simile al seguente:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)  
+![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
 Viene fornita la fatturazione dettagliata tramite un file scaricabile, per un singolo account o per tutti gli account di un contratto Enterprise.
 

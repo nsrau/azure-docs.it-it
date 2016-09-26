@@ -6,7 +6,7 @@
    documentationCenter="na"
    authors="brohrer-ms"
    manager="jhubbard"
-   editor="cjgronlund"/>  
+   editor="cjgronlund"/>
 
 <tags
    ms.service="machine-learning"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="cgronlun;brohrer;garye"/>  
+   ms.author="cgronlun;brohrer;garye"/>
 
 # Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 
@@ -115,7 +115,7 @@ Talvolta si desidera capire la struttura di un set di dati: In che modo sono org
 
 Esistono diversi modi per comprendere la struttura dei dati. Un approccio è il clustering. Separa i dati in "gruppi" naturali per un'interpretazione più semplice. Con il clustering non vi è un'unica risposta corretta.
 
-![Algoritmi di clustering: In che modo sono organizzati i dati?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)  
+![Algoritmi di clustering: In che modo sono organizzati i dati?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
 
 Esempi comuni di domande di clustering sono:
 

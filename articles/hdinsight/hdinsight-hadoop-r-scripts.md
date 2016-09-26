@@ -6,7 +6,7 @@
 	tags="azure-portal"
 	authors="mumian"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.date="09/14/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Installare e usare R nei cluster Hadoop HDInsight
 

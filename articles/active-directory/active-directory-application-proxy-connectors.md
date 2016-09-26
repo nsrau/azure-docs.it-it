@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 
 # Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori

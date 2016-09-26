@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="tomarcher"
 	manager="douge"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="devtest-lab"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Domande frequenti su Azure DevTest Labs
 

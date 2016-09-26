@@ -6,7 +6,7 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services="azure-resource-manager"/>  
+	services="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="danlep"/>  
+	ms.author="danlep"/>
 
 # Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse
 
@@ -61,7 +61,7 @@ Quando si visualizzano i dettagli su una risorsa, è spesso utile utilizzare il 
 
 >[AZURE.NOTE] Se necessario, salvare i dati JSON nel file usando il carattere &gt; per indirizzare l'output a un file. ad esempio:
 >
-> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`  
+> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
 ### Tag
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />  
+	editor="cgronlun" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/07/2016" 
-	ms.author="bradsev" />  
+	ms.author="bradsev" />
 
 
 # Eseguire il provisioning di una macchina virtuale per l'analisi scientifica dei dati di Microsoft

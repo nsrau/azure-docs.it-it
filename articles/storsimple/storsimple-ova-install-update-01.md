@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="09/07/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Installare aggiornamenti nell'array virtuale StorSimple
 
@@ -48,7 +48,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
     Viene visualizzato l'elenco degli hotfix, tra cui l'**aggiornamento 0.3 per l'array virtuale StorSimple**.
 
-    ![Cercare nel catalogo](./media/storsimple-ova-install-update-01/download1.png)  
+    ![Cercare nel catalogo](./media/storsimple-ova-install-update-01/download1.png)
 
 4. Fare clic su **Aggiungi**. L'aggiornamento viene aggiunto al carrello.
 
@@ -70,25 +70,25 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 
 1. Nell'interfaccia utente Web locale, accedere a **Manutenzione** > **Aggiornamento software**.
 
-    ![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update1m.png)  
+    ![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update1m.png)
 
 2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Apply**.
 
-	![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update2m.png)  
+	![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update2m.png)
 
 3.  Verrà visualizzato un avviso. Dato che si tratta di un dispositivo a nodo singolo, dopo l'applicazione dell'aggiornamento il dispositivo si riavvia con un conseguente periodo di inattività. Fare clic sull'icona del segno di spunta
 
-	![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update3m.png)  
+	![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update3m.png)
 
 4. L'aggiornamento si avvia. Dopo l'aggiornamento il dispositivo si riavvia in automatico. In questo periodo di tempo l'interfaccia utente locale non è accessibile.
 
-    ![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update5m.png)  
+    ![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update5m.png)
 
 5. Al termine del riavvio si viene indirizzati alla pagina **di accesso**. Per verificare che il software del dispositivo è stato aggiornato, nell'interfaccia utente Web locale passare a **Manutenzione** > **Aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10288.0** per l'aggiornamento 0.3.
 
 	> [AZURE.NOTE] Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure classico. Ad esempio, l'interfaccia utente Web locale riporta **10.0.0.0.0.10288**, mentre il portale di Azure classico riporta **10.0.10288.0** per la stessa versione.
 
-	![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update6m.png)  
+	![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/update6m.png)
 
 
 
@@ -102,7 +102,7 @@ Se si esegue l'aggiornamento 0.2, si consiglia di installare gli aggiornamenti t
 
 Quando l'installazione è completa (lo stato del processo è 100%), passare a **Dispositivi > Manutenzione > Aggiornamenti software**. La versione del software visualizzata dovrebbe essere 10.0.10288.0.
 
-![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/azupdate12m.png)  
+![aggiornamento dispositivo](./media/storsimple-ova-install-update-01/azupdate12m.png)
 
 ## Passaggi successivi
 

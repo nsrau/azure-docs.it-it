@@ -6,7 +6,7 @@
    documentationCenter="na"
    authors="brohrer-ms"
    manager="jhubbard"
-   editor="cjgronlund"/>  
+   editor="cjgronlund"/>
 
 <tags
    ms.service="machine-learning"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>  
+   ms.author="cgronlun;brohrer;garye"/>
 
 # Prevedere una risposta con un modello semplice
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="djrosanova"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="event-hubs"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="darosa;sethm"/>  
+	ms.author="darosa;sethm"/>
 
 # Archivio di Hub eventi di Azure
 
@@ -50,13 +50,13 @@ L'archivio di Hub eventi può essere configurato durante la creazione di un hub 
 
 La finestra temporale predefinita è di cinque minuti. Il valore minimo è 1, quello massimo 15. La finestra **Dimensione** ha un intervallo compreso tra 10 e 500 MB.
 
-![][1]  
+![][1]
 
 ## Aggiunta dell'archivio a un hub eventi esistente
 
 Si possono configurare archivi negli hub eventi esistenti nello spazio dei nomi Hub eventi. La funzionalità non è disponibile negli spazi dei nomi di tipo Misto o Messaggistica meno recenti. Per abilitare l'archivio in un hub eventi esistente o per modificare le impostazioni dell'archivio, fare clic sullo spazio dei nomi per caricare il pannello **Informazioni di base**, quindi fare clic sull'hub eventi per cui si vuole abilitare o modificare l'impostazione dell'archivio. Infine fare clic sulla sezione **Proprietà** del pannello aperto, come illustrato nella figura seguente.
 
-![][2]  
+![][2]
 
 È anche possibile configurare l'archivio di Hub eventi tramite i modelli di Azure Resource Manager. Per altre informazioni, vedere [questo articolo](event-hubs-resource-manager-namespace-event-hub-enable-archive.md).
 
@@ -66,7 +66,7 @@ Dopo la configurazione, l'archivio di Hub eventi crea i file nell'account di arc
 
 I file generati dall'archivio di Hub eventi hanno lo schema Avro seguente:
 
-![][3]  
+![][3]
 
 Per esplorare facilmente i file di Avro, è possibile usare il file JAR [Avro Tools][] di Apache. Dopo avere scaricato questo file JAR, è possibile visualizzare lo schema di un file di Avro eseguendo il comando seguente:
 

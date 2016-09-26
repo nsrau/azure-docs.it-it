@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)*
 
@@ -42,7 +42,7 @@ La funzionalità Servizi di dominio Azure Active Directory funziona perfettament
 ### Servizi di dominio Azure AD per le organizzazioni solo cloud
 Un tenant Azure AD solo cloud, spesso definito anche tenant gestito, non dispone di un sistema di gestione delle identità locale. In altre parole, gli account utente, le relative password e le appartenenze ai gruppi sono nativi nel cloud, ovvero creati e gestiti in Azure AD. Si supponga che Contoso sia un tenant Azure AD solo cloud. Come illustrato nella figura seguente, l'amministratore di Contoso ha configurato una rete virtuale nei servizi di infrastruttura di Azure. I carichi di lavoro di server e applicazioni sono distribuiti in questa rete virtuale in macchine virtuali di Azure. Poiché Contoso è un tenant solo cloud, tutte le identità degli utenti, le relative credenziali e le appartenenze ai gruppi sono create e gestite in Azure.
 
-![Panoramica di Servizi di dominio Azure AD](./media/active-directory-domain-services-overview/aadds-overview.png)  
+![Panoramica di Servizi di dominio Azure AD](./media/active-directory-domain-services-overview/aadds-overview.png)
 
 L'amministratore IT di Contoso può abilitare Servizi di dominio Azure AD per il tenant Azure AD e scegliere di rendere disponibili i servizi di dominio in questa rete virtuale. Dopodiché, Servizi di dominio Azure Active Directory esegue il provisioning di un dominio gestito e lo rende disponibile nella rete virtuale. Tutti gli account utente, le appartenenze ai gruppi e le credenziali utente disponibili nel tenant Azure AD di Contoso sono anche disponibili in questo dominio appena creato. Questa funzionalità consente agli utenti nell'organizzazione di accedere al dominio usando le credenziali aziendali, ad esempio per la connessione remota alle macchine appartenenti al dominio tramite Desktop remoto. Gli amministratori possono eseguire il provisioning dell'accesso alle risorse nel dominio usando le appartenenze ai gruppi esistenti. Le applicazioni distribuite nelle macchine virtuali all'interno della rete virtuale possono usufruire dei servizi di dominio, ad esempio aggiunta a un dominio, lettura LDAP, binding LDAP, autenticazione NTLM e Kerberos e Criteri di gruppo.
 
@@ -60,7 +60,7 @@ Litware Corporation ha distribuito [Azure AD Connect](../active-directory/active
 
 > [AZURE.NOTE] **La sincronizzazione delle password è un requisito obbligatorio per le organizzazioni ibride per poter usare Servizi di dominio Azure Active Directory**. Questo perché nel dominio gestito fornito da Servizi di dominio Azure AD le credenziali degli utenti sono necessarie per autenticare gli utenti tramite i metodi di autenticazione NTLM o Kerberos.
 
-![Servizi di dominio Azure AD per Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)  
+![Servizi di dominio Azure AD per Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
 La figura precedente mostra l'uso di Servizi di dominio Azure AD nelle organizzazioni con un'infrastruttura IT ibrida, come Litware Corporation. I carichi di lavoro di server e applicazioni di Litware che richiedono i servizi di dominio sono distribuiti in una rete virtuale nei servizi di infrastruttura di Azure. L'amministratore IT di Litware può abilitare Servizi di dominio Azure AD per il tenant Azure AD e scegliere di rendere disponibile un dominio gestito in questa rete virtuale. Poiché Litware è un'organizzazione con un'infrastruttura IT ibrida, gli account utente, i gruppi e le credenziali vengono sincronizzati nel tenant Azure AD dalla directory locale. Questa funzionalità consente agli utenti di accedere al dominio usando le credenziali aziendali, ad esempio per la connessione remota ai computer aggiunti al dominio tramite Desktop remoto. Gli amministratori possono eseguire il provisioning dell'accesso alle risorse nel dominio usando le appartenenze ai gruppi esistenti. Le applicazioni distribuite nelle macchine virtuali all'interno della rete virtuale possono usufruire dei servizi di dominio, ad esempio aggiunta a un dominio, lettura LDAP, binding LDAP, autenticazione NTLM e Kerberos, Criteri di gruppo e così via.
 

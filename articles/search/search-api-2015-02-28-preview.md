@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="search"
    ms.date="09/07/2016"
-   ms.author="brjohnst"/>  
+   ms.author="brjohnst"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 
@@ -1354,12 +1354,12 @@ L'URI della richiesta specifica l'indice in cui eseguire la query per tutti i do
 
 Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri di query specifici quando si chiama direttamente l'API REST. Per le operazioni **Search** sono inclusi i parametri seguenti:
 
-- `$filter`  
+- `$filter`
 - `facet`
 - `highlightPreTag`
 - `highlightPostTag`
 - `search`
-- `moreLikeThis`  
+- `moreLikeThis`
 
 La codifica con URL è consigliata solo per questi parametri. Se inavvertitamente si codifica con URL l'intera stringa della query (ossia tutti gli elementi che seguono il punto interrogativo), le richieste verranno interrotte.
 
@@ -1849,10 +1849,10 @@ L'URI della richiesta specifica il nome dell'indice su cui eseguire la query. I 
 
 Come procedura consigliata per la creazione di richieste GET, usare la [codifica dell'URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) per i parametri di query specifici quando si chiama direttamente l'API REST. Per le operazioni **Suggestions** sono inclusi i parametri seguenti:
 
-- `$filter`  
+- `$filter`
 - `highlightPreTag`
 - `highlightPostTag`
-- `search`  
+- `search`
 
 La codifica con URL è consigliata solo per questi parametri. Se inavvertitamente si codifica con URL l'intera stringa della query (ossia tutti gli elementi che seguono il punto interrogativo), le richieste verranno interrotte.
 

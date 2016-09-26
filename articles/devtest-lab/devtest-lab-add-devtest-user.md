@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="tomarcher"
 	manager="douge"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="devtest-lab"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="tarcher"/>  
+	ms.author="tarcher"/>
 
 # Aggiungere proprietari e utenti in Azure DevTest Labs
 
@@ -68,7 +68,7 @@ Proprietari e utenti possono essere aggiunti a livello di lab tramite il portale
 
 1. Nel pannello **Utenti** selezionare **+Aggiungi**.
 
-	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)  
+	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
 1. Nel pannello **Selezionare un ruolo** selezionare il ruolo desiderato. La sezione [Azioni che possono essere eseguite in ogni ruolo](#actions-that-can-be-performed-in-each-role) elenca le diverse azioni che possono essere eseguite dagli utenti nei ruoli Proprietario, Utente DevTest Labs e Collaboratore.
 
@@ -89,7 +89,7 @@ Lo script di esempio presume che l'utente specificato sia stato aggiunto come gu
 
 	# Add an external user in DevTest Labs user role to a lab
 	# Ensure that guest users can be added to the Azure Active directory:
-	# https://azure.microsoft.com/it-IT/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+	# https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
 
 	# Values to change
 	$subscriptionId = "<Enter Azure subscription ID here>"
@@ -127,7 +127,7 @@ Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi pas
 
 1. Selezionare l'icona **Accesso**.
 
-	![Utenti di accesso](./media/devtest-lab-add-devtest-user/access-users.png)  
+	![Utenti di accesso](./media/devtest-lab-add-devtest-user/access-users.png)
 
 1. Nel pannello **Utenti** selezionare **Aggiungi**.
 

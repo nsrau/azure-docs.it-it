@@ -464,7 +464,7 @@ Aprire un pannello Esplora metrica, aggiungere un nuovo grafico e selezionare **
 
 Si noti che questo conteggio è diverso dal conteggio delle "Eccezioni" calcolato dal portale di Application Insights che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e l'SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
 
-<!--Link references-->  
+<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [client]: app-insights-javascript.md

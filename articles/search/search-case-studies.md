@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="jhubbard"
 	editor=""
-    tags="azure-portal"/>  
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="08/29/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Chi usa Ricerca di Azure: case study e casi di successo dei clienti
 

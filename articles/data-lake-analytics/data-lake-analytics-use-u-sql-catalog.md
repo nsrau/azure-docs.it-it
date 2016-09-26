@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="edmacauley"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="data-lake-analytics"

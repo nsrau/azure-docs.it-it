@@ -6,7 +6,7 @@
  authors="Blackmist"
  manager="jhubbard"
  editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
  ms.date="08/16/2016"
- ms.author="larryfr"/>  
+ ms.author="larryfr"/>
 
 # Usare Power BI per visualizzare i dati provenienti da una topologia Apache Storm
 
@@ -146,7 +146,7 @@ La topologia rimarrà in esecuzione fino all'arresto o all'eliminazione del clus
 
 2. Fare clic sul pulsante **Termina** per arrestare la topologia.
 
-    ![Pulsante Termina nel riepilogo della topologia](./media/hdinsight-storm-power-bi-topology/killtopology.png)  
+    ![Pulsante Termina nel riepilogo della topologia](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
 ## Eliminare il cluster
 

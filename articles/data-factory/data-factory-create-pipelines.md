@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article"
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Pipeline e attività in Azure Data Factory: creare e pianificare pipeline e concatenare attività
 Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario.
@@ -180,7 +180,7 @@ I passaggi tipici durante la creazione di una pipeline in Data factory di Azure 
 3.	Creare set di dati di input e di output.
 4.	Creare una pipeline con le attività che operano sui set di dati.
 
-![Entità di Data factory](./media/data-factory-create-pipelines/entities.png)  
+![Entità di Data factory](./media/data-factory-create-pipelines/entities.png)
 
 Osserviamo più da vicino come viene definita una pipeline.
 
@@ -274,11 +274,11 @@ In questo scenario, l'attività A1 viene eseguita quando i dati esterni sono dis
 
 Vista diagramma:
 
-![Concatenamento di attività in due pipeline](./media/data-factory-create-pipelines/chaining-two-pipelines.png)  
+![Concatenamento di attività in due pipeline](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
 
 Vista diagramma con entrambe le attività nella stessa pipeline:
 
-![Concatenamento di attività nella stessa pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)  
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
 ## Pianificazione ed esecuzione
 Finora si è appreso che cosa si intende per pipeline e attività. È anche stato esaminato il modo in cui vengono definite ed è stata fornita una panoramica generale delle attività in Azure Data Factory. Ora si osserverà come vengono eseguite.
@@ -308,7 +308,7 @@ Data factory di Azure fornisce vari meccanismi per creare e distribuire le pipel
 
 5. Si noterà la finestra dell'editor con il modello JSON della pipeline.
 
-	![Editor pipeline](./media/data-factory-create-pipelines/pipeline-in-editor.png)  
+	![Editor pipeline](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
 6. Dopo avere completato la creazione della pipeline, fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
 

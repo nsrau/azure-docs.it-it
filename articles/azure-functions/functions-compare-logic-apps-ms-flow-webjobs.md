@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	tags=""
-	keywords="microsoft flow, flow, app per la logica, funzioni di azure, funzioni, processi web di azure, processi web, elaborazione di eventi, calcolo dinamico, architettura senza server"/>  
+	keywords="microsoft flow, flow, app per la logica, funzioni di azure, funzioni, processi web di azure, processi web, elaborazione di eventi, calcolo dinamico, architettura senza server"/>
 
 <tags
 	ms.service="functions"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="09/08/2016"
-	ms.author="chrande; glenga"/>  
+	ms.author="chrande; glenga"/>
 
 # Scegliere tra Flow, App per la logica, Funzioni e Processi Web
 

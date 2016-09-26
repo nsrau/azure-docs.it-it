@@ -6,7 +6,7 @@
    documentationCenter="na"
    authors="brohrer-ms"
    manager="jhubbard"
-   editor="cjgronlund"/>  
+   editor="cjgronlund"/>
 
 <tags
    ms.service="machine-learning"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>  
+   ms.author="cgronlun;brohrer;garye"/>
 
 # Porre una domanda a cui è possibile rispondere con i dati
 
@@ -65,7 +65,7 @@ Se la domanda è "Quale sarà il prezzo di vendita del mio titolo la prossima se
 
 Se la domanda è "Quale auto del mio parco macchine avrà per prima un guasto?", sarà necessario assicurarsi che i dati includano informazioni sui guasti precedenti.
 
-![Dati di destinazione: esempi di risposta. Formulare una domanda di analisi scientifica dei dati.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)  
+![Dati di destinazione: esempi di risposta. Formulare una domanda di analisi scientifica dei dati.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
 
 Questi esempi di risposte sono detti destinazione. Una destinazione è ciò che si sta tentando di stimare in relazione ai punti dati futuri, se si tratta di una categoria o di un numero.
 

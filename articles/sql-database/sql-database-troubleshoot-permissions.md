@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="v-shysun"/>  
+	ms.author="v-shysun"/>
 
 # Come eseguire attività amministrative comuni come il ripristino della password amministratore nel database SQL di Azure
 Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere l'accesso a un database SQL di Azure. Per altre informazioni, vedere:

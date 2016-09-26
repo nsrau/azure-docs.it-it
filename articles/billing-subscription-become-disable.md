@@ -69,13 +69,13 @@ Se si è l'amministratore account, è possibile riattivare la sottoscrizione con
 - Selezionare la sottoscrizione annullata.
 - Fare clic su uno dei collegamenti **Riattiva** nella pagina dei dettagli della sottoscrizione.
 
-![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)  
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
 ## Come abilitare nuovamente le sottoscrizioni non con pagamento in base al consumo:
 
 Per riattivare una sottoscrizione disabilitata, è necessario creare un ticket di supporto. A tale scopo, accedere al [portale di Azure](https://portal.azure.com/), selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
 
-![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)  
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
 Se non è possibile accedere al portale, inviare la richiesta di supporto dal sito Web del supporto tecnico di Azure o dal Centro account di Azure:
 

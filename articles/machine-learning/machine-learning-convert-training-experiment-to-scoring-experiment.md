@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/>
 
 # Convertire un esperimento di training di Machine Learning in un esperimento predittivo
 
@@ -112,7 +112,7 @@ Per altre informazioni sul processo di distribuzione completo, vedere [Distribui
 [deploy]: machine-learning-publish-a-machine-learning-web-service.md
 
 
-<!-- Images -->  
+<!-- Images -->
 [figure1]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure1.png
 [figure2]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure2.png
 [figure3]: ./media/machine-learning-convert-training-experiment-to-scoring-experiment/figure3.png

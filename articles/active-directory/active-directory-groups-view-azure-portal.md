@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 
 # Visualizzare tutti i gruppi esistenti in anteprima di Azure Active Directory
@@ -27,11 +27,11 @@ Questo articolo illustra come visualizzare tutti i gruppi in anteprima di Azure 
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-groups-view-azure-portal/search-user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 
 3.  Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
 
-    ![Apertura del pannello Gruppi](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)  
+    ![Apertura del pannello Gruppi](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** è possibile aggiungere o rimuovere colonne visualizzate, filtrare l'elenco per cercare un gruppo o apportare modifiche ai gruppi per cui si dispone di autorizzazioni sufficienti per la modifica.
 

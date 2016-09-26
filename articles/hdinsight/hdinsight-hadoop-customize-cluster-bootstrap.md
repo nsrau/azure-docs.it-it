@@ -6,7 +6,7 @@
 	authors="mumian"
 	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -128,7 +128,7 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
     }
 
 
-![hdinsight hadoop personalizzare cluster bootstrap modello di azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)  
+![hdinsight hadoop personalizzare cluster bootstrap modello di azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 
 

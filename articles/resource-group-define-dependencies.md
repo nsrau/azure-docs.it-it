@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/12/2016"
-   ms.author="tomfitz"/>  
+   ms.author="tomfitz"/>
 
 # Definizione delle dipendenze nei modelli di gestione risorse di Azure
 

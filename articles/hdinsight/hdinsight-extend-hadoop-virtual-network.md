@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/13/2016"
-   ms.author="larryfr"/>  
+   ms.author="larryfr"/>
 
 
 #Estendere le funzionalità di HDInsight usando Rete virtuale di Azure

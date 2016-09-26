@@ -5,7 +5,7 @@ services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
 manager="jhubbard"
-editor="cgronlun"/>  
+editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="07/25/2016"
-ms.author="larryfr"/>  
+ms.author="larryfr"/>
 
 #Migrare da un cluster HDInsight basato su Windows a un cluster basato su Linux
 

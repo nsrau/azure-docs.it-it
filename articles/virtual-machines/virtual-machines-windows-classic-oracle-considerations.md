@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
 ms.date="09/06/2016"
-ms.author="rclaus" />  
+ms.author="rclaus" />
 
 #Considerazioni varie sulle immagini di macchine virtuali Oracle
 

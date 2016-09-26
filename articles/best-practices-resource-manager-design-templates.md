@@ -14,13 +14,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="tomfitz"/>  
+	ms.author="tomfitz"/>
 
 # Procedure consigliate per la progettazione di modelli di Azure Resource Manager
 
 Nel nostro lavoro con aziende, integratori di sistemi (SI), fornitori di servizi cloud (CSV) e team di progetto per software open source (OSS), è spesso necessario distribuire rapidamente ambienti, carichi di lavoro o unità di scala. Queste distribuzioni devono essere supportate, seguire procedure consolidate ed essere conformi ai criteri identificati. Usando un approccio flessibile basato sui modelli di Azure Resource Manager, è possibile distribuire topologie complesse in modo rapido e coerente. È possibile adattare facilmente queste distribuzioni man mano che le offerte principali cambiano o inserire varianti per scenari o clienti esterni.
 
-Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class Azure Resource Manager Templates Considerations and Proven Practices] (Considerazioni e procedure consolidate avanzate per i modelli di Azure Resource Manager)(http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class Azure Resource Manager Templates Considerations and Proven Practices] \(Considerazioni e procedure consolidate avanzate per i modelli di Azure Resource Manager)(http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 I modelli uniscono i vantaggi della Gestione risorse di Azure sottostante con l’adattabilità e la leggibilità di JavaScript Object Notation (JSON). Utilizzando i modelli, è possibile:
 
@@ -217,7 +217,7 @@ Di seguito è riportato un file di esempio nel suo complesso.
 
 Il modello principale riceve i parametri da un utente, usa tali informazioni per popolare variabili oggetto complesse ed esegue i modelli collegati.
 
-![Modello principale](./media/best-practices-resource-manager-design-templates/main-template.png)  
+![Modello principale](./media/best-practices-resource-manager-design-templates/main-template.png)
 
 **Il modello principale riceve parametri da un utente**
 
@@ -231,7 +231,7 @@ Alcune risorse vengono distribuite facoltativamente indipendentemente dalla conf
 
 Questo modello offre risorse comuni a tutte le configurazioni note. Contiene la rete virtuale, i set di disponibilità e altre risorse necessarie indipendentemente dal modello di configurazione nota distribuito.
 
-![Risorse del modello](./media/best-practices-resource-manager-design-templates/template-resources.png)  
+![Risorse del modello](./media/best-practices-resource-manager-design-templates/template-resources.png)
 
 **Modello di risorse condivise**
 
@@ -241,7 +241,7 @@ I nomi delle risorse, ad esempio il nome della rete virtuale, si basano sul mode
 
 Il modello di risorse facoltative contiene risorse distribuite a livello di codice in base al valore di un parametro o di una variabile.
 
-![Risorse facoltative](./media/best-practices-resource-manager-design-templates/optional-resources.png)  
+![Risorse facoltative](./media/best-practices-resource-manager-design-templates/optional-resources.png)
 
 **Modello di risorse facoltative**
 
@@ -258,7 +258,7 @@ Se una determinata risorsa è facoltativa potrebbe non dipendere dal consumer de
 
 Nel modello principale, un parametro può essere esposto per consentire al consumer del modello di specificare una configurazione nota desiderata da distribuire. Spesso, questa configurazione nota usa un approccio basato sulle taglie con un set di dimensioni di configurazione fisse quali sandbox, small, medium e large.
 
-![Risorse di configurazione note](./media/best-practices-resource-manager-design-templates/known-config.png)  
+![Risorse di configurazione note](./media/best-practices-resource-manager-design-templates/known-config.png)
 
 **Modello di risorse di configurazione note**
 
@@ -273,7 +273,7 @@ Come con il modello di risorsa condivisa, le variabili vengono passate al modell
 
 All'interno di una configurazione nota sono spesso inclusi uno o più tipi di nodi membro. Ad esempio, con Hadoop si hanno nodi master e nodi dati. Installando MongoDB, si hanno nodi dati e un arbitro. Distribuendo DataStax, si hanno nodi dati e una VM con OpsCenter installato.
 
-![Risorse membro](./media/best-practices-resource-manager-design-templates/member-resources.png)  
+![Risorse membro](./media/best-practices-resource-manager-design-templates/member-resources.png)
 
 **Modello di risorse membro**
 
@@ -285,7 +285,7 @@ Per le VM, in genere vengono utilizzati due tipi di script, ovvero script ampiam
 
 Gli script ampiamente riutilizzabili possono essere impiegati in più tipi di modelli. Uno degli esempi migliori per questi script ampiamente riutilizzabili imposta RAID su Linux per raggruppare dischi in pool e ottenere un numero maggiore di IOPS. Indipendentemente dal software installato nella VM, questo script consente di riutilizzare procedure consolidate per scenari comuni.
 
-![Script riutilizzabili](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)  
+![Script riutilizzabili](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)
 
 **I modelli di risorse membro possono chiamare script ampiamente riutilizzabili**
 
@@ -293,7 +293,7 @@ Gli script ampiamente riutilizzabili possono essere impiegati in più tipi di mo
 
 I modelli chiamano comunemente uno o più script che consentono di installare e configurare il software all'interno delle VM. È stato osservato uno schema comune con le topologie di grandi dimensioni in cui vengono distribuite più istanze di uno o più tipi membro. Per ogni macchina virtuale viene avviato uno script di installazione eseguibile in parallelo, seguito da uno script di configurazione chiamato dopo la distribuzione di tutte le VM (o tutte le VM di un tipo di membro specificato).
 
-![Script personalizzati](./media/best-practices-resource-manager-design-templates/custom-scripts.png)  
+![Script personalizzati](./media/best-practices-resource-manager-design-templates/custom-scripts.png)
 
 **I modelli di risorse membro possono chiamare script per uno scopo specifico, ad esempio la configurazione della VM**
 

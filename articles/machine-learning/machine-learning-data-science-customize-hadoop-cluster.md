@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun"  />  
+	editor="cgronlun"  />
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/14/2016" 
-	ms.author="hangzh;bradsev" />  
+	ms.author="hangzh;bradsev" />
 
 # Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati per i team 
 

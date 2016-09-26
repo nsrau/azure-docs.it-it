@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
 	ms.date="09/12/2016"
-	ms.author="magoedte;bwren" />  
+	ms.author="magoedte;bwren" />
 
 # Creazione o importazione di un runbook in Automazione di Azure
 

@@ -6,7 +6,7 @@
 	authors="spelluru"
 	manager="NA"
 	editor=""
-	tags=""/>  
+	tags=""/>
 <tags
 	ms.service="data-catalog"
 	ms.devlang="NA"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
 	ms.date="09/13/2016"
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Eseguire il profiling dati delle origini dati
 
@@ -28,7 +28,7 @@ La funzione di **profiling dati** di **Azure Data Catalog** esamina i dati dalle
 
 Il profiling dati esamina i dati nell'origine dati di cui è in corso la registrazione e raccoglie statistiche e informazioni sui dati. Durante l'individuazione delle origini dati, le statistiche consentono di determinare l'idoneità dei dati per la risoluzione del problema aziendale.
 
-<!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->  
+<!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->
 
 Le origini dati seguenti supportano il profiling dati:
 

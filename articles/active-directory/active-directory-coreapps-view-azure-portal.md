@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Visualizzare tutte le app aziendali che è possibile gestire in anteprima di Azure Active Directory
 
@@ -26,9 +26,9 @@
 
 2. Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
 
-3. Nel pannello **Azure Active Directory - ** ***nomedirectory***, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
+3. Nel pannello **Azure Active Directory -** ***nomedirectory***, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 
-	![Apertura di app aziendali](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)  
+	![Apertura di app aziendali](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 
 4. Nel pannello **Applicazioni aziendali** selezionare **All applications** (Tutte le applicazioni). In questo pannello è possibile selezionare le app da gestire, modificare le colonne visualizzate o filtrare l'elenco per trovare l'app desiderata, ad esempio per visualizzare solo le app disabilitate.
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Ricevere notifiche di avviso
 
@@ -34,17 +34,17 @@ Per configurare e ottenere informazioni sulle regole di avviso a livello di codi
 
 3. Fare clic sul comando **Aggiungi avviso**.
 
-	![Aggiunta di una regola](./media/insights-receive-alert-notifications/Insights_AddAlert.png)  
+	![Aggiunta di una regola](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. È possibile denominare la regola di avviso e scegliere una descrizione che verrà visualizzata nella notifica inviata tramite posta elettronica.
 
 5. Quando si seleziona **Metriche**, è possibile scegliere una condizione e un valore soglia per la metrica. Si tratta del periodo di tempo usato da Azure per monitorare e tracciare l'attività di avviso.
 
-	![Condizione e soglia](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)  
+	![Condizione e soglia](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. È anche possibile scegliere **Eventi** e ricevere una notifica quando si verifica un determinato evento.
 
-	![Eventi](./media/insights-receive-alert-notifications/Insights_Events.png)  
+	![Eventi](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Infine, si può scegliere di inviare la notifica tramite posta elettronica agli amministratori responsabili.
 
@@ -54,7 +54,7 @@ Pochi minuti dopo aver fatto clic su **Salva**, all'utente verrà comunicato se 
 
 Dopo aver creato una regola di avviso, è possibile visualizzare un'anteprima della soglia di avviso raffrontata alla metrica del giorno precedente.
 
-![Eventi](./media/insights-receive-alert-notifications/Insights_EditAlert.png)  
+![Eventi](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
 Questa regola di avviso può chiaramente essere modificata e **disabilitata** o **abilitata**, se si desidera interrompere temporaneamente la ricezione di notifiche ad essa correlate.

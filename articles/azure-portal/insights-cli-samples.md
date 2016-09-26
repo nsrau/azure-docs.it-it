@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/>
 
 # Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma di Azure Insights
 

@@ -6,7 +6,7 @@
 	manager="jhubbard"
 	tags="azure-portal"
 	authors="mumian"
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite .NET SDK
 
@@ -169,7 +169,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 	L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)  
+	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 

@@ -5,7 +5,7 @@ services="hdinsight"
 documentationCenter="na"
 authors="Blackmist"
 manager="jhubbard"
-editor="cgronlun"/>  
+editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="09/06/2016"
-ms.author="larryfr"/>  
+ms.author="larryfr"/>
 
 #Usare Archivio Azure Data Lake con Apache Storm in HDInsight
 

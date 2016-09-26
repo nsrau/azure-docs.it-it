@@ -7,7 +7,7 @@
 	manager="mbaldwin"
 	editor=""
 	tags="billing"
-	/>  
+	/>
 
 <tags
 	ms.service="billing"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Come annullare la sottoscrizione di Azure
 
@@ -28,7 +28,7 @@ Se si annulla la sottoscrizione, i dati verranno archiviati per 90 giorni in bas
 
 2. In **Fare clic su una sottoscrizione per visualizzare i dettagli e l'utilizzo** selezionare la sottoscrizione che si vuole annullare.
 
-	![selectsub](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)  
+	![selectsub](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
 
 3. Sul lato destro della pagina selezionare **Annulla sottoscrizione**.
 	
@@ -36,11 +36,11 @@ Se si annulla la sottoscrizione, i dati verranno archiviati per 90 giorni in bas
 
 4. Selezionare **Sì, annulla la sottoscrizione**.
 	
-	![cancelbox](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)  
+	![cancelbox](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
 
 5. Fare clic su ![checkButton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) per chiudere la finestra di dialogo e tornare alla pagina di sottoscrizione.
 
-	> [AZURE.NOTE] Se la sottoscrizione con pagamento in base al consumo è stata annullata erroneamente, è possibile riattivarla seguendo le istruzioni riportate [qui](https://azure.microsoft.com/it-IT/documentation/articles/billing-subscription-become-disable/).
+	> [AZURE.NOTE] Se la sottoscrizione con pagamento in base al consumo è stata annullata erroneamente, è possibile riattivarla seguendo le istruzioni riportate [qui](https://azure.microsoft.com/documentation/articles/billing-subscription-become-disable/).
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 

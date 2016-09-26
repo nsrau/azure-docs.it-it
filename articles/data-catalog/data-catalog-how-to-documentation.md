@@ -6,7 +6,7 @@
 	authors="spelluru"
 	manager="NA"
 	editor=""
-	tags=""/>  
+	tags=""/>
 <tags
 	ms.service="data-catalog"
 	ms.devlang="NA"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
 	ms.date="09/13/2016"
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Documentare le origini dati
 
@@ -28,7 +28,7 @@ L'articolo [Come annotare le origini dati](data-catalog-how-to-annotate.md) most
 
 Tag e descrizioni sono utili per inserire semplici annotazioni. Tuttavia, per avere una migliore comprensione di un'origine dati e dei relativi scenari di business gli utilizzatori di dati possono rivolgersi a un esperto per una documentazione completa e dettagliata. È facile documentare un'origine dati. Selezionare un contenitore o un asset di dati e scegliere **Documentazione**.
 
-![](media\data-catalog-documentation\data-catalog-documentation.png)  
+![](media\data-catalog-documentation\data-catalog-documentation.png)
 
 ## Documentare gli asset di dati
 

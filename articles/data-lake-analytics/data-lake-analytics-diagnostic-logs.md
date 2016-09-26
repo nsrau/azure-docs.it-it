@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="08/11/2016"
-   ms.author="larryfr"/>  
+   ms.author="larryfr"/>
 
 # Accesso ai log di diagnostica per Azure Data Lake Analytics
 
@@ -40,7 +40,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il proprio 
 
 3. Nel pannello **Diagnostica**, apportare le modifiche seguenti per configurare la registrazione diagnostica.
 
-	![Abilitare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")  
+	![Abilitare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
 
 	* Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
 	* È possibile scegliere di archiviare/elaborare i dati in due modi diversi.
@@ -63,7 +63,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
 
 1. Nel pannello **Impostazioni** dell'account Data Lake Analytics, fare clic su **Log di diagnostica**.
 
-	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")  
+	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")
 
 2. Nel pannello **Log di diagnostica** vengono visualizzati i log classificati in **Log di controllo** e **Log delle richieste**.
 	* I log delle richieste acquisiscono tutte le richieste API fatte nell'account di Data Lake Analytics.
@@ -75,7 +75,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
 
 1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Analytics per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
 
-	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")  
+	![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
 
 	* Il contenitore **insights-logs-audit** contiene i log di controllo.
 	* Il contenitore **insights-logs-requests** contiene i log delle richieste.

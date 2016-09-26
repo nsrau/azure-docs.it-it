@@ -5,7 +5,7 @@ services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
 manager="jhubbard"
-editor="cgronlun"/>  
+editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="08/15/2016"
-ms.author="larryfr"/>  
+ms.author="larryfr"/>
 
 # Analizzare i log di Application Insights Telemetry con Spark in HDInsight
 
@@ -44,7 +44,7 @@ Per lo sviluppo e il test di questo documento, sono stati usati gli elementi seg
 
 Il diagramma seguente illustra l'architettura del servizio dell'esempio:
 
-![diagramma che illustra un flusso di dati da Application Insights nell'archiviazione BLOB e la fase di elaborazione Spark in HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)  
+![diagramma che illustra un flusso di dati da Application Insights nell'archiviazione BLOB e la fase di elaborazione Spark in HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### Archiviazione di Azure
 
@@ -211,7 +211,7 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
 
 1. Nel [Portale di Azure](https://portal.azure.com) selezionare il proprio Spark sul cluster HDInsight. Dalla sezione __Collegamenti rapidi__ selezionare __Dashboard cluster__, quindi selezionare __Notebook di Jupyter__ dal pannello\_\_Dashboard cluster.
 
-    ![Il dashboard del cluster](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)  
+    ![Il dashboard del cluster](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
 
 2. Nell'angolo superiore destro della pagina Jupyter, selezionare __Nuovo__ e quindi __Scala__. Si apre una nuova scheda del browser contenente un notebook di Jupyter basato su Scala.
 

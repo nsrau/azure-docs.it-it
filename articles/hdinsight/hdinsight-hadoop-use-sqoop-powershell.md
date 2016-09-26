@@ -6,7 +6,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
-	authors="mumian"/>  
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Eseguire processi Sqoop con Azure PowerShell per Hadoop in HDInsight
 

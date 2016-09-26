@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="search"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="08/29/2016" />  
+	ms.date="08/29/2016" />
 
 # Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)
 
@@ -255,7 +255,7 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 | `magnitude:constantBoostBeyondRange` | I valori validi sono true o false (predefinito). Se impostato su true, l'aumento completo della priorità continuerà a essere applicato a documenti che includono un valore per il campo di destinazione maggiore rispetto al limite superiore dell'intervallo. Se false, l'aumento di priorità di questa funzione non verrà applicato ai documenti che includono un valore per il campo di destinazione che non rientra nell'intervallo. |
 | `freshness` | La funzione freshness per l'assegnazione di punteggio viene usata per modificare i punteggi di classificazione per gli elementi in base ai valori dei campi DateTimeOffset fields. Ad esempio, un elemento con una data più recente può essere classificato con una priorità maggiore rispetto agli elementi meno recenti. (Si noti che è anche possibile classificare elementi come eventi di calendario con date future in modo che gli elementi più vicini possano essere classificate in un livello superiore rispetto agli elementi più lontani nel futuro.) Nella versione attuale del servizio un'estremità dell'intervallo sarà fissata all'ora attuale. L'altra estremità è un momento del passato basato su `boostingDuration`. Per aumentare la priorità di un intervallo di tempo nel futuro usare un valore negativo di `boostingDuration`. La frequenza della modifica dell'aumento di priorità da un intervallo massimo e un intervallo minimo viene determinata dall'interpolazione applicata al profilo di punteggio (vedere la figura seguente). Per invertire il fattore di aumento di priorità applicato, scegliere un fattore di aumento di priorità inferiore a 1. |
 | `freshness:boostingDuration` | Imposta un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Per informazioni sulla sintassi ed esempi, vedere [Impostare boostingDuration][#bkmk\_boostdur] nella sezione seguente. |
-| `distance`   | La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene specificata come parte della query in un parametro (usando il parametro di query `scoringParameter`) sotto forma di argomento lon,lat. |
+| `distance` | La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene specificata come parte della query in un parametro (usando il parametro di query `scoringParameter`) sotto forma di argomento lon,lat. |
 | `distance:referencePointParameter` | Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview.md#SearchDocs). |
 | `distance:boostingDistance` | Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità. |
 | `tag` | La funzione per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base ai tag nei documenti e nelle query di ricerca. La priorità di documenti con tag in comune con la query di ricerca verrà aumentata. I tag per la query di ricerca vengono specificati come parametro di assegnazione dei punteggi in ogni richiesta di ricerca (usando il parametro di query `scoringParameter`). |
@@ -295,7 +295,7 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 
 **Vedere anche** [API REST di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) su MSDN <br/> [Creare un indice (API di Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) su MSDN<br/> [Aggiungere un profilo di punteggio a un indice di ricerca](http://msdn.microsoft.com/library/azure/dn798928.aspx) su MSDN<br/>
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
 <!---HONumber=AcomDC_0914_2016-->

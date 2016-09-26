@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 Questo articolo offre una panoramica sull'integrazione tra archivi dati locali e archivi dati cloud con Data Factory. Si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) e su altri articoli che illustrano i concetti di base relativi a Data Factory: [set di dati](data-factory-create-datasets.md) e [pipeline](data-factory-create-pipelines.md).
@@ -32,7 +32,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
 1.	Dopo l'accesso al [portale di Azure](https://portal.azure.com), fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e quindi fare clic su **Data Factory** nel pannello **Analisi dei dati**.
 
-	![Nuovo->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
+	![Nuovo->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)
   
 6. Nel pannello **Nuova data factory**:
 	1. Immettere **ADFTutorialOnPremDF** nel campo **Nome**.
@@ -42,7 +42,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
 7. Notare che viene visualizzato un segno di spunta accanto a **Aggiungi a schermata iniziale** nel pannello **Nuova data factory**.
 
-	![Aggiungi a schermata iniziale](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)  
+	![Aggiungi a schermata iniziale](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
 8. Nel pannello **Nuova data factory** fare clic su **Crea**.
 
@@ -50,11 +50,11 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
 9. Cercare le notifiche generate dal processo di creazione facendo clic sul pulsante **Notifiche** nella barra del titolo, come illustrato nella seguente figura. Fare di nuovo clic per chiudere la finestra delle notifiche.
 
-	![Hub NOTIFICHE](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNotificationsHub.png)  
+	![Hub NOTIFICHE](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNotificationsHub.png)
 
 11. Al termine della creazione viene visualizzato il pannello **Data Factory**, come illustrato nell'immagine seguente:
 
-	![Home page di Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)  
+	![Home page di Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## Creare il gateway
 5. Nel pannello **DATA FACTORY** fare clic sul riquadro **Creare e distribuire** per avviare l'**Editor** per la data factory.
@@ -76,7 +76,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 	>  
 	> Seguire la stessa procedura per Firefox (installazione di un componente aggiuntivo). Fare clic sul pulsante **Apri menu** sulla barra degli strumenti, ovvero le **tre linee orizzontali** nell'angolo superiore destro. Fare clic su **Componenti aggiuntivi**, eseguire una ricerca con la parola chiave "ClickOnce", scegliere una delle estensioni ClickOnce e installarla.
 
-	![Gateway - Pannello Configura](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)  
+	![Gateway - Pannello Configura](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
 	Si tratta del metodo più semplice (con un clic) per scaricare, installare, configurare e registrare il gateway in un unico passaggio. È possibile vedere l'applicazione **Gateway di gestione dati di Microsoft Configuration Manager** installata nel computer. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared**.
 
@@ -88,7 +88,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
 5. Attendere un paio di minuti e quindi avviare l'applicazione **Gestione configurazione di Gateway di gestione dati** nel computer. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità. È anche possibile trovare l'eseguibile **ConfigManager.exe** nella cartella: **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared**.
 
-	![Gestione configurazione di gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)  
+	![Gestione configurazione di gateway](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
 6. Attendere fino a quando:
 	2. **Nome gateway** è impostato su **adftutorialgateway**.
@@ -98,12 +98,12 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
 8. Passare alla scheda **Impostazioni**. Il certificato specificato nella sezione **Certificato** viene usato per crittografare e decrittografare le credenziali per l'archivio dati locale specificato nel portale (facoltativo). Fare clic su **Modifica** per usare il proprio certificato. Per impostazione predefinita, il gateway usa il certificato generato automaticamente dal servizio Data Factory.
 
-	![Configurazione certificati del gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)  
+	![Configurazione certificati del gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
 	È inoltre possibile eseguire le operazioni seguenti nella scheda Impostazioni: -Verificare o esportare il certificato utilizzato dal gateway. - Modificare l'endpoint HTTPS usato dal gateway-
 9. (facoltativo) Passare alla scheda **Diagnostica**, selezionare l'opzione **Abilita la registrazione dettagliata** se si vuole abilitare la registrazione dettagliata che è possibile usare per risolvere i problemi del gateway. Le informazioni sulla registrazione si trovano nel **Visualizzatore eventi**, nel nodo **Registri applicazioni e servizi** -> **Gateway di gestione dati**.
 
-	![Scheda Diagnostica](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)  
+	![Scheda Diagnostica](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
 	È inoltre possibile eseguire le operazioni seguenti nella scheda **Diagnostica**:
 	
@@ -120,7 +120,7 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
 #### Aggiungere un servizio collegato a un database di SQL Server locale
 1.	Nell'**editor di Data Factory** fare clic su **Nuovo archivio dati** sulla barra degli strumenti e selezionare **SQL Server**.
 
-	![Nuovo servizio collegato di SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)  
+	![Nuovo servizio collegato di SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
 3.	Nell'**editor JSON** seguire questa procedura:
 	1. Per **gatewayName** specificare **adftutorialgateway**.
 	2. Se si usa l'autenticazione di Windows:
@@ -284,7 +284,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 
 1.	Nel pannello **DATA FACTORY** fare clic sul riquadro **Creare e distribuire** per avviare l'**Editor** per la data factory.
 
-	![Riquadro Creare e distribuire](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)  
+	![Riquadro Creare e distribuire](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2.	Fare clic su **Nuova pipeline** sulla barra dei comandi. Se il pulsante non è presente, fare clic su **...(puntini di sospensione)** per visualizzarlo.
 2.	Sostituire lo script JSON nel riquadro a destra con il testo seguente:
 	
@@ -356,11 +356,11 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 #### Visualizzare la data factory in una vista diagramma 
 1. Nel **portale di Azure**, fare clic sul riquadro **Diagramma** nella home page per l'istanza della data factory **ADFTutorialOnPremDF**:
 
-	![Collegamento al diagramma](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)  
+	![Collegamento al diagramma](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
 2. Viene visualizzato un diagramma simile al seguente:
 
-	![Vista Diagramma](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png) 
+	![Vista Diagramma](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
 	È possibile eseguire lo zoom avanti, lo zoom indietro e lo zoom al 100%, adattare alla finestra, posizionare automaticamente pipeline e tabelle e visualizzare le informazioni sulla derivazione, evidenziando gli elementi upstream e downstream degli elementi selezionati. È possibile fare doppio clic su un oggetto (tabella di input/output o pipeline) per visualizzare le relative proprietà.
 
@@ -371,11 +371,11 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 2. Se il pannello per **ADFTutorialOnPremDF** è chiuso, aprirlo facendo clic su **ADFTutorialOnPremDF** nella **Schermata iniziale**.
 3. Vengono visualizzati il **numero** e i **nomi** delle tabelle e delle pipeline create nel pannello.
 
-	![Home page di Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)  
+	![Home page di Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 4. A questo punto, fare clic sul riquadro **Set di dati**.
 5. Nel pannello **Set di dati**, fare clic su **EmpOnPremSQLTable**.
 
-	![Sezioni EmpOnPremSQLTable](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)  
+	![Sezioni EmpOnPremSQLTable](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 
 6. Le sezioni di dati fino all'ora corrente sono state già generate e sono in stato **Pronto**. Ciò è dovuto al fatto che i dati sono stati inseriti nel database SQL Server database che è sempre presente. Verificare che non sia visualizzata alcuna sezione in **Sezioni con errori** nella parte inferiore della pagina.
 	
@@ -390,17 +390,17 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 	Per visualizzare le sezioni di dati ordinate invece in base agli orari di inizio/fine, fare clic sul riquadro **Sezioni dati (in base all'ora della sezione)**.
 7. A questo punto, nel pannello **Set di dati**, fare clic su **OutputBlobTable**.
 
-	![Sezioni OputputBlobTable](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)  
+	![Sezioni OputputBlobTable](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
 8. Confermare che le sezioni fino all'ora corrente sono state generate e hanno lo stato **Pronto**. Attendere finché lo stato delle sezioni fino all'ora corrente non viene impostato **Pronto**.
 9. Fare clic su una qualsiasi sezione dati dell'elenco per visualizzare il pannello **SEZIONE DATI**.
 
-	![Pannello Sezione dati](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)  
+	![Pannello Sezione dati](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
 	Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
 
 10. Fare clic sull'**esecuzione attività** dall'elenco nella parte inferiore della pagina per visualizzare i **dettagli dell'esecuzione attività**.
 
-	![Pannello Dettagli esecuzione attività](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)  
+	![Pannello Dettagli esecuzione attività](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
 11. Fare clic su **X** per chiudere tutti i pannelli fino
 12. a tornare al pannello iniziale di **ADFTutorialOnPremDF**.

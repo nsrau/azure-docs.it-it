@@ -131,7 +131,7 @@ Sono disponibili due viste che consentono di monitorare l'utilizzo delle risorse
 ### Uso di sys.dm\_db\_resource\_stats
 La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) è presente in ogni database SQL e fornisce dati di utilizzo delle risorse recenti rispetto al livello di servizio. Informazioni relative a percentuali medie della CPU, dati I/O, scritture nei log e memoria vengono registrate ogni 15 secondi e vengono mantenute per un'ora.
 
-Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, è consigliabile usare prima **sys.dm\_db\_resource\_stats ** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente descrive l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
+Poiché questa vista fornisce una visione più granulare sull'uso delle risorse, è consigliabile usare prima **sys.dm\_db\_resource\_stats** per eventuali analisi o risoluzioni di problemi allo stato corrente. Ad esempio, la query seguente descrive l'utilizzo medio e massimo delle risorse per il database corrente nell'ultima ora:
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
@@ -152,7 +152,7 @@ La vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 Il grafico seguente illustra l'utilizzo di risorse della CPU per un database Premium con livello di prestazioni P2 per ogni ora nell'arco di una settimana. Questo grafico specifico inizia di lunedì, con cinque giorni lavorativi e un fine settimana in cui l'utilizzo di risorse nell'applicazione è molto inferiore.
 
-![Utilizzo delle risorse del database SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)  
+![Utilizzo delle risorse del database SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
 In base ai dati, per il livello di prestazioni P2 il carico massimo della CPU di questo database attualmente supera di poco il 50% dell'utilizzo della CPU (a mezzogiorno di martedì). Se la CPU è il fattore più importante nel profilo delle risorse dell'applicazione, si può scegliere il P2 come livello di prestazioni idoneo a garantire che il carico di lavoro sia sempre adeguato. Se si prevede un aumento delle dimensioni dell'applicazione nel tempo, è consigliabile permettere un buffer di risorse aggiuntive in modo che non venga mai raggiunta la capacità massima da parte dell'applicazione. L'aumento del livello di prestazioni consente di evitare errori visibili da parte del cliente causati dall'incapacità del database di elaborare le richieste in modo efficiente, in particolare in ambienti sensibili alla latenza, ad esempio nel caso di un database che supporta un'applicazione mediante la quale vengono disegnate pagine Web in base ai risultati delle chiamate di database.
 
@@ -169,7 +169,7 @@ L'esempio seguente illustra l'esposizione dei dati in questa vista:
 	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
-![Statistiche relative alle risorse di sistema](./media/sql-database-performance-guidance/sys_resource_stats.png)  
+![Statistiche relative alle risorse di sistema](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
 L'esempio seguente illustra i vari modi per comprendere l'utilizzo delle risorse del database SQL usando la vista del catalogo **sys.resource\_stats**.
 
@@ -310,7 +310,7 @@ In questo esempio viene suggerito il seguente indice.
 
 Al termine della creazione, la stessa istruzione SELECT seleziona ora un piano diverso in cui viene usata una ricerca anziché una scansione, effettuando l'esecuzione in modo più efficiente come illustrato nel piano di query riportato di seguito.
 
-![Piano di query con indici corretti](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)  
+![Piano di query con indici corretti](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
 L'aspetto chiave è che la capacità di I/O di un sistema apposito condiviso è più limitata di un server dedicato. Esiste un vantaggio nella riduzione dell'I/O non necessario, che consente di sfruttare al massimo il sistema entro il valore di DTU di ciascun livello di prestazioni incluso nei livelli di servizio per il database SQL di Azure. Le opzioni appropriate di progettazione fisica del database possono migliorare notevolmente la latenza delle singole query, la velocità effettiva di richieste simultanee gestibili per unità di scala e ridurre i costi necessari per soddisfare la query. Per altre informazioni sulle DMV di indici mancanti, vedere [sys.dm\_db\_missing\_index\_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
@@ -392,7 +392,7 @@ Tramite il codice di installazione viene creata una tabella indicante la differe
 
 Ogni parte di questo esempio prova a eseguire 1000 volte un'istruzione INSERT con parametri, per generare un carico sufficiente utilizzabile in un set di dati di test. Durante l'esecuzione di stored procedure, tramite Query Processor viene esaminato il valore del parametro passato alla procedura durante la prima compilazione (noto come "sniffing" dei parametri). Il piano risultante viene memorizzato nella cache e usato per le chiamate successive, anche se il valore del parametro è diverso. Di conseguenza, è possibile che non venga usato il piano ottimale in tutti i casi. Talvolta i clienti devono consentire a Query Optimizer la selezione di un piano che sia migliore per la metà dei casi anziché per il caso specifico quando la query viene compilata per la prima volta. In questo esempio, il piano iniziale genera un piano di scansione che legge tutte le righe per cercare tutti i valori corrispondenti al parametro.
 
-![Ottimizzazione di query](./media/sql-database-performance-guidance/query_tuning_1.png)  
+![Ottimizzazione di query](./media/sql-database-performance-guidance/query_tuning_1.png)
 
 Poiché la procedura è stata eseguita con il valore 1, il piano risultante è ottimale per il valore 1, ma non per tutti gli altri valori nella tabella. Il comportamento risultante probabilmente non è quello desiderato se si seleziona casualmente ogni piano, dal momento che viene eseguito più lentamente e con l'uso di più risorse.
 
@@ -402,7 +402,7 @@ Eseguendo il test con "SET STATISTICS IO ON" viene illustrato che il lavoro di s
 
 La seconda parte dell'esempio usa un hint per la query per indicare a Query Optimizer di usare un valore specifico durante il processo di compilazione. In questo caso, il comportamento di Query Processor viene forzato in modo che venga ignorato il valore passato come parametro e, in alternativa, venga presunto "UNKNOWN", vale a dire un valore con frequenza media nella tabella (ignorando la differenza). Il piano risultante è un piano basato su ricerca, più veloce e con un minore impiego medio di risorse rispetto al piano della parte 1 dell'esempio.
 
-![Ottimizzazione di query](./media/sql-database-performance-guidance/query_tuning_3.png)  
+![Ottimizzazione di query](./media/sql-database-performance-guidance/query_tuning_3.png)
 
 L'impatto è visibile esaminando la tabella di **sys.resource\_stats**. Si verificherà un ritardo dal momento in cui si esegue il test al momento in cui i dati vengono popolati nella tabella. Per questo esempio, la parte 1 è stata eseguita durante l'intervallo di tempo 22:25:00 e la parte 2 nell'intervallo di tempo 22:35: 00. Si noti che nell'intervallo di tempo precedente sono state usate più risorse rispetto a quello successivo, grazie ai miglioramenti apportati all'efficienza del piano.
 
@@ -411,7 +411,7 @@ L'impatto è visibile esaminando la tabella di **sys.resource\_stats**. Si verif
 	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
-![Ottimizzazione di query](./media/sql-database-performance-guidance/query_tuning_4.png)  
+![Ottimizzazione di query](./media/sql-database-performance-guidance/query_tuning_4.png)
 
 >[AZURE.NOTE] Anche se l'esempio usato qui è intenzionalmente piccolo, l'impatto di parametri non ottimali può essere significativo, in particolare in database di grandi dimensioni. La differenza, in casi estremi, può essere di secondi e ore per i casi veloci e lenti.
 

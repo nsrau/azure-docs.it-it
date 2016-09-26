@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/14/2016"
-   ms.author="rickbyh"/>  
+   ms.author="rickbyh"/>
 
 # Configurare le regole del firewall per il database SQL di Azure - Panoramica
 
@@ -155,7 +155,7 @@ Per un'esercitazione sulla creazione di un database, vedere [Creare un database 
 - [Protezione del database](sql-database-security.md)
 - [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
 <!---HONumber=AcomDC_0914_2016-->

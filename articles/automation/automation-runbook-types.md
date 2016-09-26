@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/12/2016"
-   ms.author="bwren" />  
+   ms.author="bwren" />
 
 # Tipi di runbook di Automazione di Azure
 

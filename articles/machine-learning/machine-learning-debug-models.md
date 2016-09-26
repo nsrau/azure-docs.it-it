@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/09/2016" 
-	ms.author="bradsev;garye" />  
+	ms.author="bradsev;garye" />
 
 # Debug del modello in Azure Machine Learning
 
@@ -63,7 +63,7 @@ Può accadere che, nonostante il buon esito dell'esperimento, il modulo [Score M
 5. Il modulo [Score Model][score-model] può generare output identici per tutte le righe nel set di dati di punteggio. Ciò potrebbe verificarsi, ad esempio, quando si tenta di eseguire una classificazione usando insiemi di decisioni se il numero minimo di esempi per nodo foglia è scelto per essere più del numero di esempi di training disponibili.
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/

@@ -7,7 +7,7 @@
 	manager="pablocas"
 	editor=""
     tags="complex data types; compound data types; aggregate data types"
-/>  
+/>
 
 <tags
     ms.service="search"
@@ -17,7 +17,7 @@
     ms.tgt_pltfrm="na"
     ms.date="09/07/2016"
     ms.author="liamca"
-/>  
+/>
 
 # Come modellare tipi di dati complessi in Ricerca di Azure
 
@@ -73,7 +73,7 @@ Per creare un indice di Ricerca di Azure appropriato per questo set di dati, cre
 
 I dati in Ricerca di Azure si presenteranno come segue:
 
-![Dati di esempio, 2 righe](./media/search-howto-complex-data-types/sample-data.png)  
+![Dati di esempio, 2 righe](./media/search-howto-complex-data-types/sample-data.png)
 
 
 ## Parte 2: Aggiungere un campo di tipo raccolta nella definizione dell'indice
@@ -120,7 +120,7 @@ Ora che i dati sono stati separati in campi distinti, tuttavia, non è possibile
 
 Per gestire questo caso, definire un altro campo dell'indice che combina tutti i dati in una singola raccolta. In questo esempio, il campo verrà denominato `locationsCombined` e il contenuto verrà separato con `||`. È tuttavia possibile scegliere qualsiasi separatore che si ritiene possa essere una serie di caratteri univoca per il contenuto specifico. Ad esempio:
 
-![Dati di esempio, 2 righe con separatore](./media/search-howto-complex-data-types/sample-data-2.png)  
+![Dati di esempio, 2 righe con separatore](./media/search-howto-complex-data-types/sample-data-2.png)
 
 Usando il campo `locationsCombined`, è ora possibile supportare query aggiuntive, ad esempio:
 

@@ -15,7 +15,7 @@
    ms.devlang="na"
    ms.workload="required"
    ms.date="09/09/2016"
-   ms.author="delhan"/>  
+   ms.author="delhan"/>
 
 # Risolvere i problemi della distribuzione Resource Manager con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/07/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
 

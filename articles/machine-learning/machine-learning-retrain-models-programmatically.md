@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="raymondlaghaeian"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="raymondl;garye;v-donglo"/>  
+	ms.author="raymondl;garye;v-donglo"/>
 
 
 #Ripetere il training dei modelli di Machine Learning a livello di codice  
@@ -57,7 +57,7 @@ Per creare l'esperimento:
 6.	Fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
 7.	Fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Retraining Web Service** (Servizio Web di ripetizione del training).
 
- 	![Esperimento iniziale.][2]  
+ 	![Esperimento iniziale.][2]
 
 Diagramma 2: esperimento iniziale.
 
@@ -82,7 +82,7 @@ Per ripetere il training del modello con training, è necessario distribuire l'e
   
 Al termine dell'esecuzione dell'esperimento, il flusso di lavoro risultante dovrebbe avere un aspetto simile al seguente:
 
-![Flusso di lavoro risultante dopo l'esecuzione.][4]  
+![Flusso di lavoro risultante dopo l'esecuzione.][4]
 
 Diagramma 3: flusso di lavoro risultante dopo l'esecuzione.
 
@@ -133,7 +133,7 @@ Per eseguire questa attività, è necessario recuperare il nome dell'account di 
 
 È necessario anche assicurarsi che il file di input sia disponibile nella posizione specificata nel codice.
 
-![Output della ripetizione del training.][6]  
+![Output della ripetizione del training.][6]
 
 Diagramma 4: output della ripetizione del training.
 
@@ -235,7 +235,7 @@ Usando le API per la ripetizione del training, è possibile aggiornare il modell
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 <!---HONumber=AcomDC_0914_2016-->

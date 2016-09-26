@@ -6,7 +6,7 @@
 	authors="Blackmist"
 	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="09/07/2016" 
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/>
 
 #Usare Python con Hive e Pig in HDInsight
 

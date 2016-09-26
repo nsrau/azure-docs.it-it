@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/25/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Aprire le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure
 

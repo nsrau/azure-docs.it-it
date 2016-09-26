@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/>
 
 # Gestire iterazioni dell'esperimento in Azure Machine Learning Studio
 
@@ -77,11 +77,11 @@ Si supponga ad esempio di disporre della cronologia delle esecuzioni dell'esperi
 È ora possibile continuare a modificare ed eseguire questa versione dell'esperimento, creando una nuova cronologia delle esecuzioni per registrare il proprio lavoro.
 
 
-<!-- Images -->  
+<!-- Images -->
 [runhistory]: ./media/machine-learning-manage-experiment-iterations/viewrunhistory.jpg
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="luisca"/>  
+	ms.author="luisca"/>
 
 
 # Eseguire la migrazione all'API Raccomandazioni Servizi cognitivi di Azure dall'API per le raccomandazioni DataMarket

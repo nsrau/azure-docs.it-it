@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="zhangya;bradsev" />  
+	ms.author="zhangya;bradsev" />
 
 
 # Progettazione e selezione di funzioni in Azure Machine Learning
@@ -69,7 +69,7 @@ Oltre al set di funzioni A, che esiste già nei dati non elaborati originali, gl
 
 Nell'esperimento di Azure Machine Learning questi quattro set di dati vengono creati dai quattro rami del set di dati di input pre-elaborati. A eccezione del ramo all'estrema sinistra, ognuno di questi rami contiene un modulo [Execute R Script][execute-r-script] in cui un set di funzioni derivate (set B, C e D) viene rispettivamente costruito e aggiunto al set di dati importato. La figura seguente illustra lo script R usato per creare il set di funzioni B nel secondo ramo a sinistra.
 
-![creare funzioni](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.png)  
+![creare funzioni](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.png)
 
 Il confronto dei risultati delle prestazioni dei quattro modelli è riepilogato nella tabella seguente. I risultati migliori vengono forniti dalle funzioni A+B+C. Si noti che il tasso di errore diminuisce quando si include un set di funzioni aggiuntivo nei dati di training. Verifica la stima secondo cui il set di funzioni B, C fornisce altre informazioni rilevanti per l'attività di regressione. L'aggiunta della funzioni D non sembra tuttavia fornire un'altra riduzione del tasso di errore.
 
@@ -87,11 +87,11 @@ In Azure Machine Learning è disponibile un modulo [Feature Hashing][feature-has
 * Impostare quindi "Hashing bitsize" su 8, che equivale alla creazione di 2^8=256 funzioni. Per le parole/frasi nel testo viene generato un hash per 256 indici. Il parametro "Hashing bitsize" è compreso nell'intervallo da 1 a 31. Con l'impostazione di un numero maggiore, è meno probabile che per le parole/frasi venga generato un hash nello stesso indice.
 * Infine, impostare il parametro "N-grams" su 2. In questo modo si ottiene la frequenza di occorrenze di unigrammi (una funzione per ogni singola parola) e di digrammi (una funzione per ogni coppia di valori adiacenti) dal testo di input. L'intervallo del parametro "N-grams" è compreso tra 0 e 10 e indica il numero massimo di parole sequenziali da includere in una funzione.
 
-![Modulo "Feature Hashing"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)  
+![Modulo "Feature Hashing"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
 
 La figura seguente mostra l'aspetto delle nuove funzioni.
 
-![Esempio di "Feature Hashing"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)  
+![Esempio di "Feature Hashing"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)
 
 ## Filtro delle funzioni dai dati: selezione di funzioni  ##
 
@@ -128,7 +128,7 @@ Progettazione di funzioni e selezione di funzioni sono due passaggi eseguiti com
 
 Non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati da raccogliere, dagli algoritmi scelti e dall'obiettivo dell'esperimento.
 
-<!-- Module References -->  
+<!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/

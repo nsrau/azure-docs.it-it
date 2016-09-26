@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -81,12 +81,12 @@ Per altre informazioni sull'accesso a un servizio Web di Machine Learning, veder
 
 
 
-<!-- Images -->  
+<!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png
 [parameter]: ./media/machine-learning-web-service-parameters/parameter.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

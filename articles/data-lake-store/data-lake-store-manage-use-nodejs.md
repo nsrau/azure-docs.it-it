@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="nitinme" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="09/13/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Gestire Archivio Azure Data Lake utilizzando Azure SDK per Node.js
 

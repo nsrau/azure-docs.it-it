@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -107,7 +107,7 @@ Creare tabelle che specificano la struttura, la posizione e la disponibilità de
 Le definizioni basate su JSON nelle tabelle utilizzano i nomi seguenti:
 
 * il **nome tabella** nel Server SQL locale è*nyctaxi\_data*
-* il **nome del contenitore** nell'account di archiviazione Blob di Azure è *nomecontenitore*
+* il **nome del contenitore** nell'account di archiviazione Blob di Azure è *nomecontenitore*  
 
 Per questa pipeline ADF sono necessarie tre definizioni di tabella:
 
@@ -297,7 +297,7 @@ Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.js
 
 Accertarsi che sia possibile visualizzare la pipeline nel file ADF sul portale di Azure classico come indicato di seguito (quando si fa clic sul diagramma)
 
-![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)  
+![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 
 ##<a name="adf-pipeline-start"></a>Avviare la pipeline

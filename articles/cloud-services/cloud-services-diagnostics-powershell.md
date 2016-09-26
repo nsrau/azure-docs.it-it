@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="adegeo"/>  
+	ms.author="adegeo"/>
 
 
 # Abilitare la diagnostica nei servizi Cloud di Azure tramite PowerShell

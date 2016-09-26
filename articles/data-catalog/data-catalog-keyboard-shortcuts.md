@@ -6,7 +6,7 @@
 	authors="spelluru"
 	manager="NA"
 	editor=""
-	tags=""/>  
+	tags=""/>
 <tags
 	ms.service="data-catalog"
 	ms.devlang="NA"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
 	ms.date="09/13/2016"
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Scelte rapide da tastiera per Catalogo dati di Azure
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="bradsev" />  
+	ms.author="bradsev" />
 
 
 # Come scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning
@@ -44,13 +44,13 @@ Il set di parametri può essere definito nel passaggio di inizializzazione del m
 ## Definizione della riduzione di convalida incrociata
 Il modulo [Partizione ed esempio][partition-and-sample] può essere utilizzato per assegnare riduzioni ai dati in modo casuale. Nella figura seguente è possibile visualizzare un esempio di configurazione per il modulo in cui si definiscono cinque riduzioni e si assegna in modo casuale un numero di riduzione per le istanze di esempio.
 
-![Immagine4](./media/machine-learning-algorithm-parameters-optimize/fig4.png)  
+![Immagine4](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
 
 ## Definizione della metrica
 Il modulo [Ottimizzazione degli iperparametri del modello][tune-model-hyperparameters] fornisce supporto per scegliere in modo empirico il miglior set di parametri per un algoritmo e un set di dati determinati. Il riquadro delle proprietà di questo modulo include, oltre alle informazioni relative al training del modello, la metrica da utilizzare per determinare il miglior set di parametri. Dispone di due diversi elenchi a discesa per gli algoritmi di classificazione e regressione, rispettivamente. Se l'algoritmo in esame è un algoritmo di classificazione, la metrica di regressione viene ignorata e viceversa. In questo esempio specifico, è stato scelto **Accuratezza** come metrica.
  
-![Immagine5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)  
+![Immagine5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Eseguire il training, valutare e confrontare  
 Lo stesso modulo [Ottimizzazione degli iperparametri del modello][tune-model-hyperparameters] esegue il training di tutti i modelli corrispondenti al set di parametri, valuta differenti metriche e poi restituisce il miglior modello di training in base alla metrica scelta. Tale modulo dispone di due input obbligatori:
@@ -65,7 +65,7 @@ Il modulo contiene anche un set di dati di input facoltativo. Si effettua la con
 È possibile vedere esattamente i parametri scelti visualizzando la porta di output destra. Questo modello può essere utilizzato per la valutazione in un set di test o in un servizio web operativo dopo il salvataggio come modello per il training.
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  

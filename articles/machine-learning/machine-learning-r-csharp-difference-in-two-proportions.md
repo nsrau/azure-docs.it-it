@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="aniedea" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -126,7 +126,7 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 

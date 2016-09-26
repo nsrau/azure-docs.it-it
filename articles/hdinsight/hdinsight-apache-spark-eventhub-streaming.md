@@ -6,7 +6,7 @@
 	authors="nitinme" 
 	manager="jhubbard" 
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/25/2016" 
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 
 # Spark streaming: elaborare eventi da Hub eventi di Azure con cluster Apache Spark in HDInsight Linux
@@ -110,7 +110,7 @@ Un'applicazione Scala di esempio per ricevere l'evento e instradarlo a destinazi
 	
 3. Seguire le istruzioni finché la clonazione del progetto non sarà completa. Premere **ALT+1** per aprire la **Project View**, che dovrebbe essere simile alla seguente.
 
-	![Project View](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)  
+	![Project View](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
 4. Aprire il file **pom.xml** e verificare che la versione di Spark sia corretta. Nel nodo <properties> cercare il frammento seguente e verificare la versione di Spark.
 

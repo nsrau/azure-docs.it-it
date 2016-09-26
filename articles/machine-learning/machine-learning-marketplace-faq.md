@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bharaths" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/11/2016" 
-	ms.author="bharaths"/>  
+	ms.author="bharaths"/>
 
 #Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace
 

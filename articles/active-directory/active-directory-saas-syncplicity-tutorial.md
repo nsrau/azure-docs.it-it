@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="09/11/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Syncplicity
   
@@ -46,11 +46,11 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-syncplicity-tutorial/IC700994.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-syncplicity-tutorial/IC700994.png "Applicazioni")
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -62,7 +62,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 7.  Nel riquadro dei risultati selezionare **Syncplicity**, quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-    ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769533.png "Syncplicity")  
+    ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769533.png "Syncplicity")
 
 ##Configurazione dell'accesso Single Sign-On
   
@@ -108,7 +108,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Conferma](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Conferma")  
+    ![Conferma](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Conferma")
 
 ##Configurazione del provisioning utente
   

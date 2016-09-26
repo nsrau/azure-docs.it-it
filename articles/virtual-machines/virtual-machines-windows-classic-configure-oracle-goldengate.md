@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
 	ms.date="09/06/2016"
-	ms.author="rclaus" />  
+	ms.author="rclaus" />
 
 
 #Configurazione di Oracle GoldenGate per Azure

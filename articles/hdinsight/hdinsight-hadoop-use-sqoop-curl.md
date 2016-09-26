@@ -6,7 +6,7 @@
    authors="mumian"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="07/25/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 #Esecuzione di processi Sqoop con Hadoop in HDInsight mediante Curl
 

@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="jhubbard" 
-	editor="cgronlun"  />  
+	editor="cgronlun"  />
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/09/2016" 
-	ms.author="kbaroni;garye" />  
+	ms.author="kbaroni;garye" />
 
 # Uso della regressione lineare Azure Machine Learning
 
@@ -24,7 +24,8 @@
 &nbsp;
   
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
- 
+
+
 ## Obiettivo
 
 Il progetto è iniziato con due obiettivi prefissati:
@@ -52,8 +53,8 @@ Per creare l'esperimento in Azure ML sono stati seguiti questi passaggi:
 
 1.	È stato caricato il set di dati in Azure ML sotto forma di file CSV (un file di dimensioni molto ridotte)
 2.	È stato creato un nuovo esperimento ed è stato utilizzato il modulo [Select Columns in Dataset][select-columns] per selezionare le stesse funzionalità di dati utilizzate in Excel
-3.	È stato usato il modulo [Split][split] (con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel
-4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] (solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
+3.	È stato usato il modulo [Split][split] \(con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel
+4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] \(solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
 
 ### Rivedere i risultati iniziali
 All'inizio, il modello di Excel ha superato nettamente le prestazioni del modello di Azure ML:
@@ -150,7 +151,7 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 [2]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/
 [boosted-decision-tree-regression]: https://msdn.microsoft.com/library/azure/0207d252-6c41-4c77-84c3-73bdf1ac5960/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/

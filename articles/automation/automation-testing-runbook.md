@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
 	ms.date="09/12/2016"
-	ms.author="magoedte;bwren" />  
+	ms.author="magoedte;bwren" />
 
 # Test di un runbook in Automazione di Azure
 Quando si testa un Runbook, viene eseguita la [Versione bozza](automation-creating-importing-runbook.md#publishing-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma i flussi di [Output](automation-runbook-output-and-messages.md#output-stream) e di [Avviso ed errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel pannello output del Test. I messaggi per il [Flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati solo se il pannello di Output [$VerbosePreference variabile](automation-runbook-output-and-messages.md#preference-variables) è impostato su Continue.

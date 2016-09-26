@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/12/2016"
-   ms.author="magoedte;bwren;sngun"/>  
+   ms.author="magoedte;bwren;sngun"/>
 
 # Webhook di Automazione di Azure
 
@@ -190,7 +190,7 @@ I runbook abilitati per i webhook possono essere usati in risposta agli [avvisi 
 
 Oltre a usare gli avvisi di Azure come sistema di notifica, è anche possibile avviare i runbook in risposta agli avvisi. Automazione di Azure offre la possibilità di eseguire runbook abilitati per i webhook con gli avvisi di Azure. Quando una metrica supera il valore di soglia configurato, la regola dell'avviso viene abilitata e attiva il webhook di automazione che a sua volta esegue il runbook.
 
-![Webhook](media/automation-webhooks/webhook-alert.jpg)  
+![Webhook](media/automation-webhooks/webhook-alert.jpg)
 
 ### Contesto dell'avviso
 

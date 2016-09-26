@@ -275,7 +275,7 @@ Se si vuole inviare un set specifico di eventi a una risorsa diversa, è possibi
 
 Per ottenere una nuova chiave, [creare una nuova risorsa nel portale di Application Insights][new].
 
-<!--Link references-->  
+<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [client]: app-insights-javascript.md

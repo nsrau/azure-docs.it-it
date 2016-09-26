@@ -6,7 +6,7 @@
 	authors="tedway"
 	manager="jhubbard"
 	editor="cgronlun"
-    tags=""/>  
+    tags=""/>
 
 <tags
 	ms.service="machine-learning"

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/16/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Limiti di sistema StorSimple
 

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carmonm"
-   editor="" />  
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/14/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Note sulla versione dell'aggiornamento 0.3 per l'array virtuale StorSimple
 

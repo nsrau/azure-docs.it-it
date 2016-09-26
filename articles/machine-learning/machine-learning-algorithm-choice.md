@@ -6,7 +6,7 @@
 	authors="brohrer"
 	manager="jhubbard"
 	editor="cgronlun"
-    tags=""/>  
+    tags=""/>
     
 <tags
 	ms.service="machine-learning"
@@ -118,7 +118,20 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Footprint della memoria ridotto|
 |[rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Visualizza le proprietà del metodo a due classi selezionato| |**Regressione**| | | | | | |[lineare ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[albero delle decisioni con boosting](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Footprint della memoria di grandi dimensioni| |[quantile foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuzioni anziché previsioni dei punti| |[rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente log-lineare. Per la previsione dei conti| |[ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Per la previsione dell’ordine nelle classifiche| |**Rilevamento delle anomalie**| | | | | | |[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particolarmente valido per set di funzioni di grandi dimensioni| |[Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Algoritmo di clustering|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Visualizza le proprietà del metodo a due classi selezionato|
+|**Regressione**| | | | | |
+|[lineare ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[Lineare bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[albero delle decisioni con boosting](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Footprint della memoria di grandi dimensioni|
+|[quantile foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuzioni anziché previsioni dei punti|
+|[rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente log-lineare. Per la previsione dei conti|
+|[ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Per la previsione dell’ordine nelle classifiche|
+|**Rilevamento delle anomalie**| | | | | |
+|[macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Particolarmente valido per set di funzioni di grandi dimensioni|
+|[Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
+|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Algoritmo di clustering|
 
 
 **Proprietà algoritmo:**
@@ -143,7 +156,7 @@ Sebbene includa 'regressione' nel nome, la regressione logistica in realtà è u
 
 ![Regressione logistica a dati a due classi con una sola caratteristica][4]
 
-***Una regressione logistica in dati a due classi con una sola funzionalità****: il limite della classe è il punto in cui la curva logistica è alla stessa distanza da entrambe le classi*
+***Una regressione logistica in dati a due classi con una sola funzionalità*** *: il limite della classe è il punto in cui la curva logistica è alla stessa distanza da entrambe le classi*
 
 ### Alberi, foreste e giungle
 
@@ -196,7 +209,7 @@ Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'
 
 ![Rilevamento delle anomalie basato su PCA][8]
 
-***Rilevamento delle anomalie basato su PCA****: la maggior parte dei dati rientra in una distribuzione stereotipica; i punti che differiscono notevolmente da tale distribuzione sono sospetti*
+***Rilevamento delle anomalie basato su PCA*** *: la maggior parte dei dati rientra in una distribuzione stereotipica; i punti che differiscono notevolmente da tale distribuzione sono sospetti*
 
 ![Set di dati raggruppati utilizzando K-means][9]
 

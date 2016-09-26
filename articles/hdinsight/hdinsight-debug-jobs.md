@@ -6,7 +6,7 @@
 	editor="cgronlun"
 	manager="jhubbard"
 	authors="mumian"
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 # Analizzare i log di HDInsight
 
@@ -75,15 +75,15 @@ Power Query può essere installato da [www.microsoft.com/it-it/download/details.
 1. Aprire **Microsoft Excel**.
 2. Scegliere **Da Azure** dal menu **Power Query** e quindi fare clic su **Da Archiviazione tabelle di Microsoft Azure**.
  
-	![Hadoop in HDInsight - PowerQuery per Excel - Aprire l'archivio tabelle di Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)  
+	![Hadoop in HDInsight - PowerQuery per Excel - Aprire l'archivio tabelle di Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
 3. Immettere il nome dell'account di archiviazione, che può corrispondere al nome breve o al nome FQDN.
 4. Immettere la chiave dell'account di archiviazione. Verrà visualizzato un elenco di tabelle:
 
-	![Hadoop in HDInsight - Log archiviati nell'archivio tabelle di Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)  
+	![Hadoop in HDInsight - Log archiviati nell'archivio tabelle di Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Fare clic con il pulsante destro del mouse sulla tabella hadoopservicelog nel riquadro **Strumento di navigazione** e scegliere **Modifica**. Verranno visualizzate 4 colonne. Eliminare facoltativamente le colonne **Chiave di partizione**, **Chiave di riga** e **Timestamp** selezionandole, quindi facendo clic su **Rimuovi colonne** tra le opzioni della barra multifunzione.
 6. Fare clic sull'icona di espansione nella colonna Contenuto per scegliere le colonne da importare nel foglio di lavoro di Excel. Per questa dimostrazione, sono state scelte TraceLevel e ComponentName che contengono alcune informazioni di base sui componenti con problemi.
 
-	![Log di Hadoop in HDInsight - Scegliere le colonne](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)  
+	![Log di Hadoop in HDInsight - Scegliere le colonne](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. Fare clic su **OK** per importare i dati.
 8. Selezionare le colonne **TraceLevel**, Role e **ComponentName** e quindi fare clic sul controllo **Raggruppa per** nella barra multifunzione.
 9. Fare clic su **OK** nella finestra di dialogo Raggruppa per.
@@ -104,7 +104,7 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. Ovvi
 	
 		TraceLevel eq 'ERROR'
 
-	![Log di Hadoop in HDInsight - Scegliere le colonne](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)  
+	![Log di Hadoop in HDInsight - Scegliere le colonne](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
 	Per altre informazioni sulla costruzione di filtri, vedere [Creazione di stringhe di filtro per Progettazione tabelle](../vs-azure-tools-table-designer-construct-filter-strings.md).
  

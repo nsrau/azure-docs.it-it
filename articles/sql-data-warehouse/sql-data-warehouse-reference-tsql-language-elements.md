@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/08/2016"
-   ms.author="barbkess;sonyama;kevin"/>  
+   ms.author="barbkess;sonyama;kevin"/>
 
 # Elementi del linguaggio
 
@@ -293,6 +293,6 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 <!--Article references-->
 [panoramica degli argomenti di riferimento di SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 
-<!--MSDN references-->  
+<!--MSDN references-->
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="guybo"/>  
+	ms.author="guybo"/>
 
 # Panoramica dei set di scalabilità di macchine virtuali
 

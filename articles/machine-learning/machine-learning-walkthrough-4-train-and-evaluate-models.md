@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/06/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/>
 
 
 # Passaggio 4 della procedura dettagliata: Eseguire il training e valutare i modelli analitici predittivi
@@ -133,7 +133,7 @@ Esaminando i valori è possibile decidere quale sia il modello che più si avvic
 [4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/

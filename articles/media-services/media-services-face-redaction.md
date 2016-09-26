@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/12/2016"   
-	ms.author="juliako;"/>  
+	ms.author="juliako;"/>
  
 #Offuscamento dei volti con Analisi Servizi multimediali di Azure
 

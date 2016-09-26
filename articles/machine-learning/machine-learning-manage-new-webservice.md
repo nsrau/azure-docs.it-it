@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="vDonGlover"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -76,7 +76,7 @@ Fare clic sull'opzione di menu **CONFIGURA**.
 * **Titolo** consente di immettere un titolo per il servizio Web
 * **Chiavi** consente di ruotare le chiavi API primarie e secondarie.
 * **Chiave account di archiviazione** consente di aggiornare la chiave per l'account di archiviazione associato alle modifiche del servizio Web.
-* **Abilita dati di esempio ** consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio, i dati di esempio vengono prelevati dai dati usati per il training del modello. Se il servizio è stato creato a livello di programmazione, i dati vengono prelevati dai dati di esempio forniti come parte del pacchetto JSON.
+* **Abilita dati di esempio** consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio, i dati di esempio vengono prelevati dai dati usati per il training del modello. Se il servizio è stato creato a livello di programmazione, i dati vengono prelevati dai dati di esempio forniti come parte del pacchetto JSON.
 
 ## Gestione dei piani di fatturazione
 

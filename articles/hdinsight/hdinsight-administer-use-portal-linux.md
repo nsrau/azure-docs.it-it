@@ -6,7 +6,7 @@
 	authors="mumian"
 	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="jgao"/>  
+	ms.author="jgao"/>
 
 #Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
@@ -36,14 +36,14 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 	- Scegliere **Nuovo** dal menu di sinistra per creare un nuovo cluster:
 	
-		![Pulsante Nuovo cluster HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)  
+		![Pulsante Nuovo cluster HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
 	- Fare clic su **Cluster HDInsight** dal menu a sinistra per elencare i cluster esistenti
 	
-		![Pulsante Cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)  
+		![Pulsante Cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
         Se **HDInsight** non viene visualizzato nel menu a sinistra, fare clic su **Esplora** e quindi su **Cluster HDInsight**.
 
-        ![Pulsante Sfoglia del portale di Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)  
+        ![Pulsante Sfoglia del portale di Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
 
 ##Creare i cluster
 
@@ -60,11 +60,11 @@ HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco 
 
 	**Menu e informazioni di base**:
 
-	![Informazioni di base sul cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)  
+	![Informazioni di base sul cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
 	
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
 	- **Dashboard**, **Dashboard del cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
-    - **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
+	- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
 	- **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -78,11 +78,11 @@ HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco 
 
 	**Utilizzo**:
 	
-	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-cluster-usage.png)  
+	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-cluster-usage.png)
 	
 5. Fare clic su **Impostazioni**.
 
-	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.cluster.settings.png)  
+	![Utilizzo dei cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.cluster.settings.png)
 
 	- **Log di controllo**:
     - **Avvio rapido**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -162,7 +162,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 	L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)  
+	![hdinsight scala ribilanciamento di storm](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
@@ -286,7 +286,7 @@ Non è possibile eseguire il processo Hive direttamente dal portale di Azure, ma
 1. Accedere all'interfaccia utente Web di Ambari usando le credenziali utente del cluster HDInsight. Il nome utente predefinito è **admin**. L'URL è **https://&lt;HDInsight del cluster HDInsight> azurehdinsight.net**.
 2. Aprire Hive View (vista Hive) come illustrato nella schermata seguente:
 
-	![Vista Hive di HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)  
+	![Vista Hive di HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
 3. Scegliere **Query** dal menu in alto.
 4. Immettere una query Hive in **Query Editor** (Editor di query) e quindi fare clic su **Execute** (Esegui).
 

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="09/02/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 
 

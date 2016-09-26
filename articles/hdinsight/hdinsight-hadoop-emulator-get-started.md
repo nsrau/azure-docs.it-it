@@ -7,7 +7,7 @@
 	services="hdinsight"
 	authors="nitinme"
 	documentationCenter=""
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"

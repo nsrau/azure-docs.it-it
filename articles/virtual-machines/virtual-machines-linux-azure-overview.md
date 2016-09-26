@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/06/2016"
-   ms.author="rclaus"/>  
+   ms.author="rclaus"/>
 
 # Azure e Linux
 Microsoft Azure è una raccolta in continua crescita di servizi cloud pubblici integrati, che includono analisi, macchine virtuali, database, dispositivi mobili, rete, archiviazione, servizi cloud e Web, ideali per l'hosting delle soluzioni. Microsoft Azure fornisce una piattaforma di elaborazione scalabile che consente di pagare solo ciò che si usa, quando necessario, senza dover investire in hardware locale. Azure è subito pronto quando occorre aumentare le prestazioni e le istanze delle soluzioni per ottenere la massima scalabilità necessaria per soddisfare le esigenze dei clienti.
@@ -33,7 +33,7 @@ Usare insieme le macchine virtuali, le risorse di archiviazione e la rete di Mic
 
 ## Logistica: Aree, distribuzioni, disponibilità, dimensioni delle VM e quote
 ### Regioni
-Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo. Una "area" rappresenta più data center in una singola area geografica. Al 1° gennaio 2016 risultano incluse: 8 in America, 2 in Europa, 6 Asia Pacifico, 2 in Cina continentale e 3 in India. Per un elenco completo di tutte le aree di Azure, è disponibile un elenco delle aree esistenti e annunciate di recente **[qui](https://azure.microsoft.com/regions/)**.
+Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo. Una "area" rappresenta più data center in una singola area geografica. Al 1ª gennaio 2016 risultano incluse: 8 in America, 2 in Europa, 6 Asia Pacifico, 2 in Cina continentale e 3 in India. Per un elenco completo di tutte le aree di Azure, è disponibile un elenco delle aree esistenti e annunciate di recente **[qui](https://azure.microsoft.com/regions/)**.
 
 ### Distribuzioni
 Microsoft Azure supporta l'esecuzione di varie distribuzioni comuni di Linux fornite e gestite da diversi partner. In Azure Marketplace sono disponibili distribuzioni come CentOS, Debian, Red Hat Enterprise, Ubuntu, FreeBSD e altre ancora. Microsoft collabora attivamente con diverse community Linux per aggiungere altre versioni all'elenco delle distribuzioni supportate. **[Estrarre le distribuzioni correnti](virtual-machines-linux-endorsed-distros.md)** Se la distribuzione di Linux preferita non è attualmente presente nella raccolta, è possibile usare una VM "Bring your own Linux" seguendo le linee guida **[in questa pagina.](virtual-machines-linux-create-upload-generic.md)**

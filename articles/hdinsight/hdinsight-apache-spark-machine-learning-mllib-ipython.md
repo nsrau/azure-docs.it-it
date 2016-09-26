@@ -6,7 +6,7 @@
 	authors="nitinme" 
 	manager="jhubbard" 
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/25/2016" 
-	ms.author="nitinme"/>  
+	ms.author="nitinme"/>
 
 
 # Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con cluster Apache Spark in HDInsight Linux

@@ -6,7 +6,7 @@ documentationCenter=""
 authors="Blackmist"
 manager="jhubbard"
 editor="cgronlun"
-tags="azure-portal"/>  
+tags="azure-portal"/>
 
 <tags
 ms.service="hdinsight"

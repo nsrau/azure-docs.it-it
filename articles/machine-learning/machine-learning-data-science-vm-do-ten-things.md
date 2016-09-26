@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun"  />  
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="gokuma;weig;bradsev" />  
+	ms.author="gokuma;weig;bradsev" />
 
 # Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati
 
@@ -270,14 +270,14 @@ BLOB di Azure è una risorsa di archiviazione cloud conveniente e affidabile per
 
 - **Creare l'account di archiviazione BLOB di Azure nel [portale di Azure](https://portal.azure.com).**
 
-![Create\_Azure\_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)  
+![Create\_Azure\_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
 
 - Verificare che lo strumento da riga di comando AzCopy preinstallato sia disponibile in ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. È possibile aggiungere la directory contenente il file azcopy.exe alla variabile di ambiente PATH per evitare di digitare il percorso completo del comando quando si esegue lo strumento. Per altre informazioni su AzCopy, vedere la [documentazione di AzCopy](../storage/storage-use-azcopy.md).
 
 - Avviare lo strumento Esplora archivi di Azure. È possibile scaricarlo da [Esplora archivi di Microsoft Azure](http://storageexplorer.com/).
 
-![AzureStorageExplorer\_v4](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_v4.png)  
+![AzureStorageExplorer\_v4](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 
 **Spostare i dati dalla VM al BLOB di Azure: AzCopy**
@@ -288,7 +288,7 @@ Per spostare i dati tra i file locali e l'archivio BLOB, è possibile usare AzCo
 
 Sostituire **C:\\myfolder** con il percorso di archiviazione del file, **mystorageaccount** con il nome dell'account di archiviazione BLOB, **mycontainer** con il nome del contenitore e **storage account key** con la chiave di accesso alle risorse di archiviazione BLOB. È possibile trovare le credenziali dell'account di archiviazione nel [portale di Azure](https://portal.azure.com).
 
-![StorageAccountCredential\_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)  
+![StorageAccountCredential\_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Eseguire il comando AzCopy in PowerShell o al prompt dei comandi. Ecco un esempio di utilizzo del comando AzCopy:
 
@@ -320,7 +320,7 @@ Una volta eseguito il comando AzCopy per la copia in un BLOB di Azure, il file v
 In Azure Machine Learning Studio è possibile usare un **modulo Import Data** per leggere i dati dal BLOB.
 
 
-![AML\_ReaderBlob\_Module\_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)  
+![AML\_ReaderBlob\_Module\_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
 
 **Leggere i dati dal BLOB di Azure: ODBC Python**
@@ -369,7 +369,7 @@ Quindi collegare le credenziali dell'account BLOB di Azure e leggere i dati dal 
 
 I dati vengono letti come frame di dati:
 
-![IPNB\_data\_readin](./media/machine-learning-data-science-vm-do-ten-things/IPNB_data_readin.PNG)  
+![IPNB\_data\_readin](./media/machine-learning-data-science-vm-do-ten-things/IPNB_data_readin.PNG)
 
 
 ### Azure Data Lake
@@ -405,7 +405,7 @@ Se i dati si trovano nell'archivio BLOB di Azure, è possibile leggerli direttam
 
 In Visual Studio è possibile leggere i dati dall'archivio BLOB, modificarli, progettare funzionalità e pubblicare i dati risultanti in Azure Data Lake o nell'archivio BLOB di Azure. Quando si fa riferimento ai dati nell'archiviazione BLOB, usare **wasb://**; quando si fa riferimento ai dati in Azure Data Lake, usare **swbhdfs://**
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 È possibile usare le query U-SQL seguenti in Visual Studio:
 
@@ -451,7 +451,7 @@ In Visual Studio è possibile leggere i dati dall'archivio BLOB, modificarli, pr
 
 Dopo che la query sarà stata inviata al server, verrà visualizzato un diagramma che illustra lo stato del processo.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
 
 
 **Effettuare una query dei dati in Data Lake: U-SQL**
@@ -460,11 +460,11 @@ Dopo che il set di dati è stato inserito in Azure Data Lake, è possibile usare
 
 Dopo l'invio della query al server, in **Azure Data Lake Explorer** sarà disponibile il file tripdata\_summary.CSV. Per visualizzare i dati in anteprima, fare clic sul file con il pulsante destro del mouse.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)  
+![](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
 
 Per visualizzare le informazioni del file:
 
-![](./media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)  
+![](./media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)
 
 
 ### Cluster Hadoop di HDInsight
@@ -475,13 +475,13 @@ Azure HDInsight è un servizio di Apache Hadoop, Spark, HBase e Storm gestito ne
 
 - Creare l'account di archiviazione BLOB di Azure nel [portale di Azure](https://portal.azure.com). Questo account di archiviazione viene usato per archiviare i dati per i cluster HDInsight.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
 - Personalizzare i cluster Hadoop di Azure HDInsight nel [portale di Azure](machine-learning-data-science-customize-hadoop-cluster.md)
 
   - È necessario collegare l'account di archiviazione creato al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
   - È necessario abilitare l'**accesso remoto** al nodo head del cluster dopo la creazione. Ricordare le credenziali di accesso remoto specificate in questa posizione (diverse da quelle specificate per il cluster durante la creazione), che saranno necessarie in seguito.
 
@@ -489,12 +489,12 @@ Azure HDInsight è un servizio di Apache Hadoop, Spark, HBase e Storm gestito ne
 
   - Creare un'area di lavoro Azure ML Gli esperimenti di Machine Learning saranno archiviati in questa area di lavoro di ML. Selezionare le opzioni evidenziate nel portale, come illustrato nello screenshot seguente.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
 
 
   - Immettere quindi i parametri per l'area di lavoro di Azure ML.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
 
   - Caricare i dati con IPython Notebook. Importare prima di tutto i pacchetti necessari, inserire le credenziali, creare un database nell'account di archiviazione, quindi caricare i dati nei cluster HDI.
 
@@ -607,7 +607,7 @@ Poiché i dati si trovano nel cluster Hadoop, è possibile usare il pacchetto py
 	pd.read_sql(queryString,connection)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
 
 Verrà ora esaminato il numero di record per ogni mese e le frequenze delle corse per le quali è stata lasciata una mancia o meno nella tabella delle corse:
 
@@ -644,7 +644,7 @@ Verrà ora esaminato il numero di record per ogni mese e le frequenze delle cors
 	df['trip_count'].plot(kind='bar')
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
 È anche possibile calcolare la distanza tra il punto di partenza e il punto di arrivo e quindi confrontarla con la distanza della corsa.
 
@@ -667,7 +667,7 @@ Verrà ora esaminato il numero di record per ogni mese e le frequenze delle cors
 	results.head(5)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
 	results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
 	                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -676,7 +676,7 @@ Verrà ora esaminato il numero di record per ogni mese e le frequenze delle cors
 	plt.scatter(df['direct_distance'], df['trip_distance'])
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
 
 
 Verrà ora preparato un set di dati sottocampionati (1%) per la modellazione. È possibile usare questi dati nel modulo Reader di AML.
@@ -813,18 +813,18 @@ Dopo poco, è possibile vedere che i dati sono stati caricati nei cluster Hadoop
 	pd.read_sql(queryString,connection)
 
 
-![](./media/machine-learning-data-science-vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 
 **Leggere i dati da HDI usando AML: modulo Reader**
 
 È anche possibile usare il modulo **Reader** in AML Studio per accedere al database nel cluster Hadoop. Collegare le credenziali dei cluster HDI e l'account di archiviazione di Azure per poter compilare modelli di Machine Learning usando il database nei cluster HDI.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
 
 È quindi possibile visualizzare il set di dati con i punteggi:
 
-![](./media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)  
+![](./media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)
 
 
 ### Azure SQL Data Warehouse e database
@@ -878,11 +878,11 @@ Invece di eseguire i passaggi precedenti, è possibile incollare il codice segue
 
 I dati sono ora inclusi nel modello di dati di Power BI. Power BI Desktop dovrebbe avere un aspetto simile al seguente.
 
-![](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)  
+![](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
 È possibile avviare la compilazione di report e visualizzazioni usando il modello di dati. Per compilare un report, è possibile seguire i passaggi in questo [articolo relativo a Power BI](../documentdb/documentdb-powerbi-visualize.md#build-the-reports). Il risultato finale sarà un report simile al seguente.
 
-![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)  
+![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
 ## 9\. Ridimensionare in modo dinamico DSVM per poter soddisfare le esigenze del progetto
 

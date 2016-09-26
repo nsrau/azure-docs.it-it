@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="sdwheeler"
    manager="carmonm"
-   editor="" />  
+   editor="" />
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Modifica delle impostazioni del timeout di inattività TCP per Load Balancer
 
@@ -31,7 +31,7 @@ Sebbene l'impostazione keep-alive TCP funzioni bene per gli scenari in cui la ba
 
 Per supportare tali scenari, è stato aggiunto il supporto per un timeout di inattività configurabile. È ora possibile impostare questo valore su una durata compresa tra 4 e 30 minuti. Questa impostazione funziona solo per le connessioni in entrata.
 
-![Timeout TCP](./media/load-balancer-tcp-idle-timeout/image1.png)  
+![Timeout TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 Nella sezione seguente è descritto come modificare le impostazioni del timeout di inattività in macchine virtuali e servizi cloud.
 
@@ -113,7 +113,7 @@ Aggiornare la configurazione degli endpoint di input specificati con carico bila
     Request:
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
-<BR>  
+<BR>
 
     Response:
 

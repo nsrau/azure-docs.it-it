@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="dominicbetts"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="09/13/2016"
-     ms.author="dobett"/>  
+     ms.author="dobett"/>
 
 # Esercitazione: Inviare messaggi da cloud a dispositivo con l'hub IoT e Java
 
@@ -153,7 +153,7 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     }
     ```
 
-    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
+    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
 
 ## Eseguire le applicazioni
 
@@ -165,7 +165,7 @@ A questo punto è possibile eseguire le applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![Eseguire un'app di dispositivo simulato][img-simulated-device]  
+    ![Eseguire un'app di dispositivo simulato][img-simulated-device]
 
 2. A un prompt dei comandi nella cartella send-c2d-messages eseguire il comando seguente per inviare un messaggio da cloud a dispositivo e attendere un acknowledgment di feedback:
 
@@ -173,7 +173,7 @@ A questo punto è possibile eseguire le applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Eseguire il comando per inviare il messaggio dal cloud al dispositivo][img-send-command]  
+    ![Eseguire il comando per inviare il messaggio dal cloud al dispositivo][img-send-command]
 
 ## Passaggi successivi
 
@@ -184,7 +184,7 @@ Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la
 Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
 
-<!-- Images -->  
+<!-- Images -->
 [img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png
 [img-send-command]: media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->

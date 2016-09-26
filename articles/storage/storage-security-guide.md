@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="robinsh"/>  
+	ms.author="robinsh"/>
 
 #Guida alla sicurezza di Archiviazione di Azure
 

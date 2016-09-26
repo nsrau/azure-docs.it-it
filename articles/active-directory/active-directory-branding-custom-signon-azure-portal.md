@@ -5,7 +5,7 @@ services="active-directory"
 documentationCenter=""
 authors="curtand"
 manager="femila"
-editor=""/>  
+editor=""/>
 
 <tags
 ms.service="active-directory"
@@ -14,7 +14,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
 ms.date="09/12/2016"
-ms.author="curtand"/>  
+ms.author="curtand"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda nella pagina di accesso in anteprima di Azure Active Directory
 
@@ -24,11 +24,11 @@ Se si vuole mostrare il marchio, i colori e altri elementi personalizzabili dell
 
 Lo screenshot seguente mostra un esempio della pagina di accesso di Office 365 in un computer desktop **prima** di una personalizzazione:
 
-![Pagina di accesso di Office 365 prima della personalizzazione](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-before-customization.png)  
+![Pagina di accesso di Office 365 prima della personalizzazione](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-before-customization.png)
 
 Lo screenshot seguente mostra un esempio della pagina di accesso di Office 365 in un computer desktop **dopo** una personalizzazione:
 
-![Pagina di accesso di Office 365 dopo la personalizzazione](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-after-customization.png)  
+![Pagina di accesso di Office 365 dopo la personalizzazione](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-after-customization.png)
 
 
 ## Personalizzazione della pagina di accesso
@@ -52,13 +52,13 @@ Quando si visita un servizio con URL non specifici del tenant, ad esempio https:
 
 2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
-    ![Apertura di Gestione utenti](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)  
+    ![Apertura di Gestione utenti](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 
 3. Nel pannello **Utenti e gruppi** selezionare **Company branding** (Informazioni personalizzate distintive dell'azienda).
 
 4. Nel pannello **Utenti e gruppi - Company branding (Informazioni personalizzate distintive dell'azienda)** selezionare il comando **Modifica**.
 
-    ![Modificare le informazioni personalizzate](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)  
+    ![Modificare le informazioni personalizzate](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
 
 5. Modificare gli elementi da personalizzare. Tutti gli elementi sono facoltativi.
 

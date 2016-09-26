@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/16/2016"
-   ms.author="manuaery" />  
+   ms.author="manuaery" />
 
 # Volumi aggiunti in locale di StorSimple: domande frequenti
 

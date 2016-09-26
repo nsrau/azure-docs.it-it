@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Azure Data Factory - Domande frequenti
 
@@ -67,7 +67,7 @@ No. Come per le altre risorse di Azure, non è possibile modificare il nome di u
 ### È possibile trasferire una data factory da una sottoscrizione di Azure a un'altra? 
 Sì. Usare il pulsante **Sposta** nel pannello della data factory come mostrato nel diagramma seguente.
 
-![Spostare una data factory](media/data-factory-faq/move-data-factory.png)  
+![Spostare una data factory](media/data-factory-faq/move-data-factory.png)
 
 ## Attività - Domande frequenti
 ### Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory? 

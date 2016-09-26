@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
 
@@ -29,11 +29,11 @@ Il ridimensionamento automatico di Azure Insights si applica solo a [set di scal
 
 Il ridimensionamento automatico offre la possibilità di avere la quantità corretta di risorse in esecuzione per gestire il carico dell'applicazione. Consente di aggiungere risorse per gestire gli incrementi di carico nonché di risparmiare denaro rimuovendo le risorse inattive. È possibile specificare un numero minimo e massimo di istanze da eseguire e aggiungere o rimuovere automaticamente VM in base a un set di regole. La definizione di un minimo assicura che l'applicazione sia sempre in esecuzione anche in assenza di carico. La definizione di un massimo limita il costo orario totale possibile. Il ridimensionamento viene eseguito automaticamente tra questi due estremi usando le regole create.
 
- ![Descrizione del ridimensionamento automatico: aggiunta e rimozione di VM](./media/monitoring-autoscale-overview/AutoscaleConcept.png)  
+ ![Descrizione del ridimensionamento automatico: aggiunta e rimozione di VM](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
 Quando vengono soddisfatte le condizioni delle regole, vengono attivate una o più azioni di ridimensionamento automatico. È possibile aggiungere e rimuovere VM o eseguire altre azioni. Il diagramma concettuale seguente illustra questo processo.
 
- ![Diagramma di flusso concettuale del ridimensionamento automatico](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)  
+ ![Diagramma di flusso concettuale del ridimensionamento automatico](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
  
 
 ## Descrizione del processo di ridimensionamento automatico
@@ -73,7 +73,7 @@ Per il ridimensionamento automatico vengono usate la terminologia e la struttura
         - Una **ricorrenza** indica quando il ridimensionamento automatico renderà effettivo il profilo. È ad esempio possibile avere profili di ridimensionamento automatico per diverse ore del giorno o diversi giorni della settimana.
 - Un'**impostazione di notifica** definisce le notifiche da creare quando si verifica un evento di ridimensionamento automatico in base ai criteri di uno dei profili di impostazioni di ridimensionamento automatico. Possono essere inviate notifiche a uno o più indirizzi di posta elettronica oppure possono essere effettuate chiamate a uno o più webhook.
  
-![Struttura delle impostazioni, dei profili e delle regole di ridimensionamento automatico in Azure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)  
+![Struttura delle impostazioni, dei profili e delle regole di ridimensionamento automatico in Azure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
 L'elenco completo dei campi e delle descrizioni configurabili è disponibile nella documentazione sull'[API REST per il ridimensionamento automatico](https://msdn.microsoft.com/library/dn931928.aspx).
 

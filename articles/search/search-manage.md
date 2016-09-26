@@ -6,7 +6,7 @@
 	authors="HeidiSteen" 
 	manager="jhubbard" 
 	editor=""
-    tags="azure-portal"/>  
+    tags="azure-portal"/>
 
 <tags 
 	ms.service="search" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.date="05/17/2016" 
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
 > [AZURE.SELECTOR]
@@ -177,7 +177,7 @@ Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. 
 
 I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. Solo i gestori delle sottoscrizioni possono aggiungere un servizio di ricerca a una sottoscrizione.
 
-<!--Anchors-->  
+<!--Anchors-->
 [Add search service to your subscription]: #sub-1
 [Administrative tasks]: #sub-2
 [Service URL]: #sub-3
@@ -186,7 +186,7 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 [Scale up or down]: #sub-6
 [Set roles to control administrative access]: #sub-8
 
-<!--Image references-->  
+<!--Image references-->
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png

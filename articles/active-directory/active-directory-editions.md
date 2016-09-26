@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Edizioni di Azure Active Directory
 
@@ -137,7 +137,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]  |
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -176,7 +176,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]  |
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -194,7 +194,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]  |
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -230,7 +230,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]  | |
+| | ![Controllo][12]| ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -247,7 +247,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]  |
+| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -264,7 +264,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]  |
+| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -281,7 +281,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]  | |
+| | ![Controllo][12]| ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -298,7 +298,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]  |
+| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -317,7 +317,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 
@@ -332,7 +332,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 
@@ -347,7 +347,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | Limitato al cloud solo per le app di Office 365|
+| | | ![Controllo][12]| Limitato al cloud solo per le app di Office 365|
 
 **Altre informazioni:**
 
@@ -366,7 +366,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 
@@ -381,7 +381,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -398,7 +398,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -415,7 +415,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 #### Identity Protection
@@ -424,7 +424,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizione Premium P2 | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 #### Privileged Identity Management
@@ -446,7 +446,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]  |
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 
 
@@ -460,7 +460,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 #### Enterprise State Roaming
@@ -472,7 +472,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 | Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -501,7 +501,7 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!--Image references-->  
+<!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
 <!---HONumber=AcomDC_0914_2016-->

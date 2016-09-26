@@ -38,7 +38,7 @@ Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per l
 
 2. Verificare di conoscere la directory Active Directory predefinita per la sottoscrizione. È possibile concedere l'accesso solo per le applicazioni presenti nella stessa directory della sottoscrizione. Selezionare **Impostazioni** e cercare il nome della directory associato alla sottoscrizione. Per altre informazioni, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
    
-     ![Trovare la directory predefinita](./media/resource-group-create-service-principal-portal/show-default-directory.png)  
+     ![Trovare la directory predefinita](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
 2. Selezionare **Active Directory** dal riquadro di sinistra.
 
@@ -46,31 +46,31 @@ Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per l
      
 3. Selezionare il tipo di Active Directory che si vuole usare per creare l'applicazione. Se è disponibile più di un tipo di Active Directory, creare l'applicazione nella directory predefinita della sottoscrizione.
 
-     ![scegliere la directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)  
+     ![scegliere la directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
 3. Per visualizzare le applicazioni nella directory, selezionare **Applicazioni**.
 
-     ![visualizzare le applicazioni](./media/resource-group-create-service-principal-portal/view-applications.png)  
+     ![visualizzare le applicazioni](./media/resource-group-create-service-principal-portal/view-applications.png)
 
 4. Se non è stata creata un'applicazione in questa directory, dovrebbe essere visualizzata un'immagine simile a questa riportata di seguito. Selezionare **AGGIUNGI UN'APPLICAZIONE**.
 
-     ![aggiungere un'applicazione](./media/resource-group-create-service-principal-portal/create-application.png)  
+     ![aggiungere un'applicazione](./media/resource-group-create-service-principal-portal/create-application.png)
 
      In alternativa, fare clic su **Aggiungi** nel riquadro inferiore.
 
-     ![add](./media/resource-group-create-service-principal-portal/add-icon.png)  
+     ![add](./media/resource-group-create-service-principal-portal/add-icon.png)
 
 5. Selezionare il tipo di applicazione da creare. Per questa esercitazione selezionare **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
-     ![nuova applicazione](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)  
+     ![nuova applicazione](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
 6. Specificare un nome per l'applicazione e selezionare il tipo di applicazione che si vuole creare. Per questa esercitazione creare un'**APPLICAZIONE WEB E/O API WEB** e fare clic sul pulsante Avanti. Se si seleziona **APPLICAZIONE CLIENT NATIVA**, i rimanenti passaggi di questo articolo non corrisponderanno all'esperienza utente.
 
-     ![assegnare un nome all'applicazione](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)  
+     ![assegnare un nome all'applicazione](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
 7. Compilare le proprietà per l'app. Per **URL ACCESSO** specificare l'URI di un sito Web che descrive l'applicazione. L'esistenza del sito Web non viene convalidata. Per **URI ID APP** specificare l'URI che identifica l'applicazione.
 
-     ![proprietà dell'applicazione](./media/resource-group-create-service-principal-portal/app-properties.png)  
+     ![proprietà dell'applicazione](./media/resource-group-create-service-principal-portal/app-properties.png)
 
 L'applicazione è stata creata.
 
@@ -80,11 +80,11 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
 
 1. Selezionare la scheda **Configura** per configurare la password dell'applicazione.
 
-     ![configura applicazione](./media/resource-group-create-service-principal-portal/application-configure.png)  
+     ![configura applicazione](./media/resource-group-create-service-principal-portal/application-configure.png)
 
 2. Copiare l'**ID CLIENT**.
   
-     ![id client](./media/resource-group-create-service-principal-portal/client-id.png)  
+     ![id client](./media/resource-group-create-service-principal-portal/client-id.png)
 
 3. Se l'applicazione viene eseguita con credenziali proprie, scorrere fino alla sezione **Chiavi** e selezionare la durata della validità della password.
 
@@ -96,7 +96,7 @@ Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicaz
 
      Viene visualizzata la chiave salvata, che è possibile copiare. Dato che non sarà possibile recuperare la chiave in seguito, copiarla ora.
 
-     ![chiave salvata](./media/resource-group-create-service-principal-portal/save-key.png)  
+     ![chiave salvata](./media/resource-group-create-service-principal-portal/save-key.png)
 
 ## Ottenere l'ID tenant
 
@@ -124,7 +124,7 @@ Se l'applicazione accede alle risorse per conto dell'utente connesso, è necessa
 
 3. Nell'elenco a discesa relativo alle autorizzazioni delegate selezionare **Access Azure Service Management as organization** (Accedi alla gestione dei servizi Azure come organizzazione).
 
-      ![seleziona autorizzazione](./media/resource-group-create-service-principal-portal/select-permissions.png)  
+      ![seleziona autorizzazione](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
 4. Salvare la modifica.
 
@@ -140,47 +140,47 @@ Per assegnare un ruolo a un'applicazione, è necessario avere le autorizzazioni 
 
 1. Controllare le autorizzazioni per verificare che sia possibile assegnare l'entità servizio a un ruolo. Selezionare **Autorizzazioni personali** per l'account.
 
-    ![Selezionare Autorizzazioni personali](./media/resource-group-create-service-principal-portal/my-permissions.png)  
+    ![Selezionare Autorizzazioni personali](./media/resource-group-create-service-principal-portal/my-permissions.png)
 
 1. Visualizzare le autorizzazioni assegnate per l'account. Come già osservato, è necessario appartenere ai ruoli Proprietario o Amministratore Accesso utenti oppure avere un ruolo personalizzato che concede l'accesso in scrittura per Microsoft.Authorization. L'immagine seguente illustra un account assegnato al ruolo Collaboratore per la sottoscrizione, che non ha le autorizzazioni adeguate per assegnare un'applicazione a un ruolo.
 
-    ![Visualizzare le autorizzazioni personali](./media/resource-group-create-service-principal-portal/show-permissions.png)  
+    ![Visualizzare le autorizzazioni personali](./media/resource-group-create-service-principal-portal/show-permissions.png)
 
      Se non si hanno le autorizzazioni corrette per concedere l'accesso a un'applicazione, è necessario richiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore Accesso utenti o richiedere che un amministratore conceda l'accesso all'applicazione.
 
 1. Passare al livello dell'ambito al quale si vuole assegnare l'applicazione. Per assegnare un ruolo a un ambito della sottoscrizione, selezionare **Sottoscrizioni**.
 
-     ![selezionare la sottoscrizione](./media/resource-group-create-service-principal-portal/select-subscription.png)  
+     ![selezionare la sottoscrizione](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
      Selezionare la sottoscrizione specifica a cui assegnare l'applicazione.
 
-     ![selezionare la sottoscrizione per l'assegnazione](./media/resource-group-create-service-principal-portal/select-one-subscription.png)  
+     ![selezionare la sottoscrizione per l'assegnazione](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
      Selezionare l'icona di **accesso** nell'angolo in alto a destra.
 
-     ![selezionare accesso](./media/resource-group-create-service-principal-portal/select-access.png)  
+     ![selezionare accesso](./media/resource-group-create-service-principal-portal/select-access.png)
      
      In alternativa, per assegnare un ruolo all'ambito del gruppo di risorse, passare a un gruppo di risorse. Nel pannello del gruppo di risorse selezionare **Controllo di accesso**.
 
-     ![selezionare gli utenti](./media/resource-group-create-service-principal-portal/select-users.png)  
+     ![selezionare gli utenti](./media/resource-group-create-service-principal-portal/select-users.png)
 
      I passaggi seguenti sono uguali per tutti gli ambiti.
 
 2. Selezionare **Aggiungi**.
 
-     ![selezionare aggiungi](./media/resource-group-create-service-principal-portal/select-add.png)  
+     ![selezionare aggiungi](./media/resource-group-create-service-principal-portal/select-add.png)
 
 3. Selezionare il ruolo **Lettore** o il ruolo al quale si vuole assegnare l'applicazione.
 
-     ![selezionare il ruolo](./media/resource-group-create-service-principal-portal/select-role.png)  
+     ![selezionare il ruolo](./media/resource-group-create-service-principal-portal/select-role.png)
 
 4. Quando viene visualizzato per la prima volta l'elenco degli utenti che è possibile aggiungere al ruolo, le applicazioni non verranno visualizzate. Verranno visualizzati solo il gruppo e gli utenti.
 
-     ![mostrare gli utenti](./media/resource-group-create-service-principal-portal/show-users.png)  
+     ![mostrare gli utenti](./media/resource-group-create-service-principal-portal/show-users.png)
 
 5. Per individuare l'applicazione, è necessario cercarla. Digitando il nome dell'applicazione, l'elenco delle opzioni disponibili cambierà. Quando l'applicazione viene visualizzata nell'elenco, selezionarla.
 
-     ![assegnare al ruolo](./media/resource-group-create-service-principal-portal/assign-to-role.png)  
+     ![assegnare al ruolo](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
 6. Selezionare **OK** per completare l'assegnazione al ruolo. L'applicazione dovrebbe essere ora visualizzata nell'elenco degli utenti assegnati a un ruolo per il gruppo di risorse.
 

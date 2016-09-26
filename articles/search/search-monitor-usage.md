@@ -6,7 +6,7 @@
    authors="HeidiSteen" 
    manager="jhubbard" 
    editor=""
-   tags="azure-portal"/>  
+   tags="azure-portal"/>
 
 <tags
    ms.service="search"
@@ -51,7 +51,7 @@ Rivedere [Limiti e capacità](search-limits-quotas-capacity.md) per determinare 
 
 Visitare [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) per ulteriori informazioni sull'amministrazione del servizio.
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
 
 

@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="jhubbard"
 	editor=""
-    tags="azure-portal"/>  
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/08/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Scegliere uno SKU o un piano tariffario per Ricerca di Azure
 

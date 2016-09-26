@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="djrosanova"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="event-hubs"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="darosa;sethm"/>  
+	ms.author="darosa;sethm"/>
 
 # Procedura dettagliata sull'archivio di Hub eventi: Python
 
@@ -50,7 +50,7 @@ Prerequisiti
 
 3.  Completare i campi nel pannello dell'account di archiviazione e fare clic su **Crea**.
 
-    ![][1]  
+    ![][1]
 
 4.  Una volta visualizzato il messaggio **Distribuzioni riuscite** fare clic sul nuovo account di archiviazione e su **BLOB** nel pannello **Essentials**. Quando si apre il pannello **Servizio BLOB**, fare clic su **+ Contenitore** in alto. Assegnare al contenitore il nome **archivio**, quindi chiudere il pannello **Servizio BLOB**.
 
@@ -187,7 +187,7 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 [portale di Azure]: https://portal.azure.com/
 [Panoramica dell'archivio di Hub eventi]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/it-IT/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

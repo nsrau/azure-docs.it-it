@@ -5,7 +5,7 @@
 	documentationCenter="python" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="huvalo;bradsev" />  
+	ms.author="huvalo;bradsev" />
 
 
 #Accedere a set di dati con Python mediante la libreria client Python di Azure Machine Learning 
@@ -74,7 +74,7 @@ I frammenti di codice forniti da Studio per essere usati con la libreria client 
 
 Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner**. Il ruolo viene visualizzato in Azure Machine Learning Studio nella pagina **USERS** della sezione **Settings**.
 
-![Sicurezza][security]  
+![Sicurezza][security]
 
 Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di essere nuovamente invitati con il ruolo di proprietario o chiedere il frammento di codice al proprietario dell'area di lavoro.
 
@@ -100,15 +100,15 @@ I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** 
 
 3. Sulla barra degli strumenti inferiore fare clic su **Generate Data Access Code** (Genera codice di accesso ai dati). Se i dati si presentano in un formato non compatibile con la raccolta client di Python, questo pulsante non è attivo.
 
-	![Set di dati][datasets]  
+	![Set di dati][datasets]
 
 4. Selezionare il frammento di codice dalla finestra che viene visualizzata e copiarlo negli Appunti.
 
-	![Codice di accesso][dataset-access-code]  
+	![Codice di accesso][dataset-access-code]
 
 5. Incollare il codice nel blocco appunti dell'applicazione Python locale.
 
-	![Blocco appunti][ipython-dataset]  
+	![Blocco appunti][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Accedere a set di dati intermedi da esperimenti di Machine Learning
 
@@ -128,11 +128,11 @@ Sono supportati i formati seguenti (le costanti per questi formati sono disponib
 
 Alcuni moduli, ad esempio [Split][split], eseguono l'output in un formato denominato `Dataset`, che non è supportato dalla libreria client Python.
 
-![Formato del set di dati][dataset-format]  
+![Formato del set di dati][dataset-format]
 
 Per ottenere un output in un formato supportato, è necessario usare un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv].
 
-![Formato GenericCSV][csv-format]  
+![Formato GenericCSV][csv-format]
 
 I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperimento e si accede al set di dati intermedio.
 
@@ -151,19 +151,19 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
 7. Viene visualizzato un menu di scelta rapida.
 8.  Selezionare **Generate Data Access Code** (Genera codice di accesso ai dati).
 
-	![Menu di scelta rapida][experiment]  
+	![Menu di scelta rapida][experiment]
 
 8. Selezionare il frammento di codice dalla finestra che viene visualizzata e copiarlo negli Appunti.
 
-	![Codice di accesso][intermediate-dataset-access-code]  
+	![Codice di accesso][intermediate-dataset-access-code]
 
 9. Incollare il codice nel blocco appunti.
 
-	![Blocco appunti][ipython-intermediate-dataset]  
+	![Blocco appunti][ipython-intermediate-dataset]
 
 10. È possibile visualizzare i dati usando matplotlib. In questo caso, viene creato un istogramma per la colonna dell'età.
 
-	![Istogramma][ipython-histogram]  
+	![Istogramma][ipython-histogram]
 
 
 ##<a name="clientApis"></a>Usare la libreria client Python di Machine Learning per accedere, leggere, creare e gestire set di dati
@@ -352,7 +352,7 @@ Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_
 
 
 
-<!-- Images -->  
+<!-- Images -->
 [security]: ./media/machine-learning-python-data-access/security.png
 [dataset-format]: ./media/machine-learning-python-data-access/dataset-format.png
 [csv-format]: ./media/machine-learning-python-data-access/csv-format.png
@@ -365,7 +365,7 @@ Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_
 [ipython-histogram]: ./media/machine-learning-python-data-access/ipython-histogram.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  

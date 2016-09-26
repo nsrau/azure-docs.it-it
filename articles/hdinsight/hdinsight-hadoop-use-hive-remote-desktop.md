@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/06/2016"
-   ms.author="larryfr"/>  
+   ms.author="larryfr"/>
 
 # Uso di Hive con Hadoop in HDInsight con Desktop remoto
 

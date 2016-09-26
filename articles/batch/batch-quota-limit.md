@@ -52,7 +52,7 @@ Visualizzare le quote dell'account Batch nel [portale di Azure][portal].
 
 3. Il pannello **Proprietà** mostra le quote attualmente applicate all'account Batch
 
-	![Quote di account Batch][account_quotas]  
+	![Quote di account Batch][account_quotas]
 
 ## Aumentare una quota
 

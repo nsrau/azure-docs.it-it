@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="nitinme" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-store"
@@ -36,7 +36,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il loro acc
 
 3. Nel pannello **Diagnostica**, apportare le modifiche seguenti per configurare la registrazione diagnostica.
 
-	![Abilitare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")  
+	![Abilitare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
 
 	* Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
 	* È possibile scegliere di archiviare/elaborare i dati in due modi diversi.
@@ -71,7 +71,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
 
 1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Store per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
 
-	![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")  
+	![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
 
 	* Il contenitore **insights-logs-audit** contiene i log di controllo.
 	* Il contenitore **insights-logs-requests** contiene i log delle richieste.

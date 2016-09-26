@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="andkjell"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="andkjell;markvi"/>  
+	ms.author="andkjell;markvi"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Configurare il filtro

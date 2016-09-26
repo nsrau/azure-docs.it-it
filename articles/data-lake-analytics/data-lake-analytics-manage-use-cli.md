@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="edmacauley" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>  
+   ms.author="edmaca"/>
 
 # Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
@@ -42,8 +42,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	azure datalake store
 	azure datalake analytics
 
-<!-- ################################ -->  
-<!-- ################################ -->  
+<!-- ################################ -->
+<!-- ################################ -->
 ## Gestire account
 
 Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo. Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -79,8 +79,8 @@ Ottenere i dettagli di un account specifico di Data Lake Analytics
   	azure datalake analytics account delete "<Data Lake Analytics Account Name>"
 
 
-<!-- ################################ -->  
-<!-- ################################ -->  
+<!-- ################################ -->
+<!-- ################################ -->
 ## Gestire le origini dati degli account
 
 Analisi Data Lake supporta attualmente le seguenti origini dati:
@@ -187,7 +187,7 @@ I tipi includono database, schema, assembly, origine dati esterna, tabella, funz
 
 	azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
-<!-- ################################ -->  
+<!-- ################################ -->
 <!-- ################################ -->
 ## Utilizzare i gruppi ARM
 

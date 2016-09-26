@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="09/13/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
    
 # Il database SQL di Azure facilita la sicurezza e la protezione
 

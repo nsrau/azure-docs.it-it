@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>  
+	ms.author="tamram"/>
 
 # Impostare e recuperare proprietà e metadati #
 

@@ -6,7 +6,7 @@
 	services="stream-analytics"
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="07/27/2016" 
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/>
 
 # Come configurare gli output dei dati per i processi di Analisi di flusso
 
@@ -31,7 +31,7 @@ Per aggiungere un output al processo di analisi di flusso:
 
     Nel portale di Azure fare clic sul riquadro **Output** nel processo di analisi di flusso.
 
-    ![Aggiungere output dal portale di Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)  
+    ![Aggiungere output dal portale di Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
 2. Specificare il tipo di output:
 

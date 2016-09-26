@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="byvinyal"/>  
+	ms.author="byvinyal"/>
 
 # Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
 

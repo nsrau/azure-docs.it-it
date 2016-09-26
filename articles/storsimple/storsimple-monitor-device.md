@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="08/16/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple 
 
@@ -29,11 +29,11 @@ Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, n
 
 Il grafico seguente mostra le operazioni di I/O dall'iniziatore al dispositivo per tutti i volumi per un dispositivo di produzione. Le metriche tracciate vengono letti e scrivere byte al secondo, leggere e scrivere le operazioni dei / o al secondo, leggere e scrivere le latenze.
 
-![Prestazioni dei / o dall'iniziatore a dispositivo](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)  
+![Prestazioni dei / o dall'iniziatore a dispositivo](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
 Per lo stesso dispositivo vengono tracciate le operazioni di I/O per i dati dal dispositivo al cloud per tutti i contenitori del volume. Su questo dispositivo, i dati solo nel livello lineare e non sono stati inseriti vuoti nel cloud. Non sono presenti operazioni di lettura / scrittura che si verificano dal dispositivo al cloud. Perciò i picchi nel grafico sono a intervalli di 5 minuti che corrisponde alla frequenza con cui viene controllato l'heartbeat tra il dispositivo e il servizio.
 
-![Prestazioni dei / o dal dispositivo al cloud](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)  
+![Prestazioni dei / o dal dispositivo al cloud](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
 
 Per lo stesso dispositivo, è stato creato uno snapshot cloud per i dati di volume partire 2:00 pm. Ciò ha restituito dati che passano dal dispositivo al cloud. Lettura-scrittura sono state soddisfatte al cloud in tale intervallo di tempo. Il grafico dei / o Mostra un picco in varie metriche corrispondente all'ora quando è stato creato lo snapshot.
@@ -78,22 +78,22 @@ Quando si visualizzano i grafici di utilizzo della capacità del volume dell’a
 
 I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria di un dispositivo StorSimple prima e dopo che è stato creato uno snapshot cloud. Dato che si tratta solo dei dati del volume, uno snapshot cloud non deve modificare l'archiviazione primaria. Come si può notare, il grafico non mostra alcuna differenza nell'utilizzo capacità primario a seguito del completamento di uno snapshot nel cloud. Lo snapshot cloud è stato avviato all'incirca alle 14:00 in quel dispositivo.
 
-![Utilizzo della capacità primario prima snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)  
+![Utilizzo della capacità primario prima snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
-![Utilizzo della capacità primario dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)  
+![Utilizzo della capacità primario dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
 Se si esegue l'aggiornamento 2 o versioni successive, è possibile suddividere l'utilizzo della capacità di archiviazione primaria per un singolo volume, tutti i volumi, tutti i volumi a livelli e tutti i volumi aggiunti in locale, come illustrato di seguito. La suddivisione in base a tutti i volumi aggiunti in locale consente di verificare rapidamente la quantità di livello locale usata.
 
-![Utilizzo della capacità primaria per tutti i volumi aggiunti in locale](./media/storsimple-monitor-device/localvolumes.png)  
+![Utilizzo della capacità primaria per tutti i volumi aggiunti in locale](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Utilizzo della capacità di archiviazione cloud
 
 Questi grafici mostrano la quantità di spazio di archiviazione cloud utilizzato. Questi dati sono deduplicati e compressi. Questo quantità include snapshot cloud che potrebbero contenere dati che non sono riflessi in nessun volume principale e vengono mantenuti per scopi di legacy o di memorizzazione necessari. È possibile confrontare il consumo di memoria del database primario e del cloud per avere un'idea della frequenza di riduzione dei dati, anche se il numero non sarà esatto. I grafici seguenti mostrano l'utilizzo di capacità di archiviazione cloud di un dispositivo StorSimple prima e dopo che è stato creato uno snapshot cloud. Lo snapshot cloud avviata in circa 2:00 del dispositivo ed è possibile visualizzare l'utilizzo della capacità del cloud è aumentato fino allo stesso tempo crescenti da MB 5.73 a 4.04 GB.
 
-![Utilizzo della capacità cloud prima snapshot cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)  
+![Utilizzo della capacità cloud prima snapshot cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
 
-![Utilizzo della capacità cloud dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)  
+![Utilizzo della capacità cloud dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
 ###Utilizzo della capacità di archiviazione del dispositivo
@@ -104,9 +104,9 @@ Nel corso del tempo, l’utilizzo della capacità primaria e l'utilizzo della ca
 
 I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria di un dispositivo StorSimple prima e dopo che è stato creato uno snapshot cloud. Lo snapshot cloud avviato alle 2:00 pm e l'utilizzo della capacità di dispositivo avviato diminuendo in quel momento. L'utilizzo della capacità di archiviazione dispositivo si è arrestato da GB 11.58 7.48 GB. Ciò indica che probabilmente i dati non compressi nel livello SSD lineare sono deduplicati, compresso e spostati nel livello di unità disco rigido. Si noti che se il dispositivo è già presente una grande quantità di dati nei livelli sia le unità SSD e unità disco rigido, potrebbe non essere visualizzata questa riduzione. In questo esempio, il dispositivo dispone di una piccola quantità di dati.
 
-![Utilizzo della capacità di dispositivo prima di snapshot cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)  
+![Utilizzo della capacità di dispositivo prima di snapshot cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
 
-![Utilizzo della capacità di dispositivo dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)  
+![Utilizzo della capacità di dispositivo dopo snapshot cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
 
 
 ## Velocità effettiva della rete
@@ -115,16 +115,16 @@ I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria
 
 I grafici riportati di seguito mostrano la velocità effettiva della rete per Data 0 e Data 4, entrambe interfacce di rete a 1 GbE sul dispositivo. In questo caso, dati 0 è stato abilitato al cloud mentre 4 dati è stata abilitate per iSCSI. È possibile visualizzare in ingresso sia il traffico in uscita per il dispositivo StorSimple. La linea retta nel grafico a partire dalle 15:24 è dovuta al fatto che raccogliamo i dati solo ogni 5 minuti e deve essere ignorata.
 
-![Velocità effettiva della rete per Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)  
+![Velocità effettiva della rete per Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
 
-![Velocità effettiva della rete per Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data4M.png)  
+![Velocità effettiva della rete per Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data4M.png)
 
 
 ## Prestazioni del dispositivo 
 
 **Prestazioni del dispositivo**tiene traccia delle metriche relative alle prestazioni del dispositivo. Il grafico seguente mostra le statistiche di utilizzo della CPU per un dispositivo nell'ambiente di produzione.
 
-![Utilizzo della CPU per dispositivo](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)  
+![Utilizzo della CPU per dispositivo](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
 
 ## Passaggi successivi
 

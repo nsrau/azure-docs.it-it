@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="bradsev" />  
+	ms.author="bradsev" />
 
 
 # Eseguire gli script di apprendimento automatico di Python in Azure Machine Learning Studio
@@ -39,9 +39,9 @@ Azure Machine Learning Studio supporta l'incorporamento di script Python in vari
 ## Principi di progettazione degli script Python in Machine Learning
 L'interfaccia primaria di Python in Azure Machine Learning Studio è il modulo [Execute Python Script][execute-python-script] illustrato nella figura 1.
 
-![Immagine1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)  
+![Immagine1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![Immagine2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)  
+![Immagine2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
 
 Figura 1. Modulo **Execute Python Script**.
 
@@ -59,13 +59,13 @@ Il modulo [Execute Python Script][execute-python-script] accetta un massimo di t
 ## Scenari di utilizzo di base in Machine Learning per gli script Python
 In questa sezione si osserveranno alcuni usi di base del modulo [Execute Python Script][execute-python-script]. Come già accennato, qualsiasi input nel modulo Python viene esposto come frame di dati Pandas. Altre informazioni su Pandas per Python e sul relativo uso per modificare i dati in modo efficace ed efficiente sono disponibili in *Python for Data Analysis* (O'Reilly, 2012) a cura di W. McKinney. La funzione deve restituire un pacchetto con un singolo frame di dati Pandas all'interno di una [sequenza](https://docs.python.org/2/c-api/sequence.html) Python, ad esempio, una tupla, un elenco o una matrice NumPy. Il primo elemento di questa sequenza viene quindi restituito nella prima porta di output del modulo. Questo schema è illustrato nella figura 2.
 
-![Immagine3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)  
+![Immagine3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
 Figura 2. Mapping di porte di input ai parametri e valore restituito alla porta di output.
 
 Una semantica più dettagliata della modalità di mapping delle porte di input ai parametri della funzione `azureml_main` è descritta nella tabella 1:
 
-![Immagine1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)  
+![Immagine1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 Tabella 1. Mapping delle porte di input ai parametri della funzione.
 
@@ -81,9 +81,9 @@ Come già illustrato, i set di dati di input in Azure Machine Learning vengono c
 ## Rendere operativi gli script Python
 Tutti i moduli [Execute Python Script][execute-python-script] utilizzati in un esperimento di assegnazione dei punteggi vengono chiamati al momento della pubblicazione come servizio Web. Ad esempio, la figura 3 mostra un esperimento di assegnazione dei punteggi contenente il codice per valutare una singola espressione Python.
 
-![Immagine4](./media/machine-learning-execute-python-scripts/figure3a.png)  
+![Immagine4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
-![Immagine5](./media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)  
+![Immagine5](./media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)
 
 Figura 3. Servizio Web per la valutazione di un'espressione Python.
 
@@ -94,21 +94,21 @@ Un caso di utilizzo comune per molti data scientist consiste nell'incorporare gl
 
 Considerare, ad esempio, il file Hello.py che contiene una semplice funzione "Hello, World".
 
-![Immagine6](./media/machine-learning-execute-python-scripts/figure4.png)  
+![Immagine6](./media/machine-learning-execute-python-scripts/figure4.png)
 
 Figura 4. Funzione definita dall'utente.
 
 Viene quindi creato un file Hello.zip contenente Hello.py:
 
-![Immagine7](./media/machine-learning-execute-python-scripts/figure5.png)  
+![Immagine7](./media/machine-learning-execute-python-scripts/figure5.png)
 
 Figura 5. File ZIP contenente codice Python definito dall'utente.
 
 Il file viene quindi caricato come set di dati in Azure Machine Learning Studio. Creare ed eseguire un semplice esperimento che usa il codice Python nel file Hello.zip associandolo alla terza porta di input dello script di esecuzione di Python, come illustrato nella figura seguente.
 
-![Immagine8](./media/machine-learning-execute-python-scripts/figure6a.png)  
+![Immagine8](./media/machine-learning-execute-python-scripts/figure6a.png)
 
-![Immagine9](./media/machine-learning-execute-python-scripts/figure6b.png)  
+![Immagine9](./media/machine-learning-execute-python-scripts/figure6b.png)
 
 Figura 6. Esperimento di esempio con codice Python definito dall'utente caricato come file ZIP.
 
@@ -128,7 +128,7 @@ Per generare immagini da MatplotLib, è necessario completare la procedura segue
 
 Questo processo, illustrato nella Figura 8 seguente, crea una matrice di grafici a dispersione tramite la funzione scatter\_matrix in Pandas.
  
-![Immagine1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)  
+![Immagine1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
 Figura 8. Salvataggio di figure di MatplotLib in immagini.
 
@@ -136,9 +136,9 @@ Figura 8. Salvataggio di figure di MatplotLib in immagini.
 
 La figura 9 mostra un esperimento che usa lo script precedentemente illustrato per restituire tracciati tramite una seconda porta di output.
 
-![Immagine2v](./media/machine-learning-execute-python-scripts/figure-v2-9a.png)  
+![Immagine2v](./media/machine-learning-execute-python-scripts/figure-v2-9a.png)
 	 
-![Immagine2v](./media/machine-learning-execute-python-scripts/figure-v2-9b.png)  
+![Immagine2v](./media/machine-learning-execute-python-scripts/figure-v2-9b.png)
 
 Figura 9. Visualizzazione di tracciati generati da codice Python.
 
@@ -150,7 +150,7 @@ L'ambiente Anaconda installato in Azure Machine Learning contiene pacchetti comu
 
 Di seguito è illustrata la funzione Python per calcolare i punteggi di rilevanza e ordinare le funzioni di conseguenza:
 
-![Immagine11](./media/machine-learning-execute-python-scripts/figure8.png)  
+![Immagine11](./media/machine-learning-execute-python-scripts/figure8.png)
 
 Figura 10. Funzione per classificare le funzioni in base ai punteggi.   L'esperimento seguente calcola quindi e restituisce i punteggi di rilevanza delle funzioni nel set di dati "Pima Indian Diabetes" in Azure Machine Learning:
 
@@ -176,7 +176,7 @@ Il modulo [Execute Python Script][execute-python-script] consente ai data scient
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-<!-- Module References -->  
+<!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 

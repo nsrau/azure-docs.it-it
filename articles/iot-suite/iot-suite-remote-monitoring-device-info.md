@@ -6,7 +6,7 @@
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
- editor=""/>  
+ editor=""/>
 
 <tags
  ms.service="iot-suite"
@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="09/12/2016"
- ms.author="dobett"/>  
+ ms.author="dobett"/>
 
 # Metadati di informazioni sul dispositivo nella soluzione preconfigurata per il monitoraggio remoto
 
@@ -79,15 +79,15 @@ Quando un dispositivo si connette per la prima volta alla soluzione, invia un me
 
 L'elenco di dispositivi nel portale della soluzione visualizza le proprietà del dispositivo seguenti come colonne: **Stato**, **ID dispositivo**, **Produttore**, **Numero modello**, **Numero di serie**, **Firmware**, **Piattaforma**, **Processore** e **RAM installata**. Le proprietà **Latitudine** e **Longitudine** del dispositivo determinano la posizione nella mappa di Bing nel dashboard.
 
-![Elenco dei dispositivi][img-device-list]  
+![Elenco dei dispositivi][img-device-list]
 
 Se si fa clic su **Modifica** nel riquadro **Dettagli dispositivo** nel portale della soluzione, è possibile modificare tutte queste proprietà. Modificando queste proprietà, viene aggiornato il record per il dispositivo nel database di DocumentDB. Tuttavia, se un dispositivo invia un messaggio informativo sul dispositivo aggiornato, sovrascrive eventuali modifiche apportate nel portale della soluzione. Non è possibile modificare le proprietà **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState** e **UpdatedTime** nel portale della soluzione perché solo il dispositivo ha autorità su queste proprietà.
 
-![Modifica del dispositivo][img-device-edit]  
+![Modifica del dispositivo][img-device-edit]
 
 È possibile usare il portale della soluzione per rimuovere un dispositivo dalla soluzione. Quando si rimuove un dispositivo, la soluzione rimuove i metadati di informazioni sul dispositivo dal registro dei dispositivi della soluzione e rimuove la voce del dispositivo nel registro delle identità dei dispositivi dell'hub IoT. Prima di poter rimuovere un dispositivo, è necessario disabilitarlo.
 
-![Rimozione del dispositivo][img-device-remove]  
+![Rimozione del dispositivo][img-device-remove]
 
 ## Elaborazione dei messaggi informativi sul dispositivo
 

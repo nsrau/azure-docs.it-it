@@ -5,7 +5,7 @@
    documentationCenter="dev-center-name"
    authors="markgalioto"
    manager="cfreeman"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="08/29/2016"
-   ms.author="markgal;trinadhk"/>  
+   ms.author="markgal;trinadhk"/>
 
 # Eliminare un insieme di credenziali di Backup di Azure
 
@@ -53,17 +53,17 @@ Se l'insieme di credenziali dei servizi di ripristino è già aperto, procedere 
 
     Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino. Selezionare dall'elenco l'insieme di credenziali da eliminare.
 
-    ![scegliere un insieme di credenziali dall'elenco](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)  
+    ![scegliere un insieme di credenziali dall'elenco](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
 
 2. Nella visualizzazione dell'insieme di credenziali esaminare il riquadro **Informazioni di base**. Per eliminare un insieme di credenziali, è necessario che non siano presenti elementi protetti. Se viene visualizzato un numero diverso da zero in **Elementi di backup** o **Server di gestione di backup**, è necessario rimuovere questi elementi prima di potere eliminare l'insieme di credenziali.
 
-    ![Cercare gli elementi protetti nel riquadro Informazioni di base](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)  
+    ![Cercare gli elementi protetti nel riquadro Informazioni di base](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
     Le macchine virtuali e i file o le cartelle sono considerati elementi di backup e sono elencati nell'area **Elementi di backup** del riquadro Informazioni di base. Un server DPM viene elencato nell'area **Server di gestione di backup** del riquadro Informazioni di base. Gli **Elementi replicati** sono relativi al servizio Azure Site Recovery.
 
 3. Per iniziare a rimuovere gli elementi protetti dall'insieme di credenziali, trovare gli elementi nell'insieme di credenziali. Nel dashboard dell'insieme di credenziali fare clic su **Impostazioni**, quindi su **Elementi di backup** per aprire il pannello.
 
-    ![scegliere un insieme di credenziali dall'elenco](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)  
+    ![scegliere un insieme di credenziali dall'elenco](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)
 
     Il pannello **Elementi di backup** include elenchi separati, in base al tipo di elemento, macchine virtuali di Azure o file/cartelle, come illustrato nell'immagine. L'elenco Tipo di elemento visualizzato per impostazione predefinita è Macchine virtuali di Azure. Per visualizzare l'elenco di elementi di tipo file/cartelle nell'insieme di credenziali, selezionare **File-cartelle** dal menu a discesa.
 
@@ -71,7 +71,7 @@ Se l'insieme di credenziali dei servizi di ripristino è già aperto, procedere 
 
     a. Nel pannello **Elementi di backup** fare clic con il pulsante destro del mouse sull'elemento, quindi scegliere **Arresta backup** dal menu contestuale.
 
-    ![arrestare il processo di backup](./media/backup-azure-delete-vault/stop-the-backup-process.png)  
+    ![arrestare il processo di backup](./media/backup-azure-delete-vault/stop-the-backup-process.png)
 
     Verrà visualizzato il pannello Arresta backup.
 
@@ -79,19 +79,19 @@ Se l'insieme di credenziali dei servizi di ripristino è già aperto, procedere 
 
       Immettere il nome dell'elemento per confermare che lo si vuole eliminare. Il pulsante **Arresta backup** verrà attivato solo dopo la verifica dell'elemento da arrestare. Se la finestra di dialogo per l'immissione del nome dell'elemento di backup non viene visualizzata, è stata selezionata l'opzione **Conserva i dati di backup**.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
       È facoltativamente possibile specificare un motivo per l'eliminazione dei dati e aggiungere commenti. Dopo avere selezionato **Arresta backup**, è necessario consentire il completamento del processo di eliminazione prima di provare a eliminare l'insieme di credenziali. Per verificare il completamento del processo, controllare i messaggi di Azure ![eliminare i dati di backup](./media/backup-azure-delete-vault/messages.png). <br/> Al termine del processo, verrà visualizzato un messaggio che indica che il processo di backup è stato arrestato e che i dati di backup sono stati eliminati per l'elemento specifico.
 
     c. Dopo l'eliminazione di un elemento dall'elenco, scegliere **Aggiorna** dal menu **Elementi di backup** per visualizzare gli elementi rimanenti nell'insieme di credenziali.
 
-      ![eliminare i dati di backup](./media/backup-azure-delete-vault/empty-items-list.png)  
+      ![eliminare i dati di backup](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Quando nell'elenco non sono presenti elementi, passare al riquadro **Informazioni di base** nel pannello Insieme di credenziali di backup. Nell'elenco non dovrebbero essere presenti **Elementi di backup**, **Server di gestione di backup** o **Elementi replicati**. Se nell'insieme di credenziali sono ancora presenti elementi, tornare al passaggio tre precedente e scegliere un elenco di tipi di elemento diverso.
 
 5. Quando sulla barra degli strumenti dell'insieme di credenziali non sono più presenti elementi, fare clic su **Elimina**.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-vault.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-vault.png)
 
 6. Quando viene richiesta la conferma dell'eliminazione dell'insieme di credenziali, fare clic su **Sì**.
 
@@ -104,13 +104,13 @@ Se si arresta il processo di backup ma si *conservano* accidentalmente i dati, p
 
 1. Nel pannello **Elementi di backup** fare clic con il pulsante destro del mouse sull'elemento, quindi scegliere **Elimina dati di backup** dal menu contestuale.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-backup-data-menu.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
     Verrà visualizzato il pannello **Elimina dati di backup**.
 
 2. Nel pannello **Elimina dati di backup** immettere il nome dell'elemento e fare clic su **Elimina**.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-retained-vault.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-retained-vault.png)
 
     Dopo avere eliminato i dati, tornare al Passaggio 4c e continuare con il processo.
 
@@ -122,17 +122,17 @@ Per eliminare i dati associati al gruppo di protezione:
 
 1. Nella Console amministrazione DPM fare clic su **Protezione**, selezionare un gruppo di protezione, scegliere il membro del gruppo di protezione e quindi fare clic su **Rimuovi** sulla barra multifunzione dello strumento. Per consentire la visualizzazione del pulsante **Rimuovi** sulla barra multifunzione dello strumento, è necessario selezionare il membro. Nell'esempio il nome del membro è **dummyvm9**. Se nel gruppo di protezione sono presenti più membri, tenere premuto il tasto CTRL per selezionare più membri.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
 
     Viene visualizzata la finestra di dialogo **Arresta protezione**.
 
 2. Nella finestra di dialogo **Arresta protezione** selezionare **Elimina dati protetti** e quindi fare clic su **Arresta protezione**.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)
 
     È consigliabile non conservare i dati protetti, perché è necessario cancellare gli elementi dell'insieme di credenziali per eliminarlo. In base al numero di punti di ripristino e alla quantità di dati presenti nel gruppo di protezione, l'eliminazione dei dati potrebbe richiedere da qualche secondo ad alcuni minuti. La finestra di dialogo **Arresta protezione** mostra lo stato al completamento del processo.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/success-deleting-protection-group.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/success-deleting-protection-group.png)
 
 3. Continuare questo processo per tutti i membri di tutti i gruppi di protezione.
 
@@ -140,7 +140,7 @@ Per eliminare i dati associati al gruppo di protezione:
 
 4. Dopo avere eliminato tutti i membri dal gruppo di protezione, passare al portale di Azure. Aprire il dashboard dell'insieme di credenziali e assicurarsi che non siano presenti **Elementi di backup**, **Server di gestione di backup** o **Elementi replicati**. Sulla barra degli strumenti dell'insieme di credenziali fare clic su **Elimina**.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-vault.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/delete-vault.png)
 
     Se nell'insieme di credenziali sono registrati server di gestione di backup, non sarà possibile eliminare l'insieme di credenziali anche se nell'insieme di credenziali non sono presenti dati. Se è già stata eseguita l'eliminazione dei server di gestione di backup associati all'insieme di credenziali, ma nel riquadro **Informazioni di base** vengono ancora visualizzati server, vedere [Trovare i server di gestione di backup registrati nell'insieme di credenziali](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
 
@@ -157,19 +157,19 @@ Per eliminare il server di produzione associato all'insieme di credenziali:
 
 1. Nel portale di Azure aprire il dashboard dell'insieme di credenziali e fare clic su **Impostazioni** > **Infrastruttura di backup** > **Server di produzione**.
 
-    ![aprire il pannello Server di produzione](./media/backup-azure-delete-vault/delete-production-server.png)  
+    ![aprire il pannello Server di produzione](./media/backup-azure-delete-vault/delete-production-server.png)
 
     Viene visualizzato il pannello **Server di produzione**, in cui sono elencati tutti i server di produzione presenti nell'insieme di credenziali.
 
-    ![elenco di server di produzione](./media/backup-azure-delete-vault/list-of-production-servers.png)  
+    ![elenco di server di produzione](./media/backup-azure-delete-vault/list-of-production-servers.png)
 
 2. Nel pannello **Server di produzione** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Elimina**.
 
-    ![eliminare il server di produzione](./media/backup-azure-delete-vault/delete-server-on-production-server-blade.png)  
+    ![eliminare il server di produzione](./media/backup-azure-delete-vault/delete-server-on-production-server-blade.png)
 
     Viene visualizzato il pannello **Elimina**.
 
-    ![eliminare il server di produzione](./media/backup-azure-delete-vault/delete-blade.png)  
+    ![eliminare il server di produzione](./media/backup-azure-delete-vault/delete-blade.png)
 
 3. Nel pannello **Elimina** confermare il nome del server da eliminare e quindi fare clic su **Elimina**. È necessario immettere correttamente il nome del server per attivare il pulsante **Elimina**.
 
@@ -190,35 +190,35 @@ Le istruzioni seguenti illustrano come eliminare un insieme di credenziali per i
 
 2. Selezionare l'insieme di credenziali da eliminare dall'elenco di insiemi di credenziali di backup.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
 
     Viene aperto il dashboard dell'insieme di credenziali. Verificare il numero di macchine virtuali di Azure e/o server Windows associati all'insieme di credenziali. Verificare anche lo spazio di archiviazione totale utilizzato in Azure. Sarà necessario arrestare eventuali processi di backup ed eliminare i dati esistenti prima di eliminare l'insieme di credenziali.
 
 3. Fare clic sulla scheda **Elementi protetti** e quindi su **Arresta protezione**.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
 
     Viene visualizzata la finestra di dialogo **Arresta la protezione di 'insieme di credenziali'**.
 
 4. Nella finestra di dialogo **Arresta la protezione di 'insieme di credenziali'** selezionare l'opzione **Elimina i dati di backup associati** e fare clic su ![segno di spunta](./media/backup-azure-delete-vault/checkmark.png). <br/> È facoltativamente possibile scegliere un motivo per l'arresto della protezione e aggiungere un commento.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)
 
     Dopo l'eliminazione degli elementi dall'insieme di credenziali, l'insieme di credenziali sarà vuoto.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)
 
 5. Nell'elenco di schede fare clic su **Elementi registrati**. Per ogni elemento registrato nell'insieme di credenziali selezionare l'elemento e fare clic su **Annulla registrazione**.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-unregister.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-unregister.png)
 
 6. Nell'elenco di schede fare clic su **Dashboard** per aprire la scheda corrispondente. Assicurarsi che non siano presenti macchine virtuali di Azure o server registrati protetti nel cloud. Verificare anche che la risorsa di archiviazione non includa dati. Fare clic su **Elimina** per eliminare l'insieme di credenziali.
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)
 
     Viene visualizzata la schermata di conferma Elimina insieme di credenziali di backup. Selezionare un'opzione corrispondente al motivo dell'eliminazione dell'insieme di credenziali e quindi fare clic su ![segno di spunta](./media/backup-azure-delete-vault/checkmark.png). <br/>
 
-    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)  
+    ![eliminare i dati di backup](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
 
     L'insieme di credenziali viene eliminato e si torna al dashboard del portale classico.
 
@@ -230,13 +230,13 @@ Se in un insieme di credenziali sono registrati più server, potrebbe essere dif
 
 2. Nel riquadro **Informazioni di base** fare clic su **Impostazioni** per aprire il pannello corrispondente.
 
-    ![aprire il pannello Impostazioni](./media/backup-azure-delete-vault/backup-vault-click-settings.png)  
+    ![aprire il pannello Impostazioni](./media/backup-azure-delete-vault/backup-vault-click-settings.png)
 
 3. Nel pannello **Impostazioni** fare clic su **Infrastruttura di backup**.
 
 4. Nel pannello **Infrastruttura di backup** fare clic su **Server di gestione di backup**. Viene aperto il pannello Server di gestione di backup.
 
-    ![elenco di server di gestione di backup](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)  
+    ![elenco di server di gestione di backup](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
 
 5. Per eliminare un server dall'elenco, fare clic con il pulsante destro del mouse sul nome del server e quindi scegliere **Elimina**. Viene visualizzato il pannello **Elimina**.
 

@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Linee guida sull'infrastruttura di archiviazione
 

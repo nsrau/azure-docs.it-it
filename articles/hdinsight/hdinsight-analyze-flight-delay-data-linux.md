@@ -6,7 +6,7 @@
 	authors="Blackmist" 
 	manager="jhubbard" 
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Scaricare i dati relativi ai voli
 
-1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
+1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] \(RITA).
 2. Selezionare i valori seguenti nella pagina:
 
     | Nome | Valore |

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/02/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Sicurezza in Archivio Azure Data Lake
 
@@ -72,13 +72,13 @@ Data Lake Store è un file system gerarchico come HDFS (Hadoop Distributed File 
 
 È consigliabile definire gli elenchi di controllo di accesso per più utenti usando [gruppi di sicurezza](../active-directory/active-directory-accessmanagement-manage-groups.md). Aggiungere gli utenti a un gruppo di sicurezza, quindi assegnare gli elenchi di controllo di accesso per il file o una cartella a tale gruppo di sicurezza. Ciò è utile quando si vuole fornire l'accesso personalizzato, perché si è limitati all'aggiunta di un massimo di nove voci per l'accesso personalizzato. Per altre informazioni su come proteggere meglio i dati archiviati in Data Lake Store usando i gruppi di sicurezza di Azure Active Directory, vedere [Assegnare utenti o gruppi di sicurezza come elenchi di controllo di accesso al file system di Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
-![Elencare profili di accesso standard e personalizzato](./media/data-lake-store-security-overview/adl.acl.2.png "Elencare profili di accesso standard e personalizzato")  
+![Elencare profili di accesso standard e personalizzato](./media/data-lake-store-security-overview/adl.acl.2.png "Elencare profili di accesso standard e personalizzato")
 
 ## Isolamento rete
 
 Usare Data Lake Store per aiutare a controllare l'accesso all'archivio dati a livello di rete. È possibile stabilire firewall e definire un intervallo di indirizzi IP per i client attendibili. Con un intervallo di indirizzi IP, solo i client con indirizzo IP compreso nell'intervallo definito possono connettersi a Data Lake Store.
 
-![Impostazioni del firewall e accesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Impostazioni del firewall e indirizzo IP")  
+![Impostazioni del firewall e accesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Impostazioni del firewall e indirizzo IP")
 
 ## Protezione dati
 
@@ -99,13 +99,13 @@ Per conformità alle normative, un'organizzazione potrebbe richiedere audit trai
 
 Per gli audit trail di gestione account, visualizzare e scegliere le colonne che si vogliono registrare. È anche possibile esportare i log di controllo in Archiviazione di Azure.
 
-![Log di controllo](./media/data-lake-store-security-overview/audit-logs.png "Log di controllo")  
+![Log di controllo](./media/data-lake-store-security-overview/audit-logs.png "Log di controllo")
 
 ### Log di diagnostica
 
 È possibile impostare gli audit trail dell'accesso ai dati nel portale di Azure (in Impostazioni di diagnostica) e creare un account di archiviazione BLOB di Azure in cui archiviare i log.
 
-![Log di diagnostica](./media/data-lake-store-security-overview/diagnostic-logs.png "Log di diagnostica")  
+![Log di diagnostica](./media/data-lake-store-security-overview/diagnostic-logs.png "Log di diagnostica")
 
 Dopo aver configurato le impostazioni di diagnostica, è possibile visualizzare i log nella scheda **Log di diagnostica**.
 

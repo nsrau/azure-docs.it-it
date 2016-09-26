@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="jhubbard" 
-	editor="" />  
+	editor="" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" />  
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 
@@ -148,7 +148,7 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 

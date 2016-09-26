@@ -6,7 +6,7 @@
    documentationCenter="na"
    authors="brohrer-ms"
    manager="jhubbard"
-   editor="cjgronlund"/>  
+   editor="cjgronlund"/>
 
 <tags
    ms.service="machine-learning"

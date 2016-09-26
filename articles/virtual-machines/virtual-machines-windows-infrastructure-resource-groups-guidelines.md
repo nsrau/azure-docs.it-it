@@ -6,7 +6,7 @@
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Linee guida sui gruppi di risorse di Azure
 

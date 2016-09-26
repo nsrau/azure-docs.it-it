@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="nitinme" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="09/06/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Protezione dei dati presenti in Archivio Data Lake di Azure
 

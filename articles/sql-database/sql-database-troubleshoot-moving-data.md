@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="v-shysun"/>  
+	ms.author="v-shysun"/>
 
 # Spostare database tra server, tra sottoscrizioni e all'interno e all'esterno di Azure
 

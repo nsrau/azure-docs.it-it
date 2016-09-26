@@ -6,7 +6,7 @@
    authors="ganesr"
    manager="carmonm"
    editor=""
-   tags="azure-service-management"/>  
+   tags="azure-service-management"/>
 <tags
    ms.service="expressroute"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/14/2016"
-   ms.author="ganesr;cherylmc"/>  
+   ms.author="ganesr;cherylmc"/>
 
 # Creare e modificare un circuito ExpressRoute
 
