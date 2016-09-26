@@ -434,7 +434,8 @@ Microsoft Azure consente alle aziende di acquisire risorse di calcolo, di archiv
 Questo documento illustra tutti i passaggi necessari per distribuire sistemi SAP a disponibilità elevata in Azure usando il nuovo metodo con il nuovo modello di distribuzione Azure Resource Manager. La guida illustrerà i passaggi principali:
 
 
-- Le note e le guide all'installazione di SAP appropriate sono elencate più avanti nella sezione [Risorse][sap-ha-guide-2]. Questo documento è complementare alla documentazione relativa all'installazione di SAP e alle note su SAP che rappresentano le risorse principali per le installazioni e le distribuzioni del software SAP nelle piattaforme specifiche.
+- Le note e le guide all'installazione di SAP appropriate sono elencate più avanti nella sezione [Risorse][sap-ha-guide-2].  
+  Questo documento è complementare alla documentazione relativa all'installazione di SAP e alle note su SAP che rappresentano le risorse principali per le installazioni e le distribuzioni del software SAP nelle piattaforme specifiche.
 
 - Informazioni sulla differenza tra l'attuale modello di distribuzione classica di Azure e il nuovo modello di distribuzione Azure Resource Manager.
 
