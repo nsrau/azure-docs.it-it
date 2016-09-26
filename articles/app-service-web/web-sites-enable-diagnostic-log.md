@@ -134,7 +134,7 @@ Visual Studio Application Insights fornisce strumenti per il filtro e ricerca de
 3. Caricare il progetto ed eseguire la generazione di dati del log.
 4. Nel [portale di Azure](https://portal.azure.com/) individuare la nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste, all'utilizzo e alla telemetria. Alcuni dati di telemetria potrebbe richiedere alcuni minuti per arrivare: fare clic su Aggiorna. [Ulteriori informazioni](../application-insights/app-insights-diagnostic-search.md)
 
-[Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../azure-portal/insights-perf-analytics.md)
+[Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ##<a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
 
@@ -270,4 +270,4 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 * Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

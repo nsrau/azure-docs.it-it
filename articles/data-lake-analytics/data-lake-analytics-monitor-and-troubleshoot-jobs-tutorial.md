@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Risolvere i problemi dei processi di Analisi di Azure Data Lake mediante il portale di Azure | Azure" 
-   description="Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake." 
+   description="Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -110,4 +110,4 @@ Nella sezione precedente il processo è stato inviato e la sua esecuzione ha avu
 - [Introduzione ad Azure Data Lake Analytics e U-SQL con Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

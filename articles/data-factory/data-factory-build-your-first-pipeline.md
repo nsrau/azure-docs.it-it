@@ -19,8 +19,7 @@
 
 # Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop 
 > [AZURE.SELECTOR]
-- [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
-- [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Uso del portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -226,4 +225,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

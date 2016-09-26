@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
-	ms.author="tamram"/>  
+	ms.date="09/07/2016" 
+	ms.author="tamram"/>
 
 # Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -22,6 +22,8 @@
 L'emulatore di archiviazione di Microsoft Azure offre un ambiente locale che emula i servizi BLOB, code e tabelle di Azure per scopi di sviluppo. Usando l'emulatore di archiviazione, è possibile testare l'applicazione con i servizi di archiviazione in locale, senza creare una sottoscrizione di Azure o sostenere alcun costo. Quando si è soddisfatti della modalità di funzionamento dell'applicazione nell'emulatore, è possibile passare all'utilizzo di un account di archiviazione di Azure nel cloud.
 
 > [AZURE.NOTE] L'emulatore di archiviazione è disponibile come parte di [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). È inoltre possibile installare l'emulatore di archiviazione usando il [programma di installazione autonomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Per configurare l'emulatore di archiviazione, è necessario avere i privilegi di amministratore nel computer.
+> 
+> L'emulatore di archiviazione attualmente viene eseguito solo in Windows.
 >  
 > Si noti che i dati creati in una versione dell'emulatore di archiviazione non sono necessariamente accessibili quando si utilizza una versione diversa. Se è necessario rendere persistenti i dati a lungo termine, si consiglia di archiviare i dati in un account di archiviazione di Azure anziché nell'emulatore di archiviazione.
 
@@ -65,7 +67,7 @@ L'URI della firma di accesso condiviso risultante per il nuovo contenitore dovre
 
 La firma di accesso condiviso creata con questo esempio è valida per un giorno. La firma concede l'accesso completo (vale a dire di lettura, scrittura, eliminazione ed elenco) ai BLOB all'interno del contenitore.
 
-Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 
 ## Avviare e inizializzare l'emulatore di archiviazione
@@ -133,7 +135,7 @@ A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
 
-> [AZURE.NOTE] Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere [Libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+> [AZURE.NOTE] Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere [Libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 ## Riferimenti dello strumento da riga di comando emulatore di archiviazione
 
@@ -203,7 +205,13 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ## Note sulla versione dell'emulatore di archiviazione
 
+### Versione 4.5
+
+- Ha risolto un bug che causava il blocco dell'inizializzazione e dell'installazione dell'emulatore di archiviazione quando il database di backup veniva rinominato.
+
 ### Versione 4.4
+
+- L'emulatore di archiviazione supporta ora la versione 2015-12-11 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle.
 
 - L'operazione di Garbage Collection dell'emulatore di archiviazione dei dati BLOB è ora più efficiente quando si lavora con un numero elevato di BLOB.
 
@@ -247,4 +255,4 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 - La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

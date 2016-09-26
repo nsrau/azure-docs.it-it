@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -294,4 +294,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
         }
     }
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

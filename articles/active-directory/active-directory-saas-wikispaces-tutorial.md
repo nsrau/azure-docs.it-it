@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Wikispaces
@@ -98,7 +98,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
   
 Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario eseguirne il provisioning in Wikispaces. Nel caso di Wikispaces, il provisioning è un'attività manuale.
 
-###Per eseguire il provisioning di un account utente, seguire questa procedura:
+###Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 
 1.  Accedere al sito aziendale di **Wikispaces** come amministratore.
 
@@ -115,7 +115,7 @@ Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario e
     ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
 
     1.  Nelle apposite caselle di testo immettere i valori di **Usernames o Email Address** di un account Azure AD valido di cui si vuole eseguire il provisioning.
-    2.  Fare clic su **Send**.  
+    2.  Fare clic su **Send**.
 
         >[AZURE.NOTE] Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
@@ -123,7 +123,7 @@ Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario e
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario assegnare l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentire l'uso dell'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Wikispaces, seguire questa procedura:
 
@@ -139,4 +139,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

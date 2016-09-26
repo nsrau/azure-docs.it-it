@@ -4,7 +4,7 @@
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -90,7 +90,7 @@ WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà
 
 Per creare un Archivio Data Lake, seguire questa procedura.
 
-1. Sul desktop aprire una nuova finestra di Azure PowerShell e immettere il frammento di codice seguente. Quando viene richiesto di eseguire l'accesso, assicurarsi di accedere come amministratore/proprietario della sottoscrizione:
+1. Sul desktop aprire una nuova finestra di Azure PowerShell e immettere il frammento di codice seguente. Quando viene richiesto di effettuare l'accesso, assicurarsi di accedere come amministratore/proprietario della sottoscrizione:
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -135,7 +135,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 
 ## Configurare l'autenticazione per l'accesso basato sui ruoli all'Archivio Data Lake
 
-Ogni sottoscrizione Azure è associata a un'istanza di Azure Active Directory. Gli utenti e i servizi che accedono alle risorse della sottoscrizione tramite il portale di Azure classico o l'API di Gestione risorse di Azure devono prima autenticarsi con Azure Active Directory. L'accesso viene concesso alle sottoscrizioni e ai servizi di Azure mediante l'assegnazione del ruolo appropriato in una risorsa di Azure. Per i servizi, un'entità servizio identifica il servizio in Azure Active Directory (AAD). Questa sezione illustra come concedere a un servizio dell'applicazione, ad esempio HDInsight, l'accesso a una risorsa di Azure, ovvero l'account Archivio Azure Data Lake creato in precedenza, mediante la creazione di un'entità servizio per l'applicazione e l'assegnazione di ruoli a tale entità con Azure PowerShell.
+Ogni sottoscrizione di Azure è associata a una Azure Active Directory. Gli utenti e i servizi che accedono alle risorse della sottoscrizione tramite il portale di Azure classico o l'API di Azure Resource Manager devono prima autenticarsi con Azure Active Directory. L'accesso viene concesso alle sottoscrizioni e ai servizi di Azure tramite l'assegnazione del ruolo appropriato in una risorsa di Azure. Per i servizi, un'entità servizio identifica il servizio in Azure Active Directory (AAD). Questa sezione illustra come concedere a un servizio dell'applicazione, ad esempio HDInsight, l'accesso a una risorsa di Azure, ovvero l'account Archivio Azure Data Lake creato in precedenza, mediante la creazione di un'entità servizio per l'applicazione e l'assegnazione di ruoli a tale entità con Azure PowerShell.
 
 Per configurare l'autenticazione di Active Directory per Azure Data Lake, è necessario eseguire queste attività.
 
@@ -384,4 +384,4 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

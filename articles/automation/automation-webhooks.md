@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Webhook di Automazione di Azure
@@ -27,7 +27,7 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 
 | Proprietà | Descrizione |
 |:---|:---|
-|Name | È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Viene usato solo per consentire all'utente di identificare il Runbook in Automazione di Azure. <br> Come procedura consigliata, è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
+|Nome | È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client. Viene usato solo per consentire all'utente di identificare il Runbook in Automazione di Azure. <br> Come procedura consigliata, è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
 |URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il Runbook collegato al webhook. Viene generato automaticamente al momento della creazione del webhook. Non è possibile specificare un URL personalizzato. <br> <br> L'URL contiene un token di sicurezza che consente al Runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password. Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure al momento della creazione del webhook. È consigliabile prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
 |Expiration date | Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato. La data di scadenza non può essere modificata dopo la creazione del webhook e il webhook non può essere abilitato di nuovo dopo la data di scadenza. In questo caso, è necessario creare un altro webhhok per sostituire quello corrente e aggiornare il client per l'uso del nuovo webhook. |
 | Enabled | Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato. Se viene impostato su Disabled, nessun client sarà in grado di usarlo. È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
@@ -84,7 +84,7 @@ Un'altra strategia consiste nel fare in modo che il Runbook esegua la convalida 
 
 Seguire questa procedura per creare un nuovo webhook collegato a un Runbook nel portale di Azure.
 
-1. Nel pannello **Runbook** nel portale di Azure fare clic sul Runbook che verrà avviato dal webhook per visualizzare il pannello dei dettagli. 
+1. Nel pannello **Runbook** nel portale di Azure fare clic sul Runbook che verrà avviato dal webhook per visualizzare il pannello dei dettagli.
 3. Fare clic su **Webhook** nella parte superiore del pannello per aprire il pannello **Add Webhook**. <br> ![Pulsante Webhooks](media/automation-webhooks/webhooks-button.png)
 4. Fare clic su **Create new webhook** per aprire il pannello **Create webhook**.
 5. Specificare un valore per **Name** ed **Expiration Date** per il webhook e indicare se deve essere abilitato. Per altre informazioni su queste proprietà, vedere [Informazioni dettagliate sui webhook](#details-of-a-webhook).
@@ -272,4 +272,4 @@ Il seguente runbook di esempio viene attivato quando la regola dell'avviso diven
 - Per informazioni sulla visualizzazione dello stato di un processo del runbook, vedere [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)
 - Per informazioni su come usare Automazione di Azure per agire sugli avvisi di Azure, vedere [Soluzione di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure](automation-azure-vm-alert-integration.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -85,7 +85,7 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 			![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Aggiungere entità servizio a cluster HDInsight")
 
 
-	* **Scegliere un'entità servizio esistente**.
+	* **Scegliere un'entità servizio esistente.**
 
 		* Nel pannello **Identità AAD cluster** fare clic su **Usa esistente**, su **Entità servizio** e quindi nel pannello **Selezione entità servizio** cercare un'entità servizio esistente. Fare clic sul nome di un'entità servizio e quindi fare clic su **Seleziona**.
 
@@ -361,4 +361,4 @@ Con i cluster HBase, è possibile usare Archivio Data Lake come archivio predefi
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

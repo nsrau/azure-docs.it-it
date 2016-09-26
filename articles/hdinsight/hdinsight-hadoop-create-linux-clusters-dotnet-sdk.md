@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -394,4 +394,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 - [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

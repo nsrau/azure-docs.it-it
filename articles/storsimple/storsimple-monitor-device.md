@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple 
 
-## Panoramica
+## Overview
 
 È possibile utilizzare il servizio StorSimple Manager per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, utilizzo della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo.
 
-Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure classico, selezionare il servizio StorSimple Manager, fare clic sulla scheda**Monitor** e quindi selezionare dall'elenco dei dispositivi. La pagina **Monitor** contiene le informazioni seguenti:
+Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure classico, selezionare il servizio StorSimple Manager. Fare clic sulla scheda**Monitor** e quindi selezionare dall'elenco dei dispositivi. La pagina **Monitor** contiene le informazioni seguenti:
 
 ## Prestazione I/O 
 
@@ -31,7 +31,7 @@ Il grafico seguente mostra le operazioni di I/O dall'iniziatore al dispositivo p
 
 ![Prestazioni dei / o dall'iniziatore a dispositivo](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
-Per lo stesso dispositivo vengono tracciate le operazioni di I/O per i dati dal dispositivo al cloud per tutti i contenitori del volume. Su questo dispositivo, i dati solo nel livello lineare e non sono stati inseriti vuoti nel cloud. Non sono presenti operazioni di lettura / scrittura che si verificano dal dispositivo al cloud. Di conseguenza, i picchi nel grafico sono a intervalli di 5 minuti che corrisponde alla frequenza con cui viene controllato l'heartbeat tra il dispositivo e il servizio.
+Per lo stesso dispositivo vengono tracciate le operazioni di I/O per i dati dal dispositivo al cloud per tutti i contenitori del volume. Su questo dispositivo, i dati solo nel livello lineare e non sono stati inseriti vuoti nel cloud. Non sono presenti operazioni di lettura / scrittura che si verificano dal dispositivo al cloud. Perciò i picchi nel grafico sono a intervalli di 5 minuti che corrisponde alla frequenza con cui viene controllato l'heartbeat tra il dispositivo e il servizio.
 
 ![Prestazioni dei / o dal dispositivo al cloud](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
@@ -46,7 +46,7 @@ Per lo stesso dispositivo, è stato creato uno snapshot cloud per i dati di volu
 **Utilizzo della capacità**tiene traccia delle metriche correlate alla quantità di spazio di archiviazione di dati utilizzato da volumi, contenitori del volume o dispositivo. È possibile creare report basati sull'utilizzo della capacità dell'archiviazione primaria, dell'archiviazione cloud o dell'archiviazione del dispositivo. L’utilizzo della capacità può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume.
 
 
-Il filegroup primario, cloud e dispositivi archiviazione capacità può essere descritta come segue:
+La capacità primaria, del cloud e del dispositivo possono essere descritte come segue:
 
 ###Utilizzo della capacità di archiviazione primaria
  
@@ -54,7 +54,7 @@ Questi grafici mostrano la quantità di dati scritti in volumi StorSimple prima 
 
 Quando si visualizzano i grafici di utilizzo della capacità del volume dell’archiviazione primaria per tutti i volumi e dei singoli volumi e si riepilogano i dati primari in entrambi i casi, può esserci una mancata corrispondenza tra i due numeri. I dati primari totali in tutti i volumi possono non aggiungere la somma totale dei dati primari dei singoli volumi. Questo può essere dovuto a uno dei seguenti motivi:
 
-- **Dati dello snapshot inclusi per tutti i volumi**: I dati primari visualizzati per tutti i volumi sono la somma dei dati primari per ogni volume e i dati dello snapshot. I dati primari visualizzati per un determinato volume corrisponde alla sola quantità di dati allocati sul volume (e non include i dati dello snapshot del volume corrispondente).
+- **Dati dello snapshot inclusi per tutti i volumi**: questo comportamento si verifica solo se si esegue una versione precedente all'aggiornamento 3. I dati primari visualizzati per tutti i volumi sono la somma dei dati primari per ogni volume e i dati dello snapshot. I dati primari visualizzati per un determinato volume corrisponde alla sola quantità di dati allocati sul volume (e non include i dati dello snapshot del volume corrispondente).
 
 	Questo può essere spiegato dall'equazione seguente:
 
@@ -63,6 +63,12 @@ Quando si visualizzano i grafici di utilizzo della capacità del volume dell’a
 	*dove, Dati primari (volume i) = dimensioni dei dati primari allocati al volume i*
  
 	Se gli snapshot vengono eliminati tramite il servizio, l'eliminazione viene eseguita in modo asincrono in background. L’aggiornamento della dimensione del volume dei dati in seguito all'eliminazione dello snapshot potrebbe richiedere del tempo.
+
+    Se si esegue l'aggiornamento 3 o versioni successive, i dati dello snapshot non sono inclusi nei dati di volume. E l'utilizzo primario viene calcolato come segue:
+
+    *Dati primari (tutti i volumi) = Somma (dati primari (volume i)
+    
+    *dove, Dati primari (volume i) = dimensioni dei dati primari allocati al volume i*
  
 - **Volumi con monitoraggio disabilitato incluso in tutti i volumi**: se si dispone di volumi nel dispositivo per i quali il monitoraggio è disattivato, i dati di monitoraggio per i singoli volumi non saranno disponibili nei grafici. Tuttavia, i dati per tutti i volumi nel grafico includeranno i volumi per i quali il monitoraggio è disattivato.
  
@@ -70,7 +76,7 @@ Quando si visualizzano i grafici di utilizzo della capacità del volume dell’a
 
 - **Volumi eliminati inclusi per tutti i volumi**: In alcuni casi, potrebbero essere presenti volumi precedenti anche se questi sono stati eliminati. L'effetto di eliminazione non viene visualizzato e il dispositivo potrebbe mostrare minore capacità disponibile. È necessario contattare il supporto Microsoft per rimuovere tali volumi.
 
-I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria di un dispositivo StorSimple prima e dopo che è stato creato uno snapshot cloud. Dato che si tratta solo i dati del volume, uno snapshot cloud non deve modificare l'archiviazione primaria. Come si può notare, il grafico non mostra alcuna differenza nell'utilizzo capacità primario a seguito del completamento di uno snapshot nel cloud. Si noti che lo snapshot cloud avviato in circa 2:00 del dispositivo.
+I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria di un dispositivo StorSimple prima e dopo che è stato creato uno snapshot cloud. Dato che si tratta solo dei dati del volume, uno snapshot cloud non deve modificare l'archiviazione primaria. Come si può notare, il grafico non mostra alcuna differenza nell'utilizzo capacità primario a seguito del completamento di uno snapshot nel cloud. Lo snapshot cloud è stato avviato all'incirca alle 14:00 in quel dispositivo.
 
 ![Utilizzo della capacità primario prima snapshot cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
@@ -107,7 +113,7 @@ I grafici seguenti mostrano l'utilizzo della capacità di archiviazione primaria
 
 **Velocità effettiva della rete**tiene traccia delle metriche correlate alla quantità di dati trasferiti dalle interfacce di rete dell'iniziatore iSCSI nel server host e nel dispositivo e tra il dispositivo e il cloud. È possibile monitorare la metrica per ognuna delle interfacce di rete iSCSI sul dispositivo.
 
-Grafici riportati di seguito mostrano la velocità effettiva della rete per Data 0 e 4 di dati, entrambe le interfacce di rete 1 GbE sul dispositivo. In questo caso, dati 0 è stato abilitato al cloud mentre 4 dati è stata abilitate per iSCSI. È possibile visualizzare in ingresso sia il traffico in uscita per il dispositivo StorSimple. Si noti che la linea retta nel grafico a partire dal 3:24 pm è dovuti al fatto che abbiamo raccogliere dati di ogni 5 minuti e deve essere ignorati.
+I grafici riportati di seguito mostrano la velocità effettiva della rete per Data 0 e Data 4, entrambe interfacce di rete a 1 GbE sul dispositivo. In questo caso, dati 0 è stato abilitato al cloud mentre 4 dati è stata abilitate per iSCSI. È possibile visualizzare in ingresso sia il traffico in uscita per il dispositivo StorSimple. La linea retta nel grafico a partire dalle 15:24 è dovuta al fatto che raccogliamo i dati solo ogni 5 minuti e deve essere ignorata.
 
 ![Velocità effettiva della rete per Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
 
@@ -116,7 +122,7 @@ Grafici riportati di seguito mostrano la velocità effettiva della rete per Data
 
 ## Prestazioni del dispositivo 
 
-**Prestazioni del dispositivo**tiene traccia delle metriche relative alle prestazioni del dispositivo. Il grafico mostra le statistiche di utilizzo della CPU per un dispositivo nell'ambiente di produzione.
+**Prestazioni del dispositivo**tiene traccia delle metriche relative alle prestazioni del dispositivo. Il grafico seguente mostra le statistiche di utilizzo della CPU per un dispositivo nell'ambiente di produzione.
 
 ![Utilizzo della CPU per dispositivo](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
 
@@ -124,6 +130,6 @@ Grafici riportati di seguito mostrano la velocità effettiva della rete per Data
 
 - Imparare a [utilizzare il dashboard del dispositivo del servizio StorSimple Manager](storsimple-device-dashboard.md).
 
-- Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

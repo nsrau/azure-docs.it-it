@@ -1,10 +1,10 @@
 <properties
    pageTitle="Analizzare i log dei siti Web con Analisi Azure Data Lake | Azure"
-   description="Informazioni su come analizzare i log dei siti Web con Analisi Azure Data Lake."
+   description="Informazioni su come analizzare i log dei siti Web con Analisi Azure Data Lake. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -44,7 +44,7 @@ Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in par
 
     Per eseguire un processo di Analisi Data Lake, sanno necessari alcuni dati. Anche se Data Lake Tools supporta il caricamento di dati, si userà il portale per caricare i dati di esempio e seguire più facilmente questa esercitazione.
 
-## Connettersi ad Azure
+## Connect to Azure
 
 Prima di poter compilare e testare qualsiasi script U-SQL, è necessario connettersi ad Azure.
 
@@ -202,4 +202,4 @@ Per vedere altri argomenti relativi allo sviluppo:
 - [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 - [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

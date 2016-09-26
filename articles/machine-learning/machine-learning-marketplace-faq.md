@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bharaths" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="09/11/2016" 
 	ms.author="bharaths"/>
 
 #Domande frequenti sulla pubblicazione e sull'uso delle app di Machine Learning in Azure Marketplace
@@ -77,4 +77,4 @@ Per altre informazioni, contattare il team di Azure Marketplace in <datamarketbd
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

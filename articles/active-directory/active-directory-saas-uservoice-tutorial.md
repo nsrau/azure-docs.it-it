@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con UserVoice
@@ -66,7 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per User
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a UserVoice tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per UserVoice richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a UserVoice tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per UserVoice richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -90,7 +90,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 6.  Sulla barra degli strumenti in alto fare clic su Settings, quindi selezionare Web portal dal menu.
 
-    ![Impostazioni](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![Impostazioni](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Impostazioni")
 
 7.  Nella sezione **User authentication** della scheda **Web portal** fare clic su **Edit** per aprire la finestra di dialogo **Edit User Authentication**.
 
@@ -103,9 +103,9 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     1.  Fare clic su **Single Sign-On (SSO)**.
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in UserVoice** del portale di Azure classico copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **SSO Remote Sign-In**.
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in UserVoice** del portale di Azure classico copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **SSO Remote Sign-In**.
-    4.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato SHA1 corrente**.  
+    4.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato SHA1 corrente**.
 
-        >[AZURE.TIP] Per informazioni dettagliate, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
 
     5.  Fare clic su **Salva le impostazioni di autenticazione**.
 
@@ -117,13 +117,13 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
   
 Per consentire agli utenti di Azure AD di accedere a UserVoice, è necessario eseguirne il provisioning in UserVoice. Nel caso di UserVoice, il provisioning è un'attività manuale.
 
-###Per eseguire il provisioning di un account utente, seguire questa procedura:
+###Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
 
 1.  Accedere al tenant di **UserVoice**.
 
 2.  Passare a **Impostazioni**.
 
-    ![Impostazioni](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![Impostazioni](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Impostazioni")
 
 3.  Fare clic su **Generale**.
 
@@ -146,7 +146,7 @@ Per consentire agli utenti di Azure AD di accedere a UserVoice, è necessario es
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario assegnare l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentire l'uso dell'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a UserVoice, seguire questa procedura:
 
@@ -162,4 +162,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

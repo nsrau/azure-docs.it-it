@@ -15,22 +15,68 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/09/2016"
 	ms.author="genli"/>
 
 # Non è possibile accedere per gestire la sottoscrizione di Azure
 
-> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per ottenere una rapida risoluzione del problema.
+Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di accesso.
 
-Questo articolo consentirà di risolvere alcune cause comuni dei problemi di accesso.
+> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-## A quale portale si sta tentando di accedere?
+## Portali di Azure
 
-Un amministratore account può accedere al [Centro Account](https://account.windowsazure.com/) solo se gli amministratori del servizio (SA) e i coamministratori (CA) hanno accesso solo al [portale di Azure](https://portal.azure.com) o al [portale di Azure classico](https://manage.windowsazure.com/).
+| Nome | Descrizione | URL |
+|---|---|---|
+| Portale di Azure |Una posizione centrale in cui è possibile effettuare il provisioning delle risorse di Azure e gestirle | [https://portal.azure.com](https://portal.azure.com) |
+| Portale di Azure classico | Il portale di Azure precedente |[https://manage.windowsazure.com](https://manage.windowsazure.com) |
+| Centro account di Azure | Una posizione centrale in cui è possibile tenere traccia dell'utilizzo di Azure e gestire la sottoscrizione |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions) ||
 
-Per altre informazioni sui ruoli di amministratore di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md).
+## Sintomo: la pagina resta in stato di caricamento
 
-## La sottoscrizione è associata a un account Microsoft o a un account aziendale?
+Questo può essere causato da un problema del browser Internet.
+
+Per risolvere il problema, provare i metodi seguenti, nell'ordine indicato. Al termine di ciascun metodo, provare a riconnettersi alla pagina di accesso nel portale.
+
+-	Aggiornare la pagina.
+-	Utilizzare un altro browser Internet.
+-	Se si utilizza Microsoft Internet Explorer, accedere al portale di Azure con la modalità InPrivate Browsing. A questo scopo, seguire questa procedura:
+
+	A. Fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sicurezza** > **InPrivate Browsing**.
+
+	B. Andare al [portale di Azure](https://portal.azure.com) o al [portale di Azure classico](https://manage.windowsazure.com), quindi effettuare l'accesso al portale.
+
+## Sintomo: messaggio di errore "Nessuna sottoscrizione trovata"
+
+Questo problema può verificarsi se l'account non ha diritti utente sufficienti. Un amministratore account può accedere al [Centro Account](https://account.windowsazure.com/) solo se gli amministratori del servizio (SA) e i co-amministratori (CA) hanno accesso solo al [portale di Azure](https://portal.azure.com) o al [portale di Azure classico](https://manage.windowsazure.com/).
+
+**Scenario 1: il messaggio di errore appare nel portale di Azure o nel portale di Azure classico**
+
+Per risolvere il problema, [aggiungere il ruolo di co-amministratore o proprietario](billing-add-change-azure-subscription-administrator.md) dell'account.
+
+**Scenario 2: il messaggio di errore appare nel centro Account di Azure**
+
+Controllare se l'account utilizzato è l'amministratore account. Per verificare chi è l'amministratore dell'account, attenersi alla procedura seguente:
+
+1.	Accedere al [portale di Azure](https://portal.azure.com).
+2.	Nel menu Hub, selezionare **Sottoscrizione**.
+3.	Scegliere la sottoscrizione da controllare, quindi selezionare **Impostazioni**.
+4.	Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account**.
+
+## Sintomo: è stato eseguito l'accesso automatico come un altro utente
+
+Questo problema può verificarsi se si utilizza più di un account utente in un browser Internet.
+
+Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
+
+- Disconnettersi dal portale e accedere nuovamente con l'account che si desidera utilizzare.
+-	Svuotare la cache ed eliminare i cookie di Internet. Per farlo in Internet Explorer, fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opzioni Internet** > **Elimina**, verificare di aver selezionato siano le caselle di controllo per file temporanei, cookie, password e cronologia esplorazioni, quindi fare clic su Elimina.
+
+-	Riconfigurare le impostazioni di Internet Explorer per ripristinare le impostazioni personali definite. A tale scopo, fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Opzioni Internet** > **Avanzate** > selezionare la casella di controllo **Elimina impostazioni personali** > **Ripristina**.
+
+-	Accedere al portale di Azure in modalità InPrivate Browsing. Per farlo, fare clic su **Strumenti** ![pulsante strumenti](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Sicurezza** > **InPrivate Browsing**.
+
+## Account Microsoft vs account dell'organizzazione
 
 L’account Microsoft è l'indirizzo di posta elettronica che si utilizza, insieme alla password, per accedere a qualsiasi programma o servizio Windows Live, ad esempio Outlook, Hotmail, MSN o OneDrive. È possibile impostare un account Microsoft usando qualsiasi indirizzo di posta elettronica appartenente all’utente, compresa la posta elettronica aziendale. Vedere [www.microsoft.com/account](http://www.microsoft.com/account) per ulteriori dettagli.
 
@@ -38,22 +84,6 @@ Se l'account è associato a un account aziendale, selezionare l'opzione di acces
 
 ![pagina di accesso](./media/billing-cannot-login-subscription/signin.png)
 
-## Co-amministratore: si sta utilizzando il tipo di account corretto per gestire altri account?
+> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-- Se si è connessi con un account Microsoft, è possibile aggiungere solo altri account Microsoft come co-amministratori. Si tratta di una richiesta di sicurezza per impedire che account non dell'organizzazione scoprano se determinati account, (ad esempio janedoe@contoso.com), sono account validi.
-- Se si è connessi con un account dell'organizzazione, è possibile aggiungere altri account dell'organizzazione nell'organizzazione come co-amministratori. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio o co-amministratore, ma non può aggiungere john@notcontoso.com. Gli utenti connessi con account aziendali possono anche aggiungere utenti di account Microsoft come amministratori del servizio o co-amministratori.
-
-Ora che è possibile accedere ad Azure con un account aziendale, ecco le modifiche ai requisiti di account di amministratore del servizio (SA) e di co-amministratore (CA):
-
-| Metodo di accesso| Aggiungere un account Microsoft come co-amministratore o amministratore del servizio? |Aggiungere un account dell'organizzazione nella stessa organizzazione come co-amministratore o amministratore del servizio? |Aggiungere un account dell'organizzazione in un'altra organizzazione come co-amministratore o amministratore del servizio?
-| ------------- | ------------- |---------------|---------------|
-|Account Microsoft |Sì|No|No|
-|Account dell'organizzazione|Sì|Sì|No|
-
-## Si è verificato un problema con il browser?
-
-Provare a eliminare cache/cookie, usare la modalità InPrivate Browsing di Internet Explorer e usare anche un browser diverso.
-
-> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) per ottenere una rapida risoluzione del problema.
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

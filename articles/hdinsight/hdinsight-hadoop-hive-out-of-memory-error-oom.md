@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="rashimg"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -122,4 +122,4 @@ In base a queste impostazioni, la query è stata eseguita in meno di dieci minut
 
 Un errore di memoria insufficiente non indica necessariamente che le dimensioni del contenitore sono troppo piccole. Al contrario, è necessario configurare le impostazioni della memoria in modo che le dimensioni dell'heap aumentino e raggiungano almeno l'80% delle dimensioni della memoria del contenitore.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

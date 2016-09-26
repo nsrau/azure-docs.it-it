@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -29,9 +29,9 @@ Questo **menu** si collega ad argomenti che descrivono come inserire dati in amb
 ## Prerequisiti
 Questo articolo presuppone che l'utente abbia:
  
-* Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage). 
+* Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage).
 * Eseguito il provisioning di un cluster Hadoop personalizzato con il servizio HDInsight. Per istruzioni, vedere [Personalizzazione di cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md).
-* Abilitato l'accesso remoto al cluster, eseguito l'accesso e aperto la console della riga di comando di Hadoop. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
+* Abilitato l'accesso remoto al cluster, eseguito l'accesso e aperto la console della riga di comando di Hadoop. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
 ## Caricare dati nell'archivio BLOB di Azure
 Se si crea una macchina virtuale di Azure seguendo le istruzioni fornite nell'articolo [Configurare una macchina virtuale di Azure per l'analisi avanzata](machine-learning-data-science-setup-virtual-machine.md), questo file di script deve essere scaricato nella directory *C:\\Users<nome utente>\\Documents\\Data Science Scripts* della macchina virtuale. Affinché le query Hive siano pronte per l'invio, è necessario solo collegare il proprio schema dei dati e la configurazione dell'archiviazione BLOB di Azure ai campi appropriati.
@@ -154,12 +154,12 @@ Di seguito è presentata la query Hive che crea una tabella Hive.
 
 Di seguito sono presentate le descrizioni dei campi che gli utenti devono collegare e altre configurazioni:
 
-- **&#60;database name>**: nome del database che gli utenti desiderano creare. Se gli utenti desiderano usare solo il database predefinito, la query di *creazione del database* può essere omessa. 
+- **&#60;database name>**: nome del database che gli utenti desiderano creare. Se gli utenti desiderano usare solo il database predefinito, la query di *creazione del database* può essere omessa.
 - **&#60;table name>**: nome della tabella che gli utenti desiderano creare nel database specificato. Se gli utenti desiderano usare il database predefinito, è possibile fare direttamente riferimento alla tabella da *&#60;table name>* senza &#60;database name>.
-- **&#60;field separator>**: separatore che delimita i campi nel file di dati da caricare nella tabella Hive. 
-- **&#60;line separator>**: separatore che delimita le righe nel file di dati. 
-- **&#60;storage location>**: percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se gli utenti non specificano un *PERCORSO &#60;storage location>*, il database e le tabelle vengono archiviate per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se un utente vuole specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato *'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, verranno create le relative directory nel contenitore predefinito. 
-- **TBLPROPERTIES("skip.header.line.count"="1")**: se il file di dati presenta una riga di intestazione, gli utenti devono aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query. 
+- **&#60;field separator>**: separatore che delimita i campi nel file di dati da caricare nella tabella Hive.
+- **&#60;line separator>**: separatore che delimita le righe nel file di dati.
+- **&#60;storage location>**: percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se gli utenti non specificano un *PERCORSO &#60;storage location>*, il database e le tabelle vengono archiviate per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se un utente vuole specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato *'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, verranno create le relative directory nel contenitore predefinito.
+- **TBLPROPERTIES("skip.header.line.count"="1")**: se il file di dati presenta una riga di intestazione, gli utenti devono aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query.
 
 ## <a name="load-data"></a>Caricare dati nelle tabelle Hive
 Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
@@ -245,4 +245,4 @@ Gli utenti non possono caricare direttamente i dati del BLOB nelle tabelle Hive 
 
 Al termine della procedura, si disporrà di una tabella con i dati nel formato ORC pronta per l'uso.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

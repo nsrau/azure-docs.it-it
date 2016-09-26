@@ -4,7 +4,7 @@ description="Informazioni su come esportare i log di Application Insight nell'ar
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -362,4 +362,4 @@ Per informazioni sulla creazione e l'esecuzione delle applicazioni Spark, vedere
 
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

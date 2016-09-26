@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2016"
+	ms.date="09/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -144,7 +144,7 @@ L'applicazione Optimizely si aspetta che le asserzioni SAML contengano un attrib
 
 	b. Nella casella di testo **Identificatore** digitare `urn:auth0:optimizely:contoso`.
 
-	c. Fare clic su **Avanti**.
+	c. Fare clic su **Next**.
 
 
 	> [AZURE.NOTE] I valori di **URL di accesso** e **Identificatore** sono solo segnaposti dei valori effettivi. È possibile trovare istruzioni per l'acquisizione dei valori effettivi da Optimizely più avanti in questa esercitazione.
@@ -180,7 +180,7 @@ L'applicazione Optimizely si aspetta che le asserzioni SAML contengano un attrib
 
     a. Selezionare la conferma della configurazione dell'accesso Single Sign-On.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 11. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
   	
@@ -208,7 +208,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, selezionare **Utenti** dal menu in alto.
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 	
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_03.png)
 
@@ -216,7 +216,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_04.png)
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
  
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png)
 
@@ -224,9 +224,9 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png)
 
@@ -293,7 +293,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 1. Nell'elenco Tutti gli utenti selezionare **Britta Simon**.
 
-2. Fare clic su **Assegna** nella barra degli strumenti in basso.
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
 	![Assegna utente][205]
 
@@ -332,4 +332,4 @@ Quando si fa clic sul riquadro Optimizely nel pannello di accesso, si dovrebbe a
 [204]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

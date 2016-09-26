@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -77,7 +77,7 @@ I parametri nella sintassi sono descritti di seguito:
 	
 	>[AZURE.NOTE] La sintassi precedente specifica il file da copiare in una cartella dell'account Data Lake Store. Se il nome della cartella specificato non esiste, lo strumento AdlCopy crea una cartella.
 
-	Verrà richiesto di immettere le credenziali per la sottoscrizione di Azure in cui si trova l'account di Archivio Data Lake. L'output visualizzato sarà simile al seguente:
+	Verrà richiesto di immettere le credenziali per la sottoscrizione di Azure in cui si trova l'account Azure Data Lake Store. L'output visualizzato sarà simile al seguente:
 
 		Initializing Copy.
 		Copy Started.
@@ -109,7 +109,7 @@ I parametri nella sintassi sono descritti di seguito:
 
 	>[AZURE.NOTE] La sintassi precedente specifica il file da copiare in una cartella dell'account Data Lake Store di destinazione. Se il nome della cartella specificato non esiste, lo strumento AdlCopy crea una cartella.
 
-	Verrà richiesto di immettere le credenziali per la sottoscrizione di Azure in cui si trova l'account di Archivio Data Lake. L'output visualizzato sarà simile al seguente:
+	Verrà richiesto di immettere le credenziali per la sottoscrizione di Azure in cui si trova l'account Azure Data Lake Store. L'output visualizzato sarà simile al seguente:
 
 		Initializing Copy.
 		Copy Started.|
@@ -173,4 +173,4 @@ Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nel
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

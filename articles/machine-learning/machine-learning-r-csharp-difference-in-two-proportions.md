@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="aniedea" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -86,7 +86,7 @@ Sono disponibili molte opzioni per l'uso del servizio in modalità automatica. P
 In Azure Machine Learning, è stato creato un nuovo esperimento vuoto con due moduli [Execute R Script][execute-r-script]. Lo schema di dati nel primo modulo è definito, mentre il secondo modulo usa il comando prop.test in R per eseguire la verifica dell'ipotesi per due proporzioni.
 
 
-###Flusso dell'esperimento:
+###Flusso dell'esperimento
 
 ![Flusso dell'esperimento][2]
 
@@ -130,4 +130,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

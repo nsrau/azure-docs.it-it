@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -245,7 +245,7 @@ Prima di caricare il file di dati e i file script HiveQL, vedere l'[Appendice B]
 
 **Per scaricare i dati relativi ai voli**
 
-1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
+1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] \(RITA).
 2. Selezionare i valori seguenti nella pagina:
 
 	<table border="1">
@@ -742,4 +742,4 @@ Per un elenco completo di comandi di HiveQL, vedere la pagina relativa al [lingu
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

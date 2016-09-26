@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio | Azure" 
-   description="Informazioni su come installare Strumenti di Data Lake per Visual Studio e come sviluppare e testare script U-SQL." 
+   description="Informazioni su come installare Strumenti di Data Lake per Visual Studio e come sviluppare e testare script U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -56,7 +56,7 @@ Alcuni concetti e parole chiave ricavati dallo script:
 - **Variabili del set di righe**: ad ogni espressione di query che produce un set di righe può essere assegnata una variabile. U-SQL segue il modello di denominazione delle variabili T-SQL; ad esempio, **@searchlog** nello script. L'assegnazione, tuttavia, non impone l'esecuzione, ma attribuisce un nome all'espressione e offre la possibilità di sviluppare espressioni più complesse.
 - **EXTRACT** offre la possibilità di definire uno schema in fase di lettura. Lo schema viene specificato da un nome di colonna e da una coppia tipo-nome in C# per ogni colonna. Per estrarre file con estensione tsv, usa un cosiddetto **estrattore**; ad esempio, **Extractors.Tsv()** nello script. È possibile sviluppare estrattori personalizzati.
 - **OUTPUT** accede a un set di righe e lo serializza. Outputters.Csv() genera quindi un file separato da virgole nel percorso specificato. È possibile sviluppare anche outputter personalizzati.
-- Sebbene i due percorsi siano relativi, è possibile usare anche percorsi assoluti. Ad esempio 
+- Sebbene i due percorsi siano relativi, è possibile usare anche percorsi assoluti. Ad esempio
     
         adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
@@ -393,7 +393,7 @@ Lo script di trasformazione usato in precedenza viene modificato in modo da legg
 Non è attualmente possibile eseguire un'istruzione SELECT in una tabella presente nello stesso script in cui è stata creata la tabella.
 
 
-##Conclusioni
+##Conclusione
 
 Gli argomenti coperti in questa esercitazione costituiscono solo una piccola parte delle potenzialità di U-SQL. A causa dell'ambito in cui si svolge questa esercitazione, non è possibile trattare tutti gli elementi, ad esempio:
 
@@ -402,7 +402,7 @@ Gli argomenti coperti in questa esercitazione costituiscono solo una piccola par
 - Sviluppare in C# operatori definiti dall'utente, ad esempio estrattori, outputter, processori e aggregatori definiti dall'utente.
 - Usare le funzioni di windowing di U-SQL.
 - Gestire il codice U-SQL con visualizzazioni, funzioni con valori di tabella e stored procedure.
-- Eseguire codice personalizzato arbitrario sui propri nodi di elaborazione. 
+- Eseguire codice personalizzato arbitrario sui propri nodi di elaborazione.
 - Connettersi a database SQL di Azure e attuare federazioni di query al loro interno, nonché in U-SQL e nei dati di Azure Data Lake.
 
 ## Vedere anche 
@@ -419,4 +419,4 @@ Gli argomenti coperti in questa esercitazione costituiscono solo una piccola par
 - [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 - [Fornire feedback su U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Integrazione del controllo del codice sorgente in Automazione di Azure | Microsoft Azure"
+    pageTitle=" Integrazione del controllo del codice sorgente in Automazione di Azure | Microsoft Azure"
     description="Questo articolo descrive l'integrazione del controllo del codice sorgente con GitHub in Automazione di Azure."
     services="automation"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="05/23/2016"
+    ms.date="09/12/2016"
     ms.author="magoedte;sngun" />
 
 # Integrazione del controllo del codice sorgente in Automazione di Azure
@@ -25,7 +25,7 @@ Il controllo del codice sorgente consente di effettuare il push del codice da Au
 >[AZURE.NOTE] Il controllo del codice sorgente supporta il pull e il push di [Runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e [Runbook di PowerShell](automation-runbook-types.md#powershell-runbooks). I [Runbook grafici](automation-runbook-types.md#graphical-runbooks) non sono ancora supportati.<br><br>
 
 
-Per configurare il controllo del codice sorgente per l'account di automazione sono richiesti due semplici passaggi e solo uno se si ha già un account GitHub. Sono:
+Per configurare il controllo del codice sorgente per l'account di automazione sono richiesti due semplici passaggi e solo uno se si ha già un account GitHub. Vale a dire:
 ## Passaggio 1: Creare un repository GitHub
 
 Se si ha già un account GitHub e un repository che si vuole collegare ad Automazione di Azure, accedere con l'account esistente e iniziare dal passaggio 2 seguente. In caso contrario, passare a [GitHub](https://github.com/), iscriversi per ottenere un nuovo account e [creare un nuovo repository](https://help.github.com/articles/create-a-repo/).
@@ -33,7 +33,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
 
 ## Passaggio 2 - Configurazione del controllo del codice sorgente in Automazione di Azure
 
-1. Nel pannello Account di automazione del portale di Azure fare clic su **Impostare il controllo codice sorgente.** 
+1. Nel pannello Account di automazione del portale di Azure fare clic su **Impostare il controllo codice sorgente.**
  
     ![Impostare il controllo codice sorgente](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
@@ -42,7 +42,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
     |**Parametro** |**Descrizione** |
     |:---|:---| 
     |Scegliere l'origine | Selezione l'origine. Attualmente è supportato solo **GitHub**. |
-    |Authorization | Fare clic sul pulsante **Autorizza** per concedere ad Automazione di Azure l'accesso al repository GitHub. Se si è già connessi con l'account GitHub in una finestra diversa, verranno usate le credenziali di quell'account. Una volta configurata l'autorizzazione, nel pannello sarà visualizzato il nome utente di GitHub in **Proprietà autorizzazione**. |
+    |Autorizzazione | Fare clic sul pulsante **Autorizza** per concedere ad Automazione di Azure l'accesso al repository GitHub. Se si è già connessi con l'account GitHub in una finestra diversa, verranno usate le credenziali di quell'account. Una volta configurata l'autorizzazione, nel pannello sarà visualizzato il nome utente di GitHub in **Proprietà autorizzazione**. |
     |Scegliere un archivio | Selezionare un repository GitHub dall'elenco dei repository disponibili. |
     |Scegliere il ramo | Selezionare un ramo dall'elenco di rami disponibili. Se non sono stati creati rami, sarà visualizzato solo il ramo **master**. |
     |Percorso della cartella runbook | Il percorso della cartella runbook specifica il percorso del repository GitHub nel quale si vuole effettuare il push o il pull del codice. Deve essere immesso nel formato **/nomecartella/nomesottocartella**. Solo i runbook nel percorso della cartella runbook saranno sincronizzati con l'account di Automazione. I runbook nelle sottocartelle del percorso della cartella runbook **NON** saranno sincronizzati. Usare **/** per sincronizzare tutti i runbook disponibili nel repository. |
@@ -66,7 +66,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
 
 6. Dopo aver configurato il controllo del codice sorgente, nell'account di automazione verranno create le risorse di automazione seguenti: due [asset di tipo variabile](automation-variables.md).
       
-    * La variabile **Microsoft.Azure.Automation.SourceControl.Connection** contiene i valori della stringa di connessione, come illustrato di seguito.  
+    * La variabile **Microsoft.Azure.Automation.SourceControl.Connection** contiene i valori della stringa di connessione, come illustrato di seguito.
 
     |**Parametro** |**Valore** |
     |:---|:---|
@@ -75,7 +75,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
     | Valore | {"Branch":<*Nome del ramo*>,"RunbookFolderPath":<*Percorso della cartella runbook*>,"ProviderType":<*ha un valore 1 per GitHub*>,"Repository":<*Nome del repository*>,"Username":<*Nome utente di GitHub*>} | <br>
 
 
-    * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken** contiene il valore sicuro crittografato di OAuthToken.  
+    * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken** contiene il valore sicuro crittografato di OAuthToken.
 
     |**Parametro** |**Valore** |
     |:---|:---|
@@ -85,7 +85,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
 
     ![Variabili](media/automation-source-control-integration/automation_04_Variables.png)
 
-    * All'account GitHub viene aggiunta **Controllo del codice sorgente di automazione** come applicazione autorizzata. Per visualizzare l'applicazione: dalla home page di GitHub passare al proprio **profilo** > **Settings** > **Applications**. Questa applicazione consente ad Automazione di Azure di sincronizzare il repository GitHub con un account di automazione.  
+    * All'account GitHub viene aggiunta **Controllo del codice sorgente di automazione** come applicazione autorizzata. Per visualizzare l'applicazione: dalla home page di GitHub passare al proprio **profilo** > **Settings** > **Applications**. Questa applicazione consente ad Automazione di Azure di sincronizzare il repository GitHub con un account di automazione.
 
     ![Applicazione Git](media/automation-source-control-integration/automation_05_GitApplication.png)
 
@@ -97,7 +97,7 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
 
 L'archiviazione del runbook consente di effettuare il push delle modifiche apportate a un runbook in Automazione di Azure nel repository di controllo del codice sorgente. Ecco la procedura per archiviare un runbook:
 
-1. Dall'account di automazione [creare un nuovo runbook testuale](automation-first-runbook-textual.md) o [modificare un runbook testuale esistente](automation-edit-textual-runbook.md). Il runbook può essere un flusso di lavoro PowerShell o un runbook di script PowerShell.  
+1. Dall'account di automazione [creare un nuovo runbook testuale](automation-first-runbook-textual.md) o [modificare un runbook testuale esistente](automation-edit-textual-runbook.md). Il runbook può essere un flusso di lavoro PowerShell o un runbook di script PowerShell.
 
 2. Dopo aver modificato il runbook, salvarlo e fare clic su **Archivia** nel pannello **Modifica**.
 
@@ -128,7 +128,7 @@ L'archiviazione del runbook consente di effettuare il push delle modifiche appor
 
 Il pulsante di sincronizzazione nel pannello di sincronizzazione del repository consente di effettuare il pull di tutti i runbook nel percorso della cartella runbook del repository all'account di automazione. Lo stesso repository può essere sincronizzato con più account di automazione. Ecco la procedura per sincronizzare un runbook:
 
-1. Nell'account di automazione dove è stato configurato il controllo del codice sorgente aprire il pannello **Integrazione del controllo del codice sorgente/Sincronizzazione repository** e fare clic su **Sincronizza**. Verrà visualizzato un messaggio, fare clic su **Sì** per continuare.  
+1. Nell'account di automazione dove è stato configurato il controllo del codice sorgente aprire il pannello **Integrazione del controllo del codice sorgente/Sincronizzazione repository** e fare clic su **Sincronizza**. Verrà visualizzato un messaggio, fare clic su **Sì** per continuare.
 
     ![Pulsante Sincronizza](media/automation-source-control-integration/automation_10_SyncButtonwithMessage.png)
 
@@ -157,8 +157,8 @@ Per disconnettersi dall'account GitHub, aprire il pannello di sincronizzazione d
 ## Passaggi successivi
 
 Per altre informazioni sull'integrazione del controllo del codice sorgente, vedere le risorse seguenti:
-- [Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-- [Scelta del sistema di controllo del codice sorgente preferito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
-- [Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook usando Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+- [Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/)
+- [Scelta del sistema di controllo del codice sorgente preferito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)
+- [Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook usando Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

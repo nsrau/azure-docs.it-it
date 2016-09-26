@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -105,4 +105,4 @@ La tabella seguente chiarisce la differenza tra amministratore di una sottoscriz
 [Machine Learning Studio]: https://studio.azureml.net/
 [portale di Microsoft Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

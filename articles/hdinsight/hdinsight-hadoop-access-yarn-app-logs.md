@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 
 # Accesso ai log applicazioni YARN in HDInsight basato su Windows
 
-Questo argomento illustra come accedere ai log applicazioni YARN (Yet Another Resource Negotiator) completati in un cluster Hadoop in Azure HDInsight.
+Questo argomento illustra come accedere ai log applicazioni YARN (Yet Another Resource Negotiator) completati in un cluster Hadoop in Azure HDInsight
 
 > [AZURE.NOTE] Le informazioni contenute in questo documento si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sull'accesso ai log YARN in cluster HDInsight basati su Linux, vedere [Accedere ai log delle applicazioni YARN su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
@@ -84,4 +84,4 @@ L'interfaccia utente di YARN ResourceManager viene eseguita sul nodo head del cl
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

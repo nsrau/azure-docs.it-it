@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ThousandEyes
@@ -78,7 +78,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a ThousandEyes**, digitare l’URL che gli utenti cercano di utilizzare per accedere all’applicazione ThousandEyes (ad esempio: "*https://app.thousandeyes.com/login/sso*"), quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso a ThousandEyes** nella pagina **Configura URL app** digitare l'URL che gli utenti cercano di usare per accedere all'applicazione ThousandEyes, ad esempio: "*https://app.thousandeyes.com/login/sso*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configura URL app")
 
@@ -123,7 +123,7 @@ Per consentire agli utenti di Azure AD di accedere a ThousandEyes, è necessario
 
 1.  Accedere al sito aziendale di ThousandEyes come amministratore.
 
-2.  Fare clic su **Settings**.
+2.  Fare clic su **Impostazioni**.
 
     ![Impostazioni](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Impostazioni")
 
@@ -148,7 +148,7 @@ Per consentire agli utenti di Azure AD di accedere a ThousandEyes, è necessario
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a ThousandEyes, eseguire la procedura seguente:
 
@@ -164,4 +164,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

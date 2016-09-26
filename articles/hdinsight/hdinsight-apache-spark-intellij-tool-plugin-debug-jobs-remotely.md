@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="09/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -43,6 +43,8 @@ Questo articolo offre indicazioni dettagliate su come usare gli strumenti HDInsi
 * IntelliJ IDEA. In questo articolo viene usata la versione 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
  
 * Strumenti HDInsight nel Toolkit di Azure per IntelliJ. Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit per IntelliJ. Per istruzioni su come installare Azure Toolkit, vedere [Installazione di Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
+
+* Accedere alla propria sottoscrizione di Azure da IntelliJ IDEA. Seguire le istruzioni riportate [qui](hdinsight-apache-spark-intellij-tool-plugin.md#log-into-your-azure-subscription).
  
 * Quando si esegue l'applicazione Spark in Scala per il debug remoto in un computer Windows, potrebbe essere restituita un'eccezione, come illustrato in [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356), causata da un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\\WinUtils\\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP\_HOME** e impostare il valore della variabile su **C\\WinUtils**.
 
@@ -104,18 +106,18 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 	![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 	* Selezionare **HDInsight** nel riquadro sinistro.
-	* Selezionare **Spark on HDInsight (Scala)** (Spark in HDInsight (Scala)) nel riquadro destro.
+	* Selezionare **Spark on HDInsight (Scala)** (Spark in HDInsight - Scala) nel riquadro destro.
 	* Fare clic su **Avanti**.
 
 2. Nella finestra successiva specificare i dettagli del progetto.
 
 	* Specificare un nome per il progetto e il relativo percorso.
 	* In **Project SDK** (SDK progetto) assicurarsi di specificare una versione di Java superiore alla 7.
-	* In **Scala SDK** (SDK Scala) fare clic su **Create** (Crea) e quindi su **Download** e infine selezionare la versione di Scala da usare. **Assicurarsi di non usare la versione 2.11.x**. In questo esempio viene usata la versione **2.10.6**.
+	* In **Scala SDK** (SDK Scala) fare clic su **Create** (Crea), quindi su **Download** e infine selezionare la versione di Scala da usare. **Assicurarsi di non usare la versione 2.11.x**. In questo esempio viene usata la versione **2.10.6**.
 
 		![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-version.png)
 
-	* Per **Spark SDK** (SDK Spark) scaricare e usare l'SDK da [qui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). È anche possibile ignorare questo passaggio e usare il [repository Maven per Spark](http://mvnrepository.com/search?q=spark), verificando tuttavia di aver installato il repository Maven corretto per sviluppare le applicazioni Spark. Ad esempio, è necessario verificare di aver installato la parte Spark Streaming, se si usa Spark Streaming e di usare il repository contrassegnato come Scala 2.10. Non usare il repository Scala 2.11.
+	* Per **Spark SDK** (SDK Spark) scaricare e usare l'SDK da [qui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). È anche possibile ignorare questo passaggio e usare invece il [repository Maven per Spark](http://mvnrepository.com/search?q=spark), verificando tuttavia di aver installato il repository Maven corretto per sviluppare le applicazioni Spark. Ad esempio, è necessario verificare di aver installato la parte Spark Streaming, se si usa Spark Streaming e di usare il repository contrassegnato come Scala 2.10. Non usare il repository Scala 2.11.
 
 		![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
 
@@ -130,7 +132,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 	È anche possibile creare un elemento personalizzato facendo clic sull'icona **+** evidenziata nell'immagine precedente.
 
-4. Nella finestra di dialogo **Project Structure** (Struttura progetto) fare clic su **Progetto**. Se **Project SDK** (SDK progetto) è impostato su 1.8, verificare che **Project language level** (Livello del linguaggio di progetto) sia impostato su **7 - Diamonds, ARM, multi-catch, etc** (7 - Diamonds, ARM, multi-catch e così via).
+4. Nella finestra di dialogo **Project Structure** (Struttura progetto) fare clic su **Project** (Progetto). Se **Project SDK** (SDK progetto) è impostato su 1.8, verificare che **Project language level** (Livello del linguaggio di progetto) sia impostato su **7 - Diamonds, ARM, multi-catch, etc** (7 - Diamonds, ARM, multi-catch e così via).
 
 	![Impostazione del livello del linguaggio di progetto](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
 
@@ -330,7 +332,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 * [Usare gli strumenti HDInsight nel Toolkit di Azure per IntelliJ per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md) (Usare gli strumenti HDInsight nel Toolkit di Azure per Eclipse per creare applicazioni Spark)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications (Usare gli strumenti HDInsight nel Toolkit di Azure per Eclipse per creare applicazioni Spark)](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -346,4 +348,4 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

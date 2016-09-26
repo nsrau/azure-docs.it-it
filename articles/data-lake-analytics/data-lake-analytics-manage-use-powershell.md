@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Gestire Azure Data Lake Analytics tramite Azure PowerShell | Azure" 
-   description="Informazioni su come gestire processi, origini dati e utenti di Data Lake Analytics." 
+   description="Informazioni su come gestire processi, origini dati e utenti di Data Lake Analytics. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -392,4 +392,4 @@ Il seguente modello ARM può essere usato per distribuire un account di Data Lak
 	  }
 	}
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

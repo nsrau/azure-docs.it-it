@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -66,9 +66,9 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
 
 [GroupLens Research][movielens] fornisce i dati di classificazione dei film in un formato compatibile con Mahout. Questi dati sono disponibili nello spazio di archiviazione predefinito del cluster in `/HdiSamples/MahoutMovieData`.
 
-Sono disponibili due file: `moviedb.txt`, contenente informazioni sui film, e `user-ratings.txt`. Il file user-ratings.txt viene usato durante l'analisi, mentre moviedb.txt viene usato per offrire informazioni di testo descrittivo quando si visualizzano i risultati dell'analisi.
+Sono disponibili due file, `moviedb.txt` (informazioni sui film) e `user-ratings.txt`. Il file user-ratings.txt viene usato durante l'analisi, mentre moviedb.txt viene usato per offrire informazioni di testo descrittivo quando si visualizzano i risultati dell'analisi.
 
-I dati contenuti nel file user-ratings.txt presentano una struttura `userID`, `movieID`, `userRating` e `timestamp`, che indica come è stato giudicato il film da ogni utente. Di seguito è riportato un esempio dei dati:
+I dati contenuti in user-ratings.txt presentano una struttura `userID`, `movieID`, `userRating` e `timestamp` che indica come ogni utente ha classificato un film. Di seguito è riportato un esempio dei dati:
 
 
     196	242	3	881250949
@@ -362,7 +362,7 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 
 3. Dopo la connessione usare l'icona della __riga di comando di Hadoop__ per visualizzare la riga di comando.
 
-	![hadoop cli][hadoopcli]
+	![Riga di comando di Hadoop][hadoopcli]
 
 3. Eseguire il comando seguente per generare il descrittore di file (__KDDTrain+.info__) che usa Mahout.
 
@@ -406,7 +406,7 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Il processo genera inoltre un file in \_\_wasbs:///example/data/predictions/KDDTest+.arff.out__ in un formato non leggibile dagli utenti.
+  Il processo genera inoltre un file in __wasb:///example/data/predictions/KDDTest+.arff.out__ in un formato non leggibile dagli utenti.
 
 > [AZURE.NOTE] I processi Mahout non sovrascrivono i file. Per eseguire di nuovo questi processi, è necessario eliminare prima i file creati dai processi precedenti.
 
@@ -524,4 +524,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

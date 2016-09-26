@@ -23,7 +23,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative alla fa
 
 > [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-## Account Administration
+## Amministrazione account
 
 - [Come si gestiscono gli account amministratore nel nuovo portale di Azure?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [È possibile inviare le notifiche a un indirizzo di posta elettronica da quello del proprietario dell'account associato all'account?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
@@ -53,7 +53,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative alla fa
 - [È possibile usare licenze di Windows esistenti acquistate all'esterno di Azure?](#can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure)
 - [Chi può acquistare i servizi di Azure?](#who-can-purchase-azure-services)
 
-## Pagamenti
+## Eseguire pagamenti
 
 - [Quali sono le opzioni di pagamento disponibili per l'acquisto di Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
 - [Come si può richiedere il metodo di pagamento con fattura?](#how-can-i-request-the-invoice-method-of-payment)
@@ -61,6 +61,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative alla fa
 - [Come si rimuove una carta di credito che non si usa più come metodo di pagamento di Azure?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
 - [Come si aggiornano o si modificano le informazioni relative alla carta di credito?](#how-can-i-update-or-change-my-credit-card-information)
 - [Come si modificano le informazioni sul pagamento per le sottoscrizioni di Azure?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+- [Perché viene visualizzato un messaggio indicante che è necessario usare una carta di credito internazionale?](#why-am-i-seeing-a-message-that-i-need-to-use-an-international-credit-card)
 
 ## Prezzi di Azure
 
@@ -74,7 +75,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative alla fa
 - [Quali sono i crediti del contratto di servizio di Azure?](#what-are-the-azure-sla-credits)
 - [Come si integrano i contratti di servizio di Azure con gli attuali contratti di licenza Microsoft per soluzioni locali?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-## Limiti di spesa di Azure
+## Limiti di spesa
 
 - [Si può riattivare il limite di spesa dopo che è stato disattivato?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [Si può modificare l'importo del limite di spesa?](#can-i-adjust-the-amount-of-the-spending-limit)
@@ -251,6 +252,10 @@ Per altre informazioni, vedere l'articolo [Come modificare la carta di credito u
 
 >[AZURE.NOTE] Attualmente, lo strumento Modifica il metodo di pagamento non consente di rimuovere una carta di credito esistente come metodo di pagamento. Per informazioni su come rimuovere una carta di credito, vedere la domanda [Come si rimuove una carta di credito che non si usa più come metodo di pagamento di Azure?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method) in questo articolo.
 
+### Perché viene visualizzato un messaggio indicante che è necessario usare una carta di credito internazionale?
+
+In alcuni casi, anche se si sta effettuando il pagamento per i servizi Azure nella valuta locale/preferita, l'acquisto avviene tramite un'entità Microsoft non locale e la carta di credito viene elaborata da una banca non locale. In questi casi, le carte rilasciate da banche locali potrebbero generare un errore e compromettere i servizi di Azure. Per verificare se la carta di credito è abilitata per le transazioni internazionali, contattare l'autorità emittente della carta o la banca. Vedere l'[elenco relativo ai paesi e alle valute supportati](billing-countries-and-currencies.md).
+
 ### Perché non è possibile modificare o aggiungere dettagli alla sottoscrizione?
 
 Per visualizzare e modificare le informazioni dell'account Azure, è necessario accedere al Centro account di Azure come amministratore account. Se si è l'amministratore account, ma non è comunque possibile modificare la sottoscrizione, inviare un ticket di supporto per richiedere assistenza. Per creare un ticket di supporto, vedere [Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure](billing-how-to-create-billing-support-ticket.md).
@@ -321,4 +326,4 @@ Se il metodo di pagamento è impostato su carta di credito o carta di debito, il
 
 Se è stata configurata una [modalità di pagamento con fattura](https://azure.microsoft.com/pricing/invoicing/), inviare il pagamento al destinatario indicato nella parte inferiore della fattura. Per altre informazioni, [contattare il supporto tecnico](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

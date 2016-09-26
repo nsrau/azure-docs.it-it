@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Gestire l'accesso in lettura anonimo a contenitori e BLOB
 
-## Panoramica
+## Overview
 
 Per impostazione predefinita, solo il proprietario dell'account di archiviazione può accedere alle risorse relative all’account. Solo per l'archiviazione BLOB, è possibile impostare le autorizzazioni di un contenitore per consentire l'accesso in lettura anonimo al contenitore e ai relativi BLOB, in modo che sia possibile concedere l'accesso a tali risorse senza condividere la chiave dell'account.
 
-L'accesso anonimo è ideale per scenari in cui si desidera che alcuni BLOB siano sempre disponibili per l'accesso in lettura anonimo. Per un controllo più capillare, è possibile creare una firma di accesso condiviso, che consente l'accesso delegato limitato con autorizzazioni diverse e per un intervallo di tempo specificato. Per altre informazioni sulla creazione di firme di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+L'accesso anonimo è ideale per scenari in cui si desidera che alcuni BLOB siano sempre disponibili per l'accesso in lettura anonimo. Per un controllo più capillare, è possibile creare una firma di accesso condiviso, che consente l'accesso delegato limitato con autorizzazioni diverse e per un intervallo di tempo specificato. Per altre informazioni sulla creazione di firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB
 
@@ -152,7 +152,7 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 ## Vedere anche
 
 - [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-- [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+- [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
+- [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

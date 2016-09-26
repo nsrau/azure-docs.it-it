@@ -18,10 +18,12 @@
 
 # Uso dell'estensione di VM Docker per distribuire l'ambiente
 
+> [AZURE.NOTE] Se si ha un po' di tempo, fornire il proprio feedback per aiutarci a migliorare la documentazione sulle VM Linux di Azure eseguendo questo [sondaggio rapido](https://aka.ms/linuxdocsurvey) sulle propria esperienza. Ogni risposta è utile.
+
 Docker è una nota piattaforma di creazione dell'immagine e gestione di contenitori che consente di lavorare rapidamente con contenitori in Linux (e anche Windows). Con Azure, è possibile distribuire Docker in alcuni modi diversi a seconda delle esigenze:
 
 - Per creare rapidamente il prototipo di un'app, è possibile [Usare Docker Machine con il driver di Azure](./virtual-machines-linux-docker-machine.md) per distribuire host Docker in Azure.
-- L'estensione della VM Docker per le macchine virtuali di Azure è usata per le distribuzioni conformi al modello di base. Questo approccio può integrarsi con distribuzioni del modello di Azure Resource Manager e include tutti i vantaggi correlati, ad esempio accesso di base di ruolo, diagnostica e configurazione post-distribuzione.
+- L'estensione della VM Docker per le macchine virtuali di Azure è usata per le distribuzioni conformi al modello di base. Questo approccio può integrarsi con distribuzioni del modello di Azure Resource Manager e include tutti i vantaggi correlati, ad esempio accesso in base al ruolo, diagnostica e configurazione post-distribuzione.
 - L'estensione della VM Docker supporta anche Docker Compose. Docker Compose usa un file YAML dichiarativo per eseguire un'applicazione modellata dallo sviluppatore in qualsiasi ambiente e generare una distribuzione coerente.
 - È anche possibile [distribuire un cluster Docker Swarm completo in servizi contenitore di Azure](../container-service/container-service-deployment.md) per distribuzioni scalabili, pronte per l'ambiente di produzione, che usano gli strumenti di pianificazione e gestione aggiuntivi offerti da Swarm.
 
@@ -31,7 +33,7 @@ Questo articolo illustra l'uso di modelli di Resource Manager per distribuire l'
 
 L'estensione della VM Docker per Azure installa e configura il daemon Docker, il client Docker e Docker Compose nella macchina virtuale Linux. L'estensione viene anche usata per definire e distribuire applicazioni contenitore con Docker Compose. Dal momento che prevede controlli aggiuntivi rispetto all'uso di Docker Machine o alla creazione manuale dell'host Docker, è ideale per ambienti di sviluppo o produzione più affidabili.
 
-Tramite Azure Resource Manager, è possibile creare e distribuire modelli che definiscono l'intera struttura dell'ambiente. I modelli consentono di definire gli host Docker, l'archiviazione, il controllo degli accessi basato sui ruoli, la diagnostica e così via. Per comprendere meglio alcuni dei vantaggi, è possibile [leggere altre informazioni su Resource Manager](../resource-group-overview.md) e sui modelli. Utilizzando i modelli di Resource Manager, sarà anche possibile riprodurre le distribuzioni in base alle esigenze future.
+Tramite Azure Resource Manager, è possibile creare e distribuire modelli che definiscono l'intera struttura dell'ambiente. I modelli consentono di definire gli host Docker, l'archiviazione, il controllo degli accessi basato su ruoli, la diagnostica e così via. Per comprendere meglio alcuni dei vantaggi, è possibile [leggere altre informazioni su Resource Manager](../resource-group-overview.md) e sui modelli. Utilizzando i modelli di Resource Manager, sarà anche possibile riprodurre le distribuzioni in base alle esigenze future.
 
 ## Distribuire un modello con l'estensione di VM Docker:
 
@@ -138,4 +140,4 @@ Leggere passaggi più dettagliati per le diverse opzioni di distribuzione:
 3. [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Distribuire un cluster del servizio contenitore di Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

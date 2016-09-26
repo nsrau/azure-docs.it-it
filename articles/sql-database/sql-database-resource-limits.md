@@ -20,7 +20,7 @@
 
 # Limiti delle risorse del database SQL di Azure
 
-## Panoramica
+## Overview
 
 Il database SQL di Azure gestisce le risorse disponibili per un database usando due meccanismi diversi: la **governance delle risorse** e l'**imposizione di limiti**. Questo argomento illustra queste due aree principali relative alla gestione delle risorse.
 
@@ -45,11 +45,17 @@ Ad esempio, il numero di connessioni a un database SQL e il numero di richieste 
 
 ## Livelli di servizio e livelli di prestazioni
 
-Per un singolo database, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni.. La tabella seguente descrive le caratteristiche dei database Basic, Standard e Premium a diversi livelli di prestazioni.
+Sono disponibili livelli di servizio e livelli di prestazioni sia per i database autonomi che per i pool elastici.
 
-[AZURE.INCLUDE [Tabella dei livelli di servizio del database SQL](../../includes/sql-database-service-tiers-table.md)]
+### Database autonomi
 
-I [Pool di database elastici](sql-database-elastic-pool.md) condividono le risorse tra i database nel pool. La tabella seguente descrive le caratteristiche dei pool di database elastici Basic, Standard e Premium.
+Per un database autonomo, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni. La tabella seguente descrive le caratteristiche dei database Basic, Standard e Premium a diversi livelli di prestazioni.
+
+[AZURE.INCLUDE [Tabella livelli di servizio database SQL](../../includes/sql-database-service-tiers-table.md)]
+
+### Pool elastici
+
+I [pool elastici](sql-database-elastic-pool.md) condividono le risorse tra i database del pool. La tabella seguente descrive le caratteristiche dei pool di database elastici Basic, Standard e Premium.
 
 [AZURE.INCLUDE [Tabella livelli di servizio di database SQL per database elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -59,7 +65,7 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 
 | Area | Limite | Descrizione |
 |---|---|---|
-| Database che utilizzano l’esportazione automatizzata per ogni sottoscrizione | 10 | L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. Per ulteriori informazioni, vedere [Database SQL: supporto per le esportazioni automatizzate di Database SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Database che usano l'esportazione automatizzata per ogni sottoscrizione | 10 | L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. Per ulteriori informazioni, vedere [Database SQL: supporto per le esportazioni automatizzate di Database SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 | Database per server | Fino a 5000 | Nei server V12 sono permessi fino a 5000 database per server. |  
 | DTU per server | 45000 | Nei server V12 sono disponibili 45000 DTU per server per il provisioning di database, pool elastici e data warehouse. |
 
@@ -73,4 +79,4 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 
 [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

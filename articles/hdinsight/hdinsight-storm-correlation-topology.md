@@ -4,7 +4,7 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
  tags="azure-portal"/>
 
@@ -204,4 +204,4 @@ Quando si è pronti per arrestare la topologia, tornare al progetto **Correlatio
 Per altri esempi di Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

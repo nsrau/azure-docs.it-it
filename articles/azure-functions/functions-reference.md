@@ -78,21 +78,19 @@ L'editor funzioni incorporato nel portale di Azure consente di aggiornare il fil
 
 Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di distribuzione disponibili per le app Web standard](../app-service-web/web-sites-deploy.md) sono disponibili anche per le app per le funzioni. Ecco alcuni metodi per caricare o aggiornare file delle app per le funzioni.
 
-#### Per usare Visual Studio Online (Monaco)
+#### Per usare l'editor del servizio app
 
 1. Nel portale Funzioni di Azure fare clic su **Impostazioni dell'app per le funzioni**.
 
 2. Nella sezione **Impostazioni avanzate** fare clic su **Passa a Impostazioni del servizio app**.
 
-3. Fare clic su **Strumenti**.
+3. Fare clic su **Editor del servizio app** nel menu di navigazione dell'applicazione in **Strumenti di sviluppo**.
 
-4. In **Sviluppo** fare clic su **Visual Studio Online**.
+4.  Fare clic su **Vai**.
 
-5. Fare clic su **Sì** se l'opzione non è già abilitata, quindi su **Vai**.
+	Dopo il caricamento dell'editor del servizio app, il file *host.json* e le cartelle delle funzioni vengono visualizzati in *wwwroot*.
 
-	Dopo il caricamento di Visual Studio Online, il file *host.json* e le cartelle delle funzioni vengono visualizzati in *wwwroot*.
-
-6. Aprire i file per modificarli oppure selezionare e trascinare i file dal computer di sviluppo per caricarli.
+5. Aprire i file per modificarli oppure selezionare e trascinare i file dal computer di sviluppo per caricarli.
 
 #### Per usare l'endpoint SCM (Kudu) dell'app per le funzioni
 
@@ -151,4 +149,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 * [Post sull'evoluzione di Funzioni di Azure](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) nel blog del team del Servizio app di Azure. Storia dello sviluppo di Funzioni di Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Workday
@@ -23,7 +23,7 @@ Questa esercitazione descrive l'integrazione di Azure e Workday. Per lo scenario
   
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
-1.  Abilitazione dell'integrazione dell'applicazione Workday
+1.  Abilitazione dell'integrazione dell'applicazione per Workday
 2.  Configurazione dell'accesso Single Sign-On
 3.  Configurazione del provisioning utente
 4.  Configurazione del provisioning utente
@@ -104,7 +104,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Redirection URLs](./media/active-directory-saas-workday-tutorial/IC7829581.png "Redirection URLs")
 
-	a. Fare clic su **Add Row**.
+	a. Fare clic su **Aggiungi riga**.
 
 	b. Nelle caselle di testo **URL di reindirizzamento dell'accesso** e **URL di reindirizzamento dispositivi mobili** digitare il valore **URL del Tenant di Workday** immesso nella pagina **Configura URL app** del portale di Azure classico.
     
@@ -124,7 +124,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 	a. Selezionare **Enable SAML authentication**.
 
-	b. Fare clic su **Add Row**.
+	b. Fare clic su **Aggiungi riga**.
 
 11. Nella sezione SAML Identity Providers seguire questa procedura:
 
@@ -162,7 +162,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 	d. Creare un file **con codifica Base 64** dal certificato scaricato.
 
-	>[AZURE.TIP] Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+	>[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
 	e. Aprire il certificato con codifica Base 64 nel Blocco note e quindi copiarne il contenuto.
     
@@ -208,7 +208,7 @@ Per eseguire il provisioning di un utente test in Workday, è necessario contatt
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario assegnare l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentire l'uso dell'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Workday, seguire questa procedura:
 
@@ -224,4 +224,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -37,7 +37,7 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 ## <a name="prereqs"></a>Prerequisiti
 Questa procedura descritta di seguito richiede di disporre di:
 
-* Un **sottoscrizione di Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, la [Guida introduttiva al database SQL di Microsoft Azure](../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
@@ -60,7 +60,7 @@ I passaggi per la procedura utilizzando l’inserimento di massa query SQL sono 
 
 Se i dati di origine vengono archiviati in un Server SQL locale, esistono varie possibilità per lo spostamento di dati in un database SQL Azure:
 
-1. [Esportazione in un file flat](#export-flat-file) 
+1. [Esportazione in un file flat](#export-flat-file)
 2. [Migrazione guidata database SQL](#insert-tables-bcp)
 3. [Backup e ripristino database](#db-migration)
 4. [Data factory di Azure](#adf)
@@ -81,8 +81,8 @@ I passaggi per l'utilizzo del backup e ripristino del database sono simili a que
 
 ###<a name="adf"></a>Data Factory di Azure
 
-La procedura per lo spostamento dei dati a un database Azure SQL con Azure Data Factory (ADF) viene fornita nell'argomento [Spostare i dati da un Server SQL locale a SQL Azure con Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). Questo argomento illustra come spostare i dati da un database di Server SQL locale a un database SQL di Azure tramite l'archiviazione BLOB di Azure utilizzando ADF.
+La procedura per lo spostamento dei dati a un database Azure SQL con Azure Data Factory (ADF) viene fornita nell'argomento [Spostare i dati da un Server SQL locale a SQL Azure con Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). Questo argomento illustra come spostare i dati da un database di Server SQL locale a un database SQL di Azure tramite l'archiviazione BLOB di Azure usando ADF.
 
 È consigliabile utilizzare ADF quando i dati devono essere migrati continuamente in uno scenario ibrido che accede a risorse locali e cloud e quando i dati sono transazionali o devono essere modificati o avere una logica di business aggiunta durante la migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

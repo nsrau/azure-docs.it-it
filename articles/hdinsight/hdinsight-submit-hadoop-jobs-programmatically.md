@@ -2,7 +2,7 @@
 	pageTitle="Inviare processi Hadoop in HDInsight | Microsoft Azure"
 	description="Informazioni su come inviare processi Hadoop ad Azure HDInsight Hadoop."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Inviare processi Hadoop in HDInsight
@@ -26,4 +26,4 @@ Vedere:
 - [Usare Sqoop in HDInsight](hdinsight-use-sqoop.md)
 - [Usare Oozie in HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

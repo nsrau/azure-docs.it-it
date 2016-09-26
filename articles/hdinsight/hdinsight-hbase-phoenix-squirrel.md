@@ -4,7 +4,7 @@
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -308,4 +308,4 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight. Per alt
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

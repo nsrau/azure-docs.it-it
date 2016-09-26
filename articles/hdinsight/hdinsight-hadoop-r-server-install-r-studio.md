@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -126,4 +126,4 @@ In alternativa è possibile digitare `source(testhdi.r)` o `source(testhdi_spark
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

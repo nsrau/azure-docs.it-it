@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con SumoLogic
@@ -140,7 +140,7 @@ Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario es
 
 4.  Nella finestra di dialogo **New User**, eseguire la procedura seguente:
 
-    ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-sumologic-tutorial/IC778563.png "New User")
 
     1.  Digitare le informazioni correlate dell’account Azure AD di cui si desidera effettuare il provisioning nelle caselle di testo **Nome**, **Cognome** ed **E-mail**.
     2.  Selezionare un ruolo.
@@ -151,7 +151,7 @@ Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario es
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a SumoLogic, eseguire la procedura seguente:
 
@@ -167,4 +167,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

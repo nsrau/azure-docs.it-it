@@ -12,16 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/11/2016" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
 
 *Application Insights è disponibile in anteprima.*
 
-Inserire alcune righe di codice nell'applicazione per scoprire come viene usato dagli utenti o per agevolare la diagnosi dei problemi. È possibile inviare i dati di telemetria dalle app desktop e per dispositivi, dai client Web e dai server Web.
-
-Gli agenti di raccolta dati di Application Insights usano questa API per inviare dati di telemetria standard come visualizzazioni pagina e report di eccezioni, ma è possibile usarli anche per inviare i propri dati di telemetria personalizzati.
+Inserire alcune righe di codice nell'applicazione per scoprire come viene usato dagli utenti o per agevolare la diagnosi dei problemi. È possibile inviare i dati di telemetria dalle app desktop e per dispositivi, dai client Web e dai server Web. L'API di telemetria principale di [Visual Studio Application Insights](app-insights-overview.md) consente di inviare metriche ed eventi personalizzati e le versioni personalizzate dei dati di telemetria standard. Questa API è la stessa usata per gli agenti di raccolta dati di Application Insights standard.
 
 ## Riepilogo dell'API
 
@@ -103,7 +101,8 @@ Ad esempio, in un'app di gioco è possibile inviare un evento ogni volta che un 
 
     telemetry.trackEvent("WinGame");
 
-In questo caso, "WinGame" è il nome visualizzato nel portale di Application Insights.
+
+### Visualizzare gli eventi nel portale di Azure
 
 Per visualizzare un conteggio degli eventi, aprire un pannello [Esplora metriche](app-insights-metrics-explorer.md), aggiungere un nuovo grafico e selezionare gli eventi.
 
@@ -243,6 +242,36 @@ Questo metodo viene usato dall'SDK del server per registrare le richieste HTTP.
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
+
+
+## Contesto dell'operazione
+
+Gli elementi di telemetria possono essere associati tra loro mediante il collegamento di un ID operazione comune. Il modulo di rilevamento delle richieste standard esegue questa operazione per le eccezioni e gli altri eventi inviati durante l'elaborazione di una richiesta HTTP. In [Ricerca](app-insights-diagnostic-search.md) e [Analisi](app-insights-analytics.md) è possibile usare l'ID per trovare facilmente gli eventi associati alla richiesta.
+
+Il modo più semplice per impostare l'ID è selezionare un contesto dell'operazione mediante questo modello:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+Oltre a impostare un contesto dell'operazione, `StartOperation` crea un elemento di telemetria del tipo specificato e lo invia quando l'operazione viene eliminata o se si chiama in modo esplicito `StopOperation`. Se si usa `RequestTelemetry` come tipo di telemetria, la durata viene impostata sull'intervallo di tempo compreso tra l'avvio e l'arresto.
+
+I contesti dell’operazione non possono essere annidati. Se è già presente un contesto dell'operazione, il suo ID corrispondente viene associato a tutti gli elementi contenuti, compreso l'elemento creato con StartOperation.
+
+In Ricerca il contesto dell'operazione viene usato per creare l'elenco di elementi correlati:
+
+![Elementi correlati](./media/app-insights-api-custom-events-metrics/21.png)
 
 
 ## Tenere traccia di un'eccezione
@@ -517,32 +546,6 @@ Se si preferisce, è possibile raccogliere i parametri di un evento in un oggett
 
 > [AZURE.WARNING] Non riusare la stessa istanza dell'elemento di telemetria, `event` in questo esempio, per chiamare Track*() più volte. Potrebbe causare l'invio della telemetria con una configurazione errata.
 
-## Contesto dell'operazione
-
-Quando l'app Web riceve una richiesta HTTP, il modulo di rilevamento delle richieste di Application Insights assegna un ID alla richiesta e imposta lo stesso valore come ID operazione corrente. L'ID operazione viene cancellato quando viene inviata la risposta alla richiesta. Alle chiamate di rilevamento effettuate durante l'operazione viene assegnato lo stesso ID operazione (a condizione che utilizzino il valore predefinito TelemetryContext). Ciò consente di correlare gli eventi relativi a una particolare richiesta quando si esegue la verifica nel portale.
-
-![Elementi correlati](./media/app-insights-api-custom-events-metrics/21.png)
-
-Se si esegue il monitoraggio degli eventi non associati a una richiesta HTTP, o se non si utilizza il modulo di rilevamento delle richieste (ad esempio, se si sta monitorando un processo back-end) è possibile configurare il contesto dell'operazione utilizzando questo modello:
-
-    // Establish an operation context and associated telemetry item:
-    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
-    {
-        // Telemetry sent in here will use the same operation ID.
-        ...
-        telemetry.TrackEvent(...); // or other Track* calls
-        ...
-        // Set properties of containing telemetry item - for example:
-        operation.Telemetry.ResponseCode = "200";
-        
-        // Optional: explicitly send telemetry item:
-        telemetry.StopOperation(operation);
-
-    } // When operation is disposed, telemetry item is sent.
-
-Oltre a impostare un contesto dell'operazione, `StartOperation` crea un elemento di telemetria del tipo specificato e lo invia quando l'operazione viene eliminata o se si chiama in modo esplicito `StopOperation`. Se si usa `RequestTelemetry` come tipo di telemetria, la durata viene impostata sull'intervallo di tempo compreso tra l'avvio e l'arresto.
-
-I contesti dell’operazione non possono essere annidati. Se è già presente un contesto dell'operazione, il suo ID corrispondente viene associato a tutti gli elementi contenuti, compreso l'elemento creato con StartOperation.
 
 
 ## <a name="timed"></a> Temporizzazione degli eventi
@@ -788,4 +791,4 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

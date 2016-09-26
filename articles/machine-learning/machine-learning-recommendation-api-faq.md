@@ -3,8 +3,8 @@
 	description="API Recommendations Microsoft create con le domande frequenti su Azure Machine Learning" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
-	manager="paulettm" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 #Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning
@@ -21,9 +21,7 @@
 
 **Che cos'è RECOMMENDATIONS?**
 
-> Documentazione relativa alla precedente API Recommendations del DataMarket, che sarà deprecata entro il 31/12/2016. È consigliabile passare da ora all'[API Recommendations di Servizi cognitivi](https://www.microsoft.com/cognitive-services/it-IT/recommendations-api).
-
-
+>[AZURE.NOTE] È consigliabile iniziare usando l'API Recommendations di Servizi cognitivi invece di questa versione. Il Servizio cognitivo di Recommendations sostituirà questo servizio e verranno sviluppate nuove funzionalità. Il servizio include nuove funzionalità come il supporto in batch, una migliore funzione di Esplora API, una superficie API più pulita, un'esperienza più coerente in termini di iscrizione e fatturazione e così via. Per altre informazioni, vedere [Migrating to the new Cognitive Service](http://aka.ms/recomigrate) (Migrazione al nuovo Servizio cognitivo)
 
 RECOMMENDATIONS in Azure Machine Learning è un motore di raccomandazioni self-service in esecuzione in Azure, ideale per le organizzazioni e le attività che si basano sulle raccomandazioni per il cross-selling e l'upselling ai clienti. Si tratta di un'implementazione di "filtro collaborativo" che usa la fattorizzazione di matrice come algoritmo di base. Gli sviluppatori di applicazioni possono accedere a RECOMMENDATIONS tramite le API REST.
 
@@ -139,4 +137,4 @@ Il supporto tecnico è disponibile tramite il sito del [supporto tecnico di Micr
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

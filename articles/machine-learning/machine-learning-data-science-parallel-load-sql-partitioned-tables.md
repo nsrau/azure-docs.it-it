@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -187,4 +187,4 @@ o
 Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics Process con un set di dati pubblico, vedere [Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

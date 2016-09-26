@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/11/2016"
 	ms.author="nisoneji"/>
 
 
 # Eseguire la replica di macchine virtuali VMware locali o server fisici in un sito secondario
 
 
-## Panoramica
+## Overview
 
 In Azure Site Recovery, InMage Scout fornisce la replica in tempo reale tra più siti VMware locali. InMage Scout è incluso nelle sottoscrizioni del servizio Azure Site Recovery.
 
@@ -35,7 +35,7 @@ In Azure Site Recovery, InMage Scout fornisce la replica in tempo reale tra più
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Espandere **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali di Site Recovery**.
 3. Fare clic su **Crea nuovo** > **Creazione rapida**.
-4. In **Name** immettere un nome descrittivo per identificare l'insieme di credenziali.
+4. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali.
 5. In **Region** selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree supportate, vedere [Prezzi di Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 Controllare la barra di stato per verificare che l'insieme di credenziali sia stato creato correttamente. L'insieme di credenziali verrà elencato come **Attivo** nella pagina principale di **Servizi di ripristino**.
@@ -164,4 +164,4 @@ Update 1 include le correzioni di bug e le nuove funzionalità seguenti:
 
 Pubblicare eventuali domande nel [forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
 	tags="azure-portal"/>
 <tags
@@ -241,7 +241,7 @@ La procedura seguente usa Windows PowerShell. Per altri metodi di esecuzione di 
 		--                             ----
 		someone@example.com            User       ...
 
-3. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione che si desidera usare per la distribuzione.
+3. Se si hanno più sottoscrizioni, specificare l'ID sottoscrizione da usare per la distribuzione.
 
 		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
@@ -345,4 +345,4 @@ Dopo aver appreso come usare Scalding per creare processi MapReduce per HDInsigh
 
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

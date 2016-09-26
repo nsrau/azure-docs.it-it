@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="06/23/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
    
 # Il database SQL di Azure facilita la sicurezza e la protezione
@@ -47,7 +47,7 @@ Passare alla home page per vedere cos'altro può offrire il database SQL. [Fare 
 
 ## Passaggi successivi
 
-Creare una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e [il primo database SQL di Azure](sql-database-get-started.md).
+Ottenere una [sottoscrizione gratuita ad Azure](https://azure.microsoft.com/get-started/) e creare [il primo database SQL di Azure](sql-database-get-started.md).
 
 ## Risorse aggiuntive
 
@@ -55,4 +55,4 @@ Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/
  
 Consultare la [panoramica tecnica sul database SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

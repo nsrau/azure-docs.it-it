@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # Usare il portale per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse
@@ -148,9 +148,23 @@ Per assegnare un ruolo a un'applicazione, è necessario avere le autorizzazioni 
 
      Se non si hanno le autorizzazioni corrette per concedere l'accesso a un'applicazione, è necessario richiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore Accesso utenti o richiedere che un amministratore conceda l'accesso all'applicazione.
 
-1. Passare al livello dell'ambito al quale si vuole assegnare l'applicazione. Per questo argomento è possibile passare a un gruppo di risorse e nel relativo pannello selezionare l'icona **Controllo di accesso**.
+1. Passare al livello dell'ambito al quale si vuole assegnare l'applicazione. Per assegnare un ruolo a un ambito della sottoscrizione, selezionare **Sottoscrizioni**.
+
+     ![selezionare la sottoscrizione](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+     Selezionare la sottoscrizione specifica a cui assegnare l'applicazione.
+
+     ![selezionare la sottoscrizione per l'assegnazione](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+     Selezionare l'icona di **accesso** nell'angolo in alto a destra.
+
+     ![selezionare accesso](./media/resource-group-create-service-principal-portal/select-access.png)
+     
+     In alternativa, per assegnare un ruolo all'ambito del gruppo di risorse, passare a un gruppo di risorse. Nel pannello del gruppo di risorse selezionare **Controllo di accesso**.
 
      ![selezionare gli utenti](./media/resource-group-create-service-principal-portal/select-users.png)
+
+     I passaggi seguenti sono uguali per tutti gli ambiti.
 
 2. Selezionare **Aggiungi**.
 
@@ -208,4 +222,4 @@ Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come en
 - Per informazioni su come specificare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md).
 - Per una dimostrazione video di questi passaggi, vedere l'articolo relativo all'[abilitazione della gestione a livello di codice di una risorsa di Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

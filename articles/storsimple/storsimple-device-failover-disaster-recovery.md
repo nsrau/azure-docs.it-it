@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
-   ms.author="alkohli" />  
+   ms.date="09/07/2016"
+   ms.author="alkohli" />
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
 
@@ -21,7 +21,7 @@
 
 Questa esercitazione descrive i passaggi necessari per eseguire il failover di un dispositivo StorSimple in caso di emergenza. Un failover consentirà di migrare i dati da un dispositivo di origine nel centro dati a un altro dispositivo fisico o virtuale che si trova nella stessa o in un’altra area geografica.
 
-Il failover del dispositivo viene gestito tramite la funzionalità di ripristino di emergenza e viene inizializzato nella pagina **Dispositivi**. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati nome descrittivo, stato, capacità fornita e massima, tipo e modello.
+Il ripristino di emergenza viene gestito tramite la funzionalità di failover del dispositivo e viene inizializzato nella pagina **Dispositivi**. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati nome descrittivo, stato, capacità fornita e massima, tipo e modello.
 
 ![Pagina Dispositivi](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -31,7 +31,9 @@ Le indicazioni fornite in questa esercitazione si applicano ai dispositivi fisic
 
 ## Ripristino di emergenza (DR) e failover del dispositivo
 
-In uno scenario di ripristino di emergenza, il dispositivo principale smette di funzionare. In questo caso, è possibile spostare i dati del cloud associati al dispositivo guasto in un altro dispositivo utilizzando il dispositivo principale come *origine* e specificando l’altro dispositivo come *destinazione*. È possibile selezionare uno o più contenitori di volumi per eseguire la migrazione al dispositivo di destinazione. Questo processo viene definito *failover*. Durante il failover, i contenitori di volumi del dispositivo di origine cambiano proprietà e vengono trasferiti al dispositivo di destinazione.
+In uno scenario di ripristino di emergenza, il dispositivo principale smette di funzionare. In questo caso, è possibile spostare i dati del cloud associati al dispositivo guasto in un altro dispositivo utilizzando il dispositivo principale come *origine* e specificando l’altro dispositivo come *destinazione*. È possibile selezionare uno o più contenitori di volumi per eseguire la migrazione al dispositivo di destinazione. Questo processo viene definito *failover*.
+
+Durante il failover, i contenitori di volumi del dispositivo di origine cambiano proprietà e vengono trasferiti al dispositivo di destinazione. Una volta modificata la proprietà dei contenitori di volumi, questi vengono eliminati dal dispositivo di origine. Al termine dell'eliminazione, è possibile eseguire il failback del dispositivo di destinazione.
 
 In genere, dopo un ripristino di emergenza, il backup più recente viene usato per ripristinare i dati nel dispositivo di destinazione. Tuttavia, se sono presenti più criteri di backup per lo stesso volume, viene scelto il criterio di backup con il maggior numero di volumi e per il ripristino dei dati nel dispositivo di destinazione viene usato il backup più recente per tale criterio.
 
@@ -170,6 +172,35 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 Per guardare un video che illustra come è possibile ripristinare un dispositivo fisico in cui si è verificato un errore in un dispositivo virtuale nel cloud, fare clic [qui](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
+
+## Failback
+
+Nell'aggiornamento 3 e versioni successive, StorSimple supporta anche il failback. Al completamento del processo di failover, si verifica quanto segue:
+
+- I contenitori di volumi oggetto di failover vengono eliminati dal dispositivo di origine.
+
+- Nella pagina dedicata ai **processi** vengono visualizzati i processi di eliminazione per ogni contenitore del volume (sottoposto a failover). Il tempo necessario per eliminare i contenitori del volume dipende dalla quantità di dati al loro interno. Se si prevede di effettuare failover/failback di test, si consiglia di testare i contenitori dei volumi con meno dati (GB).
+
+- Al termine di tutti i processi di eliminazione, è possibile tentare il failback.
+
+## Domande frequenti
+
+D: **Cosa accade se il ripristino di emergenza non riesce o viene eseguito solo parzialmente?**
+
+A. Se il ripristino di emergenza non riesce, si consiglia di tentare nuovamente. La seconda volta, il ripristino di emergenza conosce le operazioni eseguite e il punto in cui il processo si è bloccato. Il processo viene quindi ripreso da quel punto in poi.
+
+D: **È possibile eliminare un dispositivo mentre è in corso il failover?**
+
+A. Non è possibile eliminare un dispositivo durante un ripristino di emergenza. Il dispositivo può essere eliminato solo al termine del processo.
+
+D: **Quando viene avviata l'operazione di Garbage Collection nel dispositivo di origine, in modo da eliminare i dati locali sul dispositivo di origine?**
+
+A. L'operazione di Garbage Collection sul dispositivo di origine verrà attivata solo una volta ripulito il dispositivo. La pulizia riguarda gli oggetti sottoposti a failover dal dispositivo di origine, come volumi, oggetti di backup (non dati), contenitori di volumi e criteri.
+
+D: **Cosa accade se il processo di eliminazione associato ai contenitori di volumi nel dispositivo di origine non riesce?**
+
+A. In caso di errori del processo di eliminazione, è necessario attivare l'eliminazione dei contenitori di volumi manualmente. Nella pagina dedicata ai **dispositivi** selezionare il dispositivo di origine e fare clic su **Contenitori dei volumi**. Selezionare i contenitori di volumi precedentemente sottoposti a failover e fare clic sul pulsante di **eliminazione** in fondo alla pagina. Dopo avere eliminato dal dispositivo di origine tutti i contenitori dei volumi sottoposti a failover, è possibile avviare il failback.
+
 ## Ripristino di emergenza di continuità aziendale (BCDR)
 
 Uno scenario di ripristino di emergenza di continuità aziendale (BCDR) si verifica quando l'intero data center di Azure smette di funzionare. Può influire sul servizio StorSimple Manager e sui dispositivi StorSimple associati.
@@ -184,4 +215,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

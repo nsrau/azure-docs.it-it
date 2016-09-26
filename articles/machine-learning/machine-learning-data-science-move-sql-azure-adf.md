@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -32,7 +32,7 @@ Il Data factory è un servizio di integrazione delle informazioni basato sul clo
 
 Con ADF, i servizi di elaborazione dei dati esistenti possono essere composti in pipeline di dati, altamente disponibili e gestiti nel cloud. Queste pipeline di dati possono essere pianificate per inserire, preparare, trasformare, analizzare e pubblicare i dati e l’ADF gestirà e organizzerà tutti i dati complessi e le dipendenze di elaborazione. Le soluzioni possono essere compilate e distribuite nel cloud, collegando un numero crescente di origini dati locali e cloud.
 
-È consigliabile utilizzare ADF quando i dati devono essere continuamente migrati in uno scenario ibrido che accede a risorse locali e cloud, nonché quando i dati vengono trasferiti, devono essere modificati o presentano logiche di business aggiunte nel corso della migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. L’ADF dispone anche di altre funzionalità quali il supporto per operazioni complesse. Per ulteriori informazioni sul file ADF, vedere la documentazione di [Data factory di Azure (ADF)](https://azure.microsoft.com/services/data-factory/).
+È consigliabile utilizzare ADF quando i dati devono essere continuamente migrati in uno scenario ibrido che accede a risorse locali e cloud, nonché quando i dati vengono trasferiti, devono essere modificati o presentano logiche di business aggiunte nel corso della migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse. Per ulteriori informazioni sul file ADF, vedere la documentazione di [Data factory di Azure (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 
 ## <a name="scenario"></a>Scenario
@@ -48,7 +48,7 @@ Con ADF, i servizi di elaborazione dei dati esistenti possono essere composti in
 ## <a name="prereqs"></a>Prerequisiti
 Il tutorial presuppone:
 
-* Un **sottoscrizione Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, la [Guida introduttiva al database SQL di Microsoft Azure](../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
@@ -66,7 +66,7 @@ Utilizziamo il [set di dati NYC Taxi](http://chriswhong.com/open-data/foil_nyc_t
 
 ##<a name="create-adf"></a> Creare un data factory di Azure
 
-Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://portal.azure.com/) sono disponibili in [Creazione di un’istanza di Data factory di Azure](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Denominare la nuova istanza ADF *adfdsp* e assegnare il nome *adfdsprg* al gruppo di risorse creato.
+Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://portal.azure.com/) sono disponibili in [Creazione di un’istanza di Data factory di Azure](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Denominare la nuova istanza ADF *adfdsp*e assegnare il nome *adfdsprg* al gruppo di risorse creato.
 
 
 ## Installare e configurare i Gateway di gestione dati
@@ -95,7 +95,7 @@ Per creare il servizio collegato per SQL Server locale, fare clic su **Archivio 
 Per creare il servizio collegato per l'account di archiviazione BLOB di Azure, fare clic su **Archivio dati** nella pagina di destinazione ADF del portale di Azure classico, selezionare *Account di archiviazione Azure* e immettere la chiave dell’account e il nome del contenitore di archiviazione BLOB di Azure. Assegnare il nome *adfds* al servizio di collegamento.
 
 ###<a name="adf-linked-service-azure-sql"></a>Servizio collegato per il database SQL Azure
-Per creare il servizio collegato per database SQL Azure, fare clic su **Archivio dati** nella pagina di destinazione ADF del portale di Azure classico, selezionare*SQL* e immettere le credenziali per il *nome utente* e la *password* del database SQL Azure. Il *nome utente* deve essere specificato come **user@servername*.
+Per creare il servizio collegato per database SQL Azure, fare clic su **Archivio dati** nella pagina di destinazione ADF del portale di Azure classico, selezionare*SQL* e immettere le credenziali per il *nome utente* e la *password* del database SQL Azure. Il *nome utente* deve essere specificato come *user@servername*.
 
 
 ##<a name="adf-tables"></a>Definire e creare tabelle per specificare la modalità di accesso al set di dati
@@ -311,4 +311,4 @@ Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizza
 
 Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

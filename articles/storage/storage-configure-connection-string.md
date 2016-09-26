@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
@@ -72,7 +72,7 @@ Per creare una stringa di connessione che include una firma di accesso condiviso
 
 Ogni endpoint di servizio è facoltativo anche se la stringa di connessione deve contenerne almeno uno.
 
-La procedura consigliata prevede l'uso di HTTPS con la firma di accesso condiviso. Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+La procedura consigliata prevede l'uso di HTTPS con la firma di accesso condiviso. Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 >[AZURE.NOTE] Se si specifica una firma di accesso condiviso in una stringa di connessione all'interno di un file di configurazione, potrebbe essere necessario codificare caratteri speciali nell'URL.
 
@@ -163,4 +163,4 @@ Ad esempio, la stringa di connessione avrà un aspetto simile al seguente:
 - [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
 - [Strumenti di esplorazione degli archivi di Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

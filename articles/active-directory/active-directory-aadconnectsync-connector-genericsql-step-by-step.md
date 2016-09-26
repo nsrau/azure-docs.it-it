@@ -52,7 +52,7 @@ Il file necessario è ora disponibile e si può iniziare a creare il connettore.
 6. Non tutti i tipi di attributo possono essere rilevati in un database SQL. In particolare, non può essere rilevato il tipo di attributo di riferimento. Per il tipo di oggetto Group è necessario cambiare OwnerID e MemberID a cui fare riferimento. ![Connector6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
 7. Gli attributi selezionati come attributi di riferimento nel passaggio precedente richiedono il tipo di oggetto cui questi valori fanno riferimento. In questo caso si tratta del tipo di oggetto User. ![Connector7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. Nella pagina Global Parameters (Parametri globali) selezionare **Watermark** (Limite) come strategia differenziale. Digitare anche il formato di data/ora **yyyy-MM-dd HH:mm:ss** (aaaa-MM-gg HH:mm:ss). ![Connector8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
-9. Nella pagina **Configure Partitions** (Configura partizioni) selezionare entrambi i tipi di oggetto. ![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
+9. Nella pagina **Configure Partitions and Hierarchies** (Configura partizioni e gerarchie) selezionare entrambi i tipi di oggetto. ![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
 10. In **Select Object Types** (Seleziona tipi di oggetto) e **Select Attributes** (Seleziona attributi) selezionare entrambi i tipi di oggetto e tutti gli attributi. Nella pagina **Configure Anchors** (Configura ancoraggi) fare clic su **Finish** (Fine).
 
 ## Creare i profili di esecuzione
@@ -170,4 +170,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

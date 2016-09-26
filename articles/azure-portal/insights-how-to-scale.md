@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Scalare il conteggio delle istanze manualmente o automaticamente
 
@@ -132,8 +132,8 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 * [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
-* [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
+* [Monitorare le prestazioni dell'applicazione](../application-insights/app-insights-azure-web-apps.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * [Visualizzare eventi e registri di controllo](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

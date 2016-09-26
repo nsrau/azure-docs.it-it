@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Linee guida sull'infrastruttura di rete
@@ -43,39 +43,39 @@ Attività:
 
 ## Reti virtuali
 
-Le reti virtuali sono necessarie per supportare le comunicazioni tra macchine virtuali. Come avviene con le reti fisiche, è possibile definire subnet, indirizzo IP personalizzato, impostazioni DNS, filtro di protezione e bilanciamento del carico. Tramite una [VPN da sito a sito](../vpn-gateway/vpn-gateway-topology.md) o un [circuito ExpressRoute](../expressroute/expressroute-introduction.md), è possibile connettere le reti virtuali di Azure alle reti locali. Altre informazioni sulle [reti virtuali e sui relativi componenti](../virtual-network/virtual-networks-overview.md).
+Le reti virtuali sono necessarie per supportare le comunicazioni tra macchine virtuali. Come avviene con le reti fisiche, è possibile definire subnet, indirizzo IP personalizzato, impostazioni DNS, filtro di protezione e bilanciamento del carico. Usando una [VPN da sito a sito](../vpn-gateway/vpn-gateway-topology.md) o un [circuito ExpressRoute](../expressroute/expressroute-introduction.md), è possibile connettere le reti virtuali di Azure alle reti locali. Altre informazioni sulle [reti virtuali e sui relativi componenti](../virtual-network/virtual-networks-overview.md).
 
-L'uso dei gruppi di risorse offre maggiore flessibilità alla progettazione dei componenti di rete virtuali. Le macchine virtuali possono connettersi alle reti virtuali esterne al proprio gruppo di risorse. Un approccio di progettazione diffuso prevede la creazione di gruppi di risorse centralizzati che contengono l'infrastruttura di rete di base e che sono gestiti da un team comune, con macchine virtuali e relative applicazioni distribuite a gruppi di risorse separati. Ciò consente ai proprietari delle applicazioni di accedere al gruppo di risorse che contiene le proprie macchine virtuali senza dover aprire l'accesso alla configurazione delle più vaste risorse della rete virtuale.
+L'uso dei gruppi di risorse offre maggiore flessibilità alla progettazione dei componenti di rete virtuali. Le macchine virtuali possono connettersi alle reti virtuali esterne al proprio gruppo di risorse. Un approccio di progettazione diffuso prevede la creazione di gruppi di risorse centralizzati che contengono l'infrastruttura di rete di base e possono essere gestiti da un team comune. Le VM e le relative applicazioni sono distribuite a gruppi di risorse distinti. Questo approccio consente ai proprietari delle applicazioni di accedere al gruppo di risorse che contiene le proprie VM senza dover aprire l'accesso alla configurazione delle più vaste risorse della rete virtuale.
 
 ## Connettività del sito
 
 ### Reti virtuali solo cloud
-Se utenti e computer locali non richiedono connettività costante alle macchine virtuali in una rete virtuale Azure, la progettazione della rete virtuale è semplificata.
+Se utenti e computer locali non richiedono connettività costante alle VM in una rete virtuale Azure, progettare la rete virtuale è semplice:
 
 ![Diagramma rete virtuale di base solo cloud](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
-Si tratta di una rete indicata in genere per carichi di lavoro con connessione Internet, ad esempio un server Web basato su Internet. È possibile gestire queste macchine virtuali tramite SSH o connessioni VPN da punto a sito.
+Questo approccio è in genere indicato per i carichi di lavoro con connessione Internet, come nel caso di un server Web basato su Internet. È possibile gestire queste macchine virtuali tramite SSH o connessioni VPN da punto a sito.
 
-Poiché non si connettono alla rete locale, le reti virtuali solo Azure possono usare qualsiasi parte dello spazio di indirizzi IP privato, anche se lo stesso spazio privato è usato in locale.
+Poiché non si connettono alla rete locale, le reti virtuali solo Azure possono usare qualsiasi parte dello spazio di indirizzi IP privato. Lo spazio degli indirizzi può essere lo stesso spazio privato in uso a livello locale.
 
 
 ### Reti virtuali cross-premise
-Se computer e utenti locali richiedono la connettività costante alle macchine virtuali in una rete virtuale di Azure, creare una rete virtuale cross-premise e connetterla alla rete locale con un ExpressRoute o una connessione VPN da sito a sito.
+Se utenti e computer locali richiedono una connettività costante alle VM in una rete virtuale di Azure, creare una rete virtuale cross-premise. Connettere la rete virtuale alla rete locale con ExpressRoute o una connessione VPN da sito a sito.
 
 ![Diagramma rete virtuale cross-premise](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
 In questa configurazione, la rete virtuale di Azure è essenzialmente un'estensione della rete locale basata su cloud.
 
-Poiché si connettono alla rete locale, le reti virtuali cross-premise devono usare una parte dello spazio di indirizzi univoco usato dall'organizzazione. Così come diverse sedi aziendali verranno assegnate a una subnet IP specifica, con l'estensione della rete, Azure diventa un'altra sede.
+Poiché si connettono alla rete locale, le reti virtuali cross-premise devono usare una parte dello spazio di indirizzi univoco usato dall'organizzazione. Così come diverse sedi aziendali vengono assegnate a una subnet IP specifica, con l'estensione della rete, Azure diventa un'altra sede.
 
 Per consentire ai pacchetti di spostarsi dalla rete virtuale cross-premise alla rete locale, è necessario configurare il set di prefissi di indirizzo locali pertinenti come parte della definizione della rete locale per la rete virtuale. A seconda lo spazio di indirizzi della rete virtuale e del set di percorsi locali pertinenti, è possibile che nella rete locale siano presenti molti prefissi di indirizzo.
 
-È possibile convertire una rete virtuale solo cloud in una rete virtuale cross-premise. Tuttavia, sarà probabilmente necessario riassegnare gli indirizzi IP dello spazio di indirizzi della rete virtuale, le subnet e le macchine virtuali che usano indirizzi IP statici assegnati da Azure. Quando si assegna una subnet IP è pertanto necessario valutare attentamente se una rete virtuale dovrà connettersi alla rete locale.
+È possibile convertire una rete virtuale solo cloud in una rete virtuale cross-premise, ma più probabilmente è necessario riassegnare gli indirizzi IP dello spazio di indirizzi della rete virtuale e le risorse di Azure. Quando si assegna una subnet IP è pertanto necessario valutare attentamente se connettere una rete virtuale alla rete locale.
 
 ## Subnet
-Le subnet consentono di organizzare le risorse correlate, logicamente (ad esempio, una subnet per le macchine virtuali associate alla stessa applicazione) o fisicamente (ad esempio, una subnet per il gruppo di risorse) oppure di ricorrere a tecniche di isolamento subnet per una maggiore sicurezza.
+Le subnet consentono di organizzare le risorse correlate, logicamente (ad esempio, una subnet per le macchine virtuali associate alla stessa applicazione) o fisicamente (ad esempio, una subnet per il gruppo di risorse). È inoltre possibile ricorrere a tecniche di isolamento subnet per una maggiore sicurezza.
 
-Per le reti virtuali cross-premise, è necessario progettare delle subnet con le stesse convenzioni utilizzate per le risorse locali, tenendo presente che **Azure utilizza sempre i primi tre indirizzi IP dello spazio di indirizzi per ciascuna subnet**. Per determinare il numero di indirizzi necessari per la subnet, contare il numero di macchine virtuali necessarie, fare una stima della crescita futura e quindi usare la tabella seguente per determinare le dimensioni della subnet.
+Per le reti virtuali cross-premise, è necessario progettare delle subnet con le stesse convenzioni utilizzate per le risorse locali. **Azure usa sempre i primi tre indirizzi IP dello spazio di indirizzi per ogni subnet**. Per determinare il numero di indirizzi necessari per la subnet, stabilire per prima cosa il numero di VM necessarie. Effettuare una stima della crescita futura e quindi usare la seguente tabella per determinare le dimensioni della subnet.
 
 Numero di macchine virtuali necessarie | Numero di bit di host necessari | Dimensioni della subnet
 --- | --- | ---
@@ -87,7 +87,7 @@ Numero di macchine virtuali necessarie | Numero di bit di host necessari | Dimen
 
 > [AZURE.NOTE] Per le normali subnet locali, il numero massimo di indirizzi host per una subnet con n bit di host è 2<sup>n</sup> – 2. Per una subnet Azure, il numero massimo di indirizzi host per una subnet con n bit di host è 2<sup>n</sup> – 5 (2 più 3 per gli indirizzi che Azure utilizza in ogni subnet).
 
-Se si sceglie una dimensione della subnet troppo piccola, sarà necessario riassegnare gli indirizzi IP e ridistribuire le macchine virtuali nella subnet.
+Se la subnet è troppo piccola, sarà necessario riassegnare gli indirizzi IP e ridistribuire le VM al suo interno.
 
 
 ## Gruppi di sicurezza di rete
@@ -97,9 +97,9 @@ Se si sceglie una dimensione della subnet troppo piccola, sarà necessario riass
 ## Componenti di rete aggiuntivi
 Come accade in un'infrastruttura di rete locale fisica, la rete virtuale di Azure non contiene necessariamente solo subnet e indirizzi IP. Quando si progetta l'infrastruttura dell'applicazione, è possibile includere alcuni di questi componenti aggiuntivi:
 
-- [Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) - Consentono di connettere reti virtuali di Azure ad altre reti virtuali di Azure, reti locali tramite una connessione VPN da sito a sito, fornire agli utenti l'accesso diretto alle connessioni VPN da punto a sito o implementare connessioni di ExpressRoute per connessioni dedicate e sicure.
+- [Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md): connettere le reti virtuali di Azure ad altre reti virtuali di Azure oppure connettersi a reti locali tramite una connessione VPN da sito a sito. Per connessioni dedicate e sicure, implementare connessioni di Express Route. È anche possibile fornire l'accesso diretto agli utenti con connessioni VPN da punto a sito.
 - [Bilanciamento del carico](../load-balancer/load-balancer-overview.md) - Offre il bilanciamento del carico del traffico per il traffico interno ed esterno in base alle esigenze.
-- [Gateway applicazione](../application-gateway/application-gateway-introduction.md) - Bilanciamento del carico HTTP al livello dell'applicazione, con vantaggi aggiuntivi per le applicazioni Web rispetto alla distribuzione del servizio di bilanciamento del carico di Azure.
+- [Gateway applicazione](../application-gateway/application-gateway-introduction.md): il bilanciamento del carico HTTP al livello dell'applicazione offre vantaggi aggiuntivi per le applicazioni Web, rispetto alla distribuzione del servizio di bilanciamento del carico di Azure.
 - [Gestione traffico](../traffic-manager/traffic-manager-overview.md) - Distribuzione del traffico basata su DNS per indirizzare gli utenti finali all'endpoint dell'applicazione disponibile più vicino, così che l'host in uscita dell'applicazione possa risiedere in data center di Azure in aree diverse.
 
 
@@ -107,4 +107,4 @@ Come accade in un'infrastruttura di rete locale fisica, la rete virtuale di Azur
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

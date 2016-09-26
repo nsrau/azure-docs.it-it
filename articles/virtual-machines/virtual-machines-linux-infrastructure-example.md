@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Procedura dettagliata per un'infrastruttura di esempio di Azure
@@ -54,7 +54,7 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 - Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
 	- In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
 - Gli account di archiviazione usano adventureazosusesa**[descrizione]**
-	- Si noti che 'adventure' è stato aggiunto al prefisso per garantire l'univocità, e che i nomi account di archiviazione non supportano l'uso di trattini.
+	- 'adventure' è stato aggiunto al prefisso per garantire l'univocità, e i nomi account di archiviazione non supportano l'uso di trattini.
 - Le reti virtuali usano AZOS-USE-VN**[numero]**
 - I set di disponibilità usano azos-use-as-**[ruolo]**
 - I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
@@ -132,4 +132,4 @@ Questa configurazione include:
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>  
+	ms.author="robinsh"/>
 
 # Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -224,7 +224,7 @@ Usare uno dei seguenti tre metodi per creare un contesto di archiviazione:
     	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
     	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 
-	Per altre informazioni, vedere [New AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) e [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+	Per altre informazioni, vedere [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) e [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 - In alcuni casi, è possibile specificare gli endpoint del servizio quando si crea un nuovo contesto di archiviazione. Ciò potrebbe essere necessario quando un nome di dominio personalizzato per l'account di archiviazione viene registrato con il servizio BLOB oppure si vuole usare una firma di accesso condiviso per l'accesso alle risorse di archiviazione. Impostare gli endpoint del servizio in una stringa di connessione e usarla per creare un nuovo contesto di archiviazione, come illustrato di seguito:
 
@@ -632,7 +632,7 @@ Una firma di accesso condiviso può assumere una delle due forme seguenti:
 - **SAS Ad hoc **quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente. Questo tipo di firma di accesso condiviso può essere creato per un contenitore, un BLOB, una tabella e una coda e non è revocabile.
 - **Firma di accesso condiviso con politica di accesso archiviazione**: i criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB, una tabella o una coda, e possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati. Questo tipo di firma di accesso condiviso è revocabile.
 
-Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
+Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
 
 Nelle sezioni successive verrà illustrato come creare un token di firma di accesso condiviso e criteri di accesso archiviati per le tabelle di Azure. Azure PowerShell fornisce cmdlet simili per contenitori, BLOB e code. Per eseguire gli script in questa sezione, scaricare [Azure PowerShell versione 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o versione successiva.
 
@@ -752,4 +752,4 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

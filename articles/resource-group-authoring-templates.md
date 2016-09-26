@@ -112,7 +112,7 @@ I valori e i tipi consentiti sono:
 
 Per specificare un parametro come facoltativo, fornire un valore defaultValue (che può essere anche una stringa vuota).
 
-Se si specifica un nome di parametro corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+Se si specifica un nome di parametro corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New AzureRmResourceGroupDeployment][deployment2cmdlet], verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
 >[AZURE.NOTE] Per tutte le password, le chiavi e altre informazioni riservate si consiglia di usare il tipo **secureString**. Non è possibile leggere i parametri di modello di tipo secureString dopo la distribuzione delle risorse.
 
@@ -364,4 +364,7 @@ Per altre informazioni sull'utilizzo dell'output, vedere [Condivisione dello sta
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+[deployment2cmdlet]: https://msdn.microsoft.com/library/mt740620(v=azure.200).aspx
+
+<!---HONumber=AcomDC_0914_2016-->

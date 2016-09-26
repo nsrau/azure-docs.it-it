@@ -49,8 +49,10 @@ Innanzitutto, creare rapidamente un'app Sails.js predefinita attenendosi alla pr
 
 Creare la risorsa dell'app del servizio app. In seguito, l'app Sails.js verrà distribuita nella risorsa.
 
-1. Nello stesso terminale accedere ad Azure nel modo seguente:
+1. accedere ad Azure in questo modo:
+1. Nel stesso terminale passare in modalità ASM e accedere ad Azure:
 
+        azure config mode asm
         azure login
 
     Seguire le istruzioni per continuare l'accesso in un browser usando un account con la sottoscrizione di Azure.
@@ -99,7 +101,7 @@ A tale scopo, seguire questa procedura:
 
     La documentazione di queste impostazioni di configurazione è disponibile nella [Documentazione di Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
-    Successivamente, è necessario assicurarsi che [Grunt](https://www.npmjs.com/package/grunt) sia compatibile con le unità di rete di Azure. Le versioni di Grunt precedenti alla 1.0.0 usano un pacchetto [glob](https://www.npmjs.com/package/glob) obsoleto (precedente a 5.0.14), che non supporta unità di rete.
+    Successivamente, è necessario assicurarsi che [Grunt](https://www.npmjs.com/package/grunt) sia compatibile con le unità di rete di Azure. Le versioni di Grunt precedenti alla 1.0.0 usano un pacchetto [glob](https://www.npmjs.com/package/glob) obsoleto, precedente alla versione 5.0.14, che non supporta unità di rete.
 
 3. Aprire package.json, modificare la versione di `grunt` in `1.0.0` e rimuovere tutti i pacchetti `grunt-*`. La proprietà `dependencies` sarà simile alla seguente:
 
@@ -220,7 +222,7 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
          sails generate api mywidget
          sails lift
 
-    Il modello `mywidget` generato da questo comando è vuoto, ma è possibile usarlo per mostrare che è disponibile la connettività del database. Quando si esegue `sails lift`, vengono create le tabelle mancanti per i modelli usati dall'app.
+    Il modello `mywidget` generato da questo comando è vuoto, ma è possibile usarlo per mostrare che la connettività del database è disponibile. Quando si esegue `sails lift`, vengono create le tabelle mancanti per i modelli usati dall'app.
 
 6. Accedere all'API di progetto (blueprint) creata nel browser. ad esempio:
 
@@ -248,4 +250,4 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
 - [Introduzione alle app Web Node.js nel servizio app di Azure](app-service-web-nodejs-get-started.md)
 - [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

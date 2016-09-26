@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -121,4 +121,4 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Turn Off Maintenance Mode**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

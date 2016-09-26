@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -139,4 +139,4 @@ Per informazioni generali sull'azione di script, vedere [Personalizzare cluster 
 - [Gestire cluster Hadoop in HDInsight tramite la CLI di Azure](hdinsight-administer-use-command-line.md)
 - [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

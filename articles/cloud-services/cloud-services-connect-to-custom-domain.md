@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/22/2016"
+    ms.date="09/06/2016"
     ms.author="adegeo"/>
 
 # Connessione dei ruoli dei Servizi cloud di Azure a un controller di dominio personalizzato di AD ospitato in Azure
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 È anche possibile inserire commenti sulla possibile utilità di un'estensione che permette di alzare una macchina virtuale al livello di un controller di dominio. Fornire eventuali informazioni nella sezione relativa ai commenti.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -29,7 +29,7 @@ Contratto di servizio||<p>|99,9%|99\.95%<sup>10</sup>|99\.95%<sup>10</sup>
 
 <sup>1</sup>Le quote per applicazioni e di archiviazione sono per ogni piano di servizio app se non diversamente specificato.  
 <sup>2</sup>Il numero di app effettivo che è possibile ospitare in questi computer dipende dall'attività delle app, dalle dimensioni delle istanze del computer e dall'uso delle risorse corrispondente.  
-<sup>3</sup>Le istanze dedicate possono essere di dimensioni diverse. Vedere [prezzi servizio App](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) per ulteriori dettagli. Per richiedere istanze aggiuntive aprire una richiesta di supporto.  
+ <sup>3</sup>Le istanze dedicate possono essere di dimensioni diverse. Vedere [prezzi servizio App](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) per ulteriori dettagli. 
 <sup>4</sup>Il livello premium consente fino a 50 istanze di calcolo (a seconda della disponibilità) e 500 GB di spazio su disco quando si utilizzano ambienti di servizio app e 20 istanze di calcolo e archiviazione di 250 GB in caso contrario.  
 <sup>5</sup>Il limite di archiviazione è la dimensione totale del contenuto tra tutte le applicazioni nello stesso piano di servizio dell'applicazione. Altre opzioni di archiviazione sono disponibili in [Ambiente del servizio app](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>Queste risorse sono vincolate dalle risorse fisiche nelle istanze dedicate (la dimensione dell'istanza e il numero di istanze).  
@@ -38,4 +38,4 @@ Contratto di servizio||<p>|99,9%|99\.95%<sup>10</sup>|99\.95%<sup>10</sup>
 <sup>9</sup>Eseguire gli eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione o continuamente come attività in background nell'istanza di servizi app. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste alcun limite predefinito al numero di processi Web che è possibile eseguire in un'istanza del servizio app, ma vi sono limiti pratici che dipendono dall'operazione che sta tentando di eseguire il codice dell'applicazione.  
 <sup>10</sup>SLA pari al 99,95% fornito per distribuzioni che utilizzano più istanze di gestione traffico di Azure configurato per il failover.  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

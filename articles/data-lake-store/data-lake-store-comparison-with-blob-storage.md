@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -48,4 +48,4 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 - [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 - [Introduzione ad Archivio Data Lake](data-lake-store-get-started-portal.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

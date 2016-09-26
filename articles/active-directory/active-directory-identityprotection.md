@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/11/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -22,11 +22,6 @@
 Azure Active Directory Identity Protection è un servizio di sicurezza che fornisce una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Microsoft protegge le identità basate sul cloud da oltre dieci anni. Con Azure AD Identity Protection, questi stessi sistemi di protezione sono ora a disposizione dei clienti aziendali. Identity Protection si avvale delle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD, e introduce nuovi tipi di eventi di rischio che permettono di rilevare anomalie in tempo reale.
 
 ## Limitazioni per l'anteprima corrente
-Questa sezione elenca le limitazioni che si applicano all'anteprima corrente di Azure Active Directory Identity Protection.
-
-
-
-### Identity Protection e domini federati
 
 Azure Active Directory Identity Protection presenta le limitazioni seguenti in combinazione con i domini federati:
 
@@ -47,7 +42,7 @@ Trovare le identità compromesse non è un compito facile. Identity Protection �
  
 Sulla base di tali dati, Identity Protection genera report e avvisi che consentono di analizzare gli eventi di rischio e adottare le azioni di correzione o mitigazione appropriate.
  
-Ma Azure Active Directory Identity Protection è più di un semplice strumento di monitoraggio e reporting. In base agli eventi di rischio, Identity Protection calcola un livello di rischio utente per ogni utente e permette di configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione. I criteri basati sul rischio, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e da Servizi di gestione emergenze, possono eseguire il blocco automatico o proporre azioni di correzione adattive, incluse la reimpostazione della password e l'applicazione dell'autenticazione a più fattori.
+Azure Active Directory Identity Protection è, del resto, ben più di un semplice strumento di monitoraggio e reporting. In base agli eventi di rischio, Identity Protection calcola un livello di rischio utente per ogni utente e permette di configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione. I criteri basati sul rischio, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e da Servizi di gestione emergenze, possono eseguire il blocco automatico o proporre azioni di correzione adattive, incluse la reimpostazione della password e l'applicazione dell'autenticazione a più fattori.
 
 ####Funzionalità di Identity Protection 
 
@@ -405,6 +400,7 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 ## Vedere anche
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Abilitazione di Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Tipi di eventi di rischio rilevati da Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilità rilevate da Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Notifiche di Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
@@ -413,4 +409,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
  - [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
  - [Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

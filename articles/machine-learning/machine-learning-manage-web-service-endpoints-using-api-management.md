@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -20,13 +20,13 @@
 
 # Informazioni su come gestire i servizi Web di AzureML con Gestione API
 
-##Panoramica
+##Overview
 
 Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di AzureML.
 
 ##Cos'è Gestione API di Azure?
 
-Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/). Per una guida introduttiva a Gestione API di Azure, fare clic [qui](../api-management/api-management-get-started.md). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'utilizzo.
+Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/). Per una guida introduttiva a Gestione API di Azure, fare clic [qui](../api-management/api-management-get-started.md). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
 
 ##Informazioni su AzureML
 
@@ -46,7 +46,7 @@ Di seguito sono riportati i passaggi per gestire il servizio Web di AzureML con 
 
 ![create-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
-Specificare un **URL** univoco. Questa guida usa **demoazureml**: sarà necessario sceglierne uno diverso. Selezionare i valori di **Sottoscrizione** e **Area** desiderati per l'istanza del servizio. Una volta effettuate le selezioni, fare clic sul pulsante Avanti.
+Specificare un **URL** univoco. Questa guida usa **demoazureml**: sarà necessario sceglierne uno diverso. Scegliere **Sottoscrizione** e **Area** per l'istanza del servizio. Una volta effettuate le selezioni, fare clic sul pulsante Avanti.
 
 ![create-service-1](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-service-1.png)
 
@@ -72,7 +72,7 @@ Fare clic su **API** dal menu **Gestione API** sulla sinistra, quindi scegliere 
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Digitare **AzureML Demo API** in **Nome API Web**. Digitare **https://ussouthcentral.services.azureml.net** in **URL del servizio Web**. Digitare **azureml-demo** in **Suffisso dell'URL dell'API Web**. Selezionare **HTTPS** come schema dell'**URL dell'API Web**. Selezionare **Starter** in **Prodotti**. Al termine, fare clic su **Salva** per creare l'API.
+Digitare **AzureML Demo API** in **Nome API Web**. Digitare **https://ussouthcentral.services.azureml.net** in **URL servizio Web**. Digitare **azureml-demo** in **Web API URL suffix** (Suffisso URL API Web). Selezionare **HTTPS** come schema dell'**URL API Web**. Selezionare **Starter** in **Prodotti**. Al termine, fare clic su **Salva** per creare l'API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -148,7 +148,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 
 ###Creazione di un esperimento
 
-Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio:
+Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. ad esempio:
 
 Text | Testo con hash
 --- | ---
@@ -162,15 +162,15 @@ Rinominarlo **SimpleFeatureHashingExperiment**. Espandere **Saved Datasets** e t
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Espandere **Data Transformation** e **Manipulation** e trascinare **Select Columns in Dataset** sull’esperimento. Connettere **Book Reviews from Amazon** a **Select Columns in Dataset**.
+Espandere **Trasformazioni di dati** e **Manipulation** (Manipolazione) e trascinare **Select Columns in Dataset** (Seleziona colonne in set di dati) sull'esperimento. Connettere **Book Reviews from Amazon** (Recensioni sul libro da Amazon) a **Select Columns in Dataset** (Seleziona colonne in set di dati).
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Fare clic su **Select Columns in Dataset** e quindi fare clic su **Launch column selector** e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
+Fare clic su **Select Columns in Dataset** (Seleziona colonne in set di dati), quindi fare clic su **Launch column selector** (Avvia selettore di colonna) e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Espandere **Text Analytics** e trascinare **Feature Hashing** sull'esperimento. Connettere **Select Columns in Dataset** a **Feature Hashing**.
+Espandere **Text Analytics** e trascinare **Feature Hashing** sull'esperimento. Connettere **Select Columns in Dataset** (Seleziona colonne in set di dati) a **Feature Hashing**.
 
 ![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -384,4 +384,4 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

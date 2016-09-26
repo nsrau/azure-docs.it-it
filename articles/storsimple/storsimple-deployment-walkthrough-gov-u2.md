@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/16/2016"
    ms.author="v-sharos" />
 
 # Distribuire un dispositivo StorSimple locale nel portale di Azure Government (aggiornamento 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
-## Panoramica
+## Overview
 
 Benvenuti nella distribuzione del dispositivo Microsoft Azure StorSimple. Queste esercitazioni per la distribuzione si applicano a dispositivi StorSimple serie 8000 in cui viene eseguito l'aggiornamento 2 del software nel portale di Azure per enti pubblici. Questa serie di esercitazioni include un elenco di controllo della configurazione, un elenco di prerequisiti di configurazione e i passaggi di configurazione dettagliati per il dispositivo StorSimple.
 
@@ -111,7 +111,7 @@ Un servizio StorSimple Manager può gestire più dispositivi StorSimple. Effettu
 
 > [AZURE.IMPORTANT] Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> * Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. 
+> * Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate.
 > * Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
@@ -208,8 +208,8 @@ L’aggiornamento del dispositivo può richiedere diverse ore. Eseguire i passag
 
 #### Per aggiornare il dispositivo
 
-1.	Nella pagina **Avvio rapido** del dispositivo fare clic su **Dispositivi**. Selezionare il dispositivo fisico, fare clic su **Manutenzione** quindi fare clic su **Analisi aggiornamenti**.  
-2.	Viene creato un processo che consente di cercare gli aggiornamenti disponibili. Se sono disponibili aggiornamenti, **Analisi aggiornamenti** diventa **Installa aggiornamenti**. Fare clic su **Installa aggiornamenti**. 
+1.	Nella pagina **Avvio rapido** del dispositivo fare clic su **Dispositivi**. Selezionare il dispositivo fisico, fare clic su **Manutenzione** quindi fare clic su **Analisi aggiornamenti**.
+2.	Viene creato un processo che consente di cercare gli aggiornamenti disponibili. Se sono disponibili aggiornamenti, **Analisi aggiornamenti** diventa **Installa aggiornamenti**. Fare clic su **Installa aggiornamenti**.
 3.	Verrà creato un processo di aggiornamento. Monitorare lo stato dell'aggiornamento passando a **Processi**.
 
 	> [AZURE.NOTE] Quando viene avviato il processo di aggiornamento, immediatamente lo stato viene visualizzato al 50%. Lo stato passa quindi al 100% solo dopo che è stato completato il processo di aggiornamento. Non esiste alcuno stato in tempo reale per il processo di aggiornamento.
@@ -243,4 +243,4 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

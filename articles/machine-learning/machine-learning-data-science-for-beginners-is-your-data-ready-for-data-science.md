@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -119,4 +119,4 @@ Gli altri 4 video della serie *Analisi scientifica dei dati per principianti* so
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

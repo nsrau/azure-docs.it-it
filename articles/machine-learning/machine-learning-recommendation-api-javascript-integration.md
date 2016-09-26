@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 # Raccomandazioni di Azure Machine Learning - Integrazione con JavaScript
 
-> Documentazione relativa alla precedente API Recommendations del DataMarket, che sarà deprecata entro il 31/12/2016. È consigliabile passare da ora all'[API Recommendations di Servizi cognitivi](https://www.microsoft.com/cognitive-services/it-IT/recommendations-api).
+>[AZURE.NOTE] È consigliabile iniziare usando l'API Recommendations di Servizi cognitivi invece di questa versione. Il Servizio cognitivo di Recommendations sostituirà questo servizio e verranno sviluppate nuove funzionalità. Il servizio include nuove funzionalità come il supporto in batch, una migliore funzione di Esplora API, una superficie API più pulita, un'esperienza più coerente in termini di iscrizione e fatturazione e così via. Per altre informazioni, vedere [Migrating to the new Cognitive Service](http://aka.ms/recomigrate) (Migrazione al nuovo Servizio cognitivo)
 
 
 Questo documento illustra come integrare il sito usando JavaScript. JavaScript consente di inviare eventi di acquisizione dei dati e utilizzare raccomandazioni dopo aver creato un modello di raccomandazione. Tutte le operazioni eseguite tramite JS possono essere eseguite anche dal lato server.
@@ -62,7 +62,7 @@ Per inviare eventi in modo semplice, seguire questa procedura:
 1.	Includere la libreria JQuery nel codice. È possibile scaricarla da nuget all'URL seguente.
 
 		http://www.nuget.org/packages/jQuery/1.8.2
-2.	Includere la libreria JavaScript di Recommendations disponibile all'URL seguente: http://1drv.ms/1Aoa1Zp
+2.	Includere la libreria JavaScript di Recommendations disponibile all'URL seguente: http://aka.ms/RecoJSLib1
 
 3.	Inizializzare la libreria di Azure ML Recommendations con i parametri appropriati.
 
@@ -168,8 +168,7 @@ Questo evento deve essere usato quando l'utente ha acquistato gli elementi nel c
 
 Parametri
 * event (stringa) - "purchase"
-* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br> 
-Formato elementi acquistati:
+* items (acquistati) - matrice contenente una voce per ogni elemento acquistato.<br><br> Formato elementi acquistati:
 	* item (stringa) - identificatore univoco dell'elemento.
 	* count (numero intero o stringa) - numero di elementi che sono stati acquistati.
 	* price (float o stringa) - campo facoltativo - prezzo dell'elemento.
@@ -188,10 +187,11 @@ Questo evento deve essere usato dopo l'accesso dell'utente al sito.
 
 Parametri
 * event (stringa) - "userlogin"
-* user (stringa) - identificazione univoca dell'utente. 
+* user (stringa) - identificazione univoca dell'utente.
+
 		<script> 
-			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } 
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: "ABCD10AA" }); 
+			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
 		</script>
 
 ##4\. Utilizzare le raccomandazioni tramite JavaScript
@@ -230,4 +230,4 @@ Esempio: il codice seguente richiede 8 raccomandazioni per l'elemento "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016--->

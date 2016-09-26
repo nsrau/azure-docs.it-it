@@ -2,7 +2,7 @@
 	pageTitle="Eseguire query Hive con HDInsight .NET SDK | Microsoft Azure"
 	description="Informazioni su come inviare processi Hadoop ad Azure HDInsight Hadoop con HDInsight .NET SDK."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-   ms.date="06/28/2016"
+   ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Eseguire query Hive con HDInsight .NET SDK
@@ -146,4 +146,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->
