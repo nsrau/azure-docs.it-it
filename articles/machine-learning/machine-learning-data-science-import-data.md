@@ -5,8 +5,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -22,9 +22,9 @@
 
 Per usare i propri dati in Machine Learning Studio per sviluppare ed eseguire il training di una soluzione di analisi predittiva, è possibile:
 
-- caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro.  
-- Accedere ai dati da una delle diverse **origini dati online** mentre l’esperimento viene eseguito tramite il modulo [Import Data][import-data]. 
-- usare i dati da un altro esperimento di Azure Machine Learning salvato come un **set di dati**. 
+- caricare anticipatamente i dati da un **file locale** nel disco rigido per creare un modulo di set di dati nell'area di lavoro.
+- Accedere ai dati da una delle diverse **origini dati online** mentre l’esperimento viene eseguito tramite il modulo [Import Data][import-data].
+- usare i dati da un altro esperimento di Azure Machine Learning salvato come un **set di dati**.
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -84,9 +84,9 @@ Se necessario, è possibile convertire il formato Tabella dati in CSV, TSV, ARFF
 
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

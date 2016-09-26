@@ -4,9 +4,9 @@ pageTitle="Guida alla programmazione SCP.NET | Azure"
 description="Informazioni su come utilizzare SCP.NET per creare topologie Storm basate su .NET per l’utilizzo con Storm in HDInsight."
 services="hdinsight"
 documentationCenter=""
-authors="rperi"
-manager="paulettm"
-editor="cgronlun"/>
+authors="raviperi"
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -167,7 +167,7 @@ Context fornisce un ambiente di esecuzione per l'applicazione. Ogni istanza di I
 	public Dictionary<string, Object> stormConf { get; set; }  
 	public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` corrisponde ai parametri definiti da Storm e `pluginConf` ai parametri definiti da SCP. Ad esempio:
+`stormConf` corrisponde ai parametri definiti da Storm e `pluginConf` ai parametri definiti da SCP. ad esempio:
 
 	public class Constants
 	{
@@ -688,4 +688,4 @@ Per esempi di topologie Storm create con SCP, vedere quanto segue:
 * [Estrarre, trasformare e caricare dagli hub eventi di Azure in HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
 * [Correlare gli eventi con Storm e HBase in HDInsight](hdinsight-storm-correlation-topology.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

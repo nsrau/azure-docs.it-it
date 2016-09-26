@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
 	ms.date="09/07/2016"
-	ms.author="marsma" />
+	ms.author="marsma" />  
 
 # Modelli di progetto di Visual Studio per Azure Batch
 
@@ -42,7 +42,7 @@ Come illustrato nel diagramma seguente, un processo di calcolo che usa questi mo
 
 3. Le attività dell'elaboratore di attività vengono eseguite in modo indipendente, in parallelo, per elaborare i dati di input e generare i dati di output.
 
-![Diagramma che illustra come il codice client interagisce con il servizio Batch][diagram01]
+![Diagramma che illustra come il codice client interagisce con il servizio Batch][diagram01]  
 
 ## Prerequisiti
 
@@ -114,7 +114,7 @@ Il modello genera anche i file di progetto .NET standard, ad esempio un file CSP
 
 La parte restante di questa sezione illustra i diversi file e la struttura del codice e spiega la funzione di ogni classe.
 
-![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Job Manager (Gestore di processi)][solution_explorer01]
+![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Job Manager (Gestore di processi)][solution_explorer01]  
 
 **File di Framework**
 
@@ -302,7 +302,7 @@ Il modello genera anche i file di progetto .NET standard, ad esempio un file CSP
 
 La parte restante di questa sezione illustra i diversi file e la struttura del codice e spiega la funzione di ogni classe.
 
-![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Task Processor (Elaboratore di attività)][solution_explorer02]
+![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Task Processor (Elaboratore di attività)][solution_explorer02]  
 
 **File di Framework**
 
@@ -382,9 +382,9 @@ Il metodo Run() è responsabile dell'avvio della riga di comando, dell'avvio di 
 
 L'implementazione di Run() ha accesso a:
 
-* Parametri dell'attività, tramite il campo \_parameters.
-* ID processo e attività, tramite i campi \_jobId e \_taskId.
-* Configurazione dell'attività, tramite il campo \_configuration.
+* Parametri dell'attività tramite il campo `_parameters`.
+* ID processo e attività, tramite i campi `_jobId` e `_taskId`.
+* Configurazione dell'attività, tramite il campo `_configuration`.
 
 **Errore dell'attività**
 
@@ -427,7 +427,7 @@ Se si preferisce usare l'URL di un contenitore con la firma di accesso condiviso
 
 È consigliabile che il client o l'attività del gestore di processi crei i contenitori richiesti dalle attività prima di aggiungere le attività al processo. Questo è obbligatorio se si usa l'URL di un contenitore con la firma di accesso condiviso, perché un URL di questo tipo non include l'autorizzazione per creare il contenitore. È consigliabile anche se si passano le credenziali dell'account di archiviazione, perché salva ogni attività dovendo chiamare CloudBlobContainer.CreateIfNotExistsAsync sul contenitore.
 
-## Passare i parametri e le variabili di ambiente dal codice client
+## Passare i parametri e le variabili di ambiente
 
 ### Passare le impostazioni di ambiente
 
@@ -482,4 +482,4 @@ Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

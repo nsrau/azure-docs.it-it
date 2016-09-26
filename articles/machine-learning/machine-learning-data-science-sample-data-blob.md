@@ -4,8 +4,8 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="jhubbard" 
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -31,7 +31,7 @@ Questo campionamento è un passaggio del [Processo di analisi scientifica dei da
 
 
 ## Download e sotto-campionamento dei dati
-1. Scaricare i dati dall'archivio BLOB di Azure usando il servizio BLOB del seguente codice Python di esempio: 
+1. Scaricare i dati dall'archivio BLOB di Azure usando il servizio BLOB del seguente codice Python di esempio:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -102,4 +102,4 @@ A questo punto, è possibile utilizzare il frame di dati precedente con il campi
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

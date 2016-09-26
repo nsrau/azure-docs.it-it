@@ -4,8 +4,8 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   manager="jhubbard" 
+   editor="cgronlun"/>  
  
 <tags
    ms.service="data-lake-store"
@@ -25,8 +25,8 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il loro acc
 ## Prerequisiti
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-- **Account di Archivio Azure Data Lake**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md).
+- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
+- **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md).
 
 ## Abilitare la registrazione diagnostica per l'account di Archivio Data Lake
 
@@ -36,7 +36,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il loro acc
 
 3. Nel pannello **Diagnostica**, apportare le modifiche seguenti per configurare la registrazione diagnostica.
 
-	![Abilitare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
+	![Abilitare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")  
 
 	* Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
 	* È possibile scegliere di archiviare/elaborare i dati in due modi diversi.
@@ -71,7 +71,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
 
 1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Store per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
 
-	![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
+	![Visualizzare la registrazione diagnostica](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")  
 
 	* Il contenitore **insights-logs-audit** contiene i log di controllo.
 	* Il contenitore **insights-logs-requests** contiene i log delle richieste.
@@ -124,7 +124,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | resultType | String | Lo stato dell'operazione, ad esempio 200. |
 | callerIpAddress | String | L’indirizzo IP del client che esegue la richiesta |
 | correlationId | String | L'ID del log utilizzato per raggruppare un set di voci di log correlate |
-| identity | Object | L'identità che ha generato il log |
+| identity | Oggetto | L'identità che ha generato il log |
 | properties | JSON | Vedere di seguito per ulteriori dettagli |
 
 #### Schema delle proprietà del log di richiesta
@@ -172,7 +172,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | operationName | String | Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
 | resultType | String | Lo stato dell'operazione, ad esempio 200. |
 | correlationId | String | L'ID del log utilizzato per raggruppare un set di voci di log correlate |
-| identity | Object | L'identità che ha generato il log |
+| identity | Oggetto | L'identità che ha generato il log |
 | properties | JSON | Vedere di seguito per ulteriori dettagli |
 
 #### Schema delle proprietà del log di controllo
@@ -192,4 +192,4 @@ Azure Data Lake Store fornisce un esempio su come elaborare e analizzare i dati 
 - [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

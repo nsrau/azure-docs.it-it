@@ -5,8 +5,8 @@
 	documentationCenter=""
 	services="stream-analytics,documentdb"
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="07/27/2016"
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/>  
 
 # Usare Azure DocumentDB per l'output JSON di Analisi di flusso
 
@@ -62,4 +62,4 @@ La creazione di DocumentDB come output in Analisi di flusso genera una richiesta
 -   **Chiave di partizione **: nome del campo negli eventi di output usato per specificare la chiave per il partizionamento dell'output tra le raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.
 -   **ID documento**: valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@ description="DataFu è una raccolta di librerie da usare con Hadoop. Informazion
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
-editor="cgronlun"/>
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="08/23/2016"
-ms.author="larryfr"/>
+ms.author="larryfr"/>  
 
 #Utilizzare DataFu con pig in HDInsight
 
@@ -57,7 +57,7 @@ I passaggi in questa sezione presuppongono che si abbia familiarità con l'utili
 
 > [AZURE.IMPORTANT] Quando si utilizza DataFu da Pig in un cluster HDInsight basato su Linux, è innanzitutto necessario registrare il file jar utilizzando la seguente istruzione Pig Latin:
 >
-> ```register wasbs:///example/jars/datafu-1.2.0.jar```
+> ```register wasbs:///example/jars/datafu-1.2.0.jar```  
 >
 > DataFu è registrato per impostazione predefinita nei cluster HDInsight basati su Windows.
 
@@ -109,4 +109,4 @@ Per altre informazioni su DataFu o Pig, vedere i seguenti documenti:
 
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

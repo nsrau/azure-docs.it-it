@@ -4,8 +4,8 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
-   editor="cgronlun"/>
+   manager="jhubbard"
+   editor="cgronlun"/>  
 
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/15/2016"
-   ms.author="nitinme"/>
+   ms.author="nitinme"/>  
 
 # Confronto tra Azure Data Lake Store e l'archivio BLOB di Azure
 
@@ -48,4 +48,4 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 - [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 - [Introduzione ad Archivio Data Lake](data-lake-store-get-started-portal.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -79,7 +79,7 @@ In Azure Machine Learning è disponibile un modulo [Feature Hashing](https://msd
 
 * Selezionare innanzitutto la colonna che contiene il testo di input ("Col2" in questo esempio).
 * Impostare quindi "Hashing bitsize" su 8, che equivale alla creazione di 2^8=256 funzioni. Per le parole/frasi in tutto il testo verrà generato un hash per 256 indici. Il parametro "Hashing bitsize" è compreso nell'intervallo da 1 a 31. Con l'impostazione di un numero maggiore, è meno probabile che per le parole/frasi venga generato un hash nello stesso indice.
-* Infine, impostare il parametro "N-grams" su 2. In questo modo si ottiene la frequenza di occorrenze di unigrammi (una funzione per ogni singola parola) e di digrammi (una funzione per ogni coppia di valori adiacenti) dal testo di input. L'intervallo del parametro "N-grams" è compreso tra 0 e 10 e indica il numero massimo di parole sequenziali da includere in una funzione.  
+* Infine, impostare il parametro "N-grams" su 2. In questo modo si ottiene la frequenza di occorrenze di unigrammi (una funzione per ogni singola parola) e di digrammi (una funzione per ogni coppia di valori adiacenti) dal testo di input. L'intervallo del parametro "N-grams" è compreso tra 0 e 10 e indica il numero massimo di parole sequenziali da includere in una funzione.
 
 ![Modulo "Feature Hashing"](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
 
@@ -88,11 +88,11 @@ La figura seguente mostra l'aspetto delle nuove funzioni.
 ![Esempio di "Feature Hashing"](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
 
 
-## Conclusioni
+## Conclusione
 
 Le funzioni progettate e selezionate migliorano l'efficienza del processo di training che tenta di estrarre le informazioni essenziali contenute nei dati. Migliorano anche le potenzialità di questi modelli per la classificazione accurata dei dati di input e per la stima più affidabile dei risultati di interesse. Progettazione e selezione delle funzioni possono anche combinarsi per rendere l'apprendimento più computazionalmente trattabile. Questa operazione viene eseguita tramite il miglioramento e la successiva riduzione del numero di funzioni richieste per calibrare o eseguire il training di un modello. Da un punto di vista matematico, le funzioni selezionate per eseguire il training di un modello sono costituite da un set minimo di variabili indipendenti che spiegano i modelli nei dati e quindi stimano correttamente i risultati.
 
 Si noti che non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati da raccogliere, dagli algoritmi scelti e dall'obiettivo dell'esperimento.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

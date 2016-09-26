@@ -4,8 +4,8 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
-    editor="cgronlun"/>
+    manager="jhubbard"
+    editor="cgronlun"/>  
 
 <tags
     ms.service="hdinsight"
@@ -34,7 +34,7 @@ L'azione script può essere applicata usando i metodi seguenti:
 | Azure PowerShell | ✓ | ✓ |
 | Interfaccia della riga di comando di Azure | &nbsp; | ✓ |
 | HDInsight .NET SDK | ✓ | ✓ |
-| Modello di Azure Resource Manager | ✓ | & nbsp; |
+| Modello di Azure Resource Manager | ✓ | &nbsp; |
 
 Per altre informazioni sull'uso di questi metodi per l'applicazione di azioni script, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -98,11 +98,11 @@ Le informazioni scritte in STDOUT e STDERR durante l'esecuzione dello script ven
 
 > [AZURE.NOTE] Ambari sarà disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
 
-La maggior parte delle utilità e dei pacchetti di installazione scrivono già le informazioni in STDOUT e STDERR, tuttavia è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
+La maggior parte delle utilità e dei pacchetti di installazione scrivono già le informazioni in STDOUT e STDERR, tuttavia è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. ad esempio:
 
         echo "Getting ready to install Foo"
 
-Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
+Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. ad esempio:
 
         >&2 echo "An error occurred installing Foo"
 
@@ -268,4 +268,4 @@ Per il comando precedente sostituire __INFILE__ con il file contenente il caratt
 
 * Per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight, vedere l'[API REST del provider di risorse HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

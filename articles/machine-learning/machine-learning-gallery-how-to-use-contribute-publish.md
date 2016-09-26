@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -106,7 +106,7 @@ La raccolta fa ora parte di Cortana Intelligence Gallery.
 
 <!--
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
--->
+-->  
 
 ## Suggerimenti per la pubblicazione e per creare una documentazione di alta qualità
 
@@ -200,4 +200,4 @@ La funzionalità di rendering per descrizioni dettagliate non è ancora disponib
 
 **[VAI ALLA RACCOLTA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

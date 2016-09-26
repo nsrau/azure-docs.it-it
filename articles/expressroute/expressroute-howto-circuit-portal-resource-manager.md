@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager"/>  
 <tags
    ms.service="expressroute"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/29/2016"
-   ms.author="cherylmc"/>
+   ms.author="cherylmc"/>  
 
 # Creare e modificare un circuito ExpressRoute
 
@@ -25,7 +25,7 @@
 
 Questo articolo descrive la procedura di creazione di un circuito ExpressRoute di Azure usando il portale di Azure e il modello di distribuzione di Azure Resource Manager. I passaggi seguenti descrivono anche come controllare lo stato del circuito ed eseguirne l'aggiornamento, l'eliminazione e il deprovisioning.
 
-**Informazioni sui modelli di distribuzione di Azure**About Azure deployment models
+**Informazioni sui modelli di distribuzione di AzureAbout Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -57,8 +57,9 @@ In un browser passare al [portale di Azure](http://portal.azure.com) e accedere 
 
 	- La **misurazione dei dati** determina il tipo di fatturazione. È possibile specificare **Metered** (A consumo) per un piano dati a consumo e **Unlimited** (Senza limiti) per un piano dati illimitato. Si noti che è possibile modificare il tipo di fatturazione da **Metered** (A consumo) a **Unlimited** (Senza limiti), ma non è possibile effettuare il passaggio inverso.
 
-	![Configurazione del livello SKU e misurazione dei dati](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
+	![Configurazione del livello SKU e misurazione dei dati](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)  
 
+>[AZURE.IMPORTANT] Tenere presente che il percorso di Peering indica la [posizione fisica](expressroute-locations.md) in cui si esegue il peering con Microsoft. Questo percorso **non** è collegato alla proprietà "Location", ovvero all'area geografica in cui si trova il provider di risorse di rete di Azure. Dal momento che non sono collegati, è consigliabile scegliere un provider di risorse di rete geograficamente vicino alla posizione di peering del circuito.
 
 ### 3\. Visualizzare circuiti e proprietà
 
@@ -153,4 +154,4 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 - [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 - [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

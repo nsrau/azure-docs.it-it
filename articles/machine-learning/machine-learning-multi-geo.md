@@ -4,9 +4,9 @@
    services="machine-learning"
    documentationCenter=""
    authors="tedway"
-   manager="paulettm"
+   manager="jhubbard"
    editor="rmca14"
-   tags=""/>
+   tags=""/>  
 
 <tags
    ms.service="machine-learning"
@@ -53,10 +53,10 @@ Per gestire a livello di programmazione i servizi web, ad esempio per la ripetiz
 
 Aggiungere una domanda sul [forum di Azure Machine Learning](https://social.msdn.microsoft.com/Forums/azure/home?forum=MachineLearning).
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/machine-learning-multi-geo/multi-geo_1.png
 [2]: ./media/machine-learning-multi-geo/multi-geo_2.png
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

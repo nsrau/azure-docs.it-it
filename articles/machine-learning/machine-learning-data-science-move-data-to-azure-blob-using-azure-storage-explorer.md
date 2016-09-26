@@ -4,8 +4,8 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="jhubbard" 
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -53,4 +53,4 @@ I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esp
 8. Fare clic su **...** a destra della casella **File**, selezionare uno o più file da caricare dal file system e scegliere **Carica** per iniziare a caricare i file.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 7. Per scaricare i dati, selezionare il BLOB nel contenitore corrispondente da scaricare e fare clic su **Scarica**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

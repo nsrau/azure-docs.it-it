@@ -4,9 +4,9 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    	ms.service="hdinsight"
@@ -15,7 +15,7 @@
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
    	ms.date="09/02/2016"
-   	ms.author="jgao"/>
+   	ms.author="jgao"/>  
 
 #Creare cluster basati su Linux in HDInsight tramite .NET SDK
 
@@ -394,4 +394,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 - [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

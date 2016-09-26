@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
-	editor="cgronlun" />
+	manager="jhubbard"
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -14,20 +14,20 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev" />  
 
 # Assegnare punteggi a modelli di apprendimento automatico compilati con Spark 
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-Questo argomento descrive come caricare modelli di apprendimento automatico compilati con MLlib di Spark e archiviati in BLOB di Archiviazione di Azure (WASB) e come assegnare loro un punteggio con set di dati archiviati in WASB. Illustra come pre-elaborare i dati di input, come trasformare le funzionalità con le funzioni di codifica e indicizzazione nel toolkit MLlib e come creare un oggetto dati punto etichettato da usare come input per l'assegnazione dei punteggi con i modelli di apprendimento automatico. I modelli usati per l'assegnazione dei punteggi includono la regressione lineare, la regressione logistica, le foreste casuali e gli alberi con boosting a gradienti.
+Questo argomento descrive come caricare modelli di Machine Learning compilati con MLlib di Spark e archiviati in BLOB di Archiviazione di Azure (WASB) e come assegnare loro un punteggio con set di dati archiviati in WASB. Illustra come pre-elaborare i dati di input, come trasformare le funzionalità con le funzioni di codifica e indicizzazione nel toolkit MLlib e come creare un oggetto dati punto etichettato da usare come input per l'assegnazione dei punteggi con i modelli di apprendimento automatico. I modelli usati per l'assegnazione dei punteggi includono la regressione lineare, la regressione logistica, le foreste casuali e gli alberi con boosting a gradienti.
 
 
 ## Prerequisiti
 
 1. Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per informazioni sui requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da notebook di Jupyter nel cluster Spark, vedere l'articolo [Panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
-2. È anche necessario creare i modelli di apprendimento automatico per l'assegnazione dei punteggi. A tale scopo, vedere l'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
+2. È anche necessario creare i modelli di Machine Learning per l'assegnazione dei punteggi. A tale scopo, vedere l'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -104,16 +104,16 @@ Impostare il contesto Spark e importare le librerie necessarie usando il codice 
 
 I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto preimpostato e pertanto non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo, poiché sono disponibili per impostazione predefinita. Questi contesti sono:
 
-- sc per Spark 
+- sc per Spark
 - sqlContext per Hive
 
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 - **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
-- **%%sql -o <variable name>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
+- **%%sql -o <nome variabile>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
  
 
-Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefiniti chiamati con %% (ad esempio %%local) da essi forniti, vedere [Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark Linux su HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Per altre informazioni sui kernel per le istanze di Jupyter Notebook e i "magic" predefiniti chiamati con %% (ad esempio %%local) messi a disposizione, vedere [Kernel disponibili per Jupyter Notebook con cluster Apache Spark in HDInsight Linux](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Inserire i dati e creare un frame di dati pulito
@@ -264,7 +264,7 @@ Tempo impiegato per eseguire questa cella: 5,37 secondi.
 
 Questa sezione contiene codice che illustra come indicizzare dati di testo categorici come oggetti RDD e come usare la codifica one-hot per codificarli per l'uso per il training e il testing della regressione logistica MLlib e dei modelli basati su albero. I dati indicizzati vengono archiviati come oggetti [RDD (Resilient Distributed Dataset)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html). Si tratta dell'astrazione di base in Spark. Un oggetto RDD rappresenta una raccolta partizionata non modificabile di elementi su cui è possibile operare in parallelo con Spark.
 
-Contiene anche codice che mostra come ridimensionare i dati con `StandardScalar`, fornito da MLlib per l'uso nella regressione lineare con la discesa del gradiente stocastica (SGD), un algoritmo molto diffuso per il training di una vasta gamma di modelli di apprendimento automatico. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) viene usato per ridimensionare le funzionalità alla varianza unitaria. Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo.
+Contiene anche codice che mostra come ridimensionare i dati con `StandardScalar`, fornito da MLlib per l'uso nella regressione lineare con la discesa del gradiente stocastica (SGD), un algoritmo molto diffuso per il training di una vasta gamma di modelli di Machine Learning. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) viene usato per ridimensionare le funzionalità alla varianza unitaria. Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo.
 
 
 	# CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
@@ -529,25 +529,25 @@ Tempo impiegato per eseguire questa cella: 14,6 secondi.
 
 **OUTPUT:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
+linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23\_56.860740.txt
 
 
 
 ## Utilizzare i modelli Spark da un'interfaccia Web
 
-Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota mediante Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
+Spark offre un meccanismo che permette di inviare in modalità remota processi batch o query interattive tramite un'interfaccia REST con un componente denominato Livy. Livy è abilitato per impostazione predefinita nel cluster HDInsight Spark. Per altre informazioni, vedere [Inviare processi Spark in modalità remota tramite Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
 
-Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster è possibile usare uno strumento come **Microsoft Azure Storage Explorer** o **AzCopy**. In questo caso lo script è stato caricato in ***wasb:///example/python/ConsumeGBNYCReg.py***.
+Livy può essere usato per inviare in modalità remota un processo che assegna punteggi in batch a un file archiviato in un BLOB di Azure e quindi scrive i risultati in un altro BLOB. A tale scopo, caricare lo script Python da [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) nel BLOB del cluster Spark. Per copiare lo script nel BLOB del cluster è possibile usare uno strumento come **Explorer di Archiviazione di Microsoft Azure** o **AzCopy**. In questo caso lo script è stato caricato in ***wasb:///example/python/ConsumeGBNYCReg.py***.
 
 
 >[AZURE.NOTE] Le chiavi di accesso necessarie sono reperibili nel portale dell'account di archiviazione associato al cluster Spark.
@@ -599,15 +599,15 @@ Di seguito è riportato il codice Python per la chiamata HTTP:
 
 Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](https://azure.microsoft.com/documentation/services/app-service/logic/) per richiamare l'assegnazione di punteggi in batch di Spark. A tale scopo, specificare un'azione HTTP nell'**area di progettazione delle app per la logica** e impostarne i parametri.
 
-- Nel portale di Azure creare una nuova app per la logica selezionando **+Nuovo** -> **Web e dispositivi mobili** -> **App per la logica**. 
+- Nel portale di Azure creare una nuova app per la logica selezionando **+Nuovo** -> **Web e dispositivi mobili** -> **App per la logica**.
 - Immettere il nome dell'app per la logica e del piano di servizio app per visualizzare l'**area di progettazione delle app per la logica**.
 - Selezionare un'azione HTTP e immettere i parametri mostrati nella figura seguente:
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
+![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)  
 
 
 ## Passaggi successivi 
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@ description="Informazioni su come usare l'interfaccia utente di Tez per il debug
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
-editor="cgronlun"/>
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="07/19/2016"
-ms.author="larryfr"/>
+ms.author="larryfr"/>  
 
 # Usare l'interfaccia utente di Tez per il debug di processi Tez in HDInsight basato su Windows
 
@@ -147,4 +147,4 @@ A questo punto, dopo avere appreso come usare la visualizzazione Tez, è possibi
 
 Per informazioni tecniche più dettagliate su Tez, vedere la [pagina di Tez in Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

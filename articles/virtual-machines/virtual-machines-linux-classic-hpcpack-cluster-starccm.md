@@ -6,14 +6,14 @@
  authors="xpillons"
  manager="timlt"
  editor=""
- tags="azure-service-management,azure-resource-manager,hpc-pack"/>
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>  
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="06/28/2016"
+ ms.date="09/13/2016"
  ms.author="xpillons"/>
 
 # Eseguire STAR-CCM+ con Microsoft HPC Pack in un cluster Linux RDMA in Azure
@@ -341,8 +341,8 @@ Provare a eseguire altri carichi di lavoro di Linux. Per esempi, vedere:
 * [Eseguire OpenFoam con Microsoft HPC Pack in un cluster Linux RDMA in Azure.](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

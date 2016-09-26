@@ -5,8 +5,8 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
-   editor="cjgronlund"/>
+   manager="jhubbard"
+   editor="cjgronlund"/>  
 
 <tags
    ms.service="machine-learning"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.date="09/13/2016"
+   ms.author="cgronlun;brohrer;garye"/>  
 
 # Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 
@@ -115,7 +115,7 @@ Talvolta si desidera capire la struttura di un set di dati: In che modo sono org
 
 Esistono diversi modi per comprendere la struttura dei dati. Un approccio è il clustering. Separa i dati in "gruppi" naturali per un'interpretazione più semplice. Con il clustering non vi è un'unica risposta corretta.
 
-![Algoritmi di clustering: In che modo sono organizzati i dati?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
+![Algoritmi di clustering: In che modo sono organizzati i dati?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)  
 
 Esempi comuni di domande di clustering sono:
 
@@ -151,4 +151,4 @@ Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principi
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

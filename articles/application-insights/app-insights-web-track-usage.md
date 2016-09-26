@@ -21,8 +21,8 @@ Sapere in che modo viene usata l'applicazione consente di incentrare il lavoro d
 
 Visual Studio Application Insights offre due livelli di monitoraggio dell’utilizzo:
 
-* **Dati relativi a utenti, sessioni e visualizzazioni di pagina**: predefiniti.  
-* **Telemetria personalizzata**: è possibile [scrivere codice ][api] consente di monitorare gli utenti attraverso l'esperienza utente dell'app. 
+* **Dati relativi a utenti, sessioni e visualizzazioni di pagina**: predefiniti.
+* **Telemetria personalizzata**: è possibile [scrivere codice ][api] consente di monitorare gli utenti attraverso l'esperienza utente dell'app.
 
 ## Configurazione
 
@@ -37,7 +37,7 @@ Accedere al [portale di Azure][portal], passare alla risorsa dell'applicazione e
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Utenti:** numero di utenti attivi distinti nell'intervallo di tempo del grafico. 
+* **Utenti:** numero di utenti attivi distinti nell'intervallo di tempo del grafico.
 * **Sessioni:** conteggio delle sessioni attive.
 * **Visualizzazioni pagina**: conta il numero di chiamate a trackPageView(), in genere chiamato una volta in ogni pagina Web.
 
@@ -96,7 +96,7 @@ Tuttavia, quando si analizzano intervalli di tempo più brevi, ad esempio il liv
 
 Ogni sessione utente è associata a un ID utente univoco.
 
-Per impostazione predefinita, l'utente viene identificato mediante l'inserimento di un cookie. Un utente che usa più browser o dispositivi verrà conteggiato più di una volta. Vedere [utenti autenticati](#authenticated-users)
+Per impostazione predefinita, l'utente viene identificato mediante l'inserimento di un cookie. Un utente che usa più browser o dispositivi verrà conteggiato più di una volta. Vedere [utenti autenticati](#authenticated-users).
 
 
 La metrica **Conteggio utenti** in un determinato intervallo viene definita come il numero di utenti univoci con attività registrate durante questo intervallo. Di conseguenza, è possibile che gli utenti associati a sessioni lunghe vengano conteggiati più volte se si imposta un intervallo di tempo in modo che la granularità sia inferiore a un'ora.
@@ -119,7 +119,7 @@ Se l'app raggruppa gli utenti in account, è anche possibile passare un identifi
 Gli ID utente e account non devono contenere spazi o i caratteri `,;=|`.
 
 
-In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **utenti autenticati** e **account**.
+In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **utenti autenticati ** e **account**.
 
 ## Traffico sintetico
 
@@ -333,10 +333,10 @@ Nell'inizializzatore di app, ad esempio Global.asax.cs, procedere come segue:
 
 ## Compilare - Misurare - Acquisire informazioni
 
-Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, non solo un'attività da prendere in considerazione per la risoluzione dei problemi. Ecco alcuni suggerimenti:
+Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, non solo un'attività da prendere in considerazione per la risoluzione dei problemi. Di seguito sono riportati alcuni suggerimenti:
 
 * Determinare la metrica chiave dell'applicazione. Stabilire se si vogliono prendere in considerazione tutti gli utenti possibili o è preferibile un piccolo gruppo di utenti molto soddisfatti oppure se si vogliono ottimizzare le visite o le vendite.
-* Pianificare la misurazione di ogni storia. Quando si definisce una nuova storia o funzionalità utente oppure si pianifica l'aggiornamento di una storia o una funzionalità esistente, pensare sempre a come si misurerà la riuscita della modifica. Prima di iniziare a scrivere codice, chiedersi quale effetto avrà sulle metriche, se funziona e se si dovrà tenere traccia dei nuovi eventi. Naturalmente, quando la funzionalità è live, assicurarsi di esaminare l'analisi e agire in base ai risultati. 
+* Pianificare la misurazione di ogni storia. Quando si definisce una nuova storia o funzionalità utente oppure si pianifica l'aggiornamento di una storia o una funzionalità esistente, pensare sempre a come si misurerà la riuscita della modifica. Prima di iniziare a scrivere codice, chiedersi quale effetto avrà sulle metriche, se funziona e se si dovrà tenere traccia dei nuovi eventi. Naturalmente, quando la funzionalità è live, assicurarsi di esaminare l'analisi e agire in base ai risultati.
 * Correlare altre metriche alla metrica chiave. Ad esempio, se si aggiunge una funzionalità "Preferiti", si vorrà sapere con quale frequenza gli utenti aggiungono preferiti. Tuttavia, è forse più interessante sapere con quale frequenza tornano a consultare i preferiti. E, ancora più importante, è utile sapere se i clienti che usano i preferiti in definitiva effettuano più acquisti relativi al prodotto.
 * Effettuare un test. Impostare uno switch di funzionalità che consente di visualizzare una nuova funzionalità solo ad alcuni utenti. Usare Application Insights per verificare se la nuova funzionalità viene usata nel modo previsto. Apportare modifiche, quindi rilasciarla per un pubblico più ampio.
 * È essenziale comunicare con gli utenti. L'analisi non è sufficiente da sola, ma è complementare a una buona relazione con i clienti.
@@ -352,7 +352,7 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
 
-<!--Link references-->
+<!--Link references-->  
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
@@ -366,4 +366,4 @@ Quando si usa l'analisi, questa diventa parte integrante del ciclo di sviluppo, 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

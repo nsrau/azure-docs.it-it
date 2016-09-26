@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
-    ms.author="jeedes" />
+    ms.date="09/11/2016" 
+    ms.author="jeedes" />  
 
 #Esercitazione: Integrazione di Azure Active Directory con Veracode
   
@@ -46,11 +46,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Vera
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-veracode-tutorial/IC700994.png "Applicazioni")
+    ![Applicazioni](./media/active-directory-saas-veracode-tutorial/IC700994.png "Applicazioni")  
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-veracode-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-veracode-tutorial/IC749321.png "Aggiunta di un'applicazione")  
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -74,31 +74,31 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 1.  Nella pagina di integrazione dell'applicazione **Veracode** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configura accesso Single Sign-On")  
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Veracode** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configura accesso Single Sign-On")  
 
 3.  Nella pagina **Configurare le impostazioni dell'app** fare clic su **Avanti**.
 
-    ![Configurare le impostazioni dell'app](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configurare le impostazioni dell'app")
+    ![Configurare le impostazioni dell'app](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configurare le impostazioni dell'app")  
 
 4.  Nella pagina **Configura accesso Single Sign-On in Veracode** per scaricare il file del certificato, fare clic su **Download certificato** e quindi salvarlo localmente nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configura accesso Single Sign-On")  
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Veracode come amministratore.
 
 6.  Nel menu in alto fare clic su **Settings** e quindi su **Admin**.
 
-    ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802911.png "Amministrazione")
+    ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802911.png "Amministrazione")  
 
 7.  Fare clic sulla scheda **SAML**.
 
 8.  Nella sezione **Impostazioni SAML dell’organizzazione** seguire questa procedura:
 
-    ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802912.png "Amministrazione")
+    ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802912.png "Amministrazione")  
 
     1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Veracode** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Autorità di certificazione**
     2.  Per caricare il certificato scaricato, fare clic su **Scegli file**.
@@ -106,7 +106,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 9.  Nella sezione **Impostazioni di registrazione automatica** seguire questa procedura e quindi fare clic su **Salva**:
 
-    ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802913.png "Amministrazione")
+    ![Amministrazione](./media/active-directory-saas-veracode-tutorial/IC802913.png "Amministrazione")  
 
     1.  In **Attivazione nuovo utente** selezionare **Nessuna attivazione richiesta**.
     2.  In **Aggiornamenti dati utenti** selezionare **Dati utenti Veracode di preferenza**.
@@ -124,15 +124,15 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configura accesso Single Sign-On")  
 
 11. Nel menu in alto fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
 
-    ![Attributi](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributi")
+    ![Attributi](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributi")  
 
 12. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
 
-    ![Attributi](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributi")
+    ![Attributi](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributi")  
 
 	| Nome attributo | Valore attributo |
 	|:---------------|:----------------|
@@ -146,7 +146,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     3.  Nella casella di testo **Valore attributo**, selezionare il valore dell'attributo indicato per la riga.
 
-    4.  Fare clic su **Complete**.
+    4.  Fare clic su **Completa**.
 
 13. Fare clic su **Applica modifiche**.
 
@@ -160,7 +160,7 @@ Se necessario, gli utenti vengono creati automaticamente durante il primo tentat
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario assegnare l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentire l'uso dell'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Veracode, seguire questa procedura:
 
@@ -168,7 +168,7 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
 
 2.  Nella pagina di integrazione dell'applicazione **Veracode** fare clic su **Assegna utenti**.
 
-    ![Assegna utenti](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assegna utenti")
+    ![Assegna utenti](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assegna utenti")  
 
 3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
@@ -176,4 +176,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

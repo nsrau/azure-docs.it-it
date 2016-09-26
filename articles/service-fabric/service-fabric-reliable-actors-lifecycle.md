@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/30/2016"
-   ms.author="amanbha"/>
+   ms.author="amanbha"/>  
 
 
 # Ciclo di vita degli attori, Garbage Collection automatica ed eliminazione manuale
@@ -34,7 +34,7 @@ Quando un attore viene attivato, si verifica quanto segue:
 Quando un attore viene disattivato, si verifica quanto segue:
 
 - Quando un attore rimane inutilizzato per un determinato periodo di tempo, viene rimosso dalla tabella degli attori attivi.
-- Viene chiamato il metodo `OnDeactivateAsync` (che può essere sottoposto a override nell'implementazione dell'attore). Ciò elimina tutti i timer dell'attore.
+- Viene chiamato il metodo `OnDeactivateAsync` (che può essere sottoposto a override nell'implementazione dell'attore). Ciò elimina tutti i timer dell'attore. Le operazioni dell'attore come le modifiche di stato non devono essere chiamate da questo metodo.
 
 > [AZURE.TIP] Il runtime di Fabric Actors emette alcuni [eventi relativi all'attivazione e alla disattivazione degli attori](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
@@ -126,7 +126,7 @@ Si noti che un attore non può chiamare un'operazione di eliminazione su se stes
  - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,8 +5,8 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
-   editor="cjgronlund"/>
+   manager="jhubbard"
+   editor="cjgronlund"/>  
 
 <tags
    ms.service="machine-learning"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+   ms.author="cgronlun;brohrer;garye"/>  
 
 # Prevedere una risposta con un modello semplice
 
@@ -141,4 +141,4 @@ Anche gli altri video della serie "Analisi scientifica dei dati per principianti
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

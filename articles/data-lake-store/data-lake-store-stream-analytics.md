@@ -4,8 +4,8 @@
    services="data-lake-store,stream-analytics" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
-   editor="cgronlun"/>
+   manager="jhubbard"
+   editor="cgronlun"/>  
 
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="07/07/2016"
-   ms.author="nitinme"/>
+   ms.author="nitinme"/>  
 
 # Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando Analisi di flusso di Azure
 
@@ -28,7 +28,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
+- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 
 - **Account di archiviazione di Azure**. Per l'input dei dati per un processo di Analisi di flusso viene usato un contenitore BLOB da questo account. Per questa esercitazione, si supponga di creare un account di archiviazione **datalakestoreasa** e un contenitore incluso nell'account denominato **datalakestoreasacontainer**. Dopo aver creato il contenitore, caricare un file di dati di esempio. È possibile ottenere un file di dati di esempio dal [repository Git di Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). È possibile usare vari tipi di client, ad esempio [Azure Storage Explorer](http://storageexplorer.com/), per caricare i dati in un contenitore BLOB.
 
@@ -129,4 +129,4 @@ Nel riquadro Data Explorer l'output viene scritto in una cartella come specifica
 
 * [Creare un cluster HDInsight per usare Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

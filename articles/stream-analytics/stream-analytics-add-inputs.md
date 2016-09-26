@@ -5,9 +5,9 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
-/>
+/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -17,14 +17,14 @@
 	ms.workload="data-services"
 	ms.date="07/27/2016"
 	ms.author="jeffstok"
-/>
+/>  
 
 
 # Aggiungere un input di dati di streaming o dati di riferimento a un processo di analisi di flusso
 
 Informazioni su come associare un'origine dati al processo di Analisi di flusso come input di dati di streaming provenienti da Hub eventi o dati di riferimento provenienti dall'archivio BLOB.
 
-I processi di analisi di flusso di Azure possono essere connessi a uno o più input di dati, che definiscono una connessione a un'origine dati esistente. Quando i dati vengono inviati a tale origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale come flussi di dati. L'analisi di flusso si integra perfettamente con gli [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e l’[archivio BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md)all'interno e all'esterno della sottoscrizione processo.
+I processi di analisi di flusso di Azure possono essere connessi a uno o più input di dati, che definiscono una connessione a un'origine dati esistente. Quando i dati vengono inviati a tale origine dati, vengono usati dal processo di Analisi di flusso ed elaborati in tempo reale come flussi di dati. L'analisi di flusso si integra perfettamente con gli [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e l'[archivio BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md) all'interno e all'esterno della sottoscrizione del processo.
 
 Questo articolo è un passaggio nel [percorso di apprendimento di analisi di flusso](/documentation/learning-paths/stream-analytics/).
 
@@ -88,4 +88,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

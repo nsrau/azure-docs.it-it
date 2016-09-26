@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="chipalost"
 	manager="timlt"
-	editor=""/>
+	editor=""/>  
 
 <tags
      ms.service="iot-hub"
@@ -93,39 +93,7 @@ Per configurare il dispositivo Edison e acquisire familiarità con tale disposit
 
 Prima di eseguire l'esempio, è necessario verificare che la scheda Edison sia in grado di connettersi al dispositivo SensorTag.
 
-È necessario innanzitutto aggiornare la versione del software BlueZ sulla scheda Edison. Anche se è già installata la versione 5.37, è necessario eseguire i passaggi seguenti per assicurarsi che l'installazione sia completata:
-
-1. Arrestare il daemon bluetooth attualmente in esecuzione.
-    
-    ```
-    systemctl stop bluetooth
-    ```
-
-2. Scaricare ed estrarre il [codice sorgente](http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz) per la versione 5.37 di BlueZ.
-    
-    ```
-    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
-    tar -xvf bluez-5.37.tar.xz
-    cd bluez-5.37
-    ```
-
-3. Compilare e installare BlueZ.
-    
-    ```
-    ./configure --disable-udev --disable-systemd --enable-experimental
-    make
-    make install
-    ```
-
-4. Cambiare la configurazione del servizio *systemd* per bluetooth in modo che punti al nuovo daemon bluetooth modificando il file **/lib/systemd/system/bluetooth.service**. Sostituire il valore dell'attributo **ExecStart** in modo che risulti simile al seguente:
-    
-    ```
-    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
-    ```
-
-5. Riavviare la scheda Edison.
-
-A questo punto è necessario verificare che la scheda Edison riesca a connettersi al dispositivo SensorTag.
+Innanzitutto è necessario verificare che la scheda Edison riesca a connettersi al dispositivo SensorTag.
 
 1. Sbloccare bluetooth sulla scheda Edison e verificare che il numero di versione sia **5.37**.
     
@@ -134,20 +102,22 @@ A questo punto è necessario verificare che la scheda Edison riesca a connetters
     bluetoothctl --version
     ```
 
-2. Eseguire il comando **bluetoothctl**. Verrà visualizzato un output simile al seguente:
+2. Eseguire il comando **bluetoothctl**. A questo punto sarà disponibile una shell di bluetooth interattiva.
+
+3. Immettere il comando **power on** per accendere il controller bluetooth. Verrà visualizzato un output simile al seguente:
     
     ```
     [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
     ```
 
-3. A questo punto sarà disponibile una shell di bluetooth interattiva. Immettere il comando **scan on** per eseguire la scansione di dispositivi Bluetooth. Verrà visualizzato un output simile al seguente:
+4. Sempre nella shell interattiva bluetooth, immettere il comando **scan on** per cercare i dispositivi bluetooth. Verrà visualizzato un output simile al seguente:
     
     ```
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-4. Rendere individuabile il dispositivo SensorTag premendo il pulsante piccolo (il LED verde dovrebbe lampeggiare). La scheda Edison dovrebbe individuare il dispositivo SensorTag:
+5. Rendere individuabile il dispositivo SensorTag premendo il pulsante piccolo (il LED verde dovrebbe lampeggiare). La scheda Edison dovrebbe individuare il dispositivo SensorTag:
     
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -157,14 +127,14 @@ A questo punto è necessario verificare che la scheda Edison riesca a connetters
     
     In questo esempio è possibile notare che l'indirizzo MAC del dispositivo SensorTag è **A0:E6:F8:B5:F6:00**.
 
-5. Disattivare la scansione immettendo il comando **scan off**.
+6. Disattivare la scansione immettendo il comando **scan off**.
     
     ```
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
-6. Connettersi al dispositivo SensorTag mediante il relativo indirizzo MAC immettendo **connect <indirizzo MAC>**. Si noti che l'output di esempio seguente è abbreviato:
+7. Connettersi al dispositivo SensorTag mediante il relativo indirizzo MAC immettendo **connect <indirizzo MAC>**. Si noti che l'output di esempio seguente è abbreviato:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -185,7 +155,7 @@ A questo punto è necessario verificare che la scheda Edison riesca a connetters
     
     Nota: è possibile elencare di nuovo le caratteristiche GATT del dispositivo usando il comando **list-attributes**.
 
-7. È ora possibile disconnettersi dal dispositivo usando il comando **disconnect** e quindi uscire dalla shell di bluetooth mediante il comando **quit**:
+8. È ora possibile disconnettersi dal dispositivo usando il comando **disconnect** e quindi uscire dalla shell di bluetooth mediante il comando **quit**:
     
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
@@ -438,7 +408,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md
@@ -458,4 +428,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

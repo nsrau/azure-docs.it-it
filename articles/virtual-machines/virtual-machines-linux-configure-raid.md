@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
-	ms.author="rclaus"/>
+	ms.date="09/06/2016" 
+	ms.author="rclaus"/>  
 
 
 
@@ -24,7 +24,7 @@ I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per 
 
 
 ## Collegamento di dischi dati
-Per configurare un dispositivo RAID sono in genere necessari due dischi dati. Il dispositivo RAID viene creato principalmente per migliorare le prestazioni dell'I/O su disco. In base alle esigenze di I/O, è possibile scegliere di collegare dischi che sono archiviati nell'archiviazione Standard con un massimo di 500 IO/ps per ogni disco o nell'archiviazione Premium con un massimo di 5.000 IO/ps per ogni disco. In questo articolo non verrà illustrato in dettaglio come eseguire il provisioning e collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](virtual-machines-linux-add-disk.md).
+Per configurare un dispositivo RAID sono necessari due o più dischi dati vuoti. Il dispositivo RAID viene creato principalmente per migliorare le prestazioni dell'I/O su disco. In base alle esigenze di I/O, è possibile scegliere di collegare dischi che sono archiviati nell'archiviazione Standard con un massimo di 500 IO/ps per ogni disco o nell'archiviazione Premium con un massimo di 5.000 IO/ps per ogni disco. In questo articolo non verrà illustrato in dettaglio come eseguire il provisioning e collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](virtual-machines-linux-add-disk.md).
 
 
 ## Installazione dell'utility mdadm
@@ -44,7 +44,7 @@ Per configurare un dispositivo RAID sono in genere necessari due dischi dati. Il
 
 
 ## Creazione delle partizioni del disco
-In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La nuova partizione del disco verrà quindi denominata /dev/sdc1.
+In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La nuova partizione del disco verrà denominata /dev/sdc1.
 
 1. Avviare fdisk per iniziare la creazione delle partizioni
 
@@ -72,7 +72,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 
 		Partition number (1-4): 1
 
-5. Selezionare il punto di inizio della nuova partizione oppure premere semplicemente `<enter>` per accettare le impostazioni predefinite, che prevedono il posizionamento della partizione all'inizio dello spazio libero nell'unità:
+5. Selezionare il punto di inizio della nuova partizione oppure premere `<enter>` per accettare le impostazioni predefinite, che prevedono il posizionamento della partizione all'inizio dello spazio libero nell'unità:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
@@ -159,7 +159,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 
 	**Configurazione di fstab**
 
-	Molte distribuzioni includono i parametri di montaggio `nobootwait` o `nofail`, che è possibile aggiungere al file /etc/fstab. Tali parametri consentono di ignorare gli errori durante il montaggio di uno specifico file system. Consentono pertanto di proseguire l'avvio del sistema Linux anche se non è possibile montare correttamente il file system RAID. Per ulteriori informazioni su questi parametri, fare riferimento alla documentazione della distribuzione.
+	Molte distribuzioni includono i parametri di montaggio `nobootwait` o `nofail`, che è possibile aggiungere al file /etc/fstab. Tali parametri consentono di ignorare gli errori durante il montaggio di uno specifico file system. Consentono pertanto di proseguire l'avvio del sistema Linux anche se non è possibile montare correttamente il file system RAID. Per altre informazioni su questi parametri, fare riferimento alla documentazione della distribuzione.
 
 	Esempio (Ubuntu):
 
@@ -171,4 +171,4 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
 
 	Per informazioni sulla corretta modifica dei parametri del kernel, fare riferimento alla documentazione della distribuzione. Ad esempio, in molte distribuzioni (CentOS, Oracle Linux, SLES 11) è possibile aggiungere manualmente tali parametri al file "`/boot/grub/menu.lst`". In Ubuntu è possibile aggiungere il parametro `GRUB_CMDLINE_LINUX_DEFAULT` alla variabile in "/etc/default/grub".
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

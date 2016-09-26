@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="alokkirpal" 
-	manager="paulettm"
-	editor="cgronlun" />
+	manager="jhubbard"
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -211,4 +211,4 @@ Questo output può essere analizzato con un [semplice parser](https://adresultpa
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

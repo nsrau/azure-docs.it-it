@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="luisca"/>
+	ms.author="luisca"/>  
 
 
 # Eseguire la migrazione all'API Raccomandazioni Servizi cognitivi di Azure dall'API per le raccomandazioni DataMarket
@@ -64,4 +64,4 @@ L'[API per le raccomandazioni DataMarket](https://datamarket.azure.com/dataset/a
 
 Per rendere questa transizione più semplice possibile, Microsoft offre assistenza agli utenti per spostare i vecchi modelli dall'account DataMarket alla nuova sottoscrizione dell'API Raccomandazioni Servizi cognitivi di Azure. A questo scopo, contattare [mlapi@microsoft.com](mailto://mlapi@microsoft.com). Prima di associare i modelli al nuovo account, verrà chiesto di fornire l'ID sottoscrizione di DataMarket e l'ID sottoscrizione di Servizi cognitivi.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+   manager="jhubbard"
+   editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
-   ms.author="larryfr"/>
+   ms.date="09/07/2016"
+   ms.author="larryfr"/>  
 
 # Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux
 
@@ -62,11 +62,11 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 È possibile distribuire a livello di codice una topologia in Storm su HDInsight comunicando con il servizio Nimbus ospitato nel cluster. Nella pagina [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) è disponibile un'applicazione Java di esempio che illustra come distribuire e avviare una topologia tramite il servizio Nimbus.
 
-##Monitorare e gestire usando il comando storm
+## Monitorare e gestire usando il comando storm
 
 L'utilità `storm` consente di usare le topologie in esecuzione dalla riga di comando. Di seguito è riportato un elenco di comandi di uso comune. Per visualizzare l'elenco completo dei comandi, usare `storm -h`.
 
-###Visualizzare l'elenco delle topologie
+### Visualizzare l'elenco delle topologie
 
 Usare il comando seguente per ottenere un elenco delle topologie in esecuzione:
 
@@ -78,7 +78,7 @@ Verranno restituite informazioni simili alle seguenti:
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-###Disattivare e riattivare
+### Disattivare e riattivare
 
 La disattivazione di una topologia comporta la sua sospensione finché non viene terminata o riattivata. Per disattivare e riattivare, usare i seguenti comandi:
 
@@ -86,13 +86,13 @@ La disattivazione di una topologia comporta la sua sospensione finché non viene
     
     storm Activate TOPOLOGYNAME
 
-###Terminare una topologia in esecuzione
+### Terminare una topologia in esecuzione
 
 Una volta avviate, le topologie di Storm continueranno a rimanere in esecuzione finché non vengono arrestate. Per arrestare una topologia, usare il comando seguente:
 
     storm stop TOPOLOGYNAME
 
-###Ribilanciare
+### Ribilanciare
 
 Il ribilanciamento di una topologia consente al sistema di analizzare il parallelismo della topologia. Ad esempio, se il cluster è stato ridimensionato per aggiungere altre note, il ribilanciamento consentirà una topologia in esecuzione di usare i nuovi nodi.
 
@@ -100,7 +100,7 @@ Il ribilanciamento di una topologia consente al sistema di analizzare il paralle
 
     storm rebalance TOPOLOGYNAME
 
-##Monitorare e gestire usando l'interfaccia utente di Storm
+## Monitorare e gestire usando l'interfaccia utente di Storm
 
 L'interfaccia utente di Storm è inclusa nel cluster HDInsight e fornisce un'interfaccia Web da usare con le topologie in esecuzione. Per visualizzare l'interfaccia utente di Storm, usare un Web browser per aprire __https://CLUSTERNAME.azurehdinsight.net/stormui__, dove __CLUSTERNAME\_\_ è il nome del cluster.
 
@@ -135,7 +135,7 @@ Se si seleziona un collegamento nella sezione **Topology summary**, verranno vis
 
     Per altre informazioni, vedere l'articolo relativo al <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">parallelismo di una topologia Storm</a>.
 
-* **Kill**: termina una topologia Storm dopo il timeout specificato.
+  * **Kill**: termina una topologia Storm dopo il timeout specificato.
 
 * **Topology stats**: statistiche sulla topologia. Usare i collegamenti disponibili nella colonna **Window** per impostare l'intervallo di tempo per le rimanenti voci della pagina.
 
@@ -171,7 +171,7 @@ Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfacci
 
 ### URI di base
 
-L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in **https://HEADNODEFQDN:8744/api/v1/**; tuttavia, il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
+L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in * *https://HEADNODEFQDN:8744/api/v1/**; tuttavia, il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
 
 È possibile trovare il nome di dominio completo (FQDN) per il nodo head del cluster in diversi modi:
 
@@ -197,4 +197,4 @@ A questo punto, dopo aver appreso come distribuire e monitorare le topologie usa
 
 Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm per Apache Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

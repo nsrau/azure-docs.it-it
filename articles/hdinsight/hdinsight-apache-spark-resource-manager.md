@@ -4,9 +4,9 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags 
 	ms.service="hdinsight" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="nitinme"/>
+	ms.author="nitinme"/>  
 
 
 # Gestire le risorse del cluster Apache Spark in HDInsight Linux
@@ -212,4 +212,4 @@ Poiché si usa l'assegnazione dinamica di Spark, le uniche risorse utilizzate da
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

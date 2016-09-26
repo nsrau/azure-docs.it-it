@@ -4,9 +4,9 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="07/25/2016"
-   ms.author="larryfr"/>
+   ms.author="larryfr"/>  
 
 #Eseguire processi Pig in un cluster basato su Linux con il comando Pig (SSH)
 
@@ -154,4 +154,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

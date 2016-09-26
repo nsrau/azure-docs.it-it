@@ -4,9 +4,9 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/16/2016"
-   ms.author="larryfr"/>
+   ms.date="09/06/2016"
+   ms.author="larryfr"/>  
 
 #Eseguire query Hive usando gli strumenti di HDInsight per Visual Studio
 
@@ -52,7 +52,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Le istruzioni eseguono queste azioni:
+    Di seguito sono elencate le istruzioni che eseguono queste azioni:
 
     * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
     * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
@@ -78,7 +78,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Le istruzioni eseguono queste azioni:
+    Di seguito sono elencate le istruzioni che eseguono queste azioni:
 
     * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 
@@ -143,4 +143,4 @@ Per altre informazioni su HDInsight Tools per Visual Studio:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

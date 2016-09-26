@@ -5,8 +5,8 @@
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
-   editor="cgronlun"/>
+   manager="jhubbard"
+   editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="03/07/2016"
-   ms.author="nitinme"/>
+   ms.author="nitinme"/>  
 
 
 # Esercitazione di Hadoop: Introduzione ad Hadoop e a una query Hive in HDInsight in Windows
@@ -283,4 +283,4 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

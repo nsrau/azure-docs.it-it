@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="robb"/>
+	ms.author="robb"/>  
 
 # Panoramica delle metriche in Microsoft Azure
 
@@ -68,8 +68,8 @@ Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che una metrica supera una soglia.
 * [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * [Scalare automaticamente il numero di istanze](insights-how-to-scale.md) per assicurarsi che il servizio sia disponibile e reattivo.
-* [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
+* [Monitorare le prestazioni dell'applicazione](../application-insights/app-insights-azure-web-apps.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * Usare [Application Insights per app JavaScript e pagine Web](../application-insights/app-insights-web-track-usage.md) per ottenere l'analisi client sui browser che visitano una pagina Web.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

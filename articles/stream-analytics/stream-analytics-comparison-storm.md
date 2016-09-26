@@ -5,8 +5,8 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="07/27/2016"
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/>  
 
 # Informazioni utili per scegliere una piattaforma di analisi di flusso: confronto tra Apache Storm e Analisi di flusso di Azure
 
@@ -588,4 +588,4 @@ Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tut
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

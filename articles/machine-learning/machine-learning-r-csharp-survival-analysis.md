@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="zhangya" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="machine-learning" 
@@ -89,7 +89,7 @@ L'interpretazione di questo test è la seguente. Si presupponga che l'obiettivo 
 
 In Azure Machine Learning è stato creato un nuovo esperimento vuoto e due moduli [Execute R Script][execute-r-script] sono stati inseriti nell'area di lavoro. Lo schema di dati è stato creato con un semplice [Execute R Script][execute-r-script], che definisce lo schema di dati di input per il servizio Web. Questo modulo viene quindi collegato al secondo modulo [Execute R Script][execute-r-script], che esegue la maggior parte delle operazioni, ovvero la pre-elaborazione dei dati, la compilazione dei modelli e le previsioni. Nel passaggio di pre-elaborazione dei dati, i dati di input rappresentati da una stringa lunga vengono trasformati e convertiti in un intervallo di dati. Nel passaggio di compilazione del modello, viene prima di tutto installato un pacchetto R esterno denominato "survival\_2.37-7.zip" per l'esecuzione dell'analisi di sopravvivenza. La funzione "coxph" viene eseguita dopo una serie di attività di elaborazione dei dati. Informazioni dettagliate sulla funzione "coxph" per l'analisi di sopravvivenza sono disponibili nella documentazione su R. Nel passaggio relativo alla previsione, un'istanza di test viene fornita al modello sottoposto a training con la funzione "surfit" e la curva di sopravvivenza per questa istanza di test viene prodotta come variabile "curve". Viene quindi ricavata la probabilità del tempo di interesse.
 
-###Flusso dell'esperimento:
+###Flusso dell'esperimento
 
 ![flusso dell'esperimento][1]
 
@@ -203,8 +203,8 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

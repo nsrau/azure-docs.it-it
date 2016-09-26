@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="jhubbard" 
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/14/2016" 
-	ms.author="bradsev;gopitk" />
+	ms.author="bradsev;gopitk" />  
 
 
 # Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)
@@ -33,17 +33,17 @@ I passaggi del processo sono rappresentati graficamente e collegati nel [percors
 
 ## P1. Pianificare il progetto di analisi 
 
-Avviare un progetto di analisi definendo gli obiettivi aziendali e i problemi, specificandoli in termini di **requisiti aziendali**. Un obiettivo essenziale di questo passaggio consiste nell'identificare le variabili aziendali principali, ad esempio le previsioni di vendita o la probabilità che un ordine sia illecito, che l'analisi deve prevedere per soddisfare i requisiti. Sono quindi in genere necessarie operazioni aggiuntive di pianificazione per sviluppare una comprensione delle **origini dati** necessarie per soddisfare gli obiettivi del progetto da un punto di vista analitico. Non è ad esempio insolito scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. Per istruzioni, vedere [Plan your environment for the Team Data Science Process](machine-learning-data-science-plan-your-environment.md) (Pianificare l'ambiente per il Processo di analisi scientifica dei dati per i team) e [Scenari per l'analisi avanzata in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
+Avviare un progetto di analisi definendo gli obiettivi aziendali e i problemi, specificandoli in termini di **requisiti aziendali**. Un obiettivo essenziale di questo passaggio consiste nell'identificare le variabili aziendali principali, ad esempio le previsioni di vendita o la probabilità che un ordine sia illecito, che l'analisi deve prevedere per soddisfare i requisiti. Sono quindi in genere necessarie operazioni aggiuntive di pianificazione per sviluppare una comprensione delle **origini dati** necessarie per soddisfare gli obiettivi del progetto da un punto di vista analitico. Non è ad esempio insolito scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. Per istruzioni, vedere [Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata](machine-learning-data-science-plan-your-environment.md) e [Scenari per l'analisi avanzata in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
 
 ## P2. Configurare l'ambiente di analisi 
 
 Un ambiente di analisi per il TDSP include numerosi componenti:
 
-- **Aree di lavoro dati**, in cui i dati sono gestiti in modalità temporanea per l'analisi e la modellazione. 
+- **Aree di lavoro dati**, in cui i dati sono gestiti in modalità temporanea per l'analisi e la modellazione.
 - **Infrastruttura di elaborazione** per la pre-elaborazione, l'esplorazione e la modellazione dei dati.
-- **Infrastruttura di runtime** per rendere operativi i modelli analitici e quindi eseguire le applicazioni client intelligenti che usano i modelli.  
+- **Infrastruttura di runtime** per rendere operativi i modelli analitici e quindi eseguire le applicazioni client intelligenti che usano i modelli.
 
-L'infrastruttura di analisi da configurare è spesso parte di un ambiente distinto dai sistemi operativi principali, ma in genere sfrutta i dati provenienti da più sistemi entro l'azienda, oltre da origini esterne all'azienda. L'infrastruttura di analisi può essere basata esclusivamente sul cloud oppure può avere una configurazione locale o una combinazione di entrambe. Per le opzioni, vedere [Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team](machine-learning-data-science-environment-setup.md).
+L'infrastruttura di analisi da configurare è spesso parte di un ambiente distinto dai sistemi operativi principali, ma in genere sfrutta i dati provenienti da più sistemi entro l'azienda, oltre da origini esterne all'azienda. L'infrastruttura di analisi può essere basata esclusivamente sul cloud oppure può avere una configurazione locale o una combinazione di entrambe. Per le opzioni, vedere [Configurare gli ambienti per l'analisi scientifica dei dati per l'uso nel processo di analisi scientifica dei dati per i team](machine-learning-data-science-environment-setup.md).
 
 ## Passaggi di analisi:  
 
@@ -61,18 +61,18 @@ Il passaggio successivo consiste nell'ottenere una migliore comprensione dei dat
 
 ## 3\. Sviluppare funzionalità 
 
-Gli esperti di scienza dei dati, insieme agli esperti di dominio, devono identificare le funzionalità che acquisiscono le proprietà rilevanti del set di dati e che possono essere usate per prevedere in modo ottimale le variabili aziendali essenziali identificate durante la pianificazione. Queste nuove funzionalità possono essere derivate dai dati esistenti o possono richiedere la raccolta di dati aggiuntivi. Questo processo è noto come **progettazione di funzionalità** ed è uno dei passaggi principali per la creazione di un sistema di analisi predittiva efficace. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Per istruzioni, vedere [Feature engineering in the Team Data Science Process](machine-learning-data-science-create-features.md) (Progettazione di funzionalità nel Processo di analisi scientifica dei dati per i team).
+Gli esperti di scienza dei dati, insieme agli esperti di dominio, devono identificare le funzionalità che acquisiscono le proprietà rilevanti del set di dati e che possono essere usate per prevedere in modo ottimale le variabili aziendali essenziali identificate durante la pianificazione. Queste nuove funzionalità possono essere derivate dai dati esistenti o possono richiedere la raccolta di dati aggiuntivi. Questo processo è noto come **progettazione di funzionalità** ed è uno dei passaggi principali per la creazione di un sistema di analisi predittiva efficace. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Per istruzioni, vedere [Progettazione di funzionalità in Cortana Analytics Process](machine-learning-data-science-create-features.md).
 
 
 ## 4\. Creare modelli produttivi 
 
-Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le variabili principali identificate dai requisiti aziendali definiti nella fase di pianificazione mediante i dati puliti e trasformati in funzionalità. I sistemi di Machine Learning supportano più **algoritmi di modellazione** applicabili a una vasta gamma di casi. Per istruzioni, vedere [How to choose algorithms for Team Azure Machine Learning](machine-learning-algorithm-choice.md) (Come scegliere gli algoritmi di Team Azure Machine Learning).
+Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le variabili principali identificate dai requisiti aziendali definiti nella fase di pianificazione mediante i dati puliti e trasformati in funzionalità. I sistemi di Machine Learning supportano più **algoritmi di modellazione** applicabili a una vasta gamma di casi. Per istruzioni, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 Gli esperti di scienza dei dati devono scegliere il modello più appropriato per l'attività di previsione e non è raro che sia necessario combinare i risultati da più modelli per ottenere i risultati ottimali. I dati di input per la modellazione vengono in genere suddivisi casualmente in tre parti:
 
-- Set di dati di training 
-- Set di dati di convalida 
-- Set di dati di test 
+- Set di dati di training
+- Set di dati di convalida
+- Set di dati di test
 
 I modelli vengono sviluppati tramite il **set di dati di training**. La combinazione ottimale di modelli, con parametri perfezionati, viene selezionata eseguendo i modelli e misurando gli errori di previsione per il **set di dati di convalida**. Viene infine usato il **set di dati di test** per valutare le prestazioni del modello scelto su dati indipendenti non usati per il training o la convalida del modello. Per le procedura, vedere [Come valutare le prestazioni del modello in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
@@ -96,4 +96,4 @@ Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

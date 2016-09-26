@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="jhubbard" 
+	editor="cgronlun"  />  
 
 <tags
 	ms.service="machine-learning"
@@ -20,13 +20,13 @@
 
 Vengono fornite istruzioni che descrivono come configurare una VM di Azure e una VM di Azure con il servizio SQL come server di IPython Notebook. La macchina virtuale di Windows è configurata con strumenti di supporto quali IPython Notebook, Esplora archivi Azure e AzCopy, nonché altre utilità per progetti di analisi scientifica dei dati. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nella memoria di Azure dal computer locale o per scaricarli dalla memoria nel computer locale.
 
-Questo menu include collegamenti ad argomenti che descrivono come configurare i diversi ambienti di analisi scientifica dei dati utilizzati dal processo di analisi scientifica dei dati per i team.
+Questo menu include collegamenti ad argomenti che descrivono come configurare i diversi ambienti di analisi scientifica dei dati usati dal processo di analisi scientifica dei dati per i team (TDSP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 È possibile eseguire il provisioning di diversi tipi di macchine virtuali di Azure e configurarle per usarle come parte di un ambiente di analisi scientifica dei dati basato su cloud. La scelta della versione di macchina virtuale da usare dipende dal tipo e dalla quantità di dati da modellare con l'apprendimento automatico e dalla destinazione di quei dati nel cloud.
 
-* Per informazioni aggiuntive sulle questioni da prendere in considerazione per prendere questa decisione, vedere [Pianificazione dell'ambiente di analisi scientifica dei dati di Azure Machine Learning](machine-learning-data-science-plan-your-environment.md). 
+* Per informazioni aggiuntive sulle questioni da prendere in considerazione per prendere questa decisione, vedere [Pianificazione dell'ambiente di analisi scientifica dei dati di Azure Machine Learning](machine-learning-data-science-plan-your-environment.md).
 * Per un catalogo di alcuni degli scenari che potrebbero verificarsi quando si esegue l'analisi avanzata, vedere l'argomento relativo agli [scenari di Advanced Analytics Process and Technology in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md)
 
 Sono disponibili due set di istruzioni:
@@ -41,4 +41,4 @@ Dopo il provisioning e la configurazione, queste macchine virtuali possono esser
 > [AZURE.NOTE] Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** dal [portale di Azure classico](http://manage.windowsazure.com/). Per istruzioni dettagliate su come deallocare la macchina virtuale, vedere [Arresto e deallocazione della macchina virtuale quando non in uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

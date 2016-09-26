@@ -4,9 +4,9 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -59,12 +59,12 @@ Nome | Script
 1. Avviare la creazione di un cluster come descritto in [Creare cluster Hadoop in HDInsight](hdinsight-provision-clusters.md#portal).
 2. In Configurazione facoltativa fare clic su **aggiungi azione di script** nel pannello **Azioni di script** per specificare i dettagli relativi all'azione di script, come illustrato di seguito:
 
-	![Usare l'azione di script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Usare Azione di script per personalizzare un cluster")
+	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Usare l'azione script per personalizzare un cluster")
 
 	<table border='1'>
 		<tr><th>Proprietà</th><th>Valore</th></tr>
 		<tr><td>Nome</td>
-			<td>Specificare un nome per l'azione di script.</td></tr>
+			<td>Specificare un nome per l'azione script.</td></tr>
 		<tr><td>URI script</td>
 			<td>Specificare l'URI dello script da richiamare per personalizzare il cluster.</td></tr>
 		<tr><td>Head/ruolo di lavoro</td>
@@ -333,4 +333,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

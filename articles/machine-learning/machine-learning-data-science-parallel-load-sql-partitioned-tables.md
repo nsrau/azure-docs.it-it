@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="jhubbard" 
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/14/2016" 
-	ms.author="bradsev" />
+	ms.author="bradsev" />  
 
 # Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 
@@ -187,4 +187,4 @@ o
 Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics Process con un set di dati pubblico, vedere [Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

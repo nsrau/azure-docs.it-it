@@ -4,8 +4,8 @@ description="Usare dati provenienti da un database SQL Server locale per eseguir
 services="machine-learning"
 documentationCenter=""
 authors="garyericson"
-manager="paulettm"
-editor="cgronlun"/>
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="machine-learning"
@@ -25,7 +25,7 @@ Questo articolo fornisce una panoramica di come inserire dati locali di SQL Serv
 
 > [AZURE.NOTE] Questa funzionalità non è disponibile per le aree di lavoro gratuite. Per altre informazioni sui prezzi e sui piani tariffari di Machine Learning, vedere [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) (Prezzi di Azure Machine Learning).
 
-<!-- --> 
+<!-- -->   
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -51,7 +51,7 @@ Il gateway presenta i prerequisiti seguenti:
 - È possibile configurare un gateway per una sola area di lavoro alla volta. In uno stesso momento, un gateway non può essere condiviso tra più aree di lavoro.
 - È possibile configurare più gateway per una singola area di lavoro. Può essere utile, ad esempio, usare un gateway connesso alle origini dati di test in fase di sviluppo e un gateway di produzione quando si è pronti per essere operativi.
 - Il gateway non deve trovarsi nello stesso computer dell'origine dati; tuttavia, la prossimità all'origine dati riduce il tempo di connessione tra il gateway e l'origine dati. Si consiglia di installare il gateway in un computer diverso da quello che ospita l'origine dati locale in modo che il gateway non si contenda le risorse con l'origine dati.
-- Se nel computer è già installato un gateway per uno scenario Power BI o Azure Data Factory, installare un gateway separato per Azure Machine Learning in un altro computer. 
+- Se nel computer è già installato un gateway per uno scenario Power BI o Azure Data Factory, installare un gateway separato per Azure Machine Learning in un altro computer.
 
     > [AZURE.NOTE] Non è possibile eseguire Gateway di gestione dati e Power BI Gateway nello stesso computer.
 
@@ -162,4 +162,4 @@ Al termine dell'esecuzione dell'esperimento è possibile visualizzare i dati imp
 
 Dopo aver completato lo sviluppo dell'esperimento, è possibile distribuire il modello e renderlo operativo. I dati del database SQL Server locale configurati nel modulo **Import Data** (Importa dati) verranno letti e usati per l'assegnazione dei punteggi tramite il servizio Esecuzione batch. Sebbene per l'assegnazione dei punteggi ai dati locali sia possibile usare il servizio di richiesta/risposta, Microsoft consiglia l'uso del [componente aggiuntivo di Excel](machine-learning-excel-add-in-for-web-services.md). La scrittura in un database SQL Server locale tramite **Export data** (Esporta dati) non è attualmente supportata, né negli esperimenti né nei servizi Web pubblicati.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

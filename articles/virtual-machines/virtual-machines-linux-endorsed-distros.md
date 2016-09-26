@@ -16,11 +16,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2016"
-	ms.author="szark"/>
+	ms.author="szark"/>  
 
 
 
 #Distribuzioni di Linux supportate da Azure
+
+> [AZURE.NOTE] Se si ha un po' di tempo, fornire il proprio feedback per aiutarci a migliorare la documentazione sulle VM Linux di Azure eseguendo questo [sondaggio rapido](https://aka.ms/linuxdocsurvey) sulle propria esperienza. Ogni risposta è utile.
 
 Le immagini Linux disponibili nella raccolta di Azure o in Marketplace sono fornite da diversi partner e Microsoft collabora con diverse community Linux per aggiungere altre versioni all'elenco delle distribuzioni supportate. Nel frattempo, per le distribuzioni non disponibili nella raccolta, è possibile usare la propria distribuzione di Linux, attenendosi alle indicazioni disponibili in [questa pagina](virtual-machines-linux-classic-create-upload-vhd.md).
 
@@ -89,4 +91,4 @@ Le competenze di Canonical in ambito di engineering e le regole di governance de
 
 Grazie a centri per lo sviluppo e l'engineering in tutto il mondo, Canonical si trova in una posizione privilegiata ed è pertanto in grado di collaborare con produttori di hardware e sviluppatori di software, in modo da portare le soluzioni Ubuntu sul mercato, da PC a server e dispositivi palmari.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

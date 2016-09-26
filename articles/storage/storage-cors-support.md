@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/07/2016"
+	ms.author="tamram"/>  
 
 # Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
 
@@ -137,8 +137,8 @@ Successivamente, considerare le seguenti richieste CORS:
 Richiesta||| Response||
 ---|---|---|---|---
 **Metodo** |**Origine** |**Intestazioni della richiesta** |**Corrispondenza regola** |**Risultato**
-**PUT** | http://www.contoso.com |x-ms-blob-content-type | Prima regola |Esito positivo
-**GET** | http://www.contoso.com| x-ms-blob-content-type | Seconda regola |Esito positivo
+**PUT** | http://www.contoso.com |x-ms-blob-content-type | Prima regola |Success
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Seconda regola |Success
 **GET** | http://www.contoso.com| x-ms-blob-content-type | Seconda regola | Esito negativo
 
 La prima richiesta corrisponde alla prima regola (il dominio di origine corrisponde alle origini consentite, il metodo corrisponde ai metodi consentiti e l'intestazione corrisponde alle intestazioni consentite), pertanto ha esito positivo.
@@ -169,7 +169,7 @@ Nella tabella seguente viene indicata la risposta del servizio di archiviazione 
 
 Richiesta|Impostazione account e risultato della valutazione della regola|||Response|||
 ---|---|---|---|---|---|---|---|---
-**Intestazione di origine presente sulla richiesta** | **Regole CORS specificate per questo servizio** | **Presenza di una regola di corrispondenza che consente tutte le origini(*)** | **Presenza di una regola per l'esatta corrispondenza dell'origine** | **Risposta che include l'intestazione Vary impostata su Origin** | **Risposta che include Access-Control-Allowed-Origin: "*"** | **Risposta che include Access-Control-Exposed-Headers**
+**Intestazione di origine presente sulla richiesta** | **Regole CORS specificate per questo servizio** | **Presenza di una regola di corrispondenza che consente tutte le origini (*)** | **Presenza di una regola per l'esatta corrispondenza dell'origine** | **Risposta che include l'intestazione Vary impostata su Origin** | **Risposta che include Access-Control-Allowed-Origin: "*"** | **Risposta che include Access-Control-Exposed-Headers**
 No|No|No|No|No|No|No
 No|Sì|No|No|Sì|No|No
 No|Sì|Sì|No|No|Sì|Sì
@@ -195,4 +195,4 @@ Le richieste preliminari con esito negativo non verranno fatturate.
 
 [Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

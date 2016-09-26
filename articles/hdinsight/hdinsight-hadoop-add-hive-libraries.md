@@ -4,8 +4,8 @@ description="Informazioni su come aggiungere librerie Hive (file con estensione 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
-editor="cgronlun"/>
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -88,4 +88,4 @@ Al termine della creazione del cluster, sarà possibile usare i file con estensi
 
 In questo documento si è appreso come aggiungere le librerie Hive contenute nei file con estensione jar a un cluster HDInsight durante la creazione del cluster. Per altre informazioni sull'uso di Hive, vedere l'articolo relativo all'[uso di Hive con HDInsight](hdinsight-use-hive.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

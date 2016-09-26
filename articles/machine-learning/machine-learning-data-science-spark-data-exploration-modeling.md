@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
-	editor="cgronlun" />
+	manager="jhubbard"
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -22,12 +22,12 @@
 
 Questa procedura dettagliata usa HDInsight Spark per eseguire l'esplorazione dei dati e attività di classificazione binaria e modellazione basata sulla regressione su un campione del set di dati relativo alle corse e alle tariffe taxi della città di New York nel 2013. Illustra i passaggi end-to-end del [processo di analisi scientifica dei dati](http://aka.ms/datascienceprocess) usando un cluster HDInsight Spark per l'elaborazione e BLOB di Azure per l'archiviazione dei dati e dei modelli. Il processo analizza e visualizza i dati ottenuti da un BLOB di Archiviazione di Azure e li prepara per la compilazione di modelli predittivi. I modelli vengono compilati con il toolkit MLlib di Spark per l'esecuzione di attività di classificazione binaria e modellazione basata sulla regressione.
 
-- L'attività di **classificazione binaria** consente di prevedere se per la corsa viene lasciata o meno una mancia. 
-- L'attività di **regressione** consente di prevedere l'importo della mancia in base ad altre funzionalità relative alle mance. 
+- L'attività di **classificazione binaria** consente di prevedere se per la corsa viene lasciata o meno una mancia.
+- L'attività di **regressione** consente di prevedere l'importo della mancia in base ad altre funzionalità relative alle mance.
 
 I modelli proposti includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti:
 
-- [Regressione lineare con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) è un modello di regressione lineare che si serve di un metodo di discesa del gradiente stocastico (SGD, Stochastic Gradient Descent), usato per l'ottimizzazione e il ridimensionamento delle funzionalità allo scopo di prevedere l'importo delle mance pagate. 
+- [Regressione lineare con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) è un modello di regressione lineare che si serve di un metodo di discesa del gradiente stocastico (SGD, Stochastic Gradient Descent), usato per l'ottimizzazione e il ridimensionamento delle funzionalità allo scopo di prevedere l'importo delle mance pagate.
 - [Regressione logistica con L-BFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS), o regressione "logit", è un modello di regressione che può essere usato quando la variabile dipendente usata per la classificazione dei dati è categoriale. L'algoritmo L-BFGS è un algoritmo di ottimizzazione quasi-Newton che approssima l'algoritmo di Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando una quantità limitata di memoria del computer ed è ampiamente usato nell'apprendimento automatico.
 - Le [foreste casuali](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sono insiemi di alberi delle decisioni. Combinano diversi alberi delle decisioni per ridurre il rischio di overfitting. Le foreste casuali vengono usate per la classificazione e la regressione e possono gestire funzionalità categoriche, si estendono all'impostazione di classificazione multiclasse, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Le foreste casuali sono tra i modelli di apprendimento automatico più diffusi per la classificazione e la regressione.
 - [Alberi con boosting a gradienti](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT, Gradient boosted tree) sono insiemi di alberi delle decisioni. Gli alberi GBT eseguono il training degli alberi delle decisioni in modo iterativo per ridurre al minimo la perdita di funzioni. Gli alberi GBT vengono usati per la classificazione e la regressione e possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
@@ -92,16 +92,16 @@ Per la configurazione occorre anche importare le librerie necessarie. Impostare 
 
 I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto preimpostato e pertanto non è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo, poiché sono disponibili per impostazione predefinita. Questi contesti sono:
 
-- sc per Spark 
+- sc per Spark
 - sqlContext per Hive
 
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 - **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
-- **%%sql -o <variable name>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
+- **%%sql -o <nome variabile>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
  
 
-Per altre informazioni sui kernel per i notebook di Jupyter e i "magic" predefiniti chiamati con %% (ad esempio %%local) da essi forniti, vedere [Kernel disponibili per i notebook Jupyter con cluster HDInsight Spark Linux su HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Per altre informazioni sui kernel per le istanze di Jupyter Notebook e i "magic" predefiniti chiamati con %% (ad esempio %%local) messi a disposizione, vedere [Kernel disponibili per Jupyter Notebook con cluster Apache Spark in HDInsight Linux](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
  
 
 ## Inserimento di dati dal BLOB pubblico
@@ -235,9 +235,9 @@ Ecco il codice per eseguire il tracciato delle corse per numero di passeggeri
 
 **OUTPUT:**
 
-![Frequenza delle corse per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
+![Frequenza delle corse per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)  
 
-È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Tipo** nel notebook. In questo caso è stato scelto un tracciato a barre.
+È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook. In questo caso è stato scelto un tracciato a barre.
 	
 ### Tracciare un istogramma dell'importo delle mance e della relativa variazione in base al numero di passeggeri e all'importo delle corse.
 
@@ -290,11 +290,11 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
 
 **OUTPUT:**
 
-![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)
+![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)  
 
 ![Importo della mancia per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
+![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)  
 
 
 ## Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
@@ -339,7 +339,7 @@ Questo codice illustra come ottenere una nuova funzionalità dalla creazione di 
 
 Questa sezione illustra come indicizzare o codificare le funzionalità categoriche per l'inserimento nelle funzioni di modellazione. Per poter usare le funzioni di modellazione e previsione di MLlib, è necessario prima indicizzare o codificare le funzionalità con dati di input categorici. A seconda del modello, è necessario indicizzare o codificare tali funzioni in modi diversi:
 
-- **Modelli basati su albero**: richiedono la codifica delle categorie come valori numerici. Ad esempio, una funzionalità con 3 categorie può essere codificata con 0, 1, 2. Questo avviene tramite la funzione [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) di MLlib, che codifica una colonna stringa di etichette in una colonna di indici etichetta ordinati in base alle frequenze di etichetta. Si noti che, anche se indicizzati con valori numerici per l'input e la gestione dei dati, è possibile specificare gli algoritmi basati su albero in modo che vengano trattati in modo appropriato come categorie. 
+- **Modelli basati su albero**: richiedono la codifica delle categorie come valori numerici. Ad esempio, una funzionalità con 3 categorie può essere codificata con 0, 1, 2. Questo avviene tramite la funzione [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) di MLlib, che codifica una colonna stringa di etichette in una colonna di indici etichetta ordinati in base alle frequenze di etichetta. Si noti che, anche se indicizzati con valori numerici per l'input e la gestione dei dati, è possibile specificare gli algoritmi basati su albero in modo che vengano trattati in modo appropriato come categorie.
 
 - **Modelli logistici e di regressione lineare**: richiedono la codifica one-hot. Ad esempio, una funzionalità con 3 categorie può essere espansa in 3 colonne di funzionalità, in cui ogni colonna contiene 0 o 1 a seconda della categoria di un'osservazione. Per eseguire la codifica one-hot in MLlib è disponibile la funzione [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder). Questo codificatore esegue il mapping di una colonna di indici etichetta a una colonna di vettori binari, con al massimo un singolo valore unico. Questa codifica permette di applicare a funzionalità categoriche gli algoritmi che prevedono funzionalità con valori numerici, ad esempio la regressione logistica.
 
@@ -569,19 +569,19 @@ Tempo impiegato per eseguire questa cella: 0,15 secondi.
 
 Questa sezione illustra come usare tre modelli per l'attività di classificazione binaria di previsione di una possibile mancia lasciata per una corsa in taxi. I modelli presentati sono:
 
-- Regressione logistica regolarizzata. 
+- Regressione logistica regolarizzata.
 - Modello di foresta casuale.
 - Alberi con boosting a gradienti.
 
 Ogni sezione di codice di compilazione del modello è suddivisa in passaggi:
 
-1. Dati di **training del modello** con un set di parametri.
-2. **Valutazione del modello** su un set di dati di test con metriche.
-3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro.
+1. Dati di **training del modello** con un set di parametri
+2. **Valutazione del modello** su un set di dati di test con metriche
+3. **Salvataggio del modello** in un BLOB per l'uso in futuro
 
 ### Classificazione tramite regressione logistica
 
-Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di regressione logistica con l'algoritmo [L-BFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm), che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York.
+Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di regressione logistica con l'algoritmo [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm), che consente di prevedere se viene lasciata o meno una mancia per una corsa nel set di dati relativo alle corse e tariffe dei taxi della città di New York.
 
 **Eseguire il training del modello di regressione logistica usando la convalida incrociata e lo sweep degli iperparametri**
 
@@ -726,7 +726,7 @@ Ecco il codice per eseguire stime e tracciare la curva ROC.
 
 **OUTPUT:**
 
-![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)
+![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)  
 
 
 ### Classificazione tramite foresta casuale
@@ -841,9 +841,9 @@ Questa sezione illustra come usare tre modelli per l'attività di regressione re
 
 Questi modelli sono stati descritti nell'introduzione. Ogni sezione di codice di compilazione del modello è suddivisa in passaggi:
 
-1. Dati di **training del modello** con un set di parametri.
-2. **Valutazione del modello** su un set di dati di test con metriche.
-3. **Salvataggio del modello** in un BLOB per l'utilizzo in futuro.
+1. Dati di **training del modello** con un set di parametri
+2. **Valutazione del modello** su un set di dati di test con metriche
+3. **Salvataggio del modello** in un BLOB per l'uso in futuro
 
 ### Regressione lineare con SGD 
 
@@ -1071,7 +1071,7 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache in memoria
 
 ## Registrazione dei percorsi di archiviazione dei modelli per l'utilizzo e l'assegnazione di punteggi
 
-Per l'assegnazione di punteggi e l'utilizzo di un set di dati indipendente descritto nell'argomento [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md), è necessario copiare e incollare i nomi di file che contengono i modelli salvati, creati qui nel notebook di Jupyter. Di seguito è riportato il codice per stampare i percorsi dei file di modello necessari.
+Per l'assegnazione di punteggi e l'uso di un set di dati indipendente descritto nell'argomento [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md), è necessario copiare e incollare questi nomi di file che contengono i modelli salvati, creati qui nel notebook di Jupyter. Di seguito è riportato il codice per stampare i percorsi dei file di modello necessari.
 
 	# MODEL FILE LOCATIONS FOR CONSUMPTION
 	print "logisticRegFileLoc = modelDir + "" + logisticregressionfilename + """;
@@ -1084,25 +1084,25 @@ Per l'assegnazione di punteggi e l'utilizzo di un set di dati indipendente descr
 
 **OUTPUT**
 
-logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS\_2016-05-0317\_03\_23.516568"
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0317_03\_23.516568"
 
-linearRegFileLoc = modelDir + "LinearRegressionWithSGD\_2016-05-0317\_05\_21.577773"
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-05-0317_05\_21.577773"
 
-randomForestClassificationFileLoc = modelDir + "RandomForestClassification\_2016-05-0317\_04\_11.950206"
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0317_04\_11.950206"
 
-randomForestRegFileLoc = modelDir + "RandomForestRegression\_2016-05-0317\_06\_08.723736"
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0317_06\_08.723736"
 
-BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification\_2016-05-0317\_04\_36.346583"
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-05-0317_04\_36.346583"
 
-BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression\_2016-05-0317\_06\_51.737282"
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0317_06\_51.737282"
 
 
 ## Passaggi successivi
 
 Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, è possibile imparare a valutare e assegnare punteggi a questi modelli. Il notebook per la modellazione e l'esplorazione avanzata dei dati approfondisce la convalida incrociata, lo sweep degli iperparametri e la valutazione del modello.
 
-**Utilizzo dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
+**Uso dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-**Convalida incrociata e sweep di iperparametri**: vedere [Modellazione ed esplorazione avanzata dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
+**Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="mithal;garye" />
+	ms.author="mithal;garye" />  
 
 # Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
 
@@ -41,4 +41,4 @@ Scaricare il foglio informativo qui: **[Foglio informativo sulla pipeline di dat
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

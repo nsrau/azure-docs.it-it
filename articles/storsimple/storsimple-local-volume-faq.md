@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/26/2016"
-   ms.author="manuaery" />
+   ms.date="08/16/2016"
+   ms.author="manuaery" />  
 
 # Volumi aggiunti in locale di StorSimple: domande frequenti
 
-## Panoramica
+## Overview
 
 Ecco alcune domande e risposte relative alla creazione di un volume aggiunto in locale di StorSimple, alla conversione di un volume a livelli in un volume aggiunto in locale (e viceversa) o al backup e ripristino di un volume aggiunto in locale.
 
@@ -33,23 +33,23 @@ Le domande e le risposte sono suddivise nelle categorie seguenti
 
 **D.** Qual è la dimensione massima di un volume aggiunto in locale che è possibile creare nei dispositivi della serie 8000?
 
-**R** È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8 TB oppure di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 20 TB o di volumi a livelli fino a 500 TB.
+**R** È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8.5 TB OPPURE di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 22,5 TB o di volumi a livelli fino a 500 TB.
 
-**D.** Di recente si è aggiornato il dispositivo 8100 all'aggiornamento 2 e, quando si cerca di creare un volume aggiunto in locale, la massima dimensione disponibile è solo di 6 TB e non di 8 TB. Perché non è possibile creare un volume di 8 TB?
+**D.** Di recente si è aggiornato il dispositivo 8100 all'aggiornamento 2 e, quando si cerca di creare un volume aggiunto in locale, la massima dimensione disponibile è solo di 6 TB e non di 8.5 TB. Perché non è possibile creare un volume di 8.5 TB?
 
-**R** È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8 TB OPPURE di volumi a livelli fino a 200 TB nel dispositivo 8100. Se il dispositivo include già volumi a livello, lo spazio disponibile per la creazione di un volume aggiunto in locale sarà proporzionalmente più bassa di questo limite massimo. Se, ad esempio, è già stato effettuato il provisioning di 100 TB di volumi a livelli nel dispositivo 8100 (pari a metà della capacità a livelli), la dimensione massima di un volume locale che è possibile creare nel dispositivo 8100 sarà di conseguenza ridotta a 4 TB (metà della capacità massima del volume aggiunto in locale).
+**R** È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8.5 TB OPPURE di volumi a livelli fino a 200 TB nel dispositivo 8100. Se il dispositivo include già volumi a livello, lo spazio disponibile per la creazione di un volume aggiunto in locale sarà proporzionalmente più bassa di questo limite massimo. Se, ad esempio, è già stato effettuato il provisioning di 100 TB di volumi a livelli nel dispositivo 8100 (pari a metà della capacità a livelli), la dimensione massima di un volume locale che è possibile creare nel dispositivo 8100 sarà di conseguenza ridotta a 4 TB (circa metà della capacità massima del volume aggiunto in locale).
 
-Poiché parte dello spazio locale del dispositivo viene usato per ospitare il working set di volumi a livello, lo spazio disponibile per la creazione di un volume aggiunto in locale verrà ridotta se il dispositivo include volumi a livello. Al contrario, la creazione di un volume aggiunto in locale ridurrà in proporzione lo spazio disponibile per i volumi a livello. La tabella seguente riepiloga la capacità a livelli disponibile nei dispositivi 8100 e 8600 quando vengono creati volumi aggiunti in locale.
+Poiché parte dello spazio locale del dispositivo viene usato per ospitare il working set di volumi a livelli, lo spazio disponibile per la creazione di un volume aggiunto in locale è ridotta se il dispositivo include volumi a livelli. Al contrario, la creazione di un volume aggiunto in locale riduce in proporzione lo spazio disponibile per i volumi a livelli. La tabella seguente riepiloga la capacità a livelli disponibile nei dispositivi 8100 e 8600 quando vengono creati volumi aggiunti in locale.
 
 |Capacità volumi aggiunti in locale di cui è stato effettuato il provisioning|Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8100|Capacità disponibile di cui effettuare il provisioning per volumi a livelli - 8600|
 |-----|------|------|
 |0 | 200 TB | 500 TB |
-|1 TB | 175 TB | 475 TB|
-|4 TB | 100 TB | 400 TB |
-|8 TB | 0 TB | 300 TB|
-|10 TB | ND | 250 TB |
-|15 TB | ND | 125 TB |
-|20 TB | ND | 0 TB |
+|1 TB | 176\.5 TB | 477\.8 TB|
+|4 TB | 105\.9 TB | 411\.1 TB |
+|8\.5 TB | 0 TB | 311\.1 TB|
+|10 TB | ND | 277\.8 TB |
+|15 TB | ND | 166\.7 TB |
+|22\.5 TB | ND | 0 TB |
 
 
 **D.** Perché la creazione di un volume aggiunto in locale è un'operazione di lunga durata?
@@ -64,11 +64,11 @@ Poiché parte dello spazio locale del dispositivo viene usato per ospitare il wo
 
 **R.** I volumi aggiunti in locale sono adatti ai carichi di lavoro che richiedono sempre garanzie locali per i dati e sono sensibili alle latenze cloud. Quando si considera l'utilizzo di volumi locali per i carichi di lavoro, tenere presente quanto segue:
 
-- Viene effettuato il thick provisioning dei volumi aggiunti in locale e la creazione di volumi locali avrà effetto sullo spazio disponibile per i volumi a livelli. È quindi consigliabile iniziare con volumi più piccoli e aumentarli parallelamente ai requisiti di archiviazione.
+- Viene effettuato il thick provisioning dei volumi aggiunti in locale e la creazione di volumi locali ha effetto sullo spazio disponibile per i volumi a livelli. È quindi consigliabile iniziare con volumi più piccoli e aumentarli parallelamente ai requisiti di archiviazione.
 
 - Il provisioning di volumi locali è un'operazione di lunga durata che può comportare il push dei dati esistenti dai volumi a livelli al cloud. Di conseguenza, questi volumi possono subire un calo delle prestazioni.
 
-- Il provisioning di volumi locali è un'operazione dispendiosa in termini di tempo. Il tempo effettivo richiesto dipende da più fattori: la dimensione del volume di cui effettuare il provisioning, i dati nel dispositivo e la larghezza di banda disponibile. Se non è stato eseguito il backup dei volumi esistenti nel cloud, la creazione dei volumi sarà più lenta. Prima del provisioning di un volume locale, è consigliabile acquisire snapshot nel cloud dei volumi esistenti.
+- Il provisioning di volumi locali è un'operazione dispendiosa in termini di tempo. Il tempo effettivo richiesto dipende da più fattori: la dimensione del volume di cui effettuare il provisioning, i dati nel dispositivo e la larghezza di banda disponibile. Se non è stato eseguito il backup dei volumi esistenti nel cloud, la creazione dei volumi è più lenta. Prima del provisioning di un volume locale, è consigliabile acquisire snapshot nel cloud dei volumi esistenti.
  
 - È possibile convertire i volumi a livelli esistenti in volumi aggiunti in locale. Questa conversione comporta il provisioning di spazio nel dispositivo per il volume aggiunto in locale risultante (oltre a trasferire eventuali dati a livello dal cloud). Questa è poi un'operazione di lunga durata che dipende dai fattori illustrati sopra. È consigliabile eseguire il backup dei volumi esistenti prima della conversione perché il processo sarà ancora più lento senza il backup dei volumi esistenti. Il dispositivo può anche subire un calo delle prestazioni durante questo processo.
 	
@@ -76,13 +76,13 @@ Sono disponibili altre informazioni su come [creare un volume aggiunto in locale
 
 **D.** È possibile creare più volumi aggiunti in locale contemporaneamente?
 
-**R.** Sì, ma tutti i processi di creazione ed espansione dei volumi aggiunti in locale verranno elaborati in sequenza.
+**R.** Sì, ma tutti i processi di creazione ed espansione dei volumi aggiunti in locale vengono elaborati in sequenza.
 
 Poiché viene effettuato il thick provisioning dei volumi aggiunti in locale, è necessario creare spazio locale nel dispositivo (con la possibilità che venga effettuato il push dei dati esistenti dai volumi a livelli al cloud durante il processo di provisioning). Se quindi è in corso un processo di provisioning, gli altri processi di creazione di volumi locali verranno accodati fino al termine di tale processo.
 
-Allo stesso modo, se è in corso l'espansione di un volume locale esistente o la conversione di un volume a livelli in un volume aggiunto in locale, la creazione di un nuovo volume aggiunto in locale verrà accodata fino al completamento del processo precedente. L'espansione di un volume aggiunto in locale comporta l'espansione dello spazio locale esistente per tale volume. La conversione da un volume a livelli a uno aggiunto in locale comporta anche la creazione di spazio locale per il volume aggiunto in locale risultante. In entrambe le operazioni la creazione o l'espansione dello spazio locale è un processo di lunga durata.
+Allo stesso modo, se è in corso l'espansione di un volume locale esistente o la conversione di un volume a livelli in un volume aggiunto in locale, la creazione di un nuovo volume aggiunto in locale viene accodata fino al completamento del processo precedente. L'espansione di un volume aggiunto in locale comporta l'espansione dello spazio locale esistente per tale volume. La conversione da un volume a livelli a uno aggiunto in locale comporta anche la creazione di spazio locale per il volume aggiunto in locale risultante. In entrambe le operazioni la creazione o l'espansione dello spazio locale è un processo di lunga durata.
 
-È possibile visualizzare questi processi nella pagina **Processi** del servizio Azure StorSimple Manager. Il processo di cui è in corso l'elaborazione viene continuamente aggiornato per riflettere l'avanzamento del provisioning dello spazio. I rimanenti processi dei volumi aggiunti in locale verranno contrassegnati come in esecuzione, ma l'avanzamento verrà bloccato e i processi verranno prelevati in base all'ordine di accodamento.
+È possibile visualizzare questi processi nella pagina **Processi** del servizio Azure StorSimple Manager. Il processo di cui è in corso l'elaborazione viene continuamente aggiornato per riflettere l'avanzamento del provisioning dello spazio. I rimanenti processi dei volumi aggiunti in locale vengono contrassegnati come in esecuzione, ma l'avanzamento viene bloccato e i processi vengono prelevati in base all'ordine di accodamento.
 
 **D.** È stato eliminato un volume aggiunto in locale. Perché lo spazio recuperato non viene visualizzato nello spazio disponibile quando si cerca di creare un nuovo volume?
 
@@ -94,7 +94,7 @@ Allo stesso modo, se è in corso l'espansione di un volume locale esistente o la
 
 **D.** È possibile usare i cmdlet di Azure PowerShell per creare e gestire volumi aggiunti in locale?
 
-**R.** No, non è possibile creare volumi aggiunti in locale con i cmdlet di Azure PowerShell. Eventuali volumi creati con Azure PowerShell saranno a livelli. È anche consigliabile non usare i cmdlet di Azure PowerShell per modificare le proprietà di un volume aggiunto in locale, perché in questo modo il tipo di volume verrà modificato in volume a livelli.
+**R.** No, non è possibile creare volumi aggiunti in locale con i cmdlet di Azure PowerShell. Eventuali volumi creati con Azure PowerShell sono a livelli. È anche consigliabile non usare i cmdlet di Azure PowerShell per modificare le proprietà di un volume aggiunto in locale, perché in questo modo il tipo di volume verrà modificato in volume a livelli.
 
 ## Domande sul backup di un volume aggiunto in locale
 
@@ -213,4 +213,4 @@ Sono disponibili altre informazioni su [failover e ripristino di emergenza dei v
 
 **R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni su [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

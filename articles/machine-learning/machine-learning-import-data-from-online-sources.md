@@ -5,8 +5,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -22,9 +22,9 @@
 
 Questo articolo illustra il supporto per l'importazione di dati online da varie origini e le informazioni necessarie per spostare i dati da queste origini a un esperimento di Azure Machine Learning.
 
-> [AZURE.NOTE] Questo articolo fornisce informazioni generali sul modulo [Import Data][import-data]. Per ulteriori informazioni sui tipi di dati a cui è possibile accedere, i formati, i parametri e le risposte alle domande comuni, vedere l'argomento di riferimento del modulo per il modulo [Import Data][import-data].
+> [AZURE.NOTE] Questo articolo fornisce informazioni generali sul modulo [Import Data][import-data]. Per altre informazioni sui tipi di dati a cui è possibile accedere, i formati, i parametri e le risposte alle domande comuni, vedere l'argomento di riferimento del modulo per il modulo [Import Data][import-data] (Importa dati).
 
-<!-- -->
+<!-- -->  
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -34,7 +34,7 @@ In Azure Machine Learning Studio, durante l'esecuzione degli esperimenti tramite
 
 - URL Web tramite HTTP
 - Hadoop tramite HiveQL
-- Archiviazione BLOB di Azure
+- Archivio BLOB di Azure
 - Tabella di Azure
 - Database SQL di Azure o SQL Server in una macchina virtuale di Azure
 - Provider di feed di dati, attualmente OData
@@ -64,8 +64,8 @@ Archiviazione BLOB di Azure | Legge i dati archiviati nel servizio BLOB dell'Arc
 Provider di feed di dati | Legge dati da un provider di feed supportato. È attualmente supportato solo il formato OData (Open Data Protocol). | <b>Data content type</b>: specifica il formato OData.<br/><br/><b>Source URL</b>: specifica l'URL completo per il feed di dati. <br/>Ad esempio, l'URL seguente legge dal database Northwind di esempio: http://services.odata.org/northwind/northwind.svc/|
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

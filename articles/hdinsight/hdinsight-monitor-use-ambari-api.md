@@ -6,7 +6,7 @@
 	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
-	manager="paulettm"/>
+	manager="jhubbard"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -172,4 +172,4 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

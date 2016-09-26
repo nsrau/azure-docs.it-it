@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun" />
+	manager="jhubbard"
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -121,4 +121,4 @@ Per connettersi a un servizio Web di Machine Learning, usare la libreria **urlli
 2. Assegnare la chiave API con la chiave da un servizio Web. Vedere la sezione precedente **Ottenere una chiave di autorizzazione di Azure Machine Learning**.
 3. Assegnare l'URI del servizio con l'URI della richiesta.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

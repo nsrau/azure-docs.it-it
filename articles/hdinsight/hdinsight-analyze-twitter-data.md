@@ -4,8 +4,8 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -435,7 +435,7 @@ Il file di script HiveQL eseguirà le operazioni seguenti:
 	Variabile|Descrizione
 	---|---
 	$clusterName|Immettere il nome del cluster HDInsight in cui eseguire l'applicazione.
-	$subscriptionID|Inserire L'ID della sottoscrizione di Azure
+	$subscriptionID|Inserire L'ID della sottoscrizione di Azure.
 	$sourceDataPath|Percorso dell'archivio BLOB di Azure dal quale le query Hive leggeranno i dati. Non è necessario modificare questa variabile.
 	$outputPath|Percorso dell'archivio BLOB di Azure dal quale le query Hive restituiranno i risultati. Non è necessario modificare questa variabile.
 	$hqlScriptFile|Posizione e nome del file di script HiveQL. Non è necessario modificare questa variabile.
@@ -565,4 +565,4 @@ In questa esercitazione è stato illustrato come trasformare un set di dati JSON
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

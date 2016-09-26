@@ -4,8 +4,8 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm" 
-	editor=""/>
+	manager="jhubbard" 
+	editor=""/>  
 
 <tags 
 	ms.service="search" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.date="08/08/2016" 
-	ms.author="heidist"/>
+	ms.author="heidist"/>  
 
 # Introduzione all'API REST di gestione di Ricerca di Azure
 > [AZURE.SELECTOR]
@@ -185,7 +185,7 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 - Altre informazioni sull'integrazione di un'applicazione client con Active Directory. Vedere [integrazione di applicazioni in Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151122.aspx).
 - Informazioni sulle altre operazioni di gestione dei servizi in Azure. Vedere [gestione dei servizi](http://msdn.microsoft.com/library/azure/dn578292.aspx).
 
-<!--Anchors-->
+<!--Anchors-->  
 [Download the sample application]: #Download
 [Configure the application]: #config
 [Explore the application]: #explore
@@ -199,7 +199,7 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 [9]: ./media/search-get-started-management-api/Azure-Search-MGMT-AD-ConfigPage.PNG
 [10]: ./media/search-get-started-management-api/Azure-Search-MGMT-AD-OAuthEndpoint.PNG
 
-<!--Link references-->
+<!--Link references-->  
 [Manage your search solution in Microsoft Azure]: search-manage.md
 [Azure Search development workflow]: search-workflow.md
 [Create your first azure search solution]: search-create-first-solution.md
@@ -208,4 +208,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

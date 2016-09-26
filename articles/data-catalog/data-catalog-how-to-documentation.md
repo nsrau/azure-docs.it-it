@@ -6,15 +6,15 @@
 	authors="spelluru"
 	manager="NA"
 	editor=""
-	tags=""/>
+	tags=""/>  
 <tags
 	ms.service="data-catalog"
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
-	ms.author="spelluru"/>
+	ms.date="09/13/2016"
+	ms.author="spelluru"/>  
 
 # Documentare le origini dati
 
@@ -26,13 +26,13 @@ Quando un'origine dati viene registrata con **Azure Data Catalog**, i relativi m
 
 L'articolo [Come annotare le origini dati](data-catalog-how-to-annotate.md) mostra come gli esperti che conoscono l'origine dati possono annotarla con tag e descrizioni. Il portale di **Azure Data Catalog** include un editor di testo RTF per permettere agli utenti di documentare in modo esauriente gli asset di dati e i contenitori. L'editor include la formattazione paragrafo, con intestazioni, formattazione del testo, elenchi puntati, elenchi numerati e tabelle.
 
-Tag e descrizioni sono utili per inserire semplici annotazioni. Tuttavia, per avere una migliore comprensione di un'origine dati e dei relativi scenari di business gli utilizzatori di dati possono rivolgersi a un esperto per una documentazione completa e dettagliata. È facile documentare un'origine dati. È sufficiente selezionare un contenitore o un asset di dati e scegliere **Documentazione**.
+Tag e descrizioni sono utili per inserire semplici annotazioni. Tuttavia, per avere una migliore comprensione di un'origine dati e dei relativi scenari di business gli utilizzatori di dati possono rivolgersi a un esperto per una documentazione completa e dettagliata. È facile documentare un'origine dati. Selezionare un contenitore o un asset di dati e scegliere **Documentazione**.
 
-![](media\data-catalog-documentation\data-catalog-documentation.png)
+![](media\data-catalog-documentation\data-catalog-documentation.png)  
 
 ## Documentare gli asset di dati
 
-La documentazione permette di usare **Azure Data Catalog** come un repository per creare un resoconto completo degli asset di dati. Gli utenti possono esplorare contenuti dettagliati che descrivono i contenitori e le tabelle. Se sono già presenti contenuti in un altro repository, ad esempio SharePoint o una condivisione file, è possibile aggiungere alla documentazione degli asset collegamenti che fanno riferimento al contenuto esistente. Questo rende i documenti esistenti più facilmente individuabili.
+La documentazione permette di usare **Azure Data Catalog** come un repository per creare un resoconto completo degli asset di dati. È possibile esplorare contenuti dettagliati che descrivono i contenitori e le tabelle. Se sono già presenti contenuti in un altro repository, ad esempio SharePoint o una condivisione file, è possibile aggiungere alla documentazione degli asset collegamenti che fanno riferimento al contenuto esistente. Questa funzione rende i documenti esistenti più facilmente individuabili.
 
 > [AZURE.NOTE] La documentazione non è inclusa nell'indice di ricerca.
 
@@ -48,4 +48,4 @@ Il livello di documentazione va dalla descrizione delle caratteristiche e del va
 
 La documentazione delle origini dati con **Azure Data Catalog** permette di creare un resoconto sugli asset di dati con un livello di dettaglio basato sulle esigenze. È possibile creare collegamenti a contenuti archiviati in un repository esistente che riunisce i documenti e gli asset di dati esistenti. Dopo aver trovato gli asset di dati appropriati, gli utenti hanno a disposizione un set di documentazione completo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

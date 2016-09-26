@@ -4,8 +4,8 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   manager="jhubbard" 
+   editor="cgronlun"/>  
  
 <tags
    ms.service="data-lake-analytics"
@@ -14,13 +14,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>
+   ms.author="edmaca"/>  
 
 # Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Azure Data Lake Analytics tramite Azure. Per visualizzare l’argomento relativo alla gestione tramite altri strumenti, fare clic sul selettore di scheda riportato sopra.
+Informazioni su come gestire gli account, le origini dati, gli utenti e i processi di Azure Data Lake Analytics tramite Azure. Per visualizzare l'argomento relativo alla gestione tramite altri strumenti, fare clic sul selettore di scheda riportato sopra.
 
 **Prerequisiti**
 
@@ -32,7 +32,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Autenticazione**, utilizzando il comando seguente:
 
 		azure login
-	Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
+	Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 - **Passare alla modalità Gestione risorse di Azure**, usando il comando seguente:
 
 		azure config mode arm
@@ -42,8 +42,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	azure datalake store
 	azure datalake analytics
 
-<!-- ################################ -->
-<!-- ################################ -->
+<!-- ################################ -->  
+<!-- ################################ -->  
 ## Gestire account
 
 Prima di eseguire qualsiasi processo di Analisi Data Lake, è necessario disporre di un account di Analisi Data Lake. A differenza di Azure HDInsight, un account di Analisi non è soggetto ad alcun pagamento fino a quando il processo non è in esecuzione. Il pagamento, infatti, viene richiesto solo per la durata di esecuzione di un processo. Per altre informazioni, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -79,8 +79,8 @@ Ottenere i dettagli di un account specifico di Data Lake Analytics
   	azure datalake analytics account delete "<Data Lake Analytics Account Name>"
 
 
-<!-- ################################ -->
-<!-- ################################ -->
+<!-- ################################ -->  
+<!-- ################################ -->  
 ## Gestire le origini dati degli account
 
 Analisi Data Lake supporta attualmente le seguenti origini dati:
@@ -187,7 +187,7 @@ I tipi includono database, schema, assembly, origine dati esterna, tabella, funz
 
 	azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
-<!-- ################################ -->
+<!-- ################################ -->  
 <!-- ################################ -->
 ## Utilizzare i gruppi ARM
 
@@ -214,4 +214,4 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

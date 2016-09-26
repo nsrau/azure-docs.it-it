@@ -4,8 +4,8 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   manager="jhubbard" 
+   editor="cgronlun"/>  
  
 <tags
    ms.service="data-lake-store"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/25/2016"
-   ms.author="nitinme"/>
+   ms.date="09/13/2016"
+   ms.author="nitinme"/>  
 
 # Gestire Archivio Azure Data Lake utilizzando Azure SDK per Node.js
 
@@ -35,6 +35,12 @@ Attualmente supporta:
   *  **Versione di Node.js: 0.10.0 o successiva**
   *  **Versione dell'API REST per l'account: 2015-10-01-preview**
   *  **Versione dell'API REST per FileSystem: 2015-10-01-anteprima**
+
+##Prerequisiti
+
+Per eseguire le procedure descritte nell'articolo è necessario:
+
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Funzionalità
 
@@ -141,4 +147,4 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 - [Microsoft Azure SDK per Node.js](https://github.com/azure/azure-sdk-for-node)
 - [Microsoft Azure SDK per Node. js - Gestione di Analisi Data Lake](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

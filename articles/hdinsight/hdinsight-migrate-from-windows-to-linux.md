@@ -4,8 +4,8 @@ description="Informazioni sulla migrazione da un cluster HDInsight basato su Win
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
-editor="cgronlun"/>
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="07/25/2016"
-ms.author="larryfr"/>
+ms.author="larryfr"/>  
 
 #Migrare da un cluster HDInsight basato su Windows a un cluster basato su Linux
 
@@ -134,7 +134,7 @@ Bootstrap per i cluster basati su Linux non offre questa funzionalità. Usare in
 
 ### Reti virtuali
 
-I cluster HDInsight basati su Windows funzionano soltanto con le reti virtuali classiche, mentre i cluster HDInsight basati su Linux richiedono le reti virtuali di gestione risorse. Se nella rete virtuale classica sono presenti risorse a cui si deve connettere il cluster HDInsight basato su Linux, vedere [Connessione di una rete virtuale classica a una rete virtuale di Azure Resource Manager](../virtual-network/virtual-networks-arm-asm-s2s.md).
+I cluster HDInsight basati su Windows funzionano soltanto con le reti virtuali classiche, mentre i cluster HDInsight basati su Linux richiedono le reti virtuali di gestione risorse. Se nella rete virtuale classica sono presenti risorse a cui si deve connettere il cluster HDInsight basato su Linux, vedere [Connessione di una rete virtuale classica a una rete virtuale di Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 Per altre informazioni sui requisiti di configurazione per usare le reti virtuali di Azure con HDInsight, vedere [Estendere le funzionalità di HDInsight usando una rete virtuale](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -254,4 +254,4 @@ Se si è certi che gli script non contengono stringhe con caratteri CR incorpora
 
 -   [Gestire un cluster basato su Linux tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

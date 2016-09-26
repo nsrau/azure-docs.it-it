@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="yijichen" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="machine-learning" 
@@ -138,4 +138,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

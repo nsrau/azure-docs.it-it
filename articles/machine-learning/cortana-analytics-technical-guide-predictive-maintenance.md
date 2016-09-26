@@ -4,8 +4,8 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="cortana-analytics"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="fboylu" />
+	ms.date="09/13/2016"
+	ms.author="fboylu" />  
 
 # Guida tecnica del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
 
@@ -52,7 +52,7 @@ Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hub
 ## **Preparazione e analisi dei dati**
 
 
-### Azure Stream Analytics
+### Analisi di flusso di Azure
 
 Il servizio [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) consente di analizzare quasi in tempo reale il flusso di input dal servizio [Hub eventi di Azure](#azure-event-hub), pubblicare i risultati in un dashboard di [Power BI](https://powerbi.microsoft.com) e archiviare tutti gli eventi in ingresso non elaborati nel servizio [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), per l'elaborazione successiva da parte del servizio [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/).
 
@@ -91,7 +91,7 @@ Il servizio Hub eventi di Azure è molto generico e accetta la registrazione di 
 
 Questo documento non descrive come inserire i dati, ma è possibile inviare facilmente eventi o dati a un hub eventi di Azure usando l'API di Hub eventi.
 
-### Azure Stream Analytics
+### Analisi di flusso di Azure
 
 Il servizio Analisi di flusso di Azure viene usato per fornire l'analisi quasi in tempo reale tramite la lettura dai flussi di dati e l'output dei dati in un numero qualsiasi di origini.
 
@@ -173,7 +173,7 @@ Per informazioni su come è stato creato l'esperimento di Azure Machine Learning
 
 ## **Dashboard di Power BI**
 
-### Panoramica
+### Overview
 
 Questa sezione descrive come configurare il dashboard di Power BI per visualizzare i dati in tempo reale provenienti da Analisi di flusso di Azure (percorso critico), nonché i risultati della stima in batch provenienti da Azure Machine Learning (percorso non critico).
 
@@ -266,10 +266,10 @@ Accertarsi di arrestare il generatore di dati quando non lo si usa in modo attiv
 
 ## **Strumenti di stima dei costi**
 
-I due strumenti indicati di seguito permettono di comprendere meglio i costi totali per l'esecuzione del modello di soluzione per la manutenzione predittiva nel settore aerospaziale nella propria sottoscrizione:
+I due strumenti indicati di seguito permettono di comprendere meglio i costi totali per l'esecuzione del modello di soluzione per la manutenzione predittiva nel settore aerospaziale della propria sottoscrizione:
 
 -   [Calcolatore prezzi (online)](https://azure.microsoft.com/pricing/calculator/)
 
 -   [Microsoft Azure Cost Estimator Tool (PC desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   manager="jhubbard" 
+   editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="06/28/2016"
-   ms.author="jgao"/>
+   ms.author="jgao"/>  
 
 # Configurare una connessione VPN tra due reti virtuali di Azure  
 
@@ -53,7 +53,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Workstation con Azure PowerShell**.
 
-	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
+	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure utilizzando il seguente cmdlet:
 
 		Add-AzureAccount
 
@@ -272,4 +272,4 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

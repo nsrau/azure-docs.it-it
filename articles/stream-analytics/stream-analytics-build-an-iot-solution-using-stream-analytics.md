@@ -5,9 +5,9 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
-/>
+/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -376,9 +376,7 @@ Si immagini di dover contare il numero di veicoli che entra nel casello. Trattan
 
 Si osservi la query di analisi di flusso di Azure in risposta alla domanda:
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime
-    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count FROM EntryStream TIMESTAMP BY EntryTime GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
 È possibile vedere che l'analisi di flusso di Azure usa un linguaggio di query simile a SQL con alcune estensioni aggiuntive per consentire di specificare gli aspetti della query relativi al tempo.
 
@@ -418,11 +416,7 @@ Si desidera calcolare quanto tempo impiega in media l'automobile per attraversar
 
 Per questo è necessario unire il flusso contenente EntryTime con il flusso contenente ExitTime. I flussi vengono aggiunti nelle colonne TollId e Targa. L'operatore JOIN richiede di specificare un margine di manovra temporale che descrive la differenza di tempo accettabile tra gli eventi collegati. La funzione DATEDIFF viene usata per specificare che gli eventi non devono essere più di 15 minuti distanti l'uno dall'altro. La funzione DATEDIFF viene applicata anche ai tempi Exit ed Entry per il calcolo del tempo effettivo che l'automobile trascorre nel casello. Notare la differenza tra l'utilizzo di DATEDIFF in un'istruzione SELECT rispetto a una condizione JOIN.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes FROM EntryStream TIMESTAMP BY EntryTime JOIN ExitStream TIMESTAMP BY ExitTime ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate) AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Per eseguire il test della query, aggiornare la query nella scheda Query del processo:
 
@@ -442,11 +436,7 @@ Analisi di flusso di Azure può usare snapshot statici dei dati da unire ai flus
 
 Se il veicolo commerciale è stato registrato nell'azienda del casello, non viene fermato per controlli al momento del transito. La tabella di ricerca relativa alla registrazione del veicolo commerciale viene usata per identificare tutti i veicoli commerciali con registrazione scaduta.
 
-    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN Registration
-    ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = '1'
+SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId FROM EntryStream TIMESTAMP BY EntryTime JOIN Registration ON EntryStream.LicensePlate = Registration.LicensePlate WHERE Registration.Expired = '1'
 
 Notare che l'esecuzione del test di una query con dati di riferimento richiede la definizione di un'origine di input per i dati di riferimento, come illustrato nel passaggio 5.
 
@@ -485,9 +475,7 @@ Aprire Esplora server di Visual Studio e fare clic con il pulsante destro del mo
 
 Analisi di flusso di Azure è progettato per garantire una scalabilità elastica e per gestire un carico elevato di dati. La query di analisi di flusso di Azure può usare la clausola **PARTITION BY** per comunicare al sistema che questo passaggio aumenterà il numero di istanze. PartitionId è una colonna speciale aggiunta dal sistema corrispondente all'id di partizione dell'input (Hub eventi)
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId    
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 Arrestare il processo corrente, aggiornare la query nella scheda Query e aprire la scheda Scalabilità.
 
@@ -535,4 +523,4 @@ Tenere presente che le risorse possono essere identificate in base al nome. Assi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

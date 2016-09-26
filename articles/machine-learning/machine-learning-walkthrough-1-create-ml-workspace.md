@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2016"
-	ms.author="garye"/>
+	ms.author="garye"/>  
 
 
 # Passaggio 1 della procedura dettagliata: Creare un'area di lavoro di Machine Learning
@@ -51,4 +51,4 @@ Dopo avere creato l'area di lavoro di Machine Learning, questa sarà visualizzat
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

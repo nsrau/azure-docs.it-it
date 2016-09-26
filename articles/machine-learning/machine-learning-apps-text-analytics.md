@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE] Questa guida riguarda la versione 1 dell'API. Per la versione 2, [**vedere questo documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). La versione 2 è ora la versione preferita di questa API.
 
-## Panoramica
+## Overview
 
 L'API di analisi del testo è un gruppo di [servizi Web](https://datamarket.azure.com/dataset/amla/text-analytics) per l'analisi del testo creata con Azure Machine Learning. L'API può essere usata per analizzare il testo non strutturato per attività quali l'analisi del sentiment, l'estrazione di frasi chiave, il rilevamento della lingua e il rilevamento di argomenti. Non sono necessari dati di training per usare questa API, è sufficiente inserire dati di testo. L'API usa tecniche di elaborazione avanzata del linguaggio naturale per fornire stime avanzate.
 
@@ -74,7 +74,7 @@ Assicurarsi di includere le intestazioni corrette nella richiesta, che dovrebbe 
 
 **Richiesta di esempio**
 
-Nella chiamata seguente viene richiesta l'analisi di valutazione per la frase "Hello World":
+Nella chiamata seguente viene richiesta l'analisi del sentiment per la frase "Hello World":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
@@ -95,7 +95,7 @@ Restituirà una risposta come la seguente:
 
 **Richiesta di esempio**
 
-Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "Ottimo hotel in cui alloggiare: splendidi arredi e personale amichevole":
+Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "It was a wonderful hotel to stay at, with unique decor and friendly staff":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -373,7 +373,7 @@ Le proprietà di ciascuna parte della risposta sono le seguenti:
 
 | Chiave | Descrizione |
 |:-----|:----|
-| TopicId | Identificatore univoco di ciascun argomento. |
+| TopicId | Identificatore univoco di ogni argomento. |
 | Score | Numero di record assegnati all'argomento. |
 | KeyPhrase | Parola o frase di riepilogo dell'argomento. Può essere costituita da una o più parole. |
 
@@ -385,4 +385,4 @@ Le proprietà di ciascuna parte della risposta sono le seguenti:
 | TopicId | ID dell'argomento a cui sono stati assegnati i record. |
 | Distance | Probabilità che il record appartenga all'argomento. Un valore vicino a zero indica una probabilità elevata. |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,9 +4,9 @@
 	services="hdinsight"
 	tags="azure-portal"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags
 	ms.service="hdinsight"
@@ -108,4 +108,4 @@ Per l'SDK, la procedura è simile. La creazione e il provisioning di un cluster 
 - [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Uso di .NET SDK per HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

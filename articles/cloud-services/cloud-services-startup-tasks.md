@@ -12,8 +12,8 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
-ms.author="adegeo"/>
+ms.date="09/06/2016" 
+ms.author="adegeo"/>  
 
 
 
@@ -44,7 +44,7 @@ Di seguito è riportata la procedura di avvio di un ruolo in Azure:
 
 2. Tutte le attività di avvio vengono eseguite in base al relativo attributo **taskType**.
     - Le attività di tipo **simple** vengono eseguite in modo sincrono, una alla volta.
-    - Le attività di tipo **background** e **foreground** vengono avviate in modo asincrono e parallelo all'attività di avvio.  
+    - Le attività di tipo **background** e **foreground** vengono avviate in modo asincrono e parallelo all'attività di avvio.
        
     > [AZURE.WARNING] È possibile che IIS non sia stato configurato completamente nella fase delle attività di avvio del processo di avvio, pertanto potrebbero non essere disponibili dati specifici per il ruolo. Per le attività di avvio che richiedono dati specifici per il ruolo è necessario usare [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
@@ -105,7 +105,7 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 **taskType**: specifica la modalità di esecuzione di un'attività di avvio.
 
-- Le attività di tipo **simple** vengono eseguite in modo sincrono, una alla volta, nell'ordine specificato nel file [ServiceDefinition.csdef]. Quando un'attività di avvio **simple** termina con un valore di **errorlevel** uguale a zero, viene eseguita l'attività di avvio **simple** successiva. Se non sono presenti altre attività di avvio **simple** da eseguire, viene avviato il ruolo.   
+- Le attività di tipo **simple** vengono eseguite in modo sincrono, una alla volta, nell'ordine specificato nel file [ServiceDefinition.csdef]. Quando un'attività di avvio **simple** termina con un valore di **errorlevel** uguale a zero, viene eseguita l'attività di avvio **simple** successiva. Se non sono presenti altre attività di avvio **simple** da eseguire, viene avviato il ruolo.
 
     > [AZURE.NOTE] Se l'attività **simple** termina con un valore di **errorlevel** diverso da zero, l'istanza viene bloccata. Le successive attività di avvio **simple** e il ruolo non vengono avviati.
 
@@ -163,4 +163,4 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

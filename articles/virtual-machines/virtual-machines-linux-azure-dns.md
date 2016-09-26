@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/21/2016"
-   ms.author="rclaus" />
+   ms.date="09/06/2016"
+   ms.author="rclaus" />  
 
 # Opzioni di risoluzione dei nomi DNS per VM Linux in Azure
 
@@ -33,7 +33,7 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui VM e istanze del r
 | Risoluzione dei nomi tra istanze del ruolo o macchine virtuali situate in diverse reti virtuali | Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server)| Solo nome di dominio completo |
 | Risoluzione dei nomi servizi e computer locali da istanze del ruolo o macchine virtuali in Azure | Server DNS gestiti dal cliente, ad esempio controller di dominio locale, controller di dominio di sola lettura locale o server DNS secondario sincronizzati tramite trasferimenti di zona. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server)|Solo nome di dominio completo |
 | Risoluzione di nomi host di Azure da computer locali | Inoltra le query a un server proxy DNS gestito dal cliente nella rete virtuale corrispondente. Il server proxy inoltra le query ad Azure per la risoluzione. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server)| Solo nome di dominio completo |
-| DNS inversi per indirizzi IP interni | [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) | N/D |
+| DNS inversi per indirizzi IP interni | [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) | n/d |
 
 ## Risoluzione dei nomi fornita da Azure
 
@@ -47,7 +47,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 
 - Il servizio di risoluzione dei nomi fornito da Azure garantisce la disponibilità elevata ed evita così di dover creare e gestire i cluster dei propri server DNS.
 
-- Può essere usato in combinazione con i propri server DNS per risolvere i nomi host locali e i nomi host di Azure.
+- Può essere usato insieme ai propri server DNS per risolvere i nomi host locali e i nomi host di Azure.
 
 - Viene fornita la risoluzione dei nomi tra VM in reti virtuali, senza necessità del nome FQDN.
 
@@ -71,9 +71,9 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 
 Non tutte le query DNS devono essere inviate attraverso la rete. La memorizzazione nella cache sul lato client consente di ridurre la latenza e migliorare la resilienza ai blip (brevi interruzioni) di rete, tramite la risoluzione di query DNS ricorrenti da una cache locale. I record DNS contengono una durata (TTL) che consente alla cache di memorizzare il record per il periodo di tempo più lungo possibile senza che questo influisca sullo stato di aggiornamento del record. Per questo motivo, la memorizzazione nella cache sul lato client è ideale per la maggior parte delle situazioni.
 
-Alcune distribuzioni di Linux non includono la memorizzazione nella cache per impostazione predefinita, è quindi consigliabile aggiungerne una a ogni VM Linux (dopo aver verificato che non sia già presente una cache locale).
+Alcune distribuzioni Linux non includono la memorizzazione nella cache per impostazione predefinita. È quindi consigliabile aggiungerne una a ogni VM Linux (dopo aver verificato che non sia già presente una cache locale).
 
-Sono disponibili molti pacchetti di memorizzazione nella cache DNS diversi, ad esempio dnsmasq. Di seguito è riportata la procedura per installare dnsmasq nei distro più comuni:
+Sono disponibili numerosi pacchetti di memorizzazione nella cache DNS diversi, ad esempio dnsmasq. Di seguito è riportata la procedura per installare dnsmasq nelle distribuzioni più comuni:
 
 - **Ubuntu (usa resolvconf)**:
 	- installare il pacchetto dnsmasq ("sudo apt-get install dnsmasq").
@@ -103,7 +103,7 @@ Per verificare le impostazioni correnti in una macchina virtuale Linux, aprire i
 
 	options timeout:1 attempts:5
 
-Il file resolv.conf è solitamente generato automaticamente e non deve essere modificato. La procedura specifica per aggiungere la riga 'options' varia a seconda del distro:
+Il file resolv.conf viene generato automaticamente e non deve essere modificato. La procedura specifica per aggiungere la riga 'options' varia a seconda del distro:
 
 - **Ubuntu** (usa resolvconf):
 	- aggiungere la riga per le opzioni in '/etc/resolveconf/resolv.conf.d/head'
@@ -129,13 +129,13 @@ Quando si usa la risoluzione dei nomi di Azure, il suffisso DNS interno viene fo
 -  Per le reti virtuali gestite da Azure Resource Manager, il suffisso è disponibile tramite la [scheda di interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx) oppure è possibile eseguire il comando `azure network public-ip show <resource group> <pip name>` per visualizzare i dettagli dell'IP pubblico, incluso il nome FQDN della scheda di interfaccia di rete.
 
 
-Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà necessario fornire una soluzione DNS personalizzata. Questa soluzione DNS dovrà:
+Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà necessario offrire una soluzione DNS personalizzata. La soluzione DNS deve:
 
--  Fornire una soluzione di risoluzione dei nomi host appropriata, ad esempio tramite [DNS dinamico](../virtual-network/virtual-networks-name-resolution-ddns.md). Si noti che se si usa il DNS dinamico potrebbe essere necessario disabilitare lo scavenging del record DNS, perché i lease DHCP di Azure sono molto lunghi e potrebbero rimuovere i record DNS anticipatamente.
+-  Offrire una soluzione di risoluzione dei nomi host appropriata, ad esempio tramite [DNS dinamico](../virtual-network/virtual-networks-name-resolution-ddns.md). Si noti che se si usa il DNS dinamico potrebbe essere necessario disabilitare lo scavenging del record DNS, perché i lease DHCP di Azure sono molto lunghi e potrebbero rimuovere i record DNS anticipatamente.
 -  Fornire una soluzione di risoluzione ricorsiva appropriata per consentire la risoluzione dei nomi di dominio esterni.
 -  Essere accessibile (tramite TCP e UDP sulla porta 53) dai client che gestisce e in grado di accedere a Internet.
 -  Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
 
 > [AZURE.NOTE] Per prestazioni ottimali, quando si usano macchine virtuali di Azure come server DNS, è necessario disabilitare IPv6 e assegnare un indirizzo [IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) a ogni macchina virtuale del server DNS.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

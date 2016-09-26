@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"  />
+	manager="jhubbard"
+	editor="cgronlun"  />  
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="gokuma;bradsev" />
+	ms.date="09/12/2016"
+	ms.author="bradsev" />  
 
 # Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati
 
@@ -64,7 +64,7 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux pe
 2.	 Fare clic su **Crea** (in basso) per aprire la procedura guidata.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 Le sezioni seguenti forniscono gli input per ognuno dei passaggi (elencati nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
-  a. **Nozioni di base**:
+  	a. **Nozioni di base**:
 
   - **Name**: nome del server di analisi scientifica dei dati che si sta creando.
   - **Nome utente**: primo ID di accesso dell'account.
@@ -73,21 +73,21 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux pe
   - **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
   - **Location**: selezionare la posizione del data center più appropriata. In genere è il data center che include la maggior parte dei dati o è più vicino alla posizione fisica per l'accesso più veloce alla rete.
 
-  b. **Dimensione**:
+  	b. **Dimensione**:
 
   - Selezionare uno dei tipi di server che soddisfa i requisiti funzionali e vincoli di costo. Selezionare **Visualizza tutto** per visualizzare altre opzioni per le dimensioni delle VM.
 
-  c. **Impostazioni**:
+  	c. **Impostazioni**:
 
   - **Tipo di disco**: scegliere **Premium** se si preferisce un'unità a stato solido (SSD). In caso contrario, scegliere **Standard**.
   - **Account di archiviazione**: è possibile creare un nuovo account di archiviazione di Azure nella sottoscrizione o usarne uno esistente nella stessa posizione scelta nel passaggio **Nozioni di base** della procedura guidata.
   - **Altri parametri**: nella maggior parte dei casi si usano semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
 
-  d. **Riepilogo**:
+  	d. **Riepilogo**:
 
   - Verificare che tutte le informazioni immesse siano corrette.
 
-  e. **Acquisto**:
+  	e. **Acquisto**:
 
   - Fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size**.
 
@@ -340,8 +340,9 @@ Si apre un'interfaccia grafica con un set di schede. Qui è disponibile una proc
 ## Passaggi successivi
 Ecco come è possibile continuare l'apprendimento e l'esplorazione:
 
+* La procedura dettagliata [Data science on the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-walkthrough.md) (Analisi scientifica dei dati nella macchina virtuale Linux Data Science) illustra come eseguire diverse attività comuni di analisi scientifica dei dati con la macchina virtuale Data Science Linux qui descritta.
 * Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

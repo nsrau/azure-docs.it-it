@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/12/2016" 
+	ms.author="spelluru"/>  
 
 # Azure Data Factory - Domande frequenti
 
@@ -24,7 +24,7 @@
 
 Data Factory è un servizio di integrazione dei dati basato sul cloud che **automatizza lo spostamento e la trasformazione dei dati**. Analogamente a quanto avviene in uno stabilimento di produzione, in cui vengono usate attrezzature per trasformare le materie prime in prodotti finiti, Data Factory orchestra i servizi esistenti che raccolgono i dati non elaborati e li trasforma in informazioni pronte per l'uso.
  
-Il servizio Data Factory consente di creare flussi di lavoro basati sui dati per spostare dati dagli archivi locali a quelli sul cloud e viceversa nonché per elaborare o trasformare i dati usando servizi di calcolo come Azure HDInsight e Analisi Azure Data Lake. Dopo aver creato una pipeline che esegue l'azione necessaria, è possibile pianificarne l'esecuzione periodica, ad esempio ogni ora, giorno, settimana e così via.
+Data Factory consente di creare flussi di lavoro basati sui dati per spostare dati dagli archivi locali a quelli sul cloud e viceversa, nonché per elaborare o trasformare i dati usando servizi di calcolo come Azure HDInsight e Azure Data Lake Analytics. Dopo aver creato una pipeline che esegue l'azione necessaria, è possibile pianificarne l'esecuzione periodica, ad esempio ogni ora, giorno, settimana e così via.
 
 Vedere[Panoramica e concetti chiave](data-factory-introduction.md)per ulteriori dettagli.
 
@@ -64,10 +64,10 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 ### È possibile rinominare una data factory?
 No. Come per le altre risorse di Azure, non è possibile modificare il nome di una data factory di Azure.
 
-### È possibile trasferire una data factory da una sottoscrizione di Azure a un’altra? 
-Sì. Utilizzare il pulsante **Sposta** nel pannello della data factory come mostrato di seguito:
+### È possibile trasferire una data factory da una sottoscrizione di Azure a un'altra? 
+Sì. Usare il pulsante **Sposta** nel pannello della data factory come mostrato nel diagramma seguente.
 
-![Spostare una data factory](media/data-factory-faq/move-data-factory.png)
+![Spostare una data factory](media/data-factory-faq/move-data-factory.png)  
 
 ## Attività - Domande frequenti
 ### Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory? 
@@ -80,7 +80,7 @@ L'impostazione di configurazione **availability** della tabella dati di output d
 
 ## Attività di copia - Domande frequenti
 ### È consigliabile avere una pipeline con più attività o una pipeline distinta per ogni attività? 
-Le pipeline sono state progettate per aggregare attività correlate. È logicamente possibile mantenere le attività in un'unica pipeline se le tabelle che le connettono non vengono usate da altre attività esterne alla pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
+Le pipeline sono state progettate per aggregare attività correlate. Se i set di dati che si interconnettono non vengono usati da altre attività esterne alla pipeline, è possibile mantenere le attività in un'unica pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
 
 ### Dove viene eseguita l'operazione di copia? 
 
@@ -104,7 +104,7 @@ Se si usa un cluster HDInsight personalizzato (BYOC - Bring Your Own Cluster), v
 - [Uso di un cluster HDInsight con account di archiviazione e metastore alternativi][hdinsight-alternate-storage]
 - [Usare account di archiviazione aggiuntivi con HDInsight Hive][hdinsight-alternate-storage-2]
 
-Se si usa un cluster su richiesta creato dal servizio Data Factory, sarà necessario specificare altri account di archiviazione per il servizio collegato HDInsight, in modo che il servizio Data Factory li possa registrare automaticamente. Nella definizione JSON per il servizio collegato su richiesta, usare la proprietà **additionalLinkedServiceNames** per specificare account di archiviazione alternativi, come illustrato nel frammento di codice JSON seguente:
+Se si usa un cluster su richiesta creato dal servizio Data Factory, specificare altri account di archiviazione per il servizio collegato HDInsight, in modo che il servizio Data Factory li possa registrare automaticamente. Nella definizione JSON per il servizio collegato su richiesta, usare la proprietà **additionalLinkedServiceNames** per specificare account di archiviazione alternativi, come illustrato nel frammento di codice JSON seguente:
  
 	{
 	    "name": "MyHDInsightOnDemandLinkedService",
@@ -124,14 +124,14 @@ Nell'esempio precedente otherLinkedServiceName1 e otherLinkedServiceName2 rappre
 
 ## Sezioni - Domande frequenti
 
-### Perché le sezioni di input non sono in stato Ready?  
+### Perché le sezioni di input non sono in stato Pronto?  
 Un errore frequente è la mancata impostazione della proprietà **external** su **true** nel set di dati di input quando i dati di input sono esterni alla data factory, ovvero non prodotti dalla data factory.
 
 Nell'esempio seguente è necessario soltanto impostare **external** su true in **dataset1**.
 
 **DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
 
-Se si dispone di un'altra data factory con una pipeline che accetta dataset4 (prodotto dalla pipeline 2 nella data factory 1), sarà necessario contrassegnare dataset4 come set di dati esterno perché tale set di dati è prodotto da una data factory differente (DataFactory1, non DataFactory2).
+Se si dispone di un'altra data factory con una pipeline che accetta dataset4 (prodotto dalla pipeline 2 nella data factory 1), contrassegnare dataset4 come set di dati esterno perché tale set di dati è prodotto da una data factory differente (DataFactory1, non DataFactory2).
 
 **DataFactory2** Pipeline 1: dataset4->activity4->dataset5
 
@@ -153,7 +153,7 @@ Le sezioni giornaliere iniziano alle **6.00** anziché a mezzanotte, ovvero l'im
 È possibile rieseguire una sezione in uno dei modi seguenti:
 
 - Usare l'app di monitoraggio e gestione per eseguire di nuovo una finestra attività o una sezione. Per istruzioni, vedere la sezione [Rieseguire finestre attività selezionate](data-factory-monitor-manage-app.md#re-run-selected-activity-windows).
-- Fare clic su **Esegui** sulla barra dei comandi nel pannello **SEZIONE DATI** per la sezione nel portale.
+- Fare clic su **Esegui** sulla barra dei comandi nel pannello **SEZIONE DATI** per la sezione nel portale di Azure.
 - Eseguire il cmdlet **Set-AzureRmDataFactorySliceStatus** con lo stato impostato su **Waiting** per la sezione.
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
@@ -192,4 +192,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

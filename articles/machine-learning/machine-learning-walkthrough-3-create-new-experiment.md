@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -39,7 +39,7 @@ Il passaggio successivo di questa procedura dettagliata consiste nel creare un n
 	> [AZURE.TIP] È buona abitudine compilare i campi **Summary** e **Description** dell'esperimento nel riquadro **Properties**. Queste proprietà offrono la possibilità di documentare l'esperimento, in modo che chiunque in seguito lo esamini sia in grado di comprendere gli obiettivi e la metodologia.
 
 3.	Nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento, espandere **Set di dati salvati**.
-4.	Trovare il set di dati creato in **My Datasets** e trascinarlo nell'area di disegno. È possibile trovare il set di dati anche immettendone il nome nella casella **Cerca** sopra alla tavolozza.  
+4.	Trovare il set di dati creato in **My Datasets** e trascinarlo nell'area di disegno. È possibile trovare il set di dati anche immettendone il nome nella casella **Cerca** sopra alla tavolozza.
 
 ##Preparare i dati
 È possibile visualizzare le prime 100 righe di dati e alcune informazioni statistiche per l'intero set di dati facendo clic sulla porta di output del set di dati (il circoletto in basso) e selezionando **Visualize**.
@@ -52,7 +52,7 @@ Per usare [Edit Metadata][edit-metadata] è necessario innanzitutto specificare 
 
 1.	Nella tavolozza dei moduli digitare "metadati" nella casella **Cerca**. Nell'elenco dei moduli verrà visualizzato il modulo [Edit Metadata][edit-metadata].
 2.	Trascinare il modulo [Edit Metadata][edit-metadata] nell'area di disegno e rilasciarlo sotto il set di dati precedentemente aggiunto.
-3.	Connettere il set di dati a [Edit Metadata][edit-metadata]\: fare clic sulla porta di output del set di dati (il circoletto in fondo al set di dati), trascinarla sulla porta di input di [Edit Metadata][edit-metadata] \(il circoletto in cima al modulo), quindi rilasciare il pulsante del mouse. Il set di dati e il modulo rimarranno connessi anche se uno di essi viene spostato in un altra posizione nell'area di disegno.
+3.	Connettere il set di dati a [Edit Metadata][edit-metadata]\: fare clic sulla porta di output del set di dati (il circoletto in fondo al set di dati), trascinarla sulla porta di input di [Edit Metadata][edit-metadata] (il circoletto in cima al modulo), quindi rilasciare il pulsante del mouse. Il set di dati e il modulo rimarranno connessi anche se uno di essi viene spostato in un altra posizione nell'area di disegno.
 
     L'esperimento avrà ora un aspetto analogo al seguente:
 
@@ -63,8 +63,7 @@ Per usare [Edit Metadata][edit-metadata] è necessario innanzitutto specificare 
     > [AZURE.TIP] È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Edit Metadata][edit-metadata] e digitare il commento "Add column headings". Fare clic in un punto qualsiasi dell'area di disegno per chiudere la casella di testo. Fare clic sulla freccia giù del modulo per visualizzare il commento.
 
 4.	Selezionare [Edit Metadata][edit-metadata] quindi, nel riquadro **Properties** a destra dell'area di disegno, fare clic su **Launch column selector**.
-5.	Nella finestra di dialogo **Select columns** (Seleziona colonne) selezionare tutte le righe in **Available Columns** (Colonne disponibili)e fare clic su > per spostarle in **Selected Columns** (Colonne selezionate). La finestra di dialogo dovrebbe essere simile alla seguente:
-    ![Selettore di colonna con tutte le colonne selezionate][4]
+5.	Nella finestra di dialogo **Select columns** (Seleziona colonne) selezionare tutte le righe in **Available Columns** (Colonne disponibili)e fare clic su > per spostarle in **Selected Columns** (Colonne selezionate). La finestra di dialogo dovrebbe essere simile alla seguente: ![Selettore di colonna con tutte le colonne selezionate][4]
 7.	Fare clic sul segno di spunta **OK**.
 8.	Nel riquadro **Properties** cercare il parametro **New column names**. In questo campo immettere un elenco di nomi per le 21 colonne nel set di dati, separati da virgole e nell'ordine delle colonne. È possibile ottenere i nomi di colonna dalla documentazione relativa ai set di dati disponibile sul sito Web UCI, oppure, per praticità, è possibile copiare e incollare l'elenco seguente:
 
@@ -76,7 +75,7 @@ Per usare [Edit Metadata][edit-metadata] è necessario innanzitutto specificare 
 
 > [AZURE.TIP] Se si vuole verificare le intestazioni di colonna, eseguire l'esperimento (fare clic su **RUN** (ESEGUI) sotto l'area di disegno dell'esperimento). Al termine dell'esecuzione, verrà visualizzato un segno di spunta in [Edit Metadata][edit-metadata], fare clic sulla porta di output del modulo [Edit Metadata][edit-metadata] e selezionare **Visualize** (Visualizza). È possibile visualizzare l'output di ogni modulo nello stesso modo in cui si visualizza lo stato dei dati nel corso dell'esperimento.
 
-##Creare set di dati di training e di test
+##Creazione di set di dati di training e di test
 Il prossimo passaggio dell'esperimento consiste nel generare set di dati separati che verranno usati per le attività di training e di test del modello.
 
 Per eseguire questa operazione, viene impiegato il modulo [Split Data][split].
@@ -110,7 +109,7 @@ Ciò è ottenibile usando il codice R:
 3.	Connettere la prima porta di input di questo modulo [Execute R Script][execute-r-script] alla porta di output destra del modulo [Split Data][split].
 
 > [AZURE.TIP] La copia del modulo Esecuzione script R contiene lo stesso script contenuto nel modulo originale. Quando si copia e incolla un modulo sull'area di disegno, la copia conserva tutte le proprietà dell'originale.
->
+
 L'esperimento avrà ora un aspetto analogo al seguente:
 
 ![Adding Split module and R scripts][3]
@@ -126,9 +125,9 @@ Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere
 [4]: ./media/machine-learning-walkthrough-3-create-new-experiment/columnselector.png
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

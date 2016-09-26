@@ -4,8 +4,8 @@
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   manager="jhubbard" 
+   editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="09/02/2016"
-   ms.author="jgao"/>
+   ms.author="jgao"/>  
 
 # Usare Apache Phoenix e SQuirreL con i cluster HBase basati su Windows in HDinsight  
 
@@ -308,4 +308,4 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight. Per alt
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

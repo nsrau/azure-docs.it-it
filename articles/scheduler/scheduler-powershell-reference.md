@@ -13,27 +13,47 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="krisragh"/>  
 
 # Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
 
 La tabella seguente include descrizioni e collegamenti alla pagina di riferimento per ciascuno dei cmdlet principali nell'Utilità di pianificazione di Azure.
 
+Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+
+Per altre informazioni sui [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356(v=azure.200).aspx) vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+
 |Cmdlet|Descrizione del cmdlet|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/library/azure/dn722516.aspx)**|Ottiene un elenco di processi di pianificazione o un processo specifico.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn722471.aspx)**|Ottiene raccolte di processi di pianificazione.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/library/azure/dn722514.aspx)**|Ottiene la cronologia per un processo di pianificazione.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/library/azure/dn722505.aspx)**|Ottiene le posizioni disponibili dell'Utilità di pianificazione.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/library/azure/dn722492.aspx)**|Crea un processo di pianificazione che prevede l'esecuzione di un'azione HTTP.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn759640.aspx)**|Crea una raccolta di processi di pianificazione.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/library/azure/dn722518.aspx)**|Crea un processo di pianificazione che prevede l'esecuzione di un'azione di archiviazione.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/library/azure/dn722477.aspx)**|Elimina un processo di pianificazione.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn722530.aspx)**|Elimina una raccolta di processi di pianificazione.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/library/azure/dn722474.aspx)**|Aggiorna un processo di pianificazione che prevede l'esecuzione di un'azione HTTP.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn759626.aspx)**|Aggiorna una raccolta di processi di pianificazione.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/library/azure/dn722476.aspx)**|Aggiorna un processo di pianificazione che prevede l'esecuzione di un'azione di archiviazione.|
+[Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133(v=azure.200).aspx) |Disabilita una raccolta di processi. 
+[Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135(v=azure.200).aspx) |Abilita una raccolta di processi.
+[Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125(v=azure.200).aspx) |Ottiene processi dell'Utilità di pianificazione.
+[Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132(v=azure.200).aspx) |Ottiene raccolte di processi.
+[Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126(v=azure.200).aspx) |Ottiene la cronologia processi.
+[New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136(v=azure.200).aspx) |Crea un processo HTTP.
+[New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141(v=azure.200).aspx) |Crea una raccolta di processi.
+[New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134(v=azure.200).aspx) |Crea un processo di coda del bus di servizio.
+[New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142(v=azure.200).aspx) |Crea un processo di argomento del bus di servizio.
+[New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127(v=azure.200).aspx) |Crea un processo di coda di archiviazione. 
+[Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140(v=azure.200).aspx) |Elimina un processo dell'Utilità di pianificazione.  
+[Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131(v=azure.200).aspx) |Rimuove una raccolta di processi. 
+[Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130(v=azure.200).aspx) |Modifica un processo HTTP dell'Utilità di pianificazione.
+[Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129(v=azure.200).aspx) |Modifica una raccolta di processi. 
+[Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143(v=azure.200).aspx) |Modifica un processo di coda del bus di servizio.  
+[Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137(v=azure.200).aspx) |Modifica un processo di argomento del bus di servizio. 
+[Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128(v=azure.200).aspx) |Modifica un processo di coda di archiviazione.   
 
+Per informazioni più dettagliate, è possibile eseguire i cmdlet seguenti:
+
+```
+Get-Help <cmdlet name> -Detailed
+```
+```
+Get-Help <cmdlet name> -Examples
+```
+```
+Get-Help <cmdlet name> -Full
+```
 
 ## Vedere anche
 
@@ -54,4 +74,4 @@ La tabella seguente include descrizioni e collegamenti alla pagina di riferiment
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

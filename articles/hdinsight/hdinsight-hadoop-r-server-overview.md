@@ -4,8 +4,8 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="08/17/2016"
-   ms.author="jeffstok"/>
+   ms.author="jeffstok"/>  
 
 
 # Panoramica di R Server su HDInsight (anteprima)
@@ -124,4 +124,4 @@ Per leggere altre informazioni sull'uso di R Server con i cluster HDInsight, seg
 
 - [Opzioni di Archiviazione di Azure per R Server su HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

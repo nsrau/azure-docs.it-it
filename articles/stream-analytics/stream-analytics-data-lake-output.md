@@ -5,9 +5,9 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
-/>
+/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -17,7 +17,7 @@
 	ms.workload="big-data"
 	ms.date="08/30/2016"
 	ms.author="jeffstok"
-/>
+/>  
 
 # Output di Archivio Data Lake per Analisi di flusso
 
@@ -27,7 +27,7 @@ I processi di Analisi di flusso supportano numerosi metodi di output, tra cui [A
 
 1.  Quando si seleziona Archivio Data Lake come output nel portale di gestione di Azure, verrà richiesto di autorizzare l'uso dell'Archivio Data Lake esistente o richiedere l'accesso all'anteprima di Archivio Data Lake tramite il portale di Azure classico.
 
-    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)
+    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
 
 2.  Se si dispone già di un accesso ad Archivio Data Lake, fare clic su "Autorizza ora" e per un istante viene visualizzata una pagina che indica "Reindirizzamento all'autorizzazione...". La pagina si chiude automaticamente e verrà visualizzata la pagina che consente di configurare l'output di Archivio Data Lake.
 
@@ -88,6 +88,6 @@ Attualmente esiste una limitazione secondo cui il token di autenticazione deve e
 
 Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Archivio Data Lake. Fare clic sul collegamento "Rinnova autorizzazione" e per un istante viene visualizzata una pagina che indica "Reindirizzamento all'autorizzazione..." La pagina verrà chiusa automaticamente e, in caso di esito positivo, verrà indicato "Autorizzazione rinnovata". È quindi necessario fare clic su "Salva" nella parte inferiore della pagina e, per continuare, riavviare il processo dall'ora dell'ultimo arresto per evitare la perdita di dati.
 
-![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
+![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

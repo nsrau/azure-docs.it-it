@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2016"
-	ms.author="haining;chlovel;garye"/>
+	ms.date="09/06/2016"
+	ms.author="haining;chlovel;garye"/>  
 
 # Domande frequenti sui concorsi Microsoft Cortana Intelligence
 
@@ -115,4 +115,4 @@ Attualmente la piattaforma del concorso supporta l'invio di contributi soltanto 
 
 I contributi degli utenti vengono conservati unicamente a scopo di valutazione, per identificare le soluzioni vincenti. Per informazioni specifiche, vedere le [condizioni](http://aka.ms/comptermsandconditions) dei concorsi.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

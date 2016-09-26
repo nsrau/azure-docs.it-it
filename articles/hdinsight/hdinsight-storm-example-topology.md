@@ -4,9 +4,9 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
  ms.service="hdinsight"
@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
  ms.date="08/23/2016"
- ms.author="larryfr"/>
+ ms.author="larryfr"/>  
 
 # Esempi di topologie e componenti Storm per Apache Storm in HDInsight
 
@@ -61,4 +61,4 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Questo progetto contiene modelli per l'interazione di Spout, Bolt e topologie con diversi servizi Azure come hub eventi, DocumentDB e database SQL."
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

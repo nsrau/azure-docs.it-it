@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
-   ms.author="terrylan"/>
+   ms.date="09/08/2016"
+   ms.author="terrylan"/>  
 
 # Procedure consigliate e modelli per la sicurezza di Azure
 
@@ -28,9 +28,9 @@ Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e
 - [Procedure consigliate per la sicurezza dei limiti di Azure](../best-practices-network-security.md)
 - [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md) (Implementazione di un'architettura di rete ibrida sicura in Azure)
 
-Azure fornisce una piattaforma sicura per creare le proprie soluzioni. Sono disponibili anche numerosi servizi e tecnologie che è possibile usare per rendere più sicuri i servizi creati in Azure. Dato l'alto numero di opzioni disponibili, in molti hanno manifestato interesse per le procedure consigliate e i modelli suggeriti da Microsoft per aumentare la sicurezza delle distribuzioni di Azure.
+Azure fornisce una piattaforma sicura per creare le proprie soluzioni. Sono forniti anche servizi e tecnologie che rendono più sicure le soluzioni in Azure. Dato l'alto numero di opzioni disponibili, in molti hanno manifestato interesse per le procedure consigliate e i modelli suggeriti da Microsoft per aumentare la sicurezza.
 
-Questo interesse è naturale e proprio a tale scopo è stata creata una raccolta di documenti che descrivono le attività che è possibile eseguire e che, nel giusto contesto, consentiranno di aumentare la sicurezza delle distribuzioni di Azure.
+Questo interesse è naturale e perciò è stata creata una raccolta di documenti che descrivono le attività che è possibile eseguire e che, nel giusto contesto, consentiranno di aumentare la sicurezza delle distribuzioni di Azure.
 
 Questi articoli illustrano una raccolta di procedure consigliate e di utili modelli per argomenti specifici. Le procedure consigliate e i modelli si basano sulle esperienze di tecnici e clienti con queste tecnologie.
 
@@ -44,4 +44,4 @@ Per ogni procedura consigliata verrà illustrato nel miglior modo possibile:
 
 È possibile offrire molti altri articoli sull'architettura e le procedure consigliate per la sicurezza di Azure. Richiedere eventuali argomenti specifici nell'area di discussione nella parte inferiore della pagina.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

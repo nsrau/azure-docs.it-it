@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="tomarcher"
 	manager="douge"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="devtest-lab"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="tarcher"/>
+	ms.date="09/13/2016"
+	ms.author="tarcher"/>  
 
 # Domande frequenti su Azure DevTest Labs
 
@@ -45,6 +45,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative ad Azur
 - [Come si spostano le VM di Azure esistenti nel lab Azure DevTest Labs?](#how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab)
 - [È possibile collegare più dischi alle VM?](#can-i-attach-multiple-disks-to-my-vms)
 - [Come si automatizza il processo di caricamento dei file VHD per creare immagini personalizzate?](#how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images)
+- [Come è possibile automatizzare il processo di eliminazione di tutte le macchine virtuali nel lab?](#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)
  
 ## Elementi 
  
@@ -56,6 +57,8 @@ Questo articolo risponde ad alcune delle domande più frequenti relative ad Azur
 - [Perché le VM vengono create in gruppi di risorse diversi con nomi arbitrari? È possibile rinominare o modificare questi gruppi di risorse?](#why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups)
 - [Quanti lab è possibile creare nella stessa sottoscrizione?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [Quante VM è possibile creare per ogni lab?](#how-many-vms-can-i-create-per-lab)
+- [Come è possibile condividere un collegamento diretto al mio lab?](#how-do-i-share-a-direct-link-to-my-lab)
+- [Che cos'è un account Microsoft?](#what-is-a-microsoft-account)
  
 ## Risoluzione dei problemi 
  
@@ -168,11 +171,48 @@ Per trovare l'account di archiviazione di destinazione associato al lab, seguire
 1. Cercare i caricamenti nell'elenco. Se non ne esistono, tornare al passaggio n. 4 e provare con un altro account di archiviazione.
 1. Usare l'**URL** come destinazione nel comando AzCopy.
 
+
+### Come è possibile automatizzare il processo di eliminazione di tutte le macchine virtuali nel lab?
+
+Oltre a eliminare le macchine virtuali dall'ambiente nel portale di Azure, è possibile eliminare tutte le macchine virtuali nell'ambiente lab tramite uno script di PowerShell. Nell'esempio seguente, è sufficiente modificare i valori dei parametri nel commento **Values to change** (Valori da modificare). È possibile recuperare i valori `subscriptionId`, `labResourceGroup` e `labName` dal pannello Lab nel portale di Azure.
+
+
+	# Delete all the VMs in a lab
+	
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource group here>"
+	$labName = "<Enter lab name here>"
+
+	# Login to your Azure account
+	Login-AzureRmAccount
+	
+	# Select the Azure subscription that contains the lab. This step is optional
+	# if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Get the lab that contains the VMs to delete.
+	$lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	
+	# Get the VMs from that lab.
+	$labVMs = Get-AzureRmResource | Where-Object { 
+	          $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
+	          $_.ResourceName -like "$($lab.ResourceName)/*"}
+	
+	# Delete the VMs.
+	foreach($labVM in $labVMs)
+	{
+	    Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
+	}
+
+
+
+
 ### Cosa sono gli elementi? 
 Gli elementi sono componenti personalizzabili che possono essere usati per distribuire i bit più recenti o gli strumenti di sviluppo in una VM. Vengono collegati alla VM durante la creazione con pochi semplici clic e, una volta effettuato il provisioning della VM, gli elementi distribuiscono e configurano la VM. Nel [repository GitHub pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) sono disponibili svariati elementi preesistenti, ma è anche possibile [creare i propri elementi](devtest-lab-artifact-author.md) facilmente.
 
 ### Come si crea un lab da un modello di Azure Resource Manager? 
-Esiste un [repository GitHub di modelli di Azure Resource Manager di lab](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Ogni modello ha un collegamento su cui è possibile fare clic per distribuire il lab di Azure DevTest Labs nella sottoscrizione di Azure.
+Microsoft ha fornito un [repository Github di modelli di Azure Resource Manager per lab](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) che è possibile distribuire così com'è oppure modificarlo per creare modelli personalizzati per i propri lab. Ciascuno di questi modelli offre un collegamento su cui è possibile fare clic per distribuire il lab così com'è nella propria sottoscrizione di Azure o per personalizzare il modello e [distribuirlo tramite PowerShell o l'interfaccia della riga di comando di Aure](../resource-group-template-deploy.md).
  
 ### Perché le VM vengono create in gruppi di risorse diversi con nomi arbitrari? È possibile rinominare o modificare questi gruppi di risorse? 
 I gruppi di risorse vengono creati in questo modo per consentire ad Azure DevTest Labs di gestire le autorizzazioni utente e di accedere alle macchine virtuali. Sebbene sia possibile spostare la VM in un altro gruppo di risorse con il nome desiderato, non è consigliabile farlo. Stiamo lavorando per migliorare questa esperienza e garantire maggiore flessibilità.
@@ -182,6 +222,21 @@ Non esiste un limite specifico al numero di lab che possono essere creati per og
  
 ### Quante VM è possibile creare per ogni lab? 
 Non esiste un limite specifico al numero di VM che possono essere create per ogni lab. Tuttavia, attualmente il lab supporta solo circa 40 VM in esecuzione contemporaneamente nell'archiviazione Standard e 25 VM in esecuzione simultaneamente nell'archiviazione Premium. Microsoft sta lavorando all'aumento di questi limiti.
+
+### Come è possibile condividere un collegamento diretto al mio lab?
+
+Per condividere un collegamento diretto con gli utenti del lab, è possibile implementare la procedura seguente.
+
+1. Cercare il lab nel portale di Azure.
+2. Copiare l'URL del lab dal browser e condividerlo con gli utenti del lab.
+
+>[AZURE.NOTE] Se gli utenti del lab sono esterni e dispongono di un [account MSA](#what-is-a-microsoft-account), ma non appartengono ad Active Directory aziendale, potrebbero ricevere un errore durante la navigazione verso il collegamento specificato. In questo caso, indicare loro di fare clic sul proprio nome nell'angolo in alto a destra del portale di Azure e selezionare la directory in cui è presente il lab dalla sezione **Directory** del menu.
+
+### Che cos'è un account Microsoft?
+
+Un account Microsoft è ciò che si usa per quasi tutte le operazioni eseguite con servizi e dispositivi di Microsoft. È un indirizzo di posta elettronica e una password usati per accedere a Skype, Outlook.com, OneDrive, Windows Phone e Xbox LIVE: in questo modo file, foto, contatti e impostazioni possono seguire l'utente su qualsiasi dispositivo.
+
+>[AZURE.NOTE] In precedenza, l'account Microsoft veniva denominato "Windows Live ID".
  
 ### Si è verificato un errore per l'elemento durante la creazione della VM. Come si risolve il problema? 
 Vedere il post di blog [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Come risolvere gli errori degli elementi in Azure DevTest Labs), scritto da un MVP, per informazioni su come ottenere i log relativi all'elemento che ha generato l'errore.
@@ -189,4 +244,4 @@ Vedere il post di blog [How to troubleshoot failing Artifacts in AzureDevTestLab
 ### Perché la rete virtuale esistente non viene salvata correttamente?  
 È possibile che il nome della rete virtuale contenga dei punti. In questo caso, provare a rimuovere i punti o a sostituirli con trattini e quindi provare a salvare di nuovo la rete virtuale.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

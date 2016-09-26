@@ -4,8 +4,8 @@ description="Informazioni su come scrivere dati nell'Archivio Azure Data Lake da
 services="hdinsight"
 documentationCenter="na"
 authors="Blackmist"
-manager="paulettm"
-editor="cgronlun"/>
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -13,8 +13,8 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/17/2016"
-ms.author="larryfr"/>
+ms.date="09/06/2016"
+ms.author="larryfr"/>  
 
 #Usare Archivio Azure Data Lake con Apache Storm in HDInsight
 
@@ -26,8 +26,8 @@ Archivio Azure Data Lake è un servizio di archiviazione cloud compatibile con H
 
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o versione successiva.
 * [Maven 3.x](https://maven.apache.org/download.cgi).
-* Una sottoscrizione di Azure
-* Un cluster Storm nella versione 3.2 di HDInsight. Per creare un nuovo cluster Storm in HDInsight, seguire la procedura descritta nel documento [Usare HDInsight con Archivio Data Lake tramite Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Questo documento illustra nel dettaglio i passaggi necessari per la creazione di un nuovo cluster HDInsight e di un Archivio Azure Data Lake.  
+* Una sottoscrizione di Azure.
+* Un cluster Storm nella versione 3.2 di HDInsight. Per creare un nuovo cluster Storm in HDInsight, seguire la procedura descritta nel documento [Usare HDInsight con Archivio Data Lake tramite Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Questo documento illustra nel dettaglio i passaggi necessari per la creazione di un nuovo cluster HDInsight e di un Archivio Azure Data Lake.
 
     > [AZURE.IMPORTANT] Quando si crea il cluster HDInsight, è necessario selezionare __Storm__ come tipo di cluster e __3.2__ come versione. Il sistema operativo può essere Windows o Linux.
 
@@ -221,4 +221,4 @@ __Per HDInsight basato su Windows__:
 
 Ora che si è appreso come usare Storm per scrivere nell'Archivio Azure Data Lake, è possibile vedere altri [esempi di Storm per HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

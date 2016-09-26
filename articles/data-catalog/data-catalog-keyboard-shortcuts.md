@@ -6,15 +6,15 @@
 	authors="spelluru"
 	manager="NA"
 	editor=""
-	tags=""/>
+	tags=""/>  
 <tags
 	ms.service="data-catalog"
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
-	ms.author="spelluru"/>
+	ms.date="09/13/2016"
+	ms.author="spelluru"/>  
 
 # Scelte rapide da tastiera per Catalogo dati di Azure
 
@@ -22,7 +22,7 @@
 
 ### Scelte rapide da tastiera generali
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Passare da un controllo a un altro in una pagina|TAB
 |Scegliere un'opzione|INVIO o BARRA SPAZIATRICE
@@ -33,27 +33,27 @@
 
 ### Pagina di autenticazione
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Accedere al servizio|ALT+S
 
 ### Pagina di selezione dell'origine dati
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Passare alla pagina successiva (se abilitata)|ALT+N
 |Cambiare il tipo selezionato quando lo stato attivo è su un riquadro|Freccia SINISTRA, freccia SU, freccia DESTRA o freccia GIÙ
 
 ### Pagina di connessione all'origine dati
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Passare alla pagina precedente (se abilitata)|ALT+P
 |Scegliere il pulsante Connetti.| ALT+C
 
 ### Pagina di contesto della connessione
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Scegliere il pulsante Registra (se abilitato)| ALT+R
 |Selezionare la casella di controllo Includi anteprima (se disponibile)|ALT+P
@@ -64,7 +64,7 @@
 
 ### Pagina di stato della pubblicazione
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Scegliere il pulsante Annulla.|ALT+C
 |Scegliere il pulsante Registra altri oggetti.| ALT+R
@@ -72,14 +72,14 @@
 
 ### Pagina di stato della pubblicazione
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Scegliere il pulsante Salva (se abilitato).| ALT+S
 |Scegliere il pulsante Annulla.|ALT+C
 
 ## Scelte rapide da tastiera per il portale di Azure Data Catalog
 
-|Per|Premere
+|Operazione|Premere
 |---|---
 |Esplorare| TAB e MAIUSC+TAB
 |Fare clic su un elemento| BARRA SPAZIATRICE o INVIO
@@ -92,4 +92,4 @@
 |Attiva/Disattiva il menu **Apri In** | ALT + O
 |Esplorare il contenitore, se l'asset è un contenitore | ALT+L
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/04/2016" 
-	ms.author="ireiter"/>
+	ms.author="ireiter"/>  
 
 
 #Binomial Distribution Suite
@@ -35,17 +35,17 @@ Binomial Distribution Suite include i tre servizi seguenti:
 ###Binomial Distribution Quantile Calculator
 Questo servizio accetta quattro argomenti di una distribuzione normale e calcola il quantile associato. Gli argomenti di input sono i seguenti:
 
-- p: probabilità aggregata singola di più prove.  
+- p: probabilità aggregata singola di più prove.
 - size: numero di prove.
 - prob: probabilità di successo in una prova.
-- Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione. 
+- Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
 L'output del servizio corrisponde al quantile calcolato associato alla probabilità specificata.
 
 ###Binomial Distribution Probability Calculator
 Questo servizio accetta quattro argomenti di una distribuzione binomiale e calcola la probabilità associata. Gli argomenti di input sono i seguenti:
 
-- q: singolo quantile di un evento con distribuzione binomiale. 
+- q: singolo quantile di un evento con distribuzione binomiale.
 - size: numero di prove.
 - prob: probabilità di successo in una prova.
 - side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione oppure E che equivale a un numero singolo di successi.
@@ -55,7 +55,7 @@ L'output del servizio corrisponde alla probabilità calcolata associata al quant
 ###Binomial Distribution Generator
 Questo servizio accetta tre argomenti di una distribuzione binomiale e genera una sequenza casuale di numeri distribuiti in modo binomiale. È necessario fornire gli argomenti seguenti nella richiesta:
 
-- n: numero di osservazioni. 
+- n: numero di osservazioni.
 - size: numero di prove.
 - prob: probabilità di successo.
 
@@ -290,4 +290,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

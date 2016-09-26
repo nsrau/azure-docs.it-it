@@ -5,8 +5,8 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
-	ms.author="jgao"/>
+    ms.date="09/14/2016"
+	ms.author="jgao"/>  
 
 # Installare e usare R nei cluster Hadoop HDInsight
 
@@ -45,7 +45,7 @@ Per installare R in un cluster HDInsight è disponibile uno [script di esempio](
 1. Durante la creazione di un cluster HDInsight dal portale, fare clic su **Configurazione facoltativa** e quindi fare clic su **Azioni di script**.
 2. Nella pagina **Azioni di script** immettere i valori seguenti:
 
-	![Usare Azione di script per personalizzare un cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Usare Azione di script per personalizzare un cluster")
+	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Usare l'azione script per personalizzare un cluster")
 
 	<table border='1'>
 		<tr><th>Proprietà</th><th>Valore</th></tr>
@@ -114,4 +114,4 @@ Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-ha
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

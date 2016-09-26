@@ -4,8 +4,8 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="jhubbard" 
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -23,7 +23,7 @@ In questo documento vengono descritte l'esplorazione dei dati e la creazione di 
 ## Caricare i dati in un intervallo di dati Pandas
 Per esplorare e modificare un set di dati, i dati devono essere scaricati dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
-1. Scaricare i dati da BLOB Azure con il codice Python di esempio riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici: 
+1. Scaricare i dati da BLOB Azure con il codice Python di esempio riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -54,7 +54,7 @@ A questo punto si è pronti per esplorare i dati e generare le funzionalità di 
 
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzando Pandas:
 
-1. Controllare il numero di righe e colonne 
+1. Controllare il numero di righe e colonne
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
@@ -182,13 +182,13 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
 3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
  
-![lettore BLOB][1]
+![lettore BLOB][1]  
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

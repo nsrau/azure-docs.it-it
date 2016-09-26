@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/19/2016"
-	ms.author="adegeo"/>
+	ms.author="adegeo"/>  
 
 # Domande frequenti sui servizi cloud
 Questo articolo risponde ad alcune domande frequenti sui servizi cloud di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni sulle dimensioni, vedere la pagina [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md).
@@ -49,7 +49,17 @@ Molto probabilmente questi certificati continuano a ricomparire a causa di uno s
 
 Durante il riciclo dell'istanza di macchina virtuale vengono perse tutte le modifiche locali. Usare un'[attività di avvio](cloud-services-startup-tasks.md) per installare i certificati nella macchina virtuale ogni volta che viene avviato il ruolo.
 
+### Non è possibile trovare i certificati di gestione nel portale
 
+I [certificati di gestione](..\azure-api-management-certs.md) sono disponibili solo nel portale di Azure classico. Il portale di Azure corrente non usa i certificati di gestione.
+
+### Come è possibile disabilitare un certificato di gestione?
+
+I [certificati client](..\azure-api-management-certs.md) non possono essere disabilitati. Vengono eliminati tramite il portale di Azure classico quando non si intende usarli più.
+
+### Come è possibile creare un certificato SSL per un indirizzo IP specifico?
+
+Seguire le istruzioni nell'[esercitazione sulla creazione di un certificato](cloud-services-certs-create.md). Usare l'indirizzo IP come nome DNS.
 
 ## Risoluzione dei problemi
 
@@ -57,4 +67,4 @@ Durante il riciclo dell'istanza di macchina virtuale vengono perse tutte le modi
 
 Assicurarsi prima di tutto che l'istanza di macchina virtuale per cui si sta provando a riservare l'indirizzo IP sia accesa. Assicurarsi quindi che vengano usati indirizzi IP riservati sia per la distribuzione di staging che per quella di produzione. **Non** modificare le impostazioni durante l'aggiornamento della distribuzione.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

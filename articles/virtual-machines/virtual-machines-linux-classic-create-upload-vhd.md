@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="iainfou"/>
+	ms.author="iainfou"/>  
 
 # Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux
 
@@ -23,6 +23,7 @@
 
 Questo articolo illustra come creare e caricare un disco rigido virtuale (VHD) in modo da usarlo come immagine per la creazione di macchine virtuali in Azure. L'articolo fornisce istruzioni su come preparare il sistema operativo in modo da usarlo per la creazione di più macchine virtuali basate sull'immagine specificata.
 
+>  [AZURE.NOTE] Se si ha un po' di tempo, fornire il proprio feedback per aiutarci a migliorare la documentazione sulle VM Linux di Azure eseguendo questo [sondaggio rapido](https://aka.ms/linuxdocsurvey) sulle propria esperienza. Ogni risposta è utile.
 
 ## Prerequisiti
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
@@ -109,4 +110,4 @@ Per altri dettagli, vedere [Riferimento all'interfaccia della riga di comando di
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

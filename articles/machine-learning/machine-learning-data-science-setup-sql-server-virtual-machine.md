@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev" 
-	manager="paulettm"
-	editor="cgronlun" />
+	manager="jhubbard"
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -14,11 +14,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="xibingao;bradsev" />
+	ms.author="xibingao;bradsev" />  
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
 
-In questo argomento viene illustrato come preparare e configurare una macchina virtuale di SQL Server da utilizzare come parte di un ambiente di analisi scientifica dei dati basati su cloud. La macchina virtuale di Windows è configurata con strumenti di supporto quali IPython Notebook, Esplora archivi Azure e AzCopy, nonché altre utilità per progetti di analisi scientifica dei dati. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nell'archiviazione BLOB di Azure dal computer locale o per scaricarli dall'archiviazione BLOB nel computer locale.
+In questo argomento viene illustrato come preparare e configurare una macchina virtuale di SQL Server da usare come parte di un ambiente di analisi scientifica dei dati basati su cloud. La macchina virtuale di Windows è configurata con strumenti di supporto quali IPython Notebook, Esplora archivi Azure e AzCopy, nonché altre utilità per progetti di analisi scientifica dei dati. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nell'archiviazione BLOB di Azure dal computer locale o per scaricarli dall'archiviazione BLOB nel computer locale.
 
 Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini che contengono Microsoft SQL Server. Selezionare l'immagine di una macchina virtuale di SQL Server adatta alle esigenze dei dati di cui si dispone. Di seguito sono riportate le immagini consigliate:
 
@@ -76,10 +76,10 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
 9.  Attendere durante la preparazione della macchina virtuale in Azure. Lo stato della macchina virtuale attraverserà le fasi seguenti:
 
     -   Starting (Provisioning)
-    -   Stopped
+    -   Arrestato
     -   Starting (Provisioning)
     -   Running (Provisioning)
-    -   Running
+    -   In esecuzione
 
 
 ##<a name="RemoteDesktop"></a>Aprire la macchina virtuale tramite Desktop remoto e completare la configurazione
@@ -164,7 +164,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     ![Selezione della modalità di autenticazione][8]
 
-5.  Nella finestra di dialogo **SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
+5.  Nella finestra di dialogo ** SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 
 6.  In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
 
@@ -271,7 +271,7 @@ Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assic
 
 Per arrestare e deallocare la macchina virtuale:
 
-1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account.  
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account.
 
 2. Selezionare **MACCHINE VIRTUALI** dalla barra di spostamento a sinistra.
 
@@ -306,4 +306,4 @@ I passaggi successivi del processo di scienza dei dati sono illustrati in [Proce
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

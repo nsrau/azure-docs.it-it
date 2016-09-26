@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"  />
+	manager="jhubbard"
+	editor="cgronlun"  />  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="xibingao;bradsev" />
+	ms.author="xibingao;bradsev" />  
 
 # Configurare una macchina virtuale di Azure come server IPython Notebook per l'analisi avanzata
 
@@ -108,7 +108,7 @@ Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assic
 
 Per arrestare e deallocare la macchina virtuale:
 
-1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account.  
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account.
 
 2. Selezionare **MACCHINE VIRTUALI** dalla barra di spostamento a sinistra.
 
@@ -142,4 +142,4 @@ I passaggi successivi del Processo di analisi scientifica dei dati per i team so
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

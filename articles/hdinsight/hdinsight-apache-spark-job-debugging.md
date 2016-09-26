@@ -4,9 +4,9 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags 
 	ms.service="hdinsight" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="nitinme"/>
+	ms.author="nitinme"/>  
 
 # Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in HDInsight Linux
 
@@ -146,4 +146,4 @@ Una volta completato un processo, le informazioni corrispondenti vengono salvate
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

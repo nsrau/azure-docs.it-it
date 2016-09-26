@@ -60,11 +60,22 @@ Per risolvere questo problema, scegliere una delle alternative seguenti:
 - [Cambiare carta di credito](billing-how-to-change-credit-card.md).
 - Nel caso di un'azienda, è possibile [passare al metodo di pagamento con fattura](https://azure.microsoft.com/pricing/invoicing/).
 
-## Come abilitare nuovamente la sottoscrizione
+## La sottoscrizione è stata annullata dall'amministratore account
 
-Per abilitare di nuovo una sottoscrizione disabilitata, è necessario creare un ticket di supporto. A tale scopo, accedere al [portale di Azure](https://portal.azure.com/), selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
+>[AZURE.NOTE] Questa modalità si applica attualmente solo alle sottoscrizioni con pagamento in base al consumo. Per altri tipi di sottoscrizione, sarà necessario [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+Se si è l'amministratore account, è possibile riattivare la sottoscrizione con pagamento in base al consumo attenendosi alla procedura seguente:
+
+- Selezionare la sottoscrizione annullata.
+- Fare clic su uno dei collegamenti **Riattiva** nella pagina dei dettagli della sottoscrizione.
+
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)  
+
+## Come abilitare nuovamente le sottoscrizioni non con pagamento in base al consumo:
+
+Per riattivare una sottoscrizione disabilitata, è necessario creare un ticket di supporto. A tale scopo, accedere al [portale di Azure](https://portal.azure.com/), selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
+
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)  
 
 Se non è possibile accedere al portale, inviare la richiesta di supporto dal sito Web del supporto tecnico di Azure o dal Centro account di Azure:
 
@@ -75,4 +86,4 @@ Per altre informazioni, vedere [Come creare un ticket di supporto per problemi r
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

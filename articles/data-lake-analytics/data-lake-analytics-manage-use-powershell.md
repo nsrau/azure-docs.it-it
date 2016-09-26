@@ -1,11 +1,11 @@
 <properties 
    pageTitle="Gestire Azure Data Lake Analytics tramite Azure PowerShell | Azure" 
-   description="Informazioni su come gestire processi, origini dati e utenti di Data Lake Analytics." 
+   description="Informazioni su come gestire processi, origini dati e utenti di Data Lake Analytics. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   manager="jhubbard" 
+   editor="cgronlun"/>  
  
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>
+   ms.author="edmaca"/>  
 
 # Gestire Azure Data Lake Analytics tramite Azure PowerShell
 
@@ -29,8 +29,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
-<!-- ################################ -->
-<!-- ################################ -->
+<!-- ################################ -->  
+<!-- ################################ -->  
 
 
 ##Installare Azure PowerShell 1.0 o versioni successive
@@ -141,8 +141,8 @@ L'eliminazione di un account Data Lake Analytics non comporta l'eliminazione del
 	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName 
 	Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
 
-<!-- ################################ -->
-<!-- ################################ -->
+<!-- ################################ -->  
+<!-- ################################ -->  
 ## Gestire le origini dati degli account
 
 Data Lake Analytics attualmente supporta le seguenti origini dati:
@@ -186,8 +186,8 @@ Quando si crea un account di Analytics, è necessario impostare un account di ar
 	
 
 
-<!-- ################################ -->
-<!-- ################################ -->
+<!-- ################################ -->  
+<!-- ################################ -->  
 ## Gestire i processi
 
 È necessario disporre di un account di Data Lake Analytics prima di poter creare un processo. Per altre informazioni, vedere [Gestire gli account di Analisi Data Lake](#manage-data-lake-analytics-accounts).
@@ -392,4 +392,4 @@ Il seguente modello ARM può essere usato per distribuire un account di Data Lak
 	  }
 	}
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

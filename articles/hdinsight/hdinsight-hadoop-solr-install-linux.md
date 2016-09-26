@@ -4,9 +4,9 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -106,7 +106,7 @@ Questa sezione fornisce istruzioni su come usare lo script di esempio quando si 
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	Viene generata una query su __collection1__ per la ricerca di tutti i documenti che corrispondono a __\*:\*__ (codificato come \*%3A\* nella stringa di query) e la restituzione della risposta nel formato JSON. La risposta dovrebbe essere simile alla seguente:
+	Viene generata una query su __collection1__ per la ricerca di tutti i documenti che corrispondono a __*:*__ (codificato come *%3A* nella stringa di query) e la restituzione della risposta nel formato JSON. La risposta dovrebbe essere simile alla seguente:
 
 			"response": {
 			    "numFound": 2,
@@ -184,7 +184,7 @@ Dopo aver stabilito un tunnel SSH, seguire questa procedura per usare il dashboa
 
 3. Dalle voci elencate in __collection1__ selezionare __Query__. Usare i valori seguenti per popolare la pagina di ricerca:
 
-	* Nella casella di testo **q** immettere **\*:**\*. Verranno restituiti tutti i documenti indicizzati in Solr. Per cercare una stringa specifica nei documenti, è possibile immettere qui la stringa.
+	* Nella casella di testo **q** immettere ***:***. Verranno restituiti tutti i documenti indicizzati in Solr. Per cercare una stringa specifica nei documenti, è possibile immettere qui la stringa.
 
 	* Selezionare il formato di output nella casella di testo **wt**. Il valore predefinito è **json**.
 
@@ -311,4 +311,4 @@ Per altre informazioni sulle operazioni di backup e ripristino di Solr, vedere l
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
-    ms.author="jeedes" />
+    ms.date="09/11/2016" 
+    ms.author="jeedes" />  
 
 #Esercitazione: Integrazione di Azure Active Directory con Thirdlight
   
@@ -46,11 +46,11 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-thirdlight-tutorial/IC700994.png "Applicazioni")
+    ![Applicazioni](./media/active-directory-saas-thirdlight-tutorial/IC700994.png "Applicazioni")  
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-thirdlight-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-thirdlight-tutorial/IC749321.png "Aggiunta di un'applicazione")  
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -66,35 +66,35 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Thirdlight tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Thirdlight richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Thirdlight tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Thirdlight richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
 1.  Nella pagina di integrazione dell'applicazione **Thirdlight** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configura accesso Single Sign-On")  
 
 2.  Nella pagina **Stabilire come si desidera che gli utenti accedano alla pagina Thirdlight** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configura accesso Single Sign-On")  
 
-3.  Nella casella di testo **URL di accesso a Thirdlight** della pagina **Configura URL app**, digitare l'URL usato dagli utenti per accedere all'applicazione Thirdlight, ad esempio: "*http://azuresso2.thirdlight.com/*"), quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso a Thirdlight** della pagina **Configura URL app**, digitare l'URL usato dagli utenti per accedere all'applicazione Thirdlight, ad esempio: "*http://azuresso2.thirdlight.com/*", quindi fare clic su **Avanti*.
 
-    ![Configura URL app](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configura URL app")
+    ![Configura URL app](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configura URL app")  
 
 4.  Nella pagina **Configura accesso Single Sign-On in Thirdlight**, per scaricare il file di metadati fare clic su **Download metadati**, quindi salvare il file di metadati in locale nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805842.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805842.png "Configura accesso Single Sign-On")  
 
 5.  In un'altra finestra del Web browser accedere al sito aziendale di Thirdlight come amministratore.
 
 6.  Andare a **Configurazione > Amministrazione sistema**, quindi fare clic su **SAML2**.
 
-    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "Amministrazione di sistema")
+    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "Amministrazione di sistema")  
 
 7.  Nella sezione di configurazione di SAML2, eseguire la procedura seguente:
 
-    ![Single Sign-On SAML](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "Single Sign-On SAML")
+    ![Single Sign-On SAML](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "Single Sign-On SAML")  
 
     1.  Selezionare **Attiva Single Sign-On SAML2**.
     2.  Per **Origine per i metadati IDP**, selezionare **Carica metadati IDP da XML**.
@@ -103,13 +103,13 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configura accesso Single Sign-On")  
 
 ##Configurazione del provisioning utente
   
 Per consentire agli utenti di Azure AD di accedere a Thirdlight, è necessario eseguirne il provisioning in Thirdlight. Nel caso di Thirdlight, il provisioning è un'attività manuale.
 
-###Per configurare il provisioning utente, eseguire la procedura seguente:
+###Per configurare il provisioning utente, seguire questa procedura:
 
 1.  Accedere al sito aziendale di **Thirdlight** come amministratore.
 
@@ -135,7 +135,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 2.  Nella pagina di integrazione dell'applicazione **Thirdlight** fare clic su **Assegna utenti**.
 
-    ![Assegna utenti](./media/active-directory-saas-thirdlight-tutorial/IC805846.png "Assegna utenti")
+    ![Assegna utenti](./media/active-directory-saas-thirdlight-tutorial/IC805846.png "Assegna utenti")  
 
 3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
 
@@ -143,4 +143,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

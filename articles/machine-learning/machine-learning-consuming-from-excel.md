@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="tedway"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -80,4 +80,4 @@ Una chiamata RRS viene effettuata nei due casi seguenti:
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

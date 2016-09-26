@@ -3,10 +3,10 @@
 	description="Informazioni su come eseguire attività amministrative per i cluster Hadoop in HDInsight tramite Azure PowerShell."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	tags="azure-portal"
 	authors="mumian"
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags
 	ms.service="hdinsight"
@@ -103,7 +103,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 	L'interfaccia utente Web di Storm è disponibile nel cluster HDInsight:
 
-	![Ribilanciamento scala di HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![Ribilanciamento scala di HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)  
 
 	Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
@@ -239,4 +239,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

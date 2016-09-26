@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso | Microsoft Azure"
-	description="Informazioni sulla delega dell'accesso alle risorse di archiviazione di Azure, tra cui BLOB, code e tabelle, tramite firme di accesso condiviso (SAS). Le firme di accesso condiviso proteggono la chiave dell‘account di archiviazione, garantendo allo stesso tempo l'accesso alle risorse nell'account ad altri utenti. È possibile controllare le autorizzazioni concesse e l'intervallo in cui la SAS è valida. Se si definisce un criterio di accesso archiviato, è possibile revocare la SAS nel caso si temesse che la sicurezza dell'account sia stata compromessa."
+	pageTitle="Uso delle firme di accesso condiviso | Microsoft Azure"
+	description="Informazioni sulla delega dell'accesso alle risorse di archiviazione di Azure, tra cui BLOB, code e tabelle, tramite firme di accesso condiviso (SAS)."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>
+	editor="tysonn"/>  
 
 <tags
 	ms.service="storage"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/07/2016"
+	ms.author="tamram"/>  
 
 
 
-# Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso
+# Uso delle firme di accesso condiviso
 
-## Panoramica
+## Overview
 
 Una firma di accesso condiviso costituisce un potente strumento per concedere ad altri client accesso limitato a BLOB, tabelle e code dell'account di archiviazione, senza dover esporre la chiave dell'account. Nella parte 1 di questa esercitazione sulle firme di accesso condiviso verranno fornite informazioni di carattere generale sul modello della firma di accesso condiviso e ne verranno esaminate le procedure consigliate. [Nella ](storage-dotnet-shared-access-signature-part-2.md)parte 2 dell'esercitazione verrà invece illustrato il processo di creazione delle firme di accesso condiviso tramite il servizio BLOB.
 
@@ -89,7 +89,7 @@ I token di firma di accesso condiviso dell'account e del servizio includono para
 - **Risorsa di archiviazione.** Le risorse di archiviazione per cui è possibile delegare l'accesso con una firma di accesso condiviso del servizio sono:
 	- Contenitori e BLOB
 	- Condivisioni di file e file
-	- Code
+	- Queues
 	- Le tabelle e gli intervalli di entità della tabella.
 
 ## Esempi di URI di firma di accesso condiviso
@@ -107,8 +107,8 @@ Scadenza|se=2015-04-30T02%3A23%3A26Z|Specificata nell'ora UTC.
 Risorsa|sr=b|La risorsa è un BLOB.
 Autorizzazioni|sp=rw|Le autorizzazioni concesse dalla firma di accesso condiviso includono lettura (r) e scrittura (w).
 Intervallo IP|sip=168.1.5.60-168.1.5.70|Intervallo di indirizzi IP da cui verrà accettata una richiesta.
-Protocollo|spr=https|Sono consentite solo richieste tramite HTTPS.
-Firma|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Usata per autenticare l'accesso al BLOB. La firma è un HMAC calcolato sulla base di una stringa da firmare e della chiave mediante l'algoritmo SHA256, e quindi codificato con la codifica Base64.
+Protocol|spr=https|Sono consentite solo richieste tramite HTTPS.
+Firma|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Utilizzata per autenticare l'accesso al BLOB. La firma è un HMAC calcolato sulla base di una stringa da firmare e della chiave mediante l'algoritmo SHA256, e quindi codificato con la codifica Base64.
 
 Di seguito è riportato un esempio di firma di accesso condiviso dell'account che usa gli stessi parametri comuni nel token. Poiché questi parametri sono già stati illustrati in precedenza, non sono descritti qui. La tabella seguente include solo i parametri specifici per la firma di accesso condiviso dell'account.
 
@@ -133,7 +133,7 @@ Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
 >[AZURE.NOTE] Al momento, una firma di accesso condiviso dell'account deve essere una firma di accesso condiviso ad-hoc. I criteri di accesso archiviati non sono ancora supportati per la firma di accesso condiviso dell'account.
 
-La differenza tra le due forme è importante un unico scenario chiave, la revoca. Una firma di accesso condiviso è un URL, pertanto chiunque la ottiene può usarla indipendentemente da chi l'ha richiesta per iniziare. Se la firma di accesso condiviso è stata pubblicata e resa pubblica, può essere usata da chiunque in tutto il mondo. Una forma di accesso condiviso rimane valida finché non si verifica una delle quattro condizioni seguenti:
+La differenza tra le due forme è importante un unico scenario chiave, la revoca. Una firma di accesso condiviso è un URL, pertanto chiunque la ottiene può utilizzarla indipendentemente da chi l'ha richiesta per iniziare. Se la firma di accesso condiviso è stata pubblicata e resa pubblica, può essere usata da chiunque in tutto il mondo. Una forma di accesso condiviso rimane valida finché non si verifica una delle quattro condizioni seguenti:
 
 1.	Viene raggiunta la scadenza specificata nella firma.
 2.	Viene raggiunta la scadenza specificata nei criteri di accesso archiviati cui viene fatto riferimento nella firma (se viene fatto riferimento a criteri di accesso archiviati e se questi indicano una scadenza). Tale situazione può verificarsi alla scadenza dell'intervallo oppure perché i criteri di accesso archiviati sono stati modificati in modo che la scadenza ricorra nel passato e ciò corrisponde a un modo per revocare la firma di accesso condiviso.
@@ -318,4 +318,4 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

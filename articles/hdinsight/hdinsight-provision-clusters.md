@@ -5,8 +5,8 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
-   editor="cgronlun"/>
+   manager="jhubbard"
+   editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -40,10 +40,10 @@ Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica pe
 
 | Tipo| Nodi (numero di nodi)| Diagramma|
 |-----|------|--------|
-|Hadoop| Nodo head (2), nodo dati (1+)|![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
-|HBase|Server head (2), server di area (1+), nodo master/ZooKeeper (3)|![Nodi del cluster HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
+|Hadoop| Nodo head (2), nodo dati (1+)|![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)  |
+|HBase|Server head (2), server di area (1+), nodo master/ZooKeeper (3)|![Nodi del cluster HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)  |
 |Storm|Nodo Nimbus (2), server supervisore (1+), nodo ZooKeeper (3)|![Nodi del cluster HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
-|Spark|Nodo head (2), nodo Worker (1+), nodo ZooKeeper (3), gratuito per le macchine virtuali ZooKeeper con dimensioni A1|![Nodi del cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
+|Spark|Nodo head (2), nodo Worker (1+), nodo ZooKeeper (3), gratuito per le macchine virtuali ZooKeeper con dimensioni A1|![Nodi del cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)  |
 
 > [AZURE.IMPORTANT] Se si prevedono più di 32 nodi del ruolo di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
@@ -100,14 +100,14 @@ Hadoop Distributed File System (HDFS) originale usa molti dischi locali nel clus
 
 Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi, ovvero account di archiviazione collegati, a cui il cluster potrà accedere. Il cluster può accedere anche a eventuali contenitori dell'archivio BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB. Per ulteriori informazioni, vedere [gestione dell'accesso alle risorse di archiviazione Azure](../storage/storage-manage-access-to-resources.md).
 
-![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
+![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)  
 
 >[AZURE.NOTE] Un contenitore di archiviazione BLOB offre un raggruppamento di un set di BLOB, come illustrato nell'immagine seguente.
 
 Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi, ovvero account di archiviazione collegati, a cui il cluster può accedere. Il cluster può accedere anche a eventuali contenitori BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB. Per ulteriori informazioni, vedere [gestione dell'accesso alle risorse di archiviazione Azure](../storage/storage-manage-access-to-resources.md).
 
 
-![Archiviazione BLOB di Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
+![Archiviazione BLOB di Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)  
 
 Non è consigliabile usare il contenitore dell'archivio BLOB predefinito per la memorizzazione dei dati aziendali. È consigliabile eliminare il contenitore di archiviazione BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
 
@@ -121,7 +121,7 @@ Oltre all'archivio BLOB di Azure, è possibile usare anche [Azure Data Lake Stor
 
 Il cluster HDInsight e l'account di archiviazione predefinito devono trovarsi nella stessa località di Azure.
 
-![Aree di Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
+![Aree di Azure](./media/hdinsight-provision-clusters/Azure.regions.png)  
 
 Per un elenco di aree supportate, fare clic sull'elenco a discesa **Area** in [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -192,7 +192,7 @@ La fatturazione inizia con la creazione del cluster e si interrompe quando il cl
 |Standard\_D13\_v2 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500|
 |Standard\_D14\_v2 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500|    
 
-Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere i [prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
 
 > [AZURE.IMPORTANT] Se si prevedono più di 32 nodi del ruolo di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
@@ -224,7 +224,7 @@ La [rete virtuale di Azure](https://azure.microsoft.com/documentation/services/v
 
 * Connettere le risorse cloud tra loro in una rete privata (solo cloud).
 
-	![Diagramma di una configurazione solo cloud](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+	![Diagramma di una configurazione solo cloud](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)  
 
 * Connettere le risorse cloud alla rete del data center locale (da sito a sito o da punto a sito) usando una rete privata virtuale (VPN)
 
@@ -279,4 +279,4 @@ In questo articolo si sono apprese informazioni di base sulla creazione di un cl
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | & nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -23,7 +23,7 @@
 
 Monitorando l'applicazione con [Visual Studio Application Insights][start] è possibile correlare le richieste non riuscite con le eccezioni e altri eventi nel client e nel server, in modo da poter diagnosticare rapidamente le cause.
 
-Per monitorare un'app ASP.NET, è necessario [aggiungere Application Insights SDK][greenbrown] all'applicazione o [installare Status Monitor nel server IIS][redfield] oppure, se l'app è un'app Web di Azure, aggiungere l'[estensione Application Insights][azure].
+Per monitorare un'app ASP.NET, è necessario [aggiungere Application Insights SDK][greenbrown] all'applicazione o [installare Status Monitor nel server IIS][redfield] oppure, se l'app è un'app Web di Azure, aggiungere l'[estensione Application Insights](app-insights-azure-web-apps.md).
 
 ## Diagnosticare le eccezioni con Visual Studio
 
@@ -76,7 +76,7 @@ Sarà quindi possibile esaminare l'analisi dello stack e le proprietà dettaglia
 
 Una *dipendenza* è un servizio che l'applicazione chiama in genere tramite un'API REST o una connessione di database. [Application Insights Status Monitor][redfield] monitora automaticamente un'ampia gamma di tipi di chiamata delle dipendenze, misurando la durata della chiamata e l'esito, positivo o negativo.
 
-Per ottenere i dati delle dipendenze, è necessario [installare Status Monitor][redfield] nel server IIS o, se l'app è un'app Web di Azure, usare l'[estensione Application Insights][azure].
+Per ottenere i dati delle dipendenze, è necessario [installare Status Monitor][redfield] nel server IIS o, se l'app è un'app Web di Azure, usare l'[estensione Application Insights](app-insights-azure-web-apps.md).
 
 Le chiamate delle dipendenze non riuscite sono elencate nel pannello Errori ma sono anche disponibili nella sezione Elementi correlati nei dettagli delle richieste e nei dettagli delle eccezioni.
 
@@ -109,7 +109,7 @@ I dettagli della richiesta non includono i dati inviati all'app in una chiamata 
 
 * [Installare l'SDK][greenbrown] nel progetto dell'applicazione.
 * Inserire il codice nell'applicazione per chiamare [Microsoft.ApplicationInsights.TrackTrace()][api]. Inviare i dati POST nel parametro del messaggio. Esiste un limite per le dimensioni consentite, quindi è consigliabile provare a inviare solo i dati essenziali.
-* Quando si esamina una richiesta non riuscita, trovare le tracce associate.  
+* Quando si esamina una richiesta non riuscita, trovare le tracce associate.
 
 ![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -325,12 +325,12 @@ Sarà possibile aggiungere questo attributo di cui è stato eseguito l'override 
 
 [Esempio](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Alcuni casi non possono essere gestiti dai filtri eccezioni. Ad esempio:
+Alcuni casi non possono essere gestiti dai filtri eccezioni. ad esempio:
 
-* Eccezioni generate dai costruttori dei controller. 
-* Eccezioni generate dai gestori di messaggi. 
-* Eccezioni generate durante il routing. 
-* Eccezioni generate durante la serializzazione del contenuto della risposta. 
+* Eccezioni generate dai costruttori dei controller.
+* Eccezioni generate dai gestori di messaggi.
+* Eccezioni generate durante il routing.
+* Eccezioni generate durante la serializzazione del contenuto della risposta.
 
 ## API Web 2.x
 
@@ -386,7 +386,7 @@ Aggiungere il codice seguente ai servizi in WebApiConfig:
 
 In alternativa, è possibile:
 
-2. Sostituire ExceptionHandler con un'implementazione personalizzata di IExceptionHandler. Questo elemento viene chiamato solo quando il framework può ancora scegliere il messaggio di risposta da inviare, non quando la connessione viene interrotta. 
+2. Sostituire ExceptionHandler con un'implementazione personalizzata di IExceptionHandler. Questo elemento viene chiamato solo quando il framework può ancora scegliere il messaggio di risposta da inviare, non quando la connessione viene interrotta.
 3. Come descritto nella sezione relativa ai controller Web API 1.x precedente, i filtri eccezioni non vengono chiamati in tutti i casi.
 
 
@@ -464,10 +464,9 @@ Aprire un pannello Esplora metrica, aggiungere un nuovo grafico e selezionare **
 
 Si noti che questo conteggio è diverso dal conteggio delle "Eccezioni" calcolato dal portale di Application Insights che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e l'SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
 
-<!--Link references-->
+<!--Link references-->  
 
 [api]: app-insights-api-custom-events-metrics.md
-[azure]: ../azure-portal/insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
@@ -477,4 +476,4 @@ Si noti che questo conteggio è diverso dal conteggio delle "Eccezioni" calcolat
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

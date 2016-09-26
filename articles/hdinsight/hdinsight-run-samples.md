@@ -5,8 +5,8 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/25/2016"
-	ms.author="jgao"/>
+	ms.author="jgao"/>  
 
 #Eseguire esempi di Hadoop MapReduce in HDInsight basato su Windows
 
@@ -1000,4 +1000,4 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -19,7 +19,10 @@
 
 # Gestire NSG tramite il portale di anteprima
 
-[AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
+> [AZURE.SELECTOR]
+- [Portale](virtual-network-manage-nsg-arm-portal.md)
+- [PowerShell](virtual-network-manage-nsg-arm-ps.md)
+- [Interfaccia della riga di comando di Azure](virtual-network-manage-nsg-arm-cli.md)
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -184,4 +187,4 @@ Per associare di nuovo l'NSG **NSG-FrontEnd** alla subnet **FronEnd** attenersi 
 
 - [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per gli NSG.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

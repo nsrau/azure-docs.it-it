@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Personalizzare cluster HDInsight mediante Azione di script | Microsoft Azure" 
-	description="Informazioni su come personalizzare cluster HDInsight tramite le azioni script." 
+	description="Informazioni su come personalizzare cluster HDInsight mediante Azione di script." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="hdinsight" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/17/2016" 
-	ms.author="nitinme"/>
+	ms.author="nitinme"/>  
 
 # Personalizzare cluster HDInsight mediante l'azione script
 
@@ -65,7 +65,7 @@ Nome | Script
 
 **Dal portale di Azure classico.**
 
-1. Per avviare il provisioning di un cluster, usare l'opzione **CREAZIONE PERSONALIZZATA**, come descritto in [Effettuare il provisioning di un cluster con opzioni personalizzate](hdinsight-provision-clusters.md#portal). 
+1. Per avviare il provisioning di un cluster, usare l'opzione **CREAZIONE PERSONALIZZATA**, come descritto in [Effettuare il provisioning di un cluster con opzioni personalizzate](hdinsight-provision-clusters.md#portal).
 2. Nella pagina **Azioni script** della procedura guidata fare clic su **aggiungi azione script** per specificare i dettagli relativi all'azione script, come descritto di seguito:
 
 	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Usare l'azione script per personalizzare un cluster")
@@ -73,7 +73,7 @@ Nome | Script
 	<table border='1'>
 		<tr><th>Proprietà</th><th>Valore</th></tr>
 		<tr><td>Nome</td>
-			<td>Specificare un nome per l'azione di script.</td></tr>
+			<td>Specificare un nome per l'azione script.</td></tr>
 		<tr><td>URI script</td>
 			<td>Specificare l'URI dello script da richiamare per personalizzare il cluster.</td></tr>
 		<tr><td>Tipo di nodo</td>
@@ -180,4 +180,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Fasi durante il provisioning di un cluster"
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

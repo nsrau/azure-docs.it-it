@@ -1,11 +1,11 @@
 <properties
    pageTitle="Anteprima del supporto di Gestione risorse di Azure per il bilanciamento del carico | Microsoft Azure "
-   description="Uso di PowerShell per il bilanciamento del carico con la versione di anteprima di Gestione risorse di Azure. Uso di modelli per il bilanciamento del carico"
+   description="Uso di PowerShell per il bilanciamento del carico con la versione di anteprima di Azure Resource Manager. Uso di modelli per il bilanciamento del carico"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -71,4 +71,4 @@ Introduzione ai cmdlet, agli strumenti da riga di comando e alle API REST di Azu
 
 Informazioni su come gestire [le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Questo è importante quando l'applicazione deve mantenere le connessioni attive per i server di bilanciamento del carico.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

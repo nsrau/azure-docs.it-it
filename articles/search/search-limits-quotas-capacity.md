@@ -4,9 +4,9 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
-    tags="azure-portal"/>
+    tags="azure-portal"/>  
 
 <tags
 	ms.service="search"
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/03/2016"
-	ms.author="heidist"/>
+	ms.author="heidist"/>  
 
 # Limiti dei servizi in Ricerca di Azure
 
@@ -97,4 +97,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 2 chiavi di amministrazione al massimo per ogni servizio
 - 50 chiavi di query al massimo per ogni servizio
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

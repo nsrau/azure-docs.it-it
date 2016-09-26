@@ -6,15 +6,15 @@
    authors="ganesr"
    manager="carmonm"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-service-management"/>  
 <tags
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="ganesr"/>
+   ms.date="09/14/2016"
+   ms.author="ganesr;cherylmc"/>  
 
 # Creare e modificare un circuito ExpressRoute
 
@@ -32,15 +32,34 @@ Questo articolo illustra i passaggi per creare un circuito di Azure ExpressRoute
 
 ## Prima di iniziare
 
-- È necessario scaricare la versione più recente dei moduli di Azure PowerShell. È possibile scaricare i moduli di PowerShell più recenti dalla sezione relativa a PowerShell della [pagina Download di Azure](https://azure.microsoft.com/downloads/). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+### 1\. Consultare gli articoli sui prerequisiti e sul flusso di lavoro
 
-- Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
+Prima di procedere con la configurazione, assicurarsi di avere verificato i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
+
+
+### 2\. Installare la versione più recente dei moduli di Azure PowerShell 
+
+Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli di Azure PowerShell, seguire le istruzioni contenute in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+
+### 3\. Accedere all'account Azure e selezionare una sottoscrizione
+
+1. Eseguire i cmdlet seguenti in un prompt di Windows PowerShell con privilegi elevati:
+
+		Add-AzureAccount
+2. Nella schermata di accesso visualizzata accedere al proprio account.
+
+3. Ottenere un elenco delle sottoscrizioni.
+
+		Get-AzureSubscription
+4. Selezionare la sottoscrizione da usare.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Creare un circuito ExpressRoute ed eseguirne il provisioning
 
 ### 1\. Importare i moduli di PowerShell per ExpressRoute
 
- Per iniziare a usare i cmdlet per ExpressRoute, è necessario importare i moduli di Azure ed ExpressRoute nella sessione di PowerShell. A tale scopo, eseguire i comandi seguenti:
+ Se ancora non è stato fatto, per iniziare a usare i cmdlet per ExpressRoute, è necessario importare i moduli di Azure ed ExpressRoute nella sessione di PowerShell. Importare i moduli dal percorso in cui sono stati installati sul computer locale. A seconda del metodo usato per installare i moduli, il percorso potrebbe essere diverso da quello illustrato nell'esempio seguente. Se necessario, modificare l'esempio.
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -313,4 +332,4 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 - [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-classic.md)
 - [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

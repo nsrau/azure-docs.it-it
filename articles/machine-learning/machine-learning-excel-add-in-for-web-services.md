@@ -4,9 +4,9 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="tedway"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
-    tags=""/>
+    tags=""/>  
 
 <tags
 	ms.service="machine-learning"
@@ -89,4 +89,4 @@ Se si salva la cartella di lavoro, verrà salvata anche la chiave API/primaria p
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

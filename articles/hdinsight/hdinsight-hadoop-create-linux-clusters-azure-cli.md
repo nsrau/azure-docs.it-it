@@ -4,9 +4,9 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    	ms.service="hdinsight"
@@ -15,7 +15,7 @@
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
    	ms.date="08/30/2016"
-   	ms.author="larryfr"/>
+   	ms.author="larryfr"/>  
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -121,4 +121,4 @@ Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comand
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

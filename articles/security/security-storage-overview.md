@@ -1,6 +1,6 @@
 <properties
    pageTitle="Informazioni generali sulla sicurezza di Archiviazione di Azure | Microsoft Azure"
-   description="Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti. Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Archiviazione di Azure."
+   description=" Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti. Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Archiviazione di Azure. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
-   ms.author="terrylan"/>
+   ms.date="09/08/2016"
+   ms.author="terrylan"/>  
 
 # Panoramica sulla sicurezza di Archiviazione di Azure
 
@@ -29,7 +29,7 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
 
 Per un'analisi più approfondita della sicurezza in Archiviazione di Azure, vedere la [Guida alla sicurezza di Archiviazione di Azure](../storage/storage-security-guide.md). Questa guida offre approfondimenti sulle funzionalità di sicurezza di Archiviazione di Azure, ad esempio chiavi dell'account di archiviazione, crittografia dei dati in transito e inattivi e Analisi archiviazione.
 
-Questo articolo include informazioni generali sulle funzionalità di sicurezza di Azure che possono essere usate con Archiviazione di Azure. Per maggiori informazioni sono disponibili collegamenti ad articoli contenenti informazioni dettagliate su ogni funzionalità.
+Questo articolo offre informazioni generali sulle funzionalità di sicurezza di Azure che possono essere usate con Archiviazione di Azure. Per altre informazioni sono disponibili collegamenti ad articoli di approfondimento su ogni funzionalità.
 
 Qui di seguito sono elencati gli argomenti trattati in questo articolo:
 
@@ -42,7 +42,7 @@ Qui di seguito sono elencati gli argomenti trattati in questo articolo:
 
 ## Controllo degli accessi in base al ruolo
 
-È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile sfruttare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti.
+È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti.
 
 Altre informazioni:
 
@@ -50,7 +50,7 @@ Altre informazioni:
 
 ## Accesso delegato agli oggetti di archiviazione
 
-Una firma di accesso condiviso (SAS) fornisce accesso delegato alle risorse nell'account di archiviazione. Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma al costruttore o al metodo appropriato.
+Una firma di accesso condiviso (SAS) fornisce accesso delegato alle risorse nell'account di archiviazione. Questa firma di accesso condiviso significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma al costruttore o al metodo appropriato.
 
 Altre informazioni:
 
@@ -71,7 +71,7 @@ Altre informazioni sulla crittografia lato client:
 
 ## Crittografia di dati inattivi
 
-Per molte organizzazioni, la [crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
+Per molte organizzazioni, [la crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
 
 - [Crittografia del servizio di archiviazione](../storage/storage-security-guide.md#encryption-at-rest) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
 - La [crittografia lato client](../storage/storage-security-guide.md#client-side-encryption) offre anche la funzionalità di crittografia dei dati inattivi.
@@ -101,4 +101,4 @@ Altre informazioni:
 - [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/key-vault-whatis.md)
 - [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

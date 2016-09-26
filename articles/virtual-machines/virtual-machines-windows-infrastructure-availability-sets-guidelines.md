@@ -6,7 +6,7 @@
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>
+	tags="azure-resource-manager"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="iainfou"/>
+	ms.date="09/08/2016"
+	ms.author="iainfou"/>  
 
 # Linee guida sui set di disponibilità
 
@@ -51,4 +51,4 @@ In ogni livello di applicazione è possibile usare servizi di bilanciamento del 
 ## Passaggi successivi
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

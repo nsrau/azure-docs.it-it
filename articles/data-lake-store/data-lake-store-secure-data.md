@@ -4,8 +4,8 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   manager="jhubbard" 
+   editor="cgronlun"/>  
  
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="09/06/2016"
-   ms.author="nitinme"/>
+   ms.author="nitinme"/>  
 
 # Protezione dei dati presenti in Archivio Data Lake di Azure
 
@@ -185,4 +185,4 @@ Quando si rimuovono gli elenchi di controllo di accesso dei gruppi di sicurezza 
 - [Introduzione ad Archivio Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Accesso ai log di diagnostica per Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

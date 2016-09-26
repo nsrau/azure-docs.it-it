@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="tamram"/>
+	ms.date="09/07/2016"
+	ms.author="tamram"/>  
 
 
 # Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB
 
-## Panoramica
+## Overview
 
 Nella [parte 1](storage-dotnet-shared-access-signature-part-1.md) di questa esercitazione è stata fornita una descrizione dettagliata delle firme di accesso condiviso e sono state illustrate le procedure consigliate per utilizzarle. La parte 2 illustra come generare e poi usare le firme di accesso condiviso con l'archiviazione BLOB. Negli esempi, scritti in C#, viene utilizzata la libreria client di archiviazione di Azure per .NET. Gli scenari presentati includono i seguenti aspetti relativi all'utilizzo delle firme di accesso condiviso:
 
@@ -303,7 +303,7 @@ L'intero metodo **Main()** dovrebbe ora essere simile al seguente. Eseguirlo per
 	    Console.ReadLine();
     }
 
-Quando si esegue l'applicazione console GenerateSharedAccessSignatures, l'output della finestra della console sarà simile a quello seguente. Queste sono le firme di accesso condiviso che verranno usate nella parte 2 dell'esercitazione.
+Quando si esegue l'applicazione console GenerateSharedAccessSignatures, l'output della finestra della console sarà simile a quello seguente. Queste sono le firme di accesso condiviso che verranno utilizzate nella parte 2 dell'esercitazione.
 
 ![sas-console-output-1][sas-console-output-1]
 
@@ -554,4 +554,4 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="jhubbard" 
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -113,7 +113,7 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 3. Leggere i dati nel BLOB di Azure utilizzando il *modulo Import Data* di Azure ML come mostrato nella schermata riportata di seguito:
  
-![lettore BLOB][2]
+![lettore BLOB][2]  
 
 ## Esempio del Processo di analisi scientifica dei dati per i team
 
@@ -124,4 +124,4 @@ Per un esempio della procedura dettagliata end-to-end del Processo di analisi sc
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

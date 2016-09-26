@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="09/08/2016"
+   ms.author="barbkess;sonyama;kevin"/>  
 
 # Elementi del linguaggio
 
@@ -82,7 +82,7 @@
 - [|= (OR EQUALS bit per bit)](https://msdn.microsoft.com/library/cc627409.aspx)
 - [&= (Bitwise AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## Functions
+## Funzioni
 
 - [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 - [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
@@ -235,7 +235,7 @@
 
 - [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
-## Procedure
+## Procedures
 
 - [sp\_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 - [sp\_columns](https://msdn.microsoft.com/library/ms176077.aspx)
@@ -252,6 +252,7 @@
 - [sp\_pdw\_remove\_network\_credentials](https://msdn.microsoft.com/library/mt204038.aspx)
 - [sp\_pkeys](https://msdn.microsoft.com/library/ms189813.aspx)
 - [sp\_prepare](https://msdn.microsoft.com/library/ff848808.aspx)
+- [sp\_spaceused](https://msdn.microsoft.com/library/ms188776.aspx)
 - [sp\_special\_columns\_100](https://msdn.microsoft.com/library/mt204025.aspx)
 - [sp\_sproc\_columns](https://msdn.microsoft.com/library/ms182705.aspx)
 - [sp\_statistics](https://msdn.microsoft.com/library/ms173842.aspx)
@@ -292,6 +293,6 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 <!--Article references-->
 [panoramica degli argomenti di riferimento di SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 
-<!--MSDN references-->
+<!--MSDN references-->  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

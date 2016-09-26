@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="jhubbard" 
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -20,7 +20,7 @@
 
 Questo argomento descrive le opzioni per lo spostamento dei dati da file flat (formati CSV o TSV) o da un Server SQL locale a SQL Server o in una macchina virtuale Azure. Queste attività per lo spostamento dei dati nel cloud fanno parte del Processo di analisi scientifica dei dati per i team.
 
-Per un argomento che descrive le opzioni per lo spostamento dei dati a un Database di SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
+Per un argomento che descrive le opzioni per lo spostamento dei dati a un database SQL Azure per Machine Learning, vedere [Spostare i dati a un Database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
 Il **menu** seguente si collega ad argomenti che descrivono come inserire dati in altri ambienti di destinazione in cui i dati possono essere archiviati ed elaborati durante il Processo di analisi scientifica dei dati per i team (TDSP).
 
@@ -42,7 +42,7 @@ Tenere presente che il presente documento presuppone che i comandi SQL vengano e
 ## <a name="prereqs"></a>Prerequisiti
 Il tutorial presuppone:
 
-* Un **sottoscrizione Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Provisioning di **SQL Server in una VM di Azure**. Per le istruzioni, vedere [Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata](machine-learning-data-science-setup-sql-server-virtual-machine.md).
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
@@ -52,7 +52,7 @@ Il tutorial presuppone:
 
 Se i dati si trovano in un file flat (organizzati in un formato righe/colonne), possono essere spostati a una macchina virtuale di SQL Server attraverso i seguenti metodi:
 
-1. [Utilità copia di massa della riga di comando (BCP)](#insert-tables-bcp) 
+1. [Utilità copia di massa della riga di comando (BCP)](#insert-tables-bcp)
 2. [Inserimento di massa query SQL ](#insert-tables-bulkquery)
 3. [Utilità grafiche integrate in SQL Server (importazione/esportazione, SSIS)](#sql-builtin-utilities)
 
@@ -131,7 +131,7 @@ Lo script PowerShell di esempio illustra gli inserimenti mediante bcp:
 
 ### <a name="insert-tables-bulkquery"></a>Inserimento di massa query SQL
 
-L'[inserimento di massa di query SQL](https://msdn.microsoft.com/library/ms188365) può essere utilizzato per importare dati nel database da file basati su righe/colonne (i tipi supportati sono indicati nell’argomento [Preparazione dei dati per l’esportazione o l’importazione di massa (SQL Server) ](https://msdn.microsoft.com/library/ms188609)).
+L'[inserimento di massa di query SQL](https://msdn.microsoft.com/library/ms188365) può essere usato per importare dati nel database da file basati su righe/colonne (i tipi supportati sono indicati nell'argomento [Preparazione dei dati per l'esportazione o l'importazione di massa (SQL Server) ](https://msdn.microsoft.com/library/ms188609)).
 
 Ecco alcuni comandi di esempio per l'inserimento di massa:
 
@@ -156,7 +156,7 @@ Ecco alcuni comandi di esempio per l'inserimento di massa:
 
 È possibile utilizzare SQL Server Integrations Services (SSIS) per importare i dati nelle macchine virtuali SQL Server in Azure da un file flat. SSIS è disponibile in due ambienti studio. Per ulteriori informazioni, vedere [Integration Services (SSIS) e ambienti Studio](https://technet.microsoft.com/library/ms140028.aspx):
 
-- Per informazioni dettagliate su SQL Server Data Tools, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
+- Per informazioni dettagliate su SQL Server Data Tools, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)
 - Per informazioni dettagliate sull'importazione/esportazione guidata, vedere [Importazione/esportazione guidata di SQL Server](https://msdn.microsoft.com/library/ms141209.aspx)
 
 
@@ -165,7 +165,7 @@ Ecco alcuni comandi di esempio per l'inserimento di massa:
 È inoltre possibile utilizzare le strategie di migrazione seguenti:
 
 1. [Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
-2. [Esportazione in un file flat](#export-flat-file) 
+2. [Esportazione in un file flat](#export-flat-file)
 3. [Migrazione guidata database SQL](#sql-migration)
 4. [Backup e ripristino database](#sql-backup)
 
@@ -177,7 +177,7 @@ La **Distribuzione di un Database SQL Server in una macchina virtuale di Microso
 
 ### <a name="export-flat-file"></a>Esportazione in un file flat
 
-È possibile utilizzare diversi metodi per l'esportazione di massa dei dati dal Server locale SQL come descritto nell’argomento [Importazione ed esportazione dei dati in massa (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx). In questo documento si parla di Bulk Copy Program (BCP) come esempio. Una volta che i dati sono esportati in un file flat, possono essere importati in un altro server SQL mediante l'importazione di massa.
+È possibile usare diversi metodi per l'esportazione di massa dei dati dal Server locale SQL come descritto nell'argomento [Importazione ed esportazione dei dati in massa (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx). In questo documento si parla di Bulk Copy Program (BCP) come esempio. Una volta che i dati sono esportati in un file flat, possono essere importati in un altro server SQL mediante l'importazione di massa.
 
 1. Esportare i dati dal Server locale SQL in un file mediante l'utilità bcp come indicato di seguito
 
@@ -208,8 +208,8 @@ La **Distribuzione di un Database SQL Server in una macchina virtuale di Microso
 
 SQL Server supporta:
 
-1. La [funzionalità di backup e ripristino del database](https://msdn.microsoft.com/library/ms187048.aspx) (sia in un file locale o in un'esportazione bacpac in un BLOB) e [applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx) (tramite bacpac). 
-2. Possibilità di creare direttamente le macchine virtuali SQL Server in Azure con un database copiato o di copiare in un database esistente di SQL Azure. Per ulteriori informazioni, vedere [Utilizzo della procedura guidata di copia del database](https://msdn.microsoft.com/library/ms188664.aspx). 
+1. La [funzionalità di backup e ripristino del database](https://msdn.microsoft.com/library/ms187048.aspx) (sia in un file locale o in un'esportazione bacpac in un BLOB) e [applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx) (tramite bacpac).
+2. Possibilità di creare direttamente le macchine virtuali SQL Server in Azure con un database copiato o di copiare in un database esistente di SQL Azure. Per ulteriori informazioni, vedere [Utilizzo della procedura guidata di copia del database](https://msdn.microsoft.com/library/ms188664.aspx).
 
 Seguito è riportata una schermata delle opzioni di backup e ripristino del database da SQL Server Management Studio.
 
@@ -224,4 +224,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

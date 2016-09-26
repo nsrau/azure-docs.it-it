@@ -4,8 +4,8 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/25/2016"
-	ms.author="jgao"/>
+	ms.author="jgao"/>  
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di Azure classico
 
@@ -38,7 +38,7 @@ Oltre al portale di Azure sono disponibili altri strumenti per amministrare HDIn
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Account di archiviazione di Azure**: cluster HDInsight usano un contenitore di archiviazione BLOB di Azure come file system predefinito. Per altre informazioni sull'esperienza lineare offerta dall'archivio BLOB con cluster HDInsight, vedere [Usare l'archivio BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Per dettagli sulla creazione di un account di archiviazione di Azure, vedere [Come creare un account di archiviazione](../storage/storage-create-storage-account.md).
 
 
@@ -114,7 +114,7 @@ Le credenziali del cluster fornite durante la creazione consentono di accedere a
 
 ##Creare un certificato autofirmato
 
-Per eseguire operazioni nel cluster con .NET SDK è necessario creare un certificato autofirmato nella workstation e caricarlo nella sottoscrizione di Azure. Si tratta di un'attività una-tantum. È possibile installare lo stesso certificato in altre macchine, purché sia valido.
+Per eseguire operazioni nel cluster con l'SDK .NET, è necessario creare un certificato autofirmato nella workstation e caricarlo nella sottoscrizione di Azure. Si tratta di un'attività una-tantum. È possibile installare lo stesso certificato in altre macchine, purché sia valido.
 
 **Per creare un certificato autofirmato**
 
@@ -199,4 +199,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

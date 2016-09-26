@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="v-shysun"/>
+	ms.date="09/13/2016"
+	ms.author="v-shysun"/>  
 
 # Come eseguire attività amministrative comuni come il ripristino della password amministratore nel database SQL di Azure
 Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere l'accesso a un database SQL di Azure. Per altre informazioni, vedere:
@@ -43,4 +43,4 @@ Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere 
 ## Per creare altri account di accesso per utenti con privilegi elevati nel database master virtuale
 - Usare l'istruzione [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e vedere la sezione sulla gestione degli account di accesso di [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](sql-database-manage-logins.md) per altri dettagli.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

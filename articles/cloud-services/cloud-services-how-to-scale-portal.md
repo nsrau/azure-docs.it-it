@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -115,4 +115,4 @@ Questa operazione rimuove la scalabilità automatica dal ruolo e quindi è possi
 
 Dopo aver configurato il profilo e le regole, selezionare l'icona **Salva** nella parte superiore.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

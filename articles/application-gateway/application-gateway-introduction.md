@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>
+   editor="tysonn"/>  
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/06/2016"
-   ms.author="gwallace"/>
+   ms.author="gwallace"/>  
 
 # Panoramica del gateway applicazione
 
@@ -75,4 +75,4 @@ Dopo aver acquisito familiarità con il gateway applicazione, è possibile [crea
 
 Per informazioni su come creare un gateway applicazione usando il routing del contenuto basato su URL, vedere [Creare un gateway applicazione con il routing basato su URL](application-gateway-create-url-route-arm-ps.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

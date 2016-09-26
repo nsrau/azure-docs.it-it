@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
-	ms.author="rclaus" />
+	ms.date="09/06/2016"
+	ms.author="rclaus" />  
 
 
 #Configurazione di Oracle GoldenGate per Azure
@@ -43,7 +43,7 @@ Inoltre, nell'esercitazione si presuppone che siano già stati implementati i pr
 
 In questa esercitazione si apprenderà come:
 
-1. Installare il database nei siti A e B  
+1. Installare il database nei siti A e B
 
 	1. Eseguire il caricamento iniziale dei dati
 
@@ -601,4 +601,4 @@ Connettersi con desktop remoto al sito A e controllare se la replica ha avuto lu
 ##Risorse aggiuntive
 [Immagini di macchine virtuali Oracle per Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

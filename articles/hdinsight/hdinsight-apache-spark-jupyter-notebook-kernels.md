@@ -4,9 +4,9 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags 
 	ms.service="hdinsight" 
@@ -95,11 +95,11 @@ Il magic %%sql supporta parametri diversi che è possibile utilizzare per contro
 
 | Parametro | Esempio | Descrizione |
 |-----------|---------------------------------|--------------|
-| -o | `-o <VARIABLE NAME>` | Usare questo parametro per salvare in modo permanente il risultato della query nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). Il nome della variabile del frame di dati è il nome della variabile specificato. |
-| -q | `-q` | Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare automaticamente il contenuto di una cella ma solo acquisirlo come un frame di dati, usare `-q -o <VARIABLE>`. Se si vuole disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL con effetti collaterali, come un'istruzione `CREATE TABLE`, usare semplicemente `-q` senza specificare un argomento `-o`. |
-| -m | `-m <METHOD>` | Dove **METHOD** è **take** o **sample**. Per impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r`, descritto di seguito in questa tabella. |
+| -o | `-o <VARIABLE NAME>`   | Usare questo parametro per salvare in modo permanente il risultato della query nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). Il nome della variabile del frame di dati è il nome della variabile specificato. |
+| -q | `-q`   | Consente di disattivare le visualizzazioni per la cella. Se non si vuole visualizzare automaticamente il contenuto di una cella ma solo acquisirlo come un frame di dati, usare `-q -o <VARIABLE>`. Se si vuole disattivare le visualizzazioni senza acquisire i risultati, ad esempio per l'esecuzione di una query SQL con effetti collaterali, come un'istruzione `CREATE TABLE`, usare semplicemente `-q` senza specificare un argomento `-o`. |
+| -m | `-m <METHOD>`   | Dove **METHOD** è **take** o **sample**. Per impostazione predefinita è **take**. Se il metodo è **take**, il kernel sceglie gli elementi dall'inizio del set di dati dei risultati specificato da MAXROWS, descritto più avanti in questa tabella. Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r`, descritto di seguito in questa tabella. |
 | -r | `-r <FRACTION>` | Qui **FRACTION** è un numero a virgola mobile compreso tra 0,0 e 1,0. Se il metodo sample per la query SQL è `sample`, allora il kernel campionerà automaticamente in modo casuale la frazione specificata degli elementi del set di risultati. Ad esempio, se si esegue una query SQL con gli argomenti `-m sample -r 0.01`, allora l'1% delle righe dei risultati verrà campionato in modo casuale. |
-| -n | `-n <MAXROWS>` | **MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se il valore **MAXROWS** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non sarà limitato. |
+| -n | `-n <MAXROWS>`   | **MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se il valore **MAXROWS** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non sarà limitato. |
 
 **Esempio:**
 
@@ -190,4 +190,4 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

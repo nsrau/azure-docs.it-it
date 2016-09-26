@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="markvi"/>
+	ms.date="09/14/2016"
+	ms.author="markvi"/>  
 
-# Guida introduttiva all'accesso condizionale ad Azure AD  
+# Introduzione all'accesso condizionale di Azure Active Directory
 
-L'accesso condizionale di Azure Active Directory per app [SaaS](https://azure.microsoft.com/overview/what-is-saas/) e app connesse ad Azure AD consente di configurare l'accesso condizionale in base a gruppo, posizione e riservatezza dell'applicazione.
+L'accesso condizionale di Azure Active Directory per app [SaaS](https://azure.microsoft.com/overview/what-is-saas/) e app connesse ad Azure AD consente di configurare l'accesso condizionale in base a un gruppo, una posizione e alla sensibilità dell'applicazione.
 
-Le regole di Multi-Factor Authentication possono essere applicate a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specifici. Con l'accesso condizionale in base alla sensibilità dell'applicazione è possibile configurare regole di accesso Multi-Factor Authentication per ogni applicazione, per bloccare l'accesso agli utenti su una rete non affidabile. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
+Con l'accesso condizionale basato sulla sensibilità dell'applicazione è possibile configurare regole di accesso Multi-Factor Authentication (MFA) per ogni applicazione. L'autenticazione MFA per ogni applicazione consente di bloccare l'accesso per gli utenti non collegati a una rete attendibile. Le regole MFA possono essere applicate a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specifici. Gli utenti possono essere esclusi dal requisito di autenticazione MFA se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
 
 Queste funzionalità saranno disponibili per i clienti che hanno acquistato una licenza di Azure Active Directory Premium.
 
@@ -53,9 +53,9 @@ Questa sezione contiene una descrizione dettagliata delle regole di accesso supp
 
 Per impostazione predefinita, i criteri verranno applicati a tutti gli utenti che hanno accesso all'applicazione. Tuttavia, è anche possibile limitare i criteri agli utenti membri dei gruppi di sicurezza specificati. Il pulsante **Aggiungi gruppo** permette di selezionare uno o più gruppi a cui applicare la regola di accesso nella finestra di dialogo di selezione dei gruppi. Questa finestra di dialogo può essere utilizzata anche per rimuovere i gruppi selezionati. Una volta selezionate le regole da applicare ai gruppi, le regole di accesso verranno applicate solo agli utenti che appartengono a uno dei gruppi di sicurezza specificati.
 
-È anche possibile escludere in modo esplicito i gruppi di sicurezza dai criteri selezionando l'opzione relativa alle eccezioni e quindi specificando uno o più gruppi. Gli utenti membri di un gruppo nell'elenco delle eccezioni non saranno soggetti al requisito di autenticazione a più fattori, anche se sono membri di un gruppo a cui si applica la regola di accesso. La regola di accesso mostrata di seguito impone a tutti gli utenti del gruppo Responsabili di usare l'autenticazione a più fattori quando accedono all'applicazione.
+È anche possibile escludere in modo esplicito i gruppi di sicurezza dai criteri selezionando l'opzione relativa alle **eccezioni** e quindi specificando uno o più gruppi. Gli utenti membri di un gruppo nell'elenco delle **eccezioni** non saranno soggetti al requisito di Multi-Factor Authentication, anche se sono membri di un gruppo a cui si applica la regola di accesso. La regola di accesso mostrata di seguito impone a tutti gli utenti del gruppo Responsabili di usare l'autenticazione a più fattori quando accedono all'applicazione.
 
-![Impostazione delle regole di accesso condizionale con MFA](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)
+![Impostazione delle regole di accesso condizionale con MFA](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)  
 
 ## Regole di accesso condizionale con MFA
 Se un utente è stato configurato usando la funzionalità di autenticazione Multi-Factor Authentication per utente, questa impostazione per l'utente andrà ad aggiungersi alle regole di Multi-Factor Authentication dell'app. Di conseguenza, un utente configurato per l'autenticazione a più fattori per utente dovrà eseguire l'autenticazione a più fattori anche se è stato escluso dalle regole di autenticazione a più fattori per l'applicazione. Altre informazioni sull'autenticazione a più fattori e le impostazioni per utente.
@@ -63,32 +63,34 @@ Se un utente è stato configurato usando la funzionalità di autenticazione Mult
 ### Opzioni delle regole di accesso
 Sono supportate le opzioni seguenti:
 
-* **Richiedi autenticazione a più fattori**: con questa opzione, gli utenti a cui si applicano le regole di accesso dovranno completare la procedura Multi-Factor Authentication prima di accedere all'applicazione a cui si applica il criterio.
+* **Richiedi autenticazione a più fattori**: gli utenti a cui si applicano le regole di accesso dovranno completare l'autenticazione a più fattori prima di accedere all'applicazione a cui si applica il criterio.
 
-* **Richiedi autenticazione a più fattori quando non al lavoro**: con questa opzione, un utente che accede da un indirizzo IP attendibile non deve eseguire la procedura Multi-Factor Authentication. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
+* **Richiedi autenticazione a più fattori quando non al lavoro**: un utente che accede da un indirizzo IP attendibile non deve eseguire l'autenticazione a più fattori. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
 
-* **Blocca l'accesso quando non al lavoro**: con questa opzione, un utente che non accede da un indirizzo IP attendibile verrà bloccato. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
+* **Blocca l'accesso quando non al lavoro**: un utente che non accede da un indirizzo IP attendibile verrà bloccato. Gli intervalli di indirizzi IP attendibili possono essere configurati nella pagina Impostazioni di autenticazione a più fattori.
 
 ### Impostazione dello stato delle regole
-Lo stato delle regole di accesso permette di attivare o disattivare le regole. Quando le regole di accesso sono disattivate, il requisito di autenticazione Multi-Factor Authentication non viene applicato.
+Lo stato delle regole di accesso permette di attivare o disattivare le regole. Quando le regole di accesso sono disattivate, il requisito dell'autenticazione a più fattori non viene applicato.
 
 ### Valutazione delle regole di accesso
 
-Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenID Connect, SAML o WS-Federation, vengono valutate le regole di accesso. Inoltre, vengono valutate le regole di accesso quando OAuth 2.0 e OpenID si collegano quando viene utilizzato un token di aggiornamento per acquisire un token di accesso. Se la valutazione dei criteri non riesce quando si usa un token di aggiornamento, viene restituito l'errore invalid\_grant, che indica che l'utente deve eseguire di nuovo l'autenticazione al client. Configurare i servizi federativi per fornire l'autenticazione a più fattori
+Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenID Connect, SAML o WS-Federation, vengono valutate le regole di accesso. Le regole di accesso vengono valutate anche quando OAuth 2.0 e OpenID Connect usano un token di aggiornamento per acquisire un token di accesso. Se la valutazione dei criteri ha esito negativo quando si usa un token di aggiornamento, viene restituito l'errore **invalid\_grant** che indica che l'utente deve eseguire di nuovo l'autenticazione al client.
 
-Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale.
+###Configurare i servizi federativi per fornire l'autenticazione a più fattori
 
-Per impostazione predefinita, MFA viene eseguita in una pagina ospitata da Azure Active Directory. Per configurare l'MFA locale è necessario impostare la proprietà –SupportsMFA su **true** in Azure Active Directory usando il modulo di Azure AD per Windows PowerShell.
+Per tenant federati, MFA potrebbe essere eseguita da Azure Active Directory o dal server AD FS locale.
+
+Per impostazione predefinita, MFA viene eseguita in una pagina ospitata da Azure Active Directory. Per configurare MFA in locale è necessario impostare la proprietà **–SupportsMFA** su **true** in Azure Active Directory usando il modulo di Azure AD per Windows PowerShell.
 
 L'esempio seguente illustra come abilitare MFA in locale usando il [cmdlet Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) nel tenant contoso.com:
 
     Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
 
-Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve essere configurata in modo da eseguire l'autenticazione a più fattori. Seguire le istruzioni per la distribuzione locale di Azure Multi-Factor Authentication.
+Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve essere configurata in modo da eseguire l'autenticazione a più fattori. Seguire le istruzioni per la [distribuzione locale di Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## Articoli correlati
 
 - [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

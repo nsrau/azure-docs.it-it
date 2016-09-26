@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="jhubbard" 
+	editor="cgronlun"  />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/14/2016" 
-	ms.author="hangzh;bradsev" />
+	ms.author="hangzh;bradsev" />  
 
 # Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati per i team 
 
@@ -51,11 +51,11 @@ Nella pagina di configurazione 4, specificare il nome dell'account di archiviazi
 
 Nell'ultima pagina di configurazione **Azioni script**, fare clic sul pulsante **aggiungi script azione** e compilare i campi di testo con i valori seguenti.
  
-* **NOME**: qualsiasi stringa con il nome dello script azione 
-* **TIPO DI NODO**: selezionare **Tutti i nodi** 
-* **SCRIPT URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
-	* *publicscripts* è un contenitore pubblico nell'account di archiviazione 
-	* *getgoing* viene usato per condividere file di script di PowerShell per facilitare agli utenti l'uso di Azure 
+* **NOME**: qualsiasi stringa con il nome dello script azione
+* **TIPO DI NODO**: selezionare **Tutti i nodi**
+* **SCRIPT URI** - *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+	* *publicscripts* è un contenitore pubblico nell'account di archiviazione
+	* *getgoing* viene usato per condividere file di script di PowerShell per facilitare agli utenti l'uso di Azure
 * **PARAMETRI**: lasciare vuoto
 
 Infine, fare clic sul segno di spunta per avviare la creazione del cluster Hadoop di HDInsight personalizzato.
@@ -86,4 +86,4 @@ Vedere [Come inviare query Hive](machine-learning-data-science-move-hive-tables.
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

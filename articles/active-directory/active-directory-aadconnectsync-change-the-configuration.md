@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="andkjell"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+	ms.author="andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita
@@ -25,7 +25,7 @@ L'editor delle regole di sincronizzazione viene usato per visualizzare e modific
 
 Quando lo si apre, vengono visualizzate le regole predefinite.
 
-![Editor delle regole di sincronizzazione](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
+![Editor delle regole di sincronizzazione](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)  
 
 ### Spostamento nell'editor
 Gli elenchi a discesa nella parte superiore dell'editor consentono di trovare rapidamente una regola particolare. Ad esempio, se si vogliono visualizzare le regole in cui è incluso l'attributo proxyAddresses, modificare gli elenchi a discesa come indicato di seguito: ![Filtro nell'editor delle regole di sincronizzazione](./media/active-directory-aadconnectsync-change-the-configuration/filtering.png) Per reimpostare il filtro e caricare una nuova configurazione, premere **F5** sulla tastiera.
@@ -35,12 +35,12 @@ In alto a destra è presente il pulsante **Add new Rule** (Aggiungi nuova regola
 Nella parte inferiore sono presenti i pulsanti per eseguire operazioni su una regola di sincronizzazione selezionata. I pulsanti **Edit** (Modifica) e **Delete** (Elimina) eseguono le operazioni previste. **Export** (Esporta) genera uno script di PowerShell per ricreare la regola di sincronizzazione. Questa procedura consente di spostare una regola di sincronizzazione da un server a un altro.
 
 ## Creare la prima regola personalizzata
-La modifica più comune riguarda i flussi degli attributi. I dati nella directory di origine potrebbero non quelli che si vogliono usare in Azure AD. Nell'esempio in questa sezione si vuole assicurare che formato il nome di un utente sia sempre nel**formato corretto**.
+La modifica più comune riguarda i flussi degli attributi. I dati nella directory di origine potrebbero non corrispondere a quelli in Azure AD. Nell'esempio in questa sezione si vuole assicurare che formato il nome di un utente sia sempre nel**formato corretto**.
 
 ### Disabilitare l'utilità di pianificazione
 Per impostazione predefinita, l'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) viene eseguita ogni 30 minuti. Si vuole garantire che non venga avviata mentre si apportano modifiche e si risolvono i problemi delle nuove regole. Per disabilitare temporaneamente l'utilità di pianificazione, avviare PowerShell ed eseguire `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
-![Disabilitare l'utilità di pianificazione](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
+![Disabilitare l'utilità di pianificazione](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
 ### Creare la regola
 
@@ -134,4 +134,4 @@ In Fabrikam si è notato che alcuni degli attributi sincronizzati nel cloud non 
 - [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

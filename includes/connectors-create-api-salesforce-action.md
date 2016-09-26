@@ -8,37 +8,28 @@ Per configurare questa azione, è necessario fornire le informazioni indicate di
 |ID oggetto|Rappresenta un identificatore dell'oggetto.|
 
 
-1. Selezionare il collegamento **Aggiungi un'azione**. Viene aperta la casella di ricerca per cercare qualsiasi azione si desideri eseguire. In questo esempio, l'interesse è rivolto alle azioni di Salesforce.  
-![Immagine di azione Salesforce 1](./media/connectors-create-api-salesforce/action-1.png)  
+1. Selezionare il collegamento **Aggiungi un'azione**. Viene aperta la casella di ricerca per cercare qualsiasi azione si desideri eseguire. In questo esempio, l'interesse è rivolto alle azioni di Salesforce. ![Immagine di azione Salesforce 1](./media/connectors-create-api-salesforce/action-1.png)
 - Immettere *salesforce* per cercare le azioni correlate a salesforce.
-- Selezionare **Salesforce - Ottenere oggetto** come azione da intraprendere. **Nota**: verrà richiesto di autorizzare l'app per la logica ad accedere all'account di Salesforce, se non lo si è già fatto in precedenza.  
-![Immagine di azione Salesforce 2](./media/connectors-create-api-salesforce/action-2.png)  
+- Selezionare **Salesforce - Ottenere oggetto** come azione da intraprendere. **Nota**: verrà richiesto di autorizzare l'app per la logica ad accedere all'account di Salesforce, se non lo si è già fatto in precedenza. ![Immagine di azione Salesforce 2](./media/connectors-create-api-salesforce/action-2.png)
 - Viene visualizzato il controllo **Ottenere oggetto**.
 - Selezionare *lead* come tipo di oggetto.
 - Selezionare il controllo **ID oggetto**.
-- Selezionare **...** per espandere l'elenco dei token utilizzabili come input per le azioni.  
-![Immagine di azione Salesforce 3](./media/connectors-create-api-salesforce/action-3.png)  
-- Selezionare il controllo **ID lead** per visualizzarlo.  
-![Immagine di azione Salesforce 4](./media/connectors-create-api-salesforce/action-4.png)  
-- Il token dell'ID lead si trova ora nel controllo dell'ID oggetto, indicando che l'azione Ottieni oggetto cercherà un lead con un ID identico a quello del lead che ha attivato l'app per la logica.  
-![Immagine di azione Salesforce 5](./media/connectors-create-api-salesforce/action-5.png)  
-- Salvare il lavoro. A questo punto l'azione Ottenere oggetto è stata aggiunta all'app per la logica. Il controllo Ottenere oggetto dovrebbe assomigliare a:  
-![Immagine di azione Salesforce 6](./media/connectors-create-api-salesforce/action-6.png)  
+- Selezionare **...** per espandere l'elenco dei token utilizzabili come input per le azioni. ![Immagine di azione Salesforce 3](./media/connectors-create-api-salesforce/action-3.png)
+- Selezionare il controllo **ID lead** per visualizzarlo. ![Immagine di azione Salesforce 4](./media/connectors-create-api-salesforce/action-4.png)
+- Il token dell'ID lead si trova ora nel controllo dell'ID oggetto, indicando che l'azione Ottieni oggetto cercherà un lead con un ID identico a quello del lead che ha attivato l'app per la logica. ![Immagine di azione Salesforce 5](./media/connectors-create-api-salesforce/action-5.png)
+- Salvare il lavoro. A questo punto l'azione Ottenere oggetto è stata aggiunta all'app per la logica. Il controllo Ottenere oggetto dovrebbe assomigliare a: ![Immagine di azione Salesforce 6](./media/connectors-create-api-salesforce/action-6.png)
 
 Dopo aver aggiunto un'azione per ottenere un lead, è possibile effettuare operazione interessanti con il lead appena creato. In un'azienda, si può voler inviare un messaggio di posta elettronica per notificare a un elenco di distribuzione che è stato creato un nuovo lead. Il connettore Office 365 viene utilizzato per inviare un messaggio di posta elettronica con alcune delle informazioni pertinenti dal nuovo oggetto lead presente in Salesforce.
 
 1. Selezionare **Aggiungi un'azione** e digitare *messaggio di posta elettronica* nel controllo di ricerca per filtrare le azioni e visualizzare solo quelle correlate all'invio e alla ricezione di messaggi di posta elettronica.
-- Selezionare la voce di elenco **Office 365 Outlook - Inviare un messaggio di posta elettronica**. Se non è ancora stata creata una *connessione* all'account di Office 365, verrà richiesto di immettere le credenziali di Office 365 per crearla adesso. Al termine dell'operazione, viene visualizzato il controllo **Inviare un messaggio di posta elettronica**.  
-![Immagine di azione Salesforce 7](./media/connectors-create-api-salesforce/action-7.png)  
+- Selezionare la voce di elenco **Office 365 Outlook - Inviare un messaggio di posta elettronica**. Se non è ancora stata creata una *connessione* all'account di Office 365, verrà richiesto di immettere le credenziali di Office 365 per crearla adesso. Al termine dell'operazione, viene visualizzato il controllo **Inviare un messaggio di posta elettronica**. ![Immagine di azione Salesforce 7](./media/connectors-create-api-salesforce/action-7.png)
 - Immettere l'indirizzo di posta elettronica a cui inviare il messaggio nel controllo **A**.
--  Nel controllo **Oggetto**, immettere *Nuovo lead creato - * quindi selezionare il token *Azienda*. Verrà visualizzato il campo *Azienda* dal nuovo lead creato in Salesforce.
--  Nel controllo **Corpo messaggio** , è possibile selezionare qualsiasi token dal nuovo oggetto lead ed è inoltre possibile immettere qualunque testo che si desidera far apparire nel corpo del messaggio di posta elettronica. Ecco un esempio:  
-![Immagine di azione Salesforce 8](./media/connectors-create-api-salesforce/action-8.png)  
+-  Nel controllo **Subject** (Oggetto) immettere *New Lead created* (Nuovo lead creato), quindi selezionare il token *Company* (Azienda). Verrà visualizzato il campo *Azienda* dal nuovo lead creato in Salesforce.
+-  Nel controllo **Corpo messaggio** , è possibile selezionare qualsiasi token dal nuovo oggetto lead ed è inoltre possibile immettere qualunque testo che si desidera far apparire nel corpo del messaggio di posta elettronica. Ecco un esempio: ![Immagine di azione Salesforce 8](./media/connectors-create-api-salesforce/action-8.png)
 - Salvare il flusso di lavoro.
 
 È tutto. Ora l'app per la logica è completa.
 
-Ora è possibile testare l'app per la logica: in Salesforce, creare un nuovo lead che soddisfi la condizione creata. Se ci si è attenuti pienamente a questa procedura dettagliata, è sufficiente creare un lead con un indirizzo di posta elettronica che contenga la dicitura *amazon.com*. L'app per la logica dovrebbe attivarsi in pochi secondi e il risultato dovrebbe essere simile a:  
-![Immagine di azione Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)  
+Ora è possibile testare l'app per la logica: in Salesforce, creare un nuovo lead che soddisfi la condizione creata. Se ci si è attenuti pienamente a questa procedura dettagliata, è sufficiente creare un lead con un indirizzo di posta elettronica che contenga la dicitura *amazon.com*. L'app per la logica dovrebbe attivarsi in pochi secondi e il risultato dovrebbe essere simile a: ![Immagine di azione Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

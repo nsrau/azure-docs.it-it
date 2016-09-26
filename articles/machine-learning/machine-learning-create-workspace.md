@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="garye;bradsev;ahgyger"/>
+	ms.author="garye;bradsev;ahgyger"/>  
 
 
 # Creare e condividere un'area di lavoro di Azure Machine Learning
@@ -99,10 +99,10 @@ La tabella seguente chiarisce la differenza tra amministratore di una sottoscriz
 [4]: media/machine-learning-create-workspace/cw5.png
 
 
-<!--Link references-->
+<!--Link references-->  
 [Gestire un'area di lavoro di Azure Machine Learning]: machine-learning-manage-workspace.md
 [Guida per la risoluzione dei problemi: Creare un'area di lavoro di Machine Learning e connettersi a essa]: machine-learning-troubleshooting-creating-ml-workspace.md
 [Machine Learning Studio]: https://studio.azureml.net/
 [portale di Microsoft Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

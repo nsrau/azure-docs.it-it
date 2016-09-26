@@ -5,8 +5,8 @@
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -85,7 +85,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
+		Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host\_name". Questa conterrà il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -228,7 +228,7 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
 
 ##Passaggi successivi
 
-In questa esercitazione si è appreso come creare un cluster HBase. Per ulteriori informazioni, vedere:
+In questa esercitazione si è appreso come creare un cluster HBase. Per altre informazioni, vedere:
 
 - [Introduzione all'uso di HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md)
@@ -284,4 +284,4 @@ In questa esercitazione si è appreso come creare un cluster HBase. Per ulterior
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

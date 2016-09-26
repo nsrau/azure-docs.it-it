@@ -4,9 +4,9 @@
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
-   tags="azure-portal"/>
+   tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/17/2016"
-   ms.author="larryfr"/>
+   ms.date="09/06/2016"
+   ms.author="larryfr"/>  
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
 
@@ -141,6 +141,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-[portale di anteprima]: https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,8 +4,8 @@ description="Informazioni su come utilizzare un tunnel SSH per esplorare in modo
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
-editor="cgronlun"/>
+manager="jhubbard"
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -144,14 +144,14 @@ Se è stato installato FoxyProxy Standard, seguire questa procedura per configur
 
 	* **Nome del modello** - **nodo del cluster**: si tratta di un nome descrittivo per il modello.
 
-	* **Modello di URL** - **\*internal.cloudapp.net\*** -definisce un modello che corrisponde al nome di dominio completo interno dei nodi del cluster.
+	* **Modello di URL** - ***internal.cloudapp.net*** -definisce un modello che corrisponde al nome di dominio completo interno dei nodi del cluster.
 
 	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
 
     Aggiungere un altro modello, usando le informazioni seguenti per le impostazioni:
 
     * __Nome modello __: headnode
-    * __Modello URL__: \*headnodehost\*
+    * __Modello URL__: *headnodehost *
 
     Fare clic su OK per salvare questo modello.
 
@@ -201,4 +201,4 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguen
 
 * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

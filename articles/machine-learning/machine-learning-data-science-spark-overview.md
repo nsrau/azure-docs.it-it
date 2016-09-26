@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
-	editor="cgronlun"  />
+	manager="jhubbard"
+	editor="cgronlun"  />  
 
 <tags
 	ms.service="machine-learning"
@@ -30,14 +30,14 @@ La procedura di installazione e il codice fornito in questa procedura dettagliat
 
 ## Prerequisiti
 
-1\.Prima di iniziare a esaminare questi argomenti, è necessario avere una sottoscrizione di Azure. Se non è già disponibile, vedere l'articolo che illustra [come ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+1\. Prima di iniziare a esaminare questi argomenti, è necessario avere una sottoscrizione di Azure. Se non è già disponibile, vedere l'articolo che illustra [come ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 2\. Per completare questa procedura dettagliata è necessario un cluster HDInsight 3.4 Spark 1.6. Per crearne uno, vedere le istruzioni fornite in [Introduzione: creare cluster Apache Spark in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Il tipo e la versione del cluster vengono specificati tramite il menu **Selezionare il tipo di cluster**.
 
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
-> [AZURE.NOTE] Per un argomento che illustra come usare Scala anziché Python per completare le attività per un processo di analisi scientifica dei dati end-to-end, vedere l'articolo sull'[analisi scientifica dei dati mediante Scala con Spark in Azure](machine-learning-data-science-process-scala-walkthrough.md).
+> [AZURE.NOTE] Per un argomento che illustra come usare Scala anziché Python per completare le attività per un processo di analisi scientifica dei dati end-to-end, vedere l'articolo sull'[analisi scientifica dei dati tramite Scala con Spark in Azure](machine-learning-data-science-process-scala-walkthrough.md).
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -129,7 +129,7 @@ A questo punto è possibile:
 
 - Fare clic sul notebook per visualizzare il codice.
 - Eseguire ogni cella premendo **MAIUSC+INVIO**
-- Eseguire l'intero notebook facendo clic su **Cell** -> **Run** (Cella -> Esegui)
+- Eseguire l'intero notebook facendo clic su **Cell ** -> **Run** (Cella -> Esegui)
 - Usare la visualizzazione automatica delle query
 
 > [AZURE.TIP] Il kernel Pyspark visualizza automaticamente l'output delle query SQL (HiveQL). È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook:
@@ -142,8 +142,8 @@ Dopo aver configurato un cluster HDInsight Spark e avere caricato i notebook di 
 
 **Esplorazione dei dati e creazione del modello con Spark:** esplorare il set di dati, creare i modelli di Machine Learning per l'assegnazione di punteggi e la valutazione illustrati nell'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
-**Utilizzo dei modelli:** per informazioni su come valutare i modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
+**Uso dei modelli:** per informazioni su come valutare i modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

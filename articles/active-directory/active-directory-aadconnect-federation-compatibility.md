@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="09/12/2016"
 	ms.author="billmath"/>  
 
 # Elenco di compatibilità di federazione di Azure AD
@@ -22,8 +22,7 @@ Azure Active Directory offre la sicurezza di accesso Single Sign-On e di applica
 Per le organizzazioni che hanno investito in soluzioni di federazione non Microsoft, questo argomento include le istruzioni per la configurazione dell'accesso Single Sign-On per gli utenti Active Directory di Windows Server con Microsoft Online Services tramite i provider di identità non Microsoft inclusi nell'elenco di compatibilità di federazione di Azure Active Directory riportato di seguito.
 
 
-![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
-[Oxford Computer Group](http://oxfordcomputergroup.com/), una terza parte, ha testato per conto di Microsoft queste esperienze di accesso Single Sign-On usando provider di identità non Microsoft in più casi d'uso comuni con Azure Active Directory.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg) [Oxford Computer Group](http://oxfordcomputergroup.com/), una terza parte, ha testato per conto di Microsoft queste esperienze di accesso Single Sign-On usando provider di identità non Microsoft in più casi d'uso comuni con Azure Active Directory.
 
 Per informazioni su come ottenere il provider di identità di terze parti elencato di seguito, contattare Oxford Computer Group all'indirizzo [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
 
@@ -41,7 +40,7 @@ Per informazioni su come ottenere il provider di identità di terze parti elenca
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
-- [CA SiteMinder 12.52](#ca-siteminder-1252)
+- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4)
 - [RadiantOne CFS 3.0](#radiantone-cfs-30)
 - [Okta](#okta)
 - [OneLogin](#onelogin)
@@ -173,15 +172,15 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 Per altre informazioni su SecureAuth, vedere il sito di [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
 
-## CA SiteMinder 12.52 
+## CA SiteMinder 12.52 SP1 cumulativo versione 4
 CA SiteMinder Federation 12.52 implementa il comune standard di identità WS Federation/WS-Trust per offrire un framework per l'accesso Single Sign-On e lo scambio degli attributi.
 
 Di seguito è riportata la matrice di supporto dello scenario per questa esperienza di accesso Single Sign-On:
 
 | Client |Supporto |Eccezioni|
 | --------- | --------- |--------- |
-| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |Autenticazione integrata di Windows|
-| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |Autenticazione integrata di Windows|
+| Client basati sul Web, ad esempio Exchange Web Access e SharePoint Online | Supportato |None|
+| Applicazioni rich client, ad esempio Lync, Sottoscrizione Office, CRM | Supportato |None|
 | Client di posta elettronica, ad esempio Outlook e ActiveSync | Supportato |None|
 
 Per altre informazioni su CA SiteMinder, vedere il sito di [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html).
@@ -339,4 +338,4 @@ Di seguito è riportata la matrice di supporto dello scenario per questa esperie
 
 Per altre informazioni, vedere [How can I Configure Single Sign On for Office 365?](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-) (Configurazione dell'accesso Single Sign-On per Office 365) nel sito di AuthAnvil.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

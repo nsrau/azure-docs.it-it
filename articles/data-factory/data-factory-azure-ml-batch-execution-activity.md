@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+	ms.author="spelluru"/>  
 
 # Creare pipeline predittive con le attività di Azure Machine Learning   
 ## Overview
@@ -27,7 +27,7 @@
 
 1. **Creare un esperimento di training**. Questo passaggio deve essere eseguito con Azure ML Studio. Azure ML Studio è un ambiente di sviluppo visivo di collaborazione usato per eseguire il training e il test di un modello di analisi predittiva usando dati di training.
 2. **Convertirlo in un esperimento predittivo**. Dopo aver eseguito il training del modello con i dati esistenti, preparare e semplificare l'esperimento di assegnazione dei punteggi quando si è pronti a usarlo per valutare nuovi dati.
-3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. Gli utenti possono inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
+3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
 
 Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Data factory di Azure è possibile richiamare un servizio Web di Azure ML per eseguire stime dei dati in batch. Per altre informazioni, vedere la sezione [Richiamo di un servizio Web di Azure ML tramite Attività di esecuzione batch](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity).
 
@@ -44,7 +44,7 @@ Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei p
 
 Per altre informazioni, vedere la sezione [Aggiornamento dei modelli di Azure ML con Attività della risorsa di aggiornamento](#updating-azure-ml-models-using-the-update-resource-activity).
 
-## Richiamo di un servizio Web di Azure ML tramite Attività di esecuzione batch
+## Richiamo di un servizio Web tramite Attività di esecuzione batch
 
 È possibile usare Data factory di Azure per gestire l'elaborazione e lo spostamento dei dati e quindi effettuare un'esecuzione batch tramite Azure Machine Learning. Ecco i passaggi principali:
 
@@ -61,7 +61,12 @@ Per altre informazioni, vedere la sezione [Aggiornamento dei modelli di Azure ML
 ### Scenario: Esperimenti di uso degli input/output del servizio Web che fanno riferimento ai dati presenti nell'archiviazione BLOB di Azure
 Il questo scenario il servizio Web Azure Machine Learning esegue stime usando dati provenienti da un file dell'archiviazione BLOB di Azure e archivia i risultati nell'archiviazione BLOB. Il frammento di codice JSON seguente definisce una pipeline di Data factory con un'attività AzureMLBatchExecution. L'attività include il set di dati **DecisionTreeInputBlob** come input e il set di dati **DecisionTreeResultBlob** come output. Il set di dati **DecisionTreeInputBlob** viene passato come input al servizio Web usando la proprietà JSON **webServiceInput**. Il set di dati **DecisionTreeResultBlob** viene passato come output al servizio Web usando la proprietà JSON **webServiceOutputs**.
 
-> [AZURE.NOTE] I set di dati a cui fanno riferimento le proprietà **webServiceInput** e **webServiceOutputs** (in **typeProperties**) devono essere inclusi anche negli **input** e **output** dell'attività.
+> [AZURE.IMPORTANT] 
+Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput**. Vedere la sezione [Il servizio Web richiede più input](#web-service-requires-multiple-inputs) per un esempio di uso della proprietà webServiceInputs.
+>  
+> I set di dati a cui fanno riferimento le proprietà **webServiceInput**/**webServiceInputs** e **webServiceOutputs** (in **typeProperties**) devono essere inclusi anche negli **input** e **output** dell'attività.
+> 
+> Nell'esperimento di Machine Learning di Azure,le porte e i parametri globali di input e output del servizio Web hanno nomi predefiniti ("input1", "input2") che è possibile personalizzare. I nomi scelti per le impostazioni webServiceInputs, webServiceOutputs e globalParameters devono corrispondere esattamente ai nomi negli esperimenti. Per verificare il mapping previsto, è possibile visualizzare il payload della richiesta di esempio nella pagina della Guida relativa all'esecuzione in batch per l'endpoint di Machine Learning di Azure.
 
 
 	{
@@ -99,8 +104,8 @@ Il questo scenario il servizio Web Azure Machine Learning esegue stime usando da
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
@@ -258,8 +263,8 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
 		        }
 		      }
 		    ],
-		    "start": "2015-02-13T00:00:00Z",
-		    "end": "2015-02-14T00:00:00Z"
+		    "start": "2016-02-13T00:00:00Z",
+		    "end": "2016-02-14T00:00:00Z"
 		  }
 		}
 
@@ -300,7 +305,7 @@ Le pipeline di Big Data, con attività come Pig e Hive, possono generare uno o p
 
 Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è possibile specificare il BLOB di Azure come input. I file nell'archivio BLOB di Azure possono essere file di output, ad esempio 000000\_0, generati da uno script Pig e Hive in esecuzione in HDInsight. Il modulo Reader consente di leggere i file, senza estensioni, configurando la voce **Path to container, directory or blob** (Percorso del contenitore, della directory o del BLOB). La parte relativa al **percorso del contenitore** punta al contenitore, mentre **directory o BLOB** punta alla cartella che contiene i file, come illustrato nell'immagine seguente. L'asterisco (*) **specifica che tutti i file nel contenitore o nella cartella, ovvero data/aggregateddata/year=2014/month-6/***, vengono letti come parte dell'esperimento.
 
-![Proprietà del Blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+![Proprietà del Blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)  
 
 
 ### Esempio 
@@ -347,8 +352,8 @@ Quando si usa il modulo Reader in un esperimento di Azure Machine Learning, è p
 	        },
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
  
@@ -358,6 +363,50 @@ Nell'esempio JSON precedente:
 - Per la data e ora di **inizio** e **fine** è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41Z. L'ora di fine, **end**, è facoltativa. Se non si specifica un valore per la proprietà **end**, viene calcolato come "**Inizio + 48 ore**". Per eseguire la pipeline per un periodo illimitato, specificare **9999-09-09** come valore per la proprietà **end**. Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ### Altri scenari
+
+#### Il servizio Web richiede più input
+Se il servizio Web accetta più input, usare la proprietà **webServiceInputs** invece di **webServiceInput**. Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività.
+ 
+Nell'esperimento di Machine Learning di Azure,le porte e i parametri globali di input e output del servizio Web hanno nomi predefiniti ("input1", "input2") che è possibile personalizzare. I nomi scelti per le impostazioni webServiceInputs, webServiceOutputs e globalParameters devono corrispondere esattamente ai nomi negli esperimenti. Per verificare il mapping previsto, è possibile visualizzare il payload della richiesta di esempio nella pagina della Guida relativa all'esecuzione in batch per l'endpoint di Machine Learning di Azure.
+
+
+	{
+		"name": "PredictivePipeline",
+		"properties": {
+			"description": "use AzureML model",
+			"activities": [{
+				"name": "MLActivity",
+				"type": "AzureMLBatchExecution",
+				"description": "prediction analysis on batch input",
+				"inputs": [{
+					"name": "inputDataset1"
+				}, {
+					"name": "inputDataset2"
+				}],
+				"outputs": [{
+					"name": "outputDataset"
+				}],
+				"linkedServiceName": "MyAzureMLLinkedService",
+				"typeProperties": {
+					"webServiceInputs": {
+						"input1": "inputDataset1",
+						"input2": "inputDataset2"
+					},
+					"webServiceOutputs": {
+						"output1": "outputDataset"
+					}
+				},
+				"policy": {
+					"concurrency": 3,
+					"executionPriorityOrder": "NewestFirst",
+					"retry": 1,
+					"timeout": "02:00:00"
+				}
+			}],
+			"start": "2016-02-13T00:00:00Z",
+			"end": "2016-02-14T00:00:00Z"
+		}
+	}
 
 #### Servizio Web non richiede un input
 
@@ -447,7 +496,7 @@ Ecco i **punti chiave**:
 - Nelle proprietà di input e output delle dell'attività possono essere inclusi set di dati aggiuntivi, senza che vi si faccia riferimento nella sezione typeProperties dell'attività. Questi set di dati regolano l'esecuzione tramite le dipendenze delle sezioni, ma in caso contrario vengono ignorati dall'attività AzureMLBatchExecution.
 
 
-## Aggiornamento dei modelli di Azure ML con Attività della risorsa di aggiornamento
+## Aggiornamento dei modelli con Attività della risorsa di aggiornamento
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure ML usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello ML di cui è stato ripetuto il training. Questa è la procedura tipica per abilitare la ripetizione del training e l'aggiornamento dei modelli di Azure ML tramite i servizi Web:
 
 1. Creare un esperimento in [Azure ML Studio](https://studio.azureml.net).
@@ -462,7 +511,7 @@ La tabella seguente descrive i servizi Web usati in questo esempio. Per altre in
  
 L'immagine seguente illustra la relazione tra gli endpoint di training e di assegnazione dei punteggi in Azure ML.
 
-![Servizi Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+![Servizi Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)  
 
 
 È possibile richiamare il **servizio Web di training** usando **Attività di esecuzione batch di Azure ML**. Richiamare il servizio Web di training è la stessa operazione che si esegue per richiamare un servizio Web di Azure ML, il servizio Web di assegnazione dei punteggi, per la valutazione dei dati. Le sezioni precedenti descrivono in dettaglio come richiamare un servizio Web di Azure ML da una pipeline di Azure Data Factory.
@@ -476,7 +525,7 @@ Questa sezione include una pipeline di esempio che usa **Attività di esecuzione
 
 Ecco la vista diagramma della pipeline di esempio. Come si può vedere, Attività di esecuzione batch di Azure ML accetta l'input di training e genera un output di training (file iLearner). Attività della risorsa di aggiornamento di Azure ML accetta questo output di training e aggiorna il modello nell'endpoint di servizio Web di assegnazione dei punteggi. Attività della risorsa di aggiornamento non produce un output. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
 
-![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)  
 
 
 #### Servizio collegato di archiviazione BLOB di Azure:
@@ -595,7 +644,7 @@ Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedu
 - Fare clic su **ESECUZIONE BATCH** per ottenere il valore dell'URI per LA proprietà JSON **mlEndpoint**.
 - Fare clic su **AGGIORNA RISORSA** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
 
-![Endpoint aggiornabile](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+![Endpoint aggiornabile](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)  
 
  
 #### Set di dati di output del segnaposto:
@@ -623,7 +672,7 @@ Attività della risorsa di aggiornamento di Azure ML non produce un output. Tutt
 #### Pipeline
 La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure ML accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
 
-![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)  
 
 
 	{
@@ -682,8 +731,8 @@ La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateRe
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
 	        ],
-	    	"start": "2015-02-13T00:00:00Z",
-	   		"end": "2015-02-14T00:00:00Z"
+	    	"start": "2016-02-13T00:00:00Z",
+	   		"end": "2016-02-14T00:00:00Z"
 	    }
 	}
 
@@ -738,8 +787,8 @@ Se si vuole continuare a usare l'attività AzureMLBatchScoring, continuare a leg
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
@@ -779,4 +828,4 @@ Per specificare i valori per i parametri del servizio Web, aggiungere una sezion
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

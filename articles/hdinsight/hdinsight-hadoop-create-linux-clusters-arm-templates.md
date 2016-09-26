@@ -5,8 +5,8 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
-   editor="cgronlun"/>
+   manager="jhubbard"
+   editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/02/2016"
-   ms.author="jgao"/>
+   ms.author="jgao"/>  
 
 # Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager
 
@@ -51,7 +51,7 @@ Per individuare lo schema JSON per determinati elementi, è possibile eseguire l
 2. Configurare gli elementi necessari per lo schema JSON.
 3. Prima di fare clic su **Crea**, scegliere le **Opzioni di automazione** come illustrato nella schermata seguente:
 
-    ![Creare cluster Hadoop in HDInsight tramite le opzioni di automazione dello schema del modello di Resource Manager](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
+    ![Creare cluster Hadoop in HDInsight tramite le opzioni di automazione dello schema del modello di Resource Manager](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)  
 
     Il portale crea un modello di Resource Manager in base alle configurazioni.
 ## Distribuire con PowerShell
@@ -142,7 +142,7 @@ Per un'introduzione all'uso di Visual Studio con gruppi di risorse, vedere [Crea
 ##Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-csharp-template.md).
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/virtual-machines-windows-csharp-template.md).
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](../solution-dev-test-environments.md).
 - Per informazioni sulle sezioni del modello di Azure Resource Manager, vedere [Creazione di modelli](../resource-group-authoring-templates.md).
@@ -353,4 +353,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
     }
     }
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

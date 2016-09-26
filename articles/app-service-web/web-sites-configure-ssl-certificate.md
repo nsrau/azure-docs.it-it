@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	editor="jimbe"
-	tags="top-support-issue"/>
+	tags="top-support-issue"/>  
 
 <tags
 	ms.service="app-service"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="cephalin"/>
+	ms.author="cephalin"/>  
 
 # Proteggere il dominio personalizzato dell'app tramite HTTPS
 
@@ -27,7 +27,7 @@
 
 Questo articolo illustra come abilitare HTTP per un'app Web, un back-end dell'app per dispositivi mobili o un'app per le API che usa un nome di dominio personalizzato nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Viene illustrata l'autenticazione solo server. Per l'autenticazione reciproca, inclusa l'autenticazione del client, vedere [Come configurare l'autenticazione reciproca TLS per il servizio app](app-service-web-configure-tls-mutual-auth.md).
 
-Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly **\*.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;appname>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e **\*.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.
+Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly ***.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;appname>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e ***.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.
 
 >[AZURE.NOTE] È possibile ottenere assistenza dagli esperti di Azure in qualsiasi momento nei [forum di Azure](https://azure.microsoft.com/support/forums/). Per un supporto più personalizzato, passare a [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
@@ -96,7 +96,7 @@ Per testare la configurazione nel servizio app prima di acquistare un certificat
 
 5. Inviare il file **myrequest.csr** a un'autorità di certificazione per ottenere un certificato SSL. Caricare il file o copiare il contenuto da un editor di testo in un modulo Web.
 
-	Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programma Microsoft Trusted Root Certificate: Partecipanti).
+	Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] (Programma Microsoft Trusted Root Certificate: Partecipanti).
 
 6. Una volta che l'autorità di certificazione ha risposto all'utente con un file di certificato (CER), salvarlo nella directory di lavoro. Eseguire quindi il comando seguente per completare la richiesta di firma di certificato in sospeso.
 
@@ -110,23 +110,23 @@ Per testare la configurazione nel servizio app prima di acquistare un certificat
 
 7. Per esportare il certificato SSL dall'archivio certificati, premere `Win`+`R` ed eseguire **certmgr.msc** per avviare il gestore di certificati. Selezionare **Personale** > **Certificati**. Nella colonna **Rilasciato a** dovrebbe essere presente una voce con il nome di dominio personalizzato e l'autorità di certificazione usata per generare il certificato nella colonna **Rilasciato da**.
 
-	![Inserimento immagine di Gestione certificati][certmgr]
+	![Inserimento immagine di Gestione certificati][certmgr]  
 
 9. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Tutte le attività** > **Esporta**. In **Esportazione guidata certificati** fare clic su **Avanti**, quindi selezionare **Sì, Esporta la chiave privata** e fare di nuovo clic su **Avanti**.
 
-	![Esportazione della chiave privata][certwiz1]
+	![Esportazione della chiave privata][certwiz1]  
 
 10. Selezionare **Scambio informazioni personali - PKCS #12**, **Se possibile, includi tutti i certificati nel percorso certificazione** ed **Esporta tutte le proprietà estese**. Quindi fare clic su **Avanti**.
 
-	![Inclusione di tutti i certificati e delle proprietà estese][certwiz2]
+	![Inclusione di tutti i certificati e delle proprietà estese][certwiz2]  
 
 11. Selezionare **Password**, quindi immettere e confermare la password. Fare clic su **Avanti**.
 
-	![Inserimento di una password][certwiz3]
+	![Inserimento di una password][certwiz3]  
 
 12. Per il file esportato, specificare un percorso e nome file con l'estensione **pfx**. Fare clic su **Avanti** per completare la procedura.
 
-	![Inserimento di un percorso per il file][certwiz4]
+	![Inserimento di un percorso per il file][certwiz4]  
 
 A questo punto si è pronti per caricare il file PFX esportato nel servizio app. Vedere [Passaggio 2. Caricare e associare il certificato SSL personalizzato](#bkmk_configuressl).
 
@@ -135,7 +135,7 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 
 1. In Gestione IIS generare una richiesta di firma del certificato da inviare all'autorità di certificazione. Per altre informazioni sulla generazione di una richiesta di firma del certificato, vedere [Richiedere un certificato del server Internet (IIS 7)][iiscsr].
 
-3. Inviare la richiesta di firma del certificato a un'autorità di certificazione per ottenere un certificato SSL. Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programma Microsoft Trusted Root Certificate: Partecipanti).
+3. Inviare la richiesta di firma del certificato a un'autorità di certificazione per ottenere un certificato SSL. Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] (Programma Microsoft Trusted Root Certificate: Partecipanti).
 
 
 3. Completare la richiesta di firma del certificato con il certificato inviato dall'autorità di certificazione. Per altre informazioni sul completamento della richiesta di firma del certificato, vedere [Installare un certificato del server Internet (IIS 7)][installcertiis].
@@ -148,11 +148,11 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 
 	>[AZURE.IMPORTANT] In **Esportazione guidata certificati** assicurarsi di selezionare **Sì, esporta la chiave privata**
 	>
-	>![Esportazione della chiave privata][certwiz1]
+	>![Esportazione della chiave privata][certwiz1]  
 	>
 	> e selezionare anche **Scambio informazioni personali - PKCS #12**, **Se possibile, includi tutti i certificati nel percorso certificazione** ed **Esporta tutte le proprietà estese**.
 	>
-	>![Inclusione di tutti i certificati e delle proprietà estese][certwiz2]
+	>![Inclusione di tutti i certificati e delle proprietà estese][certwiz2]  
 
 A questo punto si è pronti per caricare il file PFX esportato nel servizio app. Vedere [Passaggio 2. Caricare e associare il certificato SSL personalizzato](#bkmk_configuressl).
 
@@ -179,7 +179,7 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 
 	Al termine, nella directory di lavoro saranno presenti due file: **myserver.key** e **server.csr**. Il file **server.csr** contiene la richiesta di firma del certificato, mentre il file **myserver.key** sarà necessario più avanti.
 
-3. Inviare la richiesta di firma del certificato a un'autorità di certificazione per ottenere un certificato SSL. Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programma Microsoft Trusted Root Certificate: Partecipanti).
+3. Inviare la richiesta di firma del certificato a un'autorità di certificazione per ottenere un certificato SSL. Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] (Programma Microsoft Trusted Root Certificate: Partecipanti).
 
 
 4. Una volta che l'autorità di certificazione invia il certificato richiesto, salvarlo in un file denominato **myserver.crt** nella directory di lavoro. Se l'autorità di certificazione fornisce il file in formato testo, è sufficiente copiare il contenuto in **myserver.crt** in un editor di testo e salvarlo. Il file avrà un aspetto simile al seguente:
@@ -214,7 +214,7 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 	>
 	> L'aspetto del comando `openssl -export` deve essere simile a quello dell'esempio seguente, che crea un file con estensione pfx che include i certificati intermedi dal file **intermediate-cets.pem**:
 	>  
-	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`  
 
 A questo punto si è pronti per caricare il file PFX esportato nel servizio app. Vedere [Passaggio 2. Caricare e associare il certificato SSL personalizzato](#bkmk_configuressl).
 
@@ -269,7 +269,7 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 
 	Al termine, nella directory di lavoro saranno presenti due file: **myserver.key** e **server.csr**. Il file **server.csr** contiene la richiesta di firma del certificato, mentre il file **myserver.key** sarà necessario più avanti.
 
-3. Inviare la richiesta di firma del certificato a un'autorità di certificazione per ottenere un certificato SSL. Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programma Microsoft Trusted Root Certificate: Partecipanti).
+3. Inviare la richiesta di firma del certificato a un'autorità di certificazione per ottenere un certificato SSL. Per un elenco di autorità di certificazione ritenute attendibili da Microsoft, vedere [Microsoft Trusted Root Certificate Program: Participants][cas] (Programma Microsoft Trusted Root Certificate: Partecipanti).
 
 
 4. Una volta che l'autorità di certificazione invia il certificato richiesto, salvarlo in un file denominato **myserver.crt**. Se l'autorità di certificazione fornisce il file in formato testo, è sufficiente copiare il contenuto in **myserver.crt** in un editor di testo e salvarlo. Il file dovrebbe avere un aspetto simile al seguente:
@@ -304,7 +304,7 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 	>
 	> L'aspetto del comando `openssl -export` deve essere simile a quello dell'esempio seguente, che crea un file con estensione pfx che include i certificati intermedi dal file **intermediate-cets.pem**:
 	>  
-	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+	> `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`  
 
 A questo punto si è pronti per caricare il file PFX esportato nel servizio app. Vedere [Passaggio 2. Caricare e associare il certificato SSL personalizzato](#bkmk_configuressl).
 
@@ -342,23 +342,23 @@ A questo punto si è pronti per caricare il file PFX esportato nel servizio app.
 
 7. Per esportare il certificato dall'archivio certificati, premere `Win`+`R` ed eseguire **certmgr.msc** per avviare il gestore di certificati. Selezionare **Personale** > **Certificati**. Nella colonna **Rilasciato a** dovrebbe essere presente una voce con il nome di dominio personalizzato e l'autorità di certificazione usata per generare il certificato nella colonna **Rilasciato da**.
 
-	![Inserimento immagine di Gestione certificati][certmgr]
+	![Inserimento immagine di Gestione certificati][certmgr]  
 
 9. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Tutte le attività** > **Esporta**. In **Esportazione guidata certificati** fare clic su **Avanti**, quindi selezionare **Sì, Esporta la chiave privata** e fare di nuovo clic su **Avanti**.
 
-	![Esportazione della chiave privata][certwiz1]
+	![Esportazione della chiave privata][certwiz1]  
 
 10. Selezionare **Scambio informazioni personali - PKCS #12**, **Se possibile, includi tutti i certificati nel percorso certificazione** ed **Esporta tutte le proprietà estese**. Quindi fare clic su **Avanti**.
 
-	![Inclusione di tutti i certificati e delle proprietà estese][certwiz2]
+	![Inclusione di tutti i certificati e delle proprietà estese][certwiz2]  
 
 11. Selezionare **Password**, quindi immettere e confermare la password. Fare clic su **Avanti**.
 
-	![Inserimento di una password][certwiz3]
+	![Inserimento di una password][certwiz3]  
 
 12. Per il file esportato, specificare un percorso e nome file con l'estensione **pfx**. Fare clic su **Avanti** per completare la procedura.
 
-	![Inserimento di un percorso per il file][certwiz4]
+	![Inserimento di un percorso per il file][certwiz4]  
 
 A questo punto si è pronti per caricare il file PFX esportato nel servizio app. Vedere [Passaggio 2. Caricare e associare il certificato SSL personalizzato](#bkmk_configuressl).
 
@@ -434,7 +434,7 @@ Prima di procedere, esaminare la sezione [Elementi necessari](#bkmk_domainname) 
 7. Nella sezione **Associazioni SSL** fare clic su **Add bindings** (Aggiungi associazioni)
 8. Nel pannello **Aggiungi associazione SSL** usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI, Server Name Indication)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o IP.
 
-    ![inserimento immagine di associazioni SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
+    ![inserimento immagine di associazioni SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)  
 
        • Il metodo SSL basato su IP associa un certificato a un nome di dominio tramite il mapping dell'indirizzo IP pubblico dedicato del server al nome di dominio. A tale scopo, è necessario che ogni nome di dominio (contoso.com, fabricam.com e così via) associato al servizio disponga di un indirizzo IP dedicato. Questo è il metodo tradizionale per l'associazione di certificati SSL a un server Web. •Il metodo SSL basato su SNI è un'estensione di SSL e **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS), che consente a più domini di condividere lo stesso indirizzo IP, con certificati di protezione distinti per ogni dominio. La maggior parte dei browser moderni, inclusi Internet Explorer, Chrome, Firefox e Opera, supporta SNI, ma è possibile che non sia supportato dai browser precedenti. Per altre informazioni su SNI, vedere l'articolo relativo all'**[Indicazione nome server](http://en.wikipedia.org/wiki/Server_Name_Indication)** su Wikipedia.
      
@@ -442,17 +442,19 @@ Prima di procedere, esaminare la sezione [Elementi necessari](#bkmk_domainname) 
 
 ## Passaggio 3. Modificare il mapping del nome di dominio (solo per il metodo SSL basato su IP)
 
-Se si usano solo associazioni di tipo **SNI SSL**, ignorare questa sezione. Più associazioni **SNI SSL** possono operare sull'indirizzo IP condiviso esistente assegnato all'app. Se, tuttavia, si crea un'associazione di tipo **SSL basato su IP**, il servizio app crea un indirizzo IP dedicato per l'associazione perché il metodo **SSL basato su IP** ne richiede uno. Questo indirizzo IP dedicato richiede ulteriori configurazioni dell'app, nei casi seguenti:
+Se si usano solo associazioni di tipo **SNI SSL**, ignorare questa sezione. Più associazioni **SNI SSL** possono operare sull'indirizzo IP condiviso esistente assegnato all'app. Se, tuttavia, si crea un'associazione di tipo **SSL basato su IP**, il servizio app crea un indirizzo IP dedicato per l'associazione perché il metodo **SSL basato su IP** ne richiede uno. È possibile creare un solo indirizzo IP dedicato, pertanto può essere aggiunta una sola associazione di tipo **SSL basato su IP**.
+
+Questo indirizzo IP dedicato richiede ulteriori configurazioni dell'app, nei casi seguenti:
 
 - È stato [usato un record A per il mapping del dominio personalizzato](web-sites-custom-domain-name.md#a) all'app Azure e si è appena aggiunta un'associazione di tipo **SSL basato su IP**. In questo scenario, è necessario modificare il mapping esistente del record A in modo che punti all'indirizzo IP dedicato. A tale scopo, seguire questa procedura:
 
 	1. Dopo la configurazione di un'associazione SSL basata su IP, un indirizzo IP dedicato viene assegnato all'app. È possibile trovare questo indirizzo IP nella pagina **Dominio personalizzato** nelle impostazioni dell'app, proprio sotto la sezione **Nomi host**. Sarà elencato come **Indirizzo IP esterno**
     
-	    ![Indirizzo IP virtuale](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
+	    ![Indirizzo IP virtuale](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)  
 
 	2. [Eseguire di nuovo il mapping del record A per il nome di dominio personalizzato al nuovo indirizzo IP](web-sites-custom-domain-name.md#a).
 
-- Sono già presenti una o più associazioni **SNI SSL** nell'app ed è appena stata aggiunta un'associazione di tipo **SSL basato su IP**. Al termine dell'associazione, il nome di dominio *&lt;nomeapp>*.azurewebsites.net punterà al nuovo indirizzo IP. Di conseguenza, qualsiasi [mapping CNAME dal dominio personalizzato](web-sites-custom-domain-name.md#cname) a *&lt; nomeapp >*.azurewebsites.net, inclusi quelli protetti tramite **SNI SSL**, riceve anche il traffico sul nuovo indirizzo, che viene creato solo per l'associazione **SSL basato su IP**. In questo scenario, per inviare il traffico **SNI SSL** all'indirizzo IP condiviso originale è necessario seguire questa procedura:
+- Sono già presenti una o più associazioni **SNI SSL** nell'app ed è appena stata aggiunta un'associazione di tipo **SSL basato su IP**. Al termine dell'associazione, il nome di dominio *&lt;nomeapp>*.azurewebsites.net punterà al nuovo indirizzo IP. Di conseguenza, qualsiasi [mapping CNAME dal dominio personalizzato](web-sites-custom-domain-name.md#cname) a *& lt; nomeapp >*.azurewebsites.net, inclusi quelli protetti tramite **SNI SSL**, riceve anche il traffico sul nuovo indirizzo, che viene creato solo per l'associazione **SSL basato su IP**. In questo scenario, per inviare il traffico **SNI SSL** all'indirizzo IP condiviso originale è necessario seguire questa procedura:
 
 	1. Identificare tutti i [mapping CNAME dei domini personalizzati](web-sites-custom-domain-name.md#cname) all'app che ha un'associazione **SNI SSL**.
 
@@ -481,7 +483,7 @@ A tale scopo, seguire questa procedura:
 
 3. Fare clic sul pulsante a forma di matita per aprire `web.config`.
 
-	![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)
+	![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)  
 
 	Se si distribuisce l'app con Visual Studio o Git, il servizio app genera automaticamente il file `web.config` appropriato per l'app .NET, PHP, Node.js o Python nella radice dell'applicazione. Se `web.config` non esiste, eseguire `touch web.config` nel prompt dei comandi basato sul Web per crearlo. In alternativa, è possibile crearlo nel progetto locale e ridistribuire il codice.
 
@@ -547,4 +549,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

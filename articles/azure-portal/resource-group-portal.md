@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="tomfitz"/>
+	ms.date="09/12/2016" 
+	ms.author="tomfitz"/>  
 
 # Gestire le risorse di Azure mediante il portale
 
@@ -32,11 +32,11 @@ Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per qu
 
 1. Per visualizzare tutti i gruppi di risorse della sottoscrizione, selezionare **Gruppi di risorse**.
 
-    ![esplorare i gruppi di risorse](./media/resource-group-portal/browse-groups.png)
+    ![esplorare i gruppi di risorse](./media/resource-group-portal/browse-groups.png)  
 
 1. Per creare un gruppo di risorse vuoto, selezionare **Aggiungi**.
 
-    ![aggiungere un gruppo di risorse](./media/resource-group-portal/add-resource-group.png)
+    ![aggiungere un gruppo di risorse](./media/resource-group-portal/add-resource-group.png)  
 
 1. Specificare il nome e il percorso del nuovo gruppo di risorse. Selezionare **Create**.
 
@@ -44,7 +44,7 @@ Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per qu
 
 1. Potrebbe essere necessario selezionare **Aggiorna** per visualizzare il gruppo di risorse creato di recente.
 
-    ![aggiornare un gruppo di risorse](./media/resource-group-portal/refresh-resource-groups.png)
+    ![aggiornare un gruppo di risorse](./media/resource-group-portal/refresh-resource-groups.png)  
 
 1. Per personalizzare le informazioni visualizzate per i gruppi di risorse, selezionare **Colonne**.
 
@@ -52,13 +52,13 @@ Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per qu
 
 1. Selezionare le colonne da aggiungere, quindi selezionare **Aggiorna**.
 
-    ![aggiungere colonne](./media/resource-group-portal/add-columns.png)
+    ![aggiungere colonne](./media/resource-group-portal/add-columns.png)  
 
 1. Per informazioni sulla distribuzione delle risorse nel nuovo gruppo di risorse, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 
 1. Per accedere rapidamente al gruppo di risorse, è possibile aggiungere il pannello al dashboard.
 
-    ![aggiungere un gruppo di risorse](./media/resource-group-portal/pin-group.png)
+    ![aggiungere un gruppo di risorse](./media/resource-group-portal/pin-group.png)  
 
 1. Il dashboard visualizza il gruppo di risorse e le relative risorse. È possibile selezionare i gruppi di risorse o le relative risorse per passare all'elemento.
 
@@ -76,11 +76,11 @@ Quando si seleziona una risorsa, il pannello della risorsa visualizza grafici e 
 
 1. Selezionare una risorsa ed esaminare la sezione **Monitoraggio**, che include i grafici relativi al tipo di risorsa. L'immagine seguente illustra i dati di monitoraggio predefiniti per un account di archiviazione.
 
-    ![visualizzare il monitoraggio](./media/resource-group-portal/show-monitoring.png)
+    ![visualizzare il monitoraggio](./media/resource-group-portal/show-monitoring.png)  
 
 1. È possibile aggiungere una sezione del pannello al dashboard selezionando i puntini di sospensione (...) sopra la sezione. È inoltre possibile personalizzare le dimensioni della sezione nel pannello o rimuoverla completamente. L'immagine seguente illustra come aggiungere, personalizzare o rimuovere la sezione relativa a CPU e memoria.
 
-    ![sezione di aggiunta](./media/resource-group-portal/pin-cpu-section.png)
+    ![sezione di aggiunta](./media/resource-group-portal/pin-cpu-section.png)  
 
 1. Dopo avere aggiunto la sezione al dashboard, ne verrà visualizzato il riepilogo. Selezionandola si potranno vedere altri dettagli sui dati.
 
@@ -92,15 +92,15 @@ Quando si seleziona una risorsa, il pannello della risorsa visualizza grafici e 
 
 1. Assegnare un nome al nuovo dashboard e trascinare i riquadri sul dashboard. I riquadri vengono filtrati in base a opzioni diverse.
 
-    ![dashboard](./media/resource-group-portal/create-dashboard.png)
+    ![dashboard](./media/resource-group-portal/create-dashboard.png)  
 
-     Per informazioni sull'uso dei dashboard, vedere il video [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Creare dashboard personalizzati nel portale di Azure). Per informazioni sulla condivisione dell'accesso a un dashboard pubblicato, vedere [Condivisione dei dashboard di Azure](azure-portal-dashboard-share-access.md).
+     Per informazioni sull'uso dei dashboard, vedere [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md) (Creazione e condivisione di dashboard nel portale di Azure).
 
 ## Gestire risorse
 
 Nel pannello di una risorsa sono visibili le opzioni per la gestione delle risorse. Il portale presenta le opzioni di gestione per quel particolare tipo di risorsa. I comandi per la gestione vengono visualizzati nella parte superiore del pannello della risorsa e sul lato sinistro.
 
-![gestire risorse](./media/resource-group-portal/manage-resources.png)
+![gestire risorse](./media/resource-group-portal/manage-resources.png)  
 
 Con queste opzioni, è possibile eseguire operazioni come l'avvio e l'arresto di una macchina virtuale o la riconfigurazione delle proprietà della macchina virtuale.
 
@@ -118,7 +118,7 @@ Per spostare una risorsa in un altro gruppo di risorse o in un'altra sottoscrizi
 
 È possibile visualizzare informazioni sulla sottoscrizione e un riepilogo dei costi per tutte le risorse. Selezionare **Sottoscrizioni** e quindi la sottoscrizione da visualizzare. Potrebbe essere disponibile una sola sottoscrizione da selezionare.
 
-![sottoscrizione](./media/resource-group-portal/select-subscription.png)
+![sottoscrizione](./media/resource-group-portal/select-subscription.png)  
 
 Nel pannello della sottoscrizione viene visualizzata la velocità.
 
@@ -151,4 +151,4 @@ Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute
 - Per la distribuzione di risorse tramite il portale, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
 - Per gestire l'accesso alle risorse, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

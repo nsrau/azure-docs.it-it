@@ -5,9 +5,9 @@
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
-   tags="azure-portal"/>
+   tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -72,7 +72,7 @@ Quando si crea un cluster, si creano risorse di calcolo di Azure che includono H
 	|Tipo di cluster| Selezionare **Hadoop** per questa esercitazione. |
 	|Sistema operativo cluster| Selezionare **Windows Server 2012 R2 Datacenter** per questa esercitazione.|
 	|HDInsight Version| Selezionare la versione più recente per questa esercitazione.|
-	|Sottoscrizione| Selezionare la sottoscrizione di Azure che verrà usata per il cluster.|
+	|Subscription| Selezionare la sottoscrizione di Azure che verrà usata per il cluster.|
 	|Gruppo di risorse | Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Un cluster HDInsight di base contiene un cluster e il relativo account di archiviazione predefinito. È possibile raggruppare i due oggetti in un gruppo di risorse per una gestione ottimale.|
 	|Credenziali| Immettere il nome utente e la password dell'account di accesso del cluster. Un cluster basato su Windows può disporre di 2 account utente. L'utente del cluster (o l'utente HTTP) viene usato per gestire il cluster e inviare i processi. Facoltativamente è possibile creare un account utente desktop remoto (RDP) per connettersi in remoto al cluster. Se si sceglie di abilitare desktop remoto, si creerà l'account utente RDP.|
 	|Origine dati| Fare clic su Crea nuovo per creare un nuovo account di archiviazione di Azure predefinito. Usare il nome del cluster come nome del contenitore predefinito. Ogni cluster HDInsight include un contenitore BLOB predefinito in un account di archiviazione di Azure. Il percorso dell'account di archiviazione di Azure predefinito determina la posizione del cluster HDInsight.|
@@ -255,4 +255,4 @@ In questa esercitazione di Hadoop si è appreso come creare un cluster Hadoop in
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

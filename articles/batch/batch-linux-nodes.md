@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="08/26/2016"
-	ms.author="marsma" />
+	ms.date="09/08/2016"
+	ms.author="marsma" />  
 
 # Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch
 
 È possibile usare Azure Batch per eseguire carichi di lavoro di calcolo paralleli in macchine virtuali Linux e Windows. Questo articolo illustra in dettaglio come creare pool di nodi di calcolo Linux nel servizio Batch usando le librerie client [Batch Python][py_batch_package] e [Batch .NET][api_net].
 
-> [AZURE.NOTE] Supporto Linux in Batch è attualmente disponibile in anteprima. Alcuni aspetti della funzionalità descritti in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale. I [pacchetti dell'applicazione](batch-application-packages.md) non sono attualmente supportati nei nodi di calcolo Linux.
+> [AZURE.NOTE] [Application packages](batch-application-packages.md) non sono attualmente supportati nei nodi di calcolo Linux.
 
 ## Configurazione macchina virtuale
 
@@ -198,7 +198,7 @@ ImageReference imageReference = new ImageReference(
 
 ## Elenco di immagini di macchine virtuali
 
-La tabella seguente elenca le immagini di macchina virtuale del Marketplace compatibili con gli agenti del nodo Batch disponibili al momento dell'ultimo aggiornamento di questo articolo. È importante notare che questo elenco non è definitivo, perché è possibile che immagini e agenti del nodo vengano aggiunti o rimossi in qualsiasi momento. È consigliabile che le applicazioni e i servizi Batch usino sempre [list\_node\_agent\_skus][py_list_skus] \(Python) e [ListNodeAgentSkus][net_list_skus] \(Batch .NET) per determinare e selezionare gli SKU attualmente disponibili.
+La tabella seguente elenca le immagini di macchina virtuale del Marketplace compatibili con gli agenti del nodo Batch disponibili al momento dell'ultimo aggiornamento di questo articolo. È importante notare che questo elenco non è definitivo, perché è possibile che immagini e agenti del nodo vengano aggiunti o rimossi in qualsiasi momento. È consigliabile che le applicazioni e i servizi Batch usino sempre [list\_node\_agent\_skus][py_list_skus] (Python) e [ListNodeAgentSkus][net_list_skus] (Batch .NET) per determinare e selezionare gli SKU attualmente disponibili.
 
 > [AZURE.WARNING] L'elenco seguente può essere modificato in qualsiasi momento. Usare sempre i metodi di tipo **list node agent SKU** disponibili nelle API Batch per elencare e selezionare le combinazioni compatibili di macchina virtuale e SKU dell'agente del nodo quando si eseguono i processi Batch.
 
@@ -349,6 +349,4 @@ Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Diagramma di alto livello di pacchetti applicazione"
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

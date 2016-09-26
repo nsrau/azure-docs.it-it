@@ -5,8 +5,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun" />
+	manager="jhubbard"
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/17/2016"
-	ms.author="bradsev;gopitk" />
+	ms.author="bradsev;gopitk" />  
 
 
 # Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)
@@ -29,7 +29,7 @@ In particolare, attualmente il TDSP fornisce ai team di analisi scientifica dei 
 
 Di seguito è illustrato il ciclo di vita di sviluppo del processo di analisi scientifica dei dati per i team:
 
-![Diagramma: Processo di analisi scientifica dei dati per i team](./media/data-science-process-overview/data-science-process-for-teams-diagram.png)
+![Diagramma: Processo di analisi scientifica dei dati per i team](./media/data-science-process-overview/data-science-process-for-teams-diagram.png)  
 
 
 Il processo è **iterativo**: la comprensione di elementi nuovi ed esistenti o perfezionati nel modello si evolve e richiede la rielaborazione di passaggi completati in precedenza nella sequenza. I processi esistenti per lo sviluppo organizzativo e la pianificazione del progetto possono essere **facilmente adattati** per l'uso con la sequenza di passaggi definita da TDSP.
@@ -100,4 +100,4 @@ Anche se TDSP non indica tipi specifici di elementi di **documentazione**, è co
 
 Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici**. Sono elencate insieme a brevi descrizioni nell'argomento [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

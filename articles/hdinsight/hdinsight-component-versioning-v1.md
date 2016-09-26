@@ -3,9 +3,9 @@
 	description="HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite. Vedere le versioni di Hadoop e di HortonWorks Data Platform (HDP) supportate."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags
 	ms.service="hdinsight"
@@ -167,4 +167,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

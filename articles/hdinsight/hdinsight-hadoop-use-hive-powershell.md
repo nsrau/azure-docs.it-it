@@ -4,9 +4,9 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/16/2016"
-   ms.author="larryfr"/>
+   ms.date="09/07/2016"
+   ms.author="larryfr"/>  
 
 #Esecuzione di query Hive usando PowerShell
 
@@ -41,7 +41,7 @@ Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remot
 
 Durante l'esecuzione di query Hive in un cluster HDInsight remoto, vengono usati i seguenti cmdlet:
 
-* **Add-AzureRmAccount**: autentica Azure PowerShell nella sottoscrizione di Azure.
+* **Add-AzureRmAccount**: autentica Azure PowerShell nella sottoscrizione di Azure
 
 * **New-AzureRmHDInsightHiveJobDefinition**: crea una nuova *definizione del processo* usando le istruzioni HiveQL specificate.
 
@@ -113,7 +113,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
 		.\hivejob.ps1
 
-    Quando viene eseguito lo script, verrà richiesto di immettere le credenziali dell'account HTTPS/Admin per il cluster. Si può anche richiedere di effettuare l’accesso alla sottoscrizione di Azure.
+    Quando viene eseguito lo script, verrà richiesto di immettere le credenziali dell'account HTTPS/Admin per il cluster. Si può anche richiedere di eseguire l'accesso alla sottoscrizione di Azure.
     
 7. Quando viene completato, il processo dovrebbe restituire informazioni simili alle seguenti:
 
@@ -188,4 +188,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

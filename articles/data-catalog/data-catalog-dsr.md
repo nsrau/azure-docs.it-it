@@ -3,22 +3,22 @@
    description="Specifica delle origini dati attualmente supportate."
    services="data-catalog"
    documentationCenter=""
-   authors="spelluru"
-   manager="paulettm"
+   authors="trhabe"
+   manager="jstrauss"
    editor=""
-   tags=""/>
+   tags=""/>  
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/25/2016"
-   ms.author="trhabe"/>
+   ms.date="09/13/2016"
+   ms.author="trhabe"/>  
 
 # Origini dati supportate da Catalogo dati di Azure
 
-Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API pubblica, uno strumento di registrazione di tipo ClickOnce o immettendo manualmente le informazioni direttamente nel portale Web di Catalogo dati. La griglia riportata di seguito fornisce un riepilogo di tutte le origini supportate oggi dal catalogo e delle relative funzionalità di pubblicazione. Sono anche elencati gli strumenti dati esterni che ogni origine può avviare dall'interno del portale. Più avanti è riportata una seconda griglia che specifica in modo più tecnico le proprietà di connessione delle singole origini dati.
+Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API pubblica, uno strumento di registrazione di tipo ClickOnce o immettendo manualmente le informazioni direttamente nel portale Web di Catalogo dati. La griglia seguente fornisce un riepilogo di tutte le origini supportate oggi dal catalogo e delle relative funzionalità di pubblicazione. Sono anche elencati gli strumenti dati esterni che ogni origine può avviare dall'interno del portale. La seconda griglia nell'articolo specifica in modo più tecnico le proprietà di connessione delle singole origini dati.
 
 
 ## Elenco di origini dati supportate
@@ -73,8 +73,8 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>Tabella di archiviazione di Azure</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2"></font>
       </td>
@@ -409,12 +409,12 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
 
 </table>
 
-Per il supporto di altre origini, inviare una richiesta di funzionalità mediante il [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Per il supporto di altre origini, inviare una richiesta di funzionalità tramite il [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
 <br> <br>
 ## Specifica di riferimento per l'origine dati
-> [AZURE.NOTE] Nella colonna "Struttura DSL" della tabella sotto vengono elencate solo le proprietà di connessione per il contenitore delle proprietà "address" usate in Azure Data Catalog. Il contenitore delle proprietà "address" può in realtà contenere altre proprietà di connessione dell'origine dati che Azure Data Catalog mantiene ma non usa.
+> [AZURE.NOTE] Nella colonna "Struttura DSL" della tabella seguente vengono elencate solo le proprietà di connessione per il contenitore delle proprietà "address" usate in Azure Data Catalog. Il contenitore delle proprietà "address" può in realtà contenere altre proprietà di connessione dell'origine dati che Azure Data Catalog mantiene ma non usa.
 <table>
     <tr>
        <td><b>Tipo di origine</b></td>
@@ -795,6 +795,17 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità mediant
       </td>
     </tr>
     <tr>
+      <td>Power Query</td>
+      <td>Table</td>
+      <td>Data Mashup</td>
+      <td>
+        Protocollo <font size=2>: power-query
+            <br>autenticazione: {oauth}
+            <br>indirizzo:
+            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+      </td>
+    </tr>
+    <tr>
       <td>Salesforce</td>
       <td>Tabella</td>
       <td>Object</td>
@@ -858,6 +869,20 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità mediant
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
+      <td>TableValuedFunction</td>
+      <td>Funzione con valori di tabella</td>
+      <td>
+        <font size=2> protocollo: tds
+            <br>autenticazione: {protocol, windows}
+            <br>indirizzo:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Data Warehouse</td>
       <td>Contenitore</td>
       <td>Database</td>
       <td>
@@ -898,6 +923,20 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità mediant
     </tr>
     <tr>
       <td>SQL Server</td>
+      <td>TableValuedFunction</td>
+      <td>Funzione con valori di tabella</td>
+      <td>
+        <font size=2> protocollo: tds
+            <br>autenticazione: {protocol, windows}
+            <br>indirizzo:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; object </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
       <td>Contenitore</td>
       <td>Database</td>
       <td>
@@ -910,8 +949,8 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità mediant
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Tabella</td>
-      <td>Tabella, vista, funzione con valori di tabella</td>
+      <td>Table</td>
+      <td>Tabella, vista</td>
       <td>
         <font size=2> protocollo: tds
             <br>autenticazione: {protocol, windows}
@@ -1127,4 +1166,4 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità mediant
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->
