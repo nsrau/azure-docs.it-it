@@ -62,7 +62,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 	* Quando si aggiunge un **record A (host)**, è necessario impostare il campo **Host** su **@** (che rappresenta il nome di dominio radice, ad esempio **contoso.com**), su * (un carattere jolly per la corrispondenza di più sottodomini) o sul sottodominio da usare (ad esempio **www**). È necessario impostare il campo **Punta a** (Punta a) sull'indirizzo IP dell'app Web di Azure.
 
-	* Quando si aggiunge un **record CNAME (alias)**, è necessario impostare il campo **Host** sul sottodominio da usare, ad esempio **www**. È necessario impostare il campo **Punta a** sul nome di dominio **.azurewebsites.net** dell'app Web di Azure. ad esempio **contoso.azurwebsites.net**.
+	* Quando si aggiunge un **record CNAME (alias)**, è necessario impostare il campo **Host** sul sottodominio da usare, ad esempio **www**. È necessario impostare il campo **Punta a** sul nome di dominio **.azurewebsites.net** dell'app Web di Azure. ad esempio **contoso.azurewebsites.net**.
 
 5. Fare clic su **Aggiungi utente**.
 6. Selezionare **TXT** come tipo di record, quindi specificare un valore **Host** di **@** e un valore **Point to** (Punta a) di **&lt;nomeappweb&gt;.azurewebsites.net**.
