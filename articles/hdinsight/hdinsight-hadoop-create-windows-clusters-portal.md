@@ -51,57 +51,57 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
   * **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo. Questa voce sarà impostata su uno dei gruppi di risorse esistenti, se disponibili.
   * **Credenziali**: configurare il nome utente e la password per l'utente di Hadoop (utente HTTP). Se si abilita desktop remoto per il cluster, è necessario configurare il nome utente e la password di desktop remoto nonché la data di scadenza dell'account. Fare clic su **Seleziona** in basso per salvare le modifiche.
 
-![Fornire le credenziali del cluster](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Fornire le credenziali del cluster")
+	   	![Fornire le credenziali del cluster](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Fornire le credenziali del cluster")
 
-* **Origine dati**: creare un nuovo account di archiviazione di Azure o selezionarne uno esistente da usare come file system predefinito per il cluster.
+  * **Origine dati**: creare un nuovo account di archiviazione di Azure o selezionarne uno esistente da usare come file system predefinito per il cluster.
 
-![Pannello di origine dati](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Fornire la configurazione origine dati")
+   		![Pannello di origine dati](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Fornire la configurazione origine dati")
 
-* **Metodo di selezione**: impostare questo valore su **Da tutte le sottoscrizioni** per consentire l'esplorazione degli account di archiviazione da tutte le sottoscrizioni. Impostare questa voce su **Chiave di accesso** se si vuole immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
-* **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
-* **Scegli contenitore predefinito**: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile usare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene usato per tale cluster specifico.
-* **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione. Questo percorso determina il percorso del cluster. Il cluster e l'account di archiviazione predefinito devono trovarsi nello stesso data center di Azure.
+  		* **Metodo di selezione**: impostare questo valore su **Da tutte le sottoscrizioni** per consentire l'esplorazione degli account di archiviazione da tutte le sottoscrizioni. Impostare questa voce su **Chiave di accesso** se si vuole immettere un valore nei campi **Nome archiviazione** e **Chiave di accesso** per un account di archiviazione esistente.
+  		* **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
+  		* **Scegli contenitore predefinito**: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile usare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene usato per tale cluster specifico.
+  		* **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione. Questo percorso determina il percorso del cluster. Il cluster e l'account di archiviazione predefinito devono trovarsi nello stesso data center di Azure.
   	
-* **Livelli di prezzi nodo**: Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
+  * **Livelli di prezzi nodo**: Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
   
 
-![Pannello livelli dei prezzi di nodo](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specificare il numero di nodi del cluster")
+		![Pannello livelli dei prezzi di nodo](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specificare il numero di nodi del cluster")
 
 
-* **Configurazione facoltativa**: per selezionare la versione del cluster, nonché configurare altre impostazioni facoltative, ad esempio l'aggiunta a una **Rete virtuale** o la configurazione di un **Metastore esterno** per contenere i dati per Hive e Oozie, usare azioni script per personalizzare un cluster per l'installazione di componenti personalizzati oppure usare altri account di archiviazione con il cluster.
+  * **Configurazione facoltativa**: per selezionare la versione del cluster, nonché configurare altre impostazioni facoltative, ad esempio l'aggiunta a una **Rete virtuale** o la configurazione di un **Metastore esterno** per contenere i dati per Hive e Oozie, usare azioni script per personalizzare un cluster per l'installazione di componenti personalizzati oppure usare altri account di archiviazione con il cluster.
 
-* **Versione HDInsight**: selezionare la versione da usare per il cluster. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
-* **Rete virtuale**: selezionare una rete virtuale di Azure e la subnet, se si desidera posizionare il cluster in una rete virtuale.
+  		* **Versione HDInsight**: selezionare la versione da usare per il cluster. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
+  		* **Rete virtuale**: selezionare una rete virtuale di Azure e la subnet, se si desidera posizionare il cluster in una rete virtuale.
 
-![Pannello della rete virtuale](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specificare i dettagli della rete virtuale")
+			![Pannello della rete virtuale](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specificare i dettagli della rete virtuale")
 
-Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [estendere le funzionalità di HDInsight mediante una rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+			Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [estendere le funzionalità di HDInsight mediante una rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
   
 
   		
-* **Metastore esterni**: specificare un database SQL di Azure da usare per salvare i metadati Hive e Oozie associati al cluster.
+		* **Metastore esterni**: specificare un database SQL di Azure da usare per salvare i metadati Hive e Oozie associati al cluster.
  
-> [AZURE.NOTE] La configurazione Metastore non è disponibile per i tipi di cluster HBase.
+            > [AZURE.NOTE] La configurazione Metastore non è disponibile per i tipi di cluster HBase.
 
-![Pannello metastore personalizzati](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specificare metastore esterni")
-
-
-Per **Usare un database SQL esistente per i metadati Hive**, fare clic su **Sì**, selezionare un database SQL e quindi specificare il nome utente e la password per il database. Ripetere questa procedura se si desidera **Utilizzare un database SQL esistente per i metadati Oozie**. Fare clic su **Seleziona** fino a quando non si visualizza di nuovo il pannello **Configurazione facoltativa**.
+			![Pannello metastore personalizzati](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specificare metastore esterni")
 
 
->[AZURE.NOTE] Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.
+			Per **Usare un database SQL esistente per i metadati Hive**, fare clic su **Sì**, selezionare un database SQL e quindi specificare il nome utente e la password per il database. Ripetere questa procedura se si desidera **Utilizzare un database SQL esistente per i metadati Oozie**. Fare clic su **Seleziona** fino a quando non si visualizza di nuovo il pannello **Configurazione facoltativa**.
 
-& nbsp;
 
-> [AZURE.IMPORTANT] Quando si crea un metastore personalizzato, non utilizzare un nome di database che contiene trattini o segni meno, poiché il processo di creazione del cluster non andrebbe a buon fine.
+			>[AZURE.NOTE] Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.
+
+            &nbsp;
+
+            > [AZURE.IMPORTANT] Quando si crea un metastore personalizzato, non utilizzare un nome di database che contiene trattini o segni meno, poiché il processo di creazione del cluster non andrebbe a buon fine.
 		
-* **Azioni script**: se si desidera usare uno script personalizzato per personalizzare un cluster durante la creazione. Per altre informazioni sulle azioni di script, vedere [Personalizzare i cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md). Nel pannello Azioni di Script fornire i dettagli, come illustrato nella schermata.
+  		* **Azioni script**: se si desidera usare uno script personalizzato per personalizzare un cluster durante la creazione. Per altre informazioni sulle azioni di script, vedere [Personalizzare i cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md). Nel pannello Azioni di Script fornire i dettagli, come illustrato nella schermata.
   	
 
-![Pannello azione di script](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specificare l'azione di script")
+			![Pannello azione di script](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specificare l'azione di script")
 
 
-* **Chiavi di archiviazione di Azure**: specificare gli account di archiviazione aggiuntivi da associare al cluster. Nel pannello **Chiavi di archiviazione di Azure** fare clic su **Aggiungi una chiave di archiviazione**, quindi selezionare un account di archiviazione esistente o crearne uno nuovo.
+    	* **Chiavi di archiviazione di Azure**: specificare gli account di archiviazione aggiuntivi da associare al cluster. Nel pannello **Chiavi di archiviazione di Azure** fare clic su **Aggiungi una chiave di archiviazione**, quindi selezionare un account di archiviazione esistente o crearne uno nuovo.
     
 
 			![Pannello risorse di archiviazione aggiuntive](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specificare gli account di archiviazione aggiuntivi")
@@ -146,4 +146,4 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 * [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md) - Informazioni su come inviare processi a HDInsight a livello di codice
 * [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->
