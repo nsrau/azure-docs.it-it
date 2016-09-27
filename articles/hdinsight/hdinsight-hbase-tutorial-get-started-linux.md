@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="mumian"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -39,17 +39,17 @@ Prima di iniziare questa esercitazione di HBase, è necessario disporre di quant
 
 ## Nome del cluster HBase
 
-La procedura seguente usa un modello di Gestione risorse di Azure per creare un cluster HBase. Per comprendere i parametri usati nella procedure e altri metodi di creazione del cluster, vedere [Creare cluster Hadoop basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+La procedura seguente usa un modello di Azure Resource Manager per creare un cluster HBase. Per comprendere i parametri usati nella procedure e altri metodi di creazione del cluster, vedere [Creare cluster Hadoop basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure. Il modello di Gestione risorse di Azure è disponibile in un contenitore BLOB pubblico.
+1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in un contenitore BLOB pubblico.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Nel pannello **Parametri** immettere le informazioni seguenti:
 
     - **ClusterName** (NomeCluster): immettere un nome per il cluster HBase che verrà creato.
     - **Cluster login name and password** (Nome di accesso e password del cluster): il nome dell'account di accesso predefinito è **admin**.
-    - **SSH username and password** (Nome utente e password SSH): il nome utente predefinito è **sshuser**. È possibile rinominarlo.
+    - **Nome utente e password SSH**: il nome utente predefinito è **sshuser**. È possibile rinominarlo.
      
     Gli altri parametri sono facoltativi.
     
@@ -247,7 +247,7 @@ SSH può essere usato anche per effettuare il tunneling di richieste locali, ad 
 4. Nelle opzioni di base disponibili nella schermata della sessione di PuTTY, immettere i valori seguenti:
 
 	- **Host Name**: indirizzo SSH del server HDInsight nel campo Host Name (o IP address). L'indirizzo SSH è il nome del cluster, quindi **-ssh.azurehdinsight.net**. Ad esempio, *mycluster-ssh.azurehdinsight.net*.
-	- **Port**: 22. La porta ssh sul nodo head 0 è 22.
+	- **Port**: 22. La porta ssh sul nodo head primario è 22.
 5. Nella sezione **Category** sul lato sinistro della finestra di dialogo espandere **Connection**, **SSH** e infine fare clic su **Tunnels**.
 6. Fornire le seguenti informazioni nel modulo "Options controlling SSH port forwarding":
 
@@ -325,4 +325,4 @@ Per altre informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

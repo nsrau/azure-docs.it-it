@@ -3,9 +3,9 @@
 	description="Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit utilizzando il portale di Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/06/2016"
-	ms.author="juliako"/>
+	ms.author="juliako;juliako"/>  
 
 
 #Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure
@@ -92,7 +92,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 
 3. Per specificare il numero di unità di streaming, usare il dispositivo di scorrimento di **Unità di streaming**.
 
-	![Unità di streaming](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
+	![Unità di streaming](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)  
 
 4. Fare clic sul pulsante **Salva** per salvare le modifiche apportate.
 
@@ -104,7 +104,7 @@ Per creare e modificare il numero di unità riservate di streaming, seguire ques
 2. Selezionare **Streaming live**.
 3. Selezionare **Creazione personalizzata**. Questa opzione permette di creare un canale abilitato per la codifica live.
 
-	![Creare un canale](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+	![Creare un canale](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)  
 	
 4. Fare clic su **Impostazioni**.
 	
@@ -146,7 +146,7 @@ Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure
 
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)  
 
 
 ##Creare e gestire eventi
@@ -181,7 +181,7 @@ Per avviare l'evento è possibile procedere in due modi:
 
 	Specificare il nome dell'evento, il nome dell'asset, l'intervallo di archiviazione e l'opzione di crittografia.
 	
-	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)  
 	
 	Se l'opzione **Pubblica subito questo evento live** è stata lasciata selezionata, verranno creati gli URL di pubblicazione dell'evento.
 	
@@ -202,7 +202,7 @@ Facendo clic su **Sospendi trasmissione** vengono arrestati tutti gli eventi liv
 
 Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta.
  
-![Data di creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Data di creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)  
 
 Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta.
 
@@ -220,7 +220,7 @@ Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado d
 
 Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
 
-![Asset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Asset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)  
 
 ##Considerazioni
 
@@ -240,4 +240,4 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

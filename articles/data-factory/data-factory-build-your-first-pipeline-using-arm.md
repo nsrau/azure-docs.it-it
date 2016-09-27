@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags
 	ms.service="data-factory"
@@ -18,26 +18,23 @@
 
 # Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager
 > [AZURE.SELECTOR]
+- [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
 - [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+In questo articolo viene usato un modello di Azure Resource Manager per creare la prima data factory di Azure.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
-
-## Ulteriori prerequisiti
-Oltre ai prerequisiti elencati nella sezione dei prerequisiti precedente, installare quanto segue:
-
-- **Installare Azure PowerShell**. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare la versione più recente di Azure PowerShell nel computer.
+## Prerequisiti
+- Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti**.
+- Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare la versione più recente di Azure PowerShell nel computer.
 - Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## Creare un modello di Resource Manager
 
-Creare un file JSON denominato **ADFTutorialARM.json** nella cartella **C:\\ADFGetStarted** con il contenuto seguente:
-
-Il modello consente di creare le seguenti entità di Data factory.
+In questa sezione vengono create le entità di Data Factory seguenti:
 
 1. Una **data factory** denominata **TutorialDataFactoryARM**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input.
 2. Due **servizi collegati**: **StorageLinkedService** e **HDInsightOnDemandLinkedService**. I servizi collegati collegano l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline. Identificare l'archivio dati/i servizi di calcolo usati nello scenario e collegare tali servizi alla data factory creando servizi collegati.
@@ -45,8 +42,9 @@ Il modello consente di creare le seguenti entità di Data factory.
 
 Fare clic sulla scheda **Tramite l'editor di Data factory** per passare all'articolo che fornisce informazioni dettagliate sulle proprietà JSON usate in questo modello.
 
-> [AZURE.IMPORTANT] Modificare i valori per le variabili **storageAccountName** e **storageAccountKey**. Modificare anche **dataFactoryName** perché il nome deve essere univoco.
+Creare un file JSON denominato **ADFTutorialARM.json** nella cartella **C:\\ADFGetStarted** con il contenuto seguente:
 
+> [AZURE.IMPORTANT] Modificare i valori per le variabili **storageAccountName** e **storageAccountKey**. Modificare anche **dataFactoryName** perché il nome deve essere univoco.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -226,9 +224,10 @@ Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-
 
 ## Creare un'istanza di Data Factory
 
-1. Aprire **Azure PowerShell** ed eseguire il comando seguente.
-	- Eseguire **Login-AzureRmAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.
-	- Eseguire il comando seguente per selezionare una sottoscrizione in cui si vuole creare la data factory. Get-AzureRmSubscription -SubscriptionName <NOME SOTTOSCRIZIONE> | Set-AzureRmContext
+1. Avviare **Azure PowerShell** ed eseguire questo comando:
+	- Eseguire `Login-AzureRmAccount` e immettere il nome utente e la password usati per accedere al portale di Azure.
+	- Eseguire `Get-AzureRmSubscription` per visualizzare tutte le sottoscrizioni per l'account.
+	- Eseguire `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure.
 1. Eseguire il comando seguente per distribuire entità di Data Factory usando il modello di Resource Manager creato nel Passaggio 1.
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -240,13 +239,13 @@ Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-
 2.	Nel pannello **Data factory** relativo alla data factory scelta fare clic su **Diagramma**. ![Riquadro Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	In **Vista diagramma** saranno visualizzati una panoramica delle pipeline e i set di dati usati in questa esercitazione.
 	
-	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
+	![Vista Diagramma](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 8. In Vista diagramma fare doppio clic sul set di dati **AzureBlobOutput**. Viene visualizzata la sezione in fase di elaborazione.
 
-	![Set di dati](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Al termine dell'elaborazione lo stato della sezione è **Pronta**. La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti).
+	![Set di dati](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png) 
+9. Al termine dell'elaborazione lo stato della sezione è **Pronta**. La creazione di un cluster HDInsight su richiesta di solito richiede tempo (circa 20 minuti). Di conseguenza, prevedere **circa 30 minuti** per l'elaborazione della sezione nella pipeline.
 
-	![Set di dati](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
+	![Set di dati](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)  
 10. Quando lo stato della sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB.
 
 Per istruzioni su come usare i pannelli del portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory](data-factory-monitor-manage-pipelines.md).
@@ -302,4 +301,4 @@ Questo modello crea una data factory denominata GatewayUsingArmDF con un gateway
 
   
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

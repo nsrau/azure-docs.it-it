@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
-   ms.author="larryfr"/>
+   ms.date="09/13/2016"
+   ms.author="larryfr"/>  
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:
 
@@ -43,11 +43,11 @@ OPPURE
 
 ##Che cos'è SSH?
 
-SSH è un'utilità per accedere ed eseguire in modalità remota i comandi in un server remoto. Con HDInsight basato su Linux, SSH stabilisce una connessione crittografata al nodo head del cluster e fornisce una riga di comando che consente di digitare i comandi. I comandi vengono quindi eseguiti direttamente sul server.
+SSH è un'utilità per accedere ed eseguire in modalità remota i comandi in un server remoto. Con HDInsight basato su Linux, SSH stabilisce una connessione crittografata al nodo head del cluster e mette a disposizione una riga di comando che consente di digitare i comandi. I comandi vengono quindi eseguiti direttamente sul server.
 
 ###SSH user name
 
-Un nome utente SSH è il nome utilizzato per autenticarsi con il cluster HDInsight. Quando si specifica un nome utente SSH durante la creazione del cluster, l'utente viene creato in tutti i nodi del cluster. Una volta creato il cluster, è possibile utilizzare questo nome utente per la connessione a nodi head del cluster HDInsight. Dai nodi head, è quindi possibile connettersi ai nodi del singolo lavoratore.
+Un nome utente SSH è il nome utilizzato per autenticarsi con il cluster HDInsight. Quando si specifica un nome utente SSH durante la creazione del cluster, l'utente viene creato in tutti i nodi del cluster. Una volta creato il cluster, è possibile usare questo nome utente per la connessione a nodi head del cluster HDInsight. Dai nodi head è quindi possibile connettersi ai singoli nodi del ruolo di lavoro.
 
 ###Password SSH o chiave pubblica
 
@@ -101,7 +101,7 @@ Quando si usa il [Portale di Azure][preview-portal] per creare un cluster HDInsi
 
 Se si seleziona **CHIAVE PUBBLICA SSH**, incollare la chiave pubblica (contenuta nel file con l’estensione **pub**) nel campo __SSH PublicKey__ oppure selezionare __Seleziona un file__ per cercare e selezionare il file di chiave pubblica.
 
-![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
+![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)  
 
 > [AZURE.NOTE] Il file della chiave è semplicemente un file di testo. Il contenuto dovrebbe essere simile al seguente:
 > ```
@@ -128,7 +128,7 @@ Da una sessione terminal usare il comando SSH per la connessione al nodo head de
 
 * **Nome utente**: il nome utente SSH fornito durante la creazione del cluster.
 
-L'esempio seguente consente di connettersi al nodo head 0 di **mycluster** come utente **me**:
+L'esempio seguente consentirà di connettersi al nodo head primario di **mycluster** come utente **me**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -138,13 +138,13 @@ Se è stata usata una chiave SSH è protetta con una passphrase, verrà richiest
 
 > [AZURE.NOTE] Se SSH non esegue automaticamente l'autenticazione con la chiave privata corretta, usare il parametro **-i** e specificare il percorso della chiave privata. Nell'esempio seguente la chiave privata verrà caricata da `~/.ssh/id_rsa`:
 >
-> `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
+> `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`  
 
-Se si prova a connettersi usando l'indirizzo del nodo head ma non viene specificata alcuna porta, SSH imposta automaticamente la porta 22, che si connette al nodo head 0 nel cluster HDInsight. Se si utilizza la porta 23, si è connessi al nodo head 1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
+Se si prova a connettersi usando l'indirizzo del nodo head ma non viene specificata alcuna porta, SSH imposta automaticamente la porta 22, che si connette al nodo head primario nel cluster HDInsight. Se si usa la porta 23, la connessione verrà eseguita al nodo head secondario. Per altre informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connettersi ai nodi di lavoro
 
-I nodi di lavoro non sono direttamente accessibili dall'esterno del data center di Azure, ma è possibile accedervi dal nodo head del cluster tramite SSH.
+I nodi del ruolo di lavoro non sono direttamente accessibili dall'esterno del data center di Azure, ma è possibile accedervi dal nodo head del cluster tramite SSH.
 
 Se si usa una chiave SSH per autenticare l'account utente, è necessario completare i passaggi seguenti nel client:
 
@@ -195,9 +195,9 @@ Usare la procedura seguente per connettersi ai nodi di lavoro per il cluster.
 
     > [AZURE.NOTE] Se è stata usata una password per l'autenticazione della sessione SSH, verrà richiesto di immetterla di nuovo. Se si usa una chiave SSH, la connessione dovrebbe terminare senza alcuna richiesta.
 
-4. Una volta stabilita la sessione, la richiesta del terminale cambierà da `username@hn0-clustername` a `username@wk0-clustername` per indicare che si è connessi al nodo di lavoro. Tutti i comandi eseguiti a questo punto verranno eseguiti sul nodo del lavoro.
+4. Una volta stabilita la sessione, la richiesta del terminale cambierà da `username@hn#-clustername` a `username@wk#-clustername` per indicare che si è connessi al nodo di lavoro. Tutti i comandi eseguiti a questo punto verranno eseguiti sul nodo del lavoro.
 
-4. Al termine dell'esecuzione di azioni su un nodo di lavoro, usare il comando `exit` per chiudere la sessione per il nodo di lavoro. In questo modo si tornerà alla richiesta `username@hn0-clustername`.
+4. Al termine dell'esecuzione di azioni su un nodo di lavoro, usare il comando `exit` per chiudere la sessione per il nodo di lavoro. In questo modo si tornerà alla richiesta `username@hn#-clustername`.
 
 ##Aggiungere altri account
 
@@ -219,7 +219,7 @@ Usare la procedura seguente per connettersi ai nodi di lavoro per il cluster.
 
 3. Quando si apre l'editor nano, copiare e incollare il contenuto della chiave pubblica per il nuovo account utente. Usare infine **Ctrl-X** per salvare il file e uscire dall'editor.
 
-	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)
+	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)  
 
 4. Usare il comando seguente per specificare il nuovo account utente come proprietario della cartella .ssh e del contenuto.
 
@@ -247,4 +247,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

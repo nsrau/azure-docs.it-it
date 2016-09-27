@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
 
 # Gestione di contenitori tramite l'interfaccia utente Web
@@ -75,7 +75,7 @@ Tornare alla pagina principale di Marathon, dove ora viene visualizzato lo stato
 
 Quando si passa di nuovo all'interfaccia utente Web di DC/OS (http://localhost/) si noterà che nel cluster DC/OS è in esecuzione un'attività, in questo caso un contenitore in formato Docker.
 
-![Interfaccia utente Web di DC/OS--attività in esecuzione nel cluster](media/dcos/dcos8.png)
+![Interfaccia utente Web di DC/OS--attività in esecuzione nel cluster](media/dcos/dcos8.png)  
 
 Viene anche visualizzato il nodo del cluster in cui viene eseguita l'attività.
 
@@ -91,7 +91,7 @@ Al termine dell'operazione di ridimensionamento verranno visualizzate più istan
 
 ![Dashboard dell'interfaccia utente Web di DC/OS--attività distribuita tra agenti](media/dcos/dcos11.png)
 
-![Interfaccia utente Web di DC/OS--nodi](media/dcos/dcos12.png)
+![Interfaccia utente Web di DC/OS--nodi](media/dcos/dcos12.png)  
 
 ## Passaggi successivi
 
@@ -101,4 +101,4 @@ Approfondimento sul servizio contenitore di Azure con Mesos
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="edmacauley" 
    manager="jhubbard" 
-   editor="cgronlun"/>
+   editor="cgronlun"/>  
  
 <tags
    ms.service="data-lake-analytics"
@@ -24,8 +24,6 @@
 Informazioni su come usare Azure .NET SDK per creare gli account di Analisi Azure Data Lake, definire i processi di Analisi Data Lake in [U-SQL](data-lake-analytics-u-sql-get-started.md) e inviare processi agli account di Analisi Data Lake. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 In questa esercitazione verrà sviluppata un'applicazione console C# contenente uno script U-SQL che legge un file di valori separati da tabulazioni (TSV) e lo converte in un file di valori separati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede disponibili nella parte superiore di questa sezione.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Prerequisiti
 
@@ -265,4 +263,4 @@ Un log di ricerca di esempio è stato copiato in un contenitore BLOB di Azure pu
 - Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

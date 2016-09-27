@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a usare Azure MFA e ADFS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services"
+	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a usare Azure MFA e ADFS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na" ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>  
 
 # Introduzione a Azure Multi-Factor Authentication e Active Directory Federation Services
 
 
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Se l'azienda ha federato la Active Directory locale con Azure Active Directory tramite ADFS, le due opzioni seguenti per l'utilizzo di Azure Multi-Factor Authentication sono disponibili.
 
-- Proteggere le risorse cloud mediante Azure Multi-Factor Authentication o Active Directory Federation Services 
-- Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication 
+- Proteggere le risorse cloud mediante Azure Multi-Factor Authentication o Active Directory Federation Services
+- Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication
 
 Nella tabella seguente è riepilogata l'esperienza di autenticazione tra le risorse di protezione con Azure Multi-Factor Authentication e ADFS
 
@@ -46,12 +46,4 @@ Per informazioni sull'impostazione di Azure Multi-Factor Authentication o del Se
 - [Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con ADFS Server Windows 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)
 - [Proteggere le risorse del cloud e locali mediante Server Azure Multi-Factor Authentication con AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 
-
-
-
-
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,9 +3,9 @@
 	description="Questo articolo offre una guida introduttiva ad Azure Multi-Factor Authentication e AD FS in Windows Server 2012 R2."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtland"/>
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>  
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 
 # Proteggere le risorse del cloud e locali mediante server Azure Multi-Factor Authentication con AD FS di Windows Server 2012 R2
@@ -47,19 +47,19 @@ Prima di iniziare, tenere presente le seguenti informazioni:
 2. Nella console di gestione del server Azure Multi-Factor Authentication, fare clic sull'icona **AD FS** e quindi selezionare le opzioni **Consenti registrazione utente** e **Consenti agli utenti di selezionare il metodo**.
 3. Selezionare eventuali opzioni aggiuntive per l'organizzazione.
 4. Fare clic su **Installa scheda ADFS**.
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/server.png)</center>
+<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs-w2k12/server.png)</center>
 5. Se il computer è unito a un dominio e la configurazione di Active Directory per proteggere la comunicazione tra l'adapter AD FS e il servizio Multi-Factor Authentication è incompleta, verrà visualizzata la finestra **Active Directory**. Fare clic su **Avanti** per completare la configurazione automaticamente oppure selezionare la casella di controllo **Ignora la configurazione automatica di Active Directory e configura le impostazioni manualmente** e quindi fare clic su **Avanti**.
 6. Se il computer non è unito a un dominio e la configurazione del gruppo locale per proteggere la comunicazione tra l'adapter AD FS e il servizio Multi-Factor Authentication è incompleta, verrà visualizzata la finestra **Gruppo locale**. Fare clic su **Avanti** per completare la configurazione automaticamente oppure selezionare la casella di controllo **Ignora la configurazione automatica di Gruppo locale e configura le impostazioni manualmente** e quindi fare clic su **Avanti**.
 7. Nell'installazione guidata fare clic su **Avanti**. Il server Azure Multi-Factor Authentication creerà il gruppo PhoneFactor Admins e aggiungerà l'account del servizio AD FS al gruppo PhoneFactor Admins.
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/adapter.png)</center>
+<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs-w2k12/adapter.png)</center>
 8. Nella pagina **Avvia programma di installazione** fare clic su **Avanti**.
 9. Nel programma di installazione dell'adapter AD FS di Multi-Factor Authentication fare clic su **Avanti**.
 10. Al termine dell'installazione, fare clic su **Chiudi**.
 11. Dopo aver installato l'adapter è necessario registrarlo con AD FS. Aprire Windows PowerShell ed eseguire il comando seguente:<br>`C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-   <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
+   <center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
 12. Modificare i criteri di autenticazione globali in AD FS per usare l'adapter appena registrato. Nella console di gestione di AD FS, passare al nodo **Criteri di autenticazione**. Nella sezione **Autenticazione a più fattori** fare clic sul collegamento **Modifica** accanto alla sezione **Impostazioni globali**. Nella finestra di dialogo **Modifica criteri di autenticazione globali** selezionare **Autenticazione a più fattori** come metodo di autenticazione aggiuntivo e quindi fare clic su **OK**. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS rendere effettiva la registrazione.
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/global.png)</center>
+<center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs-w2k12/global.png)</center>
 
 A questo punto, il server Multi-Factor Authentication è configurato per essere un provider di autenticazione aggiuntivo per l'uso con AD FS.
 
@@ -85,4 +85,4 @@ A questo punto, il server Multi-Factor Authentication è configurato per essere 
 
 Per registrare l'adapter, eseguire lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 in \\Programmi\\Multi-Factor Authentication Server\\ in PowerShell. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS rendere effettiva la registrazione.
 
-<!-----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

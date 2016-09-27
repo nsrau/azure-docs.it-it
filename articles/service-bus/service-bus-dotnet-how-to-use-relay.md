@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
 
@@ -27,7 +27,7 @@ Questo articolo descrive come usare il servizio Inoltro del bus di servizio. Neg
 
 Il [servizio *Inoltro* del bus di servizio](service-bus-relay-overview.md) consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale. A tale scopo, consente di esporre in modo sicuro nel cloud servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale sul cloud pubblico, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
-![Concetti relativi all'inoltro](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
+![Concetti relativi all'inoltro](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)  
 
 Il servizio Inoltro del bus di servizio consente di ospitare servizi WCF nell'ambiente aziendale esistente. È quindi possibile delegare al servizio del bus di servizio in esecuzione in Azure l'ascolto delle sessioni in ingresso e delle richieste a questi servizi WCF. In questo modo è possibile esporre tali servizi al codice dell'applicazione in esecuzione in Azure oppure ad ambienti destinati a personale che accede da dispositivi mobili o a partner che accedono tramite Extranet. Il bus di servizio consente di controllare in modo sicuro ed estremamente dettagliato gli utenti autorizzati ad accedere ai servizi. È uno strumento efficace e sicuro per esporre dati e funzionalità dell'applicazione dalle soluzioni aziendali esistenti e di sfruttarle dal cloud.
 
@@ -43,13 +43,12 @@ Per creare uno spazio dei nomi del servizio:
 
 ## Ottenere il pacchetto NuGet del bus di servizio
 
-Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. Per installare il pacchetto NuGet nell'applicazione, eseguire le operazioni seguenti:
+Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio. Per installare il pacchetto NuGet nel progetto, eseguire queste operazioni:
 
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
-2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva.
+2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva:
 
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
-
+	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)  
 
 ## Esporre e usare un servizio Web SOAP con TCP tramite il bus di servizio
 
@@ -57,10 +56,10 @@ Per esporre un servizio Web SOAP WCF esistente per l'utilizzo esterno, è necess
 
 In questa attività si creerà un semplice servizio WCF al quale verrà aggiunto un listener del bus di servizio. Per questo esercizio si presuppone una certa conoscenza di Visual Studio, pertanto non è inclusa una spiegazione dettagliata della procedura di creazione di un progetto, ma l'attenzione è rivolta principalmente al codice.
 
-Prima di iniziare, completare la procedura seguente per configurare l'ambiente:
+Prima di iniziare, completare questa procedura per configurare l'ambiente:
 
 1.  In Visual Studio creare un'applicazione console contenente due progetti, "Client" e "Service", all'interno della soluzione.
-2.  Aggiungere il pacchetto NuGet di Bus di servizio di Microsoft Azure a entrambi i progetti. In questo modo si aggiungeranno ai progetti tutti i riferimenti di assembly necessari.
+2.  Aggiungere il pacchetto NuGet di Bus di servizio di Microsoft Azure a entrambi i progetti. Questo pacchetto aggiunge ai progetti tutti i riferimenti ad assembly necessari.
 
 ### Come creare il servizio
 
@@ -68,7 +67,7 @@ Creare innanzitutto il servizio stesso. Tutti i servizi WCF sono costituiti da a
 
 -   Definizione di un contratto che descrive i messaggi da scambiare e le operazioni da richiamare.
 -   Implementazione del suddetto contratto.
--   Host che ospita il servizio WCF ed espone un numero di endpoint.
+-   Host che ospita il servizio WCF ed espone diversi endpoint.
 
 Negli esempi di codice di questa sezione vengono trattati singolarmente tutti questi componenti.
 
@@ -114,7 +113,7 @@ sh.AddServiceEndpoint(
    typeof(IProblemSolver), new NetTcpRelayBinding(),
    ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver"))
     .Behaviors.Add(new TransportClientEndpointBehavior {
-          TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "yourKey")});
+          TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "<yourKey>")});
 
 sh.Open();
 
@@ -124,7 +123,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione del contratto: Uno è locale e uno viene proiettato tramite il bus di servizio. Le differenze principali tra i due endpoint sono costituite dalle associazioni, [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) per l'endpoint locale e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) per l'endpoint e gli indirizzi del bus di servizio. L'endpoint locale è dotato di un indirizzo di rete locale con una porta distinta. L'endpoint del bus di servizio include un indirizzo composto dalla stringa `sb`, dal nome dello spazio dei nomi e dal percorso "solver". Si ottiene in tal modo l'URI `sb://[serviceNamespace].servicebus.windows.net/solver`, che identifica l'endpoint del servizio come endpoint TCP del bus di servizio con un nome DNS esterno completo. Se si inserisce il codice sostituendo i segnaposto come spiegato in precedenza nella funzione `Main` dell'applicazione **Service**, si otterrà un servizio funzionante. Se si vuole che il servizio sia in ascolto esclusivamente sul bus di servizio, rimuovere la dichiarazione dell'endpoint locale.
+Nell'esempio vengono creati due endpoint inclusi nella stessa implementazione del contratto: Uno è locale e uno viene proiettato tramite il bus di servizio. Le differenze principali tra i due endpoint sono costituite dalle associazioni, [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) per l'endpoint locale e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) per l'endpoint e gli indirizzi del bus di servizio. L'endpoint locale è dotato di un indirizzo di rete locale con una porta distinta. L'endpoint del bus di servizio include un indirizzo composto dalla stringa `sb`, dal nome dello spazio dei nomi e dal percorso "solver". Si ottiene in tal modo l'URI `sb://[serviceNamespace].servicebus.windows.net/solver`, che identifica l'endpoint del servizio come endpoint TCP del bus di servizio con un nome DNS esterno completo. Se si inserisce il codice sostituendo i segnaposto nella funzione `Main` dell'applicazione **Service**, si otterrà un servizio funzionante. Se si vuole che il servizio sia in ascolto esclusivamente sul bus di servizio, rimuovere la dichiarazione dell'endpoint locale.
 
 ### Come configurare un host del servizio nel file App.config
 
@@ -138,7 +137,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Le definizioni dell'endpoint vengono spostate nel file App.config. Si noti che il pacchetto NuGet ha già aggiunto al file App.config una serie di definizioni, che sono le estensioni di configurazione necessarie per il bus di servizio. L'esempio seguente, che è l'esatto equivalente di quello riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. In questo esempio di codice si presuppone che il nome dello spazio dei nomi del progetto C# sia **Service**. Sostituire i segnaposto con la chiave di firma di accesso condiviso e lo spazio dei nomi del servizio del bus di servizio.
+Le definizioni dell'endpoint vengono spostate nel file App.config. Il pacchetto NuGet ha già aggiunto al file App.config una serie di definizioni, che sono le estensioni di configurazione necessarie per il bus di servizio. L'esempio seguente, che è l'esatto equivalente di quello riportato in precedenza, deve essere inserito direttamente sotto l'elemento **system.serviceModel**. In questo esempio di codice si presuppone che il nome dello spazio dei nomi del progetto C# sia **Service**. Sostituire i segnaposto con la chiave di firma di accesso condiviso e lo spazio dei nomi del servizio del bus di servizio.
 
 ```
 <services>
@@ -157,7 +156,7 @@ Le definizioni dell'endpoint vengono spostate nel file App.config. Si noti che i
         <behavior name="sbTokenProvider">
             <transportClientEndpointBehavior>
                 <tokenProvider>
-                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="<yourKey>" />
                 </tokenProvider>
             </transportClientEndpointBehavior>
         </behavior>
@@ -183,7 +182,7 @@ var cf = new ChannelFactory<IProblemSolverChannel>(
     new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
 
 cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
-            { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","yourKey") });
+            { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","<yourKey>") });
 
 using (var ch = cf.CreateChannel())
 {
@@ -219,7 +218,7 @@ Le definizioni dell'endpoint vengono spostate nel file App.config. L'esempio seg
         <behavior name="sbTokenProvider">
             <transportClientEndpointBehavior>
                 <tokenProvider>
-                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="<yourKey>" />
                 </tokenProvider>
             </transportClientEndpointBehavior>
         </behavior>
@@ -239,4 +238,4 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di inoltro del
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [panoramica degli esempi del bus di servizio]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

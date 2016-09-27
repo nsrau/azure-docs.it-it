@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-service-management"/>  
 
 <tags
    ms.service="vpn-gateway"
@@ -15,19 +15,18 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="cherylmc"/>
+   ms.author="cherylmc"/>  
 
 # Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure classico
 
 > [AZURE.SELECTOR]
-- [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portale di Azure classico](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classica - Portale classico](vpn-gateway-site-to-site-create.md)
 
 Questo articolo illustra la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale con il **modello di distribuzione classica** e il portale classico. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Attualmente, non è possibile creare una configurazione da sito a sito per il modello di distribuzione classica tramite il portale di Azure.
 
-![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "Da sito a sito")
+![Diagramma da sito a sito](./media/vpn-gateway-site-to-site-create/site2site.png "Da sito a sito")  
 
 
 ### Strumenti e modelli di distribuzione per le connessioni da sito a sito
@@ -55,11 +54,11 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **Nuovo**. Nel riquadro di spostamento fare clic su **Servizi di rete** e quindi su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
-3. Per creare la rete virtuale, inserire le informazioni nelle pagine seguenti.
+3. Per creare la rete virtuale, immettere le impostazioni di configurazione nelle pagine seguenti:
 
 ## Pagina Dettagli della rete virtuale
 
-Immettere le seguenti informazioni.
+Immettere le seguenti informazioni:
 
 - **Nome**: assegnare un nome alla rete virtuale. Ad esempio, *EastUSVNet*. Questo nome della rete virtuale viene usato quando si distribuiscono le macchine virtuali e le istanze PaaS, quindi è consigliabile non specificare un nome troppo complicato.
 - **Indirizzo**: la località è direttamente correlata alla località fisica (area) in cui si vuole che risiedano le risorse (macchine virtuali). Se ad esempio si vuole che le macchine virtuali distribuite nella rete virtuale siano collocate fisicamente nell'area *Stati Uniti occidentali*, selezionare tale località. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
@@ -76,7 +75,7 @@ Immettere le informazioni riportate di seguito e quindi fare clic sulla freccia 
 
 Se si crea una nuova rete locale, verrà visualizzata la pagina **Connettività da sito a sito**. Se si desidera usare una rete locale creata in precedenza, questa pagina non verrà visualizzata nella procedura guidata e sarà possibile passare alla sezione successiva.
 
-Immettere le informazioni riportate di seguito e quindi fare clic sulla freccia Avanti.
+Immettere le seguenti informazioni e fare clic sulla freccia avanti.
 
 - 	**Nome**: nome da assegnare al sito di rete locale.
 - 	**Indirizzo IP dispositivo VPN**: indirizzo IPv4 pubblico del dispositivo VPN locale usato per la connessione ad Azure. Il dispositivo VPN non può trovarsi dietro un NAT.
@@ -107,4 +106,4 @@ Configurare il gateway di rete virtuale per creare una connessione da sito a sit
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS" 
-	description="Questa è la pagina di Azure Multi-factor authentication che sarà utile per la distribuzione di Gateway Desktop remoto (RD) e Server Azure Multi-Factor Authentication tramite RADIUS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
-	editor="curtand"/>
+	pageTitle="Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS"
+	description="Questa è la pagina di Azure Multi-factor authentication che sarà utile per la distribuzione di Gateway Desktop remoto (RD) e Server Azure Multi-Factor Authentication tramite RADIUS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/> 
 
 # Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
 
@@ -57,6 +57,6 @@ Il Server Azure Multi-Factor Authentication è configurato come proxy RADIUS tra
 3. Fare clic sulla scheda destinazione e scegliere il pulsante di opzione server RADIUS.
 4. Fare quindi clic su Add. Immettere l'indirizzo IP, il segreto condiviso e le porte del server dei criteri di rete. Se non si utilizzano dei criteri di rete centrali, il client RADIUS e la destinazione RADIUS saranno uguali. Il segreto condiviso deve corrispondere a quello impostato nella sezione client RADIUS del server dei criteri di rete.
 
-![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
+![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png) 
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

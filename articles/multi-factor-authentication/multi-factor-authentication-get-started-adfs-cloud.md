@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS" 
-	description="Questa è la pagina su Multi-Factor Authentication di Azure in cui viene descritto come iniziare a utilizzare questa tipologia di autenticazione di Azure nel cloud." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS"
+	description="Questa è la pagina su Multi-Factor Authentication di Azure in cui viene descritto come iniziare a utilizzare questa tipologia di autenticazione di Azure nel cloud."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>  
 
 # Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
 
 Se l'organizzazione è federata con Azure Active Directory e si dispone di risorse che sono accessibili da Azure AD, è possibile utilizzare Azure Multi-Factor Authentication o Active Directory Federation Services per proteggere tali risorse. Utilizzare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure Multi-Factor Authentication o Active Directory Federation Services.
 
-## Per la protezione delle risorse Azure AD con ADFS procedere come segue: 
+## Per la protezione delle risorse Azure AD con ADFS procedere come segue:
 
 
 
@@ -67,7 +67,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Si creeranno due 
 10. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare Inviare attestazioni mediante una regola personalizzata dall'elenco a discesa e fare clic su Avanti.
 11. Nella casella Nome regola attestazione specificare di mantenere gli utenti gli utenti connessi.
 12. Nella casella Regola personalizzata immettere:
-	    
+
 		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
 			=> issue(claim = c);
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)  
@@ -93,4 +93,4 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 
 La procedura è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

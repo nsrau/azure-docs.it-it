@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Introduzione a Azure Mobile Engagement per iOS in Objective C"
+	pageTitle="Introduzione ad Azure Mobile Engagement per iOS in Objective C | Microsoft Azure"
 	description="Informazioni sull'uso di Azure Mobile Engagement con le funzionalità di analisi e notifiche push per le app per iOS."
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+	manager="erikre"
+	editor="" />  
 
 <tags
 	ms.service="mobile-engagement"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="piyushjo" />
+	ms.date="09/14/2016"
+	ms.author="piyushjo" />  
 
 # Introduzione a Azure Mobile Engagement per app per iOS in Objective C
 
 [AZURE.INCLUDE [Banner per la selezione del tipo di esercitazione](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'utilizzo dell'app e inviare notifiche push a utenti segmentati di un'applicazione per iOS. In questa esercitazione si creerà un'app per iOS vuota che raccoglie dati di base e riceve notifiche push tramite Apple Push Notification System (APNS).
+Questo argomento descrive come usare Azure Mobile Engagement per comprendere l'utilizzo delle app e inviare notifiche push a utenti segmentati di un'applicazione iOS. In questa esercitazione si creerà un'app per iOS vuota che raccoglie dati di base e riceve notifiche push tramite Apple Push Notification System (APNS).
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ XCode 6 o 7 XCode, che è possibile installare dall'App Store MAC
++ XCode 8, che è possibile installare da MAC App Store
 + [Mobile Engagement SDK per iOS]
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Mobile Engagement relative ad app per iOS.
@@ -169,13 +169,13 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Mobile Engagement SDK per iOS]: http://aka.ms/qk2rnj
 
-<!-- Images. -->
+<!-- Images. -->  
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET" 
+	pageTitle="Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con .NET | Microsoft Azure" 
 	description="Questa esercitazione illustra i passaggi per creare un canale che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit mediante .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;anilmur"/>  
 
 
 #Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
@@ -27,7 +27,7 @@
 >[AZURE.NOTE]
 Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-##Panoramica
+##Overview
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
@@ -518,7 +518,9 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 	}	
 
 
-##Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
+##Passaggio successivo
+
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -528,6 +530,6 @@ Aggiungere una sezione appSettings al file app.config e impostare i valori per i
 
 ### Se si è alla ricerca di qualcos’altro.
 
-Se questo argomento non contiene i risultati desiderati, manca un elemento o in altro modo non soddisfa le esigenze, si prega di inviarci dei suggerimenti tramite il thread di Disqus riportato di seguito.
+Se questo argomento non è di aiuto, non contiene ciò che si cerca o in altro modo non soddisfa le esigenze, è possibile inviare commenti e suggerimenti tramite il thread di Disqus riportato di seguito.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

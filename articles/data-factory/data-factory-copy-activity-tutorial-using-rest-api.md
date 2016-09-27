@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/17/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/> 
 
 # Esercitazione: Creare una pipeline con l'attività di copia usando l'API REST
 > [AZURE.SELECTOR]
-- [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Con l'editor di Data factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Tramite PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Con Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Uso dell'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Uso dell'API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+- [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 Questa esercitazione mostra come creare e monitorare una data factory di Azure con l'API REST. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
-
-L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
 > [AZURE.NOTE] 
 Questo articolo non illustra tutte le API REST di Data Factory. Per la documentazione completa sui cmdlet di Data Factory, vedere [Informazioni di riferimento sull'API REST di Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx).
@@ -36,7 +34,7 @@ Questo articolo non illustra tutte le API REST di Data Factory. Per la documenta
 
 ## Prerequisiti
 
-- Vedere la [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Vedere [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ed eseguire i passaggi relativi ai **prerequisiti**.
 - Installare [Curl](https://curl.haxx.se/dlwiz/) nel computer. Lo strumento Curl viene usato insieme ai comandi REST per creare una data factory.
 - Seguire le istruzioni disponibili in [questo articolo](../resource-group-create-service-principal-portal.md) per:
 	1. Creare un'applicazione Web denominata **ADFCopyTutorialApp** in Azure Active Directory.
@@ -375,7 +373,7 @@ Eseguire i passaggi seguenti per preparare l'archivio BLOB di Azure e il databas
 				
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)  
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 
@@ -493,4 +491,4 @@ In questa esercitazione è stata usata l'API REST per creare una data factory di
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

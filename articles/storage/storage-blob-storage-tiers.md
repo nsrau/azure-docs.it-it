@@ -3,9 +3,9 @@
     description="I livelli di archiviazione per l'archivio BLOB di Azure offrono un'archiviazione economicamente conveniente per dati oggetto in base ai modelli di accesso. Il livello di archiviazione ad accesso sporadico di Azure è ottimizzato per i dati a cui si accede con minore frequenza."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
-    editor="tysonn"/>
+    authors="michaelhauss"
+    manager="vamshik"
+    editor="tysonn"/>  
 
 <tags
     ms.service="storage"
@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>  
 
 
 # Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico
 
-## Panoramica
+## Overview
 
 L'Archiviazione di Azure offre due livelli di archiviazione per l'archivio BLOB (archivio di oggetti), per consentire di archiviare i dati nel modo economicamente più conveniente in base alla modalità d'uso. Il **livello di archiviazione ad accesso frequente** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di frequente. Il **livello di archiviazione ad accesso sporadico** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di raramente e di lunga durata. I dati nel livello di archiviazione ad accesso sporadico possono tollerare una disponibilità leggermente più bassa, ma richiedono ugualmente una durabilità elevata e caratteristiche di velocità effettiva e tempo di accesso simili a quelle dei dati ad accesso frequente. Per i dati ad accesso sporadico, contratti di servizio con una disponibilità leggermente più bassa e costi di accesso più elevati sono compromessi accettabili in cambio di costi di archiviazione molto più bassi.
 
@@ -120,7 +120,7 @@ Gli account di archiviazione BLOB usano un nuovo modello di determinazione prezz
 - **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
 - **Modifica del livello di archiviazione**: la modifica del livello di archiviazione da sporadico a frequente comporta un addebito corrispondente a quello per la lettura di tutti i dati esistenti nell'account di archiviazione per ogni transizione. Invece il passaggio del livello di archiviazione da frequente a sporadico è gratuito.
 
-> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di archiviazione da sporadico a frequente non viene applicato fino al 30 giugno 2016. A partire dal 1ª luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
+> [AZURE.NOTE] Per consentire agli utenti di provare i nuovi livelli di archiviazione e convalidare la funzionalità dopo l'avvio, l'addebito per il passaggio del livello di archiviazione da sporadico a frequente non viene applicato fino al 30 giugno 2016. A partire dal 1° luglio 2016, l'addebito verrà applicato a tutte le transizioni da Non frequente a Frequente. Per altri dettagli sul modello di determinazione prezzi per gli account di archiviazione BLOB, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altri dettagli sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## Avvio rapido
 
@@ -159,7 +159,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 7. Selezionare il livello di archiviazione corretto per le proprie esigenze: impostare **Livello di accesso** su **Non frequente** o **Frequente**. Il livello predefinito è **Frequente**.
 
-8. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
+8. Selezionare la sottoscrizione in cui creare il nuovo account di archiviazione.
 
 9. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
@@ -340,4 +340,4 @@ Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure con .NET](st
 
 [Visualizzare ed esplorare gli account di archiviazione](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

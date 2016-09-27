@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/11/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -55,7 +55,7 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 	
 1. Dopo aver letto la descrizione dell'app WordPress, fare clic su **Crea**.
 
-	![Creare un'app Web WordPress][MarketplaceCreate]
+	![Creare un'app Web WordPress][MarketplaceCreate]  
 
 ## Configurare le impostazioni del servizio app di Azure per la nuova app Web
 
@@ -69,7 +69,7 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 
 	![Configurare il nome dell'app Web WordPress][ConfigAppName]
 
-1. Se sono disponibili più sottoscrizioni, scegliere quella da usare.
+1. Se sono disponibili più sottoscrizioni, scegliere quella che si vuole usare.
 
 	![Configurare la sottoscrizione per l'app Web][ConfigSubscription]
 
@@ -143,7 +143,7 @@ Per altre informazioni su come utilizzare le app Web del servizio app, vedere i 
 
 Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Sviluppo di WordPress nel servizio app di Azure][WordPressOnAzure].
 
-<!-- URL List -->
+<!-- URL List -->  
 
 [PHP]: https://azure.microsoft.com/develop/php/
 [.NET]: https://azure.microsoft.com/develop/net/
@@ -160,7 +160,7 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [Project Nami]: http://projectnami.org/
 [WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [MarketplaceStart]: ./media/app-service-web-create-web-app-from-marketplace/marketplacestart.png
 [MarketplaceSearch]: ./media/app-service-web-create-web-app-from-marketplace/marketplacesearch.png
@@ -180,4 +180,4 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!-----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

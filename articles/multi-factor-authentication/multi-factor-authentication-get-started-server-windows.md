@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="L'autenticazione di Windows e Azure il Server Multi-Factor Authentication" 
-	description="Questa è la pagina di autenticazione a più fattori di Azure che sarà utile per distribuire l'autenticazione di Windows e Server Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="L'autenticazione di Windows e Azure il Server Multi-Factor Authentication"
+	description="Questa è la pagina di autenticazione a più fattori di Azure che sarà utile per distribuire l'autenticazione di Windows e Server Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>  
 
 # L'autenticazione di Windows e Azure il Server Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ La sezione autenticazione di Windows consente all'amministratore di abilitare e 
 
 
 >[AZURE.NOTE]Questa funzionalità non è supportata per proteggere Servizi Terminal in Windows Server 2012 R2.
- 
+
 
 
 
@@ -49,4 +49,4 @@ La sezione autenticazione di Windows consente all'amministratore di abilitare e 
 10. Selezionare Subnet se si desidera specificare un intervallo di indirizzi IP utilizzando la notazione di subnet. Immettere l’IP iniziale della subnet e scegliere la mask appropriata dall'elenco a discesa.
 11. Fare clic sul pulsante OK.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

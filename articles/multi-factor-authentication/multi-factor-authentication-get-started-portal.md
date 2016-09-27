@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Distribuzione del portale utenti per il server Azure Multi-Factor Authentication" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a utilizzare Azure MFA e ADFS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
-	editor="curtand"/>
+	pageTitle="Distribuzione del portale utenti per il server Azure Multi-Factor Authentication"
+	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a utilizzare Azure MFA e ADFS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/> 
 
 # Distribuzione del portale utenti per il server Azure Multi-Factor Authentication
 
@@ -101,7 +101,7 @@ Il portale utenti è ora installato. È necessario configurare il server Azure M
 Il server Azure Multi-Factor Authentication offre diverse opzioni per il portale utenti. La tabella seguente include un elenco di queste opzioni e una spiegazione dell'uso a cui sono destinate.
 
 Impostazioni del portale utenti|Descrizione|
-:------------- | :------------- | 
+:------------- | :------------- |
 URL portale utenti| Consente di immettere l'URL in cui viene ospitato il portale.
 Autenticazione primaria| Consente di specificare il tipo di autenticazione da usare quando si accede al portale. Autenticazione di Windows, Radius o LDAP.
 Consenti agli utenti di accedere|Consente agli utenti di immettere un nome utente e una password nella pagina di accesso del portale utenti. Se l'impostazione non è selezionata, le caselle risulteranno disattivate.
@@ -117,7 +117,7 @@ Abilitazione della registrazione|Abilita la registrazione nel portale utenti. I 
 
 La maggior parte di queste impostazioni è visibile all'utente dopo che è stato abilitato e ha eseguito l'accesso al portale utenti.
 
-![Impostazioni del portale utenti](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
+![Impostazioni del portale utenti](./media/multi-factor-authentication-get-started-portal/portalsettings.png) 
 
 
 
@@ -136,7 +136,7 @@ La maggior parte di queste impostazioni è visibile all'utente dopo che è stato
 ## Scheda Amministratori
 Questa scheda consente semplicemente di aggiungere gli utenti che hanno privilegi amministrativi. Quando si aggiunge un amministratore, è possibile ottimizzare le autorizzazioni che riceve. In questo modo, è possibile concedere all'amministratore solo le autorizzazioni necessarie. Fare semplicemente clic sul pulsante Aggiungi, selezionare un utente e le relative autorizzazioni e quindi fare clic su Aggiungi.
 
-![Amministratori del portale utenti](./media/multi-factor-authentication-get-started-portal/admin.png)
+![Amministratori del portale utenti](./media/multi-factor-authentication-get-started-portal/admin.png) 
 
 
 ## Domande di sicurezza
@@ -150,12 +150,12 @@ Questa scheda consente di specificare le domande di sicurezza a cui gli utenti d
 ## SAML
 Consente di configurare il portale utenti perché accetti attestazioni da un provider di identità usando SAML. Si possono specificare la sessione di timeout, il certificato di verifica e l'URL di reindirizzamento per la disconnessione.
 
-![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
+![SAML](./media/multi-factor-authentication-get-started-portal/saml.png) 
 
 ## Indirizzi IP attendibili
 Questa scheda consente di specificare singoli indirizzi IP o intervalli di indirizzi IP che possono essere aggiunti in modo che, se un utente accede con uno di questi indirizzi IP, Multi-Factor Authentication venga ignorato.
 
-![Indirizzi IP attendibili del portale utenti](./media/multi-factor-authentication-get-started-portal/trusted.png)
+![Indirizzi IP attendibili del portale utenti](./media/multi-factor-authentication-get-started-portal/trusted.png) 
 
 ## Registrazione utente in modalità self-service
 Se si vuole che gli utenti accedano e si registrino, è necessario selezionare le opzioni Consenti agli utenti di accedere e Consenti registrazione utente. Tenere presente che le impostazioni selezionate influiranno sull'esperienza di accesso degli utenti.
@@ -170,7 +170,7 @@ Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede
 
 Se l'utente seleziona il metodo di autenticazione tramite SMS o è stato preconfigurato per l'uso di questo metodo, la pagina richiederà il numero di telefono cellulare. Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiederà anche di immettere un PIN. Dopo aver immesso il numero di telefono e il PIN (se applicabile), l'utente fa clic sul pulsante Invia SMS per autenticare utente corrente. Azure Multi-Factor Authentication esegue l'autenticazione tramite SMS al cellulare dell'utente. L'utente deve ricevere l'SMS che include un passcode monouso e rispondere al messaggio con il passcode e il PIN (se applicabile) per proseguire con il passaggio successivo del processo di autoregistrazione.
 
-![SMS del portale utenti](./media/multi-factor-authentication-get-started-portal/text.png)
+![SMS del portale utenti](./media/multi-factor-authentication-get-started-portal/text.png) 
 
 Se l'utente seleziona il metodo di autenticazione tramite app per dispositivi mobili o è stato preconfigurato per l'uso di questo metodo, la pagina richiederà di installare l'app Azure Multi-Factor Authentication nel dispositivo e generare un codice di attivazione. Dopo aver installato l'app Azure Multi-Factor Authentication, l'utente fa clic sul pulsante Genera codice di attivazione.
 
@@ -187,6 +187,4 @@ Se gli amministratori hanno configurato il server Azure Multi-Factor Authenticat
 
 A questo punto la registrazione automatica è stata completata e l'utente è connesso al portale utenti. Se consentito dagli amministratori, gli utenti possono accedere al portale utenti in qualsiasi momento per modificare numeri di telefono, PIN, metodi di autenticazione e domande di sicurezza.
 
- 
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->
