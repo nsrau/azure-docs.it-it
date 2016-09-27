@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/20/2016"
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Introduzione alle app per le API, ad ASP.NET e a Swagger in Servizio app di Azure
 
@@ -66,7 +66,7 @@ L'esercitazione successiva della serie distribuisce il front-end dell'applicazio
 
     * In Visual Studio fare clic su ? -> Informazioni su Microsoft Visual Studio e assicurarsi di aver installato "Strumenti del servizio app di Azure versione 2.9.1" o versioni successive.
 
-	![Versione di Strumenti del servizio app di Azure](./media/app-service-api-dotnet-get-started/apiversion.png)  
+	![Versione di Strumenti del servizio app di Azure](./media/app-service-api-dotnet-get-started/apiversion.png)
 
 	>[AZURE.NOTE] In base al numero di dipendenze da SDK già presenti nel computer, l'installazione dell'SDK può richiedere tempi lunghi, da alcuni minuti ad almeno mezz'ora.
 
@@ -93,7 +93,7 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 
 1. Impostare il progetto ToDoListDataAPI come progetto di avvio, **non** come progetto ToDoListAPI.
 
-	![Impostare ToDoDataAPI come progetto di avvio](./media/app-service-api-dotnet-get-started/startupproject.png)  
+	![Impostare ToDoDataAPI come progetto di avvio](./media/app-service-api-dotnet-get-started/startupproject.png)
 
 2. Premere F5 o fare clic su **Debug > Avvia debug** per eseguire il progetto in modalità debug.
 
@@ -318,7 +318,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 18. Fare clic su **Altri servizi > Servizi app**.
 
-	![Selezionare Servizi app](./media/app-service-api-dotnet-get-started/browseas.png)  
+	![Selezionare Servizi app](./media/app-service-api-dotnet-get-started/browseas.png)
 
 19. Nel pannello **Servizi app** trovare la nuova app per le API e fare clic su di essa. Nel portale di Azure le finestre che si aprono sulla destra sono dette *pannelli*.
 
@@ -370,7 +370,7 @@ Il progetto ToDoListAPI include già il codice client generato, ma nei passaggi 
 
 	Visual Studio crea una cartella con il nome dell'app per le API e genera classi client.
 
-	![File di codice per il client generato](./media/app-service-api-dotnet-get-started/codegenfiles.png)  
+	![File di codice per il client generato](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
 6. Nel progetto ToDoListAPI aprire *Controllers\\ToDoListController.cs* per visualizzare il codice nella riga 40 che chiama l'API usando il client generato.
 

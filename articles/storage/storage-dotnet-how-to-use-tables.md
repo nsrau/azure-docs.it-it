@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="09/20/2016"
-	ms.author="gusapost;tamram"/>  
+	ms.author="gusapost;tamram"/>
 
 
 # Introduzione all'archiviazione tabelle di Azure con .NET
@@ -142,7 +142,7 @@ Per inserire un batch di entità in una tabella, è possibile usare un'unica ope
 -  A tutte le entità di una singola operazione batch deve essere associata la stessa chiave di partizione.
 -  È possibile eseguire una query come operazione batch, ma deve essere l'unica operazione del batch.
 
-<!-- -->  
+<!-- -->
 L'esempio di codice seguente consente di creare due oggetti entità e di aggiungere ciascuno a un oggetto **TableBatchOperation** utilizzando il metodo **Insert**. Per eseguire l'operazione, viene quindi chiamato **CloudTable.Execute**.
 
     // Retrieve the storage account from the connection string.

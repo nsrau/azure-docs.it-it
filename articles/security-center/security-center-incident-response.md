@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="security-center"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/20/2016"
-   ms.author="yurid"/>  
+   ms.author="yurid"/>
 
 # Uso del Centro sicurezza di Azure per rispondere agli eventi imprevisti
 Molte organizzazioni imparano a rispondere agli eventi imprevisti della sicurezza solo dopo aver subito un attacco. Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima di un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
@@ -25,7 +25,7 @@ Un piano efficace dipende da tre capacità principali: proteggere, rilevare e ri
 
 Questo articolo usa le fasi di risposta agli eventi imprevisti della sicurezza illustrate nell'articolo [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678) (Centro sicurezza di Microsoft Azure nel cloud) e indicate nel diagramma seguente:
 
-![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig1.png)  
+![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig1.png)
 
 Il Centro sicurezza può essere usato nelle fasi di rilevamento, valutazione e diagnosi. Per altre informazioni su ognuna di queste fasi, di seguito è descritto un esempio dell'utilità del Centro sicurezza nelle tre fasi di risposta iniziali agli eventi imprevisti della sicurezza:
 
@@ -46,7 +46,7 @@ La prima fase della migrazione è stata completata dopo l'onboarding di tutte le
 
 Ai fini di questo scenario verranno presi in esame i ruoli degli utenti seguenti che appartengono al team di risposta agli eventi imprevisti della sicurezza di Contoso:
 
-![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig2.png)  
+![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
 Alice si occupa delle operazioni di sicurezza e le sue responsabilità includono:
 - Monitoraggio e risposta alle minacce per la sicurezza 24 ore su 24
@@ -63,7 +63,7 @@ Come si può notare, Alice e Guido hanno responsabilità diverse e devono intera
 
 Avendo ruoli diversi, Alice e Guido useranno aree diverse del Centro sicurezza per ottenere informazioni attinenti alle proprie attività quotidiane. Alice userà gli avvisi di sicurezza nell'ambito delle attività di monitoraggio giornaliere.
 
-![Avviso di sicurezza](./media/security-center-incident-response/security-center-incident-response-fig3.png)  
+![Avviso di sicurezza](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
 Alice userà gli avvisi di sicurezza durante le fasi di rilevamento e valutazione. Quando avrà terminato la valutazione iniziale, Alice potrà inoltrare il problema a Guido, se sono necessarie altre analisi. Guido userà a questo punto le informazioni messe a disposizione dal Centro sicurezza, a volte in combinazione con altre fonti di dati, per passare alla fase di diagnosi.
 
@@ -90,7 +90,7 @@ Dopo aver letto la descrizione, Alice è convinta che non si tratti di un falso 
 
 Guido riceve il caso da Alice e inizia a esaminare la procedura correttiva consigliata dal Centro sicurezza.
 
-![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig6.png)  
+![Ciclo di vita della risposta agli eventi imprevisti](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### Risorse aggiuntive
 

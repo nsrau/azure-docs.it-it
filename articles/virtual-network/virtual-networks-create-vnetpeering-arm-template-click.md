@@ -6,7 +6,7 @@
    authors="narayanannamalai"
    manager="jefco"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-network"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/14/2016"
-   ms.author="narayanannamalai;annahar"/>  
+   ms.author="narayanannamalai;annahar"/>
 
 # Creare un peering reti virtuali usando modelli di Resource Manager
 

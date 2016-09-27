@@ -14,20 +14,20 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/20/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Abilitare la sincronizzazione password in Servizi di dominio Azure AD
 Nelle attività precedenti si è abilitato Servizi di dominio Azure AD per il tenant di Azure AD. L'attività successiva consiste nell'abilitare la sincronizzazione delle password in Servizi di dominio Azure AD. Dopo avere configurato la sincronizzazione delle credenziali, gli utenti possono accedere al dominio gestito usando le credenziali aziendali.
 
 I passaggi sono diversi a seconda che l'organizzazione abbia un tenant di Azure AD basato solo sul cloud o sia impostata per la sincronizzazione con la directory locale tramite Azure AD Connect.
 
-<br>  
+<br>
 
 > [AZURE.SELECTOR]
 - [Tenant di Azure AD solo cloud](active-directory-ds-getting-started-password-sync.md)
 - [Tenant di Azure AD sincronizzato](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
-<br>  
+<br>
 
 
 ## Attività 5: Abilitare la sincronizzazione password in Servizi di dominio Azure AD per un tenant di Azure AD sincronizzato

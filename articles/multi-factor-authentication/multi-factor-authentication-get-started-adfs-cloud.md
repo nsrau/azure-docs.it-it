@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtland"/>  
+	editor="curtland"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 # Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
 
@@ -27,7 +27,7 @@ Se l'organizzazione è federata con Azure Active Directory e si dispone di risor
 1. Usare la procedura descritta in [Attivare Multi-Factor Authentication](active-directory/multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) per consentire agli utenti di abilitare un account.
 2. Utilizzare la procedura seguente per impostare una regola attestazioni:
 
-![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)  
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 
 - 	Avviare la console di gestione di ADFS.
 - 	Passare alla Relying Party Trusts e fare clic destro sul Trust della Relying Party. Selezionare Modifica regole attestazione...
@@ -56,7 +56,7 @@ Gli indirizzi IP attendibili consentono agli amministratori di ignorare Multi-Fa
 Per prima cosa è necessario configurare le attestazioni ADFS. Si creeranno due regole attestazioni, una per il tipo di attestazione All'interno della rete aziendale e un'altra per mantenere gli utenti connessi.
 
 1. Aprire il componente di gestione di ADFS.
-2. A sinistra selezionare Trust relying party.
+2. A sinistra selezionare Attendibilità componente.
 3. Al centro fare clic con il pulsante destro del mouse sulla piattaforma delle identità di Microsoft Office 365 e scegliere **Modifica regole attestazione**![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 4. In Regole di trasformazione rilascio fare clic su **Aggiungi regola.** ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso dall'elenco a discesa e fare clic su Avanti. ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
@@ -70,7 +70,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Si creeranno due 
 
 		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
 			=> issue(claim = c);
-![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)  
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
 13. Fare clic su **Fine**.
 14. Fare clic su **Apply**.
 15. Fare clic su **OK**.

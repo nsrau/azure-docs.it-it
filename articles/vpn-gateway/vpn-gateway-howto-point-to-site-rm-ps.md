@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Configurare una connessione da punto a sito a una rete virtuale usando PowerShell
 
@@ -174,7 +174,7 @@ Nei client che si connettono ad Azure con una connessione da punto a sito devono
 
 4. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione verrà visualizzata in un elenco, insieme al nome della rete virtuale a cui si connette ed è simile a questo esempio:
 
-	![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Client VPN")  
+	![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "Client VPN")
 
 ## <a name="cc"></a>Parte 6: Generare il certificato client
 
@@ -203,7 +203,7 @@ Installare un certificato client in ogni computer che si vuole connettere alla r
 
 3. Verrà stabilita la connessione.
 
-	![Client VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connessione del client VPN 2")  
+	![Client VPN 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connessione del client VPN 2")
 
 ## Parte 9: Verificare la connessione
 
@@ -236,7 +236,7 @@ In Azure è possibile aggiungere fino a 20 file CER di certificato radice truste
  
 	Copiare i valori, come illustrato nell'esempio seguente:
 
-	![certificato](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificato")  
+	![certificato](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificato")
 	
 2. Specificare il nome del certificato e le informazioni sulla chiave come variabile. Sostituire le informazioni con i propri dati, come illustrato nell'esempio seguente:
 

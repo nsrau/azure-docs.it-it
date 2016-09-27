@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="CarlRabeler"
 	manager="jhubbard"
-	editor="CarlRabeler"/>  
+	editor="CarlRabeler"/>
 
 <tags
 	ms.service="sql-database"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="08/10/2016"
-	ms.author="carlrab"/> 
+	ms.author="carlrab"/>
 
 # Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL
 

@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="security-center"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/20/2016"
-   ms.author="yurid"/>  
+   ms.author="yurid"/>
 
 # Avvisi di sicurezza per tipo nel Centro sicurezza di Azure
 Questo documento consente di comprendere i diversi tipi di avvisi di sicurezza disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
@@ -25,7 +25,7 @@ Questo documento consente di comprendere i diversi tipi di avvisi di sicurezza d
 ## Quali tipi di avvisi sono disponibili?
 Centro sicurezza di Azure offre una serie di avvisi in linea con le fasi delle catene di attacco. La figura seguente illustra alcuni esempi di diversi avvisi relativi ad alcune di queste fasi.
 
-![Catena di attacco](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)  
+![Catena di attacco](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
 
 
 **Puntamento e attacco**
@@ -83,7 +83,7 @@ Questo avviso fornisce il campo aggiuntivo seguente:
 
 Esempio di questo tipo di avviso:
 
-![Avviso per shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)  
+![Avviso per shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### Individuato hijack del modulo
 
@@ -100,7 +100,7 @@ Oltre ai campi comuni descritti nella sezione "Individuato shellcode" precedente
 
 Esempio di questo tipo di avviso:
 
-![Avviso di hijack del modulo](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)  
+![Avviso di hijack del modulo](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### Rilevato modulo Windows mascherato
 
@@ -120,7 +120,7 @@ Questo avviso, inoltre, estrae e visualizza determinati campi dell'intestazione 
 
 Esempio di questo tipo di avviso:
 
-![Avviso di modulo Windows mascherato](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)  
+![Avviso di modulo Windows mascherato](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### Individuato file binario di sistema modificato
 
@@ -133,7 +133,7 @@ Oltre ai campi comuni descritti nella sezione "Individuato shellcode" precedente
 
 Esempio di questo tipo di avviso:
 
-![Avviso di file binario di sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)  
+![Avviso di file binario di sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### Processo sospetto eseguito
 
@@ -141,7 +141,7 @@ Centro sicurezza identifica il processo sospetto in esecuzione nella macchina vi
  
 Esempio di questo tipo di avviso:
 
-![Avviso di processo sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)  
+![Avviso di processo sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### Tentativi ripetuti di query sugli account di dominio
 
@@ -149,7 +149,7 @@ Centro sicurezza può rilevare tentativi di query ripetuti sugli account di domi
 
 Esempio di questo tipo di avviso:
 
-![Avviso di tentativi di query multipli su account di dominio](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)  
+![Avviso di tentativi di query multipli su account di dominio](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
 ## Analisi di rete
 
@@ -159,7 +159,7 @@ Il sistema di rilevamento delle minacce di rete del Centro sicurezza funziona me
 
 I dispositivi di rete possono essere individuati e profilati così come altri tipi di sistemi. L'attacco ha in genere inizio con la scansione o la scansione sistematica delle porte. Nell'esempio di seguito è presente un traffico SSH sospetto da una VM che può eseguire un attacco di scansione sistematica delle porte o di forza bruta SSH contro una risorsa esterna.
 
-![Avviso per traffico in uscita sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)  
+![Avviso per traffico in uscita sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 L'avviso contiene informazioni che consentono di identificare la risorsa usata per avviare l'attacco, il computer compromesso, la data e l'ora di rilevamento, il protocollo e la porta usata. Il pannello contiene anche un elenco dei passaggi di correzione che possono essere usati per attenuare il problema.
 
@@ -167,7 +167,7 @@ L'avviso contiene informazioni che consentono di identificare la risorsa usata p
 
 Sfruttando i feed di intelligence per le minacce di Microsoft, il Centro sicurezza di Azure può rilevare i computer compromessi che comunicano con indirizzi IP dannosi, corrispondenti in molti casi a un centro di comando e controllo. In questo caso, il Centro sicurezza di Azure ha rilevato la comunicazione con il malware Pony Loader, noto anche come [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF).
 
-![Avviso di comunicazione di rete](./media/security-center-alerts-type/security-center-alerts-type-fig9.png)  
+![Avviso di comunicazione di rete](./media/security-center-alerts-type/security-center-alerts-type-fig9.png)
 
 L'avviso contiene informazioni che consentono di identificare la risorsa usata per avviare l'attacco, la risorsa che ha subito attacchi, l'IP vittima, l'IP dell'utente malintenzionato e la data e l'ora di rilevamento.
 
@@ -180,7 +180,7 @@ Il traffico di rete anomalo generato da una macchina virtuale può indurre il Ce
  
 Esempio di questo tipo di avviso:
 
-![DoS in uscita](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)  
+![DoS in uscita](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## Analisi delle risorse
 
@@ -194,7 +194,7 @@ In un attacco SQL injection, il malware viene inserito in stringhe che vengono s
 - Attacchi SQL injection
 - Accesso insolito al database di produzione da parte di un utente da casa
 
-![Avviso di potenziale SQL injection](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)  
+![Avviso di potenziale SQL injection](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
 
 L'avviso contiene informazioni che consentono di identificare la risorsa che ha subito attacchi, la data e l'ora di rilevamento e lo stato dell'attacco, nonché un collegamento ad altri passaggi di analisi.
 
@@ -202,13 +202,13 @@ L'avviso contiene informazioni che consentono di identificare la risorsa che ha 
 
 Questo avviso viene generato quando viene rilevato un errore di applicazione in un database che potrebbe indicare una vulnerabilità ad attacchi SQL injection.
 
-![Avviso di potenziale SQL injection](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)  
+![Avviso di potenziale SQL injection](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
 
 ### Accesso da posizione insolita
 
 Questo avviso viene generato quando nel server è stato rilevato un accesso da un indirizzo IP insolito non osservato nell'ultimo periodo.
 
-![Avviso di accesso insolito](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)  
+![Avviso di accesso insolito](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
 
 
 ## Vedere anche

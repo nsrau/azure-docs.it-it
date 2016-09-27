@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/16/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Introduzione ad Azure AD Privileged Identity Management
 
@@ -39,7 +39,7 @@ Se si è la prima persona che usa Azure AD Privileged Identity Management nella 
 
 Dopo la configurazione di Azure AD Privileged Identity Management, a ogni apertura dell'applicazione verrà visualizzato il pannello di navigazione. Usare questo pannello per eseguire le attività di gestione delle identità.
 
-![Attività principali per PIM - Screenshot](./media/active-directory-privileged-identity-management-getting-started/pim_tasks.png)  
+![Attività principali per PIM - Screenshot](./media/active-directory-privileged-identity-management-getting-started/pim_tasks.png)
 
 - **Attiva i ruoli personali** consente di accedere all'elenco dei ruoli assegnati all'utente. In questa posizione si attiveranno i ruoli per cui si è idonei.
 
@@ -48,7 +48,7 @@ Dopo la configurazione di Azure AD Privileged Identity Management, a ogni apertu
 - **Verifica dell'accesso con privilegi** consente di accedere alle eventuali verifiche di accesso in sospeso, sia per se stessi che per altri utenti, che devono essere completate.
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
 La [panoramica di Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) include altri dettagli su come gestire l'accesso amministrativo nell'organizzazione.

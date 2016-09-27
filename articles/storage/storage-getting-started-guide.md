@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="09/20/2016"
-	ms.author="dineshm;tamram"/>  
+	ms.author="dineshm;tamram"/>
 
 # Introduzione a Azure Storage in cinque minuti
 

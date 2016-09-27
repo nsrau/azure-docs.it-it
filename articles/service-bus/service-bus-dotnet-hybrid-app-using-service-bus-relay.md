@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="09/16/2016"
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 # Uso di Inoltro del bus di servizio di Azure per creare applicazioni ibride cloud/locali .NET
 
@@ -41,7 +41,7 @@ Il servizio Inoltro del bus di servizio è progettato per i casi d'uso in cui se
 
 In questa esercitazione si creerà un sito Web ASP.NET che consente di visualizzare un elenco di prodotti nella pagina relativa all'inventario dei prodotti.
 
-![][0]  
+![][0]
 
 Ai fini dell'esercitazione si presuppone che le informazioni sui prodotti siano già disponibili in un sistema locale esistente e che per accedere a tale sistema venga usato Inoltro del bus di servizio. Tale operazione viene simulata da un servizio Web eseguito in una semplice applicazione console ed è supportata da un insieme di prodotti in memoria. Sarà quindi possibile eseguire questa applicazione console nel computer in uso e distribuire il ruolo Web in Azure. In tal modo sarà possibile osservare che il ruolo Web in esecuzione nel data center di Azure verrà effettivamente chiamato nel computer in uso, anche se quest'ultimo sarà quasi certamente protetto da almeno un firewall e un livello NAT (Network Address Translation).
 
@@ -83,7 +83,7 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
 
 3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione console**. Nella casella **Nome** digitare il nome **ProductsServer**:
 
-    ![][11]  
+    ![][11]
 
 4.  Fare clic su **OK** per creare il progetto **ProductsServer**.
 
@@ -93,7 +93,7 @@ Il progetto è un'applicazione console di Visual Studio e usa il [pacchetto NuGe
 
 8.  Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-    ![][13]  
+    ![][13]
 
     I riferimenti agli assembly client necessari sono ora disponibili.
 
@@ -240,7 +240,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 3.  Da **Modelli installati**, in **Visual C#**, fare clic su **Applicazione Web ASP.NET**. Assegnare al progetto il nome **ProductsPortal**. Fare quindi clic su **OK**.
 
-    ![][15]  
+    ![][15]
 
 4.  Nell'elenco **Seleziona modello** fare clic su **MVC**.
 
@@ -250,11 +250,11 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 5. Fare clic sul pulsante **Modifica autenticazione**. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione** e quindi fare clic su **OK**. Per questa esercitazione si distribuisce un'applicazione che non richiede l'accesso utente.
 
-	![][18]  
+	![][18]
 
 6. 	Nella sezione **Microsoft Azure** della finestra di dialogo **Nuovo progetto ASP.NET** assicurarsi che sia selezionata la casella **Ospita nel cloud** e che nell'elenco a discesa sia selezionato **Servizio app**.
 
-	![][19]  
+	![][19]
 
 7. Fare clic su **OK**.
 
@@ -262,7 +262,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 5.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Modelli**, scegliere **Aggiungi** e infine fare clic su **Classe**. Nella casella **Nome** digitare il nome **Product.cs**. Fare quindi clic su **Aggiungi**.
 
-    ![][17]  
+    ![][17]
 
 ### Modificare l'applicazione web
 
@@ -311,7 +311,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
 
 6. Rimuovere i collegamenti **Home**, **About** e **Contact**. Nell'esempio seguente, eliminare il codice evidenziato.
 
-	![][41]  
+	![][41]
 
 7.  In Esplora soluzioni espandere la cartella Views\\Home e quindi fare doppio clic su **Index.cshtml** per aprirlo nell'editor di Visual Studio. Sostituire l'intero contenuto del file con il codice seguente.
 
@@ -360,7 +360,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
 2.  In Visual Studio premere F5.
 3.  L'applicazione dovrebbe risultare in esecuzione in un browser.
 
-    ![][21]  
+    ![][21]
 
 ## Combinare i diversi componenti
 
@@ -376,7 +376,7 @@ Nel passaggio successivo si collegherà il server dei prodotti locale all'applic
 
 5.  Individuare il file **ProductsContract.cs** nel progetto console **ProductsServer**. Fare clic per evidenziare ProductsContract.cs. Fare clic sulla freccia rivolta verso il basso accanto ad **Aggiungi**, quindi fare clic su **Aggiungi come collegamento**.
 
-	![][24]  
+	![][24]
 
 6.  Aprire il file **HomeController.cs** nell'editor di Visual Studio e sostituire la definizione dello spazio dei nomi con il codice seguente. Assicurarsi di sostituire *yourServiceNamespace* con il nome dello spazio dei nomi servizio e *yourKey* con la chiave SAS. In tal modo il client potrà chiamare il servizio locale e restituire il risultato della chiamata.
 
@@ -428,11 +428,11 @@ Nel passaggio successivo si collegherà il server dei prodotti locale all'applic
 
 10. Sul lato sinistro fare clic su **Progetto di avvio**. Sul lato destro fare clic su **Progetti di avvio multipli**. Assicurarsi che **ProductsServer** e **ProductsPortal** siano visualizzati in questo ordine e che l'azione **Avvia** sia impostata per entrambi.
 
-      ![][25]  
+      ![][25]
 
 11. Sempre nella finestra di dialogo **Proprietà** fare clic su **Dipendenze progetto** sul lato sinistro.
 
-12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che ** ProductsPortal** **non** sia selezionato.
+12. Nell'elenco **Projects** fare clic su **ProductsServer**. Verificare che **ProductsPortal** **non** sia selezionato.
 
 14. Nell'elenco **Progetti** fare clic su **ProductsPortal**. Assicurarsi che **ProductsServer** sia selezionato.
 
@@ -458,7 +458,7 @@ Nel passaggio successivo si convertirà il front-end **ProductsPortal** in un'ap
 
 Copiare l'URL dell'app Web distribuita, perché sarà necessario nel passaggio successivo. È anche possibile ottenere l'URL dalla finestra Attività del servizio app di Azure in Visual Studio:
 
-![][9]  
+![][9]
 
 ### Impostare ProductsPortal come app Web
 
@@ -470,7 +470,7 @@ Prima di eseguire l'applicazione nel cloud è necessario assicurarsi che **Produ
 
 5. Nella sezione **Azione di avvio** fare clic sul pulsante **Avvia URL** e nella casella di testo immettere l'URL dell'app Web distribuita in precedenza, ad esempio `http://productsportal1234567890.azurewebsites.net/`.
 
-	![][27]  
+	![][27]
 
 6. Nel menu **File** di Visual Studio fare clic su **Salva tutto**.
 
@@ -480,7 +480,7 @@ Prima di eseguire l'applicazione nel cloud è necessario assicurarsi che **Produ
 
 2.  Premere F5 per compilare ed eseguire l'applicazione. Il server locale, ovvero l'applicazione console **ProductsServer**, verrà avviato per primo, quindi verrà avviata l'applicazione **ProductsPortal** in una finestra del browser, come illustrato nella schermata seguente. Si noterà di nuovo che nell'inventario dei prodotti sono elencati i dati recuperati dal sistema locale del servizio dei prodotti, che vengono visualizzati nell'app Web. Verificare l'URL per assicurarsi che **ProductsPortal** sia in esecuzione nel cloud come app Web di Azure.
 
-    ![][1]  
+    ![][1]
 
 	> [AZURE.IMPORTANT] L'applicazione console **ProductsServer** deve essere in esecuzione e in grado di passare dati all'applicazione **ProductsPortal**. Se nel browser viene visualizzato un errore, attendere alcuni secondi che **ProductsServer** venga caricato e visualizzi il messaggio seguente. Fare quindi clic su **Aggiorna** nel browser.
 
@@ -488,7 +488,7 @@ Prima di eseguire l'applicazione nel cloud è necessario assicurarsi che **Produ
 
 3. Nel browser fare clic su **Aggiorna** nella pagina **ProductsPortal**. Ogni volta che si aggiorna la pagina, nell'app server viene visualizzato un messaggio quando si chiama `GetProducts()` da **ProductsServer**.
 
-	![][38]  
+	![][38]
 
 ## Passaggi successivi  
 

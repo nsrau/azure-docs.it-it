@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="hero-article" 
 	ms.date="09/19/2016"
-	ms.author="juliako;anilmur"/>  
+	ms.author="juliako;anilmur"/>
 
 #Panoramica e scenari comuni di Servizi multimediali di Azure
 
@@ -164,7 +164,7 @@ Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in stream
 
 Il diagramma seguente illustra le parti principali della piattaforma AMS coinvolte nel flusso di lavoro **pass-through**.
 
-![Flusso di lavoro live][live-overview2]  
+![Flusso di lavoro live][live-overview2]
 
 Per altre informazioni, vedere l'articolo relativo all'[uso di canali che ricevono il flusso live a velocità in bit multipla da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -172,7 +172,7 @@ Per altre informazioni, vedere l'articolo relativo all'[uso di canali che ricevo
 
 Il seguente diagramma mostra i componenti principali della piattaforma AMS interessati dal flusso di lavoro di streaming live dove un canale è abilitato a eseguire la codifica live con Servizi multimediali.
 
-![Flusso di lavoro live][live-overview1]  
+![Flusso di lavoro live][live-overview1]
 
 Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -213,7 +213,7 @@ Il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) for
 
 Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
-<!-- Images -->  
+<!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png

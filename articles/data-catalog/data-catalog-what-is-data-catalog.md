@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="09/21/2016"
-   ms.author="maroche"/>  
+   ms.author="maroche"/>
 
 # Che cos'è il Catalogo dei dati di Azure?
 

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/13/2016"
-   ms.author="larryfr"/>  
+   ms.author="larryfr"/>
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:
 
@@ -101,7 +101,7 @@ Quando si usa il [Portale di Azure][preview-portal] per creare un cluster HDInsi
 
 Se si seleziona **CHIAVE PUBBLICA SSH**, incollare la chiave pubblica (contenuta nel file con l’estensione **pub**) nel campo __SSH PublicKey__ oppure selezionare __Seleziona un file__ per cercare e selezionare il file di chiave pubblica.
 
-![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)  
+![Image of form asking for public key](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
 > [AZURE.NOTE] Il file della chiave è semplicemente un file di testo. Il contenuto dovrebbe essere simile al seguente:
 > ```
@@ -138,7 +138,7 @@ Se è stata usata una chiave SSH è protetta con una passphrase, verrà richiest
 
 > [AZURE.NOTE] Se SSH non esegue automaticamente l'autenticazione con la chiave privata corretta, usare il parametro **-i** e specificare il percorso della chiave privata. Nell'esempio seguente la chiave privata verrà caricata da `~/.ssh/id_rsa`:
 >
-> `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`  
+> `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
 Se si prova a connettersi usando l'indirizzo del nodo head ma non viene specificata alcuna porta, SSH imposta automaticamente la porta 22, che si connette al nodo head primario nel cluster HDInsight. Se si usa la porta 23, la connessione verrà eseguita al nodo head secondario. Per altre informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
@@ -219,7 +219,7 @@ Usare la procedura seguente per connettersi ai nodi di lavoro per il cluster.
 
 3. Quando si apre l'editor nano, copiare e incollare il contenuto della chiave pubblica per il nuovo account utente. Usare infine **Ctrl-X** per salvare il file e uscire dall'editor.
 
-	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)  
+	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)
 
 4. Usare il comando seguente per specificare il nuovo account utente come proprietario della cartella .ssh e del contenuto.
 

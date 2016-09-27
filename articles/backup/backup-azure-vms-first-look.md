@@ -188,7 +188,7 @@ Dopo aver protetto la macchina virtuale con i criteri specificati, è possibile 
 
 Per avviare il backup iniziale:
 
-1. In basso nella pagina **Elementi protetti ** fare clic **Esegui backup ora**. ![Icona Esegui backup ora](./media/backup-azure-vms-first-look/backup-now-icon.png)
+1. In basso nella pagina **Elementi protetti** fare clic **Esegui backup ora**. ![Icona Esegui backup ora](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
     Il servizio Backup di Azure crea un processo di backup per l'operazione di backup iniziale.
 

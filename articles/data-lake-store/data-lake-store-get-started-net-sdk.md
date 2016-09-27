@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="data-lake-store"
@@ -71,7 +71,7 @@ Informazioni su come usare [.NET SDK con Azure Data Lake Store](https://msdn.mic
 		* `Microsoft.Azure.Management.DataLake.StoreUploader` - In questa esercitazione si usa v0.10.6-preview.
 		* `Microsoft.Rest.ClientRuntime.Azure.Authentication` - In questa esercitazione si usa v2.2.8-preview.
 
-		![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creare un nuovo account di Azure Data Lake")  
+		![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creare un nuovo account di Azure Data Lake")
 
 	4. Chiudere la finestra **Gestione pacchetti NuGet**.
 

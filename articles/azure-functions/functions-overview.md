@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/29/2016"
-   ms.author="cfowler;mahender;glenga"/>  
+   ms.author="cfowler;mahender;glenga"/>
    
    
 # Panoramica di Funzioni di Azure

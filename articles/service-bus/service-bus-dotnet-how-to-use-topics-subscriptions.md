@@ -14,7 +14,7 @@
     ms.devlang="dotnet"
     ms.topic="get-started-article"
     ms.date="09/16/2016"
-    ms.author="sethm"/>  
+    ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
@@ -37,7 +37,7 @@ Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsA
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva:
 
-    ![][7]  
+    ![][7]
 
 È ora possibile scrivere codice per il bus di servizio.
 
@@ -311,7 +311,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sottoscrizioni del bus di servizio, usare i collegamenti seguenti per altre informazioni.
 
 -   [Code, argomenti e sottoscrizioni del bus di servizio][].
--   [Topic filters sample][] (Esempio di filtri di argomento).
+-   [Topic filters sample][] \(Esempio di filtri di argomento).
 -   Riferimento sulle API per [SqlFilter][]
 -   Per creare un'applicazione funzionante che invia e riceve messaggi verso e da una coda del bus di servizio, vedere l'[Esercitazione sulla messaggistica negoziata del bus di servizio - .NET][].
 -   Esempi relativi al bus di servizio: è possibile scaricarli dagli [esempi di Azure][] oppure vedere la [panoramica](service-bus-samples.md).

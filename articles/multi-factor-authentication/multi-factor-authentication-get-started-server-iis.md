@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,14 +14,14 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 # Autenticazione IIS
 
 La sezione Autenticazione IIS del server Azure Multi-Factor Authentication consente di abilitare e configurare l'autenticazione IIS per l'integrazione con le applicazioni Web Microsoft IIS. Il server Azure Multi-Factor Authentication installa un plug-in che può filtrare le richieste inoltrate al server Web IIS in modo da aggiungere Azure Multi-Factor Authentication. Il plug-in di IIS fornisce inoltre il supporto per l'autenticazione basata su form e l'autenticazione HTTP integrata di Windows. È possibile anche configurare gli indirizzi IP attendibili in modo da escludere gli indirizzi IP interni dall'autenticazione a due fattori.
 
 
-![Autenticazione IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)  
+![Autenticazione IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
 
 ## Uso dell'autenticazione IIS basata su form con il server Azure Multi-Factor Authentication

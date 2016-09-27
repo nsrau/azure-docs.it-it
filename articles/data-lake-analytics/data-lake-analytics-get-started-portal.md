@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="edmacauley" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="05/16/2016"
-   ms.author="edmaca"/>  
+   ms.author="edmaca"/>
 
 # Esercitazione: Introduzione a Analisi di Azure Data Lake con il portale di Azure
 
@@ -42,7 +42,7 @@ Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archi
 2. Fare clic su **Nuovo**, su **Dati e Analisi** e quindi su **Analisi Data Lake**.
 6. Immettere o selezionare le informazioni seguenti:
 
-    ![Analisi Data Lake di Azure - Pannello del portale](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)  
+    ![Analisi Data Lake di Azure - Pannello del portale](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Nome**: nome dell'account di Analytics.
 	- **Data Lake Store**: ogni account di Data Lake Analytics ha un account di Data Lake Store dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
@@ -52,7 +52,7 @@ Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archi
 7. Selezionare **Aggiungi alla Schermata iniziale**. Questa impostazione è necessaria per l'esecuzione dell'esercitazione.
 8. Fare clic su **Crea**. Viene visualizzata la schermata iniziale del portale. Alla schermata iniziale viene aggiunto un nuovo riquadro con l'etichetta "Distribuzione di Analisi Data Lake di Azure". Il processo per la creazione di un account di Analisi Data Lake richiede alcuni istanti. Al termine del processo, il portale aprirà l'account in un nuovo pannello.
 
-	![Analisi Data Lake di Azure - Pannello del portale](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)  
+	![Analisi Data Lake di Azure - Pannello del portale](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
 
 Dopo aver creato un account di Analisi Data Lake, è possibile aggiungere altri account di Archivio Data Lake e account di Archiviazione di Azure. Per istruzioni, vedere la sezione relativa alla [gestione delle origini dati degli account di Analisi Data Lake](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
@@ -100,7 +100,7 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
     Se il pannello non è presente, vedere [Aprire un account di Analisi Data Lake dal portale](data-lake-analytics-manage-use-portal.md#access-adla-account).
 4. Immettere il **Nome processo** e lo script U-SQL seguente:
 
-	![creare processi U-SQL con Analisi Data Lake di Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job.png)  
+	![creare processi U-SQL con Analisi Data Lake di Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job.png)
 
         @searchlog =
             EXTRACT UserId          int,
@@ -131,7 +131,7 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 5. Fare clic su **Invia processo** nel menu in alto. Viene visualizzato un nuovo pannello Dettagli processo. Sulla barra del titolo viene visualizzato lo stato del processo.
 6. Attendere finché lo stato del processo non viene modificato in **Riuscito**. Al termine del processo, viene aperto un nuovo pannello con i dettagli del processo:
 
-    ![Analisi Data Lake di Azure - Dettagli dei processi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-completed.png)  
+    ![Analisi Data Lake di Azure - Dettagli dei processi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-completed.png)
 
     Nell'immagine sopra riportata è possibile osservare che il processo ha impiegato circa 1,5 minuti per passare dallo stato Riuscito a Terminato.
     
@@ -139,10 +139,10 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 
 7. Nella parte inferiore del pannello **Dettagli processo** fare clic sul nome del processo: **SearchLog-from-Data-Lake.csv**. Sarà possibile visualizzare in anteprima, scaricare, rinominare ed eliminare il file di output.
 
-    ![Analisi Data Lake di Azure - Proprietà del file di output del processo](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)  
+    ![Analisi Data Lake di Azure - Proprietà del file di output del processo](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
 8. Fare clic su **Anteprima** per visualizzare il file di output.
 
-    ![Analisi Data Lake di Azure - Anteprima del file di output del processo](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-output-preview.png)  
+    ![Analisi Data Lake di Azure - Anteprima del file di output del processo](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-output-preview.png)
 
 ##Vedere anche
 

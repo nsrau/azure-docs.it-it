@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="amitbapat"
 	manager="mbaldwin"
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/13/2016"
-	ms.author="ambapat"/>  
+	ms.author="ambapat"/>
 
 # Modificare l'ID tenant dell'insieme di credenziali delle chiavi dopo lo spostamento della sottoscrizione
 ### D: la sottoscrizione è stata spostata dal tenant A al tenant B. Come è possibile modificare l'ID tenant per l'insieme di credenziali delle chiavi esistente e impostare gli ACL corretti per le entità nel tenant B?

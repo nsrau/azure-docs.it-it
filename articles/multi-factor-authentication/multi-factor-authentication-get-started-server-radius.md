@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/15/2016"
-	ms.author="kgremban"/> 
+	ms.author="kgremban"/>
 
 
 
@@ -26,7 +26,7 @@ La sezione autenticazione RADIUS consente di abilitare e configurare l'autentica
 Il server MFA supporta solo i protocolli RADIUS PAP (Password Authentication Protocol) e MSCHAPv2 (Microsoft Challenge Handshake Authentication Protocol) quando agisce da server RADIUS. Quando il server MFA agisce come proxy RADIUS per un altro server RADIUS che supporta tale protocollo, ad esempio Microsoft NPS, è possibile usare altri protocolli, ad esempio EAP (Extensible Authentication Protocol). </br> Quando si usano altri protocolli in questa configurazione, i token OATH e SMS unidirezionali non funzioneranno perché il server MFA non è in grado di avviare una risposta RADIUS Challenge corretta tramite tale protocollo.
 
 
-![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png) 
+![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 ## Configurazione dell'autenticazione RADIUS
 

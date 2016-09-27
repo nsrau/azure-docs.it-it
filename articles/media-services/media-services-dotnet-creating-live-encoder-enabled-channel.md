@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="anilmur" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/15/2016"
-	ms.author="juliako;anilmur"/>  
+	ms.author="juliako;anilmur"/>
 
 
 #Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
@@ -24,8 +24,8 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
->[AZURE.NOTE]
-Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Overview
 
@@ -115,12 +115,12 @@ Per completare l'esercitazione è necessario quanto segue.
 ##Connettersi a Servizi multimediali
 Come procedura consigliata, usare un file app.config per archiviare il nome e la chiave dell'account di Servizi multimediali.
 
->[AZURE.NOTE]Per trovare i valori relativi a nome e chiave, passare al portale di Azure classico, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
+>[AZURE.NOTE] Per trovare i valori relativi a nome e chiave, passare al portale di Azure classico, selezionare l'account di Servizi multimediali e fare clic sull'icona "GESTISCI CHIAVI" nella parte inferiore della finestra del portale. Facendo clic sull'icona accanto a ciascuna casella di testo, il valore viene copiato negli Appunti di sistema.
 
 Aggiungere una sezione appSettings al file app.config e impostare i valori per il nome e la chiave dell'account di Servizi multimediali.
 
 
-	<?xml version="1.0"?>
+<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />

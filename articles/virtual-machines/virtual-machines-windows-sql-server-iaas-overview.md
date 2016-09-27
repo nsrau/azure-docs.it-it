@@ -6,7 +6,7 @@
 	authors="rothja"
 	manager="jhubbard"
 	editor=""
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/21/2016"
-	ms.author="jroth"/>  
+	ms.author="jroth"/>
 
 # Panoramica di SQL Server in macchine virtuali di Azure
 

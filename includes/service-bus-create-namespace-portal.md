@@ -12,7 +12,7 @@
 
 8. In **Località** scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
 
-	![Creare lo spazio dei nomi][create-namespace]  
+	![Creare lo spazio dei nomi][create-namespace]
 
 6. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
  
@@ -24,11 +24,11 @@
 
 4. Nel pannello **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.
 
-	![connection-info][connection-info]  
+	![connection-info][connection-info]
 
 5. Nel pannello **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione - chiave primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
 
-	![connection-string][connection-string]  
+	![connection-string][connection-string]
 
 <!--Image references-->
 

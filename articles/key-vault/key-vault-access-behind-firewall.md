@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="amitbapat"
 	manager="mbaldwin"
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/13/2016"
-	ms.author="ambapat"/>  
+	ms.author="ambapat"/>
 
 # Accesso a un insieme di credenziali delle chiavi protetto da firewall
 ### D: l'applicazione client dell'insieme di credenziali delle chiavi deve essere protetta da un firewall. Quali porte/host/indirizzi IP è necessario aprire per consentire l'accesso all'insieme di credenziali delle chiavi?

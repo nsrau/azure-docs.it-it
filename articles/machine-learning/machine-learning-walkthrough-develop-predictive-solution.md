@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/16/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/>
 
 
 # Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning
@@ -28,7 +28,7 @@ In questa procedura dettagliata verrà descritto il processo di sviluppo di un m
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!-- -->  
+Aprire Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Per altre informazioni introduttive su Machine Learning Studio, vedere la [home page di Microsoft Azure Machine Learning Studio ](https://studio.azureml.net/).
 
 >[AZURE.TIP] Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 

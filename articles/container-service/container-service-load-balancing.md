@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Contenitori, Micro-Service, controller di dominio/sistema operativo, Azure"/>  
+   keywords="Contenitori, Micro-Service, controller di dominio/sistema operativo, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/11/2016"
-   ms.author="rogardle"/>  
+   ms.author="rogardle"/>
 
 # Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure
 

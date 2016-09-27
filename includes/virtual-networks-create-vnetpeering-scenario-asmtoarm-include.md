@@ -4,6 +4,6 @@ In questo scenario si creerà un peering tra due reti virtuali, denominate **VNE
 
 > [AZURE.NOTE] Le reti virtuali devono trovarsi nella stessa sottoscrizione.
 
-![Scenario di distribuzione da Azure Service Management ad Azure Resource Manager](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)  
+![Scenario di distribuzione da Azure Service Management ad Azure Resource Manager](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
 <!---HONumber=AcomDC_0921_2016-->
