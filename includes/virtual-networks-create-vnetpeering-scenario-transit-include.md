@@ -4,8 +4,8 @@ Sebbene l'utilizzo di route del sistema faciliti il traffico automaticamente per
 
 ![Passaggio attraverso un'appliance virtuale di rete](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-NOTA: per semplicità, si supponga che tutte le reti virtuali descritte si trovino nella stessa sottoscrizione. Questo approccio funziona tuttavia anche per uno scenario con collegamenti tra sottoscrizioni.
+> [AZURE.NOTE] Per semplicità, si supponga che tutte le reti virtuali descritte si trovino nella stessa sottoscrizione. Questo approccio funziona tuttavia anche per uno scenario con collegamenti tra sottoscrizioni.
 
 La proprietà principale per abilitare il routing di transito è il parametro "Consentire traffico inoltrato". In questo modo è possibile accedere e inviare il traffico da e verso l'appliance virtuale di rete nella rete virtuale con peering.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

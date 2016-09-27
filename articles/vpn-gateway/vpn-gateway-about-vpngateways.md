@@ -13,20 +13,34 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # Informazioni sul gateway VPN
 
 
-Un gateway di rete virtuale viene usato per inviare traffico di rete tra reti virtuali di Azure e percorsi locali, nonché tra reti virtuali in Azure. Per creare una connessione, si aggiunge un gateway di rete virtuale a una rete virtuale, insieme alle risorse aggiuntive e alle relative impostazioni.
+Un gateway di rete virtuale viene usato per inviare traffico di rete tra reti virtuali di Azure e percorsi locali e anche tra reti virtuali in Azure. Quando si configura un gateway VPN, è necessario creare e configurare un gateway di rete virtuale e una connessione del gateway di rete virtuale.
 
-Quando si crea una risorsa del gateway di rete virtuale, si specificano diverse impostazioni. Una delle impostazioni obbligatorie è '-GatewayType'. Il tipo di gateway specifica il modo in cui il gateway si connette. Esistono due tipi di gateway di rete virtuale: ExpressRoute e Vpn. Quando il traffico di rete viene inviato con una connessione privata dedicata, si usa il tipo di gateway 'ExpressRoute', detto appunto gateway ExpressRoute. Quando il traffico di rete viene inviato crittografato con una connessione pubblica, si usa il tipo di gateway 'Vpn', detto appunto gateway VPN. Le connessioni da sito a sito, da punto a sito e da rete virtuale a rete virtuale usano tutte un gateway VPN.
+Nel modello di distribuzione Resource Manager, quando si crea una risorsa del gateway di rete virtuale, si specificano diverse impostazioni. Una delle impostazioni obbligatorie è '-GatewayType'. Esistono due tipi di gateway di rete virtuale: ExpressRoute e Vpn.
 
-Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gateway. Ad esempio, è possibile configurare un gateway di rete virtuale che usa -GatewayType Vpn e una che usa -GatewayType ExpressRoute. Questo articolo è incentrato soprattutto sul gateway VPN. Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
+Quando il traffico di rete viene inviato con una connessione privata dedicata, si usa il tipo di gateway 'ExpressRoute', detto appunto gateway ExpressRoute. Quando il traffico di rete viene inviato crittografato con una connessione pubblica, si usa il tipo di gateway 'Vpn', detto appunto gateway VPN. Le connessioni da sito a sito, da punto a sito e da rete virtuale a rete virtuale usano tutte un gateway VPN.
 
-Per informazioni sui requisiti del gateway, vedere la sezione relativa ai [requisiti del gateway](vpn-gateway-about-vpn-gateway-settings.md#requirements). Per la velocità effettiva aggregata stimata, vedere la sezione relativa alle [impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway). Per i limiti del servizio e delle sottoscrizioni, vedere [Limiti relativi alla rete](../articles/azure-subscription-service-limits.md#networking-limits).
+Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gateway. Ad esempio, è possibile configurare un gateway di rete virtuale che usa -GatewayType ExpressRoute e uno che usa -GatewayType Vpn. Questo articolo è incentrato soprattutto sul gateway VPN. Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
 
+## Prezzi
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
+
+
+## SKU del gateway
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+
+###  <a name="skugw"></a>Velocità effettiva aggregata stimata per tipo di SKU e di gateway
+
+La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## Configurazione di un gateway VPN
 
@@ -34,7 +48,7 @@ Quando si configura un gateway VPN, le istruzioni da seguire dipendono dal model
 
 Una connessione gateway VPN si basa su più risorse configurate con impostazioni specifiche. La maggior parte delle risorse può essere configurata separatamente, anche se in alcuni casi è necessario configurarle seguendo un determinato ordine. È possibile iniziare a creare e configurare le risorse usando uno strumento di configurazione, ad esempio il portale di Azure, e successivamente decidere di passare a un altro strumento, ad esempio PowerShell, per configurare risorse aggiuntive o eventualmente modificare quelle esistenti. Attualmente, non è possibile configurare tutte le risorse e le relative impostazioni nel portale di Azure. Le istruzioni riportate negli articoli per ogni topologia di connessione indicano se è necessario usare uno strumento di configurazione specifico. Per informazioni sulle singole risorse e le impostazioni per il gateway VPN, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-Le sezioni successive contengono tabelle che riportano le informazioni seguenti:
+Le sezioni seguenti contengono tabelle che elencano:
 
 - Modello di distribuzione disponibile
 - Strumenti di configurazione disponibili
@@ -136,4 +150,4 @@ Pianificare la configurazione del gateway VPN. Vedere [Pianificazione e progetta
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
 
 # Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale
 Azure Service Fabric SDK include un ambiente di sviluppo locale completo che può essere usato per iniziare rapidamente a distribuire e gestire applicazioni in un cluster locale. Questo articolo descrive come creare un cluster locale, distribuire un'applicazione esistente nel cluster e quindi aggiornare l'applicazione a una nuova versione usando Windows PowerShell.
@@ -195,6 +195,34 @@ Prima di concludere, è importante ricordare che il cluster locale è reale. L'e
 
 4. Per eliminare completamente il cluster, fare clic su **Remove Local Cluster** (Rimuovi cluster locale) nell'app dell'area di notifica. Questa opzione comporterà un'altra distribuzione lenta la prossima volta che si preme F5 in Visual Studio. Rimuovere il cluster locale solo se non si prevede di usarlo per un certo periodo o se è necessario recuperare risorse.
 
+## Modalità cluster a 1 nodo e a 5 nodi
+
+Quando si usa il cluster locale per sviluppare applicazioni, ci si ritroverà spesso a eseguire rapide iterazioni di scrittura di codice, debug, modifica del codice, debug e così via. Per ottimizzare questo processo, il cluster locale può essere eseguito in due modalità: a 1 nodo o a 5 nodi. Entrambe le modalità cluster presentano vantaggi. La modalità cluster a 5 nodi consente di usare un vero cluster. È possibile testare gli scenari di failover e usare più istanze e repliche dei servizi. La modalità cluster a 1 nodo è ottimizzata per eseguire rapidamente la distribuzione e la registrazione dei servizi e convalidare quindi velocemente il codice usando il runtime di Service Fabric.
+
+Né la modalità cluster a 1 nodo né quella a 5 sono un emulatore o un simulatore. Esegue lo stesso codice della piattaforma eseguito nei cluster costituiti da più macchine virtuali.
+
+> [AZURE.NOTE] Questa funzionalità è disponibile nell'SDK versione 5.2 e successiva.
+
+Per cambiare la modalità cluster con un cluster a 1 nodo, usare Local Cluster Manager (Gestione cluster locale) di Service Fabric o usare PowerShell come illustrato di seguito:
+
+1. Avviare una nuova finestra di PowerShell come amministratore.
+
+2. Eseguire lo script di installazione del cluster dalla cartella dell'SDK:
+
+	```powershell
+	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+	```
+
+    La configurazione del cluster richiede alcuni istanti. Al termine, l'output visualizzato sarà simile al seguente:
+    
+    ![Output installazione del cluster][cluster-setup-success-1-node]
+
+Se si usa Local Cluster Manager (Gestione cluster locale) di Service Fabric:
+
+![Cambiare la modalità cluster][switch-cluster-mode]
+
+> [AZURE.WARNING] Quando si cambia la modalità cluster, il cluster corrente viene rimosso dal sistema e viene creato un nuovo cluster. I dati archiviati nel cluster, verranno eliminati quando si cambia la modalità cluster.
+
 ## Passaggi successivi
 - Dopo aver distribuito e aggiornato alcune applicazioni precompilate, è possibile [provare a creare un'applicazione personalizzata in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Tutte le azioni eseguite nel cluster locale descritte in questo articolo possono essere eseguite anche in un [cluster di Azure](service-fabric-cluster-creation-via-portal.md).
@@ -217,5 +245,7 @@ Prima di concludere, è importante ricordare che il cluster locale è reale. L'e
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

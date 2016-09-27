@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Passaggio successivo *(anteprima)*: Abilitare la sincronizzazione password in Servizi di dominio Azure AD.
+# Abilitare la sincronizzazione password in Servizi di dominio Azure AD
 Nelle attività precedenti si è abilitato Servizi di dominio Azure AD per il tenant di Azure AD. L'attività successiva prevede l'abilitazione degli hash delle credenziali necessari per l'autenticazione NTLM e Kerberos per la sincronizzazione con Servizi di dominio Azure AD. Dopo avere configurato la sincronizzazione delle credenziali, gli utenti possono accedere al dominio gestito usando le credenziali aziendali.
 
 I passaggi sono diversi a seconda che l'organizzazione abbia un tenant di Azure AD basato solo sul cloud o sia impostata per la sincronizzazione con la directory locale tramite Azure AD Connect.
@@ -61,11 +61,11 @@ Dopo la modifica, la nuova password sarà utilizzabile in Servizi di dominio Azu
 
 ## Contenuti correlati
 
-- [Abilitare la sincronizzazione password in Servizi di dominio AAD per un tenant di Azure AD sincronizzato](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-
 - [Come aggiornare la password](../active-directory/active-directory-passwords-update-your-own-password.md)
 
 - [Introduzione alla gestione delle password](../active-directory/active-directory-passwords-getting-started.md)
+
+- [Abilitare la sincronizzazione password in Servizi di dominio AAD per un tenant di Azure AD sincronizzato](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -73,4 +73,4 @@ Dopo la modifica, la nuova password sarà utilizzabile in Servizi di dominio Azu
 
 - [Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,8 +3,8 @@
 	description="Questo articolo offre una guida introduttiva ad Azure Multi-Factor Authentication e AD FS in Windows Server 2012 R2."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 
 # Proteggere le risorse del cloud e locali mediante server Azure Multi-Factor Authentication con AD FS di Windows Server 2012 R2
@@ -85,4 +85,4 @@ A questo punto, il server Multi-Factor Authentication è configurato per essere 
 
 Per registrare l'adapter, eseguire lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 in \\Programmi\\Multi-Factor Authentication Server\\ in PowerShell. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS rendere effettiva la registrazione.
 
-<!-----HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->
