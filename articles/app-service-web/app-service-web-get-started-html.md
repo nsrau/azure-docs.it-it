@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Distribuire la prima app Web in Azure in cinque minuti | Microsoft Azure" 
-	description="Informazioni su come eseguire facilmente app Web nel servizio app mediante la distribuzione di un'app di esempio. È possibile eseguire rapidamente vere e proprie attività di sviluppo con risultati immediati." 
+<properties
+	pageTitle="Distribuire la prima app Web in Azure in cinque minuti | Microsoft Azure"
+	description="Informazioni su come eseguire facilmente app Web nel servizio app mediante la distribuzione di un'app di esempio. È possibile eseguire rapidamente vere e proprie attività di sviluppo con risultati immediati."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/16/2016" 
+	ms.date="09/16/2016"
 	ms.author="cephalin"
 />
-	
+
 # Distribuire la prima app Web in Azure in cinque minuti
 
 Questa esercitazione illustra come distribuire una semplice app Web HTML e CSS nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Il servizio app consente di creare app Web, [back-end di app per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/) e [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -133,4 +133,4 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 - Provare [altri modi per distribuire il codice in Azure](../app-service-web/web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
 - Ottimizzare l'app Azure: autenticare gli utenti, ridimensionare l'app in base alla richiesta e configurare alcuni avvisi sulle prestazioni, tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0920_2016-->
+<!----HONumber=AcomDC_0920_2016-->
