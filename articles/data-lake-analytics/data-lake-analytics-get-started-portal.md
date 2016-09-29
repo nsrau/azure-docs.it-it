@@ -24,8 +24,6 @@ Informazioni su come usare il portale di Azure per creare account di Analisi di 
 
 In questa esercitazione si svilupperà un processo che legge un file di valori separati da tabulazioni (TSV) e lo converte in un file di valori separati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede disponibili nella parte superiore di questa sezione. Dopo il completamento del primo processo, è possibile iniziare a scrivere trasformazioni di dati più complesse con U-SQL.
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ##Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
@@ -48,7 +46,7 @@ Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archi
 
 	- **Nome**: nome dell'account di Analytics.
 	- **Data Lake Store**: ogni account di Data Lake Analytics ha un account di Data Lake Store dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
-	- **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analytics.
+	- **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analisi.
 	- **Gruppo di risorse**. Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Gestione risorse di Azure consente di usare le risorse dell'applicazione come singolo gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
 	- **Località**. Selezionare un data center di Azure per l'account di Analisi Data Lake.
 7. Selezionare **Aggiungi alla Schermata iniziale**. Questa impostazione è necessaria per l'esecuzione dell'esercitazione.
@@ -156,4 +154,4 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 - Per registrare informazioni di diagnostica, vedere [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Accesso ai log di diagnostica per Azure Data Lake Analytics)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

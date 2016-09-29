@@ -26,7 +26,7 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 
     ![Schermata che evidenzia gli account di DocumentDB nell'indice, l'account nel pannello Account DocumentDB e il database nel pannello dell’account DocumentDB, nella sezione Database](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    Se **Account DocumentDB** non è visibile nell'indice, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
+    Se **DocumentDB (NoSQL)** non è visibile nell'indice, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
 
 2. Nella sezione **Database** del pannello **Account DocumentDB** per l'account selezionato selezionare il database in cui aggiungere una raccolta.
 
@@ -91,4 +91,4 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 
 Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -168,4 +168,4 @@ Vedere la [documentazione su come ottenere le raccomandazioni sugli elementi](ht
 ### Passaggi successivi
 Congratulazioni per i passaggi effettuati fino ad ora! Per altre informazioni, è possibile visitare l'intero [Riferimento all'API Recommendations](http://go.microsoft.com/fwlink/?LinkId=759348). In caso di domande, non esitare a contattarci all'indirizzo mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -222,4 +222,4 @@ Le viste di Ambari consentono agli sviluppatori di collegare gli elementi dell'i
 * Viste di Hive: le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all'[uso delle viste Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Vista di Tez: la vista di Tez consente di comprendere e ottimizzare i processi visualizzando le informazioni sull'esecuzione dei processi di Tez e quali risorse sono usate dal processo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

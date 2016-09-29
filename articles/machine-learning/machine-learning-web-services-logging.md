@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
 	ms.date="08/09/2016"
-	ms.author="raymondl;garye"/>  
+	ms.author="raymondl;garye"/>
 
 #Abilitare la registrazione per i servizi Web di Machine Learning  
 
@@ -44,4 +44,4 @@ Questo documento include informazioni sulla funzionalità di registrazione dei s
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

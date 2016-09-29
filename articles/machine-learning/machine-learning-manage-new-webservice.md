@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="vDonGlover"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -76,7 +76,7 @@ Fare clic sull'opzione di menu **CONFIGURA**.
 * **Titolo** consente di immettere un titolo per il servizio Web
 * **Chiavi** consente di ruotare le chiavi API primarie e secondarie.
 * **Chiave account di archiviazione** consente di aggiornare la chiave per l'account di archiviazione associato alle modifiche del servizio Web.
-* **Abilita dati di esempio ** consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio, i dati di esempio vengono prelevati dai dati usati per il training del modello. Se il servizio è stato creato a livello di programmazione, i dati vengono prelevati dai dati di esempio forniti come parte del pacchetto JSON.
+* **Abilita dati di esempio** consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio, i dati di esempio vengono prelevati dai dati usati per il training del modello. Se il servizio è stato creato a livello di programmazione, i dati vengono prelevati dai dati di esempio forniti come parte del pacchetto JSON.
 
 ## Gestione dei piani di fatturazione
 
@@ -97,4 +97,4 @@ Il dashboard del piano contiene le informazioni seguenti:
 * **Top Web Service By Calls** (Primi servizi Web per chiamate) visualizza i primi quattro servizi Web che stanno effettuando chiamate addebitate in base al piano.
 * **Top Web Services by Compute Hrs** (Primi servizi Web per ore di calcolo) visualizza i primi quattro servizi Web che stanno usando le risorse di calcolo che vengono addebitate in base al piano.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

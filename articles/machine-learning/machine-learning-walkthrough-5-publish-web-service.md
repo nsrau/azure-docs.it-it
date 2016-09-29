@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -38,7 +38,7 @@ Fino a questo punto è stato sperimentato il training da parte del modello, ma i
 Il processo si articola in due passaggi:
 
 1. Convertire l'*esperimento di training* creato in un *esperimento predittivo*
-2. Distribuire l’esperimento predittivo come servizio web
+2. Distribuire l'esperimento predittivo come servizio Web
 
 Prima però è necessario ridurre un po' questo esperimento. Attualmente nell'esperimento sono presenti due modelli diversi, ma è necessario avere un solo modello da distribuire come servizio Web.
 
@@ -91,7 +91,7 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-##
+## 
 Distribuire il servizio web
 
 È possibile distribuire l'esperimento come un servizio Web classico o un nuovo servizio Web basato su Azure Resource Manager.
@@ -201,4 +201,4 @@ Per monitorare le prestazioni del servizio Web:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/it-IT/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

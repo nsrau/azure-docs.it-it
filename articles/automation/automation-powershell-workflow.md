@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Informazioni sul flusso di lavoro di Windows PowerShell
@@ -276,4 +276,4 @@ Per altre informazioni sui checkpoint, vedere l'articolo relativo all'[aggiunta 
 
 - Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

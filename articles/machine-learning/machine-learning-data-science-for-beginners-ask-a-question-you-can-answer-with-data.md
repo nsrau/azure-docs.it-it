@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -47,7 +47,7 @@ In questo video vengono forniti suggerimenti per formulare una domanda a cui è 
 
 ## Porre una domanda ben strutturata
 
-È stato spiegato come l'analisi scientifica dei dati sia il processo di utilizzo di nomi, detti anche categorie o etichette, e di numeri per prevedere una risposta a una domanda. Non può però essere una domanda qualsiasi, deve essere una *domanda ben strutturata*.
+È stato spiegato come l'analisi scientifica dei dati sia il processo d'uso di nomi, detti anche categorie o etichette, e di numeri per prevedere una risposta a una domanda. Non può però essere una domanda qualsiasi, deve essere una *domanda ben strutturata*.
 
 A una domanda vaga non è necessario rispondere con un nome o un numero, mentre lo è per una domanda ben strutturata.
 
@@ -93,7 +93,7 @@ La cosa più importante, tuttavia, è porre una domanda ben strutturata, quella 
 
 Sono stati trattati alcuni principi di base per porre una domanda a cui è possibile rispondere con i dati.
 
-Assicurarsi di guardare gli altri video della serie "Analisi scientifica dei dati per principianti" in Microsoft Azure Machine Learning.
+Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
 
 
 ## Passaggi successivi
@@ -101,4 +101,4 @@ Assicurarsi di guardare gli altri video della serie "Analisi scientifica dei dat
   * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
   * [È possibile ottenere un'introduzione a Machine Learning in Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

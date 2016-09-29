@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="09/09/2016" 
 	ms.author="bradsev;garye" />
 
 # Debug del modello in Azure Machine Learning
 
 Questo articolo illustra come eseguire il debug dei modelli in Microsoft Azure Machine Learning. In particolare, fornisce i potenziali motivi per i quali possono verificarsi i due scenari di errore riportati di seguito durante l'esecuzione di un modello:
 
-* il modulo [Train Model][train-model] genera un errore 
-* il modulo [Score Model][score-model] genera risultati non corretti 
+* il modulo [Train Model][train-model] genera un errore
+* il modulo [Score Model][score-model] genera risultati non corretti
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ Il modulo [Score Model][score-model] richiede due input:
 
 Può accadere che, nonostante il buon esito dell'esperimento, il modulo [Score Model][score-model] produca risultati non corretti. Ciò può essere dovuto a diversi scenari:
 
-1. Se l'etichetta specificata è categorica e un modello di regressione è sottoposto a training sui dati, può essere prodotto un output errato dal modulo [Score Model][score-model]. Questo si verifica perché la regressione richiede una variabile di risposta continua. In questo caso sarebbe più opportuno usare un modello di classificazione. 
+1. Se l'etichetta specificata è categorica e un modello di regressione è sottoposto a training sui dati, può essere prodotto un output errato dal modulo [Score Model][score-model]. Questo si verifica perché la regressione richiede una variabile di risposta continua. In questo caso sarebbe più opportuno usare un modello di classificazione.
 2. Analogamente, se un modello di classificazione è sottoposto a training su un set di dati con numeri a virgola mobile nella colonna Etichetta, tale modello può produrre risultati indesiderati. Questo si verifica perché la classificazione richiede una variabile di risposta discreta che ammette solo valori all'interno di un set di classi finito e solitamente di dimensioni ridotte.
 3. Se il set di dati non contiene tutte le caratteristiche usate per eseguire il training del modello, il modulo [Score Model][score-model] genera un errore.
 4. Il modulo [Score Model][score-model] non genera alcun output corrispondente a una riga nel set di dati di punteggio contenente un valore mancante o infinito per una delle proprie caratteristiche.
@@ -69,4 +69,4 @@ Può accadere che, nonostante il buon esito dell'esperimento, il modulo [Score M
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

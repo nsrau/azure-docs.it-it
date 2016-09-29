@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Esercitazione: Creare una pipeline con l'attività di copia usando l'Editor di Data Factory | Microsoft Azure" 
+	pageTitle="Esercitazione: Creare una pipeline con l'attività di copia usando il portale di Azure | Microsoft Azure" 
 	description="In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory con un'attività di copia usando l'editor di Data Factory nel portale di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,32 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
-# Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor
+# Esercitazione: Creare una pipeline con l'attività di copia usando il portale di Azure
 > [AZURE.SELECTOR]
-- [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Con l'editor di Data factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Tramite PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Con Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Uso dell'API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Uso dell'API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+- [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 
-Questa esercitazione include i passaggi seguenti:
+Questa esercitazione illustra come creare e monitorare una data factory di Azure con il portale di Azure. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
+
+Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
 
 Passaggio | Descrizione
 -----| -----------
 [Creazione di un'istanza di Data factory di Azure](#create-data-factory) | In questo passaggio viene creata un'istanza di Azure Data Factory denominata **ADFTutorialDataFactory**.  
 [Creazione di servizi collegati](#create-linked-services) | In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedService** e **AzureSqlLinkedService**. AzureStorageLinkedService collega la risorsa di archiviazione di Azure e AzureSqlLinkedService collega il database SQL di Azure ad ADFTutorialDataFactory. I dati di input per la pipeline si trovano in un contenitore BLOB nell'archivio BLOB di Azure e i dati di output vengono archiviati in una tabella nel database SQL di Azure. Questi due archivi dati vengono quindi aggiunti alla data factory come servizi collegati.      
-[Creare set di dati di input e di output](#create-datasets) | Nel passaggio precedente sono stati creati servizi collegati che fanno riferimento agli archivi dati che includono dati di input/output. In questo passaggio vengono definite due tabelle di Data Factory, ovvero **EmpTableFromBlob** ed **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati. Per EmpTableFromBlob viene specificato il contenitore BLOB che include un BLOB con i dati di origine, mentre per EmpSQLTable viene specificata la tabella SQL in cui vengono archiviati i dati di output. Specificare anche altre proprietà, ad esempio la struttura, la disponibilità e così via. 
+[Creare set di dati di input e di output](#create-datasets) | Nel passaggio precedente sono stati creati servizi collegati che fanno riferimento agli archivi dati che includono dati di input/output. In questo passaggio vengono definite due tabelle di Data Factory, ovvero **EmpTableFromBlob** ed **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati. Per EmpTableFromBlob viene specificato il contenitore BLOB che include un BLOB con i dati di origine, mentre per EmpSQLTable viene specificata la tabella SQL in cui vengono archiviati i dati di output. Specificare anche altre proprietà come struttura, disponibilità e criteri. 
 [Creare una pipeline](#create-pipeline) | In questo passaggio viene creata una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. La pipeline include un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output di Azure SQL. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
 [Monitorare la pipeline](#monitor-pipeline) | In questo passaggio vengono monitorate sezioni delle tabelle di input e di output mediante il portale di Azure.
 
 > [AZURE.IMPORTANT] 
-Leggere l'articolo [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e completare i prerequisiti prima di eseguire questa esercitazione.
+Prima di eseguire questa esercitazione, vedere la [panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e completare i passaggi relativi ai **prerequisiti**.
 
 ## Creare un'istanza di Data Factory
 In questo passaggio viene usato il portale di Azure per creare un'istanza di Azure Data Factory denominata **ADFTutorialDataFactory**.
@@ -51,7 +53,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 	1. Immettere **ADFTutorialDataFactory** come **nome**.
 	
   		![Pannello Nuova data factory][image-data-factory-getstarted-new-data-factory-blade]
-	2. Fare clic su **NOME DEL GRUPPO DI RISORSE** ed eseguire queste operazioni:
+	2. Fare clic su **NOME DEL GRUPPO DI RISORSE** e seguire questa procedura:
 		1. Fare clic su **Crea un nuovo gruppo di risorse**.
 		2. Nel pannello **Crea gruppo di risorse** immettere **ADFTutorialResourceGroup** come **nome** del gruppo di risorse e fare clic su **OK**.
 
@@ -72,7 +74,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 	> Per creare istanze di data factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
 
 9. Fare clic sull'hub **NOTIFICHE** a sinistra e cercare le notifiche del processo di creazione. Fare clic su **X** per chiudere il pannello **NOTIFICHE**, se è aperto.
-10. Al termine della creazione, il pannello **DATA FACTORY** avrà un aspetto simile al seguente.
+10. Al termine della creazione verrà visualizzato il pannello **DATA FACTORY**, come illustrato nell'immagine.
 
     ![Home page di Data factory][image-data-factory-get-stated-factory-home-page]
 
@@ -303,7 +305,7 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 
 	![Pannello Data factory - Riquadro Diagramma][image-datafactoryblade-diagramtile]
 
-2. Viene visualizzato un diagramma simile al seguente:
+2. Verrà visualizzato un diagramma simile all'immagine seguente:
 
 	![Vista diagramma][image-data-factory-get-started-diagram-blade]
 
@@ -330,7 +332,7 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 	![Set di dati con tabella EmpTableFromBlob selezionata][image-data-factory-get-started-datasets-emptable-selected]
 5. Si noti che le sezioni di dati fino all'ora corrente sono già state prodotte e sono nello stato **Pronto** perché il file **emp.txt** è sempre presente nel contenitore BLOB: **adftutorial\\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
 
-	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti.
+	Gli elenchi **Sezioni aggiornate di recente** e **Sezioni non riuscite di recente** sono ordinati in base a **ORA ULTIMO AGGIORNAMENTO**. L'ora di aggiornamento di una sezione viene modificata nelle situazioni seguenti:
     
 	Fare clic sul titolo degli elenchi oppure su **... (puntini di sospensione)** per visualizzare un elenco di sezioni più ampio. Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
 	
@@ -461,4 +463,4 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

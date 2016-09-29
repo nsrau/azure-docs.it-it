@@ -27,7 +27,7 @@
 
 Questo articolo illustra come abilitare HTTP per un'app Web, un back-end dell'app per dispositivi mobili o un'app per le API che usa un nome di dominio personalizzato nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). Viene illustrata l'autenticazione solo server. Per l'autenticazione reciproca, inclusa l'autenticazione del client, vedere [Come configurare l'autenticazione reciproca TLS per il servizio app](app-service-web-configure-tls-mutual-auth.md).
 
-Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly **\*.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;appname>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e **\*.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.
+Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly ***.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;appname>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e ***.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.
 
 >[AZURE.NOTE] È possibile ottenere assistenza dagli esperti di Azure in qualsiasi momento nei [forum di Azure](https://azure.microsoft.com/support/forums/). Per un supporto più personalizzato, passare a [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
@@ -442,7 +442,9 @@ Prima di procedere, esaminare la sezione [Elementi necessari](#bkmk_domainname) 
 
 ## Passaggio 3. Modificare il mapping del nome di dominio (solo per il metodo SSL basato su IP)
 
-Se si usano solo associazioni di tipo **SNI SSL**, ignorare questa sezione. Più associazioni **SNI SSL** possono operare sull'indirizzo IP condiviso esistente assegnato all'app. Se, tuttavia, si crea un'associazione di tipo **SSL basato su IP**, il servizio app crea un indirizzo IP dedicato per l'associazione perché il metodo **SSL basato su IP** ne richiede uno. Questo indirizzo IP dedicato richiede ulteriori configurazioni dell'app, nei casi seguenti:
+Se si usano solo associazioni di tipo **SNI SSL**, ignorare questa sezione. Più associazioni **SNI SSL** possono operare sull'indirizzo IP condiviso esistente assegnato all'app. Se, tuttavia, si crea un'associazione di tipo **SSL basato su IP**, il servizio app crea un indirizzo IP dedicato per l'associazione perché il metodo **SSL basato su IP** ne richiede uno. È possibile creare un solo indirizzo IP dedicato, pertanto può essere aggiunta una sola associazione di tipo **SSL basato su IP**.
+
+Questo indirizzo IP dedicato richiede ulteriori configurazioni dell'app, nei casi seguenti:
 
 - È stato [usato un record A per il mapping del dominio personalizzato](web-sites-custom-domain-name.md#a) all'app Azure e si è appena aggiunta un'associazione di tipo **SSL basato su IP**. In questo scenario, è necessario modificare il mapping esistente del record A in modo che punti all'indirizzo IP dedicato. A tale scopo, seguire questa procedura:
 
@@ -452,7 +454,7 @@ Se si usano solo associazioni di tipo **SNI SSL**, ignorare questa sezione. Più
 
 	2. [Eseguire di nuovo il mapping del record A per il nome di dominio personalizzato al nuovo indirizzo IP](web-sites-custom-domain-name.md#a).
 
-- Sono già presenti una o più associazioni **SNI SSL** nell'app ed è appena stata aggiunta un'associazione di tipo **SSL basato su IP**. Al termine dell'associazione, il nome di dominio *&lt;nomeapp>*.azurewebsites.net punterà al nuovo indirizzo IP. Di conseguenza, qualsiasi [mapping CNAME dal dominio personalizzato](web-sites-custom-domain-name.md#cname) a *&lt; nomeapp >*.azurewebsites.net, inclusi quelli protetti tramite **SNI SSL**, riceve anche il traffico sul nuovo indirizzo, che viene creato solo per l'associazione **SSL basato su IP**. In questo scenario, per inviare il traffico **SNI SSL** all'indirizzo IP condiviso originale è necessario seguire questa procedura:
+- Sono già presenti una o più associazioni **SNI SSL** nell'app ed è appena stata aggiunta un'associazione di tipo **SSL basato su IP**. Al termine dell'associazione, il nome di dominio *&lt;nomeapp>*.azurewebsites.net punterà al nuovo indirizzo IP. Di conseguenza, qualsiasi [mapping CNAME dal dominio personalizzato](web-sites-custom-domain-name.md#cname) a *& lt; nomeapp >*.azurewebsites.net, inclusi quelli protetti tramite **SNI SSL**, riceve anche il traffico sul nuovo indirizzo, che viene creato solo per l'associazione **SSL basato su IP**. In questo scenario, per inviare il traffico **SNI SSL** all'indirizzo IP condiviso originale è necessario seguire questa procedura:
 
 	1. Identificare tutti i [mapping CNAME dei domini personalizzati](web-sites-custom-domain-name.md#cname) all'app che ha un'associazione **SNI SSL**.
 
@@ -547,4 +549,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

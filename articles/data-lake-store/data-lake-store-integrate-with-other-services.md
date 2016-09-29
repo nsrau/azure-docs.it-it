@@ -4,7 +4,7 @@
    documentationCenter=""
    services="data-lake-store"
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -84,4 +84,4 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, 
 - [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
 - [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -132,7 +132,7 @@ Attualmente, gli alias supportati sono:
 
 | Nome alias | Descrizione |
 | ---------- | ----------- |
-| {resourceType}/sku.name | I tipi di risorse supportati sono: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | I tipi di risorse supportati sono: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
 | {resourceType}/sku.family | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -414,6 +414,27 @@ L'output dell'esecuzione viene archiviato nell'oggetto $policy, in modo da poter
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
+### Creare una definizione di criteri tramite l'interfaccia della riga di comando di Azure
+
+È possibile creare una nuova definizione di criteri usando l'interfaccia della riga di comando di Azure con il comando di definizione dei criteri, come illustrato di seguito. Negli esempi seguenti viene creato un criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    
+    
+
+È possibile specificare il percorso di un file con estensione JSON contenente i criteri invece di specificare criteri inline come illustrato di seguito.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
+
 
 ## Applicazione dei criteri
 
@@ -456,17 +477,46 @@ Se si desidera rimuovere l'assegnazione dei criteri precedente, è possibile pro
 
 Analogamente, è possibile ottenere, modificare o rimuovere le assegnazioni dei criteri tramite i cmdlet Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment, rispettivamente.
 
+### Assegnazione di criteri tramite l'interfaccia della riga di comando di Azure
+
+È possibile applicare il criterio creato in precedenza tramite l'interfaccia della riga di comando di Azure all'ambito desiderato usando il comando di assegnazione dei criteri, come illustrato di seguito:
+
+    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+L'ambito è il nome del gruppo di risorse specificato. Se non si conosce il valore del parametro policy-definition-id, è possibile ottenerlo tramite l'interfaccia della riga di comando di Azure, come illustrato di seguito:
+
+    azure policy definition show <policy-name>
+
+Se si desidera rimuovere l'assegnazione dei criteri precedente, è possibile procedere come segue:
+
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+È possibile ottenere, modificare o rimuovere le definizioni dei criteri tramite la visualizzazione delle definizioni dei criteri, rispettivamente con i comandi di impostazione ed eliminazione.
+
+Analogamente, è possibile ottenere, modificare o rimuovere le assegnazioni dei criteri rispettivamente tramite la visualizzazione delle assegnazioni dei criteri e i comandi di eliminazione.
+
 ##Eventi di controllo dei criteri
 
-Dopo aver applicato il criterio, si inizierà a visualizzare gli eventi correlati ai criteri. È possibile accedere al portale o utilizzare PowerShell per ottenere questi dati.
+Dopo aver applicato il criterio, si inizierà a visualizzare gli eventi correlati ai criteri. Per ottenere questi dati, è possibile accedere al portale oppure usare PowerShell o l'interfaccia della riga di comando di Azure.
 
-Per visualizzare tutti gli eventi correlati all'effetto di negazione, è possibile utilizzare il comando seguente.
+### Eventi di controllo dei criteri tramite PowerShell
+
+Per visualizzare tutti gli eventi correlati all'effetto di negazione, è possibile usare il comando seguente di PowerShell.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibile utilizzare il comando seguente.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-    
 
-<!---HONumber=AcomDC_0810_2016-->
+### Eventi di controllo dei criteri tramite l'interfaccia della riga di comando di Azure
+
+Per visualizzare tutti gli eventi di un gruppo di risorse correlati all'effetto di negazione, è possibile usare il comando seguente dell'interfaccia della riga di comando di Azure.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
+
+Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibile usare il comando seguente dell'interfaccia della riga di comando di Azure.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
+
+<!---HONumber=AcomDC_0914_2016-->

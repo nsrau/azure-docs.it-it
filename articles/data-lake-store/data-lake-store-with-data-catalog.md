@@ -4,7 +4,7 @@
    services="data-lake-store,data-catalog" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -26,9 +26,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Archivio Data Lake. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
+- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 
-- **Account Archivio Azure Data Lake**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Per questa esercitazione, viene creato un account Archivio Data Lake denominato **datacatalogstore**.
+- **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Per questa esercitazione, viene creato un account Archivio Data Lake denominato **datacatalogstore**.
 
 	Dopo aver creato l'account, caricare un set di dati di esempio. Per questa esercitazione, caricare tutti i file con estensione csv nella cartella **AmbulanceData** del [repository Git di Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). È possibile usare vari tipi di client, ad esempio [Azure Storage Explorer](http://storageexplorer.com/), per caricare i dati in un contenitore BLOB.
 
@@ -52,7 +52,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 5. Nella pagina Selezionare un'origine dati selezionare **Azure Data Lake** e quindi fare clic su **Avanti**.
 
-	![Selezione di un'origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezione di un'origine dati")
+	![Selezionare l'origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezione di un'origine dati")
 
 6. Nella pagina successiva fornire il nome dell'account Archivio Data Lake che si vuole registrare in Data Catalog. Lasciare l'impostazione predefinita per le altre opzioni e quindi fare clic su **Connetti**.
 
@@ -94,4 +94,4 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrazione di Data Lake Store con altri servizi di Azure](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

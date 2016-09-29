@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="rastala"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -95,4 +95,4 @@ Ora abbiamo un esperimento che può essere pubblicato come servizio Web e chiama
 
 Per informazioni sui moduli di analisi del testo, vedere la [documentazione su MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

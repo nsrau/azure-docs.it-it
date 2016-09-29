@@ -23,7 +23,7 @@ Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzan
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
+> [AZURE.NOTE] Se si ha un po' di tempo, fornire il proprio feedback per aiutarci a migliorare la documentazione sulle VM Linux di Azure eseguendo questo [sondaggio rapido](https://aka.ms/linuxdocsurvey) sulle propria esperienza. Ogni risposta è utile.
 
 ## Disco del sistema operativo
 
@@ -73,4 +73,4 @@ Prima di poter eliminare un file con estensione .vhd di origine, sarà necessari
 -  [Configurare RAID software](virtual-machines-linux-configure-raid.md) per la ridondanza.
 -  [Acquisire una macchina virtuale Linux](virtual-machines-linux-classic-capture-image.md) per poter distribuire rapidamente macchine virtuali aggiuntive.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

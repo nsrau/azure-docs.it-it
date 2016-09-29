@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/08/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Scegliere uno SKU o un piano tariffario per Ricerca di Azure
 
@@ -101,4 +101,4 @@ Dopo aver determinato lo SKU corretto, continuare con la procedura:
 - [Creare un servizio di ricerca nel portale](search-create-service-portal.md)
 - [Modificare l'allocazione di partizioni e repliche per la scalabilità del servizio](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

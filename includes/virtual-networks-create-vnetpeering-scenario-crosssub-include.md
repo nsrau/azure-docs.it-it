@@ -4,6 +4,8 @@ In questo scenario si creerà un peering tra due reti virtuali appartenenti a so
 
 ![Scenario tra sottoscrizioni](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-Il peering reti virtuali si basa sul controllo degli accessi in base al ruolo per l'autorizzazione. Per uno scenario con collegamenti tra sottoscrizioni, è necessario concedere prima di tutto autorizzazioni sufficienti agli utenti che creeranno il collegamento per il peering. NOTA: se allo stesso utente sono concessi privilegi per entrambe le sottoscrizioni, è possibile ignorare i passaggi da 1 a 4 seguenti.
+Il peering reti virtuali si basa sul controllo degli accessi in base al ruolo per l'autorizzazione. Per lo scenario tra sottoscrizioni , prima è necessario concedere un'autorizzazione sufficiente agli utenti che creeranno il collegamento per il peering:
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Se lo stesso utente ha il privilegio per entrambe le sottoscrizioni, è possibile saltare i passaggi da 1 a 4 seguenti.
+
+<!---HONumber=AcomDC_0921_2016-->

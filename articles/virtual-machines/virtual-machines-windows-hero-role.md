@@ -27,7 +27,7 @@ Se non è ancora stata creata la prima macchina virtuale, tornare all'esercitazi
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 2. Scegliere **Macchine virtuali** dal menu Hub. Selezionare la macchina virtuale dall'elenco.
-3. Se lo stato è **Arrestato (deallocato), fare clic sul pulsante **Avvia** nel pannello **Informazioni di base** della VM. Quando lo stato indica che la macchina virtuale è **In esecuzione*, è possibile passare al passaggio successivo.
+3. Se lo stato è **Arrestato (deallocato)**, fare clic sul pulsante **Avvia** nel pannello **Informazioni di base** della VM. Quando lo stato indica che la macchina virtuale è **In esecuzione**, è possibile passare al passaggio successivo.
 
 ## Connettersi alla macchina virtuale ed eseguire l'accesso
 
@@ -120,10 +120,11 @@ Per altre informazioni sui gruppi di sicurezza di rete e le regole in ingresso e
 3. Il browser deve aprire la pagina Web IIS predefinita. Verrà visualizzata una schermata simile alla seguente:
 
 	![Screenshot che mostra l'aspetto della pagina IIS predefinita in un browser](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
-	
-	
-	## Passaggi successivi
+
+    
+
+## Passaggi successivi
 
 - È anche possibile provare a [collegare un disco dati](virtual-machines-windows-attach-disk-portal.md) alla macchina virtuale. I dischi dati forniscono più risorse di archiviazione per la macchina virtuale.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

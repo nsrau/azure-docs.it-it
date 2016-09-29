@@ -35,7 +35,7 @@ In alto a destra è presente il pulsante **Add new Rule** (Aggiungi nuova regola
 Nella parte inferiore sono presenti i pulsanti per eseguire operazioni su una regola di sincronizzazione selezionata. I pulsanti **Edit** (Modifica) e **Delete** (Elimina) eseguono le operazioni previste. **Export** (Esporta) genera uno script di PowerShell per ricreare la regola di sincronizzazione. Questa procedura consente di spostare una regola di sincronizzazione da un server a un altro.
 
 ## Creare la prima regola personalizzata
-La modifica più comune riguarda i flussi degli attributi. I dati nella directory di origine potrebbero non quelli che si vogliono usare in Azure AD. Nell'esempio in questa sezione si vuole assicurare che formato il nome di un utente sia sempre nel**formato corretto**.
+La modifica più comune riguarda i flussi degli attributi. I dati nella directory di origine potrebbero non corrispondere a quelli in Azure AD. Nell'esempio in questa sezione si vuole assicurare che formato il nome di un utente sia sempre nel**formato corretto**.
 
 ### Disabilitare l'utilità di pianificazione
 Per impostazione predefinita, l'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) viene eseguita ogni 30 minuti. Si vuole garantire che non venga avviata mentre si apportano modifiche e si risolvono i problemi delle nuove regole. Per disabilitare temporaneamente l'utilità di pianificazione, avviare PowerShell ed eseguire `Set-ADSyncScheduler -SyncCycleEnabled $false`
@@ -134,4 +134,4 @@ In Fabrikam si è notato che alcuni degli attributi sincronizzati nel cloud non 
 - [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

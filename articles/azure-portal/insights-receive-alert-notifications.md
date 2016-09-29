@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Ricevere notifiche di avviso
 
@@ -34,17 +34,17 @@ Per configurare e ottenere informazioni sulle regole di avviso a livello di codi
 
 3. Fare clic sul comando **Aggiungi avviso**.
 
-	![Aggiunta di una regola](./media/insights-receive-alert-notifications/Insights_AddAlert.png)  
+	![Aggiunta di una regola](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. È possibile denominare la regola di avviso e scegliere una descrizione che verrà visualizzata nella notifica inviata tramite posta elettronica.
 
 5. Quando si seleziona **Metriche**, è possibile scegliere una condizione e un valore soglia per la metrica. Si tratta del periodo di tempo usato da Azure per monitorare e tracciare l'attività di avviso.
 
-	![Condizione e soglia](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)  
+	![Condizione e soglia](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. È anche possibile scegliere **Eventi** e ricevere una notifica quando si verifica un determinato evento.
 
-	![Eventi](./media/insights-receive-alert-notifications/Insights_Events.png)  
+	![Eventi](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Infine, si può scegliere di inviare la notifica tramite posta elettronica agli amministratori responsabili.
 
@@ -54,7 +54,7 @@ Pochi minuti dopo aver fatto clic su **Salva**, all'utente verrà comunicato se 
 
 Dopo aver creato una regola di avviso, è possibile visualizzare un'anteprima della soglia di avviso raffrontata alla metrica del giorno precedente.
 
-![Eventi](./media/insights-receive-alert-notifications/Insights_EditAlert.png)  
+![Eventi](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
 Questa regola di avviso può chiaramente essere modificata e **disabilitata** o **abilitata**, se si desidera interrompere temporaneamente la ricezione di notifiche ad essa correlate.
@@ -65,8 +65,8 @@ Questa regola di avviso può chiaramente essere modificata e **disabilitata** o 
 * [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
-* [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
+* [Monitorare le prestazioni dell'applicazione](../application-insights/app-insights-azure-web-apps.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * [Visualizzare eventi e registri di controllo](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
 * [Tenere traccia dello stato del servizio](insights-service-health.md) per scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

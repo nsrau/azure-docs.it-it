@@ -5,7 +5,7 @@
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -40,7 +40,7 @@ In questa sezione si creerà un cluster HBase basato su Linux in HDInsight usand
 
 1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure. Il modello di Gestione risorse di Azure è disponibile in un contenitore BLOB pubblico.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Nel pannello **Parametri** immettere le informazioni seguenti:
     - **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
@@ -228,7 +228,7 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
 
 ##Passaggi successivi
 
-In questa esercitazione si è appreso come creare un cluster HBase. Per ulteriori informazioni, vedere:
+In questa esercitazione si è appreso come creare un cluster HBase. Per altre informazioni, vedere:
 
 - [Introduzione all'uso di HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md)
@@ -284,4 +284,4 @@ In questa esercitazione si è appreso come creare un cluster HBase. Per ulterior
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

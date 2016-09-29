@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Distribuzione del portale utenti per il server Azure Multi-Factor Authentication" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a utilizzare Azure MFA e ADFS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Distribuzione del portale utenti per il server Azure Multi-Factor Authentication"
+	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive come iniziare a utilizzare Azure MFA e ADFS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Distribuzione del portale utenti per il server Azure Multi-Factor Authentication
 
@@ -101,7 +101,7 @@ Il portale utenti è ora installato. È necessario configurare il server Azure M
 Il server Azure Multi-Factor Authentication offre diverse opzioni per il portale utenti. La tabella seguente include un elenco di queste opzioni e una spiegazione dell'uso a cui sono destinate.
 
 Impostazioni del portale utenti|Descrizione|
-:------------- | :------------- | 
+:------------- | :------------- |
 URL portale utenti| Consente di immettere l'URL in cui viene ospitato il portale.
 Autenticazione primaria| Consente di specificare il tipo di autenticazione da usare quando si accede al portale. Autenticazione di Windows, Radius o LDAP.
 Consenti agli utenti di accedere|Consente agli utenti di immettere un nome utente e una password nella pagina di accesso del portale utenti. Se l'impostazione non è selezionata, le caselle risulteranno disattivate.
@@ -187,6 +187,4 @@ Se gli amministratori hanno configurato il server Azure Multi-Factor Authenticat
 
 A questo punto la registrazione automatica è stata completata e l'utente è connesso al portale utenti. Se consentito dagli amministratori, gli utenti possono accedere al portale utenti in qualsiasi momento per modificare numeri di telefono, PIN, metodi di autenticazione e domande di sicurezza.
 
- 
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

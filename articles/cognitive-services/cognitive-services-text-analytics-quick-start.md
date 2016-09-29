@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -270,7 +270,7 @@ Di seguito viene spiegata ogni parte della risposta:
 
 **topics**
 
-| Chiave | Descrizione |
+| Chiave | Description |
 |:-----|:----|
 | id | Identificatore univoco di ogni argomento. |
 | score | Numero di documenti assegnati all'argomento. |
@@ -297,4 +297,4 @@ Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibi
 
 Per scoprire come utilizzare le funzionalità di Text Analytics, ad esempio una valutazione, come parte di un bot, vedere l'esempio [Bot emotivo](http://docs.botframework.com/it-IT/bot-intelligence/language/#example-emotional-bot) sul sito Bot Framework.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

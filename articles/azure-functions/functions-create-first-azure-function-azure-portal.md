@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-/>  
+/>
 
 <tags
    ms.service="functions"

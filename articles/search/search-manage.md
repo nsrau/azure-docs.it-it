@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor=""
     tags="azure-portal"/>
 
@@ -36,7 +36,7 @@ Un amministratore che configura un servizio di ricerca deve prima di tutto defin
 
 Per gli abbonati esistenti è disponibile un servizio condiviso senza costi aggiuntivi, consigliato per scopi di apprendimento, test dei modelli di prova e piccoli progetti di sviluppo. Il servizio condiviso è limitato a 50 MB di spazio di archiviazione, tre indici e un numero massimo 10.000 documenti, anche qualora lo spazio di archiviazione usato da questi ultimi sia inferiore ai 50 MB consentiti. Non vi è garanzia alcuna rispetto alle prestazioni del servizio condiviso, pertanto, se si prevede di sviluppare un'applicazione di ricerca di produzione, è consigliabile valutare l'acquisto del servizio di ricerca standard.
 
-Il servizio di ricerca, sia Basic che Standard, è fatturabile perché fornisce accesso a risorse dedicate e a un'infrastruttura usata unicamente dalla propria sottoscrizione. I servizi di ricerca Basic e Standard vengono allocati in bundle di partizioni definiti dall'utente (archiviazione) e repliche (carichi di lavoro del servizio). Le tariffe sono definite per unità di ricerca. È possibile aumentare partizioni o repliche indipendentemente, aggiungendo le risorse necessarie.
+Il servizio di ricerca, sia Basic che Standard, è fatturabile perché fornisce l'accesso a risorse dedicate e a un'infrastruttura utilizzata unicamente dalla propria sottoscrizione. I servizi di ricerca Basic e Standard vengono allocati in bundle di partizioni definiti dall'utente (archiviazione) e repliche (carichi di lavoro del servizio). Le tariffe sono definite per unità di ricerca. È possibile aumentare partizioni o repliche indipendentemente, aggiungendo le risorse necessarie.
 
 Per pianificare la capacità e comprendere l'impatto di fatturazione, è consigliabile consultare le informazioni disponibili seguendo i collegamenti seguenti:
 
@@ -112,7 +112,7 @@ Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei doc
 +	[Ottenere le statistiche di un indice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
 
-> [AZURE.NOTE] Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un numero documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite.
+> [AZURE.NOTE] Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un conteggio documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite.
 
 
 <a id="sub-6"></a>
@@ -169,9 +169,9 @@ In Ricerca di Azure i controlli degli accessi in base al ruolo determinano le at
 
 Ruolo|Attività
 ---|---
-Proprietario|Avviare, arrestare o eliminare il servizio.<p>Generare e visualizzare le chiavi di amministratore ed eseguire le chiavi di query.<p>Visualizzare lo stato di servizio, incluso il numero di indici, i nomi degli indici, il numero di documenti e le dimensioni di archiviazione.<p>Aggiungere o eliminare l'appartenenza al ruolo (solo un proprietario può gestire l'appartenenza al ruolo).<p>Gli amministratori della sottoscrizione e del servizio dispongono dell’appartenenza automatica al ruolo di proprietario.
+Proprietario|Avviare, arrestare o eliminare il servizio.<p>Generare e visualizzare le chiavi di amministratore ed eseguire le chiavi di query.<p>Visualizzare lo stato di servizio, inclusi il numero di indici, i nomi degli indici, il numero di documenti e le dimensioni di archiviazione.<p>Aggiungere o eliminare l'appartenenza al ruolo (solo un proprietario può gestire l'appartenenza al ruolo).<p>Gli amministratori della sottoscrizione e del servizio dispongono dell'appartenenza automatica al ruolo di proprietario.
 Collaboratore|Ha lo stesso livello di accesso del Proprietario, ad eccezione della gestione dei ruoli. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli.
-Lettore|Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono avviare o arrestare un servizio o visualizzare le chiavi di amministrazione.
+Reader|Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono avviare o arrestare un servizio o visualizzare le chiavi di amministrazione.
 
 Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).
 
@@ -194,4 +194,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

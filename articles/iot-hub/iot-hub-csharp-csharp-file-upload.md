@@ -80,7 +80,7 @@ In questa sezione si modifica l'applicazione del dispositivo simulato creata in 
 
         SendToBlobAsync();
 
-> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
+> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
 
 ## Ricevere la notifica di caricamento di un file
 
@@ -155,12 +155,12 @@ In questa esercitazione si è appreso come sfruttare le funzionalità di caricam
 - [Introduzione a C SDK][lnk-c-sdk]
 - [SDK hub IoT][lnk-sdks]
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
+Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Progettare una soluzione][lnk-design]
-- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
+- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
-- [Utilizzo del portale di Azure per gestire l'hub IoT][lnk-portal]
+- [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
 <!-- Images. -->
 
@@ -197,4 +197,4 @@ Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

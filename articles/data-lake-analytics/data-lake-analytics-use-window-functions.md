@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake | Azure" 
-   description="Informazioni su come usare le funzioni finestra di U-SQL." 
+   description="Informazioni su come usare le funzioni finestra di U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -44,7 +44,7 @@ Le funzioni finestra sono classificate come segue:
 
 Questa esercitazione usa due set di dati:
 
-- QueryLog 
+- QueryLog
 
     QueryLog rappresenta un elenco delle ricerche effettuate dalle persone nel motore di ricerca. Ogni log di query include:
     
@@ -166,7 +166,7 @@ La somma della colonna SalaryByDept è $ 165000, che corrisponde all'importo nel
  
 In entrambi i casi sono presenti meno righe di output che righe di input:
  
-- Senza GROUP BY l'aggregazione comprime tutte le righe in una sola. 
+- Senza GROUP BY l'aggregazione comprime tutte le righe in una sola.
 - Con GROUP BY sono presenti N righe di output, dove N è il numero di valori distinti visualizzati nei dati. In questo caso, saranno restituite 4 righe nell'output.
 
 ###  Usare una funzione finestra
@@ -241,7 +241,7 @@ Ecco la sintassi:
 
     <AggregateFunction>( [DISTINCT] <expression>) [<OVER_clause>]
 
-Nota:
+Note:
 
 - Per impostazione predefinita, le funzioni di aggregazione, eccetto COUNT, ignorano i valori Null.
 - Quando le funzioni di aggregazione vengono specificate insieme alla clausola OVER, la clausola ORDER BY non è consentita nella clausola OVER.
@@ -328,7 +328,7 @@ Le funzioni di rango restituiscono un valore di rango (long) per ogni riga in og
 Di seguito sono elencate le funzioni di rango supportate:
 
 - RANK
-- DENSE\_RANK 
+- DENSE\_RANK
 - NTILE
 - ROW\_NUMBER
 
@@ -341,7 +341,7 @@ Di seguito sono elencate le funzioni di rango supportate:
 	) AS <alias>
 
 - La clausola ORDER BY è facoltativa per le funzioni di rango. Se ORDER BY viene specificata, determina l'ordine di rango. Se ORDER BY non viene specificata, U-SQL assegna i valori in base all'ordine in cui legge i record. Nel caso in cui la clausola ORDER BY non sia specificata, viene restituito un valore non deterministico di numero di riga, rango o rango di tipo dense.
-- NTILE richiede un'espressione che restituisce un intero positivo. Questo numero specifica il numero di gruppi in cui è necessario suddividere ogni partizione. Questo identificatore viene usato solo con la funzione di rango NTILE. 
+- NTILE richiede un'espressione che restituisce un intero positivo. Questo numero specifica il numero di gruppi in cui è necessario suddividere ogni partizione. Questo identificatore viene usato solo con la funzione di rango NTILE.
 
 Per altre informazioni sulla clausola OVER, vedere [Riferimento al linguaggio U-SQL]().
 
@@ -431,10 +431,10 @@ I risultati sono:
 
 NTILE accetta un parametro, "numgroups". Numgroups è un'espressione costante di tipo int o long positiva che specifica il numero di gruppi in cui è necessario suddividere ogni partizione.
 
-- Se il numero di righe nella partizione è divisibile uniformemente per numgroups, le dimensioni dei gruppi saranno uguali. 
-- Se il numero di righe in una partizione non è divisibile per numgroups, verranno creati gruppi di due dimensioni che differiscono per un membro. I gruppi più grandi precedono i gruppi più piccoli nell'ordine specificato dalla clausola OVER. 
+- Se il numero di righe nella partizione è divisibile uniformemente per numgroups, le dimensioni dei gruppi saranno uguali.
+- Se il numero di righe in una partizione non è divisibile per numgroups, verranno creati gruppi di due dimensioni che differiscono per un membro. I gruppi più grandi precedono i gruppi più piccoli nell'ordine specificato dalla clausola OVER.
 
-Ad esempio:
+ad esempio:
 
 - 100 righe divise in 4 gruppi: [25, 25, 25, 25]
 - 102 righe divise in 4 gruppi: [26, 26, 25, 25]
@@ -561,7 +561,7 @@ Le funzioni analitiche vengono usate per comprendere le distribuzioni di valori 
 
 **Funzioni finestra analitiche supportate**
 
-- CUME\_DIST 
+- CUME\_DIST
 - PERCENT\_RANK
 - PERCENTILE\_CONT
 - PERCENTILE\_DISC
@@ -570,7 +570,7 @@ Le funzioni analitiche vengono usate per comprendere le distribuzioni di valori 
 
 CUME\_DIST calcola la posizione relativa di un valore specificato in un gruppo di valori. Calcola la percentuale di query con una latenza inferiore o uguale alla latenza di query corrente nello stesso parametro Vertical. Per una riga R, supponendo un ordinamento crescente, la funzione CUME\_DIST di R è il numero di righe con valori inferiori o uguali al valore di R, diviso per il numero di righe valutato nel set di risultati di query o partizione. CUME\_DIST restituisce numeri nell'intervallo 0 < x < = 1.
 
-** Sintassi**
+**Sintassi**
 
     CUME_DIST() 
         OVER (
@@ -606,7 +606,7 @@ Sono presenti 6 righe nella partizione in cui la chiave di partizione è "Web" (
 - Sono presenti 5 righe con valore uguale o minore di 400, quindi CUME\_DIST è uguale a 5/6=0,83.
 - Sono presenti 4 righe con valore uguale o minore di 300, quindi CUME\_DIST è uguale a 4/6=0.66
 - Sono presenti 3 righe con valore uguale o minore di 200, quindi CUME\_DIST è uguale a 3/6=0,5. Sono presenti due righe con lo stesso valore di latenza.
-- È presente 1 riga con valore uguale o minore di 100, quindi CUME\_DIST è uguale a 1/6=0,16. 
+- È presente 1 riga con valore uguale o minore di 100, quindi CUME\_DIST è uguale a 1/6=0,16.
 
 
 **Note sull'utilizzo:**
@@ -623,7 +623,7 @@ Nota: la clausola ORDER BY non è consentita se l'istruzione SELECT non è segui
 
 PERCENT\_RANK calcola il rango relativo di una riga in un gruppo di righe. PERCENT\_RANK si usa per valutare il rango relativo di un valore all'interno di un set di righe o una partizione. L'intervallo di valori restituiti da PERCENT\_RANK è maggiore di 0 e minore o uguale a 1. A differenza di CUME\_DIST, PERCENT\_RANK è sempre 0 per la prima riga.
 	
-** Sintassi**
+**Sintassi**
 
     PERCENT_RANK() 
         OVER (
@@ -636,7 +636,7 @@ PERCENT\_RANK calcola il rango relativo di una riga in un gruppo di righe. PERCE
 - La prima riga in qualsiasi set ha un valore PERCENT\_RANK pari a 0.
 - I valori NULL vengono considerati come i valori più bassi possibile.
 - È necessario specificare la clausola ORDER BY per calcolare PERCENT\_RANK.
-- CUME\_DIST è simile alla funzione PERCENT\_RANK 
+- CUME\_DIST è simile alla funzione PERCENT\_RANK
 
 
 L'esempio seguente usa la funzione PERCENT\_RANK per calcolare il percentile della latenza per ogni query all'interno di un parametro Vertical.
@@ -672,15 +672,15 @@ Queste due funzioni calcolano un percentile in base a una distribuzione continua
 
 **Sintassi**
 
-    [PERCENTILE_CONT | PERCENTILE_DISC] \( numeric_literal ) 
+    [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
         OVER ( [ PARTITION BY <identifier,>…[n] ] ) AS <alias>
 
 **numeric\_literal**: percentile da calcolare. Il valore deve essere compreso tra 0,0 e 1,0.
 
-WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ]): specifica un elenco di valori numerici per ordinare e calcolare il percentile. È consentito un solo identificatore di colonna. L'espressione deve restituire un tipo numerico. Non sono consentiti altri tipi di dati. L'ordinamento predefinito è crescente.
+WITHIN GROUP ( ORDER BY <identificativo> [ ASC | DESC ]): specifica un elenco di valori numerici per ordinare e calcolare il percentile. È consentito un solo identificatore di colonna. L'espressione deve restituire un tipo numerico. Non sono consentiti altri tipi di dati. L'ordinamento predefinito è crescente.
 
-OVER ([ PARTITION BY <identifier,>…[n] ] ): divide il set di righe di input in partizioni in base alla chiave di partizione a cui si applica la funzione percentile. Per altre informazioni, vedere la sezione RANKING di questo documento. Nota: gli eventuali valori Null nel set di dati vengono ignorati.
+OVER ([ PARTITION BY <identificativo,>…[n] ] ): divide il set di righe di input in partizioni in base alla chiave di partizione a cui si applica la funzione percentile. Per altre informazioni, vedere la sezione RANKING di questo documento. Nota: gli eventuali valori Null nel set di dati vengono ignorati.
 
 **PERCENTILE\_CONT** calcola un percentile in base a una distribuzione continua del valore di colonna. Il risultato viene interpolato e potrebbe non essere uguale ad alcuno dei valori specifici nella colonna.
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC non esegue l'interpolazione dei valori, quindi il valore median
 - [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -572,4 +572,4 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

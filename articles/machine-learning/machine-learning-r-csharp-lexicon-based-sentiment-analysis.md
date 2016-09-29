@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Analisi dei sentimenti basata sul lessico | Microsoft Azure" 
-	description="Analisi dei sentimenti basata sul lessico" 
+	description="Analisi del sentiment basata sul lessico" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pengxia" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -18,7 +18,7 @@
 
 
 
-#Analisi dei sentimenti basata sul lessico 
+#Analisi del sentiment basata sul lessico 
 
 Come si misurano le opinioni degli utenti e gli atteggiamenti verso i marchi o gli argomenti dei social network online, ad esempio post di Facebook, tweet, revisioni, ecc.? Le analisi dei sentimenti forniscono un metodo per l'analisi di queste domande.
 
@@ -27,7 +27,7 @@ Come si misurano le opinioni degli utenti e gli atteggiamenti verso i marchi o g
 
 In genere esistono due metodi per l'analisi dei sentimenti. Uno consiste nell'utilizzare un algoritmo di apprendimento supervisionato e l'altro può essere considerato come un apprendimento senza supervisione. Un algoritmo di apprendimento supervisionato crea in genere un modello di classificazione in base a una raccolta con annotazioni di grandi dimensioni. La precisione si basa principalmente sulla qualità dell'annotazione e in genere il processo di training richiede molto tempo. Quando si applica l'algoritmo a un altro dominio, inoltre, i risultati non sono in genere validi. Rispetto all'apprendimento supervisionato, l'apprendimento non supervisionato basato sul lessico usa un dizionario di sentimenti, che non richiede l'archiviazione di un corpus di dati di grandi dimensioni e non necessita di training. Il processo risulta quindi molto più veloce.
 
-Questo [servizio](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) è basato sul lessico di soggettività MPQA , http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/) che è uno dei lessici di soggettività più usati. MPQA include 5097 parole negative e 2533 parole positive. Tutte queste parole sono annotate con polarità forte o debole. L'intero corpus è disponibile con la licenza pubblica generale GNU. Il servizio Web può essere applicato a qualsiasi frase breve, ad esempio tweet, post di Facebook e così via.
+Questo [servizio](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) è basato sul lessico di soggettività MPQA , http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/ che è uno dei lessici di soggettività più usati. MPQA include 5097 parole negative e 2533 parole positive. Tutte queste parole sono annotate con polarità forte o debole. L'intero corpus è disponibile con la licenza pubblica generale GNU. Il servizio Web può essere applicato a qualsiasi frase breve, ad esempio tweet, post di Facebook e così via.
 
 >Questo servizio Web può essere utilizzato dagli utenti: potenzialmente tramite un'app mobile, un sito Web o anche in un computer locale, ad esempio. Ma lo scopo del servizio Web è anche fornire un esempio di come è possibile utilizzare Azure Machine Learning per creare servizi Web in codice R. Con poche righe di codice R e la selezione di alcuni pulsanti in Azure Machine Learning Studio è possibile creare un esperimento con codice R e pubblicarlo come servizio Web. Il servizio Web può essere quindi pubblicato in Azure Marketplace e può essere usato da utenti e dispositivi in tutto il mondo, senza che l'autore del servizio Web debba configurare alcuna infrastruttura.
 
@@ -78,7 +78,7 @@ L'input è "Oggi è un buon giorno". L'output è "1", che indica un sentimento p
 
 In Azure Machine Learning è stato creato un nuovo esperimento vuoto. La figura seguente mostra il flusso dell'esperimento di un'analisi del sentimento basata sul lessico. Il file "sent\_dict.csv" è il lessico di soggettività MPQA ed è configurato come uno degli input di ["Execute R Script"][execute-r-script]. Un altro input è costituito da una revisione campionata dal set di dati di revisioni Amazon per la verifica, in cui sono state eseguite operazioni di selezione, modifica del nome di colonna e suddivisione. Un pacchetto di hash viene usato per archiviare il lessico di soggettività in memoria e accelerare il processo di calcolo del punteggio. L'intero testo verrà suddiviso in token dal pacchetto "tm" e verrà confrontato con le parole disponibili nel dizionario di sentiment. Verrà infine calcolato un punteggio tramite la somma dei pesi di ogni parola soggettiva nel testo.
 
-###Flusso dell'esperimento:
+###Flusso dell'esperimento
 
 ![Flusso dell'esperimento][2]
 
@@ -153,4 +153,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

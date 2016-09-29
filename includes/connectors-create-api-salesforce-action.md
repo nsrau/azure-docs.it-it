@@ -31,7 +31,7 @@ Dopo aver aggiunto un'azione per ottenere un lead, è possibile effettuare opera
 - Selezionare la voce di elenco **Office 365 Outlook - Inviare un messaggio di posta elettronica**. Se non è ancora stata creata una *connessione* all'account di Office 365, verrà richiesto di immettere le credenziali di Office 365 per crearla adesso. Al termine dell'operazione, viene visualizzato il controllo **Inviare un messaggio di posta elettronica**.  
 ![Immagine di azione Salesforce 7](./media/connectors-create-api-salesforce/action-7.png)  
 - Immettere l'indirizzo di posta elettronica a cui inviare il messaggio nel controllo **A**.
--  Nel controllo **Oggetto**, immettere *Nuovo lead creato - * quindi selezionare il token *Azienda*. Verrà visualizzato il campo *Azienda* dal nuovo lead creato in Salesforce.
+-  Nel controllo **Subject** (Oggetto) immettere *New Lead created* (Nuovo lead creato), quindi selezionare il token *Company* (Azienda). Verrà visualizzato il campo *Azienda* dal nuovo lead creato in Salesforce.
 -  Nel controllo **Corpo messaggio** , è possibile selezionare qualsiasi token dal nuovo oggetto lead ed è inoltre possibile immettere qualunque testo che si desidera far apparire nel corpo del messaggio di posta elettronica. Ecco un esempio:  
 ![Immagine di azione Salesforce 8](./media/connectors-create-api-salesforce/action-8.png)  
 - Salvare il flusso di lavoro.
@@ -41,4 +41,4 @@ Dopo aver aggiunto un'azione per ottenere un lead, è possibile effettuare opera
 Ora è possibile testare l'app per la logica: in Salesforce, creare un nuovo lead che soddisfi la condizione creata. Se ci si è attenuti pienamente a questa procedura dettagliata, è sufficiente creare un lead con un indirizzo di posta elettronica che contenga la dicitura *amazon.com*. L'app per la logica dovrebbe attivarsi in pochi secondi e il risultato dovrebbe essere simile a:  
 ![Immagine di azione Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

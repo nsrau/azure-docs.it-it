@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -128,7 +128,7 @@ Questa configurazione automatica è possibile se il numero di messaggi in una co
 
 ## Scalare risorse collegate
 
-Quando si scala un ruolo, spesso risulta utile scalare anche il database usato dall'applicazione. Se si collega il database al servizio cloud, è possibile accedere alle impostazioni di scalabilità per tale risorsa facendo clic sul collegamento appropriato.
+Quando si scala un ruolo, spesso risulta utile scalare anche il database utilizzato dall'applicazione. Se si collega il database al servizio cloud, è possibile accedere alle impostazioni di scalabilità per tale risorsa facendo clic sul collegamento appropriato.
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi cloud** e quindi sul nome del servizio cloud per aprire il dashboard.
 
@@ -151,4 +151,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -90,7 +90,7 @@ In questa sezione si userà un'applicazione Scala locale autonoma per inviare un
 	
 2. Compilare il progetto. Scegliere **Make Project** dal menu **Build**. Il file con estensione jar di output viene creato in **\\out\\artifacts**.
 
->[AZURE.TIP] È anche possibile usare un'opzione disponibile in IntelliJ IDEA per creare il progetto direttamente da un repository GitHub. Per sapere come usare questo approccio, vedere le istruzioni nella sezione successiva per informazioni aggiuntive. Si noti che molti passaggi descritti nella sezione successiva non sono applicabili per l'applicazione Scala creata in questo passaggio. Ad esempio:
+>[AZURE.TIP] È anche possibile usare un'opzione disponibile in IntelliJ IDEA per creare il progetto direttamente da un repository GitHub. Per sapere come usare questo approccio, vedere le istruzioni nella sezione successiva per informazioni aggiuntive. Si noti che molti passaggi descritti nella sezione successiva non sono applicabili per l'applicazione Scala creata in questo passaggio. ad esempio:
 
 > * Non è necessario aggiornare il modello POM per includere la versione di Spark, perché non esistono dipendenze da Spark per la creazione di questa applicazione.
 > * Non è necessario aggiungere alcuni file con estensione jar di dipendenza nella libreria del progetto, perché i file con estensione jar non sono richiesti per il progetto.
@@ -364,7 +364,7 @@ L'output dovrebbe essere simile al seguente:
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Utilizzare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -372,7 +372,7 @@ L'output dovrebbe essere simile al seguente:
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
@@ -391,4 +391,4 @@ L'output dovrebbe essere simile al seguente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

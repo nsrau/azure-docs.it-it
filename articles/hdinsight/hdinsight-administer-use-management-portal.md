@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
+    ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Gestire cluster Hadoop in HDInsight tramite il portale di Azure
@@ -79,8 +79,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	
 	- Per personalizzare il menu fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e scegliere **Personalizza**.
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-	- **Dashboard**, **Dashboard cluster** e **URL: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux.
-	- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH).
+	- **Dashboard**, **Dashboard cluster** e **URL: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux. -**Secure Shell**: mostra le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH).
 	- **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -88,7 +87,7 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	
 		> [AZURE.IMPORTANT] Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
 	- **Tag (![icona tag](./media/hdinsight-administer-use-portal-linux/tags.png))**: consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__ e usare un valore comune per tutti i servizi associati a un progetto specifico.
-	- **Viste di Ambari**: collegamenti ad Ambari Web.
+	- **Visualizzazioni di Ambari**: collegamenti ad Ambari Web.
 	
 	> [AZURE.IMPORTANT] Per gestire i servizi forniti dal cluster HDInsight, è necessario utilizzare Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -187,7 +186,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 **Per ridimensionare i cluster**
 
-1. Accedere al [Portale][azure-portal].
+1. Accedere al [portale][azure-portal].
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Fare clic su **Impostazioni** dal menu in alto, quindi fare clic su **Ridimensiona cluster**.
 4. Immettere il **numero di nodi del ruolo di lavoro**. Il limite al numero dei nodi del cluster varia tra le diverse sottoscrizioni di Azure. Per aumentare il limite, contattare il team del supporto fatturazione. Le informazioni sui costi rifletteranno le modifiche apportate al numero di nodi.
@@ -196,8 +195,7 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 ##Sospendere/Arrestare i cluster
 
-La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato.
-Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
+La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
 
 Questo processo può essere programmato in molti modi:
 
@@ -252,12 +250,12 @@ Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibi
 
 ##Trovare l'account di archiviazione predefinito
 
-Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le relative chiavi per un cluster sono disponibili in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le relative chiavi per un cluster vengono visualizzati in **Impostazioni**/**Proprietà**/**Chiavi di archiviazione di Azure**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
 	
 ##Trovare il gruppo di risorse 
 
-In modalità ARM ogni cluster HDInsight viene creato con un gruppo di risorse di risorse di Azure. Il gruppo di risorse di Azure a cui appartiene un cluster viene visualizzato in:
+In modalità Azure Resource Manager ogni cluster HDInsight viene creato con un gruppo di risorse di Azure. Il gruppo di risorse di Azure a cui appartiene un cluster viene visualizzato in:
 
 - Colonna **Gruppo di risorse** dell'elenco di cluster.
 - Riquadro **Informazioni di base** del cluster.
@@ -363,7 +361,7 @@ Per connettersi al cluster tramite Desktop remoto e usare la riga di comando di 
 
 	Per altre informazioni sui comandi Hadoop, vedere la [documentazione di riferimento sui comandi Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-Nella schermata precedente il numero di versione di Hadoop è incorporato nel nome della cartella. Il numero di versione cambia in base alla versione dei componenti Hadoop installati nel cluster. È possibile usare le variabili d'ambiente di Hadoop per fare riferimento a tali cartelle. Ad esempio:
+Nella schermata precedente il numero di versione di Hadoop è incorporato nel nome della cartella. Il numero di versione cambia in base alla versione dei componenti Hadoop installati nel cluster. È possibile usare le variabili d'ambiente di Hadoop per fare riferimento a tali cartelle. ad esempio:
 
 	cd %hadoop_home%
 	cd %hive_home%
@@ -385,4 +383,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

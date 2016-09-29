@@ -4,7 +4,7 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev,hangzh-msft"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags
@@ -20,8 +20,8 @@
 
 In questo articolo, viene descritto come eseguire il downsampling dei dati archiviati nelle tabelle Hive di Azure HDInsight usando le query Hive. Vengono trattati i tre metodi di campionamento utilizzati più frequentemente:
 
-* Campionamento casuale uniforme 
-* Campionamento casuale per gruppi 
+* Campionamento casuale uniforme
+* Campionamento casuale per gruppi
 * Campionamento stratificato
 
 **Perché campionare i dati?** Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel Processo di analisi scientifica dei dati per i team consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
@@ -107,4 +107,4 @@ Di seguito è fornito un esempio di query:
 Per informazioni su metodi di campionamento più avanzati disponibili in Hive, vedere [Campionamento di LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

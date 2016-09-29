@@ -15,30 +15,36 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/30/2016"
+	ms.date="08/31/2016"
 	ms.author="cjiang"/>
 
 # Carta di credito o di debito rifiutata al momento dell'iscrizione
 
+> [AZURE.NOTE] Se si sta tentando di modificare o rimuovere una carta esistente, leggere le informazioni su come [gestire le informazioni di pagamento](billing-how-to-change-credit-card.md).
+
+> Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
 Se la carta di credito o di debito è stata rifiutata al momento dell'iscrizione ad Azure, potrebbero presentarsi dei problemi a causa di uno dei motivi seguenti.
 
-- Si sta usando una carta prepagata o virtuale. Le carte di credito virtuali o prepagate non sono accettate come opzioni di pagamento valide.
-
-- [I fornitori di carte di credito e di debito accettati variano in base al paese](#credit-or-debit-card-details). Nell'elenco a discesa per la scelta della carta di credito vengono visualizzate solo le opzioni valide per il paese selezionato.
+- [I fornitori di carte di credito e di debito accettate variano in base al paese e potrebbe quindi essere necessario usare una carta internazionale](#credit-or-debit-card-details). Nell'elenco a discesa per la scelta della carta di credito vengono visualizzate solo le opzioni valide per il paese selezionato.
 
 - [Le informazioni sulla carta di credito o di debito sono errate o incomplete](#credit-or-debit-card-details). È necessario aggiornare le informazioni di pagamento per continuare.
 
 - [Si sta provando ad attivare una seconda versione di valutazione gratuita](#azure-free-trial). L'offerta di valutazione gratuita di Azure è limitata a una per ogni utente.
 
-- Se si sta usando una carta di credito o debito della cui validità si è certi, verificare che il metodo di pagamento sia attivo e che la banca non blocchi le transazioni online per i criteri di sicurezza. Contattare la banca per risolvere il problema.
+- Si sta usando una carta prepagata o virtuale. Le carte di credito virtuali o prepagate non sono accettate come opzioni di pagamento valide.
 
-> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+- La carta potrebbe essere inattiva o bloccata. Se si sta usando una carta di credito o debito della cui validità si è certi, verificare che il metodo di pagamento sia attivo e che la banca non blocchi le transazioni online per i criteri di sicurezza. Contattare la banca per risolvere il problema.
 
 ## Dettagli della carta di credito o di debito
 
 Per verificare la validità delle informazioni sulla carta di credito o di debito, seguire questa procedura:
 
-- La carta di credito/debito in uso dovrebbe essere presente nell'elenco a discesa per il paese selezionato. Se non è presente significa che non è un'opzione disponibile per il proprio paese. Vedere l'[elenco relativo ai paesi e alle valute supportati](billing-countries-and-currencies.md).
+- La carta di credito/debito in uso dovrebbe essere presente nell'elenco a discesa per il paese selezionato.
+	
+	- In alcuni casi, anche se si sta effettuando il pagamento per i servizi Azure nella valuta locale/preferita, l'acquisto avviene tramite un'entità Microsoft non locale e la carta di credito viene elaborata da una banca non locale. Contattare la banca o l'autorità emittente della carta per verificare se la carta di credito è abilitata per le transazioni internazionali.
+	
+	- Vedere l'[elenco relativo ai paesi e alle valute supportati](billing-countries-and-currencies.md).
 
 - Il nome immesso deve corrispondere esattamente al nome stampato sulla carta di credito/debito, senza simboli o caratteri aggiuntivi.
 
@@ -64,8 +70,8 @@ Per informazioni dettagliate su come avviare il processo di configurazione di un
 
 ### Aggiornare le informazioni sulla carta di credito o di debito
 
-Se le informazioni sulla carta di credito o di debito non sono aggiornate, è possibile [aggiornare le informazioni di pagamento](billing-how-to-change-credit-card.md).
+Per modificare o rimuovere una carta oppure per aggiornare i relativi dettagli, leggere le informazioni su come [gestire le informazioni di pagamento](billing-how-to-change-credit-card.md).
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

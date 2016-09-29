@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -74,7 +74,7 @@ Per gestire i valori mancanti, è consigliabile innanzitutto identificare il mot
 * **Sostituzione fittizia**: sostituire un valore mancante con un valore fittizio, ad esempio, _unknown_ per valori categorici o 0 per valori numerici.
 * **Sostituzione con media**: se i dati mancanti sono numerici, sostituirli con la media.
 * **Sostituzione con elementi frequenti**: se i dati mancanti sono categorici, sostituirli con gli elementi più frequenti
-* **Sostituzione con regressione**: usare il metodo della regressione per sostituire i valori mancanti con valori regrediti.  
+* **Sostituzione con regressione**: usare il metodo della regressione per sostituire i valori mancanti con valori regrediti.
 
 ## Come normalizzare i dati?
 
@@ -82,22 +82,22 @@ La normalizzazione dei dati fa rientrare i valori numerici in un intervallo spec
 
 * **Normalizzazione Min-Max**: consente di trasformare i dati in un intervallo in modo lineare, ad esempio compreso tra 0 e 1, dove il valore min corrisponde a 0 e il valore massimo a 1.
 * **Normalizzazione Z-score**: consente di ridurre i dati in base alla media e alla deviazione standard. Si divide la differenza tra dati e media per la deviazione standard.
-* **Scalabilità decimale**: consente di ridurre i dati spostando il punto decimale del valore dell'attributo.  
+* **Scalabilità decimale**: consente di ridurre i dati spostando il punto decimale del valore dell'attributo.
 
 ## Come eseguire la discretizzazione dei dati?
 
 I dati possono essere discretizzati convertendo i valori continui in attributi o intervalli nominali. Ciò può essere fatto nei seguenti modi:
 
 * **Creazione di contenitori di uguale ampiezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi della stessa dimensione a cui si assegnano i valori che rientrano in un contenitore con il numero di contenitore.
-* **Creazione di contenitori di uguale altezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi, ciascuno contenente lo stesso numero di istanze, quindi si assegnano i valori che rientrano in un contenitore con il numero di contenitore.  
+* **Creazione di contenitori di uguale altezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi, ciascuno contenente lo stesso numero di istanze, quindi si assegnano i valori che rientrano in un contenitore con il numero di contenitore.
 
 ## Come ridurre i dati?
 
 Esistono vari metodi per ridurre le dimensioni dei dati e renderne più semplice la gestione. A seconda della dimensione e del dominio dei dati, è possibile utilizzare i seguenti metodi:
 
 * **Campionamento record**: i record di dati vengono campionati e viene scelto solo un sottoinsieme rappresentativo.
-* **Campionamento attributi**: selezionare solo un sottoinsieme degli attributi più importanti dai dati.  
-* **Aggregazione**: i dati vengono divisi in gruppi e per ogni gruppo vengono memorizzati i numeri. Ad esempio, i numeri dei ricavi giornalieri di una catena di ristoranti negli ultimi 20 anni possono essere aggregati in ricavi mensili per ridurre le dimensioni dei dati.  
+* **Campionamento attributi**: selezionare solo un sottoinsieme degli attributi più importanti dai dati.
+* **Aggregazione**: i dati vengono divisi in gruppi e per ogni gruppo vengono memorizzati i numeri. Ad esempio, i numeri dei ricavi giornalieri di una catena di ristoranti negli ultimi 20 anni possono essere aggregati in ricavi mensili per ridurre le dimensioni dei dati.
 
 ## Come pulire i dati di testo?
 
@@ -109,4 +109,4 @@ L'**esplorazione dei dati** offre una visualizzazione anticipata dei dati. Duran
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # Richiamare i programmi MapReduce da Data factory
@@ -22,7 +22,7 @@ L'attività HDInsight MapReduce in una [pipeline](data-factory-create-pipelines.
 ## Introduzione 
 Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. In questo articolo viene descritto l'utilizzo dell'attività MapReduce di HDInsight.
  
-Vedere l’articolo su [Pig](data-factory-pig-activity.md) e [Hive](data-factory-hive-activity.md) per informazioni dettagliate sull'esecuzione di script Pig/Hive in un cluster HDInsight basato su Windows/Linux da una pipeline di Data Factory di Azure mediante le attività Pig e Hive di HDInsight.
+Vedere [Pig](data-factory-pig-activity.md) e [Hive](data-factory-hive-activity.md) per informazioni dettagliate sull'esecuzione di script Pig/Hive in un cluster HDInsight basato su Windows/Linux da una pipeline tramite le attività Pig e Hive di HDInsight.
 
 ## JSON per attività MapReduce di HDInsight 
 
@@ -32,7 +32,7 @@ Nella definizione JSON per l'attività HDInsight:
 3. Specificare il nome della classe per la proprietà **className**.
 4. Specificare il percorso del file JAR, incluso il nome di file per la proprietà **jarFilePath**.
 5. Specificare il servizio collegato che fa riferimento all'archivio BLOB di Azure contenente il file JAR per la proprietà **jarLinkedService**.
-6. Specificare gli eventuali argomenti per il programma MapReduce nella sezione **arguments**. In fase di esecuzione, verranno visualizzati alcuni argomenti aggiuntivi (ad esempio: mapreduce.job.tags) dal framework di MapReduce. Per differenziare gli argomenti con gli argomenti di MapReduce, è consigliabile utilizzare sia l’opzione che il valore come argomenti, come illustrato nell'esempio seguente (- s, --input - output e così via sono opzioni immediatamente seguite dai valori).
+6. Specificare gli eventuali argomenti per il programma MapReduce nella sezione **arguments**. In fase di esecuzione, vengono visualizzati alcuni argomenti aggiuntivi (ad esempio: mapreduce.job.tags) dal framework di MapReduce. Per differenziare gli argomenti con gli argomenti di MapReduce, è consigliabile usare sia l'opzione che il valore come argomenti, come illustrato nell'esempio seguente (- s, --input - output e così via sono opzioni immediatamente seguite dai valori).
 
 		{
 		    "name": "MahoutMapReduceSamplePipeline",
@@ -134,7 +134,7 @@ Successivamente, si crea un servizio collegato per collegare il cluster HDInsigh
 ### Set di dati
 
 #### Set di dati di output
-La pipeline in questo esempio non accetta alcun input. È necessario specificare un set di dati di output per l'attività MapReduce di HDInsight. Questo è solo un set di dati fittizio che è necessario per la pianificazione della pipeline.
+La pipeline in questo esempio non accetta alcun input. Specificare un set di dati di output per l'attività MapReduce di HDInsight. Questo è solo un set di dati fittizio necessario per la pianificazione della pipeline.
 
 	{
 	    "name": "MROutput",
@@ -163,8 +163,8 @@ Proprietà | Note
 :-------- | :-----
 type | Il tipo deve essere impostato su **HDInsightMapReduce**. 
 className | Il nome della classe è: **wordcount**
-jarFilePath | Percorso del file jar contenente la classe precedente. Se si copia e incolla il codice seguente, non dimenticare di modificare il nome del cluster. 
-jarLinkedService | Servizio collegato di Archiviazione di Azure che contiene il file jar. Questo è lo spazio di archiviazione associato al cluster HDInsight. 
+jarFilePath | Percorso del file jar contenente la classe. Se si copia e incolla il codice seguente, non dimenticare di modificare il nome del cluster. 
+jarLinkedService | Servizio collegato di Archiviazione di Azure che contiene il file jar. Questo servizio collegato fa riferimento allo spazio di archiviazione associato al cluster HDInsight. 
 argomenti | Il programma wordcount accetta due argomenti, un input e un output. Il file di input è il file davinci.txt.
 frequenza/intervallo | I valori per queste proprietà corrispondono al set di dati di output. 
 linkedServiceName | fa riferimento al servizio collegato di HDInsight creato in precedenza.   
@@ -228,4 +228,4 @@ linkedServiceName | fa riferimento al servizio collegato di HDInsight creato in 
 - [Chiamare i programmi Spark](data-factory-spark.md)
 - [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

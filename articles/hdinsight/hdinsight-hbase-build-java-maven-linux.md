@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/14/2016"
 	ms.author="larryfr"/>
 
 #Usare Maven per compilare applicazioni Java che usano HBase con HDInsight basato su Linux (Hadoop)
@@ -152,7 +152,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 	>
 	> `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
-##Creare l'applicazione
+##Creazione dell'applicazione
 
 1. Passare alla directory __hbaseapp/src/main/java/com/microsoft/examples__ e rinominare il file app.java in __CreateTable.java__.
 
@@ -390,4 +390,4 @@ Dopo aver finito con l'esempio, usare il comando seguente dalla sessione di Azur
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

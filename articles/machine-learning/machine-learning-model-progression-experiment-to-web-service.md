@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -106,8 +106,8 @@ Se l'esperimento esegue il training di un modello predittivo e gli assegna un pu
 |Esperimento di training|**Set Up Web Service**|Fornisce due opzioni|
 |&nbsp;|- **Update Predictive Experiment**|Aggiorna l'esperimento predittivo associato con le modifiche apportate all'esperimento di training|
 |&nbsp;|- **Retraining Web Service**|Converte l'esperimento di training in un esperimento di ripetizione del training (vedere la sezione "Aggiornamento" più avanti)|
-|& nbsp;|*oppure* **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) |Se l'esperimento di ripetizione del training è stato configurato per la distribuzione, questa opzione lo distribuisce come servizio Web classico|
-|& nbsp;|*oppure* **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) |Se l'esperimento di ripetizione del training è stato configurato per la distribuzione, questa opzione lo distribuisce come nuovo servizio Web|
+|&nbsp;|*oppure* **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) |Se l'esperimento di ripetizione del training è stato configurato per la distribuzione, questa opzione lo distribuisce come servizio Web classico|
+|&nbsp;|*oppure* **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) |Se l'esperimento di ripetizione del training è stato configurato per la distribuzione, questa opzione lo distribuisce come nuovo servizio Web|
 |Esperimento predittivo|**Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) |Distribuisce l'esperimento predittivo come servizio Web classico|
 |Esperimento predittivo|**Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) |Distribuisce l'esperimento predittivo come nuovo servizio Web|
 
@@ -119,7 +119,7 @@ Se l'esperimento non esegue il training di un modello predittivo né gli assegna
 | -------------------- | -------- | -------------- |
 |Esperimento in fase di sviluppo|**Set Up Web Service**|Prepara l'esperimento per la distribuzione come servizio Web|
 |Esperimento preparato per la distribuzione|***Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico])|Distribuisce l'esperimento come servizio Web, apre la pagina di configurazione del servizio Web classico|
-|& nbsp;|*oppure* **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo])| Distribuisce come nuovo servizio Web|
+|&nbsp;|*oppure* **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo])| Distribuisce come nuovo servizio Web|
 
 ## Aggiornamento del servizio Web
 
@@ -163,4 +163,4 @@ Per esempi dell'intero processo, vedere:
 
 -   [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

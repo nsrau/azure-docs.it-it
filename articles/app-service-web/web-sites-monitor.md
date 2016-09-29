@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2016"
+	ms.date="09/07/2016"
 	ms.author="byvinyal"/>
 
 # Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
@@ -126,9 +126,9 @@ Le metriche che riflettono l'utilizzo della CPU sono due. **Tempo CPU** e **Perc
 
 Le metriche per un'applicazione e un piano di servizio app vengono registrate e aggregate dal servizio con le granularità e i criteri di conservazione seguenti:
 
- * Le metriche di granularità **minuto** vengono mantenute per **24 ore**
- * Le metriche di granularità **ora** vengono mantenute per **7 giorni**
- * Le metriche di granularità **giorno** vengono mantenute per **30 giorni**
+ * Le metriche di granularità **minuto** vengono mantenute per **48 ore**
+ * Le metriche di granularità **ora** vengono mantenute per **30 giorni**
+ * Le metriche di granularità **giorno** vengono mantenute per **90 giorni**
 
 ## Monitoraggio di quote e metriche nel portale di Azure
 
@@ -160,4 +160,4 @@ Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Pre
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

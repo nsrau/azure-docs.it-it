@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Bilanciare il carico di un cluster del servizio contenitore di Azure | Microsoft Azure"
-   description="Bilanciare il carico di un cluster del servizio contenitore di Azure."
+   pageTitle="Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure | Microsoft Azure"
+   description="Bilanciare il carico tra più contenitori in un cluster del servizio contenitore di Azure."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,9 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Bilanciare il carico di un cluster del servizio contenitore di Azure
+# Bilanciare il carico dei contenitori in un cluster del servizio contenitore di Azure
 
-In questo articolo verrà configurato un front-end Web in un servizio contenitore di Azure gestito di tipo DC/OS. Verrà anche configurato un servizio di bilanciamento del carico Marathon-LB per consentire la scalabilità dell'applicazione.
+Questo articolo illustra come creare un servizio di bilanciamento del carico interno in un servizio contenitore di Azure gestito di tipo DC/OS con Marathon-LB. In questo modo sarà possibile ridimensionare le applicazioni aumentando il numero di istanze, nonché sfruttare i cluster di agenti pubblici e privati inserendo i servizi di bilanciamento del carico nel cluster pubblico e i contenitori di applicazioni nel cluster privato.
 
 ## Prerequisiti
 
@@ -55,9 +55,11 @@ Dopo l'installazione dell'interfaccia della riga di comando di DC/OS e dopo aver
 dcos package install marathon-lb
 ```
 
+Questo comando installa automaticamente il servizio di bilanciamento del carico nel cluster di agenti pubblico.
+
 ## Distribuire un'applicazione Web con bilanciamento del carico
 
-Ora che il pacchetto marathon-lb è disponibile, è possibile distribuire un semplice server Web usando la configurazione seguente:
+Ora che il pacchetto marathon-lb è disponibile, è possibile distribuire un contenitore di applicazioni di cui si vuole bilanciare il carico. In questo esempio verrà distribuito un semplice server Web usando la configurazione seguente:
 
 ```json
 {
@@ -94,22 +96,24 @@ Ora che il pacchetto marathon-lb è disponibile, è possibile distribuire un sem
 
 ```
 
-  * Impostare il valore di `HAProxy_0_VHOST` sul nome di dominio completo (FQDN) del servizio di bilanciamento del carico per gli agenti, con il formato `<acsName>agents.<region>.cloudapp.azure.com`. Se ad esempio è stato creato un cluster del servizio contenitore con nome `myacs` nell'area `West US`, il nome di dominio completo sarà `myacsagents.westus.cloudapp.azure.com`. Per trovarlo è anche possibile cercare il servizio di bilanciamento del carico con "agent" nel nome quando si esaminano le risorse del gruppo di risorse creato per il servizio contenitore nel [portale di Azure](https://portal.azure.com).
+  * Impostare il valore di `HAProxy_0_VHOST` sul nome di dominio completo (FQDN) del servizio di bilanciamento del carico per gli agenti, con il formato `<acsName>agents.<region>.cloudapp.azure.com`. Se si crea un cluster del servizio contenitore con nome `myacs` nell'area `West US`, ad esempio, il nome di dominio completo sarà `myacsagents.westus.cloudapp.azure.com`. Per trovarlo è anche possibile cercare il servizio di bilanciamento del carico con "agent" nel nome quando si esaminano le risorse del gruppo di risorse creato per il servizio contenitore nel [portale di Azure](https://portal.azure.com).
   * Impostare servicePort su una porta >= 10.000. Viene così identificato il servizio in esecuzione nel contenitore; marathon-lb può così identificare i servizi tra cui eseguire il bilanciamento.
   * Impostare l'etichetta `HAPROXY_GROUP` su "external".
   * Impostare `hostPort` su 0. Ciò significa che Marathon allocherà arbitrariamente una porta disponibile.
   * Impostare `instances` sul numero di istanze da creare. È sempre possibile aumentare e ridurre il numero di istanze in seguito.
 
+È opportuno notare che per impostazione predefinita Marathon verrà distribuito nel cluster privato e la distribuzione precedente sarà quindi accessibile solo tramite il servizio di bilanciamento del carico, come in genere desiderato.
+
 ### Distribuire usando l'interfaccia utente Web di DC/OS
 
-  1. Visitare la pagina Marathon all'indirizzo http://localhost/marathon, dopo avere configurato il [tunnel SSH](container-service-connect.md), quindi fare clic su `Create Appliction`.
+  1. Visitare la pagina Marathon all'indirizzo http://localhost/marathon (dopo aver configurato il [tunnel SSH](container-service-connect.md)) e fare clic su `Create Appliction`.
   2. Nella finestra di dialogo `New Application` fare clic su `JSON Mode` nell'angolo superiore destro.
   3. Incollare il codice JSON precedente nell'editor.
-  4. Fare clic su `Create Appliction`
+  4. Fare clic su`Create Appliction`.
 
 ### Distribuire usando l'interfaccia della riga di comando di DC/OS
 
-Per distribuire questa applicazione con l'interfaccia della riga di comando di DC/OS, è sufficiente copiare il codice JSON precedente in un file denominato `hello-web.json`, quindi eseguire:
+Per distribuire questa applicazione con l'interfaccia della riga di comando di DC/OS, è sufficiente copiare il codice JSON precedente in un file denominato `hello-web.json` ed eseguire questo comando:
 
 ```bash
 dcos marathon app add hello-web.json
@@ -117,18 +121,18 @@ dcos marathon app add hello-web.json
 
 ## Servizio di bilanciamento del carico di Azure
 
-Per impostazione predefinita, Azure Load Balancer espone le porte 80, 8080 e 443. Se si usa una di queste tre porte, come nell'esempio precedente, non è necessario eseguire alcuna operazione. Dovrebbe essere possibile accedere al nome FQDN del servizio di bilanciamento del carico dell'agente e, ogni volta che si esegue l'aggiornamento, si accederà a uno dei tre server Web in modalità round robin. Se tuttavia si usa una porta diversa, è necessario aggiungere una regola di round robin e un probe nel servizio di bilanciamento del carico per la porta usata. A questo scopo, immettere nell'[interfaccia della riga di comando di Azure](../xplat-cli-azure-resource-manager.md) i comandi `azure lb rule create` e `azure lb probe create`. Questa operazione può essere eseguita anche nel portale di Azure.
+Per impostazione predefinita, Azure Load Balancer espone le porte 80, 8080 e 443. Se si usa una di queste tre porte, come nell'esempio precedente, non è necessario eseguire alcuna operazione. Dovrebbe essere possibile accedere al nome FQDN del servizio di bilanciamento del carico dell'agente e, ogni volta che si esegue l'aggiornamento, si accederà a uno dei tre server Web in modalità round robin. Se tuttavia si usa una porta diversa, è necessario aggiungere una regola di round robin e un probe nel servizio di bilanciamento del carico per la porta usata. È possibile eseguire questa operazione dall'[interfaccia della riga di comando di Azure](../xplat-cli-azure-resource-manager.md) con i comandi `azure lb rule create` e `azure lb probe create`. Questa operazione può essere eseguita anche nel portale di Azure.
 
 
 ## Scenari aggiuntivi
 
-È possibile avere uno scenario in cui si usano domini diversi per esporre servizi diversi, ad esempio:
+È possibile avere uno scenario in cui si usano domini diversi per esporre servizi diversi, Ad esempio:
 
 mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292 mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
 
 A questo scopo, vedere la pagina relativa agli [host virtuali](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/), che illustra come associare i domini a percorsi di marathon-lb specifici.
 
-In alternativa è possibile esporre porte diverse e modificarne il mapping al servizio corretto dietro marathon lb, ad esempio:
+In alternativa è possibile esporre porte diverse e modificarne il mapping al servizio corretto dietro marathon lb, Ad esempio:
 
 Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423 Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
@@ -137,4 +141,4 @@ Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423 Azure lb:8080 -> marathon
 
 Per altre informazioni su [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), vedere la documentazione relativa a DC/OS.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

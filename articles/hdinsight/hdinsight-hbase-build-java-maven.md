@@ -4,7 +4,7 @@ description="Informazioni su come usare Apache Maven per compilare un'applicazio
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"
 tags="azure-portal"/>
 
@@ -646,4 +646,4 @@ Sostituire __hdinsightclustername__ con il nome del cluster HDInsight.
 
 Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodotto durante l'esecuzione del processo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

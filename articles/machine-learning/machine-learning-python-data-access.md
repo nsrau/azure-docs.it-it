@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="python" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -23,7 +23,7 @@ L'anteprima della libreria client Python di Microsoft Azure Machine Learning con
 
 Questo argomento fornisce istruzioni su come:
 
-* Installare la libreria client Python di Machine Learning 
+* Installare la libreria client Python di Machine Learning
 * Accedere e caricare set di dati, fornendo istruzioni su come ottenere l'autorizzazione per accedere a set di dati di Azure Machine Learning dall'ambiente Python locale
 *  Accedere ai set di dati intermedi di un esperimento
 *  Usare la libreria client Python per enumerare set di dati, accedere a metadati, leggere il contenuto di un set di dati, creare nuovi set di dati e aggiornare set di dati esistenti.
@@ -80,23 +80,25 @@ Se il proprio ruolo non è impostato su **Owner**, è possibile chiedere di esse
 
 Per ottenere il token di autorizzazione, è possibile eseguire una di queste operazioni:
 
-1. Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** per visualizzare i token primari e secondari. Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
+
+
+- Chiedere un token a un proprietario. I proprietari possono accedere ai propri token di autorizzazione dalla pagina Settings dell'area di lavoro personale in Studio. Selezionare **Settings** (Impostazioni) dal riquadro sinistro e fare clic su **AUTHORIZATION TOKENS** (Token di autorizzazione) per visualizzare i token primari e secondari. Sebbene per il frammento di codice sia possibile usare sia i token di autorizzazione primari sia quelli secondari, è consigliabile che i proprietari condividano solo i token di autorizzazione secondari.
 
 ![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-2. Chiedere di essere promossi al ruolo di proprietario. A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
+- Chiedere di essere promossi al ruolo di proprietario. A questo scopo, è necessario prima essere rimossi dall'area di lavoro da un proprietario corrente dell'area di lavoro, quindi essere nuovamente invitati con il ruolo di proprietario.
 
-Dopo aver ottenuto l'ID dell'area di lavoro e il token di autorizzazione, gli sviluppatori potranno usare il frammento di codice per accedere all'area di lavoro indipendentemente dal proprio ruolo.
+Dopo aver ottenuto l'ID dell'area di lavoro e il token di autorizzazione, gli sviluppatori possono usare il frammento di codice per accedere all'area di lavoro indipendentemente dal proprio ruolo.
 
 I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** della sezione **SETTINGS**. È possibile rigenerarli, ma questa procedura revoca l'accesso al token precedente.
 
 ### <a name="accessingDatasets"></a>Accedere a set di dati da un'applicazione Python locale
 
-1. In Machine Learning Studio fare clic su **DATASETS** sulla barra di spostamento a sinistra.
+1. In Machine Learning Studio fare clic su **DATASETS** (Set di dati) sulla barra di spostamento a sinistra.
 
 2. Selezionare il set di dati a cui si desidera accedere. È possibile selezionare qualsiasi set di dati dall'elenco **MY DATASETS** o **SAMPLES**.
 
-3. Sulla barra degli strumenti inferiore fare clic su **Generate Data Access Code**. Questo pulsante viene disabilitato se i dati si trovano in un formato non compatibile con la libreria client Python.
+3. Sulla barra degli strumenti inferiore fare clic su **Generate Data Access Code** (Genera codice di accesso ai dati). Se i dati si presentano in un formato non compatibile con la raccolta client di Python, questo pulsante non è attivo.
 
 	![Set di dati][datasets]
 
@@ -146,11 +148,12 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
 
 6. Fare clic sul nodo di output del modulo [Convert to CSV][convert-to-csv].
 
-7. Dal menu di scelta rapida visualizzato selezionare **Generate Data Access Code**.
+7. Viene visualizzato un menu di scelta rapida.
+8.  Selezionare **Generate Data Access Code** (Genera codice di accesso ai dati).
 
 	![Menu di scelta rapida][experiment]
 
-8. Verrà visualizzata una finestra. Selezionare il frammento di codice e copiarlo negli Appunti.
+8. Selezionare il frammento di codice dalla finestra che viene visualizzata e copiarlo negli Appunti.
 
 	![Codice di accesso][intermediate-dataset-access-code]
 
@@ -278,7 +281,7 @@ La libreria client Python è in grado di serializzare un oggetto DataFrame Panda
 
 ### Aggiornare un set di dati esistente
 
-Se si tenta di caricare un nuovo set di dati con un nome corrispondente a un set di dati esistente, si ottiene un errore di conflitto.
+Se si tenta di caricare un nuovo set di dati con un nome corrispondente a un set di dati esistente, si potrebbe ottiene un errore di conflitto.
 
 Per aggiornare un set di dati esistente, è necessario prima ottenere un riferimento a tale set di dati:
 
@@ -345,7 +348,7 @@ Se si desidera serializzare i dati in un formato diverso, specificare un valore 
 
 I parametri `data_type_id`, `name` e `description` sono facoltativi e, per impostazione predefinita, vengono ripristinati ai valori precedenti. Il parametro `dataframe` è sempre obbligatorio.
 
-Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_from_dataframe`. Il funzionamento è analogo: è sufficiente passare `raw_data` anziché `dataframe`.
+Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_from_dataframe`. Il funzionamento è analogo: è sufficiente passare `raw_data` invece di `dataframe`.
 
 
 
@@ -367,4 +370,4 @@ Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

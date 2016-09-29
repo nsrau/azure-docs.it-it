@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -41,7 +41,7 @@ Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remot
 
 Durante l'esecuzione di processi Pig in un cluster HDInsight remoto, vengono usati i seguenti cmdlet:
 
-* **Login-AzureRmAccount**: autentica Azure PowerShell nella sottoscrizione di Azure.
+* **Login-AzureRmAccount**: autentica Azure PowerShell nella sottoscrizione di Azure
 
 * **New-AzureRmHDInsightPigJobDefinition**: crea una nuova *definizione del processo* usando le istruzioni Pig Latin specificate.
 
@@ -162,4 +162,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

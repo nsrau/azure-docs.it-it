@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -198,4 +198,4 @@ L'esempio seguente illustra come potrebbe essere l'output. Questo esempio descri
 -	È possibile chiamare un solo processo batch per sottoscrizione alla volta.
 -	Un file di input del processo batch non può essere di dimensioni superiori a 2 MB.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

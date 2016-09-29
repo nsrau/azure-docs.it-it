@@ -61,7 +61,7 @@ Il servizio app di Azure consente di eseguire il mapping delle categorie di domi
 A seconda delle esigenze, è possibile usare due diversi tipi di record DNS standard per eseguire il mapping del dominio personalizzato:
 
 - [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A): esegue il mapping del nome dominio personalizzato direttamente all'indirizzo IP virtuale dell'app Azure.
-- [CNAME](https://en.wikipedia.org/wiki/CNAME_record): esegue il mapping del nome dominio personalizzato al nome dominio di Azure dell'app, **&lt;*appname*>.azurewebsites.net**.
+- [CNAME](https://en.wikipedia.org/wiki/CNAME_record): esegue il mapping del nome dominio personalizzato al nome dominio di Azure dell'app, **& lt;*appname*>.azurewebsites.net**.
 
 Il vantaggio di CNAME è la sua persistenza a prescindere dalle variazioni dell'indirizzo IP. Se si elimina e si ricrea l'app oppure se da un piano tariffario di livello superiore si torna al piano **Condiviso**, l'indirizzo IP virtuale dell'app potrebbe cambiare. Se l'indirizzo IP cambia, un record CNAME resta valido, mentre un record A richiede un aggiornamento.
 
@@ -154,7 +154,7 @@ Il record TXT aggiuntivo segue la convenzione che esegue il mapping da &lt;*sott
 <a name="cname"></a>
 ### Creare un record CNAME
 
-Se si usa un record CNAME per eseguire il mapping al nome di dominio predefinito dell'app Azure, non è necessario un record CNAME aggiuntivo come nel caso di un record A.
+Se si usa un record CNAME per eseguire il mapping al nome di dominio predefinito dell'app Azure, non è necessario un record TXT aggiuntivo come nel caso di un record A.
 
 >[AZURE.IMPORTANT] Non creare un record CNAME per il dominio radice, ovvero il "record radice". Per altre informazioni, vedere [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain) (Perché non è possibile usare un record CNAME nel dominio radice). Per eseguire il mapping di un dominio radice all'app Azure, usare un [record A](#a).
 
@@ -249,4 +249,4 @@ Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

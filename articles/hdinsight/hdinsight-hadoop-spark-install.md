@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -60,7 +60,7 @@ Uno script di esempio per l'installazione di Spark in un cluster HDInsight è di
 
 2. Nella pagina **Azioni script** della procedura guidata fare clic su **aggiungi azione script** per specificare i dettagli relativi all'azione script, come descritto di seguito:
 
-	![Usare Azione di script per personalizzare un cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Usare Azione di script per personalizzare un cluster")
+	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Usare Azione di script per personalizzare un cluster")
 
 	<table border='1'>
 		<tr><th>Proprietà</th><th>Valore</th></tr>
@@ -74,7 +74,7 @@ Uno script di esempio per l'installazione di Spark in un cluster HDInsight è di
 			<td>Specificare i parametri, se richiesti dallo script. Lo script per installare Spark non richiede alcun parametro, di conseguenza è possibile lasciare vuoto questo campo.</td></tr>
 	</table>
 
-	È possibile aggiungere altre azioni di script per installare più componenti nel cluster. Dopo aver aggiunto gli script, fare clic sul segno di spunta per avviare la creazione del cluster.
+	È possibile aggiungere altre azioni script per installare più componenti nel cluster. Dopo aver aggiunto gli script, fare clic sul segno di spunta per avviare la creazione del cluster.
 
 È inoltre possibile usare lo script per installare Spark in HDInsight usando Azure PowerShell o HDInsight .NET SDK. Le istruzioni relative a queste procedure vengono fornite più avanti in questo argomento.
 
@@ -318,4 +318,4 @@ Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-ha
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

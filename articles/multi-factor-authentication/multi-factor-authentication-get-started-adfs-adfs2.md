@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con AD FS 2.0" 
-	description="Questa è la pagina di autenticazione a più fattori di Azure che descrive come iniziare a utilizzare l'autenticazione a più fattori Azure e AD FS 2.0." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>  
+<properties
+	pageTitle="Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con AD FS 2.0"
+	description="Questa è la pagina di autenticazione a più fattori di Azure che descrive come iniziare a utilizzare l'autenticazione a più fattori Azure e AD FS 2.0."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 # Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con AD FS 2.0
 
 Se l'organizzazione è federata con Azure Active Directory e si dispone di risorse in locale o nel cloud che si desidera proteggere, è possibile farlo utilizzando il server di Azure multi-Factor Authentication e configurarlo per il funzionamento con ADFS in modo che l'autenticazione a più fattori viene attivata per i punti di fine di valore elevato.
@@ -93,6 +93,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 
 <center>![Installazione](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

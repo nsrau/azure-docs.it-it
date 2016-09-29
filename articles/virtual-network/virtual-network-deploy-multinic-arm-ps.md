@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 #Distribuire macchine virtuali con più schede di rete tramite PowerShell
 
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Attualmente, non è possibile avere macchine virtuali con una singola scheda di rete e macchine virtuali con più schede di rete nello stesso gruppo di risorse. Per questo motivo, è necessario implementare i server back-end in un gruppo di risorse diverso rispetto a tutti gli altri componenti. La procedura seguente usa un gruppo di risorse denominato *IaaSStory* per il gruppo di risorse principale e *IaaSStory-BackEnd* per i server back-end.
+Attualmente, non è possibile avere macchine virtuali con una singola scheda di rete e macchine virtuali con più schede di rete nello stesso set di disponibilità. Per questo motivo, è necessario implementare i server back-end in un gruppo di risorse diverso rispetto a tutti gli altri componenti. La procedura seguente usa un gruppo di risorse denominato *IaaSStory* per il gruppo di risorse principale e *IaaSStory-BackEnd* per i server back-end.
 
 ## Prerequisiti
 
@@ -309,4 +309,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

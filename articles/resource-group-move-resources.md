@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -23,7 +23,7 @@ In questo argomento viene illustrato come spostare le risorse da un gruppo di ri
 1. Ai fini della fatturazione, è necessario che una risorsa si trovi in una sottoscrizione diversa.
 2. Una risorsa non condivide più lo stesso ciclo di vita stesso delle risorse con cui era stata precedentemente raggruppata. Si desidera spostare la risorsa in un nuovo gruppo di risorse in modo da poterla gestire separatamente rispetto alle altre risorse.
 
-Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
+Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati durante l'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
 
 Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 
@@ -34,7 +34,7 @@ Non è possibile modificare il percorso della risorsa. Lo spostamento di una ris
 Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
 
 1. Il servizio deve supportare lo spostamento di risorse. Vedere l'elenco seguente per informazioni sui [servizi che supportano lo spostamento di risorse](#services-that-support-move).
-2. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indicherà che **la sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services.md#resource-providers-and-types).
+2. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che **la sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services.md#resource-providers-and-types).
 3. Se si usa Azure PowerShell o l'interfaccia della riga di comando di Azure, assicurarsi di usare la versione più recente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e [Installare il CLI di Azure](xplat-cli-install.md).
 4. Prima di spostare un'app del servizio app, è consigliabile vedere [Limitazioni del servizio app](#app-service-limitations).
 5. Prima di spostare risorse distribuite con il modello classico, è consigliabile vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations).
@@ -75,7 +75,7 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 - Gateway applicazione
 - Application Insights
 - Express Route
-- Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino.
+- Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino, vedere [Limitazioni dei servizi di ripristino](#recovery-services-limitations).
 - Set di scalabilità di macchine virtuali
 - Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 - Gateway VPN
@@ -84,10 +84,10 @@ I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
 Quando si usano le app del servizio app non è possibile spostare solo un piano di servizio app. Per spostare le app del servizio app, le opzioni disponibili sono:
 
-- Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. È necessario spostare anche le risorse del servizio app non associate al piano di servizio app.
+- Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. In base a questo requisito è necessario spostare anche le risorse del servizio app non associate al piano di servizio app.
 - Spostare le app in un gruppo di risorse diverso, ma mantenere tutti i piani di servizio app nel gruppo di risorse originale.
 
-Se il gruppo di risorse originale include anche una risorsa Application Insights non è possibile spostare tale risorsa, perché attualmente Application Insights non supporta l'operazione di spostamento. Se si include la risorsa Application Insights quando si spostano le app del servizio app, l'intera operazione di spostamento non riuscirà. Tuttavia per il corretto funzionamento dell'app non è necessario che la risorsa Application Insights e il piano di servizio app risiedano nello stesso gruppo di risorse in cui si trova l'app stessa.
+Se il gruppo di risorse originale include anche una risorsa Application Insights non è possibile spostare tale risorsa, perché attualmente Application Insights non supporta l'operazione di spostamento. Se si include la risorsa Application Insights quando si spostano le app del servizio app, l'intera operazione di spostamento non riesce. Tuttavia per il corretto funzionamento dell'app non è necessario che la risorsa Application Insights e il piano di servizio app risiedano nello stesso gruppo di risorse in cui si trova l'app stessa.
 
 Se ad esempio il gruppo di risorse contiene:
 
@@ -114,6 +114,12 @@ Per ottenere questo risultato è necessario eseguire due operazioni di spostamen
 1. Spostare **web-a** in **plan-group**
 2. Spostare **web-a** e **plan-a** in **combined-group**.
 
+## Limitazioni dei servizi di ripristino
+
+Lo spostamento non è supportato per le risorse di archiviazione, di rete o di calcolo che vengono utilizzate per configurare il ripristino di emergenza con Azure Site Recovery.
+
+Ad esempio, si supponga di avere configurato la replica delle macchine locali su un account di archiviazione (Storage1) e di desiderare che il computer protetto venga avviato dopo il failover in Azure come macchina virtuale (VM1) collegata a una rete virtuale (Network1). Non è possibile spostare una di queste risorse di Azure - Storage1 VM1 e Network1 - nei gruppi di risorse all'interno della stessa sottoscrizione o tra le sottoscrizioni.
+
 ## Limitazioni della distribuzione classica
 
 Le opzioni per lo spostamento delle risorse distribuite con il modello classico variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
@@ -130,107 +136,12 @@ Quando si spostano risorse da un gruppo di risorse a un altro **nella stessa sot
 Quando si spostano risorse in una **nuova sottoscrizione**, sono valide le restrizioni seguenti:
 
 - Tutte le risorse classiche della sottoscrizione vanno spostate nella stessa operazione.
-- Lo spostamento può essere richiesto solo tramite il portale o tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione. Le sezioni seguenti visualizzano le procedure per usare il portale o l'API REST.
+- La sottoscrizione di destinazione non deve contenere nessuna delle altre risorse classiche.
+- Lo spostamento può essere richiesto solo tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione.
 
-## Uso del portale per spostare le risorse
+Per spostare le risorse classiche in un nuovo gruppo di risorse **all'interno della stessa sottoscrizione**, utilizzare il [portale](#use-portal), [Azure PowerShell](#use-powershell), l'[interfaccia della riga di comando di Azure](#use-azure-cli), o l'[API REST](#use-rest-api).
 
-Per spostare una risorsa, selezionarla e quindi fare clic sul pulsante **Sposta**.
-
-![Spostamento della risorsa](./media/resource-group-move-resources/move-resources.png)
-
-> [AZURE.NOTE] Non tutte le risorse supportano attualmente lo spostamento nel portale. Se il pulsante **Sposta** non viene visualizzato per la risorsa che si desidera spostare, usare PowerShell, l'interfaccia della riga di comando o l'API REST per completare tale operazione.
-
-Specificare la sottoscrizione e il gruppo di risorse di destinazione per lo spostamento della risorsa. Se insieme a tale risorsa devono essere spostate altre risorse, queste verranno elencate.
-
-![Selezione della destinazione](./media/resource-group-move-resources/select-destination.png)
-
-In **Notifiche** si noterà che è in corso l'operazione di spostamento.
-
-![Visualizzare lo stato dello spostamento](./media/resource-group-move-resources/show-status.png)
-
-Al completamento dell'operazione si riceverà la notifica del risultato.
-
-![Visualizzare il risultato dello spostamento](./media/resource-group-move-resources/show-result.png)
-
-Per un'altra opzione di spostamento di risorse a un nuovo gruppo di risorse (non a una nuova sottoscrizione), selezionare la risorsa da spostare.
-
-![Selezionare le risorse da spostare](./media/resource-group-move-resources/select-resource.png)
-
-Selezionare **Proprietà** della risorsa.
-
-![Selezionare le proprietà](./media/resource-group-move-resources/select-properties.png)
-
-Se disponibile per questo tipo di risorsa, selezionare **Cambia il gruppo di risorse**.
-
-![Cambiare il gruppo di risorse](./media/resource-group-move-resources/change-resource-group.png)
-
-È possibile selezionare le risorse da spostare e il gruppo di risorse al quale spostarle.
-
-![Spostare le risorse](./media/resource-group-move-resources/select-group.png)
-
-Per spostare in un nuovo gruppo risorse distribuite con il modello classico è possibile usare l'icona di modifica accanto al nome del gruppo di risorse.
-
-![Spostare le risorse classiche](./media/resource-group-move-resources/edit-rg-icon.png)
-
-Selezionare le risorse da spostare tenendo presenti le [Limitazioni della distribuzione classica](#classic-deployment-limitations). Selezionare **OK** per avviare lo spostamento.
-
- ![Selezionare le risorse classiche](./media/resource-group-move-resources/select-classic-resources.png)
- 
- Per spostare in una nuova sottoscrizione risorse distribuite con il modello classico è possibile usare l'icona di modifica accanto al nome della sottoscrizione.
- 
- ![Spostare in una nuova sottoscrizione](./media/resource-group-move-resources/edit-subscription-icon.png)
- 
- Tutte le risorse classiche vengono selezionate automaticamente per lo spostamento.
-
-## Uso di PowerShell per spostare le risorse
-
-Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando **Move-AzureRmResource**.
-
-Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
-
-    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
-
-Nel secondo esempio viene illustrato come spostare più risorse in un nuovo gruppo di risorse.
-
-    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
-
-Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro **DestinationSubscriptionId**.
-
-Verrà richiesto di confermare che si vuole spostare le risorse specificate.
-
-    Confirm
-    Are you sure you want to move these resources to the resource group
-    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
-
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-
-## Utilizzo l’interfaccia della riga di comando di Azure per spostare le risorse
-
-Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **azure resource move**. Il seguente esempio illustra come spostare una cache Redis in un nuovo gruppo di risorse. Nel parametro **-i**, fornire un elenco delimitato da virgole di id di risorsa da spostare.
-
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
-	
-Verrà richiesto di confermare che si vuole spostare la risorsa specificata.
-	
-    info:    Executing command resource move
-    Move selected resources in OldRG to NewRG? [y/n] y
-    + Moving selected resources to NewRG
-    info:    resource move command OK
-
-## Uso di API REST per spostare le risorse
-
-Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversi, eseguire:
-
-    POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
-
-Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le risorse da spostare. Per altre informazioni sull'operazione REST di spostamento, vedere [Spostare le risorse](https://msdn.microsoft.com/library/azure/mt218710.aspx).
-
-Per spostare **risorse classiche in una nuova sottoscrizione**, è tuttavia necessario usare operazioni REST diverse. Per verificare se una sottoscrizione può partecipare come sottoscrizione di origine o di destinazione a uno spostamento di risorse classiche tra sottoscrizioni, usare la seguente operazione:
+Per spostare le **risorse classiche in una nuova sottoscrizione**, è necessario usare le operazioni REST specifiche per le risorse classiche. Per verificare se una sottoscrizione può partecipare come sottoscrizione di origine o di destinazione a uno spostamento di risorse classiche tra sottoscrizioni, usare la seguente operazione:
 
     POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
     
@@ -267,6 +178,78 @@ con il seguente corpo della richiesta:
     }
 
 
+## Usare il portale
+
+Per spostare le risorse in un nuovo gruppo di risorse nella stessa sottoscrizione, selezionare il gruppo di risorse contenente tali risorse, quindi utilizzare il pulsante **Sposta**.
+
+![Spostare le risorse](./media/resource-group-move-resources/edit-rg-icon.png)
+
+Per spostare le risorse in una nuova sottoscrizione, selezionare il gruppo di risorse contenente tali risorse, quindi utilizzare l'icona del comando Modifica sottoscrizione.
+
+![Spostare le risorse](./media/resource-group-move-resources/change-subscription.png)
+
+Selezionare le risorse da spostare e il gruppo di risorse di destinazione. Confermare di dover aggiornare gli script per queste risorse e selezionare **OK**. Se si seleziona l'icona del comando Modifica sottoscrizione nel passaggio precedente, è necessario anche selezionare la sottoscrizione di destinazione.
+
+![Selezione della destinazione](./media/resource-group-move-resources/select-destination.png)
+
+In **Notifiche** si nota che è in corso l'operazione di spostamento.
+
+![Visualizzare lo stato dello spostamento](./media/resource-group-move-resources/show-status.png)
+
+Al completamento dell'operazione si riceverà la notifica del risultato.
+
+![Visualizzare il risultato dello spostamento](./media/resource-group-move-resources/show-result.png)
+
+## Usare PowerShell
+
+Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando **Move-AzureRmResource**.
+
+Nel primo esempio viene illustrato come spostare una risorsa in un nuovo gruppo di risorse.
+
+    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+
+Nel secondo esempio viene illustrato come spostare più risorse in un nuovo gruppo di risorse.
+
+    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+
+Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro **DestinationSubscriptionId**.
+
+Viene richiesto di confermare che si vuole spostare la risorsa specificata.
+
+    Confirm
+    Are you sure you want to move these resources to the resource group
+    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+
+## Utilizzare l'interfaccia della riga di comando di Azure
+
+Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversa, usare il comando **azure resource move**. Il seguente esempio illustra come spostare una cache Redis in un nuovo gruppo di risorse. Nel parametro **-i**, fornire un elenco delimitato da virgole di id di risorsa da spostare.
+
+    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+	
+Viene richiesto di confermare che si vuole spostare la risorsa specificata.
+	
+    info:    Executing command resource move
+    Move selected resources in OldRG to NewRG? [y/n] y
+    + Moving selected resources to NewRG
+    info:    resource move command OK
+
+## Usare l'API REST
+
+Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversi, eseguire:
+
+    POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+
+Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le risorse da spostare. Per altre informazioni sull'operazione REST di spostamento, vedere [Spostare le risorse](https://msdn.microsoft.com/library/azure/mt218710.aspx).
+
+
+
 
 ## Passaggi successivi
 - Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](powershell-azure-resource-manager.md).
@@ -274,4 +257,4 @@ con il seguente corpo della richiesta:
 - Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

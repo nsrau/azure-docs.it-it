@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/22/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Abilitare la comunicazione delle istanze del ruolo in azure
@@ -101,7 +101,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 La proprietà **Istanze** restituisce una raccolta di oggetti **RoleInstance**. Tale raccolta contiene sempre l'istanza corrente. Se il ruolo non definisce un endpoint interno, la raccolta include l'istanza corrente ma non altre istanze. Il numero di istanze del ruolo nella raccolta sarà sempre 1 nel caso in cui non sia stato definito alcun endpoint interno per il ruolo. Se il ruolo definisce un endpoint interno, le relative istanze sono individuabili in fase di esecuzione e il numero di istanze nella raccolta corrisponderà al numero di istanze specificato per il ruolo nel file di configurazione del servizio.
 
-> [AZURE.NOTE] La libreria gestita di Azure non rappresenta un mezzo per determinare lo stato di altre istanze del ruolo, ma è possibile implementare tali valutazioni manualmente se il servizio necessita di tale funzionalità. È possibile utilizzare la [Diagnostica di Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) per ottenere informazioni sull'esecuzione di istanze del ruolo.
+> [AZURE.NOTE] La libreria gestita di Azure non rappresenta un mezzo per determinare lo stato di altre istanze del ruolo, ma è possibile implementare tali valutazioni manualmente se il servizio necessita di tale funzionalità. È possibile utilizzare la [Diagnostica di Azure](cloud-services-dotnet-diagnostics.md) per ottenere informazioni sull'esecuzione di istanze del ruolo.
 
 Per determinare il numero di porta per un endpoint interno in un'istanza del ruolo, è possibile utilizzare la proprietà [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) per restituire un oggetto Dictionary che contenga i nomi degli endpoint e i corrispondenti indirizzi IP e porte. La proprietà [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) restituisce l'indirizzo IP e la porta per un endpoint specificato. La proprietà **PublicIPEndpoint** restituisce la porta per un endpoint con carico bilanciato. La parte relativa all’indirizzo IP della proprietà **PublicIPEndpoint** non viene utilizzata.
 
@@ -359,4 +359,4 @@ Un riferimento allo schema XML per gli elementi utilizzati in precedenza è repe
 ## Passaggi successivi
 Ulteriori informazioni sul [modello](cloud-services-model-and-package.md) del servizio Cloud.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

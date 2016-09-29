@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="jeannt"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -18,8 +18,8 @@
 
 # Analisi della varianza del cliente tramite Azure Machine Learning
 
-##Panoramica
-In questo argomento viene illustrata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata utilizzando Azure Machine Learning Studio. Vengono illustrati i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene, inoltre, misurata l'accuratezza dei modelli compilati utilizzando Machine Learning e vengono poi valutate le direzioni per uno sviluppo ulteriore.
+##Overview
+In questo argomento viene illustrata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning Studio. Vengono illustrati i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene, inoltre, misurata l'accuratezza dei modelli compilati utilizzando Machine Learning e vengono poi valutate le direzioni per uno sviluppo ulteriore.
 
 ### Riconoscimenti
 
@@ -51,7 +51,7 @@ Un processo comune di risoluzione dei problemi legati alla varianza dei clienti 
 
 1.	Un modello di rischio consente di considerare il modo in cui le azioni influiscono su probabilità e rischio.
 2.	Un modello di intervento permette di valutare il modo in cui il livello di intervento può influire sulle probabilità di varianza e su indicatori di marketing come il Lifetime Value del cliente (CLV).
-3.	Questa stessa analisi contribuisce a un'analisi qualitativa che viene poi inserita in una campagna di marketing proattiva rivolta ai segmenti di clientela a cui recapitare l'offerta ottimizzata.  
+3.	Questa stessa analisi contribuisce a un'analisi qualitativa che viene poi inserita in una campagna di marketing proattiva rivolta ai segmenti di clientela a cui recapitare l'offerta ottimizzata.
 
 ![][1]
 
@@ -73,7 +73,7 @@ Dato il problema appena descritto, qual è il modo migliore per implementare un 
 
 L'approccio multi modello è indispensabile quando si progetta un archetipo globale per la varianza. Anche la parte (predittiva) dell'approccio correlata al punteggio deve essere multi modello.
 
-Nel diagramma seguente viene mostrato il prototipo creato, che impiega quattro algoritmi di valore in Cloud ML Studio per prevedere la varianza. Il motivo per usare un approccio multi modello non è solo il poter creare un classificatore basato su insiemi per aumentare l'accuratezza, ma anche la protezione da inserimenti superflui e la possibilità di migliorare la selezione futura.
+Nel diagramma seguente viene mostrato il prototipo creato, che impiega quattro algoritmi di valore in Cloud ML Studio per prevedere la varianza. Il motivo per usare un approccio multimodello non è solo il poter creare un classificatore basato su insiemi per aumentare l'accuratezza, ma anche la protezione da inserimenti superflui e la possibilità di migliorare la selezione futura.
 
 ![][3]
 
@@ -82,7 +82,7 @@ Nel diagramma seguente viene mostrato il prototipo creato, che impiega quattro a
 Nelle sezioni seguenti vengono forniti ulteriori dettagli sul modello di valori del prototipo implementato tramite Machine Learning Studio.
 
 ###Selezione e preparazione dei dati
-I dati usati per creare i modelli e classificare i clienti sono stati ottenuti da una soluzione verticale CRM, con i dati offuscati per proteggere la privacy dei clienti. I dati contengono informazioni su 8.000 sottoscrizioni negli Stati Uniti e unisce tre origini: provisioning dei dati (metadati di sottoscrizione), dati dell'attività (utilizzo del sistema) e dati del supporto tecnico. I dati non includono informazioni commerciali sui clienti. Ad esempio, non sono inclusi metadati relativi alla fedeltà o ai valori del credito.
+I dati usati per creare i modelli e classificare i clienti sono stati ottenuti da una soluzione verticale CRM, con i dati offuscati per proteggere la privacy dei clienti. I dati contengono informazioni su 8.000 sottoscrizioni negli Stati Uniti e unisce tre origini: provisioning dei dati (metadati di sottoscrizione), dati dell'attività (uso del sistema) e dati del supporto tecnico. I dati non includono informazioni commerciali sui clienti. Ad esempio, non sono inclusi metadati relativi alla fedeltà o ai valori del credito.
 
 Per semplicità, i processi ETL e di pulizia dei dati sono esclusi dall'ambito, in quanto si presuppone che la preparazione dei dati sia già stata completata altrove.
 
@@ -101,7 +101,7 @@ Nei diagrammi che seguono sono illustrati i dati usati.
 ![][5]
 
 
-*Figure 7: Funzionalità estratte dall'origine dati*
+*Figure 7: Funzionalità estratte dall'origine dati*  
 > Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio in [Cortana Analytics Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
 > 
 > Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Intelligence Suite, si consiglia anche [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok.
@@ -114,7 +114,7 @@ Per la realizzazione del prototipo sono stati impiegati i seguenti quattro algor
 1.	Regressione logistica (LR)
 2.	Albero delle decisioni incrementato (BT)
 3.	Percezione media (AP)
-4.	Macchina a vettori di supporto (SVM)  
+4.	Macchina a vettori di supporto (SVM)
 
 
 Nel diagramma seguente viene illustrata una porzione dell'area di progettazione dell'esperimento, che indica la sequenza secondo cui sono stati creati i modelli:
@@ -151,7 +151,7 @@ La metrica AUC viene in genere usata come misura di valore per diversi algoritmi
 I tassi di errata classificazione nel set di dati in questione sono stati confrontati usando i dati CRM di circa 8.000 sottoscrizioni.
 
 -	Il tasso di errata classificazione SAS è risultato essere il 10-15%.
--	Il tasso di errata classificazione in Machine Learning Studio è risultato era del 15-20% per i primi 200-300 soggetti classificati per la varianza.  
+-	Il tasso di errata classificazione in Machine Learning Studio è risultato era del 15-20% per i primi 200-300 soggetti classificati per la varianza.
 
 Nel settore delle telecomunicazioni è importante rivolgersi solamente a quei clienti che presentano il maggior rischio di varianza, offrendo loro un servizio concierge o un altro tipo di trattamento speciale. In tale ambito, l'implementazione di Machine Learning Studio offre risultati equivalenti a quelli ottenibili con il modello SAS.
 
@@ -192,7 +192,7 @@ Nel settore delle telecomunicazioni sono state sviluppate numerose pratiche per 
 	-	**Attività**. Ottenere tutte le informazioni di utilizzo possibili correlate all'entità, ad esempio, il numero di account di accesso.
 	-	**Supporto tecnico**. Raccogliere informazioni dai log del supporto tecnico per indicare se l'abbonato ha avuto problemi o interazioni con il supporto tecnico.
 	-	**Dati commerciali e competitivi**. Ottenere qualunque informazione possibile in merito al cliente (ad esempio, se non è disponibile o difficile da monitorare).
--	Usare l'importanza per alimentare la selezione delle funzionalità. Ciò implica che il modello di albero decisionale incrementato è sempre un approccio promettente.  
+-	Usare l'importanza per alimentare la selezione delle funzionalità. Ciò implica che il modello di albero decisionale incrementato è sempre un approccio promettente.
 
 L'uso di queste quattro categorie crea l'illusione che un semplice approccio *deterministico*, basato su indici formati su fattori ragionevoli per categoria, sia sufficiente per identificare i clienti a rischio di varianza. Sfortunatamente, per quanto questa nozione appaia plausibile, si tratta di un intendimento errato. Il motivo è dato dal fatto che la varianza è un effetto temporale e i fattori che contribuiscono ad essa si trovano in genere in uno stato temporaneo. Ciò che induce un cliente a valutare un cambio di gestore oggi, potrebbe essere diverso domani e sicuramente sarà ancora diverso tra sei mesi. Pertanto, un modello *probabilistico* è una necessità.
 
@@ -202,20 +202,20 @@ Tuttavia, la promessa dell'analisi self-service utilizzando Machine Learning Stu
 
 Un'altra funzionalità interessante di apprendimento automatico presente in Azure Machine Learning è la possibilità di aggiungere un modulo personalizzato nel repository dei moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante elemento di differenziazione per Azure Machine Learning nel mercato.
 
-Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
-##Conclusioni
+Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.  
+##Conclusione
 In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. Viene considerato un prototipo per la valutazione dei modelli ed è implementato utilizzando Azure Machine Learning. Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.
 
 **Per altre informazioni:**
 
-Il documento è stato di aiuto? Gradiremmo ricevere commenti e suggerimenti. Indicare, su una scala da 1 (scadente) a 5 (eccellente) come si classificherebbe questo articolo e indicare perché si è assegnato tale punteggio. Ad esempio:
+Il documento è stato di aiuto? Gradiremmo ricevere commenti e suggerimenti. Indicare, su una scala da 1 (scadente) a 5 (eccellente) come si classificherebbe questo articolo e indicare perché si è assegnato tale punteggio. ad esempio:
 
 -	Si sta assegnando un punteggio alto perché l'articolo contiene degli ottimi esempi, schermate eccellenti, il linguaggio è chiaro o per un altro motivo?
--	Si sta assegnando un punteggio basso perché gli esempi sono scarsi, le schermate poco chiare o il linguaggio è incomprensibile?  
+-	Si sta assegnando un punteggio basso perché gli esempi sono scarsi, le schermate poco chiare o il linguaggio è incomprensibile?
 
 Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei white paper prodotti.
 
-[Invia commenti e suggerimenti](mailto:sqlfback@microsoft.com).
+[Invia commenti e suggerimenti](mailto:sqlfback@microsoft.com).  
 ##Riferimenti
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.
 
@@ -225,7 +225,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 [4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modello di varianza Telco] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+[5] [Modello di varianza Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)  
 ##Appendice
 
 ![][10]
@@ -244,4 +244,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

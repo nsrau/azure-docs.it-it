@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # Spostare database tra server, tra sottoscrizioni e all'interno e all'esterno di Azure
@@ -31,4 +31,4 @@
 ## Per creare una copia di un database da usare all'esterno di Azure
 - [Esportare un file BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

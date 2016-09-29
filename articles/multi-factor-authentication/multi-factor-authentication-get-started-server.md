@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Introduzione al server Azure Multi-Factor Authentication" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication in cui viene descritto come iniziare a utilizzare Azure MFA." 
+	pageTitle="Introduzione al server Azure Multi-Factor Authentication"
+	description="Questa è la pagina di Azure Multi-Factor Authentication in cui viene descritto come iniziare a utilizzare Azure MFA."
 	services="multi-factor-authentication"
-	keywords="server di autenticazione, pagina di attivazione dell'app azure multi factor authentication, download server di autenticazione" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	keywords="server di autenticazione, pagina di attivazione dell'app azure multi factor authentication, download server di autenticazione"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Introduzione al server Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@ Dopo averlo scaricato, è possibile installare e configurare il server. Assicura
 
 
 Requisiti del server Azure Multi-Factor Authentication|Descrizione|
-:------------- | :------------- | 
+:------------- | :------------- |
 Hardware|<li>200 MB di spazio su disco rigido</li><li>processore in grado di supportare istruzioni x32 o x64</li><li>1 GB o più di RAM</li>
 Software|<li>Windows Server 2008 o versione successiva, se l'host è un sistema operativo server</li><li>Windows 7 o versione successiva, se l'host è un sistema operativo client</li><li>Microsoft .NET Framework 4.0</li><li>IIS 7.0 o versione successiva per l'installazione del portale utenti o dell'SDK servizio Web</li>
 
@@ -106,7 +106,7 @@ Subnet IP|Netmask|Intervallo IP
 1. Fare doppio clic sul file eseguibile. Viene avviata l'installazione.
 2. Nella schermata di selezione della cartella di installazione, assicurarsi che la cartella sia corretta e fare clic su Avanti.
 3. Al termine dell'installazione, fare clic su Fine. Verrà avviata la configurazione guidata.
-4. Nella schermata iniziale della configurazione guidata, inserire un segno di spunta sull'opzione per **non utilizzare la configurazione guidata di autentiazione** e fare clic su **Avanti**. Verrà chiusa la procedura guidata e avviato il server.
+4. Nella schermata iniziale della configurazione guidata, inserire un segno di spunta sull'opzione per **non utilizzare la configurazione guidata di autenticazione** e fare clic su **Avanti**.  Verrà chiusa la procedura guidata e avviato il server.
 ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. Tornare nella pagina da cui è stato scaricato il server, scegliere il pulsante relativo alla **generazione delle credenziali di attivazione**. Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
@@ -175,7 +175,7 @@ Oltre a questi campi, il risultato dell'autenticazione (esito positivo/rifiuto) 
 Per ulteriori informazioni sull'installazione avanzata e informazioni di configurazione, utilizzare la tabella seguente.
 
 Metodo|Descrizione
-:------------- | :------------- | 
+:------------- | :------------- |
 [Portale per gli utenti](multi-factor-authentication-get-started-portal.md)| Informazioni sull'installazione e configurazione del portale per gli utenti, incluse la distribuzione e il self-service dell’utente.
 [Active Directory Federation Services](multi-factor-authentication-get-started-adfs.md)|Informazioni sull'impostazione di Azure Multi-Factor Authentication con ADFS.
 [Autenticazione RADIUS](multi-factor-authentication-get-started-server-radius.md)| Informazioni sull'installazione e la configurazione del Server di autenticazione a più fattori di Azure con RADIUS.
@@ -186,4 +186,4 @@ Metodo|Descrizione
 [Sincronizzazione con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Informazioni sull'installazione e la configurazione della sincronizzazione tra Active Directory e il Server di autenticazione a più fattori di Azure.
 [Distribuzione del servizio Web App Mobile di Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-webservice.md)|Informazioni sull'installazione e configurazione del servizio web del server Azure di autenticazione a più fattori.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

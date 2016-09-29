@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -69,7 +69,7 @@ Dopo aver convertito i dati in formato CSV, è necessario caricarli in Machine L
 1.	Immettere un nome per il set di dati. Per questa procedura, il nome sarà "UCI German Credit Card Data".
 1.	Come tipo di dati selezionare **Generic CSV File With no header (.nh.csv)**.
 1.	Aggiungere un'eventuale descrizione.
-1.	Fare clic su **OK**.  
+1.	Fare clic su **OK**.
 
 ![Caricare il set di dati][1]
 
@@ -84,4 +84,4 @@ Per altre informazioni sull'importazione di vari tipi di dati in un esperimento,
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

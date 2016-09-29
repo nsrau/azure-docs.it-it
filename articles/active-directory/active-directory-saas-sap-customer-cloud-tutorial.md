@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -153,7 +153,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 8. Per ottenere l'accesso SSO configurato, seguire questa procedura:
@@ -225,7 +225,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png)
 
@@ -235,7 +235,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
 6.  Nella pagina **Profilo utente** seguire questa procedura: ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
 
@@ -249,11 +249,11 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
+7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png)
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png)
 
@@ -291,7 +291,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
 
-5. Fare clic su **Assegna** nella barra degli strumenti in basso.
+5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
 	![Assegna utente][205]
 
@@ -327,4 +327,4 @@ Quando si fa clic sul riquadro SAP Cloud for Customer nel pannello di accesso, s
 [204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->
