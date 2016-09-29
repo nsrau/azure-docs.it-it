@@ -358,7 +358,8 @@ Inizializzare le impostazioni di connessione del database nelle seguenti variabi
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Il tempo per la lettura della tabella di esempio è di 6,492000 secondi, Numero di righe e di colonne recuperate = (8.4952, 21)
+Il tempo per la lettura della tabella di esempio è di 6,492000 secondi  
+Numero di righe e di colonne recuperate = (8.4952, 21)
 
 #### Statistiche descrittive
 
@@ -688,7 +689,9 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 ### Riferimenti
 
-• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) • [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
+• [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
