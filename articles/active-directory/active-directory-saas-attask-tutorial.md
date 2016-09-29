@@ -19,7 +19,8 @@
 
 # Esercitazione: Integrazione di Azure Active Directory con @Task
 
-Questa esercitazione descrive l’integrazione di @Task con Azure Active Directory (Azure AD). L'integrazione di @Task con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive l’integrazione di @Task con Azure Active Directory (Azure AD).  
+L'integrazione di @Task con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a @Task
 - È possibile abilitare gli utenti per l'accesso automatico a @Task (Single Sign-On) con i propri account Azure AD
@@ -45,7 +46,8 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
  
 ## Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
+L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.  
+Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
 1. Aggiunta di @Task dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -273,7 +275,8 @@ L’obiettivo di questa sezione consiste nell’abilitare Britta Simon all’uti
 
 ### Test dell'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro @Task nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione @Task.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.  
+Quando si fa clic sul riquadro @Task nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione @Task.
 
 
 ## Risorse aggiuntive

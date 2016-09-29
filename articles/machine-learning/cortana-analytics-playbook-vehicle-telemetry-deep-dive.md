@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="bradsev" />
 
 
@@ -23,13 +23,13 @@ Questo **menu** contiene i collegamenti alle sezioni dello studio:
 
 [AZURE.INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-Questa sezione approfondisce nel dettaglio ognuna delle fasi rappresentate nell'architettura della soluzione, con istruzioni e indicazioni per la personalizzazione.
+Questa sezione approfondisce ognuna delle fasi rappresentate nell'architettura della soluzione, con istruzioni e indicazioni per la personalizzazione.
 
 ## Origini dati
 
 La soluzione usa due origini dati diverse:
 
-- **set di dati di diagnostica e segnali del veicolo simulati** e 
+- **set di dati di diagnostica e segnali del veicolo simulati** e
 - **catalogo dei veicoli**
 
 Nella soluzione è incluso un simulatore di dati telematici relativi al veicolo. Il simulatore genera informazioni di diagnostica e segnali corrispondenti allo stato del veicolo e allo schema di guida in un determinato momento. Fare clic su [Vehicle Telematics Simulator](http://go.microsoft.com/fwlink/?LinkId=717075) per scaricare la **soluzione Vehicle Telematics Simulator di Visual Studio** ed eseguire le personalizzazioni necessarie. Il catalogo dei veicoli contiene un set di dati di riferimento con il numero identificativo del veicolo (NIV) per il mapping del modello.
@@ -38,17 +38,17 @@ Nella soluzione è incluso un simulatore di dati telematici relativi al veicolo.
 
 *Figura 2: Vehicle Telematics Simulator*
 
-Si tratta di un set di dati in formato JSON che contiene lo schema riportato di seguito.
+Questo è un set di dati in formato JSON contenente lo schema seguente.
 
-Colonna | Descrizione | Valori   
- ------- | ----------- | ---------  
-vin | Numero identificativo del veicolo generato in modo casuale | Viene ottenuto da un elenco master di 10.000 numeri identificativi di veicoli generati in modo casuale
+Colonna | Descrizione | Valori 
+ ------- | ----------- | --------- 
+vin | Numero identificativo del veicolo generato in modo casuale | Viene ottenuto da un elenco master di 10.000 numeri identificativi di veicoli generati in modo casuale.
 outsideTemperature | Temperatura all'esterno durante la guida del veicolo | Numero da 0 a 100 generato in modo casuale
 engineTemperature | Temperatura del motore del veicolo | Numero da 0 a 500 generato in modo casuale
 speed | Velocità del motore durante la guida del veicolo | Numero da 0 a 100 generato in modo casuale
 fuel | Livello di carburante del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di carburante)
 engineoil | Livello dell'olio del motore del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di olio del motore)
-tirepressure | Pressione degli pneumatici del veicolo | Numero da 0 a 50 generato in modo casuale (indica la percentuale del livello di pressione degli pneumatici)
+Tire pressure | Pressione degli pneumatici del veicolo | Numero da 0 a 50 generato in modo casuale (indica la percentuale del livello di pressione degli pneumatici)
 odometer | Lettura del contachilometri del veicolo | Numero da 0 a 200000 generato in modo casuale
 accelerator\_pedal\_position | Posizione del pedale dell'acceleratore del veicolo | Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello dell'acceleratore)
 parking\_brake\_status | Indica se il freno di stazionamento è attivato o meno | true o false
@@ -99,7 +99,7 @@ XUF99EW9OIQOMV7Q7 | Berlina familiare
 
 
 ### Per generare dati simulati
-1.	Fare clic sulla freccia in alto a destra del nodo Vehicle Telematics Simulator per scaricare il pacchetto del simulatore di dati. Salvare ed estrarre i file in locale. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figura 3: Schema della soluzione di analisi dei dati di telemetria del veicolo*
+1.	Per scaricare il pacchetto del simulatore di dati, fare clic sulla freccia in alto a destra del nodo Vehicle Telematics Simulator (Simulatore di dati telematici del veicolo). Salvare ed estrarre i file in locale. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figura 3: Schema della soluzione di analisi dei dati di telemetria del veicolo*
 
 2.	Nel computer locale, passare alla cartella in cui è stato estratto il pacchetto Vehicle Telematics Simulator. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png)*Figura 4: Cartella Vehicle Telematics Simulator*
 
@@ -114,11 +114,11 @@ XUF99EW9OIQOMV7Q7 | Berlina familiare
 [Data factory di Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
-## Inserimento
-Vengono sfruttate combinazioni di Hub eventi, Analisi di flusso e Data factory di Azure per inserire i segnali del veicolo, gli eventi di diagnostica e le analisi in tempo reale e batch. Tutti questi componenti vengono creati e configurati durante la distribuzione della soluzione.
+## Ingestion
+Vengono sfruttate combinazioni di Hub eventi di Azure, Analisi di flusso di Azure e Azure Data Factory per inserire i segnali del veicolo, gli eventi di diagnostica e le analisi in tempo reale e batch. Tutti questi componenti vengono creati e configurati durante la distribuzione della soluzione.
 
 ### Analisi in tempo reale
-Gli eventi generati dal simulatore di dati telematici relativi al veicolo vengono pubblicati nell'Hub eventi usando l'SDK di Hub di eventi. Il processo di Analisi di flusso inserisce gli eventi dall'Hub eventi ed elabora i dati in tempo reale per analizzare l'integrità del veicolo.
+Gli eventi generati dal simulatore di dati telematici relativi al veicolo vengono pubblicati nell'Hub eventi usando l'SDK di Hub di eventi. Il processo di Analisi di flusso inserisce gli eventi dall'hub eventi ed elabora i dati in tempo reale per analizzare l'integrità del veicolo.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-event-hub-dashboard.png)
 
@@ -128,7 +128,13 @@ Gli eventi generati dal simulatore di dati telematici relativi al veicolo vengon
 
 *Figura 6: Elaborazione dei dati da parte del processo di Analisi di flusso*
 
-Il processo di Analisi di flusso inserisce i dati dall'Hub eventi, crea un join con i dati di riferimento per il mapping del numero identificativo del veicolo al modello corrispondente e li rende persistenti nell'archivio BLOB di Azure per l'analisi batch avanzata. La query di Analisi di flusso riportata di seguito viene usata per rendere persistenti i dati nell'archivio BLOB di Azure.
+Il processo di Analisi di flusso:
+
+- Inserisce i dati dall'hub eventi
+- Esegue un join con i dati di riferimento per eseguire il mapping del numero identificativo del veicolo al modello corrispondente
+- Li rende persistenti nell'archivio BLOB di Azure per l'analisi in batch avanzata
+
+La query di Analisi di flusso riportata di seguito viene usata per rendere persistenti i dati nell'archivio BLOB di Azure.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png)
 
@@ -141,13 +147,13 @@ Viene anche generato un volume aggiuntivo di set di dati di diagnostica e segnal
 
 *Figura 8: Preparazione dei dati di esempio per il flusso di lavoro dell'elaborazione batch*
 
-La pipeline è costituita da un'attività .Net personalizzate di Data factory di Azure, mostrata di seguito:
+La pipeline è costituita da un'attività .NET personalizzata di Azure Data Factory, illustrata qui:
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline.png)
 
 *Figura 9: PrepareSampleDataPipeline*
 
-Dopo aver eseguito correttamente la pipeline e aver contrassegnato come "Ready" il set di dati "RawCarEventsTable", viene generato l'equivalente di un anno di dati di diagnostica e segnali del veicolo. La cartella e il file seguenti creati nell'account di archiviazione verranno visualizzati all'interno del contenitore "connectedcar":
+Dopo aver eseguito correttamente la pipeline e aver contrassegnato come "Ready" il set di dati "RawCarEventsTable", viene generato l'equivalente di un anno di dati di diagnostica e segnali del veicolo. La cartella e il file seguenti creati nell'account di archiviazione vengono visualizzati all'interno del contenitore "connectedcar":
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png)
 
@@ -157,27 +163,34 @@ Dopo aver eseguito correttamente la pipeline e aver contrassegnato come "Ready" 
 
 [Azure Event Hub SDK per l'inserimento di flussi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Funzionalità di spostamento dei dati di Azure Data Factory](../data-factory/data-factory-data-movement-activities.md) [Attività DotNet di Azure Data Factory](../data-factory/data-factory-use-custom-activities.md)
+[Spostare dati con l'attività di copia](../data-factory/data-factory-data-movement-activities.md) [Usare attività personalizzate in una pipeline di Azure Data Factory](../data-factory/data-factory-use-custom-activities.md)
 
 [Soluzione di Visual Studio per l'attività DotNet di Data factory di Azure per la preparazione dei dati di esempio](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
-## Preparazione
->[AZURE.ALERT] Questo passaggio della soluzione è applicabile solo all'elaborazione batch.
+## Partizionare il set di dati
 
-Il set di dati semistrutturato non elaborato di diagnostica e segnali del veicolo viene partizionato nel passaggio di preparazione dei dati in un formato YEAR/MONTH per l'esecuzione di query efficienti e l'archiviazione scalabile a lungo termine. Ciò significa, *ad esempio*, che viene abilitato il passaggio da un account di BLOB al successivo quando il primo è pieno. I dati di output (con etichetta *PartitionedCarEventsTable*) devono essere mantenuti per un lungo periodo di tempo nella forma di base meno elaborata dei dati nel "Data Lake" del cliente. I dati di input per questa pipeline vengono in genere eliminati perché i dati di output hanno la massima fedeltà all'input, sono semplicemente archiviati (partizionati) meglio per un uso successivo.
+Il set di dati di diagnostica e segnali del veicolo semistrutturati non elaborati viene partizionato durante la fase di preparazione dei dati in un formato ANNO/MESE. Questo partizionamento favorisce l'esecuzione di query più efficienti e un'archiviazione scalabile a lungo termine abilitando il failover da un account BLOB a quello successivo quando il primo account si riempie.
+
+>[AZURE.NOTE] Questo passaggio della soluzione è applicabile solo all'elaborazione batch.
+
+Gestione dati di input e di output:
+
+- I **dati di output** (con etichetta *PartitionedCarEventsTable*) devono essere mantenuti per un lungo periodo di tempo nella forma di base "meno elaborata" dei dati nel "Data Lake" del cliente.
+- I **dati di input** per questa pipeline vengono in genere eliminati perché i dati di output hanno la massima fedeltà all'input, sono semplicemente archiviati (partizionati) meglio per un uso successivo.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
 
 *Figura 11: Flusso di lavoro PartitionCarEvents*
 
-I dati non elaborati vengono partizionati usando un'attività Hive HDInsight in "PartitionCarEventsPipeline". L'anno di dati di esempio generato nel passaggio 1 viene partizionato in formato YEAR/MONTH per generare partizioni di dati di diagnostica e segnali del veicolo corrispondenti a ogni mese dell'anno (per un totale di 12 partizioni).
+I dati non elaborati vengono partizionati usando un'attività Hive HDInsight in "PartitionCarEventsPipeline". I dati di esempio generati nel passaggio 1 per un anno vengono partizionati per ANNO/MESE. Le partizioni vengono usate per generare i dati di diagnostica e segnali del veicolo per ogni mese (12 partizioni in totale) di un anno.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partition-car-events-pipeline.png)
 
 *Figura 12: PartitionCarEventsPipeline*
 
-Lo script Hive illustrato di seguito, denominato "partitioncarevents.hql", è usato per il partizionamento e si trova nella cartella "\\demo\\src\\connectedcar\\scripts" del file ZIP scaricato.
+Lo script Hive seguente, denominato "partitioncarevents.hql", è usato per il partizionamento e si trova nella cartella "\\demo\\src\\connectedcar\\scripts" del file ZIP scaricato.
+
 
 	SET hive.exec.dynamic.partition=true;
 	SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -316,7 +329,7 @@ Lo script Hive illustrato di seguito, denominato "partitioncarevents.hql", è us
 
 *Figura 13: Script Hive PartitionConnectedCarEvents*
 
-Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione all'interno del contenitore "connectedcar".
+Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione nel contenitore "connectedcar".
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-partitioned-output.png)
 
@@ -326,43 +339,45 @@ A questo punto, i dati sono ottimizzati, più gestibili e pronti per un'ulterior
 
 ## Analisi dei dati
 
-In questa sezione viene illustrato l'uso combinato di Analisi di flusso di Azure, Azure Machine Learning, Data factory di Azure e Azure HDInsight per un'analisi avanzata dell'integrità del veicolo e delle abitudini di guida. La sezione è divisa in 3 sottosezioni:
+In questa sezione viene illustrato come combinare Analisi di flusso di Azure, Azure Machine Learning, Azure Data Factory e Azure HDInsight per un'analisi avanzata dell'integrità del veicolo e delle abitudini di guida. Sono presenti tre sottosezioni:
 
-1.	**Machine Learning**: questa sottosezione contiene informazioni sull'esperimento di rilevamento delle anomalie usato nella soluzione per eseguire una stima dei veicoli che richiedono interventi di manutenzione e dei veicoli da richiamare a causa di problemi di sicurezza.
+1.	**Machine Learning**: questa sottosezione contiene informazioni sull'esperimento di rilevamento anomalie usato nella soluzione per eseguire una stima dei veicoli che richiedono interventi di manutenzione e dei veicoli da richiamare a causa di problemi di sicurezza.
 2.	**Analisi in tempo reale**: questa sottosezione contiene informazioni riguardanti l'analisi in tempo reale con il linguaggio di query di Analisi di flusso e la messa in funzione dell'esperimento di Machine Learning in tempo reale con un'applicazione personalizzata.
-3.	**Analisi batch**: questa sottosezione contiene informazioni sulla trasformazione e l'elaborazione dei dati batch con Azure HDInsight e Azure Machine Learning messi in funzione da Data factory di Azure.
+3.	**Analisi batch**: questa sottosezione contiene informazioni sulla trasformazione e l'elaborazione dei dati batch con Azure HDInsight e Azure Machine Learning messi in funzione da Azure Data Factory.
 
 ### Machine Learning
 
 L'obiettivo è eseguire una stima dei veicoli che richiedono interventi di manutenzione e dei veicoli da richiamare in base a determinate statistiche di integrità. Si parte dai presupposti seguenti:
 
-- Il veicolo richiede un **intervento di manutenzione** se una delle tre condizioni seguenti è vera:
+- Se una delle tre condizioni seguenti è vera, il veicolo richiede un **intervento di manutenzione**:
 	- La pressione degli pneumatici è bassa
 	- Il livello di olio del motore è basso
 	- La temperatura del motore è elevata
 
-- Il veicolo può avere un **problema di sicurezza** e può essere necessario il **richiamo** se una delle condizioni seguenti è vera:
+- Se una delle condizioni seguenti è vera, il veicolo può avere un **problema di sicurezza** e può essere necessario il **richiamo**:
 	- La temperatura del motore è elevata, ma la temperatura esterna è bassa
 	- La temperatura del motore è bassa, ma la temperatura esterna è elevata
 
-In base ai suddetti requisiti, sono stati creati due modelli separati per il rilevamento delle anomalie, uno per gli interventi di manutenzione sul veicolo e uno per il richiamo del veicolo. In entrambi i modelli l'algoritmo di analisi in componenti principali (PCA) incorporato viene usato per il rilevamento di anomalie.
+In base ai requisiti precedenti, sono stati creati due modelli separati per il rilevamento delle anomalie, uno per gli interventi di manutenzione sul veicolo e uno per il richiamo del veicolo. In entrambi i modelli l'algoritmo di analisi in componenti principali (PCA) predefinito viene usato per il rilevamento anomalie.
 
-**Modello di rilevamento per la manutenzione**: il modello di rilevamento per la manutenzione segnala un'anomalia se uno dei tre indicatori (pressione degli pneumatici, olio del motore o temperatura del motore) soddisfa la condizione corrispondente. Di conseguenza, nella compilazione del modello è sufficiente prendere in considerazione queste tre variabili. Nell’esperimento in Azure Machine Learning vine utilizzato prima di tutto il modulo **Select Columns in Dataset** per estrarre queste tre variabili. Viene quindi usato il modulo di rilevamento delle anomalie basato su PCA per compilare il modello di rilevamento delle anomalie.
+**Modello di rilevamento per la manutenzione**
+
+Se uno dei tre indicatori (pressione degli pneumatici, olio del motore o temperatura del motore) soddisfa la condizione corrispondente, il modello di rilevamento per la manutenzione segnala un'anomalia. Di conseguenza, nella compilazione del modello è sufficiente prendere in considerazione queste tre variabili. Nell'esperimento in Azure Machine Learning viene usato prima un modulo **Seleziona colonne in set di dati** per estrarre queste tre variabili. Viene quindi usato il modulo di rilevamento delle anomalie basato su PCA per compilare il modello di rilevamento delle anomalie.
 
 L'analisi in componenti principali (PCA) è una tecnica consolidata in Machine Learning che può essere applicata alla selezione di funzionalità, alla classificazione e al rilevamento di anomalie. Converte un set di casi contenente variabili probabilmente correlate in un set di valori denominati componenti principali. Lo scopo primario del modello basato su PCA è la proiezione dei dati in uno spazio dimensionale inferiore in modo che caratteristiche e anomalie siano identificabili più facilmente.
  
-Nel rilevamento delle anomalie, per ogni nuovo input, il rilevatore calcola prima di tutto la proiezione sugli autovettori e quindi calcola l'errore di ricostruzione normalizzato. L'errore normalizzato costituisce il punteggio dell'anomalia. A un punteggio maggiore corrisponde una maggiore anomalia dell'istanza.
+Per ogni nuovo input nel modello di rilevamento, il rilevatore di anomalie calcola prima di tutto la proiezione sugli autovettori e quindi calcola l'errore di ricostruzione normalizzato. L'errore normalizzato costituisce il punteggio dell'anomalia. A un punteggio maggiore corrisponde una maggiore anomalia dell'istanza.
 
-Nel rilevamento per la manutenzione ogni record può essere considerato come un punto in uno spazio tridimensionale definito dalle coordinate pressione degli pneumatici, olio del motore e temperatura del motore. Per acquisire queste anomalie, è possibile usare l'analisi in componenti principali per proiettare i dati originali tridimensionali in uno spazio bidimensionale. Il parametro relativo al numero di componenti da usare in PCA viene quindi impostato su 2. Questo parametro ha un ruolo importante nell'applicazione del rilevamento delle anomalie basato su PCA. Dopo aver eseguito la proiezione dei dati con l'analisi PCA, è possibile identificare più facilmente queste anomalie.
+Nel rilevamento per la manutenzione ogni record può essere considerato come un punto in uno spazio tridimensionale definito dalle coordinate pressione degli pneumatici, olio del motore e temperatura del motore. Per acquisire queste anomalie, è possibile usare l'analisi in componenti principali per proiettare i dati originali nello spazio tridimensionale in uno spazio bidimensionale. Il parametro relativo al numero di componenti da usare in PCA viene quindi impostato su 2. Questo parametro ha un ruolo importante nell'applicazione del rilevamento delle anomalie basato su PCA. Dopo aver eseguito la proiezione dei dati con l'analisi PCA, è possibile identificare più facilmente queste anomalie.
 
-**Modello di rilevamento delle anomalie per il richiamo**: in questo modello i moduli di rilevamento delle anomalie basati su PCA e Select Columns in Dataset vengono utilizzati in modo analogo. Nello specifico, vengono prima di tutto estratte le tre variabili (temperatura del motore, temperatura esterna e velocità) utilizzando il modulo **Select Columns in Dataset**. Viene inclusa anche la variabile velocità perché la temperatura del motore è in genere correlata alla velocità. Viene quindi usato il modulo di rilevamento delle anomalie basato su PCA per proiettare i dati da uno spazio tridimensionale a uno spazio bidimensionale. I criteri di richiamo sono soddisfatti ed è quindi necessario richiamare il veicolo quando la temperatura del motore e quella esterna sono correlate negativamente. Con un algoritmo di rilevamento delle anomalie basato su PCA è possibile acquisire le anomalie dopo l'analisi PCA.
+**Modello di rilevamento anomalie per il richiamo**: in questo modello i moduli di rilevamento anomalie basati su PCA e Seleziona colonne in set di dati vengono usati in modo simile. Nello specifico, vengono prima di tutto estratte le tre variabili (temperatura del motore, temperatura esterna e velocità) usando il modulo **Seleziona colonne in set di dati**. Viene inclusa anche la variabile velocità perché la temperatura del motore è in genere correlata alla velocità. Viene quindi usato il modulo di rilevamento delle anomalie basato su PCA per proiettare i dati da uno spazio tridimensionale a uno spazio bidimensionale. I criteri di richiamo sono soddisfatti ed è quindi necessario richiamare il veicolo quando la temperatura del motore e quella esterna sono correlate negativamente. Con un algoritmo di rilevamento delle anomalie basato su PCA è possibile acquisire le anomalie dopo l'analisi PCA.
 
-Si noti che per il training del modello di rilevamento delle anomalie basato su PCA è sempre necessario usare come dati di input dati normali che non richiedano il richiamo o interventi di manutenzione. Nell'esperimento di assegnazione dei punteggi viene usato il modello di rilevamento di anomalie sottoposto a training per rilevare se il veicolo richiede la manutenzione o il richiamo.
+Per il training del modello di rilevamento anomalie basato su PCA è sempre necessario usare come dati di input dati normali che non richiedano il richiamo o interventi di manutenzione. Nell'esperimento di assegnazione dei punteggi viene usato il modello di rilevamento anomalie sottoposto a training per rilevare se il veicolo richiede o meno la manutenzione o il richiamo.
 
 
 ### Analisi in tempo reale
 
-La query SQL di Analisi di flusso riportata di seguito viene usata per ottenere la media di tutti i parametri importanti del veicolo, come la velocità, il livello di carburante, la temperatura del motore, la lettura del contachilometri, la pressione degli pneumatici, il livello di olio del motore e così via, per rilevare anomalie, emettere avvisi e determinare le condizioni generali di integrità dei veicoli usati in un'area specifica correlando tali informazioni a dati demografici.
+La query SQL di Analisi di flusso seguente viene usata per ottenere la media di tutti i parametri importanti del veicolo, ad esempio la velocità, il livello di carburante, la temperatura del motore, la lettura del contachilometri, la pressione degli pneumatici, il livello di olio del motore e altri. Le medie vengono usate per rilevare anomalie, emettere avvisi e determinare le condizioni generali di integrità dei veicoli usati in un'area specifica correlando tali informazioni a dati demografici.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
@@ -370,20 +385,20 @@ Figura 15: Query di Analisi di flusso per l'elaborazione in tempo reale
 
 Tutte le medie vengono calcolate in una finestra a cascata di 3 secondi. In questo caso viene usata la finestra a cascata perché sono necessari intervalli di tempo contigui e non sovrapposti.
 
-Per altre informazioni sulle funzionalità delle finestre in Analisi di flusso di Azure, fare clic su [Windowing (analisi Stream Azure)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Per altre informazioni sulle funzionalità di "windowing" in Analisi di flusso di Azure, fare clic su [Windowing (Analisi di flusso di Azure)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Stima in tempo reale**
 
 Nella soluzione è inclusa un'applicazione per la messa in funzione del modello di Machine Learning in tempo reale. L'applicazione, denominata "RealTimeDashboardApp" viene creata e configurata nell'ambito della distribuzione della soluzione ed esegue le operazioni descritte di seguito:
 
-1.	È in ascolto di un'istanza di Hub eventi in cui Analisi di flusso pubblica gli eventi in modo continuo. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figura 16: Query di Analisi di flusso per la pubblicazione dei dati in un'istanza di output di Hub eventi* 
+1.	È in attesa di un'istanza di Hub eventi in cui Analisi di flusso pubblica gli eventi in un modello eseguito in modo continuo. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figura 16: Query di Analisi di flusso per la pubblicazione di dati in un'istanza di Hub eventi di output*
 
 2.	Per ogni evento ricevuto dall'applicazione:
 
 	- i dati vengono elaborati usando l'endpoint del servizio di richiesta-risposta (RRS) di Machine Learning per l'assegnazione dei punteggi, l'endpoint RRS viene pubblicato automaticamente nell'ambito della distribuzione.
 	- L'output RRS viene pubblicato in un set di dati di Power BI con le API push.
 
-Questo modello è anche applicabile a scenari di integrazione di un'applicazione line-of-business con il flusso di analisi in tempo reale per avvisi, notifiche, messaggistica immediata e così via.
+Questo modello è anche applicabile a scenari di integrazione di un'applicazione line-of-business con il flusso di analisi in tempo reale per avvisi, notifiche e messaggistica immediata.
 
 Fare clic su [Download di RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) per scaricare la soluzione RealtimeDashboardApp di Visual Studio per le personalizzazioni.
 
@@ -392,33 +407,33 @@ Fare clic su [Download di RealtimeDashboardApp](http://go.microsoft.com/fwlink/?
 1.	Fare clic sul nodo Power BI nella vista diagramma e fare clic sul collegamento Download Real-time Dashboard Application (Scarica applicazione dashboard in tempo reale) nel riquadro delle proprietà. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figura 17: Istruzioni per la configurazione del dashboard di Power BI*
 2.	Estrarre e salvare in locale. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figura 18: Cartella RealtimeDashboardApp*
 3.	Eseguire l'applicazione RealtimeDashboardApp.exe.
-4.	Fornire credenziali Power BI valide, accedere e fare clic su Accept. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+4.	Fornire credenziali Power BI valide, accedere e fare clic su Accept. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png)
 
 *Figura 19: Accesso a Power BI da RealtimeDashboardApp*
 
->[AZURE.NOTE] Nota: per scaricare il set di dati di Power BI, eseguire RealtimeDashboardApp con il parametro "flushdata":
+>[AZURE.NOTE] Per scaricare il set di dati di Power BI, eseguire RealtimeDashboardApp con il parametro "flushdata":
 
 	RealtimeDashboardApp.exe -flushdata
 
 ### Analisi batch
 
-L'obiettivo di questa sezione è mostrare come Contoso Motors usa le capacità di calcolo di Azure per sfruttare i Big Data e ottenere informazioni dettagliate sugli stili di guida, sull'utilizzo e sull'integrità del veicolo per:
+L'obiettivo di questa sezione è mostrare come Contoso Motors utilizza le funzionalità di calcolo di Azure per sfruttare i Big Data e ottenere informazioni dettagliate sugli stili di guida, sull'utilizzo e sull'integrità del veicolo. In questo modo è possibile:
 
 - Migliorare l'esperienza del cliente e abbassare i costi fornendo informazioni dettagliate sulle abitudini e sui comportamenti di guida attenti ai consumi.
 - Acquisire informazioni sui clienti e sui relativi stili di guida per gestire il processo decisionale e fornire prodotti e servizi di altissimo livello.
 
 In questa soluzione vengono esaminate le metriche seguenti:
 
-1.	**Stile di guida aggressivo**: identifica la tendenza di modelli, località, condizioni di guida e periodo dell'anno per ottenere informazioni dettagliate sul comportamento di guida aggressivo che Contoso Motors può usare per creare campagne di marketing, nuove funzionalità personalizzate e assicurazioni basate sull'utilizzo.
-2.	**Stile di guida attento ai consumi**: identifica la tendenza di modelli, località, condizioni di guida e periodo dell'anno per ottenere informazioni dettagliate sul comportamento di guida attento ai consumi che Contoso Motors può usare per creare campagne di marketing e nuove funzionalità personalizzate e per segnalare al guidatore abitudini di guida attente ai consumi e all'ambiente. 
-3.	**Previsioni di richiamo**: identifica i modelli che è necessario richiamare in base all'esperimento di Machine Learning per il rilevamento delle anomalie.
+1.	**Stile di guida aggressivo**: identifica la tendenza di modelli, località, condizioni di guida e periodo dell'anno per ottenere informazioni dettagliate sugli stili di guida aggressivi. Contoso Motors può usare queste informazioni per creare campagne di marketing, nuove funzionalità personalizzate e assicurazioni basate sull'utilizzo.
+2.	**Stile di guida attento ai consumi**: identifica la tendenza dei modelli, località, condizioni di guida e periodo dell'anno per ottenere informazioni dettagliate sugli stili di guida attenti ai consumi. Contoso Motors può usare queste informazioni per creare campagne di marketing, nuove funzionalità personalizzate e per segnalare al guidatore abitudini di guida attente ai consumi e all'ambiente.
+3.	**Previsioni di richiamo**: identifica i modelli che è necessario richiamare in base all'esperimento di Machine Learning per il rilevamento anomalie.
 
 Di seguito vengono esaminate le singole metriche nel dettaglio.
 
 
 **Stile di guida aggressivo**
 
-I segnali del veicolo e i dati di diagnostica partizionati vengono elaborati nella pipeline denominata "AggresiveDrivingPatternPipeline" che usa Hive per determinare modelli, località, condizioni di guida e dei veicoli e così via, che mostrano uno stile di guida aggressivo.
+I segnali del veicolo e i dati di diagnostica partizionati vengono elaborati nella pipeline denominata "AggresiveDrivingPatternPipeline" che usa Hive per determinare modelli, località, veicoli, condizioni di guida e altri parametri che mostrano uno stile di guida aggressivo.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-aggressive-driving-pattern.png) *Figura 20: Flusso di lavoro per lo stile di guida aggressivo*
 
@@ -485,7 +500,7 @@ Lo script Hive denominato "aggresivedriving.hql" usato per l'analisi dello stile
 
 Usa una combinazione di posizione del cambio, stato del pedale del freno e velocità del veicolo per rilevare un comportamento di guida spericolato/aggressivo in base allo stile di frenata ad alta velocità.
 
-Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione all'interno del contenitore "connectedcar".
+Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione nel contenitore "connectedcar".
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aggressive-driving-pattern-output.png)
 
@@ -494,7 +509,7 @@ Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni s
 
 **Stile di guida attento ai consumi**
 
-I segnali del veicolo e i dati di diagnostica partizionati vengono elaborati nella pipeline denominata "FuelEfficientDrivingPatternPipeline" che usa Hive per determinare modelli, località, condizioni di guida e dei veicoli e così via, che mostrano uno stile di guida attento ai consumi.
+I segnali del veicolo e i dati di diagnostica partizionati vengono elaborati nella pipeline denominata "FuelEfficientDrivingPatternPipeline". Hive viene usato per determinare modelli, località, veicoli, condizioni di guida e così via, che mostrano uno stile di guida attento ai consumi.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-fuel-efficient-driving-pattern.png)
 
@@ -564,7 +579,7 @@ Lo script Hive denominato "fuelefficientdriving.hql" usato per l'analisi dello s
 
 Usa una combinazione di posizione del cambio, stato del pedale del freno, velocità del veicolo e posizione del pedale dell'acceleratore per rilevare un comportamento di guida attento ai consumi in base allo stile di accelerazione e frenata e in base alla velocità.
 
-Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione all'interno del contenitore "connectedcar".
+Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione nel contenitore "connectedcar".
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-fuel-efficient-driving-pattern-output.png)
 
@@ -650,9 +665,8 @@ Dopo aver completato l'assegnazione dei punteggi, viene usata un'attività HDIns
 	from CarEventsAnomaly
 	where RecallLabel = '1' AND RecallProbability >= '0.60'
 
-*Figura 29: Query Hive di aggregazione dei richiami*
 
-Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione all'interno del contenitore "connectedcar".
+Dopo la corretta esecuzione della pipeline, vengono visualizzate le partizioni seguenti generate nell'account di archiviazione nel contenitore "connectedcar".
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-detect-anamoly-pipeline-output.png)
 
@@ -706,4 +720,4 @@ Fare clic qui per informazioni dettagliate su come configurare i report e il das
 
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Questa presenta un modello di architettura lambda per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

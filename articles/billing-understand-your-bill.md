@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="09/13/2016"
    ms.author="erihur;genli"/>
 
 
@@ -161,8 +161,8 @@ In base all'utilizzo, potrebbero essere presenti migliaia di righe relative ai d
 
  Nome | Scaricare |
  :----------:| :-------: |
- Versione 1 CSV utilizzo dettagliato| [File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
- Versione 2 CSV utilizzo dettagliato | [File di esempio](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+ Versione 1 CSV utilizzo dettagliato| [File di esempio](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+ Versione 2 CSV utilizzo dettagliato | [File di esempio](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
 
 
@@ -206,11 +206,11 @@ Oltre ad alcuni nuovi campi e alle modifiche dei nomi nella Versione 2 csv, per 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Tag**: questa colonna contiene i tag delle risorse specificati dall'utente. I tag possono essere utilizzati per raggruppare i record di fatturazione. Ad esempio, è possibile utilizzare i tag per distribuire i costi per reparto mediante il servizio. Ulteriori informazioni sull’[uso dei tag per organizzare le risorse di Azure ](./resource-group-using-tags.md). Di seguito sono indicati i servizi che supportano la creazione di tag:
-    
+
     - Macchine virtuali
-    
+
     - Archiviazione e
-   
+
     - Servizi di rete di cui viene eseguito il provisioning mediante l’[API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![tags](./media/billing-understand-your-bill/tags.png)
@@ -241,4 +241,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

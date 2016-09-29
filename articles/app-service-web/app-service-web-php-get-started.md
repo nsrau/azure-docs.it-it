@@ -39,13 +39,13 @@ Gli sviluppatori PHP possono integrare trasferire il proprio framework PHP prefe
 - Installare [Composer](https://getcomposer.org/download/)
 - Installare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 - Installare [Git](http://www.git-scm.com/downloads)
-- Ottenere un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Ottenere un account Microsoft Azure. Se non è disponibile un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Verificare il funzionamento di un'app Web. È possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e creare un'app iniziale temporanea, senza necessità di fornire una carta di credito e senza impegni.
 
 ## Creare un'app PHP (Laravel) nel computer di sviluppo
 
-1. Aprire un nuovo prompt dei comandi di Windows, una finestra di PowerShell, una shell di Linux o un terminale di OS X. Eseguire i comandi seguenti per verificare che gli strumenti necessari siano installati correttamente nel computer. 
+1. Aprire un nuovo prompt dei comandi di Windows, una finestra di PowerShell, una shell di Linux o un terminale di OS X. Eseguire i comandi seguenti per verificare che gli strumenti necessari siano installati correttamente nel computer.
 
         php --version
         composer --version
@@ -82,8 +82,9 @@ Fino a questo momento è stato descritto il normale flusso di lavoro di Lavarel,
 
 Con l'interfaccia della riga di comando di Azure è possibile creare un'app Web nel Servizio app di Azure e configurarla per la distribuzione Git con una singola riga di comando. Ora verrà eseguita questa operazione.
 
-3. Accedere ad Azure in questo modo:
+1. Passare in modalità ASM e accedere ad Azure:
 
+        azure config mode asm
         azure login
     
     Seguire le istruzioni del messaggio della Guida per continuare il processo di accesso.
@@ -105,7 +106,7 @@ Con l'interfaccia della riga di comando di Azure è possibile creare un'app Web 
 
 Affinché l'app Laravel funzioni in Azure, è necessario prestare attenzione a diversi aspetti. Un esercizio simile verrà eseguito per il framework PHP scelto.
 
-- Configurare PHP 5.5.9 o versione successiva. Vedere i [requisiti del server di Laravel 5.2 più recenti](https://laravel.com/docs/5.2#server-requirements) per l'elenco completo dei requisiti del server. Il resto dell'elenco è costituito da estensioni che sono già abilitate dalle installazioni di PHP di Azure. 
+- Configurare PHP 5.5.9 o versione successiva. Vedere i [requisiti del server di Laravel 5.2 più recenti](https://laravel.com/docs/5.2#server-requirements) per l'elenco completo dei requisiti del server. Il resto dell'elenco è costituito da estensioni che sono già abilitate dalle installazioni di PHP di Azure.
 - Impostare le variabili di ambiente necessarie per l'app. Laravel usa il file `.env` per impostare in modo semplice le variabili di ambiente. Tuttavia, considerato che non deve essere eseguito il commit nel controllo del codice sorgente (vedere la sezione relativa alla [configurazione dell'ambiente Laravel](https://laravel.com/docs/5.2/configuration#environment-configuration)), verranno definite le impostazioni dell'app Web di Azure.
 - Assicurarsi che il punto di ingresso dell'app Laravel, `public/index.php`, venga caricato per primo. Vedere la [panoramica del ciclo di vita di Laravel](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview). In altre parole, è necessario impostare l'URL radice dell'app Web per indicare la directory `public`.
 - Abilitare l'estensione Composer in Azure perché è presente un file composer.json. In questo modo, è possibile consentire a Composer di ottenere i pacchetti necessari quando si distribuisce con `git push`. Si tratta di una questione di praticità. Se non si abilita l'automazione Composer, è sufficiente rimuovere `/vendor` dal file `.gitignore` in modo che Git includa (cioè, non ignori) tutti gli elementi della directory `vendor` durante il commit e la distribuzione del codice.
@@ -248,4 +249,4 @@ Scoprire come aggiungere dati all'app [creando un database MySQL in Azure](../st
 - [Conversione di WordPress in un multisito nel servizio app di Azure](web-sites-php-convert-wordpress-multisite.md)
 - [WordPress di livello aziendale nel servizio app di Azure](web-sites-php-enterprise-wordpress.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

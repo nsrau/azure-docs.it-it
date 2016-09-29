@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -32,7 +32,7 @@ Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di ges
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Sottoscrizione di Azure**: vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Interfaccia della riga di comando di Azure**: vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 	
@@ -114,7 +114,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisca una query, 
 
 2. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
 
-3. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasbs:///tutorials/useoozie/useooziewf.hql**:
+3. Usare i comandi seguenti per copiare **useooziewf.hql** in**wasbs:///tutorials/useoozie/useooziewf.hql**:
 
 		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -187,7 +187,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 	- **RunSqoopExport**: esporta i dati creati dallo script Hive nel database SQL tramite Sqoop. Viene eseguita solo se l'azione **RunHiveScript** ha esito positivo.
 
-		> [AZURE.NOTE] Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] (per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] (per HDInsight versione 2.1).
+		> [AZURE.NOTE] Per altre informazioni sul flusso di lavoro di Oozie e sull'uso di azioni del flusso di lavoro, vedere la [documentazione di Apache Oozie 4.0][apache-oozie-400] \(per HDInsight versione 3.0) o la [documentazione di Apache Oozie 3.3.2][apache-oozie-332] \(per HDInsight versione 2.1).
 
 	Si noti che il flusso di lavoro include diverse voci, ad esempio `${jobTracker}`, che vengono sostituite da valori usati nella definizione del processo più avanti in questo documento.
 
@@ -695,4 +695,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

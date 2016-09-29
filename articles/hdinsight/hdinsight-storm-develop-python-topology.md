@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -40,7 +40,7 @@ Il modulo storm (https://github.com/apache/storm/blob/master/storm-multilang/pyt
 
 Fornisce elementi come `storm.emit` per l'emissione di tuple e `storm.logInfo` per la scrittura nei log. È consigliabile leggere l'intero contenuto di questo file per comprendere quali elementi fornisce.
 
-##Sfide
+##Problematiche
 
 Con il modulo __storm.py__ è possibile creare spout Python che utilizzano i dati e bolt che li elaborano. Tuttavia, la definizione complessiva della topologia Storm che fornisce il collegamento per la comunicazione tra i componenti è comunque scritta con Java o Clojure. Se si usa Java, è necessario creare anche i componenti Java che agiscono come interfaccia per i componenti Python.
 
@@ -138,7 +138,7 @@ __Per compilare un file uberjar e distribuirlo in HDInsight__, seguire questa pr
 
     * __HDInsight basato su Linux__
     
-        1. Copiare il file nel nodo head del cluster HDInsight tramite `scp`. Ad esempio:
+        1. Copiare il file nel nodo head del cluster HDInsight tramite `scp`. ad esempio:
         
                 scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
                 
@@ -174,4 +174,4 @@ In questo documento si è appreso come usare i componenti Python da una topologi
 * [Come usare Python per il flusso di processi MapReduce](hdinsight-hadoop-streaming-python.md)
 * [Come usare funzioni definite dall'utente Python in Pig e Hive](hdinsight-python.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

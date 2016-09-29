@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="07/25/2016"
+   ms.date="09/07/2016"
    ms.author="brjohnst"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
@@ -55,7 +55,7 @@ L'API del servizio di Ricerca di Azure supporta due sintassi di URL per le opera
 
 [Analizzatore di test](#TestAnalyzer)
 
-    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
+    POST /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Eliminare un indice](#DeleteIndex)
 
@@ -644,7 +644,7 @@ JavaScript sul lato client non può chiamare API per impostazione predefinita pe
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1344,7 +1344,9 @@ Un'operazione **Search** viene generata come richiesta GET o POST e specifica i 
 
 Quando si usa HTTP GET per chiamare l'API di **Ricerca**, è necessario tenere presente che la lunghezza dell'URL della richiesta non può superare 8 KB. Di solito è sufficiente per la maggior parte delle applicazioni. Alcune applicazioni, tuttavia, generano query di dimensioni molto grandi o espressioni di filtro OData. Per queste applicazioni è preferibile usare HTTP POST perché consente filtri e query di maggiori dimensioni rispetto a GET. Con POST il fattore limitante è il numero di condizioni o di clausole in una query , non la dimensione della query non elaborata, poiché il limite delle dimensioni della richiesta per POST è di circa 16 MB.
 
-> [AZURE.NOTE] Anche se il limite della dimensione della richiesta POST è molto grande, le query di ricerca e le espressioni di filtro non possono essere arbitrariamente complesse. Per altre informazioni sulle limitazioni della complessità dei filtri e delle query di ricerca, vedere [Sintassi delle query Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e [Sintassi delle espressioni di OData](https://msdn.microsoft.com/library/dn798921.aspx). **Richiesta**
+> [AZURE.NOTE] Anche se il limite della dimensione della richiesta POST è molto grande, le query di ricerca e le espressioni di filtro non possono essere arbitrariamente complesse. Per altre informazioni sulle limitazioni della complessità dei filtri e delle query di ricerca, vedere [Sintassi delle query Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e [Sintassi delle espressioni di OData](https://msdn.microsoft.com/library/dn798921.aspx).
+
+**Richiesta**
 
 Per le richieste del servizio, è necessario usare il protocollo HTTPS. La richiesta **Search** può essere creata con il metodo GET o POST.
 
@@ -1387,7 +1389,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `$top=#` (facoltativo): numero di risultati della ricerca da recuperare. Può essere usato insieme a `$skip` per implementare il paging sul lato client dei risultati della ricerca.
 
-> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `top` invece di `$top`.
+> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `top` anziché `$top`.
 
 `$count=true|false` (facoltativo, il valore predefinito è `false`): specifica se recuperare il conteggio totale dei risultati. Si tratta del conteggio di tutti i documenti che corrispondono ai parametri `search` e `$filter`, ignorando `$top` e `$skip`. L'impostazione di questo valore su `true` può influire negativamente sulle prestazioni. Si noti che il conteggio restituito è un'approssimazione.
 
@@ -1420,7 +1422,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 - **Nota**: `count` e `sort` possono essere combinati nella stessa specifica di facet, ma non possono essere combinati con `interval` o `values` e inoltre `interval` e `values` non possono essere combinati tra loro.
 - **Nota**: se `timeoffset` non è specificato, i facet di intervallo per data e ora vengono calcolati in base all'ora UTC. Ad esempio, per `facet=lastRenovationDate,interval:day` il limite del giorno inizia alle 00:00:00 UTC.
 
-> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `facets` invece di `facet`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è un'espressione facet distinta.
+> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `facets` anziché `facet`. Viene specificato anche come matrice di stringhe JSON, dove ogni stringa è un'espressione facet distinta.
 
 `$filter=[string]` (facoltativo): specifica un'espressione di ricerca strutturata nella sintassi standard di OData. Per informazioni dettagliate sul sottoinsieme della grammatica delle espressioni OData supportato da Ricerca di Azure, vedere l'articolo relativo alla [sintassi delle espressioni OData](#ODataExpressionSyntax).
 
@@ -1444,7 +1446,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 - Per i parametri di assegnazione dei punteggi, ad esempio per tag boosting che può contenere virgole, è possibile eseguire l'escape dei valori nell'elenco usando virgolette singole. Se i valori stessi contengono virgolette singole è possibile eseguire l'escape raddoppiandole.
   - Se ad esempio è presente un parametro di tag boosting denominato "mytag" e si vuole eseguire il boosting sui valori di tag "Hello, O'Brien" e "Smith", l'opzione della stringa di query sarà `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Si noti che le virgolette sono necessarie solo per i valori che contengono virgole.
 
-> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` invece di `scoringParameter`. Viene specificato come matrice di stringhe JSON, dove ogni stringa è una coppia `name-values` separata.
+> [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `scoringParameters` anziché `scoringParameter`. Viene specificato come matrice di stringhe JSON, dove ogni stringa è una coppia `name-values` separata.
 
 `minimumCoverage` (facoltativo, valore predefinito pari a 100): un numero compreso tra 0 e 100 che indica la percentuale di indice che deve essere inclusa nella query di ricerca in modo che l'esecuzione di quest'ultima venga segnalata come corretta. Per impostazione predefinita, deve essere disponibile l'intero indice. In caso contrario, `Search` restituirà il codice di stato HTTP 503. Se si imposta `minimumCoverage` e `Search` ha esito positivo, verrà restituito HTTP 200 che include un valore `@search.coverage` nella risposta; quest'ultimo indica la percentuale dell'indice che è stata inclusa nella query.
 
@@ -1878,11 +1880,11 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 `$top=#` (facoltativo, il valore predefinito è 5): specifica il numero di suggerimenti da recuperare. Deve essere un numero compreso tra 1 e 100.
 
-> [AZURE.NOTE] Quando si chiama **Suggestions** con POST, questo parametro è denominato `top` invece di `$top`.
+> [AZURE.NOTE] Quando si chiama **Suggestions** con POST, questo parametro è denominato `top` anziché `$top`.
 
 `$filter=[string]` (facoltativo): specifica un'espressione che filtra i documenti considerati per i suggerimenti.
 
-> [AZURE.NOTE] Quando si chiama **Suggestions** con POST, questo parametro è denominato `filter` invece di `$filter`.
+> [AZURE.NOTE] Quando si chiama **Suggestions** con POST, questo parametro è denominato `filter` anziché `$filter`.
 
 `$orderby=[string]` (facoltativo): specifica un elenco di espressioni delimitate da virgole in base alle quali ordinare i risultati. Ogni espressione può essere un nome campo o una chiamata alla funzione `geo.distance()`. Ogni espressione può essere seguita da `asc` per indicare l'ordine crescente e da `desc` per indicare l'ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente. È previsto un limite di 32 clausole per `$orderby`.
 
@@ -1970,4 +1972,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

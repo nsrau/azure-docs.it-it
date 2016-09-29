@@ -4,7 +4,7 @@ description="Un elenco di porte usate dai servizi Hadoop in esecuzione su HDInsi
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -143,4 +143,4 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | Gestore | Nodi di lavoro | 9092 | [Protocollo di trasmissione Kafka](http://kafka.apache.org/protocol.html) | Usato per la comunicazione di client |
 | &nbsp; | Nodi Zookeeper | 2181 | &nbsp; | La porta usata dai client per connettersi a ZooKeeper |
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

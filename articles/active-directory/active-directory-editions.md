@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Edizioni di Azure Active Directory | Microsoft Azure"
-	description="Argomento che illustra le opzioni relative alle edizioni gratuite e a pagamento di Azure Active Directory. Azure Active Directory Basic è l'edizione gratuita e Azure Active Directory Premium è l'edizione a pagamento."
+	description="Argomento che illustra la possibilità di scegliere tra edizioni gratuite e a pagamento di Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1 e Azure Active Directory Premium P2 sono edizioni a pagamento."
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,38 +13,37 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="markvi"/>  
+	ms.date="09/09/2016"
+	ms.author="curtand"/>
 
 # Edizioni di Azure Active Directory
 
-Tutti i servizi aziendali di Microsoft Online si basano su Azure Active Directory per le esigenze di gestione delle identità e degli accessi. Sottoscrivendo qualsiasi servizio aziendale di Microsoft Online (ad esempio Office 365, Microsoft Azure e così via), si ottiene una directory di Azure AD con accesso a tutte le funzionalità gratuite descritte di seguito.
-
+Tutti i servizi aziendali di Microsoft Online si basano su Azure Active Directory (Azure AD) per le esigenze di gestione delle identità e degli accessi. Sottoscrivendo qualsiasi servizio aziendale di Microsoft Online, ad esempio Office 365 o Microsoft Azure, si ottiene un Azure AD con accesso a tutte le funzionalità gratuite descritte di seguito.
 
 Azure Active Directory è un servizio che offre funzionalità complete di gestione delle identità e degli accessi nel cloud per dipendenti, partner e clienti. Combina servizi directory, governance avanzata delle identità, una piattaforma avanzata basata su standard per gli sviluppatori e gestione degli accessi alle applicazioni per l'applicazione personalizzata o per una delle migliaia di applicazioni preintegrate. Con l'edizione Free di Azure Active Directory, è possibile gestire utenti e gruppi, eseguire la sincronizzazione con le directory locali, disporre dell'accesso Single Sign-On per Azure, Office 365 e numerose applicazioni SaaS note, ad esempio Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox e molte altre. Per altre informazioni su Azure Active Directory, vedere [Informazioni su Azure Active Directory](active-directory-whatis.md).
 
-
-
-Per migliorare Azure Active Directory, è possibile aggiungere funzionalità a pagamento mediante le edizioni Basic e Premium di Azure Active Directory. Le edizioni a pagamento di Azure Active Directory, realizzate a partire dalla directory gratuita esistente, forniscono funzionalità aziendali avanzate che estendono alla forza lavoro mobile servizi come la gestione self-service, il monitoraggio avanzato, la creazione di report di sicurezza, Multi-Factor Authentication (MFA) e l'accesso sicuro.
+Per migliorare Azure Active Directory, è possibile aggiungere funzionalità a pagamento mediante Azure Active Directory Basic Edition, Premium P1 Edition e Premium P2 Edition. Le edizioni a pagamento di Azure Active Directory, realizzate a partire dalla directory gratuita esistente, forniscono funzionalità aziendali avanzate che estendono alla forza lavoro mobile servizi come la gestione self-service, il monitoraggio avanzato, la creazione di report di sicurezza, Multi-Factor Authentication (MFA) e l'accesso sicuro.
 
 Le sottoscrizioni di Office 365 includono funzionalità di Azure Active Directory aggiuntive, descritte nella tabella di confronto seguente.
 
 
-> [AZURE.NOTE] Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
+> [AZURE.NOTE] Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Le edizioni Azure Active Directory Premium P1 e Premium P2 e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il forum di Azure Active Directory.
 
 
 - **Azure Active Directory Basic**: progettata per gli utenti che svolgono attività basate sul cloud, questa edizione garantisce l'accesso alle applicazioni incentrate su cloud e soluzioni di gestione delle identità self-service. L'edizione Basic di Azure Active Directory offre funzionalità per il miglioramento della produttività e la riduzione dei costi, ad esempio la gestione degli accessi basata sui gruppi, la reimpostazione delle password self-service per le applicazioni cloud e il proxy dell'applicazione di Azure Active Directory (per pubblicare applicazioni Web locali usando Azure Active Directory), supportate da un contratto di servizio a livello aziendale che garantisce un tempo di attività del 99,9%.
- 
-- **Azure Active Directory Premium**: progettata per le organizzazioni con più complesse esigenze di gestione delle identità e degli accessi, l'edizione Premium di Azure Active Directory include capacità aggiuntive di gestione delle identità a livello aziendale con numerose funzionalità e consente agli utenti ibridi di accedere facilmente a funzionalità locali e cloud. Questa edizione include tutte le funzionalità necessarie per gli Information Worker e gli amministratori di identità in ambienti ibridi, tra cui accesso alle applicazioni, gestione delle identità e degli accessi self-service, protezione e sicurezza dell'identità nel cloud. Supporta risorse avanzate di amministrazione e delega come i gruppi dinamici e la gestione self-service dei gruppi. Include Microsoft Identity Manager, una suite locale di gestione delle identità e degli accessi, e offre soluzioni con funzionalità cloud di writeback come la reimpostazione self-service delle password per gli utenti locali.
+
+- **Azure Active Directory Premium P1**: progettata per le organizzazioni con esigenze più complesse di gestione delle identità e degli accessi, Azure Active Directory Premium Edition include capacità aggiuntive di gestione delle identità a livello aziendale con numerose funzionalità e consente agli utenti ibridi di accedere facilmente a funzionalità locali e cloud. Questa edizione include tutte le funzionalità necessarie per gli Information Worker e gli amministratori di identità in ambienti ibridi, tra cui accesso alle applicazioni, gestione delle identità e degli accessi self-service, protezione e sicurezza dell'identità nel cloud. Supporta risorse avanzate di amministrazione e delega come i gruppi dinamici e la gestione self-service dei gruppi. Include Microsoft Identity Manager, una suite locale di gestione delle identità e degli accessi, e offre soluzioni con funzionalità cloud di writeback come la reimpostazione self-service delle password per gli utenti locali.
+
+- **Azure Active Directory Premium P2**: progettata con protezione avanzata per tutti gli utenti e gli amministratori, questa nuova offerta include tutte le funzionalità di Azure AD Premium P1 e le nuove Identity Protection e Privileged Identity Management. Azure Active Directory Identity Protection sfrutta miliardi di segnali per fornire l'accesso condizionale basato sui rischi per le applicazioni e i dati aziendali critici. Consente anche di gestire e proteggere account privilegiati con Azure Active Directory Privileged Identity Management in modo che sia possibile individuare, limitare e monitorare gli amministratori e il relativo accesso alle risorse e fornire accesso just-in-time quando è necessario.
 
 Per iscriversi e iniziare a usare subito Active Directory Premium, vedere [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalità di Azure Active Directory:
 >
 >- Active Directory B2C è la soluzione di gestione delle identità e degli accessi per le applicazioni rivolte ai consumatori. Per altre informazioni, vedere la pagina relativa ad [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
- 
+
 >-	Il servizio Azure Multi-Factor Authentication può essere usato tramite provider per utente o provider per autenticazione. Per altre informazioni, vedere [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
 
 
@@ -84,7 +83,7 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 - [Contratti di servizio del 99,9%](#sla-999)
 
 
-**Funzionalità Premium**
+**Funzionalità Premium P1**
 
 - [Gestione self-service dei gruppi e delle app/aggiunta self-service di applicazioni/gruppi dinamici](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
 
@@ -100,6 +99,11 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 
 - [Rollover automatico delle password per account di gruppo](#automatic-password-rollover-for-group-accounts)
 
+**Funzionalità Premium P2**
+
+- [Identity Protection](active-directory-identityprotection.md)
+
+- [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 **Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10**
 
@@ -108,12 +112,8 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 - [Iscrizione automatica MDM, ripristino Bitlocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite aggiunta ad Azure AD](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
 
 
-
-
-
-
 ## Funzionalità comuni
-#### Oggetti directory 
+#### Oggetti directory
 
 **Tipo:** funzionalità comuni
 
@@ -122,7 +122,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
 | Fino a 500.000 oggetti| Nessun limite di oggetti| Nessun limite di oggetti| Nessun limite di oggetti per gli account utente di Office 365|
 
@@ -135,9 +135,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 **Disponibilità:**
 
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]  | ![Controllo][12]  |
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -154,7 +154,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
 | 10 app per utente (1) | 10 app per utente (1) | Nessun limite (2) | 10 app per utente (1)|
 
@@ -174,9 +174,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]  | ![Controllo][12]  | ![Controllo][12]|
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -185,16 +185,16 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 
 
-#### Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory) 
+#### Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory)
 
 **Tipo:** funzionalità comuni
 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]|
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -209,7 +209,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
 | 3 report di base| 3 report di base| Report avanzati| 3 report di base|
 
@@ -228,9 +228,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]  | |
+| | ![Controllo][12]| ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -245,9 +245,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]  | ![Controllo][12]  |
+| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -262,9 +262,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]| ![Controllo][12]  |
+| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -279,9 +279,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]  | |
+| | ![Controllo][12]| ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -296,9 +296,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | ![Controllo][12]  | ![Controllo][12]  | ![Controllo][12]|
+| | ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 **Altre informazioni:**
 
@@ -315,14 +315,14 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 
 
-         
+
 #### Reimpostazione, modifica, sblocco con writeback in locale delle password in modalità self-service
 
 **Tipo:** funzionalità Premium
@@ -330,9 +330,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 
@@ -345,9 +345,9 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | Limitato al cloud solo per le app di Office 365|
+| | | ![Controllo][12]| Limitato al cloud solo per le app di Office 365|
 
 **Altre informazioni:**
 
@@ -355,7 +355,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 
 
-#### Licenze CAL MIM e server MIM 
+#### Licenze CAL MIM e server MIM
 
 I diritti software di Microsoft Identity Manager Server vengono concessi attraverso licenze di Windows Server (qualsiasi edizione). Microsoft Identity Manager viene eseguito sul sistema operativo Windows Server. Di conseguenza, purché il server esegua una copia con licenza valida di Windows Server, Microsoft Identity Manager può essere installato e usato su tale server. Nessuna altra licenza separata è necessaria per il Server di gestione identità Microsoft.
 
@@ -364,24 +364,24 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 
 
 
-#### Cloud App Discovery 
+#### Cloud App Discovery
 
 **Tipo:** funzionalità Premium
 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -389,16 +389,16 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 
 
-#### Connect Health
+#### Azure AD Connect Health
 
 **Tipo:** funzionalità Premium
 
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -413,11 +413,27 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Controllo][12]| |
 
 
+#### Identity Protection
+
+**Tipo:** funzionalità Premium
+
+| Edizione gratuita| Edizione Basic| Edizione Premium P2 | Solo app di Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Controllo][12]| |
+
+
+#### Privileged Identity Management
+
+**Tipo:** funzionalità Premium
+
+| Edizione gratuita| Edizione Basic| Edizione Premium P2 | Solo app di Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Controllo][12]| |
 
 
 ## Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10
@@ -428,9 +444,9 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Controllo][12]  | ![Controllo][12]  | ![Controllo][12]  | ![Controllo][12]  |
+| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]| ![Controllo][12]|
 
 
 
@@ -442,9 +458,9 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 
 #### Enterprise State Roaming
@@ -454,9 +470,9 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 **Disponibilità:**
 
-| Edizione gratuita| Edizione Basic| Edizione Premium| Solo app di Office 365 |
+| Edizione gratuita| Edizione Basic| Edizioni Premium (P1 e P2) | Solo app di Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Controllo][12]  | |
+| | | ![Controllo][12]| |
 
 **Altre informazioni:**
 
@@ -464,18 +480,16 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 
 ## Funzionalità in anteprima di Azure AD
-Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Basic e Premium, Azure AD offre anche una raccolta di funzionalità in anteprima. È possibile usare le funzionalità in anteprima per scoprire le prossime novità e determinare se queste funzionalità possono essere utili per migliorare il proprio ambiente.
+Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Basic e Premium (P1 e P2), Azure AD offre anche una raccolta di funzionalità in anteprima. È possibile usare le funzionalità in anteprima per scoprire le prossime novità e determinare se queste funzionalità possono essere utili per migliorare il proprio ambiente.
 
 **Funzionalità in anteprima disponibili:**
 
 - [Collaborazione B2B](active-directory-b2b-collaboration-overview.md)
 - [Unità amministrative](active-directory-administrative-units-management.md)
-- Privileged Identity Management
 - [Integrazione delle applicazioni HR](active-directory-saas-workday-inbound-tutorial.md)
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 - [Autenticazione basata su certificati in iOS](active-directory-certificate-based-authentication-ios.md)
 - [Autenticazione basata su certificati in Android](active-directory-certificate-based-authentication-android.md)
- 
+
 
 
 
@@ -487,7 +501,7 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!--Image references-->  
+<!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

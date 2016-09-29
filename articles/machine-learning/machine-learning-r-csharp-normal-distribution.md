@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -36,9 +36,9 @@ Questo servizio accetta quattro argomenti di una distribuzione normale e calcola
 
 Gli argomenti di input sono i seguenti:
 
-* p: probabilità singola di un evento con distribuzione normale. 
+* p: probabilità singola di un evento con distribuzione normale.
 * Mean: media della distribuzione normale.
-* SD: deviazione standard della distribuzione normale. 
+* SD: deviazione standard della distribuzione normale.
 * Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
 L'output del servizio corrisponde al quantile calcolato associato alla probabilità specificata.
@@ -48,9 +48,9 @@ Questo servizio accetta quattro argomenti di una distribuzione normale e calcola
 
 Gli argomenti di input sono i seguenti:
 
-* q: singolo quantile di un evento con distribuzione normale. 
+* q: singolo quantile di un evento con distribuzione normale.
 * Mean: media della distribuzione normale.
-* SD: deviazione standard della distribuzione normale. 
+* SD: deviazione standard della distribuzione normale.
 * Side: L per la parte inferiore della distribuzione, U per la parte superiore della distribuzione.
 
 L'output del servizio corrisponde alla probabilità calcolata associata al quantile specificato.
@@ -58,9 +58,9 @@ L'output del servizio corrisponde alla probabilità calcolata associata al quant
 ###Normal Distribution Generator
 Questo servizio accetta tre argomenti di una distribuzione normale e genera una sequenza casuale di numeri distribuiti in modo normale. È necessario fornire gli argomenti seguenti nella richiesta:
 
-* n: numero di osservazioni. 
+* n: numero di osservazioni.
 * Mean: media della distribuzione normale.
-* SD: deviazione standard della distribuzione normale. 
+* SD: deviazione standard della distribuzione normale.
 
 L'output del servizio corrisponde a una sequenza di lunghezza n con una distribuzione normale basata sugli argomenti mean e sd.
 
@@ -265,4 +265,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

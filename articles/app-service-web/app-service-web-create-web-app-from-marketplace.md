@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/11/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -69,7 +69,7 @@ Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non
 
 	![Configurare il nome dell'app Web WordPress][ConfigAppName]
 
-1. Se sono disponibili più sottoscrizioni, scegliere quella da usare.
+1. Se sono disponibili più sottoscrizioni, scegliere quella che si vuole usare.
 
 	![Configurare la sottoscrizione per l'app Web][ConfigSubscription]
 
@@ -180,4 +180,4 @@ Per altre informazioni sullo sviluppo di app Web WordPress in Azure, vedere [Svi
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!-----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

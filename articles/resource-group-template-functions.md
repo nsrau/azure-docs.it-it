@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Azure Resource Manager
@@ -1087,7 +1087,7 @@ L'esempio seguente fa riferimento a un account di archiviazione in un gruppo di 
 		}
 	}
 
-Le proprietà nell'oggetto restituito variano in base al tipo di risorsa.
+Le proprietà sull'oggetto restituito dalla funzione di **riferimento** variano in base al tipo di risorsa. Per visualizzare i nomi e i valori delle proprietà per un tipo di risorsa, creare un modello semplice che restituisca l'oggetto nella sezione degli **output**. Se si dispone di una risorsa esistente di quel tipo, il modello restituisce solo l'oggetto senza distribuirsi su nuove risorse. Se non si dispone di una risorsa esistente di quel tipo, il modello viene distribuito solo a quel tipo e restituisce l'oggetto. Aggiungere quindi le proprietà ai modelli che necessitano del recupero dinamico dei valori durante la distribuzione.
 
 <a id="resourcegroup" />
 ### resourceGroup
@@ -1217,4 +1217,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

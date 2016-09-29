@@ -15,7 +15,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.date="04/29/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus"/>
 
 # Aggiungere un disco a una VM Linux
@@ -277,4 +277,4 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
 - Per assicurarsi che la VM di Linux sia configurata correttamente, vedere le raccomandazioni per [ottimizzare le prestazioni della macchina virtuale di Linux](virtual-machines-linux-optimization.md).
 - Espandere la capacità di archiviazione aggiungendo altri dischi e [configurare RAID](virtual-machines-linux-configure-raid.md) per migliorare le prestazioni.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

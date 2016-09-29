@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con SugarCRM
@@ -66,7 +66,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Sugar CRM tramite il proprio account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare un file di certificato codificato in base 64 sul proprio tenant Sugar CRM. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Sugar CRM tramite il proprio account in Azure AD utilizzando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare un file di certificato codificato in base 64 sul proprio tenant Sugar CRM. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -102,7 +102,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 9.  Nella sezione **SAML Authentication** seguire questa procedura:
 
-    ![Autenticazione SAML](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "SAML Authentication")
+    ![Autenticazione SAML](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "Autenticazione SAML")
 
     1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL** (URL di accesso).
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Sugar CRM** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **SLO URL** (URL SLO).
@@ -135,11 +135,11 @@ Per consentire agli utenti di Azure AD di accedere a Sugar CRM, è necessario es
 
 4.  Passare a **Users > Create New User**.
 
-    ![Creare nuovo utente](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Creare nuovo utente")
+    ![Creare nuovo utente](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Create New User")
 
 5.  Nella scheda **Profilo utente** eseguire la procedura seguente:
 
-    ![Nuovo utente](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "New User")
 
     1.  Digitare il nome utente, il cognome e l’indirizzo e-mail di utente di Azure Active Directory valido nelle caselle di testo correlate.
 
@@ -147,7 +147,7 @@ Per consentire agli utenti di Azure AD di accedere a Sugar CRM, è necessario es
 
 7.  Nella scheda Password, eseguire la procedura seguente:
 
-    ![Nuovo utente](./media/active-directory-saas-sugarcrm-tutorial/IC795896.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795896.png "New User")
 
     1.  Digitare la password nella casella di controllo correlata.
     2.  Fare clic su **Save**.
@@ -156,7 +156,7 @@ Per consentire agli utenti di Azure AD di accedere a Sugar CRM, è necessario es
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Sugar CRM, eseguire la procedura seguente:
 
@@ -172,4 +172,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

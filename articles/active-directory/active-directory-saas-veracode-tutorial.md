@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Veracode
@@ -146,7 +146,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     3.  Nella casella di testo **Valore attributo**, selezionare il valore dell'attributo indicato per la riga.
 
-    4.  Fare clic su **Complete**.
+    4.  Fare clic su **Completa**.
 
 13. Fare clic su **Applica modifiche**.
 
@@ -160,7 +160,7 @@ Se necessario, gli utenti vengono creati automaticamente durante il primo tentat
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario assegnare l'accesso all'applicazione agli utenti di Azure AD a cui si desidera consentire l'uso dell'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Veracode, seguire questa procedura:
 
@@ -176,4 +176,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

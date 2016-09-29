@@ -18,6 +18,13 @@
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
 
+> [AZURE.SELECTOR]
+- [Portale](azure-portal/resource-group-portal.md)
+- [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [API REST](resource-manager-rest-api.md)
+
+
 Azure Resource Manager implementa un approccio moderno al controllo del ciclo di vita delle risorse di Azure. Invece di creare e gestire le singole risorse, si inizia immaginando un'intera soluzione, ad esempio un blog, una raccolta foto, un portale di SharePoint o un wiki. Si usa un modello, ovvero una rappresentazione dichiarativa della soluzione, per creare un gruppo di risorse contenente tutte le risorse necessarie per supportare la soluzione. A questo punto, si distribuisce e si gestisce il gruppo di risorse come unità logica.
 
 In questa esercitazione viene descritto come usare Azure PowerShell con Gestione risorse di Azure. Illustra in modo dettagliato il processo di distribuzione di una soluzione e di utilizzo della soluzione. Per la distribuzione verranno usati Azure PowerShell e un modello di Azure Resource Manager:
@@ -376,4 +383,4 @@ Gli esempi di distribuzione precedenti di questo argomento hanno illustrato solo
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

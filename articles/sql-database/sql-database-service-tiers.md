@@ -62,7 +62,7 @@ Per stabilire un livello di servizio, iniziare determinando se il database deve 
 
 Per stabilire un livello di servizio per un database autonomo, determinare prima di tutto le funzionalità di database necessarie per scegliere l'edizione del database SQL:
 
-- Dimensioni del database: 5 GB massimo per Basic, 250 GB massimo per Standard e da 500 GB a 1 TB massimo per Premium, a seconda del livello di prestazioni.
+- Dimensioni del database: 2 GB massimo per Basic, 250 GB massimo per Standard e da 500 GB a 1 TB massimo per Premium, a seconda del livello di prestazioni.
 - Periodo di conservazione dei backup del database: 7 giorni per Basic, 35 giorni per Standard e 35 giorni per Premium.
 
 Dopo aver determinato l'edizione del database SQL, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. Si può fare una supposizione e quindi [aumentare o ridurre le prestazioni in modo dinamico](sql-database-scale-up.md) in base all'esperienza effettiva. È anche possibile usare lo strumento per il [calcolo di DTU](http://dtucalculator.azurewebsites.net/) per simulare il numero di DTU necessario.
@@ -88,4 +88,4 @@ Dopo aver determinato il livello di servizio per il pool, è possibile determina
 
 Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant di tipo software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

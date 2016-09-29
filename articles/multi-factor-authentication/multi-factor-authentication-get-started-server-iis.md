@@ -1,27 +1,27 @@
 <properties 
-	pageTitle="Autenticazione IIS e server Azure Multi-Factor Authentication" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili per distribuire l'autenticazione IIS e il server Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Autenticazione IIS e server Azure Multi-Factor Authentication"
+	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili per distribuire l'autenticazione IIS e il server Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Autenticazione IIS
 
 La sezione Autenticazione IIS del server Azure Multi-Factor Authentication consente di abilitare e configurare l'autenticazione IIS per l'integrazione con le applicazioni Web Microsoft IIS. Il server Azure Multi-Factor Authentication installa un plug-in che può filtrare le richieste inoltrate al server Web IIS in modo da aggiungere Azure Multi-Factor Authentication. Il plug-in di IIS fornisce inoltre il supporto per l'autenticazione basata su form e l'autenticazione HTTP integrata di Windows. È possibile anche configurare gli indirizzi IP attendibili in modo da escludere gli indirizzi IP interni dall'autenticazione a due fattori.
 
 
-![Autenticazione IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)  
+![Autenticazione IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
 
 ## Uso dell'autenticazione IIS basata su form con il server Azure Multi-Factor Authentication
@@ -76,4 +76,4 @@ Il provider di identità attendibili consente agli utenti di ignorare Azure mult
 3. Quando viene visualizzata la finestra di dialogo Aggiungi provider di identità attendibili, selezionare il singolo indirizzo IP, l'intervallo IP o il pulsante di opzione Subnet.
 4. Immettere l'indirizzo IP, l'intervallo di indirizzi IP o la subnet da inserire nell'elenco. Se si immette una subnet, selezionare mask appropriata e fare clic sul pulsante OK. L'elenco whitelist è stato aggiunto.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

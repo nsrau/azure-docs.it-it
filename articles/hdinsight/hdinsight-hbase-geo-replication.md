@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -57,7 +57,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Due reti virtuali di Azure con connettività VPN e con DNS configurato**. Per istruzioni, vedere l'articolo [Configurare una connessione VPN tra due reti virtuali di Azure][hdinsight-hbase-replication-vnet] e [Configurare DNS tra due reti virtuali di Azure][hdinsight-hbase-replication-dns].
 
 
-	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
+	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure utilizzando il seguente cmdlet:
 
 		Add-AzureAccount
 
@@ -314,4 +314,4 @@ In questa esercitazione si è appreso come configurare la replica di HBase in du
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

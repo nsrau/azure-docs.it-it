@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags=""/>
     
@@ -37,7 +37,7 @@ Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;pa
 
 Ecco un esempio tratto da [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati: [Confrontare classificatori multiclasse: riconoscimento di lettere](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
->[AZURE.TIP]Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 ## Varianti di Machine Learning
 
@@ -237,4 +237,4 @@ Azure Machine Learning include inoltre l'accesso a una struttura di Machine Lear
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

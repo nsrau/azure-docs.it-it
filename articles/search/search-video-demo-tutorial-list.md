@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -90,4 +90,4 @@ Procedura dettagliata|Descrizione
 [Esercitazione sui profili di punteggio](search-get-started-scoring-profiles.md)|Provare i profili di punteggio usando un'app console.
 [Esercitazione dell'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md)|Come utilizzare l'API REST di gestione per eseguire il provisioning del servizio e gestire chiavi API di query o di amministrazione.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

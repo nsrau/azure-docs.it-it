@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Impostare e recuperare proprietà e metadati #
 
-## Panoramica
+## Overview
 
 Oggetti nelle proprietà di sistema di supporto di archiviazione di Azure e i metadati definiti dall'utente, oltre ai dati che contengono:
 
-*   **Proprietà di sistema.** Proprietà di sistema su ogni risorsa di archiviazione. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure gestisce tale funzionalità.  
+*   **Proprietà di sistema.** Proprietà di sistema su ogni risorsa di archiviazione. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure gestisce tale funzionalità.
 
 *   **Metadati definiti dall’utente.** I metadati definiti dall'utente sono metadati specificati in una determinata risorsa, sotto forma di coppia nome-valore. È possibile utilizzare i metadati per archiviare valori aggiuntivi con una risorsa di archiviazione; questi valori sono destinati esclusivamente all’utente e non influiscono sul comportamento della risorsa.
 
@@ -95,6 +95,6 @@ Per recuperare i metadati, chiamare il metodo **FetchAttributes** sul BLOB o sul
 ## Vedere anche  
 
 - [Informazioni di riferimento sulla libreria client di archiviazione di Azure per .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Pacchetto sulla libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
+- [Pacchetto sulla libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

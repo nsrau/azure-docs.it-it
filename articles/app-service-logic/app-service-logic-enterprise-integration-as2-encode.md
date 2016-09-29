@@ -66,10 +66,10 @@ Connettersi a Encode AS2 Message per stabilire affidabilità e sicurezza durante
 
 ##Prova
 
-Per fare una prova, fare clic [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) per distribuire un'app per la logica personalizzata completamente operativa usando le funzionalità AS2 dell'app per la logica.
- 
+Per fare una prova, fare clic [qui](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) per distribuire un'app per la logica personalizzata completamente operativa usando le funzionalità AS2 dell'app per la logica.
+
 ## Passaggi successivi
 
 [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

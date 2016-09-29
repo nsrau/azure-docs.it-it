@@ -58,7 +58,7 @@ Per completare questa esercitazione sarà necessario quanto segue:
 
 4. Nella finestra di dialogo **Crea servizio App** fare clic su **Aggiungi un account** (e quindi **Aggiungi un account** nell'elenco a discesa) per accedere al proprio account Azure.
 
-5. Dopo aver eseguito l'accesso, configurare l'app Web. Creare un gruppo di risorse e un nuovo piano di servizio app facendo clic sul pulsante **Nuovo** corrispondente. Fare clic su **Esplora altri servizi di Azure** per continuare.
+5. Dopo aver eseguito l'accesso, configurare l'app Web. Creare un gruppo di risorse e un nuovo piano di servizio app facendo clic sul pulsante **Nuovo** corrispondente. Fare clic su **Esplorare servizi di Azure aggiuntivi** per continuare.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
 
@@ -125,7 +125,7 @@ Per completare questa esercitazione sarà necessario quanto segue:
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)
 
-11. Trovare le impostazioni di autenticazione per l'app disponibili in sottoscrizioni > **&lt;*nomesottoscrizione*>** > **gruppidirisorse** > **&lt;*nomegruppodirisorse*>** > **provider** > **Microsoft.Web** > **siti** > **&lt;*nomeapp*>** > **config** > **authsettings**.
+11. Trovare le impostazioni di autenticazione per l'app disponibili in sottoscrizioni > **& lt;*nomesottoscrizione*>** > **gruppidirisorse** > **& lt;*nomegruppodirisorse*>** > **provider** > **Microsoft.Web** > **siti** > **&lt;*nomeapp*>** > **config** > **authsettings**.
 
 12. Fare clic su **Modifica**.
 
@@ -382,4 +382,4 @@ Se l'app line-of-business deve accedere a dati locali, vedere [Accedere alle ris
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

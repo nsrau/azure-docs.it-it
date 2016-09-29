@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
@@ -33,9 +33,9 @@ Quando si estende**RoleEntryPoint**è necessario tenere presente i seguenti comp
 
      Se si verifica un'eccezione all'interno di uno dei metodi del ciclo di vita, Azure genera l’evento[UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx)e il processo viene interrotto. Quando il ruolo viene portato offline, viene riavviato da Azure. Quando si verifica un'eccezione non gestita, l’evento[Stopping](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx)non viene generato e il metodo**OnStop**non viene chiamato.
 
-Se il ruolo non viene avviato o passa in modo ciclico tra gli stati di arresto, di inizializzazione e di occupato, il codice potrebbe generare un'eccezione non gestita all'interno di uno degli eventi del ciclo di vita ogni volta che il ruolo viene riavviato. In questo caso, utilizzare l’evento[UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) per determinare la causa dell'eccezione e gestirla nel modo appropriato. Il ruolo potrebbe anche essere restituito dal metodo[Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) che causa il riavvio del ruolo. Per ulteriori informazioni sugli stati di distribuzione, vedere[problemi comuni che causano il riciclo dei ruoli](https://msdn.microsoft.com/library/azure/gg465402.aspx).
+Se il ruolo non viene avviato o passa in modo ciclico tra gli stati di arresto, di inizializzazione e di occupato, il codice potrebbe generare un'eccezione non gestita all'interno di uno degli eventi del ciclo di vita ogni volta che il ruolo viene riavviato. In questo caso, utilizzare l’evento[UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) per determinare la causa dell'eccezione e gestirla nel modo appropriato. Il ruolo potrebbe anche essere restituito dal metodo[Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) che causa il riavvio del ruolo. Per ulteriori informazioni sugli stati di distribuzione, vedere[problemi comuni che causano il riciclo dei ruoli](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-> [AZURE.NOTE] Se si utilizzano [gli strumenti di Azure per Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) per sviluppare l'applicazione, i modelli di progetto del ruolo estendono automaticamente la classe**RoleEntryPoint**, nei file WebRole.cs e WorkerRole.cs.
+> [AZURE.NOTE] Se si usano **gli strumenti di Azure per Microsoft Visual Studio** per sviluppare l'applicazione, i modelli di progetto del ruolo estendono automaticamente la classe**RoleEntryPoint** nei file *WebRole.cs* e *WorkerRole.cs*.
 
 ## Metodo OnStart
 
@@ -80,4 +80,4 @@ L’esecuzione dell'override del metodo**Run**non è obbligatoria, l'implementaz
 ## Passaggi successivi
 Informazioni su come[creare un pacchetto del servizio cloud](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

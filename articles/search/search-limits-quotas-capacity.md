@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -97,4 +97,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 - 2 chiavi di amministrazione al massimo per ogni servizio
 - 50 chiavi di query al massimo per ogni servizio
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

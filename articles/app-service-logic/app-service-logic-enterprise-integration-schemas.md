@@ -23,15 +23,15 @@ Gli schemi vengono usati per verificare che i documenti XML ricevuti siano valid
 
 ## Procedura: Aggiungere uno schema
 Nel portale di Azure:
-1. Selezionare **Esplora** ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Immettere **integrazione** nella casella di ricerca del filtro e selezionare **Account di integrazione** dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
-3. Selezionare l'**account di integrazione** a cui aggiungere lo schema ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Selezionare il riquadro **Schemi** ![](./media/app-service-logic-enterprise-integration-schemas/schema-1.png)
-5. Selezionare il pulsante **Add** (Aggiungi) nel pannello Schemi che si apre ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
-6. Immettere il **Name** (Nome) per lo schema, quindi selezionare l'icona della cartella sul lato destro della casella di testo **Schema** per caricare il file dello schema. Dopo aver completato il processo di caricamento, selezionare il pulsante **OK**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)
-7. Selezionare l'icona di notifica a forma di *campana* per visualizzare lo stato di avanzamento del processo di caricamento dello schema. ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)
-8. Selezionare il riquadro **Schemi**. Questa operazione aggiorna il riquadro e consente la visualizzazione del numero progressivo dello schema, che indica che il nuovo schema è stato aggiunto correttamente. Dopo aver selezionato il riquadro **Schemi**, lo schema appena aggiunto verrà visualizzato anche nel pannello Schemi a destra. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
-
+1. Selezionare **Altri servizi** ![](./media/app-service-logic-enterprise-integration-overview/overview-11.png)
+2. Immettere **integrazione** nella casella di ricerca del filtro e selezionare **Account di integrazione** dall'elenco dei risultati ![](./media/app-service-logic-enterprise-integration-overview/overview-21.png)
+3. Selezionare l'**account di integrazione** a cui aggiungere lo schema ![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)
+4.  Selezionare il riquadro **Schemi** ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)
+5. Selezionare il pulsante **Aggiungi** nel pannello Schemi visualizzato ![](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)
+6. Immettere il **Name** (Nome) per lo schema, quindi selezionare l'icona della cartella sul lato destro della casella di testo **Schema** per caricare il file dello schema. Dopo aver completato il processo di caricamento, selezionare il pulsante **OK**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)
+7. Per aggiungere file di schema di dimensione maggiore a 2 MB (massimo 8 MB)
+   * Caricare lo schema nella risorsa di archiviazione e copiare l'URI ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)
+   * Selezionare file di grandi dimensioni in Aggiungi schema e specificare l'URI nell'URI contenuto ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png) 8. Verrà visualizzato lo schema appena aggiunto ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
 
 ## Procedura: Usare gli schemi
 - Gli schemi vengono usati per convalidare i messaggi scambiati in uno scenario B2B.
@@ -39,22 +39,20 @@ Nel portale di Azure:
 ## Procedura: Modificare gli schemi
 1. Selezionare il riquadro **Schemi**
 2. Selezionare lo schema che si desidera modificare dal pannello Schemi che si apre
-3. Selezionare il collegamento **Upload** (Carica) nel pannello Schemi ![](./media/app-service-logic-enterprise-integration-schemas/edit-1.png)
+3. Selezionare il collegamento **Carica** nel pannello Schemi ![](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)
 4. Selezionare il file dello schema da caricare usando la finestra di dialogo di selezione dei file che si apre.
-5. Selezionare **Apri** nel selettore di file ![](./media/app-service-logic-enterprise-integration-schemas/edit-2.png)
-6. Si riceve una notifica che indica l'esito positivo del caricamento ![](./media/app-service-logic-enterprise-integration-schemas/edit-3.png)
+5. Selezionare **Apri** nel selettore di file ![](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)
+6. Si riceve una notifica che indica l'esito positivo del caricamento
 
 ## Procedura: Eliminare gli schemi
 1. Selezionare il riquadro **Schemi**
 2. Selezionare lo schema da eliminare dal pannello Schemi che si apre
-3. Selezionare il collegamento **Elimina** dalla barra dei menu del pannello Schemi ![](./media/app-service-logic-enterprise-integration-schemas/delete-1.png)
-4. Se si desidera eliminare lo schema selezionato, scegliere **Sì** nella finestra di dialogo Elimina schema per confermare la scelta ![](./media/app-service-logic-enterprise-integration-schemas/delete-2.png)
-5. Si noti infine che l'elenco degli schemi nel pannello Schemi si aggiorna e lo schema eliminato non viene più visualizzato ![](./media/app-service-logic-enterprise-integration-schemas/delete-3.png)
+3. Selezionare il collegamento **Elimina** dalla barra dei menu del pannello Schemi ![](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)
+4. Se si vuole eliminare lo schema selezionato, scegliere **Sì** nella finestra di dialogo Elimina schema per confermare la scelta ![](./media/app-service-logic-enterprise-integration-schemas/delete-21.png)
+5. Si noti infine che l'elenco degli schemi nel pannello Schemi si aggiorna e lo schema eliminato non viene più visualizzato ![](./media/app-service-logic-enterprise-integration-schemas/delete-31.png)
 
 ## Passaggi successivi
 
 - [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 
-      
-
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

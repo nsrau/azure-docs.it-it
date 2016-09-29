@@ -13,45 +13,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 
 # Guida alle prestazioni dell'attività di copia e all'ottimizzazione
-Questo articolo descrive i fattori principali che influiscono sulle prestazioni dello spostamento di dati quando si usa Azure Data Factory con l'attività di copia. Elenca anche le prestazioni osservate durante i test e descrive vari modi per ottimizzare le prestazioni dell'attività di copia.
+L'attività di copia di Azure Data Factory fornisce una soluzione di caricamento dei dati altamente sicura, affidabile e dalle prestazioni elevate, consentendo di copiare decine di terabyte di dati ogni giorno tra una vasta gamma di archivi dati locali e cloud. Prestazioni di caricamento dei dati velocissime sono fondamentali per garantire di potersi concentrare sul problema centrale dei "big data": realizzare soluzioni avanzate di analisi e ricevere informazioni approfondite da tutti i dati.
 
-L'attività di copia consente lo spostamento dei dati a velocità effettiva elevata:
+Azure fornisce un set di soluzioni di archiviazione dei dati e data warehouse di livello aziendale, e l'attività di copia offre un'esperienza di caricamento dei dati altamente ottimizzata, facile da configurare e impostare. Con un'unica attività di copia, è possibile ottenere:
 
-- Inserimento di 1 TB di dati nell'archivio BLOB di Azure da un file system locale in meno di tre ore a una velocità di 100 MBps
-- Inserimento di 1 TB di dati in Azure Data Lake Store da un file system locale e un archivio BLOB di Azure in meno di tre ore a una velocità di 100 MBps
-- Inserimento di 1 TB di dati in Azure SQL Data Warehouse da un archivio BLOB in meno di tre ore a una velocità di 100 MBps
+- Caricamento dei dati in **Azure SQL Data Warehouse** a **1,2 GBps**
+- Caricamento dei dati nell'**archiviazione BLOB di Azure** a **1 GBps**
+- Caricamento dei dati in **Azure Data Lake Store** a **1 GBps**
 
-Vedere le sezioni seguenti per altre informazioni sulle prestazioni dell'attività di copia e suggerimenti su come ottimizzarle.
+
+L'articolo illustra:
+
+- [I numeri di riferimento sulle prestazioni](#performance-reference) per gli archivi dati di origine e sink supportati per aiutare a pianificare il progetto;
+- Funzionalità in grado di incrementare la velocità effettiva di copia in diversi scenari, tra cui [copia parallela](#parallel-copy), [unità di spostamento dei dati cloud](#cloud-data-movement-units) e [copia di staging](#staged-copy);
+- [Indicazioni per l'ottimizzazione delle prestazioni](#performance-tuning-steps) che illustrano come ottimizzare le prestazioni e i fattori chiave che possono influire sulle prestazioni di copia.
 
 > [AZURE.NOTE] Se non si ha familiarità con l'attività di copia in generale, vedere [Spostare dati con l'attività di copia](data-factory-data-movement-activities.md) prima di continuare a leggere l'articolo.
-
-## Procedura di ottimizzazione delle prestazioni
-Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copia, è consigliabile seguire questa procedura:
-
-1.	**Stabilire una baseline**. Durante la fase di sviluppo, testare la pipeline usando l'attività di copia su un campione di dati rappresentativo. È possibile usare il [modello di sezionamento](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) di Data Factory per limitare la quantità di dati utilizzati.
-
-	Per raccogliere le caratteristiche relative a prestazioni e tempo di esecuzione è possibile usare l'**app di monitoraggio e gestione**. Scegliere **Monitoraggio e gestione** nella home page di Data Factory. Nella visualizzazione albero scegliere il **set di dati di output**. Nell'elenco **Activity Windows** (Finestre attività) scegliere l'esecuzione dell'attività di copia. L'elenco **Activity Windows** (Finestre attività) riporta la durata dell'attività di copia e le dimensioni dei dati copiati. La velocità effettiva è elencata in **Activity Window Explorer** (Esplora finestre attività). Per altre informazioni sull'app, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
-
-	![Dettagli esecuzione attività](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
-
-	È possibile confrontare le prestazioni e la configurazione dello scenario personalizzato con le [informazioni di riferimento sulle prestazioni](#performance-reference) dell'attività di copia ottenute dai test e pubblicate più avanti.
-2. **Diagnosticare e ottimizzare le prestazioni**. Se le prestazioni osservate non soddisfano le aspettative, è necessario identificare gli eventuali colli di bottiglia e quindi ottimizzare le prestazioni per rimuovere o ridurre l'effetto dei colli di bottiglia. Una descrizione completa della diagnosi delle prestazioni non rientra nell'ambito di questo articolo, ma di seguito sono riportate alcune considerazioni comuni:
-	- [Origine](#considerations-for-the-source)
-	- [Sink](#considerations-for-the-sink)
-	- [Serializzazione e deserializzazione](#considerations-for-serialization-and-deserialization)
-	- [Compressione](#considerations-for-compression)
-	- [Mapping di colonne](#considerations-for-column-mapping)
-	- [Gateway di gestione dati](#considerations-for-data-management-gateway)
-	- [Altre considerazioni](#other-considerations)
-	- [Copia parallela](#parallel-copy)
-	- [Unità di spostamento dati cloud](#cloud-data-movement-units)
-
-3. **Espandere la configurazione all'intero set di dati**. Dopo aver ottenuto prestazioni e risultati di esecuzione soddisfacenti, è possibile espandere la definizione del set di dati e il periodo attivo della pipeline per coprire l'intero set di dati.
 
 ## Informazioni di riferimento sulle prestazioni
 
@@ -60,10 +42,10 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
 Punti da notare:
 
 - La velocità effettiva viene calcolata con la formula seguente: [dimensione dei dati letti dall'origine]/[durata dell'esecuzione dell'attività di copia].
-- Per calcolare i numeri della tabella precedente è stato usato il set di dati [TPC-H](http://www.tpc.org/tpch/).
--	Per eseguire la copia tra archivi dati cloud, impostare **cloudDataMovementUnits** su 1 e 4 per il confronto. **parallelCopies** non è specificato. Per informazioni dettagliate su queste funzionalità, vedere la sezione [Copia parallela](#parallel-copy).
+- I numeri di riferimento delle prestazioni nella tabella sopra sono stati misurati usando il set di dati [TPC-H](http://www.tpc.org/tpch/) nell'esecuzione di una singola attività di copia.
+- Per eseguire la copia tra archivi dati cloud, impostare **cloudDataMovementUnits** su 1 e 4 (o 8) per il confronto. **parallelCopies** non è specificato. Per informazioni dettagliate su queste funzionalità, vedere la sezione [Copia parallela](#parallel-copy).
 - Nel caso degli archivi dati di Azure, l'origine e il sink si trovano nella stessa area di Azure.
-- Per lo spostamento di dati ibrido, ovvero dall'archivio dati locale al cloud o viceversa, è stata usata una singola istanza di Gateway di gestione dati in un computer separato dall'archivio dati locale. La configurazione è elencata nella tabella seguente. Durante l'esecuzione di una singola attività nel gateway, l'operazione di copia ha utilizzato solo una piccola parte della CPU del computer di test o delle risorse di memoria e una piccola parte della larghezza di banda di rete.
+- Per lo spostamento di dati ibrido, ovvero da locale al cloud o viceversa, è stata usata una singola istanza del gateway di gestione dati in un computer separato dall'archivio dati locale. La configurazione è elencata nella tabella seguente. Durante l'esecuzione di una singola attività nel gateway, l'operazione di copia ha utilizzato solo una piccola parte della CPU del computer di test o delle risorse di memoria e una piccola parte della larghezza di banda di rete.
 	<table>
 	<tr>
 		<td>CPU</td>
@@ -101,7 +83,7 @@ Per ogni esecuzione dell'attività di copia, Data Factory determina il numero di
 
 Origine e sink |	Numero predefinito di copie parallele determinato dal servizio
 ------------- | -------------------------------------------------
-Copia di dati tra archivi basati su file, come un archivio BLOB, Data Lake Store, un file system locale, un Hadoop Distributed File System o HDFS locale | Tra 1 e 32. Dipende dalle dimensioni dei file e del numero di unità di spostamento dati cloud usate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer gateway usato per una copia ibrida, ovvero la copia di dati da o in un archivio dati locale.
+Copia di dati tra archivi basati su file, come archiviazione BLOB, Data Lake Store, Amazon S3, un file system locale, un HDFS locale | Tra 1 e 32. Dipende dalle dimensioni dei file e del numero di unità di spostamento dati cloud usate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer gateway usato per una copia ibrida, ovvero la copia di dati da o in un archivio dati locale.
 Copia di dati da **qualsiasi archivio dati di origine in un archivio tabelle di Azure** | 4
 Tutte le altre coppie di origine e sink | 1
 
@@ -158,7 +140,9 @@ Per impostazione predefinita, Data Factory usa una singola unità di spostamento
 	    }
 	]
 
-I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono: 1 (valore predefinito), 2, 4 e 8. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la copia di più file da un archivio BLOB in un archivio BLOB o in un'istanza di Data Lake Store maggiore o uguale a 16 MB singolarmente.
+I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono: 1 (valore predefinito), 2, 4 e 8. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati.
+
+> [AZURE.NOTE] Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la copia di più file da un'archiviazione BLOB a un'altra archiviazione BLOB, a Data Lake Store o a un database SQL di Azure maggiore o uguale a 16 MB individualmente.
 
 Per usare al meglio queste due proprietà e per migliorare la velocità effettiva dello spostamento dati, vedere i [casi d'uso di esempio](#case-study-use-parallel-copy). Per usare il comportamento predefinito non è necessario configurare **parallelCopies**. Se si esegue la configurazione e il valore di **parallelCopies** è troppo basso, è possibile che più unità di spostamento dati cloud non vengano utilizzate appieno.
 
@@ -167,9 +151,9 @@ Per usare al meglio queste due proprietà e per migliorare la velocità effettiv
 ## Copia di staging
 Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. La funzionalità di staging è particolarmente utile nei casi seguenti:
 
--	**A volte occorre tempo per eseguire uno spostamento dati ibrido, ovvero la copia da un archivio dati locale a un archivio dati cloud o viceversa, su una connessione di rete lenta**. Per migliorare le prestazioni, è possibile comprimere i dati in locale in modo che sia necessario meno tempo per spostare i dati nell'archivio dati di staging nel cloud. È quindi possibile decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
-2.	**Non si vuole aprire porte diverse dalla porta 80 e dalla porta 443 nel firewall, a causa dei criteri IT aziendali**. Ad esempio, quando si copiano dati da un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse, è necessario attivare le comunicazioni TCP in uscita sulla porta 1433 per Windows Firewall e per il firewall aziendale. In tale scenario è possibile usare Gateway di gestione dati per copiare prima di tutto i dati un'istanza di staging dell'archivio BLOB tramite HTTP o HTTPS sulla porta 443. Quindi, caricare i dati nel database SQL o in SQL Data Warehouse dall'archivio BLOB di staging. In questo flusso non è necessario abilitare la porta 1433.
-3.	**Si inseriscono dati da diversi archivi dati in SQL Data Warehouse tramite PolyBase**. SQL Data Warehouse fa uso di PolyBase come meccanismo a velocità effettiva elevata per il caricamento di grandi quantità di dati in SQL Data Warehouse. Tuttavia, i dati di origine devono essere in un archivio BLOB e devono soddisfare criteri aggiuntivi. Quando si caricano dati da un archivio dati non BLOB, è possibile attivare la copia di dati tramite un archivio BLOB di staging provvisorio. In tal caso, Data Factory esegue le trasformazioni di dati necessarie per garantire che vengano soddisfatti i requisiti di PolyBase. Quindi usa PolyBase per caricare i dati in SQL Data Warehouse. Per altri dettagli ed esempi, vedere [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+1.	**Si inseriscono dati da vari archivi dati in SQL Data Warehouse tramite PolyBase**. SQL Data Warehouse fa uso di PolyBase come meccanismo a velocità effettiva elevata per il caricamento di grandi quantità di dati in SQL Data Warehouse. Tuttavia, i dati di origine devono essere in un archivio BLOB e devono soddisfare criteri aggiuntivi. Quando si caricano dati da un archivio dati non BLOB, è possibile attivare la copia di dati tramite un archivio BLOB di staging provvisorio. In tal caso, Data Factory esegue le trasformazioni di dati necessarie per garantire che vengano soddisfatti i requisiti di PolyBase. Quindi usa PolyBase per caricare i dati in SQL Data Warehouse. Per altri dettagli ed esempi, vedere [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+2.	**A volte occorre tempo per eseguire uno spostamento dati ibrido, ovvero la copia da un archivio dati locale a un archivio dati cloud o viceversa, su una connessione di rete lenta**. Per migliorare le prestazioni, è possibile comprimere i dati in locale in modo che sia necessario meno tempo per spostare i dati nell'archivio dati di staging nel cloud. È quindi possibile decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
+3.	**Non si vuole aprire porte diverse dalla porta 80 e dalla porta 443 nel firewall, a causa dei criteri IT aziendali**. Ad esempio, quando si copiano dati da un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse, è necessario attivare le comunicazioni TCP in uscita sulla porta 1433 per Windows Firewall e per il firewall aziendale. In tale scenario è possibile usare Gateway di gestione dati per copiare prima di tutto i dati un'istanza di staging dell'archivio BLOB tramite HTTP o HTTPS sulla porta 443. Quindi, caricare i dati nel database SQL o in SQL Data Warehouse dall'archivio BLOB di staging. In questo flusso non è necessario abilitare la porta 1433.
 
 ### Come funziona la copia di staging
 Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine nell'archivio dati di staging personale. Successivamente, vengono copiati dall'archivio dati di staging nell'archivio dati sink. Data Factory gestisce automaticamente il flusso in due fasi ed elimina i dati temporanei dall'archivio di staging al termine dello spostamento dati.
@@ -229,6 +213,31 @@ I costi addebitati si basano su due passaggi: durata della copia e tipo di copia
 - Quando si usa la funzionalità di staging durante una copia ibrida, ovvero la copia di dati da un archivio dati locale a un archivio dati cloud, ad esempio da un database di SQL Server locale a SQL Data Warehouse, il costo addebitato sarà [durata della copia ibrida] x [prezzo unitario della copia ibrida] + [durata della copia nel cloud] x [prezzo unitario della copia nel cloud].
 
 
+## Procedura di ottimizzazione delle prestazioni
+Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copia, è consigliabile seguire questa procedura:
+
+1.	**Stabilire una baseline**. Durante la fase di sviluppo, testare la pipeline usando l'attività di copia su un campione di dati rappresentativo. È possibile usare il [modello di sezionamento](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) di Data Factory per limitare la quantità di dati utilizzati.
+
+	Per raccogliere le caratteristiche relative a prestazioni e tempo di esecuzione è possibile usare l'**app di monitoraggio e gestione**. Scegliere **Monitoraggio e gestione** nella home page di Data Factory. Nella visualizzazione albero scegliere il **set di dati di output**. Nell'elenco **Activity Windows** (Finestre attività) scegliere l'esecuzione dell'attività di copia. L'elenco **Activity Windows** (Finestre attività) riporta la durata dell'attività di copia e le dimensioni dei dati copiati. La velocità effettiva è elencata in **Activity Window Explorer** (Esplora finestre attività). Per altre informazioni sull'app, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
+
+	![Dettagli esecuzione attività](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+
+	È possibile confrontare le prestazioni e la configurazione dello scenario personalizzato con le [informazioni di riferimento sulle prestazioni](#performance-reference) dell'attività di copia ottenute dai test e pubblicate più avanti.
+2. **Diagnosticare e ottimizzare le prestazioni**. Se le prestazioni osservate non soddisfano le aspettative, è necessario identificare gli eventuali colli di bottiglia e quindi ottimizzare le prestazioni per rimuovere o ridurre l'effetto dei colli di bottiglia. Una descrizione completa della diagnosi delle prestazioni non rientra nell'ambito di questo articolo, ma di seguito sono riportate alcune considerazioni comuni:
+	- Funzionalità per le prestazioni:
+		- [Copia parallela](#parallel-copy)
+		- [Unità di spostamento dati cloud](#cloud-data-movement-units)
+		- [Copia di staging](#staged-copy)
+	- [Origine](#considerations-for-the-source)
+	- [Sink](#considerations-for-the-sink)
+	- [Serializzazione e deserializzazione](#considerations-for-serialization-and-deserialization)
+	- [Compressione](#considerations-for-compression)
+	- [Mapping di colonne](#considerations-for-column-mapping)
+	- [Gateway di gestione dati](#considerations-for-data-management-gateway)
+	- [Altre considerazioni](#other-considerations)
+
+3. **Espandere la configurazione all'intero set di dati**. Dopo aver ottenuto prestazioni e risultati di esecuzione soddisfacenti, è possibile espandere la definizione del set di dati e il periodo attivo della pipeline per coprire l'intero set di dati.
+
 ## Considerazioni sull'origine
 ### Generale
 Assicurarsi che l'archivio dati sottostante non sia sovraccarico a causa di altri carichi di lavoro in esecuzione in o su di esso.
@@ -239,14 +248,14 @@ Se si copiano dati da un archivio BLOB a SQL Data Warehouse, valutare l'uso di *
 
 
 ### Archivi dati basati su file
-*Inclusi archivi BLOB, Data Lake Store e file system locali*
+*Inclusi archiviazione BLOB, Data Lake Store, Amazon S3, file system locali e HDFS locale*
 
 - **Dimensioni medie dei file e numero medio di file**: l'attività di copia trasferisce i dati procedendo un file alla volta. Con la stessa quantità di dati da spostare, la velocità effettiva generale risulta inferiore se i dati sono costituiti da un numero elevato di file piccoli anziché da pochi file di grandi dimensioni. Ciò è dovuto alla fase di bootstrap necessaria per ogni file. Se possibile, combinare quindi i file piccoli in file più grandi per raggiungere una maggiore velocità effettiva.
 - **Formato di file e compressione**: per altre informazioni su come migliorare le prestazioni, vedere le sezioni [Considerazioni sulla serializzazione e deserializzazione](#considerations-for-serialization-and-deserialization) e [Considerazioni sulla compressione](#considerations-for-compression).
 - Per scenari di **file system locali** in cui è necessario usare **Gateway di gestione dati**, vedere la sezione [Considerazioni su Gateway di gestione dati](#considerations-for-data-management-gateway).
 
 ### Archivi dati relazionali
-*Inclusi database SQL, SQL Data Warehouse, database di SQL Server e database Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL*
+*Inclusi database SQL, SQL Data Warehouse, Amazon Redshift, database SQL Server e database Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL*
 
 - **Modello di dati**: lo schema di tabella influisce sulla velocità effettiva di copia. Per copiare la stessa quantità di dati, dimensioni di riga grandi offrono prestazioni migliori rispetto a dimensioni di riga piccole, perché il database può recuperare in modo più efficiente un numero inferiore di batch di dati contenenti meno righe.
 - **Query o stored procedure**: ottimizzare la logica della query o della stored procedure specificata nell'origine dell'attività di copia per recuperare i dati in modo più efficiente.
@@ -263,7 +272,7 @@ Se si copiano dati da un **archivio BLOB** a **SQL Data Warehouse**, valutare l'
 
 
 ### Archivi dati basati su file
-*Inclusi archivi BLOB, Data Lake Store e file system locali*
+*Inclusi archiviazione BLOB, Data Lake Store, Amazon S3, file system locali e HDFS locale*
 
 - **Comportamento di copia**: se si copiano dati da un diverso archivio dati basato su file, l'attività di copia fornisce tre tipi di comportamento tramite la proprietà **copyBehavior**, mantenere la gerarchia, rendere flat la gerarchia e unire i file. Conservare o rendere flat la gerarchia comporta un overhead delle prestazioni minimo, mentre unire i file provoca un aumento dell'overhead delle prestazioni.
 - **Formato di file e compressione**: per altre informazioni su come migliorare le prestazioni, vedere le sezioni [Considerazioni sulla serializzazione e deserializzazione](#considerations-for-serialization-and-deserialization) e [Considerazioni sulla compressione](#considerations-for-compression).
@@ -271,7 +280,7 @@ Se si copiano dati da un **archivio BLOB** a **SQL Data Warehouse**, valutare l'
 - Per scenari di **file system locali** in cui è necessario usare **Gateway di gestione dati**, vedere la sezione [Considerazioni su Gateway di gestione dati](#considerations-for-data-management-gateway).
 
 ### Archivi dati relazionali
-*Inclusi database SQL, SQL Data Warehouse e database di SQL Server*
+*Inclusi database SQL, SQL Data Warehouse, database SQL Server e database Oracle*
 
 - **Comportamento di copia**: a seconda delle proprietà configurate per **sqlSink**, l'attività di copia scrive i dati nel database di destinazione in modi diversi.
 	- Per impostazione predefinita, il servizio di spostamento dati usa l'API per la copia bulk per inserire i dati in modalità Append, che offre le prestazioni migliori.
@@ -390,4 +399,4 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 - SQL Server locale: [Monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx) (Ottimizzazione delle prestazioni per i file server).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

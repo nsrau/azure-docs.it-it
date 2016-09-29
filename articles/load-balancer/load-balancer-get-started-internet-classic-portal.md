@@ -1,5 +1,5 @@
 
-<properties 
+<properties
    pageTitle="Introduzione alla creazione del servizio di bilanciamento del carico Internet nel modello di distribuzione classica tramite il portale di Azure classico | Microsoft Azure"
    description="Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante il portale di Azure classico"
    services="load-balancer"
@@ -9,13 +9,13 @@
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="08/31/2016"
    ms.author="sewhee" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di Azure classico
@@ -36,26 +36,30 @@ Per bilanciare il carico del traffico di rete Internet tra le macchine virtuali 
 **Per configurare un set con carico bilanciato per le macchine virtuali**
 
 1. Nel portale di Azure classico fare clic su **Macchine virtuali** e quindi sul nome di una macchina virtuale nel set con carico bilanciato.
-2.	Far clic su **Endpoints**, quindi su **Add**.
 
-4.	Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic sulla freccia destra.
+2. Far clic su **Endpoints**, quindi su **Add**.
 
-4.	Nella pagina **Specificare i dettagli dell'endpoint**:
-	- In **Nome** digitare un nome per l'endpoint o selezionarne uno dall'elenco di endpoint predefiniti per i protocolli comuni.
-	-  In **Protocol** selezionare il protocollo richiesto dal tipo di endpoint, ossia TCP o UDP.
- 	-  In **Porta pubblica e Porta privata** digitare il numero di porta da utilizzare per la macchina virtuale. È possibile usare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione. La porta privata può essere uguale alla porta pubblica. Per un endpoint per il traffico Web (HTTP), è ad esempio possibile assegnare la porta 80 sia come porta pubblica che privata.
+3. Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic sulla freccia destra.
 
-5.	Selezionare **Create a load-balanced set** e quindi fare clic sulla freccia destra.
+4. Nella pagina **Specificare i dettagli dell'endpoint**:
 
-6.	Nella pagina **Configura il set con carico bilanciato** immettere un nome per il set con carico bilanciato e quindi assegnare i valori per il comportamento del probe del servizio di bilanciamento del carico di Azure. Il servizio di bilanciamento del carico usa i probe per determinare se le macchine virtuali del set con carico bilanciato sono disponibili a ricevere traffico in ingresso.
+    * In **Nome** digitare un nome per l'endpoint o selezionarne uno dall'elenco di endpoint predefiniti per i protocolli comuni.
+    * In **Protocol** selezionare il protocollo richiesto dal tipo di endpoint, ossia TCP o UDP.
+    * In **Porta pubblica e Porta privata** digitare il numero di porta da utilizzare per la macchina virtuale. È possibile usare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione. La porta privata può essere uguale alla porta pubblica. Per un endpoint per il traffico Web (HTTP), è ad esempio possibile assegnare la porta 80 sia come porta pubblica che privata.
 
-7.	Fare clic sul segno di spunta per creare l'endpoint con carico bilanciato. Nella colonna **Load-balanced set name** della pagina **Endpoints** relativa alla macchina virtuale verrà visualizzata l'indicazione **Yes**.
+5. Selezionare **Create a load-balanced set** e quindi fare clic sulla freccia destra.
 
-8.	Nel portale fare clic su **Macchine virtuali**, quindi sul nome di una macchina virtuale aggiuntiva nel set con carico bilanciato, fare clic su **Endpoint** e infine su **Aggiungi**.
+6. Nella pagina **Configura il set con carico bilanciato** immettere un nome per il set con carico bilanciato e quindi assegnare i valori per il comportamento del probe del servizio di bilanciamento del carico di Azure. Il servizio di bilanciamento del carico usa i probe per determinare se le macchine virtuali del set con carico bilanciato sono disponibili a ricevere traffico in ingresso.
 
-9.	Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic su **Aggiungi un endpoint a un set con carico bilanciato esistente**, selezionare il nome del set con carico bilanciato e quindi fare clic sulla freccia destra.
+7. Fare clic sul segno di spunta per creare l'endpoint con carico bilanciato. Nella colonna **Load-balanced set name** della pagina **Endpoints** relativa alla macchina virtuale verrà visualizzata l'indicazione **Yes**.
 
-10.	Nella pagina **Specificare i dettagli dell'endpoint** digitare un nome per l'endpoint e quindi fare clic sul segno di spunta. Per le macchine virtuali aggiuntive nel set con carico bilanciato, ripetere i passaggi da 8 a 10.
+8. Nel portale fare clic su **Macchine virtuali**, quindi sul nome di una macchina virtuale aggiuntiva nel set con carico bilanciato, fare clic su **Endpoint** e infine su **Aggiungi**.
+
+9. Nella pagina **Aggiungi un endpoint a una macchina virtuale** fare clic su **Aggiungi un endpoint a un set con carico bilanciato esistente**, selezionare il nome del set con carico bilanciato e quindi fare clic sulla freccia destra.
+
+10. Nella pagina **Specificare i dettagli dell'endpoint** digitare un nome per l'endpoint e quindi fare clic sul segno di spunta.
+
+Per le macchine virtuali aggiuntive nel set con carico bilanciato, ripetere i passaggi da 8 a 10.
 
 
 
@@ -67,4 +71,4 @@ Per bilanciare il carico del traffico di rete Internet tra le macchine virtuali 
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

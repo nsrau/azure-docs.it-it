@@ -14,11 +14,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>  
+	ms.author="robinsh"/>
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 
-## Panoramica
+## Overview
 Dal rilascio dei servizi di archiviazione di Microsoft Azure, Microsoft ha sviluppato diverse procedure comprovate per usare questi servizi in modo ottimale. In questo articolo vengono riepilogate le procedure più importanti, presentate sotto forma di elenco di controllo. L'intento dell'articolo è di consentire agli sviluppatori di applicazioni di assicurarsi di stare usando le procedure comprovate con l'archiviazione di Azure e di aiutarli a individuare altre eventuali procedure da adottare. Questo articolo non intende coprire tutti i possibili casi di ottimizzazione delle prestazioni e della scalabilità, pertanto esclude quelli che hanno effetti trascurabili o che non sono applicabili a un significativo numero di scenari. Per quanto è possibile prevedere il comportamento dell'applicazione durante la progettazione, è opportuno effettuare una valutazione preliminare di questi aspetti per evitare progettazioni che potrebbero causare problemi in termini di prestazioni.
 
 Ogni sviluppatore di applicazioni che usa l'archiviazione di Azure dovrebbe leggere attentamente questo articolo e verificare che l'applicazione su cui sta lavorando segua tutte le procedure comprovate elencate di seguito.
@@ -185,7 +185,7 @@ Questo codice aumenta il numero minimo di thread del pool di thread:
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Per altre informazioni, vedere il [Metodo ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).
+Per altre informazioni, vedere [Metodo ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).
 
 ####<a name="subheading11"></a>Vantaggi della funzionalità Garbage Collection di .NET 4.5
 Usare .NET 4.5 o versione successiva per consentire all'applicazione client di sfruttare i miglioramenti delle prestazioni relativi alla funzionalità Garbage Collection del server.
@@ -404,4 +404,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 ##Conclusione
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

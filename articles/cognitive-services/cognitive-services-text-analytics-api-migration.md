@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -308,4 +308,4 @@ Al termine dell'esecuzione dell'API degli argomenti, verrà restituito lo stato 
 
 A questo punto si dovrebbe essere pronti. Testare il codice con un piccolo esempio per assicurarsi di riuscire a elaborare i dati.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

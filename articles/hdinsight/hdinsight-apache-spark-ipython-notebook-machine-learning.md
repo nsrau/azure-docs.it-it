@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/14/2016" 
 	ms.author="nitinme"/>
 
 
 # Compilare le applicazioni di Machine Learning da eseguire su cluster Apache Spark in HDInsight Linux
 
-Informazioni su come creare un'applicazione che usa un cluster Apache Spark in HDInsight di apprendimento automatico. Questo articolo illustra come usare il notebook Jupyter disponibile con il cluster per compilare e testare l'applicazione. L'applicazione utilizza i dati di HVAC.csv di esempio sono disponibili in tutti i cluster per impostazione predefinita.
+Informazioni su come creare un'applicazione che usa un cluster Apache Spark in HDInsight di apprendimento automatico. Questo articolo illustra come usare il notebook Jupyter disponibile con il cluster per compilare e testare l'applicazione. L'applicazione usa i dati di HVAC.csv di esempio disponibili in tutti i cluster per impostazione predefinita.
 
 **Prerequisiti:**
 
@@ -33,7 +33,7 @@ Informazioni su come creare un'applicazione che usa un cluster Apache Spark in H
 
 Prima di iniziare la compilazione dell'applicazione, possiamo comprendere la struttura dei dati e il tipo di analisi che facciamo sui dati.
 
-In questo articolo, si utilizza l'esempio file dati **HVAC.csv** disponibile in tutti i cluster HDInsight per impostazione predefinita in **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Scaricare e aprire il file con estensione csv per ottenere uno snapshot dei dati.
+In questo articolo viene usato il file di dati di esempio **HVAC.csv** disponibile nell'account di archiviazione di Azure associato al cluster HDInsight. All'interno dell'account di archiviazione, il file si trova al percorso: **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Scaricare e aprire il file con estensione csv per ottenere uno snapshot dei dati.
 
 ![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Snapshot dei dati HVAC")
 
@@ -201,7 +201,7 @@ In questa applicazione viene usata una pipeline di Spark ML per eseguire una cla
 
 	Nella prima riga di stima, si noterà che per un sistema HVAC con ID 20 e validità del sistema di 25 anni, l’edificio sarà caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0,0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima = 1.0**.
 
-11. Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt**. Questo arresterà e chiuderà il notebook.
+11. Dopo aver eseguito l'applicazione, è consigliabile arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt**. Questo arresterà e chiuderà il notebook.
 	  	   
 
 ##<a name="anaconda"></a>Usare la libreria Anaconda scikit-informazioni per machine learning
@@ -232,7 +232,7 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Utilizzare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -240,7 +240,7 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 
 * [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Gestire risorse
 
@@ -262,4 +262,4 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

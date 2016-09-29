@@ -13,11 +13,11 @@
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
  ms.date="08/10/2016"
- ms.author="adegeo"/>  
+ ms.author="adegeo"/>
 
 # Dimensioni dei servizi cloud
 
-Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud (ruoli Web e di lavoro). Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
+Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.
 
 I servizi cloud sono uno dei diversi tipi di risorse di calcolo offerti da Azure. Fare clic [qui](cloud-services-choose-me.md) per altre informazioni sui servizi cloud.
 
@@ -143,10 +143,11 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 | Standard\_D12\_v2 | 4 | 28 GB | Alto | 200 GB |
 | Standard\_D13\_v2 | 8 | 56 GB | Alto | 400 GB |
 | Standard\_D14\_v2 | 16 | 112 GB | Molto elevata | 800 GB |
+| Standard\_D15\_v2 | 20 | 140 GB | Molto elevata | 1\.000 GB |
 
 ## Configurare le dimensioni per i servizi Cloud
 
-È possibile specificare la dimensione della macchina virtuale di un'istanza del ruolo come parte del modello di servizio descritto dal [file di definizione del servizio](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
+È possibile specificare le dimensioni di un'istanza del ruolo delle macchine virtuali nell'ambito del modello del servizio descritto dal [file di definizione del servizio](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
 
 Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standard\_D2](#general-purpose-d) per un'istanza del ruolo Web:
 
@@ -156,4 +157,4 @@ Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standar
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

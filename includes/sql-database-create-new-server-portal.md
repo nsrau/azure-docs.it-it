@@ -13,17 +13,13 @@ articles/sql-database/sql-database-get-started-tutorial.md
 Usare la procedura seguente nel portale di Azure per creare un server logico di database SQL di Azure.
 
 1. Se non è ancora stato fatto, connettersi al [portale di Azure](http://portal.azure.com).
-2. Fare clic su **Nuovo**, digitare **Database SQL** e quindi fare clic su **Database SQL (nuovo server logico)**.
+2. Fare clic su **Nuovo**, quindi su **Dati e archiviazione** e cercare **Database SQL**.
 
-      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
+      ![Database SQL 1](./media/sql-database-get-started/sql-database-new-database-1.png)
 
-3. Fare clic su **Database SQL (nuovo server logico)**.
+3. Fare clic su **Database SQL** per aprire il relativo pannello.
 
-      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
-
-4. Fare clic su **Crea** per aprire un modello e creare un server logico vuoto che possa ospitare database singoli e pool di database elastici.
-
-      ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
+      ![Nuovo server logico](./media/sql-database-get-started/sql-database-new-database-2.png)
 
 5. Specificare i valori per le proprietà del server seguenti:
 
@@ -44,4 +40,4 @@ Usare la procedura seguente nel portale di Azure per creare un server logico di 
 
        ![Nuovo server logico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

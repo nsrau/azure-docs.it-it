@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="09/09/2016" 
 	ms.author="kbaroni;garye" />
 
 # Uso della regressione lineare Azure Machine Learning
@@ -24,13 +24,14 @@
 &nbsp;
   
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
- 
+
+
 ## Obiettivo
 
 Il progetto è iniziato con due obiettivi prefissati:
 
-1. Usare l'analisi predittiva per migliorare la precisione delle proiezioni dei ricavi mensili dell'organizzazione  
-2. Usare Azure ML per confermare, ottimizzare, velocizzare ed eseguire la scalabilità dei risultati.  
+1. Usare l'analisi predittiva per migliorare la precisione delle proiezioni dei ricavi mensili dell'organizzazione
+2. Usare Azure ML per confermare, ottimizzare, velocizzare ed eseguire la scalabilità dei risultati.
 
 Come molte aziende, anche questa organizzazione esegue un processo di previsione dei ricavi mensile. Al piccolo team di analisti aziendali è stato assegnato il compito di usare Machine Learning per supportare il processo e migliorare la precisione delle previsioni. Per diversi mesi, il team ha raccolto dati da più origini e ha eseguito diversi attributi dei dati usando l'analisi statistica per identificare gli attributi chiave rilevanti per la previsione delle vendite di servizi. Nei passaggi successivi si è iniziato a creare dei prototipi di modelli di regressione statistica basati sui dati in Excel. In poche settimane è stato prodotto un modello di regressione di Excel con prestazioni superiori rispetto ai processi correnti di previsione di campo e finanza. Questo è diventato il risultato di previsione di base.
 
@@ -51,9 +52,9 @@ La regressione di Excel usava il modello di regressione lineare standard disponi
 Per creare l'esperimento in Azure ML sono stati seguiti questi passaggi:
 
 1.	È stato caricato il set di dati in Azure ML sotto forma di file CSV (un file di dimensioni molto ridotte)
-2.	È stato creato un nuovo esperimento ed è stato utilizzato il modulo [Select Columns in Dataset][select-columns] per selezionare le stesse funzionalità di dati utilizzate in Excel   
-3.	È stato usato il modulo [Split][split] \(con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel  
-4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] (solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
+2.	È stato creato un nuovo esperimento ed è stato utilizzato il modulo [Select Columns in Dataset][select-columns] per selezionare le stesse funzionalità di dati utilizzate in Excel
+3.	È stato usato il modulo [Split][split] \(con la modalità *Relative Expression*) per dividere i dati esattamente negli stessi set di training di Excel
+4.	È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] \(solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
 
 ### Rivedere i risultati iniziali
 All'inizio, il modello di Excel ha superato nettamente le prestazioni del modello di Azure ML:
@@ -71,7 +72,7 @@ Dopo aver eseguito il processo e aver passato i risultati di sviluppatori ed esp
 * Quando si usa il modulo [Linear Regression][linear-regression] in Azure ML, vengono forniti due metodi:
 	*  Online Gradient Descent: più adatto a problemi su larga scala
 	*  Ordinary Least Squares: il metodo generalmente associato alla regressione lineare. Per set di dati di piccole dimensioni, il metodo Ordinary Least Squares è solitamente la scelta ottimale.
-*  Provare a modificare il parametro L2 Regularization Weight per migliorare le prestazioni. Per impostazione predefinita è impostato su 0,001, mentre per i set di dati di piccole dimensioni in questo caso è stato impostato su 0,005 per migliorare le prestazioni.    
+*  Provare a modificare il parametro L2 Regularization Weight per migliorare le prestazioni. Per impostazione predefinita è impostato su 0,001, mentre per i set di dati di piccole dimensioni in questo caso è stato impostato su 0,005 per migliorare le prestazioni.
 
 ### Misero risolto
 Dopo aver applicato i suggerimenti, in Azure ML sono state raggiunte le stesse prestazioni di base di Excel:
@@ -143,7 +144,7 @@ La possibilità di trasferire la previsione dell'analisi predittiva da Azure ML 
 Alcune risorse vengono elencate per agevolare l'uso della regressione:
 
 * Regressione in Excel. Se non è mai stata provata la regressione in Excel, questa esercitazione la spiega in modo molto chiaro: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Regressione e previsione. Tyler Chessman ha scritto un articolo di blog in cui spiega come fare previsioni di serie temporali in Excel, che contiene una valida descrizione di base della regressione lineare. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)  
+* Regressione e previsione. Tyler Chessman ha scritto un articolo di blog in cui spiega come fare previsioni di serie temporali in Excel, che contiene una valida descrizione di base della regressione lineare. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)
 * 	Regressione lineare Ordinary Least Squares: difetti, problemi e ostacoli. Per un'introduzione e una discussione sulla regressione: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
@@ -159,4 +160,4 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

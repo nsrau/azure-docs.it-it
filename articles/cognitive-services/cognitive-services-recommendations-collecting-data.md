@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -151,4 +151,4 @@ Una buona regola consiste nella distribuzione della maggior parte degli elementi
 
 Dopo aver creato un modello, è possibile eseguire una [valutazione offline](cognitive-services-recommendations-buildtypes.md) per controllare il potenziale andamento del modello.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

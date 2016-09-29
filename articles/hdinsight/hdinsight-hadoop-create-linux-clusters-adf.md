@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -438,4 +438,4 @@ Questo articolo ha descritto come usare Azure Data Factory per creare il cluster
 - [Documentazione relativa a HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentazione di Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

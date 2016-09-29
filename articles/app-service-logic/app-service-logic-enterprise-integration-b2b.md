@@ -18,7 +18,7 @@
 
 # Informazioni sulla ricezione di dati mediante le funzionalità B2B di Enterprise Integration Pack#
 
-## Panoramica ##
+## Overview ##
 
 Questo documento fa parte di Enterprise Integration Pack per le App per la logica. Per altre informazioni sulle [capacità di Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md), vedere la panoramica.
 
@@ -46,10 +46,10 @@ In questa procedura dettagliata verrà illustrato come usare le azioni AS2 e X12
 8. Aggiungere le intestazioni (**Headers**) richieste per AS2. Queste si troveranno nelle intestazioni della richiesta HTTP. In questo esempio selezionare le intestazioni della richiesta HTTP che ha attivato l'app per la logica.
 9. Ora aggiungere l'azione Decode X12 message (Decodifica messaggio X12) selezionando di nuovo **Aggiungi un'azione** ![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)
 10. Immettere la parola **x12** nella casella di ricerca per filtrare tutte le azioni su quella che si desidera usare ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)
-11. Selezionare l'azione **X12 - Decode X12 message** (X12 - Decodifica messaggio X12) per aggiungerla all'app per la logica ![](./media/app-service-logic-enterprise-integration-b2b/b2b-11.png)
+11. Selezionare l'azione **X12 - Decode X12 message** (X12 - Decodifica messaggio X12) per aggiungerla all'app per la logica ![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)
 12. Ora è necessario specificare l'input per questa azione che sarà l'output dell'azione AS2 sopra. Il contenuto effettivo del messaggio si trova in un oggetto JSON e presenta una codifica base64. È pertanto necessario specificare un'espressione come input, perciò inserire la seguente espressione nel campo di input **X12 FLAT FILE MESSAGE TO DECODE** (Messaggio file flat X12 da decodificare)
 
-    @base64ToString(body('Decode\_AS2\_message')?['Message']?['Content'])
+    @base64ToString(body('Decode\_AS2\_message')?['AS2Message']?['Content'])
 
 13. Questo passaggio decodificherà i dati X12 ricevuti dal partner commerciale e restituirà determinati elementi in un oggetto JSON. Per informare il partner della ricezione dei dati, è possibile inviare una risposta contenente la notifica di disposizione del messaggio (Message Disposition Notification o MDN) AS2 in un'azione di risposta HTTP
 14. Aggiungere l'azione **Response** (Risposta) selezionando **Aggiungi un'azione** ![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)
@@ -75,4 +75,4 @@ A questo punto la configurazione dell'app per la logica B2B è completa. In un'a
 
 [Altre informazioni su Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

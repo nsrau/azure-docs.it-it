@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -24,15 +24,13 @@ La protezione dell'accesso alle risorse aziendali è importante per ogni organiz
   
 ## Vantaggi dell'accesso condizionale  
 
-Le funzionalità di controllo dell'accesso condizionale in Azure Active Directory consentono alle società di proteggere con facilità le proprie risorse sul cloud e locali. I criteri di accesso condizionale possono essere usati per contribuire alla protezione dal rischio di credenziali rubate e sottoposte a phishing, in quanto richiedono l'autenticazione a più fattori, e contribuiscono alla protezione dei dati aziendali richiedendo un dispositivo gestito di Intune che concede l'accesso ai servizi riservati.
+Le funzionalità di controllo di accesso condizionale in Azure Active Directory consentono alle società di proteggere con facilità le proprie risorse sul cloud e locali. I criteri di accesso condizionale possono essere usati per contribuire a proteggere dal rischio che le credenziali possano essere rubate o possano subire un attacco di phishing richiedendo l'autenticazione a più fattori, come anche per contribuire a proteggere i dati aziendali richiedendo un dispositivo gestito da Intune che fornisca accesso ai servizi riservati.
 
 
 
 ## Requisiti per le licenze
 
-L'accesso condizionale è una funzionalità di [Azure AD Premium](http://www.microsoft.com/identity). Tutti gli utenti che accedono a un'applicazione a cui sono applicati i criteri di accesso condizionale devono avere una licenza di Azure AD Premium. Per altre informazioni sull'utilizzo, vedere [Unlicensed User report](https://aka.ms/utc5ix) (Report Utente senza licenza).
-
-
+L'accesso condizionale di Azure Active Directory è una funzionalità di [Azure AD Premium](http://www.microsoft.com/identity). Tutti gli utenti che accedono a un'applicazione a cui sono applicati i criteri di accesso condizionale devono avere una licenza di Azure AD Premium. Per altre informazioni sull'utilizzo, vedere [Unlicensed User report](https://aka.ms/utc5ix) (Report Utente senza licenza).
 
 
 
@@ -89,7 +87,7 @@ I criteri possono essere impostati in base ai requisiti seguenti:
     - **Dispositivi iOS e Android** gestiti tramite Microsoft Intune.
 
 
-Gli utenti che intendono accedere ad applicazioni protette da criteri CA in base al dispositivo devono farlo da dispositivi conformi a questo criterio. Se si tenta di accedere da un dispositivo che non soddisfa i criteri richiesti, l'accesso viene negato.
+Gli utenti che intendono accedere ad applicazioni protette da criteri di accesso condizionale basato sul dispositivo devono farlo da dispositivi conformi a questo criterio. Se si tenta di accedere da un dispositivo che non soddisfa i criteri richiesti, l'accesso viene negato.
 
 Per informazioni su come configurare i criteri CA in base al dispositivo in Azure AD, vedere l'articolo su [come configurare i criteri di accesso condizionale basato sul dispositivo per il controllo di accesso delle applicazioni connesse ad Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
@@ -125,4 +123,4 @@ La mappa dei contenuti seguente elenca i documenti a cui è necessario fare rife
 - [Domande frequenti sull'accesso condizionale](active-directory-conditional-faqs.md)
 - [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

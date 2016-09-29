@@ -121,7 +121,7 @@ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
 Creare il probe di integrità per il servizio di bilanciamento del carico:
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Verificare il servizio di bilanciamento del carico, il pool di indirizzi IP e le regole NAT utilizzando il parser JSON:
@@ -788,7 +788,7 @@ info:    network lb rule create command OK
 Un probe di integrità verifica periodicamente le VM che si trovano dietro il servizio di bilanciamento del carico per assicurarsi che siano operative e che rispondano alle richieste, come specificato. In caso contrario ne viene disabilitata l'operatività per fare in modo che gli utenti non vengano indirizzati a esse. È possibile definire controlli personalizzati per il probe di integrità, nonché gli intervalli e i valori di timeout. Per altre informazioni sui probe di integrità, vedere [Probe di integrità del servizio di bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Output:
@@ -800,7 +800,7 @@ warn:    Using default probe port: 80
 + Updating load balancer "TestLB"
 data:    Name                            : HealthProbe
 data:    Provisioning state              : Succeeded
-data:    Protocol                        : Http
+data:    Protocol                        : Tcp
 data:    Port                            : 80
 data:    Interval in seconds             : 15
 data:    Number of probes                : 4
@@ -928,14 +928,13 @@ Output:
   "probes": [
     {
       "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe",
-      "protocol": "Http",
-      "port": 80,
-      "intervalInSeconds": 15,
-      "numberOfProbes": 4,
-      "requestPath": "healthprobe.aspx",
+      "name": "HealthProbe",
       "provisioningState": "Succeeded",
-      "name": "HealthProbe"
+      "numberOfProbes": 4,
+      "intervalInSeconds": 15,
+      "port": 80,
+      "protocol": "Tcp",
+      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe"
     }
   ]
 }
@@ -1090,7 +1089,7 @@ Sono state create le risorse di archiviazione e di rete per supportare le VM acc
 Il passaggio successivo è già noto a chiunque abbia già creato una coppia di chiavi ssh-rsa pubblica e privata in Linux o Mac usando **ssh-keygen -t rsa -b 2048**. Se non si dispone di alcuna coppia di chiavi del certificato nella directory `~/.ssh`, è possibile crearle:
 
 - Automaticamente, utilizzando l'opzione `azure vm create --generate-ssh-keys`.
-- Manualmente, utilizzando [le istruzioni per crearle autonomamente](virtual-machines-linux-mac-create-ssh-keys.md).
+- Manualmente, usando [le istruzioni per crearle autonomamente](virtual-machines-linux-mac-create-ssh-keys.md).
 
 In alternativa, è possibile utilizzare il metodo con password amministratore per autenticare le connessioni SSH dopo aver creato la VM. Di solito, questo metodo risulta essere meno sicuro.
 
@@ -1273,4 +1272,4 @@ Se lo si desidera, è possibile consultare [ulteriori informazioni su come esegu
 
 Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

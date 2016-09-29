@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -26,13 +26,13 @@ Quali risorse è necessario pianificare quando si configura un ambiente per l'el
 ## Logistica: percorsi dei dati e spostamento
 Le domande di logistica riguardano il percorso dell'**origine dati**, la **destinazione** in Azure e i requisiti per lo spostamento dei dati, incluse la pianificazione, la quantità e le risorse coinvolte. Potrebbe essere necessario spostare i dati più volte durante il processo di analisi. Uno scenario frequente consiste nello spostamento di dati locali in una qualche forma di archiviazione in Azure e quindi in Machine Learning Studio.
 
-1. **Qual è l'origine dati?** È locale o nel cloud? Ad esempio:
+1. **Qual è l'origine dati?** È locale o nel cloud? ad esempio:
 	- I dati sono disponibili a un indirizzo HTTP.
 	- I dati si trovano in un percorso locale/di rete.
 	- I dati si trovano in un database di SQL Server.
 	- I dati sono archiviati in un contenitore di archiviazione di Azure.
 
-2. **Qual è la destinazione di Azure?** Quale deve essere la destinazione per l'elaborazione o la modellazione? Ad esempio:
+2. **Qual è la destinazione di Azure?** Quale deve essere la destinazione per l'elaborazione o la modellazione? ad esempio:
 	- Archiviazione BLOB di Azure
 	- Database SQL Azure
 	- Macchine virtuali SQL Server in Azure
@@ -42,7 +42,7 @@ Le domande di logistica riguardano il percorso dell'**origine dati**, la **desti
 
 3. **Come verranno spostati i dati?** Gli argomenti seguenti illustrano le procedure e le risorse disponibili per inserire o caricare dati in vari ambienti di elaborazione e di archiviazione diversi.
 
-	-  [Caricare i dati in ambienti di archiviazione per l'analisi](machine-learning-data-science-ingest-data.md) 
+	-  [Caricare i dati in ambienti di archiviazione per l'analisi](machine-learning-data-science-ingest-data.md)
 	-  [Importare dati di training in Azure Machine Learning Studio da varie origini dati](machine-learning-data-science-import-data,md).
 
 4. **I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?** È consigliabile usare il Data factory di Azure (ADF) quando è necessario migrare continuamente i dati, soprattutto in uno scenario ibrido che accede a risorse locali e cloud o in presenza di dati transazionali, che devono essere modificati o ai quali va aggiunta una logica di business durante la migrazione. Per altre informazioni, vedere [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md).
@@ -53,7 +53,7 @@ Le domande di logistica riguardano il percorso dell'**origine dati**, la **desti
 ## Domande sulle caratteristiche dei dati: tipo, formato e dimensione
 Queste domande sono fondamentali per la pianificazione degli ambienti di elaborazione e archiviazione, ognuno dei quali è più adatto a vari tipi di dati e per ognuno dei quali sono previste determinate limitazioni.
 
-1. **Quali sono i tipi di dati?** Ad esempio: 
+1. **Quali sono i tipi di dati?** Ad esempio:
 	- Numerico
 	- Categorical
 	- Stringhe
@@ -87,7 +87,7 @@ Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di 
 ## Domande su strumenti e linguaggi
 Sono disponibili numerose opzioni a seconda dei linguaggi e degli strumenti o ambienti di sviluppo usati.
  
-1. **Quali linguaggi si preferisce usare per l'analisi?**  
+1. **Quali linguaggi si preferisce usare per l'analisi?**
 	- R
 	- Python
 	- SQL
@@ -100,7 +100,7 @@ Sono disponibili numerose opzioni a seconda dei linguaggi e degli strumenti o am
 	- [Python Tools per Visual Studio](http://microsoft.github.io/PTVS/)
 	- [Anaconda](https://www.continuum.io/why-anaconda)
 	- [Jupyter Notebooks](http://jupyter.org/)
-	- [Microsoft Power BI](http://powerbi.microsoft.com) 
+	- [Microsoft Power BI](http://powerbi.microsoft.com)
 
 
 ## Identificare lo scenario di analisi avanzata
@@ -114,4 +114,4 @@ Dopo aver risposto alle domande nella sezione precedente, si è pronti per deter
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

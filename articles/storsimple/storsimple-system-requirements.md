@@ -57,7 +57,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 | Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatoria | Note |
 |------------------------|-----------|------------|----------|-------|
 |TCP 80 (HTTP)<sup>3</sup>| In uscita | WAN | No |<ul><li>La porta in uscita viene usata per accedere a Internet e recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti del sistema, questa porta deve inoltre essere aperta per gli IP fissi dei controller.</li></ul> |
-|TCP 443 (HTTPS)<sup>3</sup>| In uscita | WAN | Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti del sistema, questa porta deve inoltre essere aperta per gli IP fissi dei controller.</li></ul>|
+|TCP 443 (HTTPS)<sup>3</sup>| In uscita | WAN | Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti del sistema, questa porta deve inoltre essere aperta per gli IP fissi dei controller.</li><li>Questa porta viene usata anche su entrambi i controller per il garbage collection.</li></ul>|
 |UDP 53 (DNS) | In uscita | WAN | In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. |
 | UDP 123 (NTP) | In uscita | WAN | In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet. |
 | TCP 9354 | In uscita | WAN | Sì |La porta in uscita viene usata dal servizio StorSimple per comunicare con il servizio StorSimple Manager. |
@@ -138,11 +138,11 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 
 	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | 
-	| Data 1 | 2 | 20 | 
-	| Data 2 | 3 | 30 | 
-	| Data 3 | 4 | 40 | 
-	| Data 4 | 5 | 50 | 
+	| Data 0 | 1 | - |
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
 	| Data 5 | 6 | 60 |
 
 
@@ -291,4 +291,4 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -46,10 +46,9 @@ Accedere con l'account per il modello di Resource Manager.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Impostare la sottoscrizione di Azure per la sessione corrente. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
+Impostare la sottoscrizione di Azure per la sessione corrente. Sostituire tutti gli elementi racchiusi tra virgolette, inclusi i caratteri < e >, con il nome corretto.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+	Select-AzureRmSubscription –SubscriptionName "<subscription name>"
 
 >[AZURE.NOTE] La registrazione è un passaggio da eseguire una sola volta, ma è necessario provvedervi prima di tentare la migrazione. Senza la registrazione, verrà visualizzato il seguente messaggio di errore:
 
@@ -71,10 +70,9 @@ Accedere ora con l'account per il modello classico.
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Impostare la sottoscrizione di Azure per la sessione corrente. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
+Impostare la sottoscrizione di Azure per la sessione corrente. Sostituire tutti gli elementi racchiusi tra virgolette, inclusi i caratteri < e >, con il nome corretto.
 
-	$subscr="<subscription name>"
-	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
+	Select-AzureSubscription –SubscriptionName "<subscription name>"
 
 ## Passaggio 4: Verificare che siano disponibili sufficienti memorie centrali delle macchine virtuali di Azure Resource Manager nell'area di Azure di cui fa parte la distribuzione corrente o la rete virtuale
 
@@ -189,4 +187,4 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 - [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello classico al modello di Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Clonare una macchina virtuale classica in Azure Resource Manager usando script PowerShell della community](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

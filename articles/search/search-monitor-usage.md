@@ -4,7 +4,7 @@
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor=""
    tags="azure-portal"/>
 
@@ -27,7 +27,7 @@ Per monitorare l'utilizzo delle risorse, è possibile visualizzare facilmente co
 
 ##Visualizzare conteggi e metriche nel portale 
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Nella Home page sono presenti riquadri per il servizio oppure è possibile accedere al servizio tramite Sfoglia nell'indice. Vedere [Creare un servizio](search-create-service-portal.md) per istruzioni dettagliate.
 
@@ -59,4 +59,4 @@ Visitare [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

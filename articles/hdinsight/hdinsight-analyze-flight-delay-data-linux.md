@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Scaricare i dati relativi ai voli
 
-1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
+1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] \(RITA).
 2. Selezionare i valori seguenti nella pagina:
 
     | Nome | Valore |
@@ -291,4 +291,4 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

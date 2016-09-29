@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Introduzione all'uso di un provider di Microsoft Azure Multi-Factor Authentication" 
-	description="Informazioni su come creare un provider di Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>  
+<properties
+	pageTitle="Introduzione all'uso di un provider di Microsoft Azure Multi-Factor Authentication"
+	description="Informazioni su come creare un provider di Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -26,7 +26,7 @@ Multi-Factor Authentication è disponibile per impostazione predefinita per gli 
 È necessario un provider Azure Multi-Factor Authentication se si vuole scaricare l'SDK.
 
 > [AZURE.IMPORTANT]  Per scaricare l'SDK occorre creare un provider Azure Multi-Factor Authentication anche se sono disponibili licenze di Azure MFA, AAD Premium o EMS. Se si crea un provider Azure Multi-Factor Authentication a questo scopo e sono disponibili le licenze, il provider deve essere creato con il modello **Per utente abilitato** e collegato alla directory che contiene le licenze di Azure MFA, Azure AD Premium o EMS. In questo modo è possibile evitare addebiti, a meno che il numero di utenti singoli che usano l'SDK sia maggiore del numero di licenze possedute.
- 
+
 Usare la procedura seguente per creare un provider di Azure Multi-Factor Authentication.
 
 ## Per creare un provider di Multi-Factor Authentication
@@ -49,4 +49,4 @@ Usare la procedura seguente per creare un provider di Azure Multi-Factor Authent
 		- Azure AD Connect, AAD Sync e DirSync sono necessari unicamente se si esegue la sincronizzazione dell'ambiente Active Directory locale con una directory di Azure AD. Se si usa solo una directory di Azure AD non sincronizzata, non è necessaria. ![Creazione di un provider di MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 5. Facendo clic su Crea, viene creato il provider Multi-Factor Authentication e viene visualizzato un messaggio simile al seguente: **Creazione del provider di Multi-Factor Authentication completata**. Fare clic su **OK**. ![Creazione di un provider di MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

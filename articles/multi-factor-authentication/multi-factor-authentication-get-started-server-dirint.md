@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integrazione di directory tra il server Azure Multi-Factor Authentication e Active Directory" 
-	description="Pagina relativa ad Azure Multi-Factor Authentication che illustra come eseguire l'integrazione tra il server Azure Multi-Factor Authentication e Active Directory, in modo da consentire la sincronizzazione delle directory." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>  
+	pageTitle="Integrazione di directory tra il server Azure Multi-Factor Authentication e Active Directory"
+	description="Pagina relativa ad Azure Multi-Factor Authentication che illustra come eseguire l'integrazione tra il server Azure Multi-Factor Authentication e Active Directory, in modo da consentire la sincronizzazione delle directory."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Integrazione di directory tra il server Azure MFA e Active Directory
 
@@ -23,7 +23,7 @@ La sezione Integrazione directory permette di configurare il server per l'integr
 ## Impostazioni
 Per impostazione predefinita, il server Azure Multi-Factor Authentication è configurato per importare o sincronizzare utenti da Active Directory. La scheda permette di eseguire l'override del comportamento predefinito e di eseguire il binding a una directory LDAP diversa, a una directory ADAM o a un controller di dominio di Active Directory specifico. Permette anche di usare l'autenticazione LDAP per il proxy LDAP o per binding LDAP come destinazione RADIUS, la preautenticazione per l'autenticazione IIS oppure l'autenticazione primaria per il portale utenti. La tabella seguente illustra le singole impostazioni.
 
-![Impostazioni](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)  
+![Impostazioni](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
 
 | Funzionalità | Descrizione |
 | ------- | ----------- |
@@ -62,7 +62,7 @@ Azure Multi-Factor Authentication offre le tre opzioni seguenti.
 ## Attributi
 Se necessario, è possibile personalizzare gli attributi per una directory specifica. Ciò permette di aggiungere attributi personalizzati e perfezionare la sincronizzazione per limitarla solo agli attributi necessari. Il valore di ogni campo attributo deve corrispondere al nome dell'attributo definito nello schema di directory. Per altre informazioni, vedere la tabella seguente.
 
-![Attributi](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)  
+![Attributi](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
 
 | Funzionalità | Descrizione |
 | ------- | ----------- |
@@ -97,7 +97,7 @@ Se necessario, è possibile personalizzare gli attributi per una directory speci
 
 Per modificare gli attributi, è sufficiente fare clic sul pulsante Modifica nella scheda Attributi. Verrà visualizzata una finestra che permette di modificare gli attributi.
 
-![Modifica attributi](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)  
+![Modifica attributi](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
 ## Sincronizzazione
 La sincronizzazione consente di mantenere il database utenti di Azure Multi-Factor sincronizzato con gli utenti di Active Directory o di un'altra directory LDAP. Il processo è simile alla procedura di importazione manuale di utenti da Active Directory, con la differenza che periodicamente viene eseguito il polling delle modifiche apportate ai gruppi di sicurezza e agli utenti di Active Directory da elaborare. Consente inoltre di disabilitare o rimuovere gli utenti rimossi da un contenitore o un gruppo di sicurezza e di rimuovere gli utenti eliminati da Active Directory.
@@ -135,6 +135,6 @@ I pulsanti Sposta su e Sposta giù consentono all'amministratore di modificare l
 ## Server Multi-Factor Authentication
 È possibile impostare server Multi-Factor Authentication aggiuntivi da usare come proxy RADIUS di backup, proxy LDAP o per l'autenticazione IIS. La configurazione di sincronizzazione viene condivisa tra tutti gli agenti, ma solo uno di essi può eseguire il servizio del server Multi-Factor Authentication. Questa scheda consente di selezionare il server Multi-Factor Authentication da abilitare per la sincronizzazione.
 
-![Server Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)  
+![Server Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,14 +13,14 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/14/2016" 
+ms.date="09/07/2016" 
 ms.author="eugenesh" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)#
 
 > [AZURE.NOTE] Questo articolo descrive gli indicizzatori nell'[API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Questa versione dell'API aggiunge le versioni di anteprima dell'indicizzatore di archiviazione BLOB di Azure con estrazione di documenti, l'indicizzatore di archiviazione tabelle e altri miglioramenti. L'API supporta anche indicizzatori disponibili a livello generale (GA), compresi gli indicizzatori per il Database di SQL Azure, SQL Server in VM di Azure e Azure DocumentDB.
 
-## Panoramica ##
+## Overview ##
 
 Ricerca di Azure può integrarsi direttamente con alcune origini dati comuni, eliminando la necessità di scrivere codice per l'indicizzazione dei dati. Per impostare questo servizio, è possibile chiamare l'API di Ricerca di Azure in modo da creare e gestire **indicizzatori** e **origini dati**.
 
@@ -39,6 +39,7 @@ Sono attualmente supportate le origini dati seguenti:
 - **Database SQL di Azure** e **SQL Server in macchine virtuali di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 - **Azure DocumentDB**. Per una procedura dettagliata, vedere [questo articolo](../documentdb/documentdb-search-indexer.md).
 - **Archiviazione BLOB di Azure**, inclusi i seguenti formati di documenti: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP e file di testo normale (incluso JSON). Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-blob-storage.md).
+- **Archivio tabelle di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-tables.md).
 	 
 La possibilità di aggiungere il supporto per altre origini dati è in fase di valutazione. Per contribuire a questa decisione, è possibile fornire commenti e suggerimenti nell'apposito [forum di Ricerca di Azure](http://feedback.azure.com/forums/263029-azure-search).
 
@@ -91,7 +92,7 @@ L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`.
 
 L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facoltative.
 
-- `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
+- `Content-Type`: richiesto. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione di un'origine dati** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
  
 Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel [portale di Azure](https://portal.azure.com/). Per informazioni, vedere [Creare un servizio di ricerca nel portale](search-create-service-portal.md).
@@ -105,7 +106,7 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be one of 'azuresql', 'documentdb', or 'azureblob'",
+    	"type" : "Required. Must be one of 'azuresql', 'documentdb', 'azureblob', or 'azuretable'",
     	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
     	"container" : { "name" : "Required. The name of the table, collection, or blob container you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
@@ -114,28 +115,29 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 
 La richiesta contiene le proprietà seguenti:
 
-- `name`: elemento obbligatorio. nome dell'origine dati. Il nome di un'origine dati deve contenere solo lettere minuscole, cifre o trattini, non può iniziare o terminare con trattini e deve avere una lunghezza massima di 128 caratteri.
+- `name`: richiesto. nome dell'origine dati. Il nome di un'origine dati deve contenere solo lettere minuscole, cifre o trattini, non può iniziare o terminare con trattini e deve avere una lunghezza massima di 128 caratteri.
 - `description`: descrizione facoltativa.
-- `type`: elemento obbligatorio. Deve essere uno dei tipi di origine dati supportati:
+- `type`: richiesto. Deve essere uno dei tipi di origine dati supportati:
 	- `azuresql` - database SQL di Azure e SQL Server in macchine virtuali di Azure
 	- `documentdb` - Azure DocumentDB
 	- `azureblob` - Archiviazione BLOB di Azure
+	- `azuretable` - Archivio tabelle di Azure
 - `credentials`:
 	- La proprietà `connectionString` obbligatoria specifica la stringa di connessione per l'origine dati. Il formato della stringa di connessione dipende dal tipo di origine dati:
 		- Per SQL Azure, si tratta della solita stringa di connessione di SQL Server. Se si usa il portale di Azure per recuperare la stringa di connessione, usare l'opzione `ADO.NET connection string`.
 		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di Azure](https://portal.azure.com/).
-		- Per l'archiviazione BLOB di Azure, questa è la stringa di connessione dell'account di archiviazione. Il formato è descritto [qui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). È richiesto un protocollo HTTPS per l'endpoint.
-		
+		- Per l'archiviazione BLOB e l'archiviazione tabelle di Azure, questa è la stringa di connessione dell'account di archiviazione. Il formato è descritto [qui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). È richiesto un protocollo HTTPS per l'endpoint.
 - `container`, elemento obbligatorio: specifica i dati da indicizzare mediante le proprietà `name` e `query`:
 	- `name`, elemento obbligatorio:
 		- SQL Azure: specifica la tabella o la vista. È possibile usare nomi completi di schema, ad esempio `[dbo].[mytable]`.
 		- DocumentDB: specifica la raccolta.
 		- Archiviazione BLOB di Azure: specifica il contenitore di archiviazione.
+		- Archiviazione tabelle di Azure: consente di specificare il nome della colonna della tabella.
 	- `query`, elemento facoltativo:
 		- DocumentDB: consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.
 		- Archiviazione BLOB di Azure: consente di specificare una cartella virtuale all'interno del contenitore BLOB. Ad esempio, per il percorso BLOB `mycontainer/documents/blob.pdf` è possibile usare `documents` come cartella virtuale.
+		- Archiviazione tabelle di Azure: consente di specificare una query che filtra il set di righe da importare.
 		- SQL Azure: la query non è supportata. Se questa funzionalità è necessaria, votare per [questo suggerimento](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
-   
 - Le proprietà facoltative `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` sono descritte di seguito.
 
 <a name="DataChangeDetectionPolicies"></a> **Criteri di rilevamento delle modifiche dei dati**
@@ -239,11 +241,9 @@ L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave
 
 La sintassi del corpo della richiesta è analoga a quella indicata nell'operazione di [creazione di un'origine dati](#CreateDataSourceRequestSyntax).
 
-> [AZURE.NOTE]
-Alcune proprietà non possono essere aggiornate in un'origine dati esistente. Ad esempio, non è possibile modificare il tipo di un'origine dati esistente.
+> [AZURE.NOTE] Alcune proprietà non possono essere aggiornate in un'origine dati esistente. Ad esempio, non è possibile modificare il tipo di un'origine dati esistente.
 
-> [AZURE.NOTE]
-Se non si vuole modificare la stringa di connessione per un'origine dati esistente, è possibile specificare il valore letterale `<unchanged>` per la stringa di connessione. Questo accorgimento è utile nelle situazioni in cui è necessario aggiornare un'origine dati ma non si dispone dell'accesso alla stringa di connessione poiché si tratta di dati con esigenze particolari a livello di sicurezza.
+> [AZURE.NOTE] Se non si vuole modificare la stringa di connessione per un'origine dati esistente, è possibile specificare il valore letterale `<unchanged>` per la stringa di connessione. Questo accorgimento è utile nelle situazioni in cui è necessario aggiornare un'origine dati ma non si dispone dell'accesso alla stringa di connessione poiché si tratta di dati con esigenze particolari a livello di sicurezza.
 
 **Risposta**
 
@@ -383,9 +383,9 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `"P[nD][T[nH][nM]]"`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore.
+- `interval`: richiesto. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `"P[nD][T[nH][nM]]"`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore.
 
-- `startTime`: elemento obbligatorio. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
+- `startTime`: richiesto. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
 
 **Parametri dell'indicizzatore**
 
@@ -398,7 +398,6 @@ Un indicizzatore può facoltativamente specificare diversi parametri che ne infl
 - `base64EncodeKeys`: specifica se le chiavi del documento saranno codificate in base 64. Ricerca di Azure impone restrizioni sui caratteri che possono essere presenti in una chiave del documento. Tuttavia, i valori nei dati di origine possono contenere caratteri non validi. Se è necessario indicizzare questi valori come chiavi del documento, questo contrassegno può essere impostato su true. Il valore predefinito è `false`.
 
 - `batchSize`: specifica il numero di elementi che vengono letti dall'origine dati e indicizzati in un batch unico per migliorare le prestazioni. Il valore predefinito dipende dal tipo di origine dati: 1000 per SQL Azure e DocumentDB e 10 per archiviazione BLOB di Azure.
-
 
 **Mapping dei campi**
 
@@ -641,7 +640,7 @@ Il risultato dell'esecuzione dell'indicizzatore contiene le proprietà seguenti:
 
 - `endTime`: ora UTC di fine dell'esecuzione. Questo valore non viene impostato se l'esecuzione è ancora in corso.
 
-- `errors`: elenco di errori a livello di elemento, se presenti. Ogni voce contiene una chiave di documento (proprietà `key`) e un messaggio di errore (proprietà `errorMessage`).
+- `errors`: array di errori a livello di elemento, se presenti. Ogni voce contiene una chiave di documento (proprietà `key`) e un messaggio di errore (proprietà `errorMessage`).
 
 - `itemsProcessed`: numero di elementi di origine dati (ad esempio, righe di tabella) che l'indicizzatore ha tentato di indicizzare durante questa esecuzione.
 
@@ -744,7 +743,7 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 <tr>
 <td>time, timespan<br>binary, varbinary, image<br>XML, geometry, tipi CLR</td>
 <td>N/D</td>
-<td>Non supportato</td>
+<td>Non supportate</td>
 </tr>
 </table>
 
@@ -772,7 +771,7 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 <td></td>
 </tr>
 <tr>
-<td>stringa</td>
+<td>string</td>
 <td>Edm.String</td>
 <td></td>
 </tr>
@@ -798,4 +797,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

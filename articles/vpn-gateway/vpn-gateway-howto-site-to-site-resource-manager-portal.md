@@ -20,9 +20,9 @@
 # Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure
 
 > [AZURE.SELECTOR]
-- [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portale di Azure classico](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classica - Portale classico](vpn-gateway-site-to-site-create.md)
 
 
 Questo articolo illustra la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale con il **modello di distribuzione Azure Resource Manager** e il portale di Azure. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
@@ -154,4 +154,4 @@ Per verificare la connessione VPN è possibile usare il portale o PowerShell.
 
 - Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

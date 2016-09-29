@@ -11,12 +11,12 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 	
 # Come usare l'archiviazione di Azure nelle app di Windows Store
 
-## Panoramica
+## Overview
 
 In questa guida viene illustrato come iniziare a sviluppare un'applicazione Windows Store che utilizzi l'archiviazione di Azure.
 
@@ -63,7 +63,7 @@ I tipi utilizzati per comunicare con il servizio tabelle di Azure dipendono dall
 
 ![store-apps-storage-package-manager][store-apps-storage-package-manager]
 
-Usare il comando seguente per indirizzare Gestione Pacchetti alla posizione sul proprio computer:
+Utilizzare il comando seguente per indirizzare Gestione Pacchetti alla posizione sul proprio computer:
 
     Install-Package Microsoft.Data.OData.WindowsStore -Source "C:\Program Files (x86)\Microsoft WCF Data Services\5.0\bin\NuGet"
 
@@ -87,4 +87,4 @@ Questo codice verifica se esiste una tabella denominata *table1* nell'account, c
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -129,7 +129,8 @@ Si noti che ogni facet contiene un'etichetta (colori, categorie, prezzi), un'ass
 <a name="buildindex"></a>
 ##Compilare l'indice
 
-L'esplorazione in base a facet viene abilitata per ogni campo singolarmente, tramite l'attributo di indice: `"Facetable": true`. Tutti i tipi di campo che possono essere usati in esplorazione in base a facet sono `Facetable` per impostazione predefinita. Tali tipi di campo includono `Edm.String`, `Edm.DateTimeOffset` e tutti i tipi di campo numerico (ossia, tutti i tipi di campo consentono un'esplorazione in base a facet tranne `Edm.GeographyPoint`, che non può essere usato nell'esplorazione in base a facet).
+L'esplorazione in base a facet viene abilitata per ogni campo singolarmente, tramite l'attributo di indice: `"Facetable": true`.  
+Tutti i tipi di campo che possono essere usati in esplorazione in base a facet sono `Facetable` per impostazione predefinita. Tali tipi di campo includono `Edm.String`, `Edm.DateTimeOffset` e tutti i tipi di campo numerico (ossia, tutti i tipi di campo consentono un'esplorazione in base a facet tranne `Edm.GeographyPoint`, che non può essere usato nell'esplorazione in base a facet).
 
 Durante la creazione di un indice, è consigliabile disattivare in modo esplicito l'esplorazione in base a facet per i campi che non devono mai essere usati come un facet. In particolare, i campi stringa per i valori singleton, ad esempio un nome di prodotto o ID, devono essere impostati su `"Facetable": false` per impedirne l'uso accidentale (e inefficace) nell'esplorazione in base a facet.
 

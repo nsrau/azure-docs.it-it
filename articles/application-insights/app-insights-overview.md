@@ -347,11 +347,11 @@ Introduzione in fase di sviluppo a:
  * [Risoluzione dei problemi][qna]
  * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+ * [Ottenere il supporto tecnico Developer](app-insights-get-dev-support.md)
 * Suggerimenti:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
  * [Blog di Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
@@ -386,4 +386,4 @@ Introduzione in fase di sviluppo a:
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

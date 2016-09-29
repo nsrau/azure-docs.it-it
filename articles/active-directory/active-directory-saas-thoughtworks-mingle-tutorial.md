@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle
@@ -68,7 +68,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell’applicazione **Thoughtworks Mingle** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura Single Sign On**.
+1.  Nella pagina di integrazione dell'applicazione **Thoughtworks Mingle** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura Single Sign On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configura accesso Single Sign-On")
 
@@ -95,7 +95,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     ![Config SSO](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "Config SSO")
 
     1.  Per caricare il file di metadati, fare clic su **Scegli file**.
-    2.  Fare clic su **Salva modifiche**.
+    2.  Fare clic su **Save** per salvare le modifiche.
 
 8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
@@ -105,7 +105,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
   
 Per consentire agli utenti di AAD di accedere, è necessario eseguirne il privisioning nell’applicazione Thoughtworks Mingle utilizzando i relativi nomi utente di Azure Active Directory. Nel caso di Thoughtworks Mingle, il provisioning è un'attività manuale.
 
-###Per configurare il provisioning utente, eseguire la procedura seguente:
+###Per configurare il provisioning utente, seguire questa procedura:
 
 1.  Accedere al sito aziendale di Thoughtworks Mingle come amministratore.
 
@@ -119,11 +119,11 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il privis
 
 4.  Fare clic su **Nuovo utente**.
 
-    ![New User](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "New User")
 
 5.  Nella pagina **Nuovo utente** eseguire la procedura seguente:
 
-    ![Nuovo utente](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785163.png "Nuovo utente")
+    ![New User](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785163.png "New User")
 
     1.  Digitare nelle caselle di testo correlate **Nome accesso**, **Nome visualizzato**, **Scegli password**, **Conferma password** le informazioni relative a un account AAD valido di cui si desidera eseguire il provisioning.
     2.  In **Tipo di utente** selezionare **Base**.
@@ -133,7 +133,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il privis
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Thoughtworks Mingle, eseguire la procedura seguente:
 
@@ -149,4 +149,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

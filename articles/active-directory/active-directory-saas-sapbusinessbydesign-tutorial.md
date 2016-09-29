@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -227,11 +227,11 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png)
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** sulla barra degli strumenti in basso.
+4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png)
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 	
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_05.png)
 
@@ -239,9 +239,9 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
-    c. Fare clic su **Avanti**.
+    c. Fare clic su **Next**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura:
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 	
 	![Creazione di un utente test di Azure AD](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png)
 
@@ -333,4 +333,4 @@ Quando si fa clic sul riquadro SAP Business ByDesign nel pannello di accesso, si
 [204]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

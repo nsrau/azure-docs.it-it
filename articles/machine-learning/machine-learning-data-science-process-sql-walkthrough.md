@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -81,7 +81,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 3. [Eseguire il provisioning di una macchina virtuale Data Science](machine-learning-data-science-setup-sql-server-virtual-machine.md), che servirà come SQL Server e server IPython Notebook.
 
 	> [AZURE.NOTE] Gli script e i blocchi di appunti IPython di esempio verranno scaricati nella macchina virtuale Data Science durante il processo di configurazione. Una volta completato lo script di post installazione della VM, gli esempi saranno disponibili nella libreria dei documenti della VM:
-	> - Script di esempio: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Script di esempio: `C:\Users<user_name>\Documents\Data Science Scripts`
 	> - Blocchi di appunti di esempio IPython: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` dove `<user_name>` è il nome di accesso Windows della VM. Le cartelle di esempio saranno denominate **Script di esempio** e **Blocchi di appunti IPython di esempio**.
 
 
@@ -97,7 +97,7 @@ Per copiare i dati usando AzCopy:
 
 2. Creare una nuova directory nel disco dati della macchina virtuale (nota: non utilizzare come disco dati il disco temporaneo fornito con la macchina virtuale).
 
-3. In una finestra di prompt dei comandi, eseguire la seguente riga di comando Azcopy, sostituendo <path_to_data_folder> con la cartella dei dati creata al passaggio (2):
+3. In una finestra di prompt dei comandi, eseguire la seguente riga di comando Azcopy, sostituendo <path\_to\_data\_folder> con la cartella dei dati creata al passaggio (2):
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
@@ -144,7 +144,7 @@ Per copiare i dati usando AzCopy:
 7. Nella cartella **Script di esempio**, sono presenti due script PowerShell di esempio, forniti per illustrare le importazioni in blocco in parallelo dei dati nelle tabelle SQL Server.
 
 	- **bcp\_parallel\_generic.ps1** è uno script generico per l'importazione in blocco in parallelo dei dati in una tabella. Modificare lo script per impostare le variabili di input e di destinazione come indicato nelle righe di commento dello script.
-	- **bcp\_parallel\_nyctaxi.ps1** è una versione preconfigurata dello script generico e può essere utilizzata per caricare entrambe le tabelle per i dati Corse dei taxi di NYC.  
+	- **bcp\_parallel\_nyctaxi.ps1** è una versione preconfigurata dello script generico e può essere utilizzata per caricare entrambe le tabelle per i dati Corse dei taxi di NYC.
 
 8. Fare clic con il pulsante destro del mouse sul nome dello script **bcp\_parallel\_nyctaxi.ps1** e fare clic su **Modifica** per aprirlo in PowerShell. Esaminare le variabili preimpostate e modificarle in base al nome di database selezionato, alla cartella dei dati di input, alla cartella del log di destinazione e ai percorsi dei file di formato di esempio **nyctaxi\_trip.xml** e **nyctaxi\_fare.xml** (forniti nella cartella **Script di esempio**).
 
@@ -175,8 +175,8 @@ In questo esercizio, verranno effettuate le seguenti operazioni:
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:
 
-1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Importa dati][import-data] in Azure Machine Learning
-2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database e usare la nuova tabella nel modulo [Importa dati][import-data] in Azure Machine Learning.
+1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] \(Importa dati) in Azure Machine Learning, oppure
+2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database e usare la nuova tabella nel modulo [Import Data][import-data] \(Importa dati) in Azure Machine Learning.
 
 In questa sezione verrà salvata la query finale per estrarre e campionare i dati. Il secondo metodo viene illustrato nella sezione [Esplorazione dei dati e progettazione di funzionalità in IPython Notebook](#ipnb).
 
@@ -266,7 +266,7 @@ Le query di esplorazione per la generazione delle etichette e la conversione geo
 
 #### Preparazione dei dati per la creazione di modelli
 
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. La query può essere copiata e incollata direttamente nel modulo [Importa dati](https://studio.azureml.net) di [Azure Machine Learning Studio][import-data] per l'inserimento diretto dei dati dall'istanza del database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione casuale dell'1% dall'intero set di dati unito. La query può essere copiata e incollata direttamente nel modulo [Import Data](https://studio.azureml.net) (Importa dati) di [Azure Machine Learning Studio][import-data] per l'inserimento diretto dei dati dall'istanza del database SQL Server in Azure. La query esclude i record con le coordinate errate (0, 0).
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -298,8 +298,8 @@ La sequenza consigliata quando si utilizzano i Big Data è la seguente:
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:
 
-1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Importa dati][import-data] in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel).    
-2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database, quindi usare la nuova tabella nel modulo [Importa dati][import-data].
+1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] \(Importa dati) in Azure Machine Learning. Questo metodo è illustrato nella sezione [Creazione di modelli in Azure Machine Learning](#mlmodel).
+2. Salvare in modo definitivo i dati campionati e compilati che si prevede di usare per la creazione di modelli in una nuova tabella di database, quindi usare la nuova tabella nel modulo [Import Data][import-data] \(Importa dati).
 
 Di seguito vengono forniti alcuni esempi di esplorazione dei dati, visualizzazione dei dati e progettazione di funzionalità. Per ulteriori esempi, vedere il blocco di appunti di esempio SQL IPython nella cartella **Blocchi di appunti IPython di esempio**.
 
@@ -334,7 +334,7 @@ Inizializzare le impostazioni di connessione del database nelle seguenti variabi
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Numero di righe totali = 173179759  
+- Numero di righe totali = 173179759
 - Numero di colonne totali = 14
 
 #### Effettuazione della lettura di un piccolo campione di dati dal database SQL Server
@@ -358,7 +358,8 @@ Inizializzare le impostazioni di connessione del database nelle seguenti variabi
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Il tempo per la lettura della tabella di esempio è di 6,492000 secondi, Numero di righe e di colonne recuperate = (8.4952, 21)
+Il tempo per la lettura della tabella di esempio è di 6,492000 secondi  
+Numero di righe e di colonne recuperate = (8.4952, 21)
 
 #### Statistiche descrittive
 
@@ -419,7 +420,7 @@ Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **tr
 
 ### Sottocampionamento dei dati in SQL
 
-Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <your\_new\_table\_name>**.
+Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Import Data** (Importa dati) o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Import Data][import-data] \(Importa dati) con un semplice **SELECT * FROM <your\_new\_table\_name>.
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore).
 
@@ -631,7 +632,7 @@ Un tipico esperimento training consiste nelle seguenti operazioni:
 
 In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server, ed è stata decisa la dimensione del campione da inserire in Azure ML. Per creare uno o più modelli di stima è stato deciso di effettuare le seguenti operazioni:
 
-1. Inserire dati in Azure ML tramite il modulo [Importa dati][import-data], disponibile nella sezione **Input e output dei dati**. Per altre informazioni, vedere la pagina di riferimento sul [modulo Importa dati][import-data].
+1. Inserire i dati in Azure ML tramite il modulo [Import Data][import-data] \(Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] \(Importa dati).
 
 	![Importa dati Azure ML][17]
 
@@ -641,7 +642,7 @@ In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server,
 
 4. Immissione del **Nome database** nel campo corrispondente.
 
-5. Immissione del **Nome utente SQL** in **Nome account utente server, e della password in **Password account utente server.**.
+5. Immissione del **Nome utente SQL** in **Nome account utente server, e della password** in Password account utente server**.
 
 6. Selezione dell'opzione **Accetta qualsiasi certificato server**.
 
@@ -653,7 +654,7 @@ Nella figura seguente viene fornito un esempio di un esperimento di classificazi
 
 > [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, nell'utilizzo della classificazione binaria, utilizzare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
-> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile usare il modulo [Seleziona colonne nel set di dati][select-columns] o l'[Editor metadati][edit-metadata]. Per altre informazioni, vedere le pagine di riferimento [Selezionare le colonne nel set di dati][select-columns] e [Modificare i metadati][edit-metadata].
+> Per escludere le colonne non necessarie e/o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] \(Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] \(Modifica metadati).
 
 ## <a name="mldeploy"></a>Distribuzione di modelli in Azure Machine Learning
 
@@ -674,7 +675,7 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Etichette con punteggio** e **Probabilità con punteggio** nell'output, mediante il modulo [Seleziona colonne nel set di dati][select-columns].
+Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regolarlo in base alle esigenze. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati).
 
 Nella figura di seguito viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
@@ -688,7 +689,9 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 ### Riferimenti
 
-• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) • [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
+• [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -716,4 +719,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

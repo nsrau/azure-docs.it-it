@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="05/24/2016"
+	ms.date="09/12/2016"
 	ms.author="magoedte;bwren" />
 
 # Test di un runbook in Automazione di Azure
@@ -43,4 +43,4 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 - Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
 - Per altre informazioni sulla configurazione dei runbok per restituire messaggi di stato ed errori e per conoscere le operazioni consigliate, vedere [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->
