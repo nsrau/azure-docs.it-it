@@ -94,4 +94,4 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 - Informazioni su come [Creare route definite dall'utente in Resource Manager usando un modello](virtual-network-create-udr-arm-template.md) e associarle alle subnet.
 - Informazioni su come [creare route nel modello di distribuzione classica](virtual-network-create-udr-classic-ps.md) e associarle a subnet.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

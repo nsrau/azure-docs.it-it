@@ -113,4 +113,4 @@ Dopo aver aggiunto i database al pool, le indicazioni verranno dinamicamente gen
 - [Gestire un pool di database elastici SQL con C#](sql-database-elastic-pool-manage-csharp.md)
 - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!----HONumber=AcomDC_0907_2016-->

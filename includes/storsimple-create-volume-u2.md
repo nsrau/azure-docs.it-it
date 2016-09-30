@@ -42,4 +42,4 @@
 
 4. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Verrà creato un volume con le impostazioni specificate.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

@@ -282,4 +282,4 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!----HONumber=AcomDC_0907_2016-->

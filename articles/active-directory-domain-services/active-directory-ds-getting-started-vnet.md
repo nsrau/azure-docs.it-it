@@ -58,4 +58,4 @@ Eseguire i passaggi di configurazione seguenti per creare una rete virtuale di A
 ## Attività 3: Abilitare Servizi di dominio Azure AD
 L'attività di configurazione successiva consiste nell'[abilitare Servizi di dominio Azure AD](active-directory-ds-getting-started-enableaadds.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

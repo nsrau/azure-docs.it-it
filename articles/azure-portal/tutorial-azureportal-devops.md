@@ -402,4 +402,4 @@ Questa esercitazione ha illustrato alcune potenzialità della piattaforma Azure 
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!----HONumber=AcomDC_0615_2016-->

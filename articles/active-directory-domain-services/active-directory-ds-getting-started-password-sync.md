@@ -73,4 +73,4 @@ Dopo la modifica, la nuova password sarà utilizzabile in Servizi di dominio Azu
 
 - [Aggiungere una macchina virtuale Red Hat Enterprise Linux a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->
