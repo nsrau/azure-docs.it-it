@@ -71,4 +71,4 @@ Per le macchine virtuali aggiuntive nel set con carico bilanciato, ripetere i pa
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->
