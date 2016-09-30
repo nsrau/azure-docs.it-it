@@ -306,4 +306,4 @@ Dove **nrprg** è il gruppo di risorse e **nrplb** è il nome del servizio di bi
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->
