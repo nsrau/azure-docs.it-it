@@ -154,4 +154,4 @@ Dopo aver preparato i dati di origine, è possibile iniziare a sviluppare uno sc
 - Per visualizzare la stessa esercitazione usando altri strumenti, scegliere i selettori di scheda nella parte superiore della pagina.
 - Per registrare informazioni di diagnostica, vedere [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Accesso ai log di diagnostica per Azure Data Lake Analytics)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

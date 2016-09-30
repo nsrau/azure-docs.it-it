@@ -182,4 +182,4 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

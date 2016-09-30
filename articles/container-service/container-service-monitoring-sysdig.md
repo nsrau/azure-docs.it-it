@@ -54,4 +54,4 @@ Impostare ora le istanze su 10000000 in modo che, quando viene aggiunto un nuovo
 
 Una volta installato il pacchetto, tornare all'interfaccia utente di Sysdig per esplorare le diverse metriche di utilizzo per i contenitori nel cluster.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

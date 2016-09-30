@@ -12,4 +12,4 @@
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!-----HONumber=AcomDC_0803_2016-->

@@ -51,4 +51,4 @@ Eseguire i passaggi di configurazione seguenti per aggiornare l'impostazione del
 ## Attività 5: Abilitare la sincronizzazione password in Servizi di dominio Azure AD.
 L'attività di configurazione successiva consiste nell'[Abilitare la sincronizzazione password in Servizi di dominio Azure AD](active-directory-ds-getting-started-password-sync.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->

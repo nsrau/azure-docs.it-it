@@ -117,4 +117,4 @@ Fare clic sul pulsante **Avvia** per riavviare la macchina virtuale quando si è
 
 - Per automatizzare le distribuzioni, vedere [Creare una macchina virtuale Windows con un modello di Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0912_2016--->
+<!----HONumber=AcomDC_0912_2016--->
