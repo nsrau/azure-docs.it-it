@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/> 
 
 # Proteggere un'API Web MVC
 
 Con l'endpoint v2.0 di Azure Active Directory è possibile proteggere un'API Web usando token di accesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) in modo da consentire agli utenti di accedere all'API Web in modo sicuro con un account Microsoft personale, aziendale o dell'istituto di istruzione.
 
 > [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 Nelle API Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5. Verrà usato OWIN per compilare un'API Web MVC "Elenco attività" che consente ai client di creare e leggere le attività dall'elenco di attività dell'utente. L'API Web verifica che le richieste in ingresso contengano un token di accesso valido e rifiuta le richieste che non superano la convalida su una route protetta.
 
@@ -121,7 +121,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController`, l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante. OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincpal`.  
+- Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController`, l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante. OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincpal`.
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -155,7 +155,7 @@ Come riferimento [è disponibile qui l'esempio completato (senza i valori di con
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## Passaggi successivi
-È ora possibile passare ad altri argomenti. È possibile:
+È ora possibile passare ad altri argomenti. È possibile consultare:
 
 [Chiamata di un'API Web da un'applicazione Web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
@@ -167,4 +167,4 @@ Per altre risorse, vedere:
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

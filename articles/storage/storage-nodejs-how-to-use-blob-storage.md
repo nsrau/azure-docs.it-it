@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="storage"
@@ -14,13 +14,13 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
     ms.date="08/11/2016"
-	ms.author="micurd"/>
+	ms.author="micurd"/> 
 
 
 
 # Come usare l'archiviazione BLOB da Node.js
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/>  [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 
@@ -32,7 +32,7 @@ Questo articolo illustra scenari comuni relativi all'uso dell'archiviazione BLOB
 
 ## Creare un'applicazione Node.js
 
-Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure], [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure] (con Windows PowerShell) o [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix].
+Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure], [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure] \(con Windows PowerShell) o [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix].
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -83,9 +83,7 @@ Per creare un nuovo contenitore, usare **createContainerIfNotExists**. L'esempio
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
 	    if(!error){
-	      // Container exists and allows
-	      // anonymous read access to blob
-	      // content and metadata within this container
+	      // Container exists and is private
 	    }
 	});
 
@@ -103,7 +101,9 @@ L'esempio di codice seguente illustra l'impostazione del livello di accesso su *
 
 	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
 	    if(!error){
-	      // Container exists and is private
+	      // Container exists and allows
+	      // anonymous read access to blob
+	      // content and metadata within this container
 	    }
 	});
 
@@ -415,4 +415,4 @@ Per altre informazioni, vedere le risorse seguenti:
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Riferimento per le API di Azure Storage SDK per Node.js]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

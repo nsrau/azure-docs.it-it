@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script F#](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.JS](../articles/azure-functions/functions-reference-node.md)
  
 L'esperienza C# per Funzioni di Azure si basa su Azure WebJobs SDK. I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento sono specificati in `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
@@ -30,7 +31,7 @@ Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento p
 
 ## Funzionamento di CSX
 
-Il formato `.csx` consente di scrivere meno "boilerplate" e concentrarsi solo sulla scrittura di una funzione C#. Per Funzioni di Azure è sufficiente includere tutti i riferimenti agli assembly e gli spazi dei nomi necessari, come al solito, e invece di racchiudere tutto in uno spazio dei nomi e una classe, è possibile definire solo il metodo `Run`. Se è necessario includere classi, ad esempio per definire gli oggetti POCO, si può includere una classe nello stesso file.
+Il formato `.csx` consente di scrivere meno "boilerplate" e di concentrarsi solo sulla scrittura di una funzione C#. Per Funzioni di Azure è sufficiente includere tutti i riferimenti agli assembly e gli spazi dei nomi necessari, come al solito, e invece di racchiudere tutto in uno spazio dei nomi e una classe, è possibile definire solo il metodo `Run`. Se è necessario includere classi, ad esempio per definire gli oggetti POCO, si può includere una classe nello stesso file.
 
 ## Associazione agli argomenti
 
@@ -51,7 +52,7 @@ public class MyClass
 
 ## Registrazione
 
-Per registrare l'output nei log in streaming in C#, è possibile includere un argomento tipizzato `TraceWriter`. È consigliabile denominarlo `log`. Si consiglia di evitare `Console.Write` in Funzioni di Azure.
+Per registrare l'output nei log in streaming in C#, è possibile includere un argomento tipizzato `TraceWriter`. È consigliabile denominarlo `log`. È consigliabile evitare `Console.Write` in Funzioni di Azure.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -102,13 +103,13 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 Gli spazi dei nomi seguenti vengono importati automaticamente e sono quindi facoltativi:
 
-* `System`
+* `System` 
 * `System.Collections.Generic`
 * `System.IO`
 * `System.Linq`
 * `System.Net.Http`
 * `System.Threading.Tasks`
-* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs` 
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Riferimento ad assembly esterni
@@ -128,29 +129,29 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting di Funzioni di Azure:
 
 * `mscorlib`,
-* `System`
+* `System` 
 * `System.Core`
 * `System.Xml`
 * `System.Net.Http`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
-* `System.Web.Http`
+* `System.Web.Http` 
 * `System.Net.Http.Formatting`.
 
 Gli assembly seguenti sono anche casi speciali ai quali è possibile fare riferimento tramite simplename, ad esempio `#r "AssemblyName"`:
 
-* `Newtonsoft.Json`
+* `Newtonsoft.Json` 
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`
+* `Microsoft.AspNet.WebHooks.Receivers` 
 * `Microsoft.AspNEt.WebHooks.Common`.
 
 Per fare riferimento a un assembly privato è possibile caricare il file dell'assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`. Per informazioni su come caricare i file nella cartella della funzione vedere la sezione seguente sulla gestione dei pacchetti.
 
 ## Gestione dei pacchetti
 
-Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* nella cartella della funzione nel file system dell'app per le funzioni. Ecco un esempio di file *project.json* che aggiunge un riferimento a Microsoft.ProjectOxford.Face versione 1.1.0:
+Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* nella cartella della funzione nel file system dell'app per le funzioni. Di seguito è riportato un esempio di file *project.json* che aggiunge un riferimento a Microsoft.ProjectOxford.Face versione 1.1.0:
 
 ```json
 {
@@ -171,7 +172,7 @@ Quando si carica un file *project.json*, il runtime ottiene i pacchetti e aggiun
 
 ### Come caricare un file project.json
 
-1. Assicurarsi prima di tutto che l'app di funzione sia in esecuzione aprendo la funzione nel portale di Azure. 
+1. Assicurarsi prima di tutto che l'app di funzione sia in esecuzione aprendo la funzione nel portale di Azure.
 
 	In questo modo è anche possibile accedere ai log in streaming in cui verrà visualizzato l'output di installazione dei pacchetti.
 
@@ -255,7 +256,8 @@ La direttiva `#load` funziona solo con i file con estensione *csx* (script C# ),
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
+* [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-fsharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

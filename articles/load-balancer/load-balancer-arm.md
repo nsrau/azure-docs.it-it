@@ -71,4 +71,4 @@ Introduzione ai cmdlet, agli strumenti da riga di comando e alle API REST di Azu
 
 Informazioni su come gestire [le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Questo è importante quando l'applicazione deve mantenere le connessioni attive per i server di bilanciamento del carico.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="java"
 	authors="dineshmurthy"
-	manager="carmonm"
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="dineshm"/>
+	ms.date="09/20/2016"
+	ms.author="dineshm;robinsh"/>
 
 
 # Crittografia lato client con Java per Archiviazione di Microsoft Azure   
@@ -120,7 +120,7 @@ Esistono tre pacchetti insieme di credenziali chiave:
 2.	Utilizzare l’identificatore di base del segreto come parametro per risolvere la versione corrente del segreto per la crittografia e memorizzare nella cache queste informazioni in locale. Utilizzare CachingKeyResolver per la memorizzazione nella cache; non è previsto che gli utenti implementino la propria logica di memorizzazione nella cache.
 
 3.	Utilizzare il resolver di memorizzazione nella cache come input durante la creazione del criterio di crittografia.
-Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia. <fix URL>
+ Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia. <fix URL>
 
 ## Procedure consigliate  
 Il supporto della crittografia è disponibile solo nella libreria client di archiviazione per Java.
@@ -249,4 +249,4 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 	- Pacchetto [client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

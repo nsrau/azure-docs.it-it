@@ -5,7 +5,7 @@
 	documentationCenter="ios"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="brandwe"/>
+	ms.date="09/16/2016"
+	ms.author="brandwe"/> 
 
 # Integrare Azure AD in un'app iOS
 
@@ -48,7 +48,7 @@ Il formato iOS per un URI di reindirizzamento è:
 - 	**aap-scheme**: è registrato nel progetto XCode ed è il modo in cui altre applicazioni possono eseguire la chiamata. È possibile trovarlo in Info.plist -> URL types -> URL Identifier. È consigliabile crearne uno se non sono stati configurati uno o più URI.
 - 	**bundle-id**: è il Bundle Identifier presente in "identity" nelle impostazioni del progetto in XCode.
 
-Un esempio di questo codice QuickStart sarebbe: ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Un esempio di questo codice QuickStart sarebbe: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Registrare l'applicazione DirectorySearcher*
 Per consentire all'applicazione di ottenere i token, sarà innanzitutto necessario registrarla nel tenant di Azure AD e concederle l'autorizzazione per accedere all'API Graph di Azure AD:
@@ -223,11 +223,11 @@ ADAL consente di incorporare facilmente nell'applicazione tutte queste funzional
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
 
 ## Scenari aggiuntivi
-Ora è possibile passare ad altri scenari. È possibile:
+Ora è possibile passare ad altri scenari. È possibile consultare:
 
 - [Proteggere un'API Web Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
-- Ottenere informazioni su [Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL](active-directory-sso-ios.md)  
+- Ottenere informazioni su [Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL](active-directory-sso-ios.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0921_2016-->

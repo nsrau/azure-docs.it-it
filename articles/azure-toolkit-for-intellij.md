@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="multiple"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="07/07/2016" 
-	ms.author="robmcm;asirveda"/>
+	ms.date="09/20/2016" 
+	ms.author="robmcm;asirveda"/> 
 
 # Toolkit di Azure per IntelliJ
 
 Il Toolkit di Azure per IntelliJ offre modelli e funzionalità che consentono di creare, sviluppare, testare e distribuire con facilità applicazioni Azure tramite l'ambiente di sviluppo IntelliJ. Si tratta di un progetto Open Source, il cui codice sorgente è disponibile con la licenza MIT dal sito del progetto in:
 
-* <https://github.com/microsoft/azure-tools-for-java>
+* <https://github.com/microsoft/azure-tools-for-java> 
 
 > [AZURE.NOTE] Esiste anche un Toolkit di Azure per l’IDE di Eclipse. Per ulteriori informazioni, vedere [Toolkit di Azure per Eclipse].
 
@@ -54,7 +54,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->
+<!-- URL List --> 
 
 [Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
@@ -70,4 +70,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Debug di un'App Web Java su Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
 [HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="fashah;bradsev"/>
 
 
@@ -76,7 +76,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
 1. [Creare un account di archiviazione](../storage/storage-create-storage-account.md)
 
-2. [Creare un'area di lavoro Azure ML](machine-learning-create-workspace.md)
+2. [Creare un'area di lavoro di Machine Learning di Azure](machine-learning-create-workspace.md)
 
 3. [Eseguire il provisioning di una macchina virtuale Data Science](machine-learning-data-science-setup-sql-server-virtual-machine.md), che servirà come SQL Server e server IPython Notebook.
 
@@ -358,7 +358,7 @@ Inizializzare le impostazioni di connessione del database nelle seguenti variabi
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Il tempo per la lettura della tabella di esempio è di 6,492000 secondi  
+Il tempo per la lettura della tabella di esempio è di 6,492000 secondi, 
 Numero di righe e di colonne recuperate = (8.4952, 21)
 
 #### Statistiche descrittive
@@ -609,7 +609,7 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 
 ## <a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
 
-Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure ML](machine-learning-create-workspace.md).
+Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure Machine Learning](machine-learning-create-workspace.md).
 
 1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
@@ -620,7 +620,7 @@ Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area d
 Un tipico esperimento training consiste nelle seguenti operazioni:
 
 1. Creazione di un esperimento **+NEW**.
-2. Inserimento dei dati in Azure ML.
+2. Ottenere i dati in Azure Machine Learning.
 3. Pre-elaborazione, trasformazione e manipolazione dei dati secondo le esigenze.
 4. Generazione di funzionalità, se necessario.
 5. Suddivisione dei dati in set di dati di training, convalida o test(o creazione di set di dati distinti per ciascuna tipologia).
@@ -630,11 +630,11 @@ Un tipico esperimento training consiste nelle seguenti operazioni:
 9. Valutazione dei modelli per calcolare la metrica rilevante per il problema di apprendimento.
 10. Ottimizzazione dei modelli e selezione del modello migliore per la distribuzione.
 
-In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server, ed è stata decisa la dimensione del campione da inserire in Azure ML. Per creare uno o più modelli di stima è stato deciso di effettuare le seguenti operazioni:
+In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server, ed è stata decisa la dimensione del campione da inserire in Azure Machine Learning. Per creare uno o più modelli di stima è stato deciso di effettuare le seguenti operazioni:
 
-1. Inserire i dati in Azure ML tramite il modulo [Import Data][import-data] \(Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] \(Importa dati).
+1. Inserire i dati in Azure Machine Learning tramite il modulo [Import Data][import-data] \(Importa dati), disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul [modulo Importa dati][import-data].
 
-	![Importa dati Azure ML][17]
+	![Dati di importazione di Azure Machine Learning][17]
 
 2. Selezione del **Database SQL Azure** come **Origine dati** nel pannello **Proprietà**.
 
@@ -650,7 +650,7 @@ In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server,
 
 Nella figura seguente viene fornito un esempio di un esperimento di classificazione binaria in cui si esegue la lettura dei dati direttamente dal database SQL Server. È possibile creare esperimenti dello stesso tipo per i problemi di classificazione multiclasse e di regressione.
 
-![Formazione su Azure ML][10]
+![Formazione di Azure Machine Learning][10]
 
 > [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, nell'utilizzo della classificazione binaria, utilizzare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
@@ -658,7 +658,7 @@ Nella figura seguente viene fornito un esempio di un esperimento di classificazi
 
 ## <a name="mldeploy"></a>Distribuzione di modelli in Azure Machine Learning
 
-Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure ML, vedere [Distribuzione di un servizio Web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
+Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure Machine Learning, vedere [Distribuzione di un servizio Web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti operazioni:
 
@@ -679,7 +679,7 @@ Una volta creato l'esperimento di assegnazione del punteggio, esaminarlo e regol
 
 Nella figura di seguito viene fornito un esperimento di assegnazione di punteggio di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
-![Pubblicazione di Azure ML][11]
+![Pubblicazione di Azure Machine Learning][11]
 
 Ricapitolando, in questa esercitazione dettagliata è stato creato un ambiente di analisi scientifica dei dati Azure, è stato utilizzato un set di dati pubblico di grandi dimensioni dall'acquisizione dei dati al training del modello e alla distribuzione di un servizio Web Azure Machine Learning.
 
@@ -719,4 +719,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

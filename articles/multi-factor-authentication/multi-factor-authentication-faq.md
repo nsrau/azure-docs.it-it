@@ -3,9 +3,9 @@
 	description="Fornisce un elenco di domande e risposte frequenti correlate ad Azure Multi-Factor Authentication. Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un livello di sicurezza aggiuntivo agli accessi e alle transazioni degli utenti."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/> 
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/> 
 
 # Domande frequenti su Azure Multi-Factor Authentication
 
@@ -38,7 +38,7 @@ Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e
   I clienti legacy di PhoneFactor che hanno domande o necessitano di assistenza per reimpostare una password possono usare il collegamento per la [reimpostazione della password](mailto:phonefactorsupport@microsoft.com) per aprire una richiesta di assistenza.
 
 - [Supporto per il server Azure Multi-Factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947)
-  
+
   Utilizzare questo collegamento per contattare un supporto Professional di Microsoft. Verranno poste alcune domande per determinare le opzioni di supporto disponibili, tra cui l'invio di messaggi di posta elettronica, l'invio online o il supporto telefonico.
 
 
@@ -185,4 +185,4 @@ Attualmente, un utente può usare la verifica aggiuntiva di sicurezza solo con a
 
 Una soluzione alternativa consiste nel disporre di account utente separati per le operazioni correlate all'amministratore e per quelle non correlate all'amministratore. In un secondo momento è possibile collegare le cassette postali tra l'account amministratore e l'account non amministratore in modo da poter accedere a Outlook usando l'account non amministratore. Per altre informazioni, vedere [Consentire a un amministratore di aprire e visualizzare il contenuto della cassetta postale di un utente](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

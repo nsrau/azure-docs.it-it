@@ -5,8 +5,8 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="07/27/2016"
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/> 
 
 
 # Management .NET SDK: impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso di Azure per .NET
@@ -24,7 +24,7 @@ Informazioni su come impostare ed eseguire processi di analisi tramite l'API di 
 
 Vedere la [documentazione di riferimento sulla gestione per l'API di Analisi di flusso per .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
-Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Analisi di flusso consente ai clienti di configurare processi di flusso per analizzare i flussi di dati e di condurre operazioni di analisi pressoché in tempo reale.
+Analisi dei flussi di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Analisi di flusso consente ai clienti di configurare processi di flusso per analizzare i flussi di dati e di condurre operazioni di analisi pressoché in tempo reale.
 
 
 ## Prerequisiti
@@ -75,7 +75,7 @@ Per creare un processo di analisi usando l'API di Analisi di flusso per .NET, co
 		</appSettings>
 
 
-	Sostituire i valori per **SubscriptionId** e **ActiveDirectoryTenantId** con gli ID della sottoscrizione Azure e del tenant. È possibile ottenere questi valori eseguendo il cmdlet Azure PowerShell seguente:
+	Sostituire i valori per **SubscriptionId** e **ActiveDirectoryTenantId** con gli ID della sottoscrizione di Azure e del tenant. È possibile ottenere questi valori eseguendo il cmdlet Azure PowerShell seguente:
 
 		Get-AzureAccount
 
@@ -343,13 +343,13 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
-<!--Image references-->
+<!--Image references--> 
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
-<!--Link references-->
+<!--Link references--> 
 [azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 
@@ -366,4 +366,4 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

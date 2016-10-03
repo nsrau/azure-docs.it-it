@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante l'SDK di Servizi multimediali per .NET" 
+	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante l'SDK di Servizi multimediali per .NET | Microsoft Azure" 
 	description="Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica utilizzando .NET SDK di Servizi multimediali." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
+	authors="Mingfeiy" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;mingfeiy"/> 
 
 
 
-#Crittografia dinamica: configurare i criteri di autorizzazione della chiave simmetrica 
+# Crittografia dinamica: configurare i criteri di autorizzazione della chiave simmetrica
+
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-##Panoramica
+##Overview
 
 Servizi multimediali di Microsoft Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP-Live-Streaming (HLS) protetti con Advanced Encryption Standard (AES) con chiavi di crittografia a 128 bit o [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS consente anche di recapitare flussi DASH crittografati con Widevine DRM. PlayReady e Widewine vengono crittografati in base alle specifiche della crittografia comune (ISO/IEC 23001-7 CENC).
 
@@ -45,7 +46,7 @@ Per altre informazioni, vedere
 
 ###Considerazioni applicabili:
 
-- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints).
+- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
 - L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla[ codifica di un asset](media-services-encode-asset.md).
 - Caricare e codificare gli asset mediante l'opzione **AssetCreationOptions.StorageEncrypted**.
 - Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
@@ -54,24 +55,17 @@ Per altre informazioni, vedere
 - Attualmente non è possibile crittografare il formato di streaming HDS o i download progressivi.
 
 
-##Crittografia dinamica AES-128 
+##Crittografia dinamica AES-128
 
 ###Restrizione Open
 
 Se si applica una restrizione Open, il sistema distribuirà la chiave a chiunque ne faccia richiesta. Questa restrizione può essere utile a scopo di test.
 
 Il seguente esempio crea un criterio di autorizzazione Open e lo aggiunge alla chiave simmetrica.
-	
-	static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
-	{
-	    // Create ContentKeyAuthorizationPolicy with Open restrictions 
-	    // and create authorization policy             
-	    IContentKeyAuthorizationPolicy policy = _context.
-	                            ContentKeyAuthorizationPolicies.
-	                            CreateAsync("Open Authorization Policy").Result;
-	
-	    List<ContentKeyAuthorizationPolicyRestriction> restrictions =
-	        new List<ContentKeyAuthorizationPolicyRestriction>();
+
+static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Create ContentKeyAuthorizationPolicy with Open restrictions // e creare un criterio di autorizzazione IContentKeyAuthorizationPolicy policy = \_context. ContentKeyAuthorizationPolicies. CreateAsync("Open Authorization Policy").Result;
+
+List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>();
 	
 	    ContentKeyAuthorizationPolicyRestriction restriction =
 	        new ContentKeyAuthorizationPolicyRestriction
@@ -154,7 +148,7 @@ Per configurare l'opzione di restrizione Token, è necessario usare un file XML 
 	  <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
 	</xs:schema>
 
-Quando si configurano i criteri di restrizione **Token**, è necessario specificare i parametri **primary verification key**, **issuer** e **audience**. Il parametro **primary verification key ** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
+Quando si configurano i criteri di restrizione **Token**, è necessario specificare i parametri **primary verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
 Se si usa **Media Services SDK per .NET**, è possibile usare la classe **TokenRestrictionTemplate** per generare il token della restrizione. Il seguente esempio crea un criterio di autorizzazione con una restrizione Token. In questo esempio il client deve presentare un token contenente i seguenti dati: chiave di firma (VerificationKey), autorità emittente del token e attestazioni richieste.
 	
@@ -429,7 +423,7 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -437,10 +431,8 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-##Passaggi successivi
+##Passaggio successivo
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

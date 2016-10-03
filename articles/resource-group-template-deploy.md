@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="tfitzmac"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"/> 
 
 <tags
    ms.service="azure-resource-manager"
@@ -60,9 +60,9 @@ Per altre informazioni sulle opzioni di distribuzione più adatte allo scenario 
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-3. In genere, quando si distribuisce un nuovo modello, è consigliabile creare un nuovo gruppo di risorse per contenere le risorse. Se si desidera distribuire un gruppo di risorse esistente, ignorare questo passaggio e utilizzare semplicemente il gruppo di risorse in questione.
+3. In genere, quando si distribuisce un nuovo modello, è consigliabile creare un nuovo gruppo di risorse per contenere le risorse. Se è già presente un gruppo di risorse per la distribuzione, è possibile ignorare questo passaggio e usare semplicemente quel gruppo di risorse.
 
-     Per creare un gruppo di risorse, specificare il nome e il percorso del gruppo di risorse.
+     Per creare un gruppo di risorse, specificare il nome e il percorso del gruppo di risorse. È necessario specificare un percorso per il gruppo di risorse perché nel gruppo di risorse vengono archiviati i metadati delle risorse. Per motivi di conformità può essere opportuno specificare dove vengono archiviati i metadati. In generale è consigliabile specificare un percorso in cui risiederà la maggior parte delle risorse. Usando lo stesso percorso è possibile semplificare il modello.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -193,4 +193,4 @@ Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare val
 - Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

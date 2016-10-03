@@ -3,9 +3,9 @@
 	description="Il toolkit Spark MLlib introduce importanti funzionalità di modellazione di Machine Learning nell'ambiente distribuito HDInsight."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun"  />
+	editor="cgronlun"  /> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight
 
@@ -35,9 +35,13 @@ La procedura di installazione e il codice fornito in questa procedura dettagliat
 2\. Per completare questa procedura dettagliata è necessario un cluster HDInsight 3.4 Spark 1.6. Per crearne uno, vedere le istruzioni fornite in [Introduzione: creare cluster Apache Spark in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Il tipo e la versione del cluster vengono specificati tramite il menu **Selezionare il tipo di cluster**.
 
 
-![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png) 
+
+<!-- --> 
 
 > [AZURE.NOTE] Per un argomento che illustra come usare Scala anziché Python per completare le attività per un processo di analisi scientifica dei dati end-to-end, vedere l'articolo sull'[analisi scientifica dei dati tramite Scala con Spark in Azure](machine-learning-data-science-process-scala-walkthrough.md).
+
+<!-- --> 
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -146,4 +150,4 @@ Dopo aver configurato un cluster HDInsight Spark e avere caricato i notebook di 
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

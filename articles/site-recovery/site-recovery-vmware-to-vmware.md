@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="nsoneji"
 	manager="jwhit"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="site-recovery"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2016"
-	ms.author="nisoneji"/>
+	ms.date="09/16/2016"
+	ms.author="nisoneji"/> 
 
 
 # Eseguire la replica di macchine virtuali VMware locali o server fisici in un sito secondario
@@ -164,4 +164,4 @@ Update 1 include le correzioni di bug e le nuove funzionalità seguenti:
 
 Pubblicare eventuali domande nel [forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,15 +5,15 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/> 
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
-   ms.author="gwallace"/>  
+   ms.date="09/09/2016"
+   ms.author="gwallace"/> 
 
 # Configurare un gateway applicazione per l'offload SSL con il portale
 
@@ -30,7 +30,7 @@ Lo scenario seguente illustra la configurazione dell'offload SSL in un gateway a
 
 ## Prima di iniziare
 
-Per configurare l'offload SSL con un gateway applicazione è necessario un certificato, che viene caricato nel gateway applicazione e viene usato per crittografare e decrittografare il traffico inviato tramite SSL. Il certificato deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
+Per configurare l'offload SSL con un gateway applicazione, è necessario un certificato, che viene caricato nel gateway applicazione e viene usato per crittografare e decrittografare il traffico inviato tramite SSL. Il certificato deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
 
 ## Aggiungere un listener HTTPS
 
@@ -40,19 +40,27 @@ Il listener HTTPS cerca il traffico in base alla relativa configurazione e conse
 
 Passare al portale di Azure e selezionare un gateway applicazione esistente.
 
-![Pannello di panoramica del gateway applicazione][1]
+![Pannello di panoramica del gateway applicazione][1] 
 
 ### Passaggio 2
 
-Fare clic su Listener e quindi sul pulsante Aggiungi per aggiungere un nuovo listener.
+Fare clic su Listener e quindi sul pulsante Aggiungi per aggiungere un listener.
 
 ### Passaggio 3
 
 Inserire le informazioni necessarie per il listener e caricare il certificato PFX. Al termine, fare clic su OK.
 
-**Nome**: nome descrittivo del listener. **Configurazione IP front-end**: configurazione IP front-end usata per il listener. **Porta front-end (Nome/Porta)**: nome descrittivo della porta usata nel front-end del gateway applicazione e porta effettiva usata. **Protocollo**: opzione che consente di determinare se usare HTTPS o HTTP per il front-end. **Certificato (Nome/Password)**: se si usa l'offload SSL, per questa impostazione sono necessari un certificato PFX, un nome descrittivo e una password.
+**Nome**: questo valore è un nome descrittivo del listener.
 
-![Pannello Aggiungi listener][2]  
+**Configurazione IP front-end**: questo valore è la configurazione IP front-end usata per il listener.
+
+**Porta front-end (Nome/Porta)**: nome descrittivo della porta usata nel front-end del gateway applicazione e porta effettiva usata.
+
+**Protocollo**: opzione che consente di determinare se usare HTTPS o HTTP per il front-end.
+
+**Certificato (Nome/Password)**: se si usa l'offload SSL, per questa impostazione sono necessari un certificato PFX, un nome descrittivo e una password.
+
+![Pannello Aggiungi listener][2] 
 
 ## Creare una regola e associarla al listener
 
@@ -62,13 +70,13 @@ Ora che il listener è stato creato, è necessario creare una regola per gestire
 
 Fare clic su **Regole** nel gateway applicazione e quindi su Aggiungi.
 
-![Pannello delle regole del gateway applicazione][3]  
+![Pannello delle regole del gateway applicazione][3] 
 
 ### Passaggio 2
 
 Nel pannello **Aggiungi regola di base** digitare il nome descrittivo della regola e scegliere il listener creato nel passaggio precedente. Scegliere il pool back-end e l'impostazione HTTP appropriati e fare clic su **OK**.
 
-![Finestra delle impostazioni HTTP][4]  
+![Finestra delle impostazioni HTTP][4] 
 
 Le impostazioni vengono così salvate nel gateway applicazione. Il processo di salvataggio di queste impostazioni può richiedere tempo e le impostazioni potrebbero non essere immediatamente visualizzabili tramite il portale o PowerShell. Al termine del salvataggio, il gateway applicazione gestisce la crittografia e la decrittografia del traffico. Tutto il traffico tra il gateway applicazione e i server Web back-end verrà gestito su HTTP. Tutte le comunicazioni verso il client, se avviate su HTTPS, verranno restituite al client crittografate.
 
@@ -81,4 +89,4 @@ Per informazioni su come configurare un probe di integrità personalizzato con u
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

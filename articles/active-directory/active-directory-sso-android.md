@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -239,7 +239,7 @@ Per fare in modo che i token delle credenziali vengano sempre restituiti all'app
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 
-`msauth://packagename/Base64UrlencodedSignature`
+`msauth://packagename/Base64UrlencodedSignature` 
 
 Ad esempio: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
@@ -262,4 +262,4 @@ MANAGE_ACCOUNTS
 
 Ora l'SDK di Microsoft Identity condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

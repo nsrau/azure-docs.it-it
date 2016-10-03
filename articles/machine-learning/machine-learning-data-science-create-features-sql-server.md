@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Creare funzionalità per i dati in SQL Server tramite SQL e Python | Microsoft Azure"
-	description="Elaborazione dei dati di SQL Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="" />
+<properties 
+	pageTitle="Creare funzionalità per i dati in SQL Server tramite SQL e Python | Microsoft Azure" 
+	description="Elaborazione dei dati di SQL Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="" /> 
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev;fashah;garye" />
 
 
@@ -32,7 +32,7 @@ Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare fu
 Questo articolo presuppone che l'utente abbia:
 
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage).
-* I dati sono archiviati in SQL Server. In caso contrario, per istruzioni su come spostare i dati disponibili vedere [Spostamento dei dati in un database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
+* I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
 
 
 ##<a name="sql-featuregen"></a>Creazione di funzionalità con SQL
@@ -50,10 +50,10 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 
 In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
 
-	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
+	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
-	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
-	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
+	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
+	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
 ###<a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 
@@ -81,7 +81,7 @@ Di seguito, viene riportata una breve introduzione sui dati di posizione relativ
 
 le informazioni sulla posizione possono essere inserite in funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
 
-	select
+	select 
 		<location_columnname>
 		,round(<location_columnname>,0) as l1		
 		,l2=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 1 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),1,1) else '0' end 	
@@ -95,10 +95,7 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
 Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio.
 
 
-> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-
-
-> [AZURE.TIP] Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
@@ -113,7 +110,7 @@ L'uso di Python per creare funzionalità quando i dati si trovano in SQL Server 
 Il seguente formato della stringa di connessione può essere utilizzato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
 
 	#Set up the SQL Azure connection
-	import pyodbc
+	import pyodbc	
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
 La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas.
@@ -123,6 +120,6 @@ La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 A questo punto è possibile usare il frame di dati di Pandas, come descritto nell'argomento relativo alla [creazione di funzionalità per i dati di archiviazione BLOB di Azure tramite Panda](machine-learning-data-science-create-features-blob.md).
 
+ 
 
-
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

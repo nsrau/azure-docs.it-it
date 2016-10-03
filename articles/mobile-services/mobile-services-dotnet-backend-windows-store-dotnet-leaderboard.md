@@ -5,7 +5,7 @@
 	authors="rmcmurray"
 	manager="wpickett"
 	editor=""
-	services="mobile-services"/>
+	services="mobile-services"/> 
 
 <tags
 	ms.service="mobile-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+	ms.date="09/20/2016"
+	ms.author="glenga"/> 
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
 
@@ -25,7 +25,7 @@
 
 Questa esercitazione illustra come compilare un'app di Windows Store mediante Servizi mobili di Azure con un back-end .NET. Servizi mobili di Azure fornisce un back-end scalabile e sicuro con autenticazione, monitoraggio, notifiche push e altre funzionalità predefinite, oltre a una libreria client multipiattaforma per la compilazione di app per dispositivi mobili. Il back-end .NET per Servizi mobili è basato su [API Web ASP.NET](http://asp.net/web-api) e offre agli sviluppatori .NET un modo straordinario per creare API REST.
 
-## Panoramica
+## Overview
 
 API Web API è framework open source che offre agli sviluppatori .NET un modo straordinario per creare API REST. Una soluzione API Web può essere ospitata in Siti Web di Azure, in Servizi mobili di Azure mediante il back-end .NET o persino ospitata in proprio in un processo personalizzato. Servizi mobili è un ambiente host progettato espressamente per le app per dispositivi mobili. Quando si ospita il servizio API Web su Servizi mobili, si ottengono i vantaggi seguenti in aggiunta all'archiviazione dei dati:
 
@@ -662,7 +662,7 @@ Le posizioni in classifica sono visualizzate in un oggetto **ListView**:
 
 Tutte le operazioni di data binding vengono effettuate tramite il modello di visualizzazione.
 
-## Pubblicare il servizio mobile
+## Pubblicazione del servizio mobile
 
 In questo passaggio si pubblicherà il servizio mobile in Microsoft Azure e si modificherà l'app in modo che usi il servizio attivo.
 
@@ -721,7 +721,7 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 * [Aggiungere notifiche push], ad esempio quando viene aggiunto un nuovo giocatore o viene aggiornato un punteggio.
 * [Introduzione all'autenticazione]
 
-<!-- Anchors. -->
+<!-- Anchors. --> 
 [Overview]: #overview
 [About the sample app]: #about-the-sample-app
 [Create the project]: #create-the-project
@@ -757,7 +757,7 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 [16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
 
-<!-- URLs. -->
+<!-- URLs. --> 
 
 [Altre informazioni su Servizi mobili di Azure]: /develop/mobile/resources/
 [Altre informazioni su API Web]: http://asp.net/web-api
@@ -765,4 +765,4 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 [Aggiungere notifiche push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

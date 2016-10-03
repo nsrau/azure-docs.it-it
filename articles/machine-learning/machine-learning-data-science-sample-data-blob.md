@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="sunliangms;fashah;garye;bradsev" />
+	ms.date="09/19/2016" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio nell'archivio BLOB di Azure
 
@@ -33,7 +33,7 @@ Questo campionamento è un passaggio del [Processo di analisi scientifica dei da
 ## Download e sotto-campionamento dei dati
 1. Scaricare i dati dall'archivio BLOB di Azure usando il servizio BLOB del seguente codice Python di esempio:
 
-	    from azure.storage.blob import BlobService
+    	from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -53,12 +53,12 @@ Questo campionamento è un passaggio del [Processo di analisi scientifica dei da
 
 		import pandas as pd
 
-	    #directly ready from file on disk
+		#directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 3. Eseguire il sotto-campionamento dei dati usando `numpy`di `random.choice` nel modo seguente:
 
-	    # A 1 percent sample
+    	# A 1 percent sample
     	sample_ratio = 0.01 
     	sample_size = np.round(dataframe_blobdata.shape[0] * sample_ratio)
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
@@ -102,4 +102,4 @@ A questo punto, è possibile utilizzare il frame di dati precedente con il campi
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

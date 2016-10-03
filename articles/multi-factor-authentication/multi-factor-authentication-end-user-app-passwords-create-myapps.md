@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creare password per le app nel portale Myapps per Azure Multi-Factor Authentication" 
-	description="Questa pagina illustra agli utenti la procedura per creare password aggiuntive per le app nel portale di Myapps." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
-	editor="curtland"/>  
+<properties
+	pageTitle="Creare password per le app nel portale Myapps per Azure Multi-Factor Authentication"
+	description="Questa pagina illustra agli utenti la procedura per creare password aggiuntive per le app nel portale di Myapps."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/> 
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/> 
 
 # Creare password per le app nel portale myapps di Office 365 per Azure Multi-Factor Authentication
 
@@ -25,7 +25,7 @@ Se non si usa Multi-Factor Authentication con Office 365 e non si ha una sottosc
 ## Per creare password per le app se non si ha una sottoscrizione di Office 365 o Azure
 --------------------------------------------------------------------------------
 <ol>
-<li>Accedere al sito [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>	
+<li>Accedere al sito [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>
 <li>Nella parte superiore selezionare il profilo.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>
@@ -34,12 +34,9 @@ Se non si usa Multi-Factor Authentication con Office 365 e non si ha una sottosc
 <li>Nella parte superiore della pagina di verifica selezionare le password per le app.</li>
 <li>Fare clic su **Crea**.</li>
 
-![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/apppassword.png)  
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/apppassword.png) 
 
 <li>Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.</li>
 <li>Copiare la password per l'app negli Appunti, quindi incollarla nell'app.</li>
 
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

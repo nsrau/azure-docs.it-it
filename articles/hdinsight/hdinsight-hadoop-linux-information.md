@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-   tags="azure-portal"/>
+   tags="azure-portal"/> 
 
 <tags
    ms.service="hdinsight"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
-   ms.author="larryfr"/>
+   ms.date="09/13/2016"
+   ms.author="larryfr"/> 
 
 # Informazioni sull'uso di HDInsight in Linux
 
@@ -71,9 +71,9 @@ Viene restituito un documento JSON che descrive il servizio e quindi jq estrae s
 	>
 	> L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
-* **SSH** - &lt;nome cluster>-ssh.azurehdinsight.net sulla porta 22 o 23. La porta 22 viene usata per connettersi al nodo head 0, mentre la porta 23 viene usata per connettersi al nodo head 1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;nome cluster>-ssh.azurehdinsight.net sulla porta 22 o 23. La porta 22 viene utilizzata per connettersi al nodo head primario, mentre la porta 23 viene utilizzata per connettersi a quello secondario. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE] È possibile accedere al nodo head del cluster solo tramite SSH da un computer client. Una volta connessi, è quindi possibile accedere ai nodi di lavoro mediante SSH dal nodo head.
+	> [AZURE.NOTE] È possibile accedere al nodo head del cluster solo tramite SSH da un computer client. Una volta connessi, è quindi possibile accedere ai nodi di lavoro mediante SSH da un nodo head.
 
 ## Percorsi dei file
 
@@ -126,7 +126,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
     
     > [AZURE.NOTE] Se il comando non restituisce risultati, può essere necessario modificare l'interfaccia della riga di comando di Azure in modalità Gestione risorse di Azure ed eseguire nuovamente il comando. Per passare alla modalità Gestione risorse di Azure, usare il comando seguente.
     >
-    > `azure config mode arm`
+    > `azure config mode arm` 
     
 2. Ottenere la chiave per l'account di archiviazione. Sostituire __GROUPNAME__ con il gruppo di risorse del passaggio precedente. Sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione:
 
@@ -239,7 +239,7 @@ Se ad esempio si desidera usare l'ultima versione di [DataFu](http://datafu.incu
 
 > [AZURE.IMPORTANT] Alcuni componenti che sono file con estensione jar autonomi vengono forniti con HDInsight, ma non sono presenti nel percorso. Se si desidera un componente specifico, è possibile usare il comando seguente per cercarlo nel cluster:
 >
-> ```find / -name *componentname*.jar 2>/dev/null```
+> ```find / -name *componentname*.jar 2>/dev/null``` 
 >
 > Verrà restituito il percorso dei file con estensione jar corrispondenti.
 
@@ -256,4 +256,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

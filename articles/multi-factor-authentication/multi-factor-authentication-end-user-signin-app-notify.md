@@ -1,21 +1,21 @@
 
-<properties 
-	pageTitle="Effettuare l’accesso all'app per dispositivi mobili utilizzando la notifica con Azure Multi-Factor Authentication" 
-	description="Questa pagina descriverà come un utente può accedere utilizzando una notifica dell’app per dispositivi mobili con Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>  
+<properties
+	pageTitle="Effettuare l’accesso all'app per dispositivi mobili utilizzando la notifica con Azure Multi-Factor Authentication"
+	description="Questa pagina descriverà come un utente può accedere utilizzando una notifica dell’app per dispositivi mobili con Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Effettuare l’accesso all'app per dispositivi mobili utilizzando la notifica con Azure Multi-Factor Authentication
 
@@ -38,7 +38,4 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>
 
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

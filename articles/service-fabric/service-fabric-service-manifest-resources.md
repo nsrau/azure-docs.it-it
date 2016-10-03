@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="timlt"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
-   ms.author="subramar"/>
+   ms.date="09/14/2016"
+   ms.author="subramar"/> 
 
 # Specificare le risorse in un manifesto del servizio
 
-## Panoramica
+## Overview
 
 Il manifesto del servizio consente alle risorse di essere usate dal servizio per essere dichiarate/modificate senza modificare il codice compilato. Azure Service Fabric supporta la configurazione delle risorse dell'endpoint del servizio. È possibile controllare l'accesso alle risorse specificate nel manifesto del servizio tramite SecurityGroup nel manifesto dell'applicazione. La dichiarazione delle risorse consente a queste ultime di essere modificate in fase di distribuzione, in questo modo il servizio non deve introdurre un nuovo meccanismo di configurazione. La definizione dello schema per il file ServiceManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\\Programmi\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 ## Endpoint
 
-Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservato dell'applicazione se non viene specificata una porta esplicita. Fare riferimento all'endpoint *ServiceEndpoint1* seguente. Inoltre, i servizi possono richiedere anche una porta specifica in una risorsa. Alle repliche del servizio in esecuzione sui diversi nodi del cluster possono essere assegnati diversi numeri di porta, mentre le repliche dello stesso servizio in esecuzione nello stesso nodo condividono la stessa porta. Tali porte possono essere usate per le repliche del servizio per vari scopi, ad esempio la replica, l'attesa delle richieste del client e così via.
+Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se la porta non è esplicitamente specificata. Ad esempio, esaminare l'endpoint *ServiceEndpoint1* specificato nel frammento di manifesto fornito dopo questo paragrafo. Inoltre, i servizi possono richiedere anche una porta specifica in una risorsa. Alle repliche del servizio in esecuzione sui diversi nodi del cluster possono essere assegnati diversi numeri di porta, mentre le repliche di un servizio in esecuzione nello stesso nodo condividono la porta. Le repliche del servizio possono quindi usare queste porte in base alle esigenze per la replica e l'ascolto delle richieste client.
 
 ```xml
 <Resources>
@@ -90,9 +90,9 @@ Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di a
 
 ## Esempio: specificare un endpoint HTTPS per il servizio
 
-Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato per crittografare la comunicazione del client-server. Per abilitare questa opzione nel servizio di Service Fabric, quando si definisce il servizio, specificare il protocollo nella sezione *Risorse -> Endpoint -> Endpoint* del manifesto del servizio, come illustrato in precedenza per l'endpoint *ServiceEndpoint3*.
+Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato per crittografare la comunicazione del client-server. Per abilitare il protocollo HTTPS nel servizio di Service Fabric, specificare il protocollo nella sezione *Risorse -> Endpoint -> Endpoint* del manifesto del servizio, come illustrato in precedenza per l'endpoint *ServiceEndpoint3*.
 
->[AZURE.NOTE] Un protocollo del servizio non può essere modificato durante l'aggiornamento dell'applicazione, poiché il risultato sarà una modifica sostanziale.
+>[AZURE.NOTE] Non è possibile modificare un protocollo del servizio durante l'aggiornamento dell'applicazione, poiché il risultato sarà una modifica sostanziale.
 
 
 Di seguito è riportato un esempio ApplicationManifest che è necessario impostare per il protocollo HTTPS. È necessario fornire l'identificazione personale per il certificato. EndpointRef è un riferimento a EndpointResource in ServiceManifest per cui si imposta il protocollo HTTPS. È possibile aggiungere più Endpointcertificate.
@@ -137,4 +137,4 @@ Di seguito è riportato un esempio ApplicationManifest che è necessario imposta
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

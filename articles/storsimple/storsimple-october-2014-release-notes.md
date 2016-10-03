@@ -5,19 +5,19 @@
     documentationCenter="NA"
     authors="alkohli"
     manager="carmonm"
-    editor="" />
+    editor="" /> 
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/21/2016"
-    ms.author="alkohli" />
+    ms.date="09/21/2016"
+    ms.author="alkohli" /> 
 
 # Note sulla versione dell'aggiornamento 0.1 di StorSimple serie 8000 - Ottobre 2014  
 
-## Panoramica
+## Overview
 
 Nelle note sulla versione seguenti sono indicati i problemi critici non risolti relativi all'aggiornamento 0.1 di StorSimple serie 8000 rilasciato a ottobre 2014. Contengono inoltre un elenco degli aggiornamenti software e firmware di StorSimple inclusi in questa versione. Si tratta della prima versione dopo la versione di rilascio di StorSimple serie 8000 resa disponibile a livello generale a luglio 2014 e corrisponde alla versione del software 6.3.9600.17312.
 
@@ -27,31 +27,31 @@ Prima di distribuire gli aggiornamenti nella soluzione StorSimple, esaminare le 
 
 >[AZURE.IMPORTANT]
 > 
--	Per installare l'aggiornamento di ottobre, utilizzare il servizio StorSimple Manager e non Windows PowerShell per StorSimple.  
--	Solitamente, per il completamento degli aggiornamenti, sono necessarie circa 3 ore.  
--	La versione di ottobre di StorSimple non contiene aggiornamenti per il dispositivo virtuale StorSimple. È ancora possibile applicare tutti gli aggiornamenti di Windows disponibili, tra cui le recenti correzioni della sicurezza ma, per il dispositivo virtuale, non è possibile visualizzare modifiche nella versione.  
+-	Per installare l'aggiornamento di ottobre, utilizzare il servizio StorSimple Manager e non Windows PowerShell per StorSimple.
+-	Solitamente, per il completamento degli aggiornamenti, sono necessarie circa 3 ore.
+-	La versione di ottobre di StorSimple non contiene aggiornamenti per il dispositivo virtuale StorSimple. È ancora possibile applicare tutti gli aggiornamenti di Windows disponibili, tra cui le recenti correzioni della sicurezza ma, per il dispositivo virtuale, non è possibile visualizzare modifiche nella versione.
 
 Prima di effettuare l’aggiornamento del dispositivo StorSimple, assicurarsi che i seguenti prerequisiti siano soddisfatti.
 
-- Assicurarsi che entrambi i controller di dispositivo siano in esecuzione prima di cercare nuovi aggiornamenti. Se uno dei due controller non è in esecuzione, la ricerca ha esito negativo. Per verificare che lo stato dei controller sia integro, passare a **Stato hardware** nella pagina **Manutenzione**. Se vi sono componenti di tipo **Richiesta attenzione**, contattare il supporto tecnico Microsoft prima di continuare.  
-- Assicurarsi che gli IP fissi, sia per il controller 0 che per il controller 1, siano instradabili e in grado di effettuare la connessione a Internet in quanto vengono utilizzati per fornire gli aggiornamenti al dispositivo. È possibile utilizzare il [cmdlet di connessione di test](https://technet.microsoft.com/library/hh849808.aspx) per eseguire il ping di un indirizzo noto all'esterno alla rete, ad esempio outlook.com, per verificare che il controller disponga della connettività alla rete esterna.  
-- Assicurarsi che le porte in uscita richieste siano disponibili sul dispositivo StorSimple per le comunicazioni in uscita. Per ulteriori informazioni, vedere [Requisiti di rete per il dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
-- Se la versione del software del dispositivo è precedente alla 6.3.9600.17312 (aggiornamento di ottobre 2014), disabilitare le porte DATI 2 e DATI 3, se attivate, prima di avviare l'aggiornamento. Se si lasciano le porte DATI 2 e DATI 3 abilitate quando viene applica l'aggiornamento, il controller del dispositivo potrebbe passare alla modalità di ripristino. Si noti che, quando si disattivano le interfacce di rete, tutti i volumi associati verranno disconnessi e gli I/O verranno interrotti per la durata dell'aggiornamento.  
+- Assicurarsi che entrambi i controller di dispositivo siano in esecuzione prima di cercare nuovi aggiornamenti. Se uno dei due controller non è in esecuzione, la ricerca ha esito negativo. Per verificare che lo stato dei controller sia integro, passare a **Stato hardware** nella pagina **Manutenzione**. Se vi sono componenti di tipo **Richiesta attenzione**, contattare il supporto tecnico Microsoft prima di continuare.
+- Assicurarsi che gli IP fissi, sia per il controller 0 che per il controller 1, siano instradabili e in grado di effettuare la connessione a Internet in quanto vengono utilizzati per fornire gli aggiornamenti al dispositivo. È possibile utilizzare il [cmdlet di connessione di test](https://technet.microsoft.com/library/hh849808.aspx) per eseguire il ping di un indirizzo noto all'esterno alla rete, ad esempio outlook.com, per verificare che il controller disponga della connettività alla rete esterna.
+- Assicurarsi che le porte in uscita richieste siano disponibili sul dispositivo StorSimple per le comunicazioni in uscita. Per ulteriori informazioni, vedere [Requisiti di rete per il dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+- Se la versione del software del dispositivo è precedente alla 6.3.9600.17312 (aggiornamento di ottobre 2014), disabilitare le porte DATI 2 e DATI 3, se attivate, prima di avviare l'aggiornamento. Se si lasciano le porte DATI 2 e DATI 3 abilitate quando viene applica l'aggiornamento, il controller del dispositivo potrebbe passare alla modalità di ripristino. Si noti che, quando si disattivano le interfacce di rete, tutti i volumi associati verranno disconnessi e gli I/O verranno interrotti per la durata dell'aggiornamento.
 
 ## Novità della versione di ottobre
 
 Questo aggiornamento include i seguenti miglioramenti:
 
-- Per gestire i controller del dispositivo ora è possibile utilizzare l'interfaccia utente del servizio StorSimple Manager. Le azioni di gestione includono il riavvio, l’arresto o l’attivazione di un controller. Per altre informazioni, accedere a [Gestione dei controller del dispositivo StorSimple](storsimple-manage-device-controller.md).  
-- È possibile pianificare l'allocazione della larghezza di banda WAN in base a combinazioni quali giorno della settimana e ora del giorno. In questo modo è possibile ottimizzare l'utilizzo della larghezza di banda WAN fuori dagli orari di punta. Per diversi contenitori di volume, sono consentiti diversi modelli di larghezza di banda. Per altre informazioni, accedere a [Gestione dei modelli di larghezza di banda di StorSimple](storsimple-manage-bandwidth-templates.md).  
-- È possibile configurare le notifiche di posta elettronica per inviare notifiche in modo proattivo agli amministratori, e non solo, riguardo problemi presenti o futuri. Per altre informazioni, vedere [Configurazione delle impostazioni di avviso](storsimple-manage-alerts.md#configure-alert-settings).  
+- Per gestire i controller del dispositivo ora è possibile utilizzare l'interfaccia utente del servizio StorSimple Manager. Le azioni di gestione includono il riavvio, l’arresto o l’attivazione di un controller. Per altre informazioni, accedere a [Gestione dei controller del dispositivo StorSimple](storsimple-manage-device-controller.md).
+- È possibile pianificare l'allocazione della larghezza di banda WAN in base a combinazioni quali giorno della settimana e ora del giorno. In questo modo è possibile ottimizzare l'utilizzo della larghezza di banda WAN fuori dagli orari di punta. Per diversi contenitori di volume, sono consentiti diversi modelli di larghezza di banda. Per altre informazioni, accedere a [Gestione dei modelli di larghezza di banda di StorSimple](storsimple-manage-bandwidth-templates.md).
+- È possibile configurare le notifiche di posta elettronica per inviare notifiche in modo proattivo agli amministratori, e non solo, riguardo problemi presenti o futuri. Per altre informazioni, vedere [Configurazione delle impostazioni di avviso](storsimple-manage-alerts.md#configure-alert-settings).
 
 ## Problemi risolti nella versione di ottobre
 
 
 Nella seguente tabella è disponibile un riepilogo dei problemi risolti in questo aggiornamento.
 
-| No. | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| di serie | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 |-----|---------|-------|---------------------------------|--------------------------------|
 | 1 | Interfacce di rete | Nella versione precedente, le interfacce di rete DATI 2 DATI 3 sono state scambiate nel software. Tale problema è stato risolto nel presente aggiornamento. Prima di installare l'aggiornamento, rimuovere le impostazioni e disattivare le interfacce di rete. Dopo aver installato l'aggiornamento, sarà necessario configurare nuovamente tali interfacce. | Sì | No |
 | 2 | Pacchetto di supporto | Nella versione precedente, se si eseguiva il cmdlet **Export-HcsSupportPackage** di Windows PowerShell per recuperare i registri Baseboard Management Controller (BMC), l'operazione non riuscita e veniva visualizzato il seguente avviso: "L’operazione ha avuto esito positivo su questo controller, ma non sul controller peer a causa dei seguenti errori. Verificare l’integrità del peer e la sua possibilità di connettersi al nodo corrente". Questo problema ora è stato corretto. | Sì | No |
@@ -69,7 +69,7 @@ Nella seguente tabella è disponibile un riepilogo dei problemi risolti in quest
 
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
 
-| No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| di serie | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Ripristino delle impostazioni predefinite | In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple potrebbe bloccarsi e l’utente potrebbe visualizzare il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C mentre il cmdlet è in esecuzione. | Non premere CTRL + C dopo l'avvio di un ripristino delle impostazioni predefinite. Se si è già in questo stato, contattare il supporto tecnico Microsoft per i passaggi successivi. | Sì | No |
 | 2 | Ripristino delle impostazioni predefinite | Non eseguire un ripristino delle impostazioni predefinite di un dispositivo StorSimple aggiornato alla versione di ottobre 2014. | Questa operazione funziona solo se è installata una patch. Contattare il supporto tecnico Microsoft per ottenere la patch obbligatoria. | Sì | No |	
@@ -99,4 +99,4 @@ Questa versione applica anche un aggiornamento del firmware cumulativo che risol
 Questa versione non contiene aggiornamenti per il dispositivo virtuale. L’applicazione di tale aggiornamento non cambia la versione del software di un dispositivo virtuale.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

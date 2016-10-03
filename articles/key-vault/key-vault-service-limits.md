@@ -5,7 +5,7 @@
    services="key-vault"  
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="key-vault"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
-   ms.author="mbaldwin"/>
+   ms.date="09/16/2016"
+   ms.author="mbaldwin"/> 
 
 # Limiti dei servizi Azure Key Vault
 
@@ -22,4 +22,4 @@ Questi sono i limiti di servizio per Azure Key Vault.
 
 [AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

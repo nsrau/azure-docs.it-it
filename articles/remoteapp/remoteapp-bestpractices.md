@@ -4,7 +4,7 @@
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
-    manager="mbaldwin" />
+    manager="mbaldwin" /> 
 
 <tags
     ms.service="remoteapp"
@@ -13,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="08/15/2016"
-    ms.author="elizapo" />
+    ms.author="elizapo" /> 
 
 # Procedure consigliate per la configurazione e l'uso di Azure RemoteApp
 
@@ -33,7 +33,7 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 
 
 - Salvare e chiudere le applicazioni RemoteApp al termine dell'uso dell'applicazione. La mancata chiusura dell'applicazione potrebbe comportare perdite di dati.
-- Convalidare le applicazioni personalizzate prima di usarle in Azure RemoteApp. Questo include assicurarsi che funzionino su una piattaforma multisessione e che non consumino inutilmente risorse come memoria e CPU causando possibili degradi delle prestazioni per altri utenti nella stessa raccolta. Per informazioni, scaricare e leggere il documento relativo alle [procedure consigliate per la compatibilità delle applicazioni per Servizi Desktop remoto](http://www.microsoft.com/download/details.aspx?id=18704).
+- Convalidare le applicazioni personalizzate prima di usarle in Azure RemoteApp. Questo include assicurarsi che funzionino su una piattaforma multisessione e che non consumino inutilmente risorse come memoria e CPU causando possibili degradi delle prestazioni per altri utenti nella stessa raccolta. Per informazioni, scaricare e leggere il documento relativo alle [procedure consigliate per la compatibilità delle applicazioni per Servizi Desktop remoto](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
 
 ## Configurazione e gestione
 
@@ -46,4 +46,4 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 	- Configurare le impostazioni a livello di sistema nell'immagine modello anziché sulle singole macchine virtuali in un servizio.
 	- Disabilitare gli aggiornamenti software automatici per le applicazioni pubblicate. Applicarli invece manualmente per l'immagine modello e testarli prima della distribuzione dal modello.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

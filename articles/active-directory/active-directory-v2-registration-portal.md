@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/> 
 
 # Riferimento alla registrazione delle app
 Questo documento fornisce il contesto e le descrizioni di varie funzionalità disponibili nel portale di registrazione delle app di Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
@@ -42,4 +42,4 @@ Disabilitando il supporto Live SDK il segreto applicazione viene scritto unicame
 
 Se si intende usare solo l'endpoint di Azure AD 2.0, è possibile disabilitare il supporto Live SDK.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

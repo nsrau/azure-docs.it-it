@@ -5,8 +5,8 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/> 
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="07/27/2016" 
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/> 
 
 
 # Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
@@ -58,7 +58,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
     	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
 	```
-Sostituire i valori per *SubscriptionId* e *ActiveDirectoryTenantId* con gli ID della sottoscrizione Azure e del tenant. È possibile ottenere questi valori eseguendo il cmdlet PowerShell seguente:
+Sostituire i valori per *SubscriptionId* e *ActiveDirectoryTenantId* con gli ID della sottoscrizione di Azure e del tenant. È possibile ottenere questi valori eseguendo il cmdlet PowerShell seguente:
 
     ```
     Get-AzureAccount
@@ -146,7 +146,7 @@ Se è stata precedentemente abilitata per un differente processo di analisi di f
 > 
 > Tutte le elaborazioni di analisi di flusso (e tutte le altre risorse di Azure) nella stessa area condividono questo account di archiviazione per archiviare i dati di monitoraggio. Se si fornisce un account di archiviazione differente, potrebbero verificarsi effetti collaterali imprevisti per il monitoraggio di altri processi di analisi di flusso e/o altre risorse di Azure.
 > 
-> Il nome dell'account di archiviazione utilizzato per sostituire il seguente ```“<YOUR STORAGE ACCOUNT NAME>”``` deve essere un account di archiviazione presente nella stessa sottoscrizione del processo di analisi di flusso per cui viene abilitato il monitoraggio.
+> Il nome dell'account di archiviazione usato per sostituire ```“<YOUR STORAGE ACCOUNT NAME>”``` di seguito deve essere un account di archiviazione presente nella stessa sottoscrizione del processo di analisi di flusso per cui viene abilitato il monitoraggio.
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -180,4 +180,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

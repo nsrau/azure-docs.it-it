@@ -64,11 +64,11 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 | -------- | ----------- | -------- | ------- |
 | name | Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md). | Sì | ND |
 | type | Tipo del set di dati. Specificare uno dei tipi supportati da Azure Data Factory, ad esempio AzureBlob, AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere la sezione [Tipo di set di dati](#Type). | Sì | ND |
-| structure | Schema del set di dati.<br/><br/>Per altre informazioni dettagliate, vedere la sezione [Struttura del set di dati](#Structure). | No. | ND |
+| structure | Schema del set di dati.<br/><br/>Per informazioni dettagliate, vedere la sezione [Struttura del set di dati](#Structure). | di serie | ND |
 | typeProperties | Proprietà che corrispondono al tipo selezionato. Per informazioni dettagliate sui tipi supportati e sulle relative proprietà, vedere la sezione [Tipo di set di dati](#Type). | Sì | ND |
 | external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. | No | false | 
-| disponibilità | Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati <br/><br/>Per altre informazioni dettagliate, vedere l'argomento [Disponibilità dei set di dati](#Availability)<br/><br/>Per altre informazioni sul modello di sezione del set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Sì | ND
-| policy | Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per altre informazioni dettagliate, vedere l'argomento [Criteri di set di dati](#Policy) | No | ND |
+| disponibilità | Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati <br/><br/>Per informazioni dettagliate, vedere la sezione [Disponibilità dei set di dati](#Availability). <br/><br/>Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). | Sì | ND
+| policy | Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione [Criteri di set di dati](#Policy). | No | ND |
 
 ## Esempio di set di dati
 Nell'esempio di seguito, il set di dati rappresenta una tabella chiamata **MyTable** in un **database SQL di Azure**.
@@ -137,7 +137,7 @@ La sezione **structure** definisce lo schema del set di dati. Contiene una racco
 ## <a name="Availability"></a>Disponibilità dei set di dati
 La sezione **availability** in un set di dati definisce la frequenza di elaborazione, vale a dire oraria, giornaliera, settimanale e così via, oppure il modello di sezione per il set di dati. Vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) per altre informazioni sul modello di sezionamento e dipendenza di set di dati.
 
-La sezione availability seguente specifica che il set di dati di output viene generato ogni ora (oppure) il set di dati di input è disponibile ogni ora.
+La sezione availability seguente specifica che il set di dati di output viene generato ogni ora oppure che il set di dati di input è disponibile ogni ora:
 
 	"availability":	
 	{	
@@ -145,7 +145,7 @@ La sezione availability seguente specifica che il set di dati di output viene ge
 		"interval": 1	
 	}
 
-La tabella seguente descrive le proprietà che è possibile usare nella sezione availability.
+La tabella seguente descrive le proprietà che è possibile usare nella sezione availability:
 
 | Proprietà | Descrizione | Obbligatorio | Default |
 | -------- | ----------- | -------- | ------- |
@@ -166,9 +166,7 @@ Sezioni giornaliere che iniziano alle 6.00 invece che alla mezzanotte predefinit
 		"offset": "06:00:00"
 	}
 
-**frequency** è impostato su **Month** e **interval** è impostato su **1** (una volta al mese): se si vuole che la sezione venga prodotta il nono giorno di ogni mese alle 6.00, impostare l'offset su "09.06:00:00". Tenere presente che questo orario è espresso in base all'ora UTC.
-
-Per un programma di 12 mesi (frequency = month, interval = 12), offset: 60.00:00:00 significa ogni anno l'1 o il 2 marzo (60 giorni dall'inizio dell'anno se style = StartOfInterval), a seconda che l'anno sia bisestile o meno.
+La proprietà **frequency** è impostata su **Day** e la proprietà **interval** su **1** (una volta al giorno), in modo che la sezione venga generata alle 6.00 anziché all'ora predefinita, ovvero mezzanotte. Tenere presente che questo orario è espresso in base all'ora UTC.
 
 ## Esempio di anchorDateTime
 
@@ -241,17 +239,17 @@ La sezione **policy** nella definizione del set di dati stabilisce i criteri o l
 
 I set di dati esterni sono quelli non prodotti da una pipeline in esecuzione nella data factory. Se il set di dati è contrassegnato come **external**, è possibile definire i criteri di **ExternalData** in modo da influenzare il comportamento della disponibilità di sezioni dei set di dati.
 
-A meno che un set di dati non sia generato da Azure Data Factory, deve essere contrassegnato come **external**. Questo concetto si applica in genere agli input della prima attività in una pipeline, a meno che non si usi il concatenamento di attività o di pipeline.
+A meno che un set di dati non sia generato da Azure Data Factory, deve essere contrassegnato come **external**. Questa impostazione si applica in genere agli input della prima attività in una pipeline, a meno che non si usi il concatenamento di attività o di pipeline.
 
 | Nome | Descrizione | Obbligatorio | Default Value |
 | ---- | ----------- | -------- | -------------- |
 | dataDelay | Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati devono essere disponibili ogni ora, il controllo per vedere se i dati esterni sono disponibili e la sezione corrispondente è Ready può essere ritardato usando dataDelay.<br/><br/>Si applica solo all'ora corrente. Ad esempio, se in questo momento sono le 13:00 e questo valore è di 10 minuti, la convalida inizia alle 13:10.<br/><br/>Questa impostazione non influisce sulle sezioni nel passato (le sezioni con Slice End Time + dataDelay < Now) vengono elaborate senza ritardi.<br/><br/>Valori superiori a 23:59 ore devono essere specificati nel formato giorno.ore:minuti:secondi. Per specificare 24 ore, ad esempio, non utilizzare 24:00:00; utilizzare invece 1.00:00:00. Il valore 24:00:00 viene considerato 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. | No | 0 |
 | retryInterval | Il tempo di attesa tra un errore e il successivo tentativo. Si applica al tempo presente; Se il precedente tentativo non è riuscito, dopo di esso si aspetta tale tempo. <br/><br/>Se in questo momento sono le 13:00, viene avviato il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo è alle 13:00 + 1 min (durata) + 1 min (intervallo tentativi) = 13:02. <br/><br/>Per le sezioni passate, non si verifica alcun ritardo. La ripetizione avviene immediatamente. | No | 00:01:00 (1 minute) | 
-| retryTimeout | Timeout per ogni nuovo tentativo.<br/><br/>Se è impostato su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo viene sospeso.<br/><br/>Se tutti i tentativi per la convalida scadono, la sezione viene contrassegnata come TimedOut. | No | 00:10:00 (10 minutes) |
+| retryTimeout | Timeout per ogni nuovo tentativo.<br/><br/>Se questa proprietà è impostata su 10 minuti, la convalida deve essere completata entro 10 minuti. Se sono necessari più di 10 minuti per eseguire la convalida, il tentativo viene sospeso.<br/><br/>Se tutti i tentativi per la convalida scadono, la sezione viene contrassegnata come TimedOut. | No | 00:10:00 (10 minutes) |
 | maximumRetry | Numero di volte per controllare la disponibilità dei dati esterni. Il valore massimo consentito è 10. | No | 3 | 
 
 ## Set di dati con ambito
-È possibile creare set di dati con ambito limitato a una pipeline usando la proprietà **datasets**. Questi set di dati possono essere usati solo dalle attività all'interno di questa pipeline, ma non da quelle in altre pipeline. L'esempio seguente definisce una pipeline con due set di dati, InputDataset-rdc and OutputDataset-rdc, da usare all'interno della pipeline.
+È possibile creare set di dati con ambito limitato a una pipeline usando la proprietà **datasets**. Questi set di dati possono essere usati solo dalle attività all'interno di questa pipeline, ma non da quelle in altre pipeline. L'esempio seguente definisce una pipeline con due set di dati, InputDataset-rdc and OutputDataset-rdc, da usare all'interno della pipeline:
 
 > [AZURE.IMPORTANT] I set di dati con ambito sono supportati solo con pipeline monouso, con valore di **pipelineMode** impostato su **OneTime**. Per i dettagli vedere [Pipeline monouso](data-factory-scheduling-and-execution.md#onetime-pipeline).
 
@@ -344,4 +342,4 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
 	    }
 	}
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

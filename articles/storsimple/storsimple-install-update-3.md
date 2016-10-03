@@ -5,15 +5,15 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="" />
+   editor="" /> 
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/07/2016"
-   ms.author="alkohli" />
+   ms.date="09/21/2016"
+   ms.author="alkohli" /> 
 
 # Installare l'aggiornamento 3 nel dispositivo StorSimple
 
@@ -27,7 +27,7 @@ L'aggiornamento 3 include gli aggiornamenti del software della periferica, di dr
 
 > - Si esegue una serie di controlli preliminari automatici e manuali prima dell'installazione per determinare l'integrità del dispositivo in termini di connettività di stato e di rete hardware. Questi controlli preliminari vengono eseguiti solo se si applicano gli aggiornamenti dal portale di Azure classico.
 > - Si consiglia di installare gli aggiornamenti software e driver tramite il portale di Azure classico. Passare all'interfaccia di Windows PowerShell del dispositivo (per installare gli aggiornamenti) solo se il gateway di pre-aggiornamento ha esito negativo nel portale. A seconda della versione da cui viene eseguito l'aggiornamento, gli aggiornamenti possono richiedere 1,5 - 2,5 ore per essere installati. Gli aggiornamenti in modalità di manutenzione devono essere installati tramite l'interfaccia di Windows PowerShell del dispositivo. Dal momento che si tratta di aggiornamenti problematici, comporteranno un periodo di inattività per il dispositivo.
-> - Se StorSimple Snapshot Manager facoltativo è in esecuzione, assicurarsi di aver aggiornato la versione di Snapshot Manager con l'aggiornamento 3 prima di aggiornare il dispositivo.
+> - Se StorSimple Snapshot Manager facoltativo è in esecuzione, assicurarsi di aver aggiornato la versione di Snapshot Manager con l'aggiornamento 2 prima di aggiornare il dispositivo.
 
 [AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -126,4 +126,4 @@ Eseguire i passaggi seguenti per scaricare e importare gli hotfix.
 
 Altre informazioni sulla [versione dell'aggiornamento 3](storsimple-update3-release-notes.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

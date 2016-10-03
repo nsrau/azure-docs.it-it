@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure Insights: Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights. | Microsoft Azure"
-	description="Informazioni su come usare le voci del log di controllo del servizio per chiamare URL Web o inviare notifiche di posta elettronica in Azure Insights. "
+	pageTitle="Configurare webhook negli avvisi del registro attività di Azure | Microsoft Azure"
+	description="Informazioni su come usare gli avvisi del registro attività per chiamare webhook. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+	documentationCenter="monitoring-and-diagnostics"/> 
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -13,33 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="ashwink"/>  
+	ms.date="09/15/2016"
+	ms.author="ashwink"/> 
 
-# Usare i log di controllo per inviare notifiche di avviso di webhook e posta elettronica in Azure Insights
+# Configurare un webhook in un avviso del registro attività di Azure
 
-Questo articolo illustra lo schema di payload quando un evento del log di controllo attiva un webhook e descrive come inviare messaggi di posta elettronica tramite lo stesso evento.
+I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite servizi di messaggistica/chat o eseguono un numero qualsiasi di altre azioni. Questo articolo descrive come impostare un webhook in un avviso del registro attività di Azure e illustra il payload per l'esecuzione di un'azione HTTP POST in un webhook. Per informazioni sulla configurazione e lo schema di un avviso relativo alle metriche di Azure, [vedere invece questa pagina](./insights-webhooks-alerts.md). È anche possibile impostare un avviso del registro attività per l'invio di un messaggio di posta all'attivazione.
 
->[AZURE.NOTE] Questa funzionalità è attualmente in anteprima. Nei prossimi mesi verranno apportati miglioramenti all'infrastruttura e alle prestazioni degli avvisi relativi agli eventi. In questa versione di anteprima tale funzionalità è accessibile solo tramite Azure PowerShell e l'interfaccia della riga di comando di Azure. L'accesso alla funzionalità tramite il portale di Azure sarà disponibile in un secondo momento.
+>[AZURE.NOTE] Questa funzionalità è attualmente in anteprima, quindi la qualità e le prestazioni saranno variabili.
 
-## Webhook
-I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le notifiche personalizzate. È ad esempio possibile eseguire l'instradamento degli avvisi a servizi in grado di gestire una richiesta Web in ingresso per inviare SMS, registrare bug o inviare notifiche tramite chat o servizi di messaggistica. L'URI del webhook deve essere un endpoint HTTP o HTTPS valido.
+È possibile configurare un avviso del registro attività usando i [cmdlet di Azure PowerShell](./insights-powershell-samples.md#create-alert-rules), l'[interfaccia della riga di comando multipiattaforma](./insights-cli-samples.md#work-with-alerts) o l'[API REST di Insights](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## Email
-È possibile inviare messaggi di posta elettronica a qualsiasi indirizzo di posta elettronica valido. Verrà inviata una notifica anche agli amministratori e ai coamministratori della sottoscrizione in cui viene eseguita la regola.
+## Autenticazione del webhook
+L'autenticazione del webhook può essere eseguita con uno di questi metodi:
 
-### Regola di posta elettronica di esempio
-È necessario impostare una regola di posta elettronica e una regola di webhook e quindi configurarle in modo che si attivino quando si verifica l'evento del log di controllo. È possibile visualizzare un esempio tramite PowerShell nell'articolo relativo agli [esempi della guida introduttiva di PowerShell per Azure Insights](insights-powershell-samples.md#alert-on-audit-log-event).
+1. **Autorizzazione basata su token**: l'URI del webhook viene salvato con un ID token, ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2.	**Autorizzazione di base**: l'URI del webhook viene salvato con nome utente e password, ad esempio `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
-
-## Autenticazione
-Esistono due tipi di URI di autenticazione:
-
-1. Autenticazione basata su token tramite il salvataggio dell'URI del webhook con un ID token come parametro di query. Ad esempio, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Autenticazione di base tramite ID utente e password. Ad esempio, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
-
-## Schema di payload del webhook di notifica degli eventi del log di controllo
-Quando diventa disponibile un nuovo evento, l'avviso relativo agli eventi del log di controllo esegue il webhook configurato con i metadati dell'evento nel payload del webhook. L'esempio seguente mostra lo schema di payload del webhook:
+## Schema del payload
+L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvisi basati sul registro attività. Questo schema è simile a quello usato per gli avvisi basati su metriche.
 
 ```
 {
@@ -91,32 +83,39 @@ Quando diventa disponibile un nuovo evento, l'avviso relativo agli eventi del lo
 
 |Nome dell'elemento|	Descrizione|
 |---|---|
-|status |Sempre impostato su "attivato"|
-|contesto|Contesto dell'evento|
-|resourceProviderName|Provider della risorsa interessata|
-|conditionType |"Evento"|
-|name |Nome della regola di avviso|
-|id |ID risorsa dell'avviso|
-|description|	Descrizione impostata sull'avviso dall'autore dell'avviso|
-|subscriptionId |GUID della sottoscrizione di Azure|
-|timestamp|	Timestamp in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento|
-|resourceId |URI dell'ID risorsa che identifica in modo univoco la risorsa|
-|resourceGroupName|Nome del gruppo risorse della risorsa interessata|
-|properties |Set di coppie <Key, Value>, ad esempio Dictionary<String, String>, contenente i dettagli relativi all'evento|
-|event|Elemento contenente i metadati relativi all'evento|
-|autorizzazione|Acquisisce le proprietà RBAC dell'evento. In genere includono "action", "role" e "scope".|
-|category | Categoria dell'evento. I valori supportati includono: Administrative, Alert, Security, ServiceHealth, Recommendation|
-|caller|Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, l'attestazione UPN o SPN, secondo la disponibilità. Può essere null per alcune chiamate di sistema.|
-|correlationId|	In genere un GUID in formato stringa. Gli eventi con correlationId appartengono alla stessa azione di livello superiore e in genere condividono lo stess valore di correlationId.|
-|eventDescription |Testo statico che descrive un evento|
-|eventDataId|Identificatore univoco di un evento|
-|eventSource |Nome del servizio o dell'infrastruttura di Azure che ha generato l'evento|
+|status |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività.|
+|context|Contesto dell'evento.|
+|resourceProviderName|Provider della risorsa interessata.|
+|conditionType |Sempre "Event".|
+|name |Nome della regola di avviso.|
+|id |ID risorsa dell'avviso.|
+|description|	Descrizione dell'avviso definita durante la creazione dell'avviso.|
+|subscriptionId |ID sottoscrizione di Azure.|
+|timestamp|	Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta.|
+|resourceId |ID risorsa della risorsa interessata.|
+|resourceGroupName|Nome del gruppo di risorse della risorsa interessata|
+|properties |Set di coppie `<Key, Value>`, ad esempio `Dictionary<String, String>`, contenente i dettagli relativi all'evento.|
+|event|Elemento contenente i metadati relativi all'evento.|
+|autorizzazione|Proprietà di Controllo degli accessi in base al ruolo dell'evento. Includono in genere "action", "role" e "scope".|
+|category | Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth, Recommendation.|
+|caller|Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. Può essere null per alcune chiamate di sistema.|
+|correlationId|	In genere un GUID in formato stringa. Gli eventi con correlationId appartengono alla stessa azione di livello superiore e in genere condividono un elemento correlationId.|
+|eventDescription |Testo statico che descrive l'evento.|
+|eventDataId|Identificatore univoco dell'evento.|
+|eventSource |Nome del servizio o dell'infrastruttura di Azure che ha generato l'evento.|
 |httpRequest|	In genere include "clientRequestId", "clientIpAddress" e "method" (metodo HTTP, ad esempio PUT).|
-|level|Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose"|
-|operationId|In genere un GUID condiviso tra gli eventi corrispondenti a una singola operazione|
-|operationName|Nome dell'operazione|
-|properties |L'elemento all'interno dell'elemento eventi contiene le proprietà dell'evento.|
-|status|Stringa che descrive lo stato dell'operazione. I valori comuni sono: Started, In Progress, Succeeded, Failed, Active, Resolved|
-|subStatus|	In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono: OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (HTTP stato codice: 503), Gateway Timeout (codice di stato HTTP: 504)|
+|level|Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose".|
+|operationId|In genere un GUID condiviso tra gli eventi corrispondenti a una singola operazione.|
+|operationName|Nome dell'operazione.|
+|properties |Proprietà dell'evento.|
+|status|Stringa. Stato dell'operazione. I valori comuni includono: "Started", "In Progress", "Succeeded", "Failed", "Active", "Resolved".|
+|subStatus|	In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono: OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (codice di stato HTTP: 503), Gateway Timeout (codice di stato HTTP: 504)|
 
-<!---HONumber=AcomDC_0810_2016-->
+## Passaggi successivi
+- [Altre informazioni sul registro attività](./monitoring-overview-activity-logs.md)
+- [Eseguire gli script di Automazione di Azure (runbook) sugli avvisi di Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
+- [Usare l'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del registro attività.
+- [Usare l'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del registro attività.
+- [Usare l'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del registro attività.
+
+<!---HONumber=AcomDC_0921_2016-->

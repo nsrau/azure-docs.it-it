@@ -4,8 +4,8 @@
 	keywords="Introduzione a MFA, panoramica di mfa, che cos'è mfa"
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -13,9 +13,9 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Informazioni su Azure Multi-Factor Authentication
 Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:
@@ -147,12 +147,12 @@ Scegliere il modello per postazione o basato sul consumo più adatto per l'organ
 
 Poiché esistono diverse versioni di Azure Multi-Factor Authentication, è necessario stabilire un paio di aspetti per scoprire quale versione sia quella corretta da utilizzare. Aspetti da considerare:
 
--	<a href="#1">Cosa si sta tentando di proteggere?</a>
--	<a href="#2">Dove si trovano gli utenti?</a>
+-	[Cosa si sta tentando di proteggere?](#what-am-i-trying-to-secure)
+-	[Dove si trovano gli utenti?](#where-are-the-users-located)
 
 Nelle sezioni seguenti verranno fornite istruzioni su come determinare ciascun aspetto.
 
-<h3 id="1">Cosa si sta tentando di proteggere?</h3>
+### Cosa si sta tentando di proteggere?
 
 Per determinare la soluzione Multi-Factor Authentication corretta, innanzitutto è necessario stabilire ciò che si sta tentando di proteggere con un secondo metodo di autenticazione. Si tratta di un'applicazione in Azure? Oppure si tratta, ad esempio, di un sistema di accesso remoto? Durante la definizione degli elementi da proteggere, stabiliremo dove abilitare la modalità Multi-Factor Authentication.
 
@@ -168,7 +168,7 @@ Accesso remoto, ad esempio VPN, RDG| |* |
 
 
 
-<h3 id="2">Dove si trovano gli utenti?</h3>
+### Dove si trovano gli utenti?
 
 Successivamente, a seconda di dove si trovano gli utenti, è possibile determinare la soluzione corretta da utilizzare, ovvero Multi-Factor Authentication nel cloud o locale mediante Server MFA.
 
@@ -209,4 +209,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

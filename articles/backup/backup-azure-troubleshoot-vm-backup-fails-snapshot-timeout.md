@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="genlin"
    manager="jwhit"
-   editor=""/>
+   editor=""/> 
 
 <tags
     ms.service="backup"
@@ -67,7 +67,7 @@ Sono disponibili informazioni su come [configurare un proxy HTTP per i backup di
 ### Soluzione
 La maggior parte degli errori relativi ad agenti o estensioni nelle macchine virtuali Linux è dovuta a problemi correlati ad agenti di macchine virtuali non aggiornati. In generale, per risolvere questo problema occorre prima di tutto seguire questa procedura:
 
-1. [Installare la versione più recente dell'agente di macchine virtuali di Azure](https://acom-swtest-2.azurewebsites.net/documentation/articles/virtual-machines-linux-update-agent/).
+1. [Installare la versione più recente dell'agente di macchine virtuali di Azure](https://github.com/Azure/WALinuxAgent).
 2. Assicurarsi che l'agente di Azure sia in esecuzione nella macchina virtuale. A tale scopo, eseguire il comando seguente: ```ps -e```
 
     Se il processo non è in esecuzione, usare i comandi seguenti per riavviarlo.
@@ -136,4 +136,4 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 | L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria. | Se l'esecuzione della macchina virtuale fa un uso elevato della CPU (oltre il 90%) o della memoria, l'attività di snapshot viene accodata e ritardata e infine si verifica il timeout. In una situazione di questo tipo, provare a eseguire un backup su richiesta. |
 |La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP.|DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Vedere altre informazioni su [Come impostare un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

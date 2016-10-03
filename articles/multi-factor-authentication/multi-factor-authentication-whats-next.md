@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Passaggi successivi" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive le successive azioni da eseguire con Multi-Factor Authentication. Sono inclusi i report, gli avvisi di illecito, il bypass monouso, i messaggi vocali personalizzati, la memorizzazione nella cache, gli indirizzi IP attendibili e le password dell'app." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+	pageTitle="Azure Multi-Factor Authentication - Passaggi successivi"
+	description="Questa è la pagina di Azure Multi-Factor Authentication che descrive le successive azioni da eseguire con Multi-Factor Authentication. Sono inclusi i report, gli avvisi di illecito, il bypass monouso, i messaggi vocali personalizzati, la memorizzazione nella cache, gli indirizzi IP attendibili e le password dell'app."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/> 
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="kgremban"/>
 
 # Configurazione di Azure Multi-Factor Authentication
 
@@ -28,12 +28,12 @@ Per accedere al portale di gestione di MFA tramite la pagina delle impostazioni 
 
 
 Funzionalità| Descrizione| Argomenti trattati
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 [Avviso di illecito](#fraud-alert)|Avviso di illecito può essere configurato e impostato in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle loro risorse.|Come impostare, configurare e segnalare gli illeciti
 [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" Multi-Factor Authentication.|Come impostare e configurare un bypass monouso
 [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati consentono di usare registrazioni o messaggi introduttivi personalizzati con Multi-Factor Authentication. |Come impostare e configurare messaggi introduttivi e messaggi personalizzati
 [Memorizzazione nella cache](#caching-in-azure-multi-factor-authentication)|La memorizzazione nella cache consente di impostare uno specifico periodo di tempo in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. |Come impostare e configurare la memorizzazione nella cache dell'autenticazione.
-[Indirizzi IP attendibili](#trusted-ips)|Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda.|Configurare e impostare gli indirizzi IP che non sono interessati da Multi-Factor Authentication	
+[Indirizzi IP attendibili](#trusted-ips)|Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda.|Configurare e impostare gli indirizzi IP che non sono interessati da Multi-Factor Authentication
 [Password dell'app](#app-passwords)|Le password dell'app consentono a un'applicazione che non è in grado di riconoscere Multi-Factor Authentication di ignorare questa funzionalità e continuare a lavorare.|Informazioni sulle password dell'app.
 [Memorizzazione di Multi-Factor Authentication per dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-users-trust)|Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha effettuato correttamente l'accesso tramite MFA.|Informazioni sull'abilitazione di questa funzionalità e sull'impostazione del numero di giorni.
 [Metodi di verifica selezionabili](#selectable-verification-methods)|Consente di scegliere i metodi di autenticazione disponibili per gli utenti.|Informazioni sull'abilitazione o disabilitazione di specifici metodi di autenticazione, ad esempio chiamate o SMS.
@@ -57,7 +57,7 @@ Avviso di illecito può essere configurato e impostato in modo che gli utenti po
 I messaggi vocali predefiniti di Microsoft invitano gli utenti a premere 0# per inviare un avviso di illecito. Se si usa un codice diverso da 0, sarà necessario registrare e caricare messaggi vocali personalizzati con le istruzioni appropriate.
 
 
-![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)
+![Cloud](./media/multi-factor-authentication-whats-next/fraud.png) 
 
 ### Per segnalare un avviso di illecito
 Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per dispositivi mobili o tramite il telefono.
@@ -71,10 +71,10 @@ Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per 
 3. Fare clic su Segnala illecito.
 4. Nell'app fare clic su Chiudi.
 
-![Cloud](./media/multi-factor-authentication-whats-next/report1.png)
+![Cloud](./media/multi-factor-authentication-whats-next/report1.png) 
 
 
-![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png)
+![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png) 
 
 ### Per segnalare un avviso di illecito con il telefono
 
@@ -172,9 +172,9 @@ La memorizzazione nella cache consente di impostare uno specifico periodo di tem
 
 Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda. Le funzionalità sono disponibili per i tenant di Azure AD che dispongono di licenze Azure AD Premium, Enterprise Mobility Suite o Azure Multi-Factor Authentication.
 
- 
+
 Tipo di tenant di Azure AD| Opzioni disponibili per gli indirizzi IP attendibili
-:------------- | :------------- | 
+:------------- | :------------- |
 Gestito|Intervalli di indirizzi IP specifici - Gli amministratori possono specificare un intervallo di indirizzi IP che possono ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet dell'azienda.
 Federato|<li>Tutti gli utenti federati - Tutti gli utenti federati che eseguono l'accesso all'interno dell'organizzazione possono ignorare Multi-Factor Authentication usando un'attestazione rilasciata da ADFS.</li><li>Intervalli di indirizzi IP specifici - Gli amministratori possono specificare un intervallo di indirizzi IP che possono ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet dell'azienda.
 
@@ -182,7 +182,7 @@ Questo bypass può essere usato solo all'interno della rete Intranet di un'azien
 
 
 |Indirizzi IP attendibili abilitati| Indirizzi IP attendibili disabilitati
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 All'interno della rete aziendale|Per i flussi del browser Multi-Factor Authentication NON è necessaria.|Per i flussi del browser Multi-Factor Authentication è necessaria
 |Per le app rich client, le password normali funzionano se l'utente non ha creato password dell'app. Dopo aver creato una password dell'app, le password dell'app sono necessarie.|Per le app rich client, le password dell'app sono necessarie
 All'esterno della rete aziendale|Per i flussi del browser Multi-Factor Authentication è necessaria.|Per i flussi del browser Multi-Factor Authentication è necessaria.
@@ -209,7 +209,7 @@ All'esterno della rete aziendale|Per i flussi del browser Multi-Factor Authentic
 
 
 
- 
+
 ## Password dell'app
 
 In alcune app, come Office 2010 o versioni precedenti e Apple Mail, non è possibile usare Multi-Factor Authenticaton. Per usare queste app, è necessario usare "password dell'app" al posto della password tradizionale. Le password dell'app consentono all'applicazione di ignorare Multi-Factor Authentication e continuare a lavorare.
@@ -225,7 +225,7 @@ In alcune app, come Office 2010 o versioni precedenti e Apple Mail, non è possi
 Di seguito è riportato un elenco delle informazioni importanti da conoscere sulle password dell'app.
 
 Esperienza di autenticazione|Per le app basate su browser|Per le app non basate su browser
-:------------- | :------------- | :------------- 
+:------------- | :------------- | :-------------
 |<ul><li>Il primo fattore di autenticazione viene eseguito in locale</li><li>Il secondo fattore è un metodo basato sul telefono eseguito dall'identità cloud.</li>|<ul><li>Amministratori e utenti possono usare le password dell'app per effettuare l'accesso.
 
 - Gli utenti possono avere più password dell'app, cosa che aumenta la superficie di attacco per i furti. Poiché le password dell'app sono difficili da ricordare, gli utenti potrebbero essere indotti ad annotarle. Questa operazione non è consigliabile e dovrebbe essere evitata, perché è necessario un solo fattore per l'accesso con la password dell'app.
@@ -362,7 +362,7 @@ Tuttavia, poiché agli utenti viene consentito di memorizzare MFA per i disposit
 È ora possibile scegliere i metodi di autenticazione disponibili per gli utenti quando si usa Azure Multi-Factor Authentication. Questa funzionalità è stata precedentemente disponibile solo nella versione del server locale. La tabella seguente fornisce una breve panoramica dei vari metodi di autenticazione che possono essere abilitati o disabilitati per gli utenti.
 
 Metodo|Descrizione
-:------------- | :------------- | 
+:------------- | :------------- |
 [Chiamata al telefono](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Invia una chiamata vocale automatizzata sul telefono predisposto all'autenticazione. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non verrà sincronizzato con Active Directory locale.
 [SMS al telefono](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Invia un messaggio di testo contenente un codice di verifica per l'utente. L'utente deve rispondere al messaggio con il codice di verifica o immettere il codice di verifica nell'interfaccia di accesso.
 [Notifica tramite app per dispositivi mobili](multi-factor-authentication-end-user-first-time-mobile-app.md)|In questa modalità l'app Microsoft Authenticator impedisce l'accesso agli account non autorizzati e arresta le transazioni illecite. L’avvertenza è una notifica push inviata sul telefono o sul dispositivo registrato. Visualizzare la notifica e, se del caso, selezionare Verifica. In caso contrario, è possibile scegliere Nega oppure Nega e segnala la notifica illecita. Per informazioni sulla segnalazione di notifiche illecite, vedere l'argomento relativo a come usare le funzionalità Nega e Segnala illecito per Multi-Factor Authentication.</br></br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).|
@@ -379,4 +379,4 @@ Metodo|Descrizione
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

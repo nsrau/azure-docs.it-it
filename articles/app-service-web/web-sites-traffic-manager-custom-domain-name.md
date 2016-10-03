@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-web"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
@@ -55,7 +55,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
 
 1. Anche se le specifiche di ogni registrar possono variare, in genere viene eseguito il mapping *dal* nome di dominio personalizzato, ad esempio **contoso.com**, *al* nome di dominio di Gestione traffico (**contoso.trafficmanager.net**) usato per l'app Web.
 
-> [AZURE.NOTE] In alternativa, se un record è già in uso ed è necessario associare le app in modalità preemptive, creare un record TXT per **awverify.contoso.com** a **contoso.trafficmanager.net**.
+    > [AZURE.NOTE] In alternativa, se un record è già in uso ed è necessario associare le app in modalità preemptive, è possibile creare un altro record CNAME. Ad esempio, per associare **www.contoso.com** all'app Web in modalità preemptive, creare un record CNAME da **awverify.www** a **contoso.trafficmanager.net**. Aggiungere quindi "www.contoso.com" all'app Web senza modificare il record CNAME "www". Per altre informazioni, vedere [Creare record DNS per un'app Web in un dominio personalizzato][CREATEDNS].
 
 1. Dopo aver completato l'aggiunta o la modifica di record DNS presso il registrar, salvare le modifiche.
 
@@ -72,4 +72,8 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!-- URL List --> 
+
+[CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
+
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="NKing92"
 	manager="wpickett"
-    editor="" />
+    editor="" /> 
 
 <tags
 	ms.service="app-service"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="nicking"/>  
+	ms.author="nicking"/> 
 # Usare PowerShell per eseguire il backup e il ripristino di app del servizio app
 
 > [AZURE.SELECTOR]
@@ -40,8 +40,7 @@ L'URL di firma di accesso condiviso può essere generato con PowerShell. Di segu
 		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
 
 		$blobContainerName = "<name of blob container for app backups>"
-		$token = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
-		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
+		$sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## Installare Azure PowerShell 1.3.2 o versioni successive
 
@@ -153,4 +152,4 @@ Per eliminare un backup, usare il cmdlet Remove-AzureRmWebAppBackup. Il backup v
 		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
 		$backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

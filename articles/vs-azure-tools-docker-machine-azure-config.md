@@ -3,9 +3,9 @@
    description="Descrive l'uso di Docker Machine per creare host Docker in Azure."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
-   editor="" />
+   editor="" /> 
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas" />
+   ms.author="mlearned" /> 
 
 # Creare host Docker in Azure con Docker Machine
 
-L'esecuzione dei contenitori [Docker](https://www.docker.com/) richiede una VM host che esegue il daemon Docker. In questo argomento viene descritto come usare il comando [docker-machine](https://docs.docker.com/machine/) per creare nuove macchine virtuali Linux, configurate con il daemon Docker, in esecuzione in Azure.
+L'esecuzione dei contenitori [Docker](https://www.docker.com/) richiede una VM host che esegue il daemon Docker. Questo argomento descrive come usare il comando [docker-machine](https://docs.docker.com/machine/) per creare nuove macchine virtuali Linux, configurate con il daemon Docker, in esecuzione in Azure.
 
 **Nota:**
 - *questo articolo si basa sulla versione di Docker Machine 0.7.0 o versione successiva*
@@ -27,10 +27,10 @@ L'esecuzione dei contenitori [Docker](https://www.docker.com/) richiede una VM h
 
 Creare macchine virtuali host di Docker in Azure con il comando `docker-machine create` usando il driver `azure`.
 
-Il driver Azure necessita dell'ID sottoscrizione. È possibile utilizzare l’[interfaccia della riga di comando di Azure](xplat-cli-install.md) o il [portale di Azure](https://portal.azure.com) per recuperare la sottoscrizione di Azure.
+Il driver Azure necessita dell'ID sottoscrizione. È possibile usare l'[interfaccia della riga di comando di Azure](xplat-cli-install.md) o il [portale di Azure](https://portal.azure.com) per recuperare la sottoscrizione di Azure.
 
 **Uso del portale di Azure**
-- Selezionare le sottoscrizioni nella pagina di navigazione a sinistra e copiare l'ID sottoscrizione.
+- Selezionare le sottoscrizioni nella pagina di esplorazione a sinistra e copiare l'ID sottoscrizione.
 
 **Uso dell'interfaccia della riga di comando di Azure**
 - Digitare ```azure account list``` e copiare l'ID sottoscrizione.
@@ -109,4 +109,4 @@ Docker Machine consente di eseguire facilmente il provisioning di host Docker in
 
 Per sviluppare applicazioni .NET Core con Visual Studio, vedere gli [Strumenti Docker per Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

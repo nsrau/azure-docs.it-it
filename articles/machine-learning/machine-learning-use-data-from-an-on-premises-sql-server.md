@@ -5,7 +5,7 @@ services="machine-learning"
 documentationCenter=""
 authors="garyericson"
 manager="jhubbard"
-editor="cgronlun"/>
+editor="cgronlun"/> 
 
 <tags
 ms.service="machine-learning"
@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/14/2016"
+ms.date="09/16/2016"
 ms.author="garye;krishnan"/>
 
 # Eseguire analisi avanzate con Azure Machine Learning usando i dati di un database SQL Server locale
@@ -25,7 +25,7 @@ Questo articolo fornisce una panoramica di come inserire dati locali di SQL Serv
 
 > [AZURE.NOTE] Questa funzionalità non è disponibile per le aree di lavoro gratuite. Per altre informazioni sui prezzi e sui piani tariffari di Machine Learning, vedere [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) (Prezzi di Azure Machine Learning).
 
-<!-- --> 
+<!-- -->  
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -70,49 +70,49 @@ In questa procedura dettagliata si installerà Gateway di gestione dati in un'ar
 
 Il primo passaggio consiste nel creare e configurare il gateway per accedere al database SQL locale.
 
-1.  Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/Home/) e selezionare l'area di lavoro in cui si vuole lavorare.
+1. Accedere a [Azure Machine Learning Studio](https://studio.azureml.net/Home/) e selezionare l'area di lavoro in cui si vuole lavorare.
 
-2.  Fare clic sul pannello **SETTINGS** (IMPOSTAZIONI) a sinistra e quindi sulla scheda **DATA GATEWAYS** (GATEWAY DATI) in alto.
+2. Fare clic sul pannello **SETTINGS** (IMPOSTAZIONI) a sinistra e quindi sulla scheda **DATA GATEWAYS** (GATEWAY DATI) in alto.
 
-3.  Fare clic su **NEW DATA GATEWAY** (NUOVO GATEWAY DATI) nella parte inferiore della schermata.
+3. Fare clic su **NEW DATA GATEWAY** (NUOVO GATEWAY DATI) nella parte inferiore della schermata.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 
-4.  Nella finestra di dialogo **New data gateway** (Nuovo gateway dati) compilare il campo **Gateway Name** (Nome gateway) e, facoltativamente, il campo **Description** (Descrizione). Fare clic sulla freccia nell'angolo inferiore destro per passare al passaggio successivo della configurazione.
+4. Nella finestra di dialogo **New data gateway** (Nuovo gateway dati) compilare il campo **Gateway Name** (Nome gateway) e, facoltativamente, il campo **Description** (Descrizione). Fare clic sulla freccia nell'angolo inferiore destro per passare al passaggio successivo della configurazione.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 
-5.  Nella finestra di dialogo Download and register data gateway (Scarica e registra gateway dati) copiare negli Appunti il valore del campo GATEWAY REGISTRATION KEY (CHIAVE REGISTRAZIONE GATEWAY).
+5. Nella finestra di dialogo Download and register data gateway (Scarica e registra gateway dati) copiare negli Appunti il valore del campo GATEWAY REGISTRATION KEY (CHIAVE REGISTRAZIONE GATEWAY).
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 
-6.  <span id="note-1" class="anchor"></span>Se Gateway di gestione dati di Microsoft non è ancora stato scaricato e installato, fare clic su **Download data management gateway** (Scarica Gateway di gestione dati). Si verrà reindirizzati all'Area download Microsoft in cui sarà possibile selezionare la versione del gateway necessaria, in modo da poterla scaricare e installare. Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nelle sezioni iniziali dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+6. <span id="note-1" class="anchor"></span>Se Gateway di gestione dati di Microsoft non è ancora stato scaricato e installato, fare clic su **Download data management gateway** (Scarica Gateway di gestione dati). Si verrà reindirizzati all'Area download Microsoft in cui sarà possibile selezionare la versione del gateway necessaria, in modo da poterla scaricare e installare. Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nelle sezioni iniziali dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
-7.  Dopo aver installato il gateway, verrà aperto Gestione configurazione di Gateway di gestione dati e verrà visualizzata la finestra di dialogo **Registra gateway**. Incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **Registra**.
+7. Dopo aver installato il gateway, verrà aperto Gestione configurazione di Gateway di gestione dati e verrà visualizzata la finestra di dialogo **Registra gateway**. Incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **Registra**.
 
-8.  Se si ha già un gateway installato, eseguire Gestione configurazione di Gateway di gestione dati, fare clic su **Cambia chiave**, incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **OK**.
+8. Se si ha già un gateway installato, eseguire Gestione configurazione di Gateway di gestione dati, fare clic su **Cambia chiave**, incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **OK**.
 
-9.  Al termine dell'installazione verrà visualizzata la finestra di dialogo **Registra gateway** di Gestione configurazione di Gateway di gestione dati. Incollare la chiave di registrazione del gateway copiata negli Appunti e fare clic su **Registra**.
+9. Al termine dell'installazione verrà visualizzata la finestra di dialogo **Registra gateway** di Gestione configurazione di Gateway di gestione dati. Incollare la chiave di registrazione del gateway copiata negli Appunti e fare clic su **Registra**.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 
-10.  La configurazione del gateway è completa quando nella scheda **Home** di Gestione configurazione di Gateway di gestione dati i valori seguenti sono impostati secondo quanto descritto di seguito:
+10. La configurazione del gateway è completa quando nella scheda **Home** di Gestione configurazione di Gateway di gestione dati i valori seguenti sono impostati secondo quanto descritto di seguito:
 
-    -   **Nome gateway** e **Nome istanza** sono impostati sul nome del gateway.
+    - **Nome gateway** e **Nome istanza** sono impostati sul nome del gateway.
 
-    -   **Registrazione** è impostato su **Registrato**.
+    - **Registrazione** è impostato su **Registrato**.
 
-    -   **Stato** è impostato su **Avviato**.
+    - **Stato** è impostato su **Avviato**.
 
-    -   La barra di stato visualizza **Connesso al servizio cloud del Gateway di gestione dati** insieme a un segno di spunta verde.
+    - La barra di stato in fondo visualizza **Connesso al servizio cloud del Gateway di gestione dati** insieme a un segno di spunta verde.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
+     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png) 
 
-    Al termine della registrazione viene aggiornato anche Azure Machine Learning Studio.
+     Al termine della registrazione viene aggiornato anche Azure Machine Learning Studio.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-registered.png)
 
-11.  Nella finestra di dialogo **Download and register data gateway** (Scarica e registra gateway dati) fare clic sul segno di spunta per completare l'installazione. Nella pagina **Settings** (Impostazioni) lo stato del gateway risulta impostato su "Online". Nel riquadro di destra sono disponibili informazioni sullo stato e altre informazioni utili.
+11. Nella finestra di dialogo **Download and register data gateway** (Scarica e registra gateway dati) fare clic sul segno di spunta per completare l'installazione. Nella pagina **Settings** (Impostazioni) lo stato del gateway risulta impostato su "Online". Nel riquadro di destra sono disponibili informazioni sullo stato e altre informazioni utili.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-status.png)
 
@@ -162,4 +162,4 @@ Al termine dell'esecuzione dell'esperimento è possibile visualizzare i dati imp
 
 Dopo aver completato lo sviluppo dell'esperimento, è possibile distribuire il modello e renderlo operativo. I dati del database SQL Server locale configurati nel modulo **Import Data** (Importa dati) verranno letti e usati per l'assegnazione dei punteggi tramite il servizio Esecuzione batch. Sebbene per l'assegnazione dei punteggi ai dati locali sia possibile usare il servizio di richiesta/risposta, Microsoft consiglia l'uso del [componente aggiuntivo di Excel](machine-learning-excel-add-in-for-web-services.md). La scrittura in un database SQL Server locale tramite **Export data** (Esporta dati) non è attualmente supportata, né negli esperimenti né nei servizi Web pubblicati.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

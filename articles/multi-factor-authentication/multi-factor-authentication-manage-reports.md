@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Report di Azure Multi-Factor Authentication" 
-	description="Viene descritto come usare la funzionalità dei report di Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+	pageTitle="Report di Azure Multi-Factor Authentication"
+	description="Viene descritto come usare la funzionalità dei report di Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/> 
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/> 
 
 # Report in Azure Multi-Factor Authentication
 
@@ -23,7 +23,7 @@ Azure Multi-Factor Authentication offre diversi report che possono essere utiliz
 È possibile accedere ai report tramite il portale di gestione di Azure.
 
 Name| Descrizione
-:------------- | :------------- | 
+:------------- | :------------- |
 Uso | I report di utilizzo consentono di visualizzare informazioni sull'uso generale, un riepilogo e dettagli sull'utente.
 Stato server|Questo report consente di visualizzare lo stato dei server di Multi-Factor Authentication associati all'account.
 Cronologia utenti bloccati|Questi report mostrano la cronologia delle richieste per bloccare o sbloccare gli utenti.
@@ -47,6 +47,5 @@ Queued|Consente di elencare i report accodati da elaborare e i relativi stati. Q
 
 * [Per gli utenti](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

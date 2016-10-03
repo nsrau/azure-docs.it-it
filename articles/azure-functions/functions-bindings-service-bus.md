@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+	ms.author="chrande; glenga"/> 
 
 # Trigger e associazioni del bus di servizio per code e argomenti in Funzioni di Azure
 
@@ -65,6 +65,13 @@ public static void Run(string myQueueItem, TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 }
+```
+
+#### Esempio di codice F# che elabora un messaggio della coda del bus di servizio
+
+```fsharp
+let Run(myQueueItem: string, log: TraceWriter) =
+    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 #### Esempio di codice Node.js che elabora un messaggio di coda del bus di servizio
@@ -168,6 +175,15 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 }
 ```
 
+#### Esempio di codice F# che crea un messaggio della coda del bus di servizio
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
+    log.Info(message)
+    outputSbQueue = message
+```
+
 #### Esempio di codice Node.js che crea un messaggio di coda del bus di servizio
 
 ```javascript
@@ -189,4 +205,4 @@ module.exports = function (context, myTimer) {
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -71,31 +71,31 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 Operazione consentita | Operazione non consentita
 ------------- | -------------
-<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p> | <p>Reimpostare le password utente</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p>
+<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p> | <p>Reimpostare le password utente</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Visualizzare i report</p>
 
 ### Amministratore globale
 
 Operazione consentita | Operazione non consentita
 ------------- | -------------
-<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p> <p>Reimpostare le password utente</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Abilitare o disabilitare l’autenticazione a più fattori</p> | N/D
+<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p> <p>Reimpostare le password utente</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Abilitare o disabilitare l'autenticazione a più fattori</p><p>Visualizzare i report</p> | N/D
 
 ### Amministratore password
 
 Operazione consentita | Operazione non consentita
 ------------- | -------------
-<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Reimpostare le password utente</p> | <p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p>
+<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Reimpostare le password utente</p> | <p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Visualizzare i report</p>
 
 ### Amministratore del servizio
 
 Operazione consentita | Operazione non consentita
 ------------- | -------------
-<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p> | <p>Reimpostare le password utente</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p>
+<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p> | <p>Reimpostare le password utente</p><p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Visualizzare i report</p>
 
 ### Amministratore utenti
 
 Operazione consentita | Operazione non consentita
 ------------- | -------------
-<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Reimpostare le password utente, con alcune limitazioni. Può reimpostare le password per gli amministratori fatturazione, globali e del servizio.</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente, con alcune limitazioni. Non può eliminare un amministratore globale o creare altri amministratori.</p> | <p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Abilitare o disabilitare l’autenticazione a più fattori</p>
+<p>Visualizzare le informazioni della società e degli utenti</p><p>Gestire i ticket di supporto di Office</p><p>Reimpostare le password utente, con alcune limitazioni. Può reimpostare le password per gli amministratori fatturazione, globali e del servizio.</p><p>Creare e gestire viste utente</p><p>Creare, modificare ed eliminare utenti e gruppi, nonché gestire le licenze utente, con alcune limitazioni. Non può eliminare un amministratore globale o creare altri amministratori.</p> | <p>Eseguire attività di fatturazione e acquisto per i prodotti Office</p><p>Gestire i domini</p><p>Gestire le informazioni della società</p><p>Delegare ruoli amministrativi ad altri utenti</p><p>Usare la sincronizzazione della directory</p><p>Abilitare o disabilitare l'autenticazione a più fattori</p><p>Visualizzare i report</p>
 
 ### Ruolo con autorizzazioni di lettura per la sicurezza
 
@@ -147,4 +147,4 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

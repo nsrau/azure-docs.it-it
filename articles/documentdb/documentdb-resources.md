@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="09/15/2016" 
 	ms.author="anhoh"/>
 
 # Modello di risorse gerarchico e concetti relativi a DocumentDB
@@ -36,7 +36,7 @@ Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di 
 
 ![Modello di risorse gerarchico di DocumentDB][1] **Modello di risorse gerarchico**
 
-Per iniziare a lavorare con le risorse, è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati (funzionalità di anteprima). Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
+Per iniziare a usare le risorse è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ciascuno contenente più **raccolte**, ognuna delle quali include a sua volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e gli **allegati** correlati (funzionalità di anteprima). Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, funzioni definite dall'utente, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.
 
 |Risorsa |Descrizione
 |-----------|-----------
@@ -96,7 +96,7 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
  
 ### Indirizzamento di una risorsa
-Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\_self** di una risorsa rappresenta l'URI relativo di tale risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{\_rid}:
+Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\_self** di una risorsa rappresenta l'URI relativo della risorsa. Il formato dell'URI è dato dai segmenti del percorso /<feed>/{\_rid}:
 
 |Valore di \_self |Descrizione
 |-------------------|-----------
@@ -118,7 +118,7 @@ Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamat
 Le API REST di DocumentDB supportano l'indirizzamento delle risorse e il routing delle richieste tramite l’id e le proprietà \_rid.
 
 ## Account di database
-È possibile eseguire il provisioning di uno o più account di database di DocumentDB usando la sottoscrizione di Azure. A ogni account di database di livello standard viene assegnata una capacità minima di una raccolta S1.
+È possibile eseguire il provisioning di uno o più account di database di DocumentDB usando la sottoscrizione di Azure.
 
 È possibile [creare e gestire account di database di DocumentDB](documentdb-create-account.md) tramite il portale di Azure all'indirizzo [http://portal.azure.com/](https://portal.azure.com/). Per la creazione e la gestione di un account di database è necessario l'accesso amministrativo e queste operazioni possono essere eseguite solo con una sottoscrizione di Azure.
 
@@ -142,7 +142,7 @@ Come parte del provisioning e della gestione di un account di database, è possi
     </tbody>
 </table>
 
-Notare che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK per client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Si noti che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK per client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Database
 Un database di DocumentDB è un contenitore logico di uno o più utenti e raccolte, come mostrato nel diagramma seguente. È possibile creare un numero qualsiasi di database in un account di database DocumentDB, a condizione di rispettare i limiti di offerta.
@@ -166,7 +166,7 @@ Come per le altre risorse nel modello di risorse di DocumentDB, i database posso
 Una raccolta di DocumentDB è un contenitore per i documenti JSON. Una raccolta è anche un'unità di scala per transazioni e query.
 
 ### Archiviazione flessibile di documenti basata su unità SSD
-Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni in una raccolta è determinato da DocumentDB in base allo spazio di archiviazione e alla velocità effettiva con provisioning della raccolta. Ogni partizione in DocumentDB dispone di una quantità fissa di archiviazione supportata da unità SSD associata a essa e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure DocumentDB e non è necessario scrivere script di codice complessi o gestire le partizioni. Le raccolte di DocumentDB sono **praticamente illimitate** in termini di archiviazione e di velocità effettiva.
+Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni in una raccolta è determinato da DocumentDB in base allo spazio di archiviazione e alla velocità effettiva con provisioning della raccolta. Ogni partizione in DocumentDB dispone di una quantità fissa di archiviazione supportata da unità SSD associata a essa e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure DocumentDB e non è necessario scrivere script di codice complessi o gestire le partizioni. Le raccolte di DocumentDB sono **praticamente illimitate** in termini di spazio di archiviazione e velocità effettiva.
 
 ### Indicizzazione automatica delle raccolte
 DocumentDB è un sistema di database effettivamente privo di schema. Non si presuppone o richiede alcuno schema per i documenti JSON. DocumentDB indicizza automaticamente i documenti aggiunti a una raccolta e li rende disponibili per l'esecuzione di query. L'indicizzazione automatica di documenti senza la richiesta di schema o di indici secondari è una capacità chiave di DocumentDB ed è resa possibile da tecniche di gestione dell'indice ottimizzate per la scrittura, prive di blocco e strutturate in log. DocumentDB supporta un volume prolungato di scritture estremamente veloci, servendo al tempo stesso query coerenti. L'archiviazione documenti e l'archiviazione dell'indice sono usate per calcolare le risorse di archiviazione usate da ogni raccolta. È possibile controllare i compromessi tra archiviazione e prestazioni associati all'indicizzazione tramite la configurazione di un criterio di indicizzazione per una raccolta.
@@ -174,8 +174,8 @@ DocumentDB è un sistema di database effettivamente privo di schema. Non si pres
 ### Configurazione dei criteri di indicizzazione di una raccolta
 Il criterio di indicizzazione di ogni raccolta rende possibili i compromessi tra prestazioni e archiviazione associati all'indicizzazione. Le opzioni seguenti sono disponibili come parte della configurazione dell'indicizzazione:
 
--	Possibilità di scegliere se la raccolta indicizza automaticamente o meno tutti i documenti. Per impostazione predefinita, saranno indicizzati automaticamente tutti i documenti. È possibile scegliere di disattivare l'indicizzazione automatica e aggiungere in modo selettivo solo documenti specifici all'indice. In alternativa, è possibile scegliere di escludere in modo selettivo solo documenti specifici. Per ottenere questo risultato, impostare la proprietà automatica su true o false nella proprietà indexingPolicy di una raccolta e usare l'intestazione di richiesta [x-ms-indexingdirective] durante l'inserimento, la sostituzione o l'eliminazione di un documento.  
--	Possibilità di scegliere se includere o escludere percorsi o modelli specifici nei documenti dall'indice. Per ottenere questo risultato, impostare rispettivamente includedPaths e excludedPaths in indexingPolicy di una raccolta. È anche possibile configurare i compromessi relativi ad archiviazione e prestazioni per query di intervallo e hash per modelli di percorso specifici. 
+-	Possibilità di scegliere se la raccolta indicizza automaticamente o meno tutti i documenti. Per impostazione predefinita, saranno indicizzati automaticamente tutti i documenti. È possibile scegliere di disattivare l'indicizzazione automatica e aggiungere in modo selettivo solo documenti specifici all'indice. In alternativa, è possibile scegliere di escludere in modo selettivo solo documenti specifici. Per ottenere questo risultato, impostare la proprietà automatica su true o false nella proprietà indexingPolicy di una raccolta e usare l'intestazione di richiesta [x-ms-indexingdirective] durante l'inserimento, la sostituzione o l'eliminazione di un documento.
+-	Possibilità di scegliere se includere o escludere percorsi o modelli specifici nei documenti dall'indice. Per ottenere questo risultato, impostare rispettivamente includedPaths e excludedPaths in indexingPolicy di una raccolta. È anche possibile configurare i compromessi relativi ad archiviazione e prestazioni per query di intervallo e hash per modelli di percorso specifici.
 -	Possibilità di scegliere tra aggiornamenti sincroni (coerenti) e asincroni (differiti) dell'indice. Per impostazione predefinita, l'indice è aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un documento nella raccolta. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di documenti. Benché DocumentDB sia ottimizzato per la scrittura e supporti volumi elevati di scritture di documenti, oltre a offrire la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco per raccolte principalmente a uso intensivo di lettura.
 
 Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite il [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), il [portale di Azure](https://portal.azure.com) o le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
@@ -183,9 +183,9 @@ Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'
 ### Esecuzione di query su una raccolta
 I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta usando la [sintassi SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici, relazionali e spaziali ed estendibilità attraverso funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica di DocumentDB e dal dialetto SQL di DocumentDB. Il linguaggio di query di DocumentDB è caratterizzato da tre aspetti principali:
 
-1.	Un set ridotto di operazioni di query mappate in modo naturale alla struttura ad albero, che include query e proiezioni gerarchiche. 
-2.	Un sottoinsieme di operazioni relazionali, incluse la composizione, l'applicazione di filtri, le proiezioni, le aggregazioni e i self join. 
-3.	Funzioni definite dall'utente pure basate su JavaScript in grado di funzionare con (1) e (2).  
+1.	Un set ridotto di operazioni di query mappate in modo naturale alla struttura ad albero, che include query e proiezioni gerarchiche.
+2.	Un sottoinsieme di operazioni relazionali, incluse la composizione, l'applicazione di filtri, le proiezioni, le aggregazioni e i self join.
+3.	Funzioni definite dall'utente pure basate su JavaScript in grado di funzionare con (1) e (2).
 
 Il modello di query di DocumentDB tenta di ottenere un equilibrio tra funzionalità, efficienza e semplicità. Il motore di database di DocumentDB compila ed esegue in modo nativo le istruzioni di query SQL. È possibile eseguire query su una raccolta usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). In .NET SDK è disponibile un provider LINQ.
 
@@ -302,7 +302,7 @@ L'esecuzione di una stored procedure avviene tramite l'esecuzione di un metodo H
 	    });
 
 ### Annullamento della registrazione di una stored procedure
-L'annullamento della registrazione di una stored procedure avviene tramite la semplice esecuzione di un metodo HTTP DELETE su una risorsa stored procedure esistente.
+L'annullamento della registrazione di una stored procedure avviene tramite la semplice esecuzione di un'operazione HTTP DELETE su una risorsa stored procedure esistente.
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {
@@ -344,7 +344,7 @@ L'esecuzione di un trigger è effettuata specificando il nome di un trigger esis
 	    });
 
 ### Annullamento della registrazione di un trigger
-L'annullamento della registrazione di un trigger avviene tramite la semplice esecuzione di un metodo HTTP DELETE su una risorsa trigger esistente.
+L'annullamento della registrazione di un trigger avviene tramite la semplice esecuzione di un'operazione HTTP DELETE su una risorsa trigger esistente.
 
 	client.deleteTriggerAsync(createdPreTrigger._self);
 	    .then(function(response) {
@@ -381,7 +381,7 @@ Una funzione definita dall'utente può essere specificata come parte della query
 	    });
 
 ### Annullamento della registrazione di una funzione UDF 
-L'annullamento della registrazione di una funzione definita dall'utente avviene tramite la semplice esecuzione di un metodo HTTP DELETE su una risorsa funzione definita dall'utente esistente.
+L'annullamento della registrazione di una funzione definita dall'utente avviene tramite la semplice esecuzione di un'operazione HTTP DELETE su una risorsa di funzione definita dall'utente esistente.
 
 	client.deleteUserDefinedFunctionAsync(createdUdf._self)
 	    .then(function(response) {
@@ -390,7 +390,7 @@ L'annullamento della registrazione di una funzione definita dall'utente avviene 
 	        console.log("Error");
 	    });
 
-Benché i frammenti di codice forniti sopra mostrino la registrazione (POST), l'annullamento della registrazione (PUT), la lettura/creazione di un elenco (GET) e l'esecuzione (POST) tramite [JavaScript SDK di DocumentDB](https://github.com/Azure/azure-documentdb-js), è anche possibile usare le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o altri [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Anche se i frammenti di codice precedenti illustrano la registrazione (POST), l'annullamento della registrazione (PUT), la lettura/creazione di un elenco (GET) e l'esecuzione (POST) tramite [JavaScript SDK di DocumentDB](https://github.com/Azure/azure-documentdb-js), è anche possibile usare le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o altri [SDK per client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Documenti
 È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. DocumentDB non rende obbligatorio alcuno schema e non richiede indici secondari per il supporto delle query in documenti di una raccolta.
@@ -406,15 +406,15 @@ DocumentDB permette di archiviare BLOB/file multimediali binari tramite Document
 
 Si prenda in considerazione un'applicazione di lettura di social media che usa DocumentDB per archiviare annotazioni a penna e metadati, inclusi commenti, evidenziazioni, segnalibri, valutazioni, commenti di tipo mi piace/non mi piace e così via, associati a un e-book di un utente specifico.
 
--	Il contenuto dell'e-book stesso è archiviato nel supporto di memorizzazione disponibile come parte dell'account di database di DocumentDB o in un archivio remoto di file multimediali. 
--	Un'applicazione può archiviare i metadati di ogni utente come documento distinto, ad esempio i metadati di Joe per book1 saranno archiviati in un documento a cui si fa riferimento come /colls/joe/docs/book1. 
--	Gli allegati che fanno riferimento alle pagine di contenuto di un determinato e-book di un utente sono archiviati nel documento corrispondente, ad esempio /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 e così via. 
+-	Il contenuto dell'e-book stesso è archiviato nel supporto di memorizzazione disponibile come parte dell'account di database di DocumentDB o in un archivio remoto di file multimediali.
+-	Un'applicazione può archiviare i metadati di ogni utente come documento distinto, ad esempio i metadati di Joe per book1 saranno archiviati in un documento a cui si fa riferimento come /colls/joe/docs/book1.
+-	Gli allegati che fanno riferimento alle pagine di contenuto di un determinato e-book di un utente sono archiviati nel documento corrispondente, ad esempio /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 e così via.
 
 Si noti che gli esempi appena riportati usano ID descrittivi per indicare la gerarchia delle risorse. L'accesso alle risorse è effettuato tramite le API REST mediante ID di risorsa univoci.
 
 Nel caso dei file multimediali gestiti da DocumentDB, la proprietà \_media dell'allegato farà riferimento al file multimediale tramite il rispettivo URI. DocumentDB assicura la Garbage Collection del file multimediale dopo il rilascio di tutti i riferimenti in sospeso. DocumentDB genera automaticamente gli allegati quando si caricano nuovi file multimediali e popola la proprietà \_media in modo da fare riferimento ai file multimediali appena aggiunti. Se si sceglie di archiviare i file multimediali in un archivio BLOB remoto gestito personalmente, ad esempio OneDrive, Archiviazione di Azure, Dropbox e così via, sarà comunque possibile usare gli allegati per fare riferimento ai file multimediali. In questo caso sarà necessario creare personalmente l'allegato e popolarne la proprietà \_media.
 
-Analogamente a tutte le altre risorse, gli allegati possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. Come per i documenti, il livello di coerenza di lettura degli allegati segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query relative agli allegati, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account.
+Analogamente a tutte le altre risorse, gli allegati possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. Come per i documenti, il livello di coerenza di lettura degli allegati segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query relative agli allegati, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account.  
 ## Utenti
 Un utente di DocumentDB rappresenta uno spazio dei nomi logico per il raggruppamento di autorizzazioni. Un utente di DocumentDB può corrispondere a un utente in un sistema di gestione delle identità o a un ruolo applicazione predefinito. In DocumentDB un utente rappresenta semplicemente un'astrazione per raggruppare un insieme di autorizzazioni in un database.
 
@@ -423,9 +423,9 @@ Per l'implementazione del multi-tenancy nell'applicazione, è possibile creare u
 Poiché la scalabilità delle applicazione deve essere adeguata all'incremento degli utenti, è possibile adottare modi diversi per partizionare i dati. È possibile modellare ogni utente in modo che:
 
 -	Ogni utente venga mappato a un database.
--	Ogni utente venga mappato a una raccolta. 
--	I documenti corrispondenti a più utenti passino a una raccolta dedicata. 
--	I documenti corrispondenti a più utenti passino a un set di raccolte.   
+-	Ogni utente venga mappato a una raccolta.
+-	I documenti corrispondenti a più utenti passino a una raccolta dedicata.
+-	I documenti corrispondenti a più utenti passino a un set di raccolte.
 
 Indipendentemente dalla strategia scelta per partizionare i dati, è possibile modellare gli utenti effettivi come utenti nel database di DocumentDB e associare autorizzazioni dettagliate a ogni utente.
 
@@ -434,7 +434,7 @@ Indipendentemente dalla strategia scelta per partizionare i dati, è possibile m
 Analogamente a tutte le altre risorse, gli utenti in DocumentDB possono essere creati, sostituiti, eliminati, letti o enumerati con facilità tramite le API REST o uno degli SDK dei client. DocumentDB offre sempre una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa utente. È utile segnalare che se si elimina un utente, non sarà automaticamente più possibile accedere alle autorizzazioni incluse nell'utente stesso. Anche se DocumentDB recupera in background la quota di autorizzazioni come parte dell'utente eliminato, le autorizzazioni eliminate saranno disponibili immediatamente per un nuovo uso.
 
 ## Autorizzazioni
-Dal punto di vista del controllo di accesso, le risorse quali account di database, database, utenti e autorizzazioni sono considerate come risorse *amministrative*, poiché necessitano di autorizzazioni amministrative. L'ambito di risorse quali raccolte, documenti, allegati, stored procedure, trigger e funzioni UDF invece è limitato a un database specifico e queste risorse sono considerate *risorse dell'applicazione*. Corrispondente ai due tipi di risorse e ai ruoli che vi accedono, ovvero l'amministratore e l'utente, il modello di autorizzazione definisce due tipi di *chiavi di accesso*: *chiave master* e *chiave risorsa*. La chiave master fa parte dell'account di database ed è fornita allo sviluppatore o all'amministratore che esegue il provisioning dell'account di database. La chiave master usa semantica di amministratore, ovvero può essere usata per autorizzare l'accesso alle risorse amministrative e dell'applicazione. La chiave di risorsa, invece, è una chiave di accesso granulare che permette l'accesso a una risorsa *specifica* dell'applicazione. Acquisisce quindi la relazione tra l'utente di un database e le autorizzazioni di cui l'utente dispone per una risorsa specifica, ad esempio una raccolta, un documento, un allegato, una stored procedure, un trigger o una funzione UDF.
+Dal punto di vista del controllo di accesso, le risorse quali account di database, database, utenti e autorizzazioni sono considerate come risorse *amministrative* perché necessitano di autorizzazioni amministrative. L'ambito di risorse quali raccolte, documenti, allegati, stored procedure, trigger e funzioni UDF invece è limitato a un database specifico e queste risorse sono considerate *risorse dell'applicazione*. Corrispondente ai due tipi di risorse e ai ruoli che vi accedono, ovvero l'amministratore e l'utente, il modello di autorizzazione definisce due tipi di *chiavi di accesso*: *chiave master* e *chiave risorsa*. La chiave master fa parte dell'account di database ed è fornita allo sviluppatore o all'amministratore che esegue il provisioning dell'account di database. La chiave master usa semantica di amministratore, ovvero può essere usata per autorizzare l'accesso alle risorse amministrative e dell'applicazione. La chiave di risorsa, invece, è una chiave di accesso granulare che permette l'accesso a una risorsa *specifica* dell'applicazione. Acquisisce quindi la relazione tra l'utente di un database e le autorizzazioni di cui l'utente dispone per una risorsa specifica, ad esempio una raccolta, un documento, un allegato, una stored procedure, un trigger o una funzione UDF.
 
 L'unico modo per ottenere una chiave di risorsa consiste nella creazione di una risorsa di autorizzazione per un utente specifico. Si noti che per creare o recuperare un'autorizzazione è necessario presentare una chiave master nell'intestazione dell'autorizzazione. Una risorsa di autorizzazione associa la risorsa, l'accesso e l'utente. Dopo la creazione di una risorsa di autorizzazione, l'utente dovrà solo presentare la chiave di risorsa associata per ottenere l'accesso alla risorsa rilevante. Una chiave di risorsa può essere quindi considerata come una rappresentazione logica e compatta della risorsa di autorizzazione.
 
@@ -448,4 +448,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

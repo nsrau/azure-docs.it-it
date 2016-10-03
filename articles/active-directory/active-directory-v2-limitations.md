@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/> 
 
 # Perché usare l'endpoint 2.0
 
@@ -121,4 +121,4 @@ Nel servizio Azure Active Directory è disponibile un set di funzionalità per s
 - Attestazioni di gruppo per utenti di Azure AD
 - Ruoli applicazione e attestazioni basate sui ruoli
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

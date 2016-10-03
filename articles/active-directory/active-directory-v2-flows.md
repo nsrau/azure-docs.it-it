@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/> 
 
 # Tipi dell'endpoint v2.0
 L'endpoint v2.0 supporta l'autenticazione di un'ampia gamma di architetture di app moderne, basate sui protocolli standard del settore [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) e/o [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Questo documento descrive brevemente i tipi di app che è possibile creare, indipendente dal linguaggio o dalla piattaforma preferita. Il documento consentirà di comprendere gli scenari di alto livello prima di [passare direttamente al codice](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 ## Nozioni di base
 Ogni app che usa l'endpoint v2.0 dovrà essere registrata in [apps.dev.microsoft.com](https://apps.dev.microsoft.com). Il processo di registrazione raccoglie e assegna all'app alcuni valori:
@@ -118,4 +118,4 @@ Molte architetture includono un'API Web che deve chiamare un'altra API Web downs
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come [flusso On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'endpoint v2.0. Per verificare il funzionamento di questo flusso nel servizio Azure AD disponibile a livello generale, consultare l'[esempio di codice On-Behalf-Of su GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

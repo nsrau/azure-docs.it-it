@@ -5,19 +5,19 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="" />
+   editor="" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
-   ms.author="alkohli" />
+   ms.date="09/21/2016"
+   ms.author="alkohli" /> 
 
 # Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 In questo articolo vengono fornite informazioni sull'hardware supplementare che funziona con il dispositivo StorSimple di Microsoft Azure.
 
@@ -27,13 +27,13 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 
 ### Ricetrasmettitori SFP+
 
-|Assicurarsi|Modello|
+|Casa automobilistica|Modello|
 |---|---|
 |Cisco|SFP-10G-SR|
 
 ### Cavi
 
-|Numero di serie |Assicurarsi|Modello|
+|Numero di serie |Casa automobilistica|Modello|
 |---|---|---|
 | 1\.|Cisco|SFP-H10GB-CU1M|
 | 2\.|Cisco|SFP-H10GB-CU2M|
@@ -42,7 +42,7 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 
 ### Switch
 
-|Numero di serie|Assicurarsi|Modello|
+|Numero di serie|Casa automobilistica|Modello|
 |---|---|---|
 | 1\. |Cisco|N3K-C3172PQ-10GE|
 | 2\. |Cisco|N3K-C3048-ZM-F|
@@ -130,4 +130,4 @@ Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono
 
 [Ulteriori informazioni sui componenti hardware di StorSimple](storsimple-monitor-hardware-status.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

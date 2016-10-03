@@ -7,7 +7,7 @@
 	authors="Blackmist"
 	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/> 
 
 <tags
 	ms.service="hdinsight"
@@ -15,8 +15,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/06/2016"
-	ms.author="larryfr"/>
+	ms.date="09/19/2016"
+	ms.author="larryfr"/> 
 
 # Usare Hive e HiveQL con Hadoop in HDInsight per analizzare un file Apache log4j di esempio
 
@@ -32,6 +32,8 @@ Hive consente di proiettare la struttura su dati principalmente non strutturati.
 
 Hive è in grado di gestire perfettamente dati strutturati e semistrutturati, ad esempio file di testo in cui i campi sono delimitati da caratteri specifici. Hive supporta inoltre **serializzatori/deserializzatori** personalizzati per dati complessi o strutturati in modo irregolare. Per altre informazioni, vedere l'articolo su [come usare un serializzatore/deserializzatore JSON personalizzato con HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
+## Funzioni definite dall'utente (UDF)
+
 Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL. Per un esempio sull'uso di funzioni definite dall'utente con Hive, vedere gli argomenti seguenti:
 
 * [Usare una funzione Java definita dall'utente con Hive](hdinsight-hadoop-hive-java-udf.md)
@@ -42,6 +44,7 @@ Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, c
 
 * [Come aggiungere una funzione definita dall'utente Hive personalizzata in HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+* [Esempio di funzione definita dall'utente Hive personalizzata per convertire i formati di data/ora in timestamp Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## Confronto tra le tabelle interne ed esterne di Hive
 
@@ -214,4 +217,4 @@ Dopo aver appreso cos'è Hive e come si usa con Hadoop in HDInsight, vedere i co
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

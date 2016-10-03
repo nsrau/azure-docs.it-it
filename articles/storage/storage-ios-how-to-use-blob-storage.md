@@ -4,16 +4,17 @@
     services="storage"
     documentationCenter="ios"
     authors="micurd"
-    manager="jahogg"/>
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
-    ms.devlang="Objective-C"
+    ms.devlang="objective-c"
     ms.topic="article"
-    ms.date="07/27/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>
 
 # Come usare l'archivio BLOB da iOS
 
@@ -371,4 +372,4 @@ A questo punto, dopo avere appreso a usare l'archiviazione BLOB da iOS, seguire 
 
 In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

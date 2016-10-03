@@ -6,15 +6,15 @@
    authors="steelanddata"
    manager="NA"
    editor=""
-   tags=""/>
+   tags=""/> 
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/11/2016"
-   ms.author="maroche"/>
+   ms.date="09/21/2016"
+   ms.author="maroche"/> 
 
 # Note sulla versione del Catalogo dati di Azure
 
@@ -58,10 +58,6 @@ Quando si aprono asset di dati in Microsoft Excel dal portale del **Catalogo dat
 
 Per altre informazioni, vedere [Attivazione o disattivazione degli avvisi di protezione relativi ai collegamenti a siti Web sospetti e a file scaricati da tali siti](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-### Colonne di BLOB e UTD mancanti nelle anteprime
-
-Durante la registrazione di tabelle e viste che contengono colonne di oggetti binari di grandi dimensioni (BLOB) e di tipo definito dall'utente (UDT), se si sceglie di includere l'anteprima per gli asset di dati, queste colonne non verranno incluse nell'anteprima.
-
 ### Configurazione di proxy e criteri e registrazione dell'origine dati
 
 È possibile che si verifichi una situazione in cui gli utenti possono accedere al portale del Catalogo dati di Azure, ma, quando tentano di accedere allo strumento di registrazione dell'origine dati, viene restituito un messaggio di errore che impedisce l'accesso.
@@ -88,4 +84,4 @@ Per altre informazioni, vedere [Configurare i criteri di autenticazione](https:/
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

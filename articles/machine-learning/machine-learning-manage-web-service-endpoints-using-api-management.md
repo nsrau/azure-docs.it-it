@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="roalexan"
 	manager="jhubbard"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/16/2016"
 	ms.author="roalexan" />
 
 
@@ -74,7 +74,7 @@ Fare clic su **API** dal menu **Gestione API** sulla sinistra, quindi scegliere 
 
 Digitare **AzureML Demo API** in **Nome API Web**. Digitare **https://ussouthcentral.services.azureml.net** in **URL servizio Web**. Digitare **azureml-demo** in **Web API URL suffix** (Suffisso URL API Web). Selezionare **HTTPS** come schema dell'**URL API Web**. Selezionare **Starter** in **Prodotti**. Al termine, fare clic su **Salva** per creare l'API.
 
-![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
+![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png) 
 
 ##Aggiungere le operazioni
 
@@ -134,15 +134,15 @@ Per le intestazioni della richiesta, fare clic su **Aggiungi intestazione** e di
 
 Digitare **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}** come corpo della richiesta.
 
-![azureml-demo-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+![azureml-demo-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/azureml-demo-api.png) 
 
 Fare clic su **Send**.
 
-![send](./media/machine-learning-manage-web-service-endpoints-using-api-management/send.png)
+![send](./media/machine-learning-manage-web-service-endpoints-using-api-management/send.png) 
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 
-![response-status](./media/machine-learning-manage-web-service-endpoints-using-api-management/response-status.png)
+![response-status](./media/machine-learning-manage-web-service-endpoints-using-api-management/response-status.png) 
 
 ##Appendice A - Creazione e test di un semplice servizio Web di AzureML
 
@@ -156,45 +156,45 @@ This is a good day | 1 1 2 2 0 2 0 1
 
 Per prima cosa, usando il browser preferito, andare a [https://studio.azureml.net/](https://studio.azureml.net/) e immettere le credenziali di accesso. Quindi creare un nuovo esperimento vuoto.
 
-![search-experiment-templates](./media/machine-learning-manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
+![search-experiment-templates](./media/machine-learning-manage-web-service-endpoints-using-api-management/search-experiment-templates.png) 
 
 Rinominarlo **SimpleFeatureHashingExperiment**. Espandere **Saved Datasets** e trascinare **Book Reviews from Amazon** sull'esperimento.
 
-![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
+![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png) 
 
 Espandere **Trasformazioni di dati** e **Manipulation** (Manipolazione) e trascinare **Select Columns in Dataset** (Seleziona colonne in set di dati) sull'esperimento. Connettere **Book Reviews from Amazon** (Recensioni sul libro da Amazon) a **Select Columns in Dataset** (Seleziona colonne in set di dati).
 
-![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png) 
 
 Fare clic su **Select Columns in Dataset** (Seleziona colonne in set di dati), quindi fare clic su **Launch column selector** (Avvia selettore di colonna) e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
 
-![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png) 
 
 Espandere **Text Analytics** e trascinare **Feature Hashing** sull'esperimento. Connettere **Select Columns in Dataset** (Seleziona colonne in set di dati) a **Feature Hashing**.
 
-![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
+![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png) 
 
 Digitare **3** come **Hashing bitsize**. Verranno create 8 (23) colonne.
 
-![hashing-bitsize](./media/machine-learning-manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
+![hashing-bitsize](./media/machine-learning-manage-web-service-endpoints-using-api-management/hashing-bitsize.png) 
 
 A questo punto, è possibile fare clic su **Run** per testare l'esperimento.
 
-![run](./media/machine-learning-manage-web-service-endpoints-using-api-management/run.png)
+![run](./media/machine-learning-manage-web-service-endpoints-using-api-management/run.png) 
 
 ###Creare un servizio Web
 
 Ora creare un servizio Web. Espandere **Web Service** e trascinare **Input** sull'esperimento. Connettere **Input** a **Feature Hashing**. Trascinare anche **output** sull'esperimento. Connettere **Output** a **Feature Hashing**.
 
-![output-to-feature-hashing](./media/machine-learning-manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
+![output-to-feature-hashing](./media/machine-learning-manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png) 
 
 Fare cli su **Publish web service**.
 
-![publish-web-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/publish-web-service.png)
+![publish-web-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/publish-web-service.png) 
 
 Fare clic su **Yes** per pubblicare l'esperimento.
 
-![yes-to-publish](./media/machine-learning-manage-web-service-endpoints-using-api-management/yes-to-publish.png)
+![yes-to-publish](./media/machine-learning-manage-web-service-endpoints-using-api-management/yes-to-publish.png) 
 
 ###Testare il servizio Web
 
@@ -202,11 +202,11 @@ Un servizio Web di AzureML è costituito dagli endpoint RSS (servizio di richies
 
 Per la seguente origine di esempio, saranno necessari anche l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento. È possibile trovare l'area di lavoro e il servizio facendo clic su **Request/Response** o su **Batch Execution** per l'esperimento nel dashboard del servizio Web.
 
-![find-workspace-and-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![find-workspace-and-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png) 
 
 È possibile trovare la **chiave API** facendo clic sull'esperimento nel dashboard del servizio Web.
 
-![find-api-key](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png)
+![find-api-key](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png) 
 
 ####Testare l'endpoint RRS
 
@@ -214,15 +214,15 @@ Per la seguente origine di esempio, saranno necessari anche l'**area di lavoro**
 
 Un modo semplice per testare l'endpoint RRS consiste nel fare clic su **Test** nel dashboard del servizio.
 
-![test](./media/machine-learning-manage-web-service-endpoints-using-api-management/test.png)
+![test](./media/machine-learning-manage-web-service-endpoints-using-api-management/test.png) 
 
 Digitare **This is a good day** in **col2**. Fare clic sul segno di spunta.
 
-![enter-data](./media/machine-learning-manage-web-service-endpoints-using-api-management/enter-data.png)
+![enter-data](./media/machine-learning-manage-web-service-endpoints-using-api-management/enter-data.png) 
 
 Verrà visualizzato qualcosa di simile a quanto segue
 
-![sample-output](./media/machine-learning-manage-web-service-endpoints-using-api-management/sample-output.png)
+![sample-output](./media/machine-learning-manage-web-service-endpoints-using-api-management/sample-output.png) 
 
 #####Codice di esempio
 
@@ -384,4 +384,4 @@ Questa guida mostra un esempio di Python funzionante. È necessario modificarlo 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

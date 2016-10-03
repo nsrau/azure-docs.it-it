@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script F#](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.JS](../articles/azure-functions/functions-reference-node.md)
 
 L'esperienza Node/JavaScript per Funzioni di Azure semplifica l'esportazione di una funzione a cui viene passato un oggetto `context` per la comunicazione con il runtime e per la ricezione e l'invio di dati tramite associazioni.
@@ -46,17 +47,17 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Le associazioni di `direction === "in"` vengono passate come argomenti della funzione, ovvero è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) per gestire in modo dinamico nuovi input, ad esempio il metodo `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è molto utile se si ha un solo trigger senza input aggiuntivi, perché è possibile accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context`.
+Le associazioni di `direction === "in"` vengono passate come argomenti della funzione, ovvero è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) per gestire in modo dinamico nuovi input, ad esempio usando `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è molto utile se si ha un solo trigger senza input aggiuntivi, perché è possibile accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context`.
 
-Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui indicati nel file *function.json*, anche se non vengono specificati nell'istruzione exports. Ad esempio, se si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[3]`.
+Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui sono indicati nel file *function.json*, anche se non vengono specificati nell'istruzione exports. Se ad esempio si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[3]`.
 
-Tutte le associazioni, indipendentemente dalla direzione, vengono passate anche sull'oggetto `context` (vedere di seguito).
+Anche tutte le associazioni, indipendentemente dalla direzione, vengono passate sull'oggetto `context` (vedere di seguito).
 
 ## Oggetto context
 
 Il runtime usa un oggetto `context` per passare dati dalla e alla funzione e consentire la comunicazione con il runtime.
 
-L'oggetto context è sempre il primo parametro di una funzione e deve sempre essere incluso, perché contiene i metodi, ad esempio `context.done` e `context.log`, necessari per usare correttamente il runtime. È possibile assegnare all'oggetto il nome desiderato, ad esempio `ctx` o `c`.
+L'oggetto context è sempre il primo parametro di una funzione e deve sempre essere incluso, perché contiene i metodi, ad esempio `context.done` e `context.log`, necessari per usare correttamente il runtime. È possibile assegnare all'oggetto un nome qualsiasi, ad esempio `ctx` o `c`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -67,7 +68,7 @@ module.exports = function(context) {
 
 ## context.bindings
 
-L'oggetto `context.bindings` raccoglie tutti i dati di input e output. I dati vengono aggiunti all'oggetto `context.bindings` tramite la proprietà `name` dell'associazione. Ad esempio, data la seguente definizione di associazione in *function.json*, è possibile accedere al contenuto della coda tramite `context.bindings.myInput`.
+L'oggetto `context.bindings` raccoglie tutti i dati di input e output. I dati vengono aggiunti all'oggetto `context.bindings` tramite la proprietà `name` dell'associazione. Data la seguente definizione di associazione in *function.json*, è ad esempio possibile accedere al contenuto della coda tramite `context.bindings.myInput`.
 
 ```json
     {
@@ -87,7 +88,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-## `context.done([err],[propertyBag])`
+## `context.done([err],[propertyBag])` 
 
 La funzione `context.done` comunica al runtime che l'esecuzione è stata completata. È importante eseguire questa chiamata una volta completata la funzione. In caso contrario, il runtime non saprà mai che la funzione è stata completata.
 
@@ -129,7 +130,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ## Trigger HTTP: context.req e context.res
 
-Nel caso di trigger HTTP, essendo questo un modello comune per l'uso di `req` e `res` per gli oggetti di richiesta e risposta HTTP, è stato deciso di rendere più semplice l'accessp a quelli contenuti nell'oggetto context, invece di dover usare il modello `context.bindings.name` completo.
+Nel caso di trigger HTTP, essendo un modello molto comune l'uso di `req` e `res` per gli oggetti di richiesta e risposta HTTP, si è deciso di semplificare l'accesso a quelli contenuti nell'oggetto context, invece di dover usare il modello `context.bindings.name` completo.
 
 ```javascript
 // You can access your http request off of the context ...
@@ -148,13 +149,13 @@ La versione di Node è attualmente bloccata alla `5.9.1`. Si sta analizzando la 
 
 1. Accedere a `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Fare clic su **Debug Console (Console debug) > CMD**.
+2. Fare clic su **Debug Console (Console di debug) > CMD**.
 
 3. Accedere a `D:\home\site\wwwroot<function_name>`.
 
 4. Eseguire `npm install`.
 
-Una volta che i pacchetti necessari sono installati è possibile importarli nella funzione con i metodi normali (ad esempio con `require('packagename')`)
+Una volta che i pacchetti necessari sono installati è possibile importarli nella funzione con i metodi normali, ad esempio con `require('packagename')`
 
 ```javascript
 // Import the underscore.js library
@@ -198,6 +199,7 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
+* [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](functions-reference-fsharp.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

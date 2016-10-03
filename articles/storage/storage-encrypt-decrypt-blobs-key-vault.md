@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure | Microsoft Azure"
-   description="Questa esercitazione illustra come crittografare e decrittografare un BLOB mediante la crittografia lato client per Archiviazione di Microsoft Azure con l'insieme di credenziali delle chiavi di Azure."
-   services="storage"
-   documentationCenter=""
-   authors="adhurwit"
-   manager=""
-   editor="tysonn"/>
+	pageTitle="Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure | Microsoft Azure"
+	description="Questa esercitazione illustra come crittografare e decrittografare un BLOB mediante la crittografia lato client per Archiviazione di Microsoft Azure con l'insieme di credenziali delle chiavi di Azure."
+	services="storage"
+	documentationCenter=""
+	authors="adhurwit"
+	manager=""
+	editor="tysonn"/> 
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="03/31/2016"
-   ms.author="lakasa"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="09/20/2016"
+	ms.author="lakasa;robinsh"/> 
 
 # Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure
 
@@ -221,7 +221,7 @@ Nell'applicazione console è possibile usare la stessa chiamata descritta preced
     	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
 
-È tutto. pronta per essere usata.
+È tutto. Buon lavoro.
 
 ## Passaggi successivi
 
@@ -232,7 +232,7 @@ Per altre informazioni sull'API REST per i BLOB, vedere [API REST del servizio B
 Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare il [blog del relativo team](http://blogs.msdn.com/b/windowsazurestorage/).
 
 
-<!--Image references-->
+<!--Image references--> 
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0921_2016-->

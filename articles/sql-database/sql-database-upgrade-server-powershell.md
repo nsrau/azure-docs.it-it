@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="stevestein"
 	manager="jhubbard"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="sql-database"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
-	ms.author="sstein"/>
+	ms.date="09/19/2016"
+	ms.author="sstein"/> 
 
 # Eseguire l'aggiornamento a database SQL V12 di Azure tramite PowerShell
 
@@ -32,11 +32,11 @@ Database SQL V12 è la versione più recente, pertanto, è consigliabile eseguir
 
 In questo articolo vengono fornite istruzioni per l'aggiornamento di database e server di database SQL V11 esistenti alla versione 12 del database SQL.
 
-Durante il processo di aggiornamento alla versione 12 verranno aggiornati tutti i database Web e Business a un nuovo livello di servizio in modo che siano incluse le istruzioni per l'aggiornamento dei database Web e Business.
+Durante il processo di aggiornamento alla versione 12 vengono aggiornati tutti i database Web e Business a un nuovo livello di servizio in modo da includere le istruzioni per l'aggiornamento dei database Web e Business.
 
-Inoltre, la migrazione a un [pool di database elastici](sql-database-elastic-pool.md) può essere più conveniente rispetto all'aggiornamento a livelli di prestazioni singoli (livelli di prezzi) per singoli database. I pool inoltre semplificano la gestione dei database perché è sufficiente gestire le impostazioni delle prestazioni per il pool anziché gestire separatamente i livelli di prestazione dei singoli database. Se si dispone di database in più server è consigliabile spostarli nello stesso server e usufruire del vantaggio di metterli in un pool.
+Inoltre, la migrazione a un [pool di database elastici](sql-database-elastic-pool.md) può essere più conveniente rispetto all'aggiornamento a livelli di prestazioni singoli (livelli di prezzi) per singoli database. I pool inoltre semplificano la gestione dei database perché è sufficiente gestire le impostazioni delle prestazioni per il pool anziché gestire separatamente i livelli di prestazione dei singoli database. Se si dispone di database su più server è consigliabile migrarli nello stesso server e sfruttare i vantaggi dell'inserimento in un pool.
 
-È possibile migrare automaticamente e facilmente i database dai server della V11 direttamente nel pool di database elastici seguendo i passaggi in questo articolo.
+È possibile seguire i passaggi descritti in questo articolo per migrare facilmente i database dai server della versione 11 direttamente nel pool di database elastici.
 
 Si noti che i database rimarranno online e continueranno a funzionare durante l'operazione di aggiornamento. Al momento della transizione effettiva al nuovo livello di prestazioni, le connessioni al database possono interrompersi temporaneamente per un periodo molto breve che in genere è di circa 90 secondi fino a un massimo di 5 minuti. Se un'applicazione ha una [gestione degli errori temporanei per le interruzioni di connessione](sql-database-connectivity-issues.md), è sufficiente impostare la protezione dalle connessioni interrotte alla fine dell'aggiornamento.
 
@@ -53,24 +53,22 @@ Dopo l'aggiornamento alla V12, [le indicazioni per i livelli di servizio](sql-da
 
 ## Prerequisiti
 
-Per eseguire aggiornamento di un server alla versione 12 con PowerShell, è necessario disporre di Azure PowerShell installato e in esecuzione e a seconda della versione potrebbe essere necessario passarlo alla modalità di gestione delle risorse per accedere ai cmdlet di PowerShell di Gestione risorse di Azure.
-
-Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia installato e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per aggiornare un server alla versione 12 con PowerShell, è necessario che la versione più recente di Azure PowerShell sia installata e in esecuzione. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 ## Configurare le credenziali e selezionare la sottoscrizione
 
-Per eseguire i cmdlet PowerShell nella sottoscrizione di Azure, è necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
+Per eseguire i cmdlet PowerShell nella sottoscrizione di Azure, è necessario prima eseguire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
 
 	Add-AzureRmAccount
 
-Dopo aver effettuato l’accesso, sullo schermo dovrebbero essere visualizzate informazioni tra cui l’ID utilizzato per l’accesso con le sottoscrizioni Azure per le quali si dispone dell’accesso
+Dopo avere eseguito l'accesso, sullo schermo vengono visualizzate alcune informazioni tra cui l'ID usato per l'accesso e le sottoscrizioni di Azure a cui si ha accesso.
 
-Per selezionare la sottoscrizione con cui lavorare, è necessario l’ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). È possibile copiarlo dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati.
+Per selezionare la sottoscrizione da usare, è necessario l'ID sottoscrizione (**-SubscriptionId**) o il nome della sottoscrizione (**-SubscriptionName**). È possibile copiarlo dal passaggio precedente o, se si dispone di più sottoscrizioni, è possibile eseguire il cmdlet **Get-AzureRmSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati.
 
-Eseguire il cmdlet seguente con le informazioni della sottoscrizione per impostare la sottoscrizione corrente:
+Eseguire il cmdlet seguente con le informazioni di sottoscrizione per impostare la sottoscrizione corrente:
 
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Set-AzureRmContext -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 I comandi seguenti verranno eseguiti con la sottoscrizione appena selezionata.
 
@@ -109,7 +107,7 @@ Quando si esegue questo comando, inizia il processo di aggiornamento. È possibi
 
     # Selecting the right subscription
     #
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Set-AzureRmContext -SubscriptionName $SubscriptionName
 
     # Getting the upgrade recommendations
     #
@@ -163,7 +161,7 @@ Dopo l’aggiornamento, si consiglia di monitorare il database in maniera attiva
 Oltre al monitoraggio dei singoli database, è possibile monitorare i pool di database elastici [tramite il portale](sql-database-elastic-pool-manage-portal.md) o con [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium i dati sul consumo delle risorse sono disponibili tramite il DMV [sys.dm\_ db\_resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
+**Dati sul consumo delle risorse:** per i database Basic, Standard e Premium i dati sul consumo delle risorse sono disponibili tramite la vista DMV [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) nel database utente. Questa DMV fornisce informazioni sul consumo delle risorse in tempo reale con una granularità di 15 secondi per l'ora precedente di funzionamento. Il consumo percentuale di DTU per un intervallo viene calcolato come consumo percentuale massimo delle dimensioni di CPU, IO e log. Ecco una query per calcolare il consumo percentuale medio di DTU nell'ultima ora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -201,4 +199,4 @@ Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentu
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

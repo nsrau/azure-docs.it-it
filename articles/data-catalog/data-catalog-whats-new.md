@@ -6,35 +6,91 @@
    authors="steelanddata"
    manager="NA"
    editor=""
-   tags=""/>
+   tags=""/> 
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/20/2016"
-   ms.author="maroche"/>
+   ms.date="09/21/2016"
+   ms.author="maroche"/> 
 
 # Novità di Azure Data Catalog
 
 Gli aggiornamenti su **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
+
+
+
+## Novità della versione della settimana del 16 settembre 2016
+
+Nella settimana del 16 settembre 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Supporto per origini dati IBM DB2. Gli utenti possono ora registrare e individuare database, tabelle e viste DB2.
+- Supporto per origini dati Azure DocumentDB. Gli utenti possono ora registrare e individuare database e raccolte DocumentDB.
+- Supporto per la personalizzazione del nome del catalogo nel portale di Data Catalog. Gli amministratori del catalogo possono ora specificare il testo che verrà visualizzato nel titolo del portale, ad esempio il nome dell'organizzazione.
+
+## Novità della versione della settimana del 26 agosto 2016
+
+Nella settimana del 26 agosto 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Miglioramenti nella registrazione di origini dati SQL Server Master Data Services (MDS). Gli utenti possono ora includere anteprime e profili dati durante la registrazione di entità MDS con il tool di registrazione delle origini dati di Data Catalog.
+- Supporto di ricerche salvate aziendali definite dall'amministratore. Al momento del salvataggio di una ricerca nel portale di Data Catalog, gli amministratori del catalogo dati possono ora scegliere di salvare le ricerche per uso personale o per tutti gli utenti del catalogo. Le ricerche salvate aziendali vengono condivise con tutti gli utenti del catalogo e possono offrire punti di partenza standardizzati per l'individuazione delle origini dati.
+
+## Novità della versione della settimana del 5 agosto 2016
+
+Nella settimana del 5 agosto 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Aggiornamenti alla visualizzazione delle proprietà nel portale di Data Catalog. Tutte le proprietà degli asset di dati vengono ora visualizzate e gestite in un singolo riquadro ridimensionabile, in modo da garantire maggiore coerenza e individuabilità.
+
+## Novità della versione della settimana del 29 luglio 2016
+
+Nella settimana del 29 luglio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Supporto per origini dati SQL Server Master Data Services (MDS). Gli utenti possono ora registrare e individuare modelli ed entità MDS.
+
+## Novità della versione della settimana del 22 luglio 2016
+
+Nella settimana del 22 luglio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Supporto per le stored procedure di SQL Server. Gli utenti possono ora registrare e individuare oggetti stored procedure in origini dati SQL Server.
+- Supporto di lingue aggiuntive nel portale e nel tool di registrazione delle origini dati di Azure Data Catalog, per un totale di 18 lingue supportate. L'esperienza utente di Azure Data Catalog sarà localizzata in base alle preferenze della lingua configurate in Windows o nel browser Web dell'utente.
+
+## Novità della versione della settimana dell'8 luglio 2016
+
+Nella settimana dell'8 luglio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Aggiornamenti e perfezionamento della home page del portale di Data Catalog, che includono miglioramenti delle prestazioni e un'esperienza utente semplificata.
+
+## Novità della versione della settimana del 24 giugno 2016
+
+Nella settimana del 24 giugno 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Supporto del ridimensionamento delle colonne nella visualizzazione elenco quando si individuano asset di dati nel portale di Data Catalog. Gli utenti possono ora ridimensionare singole colonne per leggere più facilmente i metadati più estesi degli asset, come tag e descrizioni.
+- Aggiunta di Power Query per Excel al menu "Apri in" nel portale di Data Catalog. Gli utenti possono ora aprire le origini dati supportate in Excel 2016, Excel 2010 ed Excel 2013 con il componente aggiuntivo [Power Query per Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605) installato.
+
+
+## Novità della versione della settimana del 17 giugno 2016
+
+Nella settimana del 17 giugno 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+- Supporto per origini dati Archiviazione tabelle di Azure. Gli utenti possono ora registrare e individuare oggetti tabella in origini dati Archiviazione tabelle di Azure.
 
 ## Novità della versione della settimana del 20 maggio 2016
 
 Nella settimana del 20 maggio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
 
 - Miglioramenti del glossario aziendale di Data Catalog, per consentire agli utenti di aggiornare più termini del glossario con una singola operazione. Gli utenti possono selezionare più termini per modificare i campi seguenti:
-    - Termine padre: l'utente può selezionare un nuovo termine padre e tutti i termini selezionati verranno aggiornati diventando figli del termine padre scelto. Se i termini selezionati hanno lo stesso padre, tale padre verrà visualizzato nella casella di testo. In caso contrario, il campo Termine padre sarà vuoto.   
+    - Termine padre: l'utente può selezionare un nuovo termine padre e tutti i termini selezionati verranno aggiornati diventando figli del termine padre scelto. Se i termini selezionati hanno lo stesso padre, tale padre verrà visualizzato nella casella di testo. In caso contrario, il campo Termine padre sarà vuoto.
     - Tag e stakeholder: gli utenti possono aggiungere e rimuovere tag e stakeholder per più termini del glossario nello stesso modo in cui si assegnano tag a più asset di dati.
 
-Per altre informazioni sul glossario aziendale, vedere l'articolo relativo alla [configurazione del glossario aziendale per l'assegnazione regolamentata di tag](data-catalog-how-to-business-glossary.md).
+Per altre informazioni sul glossario aziendale, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md).
 
 ## Novità della versione della settimana del 6 maggio 2016
 
 Nella settimana del 6 maggio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
 
-- Un glossario aziendale che consente agli amministratori di catalogo di definire termini aziendali e gerarchie per creare un vocabolario aziendale comune. Gli utenti possono assegnare tag ad asset di dati registrati usando termini di glossario, individuando e comprendendo così, in modo più semplice, il contenuto del catalogo. Per altre informazioni, vedere l'articolo relativo alla [configurazione del glossario aziendale per l'assegnazione regolamentata di tag](data-catalog-how-to-business-glossary.md).  
+- Un glossario aziendale che consente agli amministratori di catalogo di definire termini aziendali e gerarchie per creare un vocabolario aziendale comune. Gli utenti possono assegnare tag ad asset di dati registrati usando termini di glossario, individuando e comprendendo così, in modo più semplice, il contenuto del catalogo. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md).
 
 > [AZURE.NOTE] Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita non prevede l'assegnazione di tag regolamentata né un glossario aziendale tra le funzionalità.
 
@@ -43,7 +99,7 @@ Nella settimana del 6 maggio 2016 sono state aggiunte ad Azure Data Catalog le f
 
 Nella settimana del 11 marzo 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
 
-- Un endpoint API REST consolidato per l'accesso a livello di programmazione alle funzionalità di ricerca e alle funzionalità di gestione degli asset del servizio Azure Data Catalog. L'endpoint API di ricerca e l'endpoint API di catalogo esistenti verranno dichiarati obsoleti e interrotti il 21 marzo 2016. Non sono state apportate modifiche alla semantica dell'API. Verrà modificato solo l'URI degli endpoint. Per altre informazioni, vedere il [riferimento all'API REST di Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267595.aspx). Per esempi di API, vedere gli [esempi per sviluppatori di Azure Data Catalog](data-catalog-samples.md).
+- Un endpoint API REST consolidato per l'accesso a livello di programmazione alle funzionalità di ricerca e alle funzionalità di gestione degli asset del servizio Azure Data Catalog. L'endpoint API di ricerca e l'endpoint API di catalogo esistenti verranno dichiarati obsoleti e interrotti il 21 marzo 2016. Non sono state apportate modifiche alla semantica dell'API. Verrà modificato solo l'URI degli endpoint. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267595.aspx). Per esempi di API, vedere gli [esempi per sviluppatori di Azure Data Catalog](data-catalog-samples.md).
 
 ## Novità della versione della settimana del 19 febbraio 2016
 
@@ -58,7 +114,7 @@ Nella settimana del 19 febbraio 2016 sono state aggiunte ad Azure Data Catalog l
 
 Nella settimana del 5 febbraio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
 
-- Supporto per la modifica della sottoscrizione di Azure usata da Azure Data Catalog. Gli amministratori di Azure Data Catalog possono usare la pagina Impostazioni del portale di Azure Data Catalog per selezionare un'altra sottoscrizione di Azure ai fini della fatturazione.
+- Supporto della modifica della sottoscrizione di Azure usata da Azure Data Catalog. Gli amministratori di Azure Data Catalog possono usare la pagina Impostazioni del portale di Azure Data Catalog per selezionare un'altra sottoscrizione di Azure ai fini della fatturazione.
 
 ## Novità della versione della settimana del 29 gennaio 2016
 
@@ -73,9 +129,9 @@ Nella settimana del 29 gennaio 2016 sono state aggiunte ad Azure Data Catalog le
    + Salesforce.com: oggetto
    + DB2: tabella, vista e database
    + PostgreSQL: tabella, vista e database
-- Supporto per "Apri in SQL Server Data Tools" per le origini dati SQL Server, inclusi il database SQL di Azure e Azure SQL Data Warehouse.  
+- Supporto per "Apri in SQL Server Data Tools" per le origini dati SQL Server, inclusi il database SQL di Azure e Azure SQL Data Warehouse.
 
-> [AZURE.NOTE] "Apri in SQL Server Data Tools" richiede l'installazione di Visual Studio 2013 con Update 4 e degli strumenti di SQL Server. Per installare la versione più recente di SQL Server Data Tools, vedere [Scaricare la versione più recente di SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+> [AZURE.NOTE] "Apri in SQL Server Data Tools" richiede l'installazione di Visual Studio 2013 con Update 4 e degli strumenti di SQL Server. Per installare la versione più recente di SQL Server Data Tools, vedere [Scaricare SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
 ## Novità della versione della settimana del 22 gennaio 2016
 
@@ -114,7 +170,7 @@ Nella settimana del 20 novembre 2015 sono state aggiunte ad Azure Data Catalog l
 
 - Possibilità di visualizzare e copiare le stringhe di connessione dall'interno del portale di Azure Data Catalog per origini dati SQL Server, incluso database SQL di Azure, e origini dati Oracle. Gli utenti possono fare clic sul collegamento "Visualizza stringhe di connessione" nelle informazioni di connessione per una tabella di SQL Server o Oracle, vista o database, per visualizzare le stringhe di connessione usate per la connessione all'origine dati. Le stringhe di connessione ADO.NET, ODBC, OLEDB e JDBC sono disponibili per le origini dati di SQL Server. Le stringhe di connessione ODBC e OLEDB vengono fornite per le origini dati di Oracle.
 - Supporto per includere i profili dati durante la registrazione delle tabelle Teradata e visualizzazioni.
-- Supporto per "Apri in Power BI Desktop" per le origini di SQL Server (inclusi i database SQL di Azure e SQL Data Warehouse di Azure), SQL Server Analysis Services. Archiviazione di Azure e HDFS.  
+- Supporto per "Apri in Power BI Desktop" per le origini di SQL Server (inclusi i database SQL di Azure e SQL Data Warehouse di Azure), SQL Server Analysis Services. Archiviazione di Azure e HDFS.
 
 > [AZURE.NOTE] "Apri in Power BI Desktop" richiede che sia installata una versione corrente dell'applicazione Desktop di Power BI. Se si verificano problemi o errori durante l'uso di questa funzionalità, assicurarsi di aver scaricato la versione più recente di Power BI Desktop da [PowerBI.com](https://powerbi.com).
 
@@ -235,4 +291,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte ad Azure Data Catalog le 
 - Solo edizione Standard: nell'aggiunta di proprietari ad asset di dati, Azure Data Catalog ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

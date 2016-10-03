@@ -1,21 +1,21 @@
 <properties
    pageTitle="Guida introduttiva per l'installazione manuale di SAP HANA nelle macchine virtuali di Azure | Microsoft Azure"
    description="Guida introduttiva per l'installazione manuale di SAP HANA nelle macchine virtuali di Azure"
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
-   keywords=""/>
+   keywords=""/> 
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="09/07/2016"
-   ms.author="hermannd"/>
+   ms.workload="infrastructure-services"
+   ms.date="09/15/2016"
+   ms.author="hermannd"/> 
 
 # Guida introduttiva per l'installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
 
@@ -143,11 +143,11 @@ Altre informazioni sui due strumenti principali per configurare lo striping sono
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg) 
 
 Nell'ambiente di test sono stati collegati due dischi di archiviazione Standard di Azure alla macchina virtuale del server app SAP. Uno è stato usato per archiviare tutto il software SAP per l'installazione (ad esempio NetWeaver 7.5, SAP GUI, SAP HANA e così via) e l'altro per avere a disposizione spazio sufficiente per altre esigenze (ad esempio backup, dati di test) e per la directory sapmnt (ad esempio profili SAP) da condividere tra tutte le macchine virtuali appartenenti alla stessa infrastruttura SAP.
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image004.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image004.jpg) 
 
 A differenza della macchina virtuale del server app, alla macchina virtuale del server SAP HANA sono stati collegati quattro dischi. Anche in questo caso, due dischi sono stati usati per il software SAP (è anche possibile condividere il disco del software SAP tramite NFS) e per avere spazio sufficiente per altre esigenze, ad esempio il backup. I due dischi aggiuntivi sono dischi di archiviazione Premium di Azure per i file di dati e di log di SAP HANA, nonché per la directory /usr/sap.
 
@@ -171,7 +171,7 @@ La documentazione SLES su tuned-adm profile sap-hana è reperibile [qui](https:/
 La documentazione SLES su tuned-adm profile sap-hana, capitolo 6.2 Tuning Systems for SAP Workloads with tuned-adm (Ottimizzare i sistemi per i carichi di lavoro SAP con tuned-adm), è disponibile [qui](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf)
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image005.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image005.jpg) 
 
 Qui si può osservare come "tuned-adm" ha modificato i valori di transparent\_hugepage e di numa\_balancing in base alle impostazioni di SAP HANA obbligatorie.
 
@@ -179,33 +179,33 @@ Qui si può osservare come "tuned-adm" ha modificato i valori di transparent\_hu
 Per rendere permanenti le impostazioni del kernel di SAP HANA è necessario usare grub2 in SLES 12. Altre informazioni su grub2 sono disponibili [qui](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_grub2_file_structure.html)
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image006.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image006.jpg) 
 
 Questo screenshot illustra come le impostazioni del kernel sono state modificate nel file di configurazione e quindi "compilate" tramite grub2-mkconfig
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image007.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image007.jpg) 
 
 È anche possibile modificare le impostazioni tramite Yast e le impostazioni dei parametri del kernel del caricatore di avvio.
 
 
 ### File system 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg) 
 
 Qui si possono osservare i due file system che sono stati creati nella macchina virtuale del server app di SAP oltre ai due dischi di archiviazione Standard di Azure collegati. Entrambi i file system sono di tipo XFS e montati in /sapdata e /sapsoftware.
 
 Non è obbligatorio procedere in questo modo. Esistono diverse opzioni per strutturare lo spazio su disco. L'aspetto più importante è evitare che il file system radice esaurisca lo spazio.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image009.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image009.jpg) 
 
 Per quanto riguarda la macchina virtuale del database di SAP HANA è importante sapere che durante l'installazione di un database tramite sapinst (swpm) e usando solo l'opzione di installazione "tipica" semplice, il percorso di installazione predefinito sarà /hana e /usr/sap. Il percorso predefinito per il backup del log di SAP HANA è ad esempio /usr/sap. Anche in questo caso è fondamentale evitare che il file system radice esaurisca lo spazio. È quindi necessario verificare che ci sia spazio sufficiente in /hana e /usr/sap prima di installare SAP HANA tramite swpm.
 
 [Questo articolo](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm) di SAP descrive il layout del file system standard di SAP HANA
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg) 
 
 Durante l'installazione di SAP NetWeaver in un'immagine della raccolta standard di Azure per SLES 12, verrà visualizzato un messaggio che indica che non è disponibile spazio di swapping. Per eliminare questo messaggio è ad esempio possibile aggiungere manualmente un file di scambio come descritto in questo documento tramite dd, mkswap e swapon. Cercare "Adding a Swap File Manually" (Aggiunta manuale di un file di scambio) [in questo articolo](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html)
 
@@ -214,13 +214,13 @@ Un'altra opzione consiste nel configurare lo spazio di swapping tramite l'agente
 
 ### /etc/hosts
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg) 
 
 Un altro aspetto importante prima di iniziare a installare SAP consiste nell'includere i nomi host e gli indirizzi IP delle macchine virtuali SAP nel file /etc/hosts. È necessario distribuire tutte le macchine virtuali SAP all'interno di una rete virtuale di Azure e quindi usare gli indirizzi IP interni.
 
 ### /etc/fstab
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg) 
 
 Durante la fase di test si è rivelato opportuno aggiungere il parametro nofail a fstab. Se si verificano problemi con i dischi, la macchina virtuale sarà comunque operativa e non si bloccherà nel processo di avvio. È tuttavia necessario prestare attenzione perché in questo caso potrebbe non essere disponibile spazio aggiuntivo sul disco e i processi potrebbero riempire il file system radice. In assenza di /hana, SAP HANA non verrà tuttavia avviato affatto.
 
@@ -274,15 +274,15 @@ L'URL per avviare SAP MC è <server>:5<numero\_istanza>13
 Altri dettagli sono disponibili [qui](https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm)
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image013.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image013.jpg) 
 
 Nello screenshot precedente è visibile il possibile messaggio di errore generato quando manca il plug-in Java del browser.
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image014.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image014.jpg) 
 
 Un'opzione per risolvere il problema consiste semplicemente nell'installare il plug-in mancante tramite Yast.
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image015.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image015.jpg) 
 
 Immettendo di nuovo l'URL di SAP MC, la prima volta verrà visualizzata una piccola finestra di dialogo che chiede di attivare il plug-in.
 
@@ -299,78 +299,78 @@ La versione di IBM Java disponibile con Yast non include questo file. La soluzio
 L'elenco di screenshot seguente illustra i principali passaggi di installazione di SAP NetWeaver 7.5 e SAP HANA SP12 tramite SWPM (sapinst). Nell'ambito di un'installazione di NW 7.5, SWPM consente anche di installare il database HANA come istanza singola.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg) 
 
 Per l'ambiente di test di esempio è stato installato un solo server app ABAP. È stata usata l'opzione "Distributed System" (Sistema distribuito) per installare l'istanza ASCS e l'istanza del server app primario in una macchina virtuale di Azure e SAP HANA come sistema di database in un'altra macchina virtuale di Azure.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg) 
 
 Quando l'istanza ASCS sarà stata installata nella macchina virtuale del server app e visualizzata in verde in SAP MC, sarà necessario condividere la directory sapmnt (che include ad esempio la directory dei profili SAP) con la macchina virtuale del server di database SAP HANA. La procedura di installazione del database deve accedere a queste informazioni. Il modo migliore consiste nell'usare NFS che può essere configurato con Yast.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg) 
 
 Nella macchina virtuale del server app, la directory sapmnt deve essere condivisa tramite NFS usando le opzioni "rw" e "no\_root\_squash". I valori predefiniti sono "ro" e "root\_squash", che potrebbero provocare problemi durante l'installazione dell'istanza di database.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image018b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image018b.jpg) 
 
 Nella macchina virtuale del server di database SAP HANA, la condivisione di sapmnt dalla macchina virtuale del server app deve essere configurata tramite "client NFS", ad esempio con l'aiuto di Yast
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image019.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image019.jpg) 
 
 È quindi necessario accedere alla macchina virtuale del server di database SAP HANA e avviare SWPM per eseguire il passaggio successivo di un'installazione di NW 7.5 distribuita, ovvero l'istanza di database.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg) 
 
 L'installazione di SAP HANA non prevede in realtà l'immissione di molti dati dopo aver selezionato la modalità "tipica". Oltre al percorso del supporto di installazione è necessario immettere un SID DB, il nome host, il numero di istanza e la password dell'amministratore di sistema del database.
 
  
-![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg) 
 
 Il passaggio successivo consiste nel digitare la password per lo schema DBACOCKPIT.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg) 
 
 Viene quindi visualizzata la domanda relativa alla password dello schema SAPABAP1.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image023.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image023.jpg) 
 
 Al termine dovrebbero essere visibili solo segni di spunta verdi accanto a ogni fase del processo di installazione del database e la piccola finestra di messaggio visualizzerà "Execution of ..... Database Instance has completed". (Esecuzione dell'istanza di database ..... completata).
 
  
-![](./media/virtual-machines-linux-sap-hana-get-started/image024.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image024.jpg) 
 
 Al termine dell'installazione, SAP MC visualizzerà l'istanza di database in verde e l'elenco completo dei processi di SAP HANA, ad esempio hdbindexserver e hdbcompileserver
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image025.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image025.jpg) 
 
 Questo screenshot indica parti della struttura di file in /hana/shared creata da SWPM durante l'installazione di HANA. Non è possibile specificare un percorso diverso. È quindi estremamente importante montare spazio su disco aggiuntivo in /hana prima di installare SAP HANA tramite SWPM per evitare che il file system radice esaurisca lo spazio disponibile.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image026.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image026.jpg) 
 
 Qui è visibile la stessa struttura descritta in precedenza per la directory /usr/sap.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image027b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image027b.jpg) 
 
 L'ultimo passaggio dell'installazione distribuita di ABAP è l'istanza primaria del server applicazioni
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image028b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image028b.jpg) 
 
 Dopo aver installato PAS e SAP GUI è possibile verificare tramite la transazione "dbacockpit" che l'installazione di SAP HANA sia stata eseguita correttamente.
 
  
-![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg) 
 
 Come ultimo passaggio è possibile installare SAP HANA Studio nella macchina virtuale del server applicazioni SAP e connettersi all'istanza di SAP HANA in esecuzione nella macchina virtuale del server di database.
 
@@ -384,68 +384,68 @@ Oltre a installare SAP HANA nell'ambito di un'installazione distribuita tramite 
 
 Di seguito sono indicate tre fonti di informazioni sullo strumento hdblcm di HANA:
 
-[Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm) (Scelta dello strumento HDBLCM di SAP HANA per la propria attività)
+[Choosing the Correct SAP HANA HDBLCM for Your Task (Scelta dello strumento HDBLCM di SAP HANA per la propria attività)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 
-[SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/) (Strumenti di SAP HANA Lifecycle Management)
+[SAP HANA Lifecycle Management Tools (Strumenti di SAP HANA Lifecycle Management)](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
 
-[SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf) (Guida all'installazione e all'aggiornamento del server SAP HANA)
+[SAP HANA Server Installation and Update Guide (Guida all'installazione e all'aggiornamento del server SAP HANA)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image030.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image030.jpg) 
 
 Per evitare di incorrere in problemi in un secondo momento con l'impostazione di un ID gruppo predefinito per l'utente <SID HANA>adm (creato dallo strumento hdblcm), è necessario definire un nuovo gruppo denominato "sapsys" con ID gruppo 1001 prima di installare SAP HANA usando hdblcm.
 
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image031.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image031.jpg) 
 
 Quando si avvia hdblcm per la prima volta, è disponibile un menu di avvio semplice in cui è necessario selezionare la voce 1 "Install new System" (Installa nuovo sistema)
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image032.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image032.jpg) 
 
 In questo screenshot sono visibili tutte le opzioni principali immesse in precedenza. Importante: le directory indicate per volumi di dati e log HANA, nonché il percorso di installazione (/hana/shared in questo esempio) e usr/sap NON devono far parte del file system radice, ma dei dischi di dati di Azure collegati alla macchina virtuale come descritto nella sezione relativa alla configurazione della macchina virtuale di Azure. È così possibile evitare di esaurire lo spazio nel file system radice. Si può anche osservare che l'utente amministratore di HANA ha l'ID utente 1005 e appartiene al gruppo sapsys (ID 1001) definito prima dell'installazione.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image033.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image033.jpg) 
 
 È possibile esaminare i dettagli dell'utente <SID HANA>adm (azdadm in questo esempio) in /etc/passwd
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image034.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image034.jpg) 
 
 Dopo l'installazione di SAP HANA tramite hdblcm, i dettagli dell'amministratore saranno visibili in SAP HANA Studio. Lo schema SAPABAP1 che include ad esempio tutte le tabelle di SAP NetWeaver non è ancora disponibile.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg) 
 
 Dopo l'installazione di SAP HANA è possibile installare SAP NetWeaver. In questo esempio è stata eseguita una "installazione distribuita" tramite SWPM come descritto nella sezione corrispondente illustrata in precedenza. Quando si installa l'istanza di database tramite SWPM è necessario immettere semplicemente gli stessi dati indicati in precedenza con hdblcm, ad esempio nome host, SID HANA, numero di istanza. SWPM userà quindi l'installazione di HANA esistente e aggiungerà altri schemi.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg) 
 
 Di seguito è riportata l'immagine del passaggio di installazione di SWPM in cui è necessario immettere i dati riguardanti lo schema DBACOCKPIT.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg) 
 
 SWPM prevede quindi l'immissione dei dati sullo schema SAPABAP1.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg) 
 
 Dopo aver terminato l'installazione dell'istanza di database con SWPM, lo schema SAPABAP1 sarà visibile in HANA Studio.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image039b.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image039b.jpg) 
 
 Dopo l'installazione del server applicazioni SAP e di SAP GUI sarà possibile verificare l'istanza di database HANA con la transazione "dbacockpit".
 
@@ -484,4 +484,4 @@ Dopo l'installazione del server applicazioni SAP e di SAP GUI sarà possibile ve
 
 * Scaricare HANA SP12 Platform Edition da SAP Service Marketplace: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

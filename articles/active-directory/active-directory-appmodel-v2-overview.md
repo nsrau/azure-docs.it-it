@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Accesso per account Microsoft e utenti di Azure AD nella stessa app
@@ -40,7 +40,7 @@ Le informazioni di carattere generale fornite di seguito saranno utili per indiv
 - Gli sviluppatori che hanno familiarità con Azure Active Directory possono vedere gli [aggiornamenti ai protocolli e le differenze nell'endpoint v2.0](active-directory-v2-compare.md).
 - Informazioni su [limitazioni, restrizioni e vincoli](active-directory-v2-limitations.md) dell'endpoint v2.0.
 
-## riferimento
+## Riferimenti
 I collegamenti seguenti sono utili per un'esplorazione più approfondita della piattaforma:
 
 - Build 2016: [Guida introduttiva alle identità Microsoft: accesso di classe enterprise per le app](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
@@ -61,4 +61,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
   - [Libreria client OAuth2 per Android](https://github.com/wuman/android-oauth-client)
   - [Client OpenID Connect per Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

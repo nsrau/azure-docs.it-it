@@ -4,8 +4,8 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/> 
 
 <tags 
 	ms.service="stream-analytics" 
@@ -70,7 +70,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 Titolo | Descrizione
 ---|---
 Anteprima pubblica di Azure IoT Suite | L’analisi di flusso è inclusa nell’anteprima pubblica di Azure IoT Suite.
-Integrazione del portale di Azure | Oltre a essere sempre presente nel portale di gestione di Azure, Analisi di flusso è ora integrata nel [portale di Azure](https://azure.microsoft.com/overview/preview-portal/). Si noti che la funzionalità di analisi di flusso nel portale di anteprima è attualmente un sottoinsieme delle funzionalità offerte nel portale di gestione di Azure, senza il supporto per il test di query nel browser, la configurazione di output Power BI e l’esplorazione o la creazione di nuove risorse di input e output nelle sottoscrizioni a cui si ha accesso.
+Integrazione del portale di Azure | Oltre a essere sempre presente nel portale di gestione di Azure, Analisi di flusso è ora integrata nel [portale di Azure](https://azure.microsoft.com/overview/preview-portal/). Si noti che le funzionalità di analisi di flusso nel portale di anteprima sono attualmente un sottoinsieme delle funzionalità offerte nel portale di gestione di Azure, senza il supporto per il test di query nel browser, la configurazione di output Power BI e l'esplorazione o la creazione di nuove risorse di input e output nelle sottoscrizioni a cui si ha accesso.
 Supporto per l'output di DocumentDB | I processi di Analisi di flusso ora possono inviare output a [DocumentDB](https://azure.microsoft.com/services/documentdb/).
 Supporto per l'input dell’hub IoT | I processi di analisi di flusso sono ora in grado di acquisire dati dagli hub IoT.
 TIMESTAMP BY per eventi eterogenei | Quando un unico flusso di dati contiene più tipi di evento con timestamp in campi diversi, è ora possibile usare [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con espressioni per specificare i campi di timestamp diversi per ogni caso.
@@ -138,7 +138,7 @@ Limitazione del volume di eventi del database SQL|Quando si usa un database SQL 
 I dataset PowerBI possono contenere solo una tabella|PowerBI non supporta più di una tabella in un dato dataset.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -149,4 +149,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

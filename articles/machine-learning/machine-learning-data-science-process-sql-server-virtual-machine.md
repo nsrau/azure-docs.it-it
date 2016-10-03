@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="jhubbard" 
-	editor="" />
+	editor="" /> 
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" />
+	ms.date="09/16/2016" 
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 
@@ -113,10 +113,7 @@ Le informazioni sulla posizione possono essere inserite nelle funzionalità nel 
 Le funzionalità basate su posizione descritte in precedenza possono essere usate anche per creare altre funzionalità di conteggio.
 
 
-> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura (per un esempio di come farlo usando pyodbc, vedere l'articolo dedicato a [un esempio HelloWorld per l'accesso a SQL Server con python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
- 
-
-> [AZURE.TIP] Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP] A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura (per un esempio di come farlo usando pyodbc, vedere l'articolo dedicato a [un esempio HelloWorld per l'accesso a SQL Server con python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). Un'altra alternativa consiste nell'inserire i dati nel database usando l'[utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
@@ -148,8 +145,8 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
 
 
-<!-- Module References -->
+<!-- Module References --> 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

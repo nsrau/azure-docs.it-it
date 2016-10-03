@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate" 
+	pageTitle="Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate | Microsoft Azure" 
 	description="Questo argomento descrive come configurare un canale che riceve un flusso live a velocità in bit singola da un codificatore locale e quindi esegue la codifica live in un flusso a velocità in bit adattiva con Servizi multimediali. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+	authors="anilmur" 
+	manager="erikre" 
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako;anilmur"/> 
 
 #Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
-##Panoramica
+##Overview
 
 In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline per l'elaborazione dei contenuti in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
@@ -59,7 +59,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
  
 Stato del canale|Indicatori dell'interfaccia utente del portale|Fatturazione?
 ---|---|---
-Avvio in corso|Avvio in corso|No (stato temporaneo)
+Avvio in corso|Starting|No (stato temporaneo)
 In esecuzione|Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione)|SÌ
 Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
@@ -291,7 +291,7 @@ Facoltativo. Descrive i flussi audio di input. Se questo campo non è specificat
 
 È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live all'interno del canale analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
 
-####Lingua
+####Linguaggio
 
 Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad esempio ITA. Se non è presente, il valore predefinito è UND (undefined).
 
@@ -308,9 +308,9 @@ Con **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
 ####Flusso video di output
 
-Velocità in bit|Larghezza|Altezza|MaxFPS|Profilo|Nome del flusso di output
+Velocità in bit|Larghezza|Altezza:|MaxFPS|Profilo|Nome del flusso di output
 ---|---|---|---|---|---
-3500|1280|720|30|Elevata|Video _1280x720_ 3500 kbps
+3500|1280|720|30|Alto|Video _1280x720_ 3500 kbps
 2200|960|540|30|Principale|Video _960x540_ 2200 kbps
 1350|704|396|30|Principale|Video _704x396_ 1350 kbps
 850|512|288|30|Principale|Video _512x288_ 850 kbps
@@ -416,7 +416,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
  
 Stato del canale|Indicatori dell'interfaccia utente del portale|Fatturato?
 ---|---|---
-Avvio in corso|Avvio in corso|No (stato temporaneo)
+Starting|Starting|No (stato temporaneo)
 In esecuzione|Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione)|Sì
 Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
@@ -457,7 +457,9 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 - [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
-##Percorsi di apprendimento di Media Services
+##Passaggio successivo
+
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -468,7 +470,7 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 ##Argomenti correlati
 
-[Distribuzione di eventi Live Streaming con Servizi multimediali di Azure](media-services-live-streaming-workflow.md)
+[Distribuzione di eventi Live Streaming con Servizi multimediali di Azure](media-services-overview.md)
 
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
@@ -476,4 +478,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

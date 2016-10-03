@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="garye"/>
+	ms.date="09/16/2016"
+	ms.author="garye"/> 
 
 
 # Passaggio 5 della procedura dettagliata: Distribuzione del servizio Web di Azure Machine Learning
@@ -91,7 +91,7 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-## 
+##
 Distribuire il servizio web
 
 È possibile distribuire l'esperimento come un servizio Web classico o un nuovo servizio Web basato su Azure Resource Manager.
@@ -201,4 +201,4 @@ Per monitorare le prestazioni del servizio Web:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/it-IT/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

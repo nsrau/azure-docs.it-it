@@ -5,7 +5,7 @@
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="active-directory"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/31/2016"
-   ms.author="mbaldwin"/>
+   ms.date="09/16/2016"
+   ms.author="mbaldwin"/> 
 
 
 # Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory
@@ -31,7 +31,7 @@ Di seguito è riportato un elenco dei requisiti di ogni modalità.
 
 Per integrare l'applicazione con Azure AD, seguire [le istruzioni per sviluppatori](active-directory-authentication-scenarios.md). Completare quindi i dati seguenti e inviare all'indirizzo waadpartners@microsoft.com.
 
-* Fornire le credenziali per un tenant o un account di prova con l'applicazione che possono essere usate dal team di Azure AD per testare l'integrazione.  
+* Fornire le credenziali per un tenant o un account di prova con l'applicazione che possono essere usate dal team di Azure AD per testare l'integrazione.
 
 * Fornire istruzioni su come il team di Azure AD può accedere e connettere un'istanza di Azure AD all'applicazione usando il [framework di consenso di Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework).
 
@@ -67,7 +67,7 @@ Per integrare l'applicazione con Azure AD, seguire [le istruzioni per sviluppato
 
 Qualsiasi app che supporta SAML 2.0 può essere integrata direttamente con un tenant di Azure AD usando [queste istruzioni per l'aggiunta di un'applicazione personalizzata](active-directory-saas-custom-apps.md). Dopo aver verificato che l'integrazione dell'applicazione funziona con Azure AD, inviare le informazioni seguenti a <waadpartners@microsoft.com>.
 
-* Fornire le credenziali per un tenant o un account di prova con l'applicazione che possono essere usate dal team di Azure AD per testare l'integrazione.  
+* Fornire le credenziali per un tenant o un account di prova con l'applicazione che possono essere usate dal team di Azure AD per testare l'integrazione.
 
 * Fornire l'URL Single Sign-On SAML, l'URL dell'autorità di certificazione (ID entità) e i valori dell'URL di risposta (servizio consumer di asserzione) per l'applicazione, come descritto [qui](active-directory-saas-custom-apps.md). Se si forniscono in genere questi valori come parte di un file di metadati SAML, inviare anche quest'ultimo.
 
@@ -97,4 +97,4 @@ Qualsiasi app che supporta SAML 2.0 può essere integrata direttamente con un te
 > 
 > Allegare il logo dell'applicazione (file PNG, 150x122 pixel, colore di sfondo a tinta unita):
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

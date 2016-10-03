@@ -30,4 +30,6 @@ Se si intende connettersi a SQL Server tramite Internet, è necessario configura
 
 9. Fare clic su **OK** per salvare la regola creata per la macchina virtuale.
 
-<!---HONumber=AcomDC_0629_2016-->
+>[AZURE.NOTE] È possibile disporre di un secondo gruppo di sicurezza di rete associato con la subnet, che è separato dal gruppo di sicurezza di rete nella VM. Ciò non avviene automaticamente per impostazione predefinita. Tuttavia, se si crea un gruppo di sicurezza di rete sulla subnet, è necessario aprire la porta 1433 sul gruppo di sicurezza di rete della subnet e della VM.
+
+<!---HONumber=AcomDC_0921_2016-->

@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+	ms.author="chrande; glenga"/> 
 
 # Associazioni di DocumentDB in Funzioni di Azure
 
@@ -67,6 +67,29 @@ Usando il file function.json di esempio precedente, l'associazione di input di D
 	{   
 	    document.text = "This has changed.";
 	}
+
+#### Esempio di codice di input di Azure DocumentDB per un trigger della coda F#
+
+Usando il file function.json di esempio precedente, l'associazione di input di DocumentDB recupererà il documento con l'ID corrispondente alla stringa del messaggio della coda e lo passerà al parametro "document". Se tale documento non viene trovato, il parametro "document" sarà null. Il documento viene quindi aggiornato con il nuovo valore di text quando la funzione termina.
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- "This has changed."
+
+Sarà necessario un file `project.json` che usa NuGet per specificare i pacchetti `FSharp.Interop.Dynamic` e `Dynamitey` come dipendenze dei pacchetti come segue:
+
+	{
+	  "frameworks": {
+	    "net46": {
+	      "dependencies": {
+	        "Dynamitey": "1.0.2",
+	        "FSharp.Interop.Dynamic": "3.0.0"
+	      }
+	    }
+	  }
+	}
+
+Verrà usato NuGet per recuperare le dipendenze e verrà creato un riferimento alle dipendenze nello script.
 
 #### Esempio di codice di input di Azure DocumentDB per un trigger della coda di Node.js
  
@@ -131,6 +154,12 @@ Documento di output:
 	}
  
 
+#### Esempio di codice di output di Azure DocumentDB per un trigger della coda F#
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+
 #### Esempio di codice di output di Azure DocumentDB per un trigger della coda C#
 
 
@@ -178,6 +207,27 @@ Sarebbe possibile usare il codice C# seguente in una funzione trigger della coda
 	    };
 	}
 
+Oppure il codice F# equivalente:
+
+	open FSharp.Interop.Dynamic
+	open Newtonsoft.Json
+
+	type Employee = {
+	    id: string
+	    name: string
+	    employeeId: string
+	    address: string
+	}
+
+	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+	    let employee = JObject.Parse(myQueueItem)
+	    employeeDocument <-
+	        { id = sprintf "%s-%s" employee?name employee?employeeId
+	          name = employee?name
+	          employeeId = employee?id
+	          address = employee?address }
+
 Output di esempio:
 
 	{
@@ -191,4 +241,4 @@ Output di esempio:
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

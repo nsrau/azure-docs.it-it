@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="navalev"
    manager=""
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="azure-resource-manager"
@@ -43,7 +43,7 @@ Nella richiesta HTTP seguente verificare la sostituzione di "Azure AD Tenant ID"
 **Richiesta HTTP generica:**
 
 ```HTTP
-POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
+POST /<Azure AD Tenant ID>/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
 Host: login.microsoftonline.com
 Cache-Control: no-cache
 Content-Type: application/x-www-form-urlencoded
@@ -68,13 +68,13 @@ access\_token nella risposta precedente è stato abbreviato per renderlo più le
 **Generazione del token di accesso con Bash:**
 
 ```console
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
 **Generazione del token di accesso con Powershell:**
 
 ```powershell
-Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
+Invoke-RestMethod -Uri https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
@@ -247,4 +247,4 @@ Content-Type: application/json
 
 La lunga risposta JSON per questa richiesta è stata omessa per migliorare la leggibilità della documentazione. La risposta conterrà informazioni sulla distribuzione basata su modelli appena creata.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

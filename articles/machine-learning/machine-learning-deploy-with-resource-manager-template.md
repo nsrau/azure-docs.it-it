@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="ahgyger"
 	manager="haining"
-	editor="garye"/>
+	editor="garye"/> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="ahgyger"/>
+	ms.author="ahgyger"/> 
 # Distribuire un'area di lavoro di Machine Learning con Azure Resource Manager
 
 ## Introduzione
@@ -108,7 +108,7 @@ $rg
 
 Verificare che il provisioning del gruppo di risorse venga effettuato correttamente. **ProvisioningState** deve essere "Succeeded". Il nome del gruppo di risorse viene usato dal modello per generare il nome dell'account di archiviazione. Il nome dell'account di archiviazione deve essere di lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.
 
-![Gruppo di risorse][2]
+![Gruppo di risorse][2] 
 
 * Usando la distribuzione del gruppo di risorse, distribuire una nuova area di lavoro di Machine Learning.
 
@@ -124,6 +124,12 @@ Una volta completata la distribuzione, è semplice accedere alle proprietà dell
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
+Un altro modo per recuperare i token dell'area di lavoro esistente consiste nell'utilizzare il comando Invoke-AzureRmResourceAction. Ad esempio, è possibile elencare i token primari e secondari di tutte le aree di lavoro.
+
+```  
+# List the primary and secondary tokens of all workspaces
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+```
 Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diverse attività di Azure Machine Learning Studio usando il [modulo PowerShell per Azure Machine Learning](http://aka.ms/amlps).
 
 ## Passaggi successivi 
@@ -131,11 +137,11 @@ Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diver
 * Vedere il [repository di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
 * Guardare questo video su [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
  
-<!--Image references-->
+<!--Image references--> 
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
 [2]: ../media/machine-learning-deploy-with-resource-manager-template/resourcegroupprovisioning.png
 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

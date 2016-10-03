@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="stevestein"
 	manager="jhubbard"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>  
+	ms.tgt_pltfrm="NA"/> 
 
 
 # Quando usare un pool di database elastici
@@ -131,4 +131,4 @@ Non tutti i database singoli sono candidati ottimali per i pool. Database con mo
 - [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
 - [Script di PowerShell per identificare database adatti a un pool di database elastici](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

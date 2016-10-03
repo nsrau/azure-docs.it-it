@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="tdykstra"
 	manager="erikre"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="functions"
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="glenga"/>
+	ms.author="glenga"/> 
 
 # Come scrivere codice per le funzioni di Azure e testarle in Visual Studio
 
@@ -219,7 +219,8 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
+* [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](functions-reference-fsharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

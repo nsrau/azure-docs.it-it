@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="alkohli"
    manager="carmonm"
-   editor="" />
+   editor="" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/07/2016"
-   ms.author="alkohli" />
+   ms.date="09/16/2016"
+   ms.author="alkohli" /> 
 
 # Failover e ripristino di emergenza per il dispositivo StorSimple
 
@@ -179,9 +179,12 @@ Nell'aggiornamento 3 e versioni successive, StorSimple supporta anche il failbac
 
 - I contenitori di volumi oggetto di failover vengono eliminati dal dispositivo di origine.
 
-- Nella pagina dedicata ai **processi** vengono visualizzati i processi di eliminazione per ogni contenitore del volume (sottoposto a failover). Il tempo necessario per eliminare i contenitori del volume dipende dalla quantità di dati al loro interno. Se si prevede di effettuare failover/failback di test, si consiglia di testare i contenitori dei volumi con meno dati (GB).
+- Sul dispositivo di origine viene avviato un processo in background per ogni contenitore del volume (failover). Se si tenta di eseguire il failback mentre è in corso il processo, verrà visualizzata una notifica. Per avviare il failback, è necessario attendere il completamento del processo.
 
-- Al termine di tutti i processi di eliminazione, è possibile tentare il failback.
+	Il tempo necessario per completare l'eliminazione dei contenitori dei volumi dipende da vari fattori, ad esempio la quantità e la data dei dati, il numero di backup e la larghezza di banda disponibile per l'operazione. Se si prevede di effettuare failover/failback di test, si consiglia di testare i contenitori dei volumi con meno dati (GB). Nella maggior parte dei casi è possibile avviare il failback 24 ore dopo il completamento del failover.
+
+
+
 
 ## Domande frequenti
 
@@ -215,4 +218,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

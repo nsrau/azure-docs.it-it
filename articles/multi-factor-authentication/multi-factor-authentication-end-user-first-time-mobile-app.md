@@ -3,8 +3,8 @@
 	description="Questo articolo illustra come usare un'app mobile come metodo di contatto principale perAzure Multi-Factor Authentication."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Utilizzare app per dispositivi mobili come metodo di contatto con Azure Multi-Factor Authentication
 
@@ -28,7 +28,7 @@ L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.micro
 1. Nella schermata **Verifica aggiuntiva di sicurezza** selezionare **App per dispositivi mobili** dall'elenco a discesa.
 2. Selezionare **Notifica** o **Password monouso**, quindi fare clic su **Imposta**.
 
-	![Schermata della verifica aggiuntiva di sicurezza](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
+	![Schermata della verifica aggiuntiva di sicurezza](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png) 
 
 3. Sul telefono in cui è installata l'app Microsoft Authenticator avviare l'app e fare clic sul **+** per aggiungere un account.
 4. Specificare che si desidera aggiungere un account aziendale o dell'istituto di istruzione. Verrà visualizzata il lettore di codici QR. Se la fotocamera non funziona correttamente, è possibile selezionare di inserire manualmente le informazioni della società. Per ulteriori informazioni, vedere l'articolo su come [aggiungere manualmente un account](#add-an-account-manually).
@@ -53,13 +53,13 @@ L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.micro
 
 	![Casella per l'immissione di un PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
-8. Una volta immesso il PIN, selezionare **Close** (Chiudi). A questo punto, la verifica avrà esito positivo.
+8. Al termine dell'immissione del PIN, selezionare **Chiudi**. A questo punto, la verifica avrà esito positivo.
 9. Si consiglia di immettere il proprio numero di telefono cellulare, nel caso in cui si perda l'accesso all'app per dispositivi mobili. Specificare il paese dall'elenco a discesa e immettere il numero di telefono cellulare nella casella accanto al paese. Selezionare **Avanti**.
-10. Ora il metodo di contatto è impostato. A questo punto è possibile configurare le password delle app non basate su browser, ad esempio Outlook 2010 o versioni precedenti. Se non si utilizzano queste app, selezionare **Done** (Fine). In caso contrario, procedere al prossimo passaggio.
+10. A questo punto, il metodo di contatto è configurato. È ora possibile configurare le password per le app non basate su browser, ad esempio Outlook 2010 o versioni precedenti. Se non si usano app di questo tipo, selezionare **Operazione completata**. In caso contrario, continuare con il passaggio successivo.
 
 	![Schermata per la creazione di una password dell'app](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
 
-11. Se si utilizzano app non basate su browser, copiare la password fornita e incollarla nelle applicazioni. Per i passaggi su singole app, come ad esempio Outlook e Lync, vedere Come modificare la password nell'email con la password dell'app e Come modificare la password dell'applicazione con la password dell'app.
+11. Se si usano app non basate su browser, copiare la relativa password fornita e incollarla nelle app. Per i passaggi nelle singole app, ad esempio Outlook e Lync, vedere la procedura per modificare la password della posta elettronica con la password dell'app e la procedura per modificare la password dell'applicazione con la password dell'app.
 12. Selezionare **Done** (Fine).
 
 
@@ -78,4 +78,4 @@ Per aggiungere manualmente un account:
 
 3. Al termine dell'attivazione, selezionare **Contact me** (Contattami). Viene inviata una notifica o un codice di verifica al telefono cellulare. Selezionare **Verify** (Verifica).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

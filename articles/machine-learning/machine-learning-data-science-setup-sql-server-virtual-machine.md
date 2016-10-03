@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev" 
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="xibingao;bradsev" />
+	ms.date="09/19/2016"
+	ms.author="xibingao;bradsev" /> 
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
 
@@ -219,9 +219,9 @@ Per creare nuovi account di accesso di SQL Server tramite SQL Server Management 
 
 11. Se si tratta del primo account di accesso che si crea, è possibile assegnarlo all'amministratore di SQL Server. A questo scopo, nella pagina **Ruoli del server** selezionare **sysadmin**.
 
-    **Nota sulla sicurezza:** i membri del ruolo predefinito del server dispongono del controllo completo sul motore di database. È consigliabile limitare attentamente le appartenenze a questo ruolo.
+    > [AZURE.IMPORTANT] i membri del ruolo predefinito del server dispongono del controllo completo sul motore di database. Per motivi di sicurezza, è opportuno limitare attentamente le appartenenze a questo ruolo.
 
-    ![sysadmin][12]
+    ![sysadmin][12] 
 
 12. Fare clic su OK.
 
@@ -306,4 +306,4 @@ I passaggi successivi del processo di scienza dei dati sono illustrati in [Proce
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

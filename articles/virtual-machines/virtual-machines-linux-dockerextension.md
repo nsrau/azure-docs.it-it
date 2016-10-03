@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="virtual-machines-linux"
@@ -33,7 +33,7 @@ Questo articolo illustra l'uso di modelli di Resource Manager per distribuire l'
 
 L'estensione della VM Docker per Azure installa e configura il daemon Docker, il client Docker e Docker Compose nella macchina virtuale Linux. L'estensione viene anche usata per definire e distribuire applicazioni contenitore con Docker Compose. Dal momento che prevede controlli aggiuntivi rispetto all'uso di Docker Machine o alla creazione manuale dell'host Docker, è ideale per ambienti di sviluppo o produzione più affidabili.
 
-Tramite Azure Resource Manager, è possibile creare e distribuire modelli che definiscono l'intera struttura dell'ambiente. I modelli consentono di definire gli host Docker, l'archiviazione, il controllo degli accessi basato su ruoli, la diagnostica e così via. Per comprendere meglio alcuni dei vantaggi, è possibile [leggere altre informazioni su Resource Manager](../resource-group-overview.md) e sui modelli. Utilizzando i modelli di Resource Manager, sarà anche possibile riprodurre le distribuzioni in base alle esigenze future.
+Tramite Azure Resource Manager, è possibile creare e distribuire modelli che definiscono l'intera struttura dell'ambiente. I modelli consentono di definire gli host Docker, l'archiviazione, il controllo degli accessi basato su ruoli, la diagnostica e così via. Per comprendere meglio alcuni dei vantaggi, è possibile [leggere altre informazioni su Resource Manager](../resource-group-overview.md) e sui modelli. Usando i modelli di Resource Manager è possibile anche riprodurre le distribuzioni in base alle esigenze future.
 
 ## Distribuire un modello con l'estensione di VM Docker:
 
@@ -46,7 +46,7 @@ azure group create --name myDockerResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Rispondere alle richieste per la denominazione dell'account di archiviazione, del nome DNS, del nome utente e così via e quindi attendere alcuni minuti il completamento della distribuzione. L'output dovrebbe essere simile al seguente:
+Rispondere ai prompt di richiesta di denominazione dell'account di archiviazione, del nome utente e della password e del nome DNS. L'output dovrebbe essere simile all'esempio seguente:
 
 ```
 info:    Executing command group create
@@ -71,6 +71,66 @@ info:    group create command OK
 
 ```
 
+L'interfaccia della riga di comando di Azure torna al prompt dopo pochi secondi, ma in background il modello viene distribuito nel gruppo di risorse creato. Attendere alcuni minuti il completamento della distribuzione prima di tentare di usare SSH per l'accesso alla VM.
+
+È possibile ottenere informazioni dettagliate sulla distribuzione e il nome DNS della VM usando il comando `azure vm show`. Nell'esempio seguente sostituire `myDockerResourceGroup` con il nome specificato nel passaggio precedente:
+
+```bash
+azure vm show -g myDockerResourceGroup -n myDockerVM
+info:    Executing command vm show
++ Looking up the VM "myDockerVM"
++ Looking up the NIC "myVMNicD"
++ Looking up the public ip "myPublicIPD"
+data:    Id                              :/subscriptions/guid/resourceGroups/mydockerresourcegroup/providers/Microsoft.Compute/virtualMachines/MyDockerVM
+data:    ProvisioningState               :Succeeded
+data:    Name                            :MyDockerVM
+data:    Location                        :westus
+data:    Type                            :Microsoft.Compute/virtualMachines
+data:
+data:    Hardware Profile:
+data:      Size                          :Standard_F1
+data:
+data:    Storage Profile:
+data:      Image reference:
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
+data:        Version                     :latest
+data:
+data:      OS Disk:
+data:        OSType                      :Linux
+data:        Name                        :osdisk1
+data:        Caching                     :ReadWrite
+data:        CreateOption                :FromImage
+data:        Vhd:
+data:          Uri                       :http://mydockerstorage.blob.core.windows.net/vhds/osdiskfordockersimple.vhd
+data:
+data:    OS Profile:
+data:      Computer Name                 :MyDockerVM
+data:      User Name                     :ops
+data:      Linux Configuration:
+data:        Disable Password Auth       :false
+data:
+data:    Network Profile:
+data:      Network Interfaces:
+data:        Network Interface #1:
+data:          Primary                   :true
+data:          MAC Address               :00-0D-3A-33-D3-95
+data:          Provisioning State        :Succeeded
+data:          Name                      :myVMNicD
+data:          Location                  :westus
+data:            Public IP address       :13.91.107.235
+data:            FQDN                    :mydockergroup.westus.cloudapp.azure.com
+data:
+data:    Diagnostics Instance View:
+info:    vm show command OK
+```
+
+Nella parte superiore dell'output viene visualizzato il valore `ProvisioningState` della VM. Quando viene visualizzato `Succeeded`, la distribuzione è stata completata ed è possibile usare SSH per la VM.
+
+Verso la fine dell'output, `FQDN` visualizza il nome di dominio completo in base al nome DNS immesso e al percorso selezionato. Questo è l'FQDN che si usa per accedere tramite SSH alla VM nei passaggi successivi.
+
+
 ## Distribuire il primo contenitore nginx
 Al termine della distribuzione, stabilire una connessione SSH al nuovo host Docker con il nome DNS specificato durante la distribuzione. Si provi a eseguire un contenitore nginx:
 
@@ -78,7 +138,7 @@ Al termine della distribuzione, stabilire una connessione SSH al nuovo host Dock
 sudo docker run -d -p 80:80 nginx
 ```
 
-L'output dovrebbe essere simile al seguente:
+L'output dovrebbe essere simile all'esempio seguente:
 
 ```
 Unable to find image 'nginx:latest' locally
@@ -103,11 +163,11 @@ Per vedere il contenitore in azione, aprire un Web browser e immettere il nome D
 
 ![Esecuzione di un contenitore ngnix](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
-Se lo si desidera, è possibile configurare la porta TCP del daemon Docker o le impostazioni di sicurezza oppure distribuire contenitori mediante Docker Compose. Per ulteriori informazioni, vedere l'articolo sull'[estensione macchina virtuale di Azure per il progetto GitHub Docker](https://github.com/Azure/azure-docker-extension/).
+Se lo si desidera, è possibile configurare la porta TCP del daemon Docker o le impostazioni di sicurezza oppure distribuire contenitori mediante Docker Compose. Per altre informazioni, vedere l'articolo sull'[estensione macchina virtuale di Azure per il progetto GitHub Docker](https://github.com/Azure/azure-docker-extension/).
 
 ## Riferimento al modello JSON per l'installazione dell'estensione di VM Docker
 
-In questo esempio viene usato un modello di avvio rapido. Per distribuire l'estensione VM Docker di Azure con i propri modelli di Resource Manager, aggiungere quanto segue:
+In questo esempio viene usato un modello di avvio rapido. Per distribuire l'estensione VM Docker di Azure con i propri modelli di Resource Manager, aggiungere il JSON seguente:
 
 ```
 {
@@ -140,4 +200,4 @@ Leggere passaggi più dettagliati per le diverse opzioni di distribuzione:
 3. [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Distribuire un cluster del servizio contenitore di Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

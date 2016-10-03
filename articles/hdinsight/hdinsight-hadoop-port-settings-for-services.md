@@ -5,7 +5,7 @@ services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
 manager="jhubbard"
-editor="cgronlun"/>
+editor="cgronlun"/> 
 
 <tags
 ms.service="hdinsight"
@@ -13,8 +13,8 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/30/2016"
-ms.author="larryfr"/>
+ms.date="09/13/2016"
+ms.author="larryfr"/> 
 
 # Porte e URI usati da HDInsight
 
@@ -36,9 +36,9 @@ Tutti i nodi di un cluster HDInsight si trovano all'interno di una rete virtuale
 
 | Service | Port | Protocol | Descrizione |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | Connette i client a sshd sul nodo head 0. Vedere [Uso di SSH con HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 22 | SSH | Connette i client a SSHD sul nodo head primario. Vedere [Uso di SSH con HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | sshd | 22 | SSH | Connette i client a sshd sul nodo perimetrale (solo HDInsight Premium). Vedere [Introduzione all'uso di R Server su HDInsight](hdinsight-hadoop-r-server-get-started.md) |
-| sshd | 23 | SSH | Connette i client a sshd sul nodo head 1. Vedere [Uso di SSH con HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 23 | SSH | Connette i client a SSHD sul nodo head secondario. Vedere [Uso di SSH con HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | Ambari | 443 | HTTPS | Interfaccia utente Web Ambari Vedere [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md). |
 | Ambari | 443 | HTTPS | API REST Ambari Vedere [Gestire i cluster HDInsight mediante l'API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). |
 | WebHCat | 443 | HTTPS | API REST HCatalog Vedere [Use Hive with Curl](hdinsight-hadoop-use-Pig-curl.md) (Usare Hive con Curl), [Use Pig with Curl](hdinsight-hadoop-use-Pig-curl.md) (Usare Pig con Curl) e [Use MapReduce with Curl](hdinsight-hadoop-use-mapreduce-curl.md) (Usare MapReduce con Curl). |
@@ -143,4 +143,4 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 | Gestore | Nodi di lavoro | 9092 | [Protocollo di trasmissione Kafka](http://kafka.apache.org/protocol.html) | Usato per la comunicazione di client |
 | &nbsp; | Nodi Zookeeper | 2181 | &nbsp; | La porta usata dai client per connettersi a ZooKeeper |
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

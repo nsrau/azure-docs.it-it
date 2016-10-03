@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="multiple"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="07/07/2016" 
-	ms.author="robmcm;asirveda"/>
+	ms.date="09/20/2016" 
+	ms.author="robmcm;asirveda"/> 
 
 # Novità del Toolkit di Azure per IntelliJ
 
@@ -56,9 +56,9 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
   - [Creare un'App Web Hello World per Azure in IntelliJ]
   - *Novità del Toolkit di Azure per IntelliJ (questo articolo)*
 
-Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure].
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->
+<!-- URL List --> 
 
 [Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
 [Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij.md
@@ -73,4 +73,4 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 
 [plug-in degli strumenti HDInsight per IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

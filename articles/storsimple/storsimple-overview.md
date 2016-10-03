@@ -5,7 +5,7 @@
    documentationCenter="NA" 
    authors="SharS" 
    manager="carmonm" 
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="storsimple"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="04/26/2016"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="09/20/2016"
+   ms.author="v-sharos@microsoft.com"/> 
 
 # Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 
-## Panoramica
+## Overview
 
 Microsoft Azure StorSimple è una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Microsoft Azure. StorSimple è una soluzione SAN (storage area network) efficiente, dai costi contenuti e facilmente gestibile che elimina molti problemi e spese associati agli archivi dell'organizzazione e alla protezione dei dati. Usa il dispositivo proprietario serie StorSimple 8000, si integra con i servizi cloud e fornisce un set di strumenti di gestione integrati per offrire una visualizzazione semplice di tutti gli archivi dell'organizzazione, inclusa l'archiviazione cloud. Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Se si utilizza un dispositivo di serie StorSimple 5000/7000, andare alla [Guida di StorSimple](http://onlinehelp.storsimple.com/).)
 
@@ -63,7 +63,7 @@ La soluzione Microsoft Azure StorSimple include i componenti seguenti:
 - **Servizio StorSimple Manager**: estensione del portale di Azure classico che consente di gestire un dispositivo StorSimple o un dispositivo virtuale StorSimple da una singola interfaccia Web. È possibile usare il servizio StorSimple Manager per creare e gestire servizi, visualizzare e gestire dispositivi, visualizzare avvisi, gestire volumi e visualizzare e gestire criteri di backup e il catalogo di backup.
 - **Windows PowerShell per StorSimple **– Un’interfaccia della riga di comando che può essere usata per gestire il dispositivo StorSimple. Windows PowerShell per StorSimple include funzionalità che permettono di registrare il dispositivo StorSimple, configurare l'interfaccia di rete nel dispositivo, installare determinati tipi di aggiornamento, risolvere i problemi del dispositivo tramite l'accesso alla sessione di supporto e modificare lo stato del dispositivo. È possibile accedere a Windows PowerShell per StorSimple connettendosi alla console seriale o usando la comunicazione remota di Windows PowerShell.
 - **i cmdlet PowerShell di azure StorSimple** – un insieme di cmdlet Windows PowerShell che consente di automatizzare le attività a livello di servizio e la migrazione dalla riga di comando. Per altre informazioni sui cmdlet di Azure PowerShell per StorSimple, visitare la [Documentazione di riferimento relativa ai cmdlet](https://msdn.microsoft.com/library/dn920427.aspx).
-- **Gestione snapshot StorSimple **– Snap-in MMC (Microsoft Management Console) che usa gruppi di volumi e il servizio Copia Shadow del volume di Windows per generare backup coerenti con l'applicazione. È possibile usare Gestione snapshot StorSimple anche per creare pianificazioni di backup e clonare o ripristinare volumi. 
+- **Gestione snapshot StorSimple **– Snap-in MMC (Microsoft Management Console) che usa gruppi di volumi e il servizio Copia Shadow del volume di Windows per generare backup coerenti con l'applicazione. È possibile usare Gestione snapshot StorSimple anche per creare pianificazioni di backup e clonare o ripristinare volumi.
 - **Adattatore StorSimple per SharePoint** – Uno strumento che estende in modo trasparente la risorsa di archiviazione di Microsoft Azure StorSimple e la protezione dei dati ai server farm SharePoint, rendendo la risorsa di archiviazione di StorSimple visualizzabile e gestibile dal portale di amministrazione centrale di SharePoint.
 
 Nel diagramma seguente viene fornita una panoramica di alto livello dell'architettura e dei componenti di Microsoft Azure StorSimple.
@@ -95,9 +95,9 @@ Per altre informazioni, vedere [Stato e componenti hardware di StorSimple](stors
 
 Il dispositivo virtuale presenta le seguenti funzionalità:
 
-- Si comporta come un dispositivo fisico ed è in grado di offrire un'interfaccia iSCSI alle macchine virtuali nel cloud. 
-- È possibile creare un numero illimitato di dispositivi virtuali nel cloud e attivarli e disattivarli in base alle esigenze. 
-- Consente di simulare ambienti locali in scenari di ripristino di emergenza, sviluppo e test ed è in grado di facilitare il recupero a livello di elementi dai backup. 
+- Si comporta come un dispositivo fisico ed è in grado di offrire un'interfaccia iSCSI alle macchine virtuali nel cloud.
+- È possibile creare un numero illimitato di dispositivi virtuali nel cloud e attivarli e disattivarli in base alle esigenze.
+- Consente di simulare ambienti locali in scenari di ripristino di emergenza, sviluppo e test ed è in grado di facilitare il recupero a livello di elementi dai backup.
 
 Con l'aggiornamento 2 e versioni successive, il dispositivo virtuale StorSimple è disponibile in due modelli: il dispositivo 8010 (precedentemente noto come modello 1100) e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB Nei livelli locali l'archiviazione Premium di Azure archivia i dati all'interno di unità SSD, mentre l'archiviazione Standard archivia i dati in unità disco rigido. Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
@@ -165,9 +165,9 @@ Per altre informazioni, vedere [Adattatore StorSimple per SharePoint](storsimple
  
 Oltre al dispositivo StorSimple, al dispositivo virtuale e ad altri componenti dedicati, Microsoft Azure StorSimple usa le seguenti tecnologie software per fornire un accesso rapido ai dati e ridurre il consumo di risorse di archiviazione:
 
-- [Suddivisione automatica in livelli dell'archiviazione](#automatic-storage-tiering) 
-- [Thin provisioning](#thin-provisioning) 
-- [Deduplicazione e compressione](#deduplication-and-compression) 
+- [Suddivisione automatica in livelli dell'archiviazione](#automatic-storage-tiering)
+- [Thin provisioning](#thin-provisioning)
+- [Deduplicazione e compressione](#deduplication-and-compression)
 
 ### Suddivisione automatica in livelli dell'archiviazione
 
@@ -188,7 +188,7 @@ Il processo di suddivisione in livelli di archiviazione avviene nel modo seguent
 3. Inizialmente, StorSimple archivia i dati nel livello SSD rapido del dispositivo.
 4. Quando il livello SSD raggiunge il limite di capacità, StorSimple deduplica e comprime i blocchi di dati meno recenti, quindi li sposta nel livello HDD.
 5. Quando il livello HDD raggiunge il limite di capacità, StorSimple esegue la crittografia dei blocchi di dati meno recenti e li invia in modo sicuro all'account di archiviazione di Microsoft Azure tramite HTTPS.
-6. Microsoft Azure crea più repliche dei dati nel data center e in un data center remoto, assicurando che i dati possono essere recuperati in caso di emergenza. 
+6. Microsoft Azure crea più repliche dei dati nel data center e in un data center remoto, assicurando che i dati possono essere recuperati in caso di emergenza.
 7. Quando il file server richiede i dati archiviati nel cloud, StorSimple li restituisce facilmente e ne archivia una copia nel livello SSD del dispositivo StorSimple.
 
 ### Thin provisioning
@@ -204,6 +204,47 @@ Microsoft Azure StorSimple usa tecniche di deduplicazione e compressione dei dat
 La deduplicazione riduce la quantità complessiva di dati archiviati eliminando la ridondanza nel set di dati archiviato. Se i dati subiscono delle variazioni, StorSimple ignora quelli non modificati e acquisisce soltanto le differenze. StorSimple riduce inoltre la quantità di dati archiviati identificando e rimuovendo le informazioni non necessarie.
 
 >[AZURE.NOTE] I dati sui volumi aggiunti in locale non sono deduplicati o compressi. Tuttavia, i backup dei volumi aggiunti in locale sono deduplicati e compressi.
+
+## Riepilogo dei carichi di lavoro di StorSimple
+
+Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati.
+
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+|---------------------------|-------------------------|-----------|------------------------------------------------|----------------------|
+| Collaborazione | Condivisione di file | Sì | | Tutte le versioni |
+| Collaborazione | Condivisione di file distribuita| Sì | | Tutte le versioni |
+| Collaborazione | SharePoint | Sì* |Supportata solo con i volumi aggiunti in locale | Aggiornamento 2 e successivi |
+| Archiviazione | Archiviazione di file semplice | Sì | | Tutte le versioni |
+| Virtualizzazione | Macchine virtuali | Sì* |Supportata solo con i volumi aggiunti in locale | Aggiornamento 2 e successivi |
+| Database | SQL | Sì* |Supportata solo con i volumi aggiunti in locale | Aggiornamento 2 e successivi |
+| Sorveglianza video | Sorveglianza video | Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro| Aggiornamento 2 e successivi |
+| Backup | Backup di destinazione primario | Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro| Aggiornamento 3 e successivi |
+| Backup | Backup di destinazione secondario | Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro| Aggiornamento 3 e successivi |
+
+*Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
+
+I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple della serie 8000. Se distribuiti in StorSimple, questi carichi di lavoro comportano una configurazione non supportata.
+
+-  Diagnostica per immagini
+-  Exchange
+-  VDI
+-  Oracle
+-  SAP
+-  Big Data
+-  Distribuzione di contenuti
+-  Avvio da SCSI
+
+Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati da StorSimple.
+
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+|----------|---------------|-----------|-----------------------------------------------|--------------|
+| Generale | Express Route | Sì | Tutte le versioni |
+| Generale | DataCore FC | Sì* |Supportato con DataCore SANsymphony | Tutte le versioni |
+| Generale | DFSR | Sì* |Supportata solo con i volumi aggiunti in locale | Tutte le versioni |
+| Generale | Indicizzazione | Sì* |Per i volumi a più livelli, è supportata solo l'indicizzazione dei metadati (nessun dato).<br>Per i volumi aggiunti in locale, è supportata l'indicizzazione completa.| Tutte le versioni |
+| Generale | Anti-virus | Sì* |Per i volumi a più livelli, è supportata solo l'analisi in apertura e in chiusura.<br> Per i volumi aggiunti in locale, è supportata l'analisi completa.| Tutte le versioni |
+
+*Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 ## Terminologia di StorSimple 
 
@@ -278,4 +319,4 @@ Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

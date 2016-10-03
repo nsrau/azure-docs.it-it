@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev"
 	manager="jhubbard" 
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="bradsev" />
+	ms.date="09/19/2016" 
+	ms.author="bradsev" /> 
 
 # Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 
@@ -23,9 +23,10 @@ In questo documento viene descritto come creare tabelle partizionate per l'impor
 
 ## Creazione di un nuovo database e di un set di filegroup
 
-- [Creazione di un nuovo database](https://technet.microsoft.com/library/ms176061.aspx) (se non esiste)
+- [Creare un nuovo database](https://technet.microsoft.com/library/ms176061.aspx) (se non esiste)
 - Aggiungere filegroup del database al database che conterrà i file fisici partizionati
-- Nota: questa operazione può essere eseguita con [CREA DATABASE](https://technet.microsoft.com/library/ms176061.aspx) se nuovo o [MODIFICA DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già
+
+  Nota: questa operazione può essere eseguita con [CREA DATABASE](https://technet.microsoft.com/library/ms176061.aspx) se nuovo o [MODIFICA DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già
 
 - Aggiungere uno o più file (se necessario) per ogni filegroup del database
 
@@ -74,7 +75,7 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
 	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
 	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-- Suggerimento: per verificare gli intervalli in vigore in ogni partizione secondo funzione/schema, eseguire la query seguente:
+  Suggerimento: per verificare gli intervalli in vigore in ogni partizione secondo funzione/schema, eseguire la query seguente:
 
 	    SELECT psch.name as PartitionScheme,
 	    	prng.value AS ParitionValue,
@@ -89,7 +90,7 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
 
-- Per altre informazioni, vedere [Creazione di tabelle e indici partizionati](https://msdn.microsoft.com/library/ms188730.aspx).
+Per altre informazioni, vedere [Creazione di tabelle e indici partizionati](https://msdn.microsoft.com/library/ms188730.aspx).
 
 
 ## Importazione in blocco dei dati per ogni singola tabella di partizione
@@ -187,4 +188,4 @@ o
 Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics Process con un set di dati pubblico, vedere [Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

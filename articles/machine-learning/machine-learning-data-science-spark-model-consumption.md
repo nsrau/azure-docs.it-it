@@ -3,9 +3,9 @@
 	description="Informazioni su come assegnare punteggi a modelli di apprendimento salvati in BLOB di Archiviazione di Azure (WASB)."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" /> 
 
 # Assegnare punteggi a modelli di apprendimento automatico compilati con Spark 
 
@@ -110,7 +110,7 @@ I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto pre
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 - **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
-- **%%sql -o <nome variabile>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
+- **%%sql -o <nome variabile>** Esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
  
 
 Per altre informazioni sui kernel per le istanze di Jupyter Notebook e i "magic" predefiniti chiamati con %% (ad esempio %%local) messi a disposizione, vedere [Kernel disponibili per Jupyter Notebook con cluster Apache Spark in HDInsight Linux](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
@@ -385,7 +385,7 @@ Il codice riportato in questa sezione illustra come caricare un modello di regre
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -603,11 +603,11 @@ Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](htt
 - Immettere il nome dell'app per la logica e del piano di servizio app per visualizzare l'**area di progettazione delle app per la logica**.
 - Selezionare un'azione HTTP e immettere i parametri mostrati nella figura seguente:
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
+![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png) 
 
 
 ## Passaggi successivi 
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

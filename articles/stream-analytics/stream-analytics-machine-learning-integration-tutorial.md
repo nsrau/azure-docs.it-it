@@ -5,9 +5,9 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
-/>
+/> 
 
 
 <tags 
@@ -18,7 +18,7 @@
 	ms.workload="data-services" 
 	ms.date="08/08/2016" 
 	ms.author="jeffstok"
-/>  
+/> 
 
 # Analisi dei sentimenti con Analisi di flusso di Azure e Azure Machine Learning #
 
@@ -145,4 +145,4 @@ In questo articolo viene illustrato come creare un processo dell'analisi di flus
 
     ![Analisi di flusso e Machine Learning, visualizzazione di monitoraggio di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

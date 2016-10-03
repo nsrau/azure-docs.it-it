@@ -6,7 +6,7 @@
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="active-directory"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
-   ms.author="mbaldwin"/>
+   ms.date="09/16/2016"
+   ms.author="mbaldwin"/> 
 
 # Scenari di autenticazione per Azure AD
 
@@ -89,13 +89,13 @@ I token di sicurezza emessi da Azure AD contengono attestazioni o asserzioni di 
 | Nome | Fornisce il nome dell'utente come è impostato in Azure AD. |
 | Gruppi | Contiene gli ID oggetto dei gruppi di Azure AD di cui l'utente è membro. |
 | Provider di identità | Registra il provider di identità che ha autenticato l'oggetto del token. |
-| Ora di emissione | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
-| Autorità di certificazione | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
+| Issued At | Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
+| Issuer | Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
 | Cognome | Fornisce il cognome dell'utente come è impostato in Azure AD. |
 | Nome | Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID oggetto | Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli | Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
-| Ambito | Indica le autorizzazioni concesse all'applicazione client. |
+| Scope | Indica le autorizzazioni concesse all'applicazione client. |
 | Oggetto | Indica l'entità su cui il token rilascia informazioni. |
 | ID tenant | Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token | Definisce l'intervallo di tempo entro il quale un token è valido. |
@@ -468,4 +468,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

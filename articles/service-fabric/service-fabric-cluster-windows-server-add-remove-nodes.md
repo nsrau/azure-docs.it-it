@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="dsk-2015"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2016"
-   ms.author="dkshir;chackdan"/>  
+   ms.date="09/20/2016"
+   ms.author="dkshir;chackdan"/> 
 
 
 # Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server
@@ -32,7 +32,7 @@ Dopo aver [creato il cluster di Service Fabric autonomo in computer Windows Serv
 6. Eseguire lo script di PowerShell *AddNode.ps1* con i parametri che descrivono il nuovo nodo da aggiungere. L'esempio seguente aggiunge un nuovo nodo denominato VM5, con tipo NodeType0 e indirizzo IP 182.17.34.52, in UD1 e FD1. *ExistingClusterConnectionEndPoint* è un endpoint di connessione per un nodo già presente nel cluster esistente. Per questo endpoint è possibile scegliere l'indirizzo IP di *qualsiasi* nodo del cluster.
 
 ```
-.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA true
 ```
 
 ## Rimuovere nodi dal cluster
@@ -43,7 +43,7 @@ Dopo aver [creato il cluster di Service Fabric autonomo in computer Windows Serv
 4. Eseguire lo script *RemoveNode.ps1* di PowerShell. L'esempio seguente rimuove il nodo corrente dal cluster. *ExistingClusterConnectionEndPoint* è un endpoint di connessione per un nodo già presente nel cluster esistente. Per questo endpoint è possibile scegliere l'indirizzo IP di *qualsiasi* nodo del cluster.
 
 ```
-.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
 
@@ -53,4 +53,4 @@ Dopo aver [creato il cluster di Service Fabric autonomo in computer Windows Serv
 - [Proteggere un cluster autonomo in Windows con certificati X.509](service-fabric-windows-cluster-x509-security.md)
 - [Creare un cluster di Service Fabric autonomo con VM di Azure che eseguono Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

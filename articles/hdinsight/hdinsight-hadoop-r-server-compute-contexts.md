@@ -4,9 +4,9 @@
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
-   manager="paulettem"
+   manager="jhubbard"
    editor="cgronlun"
-/>
+/> 
 
 <tags
    ms.service="HDInsight"
@@ -83,4 +83,4 @@ In questo articolo si è appreso come creare un nuovo cluster HDInsight che incl
 - [Aggiungere RStudio Server a HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opzioni di Archiviazione di Azure per R Server su HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

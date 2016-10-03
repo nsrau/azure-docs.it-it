@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="tamram;aungoo-msft"/>
+	ms.date="09/20/2016"
+	ms.author="tamram;aungoo"/>
 
 
 # Backup dei dischi delle macchine virtuali di Azure con snapshot incrementali
 
-## Panoramica 
+## Overview
 
 Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. In questo articolo verrà descritto uno scenario che spiega come mantenere backup dei dischi delle macchine virtuali utilizzando gli snapshot. Quando si sceglie di non utilizzare Backup di Azure e il servizio di ripristino e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia.
 
@@ -62,7 +62,7 @@ La copia di snapshot incrementali consente di eseguire la copia da un account di
 
 A condizione che siano soddisfatte le condizioni seguenti:
 
-- Il BLOB è stato creato il 1° gennaio 2016 o in seguito.
+- Il BLOB è stato creato il 1ª gennaio 2016 o in seguito.
 - Il BLOB non è stato sovrascritto con [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) o [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) tra due snapshots.
 
 
@@ -128,4 +128,4 @@ Altre informazioni sulla creazione di snapshot di un BLOB e la pianificazione de
 - [Creazione di uno snapshot di un BLOB](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Pianificare l'infrastruttura di backup delle VM](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="edmacauley"
    manager="jhubbard"
-   editor="cgronlun"/>
+   editor="cgronlun"/> 
 
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="05/16/2016"
-   ms.author="edmaca"/>
+   ms.author="edmaca"/> 
 
 # Esercitazione: Introduzione ad Analisi Azure Data Lake con l'SDK Java
 
@@ -23,8 +23,6 @@
 Informazioni su come usare l'SDK Java di Analisi Azure Data Lake per creare un account Azure Data Lake ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e lavorare con i processi. Per altre informazioni su Data Lake, vedere [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 In questa esercitazione verrà sviluppata un'applicazione console Java che include esempi di attività amministrative comuni, inoltre saranno creati dati di test e sarà inviato un processo. Per eseguire la stessa esercitazione usando altri strumenti supportati, fare clic sulle schede disponibili nella parte superiore di questa sezione.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ## Prerequisiti
 
@@ -356,4 +354,4 @@ Perché questa esercitazione possa funzionare, è necessario concedere all'appli
 - Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Analisi Data Lake, vedere [Panoramica di Analisi Data Lake di Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="garye"/>
+	ms.date="09/16/2016"
+	ms.author="garye"/> 
 
 
 # Passaggio 4 della procedura dettagliata: Eseguire il training e valutare i modelli analitici predittivi
@@ -39,7 +39,8 @@ Nell'esperimento sviluppato in questa procedura guidata verranno creati due tipi
 
 > [AZURE.TIP] Per ottenere informazioni circa quale algoritmo di Machine Learning sia più adatto per un problema specifico che si sta tentando di risolvere, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
-##Eseguire il training dei modelli
+## Eseguire il training dei modelli
+
 Prima di tutto verrà configurato il modello di albero delle decisioni con boosting:
 
 1.	Trovare il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] nella tavolozza dei moduli e trascinarlo nell'area di disegno.
@@ -82,7 +83,8 @@ Questa parte dell'esperimento avrà ora un aspetto analogo al seguente:
 
 ![Training the second model][2]
 
-##Classificare e valutare i modelli
+## Classificare e valutare i modelli
+
 Verranno usati i dati di test separati dal modulo [Split Data][split] per assegnare il punteggio ai moduli di cui è stato eseguito il training. Sarà quindi possibile confrontare i risultati dei due modelli per stabilire quale ha generato i risultati migliori.
 
 1.	Trovare il modulo [Calcola punteggio modello][score-model] e trascinarlo nell'area di disegno.
@@ -133,7 +135,7 @@ Esaminando i valori è possibile decidere quale sia il modello che più si avvic
 [4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
 
 
-<!-- Module References -->
+<!-- Module References --> 
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
@@ -143,4 +145,4 @@ Esaminando i valori è possibile decidere quale sia il modello che più si avvic
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

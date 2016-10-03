@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/09/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Utilizzare il dashboard del dispositivo StorSimple Manager
 
-## Panoramica
+## Overview
 
 Il dashboard del dispositivo StorSimple Manager offre una panoramica delle informazioni per un determinato dispositivo StorSimple, a differenza del dashboard del servizio che fornisce informazioni su tutti i dispositivi inclusi nella soluzione Microsoft Azure StorSimple.
 
@@ -100,4 +100,4 @@ L’IQN di destinazione del dispositivo potrebbe essere necessario quando si con
 - Ulteriori informazioni sul [dashboard del servizio StorSimple Manager](storsimple-service-dashboard.md).
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0921_2016-->

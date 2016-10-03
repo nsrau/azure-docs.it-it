@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="HannibalSII"
    manager=""
-   editor=""/>
+   editor=""/> 
 
 <tags
   ms.service="marketplace"
@@ -22,7 +22,7 @@ Leggere attentamente le informazioni sul processo prima di iniziare e comprender
 ## Scaricare gli strumenti e le applicazioni necessari
 È necessario disporre dei seguenti elementi prima di iniziare il processo:
 
-- A seconda del sistema operativo di destinazione, installare i cmdlet di Azure PowerShell o lo strumento di interfaccia della riga di comando di Linux dalla pagina dei download di Azure.
+- A seconda del sistema operativo di destinazione, installare i [cmdlet di Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) o lo [strumento di interfaccia della riga di comando di Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) dalla pagina dei [download di Azure](https://azure.microsoft.com/downloads/).
 - Installare lo strumento di esplorazione dell'archiviazione di Azure da CodePlex.
 - Scaricare e installare lo strumento di test della certificazione per Azure Certified:
   - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). È necessario un computer basato su Windows per eseguire lo strumento di certificazione. Se non è disponibile un computer basato su Windows, è possibile eseguire lo strumento usando una macchina virtuale basata su Windows in Azure.
@@ -48,9 +48,9 @@ Dopo avere esaminato i prerequisiti e completato le attività necessarie, ora è
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines-windows-hero-tutorial/)
+- [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

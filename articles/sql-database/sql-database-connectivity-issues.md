@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="dalechen"
 	manager="felixwu"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="sql-database"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="daleche"/>
+	ms.date="09/20/2016"
+	ms.author="daleche"/> 
 
 
 # Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL
@@ -560,4 +560,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

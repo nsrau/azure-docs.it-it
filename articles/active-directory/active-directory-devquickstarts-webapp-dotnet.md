@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Accedere e disconnettersi dalle app Web con Azure AD
@@ -59,7 +59,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 -	Aggiungere al progetto una OWIN Startup Class denominata `Startup.cs`. Fare clic con il pulsante destro del mouse sul progetto --> **Aggiungi** --> **Nuovo elemento** --> Cercare "OWIN". Il middleware OWIN richiamerà il metodo `Configuration(...)` all'avvio dell'app.
--	Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Nel metodo `Configuration(...)` effettuare una chiamata a ConfgureAuth(...) per configurare l'autenticazione per l'app Web  
+-	Sostituire la dichiarazione della classe con `public partial class Startup`. Parte di questa classe è già stata implementata in un altro file. Nel metodo `Configuration(...)` effettuare una chiamata a ConfgureAuth(...) per configurare l'autenticazione per l'app Web
 
 ```C#
 public partial class Startup
@@ -172,10 +172,10 @@ Infine compilare ed eseguire l'app. Se non si è ancora creato un nuovo utente n
 
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
 
-Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
+È ora possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Proteggere un'API Web con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

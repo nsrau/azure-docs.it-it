@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
-	ms.author="sdanie"/>
+	ms.date="09/15/2016" 
+	ms.author="sdanie"/> 
 
 # Come usare il Servizio cache gestita di Azure
 
@@ -48,7 +48,7 @@ Questa guida fornisce informazioni generali sul Servizio cache gestita. Per info
 <a name="getting-started-cache-service"></a>
 ## Introduzione al Servizio cache gestita
 
-Iniziare a usare il Servizio cache gestita è facile. Innanzitutto, è necessario eseguire il provisioning e la configurazione di una cache. Successivamente, verranno configurati i client della cache affinché possano accedere alla cache. Dopo avere configurato i client della cache, è possibile iniziare a usarli.
+Iniziare a usare il Servizio cache gestita è facile. Innanzitutto, è necessario eseguire il provisioning e la configurazione di una cache. Successivamente, verranno configurati i client della cache affinché possano accedere alla cache. Dopo avere configurato i client della cache, è possibile iniziare a utilizzarli.
 
 -	[Creare la cache][]
 -	[Configurare la cache][]
@@ -65,7 +65,7 @@ Per creare un'istanza di Servizio cache gestita, aprire una finestra di comando 
 
 >Per istruzioni sull'installazione e sull'uso di Azure PowerShell, vedere l'argomento relativo alla [modalità di installazione e configurazione di Azure PowerShell][].
 
-Richiamare il cmdlet [Add-AzureAccount][], quindi immettere l'indirizzo e-mail e la password associati al proprio account. Per impostazione predefinita una sottoscrizione predefinita viene scelta e visualizzata dopo aver richiamato il cmdlet [Add-AzureAccount][]. Per modificare la sottoscrizione, richiamare il cmdlet [Select-AzureSubscription][].
+Richiamare il cmdlet [Add-AzureAccount][], quindi immettere l'indirizzo e-mail e la password associati al proprio account. Per impostazione predefinita, una sottoscrizione viene scelta e visualizzata dopo aver richiamato il cmdlet [Add-AzureAccount][]. Per modificare la sottoscrizione, richiamare il cmdlet [Select-AzureSubscription][].
 
 >Se Azure PowerShell è stato configurato con un certificato per l'account personale, è possibile ignorare questo passaggio. Per altre informazioni sulla connessione di Azure PowerShell all'account Azure, vedere [Come installare e configurare Azure PowerShell][].
 
@@ -258,10 +258,10 @@ Se il progetto è un progetto Web, viene aggiunto anche il riferimento all'assem
 
 -	Microsoft.Web.DistributedCache.dll.
 
-Dopo avere configurato il progetto client per la memorizzazione nella cache, è possibile usare le tecniche descritte nelle sezioni seguenti per usare la cache.
+Dopo avere configurato il progetto client per la memorizzazione nella cache, è possibile utilizzare le tecniche descritte nelle sezioni seguenti per utilizzare la cache.
 
 <a name="working-with-caches"></a>
-## Uso delle cache
+## Utilizzo delle cache
 
 Nelle procedure riportate in questa sezione viene descritto come eseguire attività comuni con il Servizio cache.
 
@@ -353,7 +353,7 @@ Per visualizzare l'intervallo di timeout rimanente di un oggetto nella cache, è
 <a name="store-session"></a>
 ## Procedura: archiviare lo stato della sessione ASP.NET nella cache
 
-Il provider di stato della sessione per Cache di Azure è un meccanismo di archiviazione out-of-process specifico per le applicazioni ASP.NET. Tale provider consente di archiviare lo stato della sessione in una cache di Azure anziché in memoria o in un database di SQL Server. Per utilizzare il provider di stato nella cache, configurare innanzitutto la cache e quindi l'applicazione ASP.NET per il servizio Cache usando il pacchetto NuGet di Cache, come descritto in [Introduzione al Servizio cache gestita][]. Durante l'installazione del pacchetto NuGet di Cache, viene aggiunta una sezione commentata nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di stato della sessione per Cache di Azure.
+Il provider di stato della sessione per Cache di Azure è un meccanismo di archiviazione out-of-process specifico per le applicazioni ASP.NET. Tale provider consente di archiviare lo stato della sessione in una cache di Azure anziché in memoria o in un database di SQL Server. Per utilizzare il provider di stato nella cache, configurare innanzitutto la cache e quindi l'applicazione ASP.NET per il servizio Cache usando il pacchetto NuGet di Cache, come descritto in [Introduzione al Servizio cache gestita][]. Durante l'installazione del pacchetto NuGet Cache, viene aggiunta una sezione commentata nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di stato della sessione per Cache di Azure.
 
     <!--Uncomment this section to use Azure Caching for session state caching
     <system.web>
@@ -377,7 +377,7 @@ Per altre informazioni sull'uso del provider di stato della sessione del Servizi
 <a name="store-page"></a>
 ## Procedura: archiviare la memorizzazione nella cache dell'output delle pagine ASP.NET
 
-Il provider di cache di output per Cache di Azure è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4. Per usare il provider di cache di output, configurare innanzitutto il cluster di cache e quindi l'applicazione ASP.NET per la memorizzazione nella cache usando il pacchetto NuGet di Cache, come descritto in [Introduzione al Servizio cache gestita][]. Durante l'installazione del pacchetto NuGet di Cache, viene aggiunta la sezione commentata seguente nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di cache di output per Cache di Azure.
+Il provider di cache di output per Cache di Azure è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4. Per usare il provider di cache di output, configurare innanzitutto il cluster di cache e quindi l'applicazione ASP.NET per la memorizzazione nella cache usando il pacchetto NuGet di Cache, come descritto in [Introduzione al Servizio cache gestita][]. Durante l'installazione del pacchetto NuGet di memorizzazione nella cache, viene aggiunta la sezione commentata seguente nel file web.config contenente la configurazione richiesta dall'applicazione ASP.NET per l'utilizzo del provider di cache di output per Cache di Azure.
 
     <!--Uncomment this section to use Azure Caching for output caching
     <caching>
@@ -413,7 +413,7 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 -	Informazioni su come eseguire la migrazione al Servizio cache gestita: [Eseguire la migrazione al Servizio cache gestita di Azure][]
 -   Consultare gli esempi: [Esempi del Servizio cache gestita][]
 
-<!-- INTRA-TOPIC LINKS -->
+<!-- INTRA-TOPIC LINKS --> 
 [Passaggi successivi]: #next-steps
 [What is Azure Managed Cache Service?]: #what-is
 [Create an Azure Cache]: #create-cache
@@ -488,4 +488,4 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

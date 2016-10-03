@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;bradsev" />
+	ms.date="09/14/2016" 
+	ms.author="bradsev" />
 
 # Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
@@ -31,7 +31,7 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 
 <b>SOURCE</b> |<b>DESTINAZIONE: SQL Server in VM di Azure</b> |
 ------------------ |-------------------- |
-<b>File Flat</b> |1\. <a href="#insert-tables-bcp">Utilità copia di massa della riga di comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL</a><br> 3. <a href="#sql-builtin-utilities">Utilità grafiche integrate in SQL Server</a>
+<b>File Flat</b> |1\. <a href="#insert-tables-bcp">Utilità copia di massa della riga di comando (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL</a><br> 3. <a href="#sql-builtin-utilities">Utilità grafiche integrate in SQL Server</a>
 <b>Server SQL locale</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure</a><br> 2. <a href="#export-flat-file">Esportazione in un file flat </a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br>
 
 Tenere presente che il presente documento presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Visual Studio Database Explorer.
@@ -76,11 +76,11 @@ BCP è un'utilità della riga di comando installata con SQL Server e rappresenta
 	
 2. Generare il file di formato che descrive lo schema per la tabella eseguendo il comando seguente dalla riga di comando del computer in cui è installato bcp.
 
-	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
+	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n` 
 
 3. Inserire i dati nel database utilizzando il comando bcp come indicato di seguito. Dovrebbe funzionare dalla riga di comando, presupponendo che SQL Server sia installato nello stesso computer:
 
-	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
+	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n` 
 
 > **Ottimizzazione inserimenti BCP** Per ottimizzare gli inserimenti, fare riferimento al seguente articolo ["Linee guida per ottimizzare l'importazione di massa"](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx).
 
@@ -202,7 +202,7 @@ La **Distribuzione di un Database SQL Server in una macchina virtuale di Microso
 
 [Migrazione guidata database SQL Server](http://sqlazuremw.codeplex.com/) fornisce un modo semplice per spostare i dati tra due istanze del server SQL. Consente all'utente di mappare lo schema dei dati tra origini e tabelle di destinazione, scegliere i tipi di colonna e varie altre funzionalità. Utilizza la copia di massa (BCP) dietro le quinte. Di seguito è riportata una schermata della schermata iniziale della procedura guidata di migrazione del database SQL.
 
-![Migrazione guidata in SQL Server][2]
+![Migrazione guidata in SQL Server][2] 
 
 ### <a name="sql-backup"></a>Backup e ripristino database
 
@@ -211,9 +211,9 @@ SQL Server supporta:
 1. La [funzionalità di backup e ripristino del database](https://msdn.microsoft.com/library/ms187048.aspx) (sia in un file locale o in un'esportazione bacpac in un BLOB) e [applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx) (tramite bacpac).
 2. Possibilità di creare direttamente le macchine virtuali SQL Server in Azure con un database copiato o di copiare in un database esistente di SQL Azure. Per ulteriori informazioni, vedere [Utilizzo della procedura guidata di copia del database](https://msdn.microsoft.com/library/ms188664.aspx).
 
-Seguito è riportata una schermata delle opzioni di backup e ripristino del database da SQL Server Management Studio.
+Di seguito è riportata una schermata delle opzioni di backup e ripristino del database da SQL Server Management Studio.
 
-![Strumento di importazione di SQL Server][1]
+![Strumento di importazione di SQL Server][1] 
 
 ## Risorse
 
@@ -224,4 +224,4 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

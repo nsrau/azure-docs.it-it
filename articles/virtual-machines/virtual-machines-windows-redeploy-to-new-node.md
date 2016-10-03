@@ -6,7 +6,7 @@
 	authors="iainfoulds" 
 	manager="timlt"
 	tags="azure-resource-manager,top-support-issue" 
-/>
+/> 
 	
 
 <tags 
@@ -15,16 +15,16 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
-/>
+/> 
 
 
 # Ridistribuzione della macchina virtuale su un nuovo nodo di Azure
 
 Se si stanno riscontrando difficoltà nella risoluzione dei problemi relativi a connessione di desktop remoto (RDP) o accesso delle applicazioni a una macchina virtuale (VM) di Azure basata su Windows, potrebbe essere utile la ridistribuzione. Quando si ridistribuisce una VM, quest'ultima viene spostata su un nuovo nodo dell'infrastruttura di Azure, quindi viene riattivata conservando tutte le opzioni di configurazione e le risorse associate. In questo articolo viene illustrato come ridistribuire una VM con Azure PowerShell o il portale di Azure.
 
-> [AZURE.NOTE] Dopo la ridistribuzione di una VM, il disco temporaneo andrà perso e gli indirizzi IP dinamici associati all'interfaccia di rete virtuale verranno aggiornati.
+> [AZURE.NOTE] Dopo la ridistribuzione di una VM, il disco temporaneo viene perso e gli indirizzi IP dinamici associati all'interfaccia di rete virtuale vengono aggiornati.
 
 ## Uso di Azure PowerShell
 
@@ -39,6 +39,6 @@ Utilizzare questo comando di Azure PowerShell per ridistribuire la macchina virt
 
 
 ## Passaggi successivi
-In caso di difficoltà di connessione alla VM, è possibile trovare assistenza specifica sulla [risoluzione dei problemi delle connessioni RDP](virtual-machines-windows-troubleshoot-rdp-connection.md) o [passaggi dettagliati sulla risoluzione dei problemi RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md). Se non si riesce ad accedere a un'applicazione in esecuzione sulla VM, è anche possibile leggere l'articolo sulle [difficoltà nella risoluzione dei problemi delle applicazioni](virtual-machines-windows-troubleshoot-app-connection.md).
+In caso di difficoltà di connessione alla VM, è possibile trovare assistenza specifica sulla [risoluzione dei problemi delle connessioni RDP](virtual-machines-windows-troubleshoot-rdp-connection.md) o [passaggi dettagliati sulla risoluzione dei problemi RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md). Se non si riesce ad accedere a un'applicazione in esecuzione sulla VM, è possibile leggere l'articolo sulle [difficoltà nella risoluzione dei problemi relativi alle applicazioni](virtual-machines-windows-troubleshoot-app-connection.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

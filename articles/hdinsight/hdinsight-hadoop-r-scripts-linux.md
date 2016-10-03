@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="larryfr"/>
+	ms.date="09/20/2016"
+	ms.author="larryfr"/> 
 
 # Installare e usare R nei cluster Hadoop HDInsight
 
@@ -63,7 +63,7 @@ L'azione script seguente viene usata per installare R in un cluster HDInsight. h
     
 Questa sezione fornisce istruzioni su come usare lo script quando si crea un nuovo cluster usando il portale di Azure.
 
-> [AZURE.NOTE] Per applicare le azioni script è possibile usare anche Azure PowerShell, l'interfaccia della riga di comando di Azure, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Per applicare le azioni script è possibile usare anche Azure PowerShell, l'interfaccia della riga di comando di Azure, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare il provisioning di un cluster seguendo i passaggi descritti in [Effettuare il provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md#portal) senza completarlo.
 
@@ -146,4 +146,4 @@ Al termine del provisioning del cluster, seguire questa procedura per usare R pe
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

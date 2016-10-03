@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016"
+	ms.author="bradsev" /> 
 
 
 # Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)
@@ -29,7 +29,7 @@ In particolare, attualmente il TDSP fornisce ai team di analisi scientifica dei 
 
 Di seguito è illustrato il ciclo di vita di sviluppo del processo di analisi scientifica dei dati per i team:
 
-![Diagramma: Processo di analisi scientifica dei dati per i team](./media/data-science-process-overview/data-science-process-for-teams-diagram.png)
+![Diagramma: Processo di analisi scientifica dei dati per i team](./media/data-science-process-overview/data-science-process-for-teams-diagram.png) 
 
 
 Il processo è **iterativo**: la comprensione di elementi nuovi ed esistenti o perfezionati nel modello si evolve e richiede la rielaborazione di passaggi completati in precedenza nella sequenza. I processi esistenti per lo sviluppo organizzativo e la pianificazione del progetto possono essere **facilmente adattati** per l'uso con la sequenza di passaggi definita da TDSP.
@@ -74,7 +74,7 @@ Il passaggio successivo consiste nell'ottenere una migliore comprensione dei dat
 Gli esperti di scienza dei dati, insieme agli esperti di dominio, devono identificare le funzionalità che acquisiscono le proprietà rilevanti del set di dati e che possono essere usate per prevedere in modo ottimale le variabili aziendali essenziali identificate durante la pianificazione. Queste nuove funzionalità possono essere derivate dai dati esistenti o possono richiedere la raccolta di dati aggiuntivi. Questo processo è noto come **progettazione di funzionalità** ed è uno dei passaggi principali per la creazione di un sistema di analisi predittiva efficace. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Per istruzioni, vedere [Progettazione di funzionalità in Cortana Analytics Process](machine-learning-data-science-create-features.md).
 
 
-## 4\. Creare ed eseguire il training di modelli di Machine Learning
+## 4\. Creare ed eseguire la formazione dei modelli di Machine Learning
 
 Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le variabili principali identificate dai requisiti aziendali definiti nella fase di pianificazione mediante i dati puliti e trasformati in funzionalità. I sistemi di Machine Learning supportano più **algoritmi di modellazione** applicabili a una vasta gamma di casi. Per istruzioni, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
@@ -100,4 +100,4 @@ Anche se TDSP non indica tipi specifici di elementi di **documentazione**, è co
 
 Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici**. Sono elencate insieme a brevi descrizioni nell'argomento [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

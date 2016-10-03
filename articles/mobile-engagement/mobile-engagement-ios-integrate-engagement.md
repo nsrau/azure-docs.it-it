@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per iOS"
+	pageTitle="Integrazione di Azure Mobile Engagement SDK per iOS | Microsoft Azure"
 	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="09/14/2016"
+	ms.author="piyushjo" />
 
 #Come integrare Engagement in iOS
 
@@ -26,23 +26,28 @@
 
 Questa procedura descrive il modo più semplice per attivare le funzioni di analisi e monitoraggio di Engagement in un'applicazione per iOS.
 
-> [AZURE.IMPORTANT] L'SDK di Engagement richiede iOS6 o versione successiva: la destinazione della distribuzione dell'applicazione deve essere almeno iOS 6.
+L'SDK di Engagement richiede iOS6 o versione successiva e XCode 8: la destinazione della distribuzione dell'applicazione deve essere almeno iOS 6.
+
+> [AZURE.NOTE]
+Se si dipende davvero da XCode 7, allora è possibile utilizzare l'[SDK di Engagement in iOS v3.2.4](https://aka.ms/r6oouh). Esiste un bug noto nel modulo di copertura di questa precedente versione che si verifica durante l'esecuzione sui dispositivi iOS 10. Vedere [l'integrazione del modulo di copertura](mobile-engagement-ios-integrate-engagement-reach.md) per ulteriori dettagli. Se si sceglie di utilizzare l'SDK v3.2.4, ignorare l'importazione di `UserNotifications.framework` nel passaggio successivo.
 
 I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement (vedere [Come usare l'API di Engagement in iOS](mobile-engagement-ios-use-engagement-api.md)) poiché queste statistiche dipendono dall'applicazione.
 
 ##Incorporare l'SDK di Engagement nel progetto iOS
 
-Scaricare l’SDK per iOS da [qui](http://aka.ms/qk2rnj).
-Aggiungere l'SDK di Engagement nel progetto iOS: in Xcode fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **"Add files to ..."** e infine selezionare la cartella `EngagementSDK`.
+- Scaricare l’SDK per iOS da [qui](http://aka.ms/qk2rnj).
 
-Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'area di esplorazione dei progetti aprire il riquadro del progetto, quindi selezionare la destinazione corretta. Aprire quindi la scheda **"Build phases"** e aggiungere i framework seguenti dal menu **"Link Binary With Libraries"**:
+- Aggiungere l'SDK di Engagement nel progetto iOS: in Xcode fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **"Add files to ..."** e infine selezionare la cartella `EngagementSDK`.
 
-> -   `AdSupport.framework`: impostare il collegamento come `Optional`
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+- Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'area di esplorazione dei progetti aprire il riquadro del progetto, quindi selezionare la destinazione corretta. Aprire quindi la scheda **"Build phases"** e aggiungere i framework seguenti dal menu **"Link Binary With Libraries"**:
+
+	-   `UserNotifications.framework`: impostare il collegamento come `Optional`
+	-   `AdSupport.framework`: impostare il collegamento come `Optional`
+	-   `SystemConfiguration.framework`
+	-   `CoreTelephony.framework`
+	-   `CFNetwork.framework`
+	-   `CoreLocation.framework`
+	-   `libxml2.dylib`
 
 > [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA \<ios-sdk-engagement-idfa\> per conformarsi ai nuovi criteri Apple relativi a questo ID.
 
@@ -208,4 +213,4 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

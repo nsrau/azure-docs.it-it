@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dhanyahk"
    manager="mbaldwin"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="active-directory"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
-   ms.author="dhanyahk"/>
+   ms.date="09/16/2016"
+   ms.author="dhanyahk"/> 
 
 # Anteprime dei report di Azure Active Directory
 
@@ -54,4 +54,4 @@ Utilizzo applicazioni abilitate per RMS | Anteprima pubblica
 **Report di anteprima personalizzati** |
 Attività di accesso di tutti gli utenti | Anteprima privata
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0921_2016-->

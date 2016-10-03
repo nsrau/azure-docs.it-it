@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
-	ms.author="sdanie"/>
+	ms.date="09/15/2016" 
+	ms.author="sdanie"/> 
 
 # Importare ed esportare dati in Cache Redis di Azure
 
-La funzionalità Importazione/Esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati da Cache Redis di Azure, importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB di pagine in un account di archiviazione di Azure. Questa operazione consente di eseguire la migrazione tra diverse istanze di Cache Redis di Azure o di popolare la cache con i dati prima dell'uso.
+L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati da Cache Redis di Azure, importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB di pagine in un account di archiviazione di Azure. L'operazione Importa/Esporta consente di eseguire la migrazione tra diverse istanze di Cache Redis di Azure o di popolare la cache con i dati prima dell'uso.
 
 Questo articolo è una guida all'importazione e all'esportazione dei dati con Cache Redis di Azure e include le risposte alle domande più frequenti.
 
@@ -26,7 +26,7 @@ Questo articolo è una guida all'importazione e all'esportazione dei dati con Ca
 
 ## Importazione
 
-È possibile usare l'importazione per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione in qualsiasi cloud o ambiente, compresi i server Redis in esecuzione in Linux, Windows o in qualsiasi provider di cloud tra cui Amazon Web Services. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB da Archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
+È possibile usare l'importazione per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione in qualsiasi cloud o ambiente, compresi i server Redis in esecuzione in Linux, Windows o in qualsiasi provider di cloud tra cui Amazon Web Services. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
 
 >[AZURE.NOTE] Prima di avviare l'operazione di importazione, assicurarsi che il file o i file di database Redis (RDB) siano caricati nei BLOB di pagine in Archiviazione di Azure, nella stessa area e nella stessa sottoscrizione dell'istanza di Cache Redis di Azure. Per altre informazioni, vedere [Introduzione all'archivio BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md). Se il file RDB è stato esportato con la funzionalità [Esportazione di Cache Redis di Azure](#export), è già archiviato in un BLOB di pagine ed è pronto per l'importazione.
 
@@ -50,11 +50,11 @@ Questo articolo è una guida all'importazione e all'esportazione dei dati con Ca
 
     >[AZURE.IMPORTANT] Durante il processo di importazione la cache non è accessibile ai client della cache ed eventuali dati esistenti nella cache vengono eliminati.
 
-    ![Importazione][cache-import-blobs]
+    ![Importazione][cache-import-blobs] 
 
     È possibile controllare lo stato dell'operazione di importazione tramite le notifiche del Portale di Azure oppure visualizzando gli eventi nel [log di controllo](cache-configure.md#support-amp-troubleshooting-settings).
 
-    ![Stato dell'importazione][cache-import-data-import-complete]
+    ![Stato dell'importazione][cache-import-data-import-complete] 
 
 
 ## Esportazione
@@ -77,13 +77,13 @@ L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure 
 
 4. Digitare un valore in **Prefisso nome BLOB** e fare clic su **Esporta** per avviare il processo di esportazione. Il prefisso del nome BLOB viene usato per i nomi dei file generati da questa operazione di esportazione.
 
-    ![Esportazione][cache-export-data]
+    ![Esporta][cache-export-data] 
 
     È possibile controllare lo stato dell'operazione di esportazione tramite le notifiche del Portale di Azure oppure visualizzando gli eventi nel [log di controllo](cache-configure.md#support-amp-troubleshooting-settings).
 
-    ![][cache-export-data-export-complete]
+    ![][cache-export-data-export-complete] 
 
-    Tenere presente che durante il processo di esportazione le cache rimangono disponibili per l'uso.
+    Durante il processo di esportazione le cache rimangono disponibili per l'uso.
 
 
 ## Domande frequenti su Importazione/Esportazione
@@ -153,10 +153,14 @@ Per risolvere il problema, avviare l'operazione di importazione o esportazione p
 
 La funzionalità Importazione/Esportazione funziona solo con file RDB archiviati come BLOB di pagine. Al momento non sono supportati altri tipi di BLOB, inclusi gli account di archiviazione BLOB con livelli di accesso frequente e non frequente.
 
-    
+
+## Passaggi successivi
+Informazioni su come usare altre funzionalità di cache premium.
+
+-	[Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md)
 
   
-<!-- IMAGES -->
+<!-- IMAGES --> 
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
 [cache-export-data-choose-account]: ./media/cache-how-to-import-export-data/cache-export-data-choose-account.png
 [cache-export-data-choose-storage-container]: ./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png
@@ -170,4 +174,4 @@ La funzionalità Importazione/Esportazione funziona solo con file RDB archiviati
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

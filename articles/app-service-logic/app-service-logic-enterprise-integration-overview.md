@@ -5,7 +5,7 @@
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
-	editor="cgronlun"/>
+	editor="cgronlun"/> 
 
 <tags 
 	ms.service="logic-apps" 
@@ -67,4 +67,4 @@ Enterprise Integration supporta gli standard del settore seguenti:
 - [XML transform](./app-service-logic-enterprise-integration-transform.md "Informazioni sulle mappe di Enterprise Integration")
 - [Connettori di integrazione aziendale](../connectors/apis-list.md "Informazioni sui connettori di Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

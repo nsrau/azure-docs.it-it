@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/19/2016"
-	ms.author="wesmc"/>
+	ms.author="wesmc"/> 
 
 # Associazione di output di Hub di notifica in Funzioni di Azure
 
@@ -86,6 +86,13 @@ Questo esempio invia una notifica per la [registrazione di un modello](../notifi
 	    };
 	    context.done();
 	};
+
+## Esempio di codice di Hub di notifica di Azure per un trigger timer F#
+
+Questo esempio invia una notifica per la [registrazione di un modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) contenente `location` e `message`.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 
 ## Esempio di codice di hub di notifica di Azure per un trigger della coda C#
 
@@ -157,4 +164,4 @@ Codice di esempio:
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

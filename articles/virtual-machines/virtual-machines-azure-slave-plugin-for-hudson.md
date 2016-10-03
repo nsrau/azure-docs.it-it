@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="" />
+	editor="" /> 
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="robmcm"/>
+	ms.date="09/20/2016"
+	ms.author="robmcm"/> 
 
 # Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson
 
@@ -38,16 +38,16 @@ Il plug-in slave di Azure per Hudson consente di eseguire il provisioning di nod
 
 1. Riavviare Hudson.
 
-Ora che il plug-in è installato, sarà necessario procedere con la configurazione del plug-in tramite il profilo della sottoscrizione di Azure e con la creazione di un modello che verrà usato durante la creazione della VM relativa al nodo slave.
+Dopo aver installato il plug-in, è necessario procedere alla relativa configurazione tramite il profilo della sottoscrizione di Azure e alla creazione di un modello che verrà usato durante la creazione della VM relativa al nodo slave.
 
 ## Configurare il plug-in slave di Azure con il profilo di sottoscrizione
 
-Un profilo di sottoscrizione, noto anche come impostazioni di pubblicazione, è un file XML contenente le credenziali protette e alcune informazioni aggiuntive che saranno necessarie per utilizzare Azure nel proprio ambiente di sviluppo. Per configurare il plug-in slave di Azure, è necessario quanto segue:
+Un profilo di sottoscrizione, noto anche come impostazioni di pubblicazione, è un file XML contenente le credenziali protette e alcune informazioni aggiuntive necessarie per usare Azure nel proprio ambiente di sviluppo. Per configurare il plug-in slave di Azure, è necessario quanto segue:
 
-* ID sottoscrizione
-* Certificato di gestione per la sottoscrizione
+* ID sottoscrizione personale
+* Un certificato di gestione per la sottoscrizione
 
-Tali elementi sono reperibili nel [profilo di sottoscrizione]. Di seguito è riportato un esempio di un profilo di sottoscrizione.
+Questi elementi sono disponibili nel [profilo di sottoscrizione]. Di seguito è riportato un esempio di un profilo di sottoscrizione.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -68,7 +68,7 @@ Tali elementi sono reperibili nel [profilo di sottoscrizione]. Di seguito è rip
 
 	</PublishData>
 
-Dopo aver creato il profilo di sottoscrizione, attenersi alla seguente procedura per configurare il plug-in slave di Azure.
+Dopo avere creato il profilo di sottoscrizione, attenersi alla seguente procedura per configurare il plug-in slave di Azure.
 
 1. Nel dashboard di Hudson, fare clic su **Manage Hudson**.
 
@@ -224,12 +224,12 @@ Hudson creerà quindi un nodo slave utilizzando il modello creato nella sezione 
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->
+<!-- URL List --> 
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [profilo di sottoscrizione]: http://go.microsoft.com/fwlink/?LinkID=396395
 
-<!-- IMG List -->
+<!-- IMG List --> 
 
 [add new cloud]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-addcloud.png
 [configure profile]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-configureprofile.png
@@ -237,4 +237,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

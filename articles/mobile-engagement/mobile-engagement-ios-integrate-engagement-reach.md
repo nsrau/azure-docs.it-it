@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Integrazione dell'SDK di Reach per Azure Mobile Engagement in iOS"
+	pageTitle="Integrazione dell'SDK di Reach per Azure Mobile Engagement in iOS | Microsoft Azure"
 	description="Ultimi aggiornamenti e procedure relativi a iOS SDK per Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
-	editor="" />
+	authors="piyushjo"
+	manager="erikre"
+	editor="" /> 
 
 <tags
 	ms.service="mobile-engagement"
@@ -13,13 +13,22 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="09/14/2016"
+	ms.author="piyushjo" /> 
 
 #Come integrare il servizio Reach di Engagement in iOS
 
-> [AZURE.IMPORTANT] Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in iOS.
+Prima di usare questa guida, è necessario eseguire la [procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in iOS](mobile-engagement-ios-integrate-engagement.md).
 
+Questa documentazione richiede XCode 8. Se si dipende davvero da XCode 7, allora è possibile utilizzare l'[SDK di Engagement in iOS v3.2.4](https://aka.ms/r6oouh). Esiste un bug noto nella versione precedente durante l'esecuzione su dispositivi iOS 10: le notifiche di sistema non vengono messe in atto. Per risolvere il problema è necessario implementare l'API deprecata `application:didReceiveRemoteNotification:` nell'app delegata come segue:
+
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+	    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
+
+> [AZURE.IMPORTANT] **Questa soluzione non è consigliata** dal momento che tale comportamento può cambiare in qualsiasi aggiornamento della versione iOS imminente (anche minore), poiché questa API iOS è deprecata. È opportuno passare a XCode 8 il prima possibile.
 
 ### Abilitare l'app per la ricezione delle notifiche push Silent
 
@@ -161,6 +170,67 @@ Di seguito, è riportato un esempio completo sull'integrazione:
 	{
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
+
+### Se si dispone di un'implementazione di UNUserNotificationCenterDelegate:
+
+L'SDK dispone inoltre della propria implementazione del protocollo UNUserNotificationCenterDelegate. Viene utilizzata dall'SDK per monitorare il ciclo di vita delle notifiche di Engagement sui dispositivi che eseguono iOS 10 o versioni successive. Se l'SDK rileva il delegato non utilizza la sua implementazione poiché può esistere un solo delegato UNUserNotificationCenter per applicazione. Ciò significa che è necessario aggiungere la logica di Engagement al proprio delegato.
+
+A questo scopo è possibile procedere in due modi:
+
+Inoltrando semplicemente le chiamate del delegato all'SDK
+
+	#import <UIKit/UIKit.h>
+	#import "EngagementAgent.h"
+	#import <UserNotifications/UserNotifications.h>
+
+
+	@interface MyAppDelegate : NSObject <UIApplicationDelegate, UNUserNotificationCenterDelegate>
+	@end
+
+	@implementation MyAppDelegate
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+	{
+	  // Your own logic.
+
+	  [[EngagementAgent shared] userNotificationCenterWillPresentNotification:notification withCompletionHandler:completionHandler]
+	}
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+	{
+	  // Your own logic.
+
+	  [[EngagementAgent shared] userNotificationCenterDidReceiveNotificationResponse:response withCompletionHandler:completionHandler]
+	}
+	@end
+
+oppure ereditandola dalla classe `AEUserNotificationHandler`
+
+	#import "AEUserNotificationHandler.h"
+	#import "EngagementAgent.h"
+
+	@interface CustomUserNotificationHandler :AEUserNotificationHandler
+	@end
+
+	@implementation CustomUserNotificationHandler
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+	{
+	  // Your own logic.
+
+	  [super userNotificationCenter:center willPresentNotification:notification withCompletionHandler:completionHandler];
+	}
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse: UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+	{
+	  // Your own logic.
+
+	  [super userNotificationCenter:center didReceiveNotificationResponse:response withCompletionHandler:completionHandler];
+	}
+
+	@end
+
+> [AZURE.NOTE] È possibile determinare se una notifica proviene o no da Engagement passando il suo dizionario `userInfo` al metodo della classe dell'agente `isEngagementPushPayload:`.
 
 ##Come personalizzare le campagne
 
@@ -344,7 +414,7 @@ Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminar
 	-(IBAction)okButtonClicked:(id)sender;
 	-(IBAction)cancelButtonClicked:(id)sender;
 
-`CustomAnnouncementViewController.m`
+`CustomAnnouncementViewController.m` 
 
 	//Implementation
 	@implementation CustomAnnouncementViewController
@@ -416,4 +486,4 @@ Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminar
 
 	@end
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

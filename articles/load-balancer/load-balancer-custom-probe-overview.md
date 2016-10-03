@@ -7,7 +7,7 @@
   manager="carmonm"
   editor=""
   tags="azure-resource-manager"
-/>
+/> 
 <tags
   ms.service="load-balancer"
   ms.devlang="na"
@@ -15,7 +15,7 @@
   ms.tgt_pltfrm="na"
   ms.workload="infrastructure-services"
   ms.date="08/25/2016"
-  ms.author="sewhee" />
+  ms.author="sewhee" /> 
 
 # Probe del servizio di bilanciamento del carico
 
@@ -27,10 +27,10 @@ I ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un age
 
 Il comportamento dei probe dipende dagli elementi seguenti:
 
-- Numero di probe riusciti che consentono di etichettare un'istanza come in esecuzione.
-- Numero di probe non riusciti che fanno sì che un'istanza sia etichettata come non in esecuzione.
+- Numero di probe riusciti che consentono di etichettare un'istanza come attiva.
+- Numero di probe non riusciti che fanno sì che un'istanza sia etichettata come inattiva.
 
-Il valore relativo a timeout e frequenza impostato in SuccessFailCount determina se un'istanza è considerata in esecuzione o non in esecuzione. Nel portale di Azure il timeout è impostato sul doppio del valore della frequenza.
+Il timeout diviso per il valore di frequenza probe è uguale al parametro SuccessFailCount che determina se un'istanza si presume sia attiva o inattiva. Nel portale di Azure il timeout è impostato sul doppio del valore della frequenza.
 
 La configurazione dei probe deve essere la stessa in tutte le istanze con bilanciamento del carico per un endpoint, ovvero un set con bilanciamento del carico. Ciò significa che non è possibile avere una configurazione dei probe diversa per ogni istanza del ruolo o macchina virtuale nello stesso servizio ospitato per una combinazione di endpoint particolare. Ad esempio, ogni istanza deve avere porte locali e i timeout identici.
 
@@ -77,11 +77,11 @@ I probe TCP avviano una connessione tramite l'esecuzione di un handshake a tre l
 
 Per altre informazioni sulla configurazione di un probe di integrità HTTP o di un probe TCP, vedere [Introduzione alla creazione di un servizio di bilanciamento del carico per Internet in Gestione risorse con PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
 
-## Aggiungere di nuovo istanze integre al servizio di bilanciamento del carico
+## Aggiungere di nuovo le istanze integre alla rotazione del servizio di bilanciamento del carico
 
 I probe TCP e HTTP sono considerati integri e contrassegnano come integra l'istanza del ruolo quando:
 
-. Il servizio di bilanciamento del carico ottiene un probe positivo al primo avvio della macchina virtuale.
+- Il servizio di bilanciamento del carico ottiene un probe positivo al primo avvio della macchina virtuale.
 - Il numero di SuccessFailCount, descritto in precedenza, definisce il valore dei probe riusciti necessario per contrassegnare l'istanza del ruolo come integra. Se un'istanza del ruolo è stata rimossa, il numero di probe successivi riusciti deve essere uguale o maggiore del valore di SuccessFailCount per contrassegnare l'istanza del ruolo come in esecuzione.
 
 >[AZURE.NOTE] Se l'integrità di un'istanza del ruolo varia, il servizio di bilanciamento del carico rimane in attesa più a lungo prima di ripristinarne lo stato di integrità. Questa operazione viene eseguita tramite i criteri per la protezione dell'utente e dell'infrastruttura.
@@ -90,4 +90,4 @@ I probe TCP e HTTP sono considerati integri e contrassegnano come integra l'ista
 
 È possibile usare [Analisi dei log per il servizio di bilanciamento del carico](load-balancer-monitor-log.md) per verificare lo stato di integrità e il conteggio dei probe. Per fornire statistiche dello stato di integrità del servizio di bilanciamento del carico, è possibile usare la registrazione con Power BI o con Operational Insights.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

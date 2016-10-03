@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/> 
 
 
 # Proteggere un'API Web usando token di connessione di Azure AD
@@ -95,7 +95,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController`, l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante. OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincpal`.  
+- Quando un chiamante autorizzato riesce a chiamare una delle API `TodoListController`, l'azione potrebbe richiedere l'accesso alle informazioni relative al chiamante. OWIN fornisce l'accesso alle attestazioni all'interno del token di connessione tramite l'oggetto `ClaimsPrincpal`.
 - Un requisito comune per le API Web riguarda la convalida degli "ambiti" presenti nel token. In questo modo si assicura che l'utente finale abbia acconsentito alle autorizzazioni richieste per accedere a Todo List Service:
 
 ```C#
@@ -139,4 +139,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

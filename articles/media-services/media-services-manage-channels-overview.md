@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Panoramica di Live Streaming con Servizi multimediali di Azure" 
+	pageTitle="Panoramica di Live Streaming con Servizi multimediali di Azure | Microsoft Azure" 
 	description="Questo argomento offre una panoramica di Live Streaming con Servizi multimediali di Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako"/> 
 
 #Panoramica di Live Streaming con Servizi multimediali di Azure
 
-##Panoramica
+##Overview
 
 Quando si distribuiscono eventi Live Streaming con Servizi multimediali di Azure, sono generalmente necessari i componenti seguenti:
 
@@ -41,9 +41,9 @@ Quando si distribuiscono contenuti ai clienti, l'obiettivo è riuscire a trasmet
 
 In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live streaming è affidata a entità **Channel**, **Program** e **StreamingEndpoint**, compresi inserimento, formattazione, DVR, sicurezza, scalabilità e ridondanza.
 
-Un **Canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale può ricevere i flussi di input live nei modi seguenti:
+Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale può ricevere i flussi di input live nei modi seguenti:
 
-- Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multiplo al canale configurato per il recapito **pass-through**. Il recapito **pass-through** avviene quando i flussi inseriti passano attraverso i **canali**senza altre elaborazioni. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast e transcodificatori Tricaster. Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+- Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a velocità in bit multipla al canale configurato per il recapito **pass-through**. Il recapito **pass-through** avviene quando i flussi inseriti passano attraverso i **canali**senza altre elaborazioni. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast e transcodificatori Tricaster. Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 	>[AZURE.NOTE] L'uso di un metodo pass-through è il modo più economico per realizzare lo streaming live quando si eseguono più eventi per un lungo periodo di tempo e si è già investito in codificatori locali. Vedere i dettagli sui [prezzi](/pricing/details/media-services/).
 	
@@ -80,15 +80,15 @@ Arresto automatico dei canali in caso di perdita del feed di input|No|Dopo 12 or
 
 Il diagramma seguente illustra le parti principali della piattaforma AMS coinvolte nel flusso di lavoro **pass-through**.
 
-![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png) 
 
-Per altre informazioni, vedere l'articolo relativo all'[utilizzo di canali che ricevono il flusso live a bitrate multiplo da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
+Per altre informazioni, vedere l'articolo relativo all'[uso di canali che ricevono il flusso live a velocità in bit multipla da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
 
 Il seguente diagramma mostra i componenti principali della piattaforma AMS interessati dal flusso di lavoro di streaming live dove un canale è abilitato a eseguire la codifica live con Servizi multimediali.
 
-![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
+![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png) 
 
 Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -138,13 +138,13 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
  
 Stato del canale|Indicatori dell'interfaccia utente del portale|Fatturazione?
 ---|---|---
-Avvio in corso|Avvio in corso|No (stato temporaneo)
+Avvio in corso|Starting|No (stato temporaneo)
 In esecuzione|Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione)|SÌ
 Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -166,4 +166,4 @@ Arrestato|Arrestato|No
 
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

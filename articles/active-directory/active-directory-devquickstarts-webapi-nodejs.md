@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="brandwe"/>
+	ms.date="09/16/2016"
+	ms.author="brandwe"/> 
 
 # Introduzione all'API WEB per Node
 
@@ -61,7 +61,7 @@ Assicurarsi di:
     - L'**URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `https://contoso.onmicrosoft.com/my-first-aad-app`.
 - Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
 
-- PROMEMORIA: creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
+- PROMEMORIA: creare un **Segreto applicazione** per l'applicazione e prenderne nota, Verrà richiesto a breve.
 - PROMEMORIA: copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 
@@ -941,4 +941,4 @@ Sarà sufficiente clonarli nel computer di sviluppo e configurarli come spiegato
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

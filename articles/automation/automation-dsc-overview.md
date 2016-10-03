@@ -101,7 +101,7 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 
 - Durante l'aggiornamento a WMF 5 RTM, se il computer è già registrato come nodo in Automation DSC per Azure, annullare la registrazione da Automation DSC per Azure e ripeterla dopo l'aggiornamento di WMF 5 RTM.
 
-- In questo momento la piattaforma DSC di Automazione di Azure non supporta configurazioni DSC parziali o composite. È tuttavia possibile importare e usare risorse DSC composite, esattamente come in PowerShell locale, consentendo il riutilizzo della configurazione.
+- In questo momento la piattaforma DSC di Automazione di Azure non supporta configurazioni DSC parziali o composite. È tuttavia possibile importare e usare risorse DSC composite nelle configurazioni di Automation DSC per Azure, esattamente come in PowerShell locale, consentendo il riutilizzo della configurazione.
 
 - Perché l'agente DSC di PowerShell per Windows possa comunicare con Automazione di Azure, deve essere installata la versione più recente di WMF 5. È necessario installare l’ultima versione dell'agente DSC di PowerShell per Windows per poter comunicare con Automazione di Azure.
 
@@ -128,4 +128,4 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 - [Prezzi di Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 - [La distribuzione continua nelle macchine virtuali IaaS tramite Azure Automation DSC e Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

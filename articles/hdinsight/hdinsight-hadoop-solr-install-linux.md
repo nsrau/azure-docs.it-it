@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 # Installare e usare Solr nei cluster Hadoop di HDInsight
@@ -166,13 +166,25 @@ Il dashboard di Solr è un'interfaccia utente Web che consente di utilizzare Sol
 
 Dopo aver stabilito un tunnel SSH, seguire questa procedura per usare il dashboard di Solr:
 
-1. Determinare il nome host per il nodo head:
+1. Determinare il nome host per il nodo head primario:
 
-    1. In un browser, passare a https://CLUSTERNAME.azurehdinsight.net. Quando richiesto, utilizzare il nome utente amministratore e la password per l'autenticazione nel sito.
+    1. Usare SSH per connettersi al cluster sulla porta 22. Ad esempio, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` dove __USERNAME__ è il nome utente SSH e __CLUSTERNAME__ è il nome del cluster.
+
+        Per altre informazioni sull'uso di SSH, consultare i documenti seguenti:
+
+        * [Usare SSH con HDInsight basato su Linux da un client Linux, Unix o Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+        * [Usare SSH con HDInsight basato su Linux da un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    2. Dal menu nella parte superiore della pagina selezionare __Hosts__.
+    3. Utilizzare il comando seguente per ottenere il nome host completo:
+
+            hostname -f
+
+        Verrà restituito un nome simile al seguente:
+
+            hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    3. Selezionare la voce che inizia con __hn0__. Quando viene visualizzata la pagina, il nome host viene visualizzato nella parte superiore. Il formato del nome host è __hn0- PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Questo è il nome host da utilizzare quando ci si connette al dashboard Solr.
+        Questo è il nome host da utilizzare nei passaggi seguenti.
     
 1. Nel browser, connettersi a __http://HOSTNAME:8983/solr/#/__, dove __HOSTNAME\_\_ è il nome stabilito nei passaggi precedenti.
 
@@ -311,4 +323,4 @@ Per altre informazioni sulle operazioni di backup e ripristino di Solr, vedere l
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

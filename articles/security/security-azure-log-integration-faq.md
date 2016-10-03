@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TomShinder"
    manager="MBaldwin"
-   editor="TerryLanfear"/>
+   editor="TerryLanfear"/> 
 
 <tags
    ms.service="security"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/23/2016"
-   ms.author="TomSh"/>
+   ms.author="TomSh"/> 
 
 # Domande frequenti sull'integrazione dei log di Azure
 
@@ -52,7 +52,7 @@ Aggiungere il **subscriptionid** al nome descrittivo durante l'aggiunta dell'ori
 
 L'XML dell'evento include i metadati illustrati di seguito, compreso l'ID sottoscrizione.
 
-![XML dell'evento][1]
+![XML dell'evento][1] 
 
 ## messaggi di errore
 
@@ -113,7 +113,9 @@ L'esempio seguente è una configurazione in cui vengono raccolti solo gli ID eve
 
 Dopo aver apportato modifiche, verificare l'account di archiviazione per assicurarsi che vengano raccolti gli eventi corretti.
 
-<!--Image references-->
+In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di posta elettronica all'indirizzo [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
+<!--Image references--> 
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

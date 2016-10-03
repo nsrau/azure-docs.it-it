@@ -5,19 +5,19 @@
    documentationCenter=""
    authors="alkohli"
    manager="carmonm"
-   editor="" />
+   editor="" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
-   ms.author="alkohli" />
+   ms.date="09/21/2016"
+   ms.author="alkohli" /> 
 
 # Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 In questo articolo viene descritta l'interfaccia del servizio StorSimple Manager, tra cui la modalità di connessione, le diverse opzioni disponibili e i collegamenti a flussi di lavoro specifici che possono essere eseguiti mediante questa interfaccia. Questa guida è applicabile al dispositivo StorSimple fisico e virtuale.
 
@@ -114,4 +114,4 @@ Se si riscontrano problemi con le operazioni giornaliere del dispositivo StorSim
 
 Se non è possibile risolvere i problemi ed è necessario creare una richiesta di servizio, fare riferimento a [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

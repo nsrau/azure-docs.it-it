@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="stevestein"
 	manager="jhubbard"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+	ms.tgt_pltfrm="NA"/> 
 
 
 
@@ -36,33 +36,34 @@ Per copiare un database SQL è necessario quanto segue:
 
 ## Copiare il database SQL
 
-Aprire il pannello del database SQL per il database che si desidera copiare:
+Aprire la pagina del database SQL per il database che si desidera copiare:
 
 1.	Accedere al [portale di Azure](https://portal.azure.com).
-2.	Accedere al database che si desidera copiare: Sfoglia > Database SQL
-3.	Nel pannello del database SQL fare clic su **Copia** per aprire il pannello **Copia**:
+2.	Fare clic su **Altri servizi** > **Database SQL**, e quindi fare clic sul database desiderato.
+3.	Nella pagina del database SQL, fare clic su **Copia**:
 
-    ![copia database][1]
+    ![Database SQL](./media/sql-database-copy-portal/sql-database-copy.png) 
 
-1.  Immettere un nome per la copia del database. È presente un nome predefinito, ma è possibile modificarlo.
-2.  Selezionare un **server di destinazione**. Il server di destinazione è il server in cui verrà creata la copia del database. È possibile creare un nuovo server o selezionare un server esistente dall'elenco.
+1.  Nella pagina **Copia** viene fornito un nome predefinito del database. È possibile digitare un nome diverso. Tutti i database in un server devono avere nomi univoci.
+2.  Selezionare un **server di destinazione**. Il server di destinazione è il server in cui verrà creata la copia del database. È possibile copiare il database nello stesso server o su un altro server. È possibile creare un nuovo server o selezionare un server esistente dall'elenco.
+3.  Dopo aver selezionato il **server di destinazione**, saranno abilitate le opzioni **Pool di database elastici** e **Piano tariffario**. Se il server dispone di un pool, è possibile copiarvi il database.
 3.  Fare clic su **OK** per avviare il processo di copia.
 
-    ![nome e server del database][2]
+    ![Database SQL](./media/sql-database-copy-portal/copy-page.png) 
 
 
 ## Monitorare lo stato dell'operazione di copia
 
 - Dopo aver avviato il processo di copia, fare clic sulla notifica del portale per i dettagli.
 
-    ![notifica][3]
+    ![notifica][3] 
  
-    ![monitoraggio][4]
+    ![monitoraggio][4] 
 
 
 ## Verificare che il database sia disponibile nel server
 
-- Fare clic su **SFOGLIA** > **Database SQL** e verificare che il nuovo database sia **Online**.
+- Fare clic su **Altri servizi** > **Database SQL** e verificare che il nuovo database sia **Online**.
 
 
 ## Risolvere gli account di accesso
@@ -90,10 +91,10 @@ Per risolvere gli account di accesso al termine dell'operazione di copia, vedere
 
 
 
-<!--Image references-->
+<!--Image references--> 
 [1]: ./media/sql-database-copy-portal/copy.png
 [2]: ./media/sql-database-copy-portal/copy-ok.png
 [3]: ./media/sql-database-copy-portal/copy-notification.png
 [4]: ./media/sql-database-copy-portal/monitor-copy.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

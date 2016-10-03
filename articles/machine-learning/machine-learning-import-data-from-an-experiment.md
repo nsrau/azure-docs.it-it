@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="garye;bradsev" />
+	ms.date="09/16/2016"
+	ms.author="garye;bradsev" /> 
 
 
 # Importare i dati in Azure Machine Learning Studio da un altro esperimento
@@ -35,4 +35,4 @@ Talvolta l’utente potrebbe voler ricevere un risultato intermedio di un esperi
 
 Al termine del salvataggio, il set di dati sarà disponibile per l'uso in qualsiasi esperimento dell'area di lavoro. È possibile individuarlo nell’elenco **Set di dati salvati** nella tavolozza dei moduli.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

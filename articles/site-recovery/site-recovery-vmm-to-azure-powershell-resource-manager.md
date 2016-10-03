@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Rajani-Janaki-Ram"
 	manager="rochakm"
-	editor="raynew"/>
+	editor="raynew"/> 
 
 <tags
 	ms.service="site-recovery"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
-	ms.author="rajanaki"/>
+	ms.date="09/16/2016"
+	ms.author="rajanaki"/> 
 
 # Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell e Azure Resource Manager
 
@@ -26,7 +26,7 @@
 
 
 
-## Panoramica
+## Overview
 
 Azure Site Recovery favorisce la strategia di continuità aziendale e ripristino di emergenza (BCDR) gestendo la replica, il failover e il ripristino delle macchine virtuali in diversi scenari di distribuzione. Per un elenco completo degli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
 
@@ -35,11 +35,11 @@ In questo articolo viene illustrato come utilizzare PowerShell per automatizzare
 Questo articolo include i prerequisiti per lo scenario e illustra le operazioni seguenti:
 
 - Come configurare un insieme di credenziali dei Servizi di ripristino
-- Installare il provider di Azure Site Recovery nel server VMM di origine 
+- Installare il provider di Azure Site Recovery nel server VMM di origine
 - Registrare il server nell'insieme di credenziali e aggiungere un account di archiviazione di Azure
 - Installare l'agente di Servizi di ripristino di Azure in server host Hyper-V
-- Configurare le impostazioni di protezione per cloud VMM da applicare a tutte le macchine virtuali protette 
-- Abilitare la protezione di queste macchine virtuali 
+- Configurare le impostazioni di protezione per cloud VMM da applicare a tutte le macchine virtuali protette
+- Abilitare la protezione di queste macchine virtuali
 - Eseguire il test del failover per accertarsi che tutti gli elementi funzionino come previsto
 
 Nel caso di problemi di configurazione di questo scenario, inviare le proprie domande al [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -75,7 +75,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 ### Prerequisiti di Hyper-V
 
 - I server Hyper-V host devono eseguire almeno Windows Server 2012 con ruolo Hyper-V e disporre degli ultimi aggiornamenti installati.
-- Se si esegue Hyper-V in un cluster, si noti che il gestore del cluster non viene creato automaticamente se viene usato un cluster basato su indirizzi IP statici. Sarà necessario configurare manualmente il broker del cluster. Ad 
+- Se si esegue Hyper-V in un cluster, si noti che il gestore del cluster non viene creato automaticamente se viene usato un cluster basato su indirizzi IP statici. Sarà necessario configurare manualmente il broker del cluster. Ad
 - Per istruzioni, vedere [How to Configure Hyper-V Replica Broker](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx) (Come configurare il Gestore di replica Hyper).
 - Qualsiasi server o cluster Hyper-V per cui si vuole gestire la protezione deve essere incluso in un cloud VMM.
 
@@ -114,11 +114,11 @@ Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i 
 		Login-AzureRmAccount #-Credential $Cred 
 	
 
-2. Ottenere un elenco delle sottoscrizioni. Verranno elencati anche i valori subscriptionID per ogni sottoscrizione. Annotare il valore subscriptionID della sottoscrizione in cui si vuole creare l'insieme di credenziali dei Servizi di ripristino.
+2. Ottenere un elenco delle sottoscrizioni. Verranno elencati anche i valori subscriptionID per ogni sottoscrizione. Annotare il valore subscriptionID della sottoscrizione in cui si vuole creare l'insieme di credenziali dei Servizi di ripristino
 
 		Get-AzureRmSubscription 
 
-3. Configurare la sottoscrizione in cui deve essere creato l'insieme di credenziali dei Servizi di ripristino, indicando l'ID della sottoscrizione.
+3. Configurare la sottoscrizione in cui deve essere creato l'insieme di credenziali dei Servizi di ripristino, indicando l'ID della sottoscrizione
 
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
@@ -345,4 +345,4 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) sui cmdlet PowerShell per Azure Site Recovery con Azure Resource Manager.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

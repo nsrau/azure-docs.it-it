@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+   keywords=""/> 
 
 <tags
    ms.service="virtual-machines-windows"
@@ -15,8 +15,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
-   ms.author="zachal"/>
+   ms.date="09/15/2016"
+   ms.author="zachal"/> 
 
 # Set di scalabilità di macchine virtuali (VMSS) Windows e Desired State Configuration (DSC) con modelli di Azure Resource Manager
 Questo articolo descrive il modello di Resource Manager per il [gestore estensione Desired State Configuration (DSC)](virtual-machines-windows-extensions-dsc-overview.md).
@@ -169,7 +169,7 @@ Se la configurazione richiede credenziali, queste possono essere indicate in pro
 
 L'esempio seguente deriva dalla sezione "Introduzione" di [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md). Questo esempio usa modelli di Resource Manager anziché i cmdlet per distribuire l'estensione. Salvare la configurazione di "IisInstall.ps1", inserirla in un file ZIP e caricare il file in un URL accessibile. Questo esempio usa l'archiviazione BLOB di Azure, ma è possibile scaricare file ZIP da qualsiasi percorso.
 
-Nel modello di Resource Manager, il codice seguente indica alla macchina virtuale di scaricare il file corretto ed eseguire la funzione PowerShell appropriata:
+Nel modello di Azure Resource Manager il codice seguente indica alla VM di scaricare il file corretto ed eseguire la funzione PowerShell appropriata:
 
 ```json
 "settings": {
@@ -188,7 +188,7 @@ Nel modello di Resource Manager, il codice seguente indica alla macchina virtual
 ## Aggiornamento dal formato precedente
 Tutte le impostazioni presenti nel formato precedente, contenente le proprietà pubbliche ModulesUrl, ConfigurationFunction, SasToken o Properties, verranno automaticamente adattate al formato corrente ed eseguite come in precedenza.
 
-Lo schema delle impostazioni precedente è simile al seguente:
+Lo schema seguente è simile allo schema delle impostazioni precedente:
 
 ```json
 "settings": {
@@ -285,4 +285,14 @@ Soluzioni:
 - Specificare la proprietà mancante.
 - Rimuovere la proprietà che richiede la proprietà mancante.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+## Passaggi successivi
+[Altre informazioni su DSC e VMSS](virtual-machines-scale-sets-dsc.md)
+
+Per altre informazioni dettagliate, leggere l'articolo sulla [gestione delle credenziali protette di DSC](virtual-machines-windows-extensions-dsc-credentials.md).
+
+Per altre informazioni sul gestore dell'estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
+
+Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+
+<!---HONumber=AcomDC_0921_2016-->

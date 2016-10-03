@@ -5,7 +5,7 @@
 	authors="arramac" 
 	manager="jhubbard" 
 	editor="monicar" 
-	documentationCenter=""/>
+	documentationCenter=""/> 
 
 <tags 
 	ms.service="documentdb" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
-	ms.author="arramac"/>
+	ms.date="09/20/2016" 
+	ms.author="arramac"/> 
 
 # Partizionamento e scalabilità in Azure DocumentDB
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è progettato per ottenere prestazioni rapide e prevedibili e per eseguire facilmente la scalabilità in base allo sviluppo dell'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento in DocumentDB e descrive come configurare raccolte di DocumentDB per scalare in modo efficace le applicazioni.
@@ -261,8 +261,8 @@ Gli SDK di DocumentDB 1.9.0 e versioni successive supportano le opzioni di esecu
 
 È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
 
-- Impostando `MaxDegreeOfParallelism` è possibile controllare il grado di parallelismo, ovvero il numero massimo di connessioni di rete simultanee alle partizioni della raccolta. Se si imposta questo valore su -1, il grado di parallelismo viene gestito dall'SDK.
-- Impostando `MaxBufferedItemCount`, è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
+- Impostando `MaxDegreeOfParallelism` è possibile controllare il grado di parallelismo, ovvero il numero massimo di connessioni di rete simultanee alle partizioni della raccolta. Se si imposta questo valore su -1, il grado di parallelismo viene gestito dall'SDK. Se `MaxDegreeOfParallelism` non è specificato o è impostato su 0, ovvero il valore predefinito, esisterà una sola connessione di rete per le partizioni della raccolta.
+- Impostando `MaxBufferedItemCount` è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
 Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o TOP), l'SDK di DocumentDB esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati a livello globale.
 
@@ -279,14 +279,14 @@ Nella sezione successiva verrà illustrato come passare alle raccolte partiziona
 
 <a name="migrating-from-single-partition"></a>
 ### Migrazione da raccolte a partizione singola a raccolte partizionate
-Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (> 10.000 unità richiesta/secondo) o di uno spazio di archiviazione dati maggiore (> 10 GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata.
+Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (> 10.000 UR/secondo) o di uno spazio di archiviazione dati maggiore (> 10 GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata.
 
 Per eseguire la migrazione da una raccolta a partizione singola a una raccolta partizionata
 
 1. Esportare i dati da una raccolta a partizione singola a JSON. Vedere [Esportare in file JSON](documentdb-import-data.md#export-to-json-file) per altre informazioni.
-2. Importare i dati in una raccolta partizionata creata con una definizione della chiave di partizione e con più di 10.000 unità richiesta al secondo, come illustrato nell'esempio seguente. Vedere [Importare dati in DocumentDB con lo strumento di migrazione del database](documentdb-import-data.md#DocumentDBSeqTarget) per altre informazioni.
+2. Importare i dati in una raccolta partizionata creata con una definizione della chiave di partizione e con più di 10.000 unità richiesta al secondo, come illustrato nell'esempio seguente. Vedere [Importare in DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) per altre informazioni.
 
-![Migrazione dei dati a una raccolta partizionata in DocumentDB][3]
+![Migrazione dei dati a una raccolta partizionata in DocumentDB][3] 
 
 >[AZURE.TIP] Per accelerare l'importazione, provare ad aumentare il numero di richieste parallele a 100 o a un valore superiore per sfruttare la maggiore velocità effettiva disponibile per le raccolte partizionate.
 
@@ -299,7 +299,7 @@ La scelta della chiave di partizione è una decisione importante da prendere in 
 La scelta della chiave di partizione deve bilanciare la necessità di consentire l'uso di transazioni rispetto al requisito di distribuire le entità tra più chiavi di partizione per garantire una soluzione scalabile. Da una parte, è possibile impostare la stessa chiave di partizione per tutti i documenti. Tuttavia, questa scelta potrebbe limitare la scalabilità della soluzione. Dall'altra parte, è possibile assegnare a ogni documento una chiave di partizione univoca. In questo modo, la soluzione risulterebbe altamente scalabile, ma impedirebbe di usare transazioni tra documenti diversi mediante stored procedure e trigger. Una chiave di partizione ideale consente di usare query efficienti e dispone di una quantità sufficiente di cardinalità per garantire la scalabilità della soluzione.
 
 ### Come evitare colli di bottiglia per l'archiviazione e le prestazioni 
-Un altro elemento importante è scegliere una proprietà che consenta di distribuire le scritture su una serie di valori distinti. Le richieste per la stessa chiave di partizione non possono superare la velocità effettiva di una partizione singola e saranno limitate. Di conseguenza, è importante scegliere una chiave di partizione che non generi **"aree sensibili"** all'interno dell'applicazione. Inoltre, lo spazio di archiviazione totale per i documenti con la stessa chiave di partizione non può superare 10 GB.
+Un altro elemento importante è scegliere una proprietà che consenta di distribuire le scritture su una serie di valori distinti. Le richieste per la stessa chiave di partizione non possono superare la velocità effettiva di una partizione singola e saranno limitate. È quindi importante scegliere una chiave di partizione che non generi **"aree sensibili"** all'interno dell'applicazione. Inoltre, lo spazio di archiviazione totale per i documenti con la stessa chiave di partizione non può superare 10 GB.
 
 ### Esempi di chiavi di partizione efficaci
 Di seguito sono riportati alcuni esempi che illustrano come scegliere la chiave di partizione per l'applicazione:
@@ -330,7 +330,7 @@ Se si implementa un'applicazione multi-tenant usando DocumentDB, sono disponibil
 Questo articolo descrive il funzionamento del partizionamento in Azure DocumentDB, come creare raccolte partizionate e come scegliere una chiave di partizione efficace per l'applicazione.
 
 -   Eseguire il test delle prestazioni e della scalabilità con DocumentDB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure DocumentDB](documentdb-performance-testing.md).
--   Iniziare a programmare con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+-   Introduzione alla programmazione con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 -   Informazioni sulla [velocità effettiva con provisioning in DocumentDB](documentdb-performance-levels.md)
 -   Se si desidera personalizzare il modo in cui l'applicazione esegue il partizionamento, è possibile collegare l'implementazione del partizionamento sul lato client. Vedere il [supporto per il partizionamento lato client](documentdb-sharding.md).
 
@@ -340,4 +340,4 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

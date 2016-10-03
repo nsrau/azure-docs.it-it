@@ -5,18 +5,22 @@
  documentationCenter=""
  authors="camsoper"
  manager="erikre"
- editor=""/>
+ editor=""/> 
 <tags
  ms.service="cdn"
  ms.workload="media"
  ms.tgt_pltfrm="na"
  ms.devlang="multiple"
  ms.topic="article"
- ms.date="08/24/2016"
- ms.author="casoper"/>
+ ms.date="09/15/2016"
+ ms.author="casoper"/> 
 
 
 # Gestire la scadenza del contenuto di BLOB del servizio di archiviazione di Azure nella rete CDN di Azure
+
+> [AZURE.SELECTOR]
+- [App Web/Servizi cloud di Azure, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
+- [Servizio BLOB del servizio di archiviazione di Azure](cdn-manage-expiration-of-blob-content.md)
 
 Il [servizio BLOB](../storage/storage-introduction.md#blob-storage) di [Archiviazione di Azure](../storage/storage-introduction.md) è una delle varie origini basate su Azure integrate nella rete CDN di Azure. Qualsiasi contenuto BLOB accessibile pubblicamente può essere memorizzato nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'[intestazione *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) nella risposta HTTP di Archiviazione di Azure.
 
@@ -108,4 +112,4 @@ class Program
 - [Approfondire l'intestazione *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 - [Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

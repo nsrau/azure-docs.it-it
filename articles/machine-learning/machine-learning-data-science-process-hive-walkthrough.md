@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/19/2016"
+	ms.author="hangzh;bradsev" /> 
 
 
 # Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 
-In questa procedura dettagliata si userà il Processo di analisi scientifica dei dati per i team in uno scenario end-to-end usufruendo di un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e acquisire dati di progettazione del set di dati relativo alle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) disponibile pubblicamente, nonché sottocampionarli. I modelli dei dati sono creati con Azure Machine Learning in modo da gestire la classificazione binaria e multiclasse e attività predittive di regressione.
+In questa procedura dettagliata si userà il [Processo di analisi scientifica dei dati per i team (TDSP)](data-science-process-overview.md) in uno scenario end-to-end usufruendo di un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e acquisire dati di progettazione del set di dati relativo alle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) disponibile pubblicamente, nonché sottocampionarli. I modelli dei dati sono creati con Azure Machine Learning in modo da gestire la classificazione binaria e multiclasse e attività predittive di regressione.
 
 Per una procedura dettagliata su come gestire un set di dati più grande (1 terabyte) in uno scenario simile in cui si usano i cluster Hadoop di HDInsight per l'elaborazione dei dati, vedere [Processo di analisi scientifica dei dati per i team: uso di cluster Hadoop di Azure HDInsight su un set di dati da 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
@@ -97,7 +97,7 @@ Per acquisire il set di dati [Corse dei taxi di New York](http://www.andresmh.co
 
 Si descrive ora come usare AzCopy per trasferire i file contenenti i dati. Per scaricare e installare AzCopy, seguire le istruzioni fornite in [Introduzione all'utilità della riga di comando AzCopy](../storage/storage-use-azcopy.md).
 
-1. Da una finestra del prompt dei comandi, eseguire i seguenti comandi AzCopy sostituendo *<path\_to\_data\_folder>* con la destinazione desiderata:
+1. Da una finestra del prompt dei comandi, eseguire i seguenti comandi AzCopy sostituendo *<path_to_data_folder>* con la destinazione desiderata:
 
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -434,10 +434,10 @@ Un obiettivo comune di analisi esplorativa dei dati è quello di eliminare i rec
 
 Di seguito è riportato il contenuto del file *sample\_hive\_quality\_assessment.hql* per l'analisi.
 
-    	SELECT COUNT(*) FROM nyctaxidb.trip
-    	WHERE month=1
-    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+	    SELECT COUNT(*) FROM nyctaxidb.trip
+	    WHERE month=1
+	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -564,10 +564,10 @@ La query consente quindi di eseguire il sottocampionamento dei dati; in questo m
 
 Di seguito sono riportati i contenuti del file *sample\_hive\_prepare\_for\_aml\_full.hql* che prepara i dati per la creazione del modello in Azure Machine Learning.
 
-		set R = 3959;
-	    set pi=radians(180);
+        set R = 3959;
+        set pi=radians(180);
 
-		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -622,7 +622,7 @@ Di seguito sono riportati i contenuti del file *sample\_hive\_prepare\_for\_aml\
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-		t.direct_distance,
+        t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -689,7 +689,7 @@ Per eseguire questa query, dal prompt della directory di Hive eseguire:
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-È ora disponibile una tabella interna "nyctaxidb.nyctaxi\_downsampled\_dataset" alla quale è possibile accedere tramite il modulo [Import Data][import-data]\ (Importa dati) di Azure Machine Learning. Inoltre, sarà possibile usare questo set di dati per la creazione di modelli di Machine Learning.
+È ora disponibile una tabella interna "nyctaxidb.nyctaxi\_downsampled\_dataset" alla quale è possibile accedere tramite il modulo [Import Data][import-data] \(Importa dati) di Azure Machine Learning. Inoltre, sarà possibile usare questo set di dati per la creazione di modelli di Machine Learning.
 
 ### Utilizzare il modulo Import Data in Azure Machine Learning per accedere ai dati sottocampionati
 
@@ -810,4 +810,4 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

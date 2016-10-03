@@ -3,9 +3,9 @@
 	description="Come usare Azure Data Lake per eseguire attività di esplorazione di dati e di classificazione binaria su un set di dati."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev;weig;gopitk"/>
+	ms.date="09/19/2016"
+	ms.author="bradsev;weig"/>
 
 
 # Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
 
-Questa procedura dettagliata end-to-end illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati](http://aka.ms/datascienceprocess), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
+Questa procedura dettagliata end-to-end illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](http://aka.ms/datascienceprocess), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
 
 
 ### Azure Data Lake Analytics.
@@ -76,10 +76,8 @@ Per preparare l'ambiente di analisi scientifica dei dati per questa procedura gu
 - Account di Azure Machine Learning Studio
 - Azure Data Lake Tools per Visual Studio (consigliato)
 
-Questa sezione fornisce istruzioni per la creazione di tutte queste risorse. Se si sceglie di usare tabelle Hive con Azure Machine Learning, anziché Python, per creare un modello è necessario anche effettuare il provisioning di un cluster HDInsight (Hadoop). Questa procedura alternativa viene descritta in un'apposita sezione riportata di seguito.
-
->AZURE.NOTE **Archivio Azure Data Lake** può essere creato separatamente oppure quando si crea **Analisi Azure Data Lake** come archivio predefinito. Le istruzioni per la creazione di ognuna delle risorse sono fornite separatamente più avanti, ma l'account di archiviazione di Data Lake non deve essere creato in modo separato.
-
+Questa sezione fornisce istruzioni per la creazione di tutte queste risorse. Se si sceglie di usare tabelle Hive con Azure Machine Learning, anziché Python, per creare un modello è necessario anche effettuare il provisioning di un cluster HDInsight (Hadoop). Questa procedura alternativa viene descritta in un'apposita sezione riportata di seguito. <br/>
+>AZURE.NOTE **Archivio Azure Data Lake** può essere creato separatamente oppure quando si crea **Analisi Azure Data Lake** come archivio predefinito. Le istruzioni per la creazione di ognuna delle risorse sono fornite separatamente più avanti, ma l'account di archiviazione di Data Lake non deve essere creato in modo separato. <br/>
 ### Creare un Archivio Azure Data Lake
 
 Creare un Archivio Azure Data Lake dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di configurare l'identità di AAD del cluster nel pannello **Origine dati** del pannello **Configurazione facoltativa** descritto in questo articolo.
@@ -215,9 +213,9 @@ Poiché la prima riga include intestazioni, è necessario rimuovere le intestazi
 
 Analogamente, è possibile leggere nei set di dati relativi alle tariffe. Fare clic con il pulsante destro del mouse su Azure Data Lake Store. È possibile scegliere di esaminare i dati in **Portale di Azure --> Esplora dati** o **Esplora file** in Visual Studio.
 
- ![10](./media/machine-learning-data-science-process-data-lake-walkthrough/10-data-in-ADL-VS.PNG)
+ ![10](./media/machine-learning-data-science-process-data-lake-walkthrough/10-data-in-ADL-VS.PNG) 
 
- ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
+ ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG) 
 
 
 ### <a name="quality"></a>Controlli della qualità dei dati
@@ -449,21 +447,21 @@ Eseguire quindi un campionamento stratificato in base alla variabile binaria tip
 
 Al termine della modifica degli script U-SQL, è possibile inviarli al server usando il proprio account Analisi Azure Data Lake. Fare clic su **Data Lake**, **Invia processo**, selezionare il proprio **account Analytics**, scegliere **Parallelismo** e quindi fare clic sul pulsante **Invia**.
 
- ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
+ ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG) 
 
 Al termine del processo, lo stato del processo verrà visualizzato in Visual Studio per il monitoraggio. Al termine dell'esecuzione del processo, è anche possibile ripetere il processo di esecuzione del processo e individuare i passaggi collo di bottiglia per migliorare l'efficienza del processo. È anche possibile passare al portale di Azure per verificare lo stato dei processi U-SQL.
 
- ![13](./media/machine-learning-data-science-process-data-lake-walkthrough/13-USQL-running-v2.PNG)
+ ![13](./media/machine-learning-data-science-process-data-lake-walkthrough/13-USQL-running-v2.PNG) 
 
 
- ![14](./media/machine-learning-data-science-process-data-lake-walkthrough/14-USQL-jobs-portal.PNG)
+ ![14](./media/machine-learning-data-science-process-data-lake-walkthrough/14-USQL-jobs-portal.PNG) 
 
 
 È ora possibile controllare i file di output nell'archivio BLOB di Azure o nel portale di Azure. Nel passaggio successivo verranno usati i dati del campione stratificato per la modellazione.
 
- ![15](./media/machine-learning-data-science-process-data-lake-walkthrough/15-U-SQL-output-csv.PNG)
+ ![15](./media/machine-learning-data-science-process-data-lake-walkthrough/15-U-SQL-output-csv.PNG) 
 
- ![16](./media/machine-learning-data-science-process-data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
+ ![16](./media/machine-learning-data-science-process-data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG) 
 
 
 ## Compilare e distribuire modelli in Azure Machine Learning
@@ -519,7 +517,7 @@ Per eseguire il notebook di Jupyter di esempio o il file di script Python, sono 
 		t2 = time.time()
 		print(("It takes %s seconds to read in "+BLOBNAME) % (t2 - t1))
 
- ![17](./media/machine-learning-data-science-process-data-lake-walkthrough/17-python_readin_csv.PNG)
+ ![17](./media/machine-learning-data-science-process-data-lake-walkthrough/17-python_readin_csv.PNG) 
  
 - Aggiungere i nomi di colonna e separare le colonne
 
@@ -566,7 +564,7 @@ In questo passaggio viene creato un modello di classificazione binaria per preve
 		print ('Coefficients: \n', logit_fit.coef_)
 		Y_train_pred = logit_fit.predict(X_train)
 
-       ![c1](./media/machine-learning-data-science-process-data-lake-walkthrough/c1-py-logit-coefficient.PNG)
+       ![c1](./media/machine-learning-data-science-process-data-lake-walkthrough/c1-py-logit-coefficient.PNG) 
 
 - Assegnare un punteggio al set di dati di test
 
@@ -588,7 +586,7 @@ In questo passaggio viene creato un modello di classificazione binaria per preve
 		print metrics.confusion_matrix(Y_train,Y_train_pred)
 		print metrics.confusion_matrix(Y_test,Y_test_pred)
 
-       ![c2](./media/machine-learning-data-science-process-data-lake-walkthrough/c2-py-logit-evaluation.PNG)
+       ![c2](./media/machine-learning-data-science-process-data-lake-walkthrough/c2-py-logit-evaluation.PNG) 
 
 
  
@@ -598,7 +596,7 @@ Si vuole rendere operativo il modello di Machine Learning dopo la compilazione. 
 
 - Trovare le credenziali dell'area di lavoro dalle impostazioni di Azure Machine Learning Studio. In Azure Machine Learning Studio fare clic su **Settings** (Impostazioni) --> **Name** (Nome) --> **Authorization Tokens** (Token di autorizzazione).
 
-	![c3](./media/machine-learning-data-science-process-data-lake-walkthrough/c3-workspace-id.PNG)
+	![c3](./media/machine-learning-data-science-process-data-lake-walkthrough/c3-workspace-id.PNG) 
 
 
 		workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -631,7 +629,7 @@ Si vuole rendere operativo il modello di Machine Learning dopo la compilazione. 
 
 		NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
-       ![c4](./media/machine-learning-data-science-process-data-lake-walkthrough/c4-call-API.PNG)
+       ![c4](./media/machine-learning-data-science-process-data-lake-walkthrough/c4-call-API.PNG) 
 
 
 ## Opzione 2: Creare e distribuire modelli direttamente in Azure Machine Learning
@@ -642,20 +640,20 @@ Azure Machine Learning Studio può leggere i dati direttamente da Archivio Azure
 
 Creare un cluster HDInsight (Linux) dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere la sezione **Creare un cluster Azure HDInsight con accesso ad Archivio Azure Data Lake** in [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
- ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
+ ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG) 
 
 ### Creare una tabella Hive in HDInsight
 
 È ora possibile creare in un cluster HDInsight le tabelle Hive da usare in Azure Machine Learning Studio usando i dati archiviati in Archivio Azure Data Lake nel passaggio precedente. Passare al cluster HDInsight appena creato. Fare clic su **Impostazioni** --> **Proprietà** --> **Identità AAD del cluster** --> **ADLS Access** (Accesso ad Azure Data Lake Store) e assicurarsi che l'account Azure Data Lake Store sia aggiunto all'elenco con diritti di lettura, scrittura ed esecuzione.
 
- ![19](./media/machine-learning-data-science-process-data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
+ ![19](./media/machine-learning-data-science-process-data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG) 
 
 
 Fare quindi clic su **Dashboard** accanto al pulsante **Impostazioni**. Verrà visualizzata una finestra. Fare clic su **Vista Hive** nell'angolo superiore destro della pagina. Verrà visualizzato l'**Editor di query**.
 
- ![20](./media/machine-learning-data-science-process-data-lake-walkthrough/20-HDI-dashboard.PNG)
+ ![20](./media/machine-learning-data-science-process-data-lake-walkthrough/20-HDI-dashboard.PNG) 
 
- ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
+ ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG) 
 
 
 Incollare gli script Hive seguenti per creare una tabella. La posizione dell'origine dati è specificata nel riferimento ad Azure Data Lake Store in questo modo: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
@@ -693,7 +691,7 @@ Incollare gli script Hive seguenti per creare una tabella. La posizione dell'ori
 
 Al termine dell'esecuzione della query, i risultati verranno visualizzati in modo analogo al seguente:
 
- ![22](./media/machine-learning-data-science-process-data-lake-walkthrough/22-Hive-Query-results.PNG)
+ ![22](./media/machine-learning-data-science-process-data-lake-walkthrough/22-Hive-Query-results.PNG) 
 
 
 
@@ -709,23 +707,23 @@ Al termine dell'esecuzione della query, i risultati verranno visualizzati in mod
 
 4. Immettere l'URI del cluster HDInsight (disponibile nel portale di Azure), le credenziali di Hadoop, la posizione dei dati di output e il nome dell'account di archiviazione di Azure/la chiave/il nome di contenitore.
 
- ![23](./media/machine-learning-data-science-process-data-lake-walkthrough/23-reader-module-v3.PNG)
+ ![23](./media/machine-learning-data-science-process-data-lake-walkthrough/23-reader-module-v3.PNG) 
 
 Un esempio relativo a un esperimento di classificazione binaria per la lettura di dati dalla tabella Hive è disponibile nella figura seguente.
 
- ![24](./media/machine-learning-data-science-process-data-lake-walkthrough/24-AML-exp.PNG)
+ ![24](./media/machine-learning-data-science-process-data-lake-walkthrough/24-AML-exp.PNG) 
 
 Dopo la creazione dell'esperimento, fare clic su **Set Up Web Service** (Configura servizio Web) --> **Predictive Web Service** (Servizio Web predittivo)
 
- ![25](./media/machine-learning-data-science-process-data-lake-walkthrough/25-AML-exp-deploy.PNG)
+ ![25](./media/machine-learning-data-science-process-data-lake-walkthrough/25-AML-exp-deploy.PNG) 
 
 Eseguire l'esperimento di assegnazione dei punteggi creato automaticamente. Al termine, fare clic su **Deploy Web Service** (Distribuisci servizio Web)
 
- ![26](./media/machine-learning-data-science-process-data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
+ ![26](./media/machine-learning-data-science-process-data-lake-walkthrough/26-AML-exp-deploy-web.PNG) 
 
 Il dashboard del servizio Web verrà visualizzato a breve:
 
- ![27](./media/machine-learning-data-science-process-data-lake-walkthrough/27-AML-web-api.PNG)
+ ![27](./media/machine-learning-data-science-process-data-lake-walkthrough/27-AML-web-api.PNG) 
 
 
 ## Riepilogo
@@ -741,4 +739,4 @@ Nel percorso di apprendimento relativo al [Processo di analisi scientifica dei d
 - [Processo di analisi scientifica dei dati per i team: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md)
 - [Panoramica del Processo di analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

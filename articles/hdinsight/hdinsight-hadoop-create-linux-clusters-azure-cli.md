@@ -6,7 +6,7 @@
    	authors="Blackmist"
    	manager="jhubbard"
    	editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/> 
 
 <tags
    	ms.service="hdinsight"
@@ -14,8 +14,8 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/30/2016"
-   	ms.author="larryfr"/>
+   	ms.date="09/20/2016"
+   	ms.author="larryfr"/> 
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -23,11 +23,11 @@
 
 L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di gestire i servizi di Azure. Può essere usata con i modelli di Gestione risorse di Azure per creare un cluster HDInsight insieme agli account di archiviazione associati e ad altri servizi.
 
-I modelli di Gestione risorse di Azure sono documenti JSON che descrivono un __gruppo di risorse__ e tutte le risorse in esso contenute, ad esempio HDInsight. Questo approccio basato sui modelli consente di definire tutte le risorse necessarie per HDInsight in un modello e di gestire le modifiche apportate all'intero gruppo mediante __distribuzioni__ che applicano modifiche al gruppo.
+I modelli di Gestione risorse di Azure sono documenti JSON che descrivono un __gruppo di risorse__ e tutte le risorse in esso contenute, ad esempio HDInsight. Questo approccio basato su modelli consente di definire tutte le risorse necessarie per HDInsight in un singolo modello. Consente anche di gestire le modifiche apportate al gruppo nel suo insieme tramite le __distribuzioni__, che applicano le modifiche all'intero gruppo.
 
 I passaggi illustrati in questo documento descrivono il processo di creazione di un nuovo cluster HDInsight tramite l'interfaccia della riga di comando di Azure e un modello:
 
-> [AZURE.IMPORTANT] I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+> [AZURE.IMPORTANT] I passaggi descritti in questo documento utilizzano il numero di nodi di lavoro predefinito (4) per un cluster HDInsight. Se si prevedono più di 32 nodi di lavoro (durante la creazione del cluster o con il ridimensionamento del cluster), è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -40,7 +40,7 @@ I passaggi illustrati in questo documento descrivono il processo di creazione di
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-##Effettuare l'accesso alla sottoscrizione di Azure
+##Accedere alla sottoscrizione di Azure
 
 Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo __login__.
 
@@ -52,22 +52,22 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
 
         azure login
 
-    Verrà chiesto di specificare il nome e la password. Se si dispone di più sottoscrizioni di Azure, è possibile usare `azure account set <subscriptionname>` per impostare la sottoscrizione che verrà usata dai comandi dell'interfaccia della riga di comando di Azure.
+    Occorre specificare il nome e la password. Se si dispone di più sottoscrizioni di Azure, usare `azure account set <subscriptionname>` per impostare la sottoscrizione utilizzata dai comandi dell'interfaccia della riga di comando di Azure.
 
 3. Passare alla modalità Gestione risorse di Azure usando il comando seguente:
 
         azure config mode arm
 
-4. Creare un nuovo gruppo di risorse. Questo gruppo contiene il cluster HDInsight e l'account di archiviazione associato.
+4. Creare un gruppo di risorse. Questo gruppo di risorse contiene il cluster HDInsight e l'account di archiviazione associato.
 
         azure group create groupname location
         
     * Sostituire __groupname__ con un nome univoco per il gruppo.
     * Sostituire __location__ con l'area geografica in cui si vuole creare il gruppo.
     
-        Per un elenco di località valide, usare il comando `azure locations list` e quindi una delle località della colonna __Nome__.
+        Per un elenco di località valide, usare il comando `azure location list` e quindi una delle località della colonna __Nome__.
 
-5. Creare un nuovo account di archiviazione. Questo account verrà usato come archivio predefinito per il cluster HDInsight.
+5. Creare un account di archiviazione. Questo account di archiviazione verrà usato come archivio predefinito per il cluster HDInsight.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
@@ -86,7 +86,7 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
     
     Nei dati restituiti salvare il valore __key__ per __key1__.
 
-6. Creare un nuovo cluster HDInsight.
+6. Creare un cluster HDInsight
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
@@ -121,4 +121,4 @@ Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comand
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

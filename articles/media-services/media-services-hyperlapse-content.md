@@ -1,11 +1,11 @@
 <properties
-	pageTitle="File multimediali di Hyperlapse con Azure Media Hyperlapse"
+	pageTitle="File multimediali di Hyperlapse con Azure Media Hyperlapse | Microsoft Azure"
 	description="Azure Media Hyperlapse crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione. Questo argomento illustra come usare Media Indexer."
 	services="media-services"
 	documentationCenter=""
 	authors="asolanki"
 	manager="johndeu"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="media-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
-	ms.author="adsolank"/>
+	ms.date="09/19/2016"  
+	ms.author="adsolank"/> 
 
 
 # File multimediali di Hyperlapse con Azure Media Hyperlapse
@@ -29,7 +29,7 @@ Per gli aggiornamenti più recenti relativi ad Azure Media Hyperlapse, vedere i 
 
 ## Eseguire Hyperlapse su un asset
 
-In primo luogo, è necessario caricare il file di input desiderato in Servizi multimediali di Azure. Per altre informazioni sui concetti inerenti al caricamento e alla gestione dei contenuti, leggere l'[articolo sulla gestione dei contenuti](media-services-manage-content.md#upload).
+In primo luogo, è necessario caricare il file di input desiderato in Servizi multimediali di Azure. Per altre informazioni sui concetti inerenti al caricamento e alla gestione dei contenuti, leggere l'[articolo sulla gestione dei contenuti](media-services-portal-vod-get-started.md).
 
 ###  <a id="configuration"></a>Set di impostazioni di configurazione per Hyperlapse
 
@@ -39,7 +39,7 @@ Dopo aver caricato il contenuto nel proprio account di Servizi multimediali, è 
 -------|-------------
 StartFrame|Il fotogramma a partire dal quale deve iniziare l'elaborazione di Microsoft Hyperlapse.
 NumFrames|Il numero di fotogrammi da elaborare
-Velocità|Il fattore su cui impostare la velocità di riproduzione del video di input.
+speed|Il fattore su cui impostare la velocità di riproduzione del video di input.
 
 Di seguito è riportato l'esempio di un file di configurazione conforme in XML e JSON:
 
@@ -75,68 +75,28 @@ Di seguito è riportato l'esempio di un file di configurazione conforme in XML e
 
 Il metodo seguente carica un file multimediale come asset e crea un processo mediante il processore di contenuti multimediali Azure Media Hyperlapse.
 
-> [AZURE.NOTE] Nell'ambito dovrebbe essere già presente un CloudMediaContext con il nome "contesto" relativo al codice da usare. Per altre informazioni, leggere l'[articolo sulla gestione dei contenuti](media-services-manage-content.md).
+> [AZURE.NOTE] Nell'ambito dovrebbe essere già presente un CloudMediaContext con il nome "contesto" relativo al codice da usare. Per altre informazioni, leggere l'[articolo sulla gestione dei contenuti](media-services-dotnet-get-started.md).
 
 > [AZURE.NOTE] L'argomento stringa "hyperConfig" deve essere un set di impostazioni di configurazione conforme scritto in JSON o XML, come descritto in precedenza.
 
-	static bool RunHyperlapseJob(string input, string output, string hyperConfig)
-	{
-		// create asset with input file
-		IAsset asset = context
-					   .Assets
-					   .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
+static bool RunHyperlapseJob(string input, string output, string hyperConfig) { // create asset with input file IAsset asset = context .Assets .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
 
-		// grab instances of Azure Media Hyperlapse MP
-		IMediaProcessor mp = context
-							 .MediaProcessors
-							 .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
+// grab instances of Azure Media Hyperlapse MP IMediaProcessor mp = context .MediaProcessors .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
 
-		// create Job with Hyperlapse task
-		IJob job = context
-				   .Jobs
-				   .Create(String.Format("Hyperlapse {0}", input));
+// create Job with Hyperlapse task IJob job = context .Jobs .Create(String.Format("Hyperlapse {0}", input));
 
-		if (String.IsNullOrEmpty(hyperConfig))
-		{
-			// config cannot be empty
-			return false;
-		}
+if (String.IsNullOrEmpty(hyperConfig)) { // config cannot be empty return false; }
 
-		hyperConfig = File.ReadAllText(hyperConfig);
+hyperConfig = File.ReadAllText(hyperConfig);
 
-		ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task",
-												mp,
-												hyperConfig,
-												TaskOptions.None);
-		hyperlapseTask.InputAssets.Add(asset);
-		hyperlapseTask.OutputAssets.AddNew("Hyperlapse output",
-											AssetCreationOptions.None);
+ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task", mp, hyperConfig, TaskOptions.None); hyperlapseTask.InputAssets.Add(asset); hyperlapseTask.OutputAssets.AddNew("Hyperlapse output", AssetCreationOptions.None);
 
 
-		job.Submit();
+job.Submit();
 
-		// Create progress printing and querying tasks
-			Task progressPrintTask = new Task(() =>
-			{
+// Create progress printing and querying tasks Task progressPrintTask = new Task(() => {
 
-				IJob jobQuery = null;
-				do
-				{
-					var progressContext = context;
-					jobQuery = progressContext.Jobs
-											  .Where(j => j.Id == job.Id)
-											  .First();
-					Console.WriteLine(string.Format("{0}\t{1}\t{2}",
-									  DateTime.Now,
-									  jobQuery.State,
-									  jobQuery.Tasks[0].Progress));
-					Thread.Sleep(10000);
-				}
-				while (jobQuery.State != JobState.Finished &&
-					   jobQuery.State != JobState.Error &&
-					   jobQuery.State != JobState.Canceled);
-			});
-			progressPrintTask.Start();
+IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\\t{1}\\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
 
 			Task progressJobTask = job.GetExecutionProgressTask(
 												 CancellationToken.None);
@@ -200,7 +160,7 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -215,4 +175,4 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

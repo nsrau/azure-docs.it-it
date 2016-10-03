@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/> 
 
 <tags
    ms.service="hdinsight"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight mediante l'API REST Ambari
 
 [AZURE.INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari semplifica la gestione e il monitoraggio di un cluster Hadoop grazie a un'interfaccia utente Web facile da usare e alle API REST. Ambari è incluso nei cluster HDInsight basati su Linux e viene usato per monitorare il cluster e modificare la configurazione. In questo documento vengono illustrati i concetti fondamentali sull'utilizzo dell'API REST Ambari tramite l'esecuzione di attività comuni, ad esempio l'individuazione del nome di dominio completo dei nodi cluster o dell'account di archiviazione predefinito usato dal cluster.
+Apache Ambari semplifica la gestione e il monitoraggio di un cluster Hadoop grazie a un'interfaccia utente Web facile da usare e alle API REST. Ambari è incluso nei cluster HDInsight basati su Linux e viene usato per monitorare il cluster e modificare la configurazione. Questo documento consente di apprendere le nozioni fondamentali sull'utilizzo dell'API REST Ambari attraverso l'esecuzione di attività comuni mediante cURL.
 
 ##Prerequisiti
 
@@ -49,13 +49,13 @@ L'URI di base per l'API REST Ambari su HDInsight è https://CLUSTERNAME.azurehdi
 >
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster` `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-La connessione ad Ambari su HDInsight richiede HTTPS. È necessario anche eseguire l'autenticazione ad Ambari utilizzando il nome dell'account admin (il valore predefinito è __admin__,) e la password fornita al momento della creazione del cluster.
+La connessione ad Ambari su HDInsight richiede HTTPS. Quando si esegue l'autenticazione della connessione, è necessario utilizzare il nome dell'account admin (il valore predefinito è __admin__,) e la password fornita al momento della creazione del cluster.
 
-L'esempio seguente illustra l'uso di cURL per eseguire una richiesta GET nell'API REST:
+L'esempio seguente fa uso di cURL per effettuare una richiesta GET nell'API REST. Sostituire __PASSWORD__ con la password di amministratore per il cluster. Sostituire __CLUSTERNAME__ con il nome del cluster:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
     
-Se si esegue questa richiesta, sostituendo __PASSWORD__ con la password dell'amministratore per il cluster e __CLUSTERNAME__ con il nome del cluster, si riceverà un documento JSON che inizia con informazioni analoghe alle seguenti:
+La risposta è un documento JSON che inizia con informazioni simili a quelle seguenti:
 
     {
     "href" : "http://10.0.0.10:8080/api/v1/clusters/CLUSTERNAME",
@@ -74,11 +74,9 @@ Se si esegue questa richiesta, sostituendo __PASSWORD__ con la password dell'amm
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-Poiché si tratta di JSON, è in genere più semplice usare un parser JSON per recuperare i dati. Ad esempio, se si vogliono recuperare informazioni sullo stato di integrità per il cluster, è possibile usare quanto segue.
+Trattandosi di JSON, è più semplice usare un parser JSON per utilizzare i dati. Ad esempio, nell'esempio seguente si utilizza jq per visualizzare soltanto l'elemento `health_report`.
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
-    
-Il documento JSON verrà recuperato e verrà eseguito il piping dell'output a jq. `.Clusters.health_report` indica l'elemento da recuperare nel documento JSON.
 
 ##Esempio: Ottenere il nome di dominio completo dei nodi del cluster
 
@@ -88,13 +86,16 @@ Quando si usa HDInsight, potrebbe essere necessario conoscere il nome di dominio
 * __Nodi di lavoro__: `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" | jq '.host_components[].HostRoles.host_name'`
 * __Nodi Zookeeper__: `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq '.host_components[].HostRoles.host_name'`
 
-Si noti che ogni richiesta segue lo stesso modello usato per la query su un componente in esecuzione su tali nodi, recuperando successivamente gli elementi `host_name` che contengono il nome di dominio completo per i nodi specifici.
+Si noti che ognuno di questi esempi segue lo stesso schema:
+
+1. Eseguire la query di un componente noto per essere eseguito su tali nodi.
+2. Recuperare gli elementi `host_name`, che contengono il nome di dominio completo per questi nodi.
 
 L'elemento `host_components` del documento restituito contiene più elementi. Se si usa `.host_components[]` e quindi si specifica un percorso entro l'elemento, si creerà un ciclo in ogni elemento e verrà recuperato il valore dal percorso specifico. Se si vuole solo un valore, ad esempio la prima voce relativa al nome di dominio completo, è possibile restituire gli elementi come una raccolta e quindi selezionare una voce specifica:
 
     jq '[.host_components[].HostRoles.host_name][0]'
 
-Verrà restituito il primo nome di dominio completo dalla raccolta.
+Viene restituito il primo nome di dominio completo dalla raccolta.
 
 ##Esempio: Ottenere l'account di archiviazione e il contenitore predefiniti
 
@@ -104,9 +105,9 @@ Il codice seguente recupererà l'URI WASB della risorsa di archiviazione predefi
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-> [AZURE.NOTE] Verrà restituita la prima configurazione applicata al server (`service_config_version=1`) che conterrà queste informazioni. Se si recupera un valore che è stato modificato dopo la creazione del cluster, potrebbe essere necessario elencare le versioni della configurazione e recuperare la versione più recente.
+> [AZURE.NOTE] Viene restituita la prima configurazione applicata al server (`service_config_version=1`) che contiene queste informazioni. Se si recupera un valore che è stato modificato dopo la creazione del cluster, potrebbe essere necessario elencare le versioni della configurazione e recuperare la versione più recente.
 
-Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il contenitore predefinito e __ACCOUNTNAME__ è il nome dell'account di archiviazione di Azure:
+Viene restituito un valore analogo al seguente esempio, dove __CONTAINER__ è il contenitore predefinito e __ACCOUNTNAME__ è il nome dell'account di archiviazione di Azure:
 
     wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
@@ -116,17 +117,17 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
-    Verrà restituito il nome del gruppo di risorse per l'account.
+    Viene restituito il nome del gruppo di risorse per l'account.
     
-    > [AZURE.NOTE] Se il comando non restituisce risultati, può essere necessario modificare l'interfaccia della riga di comando di Azure in modalità Gestione risorse di Azure ed eseguire nuovamente il comando. Per passare alla modalità Gestione risorse di Azure, usare il comando seguente.
+    > [AZURE.NOTE] Se il comando non restituisce risultati, può essere necessario modificare l'interfaccia della riga di comando di Azure in modalità Gestione risorse di Azure ed eseguire nuovamente il comando. Per passare alla modalità Azure Resource Manager, usare il comando seguente:
     >
-    > `azure config mode arm`
+    > `azure config mode arm` 
     
 2. Ottenere la chiave per l'account di archiviazione. Sostituire __GROUPNAME__ con il gruppo di risorse del passaggio precedente. Sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione:
 
         azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-    Verrà restituita la chiave primaria per l'account.
+    L'esempio restituisce la chiave primaria per l'account.
     
 3. Usare il comando di caricamento per archiviare un file nel contenitore:
 
@@ -142,7 +143,7 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
         
-    Verrà restituito un documento JSON contenente la configurazione corrente, identificata dal valore _tag_, per i componenti installati nel cluster. Ad esempio, di seguito è riportato un estratto dei dati restituiti da un tipo di cluster Spark.
+    L'esempio restituisce un documento JSON contenente la configurazione corrente, identificata dal valore _tag_, per i componenti installati nel cluster. L'esempio di seguito rappresenta un estratto dei dati restituiti da un tipo di cluster Spark.
     
         "spark-metrics-properties" : {
             "tag" : "INITIAL",
@@ -166,15 +167,15 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
-    Curl recupera il documento JSON, quindi jq viene usato per apportare alcune modifiche per creare un modello che è possibile usare per aggiungere o modificare i valori di configurazione. In particolare, esegue le operazioni seguenti:
+    CURL recupera il documento JSON, quindi jq viene usato per apportare modifiche ai dati al fine di creare un modello. Il modello viene quindi utilizzato per aggiungere o modificare i valori di configurazione. In particolare, esegue le operazioni seguenti:
     
     * Crea un valore univoco contenente la stringa "version" e la data che viene archiviato in __newtag__.
-    * Crea un documento radice per la nuova configurazione desiderata
-    * Ottiene il contenuto della matrice con estensione items e lo aggiunge sotto l'elemento __desired\_config__.
+    * Crea un documento radice per la nuova configurazione desiderata.
+    * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto all'elemento __desired\_config__.
     * Elimina gli elementi __href__, __version__ e __Config__ perché non sono necessari per l'invio di una nuova configurazione.
-    * Aggiunge un nuovo elemento __tag__ e ne imposta il valore su __version#################__, la cui parte numerica è basata sulla data corrente. Ogni configurazione deve avere un tag univoco.
+    * Aggiunge un nuovo elemento __tag__ e ne imposta il valore su __version#################__. La parte numerica si basa sulla data corrente. Ogni configurazione deve avere un tag univoco.
     
-    Infine i dati vengono salvati nel documento __newconfig.json__. La struttura del documento sarà simile a quella riportata di seguito:
+    Infine i dati vengono salvati nel documento __newconfig.json__. La struttura del documento deve essere simile all'esempio di seguito:
     
         {
             "Clusters": {
@@ -190,38 +191,38 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
             }
         }
 
-3. Aprire il documento __newconfig.json__ e modificare o aggiungere i valori nell'oggetto __properties__. Ad esempio, modificare il valore di __"spark.yarn.am.memory"__ da __"1g"__ in __"3g"__ e aggiungere un nuovo elemento per __"spark.kryoserializer.buffer.max"__ con valore __"256m"__.
+3. Aprire il documento __newconfig.json__ e modificare o aggiungere i valori nell'oggetto __properties__. L'esempio seguente modifica il valore di __"spark.yarn.am.memory"__ da __"1g"__ in __"3g"__ e aggiunge un nuovo elemento per __"spark.kryoserializer.buffer.max"__ con valore __"256m"__.
 
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
 
     Al termine delle modifiche, salvare il file.
 
-4. Usare il codice seguente per inviare la configurazione aggiornata ad Ambari..
+4. Usare il comando seguente per inviare la configurazione aggiornata ad Ambari.
 
         cat newconfig.json | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
         
-    Questo comando invia tramite pipe il contenuto del file __newconfig.json__ alla richiesta curl che lo invia al cluster come nuova configurazione desiderata. Verrà restituito un documento JSON. L'elemento __versionTag__ di questo documento deve corrispondere alla versione inviata, mentre l'oggetto __configs__ conterrà le modifiche di configurazione richieste.
+    Questo comando invia tramite pipe il contenuto del file __newconfig.json__ alla richiesta curl che lo invia al cluster come nuova configurazione desiderata. La richiesta cURL restituisce un documento JSON. L'elemento __versionTag__ di questo documento deve corrispondere alla versione inviata, mentre l'oggetto __configs__ conterrà le modifiche di configurazione richieste.
 
 ###Esempio: Riavviare un componente del servizio
 
 A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Spark richiederà il riavvio per rendere effettiva la nuova configurazione. Usare la procedura seguente per riavviare il servizio.
 
-1. Usare il codice seguente per attivare la modalità di manutenzione del servizio Spark.
+1. Usare il codice seguente per attivare la modalità di manutenzione del servizio Spark:
 
         echo '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
 
-    Viene inviato un documento JSON al server, contenuto nell'istruzione `echo`, che attiva la modalità di manutenzione. È possibile verificare che il servizio sia in modalità di manutenzione usando la richiesta seguente.
+    Questo comando invia un documento JSON al server, contenuto nell'istruzione `echo`, che attiva la modalità di manutenzione. È possibile verificare che il servizio sia in modalità di manutenzione usando la richiesta seguente:
     
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK" | jq .ServiceInfo.maintenance_state
         
     Viene restituito il valore `"ON"`.
 
-3. Successivamente, usare il codice seguente per disattivare il servizio.
+3. Successivamente, usare il codice seguente per disattivare il servizio:
 
         echo '{"RequestInfo": {"context" :"Stopping the Spark service"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
         
-    Viene ricevuta una risposta simile alla seguente:
+    Questo comando restituisce una risposta simile a quella seguente.
     
         {
             "href" : "http://10.0.0.18:8080/api/v1/clusters/CLUSTERNAME/requests/29",
@@ -231,17 +232,17 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
             }
         }
     
-    Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la parte '10.0.0.18:8080' con il nome FQDN del cluster. Ad esempio, il codice seguente recupera lo stato della richiesta.
+    Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la parte '10.0.0.18:8080' con il nome FQDN del cluster. Ad esempio, il comando seguente recupera lo stato della richiesta.
     
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
     
-    Se il valore restituisce `"COMPLETED"`, la richiesta è stata completata.
+    Se restituisce un valore di `"COMPLETED"`, allora la richiesta è stata completata.
 
 4. Dopo aver completato la richiesta precedente, usare il codice seguente per avviare il servizio.
 
         echo '{"RequestInfo": {"context" :"Restarting the Spark service"}, "Body": {"ServiceInfo": {"state": "STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
 
-    Dopo il riavvio, il servizio userà le nuove impostazioni di configurazione.
+    Dopo il riavvio del servizio, le nuove impostazioni di configurazione diventano effettive.
 
 5. Infine, usare il codice seguente per disattivare la modalità di manutenzione.
 
@@ -253,4 +254,4 @@ Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle
 
 > [AZURE.NOTE] Alcune funzionalità di Ambari sono disabilitate, perché vengono gestite dal servizio cloud HDInsight, ad esempio, l'aggiunta o la rimozione di host dal cluster o l'aggiunta di nuovi servizi.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

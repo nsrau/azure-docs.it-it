@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Utilizzo delle immagini di client Windows per sviluppo e test | Microsoft Azure"
-   description="Come usare i vantaggi della sottoscrizione Visual Studio per distribuire Windows 7/8/10 in Azure per scenari di sviluppo e test"
+   pageTitle="Uso delle immagini di client Windows per scenari di sviluppo/test | Microsoft Azure"
+   description="Come usare i vantaggi della sottoscrizione di Visual Studio per distribuire Windows 7/8/10 in Azure per scenari di sviluppo/test"
    services="virtual-machines-windowse"
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
-   editor=""/>
+   editor=""/> 
 
 <tags
    ms.service="virtual-machines-windows"
@@ -14,11 +14,11 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="iainfou"/>
+   ms.author="iainfou"/> 
 
-# Utilizzo di client Windows in Azure per sviluppo e test
+# Uso di client Windows in Azure per scenari di sviluppo/test
 
-A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in precedenza MSDN), è possibile utilizzare Windows 7, Windows 8 o Windows 10 in Azure per scenari di sviluppo e test. In questo articolo sono descritti i requisiti di idoneità per l'esecuzione di client Windows in Azure e l'utilizzo delle immagini della raccolta di Azure.
+A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in precedenza MSDN), è possibile usare Windows 7, Windows 8 o Windows 10 in Azure per scenari di sviluppo/test. In questo articolo sono descritti i requisiti di idoneità per l'esecuzione di client Windows in Azure e l'utilizzo delle immagini della raccolta di Azure.
 
 
 ## Idoneità della sottoscrizione
@@ -47,14 +47,14 @@ Se non si conosce l'ID offerta, è possibile risalirvi mediante il portale di Az
 
 L'ID offerta relativo alla sottoscrizione è indicato nel portale di Azure nel pannello delle sottoscrizioni:
 
-![Dettagli dell'ID offerta sul portale di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_portal.png)
+![Dettagli dell'ID offerta sul portale di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_portal.png) 
 
 È inoltre possibile visualizzare l'ID offerta nella [scheda delle sottoscrizioni](http://account.windowsazure.com/Subscriptions) del portale degli account di Azure:
 
-![Dettagli dell'ID offerta sul portale degli account di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png)
+![Dettagli dell'ID offerta sul portale degli account di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png) 
 
 
 ## Passaggi successivi
 Ora è possibile distribuire le VM con [PowerShell](virtual-machines-windows-ps-create.md), i [modelli di Resource Manager](virtual-machines-windows-ps-template.md) o [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

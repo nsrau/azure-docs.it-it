@@ -4,8 +4,8 @@
 	services="storage"
 	documentationCenter="xamarin"
 	authors="micurd"
-	manager=""
-	editor="tysonn"/>
+	manager="jahogg"
+	editor="tysonn"/> 
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="micurd"/>
+	ms.author="micurd;tamram"/> 
 
 # Come usare l'archiviazione BLOB da Xamarin
 
@@ -217,4 +217,4 @@ Questa guida introduttiva ha descritto come creare un'applicazione multipiattafo
 
 [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

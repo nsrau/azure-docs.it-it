@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Quali sono i vantaggi di Azure Multi-Factor Authentication?" 
-	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per utilizzare Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+<properties
+	pageTitle="Quali sono i vantaggi di Azure Multi-Factor Authentication?"
+	description="Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per utilizzare Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/> 
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/> 
 
 
 
@@ -40,13 +40,11 @@ Una volta scelto il metodo di verifica, procedere con la registrazione. Utilizza
 Per iniziare, selezionare uno dei seguenti argomenti.
 
 Argomento|Descrizione
-:------------- | :------------- | 
+:------------- | :------------- |
 [Esperienza di installazione](multi-factor-authentication-end-user-first-time.md)| Descrive il processo per l’impostazione iniziale di Multi-Factor Authentication.
 [Esperienza d’accesso](multi-factor-authentication-end-user-signin.md)|Illustra i passaggi dell'accesso tramite i diversi metodi, come telefono o app.
 [Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md)|Descrive come modificare le impostazioni quali il numero di telefono o il metodo di registrazione preferito.
 [Guida alle password per le app](multi-factor-authentication-end-user-app-passwords.md)| Informazioni sulla creazione e sull’utilizzo delle password per le app.
 [Utilizzo dell’app per dispositivi mobili](multi-factor-authentication-microsoft-authenticator.md)|L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
- 
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

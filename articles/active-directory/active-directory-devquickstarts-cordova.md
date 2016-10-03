@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="vibronet"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="vittorib"/>
+	ms.date="09/16/2016"
+	ms.author="vittorib"/> 
 
 # Integrare Azure AD con un'app Apache Cordova
 
@@ -27,7 +27,7 @@ Apache Cordova consente di sviluppare applicazioni HTML5/JavaScript che possono 
 In questa esercitazione si userà il plug-in Apache Cordova per Active Directory Authentication Library (ADAL) per migliorare una semplice app con le funzionalità seguenti:
 
 -	Con poche righe di codice, autenticare un utente AD e ottenere un token per chiamare l'API Graph di Azure AD.
--	Usare il token per richiamare l'API Graph per eseguire query sulla directory e visualizzare i risultati.  
+-	Usare il token per richiamare l'API Graph per eseguire query sulla directory e visualizzare i risultati.
 -	Sfruttare la cache dei token di ADAL per ridurre al minimo le richieste di autenticazione per l'utente.
 
 A questo scopo è necessario:
@@ -42,7 +42,7 @@ A questo scopo è necessario:
 Per completare questa esercitazione, sono necessari:
 
 - Tenant di Azure AD nel quale è disponibile un account con diritti per lo sviluppo di app.
-- Ambiente di sviluppo configurato per l'uso di Apache Cordova.  
+- Ambiente di sviluppo configurato per l'uso di Apache Cordova.
 
 Se entrambi questi elementi sono già configurati, andare direttamente al passaggio 1.
 
@@ -156,7 +156,7 @@ A questo punto, è necessario aggiungere il codice per la richiesta del token ef
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -180,7 +180,7 @@ La seconda parte del metodo esegue la richiesta di token vera e propria. Il meto
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -263,10 +263,10 @@ L'app è finalmente pronta per essere eseguita. Il funzionamento è molto sempli
 
 Usare `cordova run --help` per visualizzare altre opzioni di compilazione ed esecuzione.
 
-Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient). A questo punto è possibile passare a scenari più avanzati e più interessanti. È possibile:
+Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient). A questo punto è possibile passare a scenari più avanzati e più interessanti. È possibile consultare:
 
 [Proteggere un'API Web Node.js con Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

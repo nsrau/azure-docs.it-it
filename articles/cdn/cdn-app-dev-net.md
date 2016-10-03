@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="camsoper"
 	manager="erikre"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="cdn"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/15/2016"
 	ms.author="casoper"/>
 
 # Introduzione allo sviluppo della rete CDN di Azure
 
 > [AZURE.SELECTOR]
-- [.NET](cdn-app-dev-net.md)
 - [Node.JS](cdn-app-dev-node.md)
+- [.NET](cdn-app-dev-net.md)
 
 È possibile usare la [libreria CDN di Azure per .NET](https://msdn.microsoft.com/library/mt657769.aspx) per automatizzare la creazione e la gestione di profili ed endpoint di una rete CDN. Questa esercitazione illustra in dettaglio la creazione di una semplice applicazione console .NET che dimostra varie operazioni disponibili. Lo scopo di questa esercitazione non è descrivere dettagliatamente tutti gli aspetti della libreria CDN di Azure per .NET.
 
@@ -321,11 +321,11 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 È ora possibile compilare ed eseguire il programma facendo clic sul pulsante **Avvia** in Visual Studio.
 
-![Il programma in esecuzione](./media/cdn-app-dev-net/cdn-program-running-1.png)
+![Il programma in esecuzione](./media/cdn-app-dev-net/cdn-program-running-1.png) 
 
 Quando il programma raggiunge la richiesta precedente, sarà possibile ritornare al gruppo di risorse nel portale di Azure e verificare che il profilo sia stato creato.
 
-![Completamento della procedura](./media/cdn-app-dev-net/cdn-success.png)
+![Completamento della procedura](./media/cdn-app-dev-net/cdn-success.png) 
 
 È quindi possibile confermare le richieste per eseguire il resto del programma.
 
@@ -339,4 +339,4 @@ Per altra documentazione su Azure CDN Management Library per .NET, vedere i [rif
 
 Gestire le risorse della rete CDN con [PowerShell](./cdn-manage-powershell.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->
