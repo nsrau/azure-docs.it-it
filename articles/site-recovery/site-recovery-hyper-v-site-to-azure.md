@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -138,7 +138,7 @@ Configurare una rete di Azure. È necessario configurare una rete di Azure affin
 4. [Creare un nuovo gruppo di risorse](../resource-group-template-deploy-portal.md) o selezionarne uno esistente e specificare un'area di Azure. I computer verranno replicati in quest'area. Per informazioni sulla disponibilità a livello geografico e sulle aree supportate, vedere la pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 4. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** e quindi su **Crea insieme di credenziali**.
 
-	![Nuovo insieme di credenziali](./media/site-recovery-hyper-v-site-to-azure/new-vault-settings.png)  
+	![Nuovo insieme di credenziali](./media/site-recovery-hyper-v-site-to-azure/new-vault-settings.png) 
 
 Il nuovo insieme di credenziali verrà visualizzato in **Dashboard** > **Tutte le risorse** e nel pannello **Insiemi di credenziali dei servizi di ripristino** principale.
 
@@ -159,7 +159,7 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 1. Nel pannello **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali e fare clic su **Impostazioni**.
 2. In **Impostazioni** > **Attività iniziali** fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
-	![Scegliere gli obiettivi](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)  
+	![Scegliere gli obiettivi](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png) 
 
 3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Sì, con Hyper-V**. Scegliere **No** per confermare che non si sta usando VMM. Fare quindi clic su **OK**.
 
@@ -173,11 +173,11 @@ Configurare il sito Hyper-V, installare il provider di Azure Site Recovery e l'a
 
 1. Fare clic su **Passaggio 2: Preparare l'infrastruttura** > **Origine**. Per aggiungere un nuovo sito Hyper-V come contenitore per i cluster o gli host Hyper-V, fare clic su **+ Sito Hyper-V**.
 
-	![Impostare l'origine](./media/site-recovery-hyper-v-site-to-azure/set-source1.png)  
+	![Impostare l'origine](./media/site-recovery-hyper-v-site-to-azure/set-source1.png) 
 
 2. Nel pannello **Crea il sito Hyper-V** specificare un nome per il sito. Fare quindi clic su **OK**. Selezionare il sito appena creato.
 
-	![Impostare l'origine](./media/site-recovery-hyper-v-site-to-azure/set-source2.png)  
+	![Impostare l'origine](./media/site-recovery-hyper-v-site-to-azure/set-source2.png) 
 
 3. Fare clic su **+ Server Hyper-V** per aggiungere un server al sito.
 4. In **Aggiungi server** > **Tipo di server** verificare che sia disponibile **Server Hyper-V**. Assicurarsi che il server Hyper-V da aggiungere sia conforme ai [prerequisiti](#on-premises-prerequisites) e che possa accedere agli URL specificati.
@@ -195,7 +195,7 @@ Configurare il sito Hyper-V, installare il provider di Azure Site Recovery e l'a
 3. In **Installazione** accettare o modificare il percorso predefinito di installazione del provider e quindi fare clic su **Installa**.
 4. Nella pagina **Impostazioni dell'insieme di credenziali** fare clic su **Esplora** per selezionare il file di chiave dell'insieme di credenziali scaricato. Specificare la sottoscrizione di Azure Site Recovery, il nome dell'insieme di credenziali e il sito Hyper-V a cui appartiene il server Hyper-V.
 
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure/provider3.png)  
+	![Server registration](./media/site-recovery-hyper-v-site-to-azure/provider3.png) 
 
 5\. In **Impostazioni proxy** specificare in che modo il provider che verrà installato sul server si connetterà ad Azure Site Recovery tramite Internet.
 
@@ -205,7 +205,7 @@ Configurare il sito Hyper-V, installare il provider di Azure Site Recovery e l'a
 - Se si usa un proxy personalizzato è necessario specificare l'indirizzo, la porta e le credenziali.
 - Se si usa un proxy, assicurarsi che sia possibile accedere agli URL indicati nei [prerequisiti](#on-premises-prerequisites).
 
-	![Internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)  
+	![Internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG) 
 
 6\. Al termine dell'installazione fare clic su **Registra** per registrare il server nell'insieme di credenziali. ![Posizione di installazione](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
@@ -247,13 +247,13 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 
 4.	Per creare un account di archiviazione con Azure Resource Manager, se non è già stato fatto, fare clic su **+ Account di archiviazione** per eseguire l'operazione inline. Nel pannello **Crea account di archiviazione** specificare il nome, il tipo, la sottoscrizione e la località dell'account. L'account deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
 
-	![Archiviazione](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)  
+	![Archiviazione](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png) 
 
 	Per creare un account di archiviazione con il modello di distribuzione classica, usare il [portale di Azure](../storage/storage-create-storage-account-classic-portal.md).
 	
 5.	Per creare una rete di Azure con Azure Resource Manager, se non è già stato fatto, fare clic su **+ Rete** per eseguire l'operazione inline. Nel pannello **Crea rete virtuale** specificare il nome, l'intervallo di indirizzi, i dettagli della subnet, la sottoscrizione e la località della rete. La rete deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
 
-	![Rete](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)  
+	![Rete](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png) 
 
 	Per creare una rete con il modello di distribuzione classica è necessario usare [il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 	
@@ -270,7 +270,7 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 6. In **Frequenza snapshot coerenti con l'app** specificare la frequenza, da 1 a 12 ore, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Hyper-V utilizza due tipi di snapshot, uno snapshot standard che fornisce uno snapshot incrementale dell'intera macchina virtuale e uno snapshot coerente con l'applicazione che accetta uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Negli snapshot coerenti dell'applicazione viene usato il servizio Copia Shadow del volume (VSS) per garantire che le applicazioni siano coerenti durante la creazione dello snapshot. Si noti che un'eventuale abilitazione di snapshot coerenti dell'applicazione influirà sulle prestazioni delle applicazioni in esecuzione nelle macchine virtuali di origine. Assicurarsi che il valore impostato sia inferiore al numero di punti di ripristino aggiuntivi configurati.
 3. In **Ora di inizio della replica iniziale** specificare quando deve essere avviata la replica iniziale. La replica avviene sulla larghezza di banda Internet. È quindi consigliabile pianificarla al di fuori dell'orario di lavoro. Fare quindi clic su **OK**.
 
-	![Criteri di replica](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)  
+	![Criteri di replica](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png) 
 
 Quando si creano nuovi criteri, questi vengono associati automaticamente al sito Hyper-V. Fare clic su **OK**. È possibile associare un sito Hyper-V e le VM che contiene a più criteri di replica in **Impostazioni** > **Replica** > nome criteri > **Associa sito Hyper-V**.
 
@@ -301,7 +301,7 @@ Lo strumento Capacity Planner può essere usato per calcolare la larghezza di ba
 2. Nello snap-in fare clic su **Modifica proprietà**.
 3. Nella scheda **Limitazione larghezza di banda rete** selezionare **Abilita la limitazione all'uso della larghezza di banda Internet per le operazioni di backup** e impostare i limiti per le ore lavorative e non lavorative. Gli intervalli validi sono compresi tra 512 Kbps e 102 Mbps al secondo.
 
-	![Limitazione della larghezza di banda](./media/site-recovery-hyper-v-site-to-azure/throttle2.png)  
+	![Limitazione della larghezza di banda](./media/site-recovery-hyper-v-site-to-azure/throttle2.png) 
 
 È anche possibile usare il cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) per impostare la limitazione. Di seguito è riportato un esempio:
 
@@ -332,19 +332,19 @@ Per abilitare la replica, procedere come descritto di seguito.
 4. Selezionare l'account di archiviazione da usare. Per usare un account di archiviazione diverso da quelli disponibili, è possibile [crearne uno](#set-up-an-azure-storage-account). Per creare un account di archiviazione con il modello di distribuzione Azure Resource Manager, fare clic su **Crea nuovo**. Per creare un account di archiviazione con il modello di distribuzione classica, usare il [portale di Azure](../storage/storage-create-storage-account-classic-portal.md). Fare quindi clic su **OK**.
 5.  Selezionare la rete di Azure e la subnet a cui dovranno connettersi le macchine virtuali di Azure attivate dopo il failover. Scegliere **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. Per usare una rete diversa da quelle disponibili, è possibile [crearne una](#set-up-an-azure-network). Per creare una rete con il modello di distribuzione Azure Resource Manager, fare clic su **Crea nuovo**. Per creare una rete con il modello di distribuzione classica, usare il [portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selezionare una subnet, se applicabile. Fare quindi clic su **OK**.
 
-	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)  
+	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png) 
 
 6. In **Macchine virtuali** > **Seleziona macchine virtuali** fare clic per selezionare le macchine virtuali da replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Fare quindi clic su **OK**.
 
-	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication5.png)  
+	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication5.png) 
 
 11. In **Proprietà** > **Configura proprietà** selezionare il sistema operativo per le VM selezionate e il disco del sistema operativo. Verificare che il nome della VM di Azure (nome di destinazione) sia conforme ai [requisiti per le macchine virtuali di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) e, se necessario, modificarlo. Fare quindi clic su **OK**. È possibile impostare proprietà aggiuntive in un secondo momento.
 
-	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication6.png)  
+	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication6.png) 
 
 12. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Impostazioni** > **Criteri di replica** > nome dei criteri > **Modifica impostazioni**. Le modifiche applicate verranno usate per i computer di cui è già in corso la replica e per i nuovi computer.
 
-	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)  
+	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png) 
 
 È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
@@ -354,11 +354,11 @@ Per abilitare la replica, procedere come descritto di seguito.
 
 1. Fare clic su **Impostazioni** > **Elementi protetti** > **Elementi replicati** e selezionare la macchina virtuale.
 
-	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/test-failover1.png)  
+	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/test-failover1.png) 
 
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
 
-	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/test-failover2.png)  
+	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/test-failover2.png) 
 
 3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile specificare le dimensioni di destinazione e il nome della VM di Azure. Se necessario, modificare il nome in modo che sia conforme ai requisiti di Azure. È anche possibile visualizzare e modificare le informazioni sulla rete di destinazione, la subnet e l'indirizzo IP che verranno assegnati alla macchina virtuale di Azure. Tenere presente quanto segue:
 
@@ -370,7 +370,7 @@ Per abilitare la replica, procedere come descritto di seguito.
 		- Ad esempio, se una macchina di origine dispone di due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
 		- Se la macchina virtuale ha più schede di rete, si connetteranno tutte alla stessa rete.
 
-	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/test-failover4.png)  
+	![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/test-failover4.png) 
 
 5.	In **Dischi** è possibile visualizzare il sistema operativo e i dischi dati della VM che verranno replicati.
 
@@ -456,7 +456,7 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 
 1. Fare clic sul nome dell'insieme di credenziali per accedere al dashboard **Informazioni di base**. In questo dashboard è possibile visualizzare i processi di Site Recovery, lo stato della replica, i piani di ripristino, l'integrità del server e gli eventi. Il dashboard Informazioni di base può essere personalizzato con i riquadri e i layout più utili all'utente, incluso lo stato degli insiemi di credenziali di Backup e di Site Recovery.
 
-	![Informazioni di base](./media/site-recovery-hyper-v-site-to-azure/essentials.png)  
+	![Informazioni di base](./media/site-recovery-hyper-v-site-to-azure/essentials.png) 
 
 2. Nel riquadro **Integrità** è possibile monitorare i server del sito in cui si verifica il problema e gli eventi generati da Site Recovery nelle ultime 24 ore.
 3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. Per analizzare i processi, accedere a **Impostazioni** -> **Processi** -> **Site Recovery jobs** (Processi di Site Recovery).

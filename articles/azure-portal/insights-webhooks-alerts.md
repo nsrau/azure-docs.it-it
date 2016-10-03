@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/> 
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/15/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/> 
 
 # Configurare un webhook in un avviso relativo alle metriche di Azure
 
@@ -26,7 +26,7 @@ Gli avvisi di Azure eseguono l'azione HTTP POST per il contenuto degli avvisi in
 
 È possibile aggiungere o aggiornare l'URI del webhook nella schermata di creazione/aggiornamento degli avvisi nel [portale](https://portal.azure.com/).
 
-![Aggiungere una regola di avviso](./media/insights-webhooks-alerts/Alertwebhook.png)  
+![Aggiungere una regola di avviso](./media/insights-webhooks-alerts/Alertwebhook.png) 
 
 È anche possibile configurare un avviso da inserire in un URI webhook usando i [cmdlet di Azure PowerShell](./insights-powershell-samples.md#create-alert-rules), l'[interfaccia della riga di comando multipiattaforma](./insights-cli-samples.md#work-with-alerts) o l'[API REST di Insights](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 

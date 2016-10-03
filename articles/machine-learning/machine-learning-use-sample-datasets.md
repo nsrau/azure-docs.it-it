@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/> 
 
 
 # Usare i set di dati di esempio in Azure Machine Learning Studio
@@ -316,7 +316,7 @@ Questi dati provengono dalla competizione KDD Cup 2010 dedicata alla valutazione
 </table>
 
 
-<!-- Module References -->  
+<!-- Module References --> 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 <!---HONumber=AcomDC_0921_2016-->

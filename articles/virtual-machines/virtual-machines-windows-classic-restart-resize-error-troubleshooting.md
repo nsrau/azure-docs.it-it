@@ -6,7 +6,7 @@
    authors="Deland-Han"
    manager="felixwu"
    editor=""
-   tags="top-support-issue"/>  
+   tags="top-support-issue"/> 
 
 <tags
    ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
    ms.workload="required"
    ms.date="09/20/2016"
    ms.devlang="na"
-   ms.author="delhan"/>  
+   ms.author="delhan"/> 
 
 # Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure
 

@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-service-management"/>  
+   tags="azure-service-management"/> 
 
 <tags 
    ms.service="expressroute"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="09/20/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/> 
 
 # Creare una rete virtuale per ExpressRoute nel portale classico
 

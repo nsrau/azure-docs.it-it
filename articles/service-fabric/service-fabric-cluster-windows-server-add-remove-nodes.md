@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="dsk-2015"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/20/2016"
-   ms.author="dkshir;chackdan"/>  
+   ms.author="dkshir;chackdan"/> 
 
 
 # Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server

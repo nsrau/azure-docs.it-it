@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeevansd"
 	manager="femila"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/15/2016"
-	ms.author="jeedes"/>  
+	ms.author="jeedes"/> 
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Cezanne HR Software
@@ -62,29 +62,29 @@ Per configurare l'integrazione di Cezanne HR Software in Azure AD, è necessario
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]  
+	![Active Directory][1] 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 	
-	![Applicazioni][2]  
+	![Applicazioni][2] 
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 	
-	![Applicazioni][3]  
+	![Applicazioni][3] 
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-	![Applicazioni][4]  
+	![Applicazioni][4] 
 
 6. Nella casella di ricerca, digitare **Cezanne HR Software**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_01.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_01.png) 
 
 7. Nel riquadro dei risultati selezionare **Cezanne HR Software** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-	![Selezione dell'app nella raccolta](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_0001.png)  
+	![Selezione dell'app nella raccolta](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_0001.png) 
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Cezanne HR Software in base a un utente test di nome "Britta Simon".
@@ -109,15 +109,15 @@ In questa sezione nel portale classico viene abilitato l'accesso Single Sign-On 
 
 1. Nella pagina di integrazione dell'applicazione **Cezanne HR Software** del portale classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 	 
-	![Configura accesso Single Sign-On][6]  
+	![Configura accesso Single Sign-On][6] 
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Cezanne HR Software** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
     
-	![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_03.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_03.png) 
 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura e fare clic su **Avanti**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_04.png)  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_04.png) 
 
 	a. Nella casella di testo **URL accesso** digitare un URL corrispondente al modello seguente: `https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`.
 
@@ -131,7 +131,7 @@ In questa sezione nel portale classico viene abilitato l'accesso Single Sign-On 
 
 4. Nella pagina **Configura accesso Single Sign-On in Cezanne HR Software** seguire questa procedura e fare clic su **Avanti**:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_05.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_05.png) 
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
@@ -141,19 +141,19 @@ In questa sezione nel portale classico viene abilitato l'accesso Single Sign-On 
 
 6. Nella barra di spostamento a sinistra fare clic su **System Setup** (Configurazione di sistema). Passare a **Security Settings** (Impostazioni di sicurezza). Passare quindi a **Single Sign-On Configuration** (Configurazione Single Sign-On).
 
-	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)  
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png) 
 
 7. Nel riquadro **Allow users to log in using the following Single Sign-On (SSO) Service** (Consenti agli utenti di accedere usando il servizio Single Sign-On (SSO) seguente) selezionare la casella **SAML 2.0** e quindi selezionare l'opzione **Advanced Configuration** (Configurazione avanzata) accanto ad essa.
 
-	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)  
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png) 
 
 8. Fare clic sul pulsante **Add New** (Aggiungi nuovo).
 
-	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)  
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png) 
 
 9. Seguire questa procedura nella sezione **SAML 2.0 IDENTITY PROVIDERS** (PROVIDER DI IDENTITÀ SAML 2.0).
 
-	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)  
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png) 
 
 	a. Immettere il nome del provider di identità in **Display Name** (Nome visualizzato).
 
@@ -171,38 +171,38 @@ In questa sezione nel portale classico viene abilitato l'accesso Single Sign-On 
 
 10. Fare clic sul pulsante **Salva**.
 
-	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)  
+	![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png) 
 
 11. Nel portale di Azure classico selezionare la conferma della configurazione e quindi fare clic su **Avanti**.
     
-	![Accesso Single Sign-On di Azure AD][10]  
+	![Accesso Single Sign-On di Azure AD][10] 
 
 12. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
     
-	![Accesso Single Sign-On di Azure AD][11]  
+	![Accesso Single Sign-On di Azure AD][11] 
 
 
 
 ### Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
-![Creare un utente di Azure AD][20]  
+![Creare un utente di Azure AD][20] 
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_09.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_09.png) 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png) 
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png) 
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
@@ -216,7 +216,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_06.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_06.png) 
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -230,11 +230,11 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_07.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_07.png) 
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_08.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_08.png) 
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -252,11 +252,11 @@ Per consentire agli utenti di Azure AD di accedere a Cezanne HR Software, è nec
 
 2.  Nella barra di spostamento a sinistra fare clic su **System Setup** (Configurazione di sistema). Passare a **Gestisci utenti**. Passare quindi ad **Add New User** (Aggiungi nuovo utente).
 
-    ![New User](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "New User")  
+    ![New User](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "New User") 
 
 3.  Nella sezione **Person Details** (Dettagli persona) seguire questa procedura:
 
-    ![New User](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "New User")  
+    ![New User](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "New User") 
 
 	a. Impostare **Internal User** (Utente interno) su OFF.
 
@@ -268,7 +268,7 @@ Per consentire agli utenti di Azure AD di accedere a Cezanne HR Software, è nec
 
 4.  Nella sezione **Account Information** (Informazioni account) seguire questa procedura:
 
-    ![New User](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "New User")  
+    ![New User](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "New User") 
 
 	a. Nella casella di testo **Username** (Nome utente) digitare l'indirizzo di posta elettronica di Britta Simon.
 
@@ -280,42 +280,42 @@ Per consentire agli utenti di Azure AD di accedere a Cezanne HR Software, è nec
 
 5. Passare alla scheda **Single Sign-On** e selezionare **Add New** (Aggiungi nuovo) nell'area **SAML 2.0 Identifiers** (Identificatori SAML 2.0).
 
-	![Utente](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utente")  
+	![Utente](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utente") 
 
 6. Scegliere il provider di identità per **Identity Provider** (Provider di identità) e nella casella di testo **User Identifier** (Identificatore utente) immettere l'indirizzo di posta elettronica dell'account Britta Simon.
 
-	![Utente](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utente")  
+	![Utente](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utente") 
 	
 7. Fare clic sul pulsante **Salva**.
 
-	![Utente](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utente")  
+	![Utente](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utente") 
 
 
 ### Assegnazione dell'utente test di Azure AD
 
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Cezanne HR Software.
 	
-![Assegna utente][200]  
+![Assegna utente][200] 
 
 **Per assegnare Britta Simon a Cezanne HR Software, seguire questa procedura:**
 
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
     
-	![Assegna utente][201]  
+	![Assegna utente][201] 
 
 2. Nell'elenco di applicazioni selezionare **Cezanne HR Software**.
     
-	![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_50.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_50.png) 
 
 3. Scegliere **Utenti** dal menu in alto.
     
-	![Assegna utente][203]  
+	![Assegna utente][203] 
 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
 
 5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
     
-	![Assegna utente][205]  
+	![Assegna utente][205] 
 
 ### Test dell'accesso Single Sign-On
 
@@ -330,7 +330,7 @@ Quando si fa clic sul riquadro Cezanne HR Software nel pannello di accesso, si d
 
 
 
-<!--Image references-->  
+<!--Image references--> 
 
 [1]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_02.png

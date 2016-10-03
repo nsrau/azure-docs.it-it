@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="Chackdan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/09/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/> 
 
 # Creare cluster autonomi di Service Fabric in Windows Server o Linux
 Azure Service Fabric permette di creare cluster Service Fabric su qualsiasi macchina virtuale o computer con Windows Server o Linux in esecuzione. In questo modo, sarà possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente in cui è presente un set interconnesso di computer Windows Server o Linux, in locale o con qualsiasi provider cloud.

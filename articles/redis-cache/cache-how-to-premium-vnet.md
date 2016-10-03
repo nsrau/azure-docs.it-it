@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/> 
 
 # Come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
@@ -37,19 +37,19 @@ Dopo aver selezionato un piano tariffario Premium, è possibile configurare l'in
 
 Per configurare la rete virtuale per la nuova cache, fare clic su **Rete virtuale** nel pannello **Nuova cache Redis** e selezionare la rete virtuale desiderata dall'elenco a discesa.
 
-![Rete virtuale][redis-cache-vnet]  
+![Rete virtuale][redis-cache-vnet] 
 
 Nell'elenco a discesa **Subnet** selezionare la subnet desiderata e specificare l'**indirizzo IP statico** desiderato. Se si usa una rete virtuale classica, il campo **Indirizzo IP statico** è facoltativo e, se non è specificato, ne verrà scelto uno dalla subnet selezionata.
 
 >[AZURE.IMPORTANT] Quando si distribuisce una Cache Redis di Azure in una rete virtuale ARM, la cache deve trovarsi in una subnet dedicata che non contiene altre risorse, ad eccezione delle istanze di Cache Redis di Azure. Se si tenta di distribuire una Cache Redis di Azure in una rete virtuale ARM in una subnet contenente altre risorse, la distribuzione avrà esito negativo.
 
-![Rete virtuale][redis-cache-vnet-ip]  
+![Rete virtuale][redis-cache-vnet-ip] 
 
 >[AZURE.IMPORTANT] I primi quattro indirizzi in una subnet sono riservati e non possono essere usati. Per altre informazioni, vedere [Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
 Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** nel pannello **Impostazioni**.
 
-![Rete virtuale][redis-cache-vnet-info]  
+![Rete virtuale][redis-cache-vnet-info] 
 
 
 Per connettersi all'istanza di Cache Redis di Azure quando si usa una rete virtuale, specificare il nome host della cache nella stringa di connessione, come illustrato nell'esempio seguente.
@@ -157,7 +157,7 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 
   
-<!-- IMAGES -->  
+<!-- IMAGES --> 
 
 [redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
 

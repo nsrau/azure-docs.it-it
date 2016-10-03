@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="Blackmist"
     manager="jhubbard"
-    editor="cgronlun"/>  
+    editor="cgronlun"/> 
 
 <tags
     ms.service="hdinsight"
@@ -167,11 +167,11 @@ Questo codice rende disponibili gli helper seguenti per l'uso nello script perso
 | `test_is_headnode` | Se viene eseguito su un nodo head del cluster restituisce 1; in caso contrario, 0. |
 | `test_is_datanode` | Se il nodo corrente è un nodo dati (di lavoro) restituisce 1; in caso contrario, 0. |
 | `test_is_first_datanode` | Se il nodo corrente è il primo nodo dati (di lavoro) (denominato workernode0) restituisce 1; in caso contrario, 0. |
-| `get_headnodes`   | Restituisce il nome di dominio completo dei nodi head nel cluster. I nomi sono delimitati da virgole. In caso di errore, viene restituita una stringa vuota. |
-| `get_primary_headnode`   | Ottiene il nome di dominio completo del nodo head primario. In caso di errore, viene restituita una stringa vuota. |
-| `get_secondary_headnode`   | Ottiene il nome di dominio completo del nodo head secondario. In caso di errore, viene restituita una stringa vuota. |
-| `get_primary_headnode_number`   | Ottiene il suffisso numerico del nodo head primario. In caso di errore, viene restituita una stringa vuota. |
-| `get_secondary_headnode_number`   | Ottiene il suffisso numerico del nodo head secondario. In caso di errore, viene restituita una stringa vuota. |
+| `get_headnodes`  | Restituisce il nome di dominio completo dei nodi head nel cluster. I nomi sono delimitati da virgole. In caso di errore, viene restituita una stringa vuota. |
+| `get_primary_headnode`  | Ottiene il nome di dominio completo del nodo head primario. In caso di errore, viene restituita una stringa vuota. |
+| `get_secondary_headnode`  | Ottiene il nome di dominio completo del nodo head secondario. In caso di errore, viene restituita una stringa vuota. |
+| `get_primary_headnode_number`  | Ottiene il suffisso numerico del nodo head primario. In caso di errore, viene restituita una stringa vuota. |
+| `get_secondary_headnode_number`  | Ottiene il suffisso numerico del nodo head secondario. In caso di errore, viene restituita una stringa vuota. |
 
 ## <a name="commonusage"></a>Modelli di utilizzo comuni
 

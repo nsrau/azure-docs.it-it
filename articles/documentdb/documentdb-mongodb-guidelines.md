@@ -5,7 +5,7 @@
 	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="" 
-	documentationCenter=""/>  
+	documentationCenter=""/> 
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/> 
 
 # Linee guida sullo sviluppo per account DocumentDB con supporto del protocollo per MongoDB
 

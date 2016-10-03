@@ -5,7 +5,7 @@
    documentationCenter="virtual-machines-linux"
    authors="vlivech"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/14/2016"
-   ms.author="v-livech"/>  
+   ms.author="v-livech"/>
 
 # Azure e Linux
 
@@ -24,7 +24,7 @@ Se si ha familiarità con le varie caratteristiche di Amazon AWS, è possibile e
 
 
 ## Regioni
-Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo. Una "area" rappresenta più data center in una singola area geografica. Al 1° gennaio 2016 risultano incluse: 8 in America, 2 in Europa, 6 Asia Pacifico, 2 in Cina continentale e 3 in India. Per un elenco completo di tutte le aree di Azure, è disponibile un elenco delle aree esistenti e annunciate di recente.
+Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo. Una "area" rappresenta più data center in una singola area geografica. Al 1ª gennaio 2016 risultano incluse: 8 in America, 2 in Europa, 6 Asia Pacifico, 2 in Cina continentale e 3 in India. Per un elenco completo di tutte le aree di Azure, è disponibile un elenco delle aree esistenti e annunciate di recente.
 
 - [Aree di Azure](https://azure.microsoft.com/regions/)
 

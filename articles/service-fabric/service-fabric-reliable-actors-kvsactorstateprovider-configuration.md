@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="sumukhs"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="Service-Fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/20/2016"
-   ms.author="sumukhs"/>  
+   ms.author="sumukhs"/> 
 
 # Configurare KVSActorStateProvider di Reliable Actors
 È possibile modificare la configurazione predefinita di KVSActorStateProvider cambiando il file settings.xml generato nella radice del pacchetto di Microsoft Visual Studio all'interno della cartella Config per l'attore specificato.

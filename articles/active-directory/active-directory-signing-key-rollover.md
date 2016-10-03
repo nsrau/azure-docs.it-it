@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="gsacavdm"
 	manager="krassk"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"

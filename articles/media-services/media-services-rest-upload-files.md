@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/> 
 
 
 # Caricare file in un account di Servizi multimediali mediante REST

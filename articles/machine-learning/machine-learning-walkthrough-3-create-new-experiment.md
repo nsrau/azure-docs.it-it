@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -53,7 +53,7 @@ Per usare [Edit Metadata][edit-metadata] è necessario innanzitutto specificare 
 
 1.	Nella tavolozza dei moduli digitare "metadati" nella casella **Cerca**. Nell'elenco dei moduli verrà visualizzato il modulo [Edit Metadata][edit-metadata].
 2.	Trascinare il modulo [Edit Metadata][edit-metadata] nell'area di disegno e rilasciarlo sotto il set di dati precedentemente aggiunto.
-3.	Connettere il set di dati a [Edit Metadata][edit-metadata]\: fare clic sulla porta di output del set di dati (il circoletto in fondo al set di dati), trascinarla sulla porta di input di [Edit Metadata][edit-metadata] (il circoletto in cima al modulo), quindi rilasciare il pulsante del mouse. Il set di dati e il modulo rimarranno connessi anche se uno di essi viene spostato in un altra posizione nell'area di disegno.
+3.	Connettere il set di dati a [Edit Metadata][edit-metadata]\: fare clic sulla porta di output del set di dati (il circoletto in fondo al set di dati), trascinarla sulla porta di input di [Edit Metadata][edit-metadata] \(il circoletto in cima al modulo), quindi rilasciare il pulsante del mouse. Il set di dati e il modulo rimarranno connessi anche se uno di essi viene spostato in un altra posizione nell'area di disegno.
 
     L'esperimento avrà ora un aspetto analogo al seguente:
 
@@ -127,7 +127,7 @@ Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere
 [4]: ./media/machine-learning-walkthrough-3-create-new-experiment/columnselector.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

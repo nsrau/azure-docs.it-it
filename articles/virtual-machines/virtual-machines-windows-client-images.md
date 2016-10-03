@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="virtual-machines-windows"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="iainfou"/>  
+   ms.author="iainfou"/> 
 
 # Uso di client Windows in Azure per scenari di sviluppo/test
 
@@ -47,11 +47,11 @@ Se non si conosce l'ID offerta, è possibile risalirvi mediante il portale di Az
 
 L'ID offerta relativo alla sottoscrizione è indicato nel portale di Azure nel pannello delle sottoscrizioni:
 
-![Dettagli dell'ID offerta sul portale di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_portal.png)  
+![Dettagli dell'ID offerta sul portale di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_portal.png) 
 
 È inoltre possibile visualizzare l'ID offerta nella [scheda delle sottoscrizioni](http://account.windowsazure.com/Subscriptions) del portale degli account di Azure:
 
-![Dettagli dell'ID offerta sul portale degli account di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png)  
+![Dettagli dell'ID offerta sul portale degli account di Azure](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png) 
 
 
 ## Passaggi successivi

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun"  />
 
 <tags 
 	ms.service="machine-learning" 
@@ -118,7 +118,7 @@ Si può anche restituire i risultati della query Hive in un BLOB di Azure, nel c
 
 Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è sufficiente fornire il nome della directory, senza il nome del BLOB. Viene generato un errore se si specificano i nomi della directory e del BLOB, ad esempio `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Creare un'area di lavoro](./media/machine-learning-data-science-move-hive-tables/output-hive-results-2.png)  
+![Creare un'area di lavoro](./media/machine-learning-data-science-move-hive-tables/output-hive-results-2.png)
 
 Se si apre il contenitore predefinito del cluster Hadoop usando Esplora archivi di Azure, è possibile visualizzare l'output della query Hive come indicato nell'immagine di seguito. È possibile applicare il filtro (evidenziato da una casella rossa) per recuperare solo il BLOB con le lettere specificate nei nomi.
 

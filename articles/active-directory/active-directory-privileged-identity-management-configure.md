@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -95,13 +95,13 @@ Un amministratore che vuole attivare un ruolo deve inizializzare Azure AD Privil
 
 L'attivazione del ruolo è personalizzabile. Nelle impostazioni di PIM è possibile impostare la durata dell'attivazione e le informazioni che l'amministratore deve specificare per attivare il ruolo.
 
-![Richiesta di attivazione del ruolo dell'amministratore PIM - Schermata][5]  
+![Richiesta di attivazione del ruolo dell'amministratore PIM - Schermata][5] 
 
 ## Verificare l'attività del ruolo
 
 È possibile verificare l'uso dei ruoli con privilegi da parte di dipendenti e amministratori in due modi. È prima di tutto possibile usare la [cronologia di controllo](active-directory-privileged-identity-management-how-to-use-audit-log.md). La cronologia di controllo registra le modifiche rilevate nelle assegnazioni dei ruoli con privilegi e nella cronologia di attivazione dei ruoli.
 
-![Cronologia di attivazione PIM - Schermata][6]  
+![Cronologia di attivazione PIM - Schermata][6] 
 
 La seconda opzione consiste nel configurare [verifiche di accesso](active-directory-privileged-identity-management-how-to-start-security-review.md) regolari. Queste verifiche di accesso possono essere eseguite e assegnate da un revisore, ad esempio il responsabile del team, o dai dipendenti stessi. Questo è il modo migliore per monitorare gli utenti che necessitano ancora dell'accesso e gli utenti che non devono più accedere.
 

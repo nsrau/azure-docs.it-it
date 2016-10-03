@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/> 
 
 
 # Integrare Azure AD con un'app di Windows Phone

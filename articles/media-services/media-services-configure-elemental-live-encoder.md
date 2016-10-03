@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="cenkdin" 
 	manager="dwrede" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/19/2016"
-	ms.author="cenkdin;anilmur;juliako"/>  
+	ms.author="cenkdin;anilmur;juliako"/> 
 
 #Usare il codificatore Elemental Live per inviare un flusso live a velocità in bit singola.
 

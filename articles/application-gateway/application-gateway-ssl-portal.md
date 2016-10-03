@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/> 
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/09/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/> 
 
 # Configurare un gateway applicazione per l'offload SSL con il portale
 
@@ -40,7 +40,7 @@ Il listener HTTPS cerca il traffico in base alla relativa configurazione e conse
 
 Passare al portale di Azure e selezionare un gateway applicazione esistente.
 
-![Pannello di panoramica del gateway applicazione][1]  
+![Pannello di panoramica del gateway applicazione][1] 
 
 ### Passaggio 2
 
@@ -60,7 +60,7 @@ Inserire le informazioni necessarie per il listener e caricare il certificato PF
 
 **Certificato (Nome/Password)**: se si usa l'offload SSL, per questa impostazione sono necessari un certificato PFX, un nome descrittivo e una password.
 
-![Pannello Aggiungi listener][2]  
+![Pannello Aggiungi listener][2] 
 
 ## Creare una regola e associarla al listener
 
@@ -70,13 +70,13 @@ Ora che il listener è stato creato, è necessario creare una regola per gestire
 
 Fare clic su **Regole** nel gateway applicazione e quindi su Aggiungi.
 
-![Pannello delle regole del gateway applicazione][3]  
+![Pannello delle regole del gateway applicazione][3] 
 
 ### Passaggio 2
 
 Nel pannello **Aggiungi regola di base** digitare il nome descrittivo della regola e scegliere il listener creato nel passaggio precedente. Scegliere il pool back-end e l'impostazione HTTP appropriati e fare clic su **OK**.
 
-![Finestra delle impostazioni HTTP][4]  
+![Finestra delle impostazioni HTTP][4] 
 
 Le impostazioni vengono così salvate nel gateway applicazione. Il processo di salvataggio di queste impostazioni può richiedere tempo e le impostazioni potrebbero non essere immediatamente visualizzabili tramite il portale o PowerShell. Al termine del salvataggio, il gateway applicazione gestisce la crittografia e la decrittografia del traffico. Tutto il traffico tra il gateway applicazione e i server Web back-end verrà gestito su HTTP. Tutte le comunicazioni verso il client, se avviate su HTTPS, verranno restituite al client crittografate.
 

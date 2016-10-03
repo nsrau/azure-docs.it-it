@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="dwrede" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016"  
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Configurazione dei criteri di distribuzione degli asset
 
@@ -287,7 +287,7 @@ Ad esempio:
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
+##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
 
 ###AssetDeliveryProtocol 
 

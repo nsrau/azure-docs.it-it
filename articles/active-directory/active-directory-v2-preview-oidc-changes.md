@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/> 
 
 # Aggiornamenti importanti ai protocolli di autenticazione della versione 2.0
 Nota per gli sviluppatori: nelle prossime due settimane verranno rilasciati alcuni aggiornamenti ai protocolli di autenticazione della versione 2.0 che potrebbero comportare modifiche di rilievo per le app scritte durante il periodo di anteprima.

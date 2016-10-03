@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/> 
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/09/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" /> 
 
 # Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
 
@@ -45,7 +45,7 @@ Questo scenario illustrerà come:
 - Creare una subnet denominata Appgatewaysubnet che usa 10.0.0.0/28 come blocco CIDR.
 - Configurare un certificato per l'offload SSL.
 
-![Esempio dello scenario][scenario]  
+![Esempio dello scenario][scenario] 
 
 >[AZURE.NOTE] La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
 
@@ -61,15 +61,15 @@ Aprire il **prompt dei comandi di Microsoft Azure** ed effettuare l'accesso.
 
 Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare a https://aka.ms/devicelogin in un browser per continuare il processo di accesso.
 
-![Comando che illustra l'accesso al dispositivo][1]  
+![Comando che illustra l'accesso al dispositivo][1] 
 
 Nel browser immettere il codice ricevuto. Si verrà reindirizzati a una pagina di accesso.
 
-![Browser in cui immettere il codice][2]  
+![Browser in cui immettere il codice][2] 
 
 Dopo avere immesso il codice ed effettuato l'accesso, chiudere il browser per continuare con lo scenario.
 
-![Accesso eseguito][3]  
+![Accesso eseguito][3] 
 
 ## Passare alla modalità Resource Manager
 

@@ -5,7 +5,7 @@
    services="expressroute"
    authors="cherylmc"
    manager="carmonm"
-   editor=""/>  
+   editor=""/> 
 <tags
    ms.service="expressroute"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/19/2016"
-   ms.author="cherylmc"/>  
+   ms.author="cherylmc"/> 
 
 # Domande frequenti su ExpressRoute
 

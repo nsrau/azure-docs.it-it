@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="stevestein"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/19/2016"
-	ms.author="sstein"/>  
+	ms.author="sstein"/> 
 
 # Eseguire l'aggiornamento a database SQL V12 di Azure tramite PowerShell
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/> 
 
 
 # Impostare i criteri di scadenza della password in Azure Active Directory

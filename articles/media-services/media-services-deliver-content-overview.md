@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/19/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/> 
 
 
 # Distribuire contenuti ai clienti
@@ -118,7 +118,7 @@ Per altre informazioni, vedere l'articolo sul [supporto della composizione di Dy
 
 Esempio:
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest  
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest 
 
 ### <a id="fmp4_v20"></a>Manifesto Smooth Streaming 2.0 (manifesto legacy)
 

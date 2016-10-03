@@ -6,7 +6,7 @@
 	authors="dalechen"
 	manager="felixwu"
 	editor=""
-	keywords="Il database nel server non è attualmente disponibile durante la connessione al database SQL"/>  
+	keywords="Il database nel server non è attualmente disponibile durante la connessione al database SQL"/> 
 
 <tags
 	ms.service="sql-database"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/21/2016"
-	ms.author="daleche"/>  
+	ms.author="daleche"/> 
 
 # Errore "Il database nel server non è attualmente disponibile" durante la connessione al database SQL
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

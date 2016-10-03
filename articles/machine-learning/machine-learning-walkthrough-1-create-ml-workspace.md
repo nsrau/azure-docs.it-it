@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="garye"/>  
+	ms.author="garye"/> 
 
 
 # Passaggio 1 della procedura dettagliata: Creare un'area di lavoro di Machine Learning
@@ -31,7 +31,7 @@ Questo è il primo passaggio della procedura dettagliata per [sviluppare una sol
 
 ----------
 
-<!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->  
+<!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal --> 
 
 Per usare Machine Learning Studio, è necessario disporre di un'area di lavoro di Microsoft Azure Machine Learning. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 

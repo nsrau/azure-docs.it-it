@@ -8,17 +8,17 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 
 2. Fare clic su **Dati e archiviazione** e quindi su **Account di archiviazione**.
 
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)  
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
 
 3. Nel pannello **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa. Fare quindi clic su **Crea**.
 
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)  
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
 
 4. Nell'elenco degli account di archiviazione fare clic su quello appena creato.
 
 5. Nel pannello Account di archiviazione fare clic su **Chiavi di accesso**. Copiare il valore di **key1** da usare più avanti in questa esercitazione.
 
-	![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)  
+	![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
 
 4. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Receiver**.
 
@@ -28,7 +28,7 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 
 6. Fare clic sulla scheda **Sfoglia**, quindi cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Assicurarsi che il nome del progetto (**Receiver**) sia specificato nella casella **Versione/i **. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)  
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
 
 	Visual Studio scarica e installa il [pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) e aggiunge un riferimento al pacchetto con tutte le relative dipendenze.
 
@@ -121,7 +121,7 @@ Per usare [EventProcessorHost][] è necessario avere un [account di archiviazion
 
 > [AZURE.NOTE] Questa esercitazione usa una singola istanza di [EventProcessorHost][]. Per aumentare la velocità effettiva, è consigliabile eseguire più istanze di [EventProcessorHost][], come illustrato nell'esempio di [elaborazione di eventi scalata orizzontalmente][]. In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno dei vari ricevitori elabori *tutti* gli eventi, è necessario usare il concetto **ConsumerGroup**. Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di [EventProcessorHost][] in base alle macchine (o ai ruoli) in cui sono distribuite. Per altre informazioni su questi argomenti, vedere [Panoramica di Hub eventi di Azure][] e [Guida alla programmazione di Hub eventi][].
 
-<!-- Links -->  
+<!-- Links -->
 [Panoramica di Hub eventi di Azure]: event-hubs-overview.md
 [Guida alla programmazione di Hub eventi]: event-hubs-programming-guide.md
 [elaborazione di eventi scalata orizzontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

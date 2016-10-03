@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mlearned"
    manager="douge"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="azure-container-service"

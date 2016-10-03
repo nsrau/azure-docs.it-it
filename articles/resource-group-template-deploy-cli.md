@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="tfitzmac"
    manager="timlt"
-   editor="tysonn"/>  
+   editor="tysonn"/> 
 
 <tags
    ms.service="azure-resource-manager"

@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/> 
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="07/27/2016" 
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/> 
 
 
 # Monitorare e gestire i processi di Analisi di flusso con i cmdlet di Azure PowerShell

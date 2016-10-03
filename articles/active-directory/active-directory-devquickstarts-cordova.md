@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="vibronet"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="vittorib"/>  
+	ms.author="vittorib"/> 
 
 # Integrare Azure AD con un'app Apache Cordova
 

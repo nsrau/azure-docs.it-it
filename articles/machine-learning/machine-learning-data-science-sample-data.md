@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016" 
-	ms.author="fashah;garye;bradsev" />  
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Campionare i dati in contenitori BLOB di Azure, SQL Server e nelle tabelle Hive
 

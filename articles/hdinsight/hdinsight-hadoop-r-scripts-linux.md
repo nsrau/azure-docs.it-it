@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/> 
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/> 
 
 # Installare e usare R nei cluster Hadoop HDInsight
 

@@ -6,7 +6,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/14/2016"
-   ms.author="subramar"/>  
+   ms.author="subramar"/> 
 
 
 
@@ -49,7 +49,7 @@ Questo articolo descrive i diversi parametri che si applicano durante l'aggiorna
 <br> I criteri di valutazione dell'integrità sono facoltativi. Se all'avvio di un aggiornamento non vengono specificati i criteri di valutazione dell'integrità, Service Fabric usa i criteri di integrità dell'applicazione specificati nel file ApplicationManifest.xml dell'istanza dell'applicazione.
 
 
-<br>  
+<br> 
 
 | Parametro | Descrizione |
 | --- | --- |

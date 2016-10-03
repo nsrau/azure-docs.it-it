@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager,azure-service-management"/>  
+   tags="azure-resource-manager,azure-service-management"/> 
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/21/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" /> 
 
 # Informazioni sulle impostazioni del gateway VPN
 
@@ -65,7 +65,7 @@ Nel seguente esempio di PowerShell `-GatewaySku` viene specificato come *Standar
 	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
-<br>  
+<br> 
 
 
 ###  <a name="aggthroughput"></a>Velocità effettiva aggregata stimata per tipo di SKU e di gateway

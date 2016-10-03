@@ -5,7 +5,7 @@
 	services="multi-factor-authentication"
 	authors="kgremban"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/> 
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/> 
 
 # Gestione delle impostazioni utente con Azure Multi-Factor Authentication nel cloud
 

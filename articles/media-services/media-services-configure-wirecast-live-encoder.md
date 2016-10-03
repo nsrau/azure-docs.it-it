@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/19/2016"
-	ms.author="juliako;cenkdin;anilmur"/>  
+	ms.author="juliako;cenkdin;anilmur"/> 
 
 #Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola.
 

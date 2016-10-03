@@ -5,7 +5,7 @@
 	manager="erikre"
 	editor=""
 	services="media-services"
-	documentationCenter=""/>  
+	documentationCenter=""/> 
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/19/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/> 
 
 
 #Creazione dinamica dei pacchetti

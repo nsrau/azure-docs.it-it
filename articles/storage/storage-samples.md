@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn" />  
+	editor="tysonn" /> 
 <tags
 	ms.service="storage"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
 	ms.date="09/21/2016"
-	ms.author="micurd;tamram" />  
+	ms.author="micurd;tamram" /> 
 
 # Esempi di archiviazione di Azure
 

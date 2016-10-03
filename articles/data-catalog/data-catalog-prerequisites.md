@@ -6,7 +6,7 @@
    authors="steelanddata"
    manager="NA"
    editor=""
-   tags=""/>  
+   tags=""/> 
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="09/21/2016"
-   ms.author="maroche"/>  
+   ms.author="maroche"/> 
 
 # Prerequisiti del Catalogo dati di Azure
 
@@ -42,7 +42,7 @@ Lo strumento di registrazione dell'origine dati usa l'autenticazione basata su f
 
 I criteri di autenticazione globali consentono di abilitare i metodi di autenticazione separatamente per le connessioni Extranet e Intranet, come illustrato di seguito. Se l'autenticazione basata su form non è abilitata per la rete da cui l'utente si connette, è possibile che si verifichino errori di accesso.
 
- ![Criteri di autenticazione globali di Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)  
+ ![Criteri di autenticazione globali di Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png) 
 
 Per altre informazioni, vedere [Configurare i criteri di autenticazione](https://technet.microsoft.com/library/dn486781.aspx).
 

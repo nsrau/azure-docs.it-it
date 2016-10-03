@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="douge"/>  
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="awills"/>  
+	ms.author="awills"/>
 
 # Informazioni di riferimento sull'analisi
 
@@ -1704,7 +1704,17 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 || |
 |---|-------------|
 | + | Add |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore
+|`<=`|Minore o uguale a
+|`>` |Maggiore
+|`>=`|Maggiore o uguale a
+|`<>`|Non uguale a
+|`!=`|Non uguale a
 
 
 ### abs
@@ -2158,26 +2168,26 @@ h"hello"
 Operatore|Descrizione|Distinzione maiuscole/minuscole|Esempio true
 ---|---|---|---
 `==`|Uguale a |Sì| `"aBc" == "aBc"`
-`<>` `!=`|Non uguale a|Sì| `"abc" <> "ABC"`  
+`<>` `!=`|Non uguale a|Sì| `"abc" <> "ABC"`
 `=~`|Uguale a |No| `"abc" =~ "ABC"`
 `!~`|Non uguale a |No| `"aBc" !~ "xyz"`
 `has`|RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side)|No| `"North America" has "america"`
 `!has`|RHS non è un termine completo in LHS|No|`"North America" !has "amer"` 
-`hasprefix`  |RHS è un prefisso di un termine in LHS|No|`"North America" hasprefix "ame"`
-`!hasprefix`  |RHS non è un prefisso di un termine in LHS|No|`"North America" !hasprefix "mer"`
+`hasprefix`|RHS è un prefisso di un termine in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS non è un prefisso di un termine in LHS|No|`"North America" !hasprefix "mer"`
 `hassuffix`|RHS è un suffisso di un termine in LHS|No|`"North America" hassuffix "rth"`
-`!hassuffix`  |RHS non è un suffisso di un termine in LHS|No|`"North America" !hassuffix "mer"`
-`contains`   | RHS si verifica come sottostringa di LHS|No| `"FabriKam" contains "BRik"`
-`!contains`  | RHS non si verifica in LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs`   | RHS si verifica come sottostringa di LHS|Sì| `"FabriKam" contains "Kam"`  
-`!containscs`  | RHS non si verifica in LHS|Sì| `"Fabrikam" !contains "Kam"`  
+`!hassuffix`|RHS non è un suffisso di un termine in LHS|No|`"North America" !hassuffix "mer"`
+`contains` | RHS si verifica come sottostringa di LHS|No| `"FabriKam" contains "BRik"`
+`!contains`| RHS non si verifica in LHS|No| `"Fabrikam" !contains "xyz"`
+`containscs` | RHS si verifica come sottostringa di LHS|Sì| `"FabriKam" contains "Kam"`
+`!containscs`| RHS non si verifica in LHS|Sì| `"Fabrikam" !contains "Kam"`
 `startswith`|RHS è una sottostringa iniziale di LHS|No|`"Fabrikam" startswith "fab"`
-`!startswith`  |RHS non è una sottostringa iniziale di LHS|No|`"Fabrikam" !startswith "abr"`
-`endswith`  |RHS è una sottostringa terminale di LHS|No|`"Fabrikam" endswith "kam"`
+`!startswith`|RHS non è una sottostringa iniziale di LHS|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS è una sottostringa terminale di LHS|No|`"Fabrikam" endswith "kam"`
 `!endswith`|RHS non è una sottostringa terminale di LHS|No|`"Fabrikam" !endswith "ka"`
-`matches regex`  |LHS contiene una corrispondenza per RHS|Sì| `"Fabrikam" matches regex "b.*k"`  
-`in`  |Uguale a uno degli elementi|Sì|`"abc" in ("123", "345", "abc")`  
-`!in`  |Non uguale a uno degli elementi|Sì|`"bc" !in ("123", "345", "abc")`  
+`matches regex`|LHS contiene una corrispondenza per RHS|Sì| `"Fabrikam" matches regex "b.*k"`
+`in`|Uguale a uno degli elementi|Sì|`"abc" in ("123", "345", "abc")`
+`!in`|Non uguale a uno degli elementi|Sì|`"bc" !in ("123", "345", "abc")`
 
 Usare `has` o `in` se si sta testando la presenza di un termine lessicale intero, ovvero un simbolo o una parola alfanumerica delimitata da caratteri non alfanumerici o da inizio o fine del campo. `has` viene eseguito più rapidamente di `contains`, `startswith` o `endswith`. La prima delle query seguenti viene eseguita più rapidamente:
 
@@ -2213,11 +2223,11 @@ Il numero di volte in cui la stringa di ricerca può essere trovata nel contenit
 
 |||
 |---|---
-|`countof("aaa", "a")`  | 3 
-|`countof("aaaa", "aa")`  | 3 (non 2!)
-|`countof("ababa", "ab", "normal")`  | 2
+|`countof("aaa", "a")`| 3 
+|`countof("aaaa", "aa")`| 3 (non 2!)
+|`countof("ababa", "ab", "normal")`| 2
 |`countof("ababa", "aba")`| 2
-|`countof("ababa", "aba", "regex")`  | 1
+|`countof("ababa", "aba", "regex")`| 1
 |`countof("abcabc", "a.c", "regex")`| 2
     
 
@@ -2441,7 +2451,7 @@ Converte una stringa in lettere maiuscole.
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
 
-![](./media/app-insights-analytics-reference/310.png)  
+![](./media/app-insights-analytics-reference/310.png)
 
 **Indicizzazione:** indicizzare matrici e oggetti come in JavaScript.
 
@@ -2483,7 +2493,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | mvexpand path
 
 
-![](./media/app-insights-analytics-reference/420.png)  
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema:** per trovare lo schema minimo che ammette tutti i valori dell'espressione nella tabella:
 
@@ -2521,7 +2531,7 @@ Si noti che `indexer` indica il punto in cui è necessario usare un indice numer
 Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) con un argomento di stringa JSON:
 
 * `parsejson('[43, 21, 65]')`: una matrice di numeri
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`  
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')`: un singolo valore di tipo dinamico che contiene un numero
 * `parsejson('"21"')`: un singolo valore di tipo dinamico che contiene una stringa
 
@@ -2637,9 +2647,9 @@ La notazione [parentesi quadre] e la notazione punto sono equivalenti:
 
 |||
 |---|---|
-|`$`  |Oggetto radice|
-|`@`  |Oggetto corrente|
-|`[0]`  |Indice inferiore di matrice|
+|`$`|Oggetto radice|
+|`@`|Oggetto corrente|
+|`[0]`|Indice inferiore di matrice|
 |`.` oppure `[0]` | Figlio|
 
 *(Attualmente non vengono implementati caratteri jolly, ricorsione, unione o sezioni).*

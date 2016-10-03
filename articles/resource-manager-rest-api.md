@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="navalev"
    manager=""
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="azure-resource-manager"

@@ -7,7 +7,7 @@
 	manager="jbronsk"
 	editor=""
 	tags=""
-	keywords="funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, F#"/>  
+	keywords="funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, F#"/> 
 
 <tags
 	ms.service="functions"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="09/09/2016"
-	ms.author="syclebsc"/>  
+	ms.author="syclebsc"/> 
 
 # Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
 
@@ -123,13 +123,13 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
 I seguenti spazi dei nomi vengono aperti automaticamente:
 
-* `System`  
+* `System` 
 * `System.Collections.Generic`
 * `System.IO`
 * `System.Linq`
 * `System.Net.Http`
 * `System.Threading.Tasks`
-* `Microsoft.Azure.WebJobs`  
+* `Microsoft.Azure.WebJobs` 
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Riferimento ad assembly esterni
@@ -150,22 +150,22 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting di Funzioni di Azure:
 
 * `mscorlib`,
-* `System`  
+* `System` 
 * `System.Core`
 * `System.Xml`
 * `System.Net.Http`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
-* `System.Web.Http`  
+* `System.Web.Http` 
 * `System.Net.Http.Formatting`.
 
 Gli assembly seguenti sono anche casi speciali ai quali è possibile fare riferimento tramite simplename, ad esempio `#r "AssemblyName"`:
 
-* `Newtonsoft.Json`  
+* `Newtonsoft.Json` 
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`  
+* `Microsoft.AspNet.WebHooks.Receivers` 
 * `Microsoft.AspNEt.WebHooks.Common`.
 
 Per fare riferimento a un assembly privato è possibile caricare il file dell'assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`. Per informazioni su come caricare i file nella cartella della funzione vedere la sezione seguente sulla gestione dei pacchetti.
@@ -252,7 +252,7 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 
 È possibile usare il codice di altri file `.fsx` tramite una direttiva `#load`. Ad esempio:
 
-`run.fsx`  
+`run.fsx` 
 
 ```fsharp
 #load "logger.fsx"
@@ -261,7 +261,7 @@ let Run(timer: TimerInfo, log: TraceWriter) =
     mylog log (sprintf "Timer: %s" DateTime.Now.ToString())
 ```
 
-`logger.fsx`  
+`logger.fsx` 
 
 ```fsharp
 let mylog(log: TraceWriter, text: string) =

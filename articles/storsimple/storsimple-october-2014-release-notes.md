@@ -5,7 +5,7 @@
     documentationCenter="NA"
     authors="alkohli"
     manager="carmonm"
-    editor="" />  
+    editor="" /> 
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
     ms.date="09/21/2016"
-    ms.author="alkohli" />  
+    ms.author="alkohli" /> 
 
 # Note sulla versione dell'aggiornamento 0.1 di StorSimple serie 8000 - Ottobre 2014  
 

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/> 
 
 <tags
 	ms.service="data-factory"
@@ -80,7 +80,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)  
+    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png) 
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 
@@ -107,7 +107,7 @@ I passaggi relativi ai prerequisiti sono stati completati. Fare clic su una sche
 - API .NET
 - Copia guidata
 
-<!--Link references-->  
+<!--Link references--> 
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2

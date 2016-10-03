@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="amsriva"
    manager="rossort"
-   editor="amsriva"/>  
+   editor="amsriva"/> 
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -19,7 +19,7 @@
 
 L'hosting di più siti consente di configurare più applicazioni Web nella stessa istanza del gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni includendo fino a 20 siti Web in un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente, il gateway applicazione gestisce il traffico per contoso.com e fabrikam.com da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
 
-![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)  
+![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png) 
 
 Le richieste per http://contoso.com vengono instradate a ContosoServerPool, mentre quelle per http://fabrikam.com vengono instradate a FabrikamServerPool.
 

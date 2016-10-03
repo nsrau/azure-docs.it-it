@@ -3,7 +3,7 @@
 	description="Informazioni sui modelli di progettazione comuni per le applicazioni SaaS multi-tenant quando si usa Ricerca di Azure."
 	services="search"
 	authors="ashmaka"
-	documentationCenter=""/>  
+	documentationCenter=""/> 
 
 <tags
 	ms.service="search"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.date="09/20/2016"
-	ms.author="ashmaka"/>  
+	ms.author="ashmaka"/> 
 
 # Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 
@@ -78,7 +78,7 @@ Nel caso di uno scenario multi-tenant, lo sviluppatore dell'applicazione usa uno
 1. _Combinazione di entrambi:_ ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
 
 ## 1\. Indice per tenant
-![Un'immagine del modello "indice per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)  
+![Un'immagine del modello "indice per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png) 
 
 In un modello "indice per tenant", più tenant occupano un singolo servizio di Ricerca di Azure in cui ogni tenant dispone di un proprio indice.
 
@@ -96,7 +96,7 @@ Se il numero totale di indici diventa troppo grande per un singolo servizio, è 
 
 
 ## 2\. Servizio per tenant
-![Un'immagine del modello "servizio per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)  
+![Un'immagine del modello "servizio per tenant"](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png) 
 
 In un'architettura "servizio per tenant" ogni tenant dispone di un proprio servizio di ricerca.
 

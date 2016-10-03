@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carmonm"
-   editor="" />  
+   editor="" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/21/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" /> 
 
 # Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple
 

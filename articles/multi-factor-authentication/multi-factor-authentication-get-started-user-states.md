@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/> 
 
 <tags
 	ms.service="multi-factor-authentication"

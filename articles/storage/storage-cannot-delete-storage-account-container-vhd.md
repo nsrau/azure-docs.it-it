@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="felixwu"
 	editor="tysonn"
-	tags="storage"/>  
+	tags="storage"/> 
 
 <tags
 	ms.service="storage"

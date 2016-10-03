@@ -6,7 +6,7 @@
    authors="trhabe"
    manager="jstrauss"
    editor=""
-   tags=""/>  
+   tags=""/> 
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="09/15/2016"
-   ms.author="trhabe"/>  
+   ms.author="trhabe"/> 
 
 # Origini dati supportate da Catalogo dati di Azure
 

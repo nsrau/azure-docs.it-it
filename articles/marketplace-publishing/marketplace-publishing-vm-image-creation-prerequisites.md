@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="HannibalSII"
    manager=""
-   editor=""/>  
+   editor=""/> 
 
 <tags
   ms.service="marketplace"

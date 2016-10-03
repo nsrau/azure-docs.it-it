@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="Blackmist"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/> 
 
 <tags
    ms.service="hdinsight"
@@ -248,7 +248,7 @@ Prima di eseguire il test, è necessario avviare il dashboard per visualizzare l
 
 	Avvia la topologia definita nel file __no hbase.yaml__ in modalità locale. I valori contenuti nel file __dev.properties__ forniscono le informazioni di connessione per gli hub eventi. Una volta avviata, la topologia legge le voci dall'hub eventi e le invia al dashboard in esecuzione sul computer locale. Nel dashboard Web dovrebbero comparire linee simili alle seguenti:
 
-	![dashboard con dati](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)  
+	![dashboard con dati](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png) 
 
 3. Mentre il dashboard è in esecuzione, usare il comando `node app.js` dai passaggi precedenti per inviare nuovi dati agli hub eventi. Poiché i valori di temperatura vengono generati in modo casuale, il grafico deve aggiornarsi per visualizzare le modifiche estese della temperatura.
 
@@ -266,7 +266,7 @@ Il modello di Resource Manager usato in questo documento è disponibile in un co
 
 1. Fare clic sul pulsante seguente per accedere ad Azure e aprire il modello di Resource Manager nel portale di Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Nel pannello **Parametri** immettere le informazioni seguenti:
 

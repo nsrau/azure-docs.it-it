@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -120,7 +120,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
     - Utilizzare uno dei metodi di importazione globale per caricare i dati dai file della macchina virtuale locale.
 
     Option n. 2: Uso di IPython Notebook, non è consigliabile per i set di dati di dimensioni medio-grandi
-    <!-- -->      
+    <!-- -->     
     - Utilizzare la stringa di connessione ODBC per accedere a SQL Server sulla macchina virtuale.
     - Creare tabelle di database e di destinazione
     - Utilizzare uno dei metodi di importazione globale per caricare i dati dai file della macchina virtuale locale.
@@ -310,7 +310,7 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 [9]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-to-hive.png
 
 
-<!-- Module References -->  
+<!-- Module References --> 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 <!---HONumber=AcomDC_0921_2016-->

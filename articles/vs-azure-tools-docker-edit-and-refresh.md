@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="mlearned"
    manager="douge"
-   editor="" />  
+   editor="" /> 
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="07/22/2016"
-   ms.author="mlearned" />  
+   ms.author="mlearned" /> 
 
 # Debug delle applicazioni in un contenitore Docker locale
 
@@ -46,7 +46,7 @@ Nella casella degli strumenti di Docker è necessario [configurare il client di 
 
 Per eseguire rapidamente l'iterazione delle modifiche, è possibile avviare l'applicazione in un contenitore e continuare ad apportare modifiche, visualizzandole come si farebbe con IIS Express.
 
-1. Impostare la configurazione della soluzione su `Debug` e premere **& lt;CTRL+F5>** per creare l'immagine Docker ed eseguirla localmente.
+1. Impostare la configurazione della soluzione su `Debug` e premere **&lt;CTRL+F5>** per creare l'immagine Docker ed eseguirla localmente.
 
     Una volta che l'immagine del contenitore è stata compilata ed è in esecuzione in un contenitore Docker, Visual Studio avvierà l'App Web nel browser predefinito. Se si usa il browser Microsoft Edge o se si verificano problemi, vedere la sezione relativa alla [risoluzione dei problemi](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
@@ -84,7 +84,7 @@ Spesso è necessario analizzare le modifiche in modo più approfondito, sfruttan
 
 1.  Impostare un punto di interruzione a sinistra della riga `string message`.
 
-1.  Premere **& lt;F5>** per avviare il debug.
+1.  Premere **&lt;F5>** per avviare il debug.
 
 1.  Accedere alla pagina About per raggiungere il punto di interruzione.
 

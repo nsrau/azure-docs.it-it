@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/> 
 
 <tags
    ms.service="hdinsight"
@@ -84,7 +84,7 @@ Maven consente di definire i valori a livello di progetto denominati proprietà.
         <!--
         Storm 0.10.0 is for HDInsight 3.3 and 3.4.
         To find the version information for earlier HDInsight cluster
-        versions, see https://azure.microsoft.com/it-IT/documentation/articles/hdinsight-component-versioning/
+        versions, see https://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/
         -->
         <storm.version>0.10.0</storm.version>
     </properties>

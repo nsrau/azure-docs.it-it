@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="markfuss"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/14/2016"
-   ms.author="subramar"/>  
+   ms.author="subramar"/> 
 
 
 # Pianificazione della capacità per le applicazioni Service Fabric
@@ -69,10 +69,10 @@ Per altre informazioni sul partizionamento del servizio, consultare [Partizionam
 
 
 
-<!--Image references-->  
+<!--Image references--> 
 [Image1]: ./media/SF-Cost.png
 
-<!--Link references--In actual articles, you only need a single period before the slash-->  
+<!--Link references--In actual articles, you only need a single period before the slash--> 
 [10]: service-fabric-concepts-partitioning.md
 
 <!---HONumber=AcomDC_0921_2016-->

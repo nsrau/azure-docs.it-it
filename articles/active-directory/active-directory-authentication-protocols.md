@@ -5,7 +5,7 @@
    authors="msmbaldwin"
    services="active-directory"
    manager="mbaldwin"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/16/2016"
-   ms.author="mbaldwin"/>  
+   ms.author="mbaldwin"/> 
 
 # Protocolli di autenticazione di Azure Active Directory
 

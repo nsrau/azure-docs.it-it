@@ -7,7 +7,7 @@
    manager="narayan"
    editor=""
    tags="azure-resource-manager"
-/>  
+/> 
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/14/2016"
-   ms.author="annahar" />  
+   ms.author="annahar" /> 
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet attraverso il portale di Azure
 
@@ -63,7 +63,7 @@ Qui viene illustrata la sequenza delle singole attività da eseguire per creare 
 
 6. In Gruppo di risorse, selezionare**myRG**. Dopodiché, selezionare un **percorso** appropriato e fare clic su **OK**. Il bilanciamento del carico verrà avviato per la distribuzione e richiederà alcuni minuti per completare correttamente la distribuzione.
 
-![Aggiornamento del gruppo di risorse di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)  
+![Aggiornamento del gruppo di risorse di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/1-load-balancer.png) 
 
 
 ## Creare un pool di indirizzi back-end
@@ -72,7 +72,7 @@ Qui viene illustrata la sequenza delle singole attività da eseguire per creare 
 
 2. Nel pannello **Aggiungi pool back-end** fare clic su **Aggiungi una macchina virtuale**. Selezionare **Scegliere un set di disponibilità** in **Set di disponibilità** e selezionare **myAvailSet**. Successivamente, selezionare **Scegliere le macchine virtuali** nella sezione Macchine virtuali del pannello e fare clic su **web1** e **web2**, le due macchine virtuali create per il bilanciamento del carico. Verificare che entrambe abbiano i segni di spunta blu a sinistra, come illustrato nell'immagine sotto. Fare clic su **Seleziona** nel pannello quindi premere OK nel pannello **Scegliere le macchine virtuali** e fare clic su **OK** nel pannello **Aggiungi pool back-end**.
 
-    ![Aggiunta al pool di indirizzi back-end](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)  
+    ![Aggiunta al pool di indirizzi back-end](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png) 
 
 3. Verificare la presenza di un aggiornamento nel menu a discesa delle notifiche relativo al salvataggio del pool back-end di bilanciamento del carico e all'aggiornamento dell'interfaccia di rete per entrambe le macchine virtuali **web1** e **web2**.
 
@@ -87,13 +87,13 @@ Qui viene illustrata la sequenza delle singole attività da eseguire per creare 
 
     Spostare il puntatore del mouse sull'icona "i" per ottenere maggiori informazioni sulle singole configurazioni e su come possono essere modificate per soddisfare i requisiti.
 
-    ![Aggiunta di un probe](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)  
+    ![Aggiunta di un probe](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png) 
 
 2. Creare una regola del servizio di bilanciamento del carico.
 
     Fare clic sulle regole di bilanciamento del carico nella sezione Impostazioni del servizio di bilanciamento del carico. Nel nuovo pannello, fare clic su **Aggiungi**. Rinominare la regola. In questo caso, è HTTP. Scegliere le porte di front-end e back-end. In questo caso, la porta 80 viene usata per entrambi. Scegliere **LB-back-end** come pool di back-end e **HealthProbe** creato in precedenza come probe. È possibile impostare altre configurazioni in base ai requisiti. Dopodiché, fare clic su OK per salvare la regola di bilanciamento del carico.
 
-    ![Aggiunta di una regola di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)  
+    ![Aggiunta di una regola di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png) 
 
 3. Creare le regole NAT in ingresso
 
@@ -101,7 +101,7 @@ Qui viene illustrata la sequenza delle singole attività da eseguire per creare 
 
     Dopo aver creato la prima regola, ripetere la procedura per creare la seconda regola NAT in ingresso denominata inboundNATrule2 dalla porta 3442 alla porta di destinazione 3389.
 
-    ![Aggiunta di una regola NAT in ingresso](./media/load-balancer-get-started-internet-portal/6-load-balancer-inbound-nat-rules.png)  
+    ![Aggiunta di una regola NAT in ingresso](./media/load-balancer-get-started-internet-portal/6-load-balancer-inbound-nat-rules.png) 
 
 ## Rimuovere un bilanciamento del carico
 

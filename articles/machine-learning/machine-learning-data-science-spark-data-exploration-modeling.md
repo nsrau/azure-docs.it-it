@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -235,7 +235,7 @@ Ecco il codice per eseguire il tracciato delle corse per numero di passeggeri
 
 **OUTPUT:**
 
-![Frequenza delle corse per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)  
+![Frequenza delle corse per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png) 
 
 È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook. In questo caso è stato scelto un tracciato a barre.
 	
@@ -290,11 +290,11 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
 
 **OUTPUT:**
 
-![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)  
+![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png) 
 
 ![Importo della mancia per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)  
+![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png) 
 
 
 ## Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
@@ -726,7 +726,7 @@ Ecco il codice per eseguire stime e tracciare la curva ROC.
 
 **OUTPUT:**
 
-![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)  
+![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png) 
 
 
 ### Classificazione tramite foresta casuale

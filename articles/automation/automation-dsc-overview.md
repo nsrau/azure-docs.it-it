@@ -6,7 +6,7 @@
    authors="coreyp-at-msft" 
    manager="stevenka" 
    editor="tysonn"
-   keywords="powershell dsc, configurazione dello stato desiderato, powershell dsc azure"/>  
+   keywords="powershell dsc, configurazione dello stato desiderato, powershell dsc azure"/>
 
 <tags
    ms.service="automation"

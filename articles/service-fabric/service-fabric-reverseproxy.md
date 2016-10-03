@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="BharatNarasimman,vturecek"
    manager="timlt"
-   editor="vturecek"/>  
+   editor="vturecek"/> 
 
 <tags
    ms.service="service-fabric"
@@ -74,7 +74,7 @@ http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 Con le risorse seguenti:
 
- - `/index.html`  
+ - `/index.html` 
  - `/api/users/<userId>`
 
 Se il servizio usa lo schema di partizionamento singleton, i parametri di stringa di query *PartitionKey* e *PartitionKind* non sono richiesti e il servizio può essere raggiunto tramite il gateway:
@@ -94,7 +94,7 @@ Per raggiungere le risorse esposte dal servizio, è sufficiente inserire il perc
 
 Il gateway inoltrerà quindi queste richieste all'URL del servizio:
 
- - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`  
+ - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html` 
  - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## Gestione speciale per servizi di condivisione porta
@@ -121,7 +121,7 @@ Il gateway necessita quindi di un modo per distinguere tra questi due casi. Per 
  - Per impostazione predefinita, il gateway presuppone la sussistenza del caso n. 2 e tenta di risolvere di nuovo l'indirizzo e inviare nuovamente la richiesta.
  - Per indicare il caso n.1 al gateway applicazione, il servizio deve restituire l'intestazione della risposta HTTP seguente:
 
-`X-ServiceFabric : ResourceNotFound`  
+`X-ServiceFabric : ResourceNotFound` 
 
 L'intestazione della risposta HTTP indica una situazione HTTP 404 normale, in cui la risorsa richiesta non esiste e il gateway non tenta di risolvere di nuovo l'indirizzo del servizio.
 

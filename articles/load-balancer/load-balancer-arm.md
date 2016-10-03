@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="sdwheeler"
    manager="carmonm"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags
    ms.service="load-balancer"
    ms.devlang="na"

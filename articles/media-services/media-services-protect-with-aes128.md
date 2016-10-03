@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/19/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/> 
 
 #Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi
 
@@ -55,7 +55,7 @@ Si noterà un [esempio](media-services-protect-with-aes128.md#example) .NET comp
 
 Nell'immagine seguente viene illustrato il flusso di lavoro descritto in precedenza. Di seguito viene utilizzato il token per l'autenticazione.
 
-![Proteggere con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)  
+![Proteggere con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png) 
 
 Nella parte rimanente di questo argomento vengono fornite spiegazioni dettagliate, esempi di codice e collegamenti ad argomenti che illustrano come eseguire le attività descritte in precedenza.
 

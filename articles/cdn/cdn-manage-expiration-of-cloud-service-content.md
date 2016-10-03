@@ -5,7 +5,7 @@
  documentationCenter=".NET"
  authors="camsoper"
  manager="erikre"
- editor=""/>  
+ editor=""/> 
 <tags
  ms.service="cdn"
  ms.workload="media"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="09/19/2016"
- ms.author="casoper"/>  
+ ms.author="casoper"/> 
 
 # Come gestire la scadenza del contenuto di App Web/Servizi cloud di Azure, ASP.NET o IIS nella rete CDN di Azure
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/> 
 
 # Tipi dell'endpoint v2.0
 L'endpoint v2.0 supporta l'autenticazione di un'ampia gamma di architetture di app moderne, basate sui protocolli standard del settore [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) e/o [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Questo documento descrive brevemente i tipi di app che è possibile creare, indipendente dal linguaggio o dalla piattaforma preferita. Il documento consentirà di comprendere gli scenari di alto livello prima di [passare direttamente al codice](active-directory-appmodel-v2-overview.md#getting-started).

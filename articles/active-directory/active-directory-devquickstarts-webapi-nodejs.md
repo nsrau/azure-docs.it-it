@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="brandwe"/>  
+	ms.author="brandwe"/> 
 
 # Introduzione all'API WEB per Node
 

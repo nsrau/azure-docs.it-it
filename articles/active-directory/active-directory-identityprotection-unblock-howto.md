@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="markvi"/>  
+	ms.author="markvi"/> 
 
 #Azure Active Directory Identity Protection: come sbloccare gli utenti
 
@@ -30,8 +30,8 @@ Il primo passaggio per sbloccare un utente consiste nel determinare il tipo di c
 
 |Criterio | Finestra di dialogo utente|
 |--- | --- |
-|Rischio di accesso | ![Accesso bloccato](./media/active-directory-identityprotection-unblock-howto/02.png)   |
-|Rischio utente | ![Account bloccato](./media/active-directory-identityprotection-unblock-howto/104.png)   |
+|Rischio di accesso | ![Accesso bloccato](./media/active-directory-identityprotection-unblock-howto/02.png)  |
+|Rischio utente | ![Account bloccato](./media/active-directory-identityprotection-unblock-howto/104.png)  |
 
 
 Un utente bloccato da:

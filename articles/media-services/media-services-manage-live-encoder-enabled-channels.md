@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="anilmur" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016"
-	ms.author="juliako;anilmur"/>  
+	ms.author="juliako;anilmur"/> 
 
 #Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 

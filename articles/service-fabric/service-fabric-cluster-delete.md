@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/09/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/> 
 
 # Eliminare un cluster Service Fabric in Azure e le risorse che utilizzate
 
@@ -104,7 +104,7 @@ Per altre informazioni sull'aggiornamento di un cluster e il partizionamento dei
 - [Informazioni sul partizionamento dei servizi con stato per la massima scalabilità](service-fabric-concepts-partitioning.md)
 
 
-<!--Image references-->  
+<!--Image references--> 
 [ResourceGroupDelete]: ./media/service-fabric-cluster-delete/ResourceGroupDelete.PNG
 
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png

@@ -5,7 +5,7 @@
 	authors="rmcmurray"
 	manager="wpickett"
 	editor=""
-	services="mobile-services"/>  
+	services="mobile-services"/> 
 
 <tags
 	ms.service="mobile-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="glenga"/>  
+	ms.author="glenga"/> 
 
 # Creazione di un'app Leaderboard con un back-end .NET di Servizi mobili di Azure
 
@@ -721,7 +721,7 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 * [Aggiungere notifiche push], ad esempio quando viene aggiunto un nuovo giocatore o viene aggiornato un punteggio.
 * [Introduzione all'autenticazione]
 
-<!-- Anchors. -->  
+<!-- Anchors. --> 
 [Overview]: #overview
 [About the sample app]: #about-the-sample-app
 [Create the project]: #create-the-project
@@ -757,7 +757,7 @@ A questo punto, quando si esegue l'app, questa comunica con il servizio reale.
 [16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
 
-<!-- URLs. -->  
+<!-- URLs. --> 
 
 [Altre informazioni su Servizi mobili di Azure]: /develop/mobile/resources/
 [Altre informazioni su API Web]: http://asp.net/web-api

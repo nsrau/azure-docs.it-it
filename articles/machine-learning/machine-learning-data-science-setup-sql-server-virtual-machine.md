@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev" 
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/19/2016"
-	ms.author="xibingao;bradsev" />  
+	ms.author="xibingao;bradsev" /> 
 
 # Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata
 
@@ -164,7 +164,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
 
     ![Selezione della modalità di autenticazione][8]
 
-5.  Nella finestra di dialogo ** SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
+5.  Nella finestra di dialogo **SQL Server Management Studio** fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 
 6.  In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
 
@@ -221,7 +221,7 @@ Per creare nuovi account di accesso di SQL Server tramite SQL Server Management 
 
     > [AZURE.IMPORTANT] i membri del ruolo predefinito del server dispongono del controllo completo sul motore di database. Per motivi di sicurezza, è opportuno limitare attentamente le appartenenze a questo ruolo.
 
-    ![sysadmin][12]  
+    ![sysadmin][12] 
 
 12. Fare clic su OK.
 

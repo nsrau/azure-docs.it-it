@@ -5,7 +5,7 @@
    documentationCenter="na" 
    authors="jtuliani" 
    manager="carmonm" 
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="dns"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="09/19/2016"
-   ms.author="jtuliani"/>  
+   ms.author="jtuliani"/> 
 
 
 # Creare zone e set di record DNS con .NET SDK

@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="erikre"
-	editor="" />  
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="09/14/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #Come integrare Engagement in iOS
 
@@ -49,7 +49,7 @@ I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necess
 	-   `CoreLocation.framework`
 	-   `libxml2.dylib`
 
-> [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA <ios-sdk-engagement-idfa> per conformarsi ai nuovi criteri Apple relativi a questo ID.
+> [AZURE.NOTE] È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA \<ios-sdk-engagement-idfa\> per conformarsi ai nuovi criteri Apple relativi a questo ID.
 
 ##Inizializzare l'SDK di Engagement
 
@@ -206,7 +206,7 @@ L'esempio seguente di `Settings.bundle` mostra come implementarla:
 	    <string>Root</string>
 	</dict>
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [API del dispositivo]: http://go.microsoft.com/?linkid=9876094
 [NSLocationWhenInUseUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW26
 [NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18

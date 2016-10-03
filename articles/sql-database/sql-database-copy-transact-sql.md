@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="stevestein"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>  
+	ms.tgt_pltfrm="NA"/> 
 
 
 # Copiare un database SQL di Azure con Transact-SQL

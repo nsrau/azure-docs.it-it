@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/> 
 
 #Panoramica e confronto dei codificatori multimediali su richiesta di Azure
 
@@ -239,7 +239,7 @@ Per ottenere assistenza dal team di **Servizi multimediali**, aprire un [ticket 
 - [Quote e limitazioni](media-services-quotas-and-limitations.md)
 
  
-<!--Reference links in article-->  
+<!--Reference links in article--> 
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
 <!---HONumber=AcomDC_0921_2016-->

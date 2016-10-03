@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2016"
-	ms.author="bradsev" />  
+	ms.author="bradsev" /> 
 
 # Spostare i dati in o da un archivio BLOB di Azure mediante connettori SSIS
 
@@ -60,7 +60,7 @@ Questo esempio usa un set di dati disponibile pubblicamente, ovvero il set di da
 ## Caricare dati nell'archivio BLOB di Azure
 Per spostare i dati usando il Feature Pack di SSIS da una posizione locale a un archivio BLOB di Azure, usare un'istanza dell'[**Azure Blob Upload Task**](https://msdn.microsoft.com/library/mt146776.aspx), illustrata qui:
 
-![configure-data-science-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)  
+![configure-data-science-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png) 
 
 
 I parametri usati dall'attività sono descritti di seguito:

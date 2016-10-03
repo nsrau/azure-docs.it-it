@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/> 
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/> 
 
 
 # Aggiungere una macchina virtuale Windows Server a un dominio gestito usando PowerShell
@@ -23,7 +23,7 @@
 - [Portale di Azure classico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 - [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 
-<br>  
+<br> 
 
 > [AZURE.IMPORTANT] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Servizi di dominio Active Directory non supporta attualmente il modello Resource Manager.
 
@@ -108,7 +108,7 @@ A questo punto, eseguire il provisioning della macchina virtuale Windows aggiunt
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<br>  
+<br> 
 
 ## Script per eseguire il provisioning di una macchina virtuale Windows e aggiungerla automaticamente a un dominio gestito da Servizi di dominio Active Directory di Azure
 Questo set di comandi di PowerShell crea una macchina virtuale per un server line-of-business che:
@@ -147,7 +147,7 @@ Di seguito è riportato lo script di esempio completo per creare la macchina vir
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<br>  
+<br> 
 
 ## Contenuti correlati
 - [Servizi di dominio Azure AD: introduzione](./active-directory-ds-getting-started.md)

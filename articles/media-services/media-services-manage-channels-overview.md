@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/19/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/> 
 
 #Panoramica di Live Streaming con Servizi multimediali di Azure
 
@@ -80,7 +80,7 @@ Arresto automatico dei canali in caso di perdita del feed di input|No|Dopo 12 or
 
 Il diagramma seguente illustra le parti principali della piattaforma AMS coinvolte nel flusso di lavoro **pass-through**.
 
-![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)  
+![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png) 
 
 Per altre informazioni, vedere l'articolo relativo all'[uso di canali che ricevono il flusso live a velocità in bit multipla da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -88,7 +88,7 @@ Per altre informazioni, vedere l'articolo relativo all'[uso di canali che ricevo
 
 Il seguente diagramma mostra i componenti principali della piattaforma AMS interessati dal flusso di lavoro di streaming live dove un canale è abilitato a eseguire la codifica live con Servizi multimediali.
 
-![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)  
+![Flusso di lavoro live](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png) 
 
 Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 

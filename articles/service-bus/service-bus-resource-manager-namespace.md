@@ -5,7 +5,7 @@
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>  
+    editor=""/> 
 
 <tags
     ms.service="service-bus"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="04/15/2016"
-    ms.author="sethm;shvija"/>  
+    ms.author="sethm;shvija"/> 
 
 # Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
 

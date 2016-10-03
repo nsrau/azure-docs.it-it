@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-service-management,azure-resource-manager"
-   keywords=""/>  
+   keywords=""/> 
 
 <tags
    ms.service="virtual-machines-windows"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
    ms.date="09/15/2016"
-   ms.author="zachal"/>  
+   ms.author="zachal"/> 
 
 # Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure #
 

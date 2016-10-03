@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban" 
 	manager="femila"
-	editor="curtland"/>  
+	editor="curtland"/> 
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/> 
 
 # Scenari avanzati con Azure Multi-Factor Authentication e soluzioni VPN di terze parti
 È possibile usare Azure Multi-Factor Authentication per connettersi rapidamente a un'ampia gamma di soluzioni VPN di terze parti. tra cui i dispositivi VPN Cisco® ASA e VPN SSL Citrix NetScaler SSL e i client VPN SSL Juniper Networks Secure Access/Pulse Secure Connect Secure.

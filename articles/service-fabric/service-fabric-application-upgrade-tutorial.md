@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/14/2016"
-   ms.author="subramar"/>  
+   ms.author="subramar"/> 
 
 
 
@@ -27,11 +27,11 @@ Azure Service Fabric semplifica il processo di aggiornamento delle applicazioni 
 
 Innanzitutto scaricare l'applicazione [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) da GitHub. Quindi compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mouse sul progetto dell'applicazione, **VisualObjects**, e selezionando il comando **Pubblica** dalla voce di menu Service Fabric.
 
-![Menu di scelta rapida per un'applicazione di Service Fabric][image1]  
+![Menu di scelta rapida per un'applicazione di Service Fabric][image1] 
 
 Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possibile impostare il **Profilo di destinazione** su **PublishProfiles\\Local.xml**. Fare clic su **Pubblica**: la finestra avrà un aspetto simile all'immagine seguente.
 
-![Pubblicazione di un'applicazione di Service Fabric][image2]  
+![Pubblicazione di un'applicazione di Service Fabric][image2] 
 
 Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) sulla barra degli indirizzi del browser. Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
 
@@ -43,11 +43,11 @@ Selezionare il progetto VisualObjects.ActorService nella soluzione VisualObjects
 
 È inoltre necessario specificare la versione dell'applicazione. Per apportare le modifiche di versione, fare clic con il pulsante destro del mouse sul progetto **VisualObjects** e scegliere l'opzione **Modifica versioni del manifesto** di Visual Studio. Selezionando questa opzione viene visualizzata la finestra di dialogo per le versioni dell'edizione come segue:
 
-![Finestra di dialogo del controllo delle versioni][image3]  
+![Finestra di dialogo del controllo delle versioni][image3] 
 
 Aggiornare le versioni per i progetti modificati, i relativi pacchetti di codice e l'applicazione alla versione 2.0.0. Dopo aver apportate le modifiche, il manifesto dovrebbe essere simile al seguente (le parti in grassetto indicano le modifiche):
 
-![Aggiornamento di versioni][image4]  
+![Aggiornamento di versioni][image4] 
 
 Gli strumenti di Visual Studio possono eseguire il rollup automatico delle versioni quando si seleziona l'opzione **Aggiorna automaticamente le versioni di applicazioni e servizi**. Se si usa [SemVer](http://www.semver.org) è necessario aggiornare il codice e/o solo la versione del pacchetto di configurazione se è selezionata questa opzione.
 

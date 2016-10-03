@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/> 
 
 
 # Aggiornare un cluster di Service Fabric
@@ -73,7 +73,7 @@ Di seguito sono riportate le configurazioni che è possibile modificare in un cl
 
 È facile aggiungere o eliminare i certificati di cluster e client tramite il portale. Fare riferimento a [questo documento per altre informazioni](service-fabric-cluster-security-update-certs-azure.md)
 
-![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]  
+![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade] 
 
 
 ### Porte dell'applicazione
@@ -86,13 +86,13 @@ Per aprire una nuova porta in tutte le VM di un tipo di nodo, seguire questa pro
 
     Se il cluster è stato distribuito tramite il portale, il bilanciamento del carico verrà denominato "LB-nome del gruppo di risorse-NodeTypename", uno per ogni tipo di nodo. Poiché i nomi del servizio di bilanciamento del carico sono univoci solo nell'ambito di un gruppo di risorse, è consigliabile cercarli in uno specifico gruppo di risorse.
 
-    ![Schermata che illustra l'aggiunta di un probe a un servizio di bilanciamento del carico nel portale.][AddingProbes]  
+    ![Schermata che illustra l'aggiunta di un probe a un servizio di bilanciamento del carico nel portale.][AddingProbes] 
 
 2. Aggiungere una nuova regola al servizio di bilanciamento del carico.
 
     Aggiungere una nuova regola allo stesso servizio di bilanciamento del carico usando il probe creato nel passaggio precedente.
 
-    ![Schermata che illustra l'aggiunta di una nuova regola a un servizio di bilanciamento del carico nel portale.][AddingLBRules]  
+    ![Schermata che illustra l'aggiunta di una nuova regola a un servizio di bilanciamento del carico nel portale.][AddingLBRules] 
 
 
 ### Proprietà di posizionamento
@@ -118,7 +118,7 @@ Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virt
 - Informazioni su come eseguire la [scalabilità orizzontale e verticale del cluster](service-fabric-cluster-scale-up-down.md)
 - Informazioni su come eseguire [aggiornamenti dell'applicazione](service-fabric-application-upgrade.md)
 
-<!--Image references-->  
+<!--Image references--> 
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png

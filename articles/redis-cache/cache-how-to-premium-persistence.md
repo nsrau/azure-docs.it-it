@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -35,7 +35,7 @@ La persistenza può essere configurata dal pannello **Nuova Cache Redis** durant
 
 Per creare una cache e configurare la persistenza, accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Nuovo**->**Dati e archiviazione**>**Cache Redis**.
 
-![Creare una Cache Redis][redis-cache-new-cache-menu]  
+![Creare una Cache Redis][redis-cache-new-cache-menu] 
 
 Per configurare la persistenza, selezionare innanzitutto una delle cache **Premium** nel pannello **Scegliere il piano tariffario**.
 
@@ -61,7 +61,7 @@ Fare clic su **Account di archiviazione** per selezionare l'account di archiviaz
 
 >[AZURE.IMPORTANT] Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario scegliere nuovamente la chiave desiderata dall’elenco a discesa **Chiave di archiviazione**.
 
-![Persistenza di Redis][redis-cache-persistence-selected]  
+![Persistenza di Redis][redis-cache-persistence-selected] 
 
 Fare clic su **OK** per salvare la configurazione della persistenza.
 
@@ -106,7 +106,7 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 -	[Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md)
   
-<!-- IMAGES -->  
+<!-- IMAGES --> 
 
 [redis-cache-new-cache-menu]: ./media/cache-how-to-premium-persistence/redis-cache-new-cache-menu.png
 

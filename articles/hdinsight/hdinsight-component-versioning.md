@@ -6,7 +6,7 @@
 	manager="jhubbard"
 	authors="mumian"
 	tags="azure-portal"
-	documentationCenter=""/>  
+	documentationCenter=""/> 
 
 <tags
 	ms.service="hdinsight"

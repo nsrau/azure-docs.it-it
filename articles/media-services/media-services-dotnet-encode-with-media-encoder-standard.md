@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
  	ms.date="09/19/2016"
-	ms.author="juliako;anilmur"/>  
+	ms.author="juliako;anilmur"/> 
 
 
 # Codificare un asset con Media Encoder Standard mediante .NET

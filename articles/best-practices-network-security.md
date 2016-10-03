@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="tracsman"
    manager="rossort"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="virtual-network"
@@ -372,7 +372,7 @@ Rispetto agli esempi precedenti, questo è un metodo più complesso ma anche pi�
 ### Esempio 4: Aggiungere una connessione ibrida con un'appliance virtuale da sito a sito e con una rete virtuale privata (VPN).
 [Torna all'avvio veloce](#fast-start) | Le istruzioni di creazione dettagliate saranno presto disponibili
 
-![Rete perimetrale con rete ibrida connessa tramite appliance virtuale di rete][11]  
+![Rete perimetrale con rete ibrida connessa tramite appliance virtuale di rete][11] 
 
 #### Descrizione dell'ambiente
 Le reti ibride che usano un'appliance virtuale di rete possono essere aggiunte a qualsiasi tipo di rete perimetrale illustrato negli esempi 1, 2 o 3.
@@ -387,13 +387,13 @@ I flussi di traffico devono essere esaminati con attenzione, perché possono ess
 
 Se si usa l'ambiente creato nell'esempio 3, e quindi si aggiunge una connessione di rete ibrida VPN da sito a sito, si otterrà la struttura seguente:
 
-![Rete perimetrale con appliance virtuale di rete connesso tramite VPN da sito a sito][12]  
+![Rete perimetrale con appliance virtuale di rete connesso tramite VPN da sito a sito][12] 
 
 Il client VPN corrisponde al router locale o a eventuali altri dispositivi di rete compatibili con l'appliance virtuale di rete per la VPN. Questo dispositivo fisico sarà responsabile per l'inizializzazione e la gestione della connessione VPN con l'appliance virtuale di rete.
 
 Per l'appliance virtuale di rete, a livello logico, la rete è analoga a quattro "aree di sicurezza" distinte, con le regole dell'appliance virtuale di rete usate come strumento di indirizzamento primario per il traffico tra queste aree:
 
-![Rete logica dal punto di vista dell'appliance virtuale di rete][13]  
+![Rete logica dal punto di vista dell'appliance virtuale di rete][13] 
 
 #### Conclusioni
 L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtuale di Azure può estendere la rete locale in Azure in modo sicuro. Se si usa una connessione VPN, il traffico verrà crittografato e instradato tramite Internet. L'appliance virtuale di rete in questo esempio fornisce una posizione centrale per l'applicazione e la gestione dei criteri di sicurezza. Per altre informazioni, vedere le istruzioni di creazione dettagliate (presto disponibili). Le istruzioni includono:
@@ -405,7 +405,7 @@ L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtu
 ### Esempio 5: Aggiungere una connessione ibrida con un gateway VPN di Azure da sito a sito.
 [Torna all'avvio veloce](#fast-start) | Le istruzioni di creazione dettagliate saranno presto disponibili
 
-![Rete perimetrale con rete ibrida connessa tramite gateway][14]  
+![Rete perimetrale con rete ibrida connessa tramite gateway][14] 
 
 #### Descrizione dell'ambiente
 È possibile aggiungere reti ibride che usano un gateway VPN di Azure a qualsiasi tipo di rete perimetrale illustrato negli esempi 1 e 2.
@@ -420,7 +420,7 @@ I flussi di traffico devono essere esaminati con attenzione, perché possono ess
 
 Se si usa l'ambiente creato nell'esempio 1, e quindi si aggiunge una connessione di rete ibrida VPN da sito a sito, si otterrà la struttura seguente:
 
-![Rete perimetrale con gateway connesso tramite una connessione ExpressRoute][15]  
+![Rete perimetrale con gateway connesso tramite una connessione ExpressRoute][15] 
 
 #### Conclusioni
 L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtuale di Azure può estendere la rete locale in Azure in modo sicuro. Se si usa un gateway VPN nativo di Azure, il traffico viene crittografato con IPSec e instradato tramite Internet. L'uso del gateway VPN di Azure offre inoltre un'opzione a costi ridotti (a differenza delle appliance virtuali di rete di terze parti, che comportano costi di licenza aggiuntivi). Questa soluzione risulta estremamente conveniente nell'esempio 1, in cui non vengono usate appliance virtuali di rete. Per altre informazioni, vedere le istruzioni di creazione dettagliate (presto disponibili). Le istruzioni includono:
@@ -432,7 +432,7 @@ L'aggiunta di una connessione di rete ibrida VPN da sito a sito a una rete virtu
 ### Esempio 6: Aggiungere una connessione ibrida con ExpressRoute
 [Torna all'avvio veloce](#fast-start) | Le istruzioni di creazione dettagliate saranno presto disponibili
 
-![Rete perimetrale con rete ibrida connessa tramite gateway][16]  
+![Rete perimetrale con rete ibrida connessa tramite gateway][16] 
 
 #### Descrizione dell'ambiente
 È possibile aggiungere reti ibride che usano una connessione con peering privato di ExpressRoute a qualsiasi tipo di rete perimetrale illustrato negli esempi 1 o 2.
@@ -445,7 +445,7 @@ Come illustrato nella figura precedente, il peering privato di ExpressRoute forn
 >- L'istanza di ExpressRoute collegata al gateway virtuale di Azure non può essere il dispositivo NextHop usato per altre subnet associate alle route definite dall'utente.
 >
 >
-<br />  
+<br /> 
 
 >[AZURE.TIP] L'uso di ExpressRoute mantiene il traffico di rete aziendale lontano da Internet per una protezione ottimizzata e prestazioni significativamente migliori, agevolando contratti di servizio dal provider ExpressRoute. Il gateway di Azure può raggiungere un massimo di 2 Gb/s con ExpressRoute, mentre la velocità massima effettiva con le VPN da sito a sito per il gateway di Azure è di 200 Mb/s.
 
@@ -455,7 +455,7 @@ I flussi di traffico devono essere esaminati con attenzione, perché possono ess
 
 Se si usa l'ambiente creato nell'esempio 1, e quindi si aggiunge una connessione di rete ibrida di ExpressRoute, si otterrà la struttura seguente:
 
-![Rete perimetrale con gateway connesso tramite una connessione ExpressRoute][17]  
+![Rete perimetrale con gateway connesso tramite una connessione ExpressRoute][17] 
 
 #### Conclusioni
 L'aggiunta di una connessione di rete con peering privato di ExpressRoute può estendere la rete locale in Azure in un modo sicuro, con latenza ridotta e prestazioni migliori. L'uso del gateway nativo di Azure, come illustrato in questo esempio, offre un'opzione a costi ridotti (a differenza delle appliance virtuali di rete che comportano costi di licenza aggiuntivi). Per altre informazioni, vedere le istruzioni di creazione dettagliate (presto disponibili). Le istruzioni includono:
@@ -475,7 +475,7 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 - VPN da sito a sito: [https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - Documentazione su ExpressRoute (assicurarsi di consultare le sezioni relative all'introduzione e alle procedure): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
-<!--Image References-->  
+<!--Image References--> 
 [0]: ./media/best-practices-network-security/flowchart.png "Diagramma di flusso sulle opzioni di sicurezza"
 [1]: ./media/best-practices-network-security/compliancebadges.png "Notifiche sulla conformità di Azure"
 [2]: ./media/best-practices-network-security/azuresecurityfeatures.png "Funzionalità di sicurezza di Azure"
@@ -495,7 +495,7 @@ L'aggiunta di una connessione di rete con peering privato di ExpressRoute può e
 [16]: ./media/best-practices-network-security/example6designoptions.png "Rete perimetrale con gateway di Azure connesso tramite rete ibrida ExpressRoute"
 [17]: ./media/best-practices-network-security/example6designexpressroute.png "Rete perimetrale con gateway di Azure che usa una connessione ExpressRoute"
 
-<!--Link References-->  
+<!--Link References--> 
 [Example1]: ./virtual-network/virtual-networks-dmz-nsg-asm.md
 [Example2]: ./virtual-network/virtual-networks-dmz-nsg-fw-asm.md
 [Example3]: ./virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md

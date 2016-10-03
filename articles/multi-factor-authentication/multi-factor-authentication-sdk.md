@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/> 
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/> 
 
 # Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
 
@@ -46,7 +46,7 @@ Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Fa
 3. Nella parte superiore della pagina Active Directory, selezionare **Provider Multi-Factor Authentication**
 4. Nella parte inferiore fare clic su **Gestisci**
 5. Verrà aperta una nuova pagina. A sinistra, nella parte inferiore, fare clic su SDK.
-<center>! [Scarica] (. / media/multi-factor-authentication-sdk/download.png)</center>
+<center>![Scarica](. / media/multi-factor-authentication-sdk/download.png)</center>
 6. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associato.
 7. Salvare il download.
 
@@ -59,8 +59,10 @@ Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Fa
 2. A sinistra selezionare Active Directory.
 3. Fare doppio clic sull'istanza di Azure AD.
 4. Nella parte superiore fare clic su **Configura**
-5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio** ![Scaricare](./media/multi-factor-authentication-sdk/download2.png)
-6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**. ![Scaricare](./media/multi-factor-authentication-sdk/download3a.png)
+5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**
+![Scaricare](./media/multi-factor-authentication-sdk/download2.png)
+6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**.
+![Scaricare](./media/multi-factor-authentication-sdk/download3a.png)
 7. Verrà aperta una nuova pagina. A sinistra, nella parte inferiore, fare clic su SDK.
 8. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associato.
 9. Salvare il download.

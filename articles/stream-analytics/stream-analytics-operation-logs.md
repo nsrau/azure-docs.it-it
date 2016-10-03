@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/> 
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="07/27/2016" 
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/> 
 
 # Eseguire il debug dei processi di analisi di flusso con i log dei servizi e delle operazioni
 
@@ -41,7 +41,7 @@ Per passare manualmente ai log delle operazioni per l’analisi di flusso e altr
 1.	Fare clic su **Servizi di gestione** nel [Portale di Azure classico](https://manage.windowsazure.com).
 2.	Selezionare **Analisi di flusso** per **Tipo** e il nome del processo per **Nome servizio**.
 
-  ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
+  ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png) 
 
 ## Trovare i log di controllo nel portale di Azure ##
 
@@ -73,7 +73,7 @@ A questo punto è possibile aprire il pannello **Dettagli** facendo clic sull'ev
 
 Nel portale di gestione di Azure, fare clic sull’icona Cerca e digitare "non riuscito". In questo modo si visualizzeranno tutti i log dei processi non riusciti.
 
-  ![Eseguire il debug di un processo non riuscito](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)  
+  ![Eseguire il debug di un processo non riuscito](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png) 
 
 Nel portale di Azure, è possibile filtrare per livello di messaggio per visualizzare gli eventi **Critici**.
 

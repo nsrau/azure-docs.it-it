@@ -7,7 +7,7 @@
 	authors="Blackmist"
 	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/> 
 
 <tags
 	ms.service="hdinsight"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="09/19/2016"
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/> 
 
 # Usare Hive e HiveQL con Hadoop in HDInsight per analizzare un file Apache log4j di esempio
 

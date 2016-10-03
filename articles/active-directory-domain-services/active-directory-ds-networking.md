@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/> 
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/> 
 
 # Considerazioni sulla rete per Azure AD Domain Services
 
@@ -61,7 +61,7 @@ Un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) con
 
 > [AZURE.NOTE] **Distribuire Azure AD Domain Services in una subnet separata dedicata nella rete virtuale di Azure. Non applicare alcun gruppo di sicurezza di rete alla subnet dedicata. Non abilitare Azure AD Domain Services nella subnet del gateway della rete virtuale.**
 
-![Struttura consigliata per la subnet](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)  
+![Struttura consigliata per la subnet](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png) 
 
 > [AZURE.WARNING] Quando si associa un gruppo di sicurezza di rete a una subnet in cui è abilitata la funzionalità Azure AD Domain Services, è possibile che si interferisca con la possibilità di manutenzione e gestione del dominio da parte di Microsoft. Viene inoltre ostacolata la sincronizzazione tra il tenant Azure AD e il dominio gestito. **Il Contratto di servizio non si applica alle distribuzioni in cui un gruppo di sicurezza di rete è stato applicato alla subnet in cui è abilitata la funzionalità Azure AD Domain Services.**
 
@@ -75,32 +75,32 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
 #### Usare il dominio gestito in più di una rete virtuale di Azure classica
 È possibile connettere altre reti virtuali di Azure classiche alla rete virtuale di Azure classica in cui è stata abilitata la funzionalità Azure AD Domain Services. Questa connessione consente di usare il dominio gestito con i carichi di lavoro distribuiti in altre reti virtuali.
 
-![Connettività di rete virtuale classica](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)  
+![Connettività di rete virtuale classica](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png) 
 
 #### Usare il dominio gestito in una rete virtuale basata su Resource Manager
 È possibile connettere una rete virtuale basata su Resource Manager alla rete virtuale classica in cui è abilitata la funzionalità Azure AD Domain Services. Questa connessione consente di usare il dominio gestito con i carichi di lavoro distribuiti nella rete virtuale basata su Resource Manager.
 
-![Connettività da rete virtuale basata su Resource Manager a rete virtuale classica](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)  
+![Connettività da rete virtuale basata su Resource Manager a rete virtuale classica](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png) 
 
 
 ### Opzioni per le connessioni di rete
 
 - **Connessioni da rete virtuale a rete virtuale tramite connessioni VPN da sito a sito**: la connessione di una rete virtuale a un'altra rete virtuale è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE.
 
-	![Connettività di rete virtuale tramite gateway VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)  
+	![Connettività di rete virtuale tramite gateway VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg) 
 
     [Altre informazioni: connettere reti virtuali usando il gateway VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 
 - **Connessioni da rete virtuale a rete virtuale tramite il peering reti virtuali**: il peering reti virtuali è un meccanismo che connette due reti virtuali nella stessa area tramite la rete backbone di Azure. Una volta eseguito il peering, le due reti virtuali appaiono come una sola per qualsiasi scopo di connettività. Continuano a essere gestite come risorse separate, ma le macchine virtuali in queste reti virtuali possono comunicare direttamente tra di esse usando gli indirizzi IP privati.
 
-    ![Connettività di rete virtuale tramite peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)  
+    ![Connettività di rete virtuale tramite peering](./media/active-directory-domain-services-design-guide/vnet-peering.png) 
 
 	[Altre informazioni: Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
 
 
 
-<br>  
+<br> 
 
 ## Contenuti correlati
 

@@ -6,7 +6,7 @@ documentationCenter=""
 authors="msftman"    
 manager="erikre"    
 editor=""
-tags="connectors"/>  
+tags="connectors"/> 
 
 <tags
 ms.service="logic-apps"
@@ -15,7 +15,7 @@ ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
 ms.date="09/19/2016"
-ms.author="mandia"/>  
+ms.author="mandia"/> 
 
 # Introduzione al connettore Twilio
 

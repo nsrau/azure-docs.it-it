@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>  
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -52,9 +52,9 @@ La proprietà `bindings` è quella che consente di configurare trigger e associa
 
 |Proprietà|Valori/tipi|Commenti|
 |---|-----|------|
-|`type`  |stringa|Tipo di associazione. Ad esempio, `queueTrigger`.
+|`type` |stringa|Tipo di associazione. Ad esempio, `queueTrigger`.
 |`direction`|'in', 'out'| Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione.
-| `name`   | stringa | Il nome che verrà usato per i dati associati nella funzione. Per C# si tratterà di un nome di argomento, per JavaScript sarà la chiave in un elenco di chiavi/valori.
+| `name`  | stringa | Il nome che verrà usato per i dati associati nella funzione. Per C# si tratterà di un nome di argomento, per JavaScript sarà la chiave in un elenco di chiavi/valori.
 
 ## App per le funzioni
 
@@ -84,7 +84,7 @@ Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di
 
 2. Nella sezione **Impostazioni avanzate** fare clic su **Passa a Impostazioni del servizio app**.
 
-3. Fare clic su **Editor del servizio app ** nel menu di navigazione dell'applicazione in **Strumenti di sviluppo**.
+3. Fare clic su **Editor del servizio app** nel menu di navigazione dell'applicazione in **Strumenti di sviluppo**.
 
 4.  Fare clic su **Vai**.
 

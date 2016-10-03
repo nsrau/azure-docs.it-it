@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="prateek9us"
 	manager="jwhit"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="09/19/2016"
-	ms.author="pratshar"/>  
+	ms.author="pratshar"/>
 
 #  Progettazione dell'infrastruttura di rete per il ripristino di emergenza
 

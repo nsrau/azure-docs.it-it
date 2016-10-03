@@ -5,7 +5,7 @@
  documentationCenter=""
  authors="fsautomata"
  manager="timlt"
- editor=""/>  
+ editor=""/> 
 
 <tags
  ms.service="iot-hub"

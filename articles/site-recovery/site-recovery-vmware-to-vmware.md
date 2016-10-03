@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="nsoneji"
 	manager="jwhit"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="site-recovery"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="nisoneji"/>  
+	ms.author="nisoneji"/> 
 
 
 # Eseguire la replica di macchine virtuali VMware locali o server fisici in un sito secondario

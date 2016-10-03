@@ -7,7 +7,7 @@
 	services="hdinsight"
 	authors="nitinme"
 	documentationCenter=""
-	tags="azure-portal"/>  
+	tags="azure-portal"/> 
 
 <tags
 	ms.service="hdinsight"
@@ -32,17 +32,17 @@ Dopo aver acquisito familiarità con Hadoop è possibile iniziare a usare Hadoop
 
 1. Da [http://hortonworks.com/downloads/#sandbox](http://hortonworks.com/downloads/#sandbox), selezionare l'elemento __DOWNLOAD FOR VIRTUALBOX__ (SCARICA PER VIRTUALBOX) per HDP 2.4 su Sandbox di Hortonworks. È necessario registrarsi con Hortonworks prima di avviare il download.
 
-    ![Immagine di collegamento per scaricare Sandbox di Hortonworks per VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)  
+    ![Immagine di collegamento per scaricare Sandbox di Hortonworks per VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png) 
 
 2. Dalla stessa pagina Web, selezionare la __Guida all'installazione di VirtualBox__ per HDP 2.4 in Sandbox di Hortonworks. Ciò consente di scaricare un file PDF contenente le istruzioni per l'installazione della macchina virtuale.
 
-    ![Consultare la guida all'installazione](./media/hdinsight-hadoop-emulator-get-started/view-install-guide.png)  
+    ![Consultare la guida all'installazione](./media/hdinsight-hadoop-emulator-get-started/view-install-guide.png) 
 
 ## Avviare la macchina virtuale
 
 1. Avviare VirtualBox, selezionare Sandbox di Hortonworks, fare clic su __Avvia__ e su __Avvio normale__.
 
-    ![Avvio normale](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)  
+    ![Avvio normale](./media/hdinsight-hadoop-emulator-get-started/normal-start.png) 
 
 2. Al termine del processo di avvio della macchina virtuale, verranno visualizzate le istruzioni di accesso. Lanciare un browser Web e accedere all'URL visualizzato (in genere http://127.0.0.1:8888).
 

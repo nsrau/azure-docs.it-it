@@ -6,7 +6,7 @@
    documentationCenter=""
    authors="joharve2"
    manager="chrisnie"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="multiple"
@@ -157,7 +157,7 @@ Visual Studio|Visual Studio Enterprise 2015 Update 2 con Azure SDK 2.9 su Window
 
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged --> 
 
 ## <a name="next"></a>Passaggi successivi
 

@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="femila"/>  
+    manager="femila"/> 
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="09/19/2016" 
-    ms.author="jeedes" />  
+    ms.author="jeedes" /> 
 
 #Esercitazione: Integrazione di Azure Active Directory con SmarterU
   
@@ -46,11 +46,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Smar
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-smarteru-tutorial/IC700994.png "Applicazioni")  
+    ![Applicazioni](./media/active-directory-saas-smarteru-tutorial/IC700994.png "Applicazioni") 
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-smarteru-tutorial/IC749321.png "Aggiunta di un'applicazione")  
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-smarteru-tutorial/IC749321.png "Aggiunta di un'applicazione") 
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -101,7 +101,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 7.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Configura accesso Single Sign-On")  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Configura accesso Single Sign-On") 
 
 ##Configurazione del provisioning utente
   

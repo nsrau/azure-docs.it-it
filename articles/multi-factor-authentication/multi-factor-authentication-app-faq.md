@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="pblachar, librown"/>  
+	editor="pblachar, librown"/> 
 
 <tags
 	ms.service="multi-factor-authentication"

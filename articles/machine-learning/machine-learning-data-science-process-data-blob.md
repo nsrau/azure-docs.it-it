@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags 
 	ms.service="machine-learning" 
@@ -182,12 +182,12 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
 3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
  
-![lettore BLOB][1]  
+![lettore BLOB][1] 
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
 
-<!-- Module References -->  
+<!-- Module References --> 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev;gokuma" />  
+	ms.author="deguhath;bradsev;gokuma" /> 
 
 # Assegnare punteggi a modelli di apprendimento automatico compilati con Spark 
 
@@ -385,7 +385,7 @@ Il codice riportato in questa sezione illustra come caricare un modello di regre
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -603,7 +603,7 @@ Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](htt
 - Immettere il nome dell'app per la logica e del piano di servizio app per visualizzare l'**area di progettazione delle app per la logica**.
 - Selezionare un'azione HTTP e immettere i parametri mostrati nella figura seguente:
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)  
+![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png) 
 
 
 ## Passaggi successivi 

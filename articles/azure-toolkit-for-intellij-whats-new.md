@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="multiple"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>  
+	ms.author="robmcm;asirveda"/> 
 
 # Novità del Toolkit di Azure per IntelliJ
 
@@ -58,7 +58,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->  
+<!-- URL List --> 
 
 [Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
 [Toolkit di Azure per IntelliJ]: ./azure-toolkit-for-intellij.md

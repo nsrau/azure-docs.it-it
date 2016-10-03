@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="v-jeana"
    manager="lakoch"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="marketplace"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/19/2016"
-   ms.author="v-jeana; hascipio; v-dabosl"/>  
+   ms.author="v-jeana; hascipio; v-dabosl"/> 
 
 # Informazioni sui report sui proventi di Azure Marketplace
 

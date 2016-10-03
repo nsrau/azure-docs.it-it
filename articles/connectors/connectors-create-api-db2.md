@@ -6,7 +6,7 @@
     authors="MandiOhlinger"
     manager="erikre"
     editor=""
-    tags="connectors"/>  
+    tags="connectors"/> 
 
 <tags
    ms.service="logic-apps"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
    ms.date="09/19/2016"
-   ms.author="plarsen"/>  
+   ms.author="plarsen"/> 
 
 
 # Introduzione al connettore DB2
@@ -61,7 +61,7 @@ La definizione di un'app per la logica per qualsiasi operazione prevede numerosi
 4.	Fare clic sulla casella **+ Nuovo passaggio** e quindi su **Aggiungi un'azione**.
 5.	Nell'elenco delle **azioni** digitare **db2** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **DB2 - Get tables (Preview)** (DB2 - Ottieni tabelle - anteprima).
 
-	![](./media/connectors-create-api-db2/Db2connectorActions.png)  
+	![](./media/connectors-create-api-db2/Db2connectorActions.png) 
 
 6.	Nel riquadro di configurazione **DB2 - Get tables** (DB2- Ottieni tabelle) fare clic sulla **casella di controllo** per abilitare **Connetti tramite gateway dati locale**. Le impostazioni verranno modificate da cloud a locale.
 	- Digitare un valore in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio **ibmserver01:50000**.
@@ -72,12 +72,12 @@ La definizione di un'app per la logica per qualsiasi operazione prevede numerosi
 	- Selezionare un valore in **Gateway**, ad esempio **datagateway01**.
 7. Fare clic su **Crea** e quindi su **Salva**.
 
-	![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png) 
 
 8.	Nel pannello **Db2getTables** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 9.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_tables**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere un elenco di tabelle.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png)  
+	![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png) 
 
 ## Definire le connessioni DB2
 Il connettore supporta connessioni a database sia locali che cloud con le proprietà di connessione seguenti.
@@ -103,7 +103,7 @@ Il connettore può accedere a un database DB2 locale tramite il gateway locale. 
 7. Selezionare un valore in **Gateway**, ad esempio **datagateway01**.
 8. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png) 
 
 ## Definire una connessione cloud
 Il connettore può accedere a un database DB2 cloud.
@@ -116,7 +116,7 @@ Il connettore può accedere a un database DB2 cloud.
 5. Digitare un valore in **Password**, ad esempio **Password1**.
 6. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png) 
 
 ## Definire l'app per la logica per recuperare tutte le righe con SELECT
 È possibile definire un'azione dell'app per la logica per recuperare tutte le righe in una tabella DB2, indicando al connettore di elaborare un'istruzione DB2 SELECT, ad esempio **SELECT * FROM AREA**.
@@ -134,7 +134,7 @@ Il connettore può accedere a un database DB2 cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic su **Crea nuova**.
 
-	![](./media/connectors-create-api-db2/Db2connectorNewConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorNewConnection.png) 
   
 8. Nel riquadro di configurazione **Gateway** lasciare disabilitata (deselezionata) la **casella di controllo** **Connetti tramite gateway**.
 	- Digitare un valore in **Nome connessione**, ad esempio **hisdemo2**.
@@ -144,18 +144,18 @@ Il connettore può accedere a un database DB2 cloud.
 	- Digitare un valore in **Password**, ad esempio **Password1**.
 9. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png) 
 
 10. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
 11. Facoltativamente, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
 12. Fare clic su **Save**.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)  
+	![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png) 
 
 13.	Nel pannello **Db2getRows** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 14.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere un elenco di righe.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png)  
+	![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png) 
 
 ## Definire l'app per la logica per aggiungere una riga con INSERT
 È possibile definire un'azione dell'app per la logica per aggiungere una riga in una tabella DB2, indicando al connettore di elaborare un'istruzione DB2 INSERT, ad esempio **INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)**.
@@ -173,18 +173,18 @@ Il connettore può accedere a un database DB2 cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione. Ad esempio, fare clic su **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png) 
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**, "**Area 99999**" e quindi "**102**" per **REGIONID**.
 10. Fare clic su **Save**.
 
-	![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)  
+	![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png) 
  
 11.	Nel pannello **Db2insertRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la nuova riga.
 
-	![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png)  
+	![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png) 
 
 ## Definire l'app per la logica per recuperare una riga con SELECT
 È possibile definire un'azione dell'app per la logica per recuperare una riga in una tabella DB2, indicando al connettore di elaborare un'istruzione DB2 SELECT WHERE, ad esempio **SELECT FROM AREA WHERE AREAID = '99999'**.
@@ -202,19 +202,19 @@ Il connettore può accedere a un database DB2 cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. Ad esempio, fare clic su **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png) 
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**.
 10. Facoltativamente, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
 11. Fare clic su **Save**.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)  
+	![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png) 
 
 12.	Nel pannello **Db2getRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 13.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la riga.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png)  
+	![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png) 
 
 ## Definire l'app per la logica per modificare una riga con UPDATE
 È possibile definire un'azione dell'app per la logica per modificare una riga in una tabella DB2, indicando al connettore di elaborare un'istruzione DB2 UPDATE, ad esempio **UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)**.
@@ -232,18 +232,18 @@ Il connettore può accedere a un database DB2 cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. Ad esempio, fare clic su **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png) 
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**, "**Updated 99999**" e quindi "**102**" per **REGIONID**.
 10. Fare clic su **Save**.
 
-	![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)  
+	![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png) 
 
 11.	Nel pannello **Db2updateRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la nuova riga.
 
-	![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png)  
+	![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png) 
 
 ## Definire l'app per la logica per rimuovere una riga con DELETE
 È possibile definire un'azione dell'app per la logica per recuperare una riga in una tabella DB2, indicando al connettore di elaborare un'istruzione DB2 DELETE, ad esempio **DELETE FROM AREA WHERE AREAID = '99999'**.
@@ -261,18 +261,18 @@ Il connettore può accedere a un database DB2 cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. Ad esempio, fare clic su **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)  
+	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png) 
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**.
 10. Fare clic su **Save**.
 
-	![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png)  
+	![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png) 
 
 11.	Nel pannello **Db2deleteRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la riga eliminata.
 
-	![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)  
+	![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png) 
 
 ## Dettagli tecnici
 

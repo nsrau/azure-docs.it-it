@@ -6,7 +6,7 @@
 	authors="gbowerman"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/> 
 
 <tags
 	ms.service="virtual-machine-scale-sets"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="guybo"/>  
+	ms.author="guybo"/> 
 
 
 # Aggiornare un set di scalabilità di macchine virtuali
@@ -84,7 +84,7 @@ Di seguito sono riportati due esempi di Python che usano l'API REST di Azure per
 
 vmssupgrade è uno script Python utile per implementare un aggiornamento del sistema operativo per un set di scalabilità di VM in esecuzione, un dominio di aggiornamento alla volta. È disponibile [qui](https://github.com/gbowerman/vmsstools).
 
-![schermata di vmssupgrade](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)  
+![schermata di vmssupgrade](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png) 
 
 Questo script consente di scegliere specifiche VM da aggiornare o di specificare un dominio di aggiornamento e supporta la modifica di una versione di immagine della piattaforma o dell'URI di un'immagine personalizzata.
 
@@ -94,10 +94,10 @@ Questo strumento è un editor generico per i set di scalabilità di VM che mostr
 
 Ad esempio, qui è stato aggiornato il modello di un set di scalabilità a Ubuntu 14.04-2LTS versione 14.04.201507060. Si noti che questa schermata non è aggiornata poiché molte opzioni sono state aggiunte a questo strumento.
 
-![schermata 1 di vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)  
+![schermata 1 di vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png) 
 
 Dopo avere selezionato l'aggiornamento e quindi ottenuto i dettagli, inizia l'aggiornamento delle VM nel dominio di aggiornamento 0.
 
-![schermata 2 di vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)  
+![schermata 2 di vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png) 
 
 <!---HONumber=AcomDC_0921_2016-->

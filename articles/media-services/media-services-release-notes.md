@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/19/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/> 
 
 # Note sulla versione di Servizi multimediali di Azure
 
@@ -608,11 +608,11 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-<!-- Anchors. -->  
+<!-- Anchors. --> 
 
 <!-- Images. -->
 
-<!--- URLs. --->  
+<!--- URLs. ---> 
 [forum di MSDN sui Servizi multimediali di Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx
 [Dettagli prezzi dei servizi multimediali]: http://azure.microsoft.com/pricing/details/media-services/

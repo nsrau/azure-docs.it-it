@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtland"/>  
+	editor="curtland"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 # Effettuare l’accesso all'app per dispositivi mobili utilizzando la notifica con Azure Multi-Factor Authentication
 
@@ -29,11 +29,11 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 <li>Microsoft invierà una notifica.</li>
 
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-app-notify/notify.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)</center>
 
 <li>Rispondere al telefono e premere il tasto di verifica.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-app-notify/phone.png)</center>
+<center>![Installazione](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)</center>
 
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>

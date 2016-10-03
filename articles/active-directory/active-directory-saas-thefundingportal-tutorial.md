@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeevansd"
 	manager="femila"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="jeedes"/>  
+	ms.author="jeedes"/> 
 
 
 # Esercitazione: Integrazione di Azure Active Directory con The Funding Portal
@@ -60,29 +60,29 @@ Per configurare l'integrazione di The Funding Portal in Azure AD, è necessario 
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]  
+	![Active Directory][1] 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]  
+	![Applicazioni][2] 
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]  
+	![Applicazioni][3] 
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-	![Applicazioni][4]  
+	![Applicazioni][4] 
 
 6. Nella casella di ricerca digitare **The Funding Portal**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_01.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_01.png) 
 
 7. Nel riquadro dei risultati selezionare **The Funding Portal** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_02.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_02.png) 
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con The Funding Portal con un utente test di nome "Britta Simon".
@@ -103,19 +103,19 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 L'applicazione The Funding Portal prevede che le asserzioni SAML contengano un attributo denominato "externalId1". Il valore di "externalId1" deve essere un ID studente riconosciuto. Configurare l'attestazione "externalId1" per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **"Attributes"** (Attributi) dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
 
-![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_03.png)  
+![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_03.png) 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con The Funding Portal, seguire questa procedura:**
 
 1. Nel menu visualizzato nella parte superiore della pagina di integrazione dell'applicazione **The Funding Portal** nel portale di Azure classico fare clic su **Attributi**.
      
-    ![Configura accesso Single Sign-On][5]  
+    ![Configura accesso Single Sign-On][5] 
 
 2. Nella finestra di dialogo relativa agli attributi del token SAML aggiungere l'attributo "externalId1".
 
 	a. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo utente**.
 	
-	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_05.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_05.png) 
 
 	b. Nella casella di testo **Nome attributo** digitare il nome dell'attributo "externalId1".
 
@@ -125,15 +125,15 @@ L'applicazione The Funding Portal prevede che le asserzioni SAML contengano un a
 
 1. Nel menu in alto fare clic su **Avvio rapido**.
 
-	![Configura accesso Single Sign-On][6]  
+	![Configura accesso Single Sign-On][6] 
 
 2. Nella pagina di integrazione dell'applicazione **The Funding Portal** nel portale classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-	![Configura accesso Single Sign-On][7]  
+	![Configura accesso Single Sign-On][7] 
 
 3. Nella pagina **Stabilire come si desidera che gli utenti accedano a The Funding Portal** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
  	
-	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_06.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_06.png) 
 
 4. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
@@ -146,38 +146,38 @@ L'applicazione The Funding Portal prevede che le asserzioni SAML contengano un a
 
 5. Nella pagina **Configura accesso Single Sign-On in The Funding Portal** fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_08.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_08.png) 
 
 6. Al fine di configurare l'accesso SSO per l'applicazione, contattare il supporto di The Funding Portal. Il canale appropriato fornirà l'aiuto richiesto per configurare l'accesso SSO. Si noti che è necessario inviare un messaggio di posta elettronica all'indirizzo info@regenteducation.com e allegare il file di metadati scaricato.
 
 7. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 	
-	![Accesso Single Sign-On di Azure AD][10]  
+	![Accesso Single Sign-On di Azure AD][10] 
 
 8. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
   	
-	![Accesso Single Sign-On di Azure AD][11]  
+	![Accesso Single Sign-On di Azure AD][11] 
 
 ### Creazione di un utente test di Azure AD
 In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
-![Creare un utente di Azure AD][20]  
+![Creare un utente di Azure AD][20] 
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_09.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_09.png) 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_03.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_03.png) 
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_04.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_04.png) 
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
  
@@ -191,7 +191,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png) 
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -205,11 +205,11 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_07.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_07.png) 
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_08.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_08.png) 
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -225,27 +225,27 @@ In questa sezione viene creato un utente chiamato Britta Simon in The Funding Po
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a The Funding Portal.
 
-![Assegna utente][200]  
+![Assegna utente][200] 
 
 **Per assegnare Britta Simon a The Funding Portal, seguire questa procedura:**
 
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
 
-	![Assegna utente][201]  
+	![Assegna utente][201] 
 
 2. Nell'elenco delle applicazioni selezionare **The Funding Portal**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_09.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_09.png) 
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][203]  
+	![Assegna utente][203] 
 
 1. Nell'elenco Tutti gli utenti selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]  
+	![Assegna utente][205] 
 
 
 ### Test dell'accesso Single Sign-On
@@ -261,7 +261,7 @@ Quando si fa clic sul riquadro The Funding Portal nel pannello di accesso, si do
 
 
 
-<!--Image references-->  
+<!--Image references--> 
 
 [1]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_02.png

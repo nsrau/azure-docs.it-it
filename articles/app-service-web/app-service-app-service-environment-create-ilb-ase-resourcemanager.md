@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="app-service" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/21/2016" 
-	ms.author="stefsch"/>  
+	ms.author="stefsch"/> 
 
 # Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager
 
@@ -136,7 +136,7 @@ Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibi
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- LINKS -->  
+<!-- LINKS --> 
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
 [examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/

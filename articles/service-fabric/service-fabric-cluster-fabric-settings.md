@@ -6,7 +6,7 @@
    documentationCenter=".net"
    authors="chackdan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/20/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/> 
 
 # Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
 

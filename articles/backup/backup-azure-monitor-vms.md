@@ -5,7 +5,7 @@
    documentationCenter="dev-center-name"
    authors="markgalioto"
    manager="cfreeman"
-   editor=""/>  
+   editor=""/> 
 
 <tags
 ms.service="backup"
@@ -14,7 +14,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
 ms.date="08/25/2016"
-ms.author="trinadhk; giridham;"/>  
+ms.author="trinadhk; giridham;"/> 
 
 # Monitorare gli avvisi per i backup della macchina virtuale di Azure
 
@@ -28,7 +28,7 @@ Per aprire il pannello Avvisi di backup dal riquadro Avvisi di backup:
 
 - Nel riquadro **Avvisi di backup** nel dashboard dell'insieme di credenziali fare clic su **Critico** o **Avviso** per visualizzare gli eventi operativi per tale livello di gravità.
 
-    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-tile.png)  
+    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-tile.png) 
 
 
 Per aprire il pannello Avvisi di backup dal riquadro Avvisi ed eventi:
@@ -41,11 +41,11 @@ Per aprire il pannello Avvisi di backup dal riquadro Avvisi ed eventi:
 
     Il pannello **Avvisi di backup** si apre e visualizza gli avvisi filtrati.
 
-    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-critical.png)  
+    ![Riquadro Avvisi di backup](./media/backup-azure-monitor-vms/backup-alerts-critical.png) 
 
 4. Per visualizzare informazioni dettagliate su un avviso specifico, nell'elenco di eventi fare clic sull'avviso per aprire il pannello **Dettagli**.
 
-    ![Dettagli dell'evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)  
+    ![Dettagli dell'evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png) 
 
     Per personalizzare gli attributi visualizzati nell'elenco, vedere [Visualizzare altri attributi degli eventi](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
@@ -61,7 +61,7 @@ Per configurare le notifiche di posta elettronica per gli avvisi
 
     Si apre il pannello Configura notifiche.
 
-    ![Pannello Configura notifiche](./media/backup-azure-monitor-vms/configure-notifications.png)  
+    ![Pannello Configura notifiche](./media/backup-azure-monitor-vms/configure-notifications.png) 
 
 2. Nel pannello Configura notifiche per Notifiche tramite posta elettronica fare clic su **Sì**.
 
@@ -96,17 +96,17 @@ L'impostazione **Log di controllo** ha un set predefinito di filtri e colonne ch
 
 1. Nel [dashboard dell'insieme di credenziali](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard) cercare e fare clic su **Log di controllo** per aprire il pannello **Eventi**.
 
-    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)  
+    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png) 
 
     Verrà visualizzato il pannello **Eventi** con gli eventi operativi filtrati solo per l'insieme di credenziali corrente.
 
-    ![Filtro di Log di controllo](./media/backup-azure-monitor-vms/audit-logs-filter.png)  
+    ![Filtro di Log di controllo](./media/backup-azure-monitor-vms/audit-logs-filter.png) 
 
     Il pannello mostra l'elenco di eventi critici, di errore, di avviso e informativi che si sono verificati nell'ultima settimana. L'intervallo di tempo è un valore predefinito specificato in **Filtro**. Il pannello **Eventi** mostra anche un grafico a barre che tiene traccia degli eventi che si sono verificati. Se non si vuole visualizzare il grafico a barre, scegliere **Nascondi grafico** dal menu **Eventi** per disattivare il grafico. La visualizzazione predefinita di Eventi mostra l'operazione, il livello, lo stato, la risorsa e le informazioni sull'ora. Per informazioni sull'esposizione di altri attributi degli eventi, vedere la sezione [Visualizzare altri attributi degli eventi](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
 2. Per altre informazioni su un evento operativo, nella colonna **Operazione** fare clic su un evento operativo per aprirne il pannello. Il pannello contiene informazioni dettagliate sugli eventi. Gli eventi vengono raggruppati in base all'ID correlazione e a un elenco degli eventi che si sono verificati nell'intervallo di tempo.
 
-    ![Dettagli operazione](./media/backup-azure-monitor-vms/audit-logs-details-window.png)  
+    ![Dettagli operazione](./media/backup-azure-monitor-vms/audit-logs-details-window.png) 
 
 3. Per visualizzare informazioni dettagliate su un evento specifico, nell'elenco di eventi fare clic sull'evento per aprire il pannello **Dettagli**.
 
@@ -120,7 +120,7 @@ Usare **Filtro** per modificare o scegliere le informazioni visualizzate in un d
 
 1. Nel [dashboard dell'insieme di credenziali](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard) cercare e fare clic su **Log di controllo** per aprire il pannello **Eventi**.
 
-    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)  
+    ![Log di controllo](./media/backup-azure-monitor-vms/audit-logs-1606-1.png) 
 
     Verrà visualizzato il pannello **Eventi** con gli eventi operativi filtrati solo per l'insieme di credenziali corrente.
 
@@ -128,17 +128,17 @@ Usare **Filtro** per modificare o scegliere le informazioni visualizzate in un d
 
 2. Scegliere **Filtro** dal menu **Eventi** per aprire tale pannello.
 
-    ![Aprire il pannello del filtro](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)  
+    ![Aprire il pannello del filtro](./media/backup-azure-monitor-vms/audit-logs-filter-button.png) 
 
 3. Nel pannello **Filtro** regolare i filtri **Livello**, **Intervallo di tempo** e **Chiamante**. Gli altri filtri non sono disponibili perché sono stati impostati per fornire le informazioni correnti per l'insieme di credenziali di Servizi di ripristino.
 
-    ![Dettagli della query sui Log di controllo](./media/backup-azure-monitor-vms/filter-blade.png)  
+    ![Dettagli della query sui Log di controllo](./media/backup-azure-monitor-vms/filter-blade.png) 
 
     È possibile specificare il **Livello** dell'evento: Critico, Errore, Avviso o Informativo. È possibile scegliere qualsiasi combinazione di livelli dell'evento, ma è necessario avere selezionato almeno un livello. Attivare o disattivare il livello. Il filtro **Intervallo di tempo** consente di specificare il periodo di tempo per l'acquisizione degli eventi. Se si usa un intervallo di tempo personalizzato, è possibile impostare l'ora di inizio e di fine.
 
 4. Quando si è pronti per effettuare una query sui log operazioni usando il filtro, fare clic su **Aggiorna**. I risultati vengono visualizzati nel pannello **Eventi**.
 
-    ![Dettagli operazione](./media/backup-azure-monitor-vms/edited-list-of-events.png)  
+    ![Dettagli operazione](./media/backup-azure-monitor-vms/edited-list-of-events.png) 
 
 
 ### Visualizzare altri attributi degli eventi
@@ -146,11 +146,11 @@ Usando il pulsante **Colonne**, è possibile visualizzare altri attributi degli 
 
 1. Nel pannello **Eventi** fare clic su **Colonne**.
 
-    ![Aprire le colonne](./media/backup-azure-monitor-vms/audi-logs-column-button.png)  
+    ![Aprire le colonne](./media/backup-azure-monitor-vms/audi-logs-column-button.png) 
 
     Si apre il pannello **Scegli colonne**.
 
-    ![Pannello delle colonne](./media/backup-azure-monitor-vms/columns-blade.png)  
+    ![Pannello delle colonne](./media/backup-azure-monitor-vms/columns-blade.png) 
 
 2. Per selezionare l'attributo, fare clic sulla casella di controllo. La casella di controllo di un attributo può essere attivata e disattivata.
 

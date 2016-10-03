@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="NKing92"
 	manager="wpickett"
-    editor="" />  
+    editor="" /> 
 
 <tags
 	ms.service="app-service"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2016"
-	ms.author="nicking"/>  
+	ms.author="nicking"/> 
 # Usare PowerShell per eseguire il backup e il ripristino di app del servizio app
 
 > [AZURE.SELECTOR]

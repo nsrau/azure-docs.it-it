@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="selvasingh" 
 	manager="wpickett" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="asirveda;robmcm"/>  
+	ms.author="asirveda;robmcm"/> 
 
 # Debug di un'App Web Java su Azure in Eclipse
 
@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione sarà simile a quanto illustr
 * Java Developer Kit (JDK) versione 1.8 o successiva.
 * IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/it-IT/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
 * Un progetto Web dinamico creato e distribuito al Servizio app di Azure; ad esempio vedere [Creare un'app Web Hello World per Azure in Eclipse].
 
@@ -84,7 +84,7 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->  
+<!-- URL List --> 
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Toolkit di Azure per Eclipse]: ../azure-toolkit-for-eclipse.md
@@ -95,7 +95,7 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [Panoramica delle App Web]: ./app-service-web-overview.md
 
-<!-- IMG List -->  
+<!-- IMG List --> 
 
 [01]: ./media/app-service-web-debug-java-web-app-in-eclipse/01-debug-java-web-app-in-eclipse.png
 [02]: ./media/app-service-web-debug-java-web-app-in-eclipse/02-configure-eclipse-remote-debug.png

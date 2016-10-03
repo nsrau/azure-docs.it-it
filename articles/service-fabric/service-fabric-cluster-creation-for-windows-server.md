@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/15/2016"
-   ms.author="dkshir;chackdan"/>  
+   ms.author="dkshir;chackdan"/> 
 
 
 # Creare e gestire un cluster eseguito in Windows Server
@@ -33,7 +33,7 @@ Questo articolo illustra la procedura per creare un cluster con il pacchetto aut
 
 >[AZURE.NOTE] Se si usa il browser Internet Explorer o Microsoft Edge per scaricare il pacchetto, è necessario aggiungere [http://download.microsoft.com](http://download.microsoft.com) ai siti attendibili dell'intranet per evitare che il tag Zones sia scritto nei file quando viene scaricato il file zip
 
- ![TustedZone][TrustedZone]  
+ ![TustedZone][TrustedZone] 
 
 Nel pacchetto di download sono disponibili i seguenti file:
 
@@ -178,7 +178,7 @@ L'intero pacchetto è attualmente in anteprima.
 - [Proteggere un cluster autonomo in Windows con certificati X.509](service-fabric-windows-cluster-x509-security.md)
 
 
-<!--Image references-->  
+<!--Image references--> 
 [TrustedZone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
 <!---HONumber=AcomDC_0921_2016-->

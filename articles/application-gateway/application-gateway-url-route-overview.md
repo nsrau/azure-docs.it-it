@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/> 
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,13 +13,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/16/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/> 
 
 # Panoramica del routing basato su percorso URL
 
 Il routing basato su percorso URL consente di instradare il traffico a pool di server back-end in base ai percorsi URL della richiesta. Uno degli scenari è l'instradamento delle richieste di tipi di contenuto diversi a pool di server back-end diversi. Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico per contoso.com dai tre pool di server back-end, ad esempio VideoServerPool, ImageServerPool e DefaultServerPool.
 
-![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)  
+![imageURLroute](./media/application-gateway-url-route-overview/figure1.png) 
 
 Le richieste per http://contoso.com/video* vengono indirizzate a VideoServerPool, mentre quelle per http://contoso.com/images* vengono indirizzate a ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
 

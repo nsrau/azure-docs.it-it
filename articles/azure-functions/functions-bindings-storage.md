@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>  
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="chrande"/>  
+	ms.author="chrande"/> 
 
 # Trigger e associazioni di Archiviazione di Azure in Funzioni di Azure
 
@@ -216,7 +216,7 @@ Il BLOB può essere deserializzato in uno dei seguenti tipi in funzioni Node o C
 
 Nelle funzioni C# è anche possibile definire associazioni con uno dei seguenti tipi:
 
-* `TextReader`  
+* `TextReader` 
 * `Stream`
 * `ICloudBlob`
 * `CloudBlockBlob`
@@ -224,7 +224,7 @@ Nelle funzioni C# è anche possibile definire associazioni con uno dei seguenti 
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`  
+* `IEnumerable<CloudPageBlob>` 
 * Altri tipi deserializzati da [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
 
 #### Esempio di codice C# del trigger dei BLOB
@@ -352,11 +352,11 @@ Nelle funzioni C# è anche possibile definire associazioni con i seguenti tipi:
 
 * `TextReader` (solo input)
 * `TextWriter` (solo output)
-* `Stream`  
+* `Stream` 
 * `CloudBlobStream` (solo output)
 * `ICloudBlob`
 * `CloudBlockBlob`
-* `CloudPageBlob`  
+* `CloudPageBlob` 
 
 #### Esempio di codice C# di output di BLOB
 

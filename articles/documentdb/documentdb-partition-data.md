@@ -5,7 +5,7 @@
 	authors="arramac" 
 	manager="jhubbard" 
 	editor="monicar" 
-	documentationCenter=""/>  
+	documentationCenter=""/> 
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="arramac"/>  
+	ms.author="arramac"/> 
 
 # Partizionamento e scalabilità in Azure DocumentDB
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è progettato per ottenere prestazioni rapide e prevedibili e per eseguire facilmente la scalabilità in base allo sviluppo dell'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento in DocumentDB e descrive come configurare raccolte di DocumentDB per scalare in modo efficace le applicazioni.
@@ -286,7 +286,7 @@ Per eseguire la migrazione da una raccolta a partizione singola a una raccolta p
 1. Esportare i dati da una raccolta a partizione singola a JSON. Vedere [Esportare in file JSON](documentdb-import-data.md#export-to-json-file) per altre informazioni.
 2. Importare i dati in una raccolta partizionata creata con una definizione della chiave di partizione e con più di 10.000 unità richiesta al secondo, come illustrato nell'esempio seguente. Vedere [Importare in DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) per altre informazioni.
 
-![Migrazione dei dati a una raccolta partizionata in DocumentDB][3]  
+![Migrazione dei dati a una raccolta partizionata in DocumentDB][3] 
 
 >[AZURE.TIP] Per accelerare l'importazione, provare ad aumentare il numero di richieste parallele a 100 o a un valore superiore per sfruttare la maggiore velocità effettiva disponibile per le raccolte partizionate.
 

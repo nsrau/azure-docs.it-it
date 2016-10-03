@@ -5,7 +5,7 @@
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/> 
 
 <tags 
 	ms.service="logic-apps" 

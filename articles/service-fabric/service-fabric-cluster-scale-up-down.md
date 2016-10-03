@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/09/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/> 
 
 
 # Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di scalabilità automatica
@@ -104,7 +104,7 @@ Per altre informazioni sulla pianificazione della capacità del cluster, l'aggio
 - [Aggiornare un cluster di Service Fabric](service-fabric-cluster-upgrade.md)
 - [Partizionare Reliable Services di Service Fabric](service-fabric-concepts-partitioning.md)
 
-<!--Image references-->  
+<!--Image references--> 
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
 

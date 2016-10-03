@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"

@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="aungoo-msft"
     manager=""
-	editor="tysonn" />  
+	editor="tysonn" /> 
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/19/2016"
-    ms.author="aungoo-msft"/>  
+    ms.author="aungoo-msft"/> 
 
 # Archiviazione Premium di Azure: progettata per prestazioni elevate
 

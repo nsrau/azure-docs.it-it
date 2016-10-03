@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="rboucher"
 	manager=""
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="multiple"
@@ -200,7 +200,7 @@ Oggi Azure viene eseguito in numerosi data center distribuiti in tutto il mondo.
 
 
 ### Rete virtuale
-![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)  
+![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png) 
 
 *Figura: le reti virtuali forniscono una rete privata nel cloud in modo da consentire a servizi diversi di comunicare reciprocamente o in risorse locali se si imposta una connessione VPN tra più sedi locali.*
 
@@ -227,7 +227,7 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 ### Gestione traffico
 
-![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)  
+![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png) 
 
 *Figura: Gestione traffico di Azure consente di instradare il traffico globale al servizio dell'utente in base a regole intelligenti.*
 
@@ -361,7 +361,7 @@ Nonostante sia certamente possibile creare il back-end per un'app per dispositiv
 
 ### App per dispositivi mobili
 
-![App per dispositivi mobili](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)  
+![App per dispositivi mobili](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png) 
 
 *Figura: App per dispositivi mobili fornisce funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 
@@ -378,7 +378,7 @@ Poiché Azure supporta già un livello avanzato di scalabilità, è possibile ge
 
 ### Hub di notifica
 
-![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)  
+![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png) 
 
 *Figura: Hub di notifica fornisce le funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="edmacauley"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/> 
 
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="05/16/2016"
-   ms.author="edmaca"/>  
+   ms.author="edmaca"/> 
 
 # Esercitazione: Introduzione ad Analisi Azure Data Lake con l'SDK Java
 

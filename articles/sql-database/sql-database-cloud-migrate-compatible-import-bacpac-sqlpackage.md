@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="CarlRabeler"
    manager="jhubbard"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="sql-database"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
    ms.date="08/24/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/> 
 
 # Importare nel database SQL da un file BACPAC
 
@@ -38,7 +38,7 @@ Eseguire i passaggi seguenti in modo da usare l'utilità della riga di comando [
 1. Aprire un prompt dei comandi e passare a una directory contenente l'utilità da riga di comando sqlpackage.exe, disponibile in Visual Studio e SQL Server.
 2. Eseguire il comando sqlpackage.exe riportato di seguito con gli argomenti seguenti per l'ambiente:
 
-	`sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >`  
+	`sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >` 
 
 	| Argomento | Descrizione |
 	|---|---|
@@ -48,7 +48,7 @@ Eseguire i passaggi seguenti in modo da usare l'utilità della riga di comando [
 	| < password > | password utente |
 	| < source\_file > | nome e percorso del file BACPAC importato |
 
-	![Esportare un'applicazione livello dati dal menu Attività](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)  
+	![Esportare un'applicazione livello dati dal menu Attività](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png) 
 
 ## Passaggi successivi
 

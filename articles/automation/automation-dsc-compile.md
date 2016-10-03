@@ -5,7 +5,7 @@
    documentationCenter="na" 
    authors="coreyp-at-msft" 
    manager="stevenka" 
-   editor="tysonn"/>  
+   editor="tysonn"/> 
 
 <tags
    ms.service="automation"

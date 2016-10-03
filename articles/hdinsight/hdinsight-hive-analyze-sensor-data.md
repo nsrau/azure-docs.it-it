@@ -6,7 +6,7 @@
 	authors="Blackmist"
 	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/> 
 
 <tags
 	ms.service="hdinsight"
@@ -52,7 +52,7 @@ In questo esempio si userà Hive per elaborare i dati cronologici prodotti dai s
 
 2. Nella pagina Web visualizzata fare clic sulla scheda **Getting Started Gallery** e quindi, nella categoria **Solutions with Sample Data**, fare clic sull'esempio **Sensor Data Analysis**.
 
-    ![Immagine della raccolta introduttiva](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)  
+    ![Immagine della raccolta introduttiva](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png) 
 
 3. Seguire le istruzioni fornite nella pagina Web per completare l'esempio.
 

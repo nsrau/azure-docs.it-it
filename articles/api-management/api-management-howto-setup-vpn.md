@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="antonba"
 	manager="erikre"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="api-management"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/09/2016"
-	ms.author="antonba"/>  
+	ms.author="antonba"/> 
 
 # Come configurare connessioni VPN in Gestione API di Azure
 

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dhanyahk"
    manager="mbaldwin"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/19/2016"
-   ms.author="dhanyahk"/>  
+   ms.author="dhanyahk"/> 
 
 # Eventi del report di controllo di Azure Active Directory
 

@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="erikre"
-	editor="" />  
+	editor="" /> 
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" /> 
 
 #Note sulla versione di Azure Mobile Engagement iOS SDK
 

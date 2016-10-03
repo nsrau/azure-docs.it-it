@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun"  />  
+	editor="cgronlun"  /> 
 
 <tags
 	ms.service="machine-learning"
@@ -303,11 +303,11 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
 
 **OUTPUT:**
 
-![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png)  
+![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png) 
 
 ![Importo della mancia per numero di passeggeri](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)  
+![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png) 
 
 
 ## Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
@@ -1464,7 +1464,7 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Stampare il percorso dei file di modello da usare nel notebook di utilizzo. ** Per l'utilizzo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo".
+**Stampare il percorso dei file di modello da usare nel notebook di utilizzo.** Per l'utilizzo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo".
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

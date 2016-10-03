@@ -4,7 +4,7 @@
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
-    manager="mbaldwin" />  
+    manager="mbaldwin" /> 
 
 <tags
     ms.service="remoteapp"
@@ -13,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="08/15/2016"
-    ms.author="elizapo" />  
+    ms.author="elizapo" /> 
 
 # Procedure consigliate per la configurazione e l'uso di Azure RemoteApp
 

@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="amsriva"
    manager="rossort"
-   editor="amsriva"/>  
+   editor="amsriva"/> 
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/16/2016"
-   ms.author="amsriva"/>  
+   ms.author="amsriva"/> 
 
 # Supporto di WebSocket nel gateway applicazione
 

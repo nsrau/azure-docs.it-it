@@ -6,7 +6,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="coreysa"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/14/2016"
-   ms.author="subramar"/>  
+   ms.author="subramar"/> 
 
 
 

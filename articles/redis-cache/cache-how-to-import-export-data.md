@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/> 
 
 # Importare ed esportare dati in Cache Redis di Azure
 
@@ -50,11 +50,11 @@ Questo articolo è una guida all'importazione e all'esportazione dei dati con Ca
 
     >[AZURE.IMPORTANT] Durante il processo di importazione la cache non è accessibile ai client della cache ed eventuali dati esistenti nella cache vengono eliminati.
 
-    ![Importazione][cache-import-blobs]  
+    ![Importazione][cache-import-blobs] 
 
     È possibile controllare lo stato dell'operazione di importazione tramite le notifiche del Portale di Azure oppure visualizzando gli eventi nel [log di controllo](cache-configure.md#support-amp-troubleshooting-settings).
 
-    ![Stato dell'importazione][cache-import-data-import-complete]  
+    ![Stato dell'importazione][cache-import-data-import-complete] 
 
 
 ## Esportazione
@@ -77,11 +77,11 @@ L'esportazione consente di esportare i dati memorizzati in Cache Redis di Azure 
 
 4. Digitare un valore in **Prefisso nome BLOB** e fare clic su **Esporta** per avviare il processo di esportazione. Il prefisso del nome BLOB viene usato per i nomi dei file generati da questa operazione di esportazione.
 
-    ![Esporta][cache-export-data]  
+    ![Esporta][cache-export-data] 
 
     È possibile controllare lo stato dell'operazione di esportazione tramite le notifiche del Portale di Azure oppure visualizzando gli eventi nel [log di controllo](cache-configure.md#support-amp-troubleshooting-settings).
 
-    ![][cache-export-data-export-complete]  
+    ![][cache-export-data-export-complete] 
 
     Durante il processo di esportazione le cache rimangono disponibili per l'uso.
 
@@ -160,7 +160,7 @@ Informazioni su come usare altre funzionalità di cache premium.
 -	[Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md)
 
   
-<!-- IMAGES -->  
+<!-- IMAGES --> 
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
 [cache-export-data-choose-account]: ./media/cache-how-to-import-export-data/cache-export-data-choose-account.png
 [cache-export-data-choose-storage-container]: ./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png

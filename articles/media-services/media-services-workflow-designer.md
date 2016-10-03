@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="anilmur" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/15/2016"
-	ms.author="juliako;johndeu;anilmur"/>  
+	ms.author="juliako;johndeu;anilmur"/> 
 
 
 #Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro

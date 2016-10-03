@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -321,7 +321,7 @@ Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.js
 
 Accertarsi che sia possibile visualizzare la pipeline nel file ADF sul portale di Azure classico come indicato di seguito (quando si fa clic sul diagramma)
 
-![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)  
+![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png) 
 
 
 ##<a name="adf-pipeline-start"></a>Avviare la pipeline

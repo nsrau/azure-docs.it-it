@@ -5,7 +5,7 @@ services="machine-learning"
 documentationCenter=""
 authors="garyericson"
 manager="jhubbard"
-editor="cgronlun"/>  
+editor="cgronlun"/> 
 
 <tags
 ms.service="machine-learning"
@@ -25,7 +25,7 @@ Questo articolo fornisce una panoramica di come inserire dati locali di SQL Serv
 
 > [AZURE.NOTE] Questa funzionalità non è disponibile per le aree di lavoro gratuite. Per altre informazioni sui prezzi e sui piani tariffari di Machine Learning, vedere [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) (Prezzi di Azure Machine Learning).
 
-<!-- -->   
+<!-- -->  
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -106,7 +106,7 @@ Il primo passaggio consiste nel creare e configurare il gateway per accedere al 
 
     - La barra di stato in fondo visualizza **Connesso al servizio cloud del Gateway di gestione dati** insieme a un segno di spunta verde.
 
-     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)  
+     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png) 
 
      Al termine della registrazione viene aggiornato anche Azure Machine Learning Studio.
 

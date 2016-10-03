@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>  
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -103,13 +103,13 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 Gli spazi dei nomi seguenti vengono importati automaticamente e sono quindi facoltativi:
 
-* `System`  
+* `System` 
 * `System.Collections.Generic`
 * `System.IO`
 * `System.Linq`
 * `System.Net.Http`
 * `System.Threading.Tasks`
-* `Microsoft.Azure.WebJobs`  
+* `Microsoft.Azure.WebJobs` 
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Riferimento ad assembly esterni
@@ -129,22 +129,22 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting di Funzioni di Azure:
 
 * `mscorlib`,
-* `System`  
+* `System` 
 * `System.Core`
 * `System.Xml`
 * `System.Net.Http`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
-* `System.Web.Http`  
+* `System.Web.Http` 
 * `System.Net.Http.Formatting`.
 
 Gli assembly seguenti sono anche casi speciali ai quali è possibile fare riferimento tramite simplename, ad esempio `#r "AssemblyName"`:
 
-* `Newtonsoft.Json`  
+* `Newtonsoft.Json` 
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`  
+* `Microsoft.AspNet.WebHooks.Receivers` 
 * `Microsoft.AspNEt.WebHooks.Common`.
 
 Per fare riferimento a un assembly privato è possibile caricare il file dell'assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`. Per informazioni su come caricare i file nella cartella della funzione vedere la sezione seguente sulla gestione dei pacchetti.

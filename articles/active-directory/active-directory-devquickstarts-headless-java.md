@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="brandwe"/>  
+	ms.author="brandwe"/> 
 
 
 # Uso dell'app della riga di comando Java per accedere a un'API con Azure AD

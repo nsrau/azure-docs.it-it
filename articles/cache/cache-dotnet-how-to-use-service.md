@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/> 
 
 # Come usare il Servizio cache gestita di Azure
 
@@ -413,7 +413,7 @@ A questo punto, dopo aver appreso le nozioni di base del Servizio cache gestita,
 -	Informazioni su come eseguire la migrazione al Servizio cache gestita: [Eseguire la migrazione al Servizio cache gestita di Azure][]
 -   Consultare gli esempi: [Esempi del Servizio cache gestita][]
 
-<!-- INTRA-TOPIC LINKS -->  
+<!-- INTRA-TOPIC LINKS --> 
 [Passaggi successivi]: #next-steps
 [What is Azure Managed Cache Service?]: #what-is
 [Create an Azure Cache]: #create-cache

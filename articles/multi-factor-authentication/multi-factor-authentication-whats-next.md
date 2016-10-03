@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/> 
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -57,7 +57,7 @@ Avviso di illecito può essere configurato e impostato in modo che gli utenti po
 I messaggi vocali predefiniti di Microsoft invitano gli utenti a premere 0# per inviare un avviso di illecito. Se si usa un codice diverso da 0, sarà necessario registrare e caricare messaggi vocali personalizzati con le istruzioni appropriate.
 
 
-![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)  
+![Cloud](./media/multi-factor-authentication-whats-next/fraud.png) 
 
 ### Per segnalare un avviso di illecito
 Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per dispositivi mobili o tramite il telefono.
@@ -71,10 +71,10 @@ Gli avvisi di illecito possono essere segnalati in due modi: mediante l'app per 
 3. Fare clic su Segnala illecito.
 4. Nell'app fare clic su Chiudi.
 
-![Cloud](./media/multi-factor-authentication-whats-next/report1.png)  
+![Cloud](./media/multi-factor-authentication-whats-next/report1.png) 
 
 
-![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png)  
+![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png) 
 
 ### Per segnalare un avviso di illecito con il telefono
 

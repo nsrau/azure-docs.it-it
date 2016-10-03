@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="" />  
+   editor="" /> 
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="09/21/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" /> 
 
 # Installare l'aggiornamento 3 nel dispositivo StorSimple
 

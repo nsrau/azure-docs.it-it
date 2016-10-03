@@ -5,7 +5,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="cgronlun" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="arramac"/>  
+	ms.author="arramac"/>
 
 
 # Quote predefinite per DocumentDB

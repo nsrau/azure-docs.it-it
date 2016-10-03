@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="mgoedtel"
    manager="jwhit"
-   editor="tysonn" />  
+   editor="tysonn" /> 
 <tags
    ms.service="automation"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/15/2016"
-   ms.author="magoedte;bwren"/>  
+   ms.author="magoedte;bwren"/> 
 
 # Avvio di un Runbook in Automazione di Azure
 
@@ -31,7 +31,7 @@ La tabella seguente consente di determinare la modalità di avvio di un Runbook 
 
 L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di un runbook. Include vari metodi di avvio di un runbook in Automazione di Azure, i componenti necessari per il ruolo di lavoro ibrido per runbook per eseguire i runbook di Automazione di Azure e le interazioni tra i vari componenti. Per altre informazioni sull'esecuzione di runbook di automazione nel proprio data center, vedere [Ruoli di lavoro ibridi per runbook](automation-hybrid-runbook-worker.md)
 
-![Architettura dei runbook](media/automation-starting-runbook/runbooks-architecture.png)  
+![Architettura dei runbook](media/automation-starting-runbook/runbooks-architecture.png) 
 
 ## Avvio di un Runbook con il portale di Azure
 

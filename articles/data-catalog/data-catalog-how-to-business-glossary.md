@@ -6,7 +6,7 @@
 	authors="steelanddata"
 	manager="NA"
 	editor=""
-	tags=""/>  
+	tags=""/> 
 <tags
 	ms.service="data-catalog"
 	ms.devlang="NA"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
 	ms.date="09/21/2016"
-	ms.author="maroche"/>  
+	ms.author="maroche"/> 
 
 # Come configurare il glossario aziendale per l'assegnazione di tag regolamentata
 
@@ -41,12 +41,12 @@ Il glossario aziendale di Data Catalog dati consente alle organizzazioni di spie
 
 È possibile accedere al glossario aziendale dall'opzione Glossario nel menu di navigazione del portale di Data Catalog.
 
-![Accesso al glossario aziendale](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)  
+![Accesso al glossario aziendale](./media/data-catalog-how-to-business-glossary/01-portal-menu.png) 
 
 
 Gli amministratori del catalogo dati e i membri del ruolo Amministratori del glossario possono creare, modificare ed eliminare i termini del glossario aziendale. Tutti gli utenti di Data Catalog possono visualizzare le definizioni dei termini e possono assegnare agli asset tag usando i termini del glossario.
 
-![Aggiunta di un nuovo termine di glossario](./media/data-catalog-how-to-business-glossary/02-new-term.png)  
+![Aggiunta di un nuovo termine di glossario](./media/data-catalog-how-to-business-glossary/02-new-term.png) 
 
 
 ## Creazione dei termini di glossario
@@ -71,7 +71,7 @@ L'uso delle gerarchie nel glossario aziendale è facoltativo. Se non viene speci
 
 Dopo aver definito i termini di glossario, è possibile assegnare tag agli asset per ottimizzare la ricerca nel glossario ogni volta in cui l'utente digita il tag. Il portale di Data Catalog visualizza un elenco di termini di glossario che corrispondono alla ricerca dell'utente. Se l'utente seleziona un termine di glossario dall'elenco, questo viene aggiunto all'asset come tag. In questo caso si parla di tag di glossario. L'utente può anche scegliere di creare un nuovo tag digitando un termine che non è incluso nel glossario. In questo caso si parla di tag utente.
 
-![Assegnazione di tag ad asset di dati con un tag utente o due tag di glossario](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)  
+![Assegnazione di tag ad asset di dati con un tag utente o due tag di glossario](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png) 
 
 > [AZURE.NOTE] I tag utente sono l'unico tipo di tag supportato nell'edizione gratuita di Data Catalog.
 

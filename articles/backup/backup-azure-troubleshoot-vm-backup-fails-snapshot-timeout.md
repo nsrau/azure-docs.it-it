@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="genlin"
    manager="jwhit"
-   editor=""/>  
+   editor=""/> 
 
 <tags
     ms.service="backup"

@@ -6,7 +6,7 @@
    authors="JimacoMS"
    manager="msmbaldwin"
    editor=""
-   tags=""/>  
+   tags=""/> 
 
 
    <tags
@@ -16,7 +16,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="identity"
       ms.date="09/16/2016"
-      ms.author="v-jibran@microsoft.com"/>  
+      ms.author="v-jibran@microsoft.com"/> 
 
 # Avvio rapido per l'API Graph di Azure AD
 

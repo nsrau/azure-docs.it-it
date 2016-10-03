@@ -5,7 +5,7 @@
     documentationCenter=".net"
     authors="dineshmurthy"
     manager=jahogg""
-    editor="tysonn"/>  
+    editor="tysonn"/> 
 
 <tags
     ms.service="storage"
@@ -14,11 +14,11 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/20/2016"
-    ms.author="dineshm;robinsh"/>  
+    ms.author="dineshm;robinsh"/> 
 
 # Come usare l'archiviazione delle code da C++  
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/>   [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/>  [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione ed eliminazione di code**.

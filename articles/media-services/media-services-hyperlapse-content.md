@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="asolanki"
 	manager="johndeu"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/19/2016"  
-	ms.author="adsolank"/>  
+	ms.author="adsolank"/> 
 
 
 # File multimediali di Hyperlapse con Azure Media Hyperlapse

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/09/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/> 
 
 
 # Relazione tra i tipi di nodo di Service Fabric e i set di scalabilità di macchine virtuali
@@ -39,7 +39,7 @@ Se il cluster è stato distribuito dal portale o è stato usato il modello di Re
 Il nome sarà simile a: **LB-&lt;nome tipo di nodo&gt;**, ad esempio, LB-sfcluster4doc-0, come in questo screenshot:
 
 
-![Risorse][Resources]  
+![Risorse][Resources] 
 
 
 ## Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
@@ -53,12 +53,12 @@ A questo scopo, è necessario ottenere i valori delle regole NAT in ingresso def
 
 Nel portale passare al pannello del servizio di bilanciamento del carico e quindi fare clic su **Impostazioni**.
 
-![Pannello servizio di bilanciamento del carico][LBBlade]  
+![Pannello servizio di bilanciamento del carico][LBBlade] 
 
 
 In **Impostazioni** fare clic su **Regole NAT in ingresso**. Si ottengono così l'indirizzo IP e la porta che è possibile usare per connettersi in remoto alla prima istanza del set di scalabilità di macchine virtuali. Nello screenshot seguente sono **104.42.106.156** e **3389**
 
-![Regole NAT][NATRules]  
+![Regole NAT][NATRules] 
 
 ### Passaggio 2: Trovare la porta che è possibile usare per connettersi in remoto all'istanza del set di scalabilità di macchine virtuali/nodo specifico
 
@@ -80,7 +80,7 @@ Le porte vengono allocate in ordine crescente nell'istanza del set di scalabilit
 
 Nello screenshot seguente viene usata Connessione Desktop remoto per connettersi a FrontEnd\_1:
 
-![RDP][RDP]  
+![RDP][RDP] 
 
 ## Come modificare i valori dell'intervallo di porte RDP
 
@@ -90,7 +90,7 @@ Quando si configura il cluster usando un modello di Resource Manager, è possibi
 
 Passare alla definizione di risorse per **Microsoft.Network/loadBalancers** dove si troverà la descrizione per **inboundNatPools**. Sostituire i valori *frontendPortRangeStart* e *frontendPortRangeEnd*.
 
-![Pool NAT in ingresso][InboundNatPools]  
+![Pool NAT in ingresso][InboundNatPools] 
 
 
 ### Dopo la distribuzione cluster
@@ -125,7 +125,7 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 - [Service Fabric SDK e introduzione](service-fabric-get-started.md)
 
 
-<!--Image references-->  
+<!--Image references--> 
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png
 [Resources]: ./media/service-fabric-cluster-nodetypes/Resources.png
 [InboundNatPools]: ./media/service-fabric-cluster-nodetypes/InboundNatPools.png

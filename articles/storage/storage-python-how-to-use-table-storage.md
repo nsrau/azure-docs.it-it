@@ -5,7 +5,7 @@
 	documentationCenter="python"
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/> 
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="gusapost;tamram"/>  
+	ms.author="gusapost;tamram"/> 
 
 
 # Come usare l'archiviazione tabelle da Python

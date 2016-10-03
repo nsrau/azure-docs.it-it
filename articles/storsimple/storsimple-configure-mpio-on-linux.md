@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="tysonn" />  
+   editor="tysonn" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/21/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" /> 
 
 # Configurare MPIO in un host di StorSimple che esegue CentOS
 

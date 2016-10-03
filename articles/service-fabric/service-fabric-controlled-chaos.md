@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="motanv"
    manager="rsinha"
-   editor="toddabel"/>  
+   editor="toddabel"/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/19/2016"
-   ms.author="motanv"/>  
+   ms.author="motanv"/> 
 
 # Eseguire Chaos in ambiente controllato nei cluster di Service Fabric
 I sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric consente agli sviluppatori di scrivere servizi affidabili anche per un'infrastruttura inaffidabile. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testare la stabilità dei servizi.

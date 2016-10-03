@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-resource-manager"
-   keywords=""/>  
+   keywords=""/> 
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"

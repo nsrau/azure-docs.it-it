@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtland"/>  
+	editor="curtland"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -64,7 +64,7 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 - Rispondere al telefono e premere il tasto di verifica. Se la società richiede un PIN, verrà richiesto qui.
 
-![Verificare](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)  
+![Verificare](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png) 
 
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
@@ -84,7 +84,7 @@ Le informazioni seguenti descrivono l'esperienza di utilizzo dell'autenticazione
 
 - Aprire l'app Microsoft Authenticator sul telefono e immettere il codice nella casella da cui si sta effettuando l'accesso.
 
-![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)  
+![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 
 
 

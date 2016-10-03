@@ -7,7 +7,7 @@
 	authors="jeffstokes72"
 	manager="jhubbard"
 	editor="cgronlun"
-/>  
+/> 
 
 
 <tags 
@@ -18,7 +18,7 @@
 	ms.workload="data-services" 
 	ms.date="08/08/2016" 
 	ms.author="jeffstok"
-/>  
+/> 
 
 # Analisi dei sentimenti con Analisi di flusso di Azure e Azure Machine Learning #
 

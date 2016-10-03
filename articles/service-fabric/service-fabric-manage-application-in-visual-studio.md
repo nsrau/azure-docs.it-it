@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="seanmck"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/09/2016"
-   ms.author="seanmck;mikhegn"/>  
+   ms.author="seanmck;mikhegn"/> 
 
 # Usare Visual Studio per semplificare la scrittura e la gestione delle applicazioni dell’infrastruttura di servizi
 
@@ -41,7 +41,7 @@ Per impostazione predefinita, Visual Studio rimuove le istanze esistenti del tip
 1. Dal menu di scelta rapida del progetto dell'applicazione, scegliere **Proprietà** (o premere il pulsante **F4**).
 2. Nella finestra **Proprietà** impostare la proprietà **Modalità di debug applicazione**.
 
-    ![Impostare la proprietà Modalità di debug applicazione][debugmodeproperty]  
+    ![Impostare la proprietà Modalità di debug applicazione][debugmodeproperty] 
 
 Di seguito sono indicate le opzioni di **modalità di debug applicazione** disponibili.
 
@@ -53,7 +53,7 @@ Di seguito sono indicate le opzioni di **modalità di debug applicazione** dispo
 
 Nell'opzione **Aggiornamento automatico** i dati vengono conservati applicando le funzionalità di aggiornamento dell'applicazione di Service Fabric, ma sono ottimizzati ai fini delle prestazioni anziché della sicurezza. Per altre informazioni sull'aggiornamento delle applicazioni e su come è possibile eseguire un aggiornamento in un ambiente reale, vedere [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md).
 
-![Esempio di una nuova versione dell'applicazione con data aggiunta][preservedata]  
+![Esempio di una nuova versione dell'applicazione con data aggiunta][preservedata] 
 
 >[AZURE.NOTE] Questa proprietà non è presente nelle versioni precedenti alla versione 1.1 di Strumenti di Service Fabric per Visual Studio. Per ottenere lo stesso comportamento nelle versioni precedenti alla versione 1.1, usare la proprietà **Conserva dati all'avvio**. L'opzione "Mantieni applicazione" è stata introdotta nella versione 1.2 di Strumenti di Service Fabric per Visual Studio.
 
@@ -61,30 +61,30 @@ Nell'opzione **Aggiornamento automatico** i dati vengono conservati applicando l
 
 È possibile aggiungere nuovi servizi all'applicazione per estenderne le funzionalità. Per essere certi che il servizio venga incluso nel pacchetto applicazione, aggiungere il servizio usando la voce di menu **New Fabric Service**.
 
-![Aggiungere un nuovo servizio di Service Fabric all'applicazione][newservice]  
+![Aggiungere un nuovo servizio di Service Fabric all'applicazione][newservice] 
 
 Selezionare un tipo di progetto di Service Fabric da aggiungere all'applicazione e specificare un nome per il servizio. Per decidere più facilmente quale tipo di servizio usare, vedere [Scelta di un framework per il servizio](service-fabric-choose-framework.md).
 
-![Selezionare un tipo di progetto di Service Fabric da aggiungere all'applicazione][addserviceproject]  
+![Selezionare un tipo di progetto di Service Fabric da aggiungere all'applicazione][addserviceproject] 
 
 Il nuovo servizio verrà aggiunto alla soluzione e al pacchetto applicazione esistente. Al manifesto dell'applicazione verranno inoltre aggiunti i riferimenti al servizio e un'istanza di servizio predefinita. Il servizio verrà creato e avviato alla successiva distribuzione dell'applicazione.
 
-![Il nuovo servizio verrà aggiunto al manifesto dell'applicazione][newserviceapplicationmanifest]  
+![Il nuovo servizio verrà aggiunto al manifesto dell'applicazione][newserviceapplicationmanifest] 
 
 ## Creazione del pacchetto per l'applicazione di Service Fabric
 
-Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto dell’applicazione. Tale pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico. Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg". Facendo clic su **Pacchetto ** dal menu di scelta rapida **Applicazione** il pacchetto di applicazione viene creato o aggiornato. È possibile procedere in questo modo se si intende distribuire l'applicazione usando script di PowerShell personalizzati.
+Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto dell’applicazione. Tale pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico. Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg". Facendo clic su **Pacchetto** dal menu di scelta rapida **Applicazione** il pacchetto di applicazione viene creato o aggiornato. È possibile procedere in questo modo se si intende distribuire l'applicazione usando script di PowerShell personalizzati.
 
 ## Rimuovere applicazioni e tipi di applicazione con Cloud Explorer
 
 In Visual Studio è possibile eseguire operazioni di gestione dei cluster di base con Cloud Explorer, che può essere avviato dal menu **Visualizza**. È ad esempio possibile eliminare applicazioni e annullare il provisioning di tipi di applicazione in cluster locali o remoti.
 
-![Rimuovere un'applicazione](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)  
+![Rimuovere un'applicazione](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png) 
 
 >[AZURE.TIP] Per funzionalità di gestione dei cluster più avanzate, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> 
 ## Passaggi successivi
 
 - [Modello di applicazione di Service Fabric](service-fabric-application-model.md)
@@ -93,7 +93,7 @@ In Visual Studio è possibile eseguire operazioni di gestione dei cluster di bas
 - [Debug dell'applicazione di Service Fabric](service-fabric-debugging-your-application.md)
 - [Visualizzazione del cluster con l’explorer di Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!--Image references-->  
+<!--Image references--> 
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png

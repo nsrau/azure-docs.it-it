@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carmonm"
-   editor="" />  
+   editor="" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/21/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" /> 
 
 # Contattare il supporto tecnico Microsoft
 
@@ -32,7 +32,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 1. Nell'angolo superiore destro del [portale classico di Azure](https://manage.windowsazure.com/) fare clic sul nome account e quindi su **Contatta il supporto Microsoft**.
 
-	![Contattare il supporto tecnico Microsoft tramite il portale di gestione](./media/storsimple-contact-microsoft-support/Ibiza1.png)  
+	![Contattare il supporto tecnico Microsoft tramite il portale di gestione](./media/storsimple-contact-microsoft-support/Ibiza1.png) 
 
 2. Si verrà reindirizzati al nuovo portale di Azure, portal.azure.com. Fare clic sul riquadro **Nuova richiesta di supporto**.
 

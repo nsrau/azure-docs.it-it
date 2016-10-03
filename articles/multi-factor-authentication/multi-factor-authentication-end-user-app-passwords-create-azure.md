@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtland"/>  
+	editor="curtland"/> 
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/> 
 
 # Creare password per le app nel portale di Azure per Azure Multi-Factor Authentication
 

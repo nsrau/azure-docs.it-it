@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Rajani-Janaki-Ram"
 	manager="rochakm"
-	editor="raynew"/>  
+	editor="raynew"/> 
 
 <tags
 	ms.service="site-recovery"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="rajanaki"/>  
+	ms.author="rajanaki"/> 
 
 # Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell e Azure Resource Manager
 

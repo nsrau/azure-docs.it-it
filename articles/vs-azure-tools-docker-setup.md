@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="mlearned"
    manager="douge"
-   editor="" />  
+   editor="" /> 
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="mlearned" />  
+   ms.author="mlearned" /> 
 
 # Configurare un Host Docker con VirtualBox
 

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="dalechen"
 	manager="felixwu"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="sql-database"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="daleche"/>  
+	ms.author="daleche"/> 
 
 
 # Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL

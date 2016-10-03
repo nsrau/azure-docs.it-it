@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="" />  
+   editor="" /> 
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="09/21/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" /> 
 
 # Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
 

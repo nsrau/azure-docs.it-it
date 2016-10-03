@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="yijichen"
 	manager="ilanr9"
-	editor="yijichen"/>  
+	editor="yijichen"/> 
 
 <tags
 	ms.service="cortana-analytics"

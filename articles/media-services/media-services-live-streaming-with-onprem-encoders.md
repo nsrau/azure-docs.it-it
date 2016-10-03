@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/19/2016" 
-	ms.author="cenkdin;juliako"/>  
+	ms.author="cenkdin;juliako"/> 
 
 #Streaming live con codificatori locali che creano flussi a più bitrate
 

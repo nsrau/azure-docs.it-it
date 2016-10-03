@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="carlrabeler"
    manager="jhubbard"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="sql-database"
@@ -14,11 +14,11 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/08/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/> 
 
 # Grazie ad Azure, SnelStart ha rapidamente ampliato i servizi aziendali con una frequenza di 1.000 nuovi database SQL di Azure al mese
 
-![Logo](./media/sql-database-case-study-snelstart/snelstartlogo.png)  
+![Logo](./media/sql-database-case-study-snelstart/snelstartlogo.png) 
 
 SnelStart produce rinomati software di gestione aziendale e finanziaria per le piccole e medie imprese nei Paesi Bassi. I 55.000 clienti sono serviti da un organico composto da 110 dipendenti, tra cui 35 esperti del reparto IT. Grazie al passaggio dal software desktop a un'offerta Software come servizio (SaaS) compilata in Azure, SnelStart ha sfruttato al massimo i servizi incorporati, l'automazione della gestione tramite l'ambiente familiare in C# e l'ottimizzazione delle prestazioni e della scalabilità con provisioning eccessivo o insufficiente delle aziende, usando pool di database elastici. L'uso di Azure garantisce a SnelStart fluidità nello spostamento dei clienti tra ambiente locale e cloud.
 
@@ -80,7 +80,7 @@ Grazie ad Azure, SnelStart può essere usato da clienti e contabili sul cloud, i
 
 I servizi Web SnelStart consentono anche ai clienti e ai contabili di accedere facilmente ai dati nel pool di database SQL elastici di Azure. Questo modello SaaS, insieme all'elasticità del database e a Azure Resource Manager, fornisce a SnelStart funzionalità di scalabilità che completano ogni distribuzione di Azure. L'implementazione è completamente automatizzata tramite le librerie di gestione in C#.
 
-![Figura 1](./media/sql-database-case-study-snelstart/figure1.png)  
+![Figura 1](./media/sql-database-case-study-snelstart/figure1.png) 
 
 Figura 1. A partire da giugno 2016, SnelStart dispone di oltre 11.000 database e di oltre 50 pool di database elastici
  

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/> 
 
 # Come configurare il clustering Redis per una Cache Redis di Azure Premium
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
@@ -61,7 +61,7 @@ Per modificare la dimensione di una cache premium in esecuzione con il clusterin
 
 >[AZURE.NOTE] Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
 
-![Dimensione del cluster Redis][redis-cache-redis-cluster-size]  
+![Dimensione del cluster Redis][redis-cache-redis-cluster-size] 
 
 Per modificare la dimensione del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
@@ -155,7 +155,7 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 -	[Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md)
   
-<!-- IMAGES -->  
+<!-- IMAGES --> 
 
 [redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
 

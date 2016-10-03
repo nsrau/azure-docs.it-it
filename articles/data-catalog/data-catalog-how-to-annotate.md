@@ -6,7 +6,7 @@
    authors="steelanddata"
    manager="NA"
    editor=""
-   tags=""/>  
+   tags=""/> 
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="09/21/2016"
-   ms.author="maroche"/>  
+   ms.author="maroche"/> 
 
 
 # Come annotare le origini dati

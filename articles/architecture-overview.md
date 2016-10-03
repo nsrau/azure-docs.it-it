@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Rboucher" 
 	manager="jwhit" 
-	editor="mattshel"/>  
+	editor="mattshel"/> 
 
 <tags 
 	ms.service="multiple" 
@@ -29,7 +29,7 @@ Microsoft Patterns and Practices ha pubblicato il libro [Cloud Design Patterns](
 
 Microsoft ha creato un nuovo corso sull'architettura a supporto dell'esame di certificazione Microsoft 70-534. È [disponibile gratuitamente sul sito EDX.ORG](https://www.edx.org/course/architecting-microsoft-azure-solutions-microsoft-dev205x). Viene usato [3D Blueprint Visio Template](#3d-blueprint-visio-template).
 
-![Corso di certificazione per Microsoft Architecture](./media/architecture-overview/EDXCourse.png)  
+![Corso di certificazione per Microsoft Architecture](./media/architecture-overview/EDXCourse.png) 
 
 
 ##Soluzioni Microsoft
@@ -40,7 +40,7 @@ In passato Microsoft ha pubblicato un set di progetti che illustravano architett
 
 I diagrammi dei progetti e delle architetture della soluzione usano entrambi parti del [set di simboli per Cloud ed Enterprise](#Drawing-symbol-and-icon-sets).
 
-![Diagramma 3D dei progetti di Microsoft Architecture](./media/architecture-overview/BluePrintThumb.jpg)  
+![Diagramma 3D dei progetti di Microsoft Architecture](./media/architecture-overview/BluePrintThumb.jpg) 
 
 
 
@@ -56,7 +56,7 @@ Il modello è anche disponibile al di fuori del corso.
 
 Inviare un messaggio di posta elettronica all'indirizzo [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) per domande specifiche per le quali non si trova risposta nel materiale didattico o per inviare commenti e suggerimenti. Il modello non è più in fase di sviluppo attivo, ma è ancora utile e pertinente perché può usare qualsiasi PNG o i [simboli per Cloud ed Enterprise](#drawing-symbol-and-icon-sets), che vengono aggiornati.
 
-![Microsoft 3D Blueprint Visio Template](./media/architecture-overview/3DBlueprintVisioTemplate.jpg)  
+![Microsoft 3D Blueprint Visio Template](./media/architecture-overview/3DBlueprintVisioTemplate.jpg) 
 
 
 ##Set di simboli e icone disegno 
@@ -77,6 +77,6 @@ Simboli aggiuntivi per Microsoft Office e tecnologie annesse sono disponibili ne
 
 Microsoft pubblica vari poster/infografiche relativi all'architettura, tra cui [Creazione di app reali per il cloud](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) e [Scalabilità delle applicazioni con Servizi cloud](https://azure.microsoft.com/documentation/infographics/cloud-services/).
 
-![Infografiche relative all'architettura di Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)  
+![Infografiche relative all'architettura di Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg) 
 
 <!---HONumber=AcomDC_0921_2016-->

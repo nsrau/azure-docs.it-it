@@ -5,7 +5,7 @@
    documentationCenter="NA" 
    authors="SharS" 
    manager="carmonm" 
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="storsimple"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
    ms.date="09/20/2016"
-   ms.author="v-sharos@microsoft.com"/>  
+   ms.author="v-sharos@microsoft.com"/> 
 
 # Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 

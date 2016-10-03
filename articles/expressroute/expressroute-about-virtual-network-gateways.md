@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager, azure-service-management"/>  
+   tags="azure-resource-manager, azure-service-management"/> 
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/21/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" /> 
 
 # Informazioni sui gateway di rete virtuale per ExpressRoute
 

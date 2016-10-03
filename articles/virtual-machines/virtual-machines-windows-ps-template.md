@@ -6,7 +6,7 @@
 	authors="davidmu1"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/> 
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2016"
-	ms.author="davidmu"/>  
+	ms.author="davidmu"/> 
 
 # Creare una macchina virtuale Windows con un modello di Gestione risorse
 

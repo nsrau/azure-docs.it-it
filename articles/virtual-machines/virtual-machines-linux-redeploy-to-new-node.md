@@ -6,7 +6,7 @@
 	authors="iainfoulds" 
 	manager="timlt"
 	tags="azure-resource-manager,top-support-issue" 
-/>  
+/> 
 	
 
 <tags 
@@ -17,7 +17,7 @@
 	ms.workload="infrastructure" 
 	ms.date="09/19/2016" 
 	ms.author="iainfou" 
-/>  
+/> 
 
 # Ridistribuzione della macchina virtuale su un nuovo nodo di Azure
 

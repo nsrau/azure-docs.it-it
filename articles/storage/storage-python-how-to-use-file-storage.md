@@ -5,7 +5,7 @@
 	documentationCenter="python"
 	authors="robinsh"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/> 
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="minet;robinsh"/>  
+	ms.author="minet;robinsh"/> 
 
 # Come usare l'archiviazione file di Azure da Python
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/> 
 
 # Riferimento al token della versione 2.0
 
@@ -50,21 +50,21 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 #### Attestazioni nei token ID
 | Nome | Attestazione | Valore di esempio | Descrizione |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
-| Destinatari | `aud`   | `6731de76-14a6-49ae-97bc-6eba6914391e`   | Identifica il destinatario del token. Nei token ID il destinatario è l'ID applicazione assegnato all'app nel portale di registrazione delle app. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
-| Issuer | `iss`   | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 `   | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. L'app deve convalidare l'attestazione Issuer per assicurarsi che il token sia stato fornito dall'endpoint 2.0. Può inoltre usare la parte GUID dell'attestazione per limitare il set di tenant che può accedere all'app. Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. |
-| Issued At | `iat`   | `1452285331`   | Ora in cui il token è stato generato, rappresentata dal valore epoch time. |
-| Expiration Time | `exp`   | `1452289231`   | Ora in cui il token non è più valido, rappresentata dal valore epoch time. L'app deve usare questa attestazione per verificare la validità della durata del token. |
-| Non prima | `nbf`   | `1452285331`   | L’ora in cui il token diventa valido, rappresentata dal valore epoch time. È in genere uguale all’ora di emissione. L'app deve usare questa attestazione per verificare la validità della durata del token. |
-| Versione | `ver`   | `2.0`   | Versione del token ID, come definito da Azure AD. Per l'endpoint v2.0, il valore sarà `2.0`. |
-| ID tenant | `tid`   | `b9419818-09af-49c2-b0c3-653adc1f376e`   | Valore GUID che rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID sarà l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali, il valore sarà `9188040d-6c67-4c5b-b112-36a304b66dad`. Per ricevere questa attestazione, è necessario l'ambito `profile`. |
-| Code Hash | `c_hash`   | `SGCPtt01wxwfgnYZy2VJtQ`   | L'hash del codice è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un codice di autorizzazione di OAuth 2.0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
-| Access Token Hash | `at_hash`   | `SGCPtt01wxwfgnYZy2VJtQ`   | L'hash del token di accesso è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
-| Nonce | `nonce`   | `12345`   | L'attestazione Nonce è una strategia per ridurre gli attacchi di riproduzione del token. L'app può specificare un'attestazione Nonce in una richiesta di autorizzazione usando il parametro di query `nonce`. Il valore specificato nella richiesta verrà generato nell'attestazione `nonce` del token ID senza modifica. In questo modo l'app può verificare il valore rispetto al valore specificato nella richiesta che associa la sessione dell'app a un determinato token ID. L'app deve eseguire la convalida durante il processo di convalida del token ID. |
-| Nome | `name`   | `Babe Ruth`   | L'attestazione Name fornisce un valore leggibile che identifica l'oggetto del token. Questo valore potrebbe non essere univoco, è mutevole e può essere usato solo per scopi di visualizzazione. Per ricevere questa attestazione è necessario l'ambito `profile`. |
-| Email | `email`   | `thegreatbambino@nyy.onmicrosoft.com`   | Indirizzo di posta elettronica primario associato all'account utente, se presente. Il valore è modificabile e può cambiare nel tempo per un determinato utente. Per ricevere questa attestazione è necessario l'ambito `email`. |
-| Preferred Username | `preferred_username`   | `thegreatbambino@nyy.onmicrosoft.com`   | Nome utente primario usato per rappresentare l'utente nell'endpoint 2.0. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può cambiare nel tempo per un determinato utente. Per ricevere questa attestazione è necessario l'ambito `profile`. |
-| Oggetto | `sub`   | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q`   | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato, pertanto è possibile usarlo per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Poiché il soggetto è sempre presente nei token emessi da Azure AD, è consigliabile l'uso di questo valore in un sistema di autorizzazione generale. |
-| ObjectId | `oid`   | `a1dbdde8-e4f9-4571-ad93-3059e3750d23`   | ID oggetto dell'account aziendale o dell'istituto di istruzione nel sistema di Azure AD. Questa attestazione non verrà generata per account personali Microsoft. Per ricevere questa attestazione è necessario l'ambito `profile`. |
+| Destinatari | `aud`  | `6731de76-14a6-49ae-97bc-6eba6914391e`  | Identifica il destinatario del token. Nei token ID il destinatario è l'ID applicazione assegnato all'app nel portale di registrazione delle app. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
+| Issuer | `iss`  | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 `  | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. L'app deve convalidare l'attestazione Issuer per assicurarsi che il token sia stato fornito dall'endpoint 2.0. Può inoltre usare la parte GUID dell'attestazione per limitare il set di tenant che può accedere all'app. Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| Issued At | `iat`  | `1452285331`  | Ora in cui il token è stato generato, rappresentata dal valore epoch time. |
+| Expiration Time | `exp`  | `1452289231`  | Ora in cui il token non è più valido, rappresentata dal valore epoch time. L'app deve usare questa attestazione per verificare la validità della durata del token. |
+| Non prima | `nbf`  | `1452285331`  | L’ora in cui il token diventa valido, rappresentata dal valore epoch time. È in genere uguale all’ora di emissione. L'app deve usare questa attestazione per verificare la validità della durata del token. |
+| Versione | `ver`  | `2.0`  | Versione del token ID, come definito da Azure AD. Per l'endpoint v2.0, il valore sarà `2.0`. |
+| ID tenant | `tid`  | `b9419818-09af-49c2-b0c3-653adc1f376e`  | Valore GUID che rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID sarà l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali, il valore sarà `9188040d-6c67-4c5b-b112-36a304b66dad`. Per ricevere questa attestazione, è necessario l'ambito `profile`. |
+| Code Hash | `c_hash`  | `SGCPtt01wxwfgnYZy2VJtQ`  | L'hash del codice è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un codice di autorizzazione di OAuth 2.0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
+| Access Token Hash | `at_hash`  | `SGCPtt01wxwfgnYZy2VJtQ`  | L'hash del token di accesso è incluso nei token ID solo quando quest'ultimo viene rilasciato insieme a un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
+| Nonce | `nonce`  | `12345`  | L'attestazione Nonce è una strategia per ridurre gli attacchi di riproduzione del token. L'app può specificare un'attestazione Nonce in una richiesta di autorizzazione usando il parametro di query `nonce`. Il valore specificato nella richiesta verrà generato nell'attestazione `nonce` del token ID senza modifica. In questo modo l'app può verificare il valore rispetto al valore specificato nella richiesta che associa la sessione dell'app a un determinato token ID. L'app deve eseguire la convalida durante il processo di convalida del token ID. |
+| Nome | `name`  | `Babe Ruth`  | L'attestazione Name fornisce un valore leggibile che identifica l'oggetto del token. Questo valore potrebbe non essere univoco, è mutevole e può essere usato solo per scopi di visualizzazione. Per ricevere questa attestazione è necessario l'ambito `profile`. |
+| Email | `email`  | `thegreatbambino@nyy.onmicrosoft.com`  | Indirizzo di posta elettronica primario associato all'account utente, se presente. Il valore è modificabile e può cambiare nel tempo per un determinato utente. Per ricevere questa attestazione è necessario l'ambito `email`. |
+| Preferred Username | `preferred_username`  | `thegreatbambino@nyy.onmicrosoft.com`  | Nome utente primario usato per rappresentare l'utente nell'endpoint 2.0. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può cambiare nel tempo per un determinato utente. Per ricevere questa attestazione è necessario l'ambito `profile`. |
+| Oggetto | `sub`  | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q`  | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato, pertanto è possibile usarlo per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Poiché il soggetto è sempre presente nei token emessi da Azure AD, è consigliabile l'uso di questo valore in un sistema di autorizzazione generale. |
+| ObjectId | `oid`  | `a1dbdde8-e4f9-4571-ad93-3059e3750d23`  | ID oggetto dell'account aziendale o dell'istituto di istruzione nel sistema di Azure AD. Questa attestazione non verrà generata per account personali Microsoft. Per ricevere questa attestazione è necessario l'ambito `profile`. |
 
 
 ## Token di accesso
@@ -91,7 +91,7 @@ Quando si riscattano i token di aggiornamento per un nuovo token di accesso (e s
 
 Attualmente, l'unica convalida dei token che le app devono eseguire è la convalida dei token ID. Per convalidare un token ID, l'app deve convalidarne la firma e le attestazioni incluse.
 
-<!-- TODO: Link -->  
+<!-- TODO: Link --> 
 Sono disponibili librerie ed esempi di codice che illustrano come gestire facilmente la convalida dei token. Le informazioni seguenti vengono fornite a titolo esemplificativo per chi desidera comprenderne il processo sottostante. Sono inoltre disponibili numerose librerie open source di terze parti per la convalida dei token JWT: esiste almeno un'opzione per ogni piattaforma e linguaggio utilizzato.
 
 #### Convalida della firma

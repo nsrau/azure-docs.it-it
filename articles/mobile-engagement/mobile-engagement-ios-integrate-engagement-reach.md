@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="erikre"
-	editor="" />  
+	editor="" /> 
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="09/14/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" /> 
 
 #Come integrare il servizio Reach di Engagement in iOS
 
@@ -414,7 +414,7 @@ Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminar
 	-(IBAction)okButtonClicked:(id)sender;
 	-(IBAction)cancelButtonClicked:(id)sender;
 
-`CustomAnnouncementViewController.m`  
+`CustomAnnouncementViewController.m` 
 
 	//Implementation
 	@implementation CustomAnnouncementViewController

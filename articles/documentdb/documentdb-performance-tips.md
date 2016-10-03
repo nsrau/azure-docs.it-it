@@ -6,7 +6,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
-	documentationCenter=""/>  
+	documentationCenter=""/> 
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/> 
 
 # Suggerimenti sulle prestazioni per DocumentDB
 

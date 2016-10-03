@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"
@@ -97,14 +97,14 @@ Il livello di affidabilità può avere i valori seguenti.
 
  È possibile scegliere di aggiornare l'affidabilità del cluster passando da un livello a un altro. Così facendo si attiveranno gli aggiornamenti del cluster necessari per modificare il totale di set di repliche dei servizi di sistema. Attendere che l'aggiornamento in corso venga completato prima di apportare altre modifiche al cluster, quali l'aggiunta di nodi e così via. È possibile monitorare lo stato di avanzamento dell'aggiornamento in Service Fabric Explorer oppure eseguendo [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> 
 ## Passaggi successivi
 
 Una volta completata la pianificazione della capacità e configurato un cluster, leggere quanto segue:
 - [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
 - [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-<!--Image references-->  
+<!--Image references--> 
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
 <!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="LMWF"
    manager="rsinha"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="service-fabric"

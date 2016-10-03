@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor="TomSh"/>  
+   editor="TomSh"/> 
 
 <tags
    ms.service="security"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/16/2016"
-   ms.author="terrylan"/>  
+   ms.author="terrylan"/> 
 
 # Panoramica sulla sicurezza di Archiviazione di Azure
 

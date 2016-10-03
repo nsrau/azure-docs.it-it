@@ -5,7 +5,7 @@
 	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="mimig"
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Eseguire un processo Hadoop usando DocumentDB e HDInsight
 
@@ -95,7 +95,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
 	A questo punto fare clic su **SELEZIONA**.
 
-	![Fornire i dettagli di iniziale del cluster Hadoop HDInsight][image-customprovision-page1]  
+	![Fornire i dettagli di iniziale del cluster Hadoop HDInsight][image-customprovision-page1]
 
 6. Fare clic su **Credenziali** per impostare le credenziali di accesso e di accesso remoto. Scegliere il **nome utente dell'account di accesso del cluster** e la **password dell'account di accesso del cluster**.
 
@@ -157,7 +157,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
 4. Il diagramma seguente identifica le parti importanti dell'ambiente di Scripting PowerShell di Azure.
 
-	![Diagramma per Azure PowerShell][azure-powershell-diagram]  
+	![Diagramma per Azure PowerShell][azure-powershell-diagram]
 
 ## <a name="RunHive"></a>Passaggio 3: Eseguire un processo Hive usando DocumentDB e HDInsight
 
@@ -195,7 +195,9 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
 3.  Successivamente, si passa alla creazione di una tabella Hive per la raccolta di output. Le proprietà del documento di output saranno mese, giorno, ora, minuti e numero totale di occorrenze.
 
-	> [AZURE.NOTE] **Ancora una volta, la denominazione di DocumentDB.outputCollections non è un errore.** Sì, si consente l'aggiunta di più raccolte come output: </br> '*DocumentDB.outputCollections*' = '*<Nome raccolta di output di DocumentDB 1>*,*<Nome raccolta di output di DocumentDB 2>*' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </br></br> Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
+	> [AZURE.NOTE] **Ancora una volta, la denominazione di DocumentDB.outputCollections non è un errore.** Sì, si consente l'aggiunta di più raccolte come output: </br>
+	'*DocumentDB.outputCollections*' = '*\<Nome raccolta di output di DocumentDB 1\>*,*\<Nome raccolta di output di DocumentDB 2\>*' </br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </br></br>
+	Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -256,7 +258,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
 	Verranno visualizzati i risultati della query Hive.
 
-	![Risultati della query relativa alla tabella][image-hive-query-results]  
+	![Risultati della query relativa alla tabella][image-hive-query-results] 
 
 ## <a name="RunPig"></a>Passaggio 4: Eseguire un processo Pig usando DocumentDB e HDInsight
 
@@ -273,7 +275,8 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 2. <p>Si inizia a costruire la stringa di query. Verrà scritta una query Pig che accetta i timestamp generati dal sistema di tutti i documenti (_ts) e ID univoci (_rid) da una raccolta di DocumentDB, calcola tutti i documenti in base al minuto e quindi archivia i risultati in una nuova raccolta di DocumentDB.</p>
     <p>In primo luogo, caricare i documenti da DocumentDB in HDInsight. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di aggiungere una query di DocumentDB al parametro di query DocumentDB facoltativo per ridurre i documenti semplicemente a _ts e _rid.</p>
 
-    > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come input: </br> '*<Nome raccolta di input di DocumentDB 1>*,*<Nome raccolta di input di DocumentDB 2>*'</br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </b>
+    > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come input: </br>
+    '*\<Nome raccolta di input di DocumentDB 1\>*,*\<Nome raccolta di input di DocumentDB 2\>*'</br> I nomi di raccolta sono separati senza spazi, mediante una singola virgola. </b>
 
 	Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
@@ -293,7 +296,9 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
 4. Infine, si archivieranno i risultati nella nuova raccolta di output.
 
-    > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come output:</br>' < DocumentDB Output insieme nome 1 >, < nome della raccolta di DocumentDB Output > 2'</br>i nomi di raccolta sono separati senza spazi, utilizzando una singola virgola.</br> Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
+    > [AZURE.NOTE] Sì, si consente l'aggiunta di più raccolte come output:</br>
+    ' < DocumentDB Output insieme nome 1 >, < nome della raccolta di DocumentDB Output > 2'</br>i nomi di raccolta sono separati senza spazi, utilizzando una singola virgola.</br>
+    Verrà eseguita la distribuzione round robin dei documenti tra più raccolte. Un batch di documenti verrà archiviato in una raccolta, quindi un secondo batch dei documenti verrà archiviato nella raccolta successiva e così via.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -340,7 +345,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
 	Verranno visualizzati i risultati della query Pig.
 
-	![Risultati della query SQL][image-pig-query-results]  
+	![Risultati della query SQL][image-pig-query-results]
 
 ## <a name="RunMapReduce"></a>Passaggio 5: Eseguire un processo MapReduce usando DocumentDB e HDInsight
 
@@ -383,7 +388,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
 	Verranno visualizzati i risultati del processo MapReduce.
 
-	![Risultati della query MapReduce][image-mapreduce-query-results]  
+	![Risultati della query MapReduce][image-mapreduce-query-results]
 
 ## <a name="NextSteps"></a>Passaggi successivi
 

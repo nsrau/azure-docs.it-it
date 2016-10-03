@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="app-service-web"
@@ -72,7 +72,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/deve
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->  
+<!-- URL List --> 
 
 [CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
 

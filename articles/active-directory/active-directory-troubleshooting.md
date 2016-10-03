@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/16/2016"
-   ms.author="mbaldwin"/>  
+   ms.author="mbaldwin"/> 
 
 # Risoluzione dei problemi: Voce "Active Directory" mancante o non disponibile
 

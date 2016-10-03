@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>  
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/> 
 
 <tags
 	ms.service="functions"
@@ -88,7 +88,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-## `context.done([err],[propertyBag])`  
+## `context.done([err],[propertyBag])` 
 
 La funzione `context.done` comunica al runtime che l'esecuzione è stata completata. È importante eseguire questa chiamata una volta completata la funzione. In caso contrario, il runtime non saprà mai che la funzione è stata completata.
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="cenkdin" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="juliako;cenkd;anilmur"/>  
+	ms.author="juliako;cenkd;anilmur"/> 
 
 #Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.
 

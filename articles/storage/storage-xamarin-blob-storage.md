@@ -5,7 +5,7 @@
 	documentationCenter="xamarin"
 	authors="micurd"
 	manager="jahogg"
-	editor="tysonn"/>  
+	editor="tysonn"/> 
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="micurd;tamram"/>  
+	ms.author="micurd;tamram"/> 
 
 # Come usare l'archiviazione BLOB da Xamarin
 

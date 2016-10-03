@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="AndrewHoh" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/15/2016" 
-	ms.author="anhoh"/>  
+	ms.author="anhoh"/>
 
 # Modello di risorse gerarchico e concetti relativi a DocumentDB
 

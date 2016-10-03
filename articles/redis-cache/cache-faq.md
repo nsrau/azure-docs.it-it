@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>  
+	editor=""/> 
 
 <tags 
 	ms.service="cache" 
@@ -264,7 +264,7 @@ Sì, per utilizzare Cache Redis di Azure come una cache di sessione PHP, specifi
 
 >[AZURE.IMPORTANT] Quando si utilizza Cache Redis di Azure come una cache di sessione PHP, è necessario codificare in URL la chiave di sicurezza utilizzata per connettersi alla cache, come illustrato nell'esempio seguente.
 >
->`session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`  
+>`session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";` 
 >
 >Se la chiave non è codificata in URL, può essere restituita un'eccezione simile alla seguente: `Failed to parse session.save_path`
 

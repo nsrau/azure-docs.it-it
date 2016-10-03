@@ -5,7 +5,7 @@
  documentationCenter=""
  authors="fsautomata"
  manager="timlt"
- editor=""/>  
+ editor=""/> 
 
 <tags
  ms.service="iot-hub"
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="09/19/2016"
- ms.author="elioda"/>  
+ ms.author="elioda"/> 
 
 # Ridimensionamento dell'hub IoT
 

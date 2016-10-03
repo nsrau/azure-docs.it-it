@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="ajlam"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/> 
 
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="andrela"/>  
+	ms.author="andrela"/> 
 
 
 # Connettersi al database SQL tramite Ruby 

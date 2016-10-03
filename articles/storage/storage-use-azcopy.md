@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="micurd"
 	manager="jahogg"
-	editor="tysonn"/>  
+	editor="tysonn"/> 
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="micurd;tamram"/>  
+	ms.author="micurd;tamram"/> 
 
 # Trasferire dati con l'utilità della riga di comando AzCopy
 

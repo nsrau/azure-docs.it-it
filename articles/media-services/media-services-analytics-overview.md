@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/14/2016"   
-	ms.author="milanga;juliako;johndeu"/>  
+	ms.author="milanga;juliako;johndeu"/> 
 
 # Panoramica di Analisi servizi multimediali di Azure | Microsoft Azure
 
@@ -144,7 +144,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 [Annuncio di Analisi di Servizi multimediali](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)
   
 
-<!-- Images -->  
+<!-- Images --> 
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 

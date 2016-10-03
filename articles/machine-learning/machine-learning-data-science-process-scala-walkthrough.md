@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" /> 
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/01/2016"
-	ms.author="bradsev;deguhath"/>  
+	ms.author="bradsev;deguhath"/> 
 
 
 # Analisi scientifica dei dati tramite Scala e Spark in Azure
@@ -43,7 +43,7 @@ La procedura e il codice di installazione riportati in questo articolo si riferi
 
 -	È necessario un cluster Azure HDInsight 3.4 Spark 1.6 per completare le procedure seguenti. Per crearne un cluster, vedere le istruzioni fornite in [Introduzione: creare cluster Apache Spark in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Impostare il tipo e la versione del cluster nel menu **Selezionare il tipo di cluster**.
 
-![Configurazione del tipo di cluster HDInsight](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)  
+![Configurazione del tipo di cluster HDInsight](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png) 
 
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -56,11 +56,11 @@ Per una descrizione dei dati relativi alle corse dei taxi della città di New Yo
 
 È possibile avviare un notebook di Jupyter dal portale di Azure. Trovare il cluster Spark nel dashboard e fare clic su di esso per inserire la pagina di gestione del cluster. Fare quindi clic su **Dashboard cluster** e su **Notebook di Jupyter** per aprire il notebook associato al cluster Spark.
 
-![Dashboard del cluster e notebook Jupyter](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)  
+![Dashboard del cluster e notebook Jupyter](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png) 
 
 È anche possibile accedere ai notebook Jupyter da https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Sostituire *clustername* con il nome del cluster. Sarà necessaria la password dell'account amministratore per accedere al notebook di Jupyter.
 
-![Accedere ai notebook Jupyter usando il nome del cluster](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)  
+![Accedere ai notebook Jupyter usando il nome del cluster](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png) 
 
 Selezionare **Scala** per visualizzare una directory che contiene alcuni esempi di notebook preassemblati che usano l'API PySpark. Le funzioni di modellazione dell'esplorazione e assegnazione del punteggio tramite il notebook Scala.ipynb che contiene gli esempi di codice per il gruppo di argomenti Spark è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
@@ -345,11 +345,11 @@ Di seguito è indicato il codice per tracciare i dati:
 
 **Output:**
 
-![Istogramma degli importi delle mance](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-histogram.png)  
+![Istogramma degli importi delle mance](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-histogram.png) 
 
 ![Importo della mancia per numero di passeggeri](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-passenger-count.png)
 
-![Importo della mancia per importo della corsa](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)  
+![Importo della mancia per importo della corsa](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png) 
 
 
 ## Creare le funzionalità e trasformare le funzionalità, quindi preparare i dati per l'input in funzioni di modellazione
@@ -669,7 +669,7 @@ Usare Python nei frame di dati Pandas locali per tracciare la curva ROC.
 
 **Output:**
 
-![Curva ROC per mancia o non mancia](./media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png)  
+![Curva ROC per mancia o non mancia](./media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png) 
 
 
 ### Creare un modello di classificazione di foresta casuale
@@ -893,7 +893,7 @@ Creare tracciati usando matplotlib di Python.
 
 **Output:**
 
-![Importo della mancia: effettivo rispetto a stimato](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)  
+![Importo della mancia: effettivo rispetto a stimato](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png) 
 
 
 ### Creare un modello di regressione con boosting a gradienti

@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="brandwe"/>  
+	ms.author="brandwe"/>
 
 # Integrare Azure AD in un'app per Android
 
@@ -100,7 +100,7 @@ Per compilare con Maven, è possibile usare pom.xml al livello principale.
   * Configurare l'emulatore con SDK 19.
   * Passare alla cartella radice in cui è stato clonato il repository.
   * Eseguire il comando: mvn clean install
-  * Passare alla directory dell'esempio di Avvio rapido: cd samples\\hello
+  * Passare alla directory dell'esempio di Avvio rapido: cd samples\hello
   * Eseguire il comando: mvn android:deploy android:run
   * Dovrebbe essere visualizzato l'avvio dell'app.
   * Immettere le credenziali dell'utente test per provare.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -270,7 +270,8 @@ Facoltativo: **acquireTokenSilent**
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Gestore**: l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
+11. **Gestore**:
+  l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -282,14 +283,14 @@ Facoltativo: **acquireTokenSilent**
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ```
- Se l'account è valido, verrà restituito l'utente gestore.
+ ``` 
+Se l'account è valido, verrà restituito l'utente gestore.
 
  Il manifesto dell'app dovrà avere le autorizzazioni per usare gli account di AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET\_ACCOUNTS
- * USE\_CREDENTIALS
- * MANAGE\_ACCOUNTS
+ * GET_ACCOUNTS
+ * USE_CREDENTIALS
+ * MANAGE_ACCOUNTS
 
 
 Tramite questa procedura dettagliata si dovrebbero avere tutte le informazioni necessarie per una corretta integrazione con Azure Active Directory. Per altre informazioni sull'esecuzione di queste operazioni, visitare il repository AzureADSamples/ su GitHub.
@@ -390,12 +391,13 @@ Il livello di registrazione viene impostato nel modo seguente:
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati. È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
+ Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati.
+ È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ```
- Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` 
+Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Tracce di rete
 
@@ -416,7 +418,7 @@ ADAL crittografa i token e li archivia in SharedPreferences per impostazione pre
 
 ### Richiesta di connessione di Oauth2
 
-La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization\_uri dalla richiesta di connessione di Oauth2.
+La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization_uri dalla richiesta di connessione di Oauth2.
 
 ### Cookie di sessione in Webview
 

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="sumukhs"
    manager="timlt"
-   editor="vturecek"/>  
+   editor="vturecek"/> 
 
 <tags
    ms.service="Service-Fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/20/2016"
-   ms.author="sumukhs"/>  
+   ms.author="sumukhs"/> 
 
 # Configurazione dei servizi Reliable Services con stato
 

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor="mbaldwin" />  
+   editor="mbaldwin" /> 
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/16/2016"
-   ms.author="mbaldwin" />  
+   ms.author="mbaldwin" /> 
 
 # Azure Active Directory Authentication Library
 

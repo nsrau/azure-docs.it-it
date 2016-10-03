@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtland"/>  
+	editor="curtland"/> 
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/> 
 
 # Creare o eliminare password per le app nel portale di Office 365 per Azure Multi-Factor Authentication
 
@@ -53,7 +53,7 @@ Se si usa Multi-Factor Authentication con Office 365, è consigliabile creare ed
 <li>Nell’angolo superiore destro selezionare il widget e scegliere le impostazioni di Office 365</li>
 <li>Nella parte inferiore, fare clic su Verifica aggiuntiva di sicurezza e selezionare **Aggiorna i numeri telefonici usati per la sicurezza dell'account**.3</li>
 
-![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)  
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png) 
 
 <li>A destra selezionare **Aggiorna i numeri telefonici usati per la sicurezza dell'account**.</li>
 <li>Nella parte superiore della pagina di verifica selezionare le password dell'app.</li>

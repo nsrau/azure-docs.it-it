@@ -5,7 +5,7 @@
 	authors="kiratp" 
 	manager="jhubbard" 
 	editor="monicar" 
-	documentationCenter=""/>  
+	documentationCenter=""/> 
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016" 
-	ms.author="kipandya"/>  
+	ms.author="kipandya"/> 
 
 # Protezione dell'accesso ai dati in DocumentDB
 
@@ -63,7 +63,7 @@ Tenendo presenti le suddette categorie e risorse, il modello di controllo di acc
 
 - Token risorsa: un token di una risorsa è associato a una risorsa autorizzazione di DocumentDB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di DocumentDB specifica (ad esempio, raccolta, documento).
 
-![Illustrazione di token DocumentDB risorse](./media/documentdb-secure-access-to-data/resourcekeys.png)  
+![Illustrazione di token DocumentDB risorse](./media/documentdb-secure-access-to-data/resourcekeys.png) 
 
 ## Uso delle chiavi master e di sola lettura di DocumentDB
 
@@ -105,7 +105,7 @@ Ecco un tipico schema progettuale in cui i token delle risorse possono essere ri
 7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di DocumentDB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse.
 8. Quando il token delle risorse scade, le richieste successive riceveranno un'eccezione 401 Non autorizzato. A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
 
-![Flusso di lavoro di DocumentDB risorse token](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)  
+![Flusso di lavoro di DocumentDB risorse token](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png) 
 
 ## Uso di utenti e autorizzazioni di DocumentDB
 Una risorsa utente di DocumentDB è associata a un database di DocumentDB. Ogni database può includere zero o più utenti di DocumentDB. Il frammento di codice seguente mostra come creare una risorsa utente di DocumentDB.

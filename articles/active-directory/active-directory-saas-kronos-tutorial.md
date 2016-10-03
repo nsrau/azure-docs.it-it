@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeevansd"
 	manager="femila"
-	editor=""/>  
+	editor=""/> 
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/19/2016"
-	ms.author="jeedes"/>  
+	ms.author="jeedes"/> 
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Kronos
@@ -60,17 +60,17 @@ Per configurare l'integrazione di Kronos in Azure AD, è necessario aggiungere K
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]  
+	![Active Directory][1] 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]  
+	![Applicazioni][2] 
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Applicazioni][3]  
+	![Applicazioni][3] 
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -118,7 +118,7 @@ L'applicazione Kronos si aspetta che le asserzioni SAML abbiano un formato speci
 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_04.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_04.png) 
 
 
     a. Nella casella di testo IDENTIFICATORE digitare l'URL usato dagli utenti per accedere all'applicazione Kronos usando il modello seguente: `https://<company name>.kronos.net/`
@@ -139,34 +139,34 @@ L'applicazione Kronos si aspetta che le asserzioni SAML abbiano un formato speci
   
 6. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 	
-	![Accesso Single Sign-On di Azure AD][10]  
+	![Accesso Single Sign-On di Azure AD][10] 
 
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
   	
-	![Accesso Single Sign-On di Azure AD][11]  
+	![Accesso Single Sign-On di Azure AD][11] 
 
 
 
 ### Creazione di un utente test di Azure AD
 In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
-![Creare un utente di Azure AD][20]  
+![Creare un utente di Azure AD][20] 
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_09.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_09.png) 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
 	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_03.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_03.png) 
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_04.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_04.png) 
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
  
@@ -180,7 +180,7 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_06.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_06.png) 
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -194,11 +194,11 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_07.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_07.png) 
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_08.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-kronos-tutorial/create_aaduser_08.png) 
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -232,13 +232,13 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 1. Scegliere **Utenti** dal menu in alto.
 
-	![Assegna utente][203]  
+	![Assegna utente][203] 
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
 
-	![Assegna utente][205]  
+	![Assegna utente][205] 
 
 
 ### Test dell'accesso Single Sign-On
@@ -253,7 +253,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 
 
-<!--Image references-->  
+<!--Image references--> 
 
 [1]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_02.png

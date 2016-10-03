@@ -5,7 +5,7 @@
    documentationCenter="na" 
    authors="yuemlu" 
    manager="timlt" 
-   editor=""/>  
+   editor=""/> 
 
 <tags
    ms.service="cloud-services"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
    ms.date="08/17/2016"
-   ms.author="raiye"/>  
+   ms.author="raiye"/> 
 
 # Sistema operativo guest di Azure 
 

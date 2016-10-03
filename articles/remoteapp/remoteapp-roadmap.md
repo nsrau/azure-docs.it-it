@@ -4,7 +4,7 @@
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
-    manager="mbaldwin" />  
+    manager="mbaldwin" /> 
 
 <tags
     ms.service="remoteapp"

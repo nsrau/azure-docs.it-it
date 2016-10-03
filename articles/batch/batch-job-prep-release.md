@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="mmacy"
 	manager="timlt"
-	editor="" />  
+	editor="" /> 
 
 <tags
 	ms.service="batch"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
 	ms.date="09/16/2016"
-	ms.author="marsma" />  
+	ms.author="marsma" /> 
 
 # Eseguire attività di preparazione e completamento di processi in nodi di calcolo di Azure Batch
 
@@ -168,7 +168,7 @@ Quando si esegue l'applicazione di esempio, è possibile usare il [portale di Az
 
 Lo screenshot seguente mostra il pannello **Attività di preparazione** nel portale di Azure dopo un'esecuzione dell'applicazione di esempio. Passare alle proprietà *JobPrepReleaseSampleJob* dopo il completamento delle attività, ma prima dell'eliminazione del processo e del pool, quindi fare clic su **Attività di preparazione** o **Attività di rilascio** per visualizzare le rispettive proprietà.
 
-![Proprietà di preparazione del processo nel portale di Azure][1]  
+![Proprietà di preparazione del processo nel portale di Azure][1] 
 
 ## Passaggi successivi
 
@@ -180,7 +180,7 @@ Oltre all'attività di preparazione del processo, è possibile usare anche la fu
 
 Questo post del forum MSDN offre una panoramica di diversi metodi di preparazione dei nodi per l'esecuzione di attività:
 
-[Installing applications and staging data on Batch compute nodes][forum_post] (Installazione delle applicazioni e staging dei dati nei nodi di calcolo di Batch)
+[Installing applications and staging data on Batch compute nodes][forum_post] \(Installazione delle applicazioni e staging dei dati nei nodi di calcolo di Batch)
 
 L'autore, uno dei membri del team di Azure Batch, illustra diverse tecniche che è possibile usare per distribuire applicazioni e dati nei nodi di calcolo.
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="" />  
+	editor="" /> 
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/> 
 
 # Come usare il plug-in slave di Azure con una soluzione di integrazione continua Jenkins
 
@@ -232,12 +232,12 @@ Jenkins creerà quindi un nodo slave usando il modello creato nella sezione prec
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->  
+<!-- URL List --> 
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [profilo di sottoscrizione]: http://go.microsoft.com/fwlink/?LinkID=396395
 
-<!-- IMG List -->  
+<!-- IMG List --> 
 
 [cloud section]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-cloud-section.png
 [subscription configuration]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-account-configuration-fields.png

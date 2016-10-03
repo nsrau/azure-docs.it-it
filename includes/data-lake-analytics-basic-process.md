@@ -1,6 +1,6 @@
 **Processo di Data Lake Analytics di base:**
 	
-![Diagramma di flusso del processo di Azure Data Lake Analytics](./media/data-lake-analytics-basic-process-include/data-lake-analytics-process.png)  
+![Diagramma di flusso del processo di Azure Data Lake Analytics](./media/data-lake-analytics-basic-process-include/data-lake-analytics-process.png) 
 	
 1. Creare un account di Analisi Data Lake.
 2. Preparare i dati di origine. I processi di Data Lake Analytics possono leggere dati da account di Azure Data Lake Store o da account di archiviazione BLOB di Azure.
