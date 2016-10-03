@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="cache" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2016" 
-	ms.author="sdanie"/>
+	ms.date="09/15/2016" 
+	ms.author="sdanie"/>  
 
 # Come configurare il clustering Redis per una Cache Redis di Azure Premium
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
 
-Il livello Premium di Cache Redis di Azure include il supporto di clustering, persistenza e rete virtuale. In questo articolo viene descritto come configurare il clustering in un'istanza Premium di Cache Redis di Azure.
+Il livello Premium di Cache Redis di Azure include una serie di funzioni, tra cui il clustering, la persistenza e il supporto della rete virtuale. In questo articolo viene descritto come configurare il clustering in un'istanza Premium di Cache Redis di Azure.
 
-Per informazioni su altre funzionalità della cache Premium, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md) e [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
+Per informazioni su altre funzionalità di cache premium, vedere [Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
 
 ## Che cos'è un cluster Redis?
 Cache Redis di Azure offre funzionalità di clustering Redis come nell'[implementazione in Redis](http://redis.io/topics/cluster-tutorial). Con un cluster Redis si ottengono i vantaggi seguenti.
@@ -31,7 +31,7 @@ Cache Redis di Azure offre funzionalità di clustering Redis come nell'[implemen
 -	Maggiore velocità effettiva: la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni.
 -	Dimensioni maggiori della memoria: l'incremento è lineare man mano che aumenta il numero di partizioni.
 
-Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altri dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
+Per altri dettagli su dimensioni, velocità effettiva e larghezza di banda con le cache Premium, vedere [Domande frequenti su Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 In Azure, il cluster Redis viene offerto nel modello primario/replica, in cui ogni partizione dispone di una coppia primario/di replica con la replica, in cui la replica viene gestita dal servizio Cache Redis di Azure.
 
@@ -61,7 +61,7 @@ Per modificare la dimensione di una cache premium in esecuzione con il clusterin
 
 >[AZURE.NOTE] Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
 
-![Dimensione del cluster Redis][redis-cache-redis-cluster-size]
+![Dimensione del cluster Redis][redis-cache-redis-cluster-size]  
 
 Per modificare la dimensione del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
@@ -87,9 +87,9 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
     Per altre informazioni, vedere la [specifica sul cluster Redis: subset implementato](http://redis.io/topics/cluster-spec#implemented-subset).
 
 -	Se si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), è necessario usare la versione 1.0.481 o successiva. Connettersi alla cache usando gli stessi [endpoint, porte e chiavi](cache-configure.md#properties) usati per la connessione a una cache senza clustering abilitato. L'unica differenza consiste nel fatto che tutte le operazioni di lettura e scrittura devono essere eseguite nel database 0.
-	-	Altri client possono avere requisiti diversi. Vedere [Tutti i client Redis supportano il clustering?](#do-all-redis-clients-support-clustering).
--	Se l'applicazione usa più operazioni chiave raggruppate in un singolo comando, tutte le chiavi devono trovarsi nella stessa partizione. Per ottenere questo risultato, vedere [Come vengono distribuite le chiavi in un cluster?](#how-are-keys-distributed-in-a-cluster).
--	Se si usa il provider di stato della sessione ASP.NET Redis, è necessario usare la versione 2.0.1 o successiva. Vedere [È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e i provider di output caching?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
+	-	Altri client possono avere requisiti diversi. Vedere [Tutti i client Redis supportano il clustering?](#do-all-redis-clients-support-clustering)
+-	Se l'applicazione usa più operazioni chiave raggruppate in un singolo comando, tutte le chiavi devono trovarsi nella stessa partizione. Per ottenere questo risultato, vedere [Come vengono distribuite le chiavi in un cluster?](#how-are-keys-distributed-in-a-cluster)
+-	Se si usa il provider di stato della sessione ASP.NET Redis, è necessario usare la versione 2.0.1 o successiva. Vedere [È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e i provider di output caching?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### Come vengono distribuite le chiavi in un cluster?
 
@@ -134,7 +134,7 @@ Per ssl, sostituire `1300N` con `1500N`.
 
 ### È possibile configurare il clustering per una cache creata in precedenza?
 
-In questo momento è possibile solo abilitare il clustering durante la creazione di una cache. Dopo aver creato la cache, è possibile modificarne la dimensione, ma non è possibile aggiungere il clustering a una cache premium o rimuoverlo da una cache. Una cache premium con il clustering abilitato e una sola partizione è diversa da una cache premium delle stesse dimensioni senza cluster abilitato.
+Al momento è possibile solo abilitare il clustering durante la creazione di una cache. Dopo aver creato la cache, è possibile modificarne la dimensione, ma non è possibile aggiungere il clustering a una cache premium o rimuoverlo da una cache. Una cache premium con il clustering abilitato e una sola partizione è diversa da una cache premium delle stesse dimensioni senza cluster abilitato.
 
 ### È possibile configurare il clustering per una cache Basic o Standard?
 
@@ -153,10 +153,9 @@ Se si usa StackExchange.Redis e si ricevono eccezioni `MOVE` quando si usa il cl
 ## Passaggi successivi
 Informazioni su come usare altre funzionalità di cache premium.
 
--	[Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md)
--	[Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md)
+-	[Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md)
   
-<!-- IMAGES -->
+<!-- IMAGES -->  
 
 [redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
 
@@ -164,4 +163,4 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

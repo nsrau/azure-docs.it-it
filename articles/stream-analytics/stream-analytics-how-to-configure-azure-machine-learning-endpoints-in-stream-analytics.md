@@ -5,8 +5,8 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -76,7 +76,7 @@ Corpo della richiesta di esempio:
 
 Una volta creata la struttura della funzione definita dall'utente, è necessaria la definizione completa della funzione. L'endpoint RetreiveDefaultDefinition consente di ottenere la definizione predefinita per una funzione scalare associata a un endpoint di Azure Machine Learning. Per il payload seguente è necessario ottenere la definizione di definizione definita dall'utente predefinita per una funzione scalare associata a un endpoint di Azure Machine Learning. Il payload non specifica l'endpoint effettivo perché è già stato fornito durante la richiesta PUT. Analisi di flusso chiamerà l'endpoint fornito nella richiesta se viene specificato in modo esplicito. In caso contrario, userà quello a cui si è fatto riferimento in origine. Qui la funzione definita dall'utente accetta un singolo parametro di stringa (una frase) e restituisce un singolo output di tipo stringa indicante l'etichetta "sentiment" per tale frase.
 
-POST: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
+POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
 
 Corpo della richiesta di esempio:
 
@@ -131,7 +131,7 @@ Un output di esempio dovrebbe essere simile al seguente.
 
 Ora è necessario inserire la risposta precedente nella funzione definita dall'utente, come illustrato di seguito.
 
-PATCH: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
+PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
 
 Corpo della richiesta: output da RetrieveDefaultDefinition
 
@@ -150,7 +150,7 @@ Cercare ora nella funzione definita dall'utente (denominata qui scoreTweet) ogni
 Per altre informazioni, vedere:
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -160,4 +160,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="app-service-web"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="robmcm"/>  
 
 # Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure
 
@@ -38,7 +38,7 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 
 2. Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati**
 
-	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)  
 
 3. Nel pannello **Domini personalizzati** fare clic su **Acquista domini**.
 
@@ -50,7 +50,7 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 
 5. Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di contatto del dominio.
 
-  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)
+  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)  
 
     > [AZURE.NOTE] It is very important that you fill out all required fields with as much accuracy as possible, especially the email address. In case of purchasing the domain without "Privacy protection", you might be asked to verify your email before the domain becomes active. In some cases, incorrect data for contact information will result in failure to purchase domains. 
 
@@ -58,15 +58,14 @@ Seguire questa procedura per acquistare i nomi di dominio e assegnarli all'app W
 
 	a) Rinnovare automaticamente il dominio ogni anno
 	
-	b) Fornire il consenso esplicito alla protezione della privacy, funzionalità inclusa nel prezzo GRATUITAMENTE
+	b) Acconsentire esplicitamente alla protezione della privacy, funzionalità inclusa GRATUITAMENTE nel prezzo di acquisto (tranne per domini di primo livello il cui registro non supporta la privacy, ad esempio .co.in, .co.uk e così via)
 	
 	c) Assegnare nomi host predefiniti per domini WWW e radice all'app Web corrente
 
-  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
+  ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)  
   
     > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
-    >
-    >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
+    You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 	
 7. Fare clic su **Seleziona** nel pannello **Acquista domini**, a questo punto verranno visualizzate le informazioni di acquisto nel pannello **Conferma acquisto**. Se si accettano le condizioni legali e si fa clic su **Acquista**, l'ordine viene inviato ed è possibile monitorare il processo di acquisto in **Notifica**. L'acquisto del dominio può richiedere alcuni minuti.
 
@@ -103,4 +102,4 @@ Se il dominio personalizzato è stato acquistato all'interno del pannello **Domi
 - È possibile che a un certo punto il dominio personalizzato sia stato eliminato. Verificare i log di controllo facendo clic su **Impostazioni** > **Log di controllo** nel pannello principale dell'applicazione.
 - Il pannello **Domini personalizzati ed SSL** che si sta esaminando potrebbe appartenere a un'app creata in un'altra sottoscrizione di Azure. Passare a un'altra app in una sottoscrizione differente ed esaminare il relativo pannello **Domini personalizzati ed SSL**. All'interno del portale non sarà possibile visualizzare o gestire domini personalizzati creati in una sottoscrizione di Azure diversa da quella dell'app. Tuttavia, se si fa clic su **Gestione avanzata** nel pannello **Gestisci dominio** del dominio, si verrà reindirizzati al sito Web del provider di dominio, dove sarà possibile [configurare manualmente il dominio personalizzato come qualsiasi dominio personalizzato esterno](web-sites-custom-domain-name.md) per app create in un'altra sottoscrizione di Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

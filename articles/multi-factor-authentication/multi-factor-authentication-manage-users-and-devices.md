@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Report di Azure Multi-Factor Authentication" 
-	description="Viene descritto come modificare le impostazioni utente (ad esempio, come imporre agli utenti di ripetere il processo di registrazione)." 
-	documentationCenter="" 
-	services="multi-factor-authentication" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+	pageTitle="Report di Azure Multi-Factor Authentication"
+	description="Viene descritto come modificare le impostazioni utente (ad esempio, come imporre agli utenti di ripetere il processo di registrazione)."
+	documentationCenter=""
+	services="multi-factor-authentication"
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>  
 
 # Gestione delle impostazioni utente con Azure Multi-Factor Authentication nel cloud
 
@@ -86,4 +86,4 @@ Gli amministratori hanno la possibilità di ripristinare Multi-Factor Authentica
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

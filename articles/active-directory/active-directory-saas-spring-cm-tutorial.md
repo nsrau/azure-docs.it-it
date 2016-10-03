@@ -4,15 +4,15 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="femila"/>
+    manager="femila"/>  
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
-    ms.author="jeedes" />
+    ms.date="09/19/2016" 
+    ms.author="jeedes" />  
 
 #Esercitazione: Integrazione di Azure Active Directory con Spring CM
   
@@ -46,11 +46,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-spring-cm-tutorial/IC700994.png "Applicazioni")
+    ![Applicazioni](./media/active-directory-saas-spring-cm-tutorial/IC700994.png "Applicazioni")  
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-spring-cm-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-spring-cm-tutorial/IC749321.png "Aggiunta di un'applicazione")  
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -106,7 +106,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Configura accesso Single Sign-On")  
 
 ##Configurazione del provisioning utente
   
@@ -138,7 +138,7 @@ Per consentire agli utenti di Azure Active Directory di accedere a SpringCM, è 
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a SpringCM, eseguire la procedura seguente:
 
@@ -154,4 +154,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

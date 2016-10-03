@@ -5,9 +5,9 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
-/>
+/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -130,4 +130,4 @@ Per altre informazioni su Analisi di flusso, vedere:
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,14 +5,14 @@
    services="expressroute"
    authors="cherylmc"
    manager="carmonm"
-   editor=""/>
+   editor=""/>  
 <tags
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2016"
+   ms.date="09/19/2016"
    ms.author="cherylmc"/>  
 
 # Domande frequenti su ExpressRoute
@@ -53,6 +53,7 @@ La maggior parte dei servizi di Azure è supportata tramite ExpressRoute.
 
 - La connettività alle macchine virtuali e ai servizi cloud distribuiti nelle reti virtuali è supportata in un percorso di peering privato.
 - I siti Web di Azure sono supportati tramite il percorso di peering pubblico.
+- L'Hub IoT è supportato tramite il percorso di peering pubblico.
 - Office 365 è supportato tramite il percorso di peering Microsoft.
 - Tutti gli altri servizi sono accessibili tramite il percorso di peering pubblico. Le eccezioni sono le seguenti.
 
@@ -240,4 +241,4 @@ Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se Exp
 ### È possibile accedere a Dynamics AX Online tramite una connessione ExpressRoute?
 No, l'operazione non è supportata.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

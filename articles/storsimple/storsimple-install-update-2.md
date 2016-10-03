@@ -5,19 +5,19 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="" />
+   editor="" />  
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/21/2016"
-   ms.author="alkohli" />
+   ms.date="09/21/2016"
+   ms.author="alkohli" />  
 
 # Installare l'aggiornamento 2 nel dispositivo StorSimple
 
-## Panoramica
+## Overview
 
 Questa esercitazione illustra come installare l'aggiornamento 2 in un dispositivo StorSimple dove è in esecuzione una versione precedente del software tramite il portale di Azure classico. L'esercitazione illustra anche i passaggi necessari per l'aggiornamento quando viene configurato un gateway su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple e si sta tentando di aggiornare da una versione del software precedente all'aggiornamento 1.
 
@@ -91,4 +91,4 @@ Eseguire i seguenti passaggi per applicare l'aggiornamento come un aggiornamento
 
 Altre informazioni sulla [versione dell'aggiornamento 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

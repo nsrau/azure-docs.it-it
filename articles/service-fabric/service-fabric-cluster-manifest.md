@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="dsk-2015"
    manager="timlt"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="service-fabric"
@@ -27,8 +27,8 @@ Di seguito verranno esaminate le diverse sezioni di questo file.
 Questa sezione tratta in modo ampio le configurazioni specifiche dei cluster, come illustrato nel frammento di codice JSON seguente.
 
     "name": "SampleCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "clusterConfigurationVersion": "1.0.0",
+    "apiVersion": "2016-09-26",
 
 È possibile attribuire qualsiasi nome descrittivo al cluster di Service Fabric assegnandolo alla variabile **name**. È possibile modificare **clusterManifestVersion** in base alla configurazione. Tale variabile deve essere aggiornata prima dell'aggiornamento della configurazione di Service Fabric. È possibile mantenere **apiVersion** sul valore predefinito.
 
@@ -68,24 +68,30 @@ Un cluster di Service Fabric richiede almeno 3 nodi. È possibile aggiungere pi�
 |upgradeDomain|I domini di aggiornamento descrivono set di nodi che vengono arrestati per gli aggiornamenti di Service Fabric quasi contemporaneamente. È possibile scegliere i nodi da assegnare a determinati domini di aggiornamento perché non sono limitati da eventuali requisiti fisici.| 
 
 
-## Configurazioni della diagnostica
-È possibile configurare parametri per consentire la diagnostica e la risoluzione degli errori di nodi e cluster tramite la sezione **diagnosticsFileShare**, come illustrato nel frammento riportato di seguito.
-
-    "diagnosticsFileShare": {
-        "etlReadIntervalInMinutes": "5",
-        "uploadIntervalInMinutes": "10",
-        "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
-        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
-    },
-
-Queste variabili consentono di raccogliere log di traccia ETW, dump di arresto anomalo e contatori delle prestazioni. Per altre informazioni sui log di traccia ETW, leggere gli articoli [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Traccia ETW](https://msdn.microsoft.com/library/ms751538.aspx). I [dump di arresto anomalo](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) per il cluster e il nodo di Service Fabric possono essere indirizzati verso la cartella **crashDumpConnectionString**. I [contatori delle prestazioni](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) per il cluster possono essere indirizzati alla cartella **perfCtrConnectionString** nel computer.
-
-
-## **properties** del cluster
+## Variabile **properties** del cluster
 
 La sezione **properties** in ClusterConfig.JSON viene usata per configurare il cluster come indicato di seguito.
+
+### **diagnosticsStore**
+È possibile configurare parametri per consentire la diagnostica e la risoluzione degli errori di nodi e cluster tramite la sezione **diagnosticsStore**, come illustrato nel frammento riportato di seguito.
+
+    "diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "FileShare",
+        "IsEncrypted": "false",
+        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+    }
+
+**metadata** descrive la diagnostica del cluster e può essere impostata in base alla configurazione in uso. Queste variabili consentono di raccogliere log di traccia ETW, dump di arresto anomalo e contatori delle prestazioni. Per altre informazioni sui log di traccia ETW, leggere gli articoli [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Traccia ETW](https://msdn.microsoft.com/library/ms751538.aspx). Tutti i log che includono [dump di arresto anomalo del sistema](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contatori delle prestazioni](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) possono essere indirizzati alla cartella **connectionString** nel computer. È anche possibile usare **AzureStorage** per l'archiviazione della diagnostica. Per un frammento di esempio, vedere di seguito.
+
+	"diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "AzureStorage",
+        "IsEncrypted": "false",
+        "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
+    }
 
 ### **security** 
 La sezione **security** è necessaria per la protezione di un cluster di Service Fabric autonomo. Il frammento seguente mostra una parte di questa sezione.
@@ -143,11 +149,11 @@ Questa sezione consente di impostare le directory radice per i log e i dati di S
             "value": "C:\ProgramData\SF\Log"
     }]
 
-Si noti che se si personalizza solo la radice dei dati, la radice del log verrà inserita un livello sotto la radice dei dati.
+Si consiglia di usare un'unità non del sistema operativo come FabricDataRoot e FabricLogRoot, poiché risulta più affidabile in caso di arresto anomalo del sistema operativo. Si noti che se si personalizza solo la radice dei dati, la radice del log verrà inserita un livello sotto la radice dei dati.
 
 
 ## Passaggi successivi
 
 Dopo aver completato la configurazione di un file ClusterConfig.JSON in base alla configurazione del cluster autonomo, è possibile distribuire il cluster seguendo l'articolo [Creare un cluster di Azure Service Fabric locale o nel cloud](service-fabric-cluster-creation-for-windows-server.md) e quindi proseguire per [visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -6,7 +6,7 @@
 	authors="davidmu1"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>
+	tags="azure-resource-manager"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2016"
-	ms.author="davidmu"/>
+	ms.author="davidmu"/>  
 
 # Creare una macchina virtuale Windows con un modello di Gestione risorse
 
@@ -286,4 +286,4 @@ Tutte le risorse devono essere distribuite in un gruppo di risorse. Per altre in
 - Se si sono verificati problemi con la distribuzione, è consigliabile leggere l'articolo [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -7,15 +7,15 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2016"
-   ms.author="gwallace" />
+   ms.date="09/09/2016"
+   ms.author="gwallace" />  
 
 # Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
 
@@ -45,13 +45,35 @@ Questo scenario illustrerà come:
 - Creare una subnet denominata Appgatewaysubnet che usa 10.0.0.0/28 come blocco CIDR.
 - Configurare un certificato per l'offload SSL.
 
-![Esempio dello scenario][scenario]
+![Esempio dello scenario][scenario]  
 
 >[AZURE.NOTE] La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
 
 ## Prima di iniziare
 
 Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una rete virtuale, assicurarsi di lasciare uno spazio indirizzi sufficiente per più subnet. Dopo che un gateway applicazione è stato distribuito in una subnet, alla subnet possono essere aggiunti solo altri gateway applicazione.
+
+## Accedere ad Azure
+
+Aprire il **prompt dei comandi di Microsoft Azure** ed effettuare l'accesso.
+
+    azure login
+
+Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare a https://aka.ms/devicelogin in un browser per continuare il processo di accesso.
+
+![Comando che illustra l'accesso al dispositivo][1]  
+
+Nel browser immettere il codice ricevuto. Si verrà reindirizzati a una pagina di accesso.
+
+![Browser in cui immettere il codice][2]  
+
+Dopo avere immesso il codice ed effettuato l'accesso, chiudere il browser per continuare con lo scenario.
+
+![Accesso eseguito][3]  
+
+## Passare alla modalità Resource Manager
+
+    azure config mode arm
 
 ## Creare il gruppo di risorse.
 
@@ -73,11 +95,13 @@ Dopo aver creato la rete virtuale, viene aggiunta una subnet per il gateway appl
 
 ## Creare il gateway applicazione
 
-Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Per il passaggio successivo sono anche necessari un certificato PFX esportato in precedenza e la password del certificato. Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
+Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Per il passaggio seguente sono necessari anche un certificato PFX esportato prima e la password del certificato. Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
 
-    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
+    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
 
-Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Viene anche configurato l'offload SSL. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning. Se si ha già un'applicazione Web definita con gli indirizzi IP per il pool di back-end definito nei passaggi precedenti, dopo il provisioning e l'avvio del gateway applicazione viene avviato il bilanciamento del carico.
+
+
+Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Viene anche configurato l'offload SSL. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning. Se l'applicazione Web è già stata definita con il pool back-end nei passaggi precedenti, dopo la creazione, inizia il bilanciamento del carico.
 
 ## Passaggi successivi
 
@@ -88,5 +112,8 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 <!--Image references-->
 
 [scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli/figure3.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

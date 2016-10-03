@@ -5,15 +5,15 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
-   ms.author="alkohli" />
+   ms.date="09/21/2016"
+   ms.author="alkohli" />  
 
 # Configurare MPIO in un host di StorSimple che esegue CentOS
 
@@ -376,21 +376,21 @@ Questa sezione contiene alcuni suggerimenti utili in caso di problemi durante la
 
 D: Le modifiche apportate al file `multipath.conf` non hanno effetto.
 
-R. Se sono state apportate modifiche al file `multipath.conf`, è necessario riavviare il servizio di percorsi multipli. Digitare il seguente comando:
+A. Se sono state apportate modifiche al file `multipath.conf`, è necessario riavviare il servizio di percorsi multipli. Digitare il seguente comando:
     
     service multipathd restart
 
 D: Sono state abilitate due interfacce di rete sul dispositivo StorSimple e due interfacce di rete sull'host. Nell'elenco dei percorsi disponibili sono visibili solo due percorsi, mentre dovrebbero essercene quattro.
 
-R. Assicurarsi che i due percorsi siano nella stessa subnet e instradabili. Se le interfacce di rete si trovano su VLAN diverse e non sono instradabili, verranno visualizzati solo due percorsi. Un modo per verificare questa condizione è assicurarsi che sia possibile raggiungere entrambe le interfacce host da un'interfaccia di rete nel dispositivo StorSimple. Sarà necessario [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) perché questa verifica può essere eseguita solo in una sessione di supporto.
+A. Assicurarsi che i due percorsi siano nella stessa subnet e instradabili. Se le interfacce di rete si trovano su VLAN diverse e non sono instradabili, verranno visualizzati solo due percorsi. Un modo per verificare questa condizione è assicurarsi che sia possibile raggiungere entrambe le interfacce host da un'interfaccia di rete nel dispositivo StorSimple. Sarà necessario [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) perché questa verifica può essere eseguita solo in una sessione di supporto.
 
 D: Nell'elenco dei percorsi disponibili non è visualizzato alcun output.
 
-R. In genere, la mancata visualizzazione di percorsi multipli suggerisce un problema con il daemon di percorsi multipli ed è probabile che qualsiasi problema riguardi il file `multipath.conf`.
+A. In genere, la mancata visualizzazione di percorsi multipli suggerisce un problema con il daemon di percorsi multipli ed è probabile che qualsiasi problema riguardi il file `multipath.conf`.
 
 Potrebbe anche essere opportuno verificare che si possano visualizzare alcuni dischi dopo aver eseguito la connessione alla destinazione, perché se non si riceve alcuna risposta dagli elenchi dei percorsi multipli è probabile che non sia presente alcun disco.
 
-- Per ripetere la scansione del bus iSCSI, usare il comando seguente: 
+- Per ripetere la scansione del bus iSCSI, usare il comando seguente:
  
 	`$ rescan-scsi-bus.sh `(parte del pacchetto sg3\_utils)
  
@@ -421,7 +421,7 @@ Ripetere questo comando per tutte le interfacce di rete connesse nella destinazi
 
 D: Come è possibile verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti?
 
-R. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti, usare il comando interattivo di risoluzione dei problemi seguente:
+A. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti, usare il comando interattivo di risoluzione dei problemi seguente:
 
 	multipathd –k
 	multipathd> show devices
@@ -492,4 +492,4 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 - [Configurazione di MPIO su CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guida alla formazione Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

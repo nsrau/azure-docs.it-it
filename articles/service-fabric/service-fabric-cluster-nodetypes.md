@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="service-fabric"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/02/2016"
-   ms.author="chackdan"/>
+   ms.date="09/09/2016"
+   ms.author="chackdan"/>  
 
 
 # Relazione tra i tipi di nodo di Service Fabric e i set di scalabilità di macchine virtuali
 
-I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali separato. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse.
+I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric è configurato come un set di scalabilità di macchine virtuali separato. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse.
 
 Lo screenshot seguente illustra un cluster con due tipi di nodo: front-end e back-end. Ogni tipo di nodo ha cinque nodi.
 
@@ -27,19 +27,19 @@ Lo screenshot seguente illustra un cluster con due tipi di nodo: front-end e bac
 
 ## Mapping dei set di scalabilità di macchine virtuali ai nodi
 
-Come si può notare dalla figura precedente, le istanze dei set di scalabilità di macchine virtuali iniziano con l'istanza 0 per poi aumentare. La numerazione viene rispecchiata dai nomi. Ad esempio, BackEnd\_0 è l'istanza 0 del set di scalabilità di macchine virtuali BackEnd. Questo particolare set di scalabilità di macchine virtuali ha cinque istanze, denominate BackEnd\_0, BackEnd\_1, BackEnd\_2, BackEnd\_3 e BackEnd\_4.
+Come si può notare dalla figura precedente, le istanze dei set di scalabilità di macchine virtuali iniziano con l'istanza 0 per poi aumentare. La numerazione viene rispecchiata dai nomi. Ad esempio, BackEnd_0 è l'istanza 0 del set di scalabilità di macchine virtuali BackEnd. Questo particolare set di scalabilità di macchine virtuali ha cinque istanze, denominate BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
 Quando si aumenta un set di scalabilità di macchine virtuali, viene creata una nuova istanza. La nuova istanza del set di scalabilità di macchine virtuali sarà in genere il nome del set di scalabilità di macchine virtuali + il successivo numero di istanza. Nell'esempio sarà BackEnd\_5.
 
 
 ## Mapping dei servizi di bilanciamento del carico dei set di scalabilità di macchine virtuali a ogni tipo di nodo/set di scalabilità di macchine virtuali
 
-Se il cluster è stato distribuito dal portale o è stato usato il modello ARM di esempio fornito, quando si ottiene un elenco di tutte le risorse di un gruppo di risorse, verranno visualizzati i servizi di bilanciamento del carico per ogni set di scalabilità di macchine virtuali o tipo di nodo.
+Se il cluster è stato distribuito dal portale o è stato usato il modello di Resource Manager di esempio fornito, quando si ottiene un elenco di tutte le risorse di un gruppo di risorse, verranno visualizzati i servizi di bilanciamento del carico per ogni set di scalabilità di macchine virtuali o tipo di nodo.
 
 Il nome sarà simile a: **LB-&lt;nome tipo di nodo&gt;**, ad esempio, LB-sfcluster4doc-0, come in questo screenshot:
 
 
-![Risorse][Resources]
+![Risorse][Resources]  
 
 
 ## Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
@@ -53,18 +53,18 @@ A questo scopo, è necessario ottenere i valori delle regole NAT in ingresso def
 
 Nel portale passare al pannello del servizio di bilanciamento del carico e quindi fare clic su **Impostazioni**.
 
-![Pannello servizio di bilanciamento del carico][LBBlade]
+![Pannello servizio di bilanciamento del carico][LBBlade]  
 
 
 In **Impostazioni** fare clic su **Regole NAT in ingresso**. Si ottengono così l'indirizzo IP e la porta che è possibile usare per connettersi in remoto alla prima istanza del set di scalabilità di macchine virtuali. Nello screenshot seguente sono **104.42.106.156** e **3389**
 
-![Regole NAT][NATRules]
+![Regole NAT][NATRules]  
 
 ### Passaggio 2: Trovare la porta che è possibile usare per connettersi in remoto all'istanza del set di scalabilità di macchine virtuali/nodo specifico
 
 Nella prima parte di questo documento si è parlato di come venga eseguito il mapping delle istanze dei set di scalabilità di macchine virtuali ai nodi. Questa operazione verrà usata per trovare la porta esatta.
 
-Le porte vengono allocate in ordine crescente nell'istanza del set di scalabilità di macchine virtuali, quindi nell'esempio, per il tipo di nodo FrontEnd, le porte per ognuna delle cinque istanze saranno le seguenti. Ora è necessario eseguire lo stesso mapping per l'istanza del set di scalabilità di macchine virtuali.
+Le porte vengono allocate in ordine crescente nell'istanza del set di scalabilità di macchine virtuali, quindi nell'esempio, per il tipo di nodo FrontEnd, le porte per ognuna delle cinque istanze sono le seguenti. Ora è necessario eseguire lo stesso mapping per l'istanza del set di scalabilità di macchine virtuali.
 
 |**Istanza del set di scalabilità di macchine virtuali**|**Porta**|
 |-----------------------|--------------------------|
@@ -80,17 +80,17 @@ Le porte vengono allocate in ordine crescente nell'istanza del set di scalabilit
 
 Nello screenshot seguente viene usata Connessione Desktop remoto per connettersi a FrontEnd\_1:
 
-![RDP][RDP]
+![RDP][RDP]  
 
 ## Come modificare i valori dell'intervallo di porte RDP
 
 ### Prima della distribuzione cluster
 
-Quando si configura il cluster usando un modello ARM, è possibile specificare l'intervallo in **inboundNatPools**.
+Quando si configura il cluster usando un modello di Resource Manager, è possibile specificare l'intervallo in **inboundNatPools**.
 
 Passare alla definizione di risorse per **Microsoft.Network/loadBalancers** dove si troverà la descrizione per **inboundNatPools**. Sostituire i valori *frontendPortRangeStart* e *frontendPortRangeEnd*.
 
-![Pool NAT in ingresso][InboundNatPools]
+![Pool NAT in ingresso][InboundNatPools]  
 
 
 ### Dopo la distribuzione cluster
@@ -102,7 +102,7 @@ Accedere all'account Azure. Se per qualche motivo questo comando PowerShell gene
 Login-AzureRmAccount
 ```
 
-Eseguire quanto segue per ottenere i dettagli sul servizio di bilanciamento del carico e visualizzare i valori e la descrizione per **inboundNatPools**:
+Eseguire quanto segue per ottenere i dettagli sul servizio di bilanciamento del carico e visualizzare i valori della descrizione per **inboundNatPools**:
 
 ```
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
@@ -125,7 +125,7 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 - [Service Fabric SDK e introduzione](service-fabric-get-started.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png
 [Resources]: ./media/service-fabric-cluster-nodetypes/Resources.png
 [InboundNatPools]: ./media/service-fabric-cluster-nodetypes/InboundNatPools.png
@@ -133,4 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -6,15 +6,15 @@
    authors="trhabe"
    manager="jstrauss"
    editor=""
-   tags=""/>
+   tags=""/>  
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/13/2016"
-   ms.author="trhabe"/>
+   ms.date="09/15/2016"
+   ms.author="trhabe"/>  
 
 # Origini dati supportate da Catalogo dati di Azure
 
@@ -269,7 +269,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       <td>✓</td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2></font></td>
+      <td><font size=2>Solo visualizzazioni calcolo e visualizzazioni analitiche. Visualizzazioni attributi non supportate.</font></td>
     </tr>
 
     <tr>
@@ -1166,4 +1166,4 @@ Per il supporto di altre origini, inviare una richiesta di funzionalità tramite
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

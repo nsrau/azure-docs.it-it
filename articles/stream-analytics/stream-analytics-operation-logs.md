@@ -5,8 +5,8 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="07/27/2016" 
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/>  
 
 # Eseguire il debug dei processi di analisi di flusso con i log dei servizi e delle operazioni
 
@@ -41,7 +41,7 @@ Per passare manualmente ai log delle operazioni per l’analisi di flusso e altr
 1.	Fare clic su **Servizi di gestione** nel [Portale di Azure classico](https://manage.windowsazure.com).
 2.	Selezionare **Analisi di flusso** per **Tipo** e il nome del processo per **Nome servizio**.
 
-  ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
+  ![Selezionare analisi di flusso](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
 ## Trovare i log di controllo nel portale di Azure ##
 
@@ -73,7 +73,7 @@ A questo punto è possibile aprire il pannello **Dettagli** facendo clic sull'ev
 
 Nel portale di gestione di Azure, fare clic sull’icona Cerca e digitare "non riuscito". In questo modo si visualizzeranno tutti i log dei processi non riusciti.
 
-  ![Eseguire il debug di un processo non riuscito](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
+  ![Eseguire il debug di un processo non riuscito](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)  
 
 Nel portale di Azure, è possibile filtrare per livello di messaggio per visualizzare gli eventi **Critici**.
 
@@ -86,7 +86,7 @@ Nel portale di Azure, è possibile filtrare per livello di messaggio per visuali
 Nel caso in cui sia necessario contattare il [Supporto](https://azure.microsoft.com/support/options/) o fornire informazioni al team tramite il [forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics), tenere presente i dettagli dell'operazione, in particolare l’**ID di correlazione**.
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -96,4 +96,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

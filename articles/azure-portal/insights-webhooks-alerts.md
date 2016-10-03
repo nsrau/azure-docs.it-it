@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Come configurare gli avvisi di Azure per l'invio ad altri sistemi | Microsoft Azure"
+	pageTitle="Configurare webhook negli avvisi relativi alle metriche di Azure | Microsoft Azure"
 	description="Reindirizzare gli avvisi di Azure ad altri sistemi non Azure"
 	authors="kamathashwin"
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+	documentationCenter="monitoring-and-diagnostics"/>  
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -13,32 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="ashwink"/>
+	ms.date="09/15/2016"
+	ms.author="ashwink"/>  
 
-# Come configurare i webhook per gli avvisi
+# Configurare un webhook in un avviso relativo alle metriche di Azure
 
-I webhook consentono all'utente di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le notifiche personalizzate. Un esempio di questo scenario è rappresentato dall'instradamento degli avvisi a servizi in grado di gestire una richiesta Web in ingresso per inviare SMS, registrare bug, inviare notifiche a un team tramite chat e servizi di messaggistica e così via.
+I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite servizi di messaggistica/chat o eseguono un numero qualsiasi di altre azioni. Questo articolo descrive come impostare un webhook in un avviso relativo alle metriche di Azure e illustra il payload per l'esecuzione di un'azione HTTP POST in un webhook. Per informazioni sulla configurazione e lo schema di un avviso del registro attività di Azure (avvisi per eventi), [vedere invece questa pagina](./insights-auditlog-to-webhook-email.md).
 
-L'URI del webhook deve essere un endpoint HTTP o HTTPS valido. Il servizio di avviso di Azure eseguirà un'operazione POST in corrispondenza del webhook specificato e passerà un payload e uno schema JSON specifici.
+Gli avvisi di Azure eseguono l'azione HTTP POST per il contenuto degli avvisi in formato JSON, con lo schema definito di seguito, in un URI webhook specificato durante la creazione dell'avviso. L'URI deve essere un endpoint HTTP o HTTPS valido. Azure inserisce una voce per ogni richiesta quando viene attivato un avviso.
 
 ## Configurazione di webhook tramite il portale
 
-Nella schermata Creazione/aggiornamento avvisi nel [portale di Azure](https://portal.azure.com/) è possibile aggiungere o aggiornare l'URI del webhook.
+È possibile aggiungere o aggiornare l'URI del webhook nella schermata di creazione/aggiornamento degli avvisi nel [portale](https://portal.azure.com/).
 
-![Aggiungere una regola di avviso](./media/insights-webhooks-alerts/Alertwebhook.png)
+![Aggiungere una regola di avviso](./media/insights-webhooks-alerts/Alertwebhook.png)  
 
+È anche possibile configurare un avviso da inserire in un URI webhook usando i [cmdlet di Azure PowerShell](./insights-powershell-samples.md#create-alert-rules), l'[interfaccia della riga di comando multipiattaforma](./insights-cli-samples.md#work-with-alerts) o l'[API REST di Insights](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## Autenticazione
+## Autenticazione del webhook
 
-L'autenticazione può essere di due tipi:
+L'autenticazione del webhook può essere eseguita con uno di questi metodi:
 
-1. **Autenticazione basata su token**: in questo caso l'URI del webhook verrà salvato con un ID token, ad esempio *https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue*
-2.	**Autenticazione di base** (uso di ID utente e password): in questo caso l'URI del webhook verrà salvato come *https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar*
+1. **Autorizzazione basata su token**: l'URI del webhook viene salvato con un ID token, ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2.	**Autorizzazione di base**: l'URI del webhook viene salvato con nome utente e password, ad esempio `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## Schema del payload
 
-L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvisi basati su metriche.
+L'operazione POST contiene il seguente payload e schema JSON per tutti gli avvisi basati su metriche.
 
 ```
 {
@@ -74,51 +75,41 @@ L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvi
 ```
 
 
-| Campo | Obbligatorio? | Set fisso di valori? | Note |
+| Campo | Mandatory | Set fisso di valori | Note |
 | :-------------| :-------------   | :-------------   | :-------------   |
-|status|S|"Activated", "Resolved"|Consente di capire di che tipo di avviso si tratta. Azure invia automaticamente gli avvisi attivati e risolti per la condizione impostata.|
-|context| S | | Contesto dell'avviso|
-|timestamp| S | | Ora in cui è stato attivato l'avviso. L'avviso viene attivato non appena la metrica viene letta dall'archiviazione della diagnostica.|
+|status|S|"Activated", "Resolved"|Stato dell'avviso in base alle condizioni impostate.|
+|context| S | | Contesto dell'avviso.|
+|timestamp| S | | Ora in cui è stato attivato l'avviso.|
 |id | S | | Ogni regola di avviso ha un ID univoco.|
-|name|S | |
+|name |S | | Nome dell'avviso.|
 |description |S | |Descrizione dell'avviso.|
-|conditionType |S |"Metric", "Event" |Sono supportati due tipi di avviso, uno basato sulla metrica e l'altro basato sull'evento. In futuro saranno supportati gli avvisi per gli eventi. Usare quindi questo valore ("Event") per controllare se l'avviso si basa sulla metrica o sull'evento.|
-|condition |S | |Saranno disponibili campi specifici da verificare in base al valore di conditionType|
+|conditionType |S |"Metric", "Event" |Sono supportati due tipi di avviso, uno basato su una condizione di metrica e l'altro basato su un evento nel registro attività. Usare questo valore per verificare se l'avviso si basa sulla metrica o sull'evento.|
+|condition |S | | Campi specifici da verificare in base al valore di conditionType.|
 |metricName |Per avvisi relativi alle metriche | |Nome della metrica che definisce l'oggetto monitorato dalla regola.|
-|metricUnit |Per avvisi relativi alle metriche |"Byte", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds"|	 Unità consentita nella metrica. Valori consentiti: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
-|metricValue |Per avvisi relativi alle metriche | |Valore effettivo della metrica che ha generato l'avviso|
-|threshold |Per avvisi relativi alle metriche | |Valore di soglia che attiva l'avviso|
+|metricUnit |Per avvisi relativi alle metriche |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds"|	 Unità consentita nella metrica. [I valori consentiti sono elencati qui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx).|
+|metricValue |Per avvisi relativi alle metriche | |Valore effettivo della metrica che ha generato l'avviso.|
+|threshold |Per avvisi relativi alle metriche | |Valore soglia al quale viene attivato l'avviso.|
 |windowSize |Per avvisi relativi alle metriche | |Periodo di tempo usato per monitorare l'attività degli avvisi in base alla soglia. Deve essere compreso tra 5 minuti e 1 giorno. Il formato della durata è conforme a ISO 8601.|
-|timeAggregation |Per avvisi relativi alle metriche |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". Valori consentiti: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
-|operator |Per avvisi relativi alle metriche | |Operatore usato per confrontare i dati e la soglia.|
-|subscriptionId |S | |GUID della sottoscrizione di Azure|
-|resourceGroupName |S | |Nome del gruppo di risorse della risorsa interessata|
-|resourceName |S | |Nome della risorsa interessata|
-|resourceType |S | |Tipo della risorsa interessata|
-|resourceId |S | |URI dell'ID risorsa che identifica in modo univoco la risorsa|
-|resourceRegion |S | |Area/posizione della risorsa interessata|
-|portalLink |S | |Collegamento diretto al portale di Azure per la pagina di riepilogo delle risorse|
-|properties |N |Facoltativo |È un set di coppie <Key, Value>, ad esempio Dictionary<String, String>, contenente i dettagli relativi all'evento. Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, gli utenti possono immettere una coppia chiave/valori che può essere passata tramite il payload. Il metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query)|
+|timeAggregation |Per avvisi relativi alle metriche |"Average", "Last", "Maximum", "Minimum", "None", "Total" |	Definisce come i dati raccolti devono essere combinati nel tempo. Il valore predefinito è "Average". [I valori consentiti sono elencati qui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx).|
+|operator |Per avvisi relativi alle metriche | |Operatore usato per confrontare i dati metrici attuali con la soglia impostata.|
+|subscriptionId |S | |ID sottoscrizione di Azure.|
+|resourceGroupName |S | |Nome del gruppo di risorse della risorsa interessata.|
+|resourceName |S | |Nome della risorsa interessata.|
+|resourceType |S | |Tipo della risorsa interessata.|
+|resourceId |S | |ID risorsa della risorsa interessata.|
+|resourceRegion |S | |Area o posizione della risorsa interessata.|
+|portalLink |S | |Collegamento diretto alla pagina di riepilogo delle risorse del portale.|
+|properties |N |Facoltativo |Set di coppie `<Key, Value>`, ad esempio `Dictionary<String, String>`, contenente i dettagli relativi all'evento. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valori che può essere passata tramite il payload. Il metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query)|
 
 
->[AZURE.NOTE] Non è possibile usare il campo properties tramite il portale. Nella prossima versione di Insights SDK sarà possibile impostare le proprietà tramite l'API degli avvisi.
+>[AZURE.NOTE] Il campo properties può essere impostato solo usando l'[API REST di Insights](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## Passaggi successivi
 
-Per altre informazioni sugli avvisi di Azure e sui webhook, vedere il video [Integrare gli avvisi di Azure con PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
+- Per altre informazioni sugli avvisi di Azure e sui webhook, vedere il video sull'[integrazione degli avvisi di Azure con PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
+- [Eseguire gli script di Automazione di Azure (runbook) sugli avvisi di Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
+- [Usare l'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+- [Usare l'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [Usare l'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-Per informazioni su come creare a livello di programmazione un webhook, vedere [Creare un avviso con webhook tramite Azure Insights SDK (C#)](https://code.msdn.microsoft.com/Create-Azure-Alerts-with-b938077a).
-
-Dopo aver impostato i webhook e gli avvisi, esplorare le altre opzioni per avviare uno script di automazione.
-
-[Eseguire gli script di Automazione di Azure (runbook)](http://go.microsoft.com/fwlink/?LinkId=627081)
-
-Usare gli avvisi di Azure per inviare messaggi ad altri servizi. Usare i seguenti modelli di esempio per iniziare.
-
-[Usare l'app per la logica per l'invio di SMS tramite l'API Twilio](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-
-[Usare l'app per la logica per l'invio di messaggi Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-
-[Usare l'app per la logica per l'invio di messaggi a una coda di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

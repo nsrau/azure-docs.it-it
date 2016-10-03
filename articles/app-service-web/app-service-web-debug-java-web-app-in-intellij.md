@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="selvasingh" 
 	manager="wpickett" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="asirveda;robmcm"/>
+	ms.date="09/20/2016" 
+	ms.author="asirveda;robmcm"/>  
 
 # Debug di un'App Web Java su Azure in IntelliJ
 
@@ -29,7 +29,7 @@ Al termine di questa esercitazione, l'applicazione sarà simile a quanto illustr
 * Java Developer Kit (JDK) versione 1.8 o successiva.
 * IntelliJ IDEA Ultimate Edition. È possibile scaricare il pacchetto all'indirizzo <https://www.jetbrains.com/idea/download/index.html>.
 * Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione Azure che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/it-IT/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * Azure Toolkit per IntelliJ. Per altre informazioni, vedere [Installazione di Azure Toolkit per IntelliJ].
 * Un progetto Web dinamico creato e distribuito al Servizio app di Azure; ad esempio vedere [Creare un'app Web Hello World per Azure in IntelliJ].
 
@@ -83,7 +83,7 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->
+<!-- URL List -->  
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Toolkit di Azure per IntelliJ]: ../azure-toolkit-for-intellij.md
@@ -94,7 +94,7 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [Panoramica delle App Web]: ./app-service-web-overview.md
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [01]: ./media/app-service-web-debug-java-web-app-in-intellij/01-debug-java-web-app-in-intellij.png
 [02]: ./media/app-service-web-debug-java-web-app-in-intellij/02-configure-intellij-remote-debug.png
@@ -103,4 +103,4 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 [05]: ./media/app-service-web-debug-java-web-app-in-intellij/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-intellij/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

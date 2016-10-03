@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="sumukhs"
    manager="timlt"
-   editor="vturecek"/>
+   editor="vturecek"/>  
 
 <tags
    ms.service="Service-Fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/30/2016"
-   ms.author="sumukhs"/>
+   ms.date="09/20/2016"
+   ms.author="sumukhs"/>  
 
 # Configurazione dei servizi Reliable Services con stato
 
@@ -162,4 +162,4 @@ Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e conse
  - [Debug dell'applicazione di Service Fabric in Visual Studio](service-fabric-debugging-your-application.md)
  - [Guida di riferimento per gli sviluppatori per Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

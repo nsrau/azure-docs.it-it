@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
    ms.service="hdinsight"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/22/2016"
-   ms.author="jeffstok"/>
+   ms.date="09/16/2016"
+   ms.author="jeffstok"/>  
 
 
 # Installazione di RStudio con R Server su HDInsight (anteprima)
@@ -28,7 +28,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 ## Prerequisiti
 
 * Un cluster Azure HDInsight con R Server Per istruzioni, vedere l'articolo di [introduzione all'uso di R Server in cluster HDInsight](hdinsight-hadoop-r-server-get-started.md).
-* Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, è consigliabile [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+* Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, si consiglia [Cygwin](http://www.redhat.com/services/custom/cygwin/) con l'[opzione OpenSSH](https://www.youtube.com/watch?v=CwYSvvGaiWU) o [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 
 ## Installare RStudio nel cluster usando uno script personalizzato
@@ -73,13 +73,13 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 7. Creare un tunnel SSH al cluster tramite il mapping di `localhost:8787` sul cluster HDInsight per il computer client. Prima di aprire una nuova sessione del browser, è necessario creare un tunnel SSH.
 
-	* Tramite [Cygwin](http://www.redhat.com/services/custom/cygwin/) aprire in un client Linux o Windows una sessione terminal e usare il comando seguente.
+	* Con [Cygwin](http://www.redhat.com/services/custom/cygwin/) aprire in un client Linux o Windows una sessione terminal e usare il comando seguente.
 
 			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Sostituire **USERNAME** con un utente SSH per il cluster HDInsight e sostituire **CLUSTERNAME** con il nome del cluster HDInsight. È anche possibile usare una chiave SSH al posto di una password aggiungendo `-i id_rsa_key`
 
-	* In un client Windows creare un tunnel SSH PuTTY.
+	* Se si utilizza un client Windows con PuTTY:
 
 		1.  Aprire PuTTY e immettere le informazioni di connessione. Se non si ha familiarità con PuTTY, vedere l'articolo relativo all'[uso di SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md) per informazioni su come usarlo con HDInsight.
 		2.  Nella sezione **Category** sul lato sinistro della finestra di dialogo espandere **Connection**, **SSH** e infine selezionare **Tunnels**.
@@ -88,7 +88,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 			* **Source port**: la porta del client che si desidera inoltrare. Ad esempio **8787**.
 			* **Destination** (Destinazione): la destinazione che deve essere mappata al computer client locale. Ad esempio **localhost:8787**.
 
-			![Creazione di un tunnel SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Creazione di un tunnel SSH")
+			![Creazione di un tunnel SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Creazione di un tunnel SSH")  
 
 		4. Fare infine clic su **Add** per aggiungere le impostazioni, quindi su **Open** per aprire una connessione SSH.
 		5. Quando richiesto, accedere al server. Verrà stabilita una sessione SSH e verrà abilitato il tunnel.
@@ -99,7 +99,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 9. Verrà richiesto di immettere il nome utente e la password SSH per connettersi al cluster. Se si usa una chiave SSH durante la creazione del cluster, è necessario immettere la password creata nel passaggio 5.
 
-	![Connessione a R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Creazione di un tunnel SSH")
+	![Connessione a R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Creazione di un tunnel SSH")  
 
 10. Per verificare se l'installazione di RStudio è riuscita, eseguire uno script di test che esegue i processi MapReduce e Spark basati su R nel cluster. Tornare alla console SSH e immettere i comandi seguenti per scaricare lo script di test da eseguire in RStudio.
 
@@ -113,7 +113,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
 11. In RStudio verrà visualizzato lo script di test che è stato scaricato. Fare doppio clic sul file per aprirlo, selezionare il contenuto del file e quindi fare clic su **Esegui**. L'output verrà visualizzato nel riquadro **Console**.
  
-	![Verifica dell'installazione](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Verifica dell'installazione")
+	![Verifica dell'installazione](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Verifica dell'installazione")  
 
 In alternativa è possibile digitare `source(testhdi.r)` o `source(testhdi_spark.r)` per eseguire lo script.
 
@@ -126,4 +126,4 @@ In alternativa è possibile digitare `source(testhdi.r)` o `source(testhdi_spark
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

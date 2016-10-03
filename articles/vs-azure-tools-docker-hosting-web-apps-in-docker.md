@@ -3,9 +3,9 @@
    description="Informazioni su come usare Visual Studio Tools per Docker per distribuire un'app Web ASP.NET Core in un contenitore Docker in esecuzione in una macchina virtuale Linux host Docker di Azure"   
    services="azure-container-service"
    documentationCenter=".net"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="azure-container-service"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas"/>
+   ms.author="mlearned"/>
 
 # Distribuire un contenitore ASP.NET in un host Docker remoto
 
@@ -25,11 +25,12 @@ Docker è un motore contenitore leggero, simile in qualche modo a una macchina v
 Per completare questa esercitazione sarà necessario svolgere le operazioni seguenti:
 
 - Creare una VM host Docker in Azure, come descritto in [Come usare Docker Machine in Azure](./virtual-machines/virtual-machines-linux-docker-machine.md).
-- Installare [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
+- Installare [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 - Installare [Visual Studio 2015 Tools per Docker - Preview](http://aka.ms/DockerToolsForVS)
 
-## 1\. Creare un'app Web ASP.NET 5
-La procedura seguente illustrerà la creazione di un'app ASP.NET 5 di base che verrà usata in questa esercitazione.
+## 1\. Creare un'app Web ASP.NET Core
+La procedura seguente illustra la creazione di un'app ASP.NET Core di base che verrà usata in questa esercitazione.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
@@ -89,4 +90,4 @@ La procedura seguente illustrerà la creazione di un'app ASP.NET 5 di base che v
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

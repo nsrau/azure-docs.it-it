@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="garye"/>
+	ms.date="09/16/2016"
+	ms.author="garye"/>  
 
 
 # Passaggio 5 della procedura dettagliata: Distribuzione del servizio Web di Azure Machine Learning
@@ -48,7 +48,7 @@ Si supponga che il modello di albero con boosting sia il modello più indicato. 
 
 - [Two-Class Support Vector Machine][two-class-support-vector-machine]
 - I moduli [Train Model][train-model] e [Score Model][score-model] a esso connessi
-- [Normalize Data][normalize-data] \(entrambi)
+- [Normalize Data][normalize-data] (entrambi)
 - [Evaluate Model][evaluate-model]
 
 Selezionare il modulo e premere il tasto CANC oppure fare clic con il pulsante destro del mouse sul modulo e selezionare **Elimina**.
@@ -91,8 +91,7 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-## 
-Distribuire il servizio web
+## Distribuire il servizio web
 
 È possibile distribuire l'esperimento come un servizio Web classico o un nuovo servizio Web basato su Azure Resource Manager.
 
@@ -189,7 +188,7 @@ Per monitorare le prestazioni del servizio Web:
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
@@ -201,4 +200,4 @@ Per monitorare le prestazioni del servizio Web:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/it-IT/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

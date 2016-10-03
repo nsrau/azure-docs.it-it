@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="luiscabrer"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="cognitive-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
-	ms.author="luisca"/>
+	ms.date="09/20/2016"
+	ms.author="luisca"/>  
 
 #  Tipi di compilazione e qualità dei modelli #
 
@@ -34,7 +34,7 @@ Supponendo che si esegua il training del modello in base agli acquisti effettuat
 
 La compilazione di elementi consigliati presenta due funzionalità che la rendono interessante:
 
-**La compilazione di elementi consigliati supporta il posizionamento di *elementi ad accesso* sporadico**
+**La compilazione di elementi consigliati supporta il posizionamento di *elementi ad accesso sporadico***
 
 Gli elementi che non vengono usati di frequente sono detti elementi ad accesso sporadico. Se, ad esempio, si riceve una spedizione di un telefono mai venduto in precedenza, il sistema non può dedurre le raccomandazioni per questo prodotto in base alle sole transazioni. Ciò significa che il sistema deve apprendere dalle informazioni relative al prodotto stesso.
 
@@ -263,4 +263,4 @@ Verrà attivata una compilazione che usa solo un subset dei dati per il training
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

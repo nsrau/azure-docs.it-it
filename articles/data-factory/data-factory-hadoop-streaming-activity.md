@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/20/2016" 
+	ms.author="spelluru"/>  
 
 # Attività di Hadoop Streaming
 È possibile usare l'attività HDInsightStreamingActivity per richiamare un processo di Hadoop Streaming da una pipeline di Data factory di Azure. Il frammento JSON seguente illustra la sintassi per l'uso di HDInsightStreamingActivity in un file JSON della pipeline.
@@ -70,18 +70,18 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 
 Tenere presente quanto segue:
 
-1. Impostare **linkedServiceName** sul nome del servizio collegato che punta al cluster HDInsight in cui verrà eseguito il processo di streaming mapreduce.
+1. Impostare **linkedServiceName** sul nome del servizio collegato che punta al cluster HDInsight in cui viene eseguito il processo di streaming mapreduce.
 2. Impostare il tipo di attività su **HDInsightStreaming**.
-3. Per la proprietà **mapper** specificare il nome dell'eseguibile del mapper. Nell'esempio precedente cat.exe è l'eseguibile del mapper.
-4. Per la proprietà **reducer** specificare il nome dell'eseguibile del reducer. Nell'esempio precedente wc.exe è l'eseguibile del reducer.
+3. Per la proprietà **mapper** specificare il nome dell'eseguibile del mapper. Nell'esempio cat.exe è l'eseguibile del mapper.
+4. Per la proprietà **reducer** specificare il nome dell'eseguibile del reducer. Nell'esempio wc.exe è l'eseguibile del mapper.
 5. Per la proprietà di tipo **input** specificare il file di input (incluso il percorso) per il mapper. Nell'esempio: "wasb://adfsample@<nome account>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample è il contenitore BLOB, example/data/Gutenberg è la cartella e davinci.txt è il BLOB.
-6. Per la proprietà di tipo **output** specificare il file di output (incluso il percorso) per il reducer. L'output del processo di Hadoop Streaming verrà scritto nel percorso specificato per questa proprietà.
+6. Per la proprietà di tipo **output** specificare il file di output (incluso il percorso) per il reducer. L'output del processo di Hadoop Streaming viene scritto nel percorso specificato per questa proprietà.
 7. Nella sezione **filePaths** specificare i percorsi dei file eseguibili del mapper e del reducer. Nell'esempio: "adfsample/example/apps/wc.exe", adfsample è il contenitore BLOB, example/apps è la cartella e wc.exe è l'eseguibile.
 8. Per la proprietà **fileLinkedService** specificare il servizio collegato Archiviazione di Azure che rappresenta l'archivio di Azure contenente i file specificati nella sezione filePaths.
 9. Per la proprietà **arguments** specificare gli argomenti per il processo di streaming.
 10. La proprietà **getDebugInfo** è un elemento facoltativo. Quando viene impostata su Failure, i log vengono scaricati solo in caso di errore. Quando viene impostata su All, i log vengono sempre scaricati indipendentemente dallo stato dell'esecuzione.
 
-> [AZURE.NOTE] Come illustrato nell'esempio, sarà necessario specificare un set di dati di output per l'attività di Hadoop Streaming per la proprietà **output**. Questo è solo un set di dati fittizio che è necessario per la pianificazione della pipeline. Non è necessario specificare alcun set di dati di input per l'attività per la proprietà **input**.
+> [AZURE.NOTE] Come illustrato nell'esempio, è necessario specificare un set di dati di output per l'attività di Hadoop Streaming per la proprietà **output**. Questo è solo un set di dati fittizio necessario per la pianificazione della pipeline. Non è necessario specificare alcun set di dati di input per l'attività per la proprietà **input**.
 
 	
 ## Esempio
@@ -121,7 +121,7 @@ Successivamente, si crea un servizio collegato per collegare il cluster HDInsigh
 ### Set di dati
 
 #### Set di dati di output
-La pipeline in questo esempio non accetta alcun input. È necessario specificare un set di dati di output per l'attività Streaming di HDInsight. Questo è solo un set di dati fittizio che è necessario per la pianificazione della pipeline.
+La pipeline in questo esempio non accetta alcun input. È necessario specificare un set di dati di output per l'attività Streaming di HDInsight. Questo è solo un set di dati fittizio necessario per la pianificazione della pipeline.
 
 	{
 	    "name": "StreamingOutputDataset",
@@ -199,4 +199,4 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 - [Chiamare i programmi Spark](data-factory-spark.md)
 - [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

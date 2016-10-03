@@ -5,7 +5,7 @@
 	authors="kiratp" 
 	manager="jhubbard" 
 	editor="monicar" 
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="kipandya"/>
+	ms.date="09/19/2016" 
+	ms.author="kipandya"/>  
 
 # Protezione dell'accesso ai dati in DocumentDB
 
@@ -38,8 +38,9 @@ DocumentDB offre concetti avanzati per controllare l'accesso alle risorse in Doc
 	- Autorizzazione
 - Risorse dell'applicazione
 	- Raccolta
+	- Offerta
 	- Documento
-	- Allegato
+	- Attachment
 	- Stored procedure
 	- Trigger
 	- Funzione definita dall'utente
@@ -47,7 +48,7 @@ DocumentDB offre concetti avanzati per controllare l'accesso alle risorse in Doc
 Nel contesto di queste due categorie, DocumentDB supporta tre tipi di utente tipo di controllo di accesso: amministratore account, amministratore di sola lettura e utente database. I diritti di ogni utente tipo di controllo di accesso sono:
  
 - Amministratore account: accesso completo a tutte le risorse (amministrative e dell'applicazione) in un determinato account di DocumentDB.
-- Amministratore di sola lettura: accesso di sola lettura a tutte le risorse (amministrative e dell'applicazione) in un determinato account di DocumentDB. 
+- Amministratore di sola lettura: accesso di sola lettura a tutte le risorse (amministrative e dell'applicazione) in un determinato account di DocumentDB.
 - Utente database: risorsa utente di DocumentDB associata a uno specifico set di risorse database di DocumentDB (ad esempio, raccolte, documenti, script). Una o più risorse utente possono essere associate a un determinato database e a ogni risorsa utente può essere associate una o più autorizzazioni.
 
 Tenendo presenti le suddette categorie e risorse, il modello di controllo di accesso di DocumentDB definisce tre tipi di costrutto di accesso:
@@ -62,7 +63,7 @@ Tenendo presenti le suddette categorie e risorse, il modello di controllo di acc
 
 - Token risorsa: un token di una risorsa è associato a una risorsa autorizzazione di DocumentDB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di DocumentDB specifica (ad esempio, raccolta, documento).
 
-![Illustrazione di token DocumentDB risorse](./media/documentdb-secure-access-to-data/resourcekeys.png)
+![Illustrazione di token DocumentDB risorse](./media/documentdb-secure-access-to-data/resourcekeys.png)  
 
 ## Uso delle chiavi master e di sola lettura di DocumentDB
 
@@ -91,20 +92,20 @@ Come accennato in precedenza, le chiavi master di DocumentDB forniscono l'access
 
 Allo stesso modo, le chiavi di sola lettura di DocumentDB forniscono l'accesso in lettura a tutte le risorse (a eccezione ovviamente delle risorse autorizzazione) in un account di DocumentDB e non possono essere usate per fornire un accesso più granulare a risorse specifiche di DocumentDB.
 
-Il token delle risorse di DocumentDB costituisce un'alternativa sicura per consentire ai client di leggere, scrivere ed eliminare risorse nell'account di DocumentDB sulla base delle autorizzazioni concesse e senza richiedere la chiave master o di sola lettura.
+I token delle risorse di DocumentDB costituiscono un'alternativa sicura per consentire ai client di leggere, scrivere ed eliminare risorse nell'account di DocumentDB sulla base delle autorizzazioni concesse e senza richiedere la chiave master o di sola lettura.
 
 Ecco un tipico schema progettuale in cui i token delle risorse possono essere richiesti, generati e forniti ai client:
 
 1. Un servizio di livello intermedio viene configurato per gestire un'applicazione per dispositivi mobili per condividere le foto dell'utente.
 2. Il servizio di livello intermedio possiede la chiave master dell'account di DocumentDB.
-3. L'app per le foto viene installata nei dispositivi mobili dell'utente finale. 
+3. L'app per le foto viene installata nei dispositivi mobili dell'utente finale.
 4. All'accesso, l'app per le foto stabilisce l'identità dell'utente con il servizio di livello intermedio. Questo meccanismo per stabilire l'identità dipende completamente dall'applicazione.
 5. Una volta stabilita l'identità, il servizio di livello intermedio richiede le autorizzazioni in base all'identità.
 6. Il servizio di livello intermedio invia di nuovo un token delle risorse all'app per il telefono.
-7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di DocumentDB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse. 
+7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di DocumentDB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse.
 8. Quando il token delle risorse scade, le richieste successive riceveranno un'eccezione 401 Non autorizzato. A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
 
-![Flusso di lavoro di DocumentDB risorse token](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
+![Flusso di lavoro di DocumentDB risorse token](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)  
 
 ## Uso di utenti e autorizzazioni di DocumentDB
 Una risorsa utente di DocumentDB è associata a un database di DocumentDB. Ogni database può includere zero o più utenti di DocumentDB. Il frammento di codice seguente mostra come creare una risorsa utente di DocumentDB.
@@ -128,7 +129,7 @@ Una risorsa autorizzazione di DocumentDB è associata a un utente di DocumentDB.
 > [AZURE.NOTE] Per eseguire le stored procedure di DocumentDB, l'utente deve disporre dell'autorizzazione All per la raccolta in cui verrà eseguita la stored procedure.
 
 
-Il frammento di codice seguente illustra come creare una risorsa autorizzazione, leggere il token delle risorse (token) della risorsa autorizzazione e associare le autorizzazioni all'utente creato in precedenza.
+Il frammento di codice seguente illustra come creare una risorsa autorizzazione, leggere il token delle risorse della risorsa autorizzazione e associare le autorizzazioni all'utente creato in precedenza.
 
     // Create a permission.
     Permission docPermission = new Permission
@@ -166,4 +167,4 @@ Per ottenere facilmente tutte le risorse autorizzazione associate a un particola
 - Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0921_2016-->

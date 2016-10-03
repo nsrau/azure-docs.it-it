@@ -5,7 +5,7 @@
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
-   ms.author="mbaldwin"/>
+   ms.date="09/16/2016"
+   ms.author="mbaldwin"/>  
 
 # Esempi di codice di Azure Active Directory
 
@@ -151,4 +151,4 @@ PHP | [App di esempio PHP per l'API Graph di Azure AD](http://code.msdn.microsof
 
 [Libreria helper dell'API Graph di Azure AD](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

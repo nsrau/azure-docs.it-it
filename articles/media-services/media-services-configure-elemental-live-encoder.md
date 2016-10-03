@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Configurare il codificatore Elemental Live per inviare un flusso live a velocità in bit singola." 
+	pageTitle="Configurare il codificatore Elemental Live per inviare un flusso live a velocità in bit singola | Microsoft Azure" 
 	description="In questo argomento viene illustrato come configurare il codificatore Elemental Live per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="cenkdin" 
 	manager="dwrede" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="cenkdin;anilmur;juliako"/>
+	ms.date="09/19/2016"
+	ms.author="cenkdin;anilmur;juliako"/>  
 
 #Usare il codificatore Elemental Live per inviare un flusso live a velocità in bit singola.
 
@@ -32,8 +32,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 
 - Sono necessarie conoscenze pratiche dell'uso dell'interfaccia Web Elemental Live per la creazione di eventi live.
 - [Creare un account di Servizi multimediali di Azure](media-services-create-account.md)
-- Assicurarsi che sia in esecuzione un endpoint di streaming con almeno un'unità di streaming allocata. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-manage-origins.md)
-
+- Assicurarsi che sia in esecuzione un endpoint di streaming con almeno un'unità di streaming allocata. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
 - Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Avviare lo strumento e connettersi al proprio account AMS.
 
@@ -141,7 +140,7 @@ Dopo 30 secondi di esecuzione del flusso, tornare allo strumento AMSE e testare 
 
 Se il flusso viene visualizzato nel lettore, ciò indica che il codificatore è stato configurato correttamente per connettersi a AMS.
 
-In caso di errore, sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
+In caso di errore, sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Vedere l’argomento sulla [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
 
 ###Creare un programma.
 
@@ -162,10 +161,10 @@ Il flusso è ora pronto per essere incorporato in un lettore o distribuito per l
 
 ## Risoluzione dei problemi
 
-Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
+Vedere l’argomento sulla [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -173,4 +172,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

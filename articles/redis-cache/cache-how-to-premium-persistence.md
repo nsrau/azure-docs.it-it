@@ -4,8 +4,8 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+	manager="douge" 
+	editor=""/>  
 
 <tags 
 	ms.service="cache" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Come configurare la persistenza dei dati per una Cache Redis di Azure Premium
 
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
 
-Il livello Premium di Cache Redis di Azure include il supporto di clustering, persistenza e rete virtuale. In questo articolo viene descritto come configurare la persistenza in un'istanza Premium di Cache Redis di Azure.
+Il livello Premium di Cache Redis di Azure include una serie di funzioni, tra cui il clustering, la persistenza e il supporto della rete virtuale. In questo articolo viene descritto come configurare la persistenza in un'istanza Premium di Cache Redis di Azure.
 
-Per informazioni su altre funzionalità della cache Premium, vedere [Come configurare il clustering Redis per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md) e [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
+Per informazioni su altre funzionalità di cache premium, vedere [Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
 
 ## Che cos'è la persistenza dei dati?
 La persistenza di Redis consente di rendere persistenti i dati archiviati in Redis. È inoltre possibile creare snapshot ed eseguire il backup dei dati, per consentirne il caricamento in caso di errore hardware. Si tratta di un enorme vantaggio rispetto al livello Basic o Standard in cui tutti i dati vengono archiviati in memoria ed esiste il rischio di potenziali perdite di dati in caso di errore quando i nodi della cache sono inattivi.
@@ -61,7 +61,7 @@ Fare clic su **Account di archiviazione** per selezionare l'account di archiviaz
 
 >[AZURE.IMPORTANT] Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario scegliere nuovamente la chiave desiderata dall’elenco a discesa **Chiave di archiviazione**.
 
-![Persistenza di Redis][redis-cache-persistence-selected]
+![Persistenza di Redis][redis-cache-persistence-selected]  
 
 Fare clic su **OK** per salvare la configurazione della persistenza.
 
@@ -102,10 +102,9 @@ Ad eccezione di quello più recente, tutti i backup vengono eliminati automatica
 -	Se si è passati a una dimensione minore che non è abbastanza grande per contenere tutti i dati del backup più recente, le chiavi verranno rimosse durante il processo di ripristino, in genere usando il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ## Passaggi successivi
-Informazioni su come utilizzare altre funzionalità di cache premium.
+Informazioni su come usare altre funzionalità di cache premium.
 
--	[Come configurare il servizio cluster per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md)
--	[Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md)
+-	[Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md)
   
 <!-- IMAGES -->  
 
@@ -119,4 +118,4 @@ Informazioni su come utilizzare altre funzionalità di cache premium.
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

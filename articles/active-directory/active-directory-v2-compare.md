@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>  
 
 # Differenze dell'endpoint 2.0.
 
@@ -132,4 +132,4 @@ Per altre informazioni sulle attestazioni specifiche generate nei token 2.0, ved
 ## Limitazioni
 Esistono alcune limitazioni da tenere in considerazione quando si usa l'endpoint 2.0. Fare riferimento al [documento relativo alle limitazioni della versione 2.0](active-directory-v2-limitations.md) per verificare se una di queste restrizioni si applica a un particolare scenario.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

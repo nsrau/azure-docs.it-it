@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>  
 
 <tags
 	ms.service="functions"
@@ -16,11 +16,11 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/27/2016"
-	ms.author="chrande"/>
+	ms.author="chrande"/>  
 
 # Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure
 
-Gli articoli seguenti illustrano come configurare e scrivere il codice per trigger e associazioni in Funzioni di Azure. Questi articoli presuppongono che siano stati letti la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) e gli articoli di riferimento per sviluppatori di [C#](functions-reference-csharp.md) o [Node.js](functions-reference-node.md).
+Gli articoli seguenti illustrano come configurare e scrivere il codice per trigger e associazioni in Funzioni di Azure. Questi articoli presuppongono che siano stati letti la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) e gli articoli di riferimento per sviluppatori di [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node.js](functions-reference-node.md).
 
 ## Articoli su trigger e associazioni
 
@@ -35,4 +35,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Test di Funzioni di Azure](functions-test-a-function.md)
 * [Scalabilità di Funzioni di Azure](functions-scale.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

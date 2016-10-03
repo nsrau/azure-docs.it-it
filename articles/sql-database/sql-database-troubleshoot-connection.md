@@ -6,7 +6,7 @@
 	authors="dalechen"
 	manager="felixwu"
 	editor=""
-	keywords="Il database nel server non è attualmente disponibile durante la connessione al database SQL"/>
+	keywords="Il database nel server non è attualmente disponibile durante la connessione al database SQL"/>  
 
 <tags
 	ms.service="sql-database"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="daleche"/>
+	ms.date="09/21/2016"
+	ms.author="daleche"/>  
 
 # Errore "Il database nel server non è attualmente disponibile" durante la connessione al database SQL
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -40,4 +40,4 @@ Questo errore si verifica quando il database di Azure viene spostato o riconfigu
 - Se viene visualizzato un errore diverso, leggere il [messaggio di errore](sql-database-develop-error-messages.md) per indicazioni sulla causa.
 - Se il problema persiste, consultare il materiale sussidiario in [Risoluzione dei problemi di connessione comuni al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

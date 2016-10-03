@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
-	ms.author="garye"/>
+	ms.date="09/16/2016"
+	ms.author="garye"/>  
 
 
 # Passaggio 6 della procedura dettagliata: Accedere al servizio Web di Azure Machine Learning
@@ -44,4 +44,4 @@ Per altre informazioni sull'utilizzo di modelli di app web, vedere [Utilizzare u
 
 È possibile sviluppare anche un'applicazione personalizzata per accedere al servizio Web utilizzando il codice di avvio fornito automaticamente nei linguaggi di programmazione R, C# e Python. Per informazioni più dettagliate, vedere [Come utilizzare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

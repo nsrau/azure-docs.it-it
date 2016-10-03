@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Caricare file in un account di Servizi multimediali mediante REST" 
+	pageTitle="Caricare file in un account di Servizi multimediali mediante REST | Microsoft Azure" 
 	description="Informazioni su come ottenere contenuti multimediali in Servizi multimediali creando e caricando asset." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako"/>  
 
 
 # Caricare file in un account di Servizi multimediali mediante REST
@@ -26,8 +26,11 @@
 
 In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati (e anche i metadati relativi a questi file). Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
-
->[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+>[AZURE.NOTE]Quando si sceglie un nome di file per l'asset, valgono le seguenti considerazioni:
+>
+>- Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+>
+>- La lunghezza del nome non deve essere superare i 260 caratteri.
 
 Il flusso di lavoro di base per il caricamento degli asset si divide nelle sezioni seguenti:
 
@@ -517,7 +520,9 @@ L'entità ContentKey viene associata a uno o più asset mediante l'invio di una 
 
 
 
-##Percorsi di apprendimento di Servizi multimediali
+##Passaggio successivo
+
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -531,4 +536,4 @@ L'entità ContentKey viene associata a uno o più asset mediante l'invio di una 
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

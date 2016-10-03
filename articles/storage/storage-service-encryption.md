@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor="tysonn"/>
+	editor="tysonn"/>  
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="robinsh"/>
+	ms.author="robinsh"/>  
 
 # Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -29,19 +29,19 @@ Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, c
 
 La crittografia del servizio di archiviazione esegue la crittografia dei dati durante la scrittura in Archiviazione di Azure e può essere utilizzata per i BLOB in blocchi, i BLOB di pagine e i BLOB di aggiunta. È adatta alle operazioni seguenti:
 
-	- General purpose storage accounts and Blob storage accounts
-	- Standard storage and Primary storage 
-	- All redundancy levels (LRS, ZRS, GRS, RA-GRS)
-	- Azure Resource Manager storage accounts (but not classic) 
-	- All regions
+-   Account di archiviazione di uso generale e account di archiviazione BLOB
+-   Archiviazione Standard e archiviazione primaria
+-   Tutti i livelli di ridondanza (LRS, ZRS, GRS e RA-GRS)
+-   Account di archiviazione di Azure Resource Manager (non classici)
+-   Tutte le aree
 
 Questa schermata mostra dove trovare l'impostazione relativa a Crittografia del servizio di archiviazione usando il [portale di Azure](https://azure.portal.com). In questa schermata occorre fare clic su Crittografia per continuare.
 
-![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)
+![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)  
 
 Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o disabilitare Crittografia del servizio di archiviazione.
 
-![Schermata del portale che mostra le proprietà della crittografia](./media/storage-service-encryption/image2.png)
+![Schermata del portale che mostra le proprietà della crittografia](./media/storage-service-encryption/image2.png)  
 
 ##Scenari di crittografia
 
@@ -195,4 +195,4 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

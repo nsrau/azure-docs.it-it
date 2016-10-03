@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi"
+	pageTitle="Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi | Microsoft Azure"
 	description="Servizi multimediali di Microsoft Azure consente di distribuire contenuti crittografati con AES mediante chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. In questo argomento viene illustrato come crittografare con AES-128 e utilizzare il servizio di distribuzione delle chiavi in modo dinamico."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako"/>  
 
 #Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi
 
@@ -23,7 +23,7 @@
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-##Panoramica
+##Overview
 
 Servizi multimediali di Microsoft Azure consente di distribuire Http-Live-Streaming (HLS) e Smooth Streams crittografati con AES (Advanced Encryption Standard) mediante chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. Per consentire a Servizi multimediali di crittografare un asset, è necessario associare una chiave di crittografia all'asset e configurare anche i criteri di autorizzazione per la chiave. Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
@@ -33,7 +33,7 @@ Per sfruttare la crittografia dinamica, è necessario disporre di un asset che c
 
 Questo argomento potrebbe essere utile per gli sviluppatori che utilizzano applicazioni che forniscono contenuti protetti. L'argomento illustra come configurare il servizio di distribuzione delle chiavi con criteri di autorizzazione, in modo che solo i client autorizzati possano ricevere le chiavi di crittografia. Viene inoltre illustrato come utilizzare la crittografia dinamica.
 
->[AZURE.NOTE]Per iniziare a utilizzare la crittografia dinamica, è prima necessario ottenere almeno un'unità di scala (nota anche come unità di streaming). Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Per iniziare a utilizzare la crittografia dinamica, è prima necessario ottenere almeno un'unità di scala (nota anche come unità di streaming). Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
 
 ##Flusso di lavoro della crittografia dinamica AES-128 e servizio di distribuzione delle chiavi
 
@@ -45,7 +45,7 @@ Di seguito sono indicati i passaggi generali da eseguire quando si esegue la cri
 1. [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-protect-with-aes128.md#configure_key_auth_policy). I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client affinché la chiave simmetrica possa essere distribuita al client.
 1. [Configurare i criteri di distribuzione di un asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configurazione del criterio di distribuzione include: chiave URL di acquisizione e il vettore di inizializzazione (IV) (AES 128 richiede dello stesso vettore devono essere fornite per la crittografia e decrittografia), protocollo di recapito (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o all), il tipo di crittografia dinamica (ad esempio, envelope o nessuna crittografia dinamica).
 
-	È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
+È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
 1. [Creare un localizzatore OnDemand](media-services-protect-with-aes128.md#create_locator) per ottenere un URL di streaming.
 
@@ -55,7 +55,7 @@ Si noterà un [esempio](media-services-protect-with-aes128.md#example) .NET comp
 
 Nell'immagine seguente viene illustrato il flusso di lavoro descritto in precedenza. Di seguito viene utilizzato il token per l'autenticazione.
 
-![Proteggere con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![Proteggere con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)  
 
 Nella parte rimanente di questo argomento vengono fornite spiegazioni dettagliate, esempi di codice e collegamenti ad argomenti che illustrano come eseguire le attività descritte in precedenza.
 
@@ -71,7 +71,7 @@ Per informazioni dettagliate, vedere [Carica file in un account di servizi multi
 
 ##<a id="encode_asset"></a>Codificare l'asset contenente il file per il set di file MP4 con velocità in bit adattiva
 
-Con la crittografia dinamica, è necessario solamente creare un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantirà che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. Per altre informazioni, vedere l'argomento [Panoramica della creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
+Con la crittografia dinamica, è necessario solamente creare un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantirà che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. Per altre informazioni, vedere l'argomento [Creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
 Per istruzioni su come eseguire la codifica, vedere [Come codificare un asset mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -96,7 +96,7 @@ Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella 
 - Il protocollo di recapito dell’asset (ad esempio, MPEG DASH, HLS, HDS, Smooth Streaming o tutti).
 - Il tipo di crittografia dinamica (ad esempio, envelope AES) o nessuna crittografia dinamica.
 
-Per informazioni dettagliate, vedere [Configurare il criterio di distribuzione dell’asset](media-services-rest-configure-asset-delivery-policy.md).
+Per informazioni dettagliate, vedere [Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
 ##<a id="create_locator"></a>Creare un localizzatore di streaming on demand per ottenere un URL di streaming
 
@@ -621,7 +621,7 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 		}
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -629,4 +629,4 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

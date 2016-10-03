@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="cache" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
-	ms.author="sdanie"/>
+	ms.date="09/15/2016" 
+	ms.author="sdanie"/>  
 
 # Come creare e gestire Cache Redis di Azure tramite l'interfaccia della riga di comando di Azure (Azure CLI)
 
@@ -53,7 +53,7 @@ Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamen
 | StaticIP | -p, --static-ip <static-ip> | Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. |
 | Subnet | t, --subnet <subnet> | Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. |
 | VirtualNetwork | -v, --virtual-network <virtual-network> | Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa esatto ARM della rete virtuale in cui distribuire la cache Redis. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Sottoscrizione | -s, --subscription | L'identificatore della sottoscrizione. |
+| Subscription | -s, --subscription | L'identificatore della sottoscrizione. |
 
 ## Vedere tutti i comandi di Cache Redis
 
@@ -146,9 +146,9 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-## Elenco di tutte le Cache Redis di all'interno della sottoscrizione o di un gruppo di risorse
+## Elenco di tutte le Cache Redis all'interno della sottoscrizione o di un gruppo di risorse
 
-Per elencare tutte le cache di all'interno della sottoscrizione o un gruppo di risorse, utilizzare il comando seguente:
+Per elencare tutte le Cache Redis all'interno della sottoscrizione o un gruppo di risorse, utilizzare il comando seguente:
 
 	azure rediscache list [options]
 
@@ -271,4 +271,4 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

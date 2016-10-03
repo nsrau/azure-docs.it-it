@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="app-service" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
-	ms.author="stefsch"/>
+	ms.date="09/21/2016" 
+	ms.author="stefsch"/>  
 
 # Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager
 
-## Panoramica ##
+## Overview ##
 È possibile creare ambienti del servizio app con un indirizzo interno di rete virtuale anziché un indirizzo VIP pubblico. L'indirizzo interno viene messo a disposizione da un componente di Azure denominato servizio di bilanciamento del carico interno (ILB). È possibile creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando il portale di Azure. L'ambiente può anche essere creato con l'automazione, usando i modelli di Azure Resource Manager. Questo articolo illustra i passaggi e la sintassi necessari per creare un ambiente del servizio app con servizio di bilanciamento del carico interno con i modelli di Azure Resource Manager.
 
 L'automazione della creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno prevede tre passaggi:
@@ -29,7 +29,7 @@ L'automazione della creazione di un ambiente del servizio app con servizio di bi
 ## Creazione dell'ambiente del servizio app con servizio di bilanciamento del carico interno ##
 Un modello di Azure Resource Manager di esempio e il file dei parametri associati sono disponibili in GitHub [qui][quickstartilbasecreate].
 
-La maggior parte dei parametri del file *azuredeploy.parameters.json* sono comuni alla creazione sia dell'ambiente del servizio app con servizio di bilanciamento del carico interno che dell'ambiente del servizio app associato a un indirizzo VIP pubblico. L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno:
+La maggior parte dei parametri del file *azuredeploy.parameters.json* è comune alla creazione sia dell'ambiente del servizio app con servizio di bilanciamento del carico interno che dell'ambiente del servizio app associato a un indirizzo VIP pubblico. L'elenco seguente indica parametri importanti o specifici per la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno:
 
 
 - *interalLoadBalancingMode*: impostare nella maggior parte dei casi su 3, a indicare che sia il traffico HTTP/HTTPS sulle porte 80/443 che le porte dei canali di controllo/dati ascoltati dal servizio FTP nell'ambiente del servizio app saranno associati a un indirizzo interno della rete virtuale allocato dal servizio di bilanciamento del carico interno. Se questa proprietà viene invece impostata su 2, solo le porte correlate al servizio FTP, ovvero i canali di controllo e i canali dei dati, saranno associate a un indirizzo del servizio di bilanciamento del carico interno, mentre il traffico HTTP/HTTPS rimarrà associato all'indirizzo VIP pubblico.
@@ -81,7 +81,7 @@ I parametri del file *azuredeploy.parameters.json* sono elencati di seguito:
 - *pfxBlobString*: rappresentazione del file con estensione pfx sotto forma di stringa con codifica Base64. Usando il frammento di codice indicato in precedenza, la stringa contenuta in "exportedcert.pfx.b64" dovrà essere copiata e incollata come valore dell'attributo *pfxBlobString*.
 - *password*: password usata per la protezione del file con estensione pfx.
 - *certificateThumbprint*: identificazione personale del certificato. Se si recupera questo valore da Powershell, ad esempio *$certificate.Thumbprint* nel frammento di codice precedente, è possibile usare il valore così com'è. Se tuttavia si copia il valore dalla finestra di dialogo del certificato di Windows, rimuovere gli spazi estranei. Il valore di *certificateThumbprint* sarà simile a AF3143EB61D43F6727842115BB7F17BBCECAECAE
-- *certificateName*: identificatore di stringa descrittivo scelto dall'utente per identificare il certificato. Il nome viene usato nell'ambito dell'identificatore univoco di Azure Resource Manager per l'entità *Microsoft.Web/certificates* che rappresenta il certificato SSL.
+- *certificateName*: identificatore di stringa descrittivo scelto dall'utente per identificare il certificato. Il nome viene usato nell'ambito dell'identificatore univoco di Azure Resource Manager per l'entità *Microsoft.Web/certificates* che rappresenta il certificato SSL. Il nome **deve** terminare con il suffisso seguente: \_yourASENameHere\_InternalLoadBalancingASE. Questo suffisso viene usato dal portale per indicare che il certificato è usato per la protezione di un ambiente del servizio app abilitato al bilanciamento del carico interno.
 
 
 Un esempio abbreviato di *azuredeploy.parameters.json* è illustrato di seguito:
@@ -107,12 +107,12 @@ Un esempio abbreviato di *azuredeploy.parameters.json* è illustrato di seguito:
                    "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
               },
               "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere"
+                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
               }
          }
     }
 
-Dopo che il file *azuredeploy.parameters.json* è stato compilato, il certificato SSL predefinito può essere configurato con il seguente frammento di codice Powershell. Modificare i parametri PATH dei file per fare in modo che corrispondano al percorso dei file dei modelli di Azure Resource Manager nel computer. Indicare anche i valori per il nome della distribuzione di Azure Resource Manager e il nome del gruppo di risorse.
+Dopo che il file *azuredeploy.parameters.json* è stato compilato, il certificato SSL predefinito può essere configurato con il frammento di codice Powershell seguente. Modificare i parametri PATH dei file per fare in modo che corrispondano al percorso dei file dei modelli di Azure Resource Manager nel computer. Indicare anche i valori per il nome della distribuzione di Azure Resource Manager e il nome del gruppo di risorse.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -130,16 +130,16 @@ Proprio come le app in esecuzione nel servizio multi-tenant pubblico, gli svilup
 
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md).
 
-Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nella sezione [README (LEGGIMI) della documentazione dell'ambiente del servizio app](../app-service/app-service-app-service-environments-readme.md).
+Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- LINKS -->
+<!-- LINKS -->  
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
 [examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,13 +13,13 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="brandwe"/>
+	ms.date="09/16/2016"
+	ms.author="brandwe"/>  
 
 # Proteggere un'API Web usando node.js
 
 > [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 Con l'endpoint v2.0 di Azure Active Directory è possibile proteggere un'API Web usando token di accesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) in modo da consentire agli utenti di accedere all'API Web in modo sicuro con un account Microsoft personale, aziendale o dell'istituto di istruzione.
 
@@ -330,7 +330,7 @@ COMPLETED: indica se l'attività è stata completata o no. Un valore ***BOOLEAN*
 
 Dalla riga di comando passare alla cartella **azuread**, se necessario:
 
-`cd azuread`
+`cd azuread`  
 
 Aprire il file `server.js` nell'editor preferito e aggiungere le seguenti informazioni sotto la voce di configurazione:
 
@@ -712,7 +712,7 @@ server.use(passport.session()); // Provides session support
 ```
 
 > [AZURE.TIP]
-Durante la scrittura delle API è sempre necessario collegare i dati a un elemento univoco dal token in modo che l'utente non possa eseguire lo spoofing. Quando archivia gli elementi TODO, il server esegue questa operazione in base all'ID di sottoscrizione dell'utente nel token (chiamato mediante token.sub) presente nel campo "owner". Questo garantisce che soltanto l'utente in questione possa accedere ai propri elementi TODO e che nessun altro possa accedere agli elementi TODO immessi. Nell'API di "owner" non è presente alcuna esposizione, così che un utente esterno può richiedere TODO di altri anche se questi non sono autenticati.
+Durante la scrittura delle API è sempre necessario collegare i dati a un elemento univoco dal token in modo che l'utente non possa eseguire lo spoofing. Quando archivia gli elementi TODO, il server esegue questa operazione in base all'ID sottoscrizione dell'utente nel token (chiamato mediante token.sub) presente nel campo "owner". Questo garantisce che soltanto l'utente in questione possa accedere ai propri elementi TODO e che nessun altro possa accedere agli elementi TODO immessi. Nell'API di "owner" non è presente alcuna esposizione, così che un utente esterno può richiedere TODO di altri anche se questi non sono autenticati.
 
 Di seguito verrà usata la strategia Open ID Connect Bearer (OIDCBearerStrategy) fornita con passport-azure-ad. Per il momento limitarsi a esaminare il codice, che verrà illustrato tra breve. Inserire il codice dopo quanto mostrato sopra:
 
@@ -858,4 +858,4 @@ Per altre risorse, vedere:
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

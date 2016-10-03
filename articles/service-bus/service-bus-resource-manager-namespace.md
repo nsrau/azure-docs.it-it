@@ -5,7 +5,7 @@
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>
+    editor=""/>  
 
 <tags
     ms.service="service-bus"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="04/15/2016"
-    ms.author="sethm;shvija"/>
+    ms.author="sethm;shvija"/>  
 
 # Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
 
@@ -35,7 +35,7 @@ Per il modello completo, vedere il [modello di spazio dei nomi del bus di serviz
 
 ## Distribuzione
 
-Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con SKU [Basic o Standard](https://azure.microsoft.com/pricing/details/service-bus/).
+Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con uno SKU [Basic, Standard o Premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -69,7 +69,8 @@ Nome dello [SKU](https://azure.microsoft.com/pricing/details/service-bus/) del b
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard" 
+        "Standard",
+        "Premium" 
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -78,9 +79,7 @@ Nome dello [SKU](https://azure.microsoft.com/pricing/details/service-bus/) del b
 
 ```
 
-Il modello definisce i valori consentiti per questo parametro, ossia Basic o Standard, e assegna il valore predefinito Standard se non viene specificato alcun valore.
-
-È previsto un costo base per il piano Standard di 10 USD al mese, che consente di eseguire fino a 12,5 milioni di operazioni al mese senza costi aggiuntivi. Il piano Basic ha un costo di 0,05 USD per milione di operazioni
+Il modello definisce i valori consentiti per il parametro (Basic, Standard o Premium) e assegna un valore predefinito (Standard) nel caso in cui non venga specificato alcun valore.
 
 Per altre informazioni sui prezzi del bus di servizio, vedere [Informazioni sul prezzo e la fatturazione del bus di servizio][].
 
@@ -154,4 +153,4 @@ Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibi
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

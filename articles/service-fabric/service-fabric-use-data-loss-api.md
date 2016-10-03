@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="LMWF"
    manager="rsinha"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="09/19/2016"
    ms.author="lemai"/>
    
 # Come richiamare la perdita di dati nei servizi
@@ -232,4 +232,4 @@ Dopo che un comando ha raggiunto uno stato finale, i suoi metadati rimarranno ne
 [cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
 [fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

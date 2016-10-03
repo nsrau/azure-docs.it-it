@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="brandwe"/>
+	ms.date="09/16/2016"
+	ms.author="brandwe"/>  
 
 
 # Uso dell'app della riga di comando Java per accedere a un'API con Azure AD
@@ -50,7 +50,7 @@ Per consentire all'app di autenticare gli utenti, sarà innanzitutto necessario 
     - L'**URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `http://localhost:8080/adal4jsample/`.
 - Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
 
-Dopo aver eseguito l'accesso al portale per l'app, creare un **Segreto applicazione** per l'applicazione e prenderne nota. perché verrà richiesto a breve.
+Dopo aver eseguito l'accesso al portale per l'app, creare un **Segreto applicazione** per l'applicazione e prenderne nota. Verrà richiesto a breve.
 
 
 ## 2\. Configurare l'app per usare la libreria ADAL4J e i prerequisiti tramite Maven
@@ -268,4 +268,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [ è d
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+   keywords=""/>  
 
 <tags
    ms.service="virtual-machines-scale-sets"
@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
-   ms.author="zachal"/>
+   ms.date="09/15/2016"
+   ms.author="zachal"/>  
 
 # Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure
 
-I [set di scalabilità di macchine virtuali (VMSS)](virtual-machines-windows-vmss-powershell-creating.md) possono essere usati con il gestore dell'estensione [Configurazione dello stato desiderato (DSC)](virtual-machines-windows-extensions-dsc-overview.md). VMSS viene usato per configurare la distribuzione delle macchine virtuali per soddisfare il carico previsto. DSC viene usato per la configurazione delle VM mano a mano che sono in linea, in modo che eseguano il software di produzione.
+I [set di scalabilità di macchine virtuali (VMSS)](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) possono essere usati con il gestore dell'estensione [Configurazione dello stato desiderato (DSC)](virtual-machines-windows-extensions-dsc-overview.md). Il set di scalabilità di macchine virtuali consente di distribuire e gestire un numero elevato di macchine virtuali e di aumentare o ridurre la dimensione in risposta al carico. DSC viene usato per la configurazione delle VM mano a mano che sono in linea, in modo che eseguano il software di produzione.
 
 ## Differenze tra la distribuzione di VM e VMSS
 
@@ -98,4 +98,13 @@ Il nodo VMSS ha una sezione "properties" con gli attributi "VirtualMachineProfil
 
 Il comportamento di VMSS è identico a quello di una singola macchina virtuale. Quando viene creata una nuova VM, il provisioning viene automaticamente eseguito con l'estensione DSC. Se l'estensione richiede una versione più recente del file WMF, la VM verrà riavviata prima di passare online. Una volta online, il file con estensione zip di configurazione DSC viene scaricato e ne viene eseguito il provisioning nella VM. Altre informazioni sono reperibili nella [panoramica sull'estensione DSC di Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+## Passaggi successivi ##
+Esaminare il [modello di Azure Resource Manager per l'estensione DSC](virtual-machines-windows-extensions-dsc-template.md).
+
+Informazioni su come l'[estensione DSC gestisce in modo sicuro le credenziali](virtual-machines-windows-extensions-dsc-credentials.md).
+
+Per altre informazioni sul gestore dell'estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
+
+Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TomShinder"
    manager="MBaldwin"
-   editor="TerryLanfear"/>
+   editor="TerryLanfear"/>  
 
 <tags
    ms.service="security"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2016"
-   ms.author="TomSh"/>
+   ms.author="TomSh"/>  
 
 # Introduzione all'integrazione dei log di Azure (Anteprima)
 
@@ -125,6 +125,8 @@ Se gli eventi non compaiono ancora, procedere come segue:
 
 6. Puntare il connettore del server di inoltro del file SIEM standard alla cartella appropriata per reindirizzare i dati all'istanza di SIEM. A seconda del prodotto SIEM in uso, potrebbe essere necessario il mapping dei campi.
 
+In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di posta elettronica all'indirizzo [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
 ## Passaggi successivi
 
 In questa esercitazione è stato descritto come installare l'integrazione dei log di Azure e integrare i log dall'archiviazione di Azure. Per altre informazioni, vedere gli argomenti seguenti:
@@ -136,4 +138,4 @@ In questa esercitazione è stato descritto come installare l'integrazione dei lo
 - [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
 - [Nuove funzionalità per Diagnostica di Azure e i log di controllo di Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) - Questo post di blog presenta i log di controllo di Azure e altre funzionalità che consentono di ottenere informazioni dettagliate sulle operazioni delle risorse di Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

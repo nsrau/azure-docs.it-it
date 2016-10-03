@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="brandwe"/>
+	ms.date="09/16/2016"
+	ms.author="brandwe"/>  
 
 # Integrare Azure AD in un'app per Android
 
@@ -270,8 +270,7 @@ Facoltativo: **acquireTokenSilent**
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Gestore**:
-  l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
+11. **Gestore**: l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -391,8 +390,7 @@ Il livello di registrazione viene impostato nel modo seguente:
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati. 
- È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
+ Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati. È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
@@ -458,4 +456,4 @@ Informazioni su [Come abilitare l'accesso Single Sign-On tra app su Android usan
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0921_2016-->

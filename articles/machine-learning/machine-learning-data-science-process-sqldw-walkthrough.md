@@ -3,9 +3,9 @@
 	description="Advanced Analytics Process and Technology in azione"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -91,7 +91,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 
 **Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connettersi ad Azure SQL DW con Visual Studio**. Per istruzioni, vedere i passaggi 1 e 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md) (Connettersi a SQL Data Warehouse con Visual Studio).
+**Connettersi ad Azure SQL DW con Visual Studio.** Per istruzioni, vedere i passaggi 1 e 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md) (Connettersi a SQL Data Warehouse con Visual Studio).
 
 >[AZURE.NOTE] Eseguire la query SQL seguente nel database creato in SQL Data Warehouse (anziché la query specificata nel passaggio 3 dell'argomento relativo alla connessione) per **creare una chiave master**.
 
@@ -896,7 +896,7 @@ Nella figura seguente è illustrato un esempio di esperimento di classificazione
 
 > [AZURE.IMPORTANT] Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
-> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] \(Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] \(Modifica metadati).
+> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
 
 ## <a name="mldeploy"></a>Distribuire modelli in Azure Machine Learning
 
@@ -917,7 +917,7 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] \(Seleziona colonne in set di dati).
+Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati).
 
 Nella figura di seguito viene fornito un esperimento di assegnazione dei punteggi di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
@@ -964,9 +964,9 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [26]: ./media/machine-learning-data-science-process-sqldw-walkthrough/tip_class_hist_1.png
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

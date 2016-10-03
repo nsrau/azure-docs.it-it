@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>  
 
 # Aggiungere l'accesso a un'app Web .NET MVC
 
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione. Nelle app Web ASP.NET, a questo scopo si usa il middleware OWIN di Microsoft incluso in .NET Framework 4.5.
 
 > [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
  Verrà compilata un'applicazione Web che utilizza OWIN per l'accesso dell'utente, la visualizzazione di informazioni sull'utente e la disconnessione dell'utente dall'app.
  
@@ -200,7 +200,7 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 ## Passaggi successivi
 
-Ora è possibile passare ad argomenti più avanzati. È possibile:
+È ora possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Proteggere un'API Web con l'endpoint v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
@@ -212,4 +212,4 @@ Per altre risorse, vedere:
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

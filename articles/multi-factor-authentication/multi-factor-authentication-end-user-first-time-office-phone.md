@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Utilizzare il telefono dell'ufficio come metodo di contatto con Azure MFA" 
-	description="Questa pagina mostrerà agli utenti l’uso del telefono dell'ufficio come metodo di contatto principale di Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
-	editor="curtland"/>
+<properties
+	pageTitle="Utilizzare il telefono dell'ufficio come metodo di contatto con Azure MFA"
+	description="Questa pagina mostrerà agli utenti l’uso del telefono dell'ufficio come metodo di contatto principale di Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>  
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>  
 
 # Utilizzare il telefono dell'ufficio come metodo di contatto con Azure Multi-Factor Authentication
 
@@ -25,7 +25,7 @@ Se si desidera utilizzare il telefono dell'ufficio come metodo di contatto princ
 <ol>
 <li>Selezionare Telefono ufficio dall'elenco a discesa</li>
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>
 
 
 <li>Specificare il paese dall'elenco a discesa e immettere il numero di telefono cellulare.</li>
@@ -41,6 +41,6 @@ Se si desidera utilizzare il telefono dell'ufficio come metodo di contatto princ
 
 
 
-<center>![Installazione](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
+<center>! [Installazione] (. / media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

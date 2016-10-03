@@ -4,8 +4,8 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
-   manager="timlt"
-   editor="toddabel"/>
+   manager="rsinha"
+   editor="toddabel"/>  
 
 <tags
    ms.service="service-fabric"
@@ -20,6 +20,8 @@
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric offre agli sviluppatori la possibilità di scrivere servizi destinati ad essere eseguiti in infrastrutture inaffidabili. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testarne la stabilità dei servizi.
 
 Il servizio di analisi degli errori offre agli sviluppatori la possibilità di causare azioni di errore e testare i servizi in presenza di errori. Gli errori simulati indotti, tuttavia, possono arrivare solo fino a un certo punto. Per spingere il test oltre, è possibile usare gli scenari di testi disponibili in Service Fabric: test di chaos e test di failover. Questi scenari simulano in tutto il cluster continui errori interfoliati, normali e anomali, per lunghi periodi di tempo. Dopo la configurazione con la frequenza e il tipo di errori, il test può essere avviato tramite le API C# o PowerShell, allo scopo di generare errori nel cluster e nel servizio.
+
+>[AZURE.WARNING] ChaosTestScenario è sostituito da un Chaos più resiliente, basato su servizi. Consultare il nuovo articolo [Chaos in ambiente controllato](service-fabric-controlled-chaos.md) per ulteriori dettagli.
 
 ## Test chaos
 Lo scenario chaos genera errori nell’intero cluster dell’infrastruttura di servizi. Lo scenario comprime in alcune ore gli errori che in genere si osservano in mesi o anni. La combinazione di errori interfoliati con un'elevata frequenza di errori consente di trovare casi limite che altrimenti non verrebbero considerati. In tal modo è possibile ottenere un notevole miglioramento della qualità del codice del servizio.
@@ -247,4 +249,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

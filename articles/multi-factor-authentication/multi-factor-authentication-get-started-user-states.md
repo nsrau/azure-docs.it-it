@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Stati utente in Microsoft Azure Multi-Factor Authentication" 
-	description="Informazioni sugli stati utente in Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+	pageTitle="Stati utente in Microsoft Azure Multi-Factor Authentication"
+	description="Informazioni sugli stati utente in Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Stati utente in Azure Multi-Factor Authentication
 
 Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-Stato | Descrizione |App interessate non basate su browser| Note 
+Stato | Descrizione |App interessate non basate su browser| Note
 :-------------: | :-------------: |:-------------: |:-------------: |
 Disabled | Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication.|No|L'utente attualmente non usa la modalità Multi-Factor Authentication.
 Enabled |L'utente è stato registrato alla modalità Multi-Factor Authentication.|No. Continuano a funzionare fino al completamento della registrazione.|L'utente è abilitato ma non ha completato la procedura di registrazione. All'utente verrà chiesto di completare la procedura all'accesso successivo.
@@ -63,4 +63,4 @@ Lo stato utente cambia a seconda di due fattori: la configurazione per la MFA e 
 8.  Verrà richiesta conferma. Fare clic su **Sì**. ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
 9.  A questo punto l'operazione dovrebbe essere completa. Fare clic su **Chiudi.** ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

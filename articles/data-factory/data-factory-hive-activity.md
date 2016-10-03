@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/20/2016" 
+	ms.author="spelluru"/>  
 
 # Attività Hive
 
@@ -61,14 +61,14 @@ inputs | Input utilizzati dall'attività Hive | No
 outputs | Output generati dall'attività Hive | Sì 
 linkedServiceName | Riferimento al cluster HDInsight registrato come servizio collegato in Data factory | Sì 
 script | Specificare lo script Hive inline | No
-script path | Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Si noti che il nome del file distingue tra maiuscole e minuscole. | No 
+script path | Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. | No 
 defines | Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" | No
 
 ## Esempio
 
 Si prenda ad esempio l'analisi di log di giochi, in cui si desidera verificare il tempo che gli utenti hanno dedicato a giocare alle partite avviate dalla società.
 
-Di seguito è riportato il log di esempio di un gioco in cui i valori sono separati da virgola (,) e che contiene i campi ProfileID, SessionStart, Duration, SrcIPAddress e GameType.
+Il log seguente è un log di esempio di un gioco in cui i valori sono separati da virgola (`,`) e che contiene i campi ProfileID, SessionStart, Duration, SrcIPAddress e GameType.
 
 	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
 	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
@@ -76,7 +76,7 @@ Di seguito è riportato il log di esempio di un gioco in cui i valori sono separ
 	1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
 	.....
 
-Lo **script Hive** per elaborare tali dati sarà simile al seguente:
+Lo **script Hive** per elaborare tali dati sarà:
 
 	DROP TABLE IF EXISTS HiveSampleIn; 
 	CREATE EXTERNAL TABLE HiveSampleIn 
@@ -106,10 +106,10 @@ Per eseguire lo script Hive in una pipeline di Data factory, è necessario segui
 1. Creare un servizio collegato per registrare [il proprio cluster di elaborazione di HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) oppure configurare [un cluster di elaborazione di HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). In questo esempio il servizio collegato è denominato "HDInsightLinkedService".
 2. Creare un [servizio collegato](data-factory-azure-blob-connector.md) per configurare la connessione all'archivio BLOB di Azure che ospita i dati. In questo esempio il servizio collegato è denominato "StorageLinkedService".
 3. Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato "HiveSampleIn", mentre il set di dati di output è denominato "HiveSampleOut".
-4. Copiare la query Hive come file nell'archivio BLOB di Azure configurato nel passaggio 2. Se il servizio collegato che deve ospitare i dati è diverso da quello che ospita il file di query, creare un altro servizio collegato di Archiviazione di Azure e fare riferimento a quest'ultimo per la configurazione dell'attività. Usare **scriptPath **per specificare il percorso del file di query Hive e **scriptLinkedService** per specificare l'archiviazione di Azure contenente il file script.
+4. Copiare la query Hive come file nell'archivio BLOB di Azure configurato nel passaggio 2. Se la risorsa di archiviazione che deve ospitare i dati è diverso da quello che ospita il file di query, creare un altro servizio collegato di Archiviazione di Azure e fare riferimento a quest'ultimo nell'attività. Usare **scriptPath** per specificare il percorso del file di query Hive e **scriptLinkedService** per specificare la risorsa di archiviazione di Azure contenente il file script.
 
-	> [AZURE.NOTE] In alternativa, è possibile specificare lo script Hive inline nella definizione di attività usando la proprietà **script**. Questa, tuttavia, non è la procedura consigliata poiché tutti i caratteri speciali usati nello script all'interno del documento JSON devono essere preceduti da un carattere di escape e questo può causare problemi di debug. Si consiglia di seguire il passaggio 4.
-5.	Creare la pipeline riportata di seguito con l'attività HDInsightHive per elaborare i dati.
+	> [AZURE.NOTE] È anche possibile fornire lo script Hive inline nella definizione dell'attività tramite la proprietà **script**. Si sconsiglia tuttavia questo approccio perché è necessario eseguire l'escape di tutti i caratteri speciali dello script nel documento JSON, con possibili problemi di debug. Si consiglia di seguire il passaggio 4.
+5.	Creare la pipeline riportata con l'attività HDInsightHive. L'attività elabora/trasforma i dati.
 
 		{
 		  "name": "HiveActivitySamplePipeline",
@@ -146,11 +146,10 @@ Per eseguire lo script Hive in una pipeline di Data factory, è necessario segui
 7.	Monitorare la pipeline mediante le viste di monitoraggio e gestione delle pipeline di Data factory. Per informazioni dettagliate, vedere [Monitorare e gestire le pipeline di Data factory di Azure](data-factory-monitor-manage-pipelines.md).
 
 
-## Specifica dei parametri per uno script Hive mediante l'elemento defines 
+## Specifica dei parametri per uno script Hive  
+In questo esempio i log di giochi vengono inseriti giornalmente nel sistema di archiviazione BLOB di Azure e memorizzati in una cartella partizionata con data e ora. Si desidera impostare i parametri per lo script Hive e passare il percorso della cartella di input in modo dinamico durante il runtime, generando l'output partizionato con data e ora.
 
-Si consideri un esempio in cui i log di giochi vengono inseriti giornalmente nel sistema di archiviazione BLOB di Azure e memorizzati in una cartella partizionata con data e ora. Si desidera impostare i parametri per lo script Hive e passare il percorso della cartella di input in modo dinamico durante il runtime, generando l'output partizionato con data e ora.
-
-Per impostare i parametri per lo script Hive, seguire questa procedura:
+Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
 
 - Definire i parametri in **defines**.
 
@@ -222,4 +221,4 @@ Per impostare i parametri per lo script Hive, seguire questa procedura:
 - [Chiamare i programmi Spark](data-factory-spark.md)
 - [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

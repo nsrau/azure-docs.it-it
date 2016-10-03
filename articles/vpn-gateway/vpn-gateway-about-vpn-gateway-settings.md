@@ -6,31 +6,34 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-resource-manager,azure-service-management"/>  
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="cherylmc" />
+   ms.date="09/21/2016"
+   ms.author="cherylmc" />  
 
 # Informazioni sulle impostazioni del gateway VPN
 
 Una soluzione per la connessione di gateway VPN si basa sulla configurazione di più risorse per l'invio di traffico di rete tra le reti virtuali e i percorsi locali. Ogni risorsa contiene impostazioni configurabili. La combinazione di impostazioni e risorse determina il risultato della connessione.
 
-Le sezioni di questo articolo illustrano le risorse e le impostazioni correlate al gateway VPN. L'articolo è utile per visualizzare le configurazioni disponibili tramite i diagrammi di topologia della connessione. Le descrizioni e i diagrammi della topologia per ogni soluzione di connessione sono disponibili nell'articolo [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
+Le sezioni di questo articolo descrivono le risorse e le impostazioni correlate a un gateway VPN nel modello di distribuzione **Resource Manager**. L'articolo è utile per visualizzare le configurazioni disponibili tramite i diagrammi di topologia della connessione. Le descrizioni e i diagrammi della topologia per ogni soluzione di connessione sono disponibili nell'articolo [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 
 ## <a name="gwtype"></a>Tipi di gateway
 
-Il tipo di gateway specifica il modo in cui il gateway si connette ed è un'impostazione di configurazione obbligatoria per il modello di distribuzione di Resource Manager. Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo. I valori disponibili per `-GatewayType` sono:
+Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo. Quando si crea un gateway di rete virtuale, è necessario assicurarsi che il tipo di gateway sia corretto per la configurazione in uso.
+
+I valori disponibili per GatewayType sono:
 
 - VPN
 - ExpressRoute
 
+Un gateway VPN richiede il valore *Vpn* per `-GatewayType`.
 
-Un gateway VPN richiede GatewayType - *Vpn*, come illustrato nell'esempio PowerShell seguente per il modello di distribuzione di Resource Manager. Quando si crea un gateway di rete virtuale, è necessario assicurarsi che il tipo di gateway sia corretto per la configurazione in uso.
+Esempio:
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 	-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
@@ -39,19 +42,30 @@ Un gateway VPN richiede GatewayType - *Vpn*, come illustrato nell'esempio PowerS
 
 ## <a name="gwsku"></a>SKU del gateway
 
-Quando si crea un gateway VPN, è necessario specificare il codice SKU del gateway di rete virtuale da usare. Gli SKU del gateway sono applicabili ai tipi di gateway ExpressRoute e VPN. I prezzi variano a seconda dello SKU del gateway. Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/). Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
 
-Sono disponibili 3 SKU del Gateway VPN:
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-- Basic
-- Standard
-- HighPerformance
+**Specificare lo SKU del gateway nel portale di Azure**
+
+Se si usa il portale di Azure per creare un gateway di rete virtuale di Resource Manager, per impostazione predefinita tale gateway viene configurato usando lo SKU standard. Attualmente, non è possibile specificare altri SKU per il modello di distribuzione Resource Manager nel portale di Azure. Tuttavia, dopo aver creato il gateway, è possibile effettuare l'aggiornamento a uno SKU di gateway più potente (ad esempio, da Basic/Standard a HighPerformance) usando il cmdlet PowerShell `Resize-AzureRmVirtualNetworkGateway`. È anche possibile eseguire il downgrade delle dimensioni dello SKU del gateway tramite PowerShell.
+
+**Specificare lo SKU del gateway tramite PowerShell**
+
 
 Nel seguente esempio di PowerShell `-GatewaySku` viene specificato come *Standard*.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 	-Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 	-GatewayType Vpn -VpnType RouteBased
+
+**Modificare uno SKU del gateway**
+
+È possibile ridimensionare uno SKU del gateway. L'esempio di PowerShell seguente illustra uno SKU del gateway che viene ridimensionato su HighPerformance.
+
+	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+
+<br>  
 
 
 ###  <a name="aggthroughput"></a>Velocità effettiva aggregata stimata per tipo di SKU e di gateway
@@ -64,7 +78,7 @@ La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregat
 
 ## <a name="connectiontype"></a>Tipi di connessione
 
-Ogni configurazione richiede un tipo di connessione di gateway di rete virtuale specifico. I valori di PowerShell per Resource Manager disponibili per `-ConnectionType` sono:
+Nel modello di distribuzione Resource Manager ogni configurazione richiede un tipo di connessione di gateway di rete virtuale specifico. I valori di PowerShell per Resource Manager disponibili per `-ConnectionType` sono:
 
 - IPsec
 - Vnet2Vnet
@@ -80,7 +94,7 @@ L'esempio PowerShell seguente crea una connessione S2S che richiede il tipo di c
 
 ## <a name="vpntype"></a>Tipi di VPN
 
-Quando si crea il gateway di rete virtuale per una configurazione di gateway VPN, è necessario specificare un tipo di VPN. Il tipo di VPN scelto dipende dalla topologia di connessione che si desidera creare. Ad esempio, una connessione P2S richiede un tipo di VPN RouteBased. Un tipo VPN può anche dipendere dall'hardware che verrà usato. Le configurazioni S2S richiedono un dispositivo VPN. Alcuni dispositivi VPN supportano solo un determinato tipo VPN.
+Quando si crea il gateway di rete virtuale per una configurazione di gateway VPN, è necessario specificare un tipo di VPN. Il tipo di VPN scelto dipende dalla topologia di connessione che si desidera creare. Ad esempio, una connessione P2S richiede un tipo di VPN RouteBased. Un tipo VPN può anche dipendere dall'hardware che verrà usato. Le configurazioni S2S richiedono un dispositivo VPN. Alcuni dispositivi VPN supportano solo un determinato tipo di VPN.
 
 Il tipo di VPN selezionato deve soddisfare tutti i requisiti di connessione per la soluzione da creare. Ad esempio, per creare una connessione di gateway VPN S2S, una connessione di gateway VPN P2S sulla stessa rete virtuale, usare il tipo *RouteBased* poiché P2S richiede questo tipo specifico. È inoltre necessario verificare che il dispositivo VPN supporti una connessione VPN di tipo RouteBased.
 
@@ -89,7 +103,7 @@ Dopo avere creato un gateway di rete virtuale, non è possibile modificare il ti
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
 
-L'esempio PowerShell seguente per il modello di distribuzione di Resource Manager specifica `-VpnType` come *RouteBased*. Quando si crea un gateway, è necessario assicurarsi che -VpnType sia corretto per la configurazione.
+Nel seguente esempio di PowerShell `-VpnType` viene specificato come *RouteBased*. Quando si crea un gateway, è necessario assicurarsi che -VpnType sia corretto per la configurazione.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 	-Location 'West US' -IpConfigurations $gwipconfig `
@@ -102,7 +116,7 @@ L'esempio PowerShell seguente per il modello di distribuzione di Resource Manage
 
 ## <a name="gwsub"></a>Subnet del gateway
 
-Per configurare un gateway di rete virtuale, è necessario prima creare una subnet del gateway per la rete virtuale. Per poter funzionare correttamente, la subnet del gateway deve essere denominata *GatewaySubnet*. Questo nome indica ad Azure che questa subnet deve essere usata per il gateway. Se si usa il portale classico, la subnet del gateway viene automaticamente denominata *Gateway* nell'interfaccia del portale. Questa operazione serve a visualizzare la subnet del gateway solo nel portale classico. In questo caso, la subnet viene effettivamente creata con il valore *GatewaySubnet* e può essere visualizzata così nel portale di Azure e in PowerShell.
+Per configurare un gateway di rete virtuale, è necessario prima creare una subnet del gateway per la rete virtuale. Per poter funzionare correttamente, la subnet del gateway deve essere denominata *GatewaySubnet*. Questo nome indica ad Azure che questa subnet deve essere usata per il gateway.
 
 Le dimensioni minime della subnet del gateway dipendono interamente dalla configurazione che si vuole creare. Anche se è possibile creare una subnet del gateway pari a/29, è consigliabile crearne una di /28 o superiore (/ 28, /27, /26 e così via.).
 
@@ -117,11 +131,11 @@ L'esempio seguente di PowerShell Resource Manager illustra una subnet del gatewa
 
 ## <a name="lng"></a>Gateway di rete locali
 
-Quando si crea una soluzione per il gateway VPN, il gateway di rete locale rappresenta spesso la posizione locale. Nel modello di distribuzione classica il gateway di rete locale è definito come sito locale.
+Quando si crea una configurazione per il gateway VPN, il gateway di rete locale rappresenta spesso la posizione locale. Nel modello di distribuzione classica il gateway di rete locale è definito come sito locale.
 
 Assegnare un nome e l'indirizzo IP pubblico del dispositivo VPN locale al gateway di rete locale e specificare i prefissi di indirizzo che si trovano nel percorso locale. Azure esamina i prefissi di indirizzo di destinazione per il traffico di rete, consulta la configurazione specificata per il gateway di rete locale e indirizza i pacchetti di conseguenza. È anche possibile specificare i gateway di rete locale per le configurazioni da rete virtuale a rete virtuale che usano una connessione di gateway VPN.
 
-L'esempio seguente PowerShell di Resource Manager consente di creare un nuovo gateway di rete locale:
+L'esempio seguente di PowerShell consente di creare un nuovo gateway di rete locale:
 
 	New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 	-Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
@@ -150,4 +164,4 @@ Per altre informazioni sulle configurazioni delle connessioni disponibili, veder
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="" />
+	editor="" />  
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="robmcm"/>
+	ms.date="09/20/2016"
+	ms.author="robmcm"/>  
 
 # Come usare il plug-in slave di Azure con una soluzione di integrazione continua Jenkins
 
@@ -36,17 +36,17 @@
 
 1. Fare clic su **Install without restart** oppure su **Download now and install after restart**.
 
-Ora che il plug-in è installato, i passaggi successivi consistono nel configurare il plug-in con il profilo della sottoscrizione di Azure e nel creare un modello che verrà usato durante la creazione della macchina virtuale per il nodo slave.
+Una volta installato il plug-in, i passaggi successivi consistono nel configurarlo con il profilo della sottoscrizione di Azure e nel creare un modello che verrà usato durante la creazione della macchina virtuale per il nodo slave.
 
 
 ## Configurare il plug-in slave di Azure con il profilo di sottoscrizione
 
-Un profilo di sottoscrizione, noto anche come impostazioni di pubblicazione, è un file XML contenente le credenziali protette e alcune informazioni aggiuntive che saranno necessarie per utilizzare Azure nel proprio ambiente di sviluppo. Per configurare il plug-in slave di Azure, è necessario quanto segue:
+Un profilo di sottoscrizione, noto anche come impostazioni di pubblicazione, è un file XML contenente le credenziali protette e alcune informazioni aggiuntive necessarie per usare Azure nel proprio ambiente di sviluppo. Per configurare il plug-in slave di Azure, è necessario quanto segue:
 
-* ID sottoscrizione
-* Certificato di gestione per la sottoscrizione
+* ID sottoscrizione personale
+* Un certificato di gestione per la sottoscrizione
 
-Tali elementi sono reperibili nel [profilo di sottoscrizione]. Di seguito è riportato un esempio di un profilo di sottoscrizione.
+Questi elementi sono disponibili nel [profilo di sottoscrizione]. Di seguito è riportato un esempio di un profilo di sottoscrizione.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -67,7 +67,7 @@ Tali elementi sono reperibili nel [profilo di sottoscrizione]. Di seguito è rip
 
 	</PublishData>
 
-Dopo aver creato il profilo di sottoscrizione, seguire questa procedura per configurare il plug-in slave di Azure:
+Dopo avere creato il profilo di sottoscrizione, seguire questa procedura per configurare il plug-in slave di Azure:
 
 1. Nel dashboard di Jenkins fare clic su **Manage Jenkins**.
 
@@ -81,9 +81,9 @@ Dopo aver creato il profilo di sottoscrizione, seguire questa procedura per conf
 
     Verranno visualizzati i campi in cui è necessario immettere i dettagli della sottoscrizione.
 
-    ![configurazione sottoscrizione][subscription configuration]
+    ![configurazione della sottoscrizione][subscription configuration]
 
-1. Copiare l'ID sottoscrizione e i valori del certificato di gestione dal profilo di sottoscrizione e incollarli nei campi appropriati.
+1. Copiare i valori dell'ID sottoscrizione e del certificato di gestione dal profilo di sottoscrizione e incollarli nei campi appropriati.
 
     Quando si copiano l'ID sottoscrizione e il certificato di gestione, non includere le virgolette che racchiudono i valori.
 
@@ -232,12 +232,12 @@ Jenkins creerà quindi un nodo slave usando il modello creato nella sezione prec
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->
+<!-- URL List -->  
 
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
 [profilo di sottoscrizione]: http://go.microsoft.com/fwlink/?LinkID=396395
 
-<!-- IMG List -->
+<!-- IMG List -->  
 
 [cloud section]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-cloud-section.png
 [subscription configuration]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-account-configuration-fields.png
@@ -246,4 +246,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [checkpoint general template config]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-slave-template-general-configuration.png
 [OS Image list sample]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-os-family-list-sample.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

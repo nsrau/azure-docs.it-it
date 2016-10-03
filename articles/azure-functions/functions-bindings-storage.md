@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>  
 
 <tags
 	ms.service="functions"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="chrande"/>
+	ms.author="chrande"/>  
 
 # Trigger e associazioni di Archiviazione di Azure in Funzioni di Azure
 
@@ -216,7 +216,7 @@ Il BLOB può essere deserializzato in uno dei seguenti tipi in funzioni Node o C
 
 Nelle funzioni C# è anche possibile definire associazioni con uno dei seguenti tipi:
 
-* `TextReader`
+* `TextReader`  
 * `Stream`
 * `ICloudBlob`
 * `CloudBlockBlob`
@@ -224,7 +224,7 @@ Nelle funzioni C# è anche possibile definire associazioni con uno dei seguenti 
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
+* `IEnumerable<CloudPageBlob>`  
 * Altri tipi deserializzati da [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
 
 #### Esempio di codice C# del trigger dei BLOB
@@ -352,11 +352,11 @@ Nelle funzioni C# è anche possibile definire associazioni con i seguenti tipi:
 
 * `TextReader` (solo input)
 * `TextWriter` (solo output)
-* `Stream`
+* `Stream`  
 * `CloudBlobStream` (solo output)
 * `ICloudBlob`
 * `CloudBlockBlob`
-* `CloudPageBlob`
+* `CloudPageBlob`  
 
 #### Esempio di codice C# di output di BLOB
 
@@ -459,6 +459,21 @@ public class Person
     public string RowKey { get; set; }
     public string Name { get; set; }
 }
+```
+
+Anche l'esempio di codice F# seguente usa il file *function.json* precedente per leggere una singola entità della tabella.
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(myQueueItem: string, personEntity: Person) =
+    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
 Anche l'esempio di codice Node seguente usa il file *function.json* precedente per leggere una singola entità della tabella.
@@ -567,6 +582,47 @@ public class Person
 
 ```
 
+#### Esempio di tabelle di archiviazione: creare entità di tabella in F#
+
+L'esempio di *function.json* e *run.fsx* seguente illustra come scrivere entità di tabella in F#.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnection",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+    for i = 1 to 10 do
+        log.Info(sprintf "Adding Person entity %d" i)
+        tableBinding.Add(
+            { PartitionKey = "Test"
+              RowKey = i.ToString()
+              Name = "Name" + i.ToString() })
+```
+
 #### Esempio di tabelle di archiviazione: creazione un'entità di tabella in Node
 
 L'esempio di *function.json* e *run.csx* seguente illustra come scrivere un'entità di tabella in Node.
@@ -607,4 +663,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

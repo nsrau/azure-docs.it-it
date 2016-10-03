@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+   keywords=""/>  
 
 <tags
    ms.service="virtual-machines-windows"
@@ -15,8 +15,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/24/2016"
-   ms.author="zachal"/>
+   ms.date="09/15/2016"
+   ms.author="zachal"/>  
 
 # Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure #
 
@@ -29,7 +29,7 @@ Questo articolo illustra l'estensione DSC (Desired State Configuration) PowerShe
 ## Prerequisiti ##
 **Computer locale**: per interagire con l'estensione della VM di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK.
 
-**Agente guest**: la macchina virtuale di Azure in cui applicare la configurazione DSC deve essere un sistema operativo che supporta Windows Management Framework 4.0 o 5.0. L'elenco completo delle versioni dei sistemi operativi supportati è disponibile nella [cronologia delle versioni dell'estensione DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
+**Agente guest**: la VM di Azure in cui applicare la configurazione DSC deve essere un sistema operativo che supporta Windows Management Framework 4.0 o 5.0. L'elenco completo delle versioni dei sistemi operativi supportati è disponibile nella [cronologia delle versioni dell'estensione DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
 ## Termini e concetti ##
 Questa guida presuppone che si abbia familiarità con i concetti seguenti:
@@ -44,7 +44,7 @@ Dati di configurazione: file con estensione psd1 contenente i dati ambientali pe
 
 L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC prevede un file ZIP contenente almeno un documento di configurazione e un set di parametri fornito tramite Azure PowerShell SDK oppure tramite il portale di Azure.
 
-Quando viene chiamata per la prima volta, l'estensione esegue un processo di installazione. di una versione di Windows Management Framework, come specificato di seguito:
+Quando viene chiamata per la prima volta, l'estensione esegue un processo di installazione. Tale processo installa una versione di Windows Management Framework adottando la logica seguente:
 
 1. Se il sistema operativo della macchina virtuale di Azure è Windows Server 2016, non viene eseguita alcuna azione. In Windows Server 2016 è già installata la versione più recente di PowerShell.
 2. Se la proprietà `wmfVersion` è specificata, viene installata la versione di WMF corrispondente a meno che non sia incompatibile con il sistema operativo della VM.
@@ -82,9 +82,9 @@ Il file ZIP creato da questo cmdlet include lo script di configurazione con este
 ## Funzionalità del portale di Azure ##
 Passare a una macchina virtuale classica. In Impostazioni -> Generale fare clic su "Estensioni". Verrà creato un nuovo riquadro. Fare clic su Add e selezionare PowerShell DSC.
 
-Il portale richiede un input. **Configuration Modules or Script**: questo è un campo obbligatorio. Richiede un file con estensione .ps1 contenente uno script di configurazione oppure un file .zip con uno script di configurazione con estensione ps1 nella directory radice e tutte le risorse dipendenti nelle cartelle del modulo all'interno del file .zip. Può essere creato con il cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluso in Azure PowerShell SDK. Il file .zip viene caricato nell'archiviazione BLOB dell'utente protetta da un token di firma di accesso condiviso.
+Il portale richiede un input. **Configuration Modules or Script** (Moduli o script di configurazione): questo è un campo obbligatorio. Richiede un file con estensione .ps1 contenente uno script di configurazione oppure un file .zip con uno script di configurazione con estensione ps1 nella directory radice e tutte le risorse dipendenti nelle cartelle del modulo all'interno del file .zip. Può essere creato con il cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluso in Azure PowerShell SDK. Il file .zip viene caricato nell'archiviazione BLOB dell'utente protetta da un token di firma di accesso condiviso.
 
-**Configuration Data PSD1 File**: questo è un campo facoltativo. Se la configurazione usata richiede un file di dati della configurazione con estensione .psd1, usare questo campo per selezionarlo e quindi caricarlo nell'archiviazione BLOB dell'utente, in cui sarà protetto da un token di firma di accesso condiviso.
+**Configuration Data PSD1 File** (File PSD1 dati configurazione): questo è un campo facoltativo. Se la configurazione usata richiede un file di dati della configurazione con estensione .psd1, usare questo campo per selezionarlo e quindi caricarlo nell'archiviazione BLOB dell'utente, in cui sarà protetto da un token di firma di accesso condiviso.
  
 **Module-Qualified Name of Configuration**: i file con estensione .ps1 possono avere più funzioni di configurazione. Immettere il nome dello script di configurazione con estensione ps1 seguito da "\" e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione .ps1 ha il nome "configuration.ps1" e la configurazione è "IisInstall", immettere: `configuration.ps1\IisInstall`
 
@@ -140,8 +140,10 @@ C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC[numero di versione]
 
 Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
+Esaminare il [modello di Azure Resource Manager per l'estensione DSC](virtual-machines-windows-extensions-dsc-template.md).
+
 Per trovare altre funzionalità che è possibile gestire con PowerShell DSC, [cercare in PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) altre risorse DSC.
 
 Per altre informazioni sul passaggio di parametri sensibili nelle configurazioni, vedere l'articolo [Passaggio sicuro di credenziali al gestore estensione DSC di Azure](virtual-machines-windows-extensions-dsc-credentials.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

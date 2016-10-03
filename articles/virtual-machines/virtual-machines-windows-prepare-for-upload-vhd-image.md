@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>
+	tags="azure-resource-manager"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="glimoli;genli"/>
+	ms.date="09/18/2016"
+	ms.author="glimoli;genli"/>  
 
 # Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure
-Per caricare una macchina virtuale di Windows da una posizione locale ad Azure, è necessario preparare correttamente il disco rigido virtuale (VHD). Esistono alcune procedure consigliate da svolgere prima di caricare un disco VHD in Azure. L'esecuzione di `sysprep` è una procedura abituale, ma rappresenta solo un passaggio nella generalizzazione di un'immagine. Questo articolo descrive come preparare un disco rigido virtuale di Windows da caricare in Microsoft Azure.
+Per caricare una macchina virtuale di Windows da una posizione locale ad Azure, è necessario preparare correttamente il disco rigido virtuale (VHD). Esistono alcune procedure consigliate da svolgere prima di caricare un disco VHD in Azure. Questo articolo descrive come preparare un disco rigido virtuale di Windows da caricare in Microsoft Azure e illustra anche [come e quando usare Sysprep](#step23).
 
 ## Preparare il disco virtuale
 
@@ -248,8 +248,8 @@ Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedi
 
 14. Rimuovere qualsiasi filtro TDI (Transport Driver Interface) aggiuntivo, ad esempio il software che analizza i pacchetti TCP.
 15. Per verificare l'integrità e la coerenza del disco, eseguire il comando `CHKDSK /f`.
-16.	Disinstallare tutti gli altri software e driver di terze parti.
-17. Assicurarsi che un'applicazione di terze parti non stia utilizzandola porta 3389. Questa porta viene utilizzata per il servizio RDP in Azure.
+16.	Disinstallare qualsiasi altro software di terze parti e i driver relativi a componenti fisici o altre tecnologie di virtualizzazione.
+17. Assicurarsi che un'applicazione di terze parti non stia utilizzandola porta 3389. Questa porta viene utilizzata per il servizio RDP in Azure. È possibile usare il comando `netstat -anob` per verificare le porte usate dalle applicazioni.
 18.	Se il disco VHD di Windows che si desidera caricare un controller di dominio, attenersi alla [procedura aggiuntiva](https://support.microsoft.com/kb/2904015) per preparare il disco.
 19.	Riavviare la macchina virtuale per assicurarsi che Windows sia ancora integro e che possa essere raggiunto utilizzando la connessione RDP.
 20.	Reimpostare la password dell'amministratore locale corrente e accertarsi di poter utilizzare questo account per accedere a Windows mediante la connessione RDP. Questa autorizzazione di accesso è controllata dall'oggetto criteri "Consenti accesso tramite Servizi Desktop remoto", che si trova in "Configurazione computer\\Impostazioni di Windows\\Impostazioni protezione\\Criteri locali\\Assegnazione diritti utente."
@@ -279,13 +279,13 @@ Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedi
 	- [KB3140410](https://support.microsoft.com/kb/3140410) - MS16-031: aggiornamento della sicurezza di Microsoft Windows per gestire l'aumento di livello dei privilegi (8 marzo 2016)
 
 	- [KB3146723](https://support.microsoft.com/kb/3146723) - MS16-048: descrizione dell'aggiornamento di sicurezza per CSRSS (12 aprile 2016)
-	- [KB2904100](https://support.microsoft.com/kb/2904100) - Il sistema si blocca durante il processo di accensione/speginimento in Windows
-
-23. Se si desidera creare un'immagine da cui distribuire più macchine, è necessario generalizzare l'immagine eseguendo `sysprep` prima di caricare il disco rigido virtuale in Azure. Per ulteriori informazioni su come creare un'immagine generalizzata, vedere gli articoli seguenti:
+	- [KB2904100](https://support.microsoft.com/kb/2904100) Il sistema si blocca durante il processo di accensione/spegnimento in Windows <a id="step23"></a>
+23. Se si desidera creare un'immagine da cui distribuire più macchine, è necessario generalizzare l'immagine eseguendo `sysprep` prima di caricare il disco rigido virtuale in Azure. Non è necessario eseguire `sysprep` per usare un disco rigido virtuale specifico. Per ulteriori informazioni su come creare un'immagine generalizzata, vedere gli articoli seguenti:
 
 	- [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione di Resource Manager](virtual-machines-windows-capture-image.md)
 	- [Creare un'immagine di VM da una macchina virtuale di Azure esistente tramite il modello di distribuzione classico](virtual-machines-windows-classic-capture-image.md)
 	- [Supporto di Sysprep per i ruoli del server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 
 
 ## Configurazioni aggiuntive suggerite
@@ -319,4 +319,4 @@ Le seguenti impostazioni non influenzano il caricamento del disco rigido virtual
 
 - [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

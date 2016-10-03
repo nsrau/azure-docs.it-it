@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Problemi di Azure Multi-Factor Authentication | Microsoft Azure" 
-	description="Questo documento fornisce informazioni sulle operazioni da eseguire se si verifica un problema con Azure multi-Factor Authentication." 
+<properties
+	pageTitle="Problemi di Azure Multi-Factor Authentication | Microsoft Azure"
+	description="Questo documento fornisce informazioni sulle operazioni da eseguire se si verifica un problema con Azure multi-Factor Authentication."
 	services="multi-factor-authentication"
 	keywords = "client di multi-factor authentication, problema di autenticazione, ID di correlazione"
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>  
 
 # Problemi di Azure Multi-Factor Authentication
 >[AZURE.IMPORTANT]
@@ -44,8 +44,8 @@ Quando si contatta il personale di supporto, è consigliabile includere le infor
  - **ID sessione**: l'esatto ID di sessione visualizzato.
  - **ID correlazione**: il codice ID di correlazione generato quando è stato visualizzato l'errore.
  - **Data e ora**: la data e l'ora in cui è stato visualizzato l'errore (includere il fuso orario).
- 
-![ID correlazione](./media/multi-factor-authentication-end-user-manage/correlation.png)
+
+![ID correlazione](./media/multi-factor-authentication-end-user-manage/correlation.png)  
 
  - **ID utente**: l'ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com.
  - **Informazioni sull'utente**: specificare se si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud, nonché se l'utente dispone di una licenza Azure AD Premium, Enterprise Mobility o Azure AD Basic e se usa Office 365.
@@ -58,7 +58,7 @@ Se il telefono è stato perso o rubato, è consigliabile richiedere all'amminist
 Per accedere di nuovo all'account, sono disponibili due opzioni. Se è necessario configurare un numero di telefono di autenticazione alternativo, la prima opzione consiste nell'usare questo numero per accedere di nuovo all'account e modificare le impostazione di sicurezza.
 
 Se è stato specificato un numero di telefono di autenticazione secondario, sarà possibile accedere mediante tale numero. ![Configurazione](./media/multi-factor-authentication-end-user-manage/altphone.png) Come si può notare nella schermata precedente, sono stati configurati due numeri di telefono, uno che termina con 67 e un altro che termina con 30.
-  
+
 Per accedere usando il numero di telefono alternativo, accedere seguendo la procedura normale, quindi scegliere semplicemente **Usa un'opzione di verifica diversa**. ![Verifica diversa](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 Selezionare quindi l'altro numero di telefono. In questo caso si seleziona **Chiama al numero +X XXXXXXXX30**
@@ -74,13 +74,13 @@ Se non è stato configurato alcun numero di telefono di autenticazione secondari
 In base al modo in cui si usa l'autenticazione a più fattori, è possibile modificare impostazioni come il numero di telefono in diverse posizioni. Usare la tabella seguente per semplificare la scelta ottimale per le proprie esigenze.
 
 Come è possibile utilizzare l’autenticazione a più fattori|Descrizione
-:------------- | :------------- | 
+:------------- | :------------- |
 [Utilizzo con Office 365](#changing-your-settings-with-office-365)| Ciò significa che si desidera modificare le impostazioni tramite il portale di Office 365.
 [Non so](#changing-your-settings-with-the-myapps-portal)|Sarà quindi necessario accedere a [http://myapps.microsoft.com](http://myapps.microsoft.com) e modificare qui le impostazioni.
 [Utilizzarlo con Microsoft Azure](#changing-your-settings-with-microsoft-azure)| Ciò significa che si desidera modificare le impostazioni tramite il Portale di Azure.
 
 
- 
+
 ### Modifica delle impostazioni con Office 365
 
 
@@ -128,7 +128,7 @@ Se è disponibile un nuovo telefono ed è necessario modificare il numero di con
 È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
 
 Il primo consiste nell'usare un metodo di autenticazione secondario. Se è stato specificato un numero di telefono di autenticazione secondario, sarà possibile accedere mediante tale numero. ![Configurazione](./media/multi-factor-authentication-end-user-manage/altphone.png) Come si può notare nella schermata precedente, sono stati configurati due numeri di telefono, uno che termina con 67 e un altro che termina con 30.
-  
+
 Per accedere usando il numero di telefono alternativo, accedere seguendo la procedura normale, quindi scegliere semplicemente **Usa un'opzione di verifica diversa**. ![Verifica diversa](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 Selezionare quindi l'altro numero di telefono. In questo caso si seleziona **Chiama al numero +X XXXXXXXX30**
@@ -172,4 +172,4 @@ Se non si trova una risposta al problema in questa pagina, è possibile inserire
 
 Lasciando commenti e suggerimenti dettagliati su questa pagina sarà possibile aggiornarla e continuare a migliorarla con altre informazioni.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

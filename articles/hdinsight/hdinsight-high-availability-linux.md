@@ -6,7 +6,7 @@
 	manager="jhubbard"
 	authors="Blackmist"
 	documentationCenter=""
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 #Disponibilità e affidabilità dei cluster Hadoop in HDInsight
@@ -41,6 +41,10 @@ I cluster HDInsight forniscono un nodo head secondario, che consente ai servizi 
 
 > [AZURE.IMPORTANT] Entrambi i nodi head sono contemporaneamente attivi e in esecuzione all'interno del cluster. Alcuni servizi, ad esempio HDFS o YARN, sono 'attivi' soltanto in un nodo head (e in ‘standby’ nell'altro nodo head). Altri servizi come HiveServer2 o Hive Metastore sono attivi su entrambi i nodi head allo tesso tempo.
 
+I nodi head (e altri nodi in HDInsight) hanno un valore numerico come parte del nome host del nodo. Ad esempio, `hn0-CLUSTERNAME` o `hn4-CLUSTERNAME`.
+
+> [AZURE.IMPORTANT] Non associare il valore numerico con tratti di un nodo primario o secondario; il valore numerico è presente solo per attribuire un nome univoco a ciascun nodo.
+
 ###Nodi Nimbus
 
 Per i cluster Storm, i nodi Nimbus forniscono una funzionalità simile a JobTracker di Hadoop mediante la distribuzione e il monitoraggio dell'elaborazione tra nodi di lavoro. HDInsight offre 2 nodi Nimbus per il tipo di cluster Storm.
@@ -64,9 +68,9 @@ Attualmente, Server R in HDInsight è l'unico tipo di cluster che fornisce un no
 
 ## Accesso ai nodi head
 
-L'accesso al cluster tramite Internet viene fornito tramite un gateway pubblico ed è limitato alla connessione ai nodi head e, in presenza di un Server di R in cluster HDInsight, al nodo perimetrale. La presenta di più nodi head non influisce sull'accesso ai servizi in esecuzione nei nodi head, perché il gateway pubblico instrada le richieste al nodo head che ospita il servizio richiesto. Ad esempio, se Ambari è attualmente ospitato nel nodo head, 1, il gateway indirizza le richieste in ingresso per Ambari a quel nodo.
+L'accesso al cluster tramite Internet viene fornito tramite un gateway pubblico ed è limitato alla connessione ai nodi head e, in presenza di un Server di R in cluster HDInsight, al nodo perimetrale. La presenta di più nodi head non influisce sull'accesso ai servizi in esecuzione nei nodi head, perché il gateway pubblico instrada le richieste al nodo head che ospita il servizio richiesto. Ad esempio, se Ambari è attualmente ospitato nel nodo head secondario, il gateway indirizza le richieste in ingresso per Ambari a quel nodo.
 
-Se l'accesso al cluster avviene tramite SSH e la connessione avviene tramite la porta 22 (impostazione predefinita per SSH,) si stabilirà una connessione con il nodo head 0; se la connessione avviene tramite la porta 23 si stabilirà, invece, una connessione con il nodo head 1. Ad esempio, `ssh username@mycluster-ssh.azurehdinsight.net` si connetterà al nodo head 0 del cluster denominato __mycluster__.
+Se l'accesso al cluster avviene tramite SSH e la connessione avviene tramite la porta 22 (impostazione predefinita per SSH,) si stabilirà una connessione con il nodo head primario; se invece la connessione avviene tramite la porta 23 si stabilirà una connessione con il nodo head secondario. Ad esempio, `ssh username@mycluster-ssh.azurehdinsight.net` si connetterà al nodo head primario del cluster denominato __mycluster__.
 
 > [AZURE.NOTE] Questo vale anche per protocolli basati su SSH, ad esempio SFTP (SSH File Transfer Protocol).
 
@@ -143,7 +147,7 @@ La risposta sarà simile a quanto riportato di seguito:
 	  }
 	}
 
-L'URL indica che il servizio è in esecuzione su **nodo head 0**.
+L'URL indica che il servizio è attualmente in esecuzione sul nodo head denominato __hn0-CLUSTERNAME__.
 
 Lo stato indica che il servizio è in esecuzione, o **AVVIATO**.
 
@@ -225,4 +229,4 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	manager="aungoo"
 	editor="tysonn"
 	services="storage"
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="renash"/>
+	ms.date="09/21/2016"
+	ms.author="renash;robinsh"/>
 
 
 # Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB
@@ -24,7 +24,7 @@
 Il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati nell'archiviazione BLOB di Azure tramite la spedizione delle unità disco rigido a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati dall'archivio BLOB di Azure a unità disco rigido per la spedizione al sito locale. Questo servizio è adatto in situazioni in cui si desidera trasferire vari terabyte di dati da o verso Azure ma non è possibile eseguire il caricamento o il download sulla rete a causa della larghezza di banda limitata o degli elevati costi della rete.
 
 Il servizio richiede che le unità disco rigido siano crittografate con crittografica bitlocker per la protezione dei dati. Il servizio supporta gli account di archiviazione classici presenti in tutte le aree di Azure pubblico. È necessario spedire l'unità disco rigido a una delle località supportate specificate più avanti in questo articolo.
- 
+
 Questo articolo fornisce informazioni più approfondite sul servizio Importazione/Esportazione di Azure e su come spedire le unità per la copia dei dati da e verso l'archivio BLOB di Azure.
 
 > [AZURE.IMPORTANT] Per creare e gestire i processi di importazione ed esportazione per l'archiviazione classica è possibile usare il portale classico o le [API REST del servizio Importazione/Esportazione](http://go.microsoft.com/fwlink/?LinkID=329099). Al momento non sono supportati gli account di archiviazione di Resource Manager.
@@ -207,19 +207,19 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 
 Verrà visualizzato uno degli stati del processo seguenti, in base al punto in cui si trova l'unità nel processo.
 
-Stato processo|Descrizione
----|---
-Creating|Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione.
-Shipping|Il processo è stato creato e sono state specificate le informazioni per la spedizione. **Nota**: quando l'unità viene recapitata al data center di Azure, lo stato potrebbe rimanere impostato su "Spedizione" per un certo periodo di tempo. Quando il servizio inizia a copiare i dati, lo stato diventa "Trasferimento". Per visualizzare informazioni più specifiche sullo stato dell'unità, è possibile usare l'API REST del servizio Importazione/Esportazione. 
-Transferring|È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione).
-Packaging|Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente.
-Complete|Il disco rigido è stato spedito all'utente.
+| Stato processo | Descrizione |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Creating | Il processo è stato creato, ma non sono ancora state specificate le informazioni per la spedizione. |
+| Shipping | Il processo è stato creato e sono state specificate le informazioni per la spedizione. **Nota**: quando l'unità viene recapitata al data center di Azure, lo stato potrebbe rimanere impostato su "Spedizione" per un certo periodo di tempo. Quando il servizio inizia a copiare i dati, lo stato diventa "Trasferimento". Per visualizzare informazioni più specifiche sullo stato dell'unità, è possibile usare l'API REST del servizio Importazione/Esportazione. |
+| Transferring | È in corso il trasferimento dei dati dal disco rigido (per un processo di importazione) o al disco rigido (per un processo di esportazione). |
+| Packaging | Il trasferimento dei vostri dati è stato completato ed è in corso la preparazione del disco rigido per la spedizione all'utente. |
+| Complete | Il disco rigido è stato spedito all'utente. |
 
-### Tempo di elaborazione del processo 
+### Tempo di elaborazione del processo
 
 Il tempo impiegato per elaborare un processo di importazione/esportazione varia in base a diversi fattori, ad esempio i tempi di spedizione, il tipo di processo, il tipo e la dimensione dei dati da copiare e la dimensione dei dischi forniti. Il servizio Importazione/Esportazione non prevede un Contratto di servizio. È possibile usare l'API REST per tenere traccia più da vicino dell'avanzamento del processo. È disponibile un parametro indicante la percentuale di completamento nell'operazione Elencare i processi che fornisce un'indicazione dell'avanzamento della copia. In caso di processi di importazione/esportazione che richiedono una precisa tempistica, invitiamo gli utenti a contattarci per avere una stima dei tempi di completamento.
 
-### Prezzi 
+### Prezzi
 
 **Tariffa di gestione delle unità**
 
@@ -243,7 +243,7 @@ Questa sezione fornisce istruzioni dettagliate per la creazione di un processo d
 
 > [AZURE.IMPORTANT] È possibile inviare un solo processo per ogni account di archiviazione. Ogni unità che si spedisce può essere importata in un account di archiviazione. Si immagini ad esempio di voler importare dati in due account di archiviazione. È necessario usare dischi rigidi separati per ogni account di archiviazione e creare processi separati per ogni account di archiviazione.
 
-### Preparare le unità	
+### Preparare le unità
 
 Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Esportazione di Azure consiste nel preparare le unità usando lo strumento client di importazione/esportazione di Azure. Per preparare le unità, seguire questa procedura.
 
@@ -256,7 +256,7 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 4.	Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
 
 5.	Usare lo [strumento di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) per copiare i dati in uno o più dischi rigidi.
-	
+
 	- Lo strumento Importazione/Esportazione di Azure consente di creare sessioni di copia per copiare i dati dall'origine alle unità disco rigido. In una sessione di copia, lo strumento può copiare una singola directory con le relative sottodirectory o un singolo file.
 
 	- Potrebbero essere necessarie più sessioni di copia se i dati di origine occupano molte directory.
@@ -505,4 +505,4 @@ Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-
 
 - [Esempio di API REST del servizio Importazione/Esportazione di Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

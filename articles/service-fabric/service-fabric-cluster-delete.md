@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Eliminare un cluster e le risorse correlate | Microsoft Azure"
+   pageTitle="Eliminare un cluster di Azure e le risorse correlate | Microsoft Azure"
    description="Informazioni su come eliminare completamente un cluster Service Fabric rimuovendo il gruppo di risorse contenente il cluster o rimuovendo le risorse in modo selettivo."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="service-fabric"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
-   ms.author="chackdan"/>
+   ms.date="09/09/2016"
+   ms.author="chackdan"/>  
 
-# Eliminare un cluster Service Fabric e le risorse correlate
+# Eliminare un cluster Service Fabric in Azure e le risorse che utilizzate
 
-Un cluster Service Fabric è costituito da molte risorse di Azure oltre alla risorsa cluster stessa. Pertanto, per eliminare completamente un cluster Service Fabric è necessario eliminare anche tutte le risorse di cui è composto. Per eseguire questa operazione sono disponibili due opzioni: eliminare il gruppo di risorse contenente il cluster (in modo da rimuovere la risorsa cluster e le altre risorse del gruppo) oppure eliminare la specifica risorsa cluster e le risorse associate (ma non le altre risorse del gruppo).
+Un cluster Service Fabric è costituito da molte risorse di Azure oltre alla risorsa cluster stessa. Per eliminare completamente un cluster Service Fabric è necessario eliminare anche tutte le risorse di cui è composto. Sono disponibili due opzioni: eliminare il gruppo di risorse contenente il cluster (in modo da rimuovere la risorsa cluster e le altre risorse del gruppo) oppure eliminare la specifica risorsa cluster e le risorse associate (ma non le altre risorse del gruppo).
 
 >[AZURE.NOTE] Quando si elimina la risorsa cluster, tutte le altre risorse che compongono il cluster Service Fabric **non** vengono eliminate.
 
@@ -38,7 +38,7 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-Verrà visualizzato un prompt per confermare l'eliminazione, se non è stata usata l'opzione *-Force*. Al momento della conferma, il gruppo e tutte le risorse incluse verranno eliminati.
+Verrà visualizzato un prompt per confermare l'eliminazione, se non è stata usata l'opzione *-Force*. Al momento della conferma verranno eliminati il gruppo e tutte le risorse incluse.
 
 ### Eliminare un gruppo di risorse nel portale di Azure  
 
@@ -56,9 +56,9 @@ Verrà visualizzato un prompt per confermare l'eliminazione, se non è stata usa
 
 Se nel gruppo sono incluse solo le risorse correlate al cluster Service Fabric da eliminare, è più semplice eliminare l'intero gruppo di risorse. Se invece si vuole eliminare in modo selettivo una risorsa alla volta nel gruppo, seguire questa procedura.
 
-Se il cluster è stato distribuito mediante il portale o tramite uno dei modelli ARM di Service Fabric inclusi nella raccolta dei modelli, tutte le risorse usate dal cluster vengono contrassegnate con i due tag seguenti. Questi tag sono utili per identificare le risorse da eliminare.
+Se il cluster è stato distribuito mediante il portale o tramite uno dei modelli Resource Manager di Service Fabric inclusi nella raccolta dei modelli, tutte le risorse usate dal cluster vengono contrassegnate con i due tag seguenti. Questi tag sono utili per identificare le risorse da eliminare.
 
-***Tag 1:*** Chiave = clusterName , Valore = 'nome del cluster'
+***Tag 1:*** Chiave = clusterName , Valore = "nome del cluster"
 
 ***Tag 2:*** Chiave = resourceName , Valore = ServiceFabric
 
@@ -104,11 +104,11 @@ Per altre informazioni sull'aggiornamento di un cluster e il partizionamento dei
 - [Informazioni sul partizionamento dei servizi con stato per la massima scalabilità](service-fabric-concepts-partitioning.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 [ResourceGroupDelete]: ./media/service-fabric-cluster-delete/ResourceGroupDelete.PNG
 
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

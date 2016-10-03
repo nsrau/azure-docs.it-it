@@ -3,9 +3,9 @@
 	description="Informazioni su come usare l'archiviazione file di Azure da Python per caricare, elencare, scaricare ed eliminare file."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
-	editor="tysonn"/>
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"/>  
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="minet;robinsh"/>  
 
 # Come usare l'archiviazione file di Azure da Python
 
@@ -100,4 +100,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archiviazione file, v
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

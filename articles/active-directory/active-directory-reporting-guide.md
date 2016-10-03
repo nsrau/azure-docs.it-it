@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dhanyahk"
    manager="mbaldwin"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
-   ms.author="dhanyahk"/>
+   ms.date="09/16/2016"
+   ms.author="dhanyahk"/>  
 
 
 # Guida alla creazione di report in Azure Active Directory
@@ -29,4 +29,4 @@
  - [Evento "Attore Sconosciuto" per il report di Azure Active Directory](active-directory-reporting-unknown-actor.md)
  - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

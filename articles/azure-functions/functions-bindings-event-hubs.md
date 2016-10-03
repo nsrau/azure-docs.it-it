@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>
+	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server"/>  
 
 <tags
 	ms.service="functions"
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="wesmc"/>
+	ms.author="wesmc"/>  
 
 # Associazioni di Hub eventi di Funzioni di Azure
 
@@ -64,6 +64,13 @@ Usando il file function.json di esempio riportato in alto, il corpo del messaggi
 	{
 	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 	}
+
+#### Esempio F# del trigger di Hub eventi di Azure
+
+Usando il file function.json di esempio riportato in precedenza, il corpo del messaggio dell'evento viene registrato usando il codice di funzione F# seguente:
+
+	let Run(myEventHubMessage: string, log: TraceWriter) =
+	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 
 #### Esempio Node.js del trigger di Hub eventi di Azure
  
@@ -113,6 +120,15 @@ Il codice di funzione C# di esempio seguente illustra la scrittura di un evento 
 	    outputEventHubMessage = msg;
 	}
 
+#### Esempio di codice F# di Hub eventi di Azure per l'associazione di output
+
+Il codice di funzione F# di esempio seguente illustra la scrittura di un evento in un flusso di eventi di Hub eventi. Questo esempio rappresenta l'applicazione a un trigger del timer C# dell'associazione di output di Hub eventi illustrata in precedenza.
+
+	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+	    log.Verbose(msg);
+	    outputEventHubMessage <- msg;
+
 #### Esempio di codice Node.js di Hub eventi di Azure per l'associazione di output
  
 Il codice di funzione Node.js di esempio seguente illustra la scrittura di un evento in un flusso di eventi di Hub eventi. Questo esempio rappresenta l'applicazione a un trigger del timer Node.js dell'associazione di output di Hub eventi illustrata in precedenza.
@@ -136,4 +152,4 @@ Il codice di funzione Node.js di esempio seguente illustra la scrittura di un ev
 
 [AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

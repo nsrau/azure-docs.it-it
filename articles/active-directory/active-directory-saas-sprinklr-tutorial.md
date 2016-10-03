@@ -4,15 +4,15 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="femila"/>
+    manager="femila"/>  
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
-    ms.author="jeedes" />
+    ms.date="09/19/2016" 
+    ms.author="jeedes" />  
 
 #Esercitazione: Integrazione di Azure Active Directory con Sprinklr
   
@@ -46,11 +46,11 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-sprinklr-tutorial/IC700994.png "Applicazioni")
+    ![Applicazioni](./media/active-directory-saas-sprinklr-tutorial/IC700994.png "Applicazioni")  
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-sprinklr-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-sprinklr-tutorial/IC749321.png "Aggiunta di un'applicazione")  
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -66,9 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Spri
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
-Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Sprinklr tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -80,7 +78,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sprinklr-tutorial/IC782904.png "Configura accesso Single Sign-On")
 
-3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso Sprinklr** usando il modello seguente " *https://\<tenant-name>.sprinklr.com* ", quindi fare clic su **Avanti**.
+3.  Nella pagina **Configura URL app** digitare l'URL nella casella di testo **URL di accesso Sprinklr** usando il modello seguente "*https://\<tenant-name>.sprinklr.com*", quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-sprinklr-tutorial/IC782905.png "Configura URL app")
 
@@ -109,7 +107,7 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
     1.  Nella casella di testo **Name** digitare un nome per la configurazione (ad esempio *WAADSSOTest*).
     2.  Selezionare **Enabled**.
     3.  Selezionare **Use new SSO Certificate**.
-    4.  Creare un file **con codifica Base 64** dal certificato scaricato.
+    4.  Creare un file con **codifica Base 64** dal certificato scaricato.
 
         >[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -125,12 +123,11 @@ Se non si ha familiarità con questa procedura, vedere il video che illustra [co
 
 10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configura accesso Single Sign-On")  
 
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provisioning nell'applicazione Sprinklr.  
-In questa sezione viene descritto come creare gli account utente AAD in Sprinklr.
+Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provisioning nell'applicazione Sprinklr. In questa sezione viene descritto come creare gli account utente AAD in Sprinklr.
 
 ###Per eseguire il provisioning di un account utente in Sprinklr, eseguire la procedura seguente:
 
@@ -171,13 +168,13 @@ In questa sezione viene descritto come creare gli account utente AAD in Sprinklr
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Sprinklr,eseguire la procedura seguente:
 
 1.  Nel portale di Azure classico creare un account di test.
 
-2.  Nella pagina di integrazione dell'applicazione **Sprinklr** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell'applicazione **Sprinklr ** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-sprinklr-tutorial/IC782918.png "Assegna utenti")
 
@@ -187,4 +184,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

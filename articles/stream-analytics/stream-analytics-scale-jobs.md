@@ -5,8 +5,8 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="07/27/2016"
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/>  
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati
 
@@ -330,7 +330,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
-<!--Image references-->
+<!--Image references-->  
 
 [img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
@@ -338,7 +338,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 [img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
-<!--Link references-->
+<!--Link references-->  
 
 [microsoft.support]: http://support.microsoft.com
 [azure.management.portal]: http://manage.windowsazure.com
@@ -350,4 +350,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

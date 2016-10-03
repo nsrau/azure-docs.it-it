@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
-	ms.author="milanga;juliako;johndeu"/>
+	ms.date="09/14/2016"   
+	ms.author="milanga;juliako;johndeu"/>  
 
-# Panoramica di Analisi elementi multimediali di Servizi multimediali di Azure
+# Panoramica di Analisi servizi multimediali di Azure | Microsoft Azure
 
-##Panoramica
+##Overview
 
 Sempre più organizzazioni e aziende adottano i video come mezzo per formare i dipendenti, coinvolgere i clienti e documentare le funzioni aziendali. Il cloud computing agevola l'archiviazione, il flusso e l'accesso a questi file multimediali di grandi dimensioni. Tuttavia, man mano che la raccolta di contenuti video cresce, le aziende devono poter usufruire di mezzi altrettanto efficienti per estrarre dal video le nuove informazioni dettagliate al fine di creare interazioni più consistenti e personalizzate con i destinatari e portare l'azienda a un livello superiore.
 
@@ -45,6 +45,8 @@ Il diagramma seguente mostra **Analisi Servizi multimediali** e altre parti impo
 
 - **Riconoscimento ottico dei caratteri**: il riconoscimento ottico dei caratteri (OCR) di Analisi servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche. Ciò consente di automatizzare l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
  
+- **Offuscamento dei volti scalabile**: **Azure Media Redactor** è un processore di contenuti multimediali di Analisi Servizi multimediali di Azure che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo](media-services-face-redaction.md) articolo.
+
  
 ## Scenari comuni
 
@@ -127,7 +129,9 @@ Risposta:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-##Percorsi di apprendimento di Media Services
+##Passaggio successivo
+
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -140,8 +144,8 @@ Risposta:
 [Annuncio di Analisi di Servizi multimediali](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)
   
 
-<!-- Images -->
+<!-- Images -->  
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

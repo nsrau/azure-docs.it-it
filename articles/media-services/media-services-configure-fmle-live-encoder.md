@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Configurare il codificatore FMLE per l'invio di un flusso singolo in diretta di velocità in bit" 
+	pageTitle="Configurare il codificatore FMLE per l'invio di un flusso singolo in diretta di velocità in bit | Microsoft Azure" 
 	description="In questo argomento viene illustrato come configurare il codificatore Flash Media Live Encoder (FMLE) per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako;cenkdin;anilmur"/>
+	ms.date="09/19/2016"
+	ms.author="juliako;cenkdin;anilmur"/>  
 
 #Usare il codificatore FMLE per inviare un flusso live a velocità in bit singola.
 
@@ -33,7 +33,7 @@ Si noti che questa esercitazione descrive l'utilizzo di AAC. Tuttavia, per impos
 ##Prerequisiti
 
 - [Creare un account di Servizi multimediali di Azure](media-services-create-account.md)
-- Assicurarsi che sia in esecuzione un endpoint di streaming con almeno un'unità di streaming allocata. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-manage-origins.md)
+- Assicurarsi che sia in esecuzione un endpoint di streaming con almeno un'unità di streaming allocata. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md)
 - Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Avviare lo strumento e connettersi al proprio account AMS.
 
@@ -137,7 +137,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 Se il flusso viene visualizzato nel lettore, ciò indica che il codificatore è stato configurato correttamente per connettersi a AMS.
 
-In caso di errore, sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
+In caso di errore, sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Vedere l’argomento sulla [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
 
 ##Creare un programma.
 
@@ -159,10 +159,10 @@ Il flusso è ora pronto per essere incorporato in un lettore o distribuito per l
 
 ## Risoluzione dei problemi
 
-Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
+Vedere l’argomento sulla [risoluzione dei problemi](media-services-troubleshooting-live-streaming.md) per ricevere istruzioni.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -170,4 +170,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

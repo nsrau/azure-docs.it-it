@@ -6,7 +6,7 @@
 	manager="jhubbard"
 	authors="mumian"
 	tags="azure-portal"
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
+	ms.date="09/21/2016"
 	ms.author="jgao"/>
 
 
@@ -91,12 +91,12 @@ La tabella seguente include l'elenco delle versioni di HDInsight attualmente dis
 HDInsight Version|Versione HDP|Sistema operativo della macchina virtuale|Disponibilità elevata|Data di rilascio|Disponibile nel portale di Azure|Data di scadenza del supporto|Data di dichiarazione obsolescenza
 ---|---|---|---|---|---|---|---
 HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Sì|29/03/2016|Sì||
-HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS o Windows Server 2012R2|Sì|02/12/2015|Sì||
-HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS o Windows Server 2012R2|Sì|2/18/2015|Sì||
-HDI 3.1|HDP 2.1|Windows Server 2012 R2|Sì|6/24/2014|Sì||
-HDI 3.0|HDP 2.0|Windows Server 2012 R2|Sì|11/02/2014|Sì|17/09/2014|30/06/2015
-HDI 2.1|HDP 1.3|Windows Server 2012 R2|Sì|28/10/2013|Sì|12/05/2014|31/05/2015
-HDI 1.6|HDP 1.1||No|28/10/2013|Sì|26/04/2014|31/05/2015
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS o Windows Server 2012R2|Sì|02/12/2015|Sì|27/06/2016|31/07/2017
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS o Windows Server 2012R2|Sì|2/18/2015|Sì|01/03/2016|01/04/2017
+HDI 3.1|HDP 2.1|Windows Server 2012 R2|Sì|6/24/2014|No|18/05/2015|30/06/2016
+HDI 3.0|HDP 2.0|Windows Server 2012 R2|Sì|11/02/2014|No|17/09/2014|30/06/2015
+HDI 2.1|HDP 1.3|Windows Server 2012 R2|Sì|28/10/2013|No|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1||No|28/10/2013|No|26/04/2014|31/05/2015
 
 **Distribuzione di cluster non predefiniti**
 
@@ -109,7 +109,7 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 **Data in cui è deprecata** è la data dopo la quale non è possibile creare la versione del cluster su HDInsight.
 
-> [AZURE.NOTE] Entrambi i cluster HDInsight 2.1 e 3.0 eseguono il sistema operativo guest Azure, [famiglia 4](../cloud-services/cloud-services-guestos-update-matrix.md), che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5 e 4.5.1.
+> [AZURE.NOTE] Il cluster HDInsight basato su Windows (incluse le versioni 2.1, 3.0, 3.1, 3.2 e 3.3) esegue il sistema operativo guest di Azure Family 4, che usa la versione a 64 bit di Windows Server 2012 R2 e supporta .NET Framework 4.0, 4.5, 4.5.1 e 4.5.2.
 
 ## Note sulla versione di Hortonworks associate alle versioni di HDInsight##
 
@@ -157,4 +157,4 @@ Il Contratto di servizio viene definito come "finestra di supporto". Il termine 
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

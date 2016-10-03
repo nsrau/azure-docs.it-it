@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Panoramica e confronto dei codificatori multimediali su richiesta di Azure" 
-	description="In questo argomento viene fornita una panoramica e un confronto tra i codificatori multimediali su richiesta di Azure." 
+	pageTitle="Panoramica e confronto dei codificatori multimediali su richiesta di Azure | Microsoft Azure" 
+	description="Questo argomento offre una panoramica e un confronto tra i codificatori multimediali su richiesta di Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/19/2016" 
+	ms.author="juliako"/>  
 
 #Panoramica e confronto dei codificatori multimediali su richiesta di Azure
 
@@ -29,7 +29,7 @@ Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, c
 Per sfruttare i vantaggi del servizio di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), è necessario seguire questa procedura:
 
 - Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
-- Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-manage-origins.md#scale_streaming_endpoints/).
+- Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-portal-manage-streaming-endpoints.md).
 
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 
@@ -38,7 +38,7 @@ Servizi multimediali supporta i seguenti codificatori su richiesta descritti in 
 
 In questo articolo è fornita una breve panoramica dei codificatori multimediali su richiesta e sono presenti collegamenti ad articoli che contengono informazioni più dettagliate. L'argomento fornisce inoltre il confronto dei codificatori.
 
-Si noti che per impostazione predefinita, in ciascun account di Servizi multimediali può essere attiva una sola attività di codifica alla volta. È tuttavia possibile riservare unità di codifica che consentano di eseguire più attività di codifica contemporaneamente, una per ciascuna unità acquistata. Per informazioni, vedere [Scalabilità dell’unità di codifica](media-services-portal-encoding-units.md).
+Si noti che per impostazione predefinita, in ciascun account di Servizi multimediali può essere attiva una sola attività di codifica alla volta. È tuttavia possibile riservare unità di codifica che consentano di eseguire più attività di codifica contemporaneamente, una per ciascuna unità acquistata. Per informazioni, vedere [Scalabilità dell’unità di codifica](media-services-scale-media-processing-overview.md).
 
 ##Codificatore multimediale standard
 
@@ -78,7 +78,7 @@ Per informazioni, vedere [Come creare sovrimpressioni usando Media Encoder Stand
  
 ##Flusso di lavoro Premium del codificatore multimediale
 
-###Panoramica
+###Overview
 
 [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
@@ -224,7 +224,7 @@ Per ottenere assistenza dal team di **Servizi multimediali**, aprire un [ticket 
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -239,7 +239,7 @@ Per ottenere assistenza dal team di **Servizi multimediali**, aprire un [ticket 
 - [Quote e limitazioni](media-services-quotas-and-limitations.md)
 
  
-<!--Reference links in article-->
+<!--Reference links in article-->  
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

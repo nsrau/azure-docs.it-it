@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>  
 
 
 
@@ -77,7 +77,7 @@ redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCur
 ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
 ```
 
-- Sempre nella scheda **Configura** dell'applicazione nel portale di gestione di Azure sostituire il valore di **RedirectUri** con questo valore.  
+- Sempre nella scheda **Configura** dell'applicazione nel portale di gestione di Azure sostituire il valore di **RedirectUri** con questo valore.
 
 ## *3. Usare ADAL per ottenere i token da AAD*
 Il principio alla base di ADAL è che l'app, ogni volta che ha bisogno di un token di accesso, deve solo chiamare `authContext.AcquireToken(…)` e ADAL fa il resto.
@@ -169,10 +169,10 @@ Congratulazioni. È stata compilata un'app di Windows Phone in grado di autentic
 
 ADAL consente di incorporare facilmente nell'applicazione tutte queste funzionalità comuni relative alle identità. Esegue automaticamente le attività più complesse: gestione della cache, supporto del protocollo OAuth, presentazione all'utente di un'interfaccia utente di accesso, aggiornamento dei token scaduti e altro. Tutto ciò che occorre conoscere è una sola chiamata all'API, `authContext.AcquireToken*(…)`.
 
-Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip). Ora è possibile passare ad altri scenari relativi alle identità. È possibile:
+Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip). Ora è possibile passare ad altri scenari relativi alle identità. È possibile consultare:
 
 [Proteggere un'API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

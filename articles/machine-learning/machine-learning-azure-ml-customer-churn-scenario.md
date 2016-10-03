@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeannt"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016" 
+	ms.date="09/20/2016" 
 	ms.author="jeannt"/>
 
 # Analisi della varianza del cliente tramite Azure Machine Learning
@@ -176,7 +176,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi *
 
 | LR|BT|AP|SVM|
 |---|---|---|---|
@@ -225,7 +225,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 [4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modello di varianza Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)  
+[5] [Modello di varianza Telco] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)  
 ##Appendice
 
 ![][10]
@@ -244,4 +244,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

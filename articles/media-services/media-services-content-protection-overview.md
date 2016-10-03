@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Informazioni generali sulla protezione dei contenuti" 
+	pageTitle="Informazioni generali sulla protezione dei contenuti | Microsoft Azure" 
 	description="Questi articoli forniscono informazioni generali sulla protezione dei contenuti con Servizi multimediali." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/19/2016" 
+	ms.author="juliako"/>  
 
 #Informazioni generali sulla protezione dei contenuti
 
@@ -36,13 +36,13 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 A seconda del tipo di contenuto che si vuole caricare, archiviare e distribuire, in Servizi multimediali è possibile scegliere tra varie opzioni di crittografia.
 
-###None 
+###None
 
 Non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione il contenuto non è protetto durante il transito, né nell'archiviazione locale.
 
 Se si prevede di distribuire un file MP4 tramite download progressivo, usare questa opzione per caricare il contenuto.
 
-###StorageEncrypted 
+###StorageEncrypted
 
 Usare **StorageEncrypted** per crittografare localmente il contenuto non crittografato applicando la crittografia AES a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, dove viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica. Se necessario, inoltre, possono essere ricrittografati prima del successivo caricamento come nuovo asset di output. La crittografia di archiviazione viene usata principalmente per proteggere file multimediali di input di alta qualità archiviati su disco applicando una crittografia avanzata.
 
@@ -58,7 +58,7 @@ Per vedere come funziona l'algoritmo di base, vedere l'implementazione di AMS .N
 - [AesCtr](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/FileEncryptionTransform.cs)
 
 
-###CommonEncryptionProtected 
+###CommonEncryptionProtected
 
 Usare **CommonEncryptionProtected** per crittografare o caricare contenuto già crittografato e protetto con la crittografia comune. PlayReady e Widewine vengono crittografati in base alle specifiche della crittografia comune (CENC) e sono supportati da AMS.
 
@@ -78,7 +78,7 @@ Per consentire a Servizi multimediali di crittografare un asset, è necessario a
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o la crittografia comune. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
->[AZURE.NOTE]Per avvalersi della crittografia dinamica, è necessario ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si intende distribuire i contenuti crittografati. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Per avvalersi della crittografia dinamica, è necessario ottenere almeno un'unità di streaming su richiesta per l'endpoint di streaming da cui si intende distribuire i contenuti crittografati. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
 
 ##Servizio di distribuzione di licenze e chiavi
 
@@ -86,9 +86,9 @@ Servizi multimediali offre un servizio per la distribuzione di licenze DRM (Play
 
 Se si usa il portale, sarà possibile configurare un criterio AES, che verrà applicato a tutti i contenuti con crittografia AES, e un criterio PlayReady, che verrà applicato a tutti i contenuti con crittografia PlayReady. Usare l'SDK di Servizi multimediali per .NET se si vuole ottenere maggiore controllo sulle configurazioni.
 
-##Licenze DRM 
+##Licenze DRM
 
-###Licenza PlayReady 
+###Licenza PlayReady
 
 Servizi multimediali offre un servizio per la distribuzione di licenze PlayReady. Quando il lettore dell'utente finale (ad esempio Silverlight) cerca di riprodurre il contenuto protetto con PlayReady, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e potrà essere usata per decrittografare e riprodurre il contenuto specificato.
 
@@ -130,7 +130,7 @@ Per altre informazioni, vedere l'articolo relativo all'[integrazione del servizi
 
 [Uso di castLabs per distribuire licenze DRM a Servizi multimediali di Azure](media-services-castlabs-integration.md)
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -155,4 +155,4 @@ Per altre informazioni, vedere l'articolo relativo all'[integrazione del servizi
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

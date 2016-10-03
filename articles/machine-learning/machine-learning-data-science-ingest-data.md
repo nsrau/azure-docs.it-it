@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="bradsev" />
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />  
 
 # Caricare i dati in ambienti di archiviazione per l'analisi
 
@@ -26,4 +26,4 @@ Questo **menu** si collega ad argomenti che descrivono come inserire dati in que
 
 Le esigenze aziendali e tecniche specifiche, nonché la posizione iniziale, il formato e le dimensioni dei dati determinano gli ambienti di destinazione in cui i dati devono essere inseriti per raggiungere gli obiettivi dell'analisi. Non è insolito per uno scenario richiedere lo spostamento dei dati tra ambienti diversi per disporre di tutte le attività necessarie per creare un modello predittivo. Questa sequenza di attività può includere, ad esempio, l'esplorazione dei dati, la pre-elaborazione, la pulizia, il sottocampionamento e il training del modello.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

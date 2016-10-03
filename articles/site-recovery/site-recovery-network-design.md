@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="prateek9us"
 	manager="jwhit"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="site-recovery"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/21/2016"
-	ms.author="pratshar"/>
+	ms.date="09/19/2016"
+	ms.author="pratshar"/>  
 
 #  Progettazione dell'infrastruttura di rete per il ripristino di emergenza
 
 Questo articolo si rivolge ai professionisti IT che sono responsabili dell'architettura, dell'implementazione e del supporto dell'infrastruttura di continuità aziendale e ripristino di emergenza (BCDR, Business Continuity and Disaster Recovery) e che vogliono sfruttare Microsoft Azure Site Recovery (ASR) per supportare e migliorare i servizi BCDR. Questo documento illustra le considerazioni pratiche per la distribuzione di server System Center Virtual Machine Manager, i pro e i contro delle subnet estese rispetto al failover su subnet e come strutturare il ripristino di emergenza per siti virtuali in Microsoft Azure.
 
-## Panoramica
+## Overview
 
 [Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) è un servizio di Microsoft Azure che orchestra la protezione e il ripristino delle applicazioni virtualizzate per finalità di continuità aziendale e ripristino di emergenza. Questo documento è una guida al processo di progettazione delle reti, che si concentra sull'architettura di intervalli IP e di subnet nel sito di ripristino di emergenza, quando si replicano macchine virtuali (VM) usando Site Recovery.
 
@@ -36,7 +36,7 @@ Quando gli amministratori pianificano di distribuire una soluzione di ripristino
 
 Durante la progettazione della rete per il sito di ripristino, l'amministratore ha due scelte:
 
-- Usare un intervallo di indirizzi IP diverso per la rete nel sito di ripristino. In questo scenario la macchina virtuale dopo il failover otterrà un nuovo indirizzo IP e l'amministratore dovrà eseguire un aggiornamento DNS. Altre informazioni su come eseguire l'aggiornamento DNS sono disponibili [qui](site-recovery-vmm-to-vmm.md#test-your-deployment). 
+- Usare un intervallo di indirizzi IP diverso per la rete nel sito di ripristino. In questo scenario la macchina virtuale dopo il failover otterrà un nuovo indirizzo IP e l'amministratore dovrà eseguire un aggiornamento DNS. Altre informazioni su come eseguire l'aggiornamento DNS sono disponibili [qui](site-recovery-vmm-to-vmm.md#test-your-deployment).
 - Usare lo stesso intervallo di indirizzi IP per la rete nel sito di ripristino. In alcuni scenari gli amministratori preferiscono mantenere gli indirizzi IP che hanno nel sito primario dopo il failover. In un normale scenario un amministratore dovrà aggiornare le route per indicare la nuova posizione degli indirizzi IP, ma nello scenario in cui una VLAN estesa viene distribuita tra il sito primario e quello di ripristino mantenere gli indirizzi IP per le macchine virtuali diventa un'opzione interessante. Mantenere gli stessi indirizzi IP semplifica il processo di ripristino eliminando i passaggi post-failover correlati alla rete.
 
 
@@ -120,7 +120,7 @@ Prima del failover
 Per consentire a Woodgrove di soddisfare i requisiti aziendali, è necessario implementare i flussi di lavoro seguenti:
 
 - Creare una rete aggiuntiva, definita rete di ripristino, in cui verranno create le macchine virtuali di cui verrà effettuato il failover.
-- Per assicurarsi che l'IP per una VM venga mantenuto dopo un failover, passare alla scheda Configura nelle proprietà della VM, specificare lo stesso IP locale della VM e quindi fare clic su Salva. Quando viene effettuato il failover della VM, Azure Site Recovery assegnerà l'IP specificato alla macchina virtuale. 
+- Per assicurarsi che l'IP per una VM venga mantenuto dopo un failover, passare alla scheda Configura nelle proprietà della VM, specificare lo stesso IP locale della VM e quindi fare clic su Salva. Quando viene effettuato il failover della VM, Azure Site Recovery assegnerà l'IP specificato alla macchina virtuale.
 
 ![Proprietà di rete](./media/site-recovery-network-design/network-design8.png)
 
@@ -179,4 +179,4 @@ Il post di blog dedicato alla [configurazione dell'infrastruttura di rete per Mi
 
 [Informazioni](site-recovery-network-mapping.md) sul mapping di reti di origine e destinazione da parte di Site Recovery quando viene usato un server VMM per gestire il sito primario.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

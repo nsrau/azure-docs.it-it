@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="Blackmist"
     manager="jhubbard"
-    editor="cgronlun"/>
+    editor="cgronlun"/>  
 
 <tags
     ms.service="hdinsight"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # Sviluppo di azioni script con HDInsight
@@ -167,6 +167,11 @@ Questo codice rende disponibili gli helper seguenti per l'uso nello script perso
 | `test_is_headnode` | Se viene eseguito su un nodo head del cluster restituisce 1; in caso contrario, 0. |
 | `test_is_datanode` | Se il nodo corrente è un nodo dati (di lavoro) restituisce 1; in caso contrario, 0. |
 | `test_is_first_datanode` | Se il nodo corrente è il primo nodo dati (di lavoro) (denominato workernode0) restituisce 1; in caso contrario, 0. |
+| `get_headnodes`   | Restituisce il nome di dominio completo dei nodi head nel cluster. I nomi sono delimitati da virgole. In caso di errore, viene restituita una stringa vuota. |
+| `get_primary_headnode`   | Ottiene il nome di dominio completo del nodo head primario. In caso di errore, viene restituita una stringa vuota. |
+| `get_secondary_headnode`   | Ottiene il nome di dominio completo del nodo head secondario. In caso di errore, viene restituita una stringa vuota. |
+| `get_primary_headnode_number`   | Ottiene il suffisso numerico del nodo head primario. In caso di errore, viene restituita una stringa vuota. |
+| `get_secondary_headnode_number`   | Ottiene il suffisso numerico del nodo head secondario. In caso di errore, viene restituita una stringa vuota. |
 
 ## <a name="commonusage"></a>Modelli di utilizzo comuni
 
@@ -268,4 +273,4 @@ Per il comando precedente sostituire __INFILE__ con il file contenente il caratt
 
 * Per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight, vedere l'[API REST del provider di risorse HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

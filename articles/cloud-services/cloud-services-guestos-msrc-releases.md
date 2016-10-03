@@ -5,7 +5,7 @@
    documentationCenter="na" 
    authors="yuemlu" 
    manager="timlt" 
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="cloud-services"
@@ -14,11 +14,30 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
    ms.date="08/17/2016"
-   ms.author="raiye"/>
+   ms.author="raiye"/>  
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo guest di settembre 
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-104 | [3183038] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| MS16-106 | [3185848] | Aggiornamento della sicurezza per il componente grafico Microsoft | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| MS16-110 | [3178467] | Aggiornamento della sicurezza per Windows | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| MS16-111 | [3186973] | Aggiornamento della sicurezza per kernel Windows | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| MS16-112 | [3178469] | Aggiornamento della sicurezza per la schermata di blocco di Windows | 4\.36 | 13 settembre 2016 |
+| MS16-114 | [3185879] | Aggiornamento della sicurezza per server SMB di Windows | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| MS16-115 | [3188733] | Aggiornamento della sicurezza per PDF | 4\.35, 3.43 | 13 settembre 2016 |
+| MS16-116 | [3188724] | Aggiornamento della sicurezza in Automazione OLE per il motore di script VBScript | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| | [3174644] | Supporto per scambio di chiavi Diffie-Hellman aggiornato | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| | [3177723] | Aggiornamento del fuso orario: l'Egitto annulla l'ora legale | 4\.36, 3.43, 2.55 | 13 settembre 2016 |
+| | [3179573] | Agosto 2016 Aggiornamento cumulativo per Windows 7 SP1 e Windows Server 2008 R2 SP1 | 2\.55 | 13 settembre 2016 |
+| | [3179575] | Agosto 2016 Aggiornamento cumulativo per Windows Server 2012 | 3\.43 | 13 settembre 2016 |
+| | [3179574] | Agosto 2016 Aggiornamento cumulativo per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 | 4\.36 | 13 settembre 2016 |
+
 
 ## Sistema operativo Guest di agosto 
 
@@ -349,6 +368,19 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+[3183038]: http://support.microsoft.com/kb/3183038
+[3185848]: http://support.microsoft.com/kb/3185848
+[3178467]: http://support.microsoft.com/kb/3178467
+[3186973]: http://support.microsoft.com/kb/3186973
+[3178469]: http://support.microsoft.com/kb/3178469
+[3185879]: http://support.microsoft.com/kb/3185879
+[3188733]: http://support.microsoft.com/kb/3188733
+[3188724]: http://support.microsoft.com/kb/3188724
+[3174644]: http://support.microsoft.com/kb/3174644
+[3177723]: http://support.microsoft.com/kb/3177723
+[3179573]: http://support.microsoft.com/kb/3179573
+[3179575]: http://support.microsoft.com/kb/3179575
+[3179574]: http://support.microsoft.com/kb/3179574
 
 [3177356]: http://support.microsoft.com/kb/3177356
 [3177393]: http://support.microsoft.com/kb/3177393
@@ -602,4 +634,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

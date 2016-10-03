@@ -6,7 +6,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="timlt"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="service-fabric"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
-   ms.author="subramar"/>
+   ms.date="09/14/2016"
+   ms.author="subramar"/>  
 
 
 
@@ -30,13 +30,13 @@ Questo articolo descrive i diversi parametri che si applicano durante l'aggiorna
 | --- | --- |
 | ApplicationName | Nome dell'applicazione che viene aggiornata. Esempi: fabric:/VisualObjects, fabric:/ClusterMonitor |
 | TargetApplicationTypeVersion | Versione del tipo di applicazione a cui è destinato l'aggiornamento. |
-| FailureAction | Azione che deve essere eseguita da Service Fabric se l'aggiornamento non riesce. È possibile eseguire il rollback dell'applicazione all'ultima versione precedente all'aggiornamento (Rollback) oppure arrestare l'aggiornamento dell'applicazione a livello del dominio di aggiornamento corrente e cambiare la modalità impostando l'aggiornamento manuale. I valori consentiti sono Rollback e Manual. |
+| FailureAction | L'azione eseguita da Service Fabric se l'aggiornamento non riesce. È possibile che venga eseguito il rollback dell'applicazione alla versione pre-aggiornamento oppure l'aggiornamento può essere arrestato nel dominio di aggiornamento corrente. Nel secondo caso la modalità di aggiornamento viene impostata su manuale. I valori consentiti sono Rollback e Manual. |
 | HealthCheckWaitDurationSec | Tempo di attesa, in secondi, dopo il completamento dell'aggiornamento nel dominio di aggiornamento prima che Service Fabric valuti l'integrità dell'applicazione. La durata può essere considerata anche come il tempo di esecuzione di un'applicazione prima che venga considerata integra. Se il controllo di integrità ha esito positivo, il processo di aggiornamento passa al dominio di aggiornamento successivo. Se invece il controllo di integrità ha esito negativo, Service Fabric attende un periodo di tempo (definito da UpgradeHealthCheckInterval) prima di riprovare a eseguire il controllo di integrità finché non viene raggiunto il valore definito da HealthCheckRetryTimeout. Il valore predefinito e consigliato è 0 secondi. |
 | HealthCheckRetryTimeoutSec | Intervallo di tempo (in secondi) in cui Service Fabric continua a eseguire la valutazione dell'integrità prima di dichiarare l'aggiornamento come non riuscito. Il valore predefinito è 600 secondi. Il calcolo del tempo inizia dopo che viene raggiunto il valore definito da HealthCheckWaitDuration. Nell'ambito di questo intervallo di tempo definito da HealthCheckRetryTimeout, Service Fabric può eseguire più controlli di integrità dell'applicazione. Il valore predefinito è 10 minuti ed è consigliabile personalizzarlo in base all'applicazione. |
-| HealthCheckStableDurationSec | Tempo di attesa (in secondi) per verificare che l'applicazione sia stabile prima di passare al dominio di aggiornamento successivo o di completare l'aggiornamento. Questo intervallo viene usato per evitare che immediatamente dopo il controllo di integrità vengono apportate modifiche all'integrità non rilevate. Il valore predefinito è 0 secondi ed è consigliabile personalizzarlo in base all'applicazione. |
-| UpgradeDomainTimeoutSec | Tempo massimo (in secondi) per l'aggiornamento di un singolo dominio di aggiornamento. Se viene raggiunto questo timeout, l'aggiornamento si arresta ed esegue l'azione specificata da UpgradeFailureAction. Il valore predefinito è mai (Infinito) ed è consigliabile personalizzarlo in base all'applicazione. |
+| HealthCheckStableDurationSec | Il periodo (in secondi) per verificare che l'applicazione sia stabile prima di passare al dominio di aggiornamento successivo o di completare l'aggiornamento. Questo intervallo viene usato per evitare che immediatamente dopo il controllo di integrità vengono apportate modifiche all'integrità non rilevate. Il valore predefinito è 120 secondi ed è consigliabile personalizzarlo in base all'applicazione. |
+| UpgradeDomainTimeoutSec | Tempo massimo (in secondi) per l'aggiornamento di un singolo dominio di aggiornamento. Se viene raggiunto questo timeout, l'aggiornamento si arresta e procede in base all'impostazione di UpgradeFailureAction. Il valore predefinito è mai (Infinito) ed è consigliabile personalizzarlo in base all'applicazione. |
 | UpgradeTimeout | Intervallo di timeout, in secondi, che si applica per l'intero aggiornamento. Se viene raggiunto questo timeout, l'aggiornamento si arresta e viene attivata l'azione specificata da UpgradeFailureAction. Il valore predefinito è mai (Infinito) ed è consigliabile personalizzarlo in base all'applicazione. |
-| UpgradeHealthCheckInterval | Frequenza di controllo dello stato di integrità. Questo parametro viene specificato nella sezione ClusterManager del _manifesto del_ _cluster_. Non viene specificato come parte del cmdlet di aggiornamento. Il valore predefinito è 60 secondi. |
+| UpgradeHealthCheckInterval | Frequenza di controllo dello stato di integrità. Questo parametro viene specificato nella sezione ClusterManager del _manifesto del_ _cluster_ e non viene specificato come parte del cmdlet di aggiornamento. Il valore predefinito è 60 secondi. |
 
 
 
@@ -46,24 +46,24 @@ Questo articolo descrive i diversi parametri che si applicano durante l'aggiorna
 <br>
 ## Valutazione dell'integrità di un servizio durante l'aggiornamento dell'applicazione
 
-<br> I criteri di valutazione dell'integrità sono facoltativi. Se all'avvio di un aggiornamento non vengono specificati i criteri di valutazione dell'integrità, Service Fabric usa i criteri di integrità dell'applicazione specificati nel file ApplicationManifest.xml dell'istanza dell'applicazione in fase di aggiornamento.
+<br> I criteri di valutazione dell'integrità sono facoltativi. Se all'avvio di un aggiornamento non vengono specificati i criteri di valutazione dell'integrità, Service Fabric usa i criteri di integrità dell'applicazione specificati nel file ApplicationManifest.xml dell'istanza dell'applicazione.
 
 
-<br>
+<br>  
 
 | Parametro | Descrizione |
 | --- | --- |
 | ConsiderWarningAsError | Il valore predefinito è False. Considerare gli eventi di avviso relativi all'integrità dell'applicazione come errori quando si valuta l'integrità dell'applicazione durante l'aggiornamento. Per impostazione predefinita, Service Fabric non valuta eventi di avviso relativi all'integrità come errori, quindi l'aggiornamento può continuare anche se vengono generati questi eventi. |
-| MaxPercentUnhealthyDeployedApplications | Il valore predefinito e consigliato è 0. Specificare il numero massimo di applicazioni distribuite (vedere la [sezione relativa all'integrità](service-fabric-health-introduction.md)) che possono essere non integre prima che l'applicazione venga considerata non integra e l'aggiornamento non riesca. Questo è lo stato di integrità del pacchetto dell'applicazione nel nodo. È utile per rilevare problemi immediati durante l'aggiornamento quando il pacchetto dell'applicazione distribuito nel nodo non è integro, ad esempio arresto anomalo e così via. In un caso tipico, alle repliche dell'applicazione viene applicato il bilanciamento del carico con l'altro nodo, in modo che l'applicazione risulti integra e l'aggiornamento possa continuare. Specificando uno stato di integrità MaxPercentUnhealthyDeployedApplications rigoroso, Service Fabric può rilevare rapidamente un problema con il pacchetto dell'applicazione, determinando un aggiornamento di errore immediato. |
+| MaxPercentUnhealthyDeployedApplications | Il valore predefinito e consigliato è 0. Specificare il numero massimo di applicazioni distribuite (vedere la [sezione relativa all'integrità](service-fabric-health-introduction.md)) che possono essere non integre prima che l'applicazione venga considerata non integra e l'aggiornamento non riesca. Questo parametro definisce l'integrità dell'applicazione sul nodo e consente di rilevare eventuali problemi durante l'aggiornamento. Normalmente alle repliche dell'applicazione viene applicato un bilanciamento del carico basato sull'altro nodo, in modo che l'applicazione risulti integra e l'aggiornamento possa continuare. Specificando uno stato di integrità MaxPercentUnhealthyDeployedApplications rigoroso, Service Fabric può rilevare rapidamente un problema con il pacchetto dell'applicazione, determinando un aggiornamento di errore immediato. |
 | MaxPercentUnhealthyServices | Il valore predefinito e consigliato è 0. Specificare il numero massimo di servizi dell'istanza dell'applicazione che possono essere non integri prima che l'applicazione venga considerata non integra e l'aggiornamento non riesca. |
 | MaxPercentUnhealthyPartitionsPerService | Il valore predefinito e consigliato è 0. Specificare il numero massimo di partizioni di un servizio che possono essere non integre prima che il servizio venga considerato non integro. |
 | MaxPercentUnhealthyReplicasPerPartition | Il valore predefinito e consigliato è 0. Specificare il numero massimo di repliche nella partizione che possono essere non integre prima che la partizione venga considerata non integra. |
-| UpgradeReplicaSetCheckTimeout | **Servizio senza stato**: in un singolo dominio di aggiornamento Service Fabric prova a verificare che siano disponibili istanze aggiuntive del servizio. Se il numero di istanze di destinazione è maggiore di uno, Service Fabric attende che sia disponibile più di un'istanza fino al valore di timeout massimo, specificato dalla proprietà UpgradeReplicaSetCheckTimeout. Se il timeout scade, Service Fabric procede con l'aggiornamento indipendentemente dal numero di istanze del servizio. Se il numero di istanze di destinazione è pari a uno, Service Fabric non attende e procede immediatamente con l'aggiornamento. **Servizio con stato**: in un singolo dominio di aggiornamento Service Fabric prova a verificare che il set di repliche abbia un quorum. Service Fabric attende che sia disponibile un quorum fino al valore di timeout massimo, specificato dalla proprietà UpgradeReplicaSetCheckTimeout. Se il timeout scade, Service Fabric procede con l'aggiornamento indipendentemente dal quorum. Questo parametro è impostato su mai (Infinito) quando viene eseguito il roll forward, applicato se l'aggiornamento procede come previsto, e su 900 secondi quando viene eseguito il rollback, applicato se l'aggiornamento ha rilevato errori e viene eseguito il rollback. |
-| ForceRestart | Se si aggiorna un pacchetto di configurazione o di dati senza aggiornare il codice del servizio, Service Fabric non riavvia il servizio a meno che la proprietà ForceRestart non sia impostata su true come parte della chiamata API. Quando l'aggiornamento è completo, Service Fabric notifica al servizio che è disponibile un nuovo pacchetto di configurazione o di dati. Il servizio è responsabile dell'applicazione delle modifiche. Se necessario, il servizio può riavviarsi. |
+| UpgradeReplicaSetCheckTimeout | **Servizio senza stato**: in un singolo dominio di aggiornamento Service Fabric prova a verificare che siano disponibili istanze aggiuntive del servizio. Se il numero di istanze di destinazione è maggiore di uno, Service Fabric attende che sia disponibile più di un'istanza fino al valore di timeout massimo. Questo timeout è specificato dalla proprietà UpgradeReplicaSetCheckTimeout. Se il timeout scade, Service Fabric procede con l'aggiornamento indipendentemente dal numero di istanze del servizio. Se il numero di istanze di destinazione è pari a uno, Service Fabric non attende e procede immediatamente con l'aggiornamento. **Servizio con stato**: in un singolo dominio di aggiornamento Service Fabric prova a verificare che il set di repliche abbia un quorum. Service Fabric attende che sia disponibile un quorum fino al valore di timeout massimo, specificato dalla proprietà UpgradeReplicaSetCheckTimeout. Se il timeout scade, Service Fabric procede con l'aggiornamento indipendentemente dal quorum. Questa impostazione è "mai" (infinito) per il roll forward e 900 secondi per il rollback. |
+| ForceRestart | Se si aggiorna un pacchetto di configurazione o di dati senza aggiornare il codice del servizio, il servizio viene riavviato solo se la proprietà ForceRestart è impostata su true. Quando l'aggiornamento è completo, Service Fabric notifica al servizio che è disponibile un nuovo pacchetto di configurazione o di dati. Il servizio è responsabile dell'applicazione delle modifiche. Se necessario, il servizio può riavviarsi. |
 
 
 
-<br> <br> I criteri MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService e MaxPercentUnhealthyReplicasPerPartition possono essere specificati per tipo di servizio per un'istanza dell'applicazione. In questo modo è possibile assicurarsi che un'applicazione contenente tipi diversi di servizi possa disporre di criteri di valutazione diversi per ogni tipo di servizio. Ad esempio, un tipo di servizio gateway senza stato può avere un parametro MaxPercentUnhealthyPartitionsPerService diverso da un tipo di servizio motore con stato per una specifica istanza dell'applicazione.
+<br> <br> I criteri MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService e MaxPercentUnhealthyReplicasPerPartition possono essere specificati per tipo di servizio per un'istanza dell'applicazione. Impostando questi parametri "per servizio" un'applicazione può contenere tipi di servizi diversi con criteri di valutazione diversi. Ad esempio, un tipo di servizio gateway senza stato può avere un parametro MaxPercentUnhealthyPartitionsPerService diverso da un tipo di servizio motore con stato per una specifica istanza dell'applicazione.
 
 ## Passaggi successivi
 
@@ -73,9 +73,9 @@ Questo articolo descrive i diversi parametri che si applicano durante l'aggiorna
 
 Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
-Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione facendo riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
+Per informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione, vedere [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
 
-Risolvere problemi comuni negli aggiornamenti dell'applicazione facendo riferimento ai passaggi elencati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
+Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione ](service-fabric-application-upgrade-troubleshooting.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

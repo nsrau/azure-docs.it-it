@@ -5,8 +5,8 @@
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor=""/>
+	manager="jhubbard" 
+	editor=""/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -51,7 +51,7 @@ Microsoft Azure fornisce un catalogo esteso di tecnologie di analisi in grado di
 
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -63,4 +63,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

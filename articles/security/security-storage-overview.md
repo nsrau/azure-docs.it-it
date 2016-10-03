@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor="TomSh"/>
+   editor="TomSh"/>  
 
 <tags
    ms.service="security"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
-   ms.author="terrylan"/>
+   ms.date="09/16/2016"
+   ms.author="terrylan"/>  
 
 # Panoramica sulla sicurezza di Archiviazione di Azure
 
@@ -101,4 +101,4 @@ Altre informazioni:
 - [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/key-vault-whatis.md)
 - [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor="mollybos"/>  
 
 <tags
 	ms.service="app-service"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="cephalin;dariac"/>
+	ms.author="cephalin;dariac"/>  
     
 # Distribuire l'app nel servizio app di Azure
 
@@ -194,7 +194,7 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Eseguire il provisioning di un'app Web con un database SQL](app-service-web-arm-with-sql-database-provision.md)
 * [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)
 * Capitolo dell'e-book relativo a come [automatizzare tutto e creare app per cloud reali con Azure](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything), in cui viene illustrato in che modo l'applicazione di esempio illustrata nell'e-book utilizza gli script di Windows PowerShell per creare un ambiente di testing Azure ed eseguirvi la distribuzione. Per ottenere collegamenti a ulteriori documenti su Azure PowerShell vedere la sezione relativa alle [risorse](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources).
-* [Utilizzo degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](http://msdn.microsoft.com/library/dn642480.aspx). Come usare gli script di distribuzione di Windows PowerShell generati da Visual Studio.
+* [Utilizzo degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test](../vs-azure-tools-publishing-using-powershell-scripts.md). Come usare gli script di distribuzione di Windows PowerShell generati da Visual Studio.
 
 ###<a name="api"></a>Automatizzare la distribuzione con API di gestione .NET
 
@@ -234,4 +234,4 @@ Per informazioni su come usare il controllo degli accessi in base al ruolo di Az
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="douge"/>
+	manager="douge"/>  
 
 <tags 
 	ms.service="application-insights" 
@@ -27,13 +27,13 @@ L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato inclu
 **Let e set** [let](#let-clause) | [set](#set-clause)
 
 
-**Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregazioni** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **Scalari** [Valori letterali booleani](#boolean-literals) | [Operatori booleani](#boolean-operators) | [Cast](#casts) | [Confronti scalari](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**Numeri** [Operatori aritmetici](#arithmetic-operators) | [Valori letterali numerici](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**Numeri** [Operatori aritmetici](#arithmetic-operators) | [Valori letterali numerici](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Data e ora** [Espressioni di data e ora](#date-and-time-expressions) | [Valori letterali di data e ora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -445,7 +445,7 @@ Unisce le righe di due tabelle associando i valori della colonna specificata.
 
 **Sintassi**
 
-    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
 
 **Argomenti**
 
@@ -1053,7 +1053,7 @@ Questa versione più efficiente genera lo stesso risultato. Filtra ogni tabella 
 
 ### Operatore where
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 Filtra una tabella per trovare il subset di righe che soddisfano un predicato.
 
@@ -1086,7 +1086,7 @@ Per ottenere prestazioni ottimali:
 **Esempio**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1096,6 +1096,26 @@ Record risalenti a non più di 1 ora fa e provenienti dall'elemento Source denom
 
 Si noti che il confronto tra due colonne viene inserito per ultimo, perché non riesce a utilizzare l'indice e forza un'analisi.
 
+
+### Operatore where-in
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**Sintassi**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**Argomenti**
+
+* `col`: una colonna della tabella.
+* `expr1`...: un elenco di espressioni scalari.
+
+Usare `in` per includere solo le righe in cui `col` è uguale a una delle espressioni `expr1...`.
+
+Usare `!in` per includere solo le righe in cui `col` non è uguale a nessuna delle espressioni `expr1...`.
 
 
 ## Aggregazioni
@@ -1670,7 +1690,7 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 
 ## Numeri
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Valori letterali numerici
 
@@ -1683,18 +1703,8 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
 
 || |
 |---|-------------|
-| + | Aggiungi |
-| - | Sottrai |
-| * | Moltiplica |
-| / | Dividi |
-| % | Modulo |
-||
-|`<` |Minore
-|`<=`|Minore o uguale a
-|`>` |Maggiore
-|`>=`|Maggiore o uguale a
-|`<>`|Non uguale a
-|`!=`|Non uguale a
+| + | Add |
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 ### abs
@@ -1757,10 +1767,25 @@ L'espressione seguente calcola un istogramma di durate, con dimensione del bucke
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 Alias di [`bin()`](#bin).
+
+### gamma
+
+[Funzione gamma](https://en.wikipedia.org/wiki/Gamma_function)
+
+**Sintassi**
+
+    gamma(x)
+
+**Argomenti**
+
+* *x:* numero reale
+
+Per i numeri interi positivi, `gamma(x) == (x-1)!`, ad esempio `gamma(5) == 4 * 3 * 2 * 1`.
+
+Vedere anche [loggamma](#loggamma).
 
 
 ### log
@@ -1771,6 +1796,20 @@ Alias di [`bin()`](#bin).
 
 
 `v` deve essere un numero reale > 0. In caso contrario, viene restituito null.
+
+### loggamma
+
+
+Logaritmo naturale del valore assoluto della [funzione gamma](#gamma).
+
+**Sintassi**
+
+    loggamma(x)
+
+**Argomenti**
+
+* *x:* numero reale
+
 
 ### rand
 
@@ -2119,23 +2158,23 @@ h"hello"
 Operatore|Descrizione|Distinzione maiuscole/minuscole|Esempio true
 ---|---|---|---
 `==`|Uguale a |Sì| `"aBc" == "aBc"`
-`<>` `!=`|Non uguale a|Sì| `"abc" <> "ABC"`
+`<>` `!=`|Non uguale a|Sì| `"abc" <> "ABC"`  
 `=~`|Uguale a |No| `"abc" =~ "ABC"`
 `!~`|Non uguale a |No| `"aBc" !~ "xyz"`
 `has`|RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side)|No| `"North America" has "america"`
 `!has`|RHS non è un termine completo in LHS|No|`"North America" !has "amer"` 
 `hasprefix`  |RHS è un prefisso di un termine in LHS|No|`"North America" hasprefix "ame"`
 `!hasprefix`  |RHS non è un prefisso di un termine in LHS|No|`"North America" !hasprefix "mer"`
-`hassuffix`|RHS è un suffisso di un termine in LHS|No|`"North America" hassuffix "rth"`  
-`!hassuffix`  |RHS non è un suffisso di un termine in LHS|No|`"North America" !hassuffix "mer"`  
-`contains` | RHS si verifica come sottostringa di LHS|No| `"FabriKam" contains "BRik"`  
+`hassuffix`|RHS è un suffisso di un termine in LHS|No|`"North America" hassuffix "rth"`
+`!hassuffix`  |RHS non è un suffisso di un termine in LHS|No|`"North America" !hassuffix "mer"`
+`contains`   | RHS si verifica come sottostringa di LHS|No| `"FabriKam" contains "BRik"`
 `!contains`  | RHS non si verifica in LHS|No| `"Fabrikam" !contains "xyz"`
 `containscs`   | RHS si verifica come sottostringa di LHS|Sì| `"FabriKam" contains "Kam"`  
 `!containscs`  | RHS non si verifica in LHS|Sì| `"Fabrikam" !contains "Kam"`  
-`startswith`|RHS è una sottostringa iniziale di LHS|No|`"Fabrikam" startswith "fab"`  
+`startswith`|RHS è una sottostringa iniziale di LHS|No|`"Fabrikam" startswith "fab"`
 `!startswith`  |RHS non è una sottostringa iniziale di LHS|No|`"Fabrikam" !startswith "abr"`
-`endswith`  |RHS è una sottostringa terminale di LHS|No|`"Fabrikam" endswith "kam"`  
-`!endswith`|RHS non è una sottostringa terminale di LHS|No|`"Fabrikam" !endswith "ka"`  
+`endswith`  |RHS è una sottostringa terminale di LHS|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS non è una sottostringa terminale di LHS|No|`"Fabrikam" !endswith "ka"`
 `matches regex`  |LHS contiene una corrispondenza per RHS|Sì| `"Fabrikam" matches regex "b.*k"`  
 `in`  |Uguale a uno degli elementi|Sì|`"abc" in ("123", "345", "abc")`  
 `!in`  |Non uguale a uno degli elementi|Sì|`"bc" !in ("123", "345", "abc")`  
@@ -2397,7 +2436,7 @@ Converte una stringa in lettere maiuscole.
 
 ## Matrici, oggetti e dynamic
 
-[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
@@ -2699,6 +2738,24 @@ Una matrice di espressioni di percorso.
 
 Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice usato da un percorso specifico.
 
+### zip
+
+    zip(list1, list2, ...)
+
+Combina un set di elenchi in un elenco di tuple.
+
+* `list1...`: elenco di valori
+
+**esempi**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
+
 ### Nomi
 
 I nomi possono contenere fino a 1024 caratteri. Fanno distinzione tra maiuscole e minuscole e possono contenere lettere, cifre e caratteri di sottolineatura (`_`).
@@ -2724,4 +2781,4 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

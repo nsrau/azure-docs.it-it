@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -200,7 +200,7 @@ Gli URI vengono nidificati sotto lo stesso ID client / ID applicazione e cercati
 ```
 
 
-*Il formato degli URI di reindirizzamento è illustrato di seguito. È possibile usare qualsiasi URI di reindirizzamento a meno che non si voglia supportare il broker, nel qual caso deve essere simile ai precedenti*
+*Il formato degli URI di reindirizzamento viene illustrato di seguito. È possibile usare qualsiasi URI di reindirizzamento a meno che non si voglia supportare il broker, nel qual caso deve essere simile ai precedenti*
 
 
 
@@ -286,7 +286,7 @@ Per assicurarsi che i token delle credenziali vengano sempre restituiti all'appl
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 
-`<app-scheme>://<your.bundle.id>`
+`<app-scheme>://<your.bundle.id>`  
 
 Ad esempio:*x-msauth-mytestiosapp://com.myapp.mytestapp*
 
@@ -297,7 +297,7 @@ L'URI di reindirizzamento deve essere specificato nella registrazione dell'app t
 
 Per supportare l'autenticazione basata su certificati, è necessario registrare un secondo "msauth" nell'applicazione e nel [portale di Azure classico](https://manage.windowsazure.com/) per gestire l'autenticazione del certificato, se si vuole aggiungere tale supporto nell'applicazione.
 
-`msauth://code/<broker-redirect-uri-in-url-encoded-form>`
+`msauth://code/<broker-redirect-uri-in-url-encoded-form>`  
 
 Ad esempio: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
@@ -312,4 +312,4 @@ ADAL usa –canOpenURL: per controllare se il broker è installato nel dispositi
 
 Ora Microsoft Identity SDK condividerà automaticamente le credenziali tra le applicazioni e richiamerà il broker, se presente nel dispositivo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Configurare i criteri di distribuzione degli asset utilizzando API REST di Servizi multimediali" 
-	description="Questo argomento illustra come configurare criteri di distribuzione degli asset differenti utilizzando API REST di Servizi multimediali." 
+	pageTitle="Configurazione dei criteri di distribuzione degli asset utilizzando l'API REST di Servizi multimediali | Microsoft Azure" 
+	description="Questo argomento illustra come configurare criteri di distribuzione degli asset differenti utilizzando l'API REST di Servizi multimediali." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="dwrede" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
-	ms.author="juliako"/>
+	ms.date="09/19/2016"  
+	ms.author="juliako"/>  
 
-#Procedura: Configurare i criteri di distribuzione degli asset
+#Configurazione dei criteri di distribuzione degli asset
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
@@ -24,7 +24,7 @@ Se si prevede di distribuire asset crittografati in modo dinamico, uno dei passa
 
 Questo argomento illustra perché e come creare i criteri di distribuzione degli asset.
 
->[AZURE.NOTE]Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
 >
 >Inoltre, l'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva.
 
@@ -38,19 +38,19 @@ Di seguito sono illustrati i formati da usare per i flussi Smooth Streaming, HLS
 
 Smooth Streaming:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
 
 HLS:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=mpd-time-csf)
 
 HDS:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=f4m-f4f)
 
 Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere la sezione [Creare URL di streaming](media-services-deliver-streaming-content.md).
 
@@ -61,7 +61,7 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 - Non è possibile creare un localizzatore di streaming in un asset crittografato per l’archiviazione se non è impostato alcun criterio di distribuzione degli asset. Se l'asset non è crittografato per l'archiviazione, il sistema consentirà di creare un localizzatore ed eseguire in streaming l'asset in chiaro senza un criterio di distribuzione degli asset.
 - È possibile avere più criteri di distribuzione degli asset associati a un singolo asset, ma è possibile specificare solo un modo per gestire un determinato AssetDeliveryProtocol. Ciò significa che se si tenta di collegare due criteri di distribuzione che specificano il protocollo AssetDeliveryProtocol.SmoothStreaming, verrà generato un errore perché il sistema non sa quale applicare quando un client effettua una richiesta di Smooth Streaming.
 - Se si dispone di un asset con un localizzatore di streaming esistente, non è possibile collegare un nuovo criterio all'asset, scollegare un criterio esistente dall'asset, o aggiornare un criterio di distribuzione associato all'asset. È innanzitutto necessario rimuovere il localizzatore di streaming, modificare i criteri e quindi creare nuovamente il localizzatore di streaming. È possibile utilizzare lo stesso ID quando si ricrea il localizzatore di streaming, ma è necessario assicurarsi che questo non causi problemi per i client poiché il contenuto può essere memorizzato nella cache per l'origine o una rete CDN a valle.
- 
+
 >[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
@@ -69,7 +69,7 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 >Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md).
 
 
-##Criteri di distribuzione degli asset Clear 
+##Criteri di distribuzione degli asset Clear
 
 ###<a id="create_asset_delivery_policy"></a>Creare criteri di distribuzione degli asset
 La seguente richiesta HTTP crea criteri di distribuzione degli asset che indicano di non applicare la crittografia dinamica e di distribuire il flusso con uno dei seguenti protocolli: MPEG DASH, HLS e Smooth Streaming.
@@ -287,7 +287,7 @@ Ad esempio:
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
+##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
 
 ###AssetDeliveryProtocol 
 
@@ -448,7 +448,7 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
     }
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -456,4 +456,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

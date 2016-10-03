@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   keywords="funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, test"/>
+   keywords="funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, test"/>  
 
 <tags
    ms.service="functions"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/19/2016"
-   ms.author="wesmc"/>
+   ms.author="wesmc"/>  
 
 # Test di Funzioni di Azure
 
@@ -172,7 +172,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
 È possibile testare una funzione trigger del BLOB con [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-1. Nel [portale di Azure] creare una nuova funzione trigger del BLOB in C# o Node per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
+1. Nel [portale di Azure] creare una nuova funzione trigger del BLOB in C#, F# o Node per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
 
 		files
 
@@ -435,8 +435,8 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
 	2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
 
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

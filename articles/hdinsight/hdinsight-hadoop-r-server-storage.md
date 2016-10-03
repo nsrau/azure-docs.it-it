@@ -5,9 +5,9 @@
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
-   manager="paulettem"
+   manager="jhubbard"
    editor="cgronlun"
-/>
+/>  
 
 <tags
    ms.service="HDInsight"
@@ -17,7 +17,7 @@
    ms.workload="data-services"
    ms.date="09/01/2016"
    ms.author="jeffstok"
-/>
+/>  
 
 # Opzioni di Archiviazione di Azure per R Server su HDInsight (anteprima)
 
@@ -190,4 +190,4 @@ Dopo avere appreso le nozioni di base sull'uso della console di R da una session
 - [Articolo relativo all'installazione di RStudio Server in HDInsight Premium.](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opzioni del contesto di calcolo per R Server su HDInsight (anteprima)](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

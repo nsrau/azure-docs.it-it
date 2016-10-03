@@ -3,9 +3,9 @@
    description="Istruzioni passo a passo per configurare un'istanza di Docker predefinita usando Docker Machine e VirtualBox"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
-   editor="" />
+   editor="" />  
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />  
 
 # Configurare un Host Docker con VirtualBox
 
-## Panoramica
+## Overview
 Questo articolo consente di configurare un'istanza di Docker predefinita usando Docker Machine e VirtualBox. Se si utilizza il [Docker per Windows beta](http://beta.docker.com/), questa configurazione non è necessaria.
 
 ## Prerequisiti
@@ -62,4 +62,4 @@ Per configurare un client Docker, è sufficiente aprire Windows PowerShell ed es
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

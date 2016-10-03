@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="service-fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
-   ms.author="chackdan"/>
+   ms.date="09/13/2016"
+   ms.author="chackdan"/>  
 
 
 # Aggiornare un cluster di Service Fabric
@@ -37,7 +37,7 @@ Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito i
 
 Si tenta di eseguire più volte lo stesso aggiornamento nel caso in cui non sia riuscito a causa di problemi di infrastruttura. Dopo che gli n giorni dalla data di invio del messaggio di posta elettronica sono trascorsi, si passa alla fase 2.
 
-Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita, in modo da evitare l'invio di troppi messaggi e per far sì che la ricezione di un messaggio rappresenti un'eccezione alla norma. Si prevede che la maggior parte degli aggiornamenti del cluster abbia esito positivo, senza alcun impatto sulla disponibilità dell'applicazione.
+Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita. in modo da evitare l'invio di troppi messaggi e per far sì che la ricezione di un messaggio rappresenti un'eccezione alla norma. Si prevede che la maggior parte degli aggiornamenti del cluster abbia esito positivo, senza alcun impatto sulla disponibilità dell'applicazione.
 
 ### Fase 2: Un aggiornamento viene eseguito usando solo i criteri di integrità predefiniti
 
@@ -71,13 +71,10 @@ Di seguito sono riportate le configurazioni che è possibile modificare in un cl
 
 ### Certificati
 
-È possibile aggiornare facilmente il certificato primario o secondario dal portale di Azure, come illustrato di seguito, o eseguendo un comando PUT sulla risorsa servicefabric.cluster.
+È facile aggiungere o eliminare i certificati di cluster e client tramite il portale. Fare riferimento a [questo documento per altre informazioni](service-fabric-cluster-security-update-certs-azure.md)
 
-![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]
+![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]  
 
->[AZURE.NOTE] Prima di identificare il certificato da usare per le risorse del cluster, è necessario completare la procedura seguente. In caso contrario, i nuovi certificati non verranno usati:
-1. Caricare il nuovo certificato nell'insieme di credenziali delle chiavi di Azure. Per istruzioni, vedere [Protezione di un Service Fabric Cluster](service-fabric-cluster-security.md). Iniziare dal passaggio 2 di questo articolo.
-2. Aggiornare tutte le macchine virtuali (VM) che costituiscono il cluster, in modo che il certificato venga distribuito in ognuna di esse. A tale scopo, vedere il [blog del team assegnato all'insieme di credenziali delle chiavi di Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Porte dell'applicazione
 
@@ -87,15 +84,15 @@ Per aprire una nuova porta in tutte le VM di un tipo di nodo, seguire questa pro
 
 1. Aggiungere un nuovo probe al servizio di bilanciamento del carico appropriato.
 
-    Se il cluster è stato distribuito tramite il portale, il bilanciamento del carico verrà denominato "loadBalancer-0", "loadBalancer-1" e così via, uno per ogni tipo di nodo. Poiché i nomi del servizio di bilanciamento del carico sono univoci solo nell'ambito di un gruppo di risorse, è consigliabile cercarli in uno specifico gruppo di risorse.
+    Se il cluster è stato distribuito tramite il portale, il bilanciamento del carico verrà denominato "LB-nome del gruppo di risorse-NodeTypename", uno per ogni tipo di nodo. Poiché i nomi del servizio di bilanciamento del carico sono univoci solo nell'ambito di un gruppo di risorse, è consigliabile cercarli in uno specifico gruppo di risorse.
 
-    ![Schermata che illustra l'aggiunta di un probe a un servizio di bilanciamento del carico nel portale.][AddingProbes]
+    ![Schermata che illustra l'aggiunta di un probe a un servizio di bilanciamento del carico nel portale.][AddingProbes]  
 
 2. Aggiungere una nuova regola al servizio di bilanciamento del carico.
 
     Aggiungere una nuova regola allo stesso servizio di bilanciamento del carico usando il probe creato nel passaggio precedente.
 
-    ![Schermata che illustra l'aggiunta di una nuova regola a un servizio di bilanciamento del carico nel portale.][AddingLBRules]
+    ![Schermata che illustra l'aggiunta di una nuova regola a un servizio di bilanciamento del carico nel portale.][AddingLBRules]  
 
 
 ### Proprietà di posizionamento
@@ -121,9 +118,9 @@ Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virt
 - Informazioni su come eseguire la [scalabilità orizzontale e verticale del cluster](service-fabric-cluster-scale-up-down.md)
 - Informazioni su come eseguire [aggiornamenti dell'applicazione](service-fabric-application-upgrade.md)
 
-<!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
+<!--Image references-->  
+[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
+[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0921_2016-->

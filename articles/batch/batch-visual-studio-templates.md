@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="fayora"
 	manager="timlt"
-	editor="" />
+	editor="" />  
 
 <tags
 	ms.service="batch"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
 	ms.date="09/07/2016"
-	ms.author="marsma" />
+	ms.author="marsma" />  
 
 # Modelli di progetto di Visual Studio per Azure Batch
 
@@ -42,7 +42,7 @@ Come illustrato nel diagramma seguente, un processo di calcolo che usa questi mo
 
 3. Le attività dell'elaboratore di attività vengono eseguite in modo indipendente, in parallelo, per elaborare i dati di input e generare i dati di output.
 
-![Diagramma che illustra come il codice client interagisce con il servizio Batch][diagram01]
+![Diagramma che illustra come il codice client interagisce con il servizio Batch][diagram01]  
 
 ## Prerequisiti
 
@@ -114,7 +114,7 @@ Il modello genera anche i file di progetto .NET standard, ad esempio un file CSP
 
 La parte restante di questa sezione illustra i diversi file e la struttura del codice e spiega la funzione di ogni classe.
 
-![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Job Manager (Gestore di processi)][solution_explorer01]
+![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Job Manager (Gestore di processi)][solution_explorer01]  
 
 **File di Framework**
 
@@ -302,7 +302,7 @@ Il modello genera anche i file di progetto .NET standard, ad esempio un file CSP
 
 La parte restante di questa sezione illustra i diversi file e la struttura del codice e spiega la funzione di ogni classe.
 
-![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Task Processor (Elaboratore di attività)][solution_explorer02]
+![Esplora soluzioni di Visual Studio che illustra la soluzione del modello Task Processor (Elaboratore di attività)][solution_explorer02]  
 
 **File di Framework**
 
@@ -371,7 +371,7 @@ public async Task<int> Run()
     {
         throw new TaskProcessorException(
         $"{ex.GetType().Name} exception in run task processor: {ex.Message}",
-        Ex
+        ex
         );
     }
 }
@@ -482,4 +482,4 @@ Il [Forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

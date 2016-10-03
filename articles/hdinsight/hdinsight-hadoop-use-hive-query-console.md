@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
-   ms.author="larryfr"/>
+   ms.date="09/20/2016"
+   ms.author="larryfr"/>  
 
 # Eseguire query Hive usando Query Console
 
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come usare Query Console per eseguire query Hive in un cluster HDInsight Hadoop dal browser.
 
-> [AZURE.NOTE] Query Console è disponibile solo nei cluster HDInsight basati su Windows.
+> [AZURE.IMPORTANT] Query Console di HDInsight è disponibile solo nei cluster HDInsight basati su Windows. Se si utilizza un cluster HDInsight basato su Linux, vedere [Eseguire query Hive usando Query Console](hdinsight-hadoop-use-hive-ambari-view.md).
 
 
 ##<a id="prereq"></a>Prerequisiti
@@ -128,4 +128,4 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

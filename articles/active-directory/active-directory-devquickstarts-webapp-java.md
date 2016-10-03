@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="brandwe"/>
+	ms.date="09/16/2016"
+	ms.author="brandwe"/>  
 
 
 # Accesso e disconnessione all'app Web Java con Azure AD
@@ -50,7 +50,7 @@ Per consentire all'app di autenticare gli utenti, sarà innanzitutto necessario 
     - L'**URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `http://localhost:8080/adal4jsample/`.
 - Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
 
-Dopo aver eseguito l'accesso al portale per l'app, creare un **Segreto applicazione** per l'applicazione e prenderne nota. perché verrà richiesto a breve.
+Dopo aver eseguito l'accesso al portale per l'app, creare un **Segreto applicazione** per l'applicazione e prenderne nota. Verrà richiesto a breve.
 
 
 ## 2\. Configurare l'app per usare la libreria ADAL4J e i prerequisiti tramite Maven
@@ -312,7 +312,7 @@ Questo consente di impostare il reindirizzamento a una pagina sicura protetta da
 </html>
 ```
 
-- Infine, si procederà alla creazione della pagina Web sicura creando una cartella in `\webapp` denominata `\secure`, in modo che la directory corrisponda a `\webapp\secure`. 
+- Infine, si procederà alla creazione della pagina Web sicura creando una cartella in `\webapp` denominata `\secure`, in modo che la directory corrisponda a `\webapp\secure`.
 
 - All'interno della directory verrà quindi creato un file `aad.jsp` in cui è necessario tagliare/incollare quanto segue:
 
@@ -359,7 +359,7 @@ Per ottenere dati relativi all'utente, è necessario usare l'API Graph di Azure 
 
 Ora verranno scritti alcuni file Java che permetteranno di eseguire questa operazione automaticamente:
 
-1. nella directory radice creare una cartella denominata 'adal4jsample' per archiviare tutti i file Java. 
+1. nella directory radice creare una cartella denominata 'adal4jsample' per archiviare tutti i file Java.
 
 Nei file Java verrà usato lo spazio dei nomi `com.microsoft.aad.adal4jsample`. La maggior parte degli ambienti IDE crea una struttura di cartelle annidate, ad esempio `/com/microsoft/aad/adal4jsample`. Questa operazione è facoltativa.
 
@@ -1750,4 +1750,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [ è d
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

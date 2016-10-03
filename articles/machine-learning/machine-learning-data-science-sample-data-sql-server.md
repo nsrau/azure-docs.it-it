@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dati di esempio in SQL Server in Azure
@@ -25,7 +25,7 @@ Il campionamento di Python utilizza la libreria ODBC [pyodbc](https://code.googl
 
 >[AZURE.NOTE] Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all'argomento sullo [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) per istruzioni su come spostare i dati in SQL Server su Azure.
 
-**Perché campionare i dati?** Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel Processo di analisi scientifica dei dati per i team consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
+**Perché campionare i dati?** Se il set di dati da analizzare è grande, si consiglia di eseguire il downsampling dei dati per ridurli a una dimensione inferiore e più facilmente gestibile, ma comunque rappresentativa. Questa operazione facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
 
 Il **menu** seguente collega ad argomenti che descrivono come campionare dati da vari ambienti di archiviazione.
 
@@ -60,7 +60,7 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 
 ###<a name="sql-aml"></a>Connessione ad Azure Machine Learning
 
-È possibile utilizzare direttamente le query di esempio sopra menzionate nel modulo Import Data di Azure ML per ricampionare i dati in tempo reale e inserirli in un esperimento di Azure ML. Di seguito viene riportata una schermata relativa all'uso del modulo Reader per leggere i dati campionati:
+È possibile utilizzare direttamente le query di esempio sopra menzionate nel modulo [Import Data][import-data] di Azure Machine Learning per ricampionare i dati in tempo reale e inserirli in un esperimento di Azure Machine Learning. Di seguito viene riportata una schermata relativa all'uso del modulo Reader per leggere i dati campionati:
    
 ![lettore sql][1]
 
@@ -83,7 +83,7 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 ###<a name="python-aml"></a>Connessione ad Azure Machine Learning
 
-È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure ML utilizzando il *modulo Import Data*. Attenersi alla procedura seguente:
+È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure Machine Learning utilizzando il modulo [Import Data][import-data]. Attenersi alla procedura seguente:
 
 1. Scrivere il frame di dati Pandas in un file locale
 
@@ -111,9 +111,9 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leggere i dati nel BLOB di Azure utilizzando il *modulo Import Data* di Azure ML come mostrato nella schermata riportata di seguito:
+3. Leggere i dati nel BLOB di Azure utilizzando il modulo [Import Data][import-data] di Azure Machine Learning come mostrato nella schermata riportata di seguito:
  
-![lettore BLOB][2]
+![lettore BLOB][2]  
 
 ## Esempio del Processo di analisi scientifica dei dati per i team
 
@@ -122,6 +122,6 @@ Per un esempio della procedura dettagliata end-to-end del Processo di analisi sc
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
- 
+ [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

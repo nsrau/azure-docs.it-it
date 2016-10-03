@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="SSalahAhmed"
    manager="mbaldwin"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
-   ms.author="saah"/>
+   ms.date="09/16/2016"
+   ms.author="saah"/>  
 
 # Evento ’Attore Sconosciuto’ per il report di Azure Active Directory
 
@@ -40,4 +40,4 @@ Si tratta di un bug noto e si sta lavorando per risolvere il problema.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0921_2016-->

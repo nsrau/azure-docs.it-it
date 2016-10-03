@@ -5,21 +5,21 @@
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="" />
+   editor="" />  
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="alkohli" />
+   ms.date="09/21/2016"
+   ms.author="alkohli" />  
 
 # Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## Panoramica
+## Overview
 
 Questa esercitazione illustra come usare il servizio StorSimple Manager per creare e gestire i volumi nel dispositivo StorSimple e nel dispositivo virtuale StorSimple con l'aggiornamento 2 installato.
 
@@ -89,12 +89,12 @@ Un volume è costituito da una serie di attributi:
 
 Usare le istruzioni di questa esercitazione per eseguire le attività seguenti:
 
-- Aggiungere un volume 
-- Modificare un volume 
+- Aggiungere un volume
+- Modificare un volume
 - Modificare il tipo di volume
-- Eliminare un volume 
-- Portare un volume offline 
-- Monitorare a volume 
+- Eliminare un volume
+- Portare un volume offline
+- Monitorare a volume
 
 ## Aggiungere un volume
 
@@ -144,8 +144,8 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
 
 > [AZURE.IMPORTANT] 
 >
-> - Se si modifica la dimensione del volume nel dispositivo, è necessario modificare anche le esigenze di dimensioni del volume sull’host. 
-> - Le procedure host-side descritte di seguito sono per Windows Server 2012 (2012R2). Procedure per Linux o altri sistemi operativi host saranno diverse. Quando si modifica il volume di un host che esegue un altro sistema operativo, fare riferimento alle istruzioni del sistema operativo dell’host. 
+> - Se si modifica la dimensione del volume nel dispositivo, è necessario modificare anche le esigenze di dimensioni del volume sull’host.
+> - Le procedure host-side descritte di seguito sono per Windows Server 2012 (2012R2). Procedure per Linux o altri sistemi operativi host saranno diverse. Quando si modifica il volume di un host che esegue un altro sistema operativo, fare riferimento alle istruzioni del sistema operativo dell’host.
 
 #### Per modificare un volume
 
@@ -299,4 +299,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

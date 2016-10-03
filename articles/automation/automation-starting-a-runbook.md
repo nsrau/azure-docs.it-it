@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="mgoedtel"
    manager="jwhit"
-   editor="tysonn" />
+   editor="tysonn" />  
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/12/2016"
-   ms.author="magoedte;bwren"/>
+   ms.date="09/15/2016"
+   ms.author="magoedte;bwren"/>  
 
 # Avvio di un Runbook in Automazione di Azure
 
@@ -31,15 +31,7 @@ La tabella seguente consente di determinare la modalità di avvio di un Runbook 
 
 L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di un runbook. Include vari metodi di avvio di un runbook in Automazione di Azure, i componenti necessari per il ruolo di lavoro ibrido per runbook per eseguire i runbook di Automazione di Azure e le interazioni tra i vari componenti. Per altre informazioni sull'esecuzione di runbook di automazione nel proprio data center, vedere [Ruoli di lavoro ibridi per runbook](automation-hybrid-runbook-worker.md)
 
-![Architettura dei runbook](media/automation-starting-runbook/runbooks-architecture.png)
-
-## Avvio di un Runbook con il portale di Azure
-
-1.	Nel portale di Azure selezionare **Automazione** e quindi fare clic sul nome di un account di automazione.
-2.	Fare clic sulla scheda **Runbook**.
-3.	Selezionare un Runbook e quindi fare clic su **Avvia**.
-4.	Se il Runbook dispone di parametri, verrà richiesto di specificare i valori con una casella di testo per ogni parametro. Per altri dettagli sui parametri, vedere [Parametri di Runbook](#Runbook-parameters) più avanti.
-5.	Selezionare **Visualizza processo** accanto al messaggio del Runbook **Avvio in corso** oppure selezionare la scheda **Processi** per consentire al Runbook di visualizzare lo stato del processo.
+![Architettura dei runbook](media/automation-starting-runbook/runbooks-architecture.png)  
 
 ## Avvio di un Runbook con il portale di Azure
 
@@ -91,7 +83,7 @@ Il servizio Web Automazione di Azure offrirà funzionalità speciali per i param
 
 ### Valori denominati
 
-Se il parametro è un tipo di dati [object], è possibile usare il formato JSON seguente per inviargli un elenco di valori denominati: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. Questi valori devono essere tipi semplici. Il Runbook riceverà il parametro come [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) con proprietà che corrispondono a ogni valore denominato.
+Se il parametro è un tipo di dati [object], è possibile usare il formato JSON seguente per inviargli un elenco di valori denominati: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. Questi valori devono essere tipi semplici. Il Runbook riceverà il parametro come [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) con proprietà che corrispondono a ogni valore denominato.
 
 Si consideri il Runbook di test seguente che accetta un parametro denominato user.
 
@@ -195,4 +187,4 @@ jsmith
 -	L'architettura runbook nell'articolo corrente offre una panoramica generale delle risorse di gestione di runbook in Azure e in locale con il ruolo di lavoro ibrido per runbook. Per altre informazioni sull'esecuzione di runbook di automazione nel proprio data center, vedere [Ruoli di lavoro ibridi per runbook](automation-hybrid-runbook-worker.md).
 -	Per altre informazioni sulla creazione di runbook modulari che possono essere usati da altri runbook per funzioni comuni o specifiche, fare riferimento a [Runbook figlio](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

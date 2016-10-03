@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="curtand"/>
+	ms.author="curtand"/>  
 
 
 # Impostare i criteri di scadenza della password in Azure Active Directory
@@ -23,7 +23,7 @@
 
 In qualità di amministratore generale per un servizio cloud Microsoft, è possibile utilizzare il modulo della directory di Microsoft Azure Active per Windows PowerShell per impostare delle password utente che non scadano. È inoltre possibile utilizzare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate senza scadenza. Questo articolo riporta informazioni di guida sui servizi cloud, quali Microsoft Intune e Office 365, che si basano su Microsoft Azure Active Directory per i servizi di identità e directory.
 
-  > [AZURE.NOTE] Solo le password degli account utente che non sono sincronizzate tramite sincronizzazione della directory possono essere configurate senza scadenza. Per ulteriori informazioni sulla sincronizzazione della directory, vedere l'elenco di argomenti in [Roadmap sulla sincronizzazione della Directory](https://msdn.microsoft.com/library/azure/hh967642.aspx).
+  > [AZURE.NOTE] Solo le password degli account utente che non sono sincronizzate tramite sincronizzazione della directory possono essere configurate senza scadenza. Per altre informazioni sulla sincronizzazione della directory, vedere l'elenco di argomenti in [Roadmap sulla sincronizzazione delle directory](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
 Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario installarli.
 
@@ -51,9 +51,9 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
 
 2.  Eseguire una di queste operazioni:
 
-	- Per impostare la password di un utente in modo che la password scada, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
+	- Per impostare la password di un utente in modo che la password scada, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
 
-	- Per impostare le password di tutti gli utenti dell'organizzazione in modo che scadano, utilizzare il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
+	- Per impostare le password di tutti gli utenti dell'organizzazione in modo che scadano, utilizzare il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ## Impostare una password senza scadenza
 
@@ -61,12 +61,12 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
 
 2.  Eseguire una di queste operazioni:
 
-	- Per impostare la password di un utente senza scadenza, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
+	- Per impostare la password di un utente senza scadenza, eseguire il cmdlet seguente usando il nome principale utente (UPN) o l'ID utente dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
 
-	- Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
+	- Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## Passaggi successivi
 
 * **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

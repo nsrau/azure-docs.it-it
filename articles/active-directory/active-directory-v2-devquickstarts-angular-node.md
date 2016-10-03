@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>  
 
 
 # Aggiungere l'accesso a un'app a pagina singola AngularJS - NodeJS
@@ -24,7 +24,7 @@ In questo articolo si aggiungerà l'accesso con account Microsoft a un'app Angul
 Questo esempio è una semplice app a pagina singola To-Do List che archivia le attività in un'API REST back-end, scritta in NodeJS e protetta con i token di connessione OAuth di Azure AD. L'app AngularJS userà la libreria di autenticazione JavaScript open source [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) per gestire l'intero processo di accesso e acquisire i token per chiamare l'API REST. Lo stesso modello può essere applicato per l'autenticazione in altre API REST, ad esempio [Microsoft Graph](https://graph.microsoft.com) o le API di Gestione risorse di Azure.
 
 > [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 ## Scaricare
 
@@ -46,7 +46,7 @@ Creare prima di tutto un'app nel [portale di registrazione delle app](https://ap
 
 - Aggiungere la piattaforma **Web** per l'app.
 - Immettere l'**URI di reindirizzamento** corretto. Il valore predefinito per questo esempio è `http://localhost:8080`.
-- Lasciare abilitata la casella di controllo **Consenti flusso implicito**. 
+- Lasciare abilitata la casella di controllo **Consenti flusso implicito**.
 
 Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
@@ -245,4 +245,4 @@ Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori 
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

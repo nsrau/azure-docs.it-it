@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="aungoo-msft"
     manager=""
-	editor="tysonn" />
+	editor="tysonn" />  
 
 <tags
     ms.service="storage"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
-    ms.author="aungoo-msft"/>
+    ms.date="09/19/2016"
+    ms.author="aungoo-msft"/>  
 
 # Archiviazione Premium di Azure: progettata per prestazioni elevate
 
-## Panoramica  
+## Overview  
 Questo articolo fornisce indicazioni per lo sviluppo di applicazioni a prestazioni elevate mediante l'Archiviazione Premium di Azure. È possibile usare le istruzioni disponibili in questo documento insieme alle procedure consigliate per le prestazioni applicabili alle tecnologie usate dall'applicazione. Per illustrare le indicazioni, è stato usato SQL Server in esecuzione nell'Archiviazione Premium come esempio nell'intero documento.
 
 In questo articolo vengono trattati scenari relativi alle prestazioni per il livello dell'archiviazione, ma sarà necessario ottimizzare il livello dell'applicazione. Ad esempio, se si ospita una farm SharePoint nell'Archiviazione Premium di Azure, è possibile usare gli esempi relativi a SQL Server di questo articolo per ottimizzare il server di database. È anche possibile ottimizzare il server Web e il server applicazioni della farm SharePoint per ottenere prestazioni migliori.
@@ -231,6 +231,8 @@ Occorre ricordare che i dischi di Archiviazione Premium hanno capacità di prest
 ## Memorizzazione nella cache del disco  
 Le VM a scalabilità elevata che sfruttano i vantaggi dell'Archiviazione Premium di Azure includono una tecnologia di memorizzazione nella cache multilivello denominata BlobCache. BlobCache usa una combinazione della RAM della macchina virtuale e dell'unità SSD locale per la memorizzazione nella cache. Questa cache è disponibile per i dischi persistenti di Archiviazione Premium e i dischi locali della VM. Per impostazione predefinita, questa impostazione della cache viene configurata su Read/Write per dischi del sistema operativo e ReadOnly per i dischi dati ospitati nell'Archiviazione Premium. Quando la memorizzazione nella cache su disco è abilitata nei dischi di Archiviazione Premium, le VM a scalabilità elevata possono raggiungere livelli estremamente elevati di prestazioni che superano le prestazioni sottostanti del disco.
 
+>[AZURE.WARNING] La modifica dell'impostazione della cache di un disco di Azure scollega e ricollega il disco di destinazione. Se si tratta del disco del sistema operativo, la VM viene riavviata. Arrestare tutte le applicazioni/i servizi che potrebbero essere interessati da questa interruzione prima di modificare l'impostazione della cache del disco.
+
 Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog relativo all'[Archiviazione Premium di Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/).
 
 È importante abilitare la cache sul set corretto di dischi. L'abilitazione o meno della memorizzazione nella cache su disco in un disco Premium dipende dal modello di carichi di lavoro che verranno gestiti dal disco. La tabella seguente illustra le impostazioni predefinite della cache per i dischi sistema operativo e i dischi dati.
@@ -238,13 +240,13 @@ Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog re
 | **Tipo di disco** | **Impostazione predefinita per la cache** |
 |---|---|
 | Disco del sistema operativo | ReadWrite |
-| Disco dati | Nessuno |
+| Disco dati | None |
 
 Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 
 | **Impostazione per la memorizzazione nella cache su disco** | **Indicazione sull'uso di questa impostazione** |
 |---|---|
-| Nessuno | Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
+| None | Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
 | ReadOnly | Configurare la cache host come ReadOnly per dischi di sola lettura e di lettura-scrittura. |
 | ReadWrite | Configurare la cache host come ReadWrite solo se l'applicazione gestisce correttamente la scrittura di dati memorizzati nella cache in dischi persistenti, quando necessario. |
 
@@ -540,4 +542,4 @@ Per gli utenti di SQL Server sono disponibili articoli sulle procedure consiglia
 - [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

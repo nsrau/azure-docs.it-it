@@ -6,7 +6,7 @@
    authors="JimacoMS"
    manager="msmbaldwin"
    editor=""
-   tags=""/>
+   tags=""/>  
 
 
    <tags
@@ -15,8 +15,8 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/28/2016"
-      ms.author="v-jibran@microsoft.com"/>
+      ms.date="09/16/2016"
+      ms.author="v-jibran@microsoft.com"/>  
 
 # Avvio rapido per l'API Graph di Azure AD
 
@@ -59,7 +59,7 @@ Di seguito è riportato l'output che viene visualizzato se si passa a Esplora gr
 
 ![API Graph di Azure AD explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Caricare Esplora grafico**: per caricare lo strumento, passare a [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Fare clic su **Usa società demo** per eseguire lo strumento Esplora grafico sui dati di un tenant di esempio. Per usare la società demo non sono necessarie credenziali. In alternativa, è possibile fare clic su **Accedi** ed effettuare l'accesso con le credenziali dell'account di Azure AD per eseguire lo strumento Esplora grafico sul tenant. Se si esegue Esplora grafico per il proprio tenant, l'utente o l'amministratore dovranno fornire il consenso in fase di accesso. Se si ha una sottoscrizione di Office 365, si dispone automaticamente di un tenant di Azure AD. Le credenziali usate per accedere a Office 365 sono, in realtà, account di Azure AD ed è possibile usare tali credenziali con Esplora grafico.
+**Caricare Esplora grafico**: per caricare lo strumento, passare a [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Fare clic su **Usa società demo** per eseguire lo strumento Esplora grafico sui dati di un tenant di esempio. Per usare la società demo non sono necessarie credenziali. In alternativa, è possibile fare clic su **Accedi** ed effettuare l'accesso con le credenziali dell'account di Azure AD per eseguire lo strumento Esplora grafico sul tenant. Se si esegue Esplora grafico per il proprio tenant, l'utente o l'amministratore dovranno fornire il consenso in fase di accesso. Se si ha una sottoscrizione di Office 365, si ha automaticamente un tenant di Azure AD. Le credenziali usate per accedere a Office 365 sono, in realtà, account di Azure AD ed è possibile usare tali credenziali con Esplora grafico.
 
 **Eseguire una query**: per eseguire una query, digitarla nell'apposita casella di richiesta e fare clic su **OTTIENI** oppure premere il tasto **INVIO**. I risultati vengono visualizzati nella casella delle risposte. Ad esempio, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` elencherà tutti gli oggetti gruppo nella directory demo.
 
@@ -120,4 +120,4 @@ Per altre informazioni sulle entità e i tipi di Azure AD esposti da Graph e sul
 - Altre informazioni su [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 - Per altre informazioni, vedere [Ambiti di autorizzazione dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

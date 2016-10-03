@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante l'API REST di Servizi multimediali" 
+	pageTitle="Configurare i criteri di autorizzazione della chiave simmetrica mediante l'API REST di Servizi multimediali | Microsoft Azure" 
 	description="Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica utilizzando API REST di Servizi multimediali." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
-	ms.author="juliako"/>
+	ms.date="09/19/2016"  
+	ms.author="juliako"/>  
 
 
-#Crittografia dinamica: configurare i criteri di autorizzazione della chiave simmetrica 
+#Crittografia dinamica: configurare i criteri di autorizzazione della chiave simmetrica
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
- 
 
-##Panoramica
+
+##Overview
 
 Servizi multimediali di Microsoft Azure consente di distribuire contenuti crittografati dinamicamente con AES (Advanced Encryption Standard), tramite chiavi di crittografia a 128 bit e con PlayReady o Widevine DRM. Servizi multimediali offre anche un servizio per la distribuzione di chiavi e licenze PlayReady/Widevine ai client autorizzati.
 
@@ -44,7 +44,7 @@ Per altre informazioni, vedere
 
 ###Considerazioni applicabili:
 
-- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-manage-origins.md#scale_streaming_endpoints).
+- Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
 - L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla[ codifica di un asset](media-services-encode-asset.md).
 - Caricare e codificare gli asset mediante l'opzione **AssetCreationOptions.StorageEncrypted**.
 - Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
@@ -53,7 +53,7 @@ Per altre informazioni, vedere
 - Attualmente non è possibile crittografare il formato di streaming HDS o i download progressivi.
 
 
-##Crittografia dinamica AES-128 
+##Crittografia dinamica AES-128
 
 >[AZURE.NOTE] Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
@@ -468,7 +468,7 @@ Aggiungere criteri di autorizzazione alla chiave simmetrica, come mostrato [qui]
     }
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -483,4 +483,4 @@ Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passa
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

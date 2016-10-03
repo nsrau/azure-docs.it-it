@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro" 
+	pageTitle="Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro | Microsoft Azure" 
 	description="Informazioni su come creare flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+	authors="anilmur" 
+	manager="erikre" 
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;johndeu;anilmur"/>  
 
 
 #Creazione di flussi di lavoro di codifica avanzati con Progettazione flussi di lavoro
 
-##Panoramica
+##Overview
 
 **Progettazione flussi di lavoro** è uno strumento desktop di Windows che consente di progettare e costruire flussi di lavoro per la codifica con il **Flusso di lavoro Premium del codificatore multimediale**. Avvalendosi delle funzionalità di questo strumento per la progettazione di flussi di lavoro, è possibile progettare e creare flussi di lavoro complessi che verranno eseguiti nella versione **Premium di Azure Media Encoder**.
 
@@ -74,8 +74,9 @@ Il video del giorno 3 riguarda:
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
 
+## Passaggio successivo
 
-##Percorsi di apprendimento di Media Services
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -90,4 +91,4 @@ Per ottenere assistenza o ricevere informazioni per la creazione di flussi di la
 
 [Video di formazione sulla finestra di progettazione del flusso di lavoro del codificatore Premium di Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

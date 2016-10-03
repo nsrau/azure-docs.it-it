@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+   keywords=""/>  
 
 <tags
    ms.service="virtual-machines-windows"
@@ -15,8 +15,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/24/2016"
-   ms.author="zachal"/>
+   ms.date="09/15/2016"
+   ms.author="zachal"/>  
 
 # Passaggio di credenziali al gestore estensione DSC di Azure #
 
@@ -24,6 +24,8 @@
 
 Questo articolo illustra l'estensione DSC (Desired State Configuration) per Azure. Una panoramica del gestore estensione DSC è disponibile in [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
+
+## Passaggio di credenziali
 Nell'ambito del processo di configurazione, potrebbe essere necessario configurare account utente, servizi di accesso o installare un programma in un contesto utente. Per eseguire queste operazioni, è necessario fornire le credenziali.
 
 DSC consente di eseguire configurazioni con parametri in cui le credenziali vengono passate nella configurazione e archiviate in modo sicuro in file MOF. Per semplificare la gestione delle credenziali, il gestore estensione di Azure offre la gestione automatica dei certificati.
@@ -56,7 +58,7 @@ configuration Main
 } 
 ```
 
-È importante includere *node localhost* come parte della configurazione. Se l'istruzione manca, la successiva non funzionerà dal momento che il gestore dell'estensione cerca specificamente l'istruzione node localhost. È importante anche includere il cast di tipo *[PsCredential]*, perché questo tipo specifico attiva l'estensione per crittografare la credenziale.
+È importante includere *node localhost* come parte della configurazione. Se l'istruzione manca, la successiva procedura non funzionerà dal momento che il gestore dell'estensione cerca specificamente l'istruzione node localhost. È importante anche includere il cast di tipo *[PsCredential]*, perché questo tipo specifico attiva l'estensione per crittografare la credenziale.
 
 Pubblicare questo script nell'archivio BLOB:
 
@@ -75,7 +77,7 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
  
 $vm | Update-AzureVM
 ```
-
+## Protezione delle credenziali
 Durante l'esecuzione del codice viene chiesta una credenziale. Una volta fornita, viene archiviata nella memoria per breve tempo. Quando viene pubblicata con il cmdlet `Set-AzureVmDscExtension`, viene trasmessa tramite HTTPS alla VM, dove Azure la archivia crittografata su disco, usando il certificato della VM locale. Viene quindi brevemente decrittografata nella memoria e nuovamente crittografata per passarla a DSC.
 
 Questo comportamento è diverso dall'[uso di configurazioni sicure senza il gestore dell'estensione](https://msdn.microsoft.com/powershell/dsc/securemof). L'ambiente di Azure offre un modo per trasmettere i dati di configurazione in maniera sicura tramite certificati. Quando si usa il gestore dell'estensione DSC, non è necessario fornire $CertificatePath o una voce $CertificateID/$Thumbprint in ConfigurationData.
@@ -85,8 +87,10 @@ Questo comportamento è diverso dall'[uso di configurazioni sicure senza il gest
 
 Per altre informazioni sul gestore dell'estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
+Esaminare il [modello di Azure Resource Manager per l'estensione DSC](virtual-machines-windows-extensions-dsc-template.md).
+
 Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
 Per trovare altre funzionalità che è possibile gestire con PowerShell DSC, [cercare in PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) altre risorse DSC.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

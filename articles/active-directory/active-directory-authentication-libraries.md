@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="mbaldwin" />  
 <tags
    ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/31/2016"
-   ms.author="mbaldwin" />
+   ms.date="09/16/2016"
+   ms.author="mbaldwin" />  
 
 # Azure Active Directory Authentication Library
 
@@ -42,17 +42,17 @@ Di seguito sono illustrati i tre scenari comuni in cui è possibile usare Azure 
 
 ### Autenticazione degli utenti di un'applicazione client in una risorsa remota
 
-In questo scenario, uno sviluppatore ha un client, ad esempio un'applicazione WPF, che deve accedere a una risorsa remota protetta tramite Azure AD, ad esempio un'API Web. Ha una sottoscrizione di Azure, sa come richiamare l'API Web a valle e sa qual è il tenant di Azure AD usato dall'API Web. Può quindi usare Azure AD Authentication Library (ADAL) per semplificare l'autenticazione con Azure AD, sia delegando l'esperienza di autenticazione ad ADAL sia gestendo in modo esplicito le credenziali degli utenti. ADAL agevola l'autenticazione dell'utente, il recupero di un token di accesso e di un token di aggiornamento da Azure AD e quindi usa il token di accesso per inviare le richieste all'API Web.
+In questo scenario, uno sviluppatore ha un client, ad esempio un'applicazione WPF, che deve accedere a una risorsa remota protetta tramite Azure AD, ad esempio un'API Web. Ha una sottoscrizione di Azure, sa come richiamare l'API Web downstream e sa qual è il tenant di Azure AD usato dall'API Web. Può quindi usare Azure AD Authentication Library (ADAL) per semplificare l'autenticazione con Azure AD, sia delegando l'esperienza di autenticazione ad ADAL sia gestendo in modo esplicito le credenziali degli utenti. ADAL agevola l'autenticazione dell'utente, il recupero di un token di accesso e di un token di aggiornamento da Azure AD e quindi usa il token di accesso per inviare le richieste all'API Web.
 
 Per un esempio di codice che illustra questo scenario usando l'autenticazione ad Azure AD, vedere [chiamata di un'API Web da parte di un'applicazione WPF client nativa](https://github.com/azureadsamples/nativeclient-dotnet).
 
 ### Autenticazione di un'applicazione server in una risorsa remota
 
-In questo scenario, uno sviluppatore ha un'applicazione in esecuzione in un server che deve accedere a una risorsa remota protetta tramite Azure AD, ad esempio un'API Web. Ha una sottoscrizione di Azure, sa come richiamare il servizio a valle e sa qual è il tenant di Azure AD usato dall'API Web. Può quindi usare Azure AD Authentication Library (ADAL) per semplificare l'autenticazione con Azure AD gestendo in modo esplicito le credenziali dell'applicazione. ADAL semplifica il recupero di un token da Azure AD perché usa le credenziali client dell'applicazione e quindi il token per inviare richieste all'API Web. ADAL gestisce anche la durata del token di accesso memorizzandolo nella cache e rinnovandolo quando necessario. Per un esempio di codice che illustra questo scenario, vedere [chiamata di un'API Web da parte di un'applicazione console](https://github.com/AzureADSamples/Daemon-DotNet).
+In questo scenario, uno sviluppatore ha un'applicazione in esecuzione in un server che deve accedere a una risorsa remota protetta tramite Azure AD, ad esempio un'API Web. Ha una sottoscrizione di Azure, sa come richiamare il servizio downstream e sa qual è il tenant di Azure AD usato dall'API Web. Può quindi usare Azure AD Authentication Library (ADAL) per semplificare l'autenticazione con Azure AD gestendo in modo esplicito le credenziali dell'applicazione. ADAL semplifica il recupero di un token da Azure AD perché usa le credenziali client dell'applicazione e quindi il token per inviare richieste all'API Web. ADAL gestisce anche la durata del token di accesso memorizzandolo nella cache e rinnovandolo quando necessario. Per un esempio di codice che illustra questo scenario, vedere [chiamata di un'API Web da parte di un'applicazione console](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### Autenticazione di un'applicazione server per conto di un utente per accedere a una risorsa remota
 
-In questo scenario, uno sviluppatore ha un'applicazione in esecuzione in un server che deve accedere a una risorsa remota protetta tramite Azure AD, ad esempio un'API Web. La richiesta deve essere inviata per conto di un utente in Azure AD. Ha una sottoscrizione di Azure, sa come richiamare l'API Web a valle e sa qual è il tenant di Azure AD usato dal servizio. Una volta che l'utente ha eseguito l'autenticazione con l'applicazione Web, l'applicazione può ottenere un codice di autorizzazione per l'utente da Azure AD. L'applicazione Web può quindi usare Azure AD Authentication Library (ADAL) per ottenere un token di accesso e un token di aggiornamento per conto di un utente da Azure AD usando il codice di autorizzazione e le credenziali client associati all'applicazione. Non appena l'applicazione Web è in possesso del token di accesso, può chiamare l'API Web fino a quando il token non raggiunge la data di scadenza. Alla scadenza del token, l'applicazione Web potrà usare ADAL per ottenere un nuovo token di accesso usando il token di aggiornamento ricevuto in precedenza.
+In questo scenario, uno sviluppatore ha un'applicazione in esecuzione in un server che deve accedere a una risorsa remota protetta tramite Azure AD, ad esempio un'API Web. La richiesta deve essere inviata per conto di un utente in Azure AD. Ha una sottoscrizione di Azure, sa come richiamare l'API Web downstream e sa qual è il tenant di Azure AD usato dal servizio. Una volta che l'utente ha eseguito l'autenticazione con l'applicazione Web, l'applicazione può ottenere un codice di autorizzazione per l'utente da Azure AD. L'applicazione Web può quindi usare Azure AD Authentication Library (ADAL) per ottenere un token di accesso e un token di aggiornamento per conto di un utente da Azure AD usando il codice di autorizzazione e le credenziali client associati all'applicazione. Non appena l'applicazione Web è in possesso del token di accesso, può chiamare l'API Web fino a quando il token non raggiunge la data di scadenza. Alla scadenza del token, l'applicazione Web potrà usare ADAL per ottenere un nuovo token di accesso usando il token di aggiornamento ricevuto in precedenza.
 
 
 ## Vedere anche
@@ -63,4 +63,4 @@ In questo scenario, uno sviluppatore ha un'applicazione in esecuzione in un serv
 
 [Esempi di codice per Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

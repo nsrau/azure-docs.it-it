@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>  
 
 # Protocolli v2.0 - OAuth 2.0 e OpenID Connect
 
 L'endpoint v2.0 può usare Azure AD per il servizio IaaS (identity-as-a-service) con protocolli standard del settore, OpenID Connect e OAuth 2.0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. Le informazioni in questo argomento sono utili se si sceglie di scrivere codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una delle librerie open source di Microsoft.
-<!-- TODO: Need link to libraries above -->
+<!-- TODO: Need link to libraries above -->  
 
 > [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 ## Nozioni di base
 In quasi tutti i flussi di OAuth e OpenID Connect, sono coinvolte nello scambio quattro parti:
@@ -40,7 +40,7 @@ Ogni app che usa l'endpoint v2.0 dovrà essere registrata in [apps.dev.microsoft
 
 - Un **ID applicazione** che identifica l'app in modo univoco
 - Un **URI di reindirizzamento** o un **identificatore di pacchetto** che possono essere usati per indirizzare le risposte all'app
-- Altri valori specifici dello scenario
+- Altri valori specifici dello scenario.
 
 Per informazioni dettagliate, consultare l'argomento relativo alla [registrazione di un'app](active-directory-v2-app-registration.md).
 
@@ -80,4 +80,4 @@ Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle eserci
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

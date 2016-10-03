@@ -5,8 +5,8 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="07/27/2016"
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/>  
 
 
 # Esempi di query per modelli di uso comune di Analisi di flusso
@@ -59,7 +59,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Input**:
 
-| Casa automobilistica | Targa | Tempo |
+| Casa automobilistica | Targa | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -67,7 +67,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output**:
 
-| Casa automobilistica | Targa | Tempo |
+| Casa automobilistica | Targa | Time |
 | --- | --- | --- |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
 | Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
@@ -88,7 +88,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Casa automobilistica | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
@@ -96,7 +96,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output**:
 
-| Auto passate | Tempo |
+| Auto passate | Time |
 | --- | --- | --- |
 | 1 Honda | 2015-01-01T00:00:10.0000000Z |
 | 2 Toyota | 2015-01-01T00:00:10.0000000Z |
@@ -122,7 +122,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Casa automobilistica | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -132,7 +132,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output1**:
 
-| Casa automobilistica | Tempo |
+| Casa automobilistica | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -142,7 +142,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output2**:
 
-| Casa automobilistica | Tempo | Numero |
+| Casa automobilistica | Time | Conteggio |
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
 
@@ -187,7 +187,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Casa automobilistica | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -197,7 +197,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output:**
 
-| Numero | Tempo |
+| Conteggio | Time |
 | --- | --- |
 | 2 | 2015-01-01T00:00:02.000Z |
 | 1 | 2015-01-01T00:00:04.000Z |
@@ -230,14 +230,14 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Casa automobilistica | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
 **Output**:
 
-| Casa automobilistica | Tempo |
+| Casa automobilistica | Time |
 | --- | --- |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
@@ -258,7 +258,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Input**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Casa automobilistica | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
 | YZK 5704 | Ford | 27-07-2015T00:02:17.0000000Z |
@@ -270,7 +270,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 **Output**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Casa automobilistica | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
 | QYF 9358 | Honda | 27-07-2015T00:12:02.0000000Z |
@@ -288,7 +288,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 Ridefinire il problema e trovare la prima auto di una particolare casa automobilistica a intervalli di 10 minuti.
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Casa automobilistica | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
 | YZK 5704 | Ford | 27-07-2015T00:02:17.0000000Z |
@@ -312,7 +312,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Input**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Casa automobilistica | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 27-07-2015T00:00:05.0000000Z |
 | YZK 5704 | Ford | 27-07-2015T00:02:17.0000000Z |
@@ -324,7 +324,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Output**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Casa automobilistica | Time |
 | --- | --- | --- |
 | VFE 1616 | Toyota | 27-07-2015T00:09:31.0000000Z |
 | MDR 6128 | BMW | 27-07-2015T00:13:45.0000000Z |
@@ -357,7 +357,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Input**:
 
-| Casa automobilistica | Targa | Tempo |
+| Casa automobilistica | Targa | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -366,7 +366,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 **Output**:
 
-| Casa automobilistica | Tempo | Targa auto corrente | Targa prima auto | Tempo prima auto |
+| Casa automobilistica | Time | Targa auto corrente | Targa prima auto | Tempo prima auto |
 | --- | --- | --- | --- | --- |
 | Honda | 2015-01-01T00:00:02.0000000Z | AAA-999 | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 
@@ -503,7 +503,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -514,4 +514,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

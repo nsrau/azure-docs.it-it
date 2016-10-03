@@ -4,13 +4,13 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 
 1. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Sender**.
 
-	![][7]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**.
 
 3. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Assicurarsi che il nome del progetto **Sender** sia specificato nella casella **Versione/i**. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-	![][8]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)  
 
 	Visual Studio scarica e installa il [pacchetto NuGet delle librerie del bus di servizio di Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) e aggiunge un riferimento al pacchetto.
 
@@ -65,9 +65,4 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 	SendingRandomMessages();
 	```
 
-
-<!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
-
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

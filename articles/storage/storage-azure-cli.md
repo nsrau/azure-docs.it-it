@@ -4,7 +4,8 @@
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="carmonm"/>
+    manager="carmonm"
+    editor="tysonn"/>  
 
 <tags
     ms.service="storage"
@@ -12,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/02/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>  
 
 # Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
 
-## Panoramica
+## Overview
 
 L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com), nonché funzionalità di accesso ai dati complessi.
 
@@ -94,9 +95,9 @@ Dopo l'esecuzione dello script è necessario disporre di una cartella di destina
 
 ### Connettersi alla sottoscrizione di Azure
 
-Sebbene la maggior parte dei comandi di archiviazione funzionerà senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione di Azure CLI. Per configurare l'interfaccia della riga di comando di Azure per l'uso con la sottoscrizione, seguire la procedura nell'argomento [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
+Sebbene la maggior parte dei comandi di archiviazione funzioni senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione dall'interfaccia della riga di comando di Azure. Per configurare l'interfaccia della riga di comando di Azure per l'uso con la sottoscrizione, seguire la procedura nell'argomento [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
-### Creare un nuovo account di archiviazione
+### Creare un nuovo account di archiviazione.
 
 Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer per connettersi alla sottoscrizione, è possibile creare un nuovo account di archiviazione di Azure.
 
@@ -133,7 +134,7 @@ Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possi
 
 ### Caricare un BLOB in un contenitore
 
-In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Nell'archivio BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Per caricare BLOB in un contenitore, è possibile utilizzare il `azure storage blob upload`. Per impostazione predefinita, questo comando carica i file locali in un BLOB in blocchi. Per specificare il tipo per il BLOB, è possibile usare il parametro `--blobtype`.
 
@@ -221,4 +222,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

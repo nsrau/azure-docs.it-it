@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="jhubbard" 
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
-	ms.author="sunliangms;fashah;garye;bradsev" />
+	ms.date="09/19/2016"
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
 
@@ -182,13 +182,13 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
 3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data][import-data] di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
  
-![lettore BLOB][1]
+![lettore BLOB][1]  
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

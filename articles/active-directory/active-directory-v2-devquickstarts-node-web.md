@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,14 +13,14 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="brandwe"/>
+	ms.date="09/16/2016"
+	ms.author="brandwe"/>  
 
 # Aggiungere l'accesso a un’app Web nodeJS
 
 
 > [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 
 Passport viene usato per:
@@ -412,7 +412,7 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-È ora possibile passare ad argomenti più avanzati. È possibile:
+È ora possibile passare ad argomenti più avanzati. È possibile consultare:
 
 [Proteggere l'api Web node.js usando l'endpoint v2.0 >>](active-directory-v2-devquickstarts-node-api.md)
 
@@ -424,4 +424,4 @@ Per altre risorse, vedere:
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

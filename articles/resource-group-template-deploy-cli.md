@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="tfitzmac"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"/>  
 
 <tags
    ms.service="azure-resource-manager"
@@ -65,9 +65,11 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
    
         info:     New mode is arm
 
-4. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare il nome del gruppo di risorse e il percorso per la soluzione. Viene restituito un riepilogo del nuovo gruppo di risorse.
+4. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare il nome del gruppo di risorse e il percorso per la soluzione. È necessario specificare un percorso per il gruppo di risorse perché nel gruppo di risorse vengono archiviati i metadati delle risorse. Per motivi di conformità può essere opportuno specificare dove vengono archiviati i metadati. In generale è consigliabile specificare un percorso in cui risiederà la maggior parte delle risorse. Usando lo stesso percorso è possibile semplificare il modello.
 
         azure group create -n ExampleResourceGroup -l "West US"
+
+     Viene restituito un riepilogo del nuovo gruppo di risorse.
    
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -85,7 +87,7 @@ Se l’interfaccia della riga comando di Azure non è stata usata in precedenza 
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. Per distribuire le risorse al gruppo di risorse, eseguire il comando seguente e specificare i parametri necessari. I parametri includono un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello creato e qualsiasi altro parametro necessario per lo scenario.
+5. Per distribuire le risorse al gruppo di risorse, eseguire il comando seguente e specificare i parametri necessari. I parametri includono un nome per la distribuzione, il nome del gruppo di risorse, il percorso o l'URL per il modello e qualsiasi altro parametro necessario per lo scenario.
    
      Per specificare i valori dei parametri sono disponibili le tre opzioni seguenti:
 
@@ -171,4 +173,4 @@ Per un esempio sull'uso di un token di firma di accesso condiviso con modelli co
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 - Per informazioni dettagliate sull'uso di un riferimento KeyVault per passare valori protetti, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

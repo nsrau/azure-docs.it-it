@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev"
 	manager="jhubbard" 
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />  
 
 
 # Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)
 
-Il Processo di analisi scientifica dei dati per i team (TDSP) offre un approccio sistematico alla creazione di applicazioni intelligenti che permettono ai team di data scientist di collaborare in modo efficace per l'intero ciclo di vita delle attività necessarie per trasformare queste applicazioni in prodotti. Il TDSP illustra una sequenza di passaggi che fornisce **istruzioni** su come definire il problema, predisporre gli strumenti e l'ambiente necessario, analizzare i dati pertinenti, compilare e valutare i modelli predittivi e quindi distribuire tali modelli nelle applicazioni aziendali.
+Il [Processo di analisi scientifica dei dati per i team (TDSP)](data-science-process-overview.md) offre un approccio sistematico alla creazione di applicazioni intelligenti che permettono ai team di data scientist di collaborare in modo efficace per l'intero ciclo di vita delle attività necessarie per trasformare queste applicazioni in prodotti. Il TDSP illustra una sequenza di passaggi che fornisce **istruzioni** su come definire il problema, predisporre gli strumenti e l'ambiente necessario, analizzare i dati pertinenti, compilare e valutare i modelli predittivi e quindi distribuire tali modelli nelle applicazioni aziendali.
 
 Di seguito sono riportati i passaggi del **Processo di analisi scientifica dei dati per i team**:
 
@@ -96,4 +96,4 @@ Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

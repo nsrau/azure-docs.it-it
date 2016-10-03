@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev" />
+	ms.date="09/14/2016"
+	ms.author="bradsev" />  
 
 # Spostare i dati in o da un archivio BLOB di Azure mediante connettori SSIS
 
@@ -38,6 +38,7 @@ Per informazioni sugli scenari classici che usano SSIS per soddisfare esigenze a
 Per eseguire le attività illustrate in questo articolo, è necessario avere configurato una sottoscrizione di Azure e un account di archiviazione di Azure. Per caricare o scaricare dati, è necessario conoscere il nome dell'account di archiviazione di Azure e la chiave dell'account.
 
 - Per configurare una **sottoscrizione di Azure**, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
+
 - Per istruzioni sulla creazione di un **account di archiviazione** e su come ottenere le informazioni sull'account e sulla chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
 
@@ -57,9 +58,9 @@ Questo esempio usa un set di dati disponibile pubblicamente, ovvero il set di da
 
 
 ## Caricare dati nell'archivio BLOB di Azure
-Per spostare i dati usando il Feature Pack di SSIS da una posizione locale a un archivio BLOB di Azure, usare un'istanza dell'[**Azure Blob Upload Task**](https://msdn.microsoft.com/library/mt146776.aspx), illustrata di seguito:
+Per spostare i dati usando il Feature Pack di SSIS da una posizione locale a un archivio BLOB di Azure, usare un'istanza dell'[**Azure Blob Upload Task**](https://msdn.microsoft.com/library/mt146776.aspx), illustrata qui:
 
-![configure-data-science-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
+![configure-data-science-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)  
 
 
 I parametri usati dall'attività sono descritti di seguito:
@@ -87,4 +88,4 @@ Si noti che il Feature Pack di SSIS consente la gestione di flussi più compless
 - Per eseguire uno script Hive in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Hive Task](https://msdn.microsoft.com/library/mt146771.aspx).
 - Per eseguire uno script Pig in un cluster Azure HDInsight con SSIS, usare [Azure HDInsight Pig Task](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

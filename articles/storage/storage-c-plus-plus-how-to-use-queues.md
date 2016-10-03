@@ -3,9 +3,9 @@
     description="Informazioni su come usare il servizio di archiviazione delle code in Azure. Gli esempi sono scritti in C++."
     services="storage"
     documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
-    editor="tysonn"/>
+    authors="dineshmurthy"
+    manager=jahogg""
+    editor="tysonn"/>  
 
 <tags
     ms.service="storage"
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="dineshm"/>  
+    ms.date="09/20/2016"
+    ms.author="dineshm;robinsh"/>  
 
 # Come usare l'archiviazione delle code da C++  
 
@@ -228,6 +228,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **del
 	queue.delete_queue_if_exists();  
 
 ## Passaggi successivi
+
 A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodamento, visitare i collegamenti seguenti per altre informazioni su Archiviazione di Azure.
 
 -	[Come usare l’archiviazione BLOB da C++](storage-c-plus-plus-how-to-use-blobs.md)
@@ -236,4 +237,4 @@ A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodament
 -	[Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

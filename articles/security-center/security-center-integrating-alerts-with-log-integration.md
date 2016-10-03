@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="security-center"
@@ -75,6 +75,8 @@ Il servizio di integrazione dei log di Azure raccoglie i dati di telemetria dal 
 
 6. Puntare il connettore del server di inoltro del file SIEM standard alla cartella appropriata per reindirizzare i dati all'istanza di SIEM. Per informazioni sulla configurazione SIEM, vedere la pagina relativa alle [configurazioni SIEM](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm).
 
+In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di posta elettronica all'indirizzo [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
 ## Passaggi successivi
 
 Per altre informazioni sui log di controllo di Azure e le definizioni delle proprietà, vedere:
@@ -88,4 +90,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

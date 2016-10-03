@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="msmbaldwin"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="mbaldwin" />  
 <tags
    ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/18/2016"
-   ms.author="mbaldwin" />
+   ms.date="09/16/2016"
+   ms.author="mbaldwin" />  
 
 # API Graph di Azure Active Directory
 
@@ -50,11 +50,11 @@ L'API Graph offre le funzionalità seguenti:
 
 - **Estensioni della directory**: se si sviluppa un'applicazione che deve eseguire la lettura o la scrittura di proprietà univoche per gli oggetti directory, è possibile eseguire la registrazione e usare i valori dell'estensione mediante l'API Graph. Ad esempio, se l'applicazione richiede una proprietà ID Skype per ogni utente, è possibile registrare la nuova proprietà nella directory e renderla disponibile per ogni oggetto utente. Per altre informazioni, vedere [Estensioni dello schema di directory dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
-- **Protetto dagli ambiti di autorizzazione**: API Graph AAD espone gli ambiti di autorizzazione che consentono l’accesso protetto/autorizzato ai dati AAD e supportano un'ampia gamma di tipi di applicazioni client, tra cui:
+- **Protetto dagli ambiti di autorizzazione**: l'API Graph di AAD espone gli ambiti di autorizzazione che consentono l’accesso protetto/autorizzato ai dati AAD e supportano un'ampia gamma di tipi di applicazioni client, tra cui:
  - quelli con un'interfaccia utente a cui viene assegnato l'accesso delegato ai dati tramite l'autorizzazione da parte dell'utente connesso (delegato)
   - quelli che utilizzano il controllo degli accessi in base al ruolo definito dall’applicazione, ad esempio i client di servizio/daemon (ruoli app)
 
-    Entrambi gli ambiti di autorizzazione delegati e ruolo app rappresentano un privilegio esposto dall'API Graph e possono essere richiesti dalle applicazioni client tramite le funzionalità delle autorizzazioni di registrazione applicazione [nel portale di Azure classico](https://manage.windowsazure.com). I client possono verificare gli ambiti di autorizzazione concessi controllando l'attestazione di ambito ("scp") ricevuta nel token di accesso per le autorizzazioni delegate e l’attestazione dei ruoli ("ruoli") per le autorizzazioni del ruolo applicazione. Ulteriori informazioni su [Ambiti di autorizzazione dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+    Entrambi gli ambiti di autorizzazione delegati e ruolo app rappresentano un privilegio esposto dall'API Graph e possono essere richiesti dalle applicazioni client tramite le funzionalità delle autorizzazioni di registrazione applicazione [nel portale di Azure classico](https://manage.windowsazure.com). I client possono verificare gli ambiti di autorizzazione concessi controllando l'attestazione di ambito ("scp") ricevuta nel token di accesso per le autorizzazioni delegate e l’attestazione dei ruoli ("roles") per le autorizzazioni del ruolo applicazione. Altre informazioni sugli [ambiti di autorizzazione dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 
 
 ## Scenari
@@ -73,4 +73,4 @@ Gli scenari di applicazione dell'API Graph sono numerosi. Ecco i più comuni:
 
 [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0921_2016-->

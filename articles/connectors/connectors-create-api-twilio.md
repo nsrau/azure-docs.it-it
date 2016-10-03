@@ -6,16 +6,16 @@ documentationCenter=""
 authors="msftman"    
 manager="erikre"    
 editor=""
-tags="connectors"/>
+tags="connectors"/>  
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
-ms.author="mandia"/>
+ms.workload="integration"
+ms.date="09/19/2016"
+ms.author="mandia"/>  
 
 # Introduzione al connettore Twilio
 
@@ -25,8 +25,8 @@ Connettersi a Twilio per inviare e ricevere messaggi SMS, MMS e IP globali.
 
 Con Twilio è possibile:
 
-- Creare il flusso aziendale in base ai dati ottenuti da Twilio. 
-- Usare le azioni per ottenere un messaggio, elencare i messaggi e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando si ottiene un nuovo messaggio di Twilio, è possibile usarlo come flusso di lavoro del bus di servizio. 
+- Creare il flusso aziendale in base ai dati ottenuti da Twilio.
+- Usare le azioni per ottenere un messaggio, elencare i messaggi e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando si ottiene un nuovo messaggio di Twilio, è possibile usarlo come flusso di lavoro del bus di servizio.
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -35,7 +35,7 @@ Il connettore Twilio include le azioni seguenti. Non sono disponibili trigger.
 
 | Trigger | Azioni|
 | --- | --- |
-|Nessuno| <ul><li>Get Message</li><li>List Messages</li><li>Send Message</li></ul>|
+|None| <ul><li>Get Message</li><li>List Messages</li><li>Send Message</li></ul>|
 
 Tutti i connettori supportano dati nei formati JSON e XML.
 
@@ -54,7 +54,7 @@ In mancanza di un token di accesso, vedere [Twilio](https://www.twilio.com/docs/
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Twilio in altre app per la logica.
 
-## Informazioni di riferimento sulle API REST Swagger
+## Riferimento all'API REST di Swagger
 #### Questa documentazione è relativa alla versione 1.0
 
 ### Ottieni messaggio
@@ -64,7 +64,7 @@ Restituisce un singolo messaggio specificato dall'ID messaggio indicato. ```GET:
 | ---|---|---|---|---|---|
 |MessageId|string|yes|path|nessuno|ID del messaggio|
 
-### Risposta
+### Response
 |Nome|Descrizione|
 |---|---|
 |200|Operazione riuscita|
@@ -85,7 +85,7 @@ Restituisce un elenco di messaggi associati all'account. ```GET: /Messages.json`
 |PageSize|integer|no|query|50|Numero di risorse da restituire in ogni pagina dell'elenco. Il valore predefinito è 50|
 |Page|integer|no|query|0|Numero di pagina. Il valore predefinito è 0.|
 
-### Risposta
+### Response
 |Nome|Descrizione|
 |---|---|
 |200|Operazione riuscita|
@@ -102,7 +102,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 | ---|---|---|---|---|---|
 |sendMessageRequest| |sì|body|nessuno|Messaggio da inviare|
 
-### Risposta
+### Response
 |Nome|Descrizione|
 |---|---|
 |200|Operazione riuscita|
@@ -111,7 +111,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 |default|Operazione non riuscita.|
 
 
-## Definizioni oggetto
+## Definizioni oggetti
 
 #### SendMessageRequest: modello di richiesta per l'operazione di invio del messaggio
 
@@ -129,10 +129,10 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### Message: modello per il messaggio
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
 |body|string|no|
-|from|string|no|
+|from|stringa|no|
 |to|string|no|
 |status|string|no|
 |sid|string|no|
@@ -154,7 +154,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### MessageList: modello di risposta per l'operazione di elenco dei messaggi
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
 |messages|array|no|
 |page|integer|no|
@@ -168,7 +168,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### IncomingPhoneNumberList: modello di risposta per l'operazione di elenco dei messaggi
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
 |incoming\_phone\_numbers|array|no|
 |page|integer|no|
@@ -181,7 +181,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### AddIncomingPhoneNumberRequest: modello di richiesta per l'operazione di aggiunta dei numeri in ingresso
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
 |PhoneNumber|string|sì|
 |AreaCode|string|no|
@@ -190,7 +190,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### IncomingPhoneNumber: numero di telefono in ingresso
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
 |phone\_number|string|no|
 |friendly\_name|string|no|
@@ -206,7 +206,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### Capabilities: funzionalità dei numeri di telefono
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
 |mms|boolean|no|
 |sms|boolean|no|
@@ -214,7 +214,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### AvailablePhoneNumbers: numeri di telefono disponibili
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
 |phone\_number|string|no|
 |friendly\_name|string|no|
@@ -223,7 +223,7 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 |longitudine|string|no|
 |postal\_code|string|no|
 |rate\_center|string|no|
-|region|string|no|
+|region|stringa|no|
 |MMS|boolean|no|
 |SMS|boolean|no|
 |voice|boolean|no|
@@ -231,12 +231,12 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 
 #### UsageRecords: classe dei record di utilizzo
 
-|Nome proprietà | Tipo di dati |Obbligatorio|
+|Nome proprietà | Tipo di dati |Obbligatoria|
 |---|---|---|
-|category|string|no|
+|category|stringa|no|
 |utilizzo|string|no|
 |usage\_unit|string|no|
-|description|string|no|
+|description|stringa|no|
 |price|number|no|
 |price\_unit|string|no|
 |count|string|no|
@@ -248,4 +248,4 @@ Invia un nuovo messaggio a un numero di cellulare. ```POST: /Messages.json```
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

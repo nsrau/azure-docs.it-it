@@ -5,7 +5,7 @@
  documentationCenter=""
  authors="fsautomata"
  manager="timlt"
- editor=""/>
+ editor=""/>  
 
 <tags
  ms.service="iot-hub"
@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/14/2016"
- ms.author="elioda"/>
+ ms.date="09/19/2016"
+ ms.author="elioda"/>  
 
 # Ridimensionamento dell'hub IoT
 
-Hub IoT di Azure può supportare fino a un milione di dispositivi connessi contemporaneamente. Per ulteriori informazioni, vedere [prezzi di dell’hub IoT][lnk-pricing]. Ogni unità hub IoT mette a disposizione, inoltre, un numero di messaggi giornalieri.
+Hub IoT di Azure può supportare fino a un milione di dispositivi connessi contemporaneamente. Per ulteriori informazioni, vedere [prezzi di dell’hub IoT][lnk-pricing]. Ogni unità hub IoT mette a disposizione un certo numero di messaggi giornalieri.
 
 Per il ridimensionamento corretto della soluzione, considerare l'uso specifico che viene fatto dell'hub IoT. In particolare, considerare la velocità effettiva di picco richiesta per le categorie di operazioni seguenti:
 
@@ -40,8 +40,6 @@ I messaggi da dispositivo a cloud seguono queste linee guida in caso di velocit�
 | S2 | Fino a 16 MB al minuto per unità<br/>(22,8 GB al giorno per unità) | Una media di 4.167 messaggi al minuto per unità<br/>(6 milioni di messaggi al giorno per unità) |
 | S3 | Fino a 814 MB al minuto per unità<br/>(1144,4 GB al giorno per unità) | Una media di 208,333 messaggi al minuto per unità<br/>(300 milioni di messaggi al giorno per unità) |
 
-Le prestazioni dei messaggi da cloud a dispositivo vengono ridimensionate per dispositivo, con ogni dispositivo che riceve al massimo 5 messaggi al minuto.
-
 ## Velocità effettiva delle operazioni del registro delle identità
 
 Le operazioni del registro delle identità dell'hub IoT non sono considerate operazioni di runtime, in quanto sono per lo più correlate al provisioning dei dispositivi.
@@ -57,7 +55,7 @@ Mentre un hub IoT può essere ridimensionato fino a milioni di dispositivi, a vo
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 - [Guida per sviluppatori][lnk-devguide]
-- [Esplorare la Gestione dei dispositivi dell'hub IoT di Azure usando l'interfaccia utente di esempio][lnk-dmui]
+- [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Simulazione di un dispositivo con Gateway SDK][lnk-gateway]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
@@ -75,4 +73,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

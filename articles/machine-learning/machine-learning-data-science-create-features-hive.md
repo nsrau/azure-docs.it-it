@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard" 
-	editor="cgronlun"  />
+	editor="cgronlun"  />  
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/19/2016"
+	ms.author="hangzh;bradsev" />  
 
 
 #Creare funzionalità per i dati in un cluster Hadoop mediante le query Hive
@@ -25,8 +25,7 @@ Le operazioni necessarie per creare le funzionalità possono richiedere molta me
 
 Nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) sono inoltre disponibili alcuni esempi di query specifiche per gli scenari relativi ai [dati dei tragitti dei taxi di NYC](http://chriswhong.com/open-data/foil_nyc_taxi/). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente. Nella parte finale del documento sono descritti anche i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] 
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Prerequisiti
@@ -143,7 +142,7 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
 
 Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>, creato da Peter Lapisu. In JavaScript la funzione `toRad()` è semplicemente *lat\_or\_lon*pi/180* e consente di convertire i gradi in radianti. Qui *lat\_or\_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Creare un'area di lavoro](./media/machine-learning-data-science-create-features-hive/atan2new.png)
+![Creare un'area di lavoro](./media/machine-learning-data-science-create-features-hive/atan2new.png)  
 
 Nella sezione **Funzionalità integrate** del <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki su Hive di Apache</a> è disponibile un elenco completo relativo alle funzioni definite e incorporate di Hive.
 
@@ -184,4 +183,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 
  
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0921_2016-->

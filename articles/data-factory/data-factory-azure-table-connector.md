@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -418,7 +418,7 @@ Nell'esempio seguente, la colonna di origine DivisionID viene eseguito il mappin
 		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 	} 
 
-EmpID è specificato come chiave di partizione.
+DivisionID è specificato come chiave di partizione.
 
 	"sink": {
 		"type": "AzureTableSink",
@@ -432,7 +432,7 @@ EmpID è specificato come chiave di partizione.
 
 ### Mapping dei tipi per tabelle di Azure
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in due passaggi.
+Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipo automatiche dai tipi di origine ai tipi di sink con l'approccio in due passaggi seguente:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -531,4 +531,4 @@ In questo caso Data Factory esegue automaticamente la conversione del tipo inclu
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

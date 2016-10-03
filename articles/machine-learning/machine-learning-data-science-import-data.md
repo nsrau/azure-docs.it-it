@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -53,6 +53,8 @@ In qualsiasi momento dell'esperimento, è possibile visualizzare o scaricare i d
 - Testo normale (con estensione txt)
 - Valori delimitati da virgole (CSV) con un'intestazione (con estensione csv) o senza intestazione (con estensione nh.csv)
 - Valori separati da tabulazioni (TSV) con un'intestazione (con estensione tsv) o senza intestazione (con estensione nh.tsv)
+- File di Excel
+- Tabella di Azure
 - Tabella Hive
 - Tabella di database SQL
 - Valori OData
@@ -84,9 +86,9 @@ Se necessario, è possibile convertire il formato Tabella dati in CSV, TSV, ARFF
 
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

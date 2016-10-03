@@ -3,9 +3,9 @@
    description="Informazioni su come modificare un'app in esecuzione in un contenitore Docker locale, aggiornare il contenitore tramite la funzionalità di modifica e aggiornamento e impostare i punti di interruzione del debug"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
-   editor="" />
+   editor="" />  
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="07/22/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />  
 
 # Debug delle applicazioni in un contenitore Docker locale
 
-## Panoramica
+## Overview
 Gli Strumenti di Visual Studio per Docker consentono di sviluppare e convalidare l'applicazione in locale in un contenitore Docker. Non è necessario riavviare il contenitore ogni volta che si esegue una modifica del codice. Questo articolo illustra come usare la funzionalità di modifica e aggiornamento per avviare un'App Web ASP.NET Core in un contenitore Docker locale, apportare le modifiche necessarie e quindi aggiornare il browser per visualizzare le modifiche. Illustra anche come impostare i punti di interruzione per il debug.
 
 > [AZURE.NOTE] Il supporto del contenitore di Windows sarà disponibile nelle versioni future
@@ -26,8 +26,8 @@ Gli Strumenti di Visual Studio per Docker consentono di sviluppare e convalidare
 È necessario installare gli strumenti seguenti.
 
 - [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-- [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
-- [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
+- Installare [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 Per eseguire i contenitori Docker in locale, è necessario un client di Docker locale. È possibile utilizzare la [casella degli strumenti di Docker](https://www.docker.com/products/overview#/docker_toolbox) che richiede la disabilitazione di Hyper-V o in alternativa è possibile utilizzare [Docker per la versione beta di Windows](https://beta.docker.com) che utilizza Hyper-V e richiede Windows 10.
 
@@ -125,4 +125,4 @@ Con [Docker Tools for Visual Studio 2015](https://aka.ms/DockerToolsForVS) si ot
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

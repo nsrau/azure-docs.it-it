@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="garyericson"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/16/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -38,6 +38,6 @@ Per usare i propri dati in Machine Learning Studio, è possibile caricare un fil
 
 Durante il caricamento, viene visualizzato un messaggio che indica che il file è in fase di caricamento. Il tempo di caricamento dipende dalla dimensione dei dati e dalla velocità della connessione al servizio. Se è già noto che il file richiederà molto tempo, è possibile eseguire altre operazioni in Machine Learning Studio durante l'attesa. Tuttavia, la chiusura del browser comporterà un errore di caricamento dei dati.
 
-Una volta caricati, i dati vengono archiviati in un modulo di set di dati e sono disponibili per eventuali esperimenti nell'area di lavoro. È possibile individuare il set di dati, insieme a tutti i set di dati di esempio precaricati nell’elenco **Set di dati salvati** nella tavolozza dei moduli quando si modifica un esperimento. È possibile trascinare e rilasciare il set di dati nell'area di disegno esperimento quando si desidera utilizzare il set di dati per l'ulteriore analisi e l'apprendimento automatico.
+Una volta caricati, i dati vengono archiviati in un modulo di set di dati e sono disponibili per eventuali esperimenti nell'area di lavoro. Durante la modifica di un esperimento, è possibile individuare i set di dati creati nell’elenco **I miei set di dati** presente nell'elenco **Set di dati salvati** nella tavolozza dei moduli. È possibile trascinare e rilasciare il set di dati nell'area di disegno esperimento quando si desidera utilizzare il set di dati per l'ulteriore analisi e il machine learning.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

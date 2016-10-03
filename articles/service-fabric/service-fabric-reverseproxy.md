@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="BharatNarasimman,vturecek"
    manager="timlt"
-   editor="vturecek"/>
+   editor="vturecek"/>  
 
 <tags
    ms.service="service-fabric"
@@ -56,7 +56,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http(s):** il proxy inverso può essere configurato per accettare il traffico HTTP o HTTPS. In caso di traffico HTTPS, la terminazione SSL si verifica in corrispondenza del proxy inverso. Le richieste dal proxy inverso ai servizi del cluster sono inoltrate tramite HTTP.
- - **Gateway FQDN | internal IP:** per i client esterni, è possibile configurare il proxy inverso in modo da renderlo raggiungibile tramite il dominio del cluster (ad esempio, miocluster.europaocc.appcloud.azure.com). Per impostazione predefinita, il proxy inverso viene eseguito su ogni nodo, quindi è raggiungibile dal traffico interno sugli host locali o all'indirizzo IP di qualsiasi nodo interno (ad esempio, 10.0.0.1).
+ - **FQDN del cluster| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
  - **Port:** la porta che è stata specificata per il proxy inverso. Ad esempio: 19008.
  - **ServiceInstanceName:** questo è il nome dell'istanza del servizio distribuito completo che si sta tentando di raggiungere senza lo schema "fabric:/". Ad esempio, per raggiungere il servizio *fabric:/myapp/myservice/*, si usa *myapp/myservice*.
  - **Suffix path:** si tratta del percorso URL effettivo per il servizio al quale si desidera connettersi. Ad esempio, *myapi/values/add/3*
@@ -74,7 +74,7 @@ http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 Con le risorse seguenti:
 
- - `/index.html`
+ - `/index.html`  
  - `/api/users/<userId>`
 
 Se il servizio usa lo schema di partizionamento singleton, i parametri di stringa di query *PartitionKey* e *PartitionKind* non sono richiesti e il servizio può essere raggiunto tramite il gateway:
@@ -94,7 +94,7 @@ Per raggiungere le risorse esposte dal servizio, è sufficiente inserire il perc
 
 Il gateway inoltrerà quindi queste richieste all'URL del servizio:
 
- - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`
+ - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/index.html`  
  - `http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## Gestione speciale per servizi di condivisione porta
@@ -121,7 +121,7 @@ Il gateway necessita quindi di un modo per distinguere tra questi due casi. Per 
  - Per impostazione predefinita, il gateway presuppone la sussistenza del caso n. 2 e tenta di risolvere di nuovo l'indirizzo e inviare nuovamente la richiesta.
  - Per indicare il caso n.1 al gateway applicazione, il servizio deve restituire l'intestazione della risposta HTTP seguente:
 
-`X-ServiceFabric : ResourceNotFound`
+`X-ServiceFabric : ResourceNotFound`  
 
 L'intestazione della risposta HTTP indica una situazione HTTP 404 normale, in cui la risorsa richiesta non esiste e il gateway non tenta di risolvere di nuovo l'indirizzo del servizio.
 
@@ -241,4 +241,4 @@ Dopo aver ottenuto il modello per il cluster che si desidera distribuire (da mod
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

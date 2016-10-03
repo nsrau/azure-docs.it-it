@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="nitinme"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="nitinme"/>
+	ms.date="09/13/2016" 
+	ms.author="nitinme"/>  
 
 # Installare e usare Hue nei cluster Hadoop di HDInsight
 
@@ -68,15 +68,24 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 1. Utilizzare le informazioni contenute in [Utilizzare SSH Tunneling per accedere all'interfaccia utente Web Ambari, a ResourceManager, JobHistory, NameNode, Oozie e ad altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md) per creare un tunnel SSH dal sistema client al cluster HDInsight e quindi configurare il browser Web per usare il tunnel SSH come proxy.
 
-2. Dopo aver creato un tunnel SSH e configurato il browser per inoltrare il traffico attraverso di esso, è necessario trovare il nome host del nodo head. Usare la procedura seguente per ottenere queste informazioni da Ambari:
+2. Dopo aver creato un tunnel SSH e configurato il browser per inoltrare il traffico attraverso di esso, è necessario trovare il nome host del nodo head primario. È possibile farlo tramite la connessione al cluster con SSH sulla porta 22. Ad esempio, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` dove __USERNAME__ è il nome utente SSH e __CLUSTERNAME__ è il nome del cluster.
 
-    1. In un browser, passare a https://CLUSTERNAME.azurehdinsight.net. Quando richiesto, utilizzare il nome utente amministratore e la password per l'autenticazione nel sito.
-    
-    2. Dal menu nella parte superiore della pagina selezionare __Hosts__.
-    
-    3. Selezionare la voce che inizia con __hn0__. Quando viene visualizzata la pagina, il nome host viene visualizzato nella parte superiore. Il formato del nome host è __hn0- CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Questo è il nome host da utilizzare quando ci si connette a Hue.
+    Per altre informazioni sull'uso di SSH, consultare i documenti seguenti:
 
-2. Dopo aver creato un tunnel SSH e configurato il browser per inoltrare il traffico attraverso di esso, utilizzare il browser per aprire il portale Hue in http://HOSTNAME:8888. Sostituire HOSTNAME con il nome ottenuto da Ambari nel passaggio precedente.
+    * [Usare SSH con HDInsight basato su Linux da un client Linux, Unix o Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usare SSH con HDInsight basato su Linux da un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+3. Una volta connessi, utilizzare il comando seguente per ottenere il nome di dominio completo del nodo head primario:
+
+        hostname -f
+
+    Verrà restituito un nome simile al seguente:
+
+        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    
+    Questo è il nome host del nodo head primario in cui si trova il sito Web Hue.
+
+2. Utilizzare il browser per aprire il portale Hue all'indirizzo http://HOSTNAME:8888. Sostituire HOSTNAME con il nome ottenuto nel passaggio precedente.
 
     > [AZURE.NOTE] Quando si accede per la prima volta, viene richiesto di creare un account per l'accesso al portale Hue. Le credenziali specificate saranno limitate al portale e non sono correlate alle credenziali amministratore o utente SSH specificate durante il provisioning del cluster.
 
@@ -108,7 +117,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 ## Considerazioni importanti
 
-1. Lo script usato per installare Hue lo installa solo nel nodo head 0 del cluster.
+1. Lo script usato per installare Hue ne consente l'installazione solo nel nodo head del cluster.
 
 2. Durante l'installazione vengono riavviati più servizi Hadoop (HDFS, YARN, MR2, Oozie) per l'aggiornamento della configurazione. Al termine dell'installazione di Hue tramite lo script, è possibile che l'avvio di altri servizi Hadoop richieda qualche istante. Ciò potrebbe influire inizialmente sulle prestazioni di Hue. Una volta avviati tutti i servizi, Hue sarà completamente funzionale.
 
@@ -116,11 +125,11 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 		set hive.execution.engine=mr;
 
-4.	Con i cluster Linux è possibile avere uno scenario in cui i servizi vengono eseguiti sul nodo head 0 mentre Gestione risorse potrebbe essere in esecuzione sul nodo head 1. Questo scenario potrebbe causare errori (illustrati di seguito) quando si usa Hue per visualizzare i dettagli dei processi IN ESECUZIONE nel cluster. I dettagli del processo possono tuttavia essere visualizzati dopo il completamento del processo.
+4.	Con i cluster Linux è possibile avere uno scenario in cui i servizi vengono eseguiti sul nodo head primario mentre Resource Manager potrebbe essere in esecuzione su quello secondario. Questo scenario potrebbe causare errori (illustrati di seguito) quando si usa Hue per visualizzare i dettagli dei processi IN ESECUZIONE nel cluster. I dettagli del processo possono tuttavia essere visualizzati dopo il completamento del processo.
 
 	![Errore nel portale di Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Errore nel portale di Hue")
 
-	Questo è causato da un problema noto. Come soluzione alternativa, modificare Ambari in modo che anche l'istanza di Gestione Risorse attiva venga eseguita sul nodo head 0.
+	Questo è causato da un problema noto. Come soluzione alternativa, modificare Ambari in modo che anche l'istanza di Resource Manager attiva venga eseguita sul nodo head primario.
 
 5.	Hue riconosce WebHDFS mentre i cluster HDInsight usano Archiviazione di Azure Storage tramite `wasbs://`. Lo script personalizzato usato con l'azione script installa WebWasb, un servizio compatibile con WebHDFS-per comunicare con WASB. Quindi, anche se in alcuni punti nel portale di Hue è indicato HDFS (come quando si sposta il mouse su **File Browser**), dovrà essere interpretato come WASB.
 
@@ -137,4 +146,4 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

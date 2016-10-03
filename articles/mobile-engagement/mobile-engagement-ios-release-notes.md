@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="erikre"
-	editor="" />
+	editor="" />  
 
 <tags
 	ms.service="mobile-engagement"
@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="piyushjo" />
+	ms.date="09/12/2016"
+	ms.author="piyushjo" />  
 
 #Note sulla versione di Azure Mobile Engagement iOS SDK
+
+##4\.0.0 (12/09/2016)
+
+-   Risolto il problema delle notifiche non prese in considerazione sui dispositivi iOS 10.
+-   Deprecare XCode 7.
 
 ##3\.2.4 (30/06/2016)
 
@@ -71,4 +76,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stato eliminato il rilevamento di SmartAd.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

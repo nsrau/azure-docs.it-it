@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="cache" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
-	ms.author="sdanie"/>
+	ms.date="09/15/2016" 
+	ms.author="sdanie"/>  
 
-# Introduzione al livello di Azure Redis Cache Premium
+# Introduzione al piano Premium di Cache Redis di Azure
 Cache Redis di Azure è una cache distribuita e gestita che consente di creare applicazioni estremamente scalabili e reattive fornendo un accesso molto veloce ai dati.
 
 Il nuovo livello Premium è un livello per aziende che include tutte le funzionalità del livello Standard e altro ancora, come prestazioni migliori, carichi di lavoro maggiori, ripristino di emergenza, importazione/esportazione e sicurezza avanzata. Continuare a leggere per ulteriori informazioni sulle funzionalità aggiuntive del livello di cache Premium.
@@ -24,9 +24,9 @@ Il nuovo livello Premium è un livello per aziende che include tutte le funziona
 ## Prestazioni migliori rispetto al livello Standard o base
 **Prestazioni migliori a livello Standard o di base.** Le cache nel livello Premium sono distribuite su un hardware che dispone di processori più veloci e che offre prestazioni migliori rispetto al livello Standard o di base. Le cache di livello Premium dispongono di velocità effettiva più elevata e minori latenze.
 
-**La velocità effettiva per la Cache della stessa dimensione è superiore nel Premium rispetto al livello Standard.** Ad esempio. Per una Cache di GB 53, la velocità effettiva di P4 (Premium) è 250K richieste al secondo rispetto a 150 K per C6 (Standard).
+**La velocità effettiva per la Cache della stessa dimensione è superiore nel Premium rispetto al livello Standard.** Ad esempio, la velocità effettiva di una cache P4 (Premium) da 53 GB è di 250K richieste al secondo rispetto a 150 K per C6 (Standard).
 
-Vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) per altri dettagli sulle dimensioni, la velocità effettiva e la larghezza di banda con le cache Premium.
+Per maggiori informazioni su dimensioni, velocità e larghezza di banda con le cache Premium, vedere [Domande frequenti sulla Cache Redis di Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 ## Persistenza dei dati Redis:
 Il livello Premium consente la persistenza dei dati della cache in un account di archiviazione di Azure. In una cache Basic/Standard tutti i dati vengono archiviati solo in memoria. In caso di problemi per l'infrastruttura sottostante esiste il rischio di una potenziale perdita di dati. È consigliabile usare la funzionalità di persistenza dei dati Redis nel livello Premium per aumentare la resilienza contro la perdita di dati. Cache Redis di Azure offre le opzioni RDB e AOF (presto disponibile) per la [Persistenza di Redis](http://redis.io/topics/persistence).
@@ -90,4 +90,4 @@ Creare una cache ed esplorare le nuove funzionalità del livello premium.
 -	[Come amministrare Cache Redis di Azure](cache-administration.md)
   
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
    documentationCenter="na" 
    authors="yuemlu" 
    manager="timlt" 
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="cloud-services"
@@ -14,20 +14,23 @@
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
    ms.date="07/13/2016"
-   ms.author="raiye"/>
+   ms.author="raiye"/>  
 
 # Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][], non è indispensabile leggere questa pagina.
 
 > [AZURE.IMPORTANT] Questa pagina è applicabile ai ruoli Web e ai ruoli di lavoro dei servizi cloud in esecuzione su un sistema operativo guest. **Non si applica** alle macchine virtuali IaaS.
 
-<!-- -->
+<!-- -->  
 
 > [AZURE.TIP] Sottoscrivere il [feed RSS di aggiornamento del sistema operativo guest][rss] per ricevere notifiche più tempestive su tutte le modifiche al sistema operativo guest.
 
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## Novità e aggiornamenti
+###### **13 settembre 2016**
+L'implementazione del sistema operativo guest di settembre è iniziata il 13 settembre 2016 e dovrebbe essere rilasciata il 13 ottobre 2016.
+
 ###### **9 agosto 2016**
 L'implementazione del sistema operativo guest di agosto è iniziata il 9 agosto 2016 e dovrebbe essere rilasciata l'8 settembre 2016.
 
@@ -66,9 +69,10 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.35\_201608-01 | 8 settembre 2016* | Dopo la versione 4.37 | Da definire |
+| WA-GUEST-OS-4.36\_201609-01 | 13 ottobre 2016 | Dopo la versione 4.38 | Da definire |
+| WA-GUEST-OS-4.35\_201608-01 | 13 settembre 2016 | Dopo la versione 4.37 | Da definire |
 | WA-GUEST-OS-4.34\_201607-01 | 8 agosto 2016 | Post 4.36 | Da definire |
-| WA-GUEST-OS-4.33\_201606-01 | 13 luglio 2016 | Dopo la versione 4.35 | Da definire |
+| WA-GUEST-OS-4.33\_201606-01 | 13 luglio 2016 | 13 ottobre 2016 | Da definire |
 | WA-GUEST-OS-4.32\_201605-01 | 10 giugno 2016 | 8 settembre 2016 | Da definire |
 | WA-GUEST-OS-4.31\_201604-01 | 2 maggio 2016 | 13 agosto 2016 | Da definire |
 | WA-GUEST-OS-4.30\_201603-01 | 7 aprile 2016 | 10 luglio 2016 | Da definire |
@@ -95,9 +99,10 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.42\_201608-01 | 8 settembre 2016* | Dopo la versione 3.44 | Da definire |
+| WA-GUEST-OS-3.43\_201609-01 | 13 ottobre 2016 | Dopo la versione 3.45 | Da definire |
+| WA-GUEST-OS-3.42\_201608-01 | 13 settembre 2016 | Dopo la versione 3.44 | Da definire |
 | WA-GUEST-OS-3.41\_201607-01 | 8 agosto 2016 | Post 3.43 | Da definire |
-| WA-GUEST-OS-3.40\_201606-01 | 13 luglio 2016 | Dopo la versione 3.42 | Da definire |
+| WA-GUEST-OS-3.40\_201606-01 | 13 luglio 2016 | 13 ottobre 2016 | Da definire |
 | WA-GUEST-OS-3.39\_201605-01 | 10 giugno 2016 | 8 settembre 2016 | Da definire |
 | WA-GUEST-OS-3.38\_201604-01 | 2 maggio 2016 | 13 agosto 2016 | Da definire |
 | WA-GUEST-OS-3.37\_201603-01 | 7 aprile 2016 | 10 luglio 2016 | Da definire |
@@ -125,9 +130,10 @@ Supporta .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.54\_201608-01 | 8 settembre 2016* | Dopo la versione 2.56 | Da definire |
+| WA-GUEST-OS-2.55\_201609-01 | 13 ottobre 2016 | Dopo la versione 2.57 | Da definire |
+| WA-GUEST-OS-2.54\_201608-01 | 13 settembre 2016 | Dopo la versione 2.56 | Da definire |
 | WA-GUEST-OS-2.53\_201607-01 | 8 agosto 2016 | Post 2.55 | Da definire |
-| WA-GUEST-OS-2.52\_201606-01 | 13 luglio 2016 | Dopo la versione 2.54 | Da definire |
+| WA-GUEST-OS-2.52\_201606-01 | 13 luglio 2016 | 13 ottobre 2016 | Da definire |
 | WA-GUEST-OS-2.51\_201605-01 | 10 giugno 2016 | 8 settembre 2016 | Da definire |
 | WA-GUEST-OS-2.50\_201604-01 | 2 maggio 2016 | 13 agosto 2016 | Da definire |
 | WA-GUEST-OS-2.49\_201603-01 | 7 aprile 2016 | 10 luglio 2016 | Da definire |
@@ -168,16 +174,13 @@ Quando si supera la data di **scadenza**, qualsiasi servizio cloud che usa ancor
 ## Spiegazione delle famiglie e delle versioni del sistema operativo guest
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
 
-- **Famiglia di sistemi operativi guest**  
-Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
+- **Famiglia di sistemi operativi guest** Una versione del sistema operativo Windows Server sulla quale è basato un sistema operativo guest. Ad esempio, la *famiglia 3* è basata su Windows Server 2012.
 
-- **Versione del sistema operativo guest**  
-Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] che sono disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
+- **Versione del sistema operativo guest** Specifica per l'immagine di una famiglia di sistemi operativi guest e per le patch pertinenti di [Microsoft Security Response Center (MSRC)][msrc] che sono disponibili al momento dell'introduzione della nuova versione del sistema operativo guest. È possibile che non siano incluse tutte le patch.
 
     I numeri iniziano da 0 e vengono incrementati di 1 a ogni aggiunta di un nuovo set di aggiornamenti. Gli zeri finali vengono visualizzati solo se sono importanti; ad esempio, la versione 2.10 è una versione diversa e successiva rispetto alla versione 2.1.
 
-- **Rilascio del sistema operativo guest**  
-Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure classico consente agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
+- **Rilascio del sistema operativo guest** Un nuovo rilascio di una versione del sistema operativo guest. Il nuovo rilascio viene introdotto se durante la fase di test Microsoft rileva problemi che richiedono l'esecuzione di modifiche. L'ultimo rilascio sostituisce sempre quelli precedenti, che siano pubblici o meno. Il portale di Azure classico consente agli utenti di scaricare soltanto l'ultimo rilascio disponibile per una determinata versione. Le distribuzioni in cui si usa una versione precedente in genere non vengono forzate all'aggiornamento in base alla gravità del bug.
 
 Nell'esempio seguente, 2 rappresenta la famiglia, 12 la versione e "rel2" il rilascio.
 
@@ -202,7 +205,7 @@ Se si aggiorna manualmente il sistema operativo guest, leggere le informazioni i
 ## Criteri relativi al supporto e al ritiro del sistema operativo guest
 I criteri relativi al supporto e al ritiro del sistema operativo guest sono descritti [qui][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/it-IT/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Impostazioni di aggiornamento del sistema operativo guest Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -223,4 +226,4 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

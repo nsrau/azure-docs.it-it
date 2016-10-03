@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Anteprima di Servizi di dominio Active Directory di Azure: Guida all'amministrazione | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Guida all'amministrazione | Microsoft Azure"
 	description="Aggiungere una macchina virtuale Windows a un dominio gestito con Azure PowerShell e il modello di distribuzione classica."
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="maheshu"/>
+	ms.date="09/20/2016"
+	ms.author="maheshu"/>  
 
 
-# Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell
+# Aggiungere una macchina virtuale Windows Server a un dominio gestito usando PowerShell
 
 > [AZURE.SELECTOR]
 - [Portale di Azure classico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 - [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 
-<br>
+<br>  
 
 > [AZURE.IMPORTANT] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Servizi di dominio Active Directory non supporta attualmente il modello Resource Manager.
 
@@ -40,7 +40,7 @@ Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argo
 3. Digitare la password per l'account.
 4. Fare clic su **Accedi**.
 
-## Passaggio 2: impostare l'account di archiviazione e la sottoscrizione
+## Passaggio 2: Impostare l'account di archiviazione e la sottoscrizione
 
 Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
@@ -108,7 +108,7 @@ A questo punto, eseguire il provisioning della macchina virtuale Windows aggiunt
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<br>
+<br>  
 
 ## Script per eseguire il provisioning di una macchina virtuale Windows e aggiungerla automaticamente a un dominio gestito da Servizi di dominio Active Directory di Azure
 Questo set di comandi di PowerShell crea una macchina virtuale per un server line-of-business che:
@@ -147,4 +147,11 @@ Di seguito è riportato lo script di esempio completo per creare la macchina vir
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<!---HONumber=AcomDC_0706_2016-->
+<br>  
+
+## Contenuti correlati
+- [Servizi di dominio Azure AD: introduzione](./active-directory-ds-getting-started.md)
+
+- [Amministrare un dominio gestito di Servizi di dominio Azure AD](./active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0921_2016-->

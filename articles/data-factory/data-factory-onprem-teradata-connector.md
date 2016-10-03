@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da Teradata utilizzando Data factory di Azure
@@ -22,7 +22,8 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 
 Data factory supporta la connessione a origini Teradata locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway.
 
-**Nota:** è necessario usare il gateway per connettersi a Teradata anche se è ospitato in macchine virtuali IaaS di Azure. Se si sta cercando di connettersi a un'istanza di Teradata ospitata nel cloud è anche possibile installare l'istanza del gateway nella macchina virtuale IaaS.
+> [AZURE.NOTE]
+Il gateway è necessario anche se il database Teradata è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM IaaS dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 
 Data factory supporta solo lo spostamento di dati da Teradata ad altri archivi dati, non da altri archivi dati a Teradata.
 
@@ -51,7 +52,7 @@ L'esempio include le entità di Data factory seguenti:
 
 L'esempio copia i dati dai risultati della query nel database Teradata in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-Per prima cosa, impostare il Gateway di gestione dati seguendo le istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
+Come primo passaggio, impostare il Gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servizio collegato Teradata:**
 
@@ -86,7 +87,7 @@ Per prima cosa, impostare il Gateway di gestione dati seguendo le istruzioni con
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in Teradata e che contenga una colonna denominata "timestamp" per i dati di una serie temporale.
 
-Impostando "external" su true e specificando i criteri externalData si comunica alla data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 
 	{
 	    "name": "TeradataDataSet",
@@ -174,7 +175,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** consente di selezionare i dati da copiare nell'ultima ora.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** consente di selezionare i dati da copiare nell'ultima ora.
 
 	{
 	    "name": "CopyTeradataToBlob",
@@ -239,18 +240,18 @@ Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data
 
 ## Proprietà del tipo di set di dati Teradata
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. Attualmente non sono disponibili proprietà di tipo supportate per il set di dati Teradata.
 
 
 ## Proprietà del tipo di attività di copia Teradata
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
-Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
+Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
-In caso di attività di copia con origine di tipo **RelationalSource** (che comprende Teradata), sono disponibili le proprietà seguenti nella sezione **typeProperties**:
+Se l'origine è di tipo **RelationalSource** (che comprende Teradata), sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
@@ -265,7 +266,7 @@ Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-da
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
 
-Quando si spostano i dati in Teradata verranno usati i mapping seguenti dal tipo Teradata al tipo .NET.
+Quando si spostano i dati in Teradata vengono usati i mapping seguenti dal tipo Teradata al tipo .NET.
 
 Tipo di database Teradata | Tipo di .NET Framework
 ----------------- | ---------------------------
@@ -316,4 +317,4 @@ Xml | String
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

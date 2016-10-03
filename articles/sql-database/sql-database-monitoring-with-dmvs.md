@@ -6,7 +6,7 @@
    authors="CarlRabeler"
    manager="jhubbard"
    editor=""
-   tags=""/>
+   tags=""/>  
 
 <tags
    ms.service="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/05/2016"
-   ms.author="carlrab"/>
+   ms.date="09/20/2016"
+   ms.author="carlrab"/>  
 
 # Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica
 
-Il database SQL di Microsoft Azure consente a un sottoinsieme di visualizzazioni a gestione dinamica di diagnosticare i problemi delle prestazioni che potrebbero essere causati da query bloccate o con esecuzione prolungata, colli di bottiglia delle risorse, piani di query insufficienti e così via. In questo argomento vengono fornite informazioni su come rilevare problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica.
+Il database SQL di Microsoft Azure consente a un sottoinsieme di visualizzazioni a gestione dinamica di diagnosticare i problemi delle prestazioni che potrebbero essere causati da query bloccate o con esecuzione prolungata, colli di bottiglia delle risorse, piani di query insufficienti e così via. Questo argomento fornisce informazioni su come rilevare problemi comuni relativi alle prestazioni tramite le DMV.
 
 Il database SQL supporta parzialmente tre categorie di visualizzazioni a gestione dinamica:
 
@@ -76,7 +76,7 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] Quando si eseguono le visualizzazioni **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se l'utente dispone di un’autorizzazione**VIEW DATABASE STATE** sul database, l'utente vedrà tutte le sessioni in esecuzione sul database; in caso contrario, l'utente vedrà solo la sessione corrente.
+> [AZURE.NOTE] Quando si eseguono **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se si dispone di un'autorizzazione**VIEW DATABASE STATE** sul database, saranno visibili tutte le sessioni in esecuzione sul database; in caso contrario, sarà visibile solo la sessione corrente.
 
 ## Monitoraggio delle prestazioni delle query
 
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introduzione al Database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

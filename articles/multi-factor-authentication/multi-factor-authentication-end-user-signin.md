@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure MFA. Esperienza di accesso con Azure Multi-Factor Authentication" 
+<properties
+	pageTitle="Azure MFA. Esperienza di accesso con Azure Multi-Factor Authentication"
 	description="Questa pagina fornirà indicazioni su dove trovare le istruzioni per visualizzare i diversi metodi di accesso disponibili con Azure MFA."
-	keywords="autenticazione utente, esperienza di accesso con telefono cellulare, accesso con telefono dell'ufficio" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+	keywords="autenticazione utente, esperienza di accesso con telefono cellulare, accesso con telefono dell'ufficio"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>  
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # Esperienza di accesso con Azure Multi-Factor Authentication
 > [AZURE.NOTE]  La documentazione fornita in questa pagina illustra una tipica esperienza di accesso. Per ricevere assistenza sull’accesso, vedere [Problemi di Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
@@ -27,13 +27,13 @@ A seconda di come si accede e di come si utilizza l'autenticazione a più fattor
 
 
 Cosa si farà?|Descrizione
-:------------- | :------------- | 
-<a href="#1">Accesso con telefono cellulare o dell'ufficio</a> | Questo è ciò che può accadere effettuando l'accesso tramite telefono cellulare o dell'ufficio.
-<a href="#2">Accesso con l’app per dispositivi mobili utilizzando la notifica</a> | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con notifiche.
-<a href="#3">Accesso con app per dispositivi mobili utilizzando il codice di verifica</a> | Questo è ciò che può accadere effettuando l'accesso tramite app per dispositivi mobili con un codice di verifica.
-<a href="#4">Accesso con un metodo alternativo</a> | Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
+:------------- | :------------- |
+[Accesso con telefono cellulare o dell'ufficio](#signing-in-with-mobile-or-office-phone) | Questo è ciò che può accadere effettuando l'accesso tramite telefono cellulare o dell'ufficio.
+[Accesso con l'app Authenticator Microsoft mediante la notifica](#signing-in-with-the-microsoft-authenticator-app-using-notification) | Ecco cosa aspettarsi quando si usa l'app Authenticator Microsoft con le notifiche.
+[Accesso con l'app Microsoft Authenticator mediante il codice di verifica](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Ecco cosa aspettarsi quando si usa l'app Microsoft Authenticator con un codice di verifica.
+[Accesso con un metodo alternativo](#signing-in-with-an-alternate-method)|Verrà illustrato cosa aspettarsi se si desidera utilizzare un metodo alternativo.
 
-<h2 id="1">Accesso con telefono cellulare o dell'ufficio</h2>
+## Accesso con telefono cellulare o dell'ufficio
 
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con il telefono cellulare o dell'ufficio.
 
@@ -50,7 +50,7 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 - Ora dovrebbe essere stato effettuato l'accesso.</li>
 
-<h2 id="2">Accesso con l’app per dispositivi mobili utilizzando la notifica</h2>
+## Accesso con l'app Authenticator Microsoft mediante la notifica
 
 Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con l'app Microsoft Authenticator quando si riceve una notifica.
 
@@ -64,14 +64,14 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 
 - Rispondere al telefono e premere il tasto di verifica. Se la società richiede un PIN, verrà richiesto qui.
 
-![Verificare](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
+![Verificare](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)  
 
 ![Configurazione](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 - Ora dovrebbe essere stato effettuato l’accesso.
 
 
-<h2 id="3">Accesso con app per dispositivi mobili utilizzando il codice di verifica</h2>
+## Accesso con l'app Microsoft Authenticator mediante il codice di verifica
 
 Le informazioni seguenti descrivono l'esperienza di utilizzo dell'autenticazione a più fattori con l'app Microsoft Authenticator quando la si usa con un codice di verifica.
 
@@ -84,14 +84,14 @@ Le informazioni seguenti descrivono l'esperienza di utilizzo dell'autenticazione
 
 - Aprire l'app Microsoft Authenticator sul telefono e immettere il codice nella casella da cui si sta effettuando l'accesso.
 
-![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+![Ottenere il codice](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)  
 
 
 
 - Ora dovrebbe essere stato effettuato l’accesso.
 
 
-<h2 id="4">Accesso con un metodo alternativo</h2>
+## Accesso con un metodo alternativo
 
 
 Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alternativo quando il metodo principale può non essere disponibile.
@@ -105,6 +105,4 @@ Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alte
 
 - Scegliere un metodo alternativo ed effettuare l’accesso.
 
- 
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

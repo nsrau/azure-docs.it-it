@@ -5,8 +5,8 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="08/11/2016"
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/>  
 
 
 # Analisi dei social media: analisi dei sentimenti di Twitter in tempo reale in Analisi di flusso
@@ -236,4 +236,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
-	ms.author="fashah;bradsev" />
+	ms.date="09/14/2016"
+	ms.author="bradsev" />
 
 # Spostamento dei dati in un database di SQL Azure per Azure Machine Learning
 
@@ -22,7 +22,7 @@ Questo argomento indica le opzioni per lo spostamento dei dati da file flat (for
 
 Per un argomento che descrive le opzioni per lo spostamento dei dati a un server SQL locale per Machine Learning, vedere [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
-Il **menu** seguente si collega ad argomenti che descrivono come inserire dati in altri ambienti di destinazione in cui i dati possono essere archiviati ed elaborati durante il Processo di analisi scientifica dei dati per i team (TDSP).
+Il seguente **menu** si collega ad argomenti che descrivono come inserire dati in ambienti di destinazione in cui i dati possono essere archiviati ed elaborati durante il Processo di analisi scientifica dei dati per i team (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -37,8 +37,8 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 ## <a name="prereqs"></a>Prerequisiti
 Questa procedura descritta di seguito richiede di disporre di:
 
-* Un **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per provare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, la [Guida introduttiva al database SQL di Microsoft Azure](../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -65,7 +65,7 @@ Se i dati di origine vengono archiviati in un Server SQL locale, esistono varie 
 3. [Backup e ripristino database](#db-migration)
 4. [Data factory di Azure](#adf)
 
-I passaggi per i primi tre sono molto simili a tali sezioni in [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) che coprono la medesima procedura. Di seguito vengono forniti collegamenti alle sezioni appropriate in tale argomento.
+I passaggi per i primi tre sono molto simili a tali sezioni in [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) che coprono la medesima procedura. Le istruzioni seguenti forniscono i collegamenti alle sezioni appropriate al riguardo.
 
 ###<a name="export-flat-file"></a>Esportazione in un file flat
 
@@ -81,8 +81,8 @@ I passaggi per l'utilizzo del backup e ripristino del database sono simili a que
 
 ###<a name="adf"></a>Data Factory di Azure
 
-La procedura per lo spostamento dei dati a un database Azure SQL con Azure Data Factory (ADF) viene fornita nell'argomento [Spostare i dati da un Server SQL locale a SQL Azure con Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). Questo argomento illustra come spostare i dati da un database di Server SQL locale a un database SQL di Azure tramite l'archiviazione BLOB di Azure usando ADF.
+La procedura per lo spostamento di dati in un database di SQL Azure con Data factory di Azure (ADF) è illustrata nell'argomento [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md). Questo argomento descrive come spostare i dati da un Database di SQL Server locale a un Database di SQL Azure tramite l'archiviazione BLOB di Azure con ADF.
 
 È consigliabile utilizzare ADF quando i dati devono essere migrati continuamente in uno scenario ibrido che accede a risorse locali e cloud e quando i dati sono transazionali o devono essere modificati o avere una logica di business aggiunta durante la migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Spostare i dati da PostgreSQL mediante Data factory di Azure
@@ -22,7 +22,8 @@ Questo articolo illustra come usare l'attività di copia in una data factory di 
 
 Data factory supporta la connessione a origini PostgreSQL locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway.
 
-**Nota:** è necessario usare il gateway per connettersi a PostgreSQL anche se è ospitato in macchine virtuali IaaS di Azure. Se si sta cercando di connettersi a un'istanza di PostgreSQL ospitata nel cloud è anche possibile installare l'istanza del gateway nella macchina virtuale IaaS.
+> [AZURE.NOTE]
+Il gateway è necessario anche se il database PostgreSQL è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM IaaS dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 
 Data factory supporta solo lo spostamento di dati da PostgreSQL ad altri archivi dati, non da altri archivi dati a PostgreSQL.
 
@@ -51,7 +52,7 @@ L'esempio include le entità di Data factory seguenti:
 
 L'esempio copia i dati dai risultati della query nel database PostgreSQL in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
-Innanzitutto, impostare il Gateway di gestione dati in base alle istruzioni contenute nell'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md).
+Come primo passaggio, impostare il Gateway di gestione dati. Le istruzioni sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servizio collegato PostgreSQL:**
 
@@ -87,7 +88,7 @@ Innanzitutto, impostare il Gateway di gestione dati in base alle istruzioni cont
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in PostgreSQL e che contenga una colonna denominata "timestamp" per i dati di una serie temporale.
 
-Impostando "external" su true e specificando i criteri externalData si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 	{
 	    "name": "PostgreSqlDataSet",
@@ -172,7 +173,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Attività di copia:**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati dalla tabella public.usstates nel database PostgreSQL.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati dalla tabella public.usstates nel database PostgreSQL.
 	
 	{
 	    "name": "CopyPostgreSqlToBlob",
@@ -226,7 +227,7 @@ Proprietà | Descrizione | Obbligatorio
 type | La proprietà type deve essere impostata su: **OnPremisesPostgreSql** | Sì
 server | Nome del server PostgreSQL. | Sì 
 database | Nome del database PostgreSQL. | Sì 
-schema | Nome dello schema nel database. Per il nome dello schema viene fatta distinzione tra maiuscole e minuscole. | No 
+schema | Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. | No 
 authenticationType | Tipo di autenticazione usato per connettersi al database PostgreSQL. I valori possibili sono: anonima, di base e Windows. | Sì 
 username | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No 
 password | Specificare la password per l'account utente specificato per il nome utente. | No 
@@ -236,9 +237,9 @@ Per informazioni dettagliate sull'impostazione delle credenziali per un'origine 
 
 ## Proprietà del tipo di set di dati PostgreSQL
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
-La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che comprende il set di dati PostgreSQL) presenta le proprietà seguenti.
+La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che include il set di dati PostgreSQL) presenta le proprietà seguenti:
 
 Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
@@ -246,11 +247,11 @@ tableName | Nome della tabella nell'istanza del database PostgreSQL a cui fa rif
 
 ## Proprietà del tipo di attività di copia PostgreSQL
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
-Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
+Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
-In caso di attività di copia con origine di tipo **RelationalSource** (che comprende PostgreSQL), sono disponibili le proprietà seguenti nella sezione typeProperties:
+Se l'origine è di tipo **RelationalSource** (che comprende PostgreSQL), sono disponibili le proprietà seguenti nella sezione typeProperties:
 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
@@ -266,12 +267,12 @@ query | Usare la query personalizzata per leggere i dati. | Stringa di query SQL
 
 ## Mapping dei tipi per PostgreSQL
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipo automatico da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 1. Conversione dal tipo .NET al tipo di sink nativo
 
-Quando si spostano i dati in PostgreSQL verranno usati i mapping seguenti dal tipo PostgreSQL al tipo .NET.
+Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tipo PostgreSQL al tipo .NET.
 
 Tipo di database PostgreSQL |	Alias PostgresSQL | Tipo di .NET Framework
 ------------------------ | -------------------- | ---------------------
@@ -324,4 +325,4 @@ text | | String
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

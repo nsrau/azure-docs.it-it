@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="yijichen"
 	manager="ilanr9"
-	editor="yijichen"/>
+	editor="yijichen"/>  
 
 <tags
 	ms.service="cortana-analytics"
@@ -20,13 +20,13 @@
 
 ## **Panoramica**
 
-I modelli di soluzione sono progettati per accelerare il processo di compilazione di una demo end-to-end basata su Cortana Intelligence Suite. Un modello distribuito esegue il provisioning alla sottoscrizione dei componenti Cortana Intelligence necessari e consente di creare le relazioni tra di essi. Inoltre effettua il seeding della pipeline di dati con dati di esempio generati da un'applicazione di simulazione di dati. Scaricare il simulatore di dati dal collegamento specificato e installarlo nel computer locale. Fare riferimento al file readme.txt per istruzioni sull'uso del simulatore. I dati generati dal simulatore attivano la pipeline di dati e avviano la creazione di una stima di Machine Learning che possono essere visualizzate nel dashboard di Power BI.
+I modelli di soluzione sono progettati per accelerare il processo di compilazione di una demo end-to-end basata su Cortana Intelligence Suite. Un modello distribuito effettuerà il provisioning della sottoscrizione con il componente Cortana Intelligence necessario e creerà le relazioni tra di essi. Inoltre effettua il seeding della pipeline di dati con dati di esempio generati da un'applicazione di simulazione di dati. Scaricare il simulatore di dati dal collegamento specificato e installarlo nel computer locale. Fare riferimento al file readme.txt per istruzioni sull'uso del simulatore. I dati generati dal simulatore attivano la pipeline di dati e avviano la creazione di una stima di Machine Learning che possono essere visualizzate nel dashboard di Power BI.
 
 Il modello della soluzione è disponibile [qui](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
 
 Il processo di distribuzione prevede diversi passaggi per l'impostazione delle credenziali della soluzione. Assicurarsi di prendere nota delle credenziali, ad esempio il nome della soluzione, il nome utente e la password forniti durante la distribuzione.
 
-L'obiettivo di questo documento è illustrare l'architettura di riferimento e i vari componenti di cui è stato eseguito il provisioning alla sottoscrizione nell'ambito di questo modello di soluzione. Il documento illustra anche come sostituire i dati di esempio con dati reali per poter visualizzare informazioni dettagliate o stime dai propri dati e illustra poi le parti del modello di soluzione da modificare per personalizzare la soluzione con i propri dati. Alla fine del documento vengono fornite istruzioni sulla compilazione del dashboard di Power BI per questo modello di soluzione.
+L'obiettivo di questo documento è illustrare l'architettura di riferimento e i diversi componenti di cui viene effettuato il provisioning nella sottoscrizione nell'ambito di questo modello di soluzione. Il documento illustra anche come sostituire i dati di esempio con dati reali per poter visualizzare informazioni dettagliate o stime dai propri dati e illustra poi le parti del modello di soluzione da modificare per personalizzare la soluzione con i propri dati. Alla fine del documento vengono fornite istruzioni sulla compilazione del dashboard di Power BI per questo modello di soluzione.
 
 ## **Quadro generale**
 
@@ -104,11 +104,11 @@ Per trovare la query di [Analisi di flusso di Azure](https://azure.microsoft.com
 
 -   Selezionare:
 
-    -   ***INPUT*** per visualizzare l'input della query
+    -   ***INPUT*** per visualizzare l'input della query.
 
-    -   ***QUERY*** per visualizzare la query stessa
+    -   ***QUERY*** per visualizzare la query stessa.
 
-    -   ***OUTPUT*** per visualizzare i diversi output
+    -   ***OUTPUT*** per visualizzare i vari output.
 
 Per informazioni sulla costruzione di query in Analisi di flusso di Azure, vedere [Stream Analytics Query Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Riferimento per le query di Analisi di flusso) in MSDN.
 
@@ -189,14 +189,14 @@ Dopo aver avviato il generatore di dati, la pipeline inizia ad attivarsi e i div
 
 ## **Dashboard di Power BI**
 
-### Panoramica
+### Overview
 
 Questa sezione descrive come configurare il dashboard di Power BI per visualizzare i dati in tempo reale provenienti da Analisi di flusso di Azure (percorso critico), nonché i risultati di previsione provenienti da Azure Machine Learning (percorso non critico).
 
 
 ### Configurare il dashboard per il percorso critico
 
-La procedura seguente mostra come visualizzare l'output dei dati in tempo reale da processi di Analisi di flusso generati al momento della distribuzione della soluzione. Per seguire questa procedura è necessario un account di [Power BI online](http://www.powerbi.com/). Se non si ha un account, [crearne uno](https://powerbi.microsoft.com/pricing).
+La procedura seguente mostra come visualizzare l'output dei dati in tempo reale da processi di Analisi di flusso generati al momento della distribuzione della soluzione. Per eseguire la procedura è necessario un account di [Power BI online](http://www.powerbi.com/). Se non si ha un account, [crearne uno](https://powerbi.microsoft.com/pricing).
 
 1.  Aggiungere l'output di Power BI ad Analisi di flusso di Azure.
 
@@ -260,7 +260,7 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
 
 	-   Nella finestra popup successiva sono disponibili due opzioni nel pannello di sinistra, **Windows** e **Database**. Fare clic su **"Database"** e inserire il proprio **"nome utente"** e **"password"**, ovvero il nome utente e la password immessi al momento della prima distribuzione della soluzione e della creazione del database SQL di Azure. In ***Selezionare il livello a cui applicare queste impostazioni*** selezionare l'opzione relativa al livello di database. Fare quindi clic su **"Connetti"**.
 
-	-   Quando viene di nuovo visualizzata la pagina precedente, chiudere la finestra. Nel messaggio popup visualizzato fare clic su **Applica**. Fare infine clic sul pulsante **Salva** per salvare le modifiche. Il file di Power BI è ora connesso al server. Se le visualizzazioni sono vuote, assicurarsi di annullare le selezioni per visualizzare tutti i dati facendo clic sull'icona della gomma nell'angolo superiore destro della legenda. Usare il pulsante Aggiorna per aggiornare le visualizzazioni con i nuovi dati. Inizialmente le visualizzazioni contengono solo i dati di seeding, perché l'aggiornamento della data factory è pianificato ogni 3 ore. Dopo 3 ore, aggiornando i dati nelle visualizzazioni saranno disponibili le nuove stime.
+	-   Quando viene di nuovo visualizzata la pagina precedente, chiudere la finestra. Nel messaggio popup visualizzato fare clic su **Applica**. Infine, fare clic sul pulsante **Salva** per salvare le modifiche apportate. Il file di Power BI è ora connesso al server. Se le visualizzazioni sono vuote, assicurarsi di annullare le selezioni per visualizzare tutti i dati facendo clic sull'icona della gomma nell'angolo superiore destro della legenda. Usare il pulsante Aggiorna per aggiornare le visualizzazioni con i nuovi dati. Inizialmente le visualizzazioni contengono solo i dati di seeding, perché l'aggiornamento della data factory è pianificato ogni 3 ore. Dopo 3 ore, aggiornando i dati nelle visualizzazioni saranno disponibili le nuove stime.
 
 3. (Facoltativo) Pubblicare il dashboard per il percorso non critico in [Power BI online](http://www.powerbi.com/). Si noti che per questo passaggio è necessario un account Power BI o Office 365.
 
@@ -287,13 +287,13 @@ Accertarsi di arrestare il generatore di dati quando non lo si usa in modo attiv
 
 ## **Strumenti di stima dei costi**
 
-I due strumenti indicati di seguito permettono di comprendere meglio i costi totali per l'esecuzione del modello di soluzione previsione della domanda nel settore energetico nella propria sottoscrizione:
+I due strumenti indicati di seguito consentono di comprendere meglio i costi totali associati all'esecuzione nella propria sottoscrizione del modello di soluzione per la previsione della domanda nel settore energetico:
 
 -   [Calcolatore prezzi (online)](https://azure.microsoft.com/pricing/calculator/)
 
 -   [Microsoft Azure Cost Estimator Tool (PC desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
 ## **Riconoscimenti**
-Questo articolo è stato redatto dal ricercatore informatico Yijing Chen e dal software engineer Min Qiu presso Microsoft.
+Autori di questo articolo sono il data scientist Yijing Chen e il software engineer Min Qiu di Microsoft.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

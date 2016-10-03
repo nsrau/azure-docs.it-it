@@ -5,8 +5,8 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun" />
+	manager="jhubbard"
+	editor="cgronlun" />  
 
 <tags
 	ms.service="stream-analytics"
@@ -114,7 +114,7 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 4.	Digitare o selezionare i valori seguenti nella terza pagina:
 
 	* **Alias di input**:immettere un nome descrittivo per il processo di input, ad esempio *CallStream*. Si noti che il nome verrà usato nella query in un secondo momento.
-	* **Hub eventi**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi dei flussi, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
+	* **Hub eventi**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
 
 	Se l'hub eventi si trova in un'altra sottoscrizione, selezionare **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **Spazio dei nomi del bus di servizio**, **Nome hub eventi**, **Nome criterio hub eventi**, **Chiave criterio hub eventi** e **Conteggio partizioni hub eventi**.
 
@@ -227,7 +227,7 @@ Attenersi alla procedura seguente per creare un contenitore per l'archivio BLOB,
 3.	Digitare o selezionare i valori seguenti nella terza pagina:
 
 	* **ALIAS DI OUTPUT**: immettere un nome descrittivo per l'output del processo.
-	* **SOTTOSCRIZIONE**: se l'archivio BLOB creato si trova nella stessa sottoscrizione del processo di analisi dei flussi, selezionare **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
+	* **SOTTOSCRIZIONE**: se l'archivio BLOB creato si trova nella stessa sottoscrizione del processo di analisi di flusso, selezionare **Usare l'account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
 	* **ACCOUNT DI ARCHIVIAZIONE**: selezionare il nome dell’account di archiviazione.
 	* **CONTENITORE**: selezionare il nome del contenitore.
 	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da utilizzare nella scrittura dell’output del BLOB
@@ -265,4 +265,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

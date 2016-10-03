@@ -3,9 +3,9 @@
 	description="Illustra le funzionalità di modellazione ed esplorazione dei dati del toolkit MLlib di Spark."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun" />
+	editor="cgronlun" />  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Modellazione ed esplorazione dei dati con Spark
 
@@ -39,7 +39,7 @@ La procedura di modellazione include anche del codice che illustra come eseguire
 
 ## Prerequisiti
 
-Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per tali requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da un notebook di Jupyter nel cluster Spark, vedere la [panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per informazioni sui requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da notebook di Jupyter nel cluster Spark, vedere l'articolo [Panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -98,7 +98,7 @@ I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto pre
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
 - **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
-- **%%sql -o <nome variabile>**: esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
+- **%%sql -o <nome variabile>** Esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
  
 
 Per altre informazioni sui kernel per le istanze di Jupyter Notebook e i "magic" predefiniti chiamati con %% (ad esempio %%local) messi a disposizione, vedere [Kernel disponibili per Jupyter Notebook con cluster Apache Spark in HDInsight Linux](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
@@ -235,7 +235,7 @@ Ecco il codice per eseguire il tracciato delle corse per numero di passeggeri
 
 **OUTPUT:**
 
-![Frequenza delle corse per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
+![Frequenza delle corse per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)  
 
 È possibile scegliere tra diversi tipi di visualizzazioni (tabella, a torta, a linee, ad area o a barre) usando i pulsanti del menu **Type** (Tipo) nel notebook. In questo caso è stato scelto un tracciato a barre.
 	
@@ -290,11 +290,11 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
 
 **OUTPUT:**
 
-![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)
+![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)  
 
 ![Importo della mancia per numero di passeggeri](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
+![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)  
 
 
 ## Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
@@ -726,7 +726,7 @@ Ecco il codice per eseguire stime e tracciare la curva ROC.
 
 **OUTPUT:**
 
-![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)
+![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)  
 
 
 ### Classificazione tramite foresta casuale
@@ -1105,4 +1105,4 @@ Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, �
 
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

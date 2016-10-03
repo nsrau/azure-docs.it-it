@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="ajlam"
 	manager="jhubbard"
-	editor=""/>
+	editor=""/>  
 
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="andrela"/>
+	ms.date="09/16/2016"
+	ms.author="andrela"/>  
 
 
 # Connettersi al database SQL tramite Ruby 
@@ -50,4 +50,4 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 * [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

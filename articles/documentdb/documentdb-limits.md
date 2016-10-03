@@ -5,7 +5,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="cgronlun" 
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
-	ms.author="arramac"/>
+	ms.date="09/15/2016" 
+	ms.author="arramac"/>  
 
 
 # Quote predefinite per DocumentDB
@@ -25,4 +25,4 @@ Nella tabella seguente sono descritte le quote predefinite per le risorse del da
 
 Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

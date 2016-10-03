@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Caricare file in un account di Servizi multimediali mediante .NET" 
+	pageTitle="Caricare file in un account di Servizi multimediali mediante .NET | Microsoft Azure" 
 	description="Informazioni su come ottenere contenuti multimediali in Servizi multimediali creando e caricando asset." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="08/30/2016" 
-	ms.author="juliako"/>
+ 	ms.date="09/19/2016" 
+	ms.author="juliako"/>  
 
 
 
@@ -28,6 +28,12 @@
 In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati (e anche i metadati relativi a questi file). Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
 I file nell'asset sono denominati **File di asset**. L'istanza di **AssetFile** e il file multimediale effettivo sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
+
+>[AZURE.NOTE]Quando si sceglie un nome di file per l'asset, valgono le seguenti considerazioni:
+>
+>- Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+>
+>- La lunghezza del nome non deve essere superare i 260 caratteri.
 
 Quando si creano asset, è possibile specificare le seguenti opzioni di crittografia.
 
@@ -44,7 +50,6 @@ Se si specifica che l'asset deve essere crittografato con un'opzione **CommonEnc
 
 Se si specifica che l'asset deve essere crittografato con un'opzione **StorageEncrypted**, Media Services SDK per .NET creerà un'entità **StorateEncrypted** **ContentKey** per l'asset.
 
->[AZURE.NOTE]Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione degli URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 Questo argomento illustra come usare l'SDK di Servizi multimediali per .NET e le relative estensioni per caricare file in un asset di Servizi multimediali.
 
@@ -311,11 +316,11 @@ Il seguente esempio esegue una chiamata alla funzione UploadFile e specifica la 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
+##Passaggio successivo
 
-##Passaggi successivi
 Dopo avere caricato un asset in Servizi multimediali, è possibile passare all'argomento [Procedura: Ottenere un'istanza del processore di contenuti multimediali][].
 
 [Procedura: Ottenere un'istanza del processore di contenuti multimediali]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

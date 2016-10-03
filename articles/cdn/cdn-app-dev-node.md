@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="camsoper"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="cdn"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/15/2016"
 	ms.author="casoper"/>
 
 # Introduzione allo sviluppo della rete CDN di Azure
 
 > [AZURE.SELECTOR]
-- [.NET](cdn-app-dev-net.md)
 - [Node.JS](cdn-app-dev-node.md)
+- [.NET](cdn-app-dev-net.md)
 
 È possibile usare [Azure CDN SDK per Node.js](https://www.npmjs.com/package/azure-arm-cdn) per automatizzare la creazione e la gestione dei profili e degli endpoint di rete CDN. Questa esercitazione illustra nel dettaglio la creazione di una semplice applicazione console Node.js che dimostra varie operazioni tra quelle disponibili. Lo scopo di questa esercitazione non è fornire una descrizione dettagliata di tutti gli aspetti di Azure CDN SDK per Node.js.
 
@@ -40,7 +40,7 @@ Creare una cartella in cui archiviare l'applicazione. Da una console con gli str
 	
 Verrà quindi visualizzata una serie di domande per inizializzare il progetto. Come **punto di ingresso** questa esercitazione usa *app.js*. È possibile visualizzare le altre scelte nell'esempio seguente.
 
-![Output NPM iniziale](./media/cdn-app-dev-node/cdn-npm-init.png)
+![Output NPM iniziale](./media/cdn-app-dev-node/cdn-npm-init.png)  
 
 A questo punto il progetto viene inizializzato con un file *packages.json*. Il progetto userà alcune librerie di Azure contenute in pacchetti NPM. Verranno usati il runtime del client di Azure per Node.js (ms-rest-azure) e la libreria client della rete CDN di Azure per Node.js (azure-arm-cd). Aggiungere tali elementi al progetto come dipendenze.
  
@@ -369,4 +369,4 @@ Per altra documentazione su Azure SDK per Node.js, vedere il [riferimento comple
 
 Gestire le risorse della rete CDN con [PowerShell](./cdn-manage-powershell.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

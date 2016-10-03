@@ -22,7 +22,7 @@ Microsoft Azure è la piattaforma applicativa di Microsoft per il cloud pubblico
 
 **Come leggere questo articolo**
 
-Azure è in continua crescita, pertanto può accadere che l'utente si senta sovraccaricato di informazioni. I servizi di base sono indicati in precedenza in questo documento. Si consiglia di iniziare con tali servizi, per poi passare ai servizi aggiuntivi. Ciò non significa che non è possibile usare i servizi aggiuntivi; tuttavia, i servizi di base costituiscono l'elemento centrale di un'applicazione che esegue Azure.
+Azure è in continua crescita, pertanto può accadere che l'utente si senta sovraccaricato di informazioni. Iniziare con i servizi di base, elencati per primi in questo articolo, quindi passare ai servizi aggiuntivi. Ciò non significa che non è possibile usare i servizi aggiuntivi; tuttavia, i servizi di base costituiscono l'elemento centrale di un'applicazione che esegue Azure.
 
 **Commenti e suggerimenti**
 
@@ -33,7 +33,7 @@ I commenti degli utenti sono importanti. Questo articolo dovrebbe fornire una pa
 
 Azure raggruppa i servizi in categorie nel portale di gestione e in vari supporti visivi come l'[infografica su Microsoft Azure](https://azure.microsoft.com/documentation/infographics/azure/). Il portale di gestione è il portale usato per gestire la maggior parte dei servizi in Azure (ma non tutti).
 
-In questo documento verrà usata un'**organizzazione diversa** per descrivere i servizi in base a una funzione simili e per richiamare sottoservizi che fanno parte dei servizi di maggiori dimensioni.
+In questo articolo verrà usata un'**organizzazione diversa** per descrivere i servizi in base a una funzione simile e per richiamare sottoservizi importanti che fanno parte dei servizi di maggiori dimensioni.
 
 ![Componenti di Azure](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png) *Figura: Azure fornisce servizi per applicazioni accessibili tramite Internet ed eseguiti nei data center di Azure.*
 
@@ -606,4 +606,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

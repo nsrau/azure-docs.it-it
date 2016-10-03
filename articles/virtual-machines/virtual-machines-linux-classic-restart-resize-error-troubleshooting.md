@@ -6,16 +6,16 @@
    authors="Deland-Han"
    manager="felixwu"
    editor=""
-   tags="top-support-issue"/>
+   tags="top-support-issue"/>  
 
 <tags
    ms.service="virtual-machines-linux"
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/20/2016"
    ms.devlang="na"
-   ms.author="delhan"/>
+   ms.author="delhan"/>  
 
 # Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure
 
@@ -85,4 +85,4 @@ Se il servizio cloud esistente non è associato a una rete virtuale basata sull'
 
 Se si verificano problemi durante la creazione di una nuova VM Linux in Azure, vedere [Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

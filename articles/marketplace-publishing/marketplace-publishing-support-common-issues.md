@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="v-jeana"
    manager="lakoch"
-   editor=""/>
+   editor=""/>  
 
    <tags
       ms.service="marketplace"
@@ -13,8 +13,8 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="08/03/2016"
-      ms.author="v-jeana; hascipio; v-dabosl"/>
+      ms.date="09/21/2016"
+      ms.author="v-jeana; hascipio; v-dabosl"/>  
 
 # Come risolvere i problemi comuni degli editori in Azure Marketplace
 Questo articolo spiega come risolvere o ottenere supporto per alcuni scenari comuni relativi al Marketplace.
@@ -27,7 +27,7 @@ Di seguito viene illustrato come richiedere un credito o un rimborso per conto d
 
 > [AZURE.NOTE] Se un cliente o un rivenditore di Azure contatta Microsoft per richiedere un rimborso o un credito, Microsoft applicherà le stesse politiche usate per la fornitura dei servizi di Azure. Se tali politiche stabiliscono che è dovuto un rimborso o un credito, Microsoft emetterà in modo proattivo, e l'utente autorizza Microsoft all'emissione per suo conto, un rimborso o un credito per il cliente o il rivenditore di Azure, come applicabile. Se le politiche non stabiliscono che è dovuto un rimborso o un credito, Microsoft potrà invitare il cliente o il rivenditore di Azure a contattare direttamente l'utente.
 
-  ![1\_RequestRefund][1]
+  ![1\_RequestRefund][1]  
 
   1. Passare alle pagine di supporto qui: [https://support.microsoft.com/it-IT/getsupport?tenant=ClassicCommercial&locale=it-IT&supportregion=it-IT&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/it-IT/getsupport?tenant=ClassicCommercial&locale=it-IT&supportregion=it-IT&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
   2. Nella casella **Tipo di problema** selezionare **Gestione dei clienti**.
@@ -74,7 +74,7 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 **2. Accedere con l'account aziendale o dell'istituto di istruzione, vale a dire** AzureStore@yourcompany.com.
 
-![signin][5]
+![signin][5]  
 
 **3. Completare la verifica per la protezione dell'account**.
 
@@ -120,4 +120,4 @@ Per i problemi seguenti, creare una richiesta di supporto all'indirizzo [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,9 +4,9 @@
 	keywords="flusso di dati, cache redis, coda bus di servizio"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
-	/>
+	/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -27,7 +27,7 @@ Immaginare di far parte di una società di telecomunicazioni. L'utente prova a r
 Portare a termine la procedura dettagliata relativa al [rilevamento delle frodi in tempo reale][fraud-detection] per ASA
 
 ## Panoramica dell'architettura
-![Schermata dell'architettura](./media/stream-analytics-functions-redis/architecture-overview.png)
+![Schermata dell'architettura](./media/stream-analytics-functions-redis/architecture-overview.png)  
 
 Come illustrato nella figura precedente, la funzionalità di analisi di flusso consente di generare delle query sul flusso di dati in ingresso e di inviarlo a un output. Basandosi sull'output, le funzioni di Azure possono successivamente attivare alcuni tipi di evento.
 
@@ -40,7 +40,7 @@ Per creare una coda del bus di servizio, seguire i passaggi 1 e 2 della sezione 
 
 1. Nel portale di Azure, accedere al pannello **Output** del proprio processo e selezionare **Aggiungi** nella parte superiore della pagina.
 
-	![Aggiunta di output](./media/stream-analytics-functions-redis/adding-outputs.png)
+	![Aggiunta di output](./media/stream-analytics-functions-redis/adding-outputs.png)  
 
 2. Scegliere **Coda del bus di servizio** come **Sink** e seguire le istruzioni visualizzate sullo schermo. Assicurarsi di scegliere lo spazio dei nomi della coda del bus di servizio creata in [Introduzione alle code del bus di servizio][servicebus-getstarted]. Al termine, fare clic sul pulsante di conferma.
 3. Specificare i valori seguenti:
@@ -71,7 +71,7 @@ Per creare una coda del bus di servizio, seguire i passaggi 1 e 2 della sezione 
 ## Creare una cache Redis di Azure
 Creare una cache Redis di Azure attenendosi alla sezione di .NET descritta in [Come utilizzare Cache Redis di Azure][use-rediscache] e proseguire fino alla sezione ***Configurare i client della cache***. Al termine dell'operazione, è disponibile una nuova cache Redis. In **Tutte le impostazioni**, selezionare **Chiavi di accesso** e annotare la ***Stringa di connessione primaria***.
 
-![Schermata dell'architettura](./media/stream-analytics-functions-redis/redis-cache-keys.png)
+![Schermata dell'architettura](./media/stream-analytics-functions-redis/redis-cache-keys.png)  
 
 ## Creare una funzione di Azure
 Seguire l'esercitazione [Creare la prima funzione di Azure][functions-getstarted] per iniziare a utilizzare le funzioni di Azure. Se si dispone già di una funzione di Azure da utilizzare, passare direttamente alla sezione [Scrivere nella cache Redis](#Writing-to-Redis-Cache)
@@ -82,7 +82,7 @@ Seguire l'esercitazione [Creare la prima funzione di Azure][functions-getstarted
 	- **Nome coda**: lo stesso nome immesso al momento della creazione della coda in [Introduzione alle code del bus di servizio][servicebus-getstarted] (non il nome del bus di servizio). Assicurarsi di utilizzare la coda connessa all'output di analisi di flusso.
 	- **Connessione del bus di servizio**: selezionare **Aggiungere una stringa di connessione**. Per trovare la stringa di connessione, accedere al portale classico, selezionare **Bus di servizio** (il bus di servizio creato) e **INFORMAZIONI DI CONNESSIONE** nella parte inferiore della schermata. Assicurarsi di essere nella schermata principale della pagina. Copiare e incollare la stringa di connessione. È possibile immettere qualsiasi nome di connessione.
 	
-		![Schermata di connessione al bus di servizio](./media/stream-analytics-functions-redis/servicebus-connection.png)
+		![Schermata di connessione al bus di servizio](./media/stream-analytics-functions-redis/servicebus-connection.png)  
 	- **AccessRights**: scegliere **Gestisci**
 
 
@@ -176,11 +176,11 @@ A questo punto è stata creata una funzione di Azure leggibile dalla coda del bu
 
 2. Dal pannello del processo di analisi di flusso nel portale, fare clic su **Avvia** nella parte superiore della pagina.
 
-	![Schermata del processo di avvio](./media/stream-analytics-functions-redis/starting-job.png)
+	![Schermata del processo di avvio](./media/stream-analytics-functions-redis/starting-job.png)  
 
 3. Nel pannello **Avvia processo** che si apre, selezionare **Adesso** e fare clic sul pulsante **Avvia** nella parte inferiore della schermata. Lo stato del processo diventa prima In avvio e poco dopo In esecuzione.
  
-	![Schermata di selezione dell'ora del processo di avvio](./media/stream-analytics-functions-redis/start-job-time.png)
+	![Schermata di selezione dell'ora del processo di avvio](./media/stream-analytics-functions-redis/start-job-time.png)  
 
 ## Eseguire la soluzione e verificarne i risultati
 Tornare alla pagina **ServiceBusQueueTrigger** in cui si dovrebbero visualizzare le istruzioni di log. Questi log mostrano che l'utente ha ricevuto dei dati dalla coda del bus di servizio, che sono stati inseriti nel database e recuperati utilizzando l'ora come chiave.
@@ -189,7 +189,7 @@ Per verificare che i dati sono presenti nella cache di Redis, andare alla pagina
 
 Adesso è possibile scrivere i comandi di Redis per confermare la presenza dei dati nella cache.
 
-![Schermata della console Redis](./media/stream-analytics-functions-redis/redis-console.png)
+![Schermata della console Redis](./media/stream-analytics-functions-redis/redis-console.png)  
 
 ## Passaggi successivi
 Siamo entusiasti di vedere tutto ciò che le nuove funzioni di Azure e l'analisi di flusso sono in grado di fare insieme e ci auguriamo che possano offrire nuove possibilità agli utenti. Per condividere i propri commenti e suggerimenti per il futuro, utilizzare liberamente il [sito UserVoice di Azure](https://feedback.azure.com/forums/270577-stream-analytics).
@@ -202,6 +202,7 @@ In caso di domande o per ricevere assistenza, pubblicare un messaggio nei forum 
 
 - [Guida di riferimento per gli sviluppatori di Funzioni di Azure](../azure-functions/functions-reference.md)
 - [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](../azure-functions/functions-reference-csharp.md)
+- [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](../azure-functions/functions-reference-fsharp.md)
 - [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](../azure-functions/functions-reference.md)
 - [Trigger e associazioni di Funzioni di Azure](../azure-functions/functions-triggers-bindings.md)
 - [Come monitorare Cache Redis di Azure](../redis-cache/cache-how-to-monitor.md)
@@ -214,4 +215,4 @@ Per tenersi aggiornati sulle ultime novità e sulle funzionalità più recenti, 
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

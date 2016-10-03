@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 #  Aggiungere informazioni di accesso a un'app Android usando una libreria di terze parti con l'API Graph mediante l'endpoint v2.0
@@ -197,4 +197,4 @@ Una volta eseguita l'autenticazione, premere il pulsante **Request Protected Res
 
 È consigliabile ricevere notifiche sui problemi di sicurezza. A tale scopo, visitare [Security TechCenter](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

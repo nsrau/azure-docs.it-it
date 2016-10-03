@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali"
-	description="Questo argomento illustra una panoramica di un criterio di memorizzazione nella cache della rete CDN nell'estensione Servizi multimediali."
+	description="Questo argomento offre una panoramica di un criterio di memorizzazione nella cache della rete CDN nell'estensione Servizi multimediali."
 	services="media-services,cdn"
 	documentationCenter=".NET"
 	authors="juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako"/>  
  
 #Criterio di memorizzazione nella cache della rete CDN nell’estensione Servizi multimediali
 
@@ -34,7 +34,7 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 
 È possibile utilizzare il portale di gestione di Azure o le API di Servizi multimediali di Azure per configurare i valori di intestazione della cache.
 
-1. Per configurare le intestazioni delle cache mediante il portale di gestione, vedere la sezione [Come gestire gli endpoint di streaming](../media-services/media-services-manage-origins.md) Configurazione dell'endpoint di streaming.
+1. Per configurare le intestazioni delle cache mediante il portale di gestione, vedere la sezione [Come gestire gli endpoint di streaming](../media-services/media-services-portal-manage-streaming-endpoints.md) Configurazione dell'endpoint di streaming.
 2. API REST di Servizi multimediali di Azure, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. SDK .NET di Servizi multimediali di Azure, [Proprietà StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
 
@@ -44,4 +44,4 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 2. Se non è presente alcuna configurazione manuale, vengono applicati i valori predefiniti.
 3. Per impostazione predefinita si applicano le intestazioni di cache di 2 secondi, a prescindere dalla configurazione di servizi multimediali di Azure o archiviazione di Azure, e l'override di questo valore non è disponibile.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,8 +5,8 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="jhubbard"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -57,7 +57,7 @@ Per questa esercitazione, si presuppone che l’utente utilizzi l’hub di event
 *	Selezionare **Hub eventi**, quindi fare clic sul pulsante a destra.
 *	Digitare o selezionare i valori seguenti nella terza pagina:
   *	**Alias dell’input** - Immettere un nome descrittivo per l'input del processo. Si noti che il nome verrà usato nella query in un secondo momento.
-  * **Hub eventi** - Se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi dei flussi, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
+  * **Hub eventi**: se l'hub eventi creato si trova nella stessa sottoscrizione del processo di Analisi di flusso, selezionare lo spazio dei nomi in cui si trova l'hub eventi.
 *	Se l'hub eventi si trova in un'altra sottoscrizione, selezionare **Usa hub eventi da un'altra sottoscrizione**, quindi immettere manualmente i valori per **Spazio dei nomi del bus di servizio**, **Nome hub eventi**, **Nome criterio hub eventi**, **Chiave criterio hub eventi** e **Conteggio partizioni hub eventi**.
 
 > [AZURE.NOTE]	Questo esempio usa il numero predefinito di partizioni, che è pari a 16.
@@ -98,11 +98,11 @@ Fornire i valori come mostrato di seguito:
 *	**Nome tabella** - Fornire un nome tabella nel set di dati dell’output Power BI. Ad esempio, “pbidemo”. Attualmente, l’output di Power BI da processi di Analisi di flusso può avere solo una tabella in un set di dati.
 *	**Area di lavoro** – Selezionare nel tenant Power BI un'area di lavoro in cui verrà creato il set di dati.
 
->	[AZURE.NOTE] Non è necessario creare il set di dati e la tabella nell'account Power BI. Verranno creati automaticamente quando si avvia il processo di analisi di flusso e gli output vengono trasmessi a Power BI. Se la query del processo non restituisce risultati, il set di dati e la tabella non verranno creati.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Fare clic su **OK**, **Connessione di test**. A questo punto la configurazione dell’output è completa.
 
->	[AZURE.WARNING] Inoltre, tenere presente che se Power BI dispone già di un seti di dati e di una tabella caratterizzati dal nome fornito dall'utente nel processo di analisi di flusso, i dati esistenti verranno sovrascritti.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Scrivere query
@@ -215,7 +215,7 @@ Dopo l'aggiornamento dell'autorizzazione con Power BI, verrà visualizzato un av
 ![Rinnovo convalida di PowerBI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -240,4 +240,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

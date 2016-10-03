@@ -5,8 +5,8 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	manager="jhubbard" 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="07/27/2016" 
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"/>  
 
 # Come eseguire un processo di streaming in Analisi di flusso di Azure
 
@@ -44,7 +44,7 @@ Per avviare il processo:
     ![Portale di Azure, stato del processo di streaming](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)
 
 ## Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
 
 ## Passaggi successivi
 
@@ -54,4 +54,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

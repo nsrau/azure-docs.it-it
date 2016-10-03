@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Streaming live con codificatori locali che creano flussi a più bitrate" 
+	pageTitle="Streaming live con codificatori locali che creano flussi a più velocità in bit | Microsoft Azure" 
 	description="Questo argomento descrive come configurare un canale che riceve un flusso live a più velocità in bit da un codificatore locale. Il flusso può essere quindi distribuito alle applicazioni di riproduzione client tramite uno o più endpoint di streaming, usando uno dei seguenti protocolli di streaming adattivi: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="cenkdin;juliako"/>
+	ms.date="09/19/2016" 
+	ms.author="cenkdin;juliako"/>  
 
 #Streaming live con codificatori locali che creano flussi a più bitrate
 
-##Panoramica
+##Overview
 
 In Servizi multimediali di Azure un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
@@ -212,7 +212,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
  
 Stato del canale|Indicatori dell'interfaccia utente del portale|Fatturato?
 ---|---|---|---
-Avvio in corso|Avvio in corso|No (stato temporaneo)
+Starting|Starting|No (stato temporaneo)
 In esecuzione|Pronto (nessun programma in esecuzione)<p>o<p>Streaming (almeno un programma in esecuzione)|Sì
 Arresto in corso|Arresto in corso|No (stato temporaneo)
 Arrestato|Arrestato|No
@@ -257,7 +257,7 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -271,10 +271,10 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 
 [Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
 
-[Distribuzione di eventi Live Streaming con Servizi multimediali di Azure](media-services-live-streaming-workflow.md)
+[Distribuzione di eventi Live Streaming con Servizi multimediali di Azure](media-services-overview.md)
 
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

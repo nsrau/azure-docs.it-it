@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Concetti su Servizi multimediali di Azure" 
-	description="Questo argomento fornisce una panoramica dei concetti su Servizi multimediali di Azure" 
+	pageTitle="Concetti relativi ai Servizi multimediali di Azure | Microsoft Azure" 
+	description="Questo argomento fornisce una panoramica dei concetti relativi ai Servizi multimediali di Azure" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako"/>  
 
-#Concetti su Servizi multimediali di Azure 
+#Concetti relativi ai Servizi multimediali di Azure 
 
 Questo argomento fornisce una panoramica dei concetti più importanti su Servizi multimediali.
 
@@ -85,7 +85,7 @@ Un'entità [Job](https://msdn.microsoft.com/library/azure/hh974289.aspx) viene i
 
 Un processo contiene i metadati relativi all'elaborazione da eseguire. Ogni processo contiene una o più entità [task](https://msdn.microsoft.com/library/azure/hh974286.aspx) che specificano un'attività di elaborazione atomica, i relativi asset di input e output, un processore di contenuti multimediali e le impostazioni associate. Le attività contenute in un processo possono essere concatenate, in modo che l'asset di output di un'attività sia indicato come asset di input dell'attività successiva. In questo modo un processo può contenere tutte le operazioni di elaborazione necessarie per una presentazione multimediale.
 
-##<a id="encoding"></a>Codifica 
+##<a id="encoding"></a>Codifica
 
 Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud.
 
@@ -96,7 +96,7 @@ Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, c
 Per sfruttare i vantaggi del servizio di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), è necessario seguire questa procedura:
 
 - Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
-- Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-manage-origins.md#scale_streaming_endpoints/).
+- Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-portal-manage-streaming-endpoints.md).
 
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 
@@ -123,7 +123,7 @@ In Servizi multimediali le entità [Channel](https://msdn.microsoft.com/library/
 Ogni account di Servizi multimediali può contenere più entità Channel, Program e StreamingEndpoint. In base alle esigenze di sicurezza e alla larghezza di banda, i servizi di StreamingEndpoint possono essere dedicati a uno o più canali. Qualsiasi StreamingEndpoint può effettuare il pull da qualsiasi canale.
 
 
-###Programma 
+###Programma
 
 Un [programma](https://msdn.microsoft.com/library/azure/dn783463.aspx) consente di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. I programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale. È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per il programma impostando la proprietà **ArchiveWindowLength**. Il valore impostato può essere compreso tra 5 minuti e 25 ore.
 
@@ -176,7 +176,7 @@ Quando si usa Servizi multimediali si consiglia di codificare i file in formato 
 
 Un'entità StreamingEndpoint rappresenta un servizio di streaming in grado di trasmettere contenuti direttamente a un lettore client o a una rete per la distribuzione di contenuti (CDN) per una successiva ridistribuzione (Servizi multimediali di Azure ora fornisce l'integrazione della rete CDN di Azure). Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live o da un asset "video on demand" associato a un account di Servizi multimediali. È possibile inoltre controllare la capacità del servizio StreamingEndpoint in modo da poter gestire esigenze di larghezza di banda crescenti modificando le unità di scala (note anche come unità di streaming). Si consiglia di allocare una o più unità di scala per le applicazioni nell'ambiente di produzione. Le unità di scala forniscono capacità di uscita dedicata acquistabile in incrementi di 200 Mbps e una funzionalità aggiuntiva che attualmente include l'uso della creazione dinamica dei pacchetti.
 
-Si consiglia di usare la creazione dinamica dei pacchetti e/o la crittografia dinamica. Per usare queste funzionalità, è necessario avere almeno un'unità di streaming per l'endpoint da cui si prevede di trasmettere in streaming. Per altre informazioni, vedere [Ridimensionare l'endpoint di streaming](media-services-manage-origins.md#scale_streaming_endpoints).
+Si consiglia di usare la creazione dinamica dei pacchetti e/o la crittografia dinamica. Per usare queste funzionalità, è necessario avere almeno un'unità di streaming per l'endpoint da cui si prevede di trasmettere in streaming. Per altre informazioni, vedere [Ridimensionare l'endpoint di streaming](media-services-portal-manage-streaming-endpoints.md).
 
 Per impostazione predefinita, è possibile avere fino a due endpoint di streaming nell'account di Servizi multimediali. Per richiedere un limite più elevato, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 
@@ -188,7 +188,7 @@ Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi 
 
 Nel caso di un asset crittografato di archiviazione, prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Ad esempio, per distribuire l'asset crittografato con una chiave di crittografia AES, impostare il tipo di criteri su DynamicEnvelopeEncryption. Per rimuovere la crittografia di archiviazione e trasmettere l'asset in chiaro, impostare il tipo di criteri su NoDynamicEncryption.
 
-###Download progressivo 
+###Download progressivo
 
 Il download progressivo è una tecnologia che consente di avviare la riproduzione di file multimediali prima che il download dell'intero file sia stato completato. È possibile scaricare in modo progressivo solo file MP4.
 
@@ -196,7 +196,7 @@ Si noti che se si vuole rendere disponibili gli asset crittografati per il downl
 
 Per fornire agli utenti gli URL di download progressivo, è necessario prima creare un localizzatore OnDemandOrigin. La creazione del localizzatore produce il valore Path di base dell'asset. È quindi necessario aggiungere il nome del file MP4. Ad esempio:
 
-	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4  
 
 ###URL di streaming
 
@@ -210,41 +210,41 @@ Il seguente elenco include la descrizione dei vari formati di streaming e alcuni
 
 - Smooth Streaming
 
-	{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
-		
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest  
 
 
 - MPEG DASH
 
-	{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=mpd-time-csf)
- 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=mpd-time-csf)
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 
 
 - Apple HTTP Live Streaming (HLS) V4
 
-	{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 
 
 - Apple HTTP Live Streaming (HLS) V3
 
-	{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl-v3)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl-v3)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 - HDS (solo per licenze Adobe PrimeTime/Access)
 
-	{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=f4m-f4f)
+{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=f4m-f4f)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f) 
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
- 
-##Percorsi di apprendimento di Media Services
+
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -252,4 +252,4 @@ Il seguente elenco include la descrizione dei vari formati di streaming e alcuni
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TomShinder"
    manager="MBaldwin"
-   editor="TomSh"/>
+   editor="TomSh"/>  
 
 <tags
    ms.service="security"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
-   ms.author="terrylan"/>
+   ms.date="09/16/2016"
+   ms.author="terrylan"/>  
 
 # Procedure consigliate e modelli per la sicurezza di Azure
 
@@ -26,7 +26,7 @@ Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e
 - [Procedure consigliate per la sicurezza di Internet of Things](azure-security-iot-best-practices.md)
 - [Procedure consigliate per l'aggiornamento software nell'ambiente IaaS di Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 - [Procedure consigliate per la sicurezza dei limiti di Azure](../best-practices-network-security.md)
-- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md) (Implementazione di un'architettura di rete ibrida sicura in Azure)
+- [Implementing a secure hybrid network architecture in Azure (Implementazione di un'architettura di rete ibrida sicura in Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
 Azure fornisce una piattaforma sicura per creare le proprie soluzioni. Sono forniti anche servizi e tecnologie che rendono più sicure le soluzioni in Azure. Dato l'alto numero di opzioni disponibili, in molti hanno manifestato interesse per le procedure consigliate e i modelli suggeriti da Microsoft per aumentare la sicurezza.
 
@@ -44,4 +44,4 @@ Per ogni procedura consigliata verrà illustrato nel miglior modo possibile:
 
 È possibile offrire molti altri articoli sull'architettura e le procedure consigliate per la sicurezza di Azure. Richiedere eventuali argomenti specifici nell'area di discussione nella parte inferiore della pagina.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

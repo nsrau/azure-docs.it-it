@@ -3,9 +3,9 @@
 	description="Usare HDInsight Spark per eseguire l'esplorazione dei dati e il training dei modelli di classificazione binaria e regressione usando la convalida incrociata e l'ottimizzazione di iperparametri."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
-	editor="cgronlun"  />
+	editor="cgronlun"  />  
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Esplorazione e modellazione avanzate dei dati con Spark 
 
@@ -35,7 +35,7 @@ Un modo comune per eseguire l'ottimizzazione degli iperparametri usato in questo
 
 I modelli proposti includono la regressione logistica e lineare, foreste casuali e alberi con boosting a gradienti:
 
-- [Regressione lineare con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) è modello di regressione lineare che si serve di un metodo di discesa del gradiente stocastica (SGD, Stochastic Gradient Descent), usato per l'ottimizzazione e il ridimensionamento delle funzionalità allo scopo di prevedere l'importo delle mance pagate.
+- [Regressione lineare con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) è un modello di regressione lineare che si serve di un metodo di discesa del gradiente stocastico (SGD, Stochastic Gradient Descent), usato per l'ottimizzazione e il ridimensionamento delle funzionalità allo scopo di prevedere l'importo delle mance pagate.
 - [Regressione logistica con L-BFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS), o regressione "logit", è un modello di regressione che può essere usato quando la variabile dipendente usata per la classificazione dei dati è categoriale. L'algoritmo L-BFGS è un algoritmo di ottimizzazione quasi-Newton che approssima l'algoritmo di Broyden-Fletcher-Goldfarb-Shanno (BFGS) usando una quantità limitata di memoria del computer ed è ampiamente usato nell'apprendimento automatico.
 - Le [foreste casuali](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) sono insiemi di alberi delle decisioni. Combinano diversi alberi delle decisioni per ridurre il rischio di overfitting. Le foreste casuali vengono usate per la classificazione e la regressione e possono gestire funzionalità categoriche, si estendono all'impostazione di classificazione multiclasse, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Le foreste casuali sono tra i modelli di apprendimento automatico più diffusi per la classificazione e la regressione.
 - [Alberi con boosting a gradienti](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT, Gradient boosted tree) sono insiemi di alberi delle decisioni. Gli alberi GBT eseguono il training degli alberi delle decisioni in modo iterativo per ridurre al minimo la perdita di funzioni. Gli alberi GBT vengono usati per la classificazione e la regressione e possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
@@ -49,7 +49,7 @@ Esempi di modelli che usano la convalida incrociata e sweep di iperparametri son
 
 ## Prerequisiti
 
-Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per tali requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da Jupyter Notebook nel cluster Spark, vedere la [panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per informazioni sui requisiti, per una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati in questa esercitazione e per istruzioni su come eseguire il codice da notebook di Jupyter nel cluster Spark, vedere l'articolo [Panoramica dell'analisi scientifica dei dati tramite Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Il notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -113,7 +113,7 @@ I kernel PySpark forniti con i notebook di Jupyter dispongono di un contesto pre
 
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
-- **%%local** Specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
+- **%%local**: specifica che il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido.
 - **%%sql -o <nome variabile>** Esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
  
 
@@ -303,11 +303,11 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
 
 **OUTPUT:**
 
-![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png)
+![Distribuzione dell'importo delle mance](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png)  
 
 ![Importo della mancia per numero di passeggeri](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
+![Importo della mancia per importo della corsa](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)  
 
 
 ## Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
@@ -1215,7 +1215,7 @@ Tempo impiegato per eseguire questa cella: 20,9 secondi.
 
 **Eseguire il tracciato**
 	
-*tmp\_results* viene registrato come una tabella Hive nella cella precedente. I risultati della tabella vengono restituiti nel frame di dati *sqlResults* per delineare i tracciati. Ecco il codice
+*tmp\_results* viene registrato come una tabella Hive nella cella precedente. I risultati della tabella vengono restituiti nel frame di dati *sqlResults* per delineare tracciati. Ecco il codice
 
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1312,7 +1312,7 @@ Tempo impiegato per eseguire questa cella: 161,21 secondi.
 
 **Eseguire la valutazione con la metrica R-SQR**
 
-*tmp\_results* viene registrato come una tabella Hive nella cella precedente. I risultati della tabella vengono restituiti nel frame di dati *sqlResults* per delineare i tracciati. Ecco il codice
+*tmp\_results* viene registrato come una tabella Hive nella cella precedente. I risultati della tabella vengono restituiti nel frame di dati *sqlResults* per delineare tracciati. Ecco il codice
 
 	# SELECT RESULTS
 	%%sql -q -o sqlResults
@@ -1464,7 +1464,7 @@ Usare `unpersist()` per eliminare gli oggetti memorizzati nella cache.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Stampare il percorso dei file di modello da usare nel notebook di utilizzo. **Per l'utilizzo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo".
+**Stampare il percorso dei file di modello da usare nel notebook di utilizzo. ** Per l'utilizzo e l'assegnazione dei punteggi di un set di dati indipendente, è necessario copiare e incollare questi nomi di file nel "notebook di utilizzo".
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1496,4 +1496,4 @@ Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, �
 
 **Uso dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
