@@ -46,7 +46,7 @@ La finestra di dialogo **Selezionare Cluster di Infrastruttura di servizi** cons
 
 4.	[Facoltativo]: È possibile modificare il profilo di pubblicazione per specificare una connessione protetta del cluster.
 
-    Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Per altre informazioni, vedere [Procedura: Recuperare l'identificazione personale del certificato] (https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx).
+    Poiché si sta modificando manualmente il file XML del profilo di pubblicazione per specificare le informazioni del certificato, assicurarsi di prendere nota del nome di archivio del certificati, la posizione dell’archivio e l’identificazione personale del certificato. È necessario fornire questi valori per il nome dell'archivio del certificato e il percorso dell'archivio. Per altre informazioni, vedere [Procedura: Recuperare l'identificazione personale del certificato](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx).
 
     È possibile usare i parametri *ClusterConnectionParameters* per specificare i parametri di PowerShell da utilizzare quando ci si connette al cluster di Service Fabric. I parametri validi sono quelli che vengono accettati dal cmdlet Connect-ServiceFabricCluster. Per un elenco dei parametri disponibili, vedere [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 

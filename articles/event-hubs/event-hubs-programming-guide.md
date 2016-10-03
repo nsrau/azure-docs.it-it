@@ -182,7 +182,7 @@ Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti segu
 
 - [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
 - [Panoramica di Hub eventi](event-hubs-overview.md)
-- [Esempi di codice di Hub eventi] (http://code.msdn.microsoft.com/site/search?query=eventhub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
+- [Esempi di codice di Hub eventi](http://code.msdn.microsoft.com/site/search?query=eventhub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Riferimento all'API dell'host processore di eventi](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

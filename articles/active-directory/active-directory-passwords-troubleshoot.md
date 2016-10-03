@@ -466,7 +466,7 @@ Se si verifica un errore mentre si abilita, disabilita o usa il writeback della 
 							</p>
             </td>
             <td>
-              <p>[Trovare l'account Active Directory] (active-directory-aadconnect-accounts-permissions.md#active-directory-account) per Azure AD Connect e reimpostare la password in modo che non contenga più di 127 caratteri. Aprire quindi **Synchronization Service** dal menu Start. Passare a **Connettori** e trovare **Active Directory Connector**. Selezionarlo e fare clic su **Proprietà**. Passare alla pagina **Credenziali** e immettere la nuova password. Scegliere **OK** per chiudere la pagina.
+              <p>[Trovare l'account Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) per Azure AD Connect e reimpostare la password in modo che non contenga più di 127 caratteri. Aprire quindi **Synchronization Service** dal menu Start. Passare a **Connettori** e trovare **Active Directory Connector**. Selezionarlo e fare clic su **Proprietà**. Passare alla pagina **Credenziali** e immettere la nuova password. Scegliere **OK** per chiudere la pagina.
 							</p>
             </td>
           </tr>

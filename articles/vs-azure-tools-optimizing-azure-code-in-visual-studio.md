@@ -389,7 +389,7 @@ AP4000
 
 ### Descrizione
 
-Utilizzando la classe [ConfigurationManager] (https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) per progetti come ad esempio il sito Web di Azure e i servizi mobili di Azure non si presentano problemi di runtime. Come procedura consigliata, tuttavia, è consigliabile utilizzare Cloud [ConfigurationManager] (https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) come modo unificato di gestione delle configurazioni per tutte le applicazioni Cloud di Azure.
+Utilizzando la classe [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) per progetti come ad esempio il sito Web di Azure e i servizi mobili di Azure non si presentano problemi di runtime. Come procedura consigliata, tuttavia, è consigliabile utilizzare Cloud [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) come modo unificato di gestione delle configurazioni per tutte le applicazioni Cloud di Azure.
 
 Condividere idee e suggerimenti in [Commenti e suggerimenti sull'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
 
@@ -449,7 +449,7 @@ Archiviare le stringhe di connessione nel file di configurazione o negli ambient
 
 - Per le applicazioni ASP.NET vNext utilizzare configuration.json per archiviare le stringhe di connessione.
 
-Per informazioni sull'utilizzo di file di configurazione, ad esempio Web. config o App. config, vedere [linee guida configurazione di ASP.NET Web] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Per informazioni su come lavorano le variabili di ambiente di Azure, vedere [siti Web di Microsoft Azure sul funzionamento delle stringhe di applicazione e di connessione](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Per informazioni sull’archiviazione della stringa di connessione nel codice sorgente, vedere [evitare di inserire informazioni riservate come le stringhe di connessione nei file archiviati nel repository del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
+Per informazioni sull'utilizzo di file di configurazione, ad esempio Web. config o App. config, vedere [linee guida configurazione di ASP.NET Web](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Per informazioni su come lavorano le variabili di ambiente di Azure, vedere [siti Web di Microsoft Azure sul funzionamento delle stringhe di applicazione e di connessione](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Per informazioni sull’archiviazione della stringa di connessione nel codice sorgente, vedere [evitare di inserire informazioni riservate come le stringhe di connessione nei file archiviati nel repository del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
 
 ## Utilizzo del file di configurazione di Diagnostica.
 
