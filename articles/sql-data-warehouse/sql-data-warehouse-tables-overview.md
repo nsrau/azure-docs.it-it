@@ -67,7 +67,7 @@ Mentre SQL Data Warehouse contiene molte delle stesse funzionalità delle tabell
 
 | Funzionalità non supportate |
 | --- |
-|[Proprietà Identity][] (vedere [Soluzione alternativa per l'assegnazione di chiavi sostitutive][])|
+|[Proprietà Identity][] vedere [Soluzione alternativa per l'assegnazione di chiavi sostitutive][])|
 |[Vincoli di tabella][] Primary key, Foreign key, Unique e Check|
 |[Indici univoci][]|
 |[Colonne calcolate][]|

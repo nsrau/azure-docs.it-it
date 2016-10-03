@@ -428,7 +428,7 @@ Sono presenti due controller:
 
 Ogni documento in DocumentDB deve avere un ID univoco. Viene usato `PatientId` e viene aggiunto un timestamp che sarà convertito in un valore di timestamp Unix (double). Viene troncato per rimuovere il valore frazionario.
 
-È possibile visualizzare il codice sorgente dell'API controller di errore [da GitHub] (https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+È possibile visualizzare il codice sorgente dell'API controller di errore [da GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
 L'API viene chiamata da un'app per la logica usando la sintassi seguente.
 

@@ -70,7 +70,7 @@ Le informazioni dettagliate sulla creazione e la configurazione di route definit
 
 **Prerequisiti**
 
-1. Installare la versione più recente di Azure PowerShell, dalla [pagina di download di Azure][AzureDownloads] (con data giugno 2015 o successiva). In "Strumenti da riga di comando" è presente un collegamento "Installa" in "Windows Powershell" che installerà i cmdlet di Powershell più recenti.
+1. Installare la versione più recente di Azure PowerShell, dalla [pagina di download di Azure][AzureDownloads] \(con data giugno 2015 o successiva). In "Strumenti da riga di comando" è presente un collegamento "Installa" in "Windows Powershell" che installerà i cmdlet di Powershell più recenti.
 
 2. È consigliabile creare una subnet univoca da usare esclusivamente in un ambiente del servizio app. In questo modo le route UDR applicate alla subnet apriranno solo il traffico in uscita per l'ambiente del servizio app.
 3. **Importante**: distribuire l'ambiente del servizio app solo **dopo** avere eseguito i seguenti passaggi di configurazione. Questo assicura che la connettività di rete in uscita sia disponibile prima di tentare di distribuire un ambiente del servizio app.

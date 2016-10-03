@@ -50,7 +50,7 @@ Le API personalizzate sono le API RESTful che è possibile importare e usare con
 > [AZURE.NOTE] Sarà presto disponibile il supporto per l'autenticazione delle chiavi API.
 
 
-Per altre informazioni sulla specifica del tipo di autenticazione nel documento OpenAPI (Swagger), vedere [OpenAPI Specification][1] (Specifica di OpenAPI).
+Per altre informazioni sulla specifica del tipo di autenticazione nel documento OpenAPI (Swagger), vedere [OpenAPI Specification][1] \(Specifica di OpenAPI).
 
 Se l'endpoint API consente l'accesso non autenticato, è consigliabile rimuovere l'oggetto ```securityDefintions``` dal file OpenAPI (Swagger). Nell'esempio seguente rimuovere interamente l'oggetto ```securityDefintions``` seguente:
 
@@ -85,7 +85,7 @@ Quando si crea il file Swagger, viene creato un file JSON. Tenere pronto questo 
 
 #### Ottenere assistenza per la creazione di file Swagger
 
-- Se non si ha familiarità con la creazione di un file Swagger o non si è mai creato un file Swagger prima, vedere [Get started with Swagger][6] (Introduzione a Swagger).
+- Se non si ha familiarità con la creazione di un file Swagger o non si è mai creato un file Swagger prima, vedere [Get started with Swagger][6] \(Introduzione a Swagger).
  
 - Per creare l'API, distribuirla in Azure e creare un file Swagger basato su questa nuova API, considerare quindi la possibilità di usare l'[esercitazione sull'API Web](powerapps-web-api-tutorial.md), che include un file Swagger funzionante. In GitHub è disponibile anche un [esempio di Hello World][7].
 
@@ -137,7 +137,7 @@ Ora che il file Swagger (file JSON) è stato generato per l'API personalizzata, 
 Ora è possibile usare l'API personalizzata con PowerApps o con il flusso logico. In questa sezione si usa un'API per il meteo personalizzata.
 
 #### Aggiungere l'API personalizzata al flusso logico
-In questo passaggio si crea un flusso logico molto semplice che illustra come aggiungere l'API personalizzata. Per un'esperienza più approfondita, vedere [Get started with logic flows][10] (Introduzione ai flussi logici).
+In questo passaggio si crea un flusso logico molto semplice che illustra come aggiungere l'API personalizzata. Per un'esperienza più approfondita, vedere [Get started with logic flows][10] \(Introduzione ai flussi logici).
 
 1. Nel [portale Web][9] di PowerApps selezionare la scheda **Home**.
 2. In **Make a logic flow** (Crea un flusso logico) selezionare **Attività iniziali**.
@@ -159,7 +159,7 @@ I passaggi successivi dipendono dalle operazioni che possono essere eseguite dal
 
 
 #### Aggiungere l'API personalizzata a PowerApps
-In questo passaggio si crea una PowerApp molto semplice che illustra come aggiungere l'API personalizzata. Per un'esperienza più approfondita, vedere [Create an app from Excel data][11] (Creare un'app dai dati di Excel).
+In questo passaggio si crea una PowerApp molto semplice che illustra come aggiungere l'API personalizzata. Per un'esperienza più approfondita, vedere [Create an app from Excel data][11] \(Creare un'app dai dati di Excel).
 
 > [AZURE.NOTE] Per il momento le API personalizzate possono essere usate solo nel portale Web di PowerApps. Non possono essere usate nel client PowerApps.
 
@@ -173,7 +173,7 @@ In questo passaggio si crea una PowerApp molto semplice che illustra come aggiun
 ![](./media/powerapps-register-custom-api/screencustomapi.png "Selezionare l'API personalizzata.") 
 5. Selezionare **Aggiungi origine dati**.
 
-Una volta aggiunta l'API personalizzata, è possibile usarla nella barra delle funzioni, in una casella di testo e altro. Nella barra delle funzioni, ad esempio, è possibile iniziare a digitare **MySampleWebAPI** per visualizzare le funzioni disponibili. Per un esempio dell'uso dell'API di Office 365, vedere [Show data from Office 365][12] (Visualizzare i dati da Office 365).
+Una volta aggiunta l'API personalizzata, è possibile usarla nella barra delle funzioni, in una casella di testo e altro. Nella barra delle funzioni, ad esempio, è possibile iniziare a digitare **MySampleWebAPI** per visualizzare le funzioni disponibili. Per un esempio dell'uso dell'API di Office 365, vedere [Show data from Office 365][12] \(Visualizzare i dati da Office 365).
 
 
 ## Condivisione di un'API personalizzata

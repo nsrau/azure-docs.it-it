@@ -39,7 +39,7 @@ In questa sezione viene modificata l'applicazione del dispositivo simulato creat
 
         SendToBlobAsync();
 
-> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
+> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
 
 <!-- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d

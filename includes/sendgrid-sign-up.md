@@ -1,4 +1,4 @@
-I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi forniti da SendGrid, vedere la pagina di [funzionalità di SendGrid][].
+I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][] \(Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi forniti da SendGrid, vedere la pagina di [funzionalità di SendGrid][].
 
 ### Per iscriversi a un account SendGrid
 

@@ -46,7 +46,7 @@ Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla por
 È possibile usare due approcci per limitare il traffico a questo endpoint:
 
 
-- [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] (ACL di rete)
+- [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] \(ACL di rete)
 
 - [Gruppi di sicurezza di rete][NetworkSecurityGroups]
 

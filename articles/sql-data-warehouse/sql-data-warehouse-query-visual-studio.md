@@ -32,7 +32,7 @@ Per eseguire questa esercitazione, è necessario:
 
 + Un'istanza di SQL Data Warehouse esistente. Per crearne una, vedere [Creare un Azure SQL Data Warehouse][].
 + SSDT per Visual Studio. Se Visual Studio è già installato, probabilmente SSDT è già disponibile. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse][].
-+ Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connect to Azure SQL Data Warehouse][] (Connettersi ad Azure SQL Data Warehouse).
++ Il nome completo dell'istanza di SQL Server. Per trovarlo, vedere [Connect to Azure SQL Data Warehouse][] \(Connettersi ad Azure SQL Data Warehouse).
 
 ## 1\. Connettersi all'istanza di SQL Data Warehouse
 
@@ -86,7 +86,7 @@ Ora che è stata stabilita una connessione al database, è possibile scrivere un
 
 Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con PowerBI][].
 
-Per configurare l'ambiente per l'autenticazione di Azure Active Directory, vedere [Authentication to Azure SQL Data Warehouse][] (Autenticazione in Azure SQL Data Warehouse).
+Per configurare l'ambiente per l'autenticazione di Azure Active Directory, vedere [Authentication to Azure SQL Data Warehouse][] \(Autenticazione in Azure SQL Data Warehouse).
 
 <!--Arcticles-->
 [Connect to Azure SQL Data Warehouse]: sql-data-warehouse-connect-overview.md

@@ -182,7 +182,7 @@ Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti segu
 - [Che cos'è l'hub di eventi di Azure?](event-hubs-what-is-event-hubs.md)
 - [Panoramica di Hub eventi](event-hubs-overview.md)
 - [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
-- [Esempi di codice di Hub eventi] (http://code.msdn.microsoft.com/site/search?query=eventhub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
+- [Esempi di codice di Hub eventi](http://code.msdn.microsoft.com/site/search?query=eventhub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 I riferimenti API .NET sono qui:
 

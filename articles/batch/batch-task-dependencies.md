@@ -143,7 +143,7 @@ La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di
 
 ### Installazione delle applicazioni e staging dei dati
 
-Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per ottenere file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e include alcune considerazioni specifiche utili per ogni metodo.
+Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] \(Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per ottenere file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e include alcune considerazioni specifiche utili per ogni metodo.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/it-IT/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
