@@ -18,7 +18,7 @@
 
 # Definizione dei criteri di lab in Azure DevTest Labs
 
-> [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
+<div class="wa-video-container" data-control="video-container" data-slug="how-to-set-vm-policies-in-a-devtest-lab"> <a href="/en-us/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab/" data-control="video" data-expanding="false" class="wa-video-thumbnail" title="How to set VM policies in DevTest Labs" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player/" data-caption="" data-event="videopage-clicked-videothumbnail" data-event-property="how-to-set-vm-policies-in-a-devtest-lab"> <img src="https://sec.ch9.ms/ch9/d21b/f24707d6-bad4-4f4a-818b-ea6ec1a1d21b/dtlvmpolicies_960.jpg" alt="How to set VM policies in DevTest Labs" class="thumbnail"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>01-20-2016</span> <span>03 min, 47 sec</span> </span> </span> </a> </div>
 
 Azure DevTest Labs consente di specificare i criteri principali che consentono di controllare i costi e ridurre al minimo gli sprechi nei lab. Questi criteri di lab includono il numero massimo di VM create per utente e per lab e varie opzioni di avvio automatico e chiusura automatica.
 

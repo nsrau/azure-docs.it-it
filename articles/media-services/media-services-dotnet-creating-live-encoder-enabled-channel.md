@@ -120,7 +120,7 @@ Come procedura consigliata, usare un file app.config per archiviare il nome e la
 Aggiungere una sezione appSettings al file app.config e impostare i valori per il nome e la chiave dell'account di Servizi multimediali.
 
 
-<?xml version="1.0"?>
+	<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />

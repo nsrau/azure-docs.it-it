@@ -171,7 +171,7 @@ Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfacci
 
 ### URI di base
 
-L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in * *https://HEADNODEFQDN:8744/api/v1/**; tuttavia, il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
+L'URI di base per l'API REST nei cluster HDInsight basati su Linux è disponibile nel nodo head in **https://HEADNODEFQDN:8744/api/v1/**; tuttavia, il nome di dominio del nodo head viene generato durante la creazione del cluster e non è statico.
 
 È possibile trovare il nome di dominio completo (FQDN) per il nodo head del cluster in diversi modi:
 
