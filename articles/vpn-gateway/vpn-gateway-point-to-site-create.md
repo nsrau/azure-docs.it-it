@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-service-management"/>  
 
 <tags
    ms.service="vpn-gateway"
@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
-   ms.author="cherylmc"/>
+   ms.date="09/27/2016"
+   ms.author="cherylmc"/>  
 
 # Configurare una connessione da punto a sito a una rete virtuale usando il portale classico
 
@@ -25,12 +25,12 @@
 
 Una configurazione da punto a sito (P2S) permette di creare una connessione protetta da un singolo computer client a una rete virtuale. Una soluzione P2S è utile quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale.
 
-Questo articolo illustra la creazione di una rete virtuale con una connessione da punto a sito nel **modello di distribuzione classica** usando il **portale classico**. Attualmente, non è possibile creare interamente questa configurazione nel portale di Azure per il modello di distribuzione classica. È possibile eseguire alcuni passaggi nel portale di Azure, ma PowerShell è comunque necessario per il download della configurazione del client VPN.
+Questo articolo illustra la creazione di una rete virtuale con una connessione da punto a sito nel **modello di distribuzione classica** usando il **portale classico**.
 
 Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Una connessione VPN viene stabilita avviando la connessione dal computer client. Per altre informazioni sulle connessioni da punto a sito, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md).
 
 
-**Strumenti e modelli di distribuzione per le connessioni da punto a sito**
+### Metodi e modelli di distribuzione per connessioni P2S
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -152,7 +152,7 @@ Per connettersi alla rete virtuale, è necessario configurare anche un client VP
 
 3. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione verrà visualizzata in un elenco, insieme al nome della rete virtuale a cui si connette e avrà un aspetto simile al seguente:
 
-	![Client VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Client VPN")
+	![Client VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Client VPN")  
 
 
 ### Parte 3: Connettersi ad Azure
@@ -165,7 +165,7 @@ Per connettersi alla rete virtuale, è necessario configurare anche un client VP
 
 3. Verrà stabilita la connessione.
 
-	![Client VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Connessione del client VPN 2")
+	![Client VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Connessione del client VPN 2")  
 
 ### Parte 4: Verificare la connessione VPN
 
@@ -193,4 +193,4 @@ Esempio:
 
 Per altre informazioni sulle reti virtuali, vedere la pagina relativa alla [documentazione sulle reti virtuali](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

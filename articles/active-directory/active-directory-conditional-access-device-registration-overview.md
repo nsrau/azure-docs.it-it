@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,16 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="Markvi"/>  
 
 # Introduzione a Registrazione dispositivo Azure Active Directory
 
 Registrazione dispositivo di Azure Active Directory rappresenta il fondamento per gli scenari di accesso condizionale basato su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo Azure Active Directory fornisce al dispositivo un'identità che viene usata per autenticare il dispositivo quando l'utente esegue l'accesso. Il dispositivo autenticato e gli attributi del dispositivo possono quindi essere usati per imporre criteri di accesso condizionale per le applicazioni locali e ospitate nel cloud.
 
-Insieme a una soluzione di gestione dei dispositivi mobili (software MDM) come Intune, gli attributi del dispositivo in Azure Active Directory vengono aggiornati con informazioni aggiuntive sul dispositivo. Ciò permette di creare regole di accesso condizionale che subordinano l'accesso dai dispositivi al rispetto dei propri standard di sicurezza e conformità.
-
-Registrazione dispositivo di Azure Active Directory è disponibile in Azure Active Directory. Il servizio include il supporto per dispositivi Windows, iOS e Android. È possibile che i singoli scenari in cui viene usato il servizio Registrazione dispositivo di Azure Active Directory prevedano requisiti più specifici e il supporto di determinate piattaforme.
+Insieme a una soluzione di gestione dei dispositivi mobili (MDM) come Microsoft Intune, gli attributi del dispositivo in Azure Active Directory vengono aggiornati con informazioni aggiuntive sul dispositivo. Ciò permette di creare regole di accesso condizionale che subordinano l'accesso dai dispositivi al rispetto dei propri standard di sicurezza e conformità. Per altre informazioni sulla registrazione dei dispositivi in Microsoft Intune, vedere [Registrare i dispositivi per la gestione in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).
 
 ## Scenari abilitati da Registrazione dispositivo di Azure Active Directory
 
@@ -31,11 +29,14 @@ Registrazione dispositivo Azure Active Directory include il supporto per disposi
 
 - **Accesso condizionale alle applicazioni ospitate in locale**: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2. Per altre informazioni su come configurare l'accesso condizionale in locale, vedere [Configurazione dell'accesso condizionale in locale usando il servizio Registrazione del dispositivo di Azure Active Directory](active-directory-conditional-access-on-premises-setup.md).
 
-- **Accesso condizionale per le applicazioni di Office 365 con Microsoft Intune**: gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli Information Worker che usano dispositivi compatibili di accedere ai servizi. Per altre informazioni, vedere Criteri di accesso condizionale dei dispositivi per i servizi di Office 365.
+- **Accesso condizionale per applicazioni di Office 365 con Microsoft Intune**: gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli operatori dei sistemi informativi che usano dispositivi compatibili di accedere ai servizi. Per altre informazioni, vedere [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md).
 
 ##Configurazione della Registrazione dispositivo di Azure Active Directory
 
 È necessario abilitare Registrazione dispositivo Azure AD nel portale di Azure in modo che i dispositivi mobili possano trovare il servizio cercando i record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi Windows 10, Windows 8.1, Windows 7, Android e iOS possano trovare e usare il servizio. È possibile visualizzare e abilitare/disabilitare i dispositivi registrati tramite il portale dell'amministratore in Azure Active Directory.
+
+>[AZURE.NOTE]
+ Per le istruzioni più recenti su come configurare la registrazione automatica dei dispositivi, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ### Abilitare il servizio Registrazione dispositivo Azure Active Directory
 
@@ -44,7 +45,7 @@ Registrazione dispositivo Azure Active Directory include il supporto per disposi
 3. Selezionare la propria directory nella scheda **Directory**.
 4. Selezionare la scheda **Configura**.
 5. Scorrere fino alla sezione **Dispositivi**.
-6. Selezionare **TUTTI** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
+6. Selezionare **TUTTI ** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
 7. Selezionare il numero massimo di dispositivi da autorizzare per l'utente.
 
 >[AZURE.NOTE]
@@ -80,11 +81,11 @@ Ad esempio, se nell'organizzazione si usano due suffissi UPN denominati @contoso
 
 ## Argomenti aggiuntivi
 
-È possibile registrare i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio con Registrazione dispositivo di Azure AD. L'argomento seguente include altre informazioni sui prerequisiti e sulle procedure necessarie per configurare la registrazione del dispositivo per i dispositivi Windows 7 e Windows 8.1.
+È possibile registrare i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio con Registrazione dispositivo di Azure AD. Gli argomenti seguenti includono altre informazioni sui prerequisiti e sulle procedure necessarie per configurare la registrazione del dispositivo per i dispositivi Windows 7 e Windows 8.1.
 
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

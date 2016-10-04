@@ -5,7 +5,7 @@
     documentationCenter=".net"
     authors="jtaubensee"
     manager="timlt"
-    editor=""/>
+    editor=""/>  
 
 <tags
     ms.service="service-bus"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="08/22/2016"
-    ms.author="jotaub"/>
+    ms.author="jotaub"/>  
 
 # Creare uno spazio dei nomi del bus di servizio usando il portale di Azure
 
@@ -34,7 +34,7 @@ Congratulazioni. È stato creato uno spazio dei nomi per la messaggistica del bu
 
 Vedere il [repository GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples) con esempi che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio di Azure.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

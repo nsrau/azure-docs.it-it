@@ -6,10 +6,10 @@ Questo articolo descrive la procedura dettagliata del [codice di esempio Hello W
 
 In questa procedura dettagliata verranno trattati i seguenti argomenti:
 
-- **Concetti**: una panoramica concettuale dei componenti che costituiscono un gateway creato con il Gateway SDK.  
+- **Concetti**: una panoramica concettuale dei componenti che costituiscono un gateway creato con il Gateway SDK.
 - **Architettura di esempio Hello World**: descrive in che modo si applicano i concetti all'esempio Hello World e come vengono assemblati i componenti.
 - **Come compilare l'esempio**: i passaggi richiesti per compilare l'esempio.
-- **Come eseguire l'esempio**: i passaggi richiesti per eseguire l'esempio. 
+- **Come eseguire l'esempio**: i passaggi richiesti per eseguire l'esempio.
 - **Output tipico**: un esempio del possibile output risultante quando si esegue l'esempio.
 - **Frammenti di codice**: una raccolta di frammenti di codice per mostrare in che modo l'esempio Hello World implementa i componenti principali del gateway.
 
@@ -35,41 +35,44 @@ L'SDK fornisce un livello di astrazione che consente di creare i gateway da eseg
 
 ### Messaggi
 
-Nonostante sia più semplice concettualizzare il funzionamento di un gateway come una trasmissione di messaggi tra moduli, ciò non lo riflette con precisione. I moduli usano un bus di messaggi per comunicare tra loro, pubblicano i messaggi nel bus e questo li trasmette a tutti i moduli a esso connessi.
+Nonostante sia più semplice concettualizzare il funzionamento di un gateway come una trasmissione di messaggi tra moduli, ciò non lo riflette con precisione. I moduli usano un broker per comunicare tra loro. I messaggi vengono pubblicati nel broker con bus, pub/sub o qualsiasi altro modello di messaggistica e quindi il broker indirizza i messaggi ai moduli connessi.
 
-Un modulo usa la funzione **MessageBus\_Publish** per pubblicare un messaggio nel bus di messaggi. Il bus di messaggi recapita i messaggi a un modulo richiamando una funzione di callback. Un messaggio è costituito da un set di proprietà chiave/valore e contenuto passato come blocco di memoria.
+Un modulo usa la funzione **Broker\_Publish** per pubblicare un messaggio nel broker. Il broker recapita i messaggi a un modulo richiamando una funzione di callback. Un messaggio è costituito da un set di proprietà chiave/valore e contenuto passato come blocco di memoria.
 
-![][3]
+![][3]  
 
-Ogni modulo è responsabile di filtrare i messaggi, perché il bus di messaggi usa un meccanismo di trasmissione per recapitare ogni messaggio a tutti i moduli a esso connessi. Un modulo dovrebbe agire solo sui messaggi a esso destinati. Il filtro dei messaggi crea la pipeline dei messaggi in modo efficace. In genere un modulo filtra i messaggi ricevuti usando le proprietà del messaggio per identificare i messaggi che devono essere elaborati.
+### Routing e filtro dei messaggi
+
+Per indirizzare i messaggi ai moduli corretti è possibile procedere in due modi. È possibile passare un set di collegamenti al broker in modo che conosca l'origine e il sink di ogni modulo oppure il modulo può filtrare le proprietà del messaggio. Un modulo deve agire unicamente sui messaggi a esso destinati. I collegamenti e il filtro dei messaggi creano di fatto una pipeline dei messaggi.
 
 ## Architettura di esempio Hello World
 
 L'esempio Hello World illustra i concetti descritti nella sezione precedente. L'esempio Hello World implementa un gateway la cui pipeline è costituita da due moduli:
 
--	Il modulo *Hello World* crea un messaggio ogni cinque secondo e lo passa al modulo logger.
+-	Il modulo *hello world* crea un messaggio ogni cinque secondi e lo passa al modulo logger.
 -	Il modulo *logger* scrive i messaggi che riceve in un file.
 
-![][4]
+![][4]  
 
-Come descritto nella sezione precedente, il modulo Hello World non passa i messaggi direttamente al modulo logger ogni cinque secondi, ma pubblica un messaggio nel bus di messaggi ogni cinque secondi.
+Come descritto nella sezione precedente, il modulo Hello World non passa i messaggi direttamente al modulo logger ogni cinque secondi, ma pubblica un messaggio nel broker ogni cinque secondi.
 
-Il modulo logger riceve il messaggio dal bus di messaggi e ne controlla le proprietà in un filtro. Se il modulo logger determina che deve elaborare il messaggio, scrive il contenuto del messaggio in un file.
+Il modulo logger riceve il messaggio dal broker e interviene, scrivendo il contenuto del messaggio in un file.
 
-Il modulo logger utilizza solo i messaggi del bus di messaggi, senza mai pubblicare nuovi messaggi nel bus.
+Il modulo logger utilizza solo i messaggi provenienti dal broker, senza mai pubblicare nuovi messaggi nel broker.
 
-![][5]
+![][5]  
 
 La figura precedente illustra l'architettura dell'esempio Hello World e i percorsi relativi ai file di origine che implementano parti diverse dell'esempio nel [repository][lnk-gateway-sdk]. Esplorare il codice per conto proprio o usare i frammenti di codice seguente come guida.
 
-<!-- Images -->
+<!-- Images -->  
 [1]: media/iot-hub-gateway-sdk-getstarted-selector/modules.png
 [2]: media/iot-hub-gateway-sdk-getstarted-selector/modules_2.png
 [3]: media/iot-hub-gateway-sdk-getstarted-selector/messages_1.png
 [4]: media/iot-hub-gateway-sdk-getstarted-selector/high_level_architecture.png
 [5]: media/iot-hub-gateway-sdk-getstarted-selector/detailed_architecture.png
 
-<!-- Links -->
+<!-- Links -->  
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="erikre"
-	editor="" />
+	editor="" />  
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
 	ms.date="09/14/2016"
-	ms.author="piyushjo" />
+	ms.author="piyushjo" />  
 
 # Introduzione a Azure Mobile Engagement per app per iOS in Objective C
 
@@ -59,30 +59,26 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
 5. Aprire la scheda **Build Phases** e nel menu **Link Binary With Libraries** aggiungere i framework come illustrato di seguito:
 
-	![][3]
+	![][3]  
 
-6. Per **XCode 7** -aggiungere `libxml2.tbd` anziché `libxml2.dylib`.
-
-7. Tornare al portale di Azure nella pagina **Informazioni di connessione** dell'app e copiare la stringa di connessione.
+6. Tornare al portale di Azure nella pagina **Informazioni di connessione** dell'app e copiare la stringa di connessione.
 
 	![][4]
 
-8. Nel file **AppDelegate.m** aggiungere la seguente riga di codice.
+7. Nel file **AppDelegate.m** aggiungere la seguente riga di codice.
 
 		#import "EngagementAgent.h"
 
-9. A questo punto, incollare la stringa di connessione nel delegato `didFinishLaunchingWithOptions`.
+8. A questo punto, incollare la stringa di connessione nel delegato `didFinishLaunchingWithOptions`.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
-  			[...]
-			//[EngagementAgent setTestLogEnabled:YES];
-   
+  			[...]   
   			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
   			[...]
 		}
 
-10. `setTestLogEnabled` è un'istruzione facoltativa che abilita i log dell'SDK per consentire l'identificazione dei problemi.
+9. `setTestLogEnabled` è un'istruzione facoltativa che abilita i log dell'SDK per consentire l'identificazione dei problemi.
 
 ##<a id="monitor"></a>Abilitare il monitoraggio in tempo reale
 
@@ -121,6 +117,7 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 1. Nel file **AppDeletegate.m** importare il modulo Engagement Reach.
 
 		#import "AEReachModule.h"
+		#import <UserNotifications/UserNotifications.h>
 
 2. Nel metodo `application:didFinishLaunchingWithOptions` creare un modulo Reach e passarlo alla riga di inizializzazione di Engagement esistente:
 
@@ -135,12 +132,19 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 1. Aggiungere la riga seguente al metodo `application:didFinishLaunchingWithOptions`:
 
-		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
 			[application registerForRemoteNotifications];
 		}
-		else {
-
+		else
+		{
 			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 		}
 
@@ -169,13 +173,13 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Mobile Engagement SDK per iOS]: http://aka.ms/qk2rnj
 
-<!-- Images. -->
+<!-- Images. -->  
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

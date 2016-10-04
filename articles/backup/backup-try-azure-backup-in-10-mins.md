@@ -3,10 +3,10 @@
    description="Informazioni su come eseguire il backup di dati di Windows Server creando un insieme di credenziali, installando l'agente di Servizi di ripristino ed eseguendo il backup di file e cartelle in Azure."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
-   keywords="come eseguire il backup; come eseguire il back up"/>
+   keywords="come eseguire il backup; come eseguire il back up"/>  
 
 <tags
    ms.service="backup"
@@ -14,8 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>  
 
 # Primi passi: eseguire il backup di file e cartelle con Backup di Azure usando il modello di distribuzione Resource Manager
 
@@ -31,7 +31,7 @@ Per eseguire il backup di file e cartelle in Azure, è necessario eseguire quest
 
 ## Passaggio 1: Ottenere una sottoscrizione di Azure
 
-Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio Azure.
+Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio di Azure.
 
 ## Passaggio 2: Creare l'insieme di credenziali di Servizi di ripristino
 
@@ -39,7 +39,7 @@ Per eseguire il backup dei file e delle cartelle, è necessario creare un insiem
 
 ### Per creare un insieme di credenziali di Servizi di ripristino
 
-1. Accedere al [portale di Azure](https://portal.azure.com/), se questa operazione non è già stata eseguita, usando la sottoscrizione di Azure.
+1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com/), tramite la sottoscrizione di Azure.
 
 2. Scegliere **Sfoglia** dal menu Hub e nell'elenco di risorse digitare **Servizi di ripristino** e fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
@@ -108,11 +108,11 @@ Ora che è stato creato un insieme di credenziali, preparare l'infrastruttura pe
 
     ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 
-2. Fare clic su **Salva** nel popup del download. Per impostazione predefinita, il file **MARSagentinstaller.exe** viene salvato nella cartella Download.
+2. Fare clic su **Salva** nel popup del download. Per impostazione predefinita, il file **MARSagentinstaller.exe** viene salvato nella cartella Downloads.
 
 ### Scaricare le credenziali dell’insieme di credenziali
 
-1. Fare clic su **Download > Salva** nel pannello Preparare l'infrastruttura.
+1. Fare clic su **Scarica > Salva** nel pannello Prepara infrastruttura.
 
     ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
@@ -175,9 +175,9 @@ Per completare il backup iniziale, si usa l'agente di Servizi di ripristino di M
 
 9. Nella pagina Scegliere il tipo di backup iniziale selezionare il tipo di backup iniziale. Lasciare selezionata l'opzione **Automaticamente tramite la rete** e fare clic su **Avanti**.
 
-    È possibile eseguire il backup automaticamente in rete oppure offline. Il resto di questo articolo descrive il processo di backup automatico. Se si preferisce eseguire un backup offline, vedere l'articolo [Flusso di lavoro di Backup offline in Backup di Azure](backup-azure-backup-import-export.md) per altre informazioni.
+    È possibile eseguire il backup automaticamente in rete oppure offline. Il resto di questo articolo descrive il processo di backup automatico. Se si preferisce eseguire un backup offline, vedere l'articolo [Flusso di lavoro di backup offline in Backup di Azure](backup-azure-backup-import-export.md) per altre informazioni.
 
-10. Nella pagina Conferma riesaminare le informazioni e fare clic su **Fine**.
+10. Nella pagina Conferma esaminare le informazioni e fare clic su **Fine**.
 
 11. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
 
@@ -203,4 +203,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 - Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

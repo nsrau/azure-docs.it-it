@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="security-center"
@@ -13,8 +13,8 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
-   ms.author="yurid"/>
+   ms.date="09/22/2016"
+   ms.author="yurid"/> 
 
 # Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
@@ -36,7 +36,7 @@ Nella sezione successiva si apprenderà come pianificare ogni singola area e app
 ## Ruoli di sicurezza e controlli di accesso
 A seconda delle dimensioni e della struttura dell'organizzazione, il Centro sicurezza di Azure potrebbe essere usato da più utenti e team per l'esecuzione di diverse attività correlate alla sicurezza. Nel diagramma seguente è riportato un esempio di utenti fittizi e dei rispettivi ruoli e responsabilità in materia di sicurezza:
 
-![Ruoli](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png)
+![Ruoli](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png) 
 
 Il Centro sicurezza consente a questi utenti di svolgere i relativi ruoli, ad esempio:
 
@@ -91,8 +91,8 @@ Il Centro sicurezza usa il [controllo degli accessi in base al ruolo](../active-
 
 Altre informazioni importanti da considerare:
 
-- Solto i ruoli di Proprietario e Collaboratore della sottoscrizione possono modificare i criteri di sicurezza.
-- Solo i ruoli di Proprietario e Collaboratore della sottoscrizione e del gruppo di risorse possono applicare le raccomandazioni relative alla sicurezza per una risorsa.
+- Solto i ruoli Proprietario e Collaboratore della sottoscrizione possono modificare i criteri di sicurezza.
+- Solo i ruoli Proprietario e Collaboratore della sottoscrizione e del gruppo di risorse possono applicare le raccomandazioni relative alla sicurezza per una risorsa.
 
 Quando si pianifica il controllo di accesso con il Controllo degli accessi in base al ruolo per il Centro sicurezza, è necessario sapere chi userà il Centro sicurezza nell'organizzazione. Si dovrà sapere anche quali tipi di attività eseguiranno e configurare di conseguenza il Controllo degli accessi in base al ruolo.
 
@@ -103,7 +103,7 @@ I criteri di sicurezza definiscono il set di controlli consigliati per le risors
 
 I criteri abilitati nel livello sottoscrizione vengono propagati automaticamente a tutti i gruppi di risorse all'interno della sottoscrizione, come illustrato nel diagramma seguente:
 
-![Criteri di sicurezza](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
+![Criteri di sicurezza](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png) 
 
 Come illustrato nella figura precedente, i criteri di sicurezza per i gruppi di risorse possono essere ereditati dal livello sottoscrizione.
 
@@ -125,7 +125,7 @@ Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le
 
 **Configurazioni di base**: se le configurazioni del sistema operativo delle macchine virtuali non corrispondono alle baseline consigliate, viene visualizzata una raccomandazione. Esaminare il set di baseline [qui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) e valutare come vengono applicate le configurazioni del sistema operativo.
 
-**Crittografia dischi**: se sono disponibili dischi della macchina virtuale non crittografati, Centro sicurezza suggerisce di applicare Crittografia dischi di Azure. Questa funzionalità sfrutta BitLocker per Windows e DM-Crypt per Linux per la crittografia del volume per i dischi dati e del sistema operativo. La raccomandazione reindirizza l'utentea una [guida dettagliata](security-center-disk-encryption.md) con istruzioni su come eseguire tale crittografia.
+**Crittografia dischi**: se sono disponibili dischi della macchina virtuale non crittografati, Centro sicurezza suggerisce di applicare Crittografia dischi di Azure. Questa funzionalità sfrutta BitLocker per Windows e DM-Crypt per Linux per la crittografia del volume per i dischi dati e del sistema operativo. La raccomandazione reindirizza l'utente a una [guida dettagliata](security-center-disk-encryption.md) con istruzioni su come eseguire tale crittografia.
 
 Tenere presente che gli scenari di crittografia da risolvere sono diversi. È necessario pianificare i requisiti specifici di ognuno di questi scenari:
 
@@ -135,11 +135,11 @@ Tenere presente che gli scenari di crittografia da risolvere sono diversi. È ne
 
 La pianificazione dei requisiti sarà diversa per ogni scenario. Per informazioni dettagliate sui singoli scenari, vedere il white paper [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) (Crittografia dischi di Azure per macchine virtuali di Azure per Windows e Linux).
 
-**Web application firewall**: il Centro sicurezza identifica le macchine virtuali che eseguono applicazioni Web e visualizza una raccomandazione perché venga installato un web application firewall (WAF). Valutare le soluzioni partner disponibili per determinare la soluzione più adatta all'organizzazione e come verrà concessa la relativa licenza. I partner potrebbero supportare modelli Bring Your Own License e/o con pagamento in base al consumo. Per altre informazioni su come distribuire un web application firewall nelle macchine virtuali di Azure con il Centro sicurezza, vedere [Aggiungere un web application firewall nel Centro sicurezza di Azure](security-center-add-web-application-firewall.md).
+**Web application firewall**: il Centro sicurezza identifica le macchine virtuali che eseguono applicazioni Web e visualizza una raccomandazione perché venga installato un Web application firewall (WAF). Valutare le soluzioni partner disponibili per determinare la soluzione più adatta all'organizzazione e come verrà concessa la relativa licenza. I partner potrebbero supportare modelli Bring Your Own License e/o con pagamento in base al consumo. Per altre informazioni su come distribuire un Web application firewall nelle macchine virtuali di Azure con il Centro sicurezza, vedere [Aggiungere un Web application firewall nel Centro sicurezza di Azure](security-center-add-web-application-firewall.md).
 
 **Firewall di nuova generazione**: consente di effettuare il provisioning di un'appliance virtuale di importanti fornitori, tra cui Check Point e presto Cisco e Fortinet. Estende le protezioni di rete oltre i gruppi di sicurezza di rete incorporati in Azure. Il Centro sicurezza individuerà le distribuzioni per cui è consigliabile un firewall di nuova generazione e consentirà di effettuare il provisioning di un'appliance virtuale.
 
-**Rete virtuale**: il Centro sicurezza valuta l'infrastruttura e la configurazione della [rete virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) per verificare che i [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) siano applicato e configurati correttamente con regole per il traffico in ingresso. È necessario valutare quali regole del traffico definire e comunicarlo alle persone che dovranno applicare le raccomandazioni sulla sicurezza correlate.
+**Rete virtuale**: il Centro sicurezza valuta l'infrastruttura e la configurazione della [rete virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) per verificare che i [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) siano applicati e configurati correttamente con regole per il traffico in ingresso. È necessario valutare quali regole del traffico definire e comunicarlo alle persone che dovranno applicare le raccomandazioni sulla sicurezza correlate.
 
 Il Centro sicurezza visualizza una raccomandazione perché vengano specificati i dettagli dei contatti di sicurezza per la sottoscrizione di Azure. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md).
 
@@ -201,7 +201,7 @@ Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, i
 
 È anche possibile monitorare regolarmente lo stato delle risorse esistenti per identificare le modifiche alla configurazione che hanno creato rischi di sicurezza, deviazioni dalle baseline consigliate e avvisi di sicurezza. Avviare il dashboard del Centro sicurezza. Qui sono presenti tre aree principali da esaminare in modo continuativo.
 
-![Operazioni](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4.png)
+![Operazioni](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4.png) 
 
 1.	Il pannello **Integrità sicurezza delle risorse** consente di accedere rapidamente alle risorse chiave. Usare questa opzione per monitorare Macchine virtuali, Reti, SQL e Applicazioni.
 2.	Il pannello **Raccomandazioni** consente di esaminare le raccomandazioni del Centro sicurezza. Durante il monitoraggio continuo è normale non ricevere raccomandazioni ogni giorno, perché tutte le raccomandazioni sono state applicate durante la configurazione iniziale del Centro sicurezza. Per questo motivo, in questa sezione potrebbero non essere presenti nuove informazioni ogni giorno e sarà sufficiente accedervi solo quando necessario.
@@ -231,7 +231,9 @@ L'esempio seguente mostra un'attività RDP sospetta in azione:
 
 Questo pannello include dettagli relativi al momento in cui si è verificato l'attacco, al nome host di origine, alla macchina virtuale di destinazione e ai passaggi necessari per applicare la raccomandazione. In alcuni casi le informazioni sull'origine dell'attacco potrebbero non essere disponibili. Per altre informazioni su questo tipo di comportamento, vedere [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Informazioni sull'origine mancanti negli avvisi del Centro sicurezza di Azure).
 
-> [AZURE.NOTE] Nel video [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Come sfruttare il Centro sicurezza di Azure e Microsoft Operations Management Suite per la risposta a un evento imprevisto) è possibile vedere alcune demo che consentono di comprendere come usare il Centro sicurezza per ognuna di queste fasi.
+Nel video [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Come sfruttare il Centro sicurezza di Azure e Microsoft Operations Management Suite per la risposta a un evento imprevisto) è possibile vedere alcune demo che consentono di comprendere come usare il Centro sicurezza per ognuna di queste fasi.
+
+> [AZURE.NOTE] Vedere [Uso del Centro sicurezza di Azure per rispondere agli eventi imprevisti](security-center-incident-response.md) per altre informazioni sull'uso delle funzionalità del Centro sicurezza di Azure per rispondere agli eventi imprevisti.
 
 ## Vedere anche
 In questo documento è stato descritto come pianificare l'adozione del Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -242,4 +244,4 @@ In questo documento è stato descritto come pianificare l'adozione del Centro si
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
-<!------HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

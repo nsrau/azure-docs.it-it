@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="cmatskas"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"/>  
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>  
 
 # Utilizzo dei modelli di Azure Resource Manager nel codice di Visual Studio
@@ -136,4 +136,4 @@ Quando il modello è pronto, è possibile distribuire le nuove risorse seguendo 
 - Per altre informazioni sulle funzioni del modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
 - Per altri esempi dell'uso di Visual Studio Code, vedere [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) (Compilare app per cloud con Visual Studio Code) della [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Per altre guide introduttive della demo HealthClinic.biz, vedere [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts) (Guide introduttive agli strumenti di sviluppo di Azure).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

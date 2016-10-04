@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="service-bus" 
@@ -46,7 +46,7 @@ In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti 
 
 Si supponga di dover connettere due applicazioni usando una coda del bus di servizio. Nella figura 2 è illustrato questo scenario.
 
-![][2]
+![][2]  
  
 **Figura 2: le code del bus di servizio forniscono un servizio di accodamento asincrono unidirezionale.**
 
@@ -70,7 +70,7 @@ Le code risultano utili in un numero limitato di situazioni. Permettono alle app
 
 Sebbene siano utili, non sempre le code rappresentano la soluzione più appropriata. Talvolta, sono più indicati gli argomenti del bus di servizio. Nella figura 3 viene illustrato questo concetto.
 
-![][3]
+![][3]  
  
 **Figura 3: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.**
 
@@ -86,7 +86,7 @@ Come per le code, i sottoscrittori di un argomento possono leggere i messaggi us
 
 Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tramite un broker. Il traffico scorre in una sola direzione e non esiste una connessione diretta tra mittenti e ricevitori. Talvolta questo potrebbe non essere sufficiente, ad esempio se è necessario che le applicazioni possano inviare e ricevere messaggi o se occorre un collegamento diretto tra esse e non serve che i messaggi vengano archiviati tramite un broker. In questi scenari nel bus di servizio sono disponibili gli *inoltri*, come illustrato nella figura 4.
 
-![][4]
+![][4]  
  
 **Figura 4: l'inoltro del bus di servizio garantisce la comunicazione sincrona bidirezionale tra applicazioni.**
 
@@ -110,9 +110,9 @@ La connessione tra applicazioni è sempre stata parte integrante dello sviluppo 
 
 A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azure, usare i seguenti collegamenti per altre informazioni.
 
-- Come usare le [code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-- Come usare gli [argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Come usare l'[inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
+- Come usare le [code del bus di servizio](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Come usare gli [argomenti del bus di servizio](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Come usare l'[inoltro del bus di servizio](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Esempi relativi al bus di servizio](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -120,4 +120,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,4 +1,4 @@
-Quando si crea un gateway di rete virtuale, è necessario specificare il codice SKU del gateway da usare. Quando il gateway di rete virtuale viene creato, viene compilato come hardware virtuale. Quando si seleziona un codice SKU del gateway più elevato, viene allocata al gateway una potenza di elaborazione maggiore per instradare il traffico e, nel caso del gateway VPN, elaborare la crittografia VPN. I codici SKU del gateway sono validi per entrambi i modelli di distribuzione classica e di Resource Manager.
+Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Quando si seleziona uno SKU superiore, al gateway vengono allocati un maggior numero di CPU e una larghezza di banda superiore, di conseguenza il gateway può supportare una velocità effettiva di rete più elevata per la rete virtuale.
 
 Il gateway VPN può usare i codici SKU seguenti:
 
@@ -6,4 +6,4 @@ Il gateway VPN può usare i codici SKU seguenti:
 - Standard
 - HighPerformance
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Diversi modi per creare una macchina virtuale Linux | Microsoft Azure"
-	description="Elenca i diversi modi per creare una macchina virtuale Linux in Azure e indica collegamenti a strumenti ed esercitazioni per ogni metodo."
+	description="Informazioni sui diversi modi per creare una macchina virtuale Linux in Azure, con collegamenti a strumenti ed esercitazioni per ogni metodo."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>
+	tags="azure-resource-manager"/>  
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,78 +14,86 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="07/06/2016"
-	ms.author="iainfou"/>
+	ms.date="09/27/2016"
+	ms.author="iainfou"/>  
 
-# Diversi modi per creare una macchina virtuale Linux con Resource Manager
+# Diversi modi per creare una macchina virtuale Linux in Azure
 
-In Azure sono disponibili diversi modi per creare una macchina virtuale con il modello di distribuzione Resource Manager, adatti a obiettivi e utenti diversi. Questo articolo riepiloga le differenze e le opzioni disponibili per la creazione di macchine virtuali (VM) Linux.
+Azure offre la possibilità di creare una macchina virtuale (VM) Linux usando gli strumenti e i flussi di lavoro con cui si ha familiarità. Questo articolo offre un riepilogo delle differenze e degli esempi per la creazione di VM Linux.
+
 
 ## Interfaccia della riga di comando di Azure 
 
 L'interfaccia della riga di comando di Azure è disponibile per più piattaforme tramite un pacchetto npm, pacchetti forniti tramite distribuzione o un contenitore Docker. Altre informazioni su come [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md). Le esercitazioni seguenti offrono esempi relativi all'uso dell'interfaccia della riga di comando di Azure. Vedere ogni articolo per altre informazioni sui comandi di avvio rapido dell'interfaccia della riga di comando illustrati:
 
-* [Creare una VM Linux dall'interfaccia della riga di comando di Azure per sviluppo e test](virtual-machines-linux-quick-create-cli.md)
+- [Creare una VM Linux dall'interfaccia della riga di comando di Azure per sviluppo e test](virtual-machines-linux-quick-create-cli.md)
+	- L'esempio seguente crea una VM CoreOS usando una chiave pubblica denominata `azure_id_rsa.pub`:
 
 	```bash
-	azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
+	azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+		--image-urn CoreOS
 	```
 
-* [Creare una VM Linux protetta usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Creare una VM Linux protetta usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+	- L'esempio seguente crea una VM usando un modello archiviato in GitHub:
 
 	```bash
 	azure group create --name TestRG --location WestUS 
 		--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	```
 
-* [Creare una VM Linux da zero con l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md)
+- [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md)
+	- Include la creazione di un servizio di bilanciamento del carico e di più VM in un set di disponibilità.
 
-* [Aggiungere un disco a una VM Linux](virtual-machines-linux-add-disk.md)
+- [Aggiungere un disco a una VM Linux](virtual-machines-linux-add-disk.md)
+	- L'esempio seguente aggiunge un disco da 5 GB a una VM esistente denominata `TestVM`:
 
 	```bash
-	azure vm disk attach-new --resource-group TestRG --vm-name TestVM <size-in-GB>
+	azure vm disk attach-new --resource-group TestRG --vm-name TestVM \
+		--size-in-GB 5
 	```
 
 ## Portale di Azure
 
-L'interfaccia utente grafica del [portale di Azure](https://portal.azure.com) è un modo semplice per provare a usare una macchina virtuale, soprattutto se si ha poca esperienza con Azure, perché non richiede installazioni nel sistema. Usare il portale di Azure per creare la VM:
+Il [portale di Azure](https://portal.azure.com) consente di creare rapidamente una VM perché non richiede installazioni nel sistema. Usare il portale di Azure per creare la VM:
 
-* [Creare una macchina virtuale Linux tramite il portale di Azure](virtual-machines-linux-quick-create-portal.md)
-* [Come collegare un disco dati a una macchina virtuale Linux nel portale di Azure](virtual-machines-linux-attach-disk-portal.md)
+- [Creare una macchina virtuale Linux tramite il portale di Azure](virtual-machines-linux-quick-create-portal.md)
+- [Come collegare un disco dati a una macchina virtuale Linux nel portale di Azure](virtual-machines-linux-attach-disk-portal.md)
+
 
 ## Sistema operativo e opzioni dell'immagine
-Quando si crea una macchina virtuale, scegliere un'immagine in base al sistema operativo da eseguire. Azure e i relativi partner mettono a disposizione diverse immagini, alcune delle quali includono applicazioni e strumenti preinstallati. In alternativa, è possibile caricare una delle immagini personalizzate (vedere di seguito).
+Quando si crea una macchina virtuale, scegliere un'immagine in base al sistema operativo da eseguire. Azure e i relativi partner mettono a disposizione diverse immagini, alcune delle quali includono applicazioni e strumenti preinstallati. In alternativa, caricare una delle immagini personalizzate (vedere la [sezione seguente](#use-your-own-image)).
 
 ### Immagini di Azure
-È possibile usare i comandi dell'interfaccia della riga di comando `azure vm image` per vedere ciò che è disponibile per editore, versione di distribuzione e compilazioni.
+Usare i comandi dell'interfaccia della riga di comando `azure vm image` per visualizzare ciò che è disponibile per editore, versione di distribuzione e build.
 
-Elenca gli editori disponibili:
+Elencare gli editori disponibili come segue:
 
 ```bash
 azure vm image list-publishers --location WestUS
 ```
 
-Elenca i prodotti disponibili (offerte) per un determinato editore:
+Elencare i prodotti disponibili (offerte) per un determinato editore come segue:
 
 ```bash
 azure vm image list-offers --location WestUS --publisher Canonical
 ```
 
-Elenca gli SKU disponibili (versioni di distribuzione) di una determinata offerta:
+Elencare gli SKU disponibili (versioni di distribuzione) di una determinata offerta come segue:
 
 ```bash
 azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuServer
 ```
 
-Elenca tutte le immagini disponibili per una determinata versione:
+Elencare tutte le immagini disponibili per una determinata versione come segue:
 
 ```bash
 azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-Per esempi sull'esplorazione e l'uso delle immagini disponibili, vedere [Individuare e selezionare immagini di macchine virtuali Linux in Azure con l'interfaccia della riga di comando o PowerShell](virtual-machines-linux-cli-ps-findimage.md).
+Per altri esempi sull'esplorazione e l'uso delle immagini disponibili, vedere [Individuare e selezionare immagini di macchine virtuali di Azure con l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-ps-findimage.md).
 
-I comandi `azure vm quick-create` e `azure vm create` hanno anche alcuni alias è possibile usare per accedere rapidamente alle distribuzioni più comuni e alle versioni più recenti. Questo approccio è più facile che dover specificare autore, offerta, SKU e versione ogni volta che si crea una macchina virtuale:
+I comandi `azure vm quick-create` e `azure vm create` hanno alias che è possibile usare per accedere rapidamente alle distribuzioni più comuni e alle versioni più recenti. Usare alias è in genere più veloce che specificare editore, offerta, SKU e versione ogni volta che si crea una VM:
 
 | Alias | Autore | Offerta | SKU | Versione |
 |:----------|:----------|:-------------|:------------|:--------|
@@ -99,13 +107,14 @@ I comandi `azure vm quick-create` e `azure vm create` hanno anche alcuni alias �
 
 ### Usare la propria immagine
 
-Per personalizzazioni specifiche è possibile usare un'immagine basata su una macchina virtuale di Azure esistente *acquisendo* tale macchina virtuale oppure caricare un'immagine personalizzata e archiviata in un disco rigido virtuale. Per altre informazioni sulle distribuzioni supportate e su come usare immagini personalizzate, vedere gli articoli seguenti:
+Per personalizzazioni specifiche è possibile usare un'immagine basata su una VM di Azure esistente *acquisendo* tale VM. È anche possibile caricare un'immagine creata in locale. Per altre informazioni sulle distribuzioni supportate e su come usare immagini personalizzate, vedere gli articoli seguenti:
 
-* [Distribuzioni approvate per Azure](virtual-machines-linux-endorsed-distros.md)
+- [Distribuzioni approvate per Azure](virtual-machines-linux-endorsed-distros.md)
 
-* [Informazioni per distribuzioni non approvate](virtual-machines-linux-create-upload-generic.md)
+- [Informazioni per distribuzioni non approvate](virtual-machines-linux-create-upload-generic.md)
 
-* [Come acquisire una macchina virtuale Linux da usare come modello di Resource Manager](virtual-machines-linux-capture-image.md). Comandi di avvio rapido:
+- [Come acquisire una macchina virtuale Linux come modello di Resource Manager](virtual-machines-linux-capture-image.md).
+	- Comandi di avvio rapido di esempio per l'acquisizione di una VM esistente:
 
 	```bash
 	azure vm deallocate --resource-group TestRG --vm-name TestVM
@@ -115,10 +124,10 @@ Per personalizzazioni specifiche è possibile usare un'immagine basata su una ma
 
 ## Passaggi successivi
 
-* Provare a eseguire una delle esercitazioni per creare una VM Linux dal [portale](virtual-machines-linux-quick-create-portal.md), con l'[interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md) o usando un [modello](virtual-machines-linux-cli-deploy-templates.md) di Azure Resource Manager.
+- Creare una VM Linux dal [portale](virtual-machines-linux-quick-create-portal.md), con l'[interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md) oppure usando un [modello di Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md).
 
-* Dopo aver creato una VM Linux è possibile [aggiungere un disco dati](virtual-machines-linux-add-disk.md) con facilità.
+- Dopo aver creato una VM Linux, [aggiungere un disco dati](virtual-machines-linux-add-disk.md).
 
-* Azioni rapide per [reimpostare una password o chiavi SSH e gestire gli utenti](virtual-machines-linux-using-vmaccess-extension.md)
+- Azioni rapide per [reimpostare una password o chiavi SSH e gestire gli utenti](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

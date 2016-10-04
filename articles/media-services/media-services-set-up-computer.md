@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/26/2016"
+	ms.author="juliako"/>  
 
 # Configurazione dell'ambiente
 
@@ -52,4 +52,4 @@ Scegliere .NET o REST API per connettersi a livello di codice a Servizi multimed
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

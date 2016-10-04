@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="karavar"/>  
 
 <tags
@@ -158,7 +158,7 @@ Quando viene chiesta l'autenticazione, è consigliabile usare lo stesso account 
 ## Installazione dell'agente di Azure AD Connect Health per Servizi di dominio Active Directory
 Per avviare l'installazione dell'agente, fare doppio clic sul file EXE scaricato. Nella prima schermata fare clic su Installa.
 
-![Verificare Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
+![Verificare Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)  
 
 Una volta completata l'installazione, fare clic su Configura ora.
 
@@ -266,4 +266,4 @@ Il parametro role accetta attualmente i valori seguenti:
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!-----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

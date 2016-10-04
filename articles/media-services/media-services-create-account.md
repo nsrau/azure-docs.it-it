@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/26/2016"
+	ms.author="juliako"/>  
 
 
 # Creare un account di Servizi multimediali di Azure
@@ -79,7 +79,7 @@ Quando si fa doppio clic sul nome dell'account, per impostazione predefinita vie
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -101,9 +101,9 @@ Quando si fa doppio clic sul nome dell'account, per impostazione predefinita vie
   [Before you begin]: #begin
   [How to: Create a Media Services account using Quick Create]: #quick
 
-<!-- URLs. -->
+<!-- URLs. -->  
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 
   [portale di Azure classico]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -144,6 +144,8 @@ In genere è consigliabile usare un modello che distribuisce tutta l'infrastrutt
 
 Anche se ogni distribuzione mostra solo le modifiche apportate al gruppo di risorse, è possibile esportare in qualsiasi momento un modello per mostrare gli attributi dell'intero gruppo di risorse.
 
+> [AZURE.NOTE] Non è possibile esportare un modello per un gruppo di risorse con più di 200 risorse.
+
 1. Per visualizzare il modello per un gruppo di risorse, selezionare **Script di automazione**.
 
       ![esportare un gruppo di risorse](./media/resource-manager-export-template/export-resource-group.png)  
@@ -343,4 +345,4 @@ Congratulazioni. Si è appreso come esportare un modello da risorse create nel p
 - Per informazioni su come esportare un modello tramite PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Per informazioni su come esportare un modello tramite l'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

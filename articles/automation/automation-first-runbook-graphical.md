@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-	keywords="runbook, modello di runbook, automazione runbook, runbook di Azure"/>
+	keywords="runbook, modello di runbook, automazione runbook, runbook di Azure"/>  
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -26,7 +26,7 @@ Questa esercitazione illustra la creazione di un [runbook grafico](automation-ru
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti.
 
--	sottoscrizione Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-account/" target="_blank">[iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
+-	Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i benefici per i sottoscrittori MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-account/" target="_blank">[iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
 -	[Account RunAsdi Azure](automation-sec-configure-azure-runas-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 -	Macchina virtuale di Azure. Si arresterà e si avvierà la macchina virtuale in modo che non sia di produzione.
 
@@ -70,7 +70,7 @@ Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzi
 
 Il runbook appena creato è ancora in modalità Bozza. È necessario pubblicarlo prima di poterlo eseguire in produzione. Quando si pubblica un runbook, è possibile sovrascrivere la versione pubblicata esistente con la versione bozza. In questo caso, non esiste ancora una versione pubblicata perché il runbook è appena stato creato.
 
-1.	Fare clic su**Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto.<br> ![Publish](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
+1.	Fare clic su**Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto.<br> ![Pubblicazione](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
 2.	Se si scorre verso sinistra per visualizzare il runbook nel pannello **Runbook**, come **Stato di creazione** viene visualizzato**Pubblicato**.
 3.	Scorrere verso destra per visualizzare il pannello **MyFirstRunbook**. Le opzioni nella parte superiore consentono di avviare il runbook, pianificarlo per avviarlo in qualsiasi momento in futuro o creare un [webhook](automation-webhooks.md) per poterlo avviare con una chiamata HTTP.
 4.	Per avviare semplicemente il runbook, fare clic su **Avvia** e quindi su **Sì** quando richiesto.<br>![Avvia runbook](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
@@ -96,7 +96,7 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 
 ## Passaggio 6: Aggiungere l'autenticazione per gestire le risorse di Azure
 
-Ora che è stata creata una variabile che contiene l'ID sottoscrizione è possibile configurare il runbook per l'autenticazione con le credenziali Esegui come a cui si fa riferimento nei [prerequisiti](#prerequisites). Questa operazione viene eseguita aggiungendo il cmdlet **Asset** e **Add-AzureRMAccount** della connessione Esegui come di Azure all'area di disegno.
+Dopo avere creato una variabile che contiene l'ID sottoscrizione, è possibile configurare il runbook per l'autenticazione con le credenziali Esegui come a cui si fa riferimento nei [prerequisiti](#prerequisites). Questa operazione viene eseguita aggiungendo il cmdlet **Asset** e **Add-AzureRMAccount** della connessione Esegui come di Azure all'area di disegno.
 
 1.	Aprire l'editor grafico facendo clic su **Modifica** nel pannello MyFirstRunbook.<br> ![Modificare il runbook](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
 2.	**Scrivere Hello World nell'output** non è più necessario, quindi fare clic con il pulsante destro del mouse sul testo e scegliere **Elimina**.
@@ -118,7 +118,7 @@ Ora che è stata creata una variabile che contiene l'ID sottoscrizione è possib
 18.	 Nell'area di disegno selezionare **Set-AzureRmContext** e nel riquadro del controllo Configurazione digitare **Specify Subscription Id** nella casella di testo **Etichetta**.
 19.	 Fare clic su **Parametri** per visualizzare il pannello Configurazione parametro attività.
 20. **Set-AzureRmContext** include più set di parametri, quindi è necessario selezionarne uno prima di poterne indicare i valori. Fare clic su **Set di parametri** e quindi selezionare il set di parametri **SubscriptionId**.
-21.	 Dopo aver selezionato il set di parametri, nel pannello Configurazione parametro attività vengono visualizzati i parametri. Fare clic su **SubscriptionID**
+21.	 Dopo aver selezionato il set di parametri, nel pannello Configurazione parametro attività vengono visualizzati i parametri. Fare clic su **SubscriptionID**.
 22.	 Nel pannello Valore parametro selezionare **Asset variabile** per **Origine dati**, selezionare **AzureSubscriptionId** dall'elenco e quindi fare clic su **OK** due volte.
 23.  Passare il puntatore su **Login to Azure** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Specify Subscription Id**.
 
@@ -127,10 +127,10 @@ A questo punto l'aspetto del runbook sarà simile al seguente: <br>![Configurazi
 
 ## Passaggio 7: Aggiungere l'attività per avviare una macchina virtuale
 
-Ora verrà aggiunta un'attività **Start-AzureRmVM** per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome verrà hardcoded nel cmdlet.
+Ora verrà aggiunta un'attività **Start-AzureRmVM** per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome sarà hardcoded nel cmdlet.
 
 1. Nel controllo Libreria digitare **Start-AzureRm** nella casella di testo di ricerca.
-2. Aggiungere **Start-AzureRmVM** all'area di disegno e quindi fare clic e trascinarla sotto **Connect to Azure** (Connetti ad Azure).
+2. Aggiungere **Start-AzureRmVM** all'area di disegno e quindi fare clic e trascinarla sotto **Specify Subscription Id**.
 3. Passare il puntatore su **Specify Subscription Id** finché non viene visualizzato un cerchio nella parte inferiore della forma. Fare clic sul cerchio e trascinare la freccia su **Start-AzureRmVM**.
 4.	Selezionare **Start-AzureRmVM**. Fare clic su **Parametri** e quindi su **Set di parametri** per visualizzare i set per **Start-AzureRmVM**. Selezionare il set di parametri **ResourceGroupNameParameterSetName**. Si noti che accanto a **ResourceGroupName** e **Name** sono presenti punti esclamativi. Indicano che si tratta di parametri obbligatori. Si noti anche che i valori previsti per entrambi sono stringhe.
 5.	Selezionare **Name**. Selezionare **Espressione PowerShell** per **Origine dati** e digitare il nome della macchina virtuale, racchiuso tra virgolette doppie, che verrà avviata con questo runbook. Fare clic su **OK**.<br>![Valore del parametro Name di Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -147,7 +147,7 @@ Il runbook avvia attualmente la macchina virtuale nel gruppo di risorse specific
 1. Aprire l'editor grafico facendo clic su **Modifica** nel pannello **MyFirstRunbook**.
 2. Fare clic su **Input e output** e quindi**Aggiungi input** per aprire il riquadro Parametro di input runbook.<br>![Input e output del runbook](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
 3. Specificare *VMName* per **Nome**. Mantenere *stringa* come **Tipo**, ma cambiare **Obbligatorio** in *Sì*. Fare clic su **OK**.
-4. Creare un secondo parametro di input obbligatorio denominato *ResourceGroupName* e quindi fare clic su **OK**per chiudere il riquadro **Input e output**.<br>![Parametri di input del runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
+4. Creare un secondo parametro di input obbligatorio denominato *ResourceGroupName* e quindi fare clic su **OK**per chiudere il riquadro **Input e output**.<br> ![Parametri di input del runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 5. Selezionare l'attività **Start-AzureRmVM** e quindi fare clic su **Parametri**.
 6. Cambiare **Origine dati** per **Nome** in **Input runbook** e quindi selezionare **VMName**.<br>
 7. Cambiare **Origine dati** per **ResourceGroupName** in **Input runbook** e quindi selezionare **ResourceGroupName**.<br> ![Parametri Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
@@ -207,8 +207,8 @@ Ora si modificherà il runbook in modo che provi solo ad avviare la macchina vir
 
 ## Passaggi successivi
 
--	Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
+-	Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 -	Per iniziare a usare i runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md)
 -	Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

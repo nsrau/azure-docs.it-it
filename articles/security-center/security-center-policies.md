@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="security-center"
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
-   ms.author="yurid"/>
+   ms.date="09/22/2016"
+   ms.author="yurid"/>  
 
 # Impostare i criteri di sicurezza nel Centro sicurezza di Azure
 Questo documento consente di configurare i criteri di sicurezza nel Centro sicurezza mostrando i passaggi necessari per eseguire questa attività.
@@ -32,11 +32,11 @@ Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti d
 
 2. Nel pannello **Criteri di sicurezza - Definire il criterio per ogni sottoscrizione o gruppo di risorse** visualizzato selezionare la sottoscrizione in cui abilitare i criteri di sicurezza. Se si preferisce abilitare i criteri di sicurezza per un gruppo di risorse invece che per l'intera sottoscrizione, scorrere fino alla sezione successiva dove viene descritto come configurare i criteri di sicurezza per i gruppi di risorse.
 
-    ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)
+    ![Definizione dei criteri](./media/security-center-policies/security-center-policies-fig1-ga.png)  
 
 3. Il pannello **Criteri di sicurezza** per la sottoscrizione selezionata viene aperto con un set di opzioni simile a quelle illustrate nello screenshot seguente:
 
-    ![Abilitazione della raccolta dati](./media/security-center-policies/security-center-policies-fig2-ga.png)
+    ![Abilitazione della raccolta dati](./media/security-center-policies/security-center-policies-fig2-ga.png)  
 
 	Le opzioni disponibili in questo pannello sono:
 	- **Criteri di prevenzione**: usare questa opzione per configurare criteri per ogni sottoscrizione o gruppo di risorse.
@@ -50,11 +50,11 @@ Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti d
 
 5. Se l'account di archiviazione non è ancora configurato, può essere visualizzato un avviso simile a quello illustrato nello screenshot seguente quando si apre **Criteri di sicurezza**:
 
-    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig2.png)  
 
 6. Se viene visualizzato questo avviso, fare clic su questa opzione e selezionare l'area, come illustrato nello screenshot seguente:
 
-    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig3-ga.png)
+    ![Selezione dell'archiviazione](./media/security-center-policies/security-center-policies-fig3-ga.png)  
 
 7. Per ogni area in cui si hanno macchine virtuali in esecuzione, scegliere l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. Dopo avere stabilito l'area da usare, selezionarla e quindi selezionare l'account di archiviazione.
 
@@ -64,7 +64,7 @@ Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti d
 
 9. Nel pannello **Criteri di sicurezza** fare clic su **Sì** per abilitare le raccomandazioni sulla sicurezza da usare per la sottoscrizione. Fare clic su **Criteri di prevenzione** per visualizzare opzioni simili a quelle illustrate nello screenshot seguente:
 
-	![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![Selezione dei criteri di sicurezza](./media/security-center-policies/security-center-policies-fig4-ga-new.png)  
 
 Usare la tabella seguente come riferimento per comprendere ogni opzione:
 
@@ -77,8 +77,9 @@ Usare la tabella seguente come riferimento per comprendere ogni opzione:
 | Gruppi di sicurezza di rete | Consiglia di configurare [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per controllare il traffico in ingresso e in uscita nelle VM che hanno endpoint pubblici. I gruppi di sicurezza di rete configurati per una subnet verranno ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questo criterio valuta le regole di sicurezza in ingresso per identificare le regole che consentono il traffico in ingresso. |
 | Web application firewall | Consiglia di effettuare il provisioning di un Web application firewall nelle macchine virtuali quando una delle due affermazioni seguenti è vera:</br></br>Viene usato l'[IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) e le regole di sicurezza per il gruppo di sicurezza di rete associato sono configurate per consentire l'accesso alla porta 80/443.</br></br>IP con carico bilanciato e le regole NAT (Network Address Translation) in ingresso e di bilanciamento del carico associate sono configurate per consentire l'accesso alla porta 80/443. Per altre informazioni, vedere [Supporto di Azure Resource Manager per il servizio di bilanciamento del carico](../load-balancer/load-balancer-arm.md). |
 | Firewall di nuova generazione | Estende le protezioni di rete oltre i gruppi di sicurezza di rete predefiniti di Azure. Il Centro sicurezza troverà le distribuzioni per cui è consigliabile un firewall di nuova generazione e consentirà di effettuare il provisioning di un'appliance virtuale. |
-| Servizio di controllo SQL | Consiglia l'abilitazione del controllo dell'accesso al database di Azure per scopi di conformità e rilevamento e analisi avanzati. |
+| Servizio di controllo SQL e rilevamento delle minacce | Consiglia l'abilitazione del controllo dell'accesso al database di Azure per la conformità e il rilevamento avanzato delle minacce, per scopi di analisi. |
 | SQL Transparent Data Encryption | Consiglia l'abilitazione della crittografia dati inattivi per il database SQL di Azure, i backup associati e file di log delle transazioni. Anche se i dati vengono violati, non saranno leggibili. |
+| Valutazione della vulnerabilità | Consiglia di installare una soluzione di valutazione della vulnerabilità nella macchina virtuale. |
 
 Dopo avere configurato tutte le opzioni, fare clic su **OK** nel pannello **Criteri di sicurezza** contenente le raccomandazioni e quindi su **Salva** nel pannello **Criteri di sicurezza** contenente le impostazioni iniziali.
 
@@ -86,11 +87,11 @@ Dopo avere configurato tutte le opzioni, fare clic su **OK** nel pannello **Crit
 
 Se si preferisce configurare i criteri di sicurezza per ogni gruppo di risorse, i passaggi sono simili a quelli usati per configurare i criteri di sicurezza per le sottoscrizioni. La differenza principale riguarda la necessità di espandere il nome della sottoscrizione e selezionare il gruppo di risorse per cui si vogliono configurare criteri di sicurezza univoci:
 
-![Selezione del gruppo di risorse](./media/security-center-policies/security-center-policies-fig5-ga.png)
+![Selezione del gruppo di risorse](./media/security-center-policies/security-center-policies-fig5-ga.png)  
 
 Dopo aver selezionato il gruppo di risorse, viene aperto il pannello **Criteri di sicurezza**. Per impostazione predefinita, l'opzione **Ereditarietà** è abilitata, quindi tutti i criteri di sicurezza per questo gruppo di risorse vengono ereditati dal livello della sottoscrizione. Per impostare criteri di sicurezza personalizzati per un gruppo di risorse, è possibile modificare questa configurazione. In tal caso, è necessario selezionare **Univoco** e apportare le modifiche nell'opzione **Criteri di prevenzione**.
 
-![Criteri di sicurezza per ogni gruppo di risorse](./media/security-center-policies/security-center-policies-fig6-ga.png)
+![Criteri di sicurezza per ogni gruppo di risorse](./media/security-center-policies/security-center-policies-fig6-ga.png)  
 
 > [AZURE.NOTE] In caso di conflitto tra i criteri definiti a livello di sottoscrizione e quelli a livello di gruppo di risorse, i criteri a livello di gruppo di risorse avranno la precedenza.
 
@@ -106,4 +107,4 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>  
 
 <tags
@@ -68,4 +68,4 @@ Questa funzionalità fornisce una tendenza grafica del numero di modifiche valut
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!-----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

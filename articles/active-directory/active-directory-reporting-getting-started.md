@@ -4,8 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
-   editor=""/>
+   manager="femila"
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -80,7 +80,7 @@ A causa della grande quantità di autenticazioni e accessi elaborati dalla piatt
 
 ### Accedere al portale di Azure classico.
 
-Innanzitutto, è necessario accedere al [portale di Azure classico](https://manage.windowsazure.com).come amministratore globale o di conformità. Si deve anche essere un amministratore del servizio di sottoscrizione di Azure o CO-amministratore, o disporre della sottoscrizione Azure di "Accesso ad Azure AD"
+Innanzitutto, è necessario accedere al [portale di Azure classico](https://manage.windowsazure.com).come amministratore globale o di conformità. Si deve anche essere un amministratore o coamministratore del servizio di sottoscrizione di Azure oppure usare la sottoscrizione di Azure "Accesso ad Azure Active Directory".
 
 ### Passare al report
 
@@ -120,7 +120,7 @@ Scorrere fino alla sezione "Notifiche".
 
 Abilitare o disabilitare la sezione "Notifiche tramite posta elettronica di Accessi anomali".
 
-![La sezione delle notifiche](./media/active-directory-reporting-getting-started/notificationsSection.png)
+![La sezione delle notifiche](./media/active-directory-reporting-getting-started/notificationsSection.png)  
 
 ### Integrazione con l'API di creazione report di Azure AD
 
@@ -156,4 +156,4 @@ Inviare un messaggio di posta elettronica all'indirizzo [aadreportinghelp@micros
 
 > [AZURE.TIP] Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="soluzione di backup; servizio di backup"/>
+   keywords="soluzione di backup; servizio di backup"/>  
 
 <tags
    ms.service="backup"
@@ -23,11 +23,11 @@
 - [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
 - [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-In questo articolo fornisce informazioni specifiche per l'insieme di credenziali di Servizi di ripristino e integra [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq). L'articolo Domande frequenti su Backup di Azure include tutte le domande e le risposte relative al servizio Backup di Azure.
+In questo articolo fornisce informazioni specifiche per l'insieme di credenziali di Servizi di ripristino e integra [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq.md). L'articolo Domande frequenti su Backup di Azure include tutte le domande e le risposte relative al servizio Backup di Azure.
 
 È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Gli insiemi di credenziali di Servizi di ripristino si basano su Azure Resource Manager. Gli insiemi di credenziali per il backup (modalità classica) sono ancora supportati? <br/>
+## Gli insiemi di credenziali di Servizi di ripristino sono basati su Resource Manager. Gli insiemi di credenziali di Backup (modalità classica) sono ancora supportati? <br/>
 Sì, gli insiemi di credenziali di Backup sono ancora supportati. Creare gli insiemi di credenziali per il backup nel [portale classico](https://manage.windowsazure.com). Creare insiemi di credenziali di Servizi di ripristino nel [portale di Azure](https://portal.azure.com). Tuttavia, è consigliabile creare un insieme di credenziali di Servizi di ripristino perché tutti gli miglioramenti futuri saranno disponibili solo nell'insieme di credenziali di Servizi di ripristino.
 
 ## È possibile eseguire la migrazione di un insieme di credenziali per il backup in un insieme di credenziali di Servizi di ripristino? <br/>
@@ -43,4 +43,4 @@ Per i backup di macchine virtuali in modalità classica nell'insieme di credenzi
 2. Eseguire la migrazione della macchina virtuale dalla modalità classica alla modalità Resource Manager. Assicurarsi di eseguire la migrazione alla modalità Resource Manager anche della risorsa di archiviazione e della rete corrispondenti alla macchina virtuale.
 3. Creare un insieme di credenziali di Servizi di ripristino e configurare il backup della macchina virtuale di cui è stata eseguita la migrazione usando l'azione **Backup** nella parte superiore del dashboard dell'insieme di credenziali. Altre informazioni su come [abilitare il backup nell'insieme di credenziali di Servizi di ripristino](backup-azure-vms-first-look-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->
