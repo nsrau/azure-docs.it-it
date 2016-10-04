@@ -31,7 +31,7 @@ Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unit�
 
 - **Un archivio del gateway.** Questo archivio contiene i dati per ogni entità definita nell'unità di scala. L'archivio del gateway viene implementato in un database SQL Azure.
 
-- **Più archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene inoltre tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md) del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
+- **Più archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene anche tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](../service-bus-messaging/service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](../service-bus-messaging/service-bus-premium-messaging.md) del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
 
 ## Contenitori
 
@@ -55,8 +55,8 @@ Quando viene stabilita la connessione di inoltro, i client possono scambiare mes
 
 Ora che è stata esaminata una panoramica dell'architettura del bus di servizio, visitare i collegamenti seguenti per iniziare:
 
-- [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
+- [Panoramica della messaggistica del bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
-- [Una soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Una soluzione di messaggistica accodata che usa le code del bus di servizio](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

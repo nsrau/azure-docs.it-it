@@ -31,7 +31,7 @@ Requisiti e aspetti principali del peering reti virtuali:
 - Le due reti virtuali con peering devono trovarsi nella stessa area di Azure.
 - Le reti virtuali con peering non devono avere spazi di indirizzi IP sovrapposti.
 - Il peering reti virtuali viene eseguito tra due reti virtuali senza alcuna relazione transitiva derivata. Ad esempio, se per la rete virtuale A è stato eseguito il peering con la rete virtuale B e se per quest'ultima è stato eseguito il peering con la rete virtuale C, non viene stabilito automaticamente il peering tra la rete virtuale A e la rete virtuale C.
-- Il peering può essere stabilito tra reti virtuali in due diverse sottoscrizioni, a condizione che un utente con privilegi di entrambe le sottoscrizioni autorizzi il peering.
+- Il peering può essere stabilito tra reti virtuali in due diverse sottoscrizioni, a condizione che un utente con privilegi di entrambe le sottoscrizioni autorizzi il peering e che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
 - È possibile eseguire il peering di una rete virtuale che usa il modello di distribuzione Resource Manager con un'altra rete virtuale che usa questo modello o con una rete virtuale che usa il modello di distribuzione classica. Non è tuttavia possibile eseguire il peering tra reti virtuali che usano il modello di distribuzione classica.
 - Anche se la comunicazione tra le macchine virtuali nelle reti virtuali con peering non presenta restrizioni in termini di larghezza di banda aggiuntiva, viene comunque applicato il limite di larghezza di banda in base alle dimensioni della macchina virtuale.
 
@@ -88,4 +88,4 @@ Il peering reti virtuali è disponibile gratuitamente durante il periodo di veri
 - Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 - Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

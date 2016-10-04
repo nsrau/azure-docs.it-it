@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creare una funzione di elaborazione di eventi | Microsoft Azure"
    description="Usare Funzioni di Azure per creare una funzione C# che viene eseguita in base a un timer di eventi."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 # Creare una funzione di Azure di elaborazione di eventi
@@ -44,7 +44,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Prima di cre
 
 	![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. In **Azure Storage Queue output** (Output della coda di archiviazione di Azure) fare clic su **seleziona** accanto a **Storage account connection** (Connessione all'account di archiviazione), selezionare l'account di archiviazione esistente o crearne uno nuovo, quindi fare clic su **Salva**.
+5. In **Azure Storage Queue output** (Output della coda di archiviazione di Azure) selezionare una **Storage account connection** (Connessione all'account di archiviazione) esistente o crearne una nuova, quindi fare clic su **Salva**.
 
 	![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -75,10 +75,10 @@ Ecco un esempio estremamente semplificato di associazione tra trigger timer e ou
 
 Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
 
-+ [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md): contiene informazioni di riferimento per programmatori sulla codifica delle funzioni e la definizione di trigger e associazioni.
-+ [Test di Funzioni di Azure](functions-test-a-function.md): descrive diversi strumenti e tecniche per il test delle funzioni.
-+ [Scalabilità di Funzioni di Azure](functions-scale.md): descrive i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.  
++ [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md) Informazioni di riferimento per programmatori per la codifica di funzioni e la definizione di trigger e associazioni.
++ [Test di Funzioni di Azure](functions-test-a-function.md) Descrive diversi strumenti e tecniche per il test delle funzioni.
++ [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md) Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.
 
 [AZURE.INCLUDE [Nota introduttiva](../../includes/functions-get-help.md)]
 
-<!----HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

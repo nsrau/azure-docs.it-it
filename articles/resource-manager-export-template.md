@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tfitzmac"
 	manager="timlt"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/03/2016"
-	ms.author="tomfitz"/>  
+	ms.author="tomfitz"/>
 
 # Esportare un modello di Azure Resource Manager da risorse esistenti
 
@@ -33,11 +33,11 @@ In questa esercitazione si esegue l'accesso al portale di Azure, si crea un acco
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Nuovo** > **Dati e archiviazione** > **Account di archiviazione**.
 
-      ![creare la risorsa di archiviazione](./media/resource-manager-export-template/create-storage.png)  
+      ![creare la risorsa di archiviazione](./media/resource-manager-export-template/create-storage.png)
 
 2. Creare un account di archiviazione usando il nome **storage**, le proprie iniziali e la data. Il nome dell'account di archiviazione deve essere univoco in Azure. Se il nome iniziale è già usato, provare con una variante. Per il gruppo di risorse specificare il valore **ExportGroup**. È possibile usare i valori predefiniti per le altre proprietà. Selezionare **Crea**.
 
-      ![specificare i valori per la risorsa di archiviazione](./media/resource-manager-export-template/provide-storage-values.png)  
+      ![specificare i valori per la risorsa di archiviazione](./media/resource-manager-export-template/provide-storage-values.png)
 
 Al termine della distribuzione, la sottoscrizione contiene l'account di archiviazione.
 
@@ -45,15 +45,15 @@ Al termine della distribuzione, la sottoscrizione contiene l'account di archivia
 
 1. Passare al pannello Gruppo di risorse per il nuovo gruppo di risorse. Si noti che il pannello visualizza il risultato dell'ultima distribuzione. Selezionare questo collegamento.
 
-      ![pannello Gruppo di risorse](./media/resource-manager-export-template/resource-group-blade.png)  
+      ![pannello Gruppo di risorse](./media/resource-manager-export-template/resource-group-blade.png)
 
 2. Viene visualizzata la cronologia delle distribuzioni per il gruppo. In questo caso il pannello probabilmente elenca solo una distribuzione. Selezionare questa distribuzione.
 
-     ![ultima distribuzione](./media/resource-manager-export-template/last-deployment.png)  
+     ![ultima distribuzione](./media/resource-manager-export-template/last-deployment.png)
 
 3. Il pannello visualizza un riepilogo della distribuzione. Il riepilogo include lo stato della distribuzione e le relative operazioni e i valori specificati per i parametri. Per visualizzare il modello usato per la distribuzione, selezionare **Visualizza modello**.
 
-     ![visualizzare il riepilogo della distribuzione](./media/resource-manager-export-template/deployment-summary.png)  
+     ![visualizzare il riepilogo della distribuzione](./media/resource-manager-export-template/deployment-summary.png)
 
 4. Resource Manager recupera i sei file seguenti:
 
@@ -66,7 +66,7 @@ Al termine della distribuzione, la sottoscrizione contiene l'account di archivia
 
      I file sono disponibili mediante collegamenti nel pannello. Per impostazione predefinita, il pannello visualizza il modello.
 
-       ![visualizzare il modello](./media/resource-manager-export-template/view-template.png)  
+       ![visualizzare il modello](./media/resource-manager-export-template/view-template.png)
 
      Occorre prestare particolare attenzione al modello. Il modello deve avere un aspetto analogo al seguente:
 
@@ -121,7 +121,7 @@ Il modello scaricato nella sezione precedente rappresentava l'infrastruttura per
 
 1. Nel pannello del gruppo di risorse selezionare **Aggiungi**.
 
-      ![aggiungere una risorsa](./media/resource-manager-export-template/add-resource.png)  
+      ![aggiungere una risorsa](./media/resource-manager-export-template/add-resource.png)
 
 2. Selezionare **Rete virtuale** tra le risorse disponibili.
 
@@ -129,11 +129,11 @@ Il modello scaricato nella sezione precedente rappresentava l'infrastruttura per
 
 2. Specificare il nome **VNET** per la rete virtuale e usare i valori predefiniti per le altre proprietà. Selezionare **Crea**.
 
-      ![impostare l'avviso](./media/resource-manager-export-template/create-vnet.png)  
+      ![impostare l'avviso](./media/resource-manager-export-template/create-vnet.png)
 
 3. Al termine della distribuzione della rete virtuale nel gruppo di risorse, esaminare ancora la cronologia di distribuzione. Vengono visualizzate due distribuzioni. Se la seconda distribuzione non viene visualizzata, potrebbe essere necessario chiudere il pannello del gruppo di risorse e riaprirlo. Selezionare la distribuzione più recente.
 
-      ![cronologia della distribuzione](./media/resource-manager-export-template/deployment-history.png)  
+      ![cronologia della distribuzione](./media/resource-manager-export-template/deployment-history.png)
 
 4. Esaminare il modello per tale distribuzione. Si noti che definisce solo le modifiche apportate per aggiungere la rete virtuale.
 
@@ -144,9 +144,11 @@ In genere è consigliabile usare un modello che distribuisce tutta l'infrastrutt
 
 Anche se ogni distribuzione mostra solo le modifiche apportate al gruppo di risorse, è possibile esportare in qualsiasi momento un modello per mostrare gli attributi dell'intero gruppo di risorse.
 
+> [AZURE.NOTE] Non è possibile esportare un modello per un gruppo di risorse con più di 200 risorse.
+
 1. Per visualizzare il modello per un gruppo di risorse, selezionare **Script di automazione**.
 
-      ![esportare un gruppo di risorse](./media/resource-manager-export-template/export-resource-group.png)  
+      ![esportare un gruppo di risorse](./media/resource-manager-export-template/export-resource-group.png)
 
      Non tutti i tipi di risorse supportano la funzione di esportazione del modello. Se il gruppo di risorse contiene solo l'account di archiviazione e la rete virtuale illustrati in questo articolo, non verranno visualizzati errori. Se invece sono stati creati altri tipi di risorse, è possibile che venga visualizzato un errore che informa di un problema con l'esportazione. Per informazioni su come gestire tali problemi, vedere la sezione [Risolvere i problemi di esportazione](#fix-export-issues).
 
@@ -343,4 +345,4 @@ Congratulazioni. Si è appreso come esportare un modello da risorse create nel p
 - Per informazioni su come esportare un modello tramite PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Per informazioni su come esportare un modello tramite l'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

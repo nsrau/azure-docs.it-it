@@ -72,7 +72,7 @@ Se un dispositivo non è elencato tra i dispositivi VPN con compatibilità nota 
 
 ### Perché il tunnel VPN basato su criteri si arresta quando il traffico è inattivo?
 
-Questo comportamento è previsto per gateway VPN basate su criteri (anche note come routing statico). Quando il traffico attraverso il tunnel è inattivo per più di 5 minuti, il tunnel verrà arrestato. Quando il traffico inizierà a scorrere in entrambe le direzioni, il tunnel verrà ripristinato immediatamente. Se si dispone di un gateway VPN basato su route (noto anche come dinamico), questo comportamento non si verificherà.
+Questo comportamento è previsto per gateway VPN basate su criteri (anche note come routing statico). Quando il traffico attraverso il tunnel è inattivo per più di 5 minuti, il tunnel verrà arrestato. Quando il traffico inizierà a scorrere in entrambe le direzioni, il tunnel verrà ripristinato immediatamente.
 
 ### È possibile usare soluzioni software VPN per connettersi ad Azure?
 
@@ -276,4 +276,4 @@ No. Attraverso il gateway della rete virtuale passerà solo il traffico con un I
 Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md).
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

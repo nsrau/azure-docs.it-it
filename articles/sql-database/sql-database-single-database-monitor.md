@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="carlrab"/>
 
 # Monitoraggio delle prestazioni del database nel database SQL di Azure
@@ -47,4 +47,4 @@ Le stesse metriche esposte nel portale sono disponibili anche tramite le viste d
 
 Per i pool di database elastici, è possibile monitorare i singoli database nel pool con le tecniche descritte in questa sezione. Tuttavia, è anche possibile monitorare il pool nel complesso. Per informazioni, vedere [Monitorare e gestire un pool di database elastici](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

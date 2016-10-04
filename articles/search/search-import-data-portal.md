@@ -34,7 +34,7 @@ Internamente, la procedura guidata configurare e richiama un *indicizzatore*, au
 
 ## Origini dati supportate dalla procedura guidata Importa dati
 
-Gli strumenti e l'automazione dell'indicizzazione sono disponibili per le origini dati seguenti:
+La procedura guidata Importa dati supporta le origini dati seguenti:
 
 - Database SQL di Azure
 - Dati relazionali di SQL Server in una macchina virtuale di Azure
@@ -119,4 +119,4 @@ Per altre informazioni sugli indicizzatori, usare questi collegamenti:
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

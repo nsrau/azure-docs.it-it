@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Aggiungere nuovi utenti o utenti con account Microsoft in Azure Active Directory
 
@@ -31,7 +31,7 @@ Aggiungere utenti per popolare la directory. Questo articolo illustra come aggiu
 	- **Utente con account Microsoft esistente**: consente di aggiungere un account utente Microsoft esistente alla directory, ad esempio un account Outlook.
 
 5. In base al **Tipo di utente** immettere un nome utente, per un nuovo utente, o un indirizzo di posta elettronica, per un utente con un account Microsoft.
-6. Nella pagina **Profilo** dell'utente specificare nome e cognome, un nome descrittivo e un ruolo utente dall'elenco **Ruoli**. Per altre informazioni sui ruoli utente e di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure AD](active-directory-assign-admin-roles.md). Specificare eventualmente **Abilita Multi-Factor Authentication** per l'utente.
+6. Nella pagina **Profilo** dell'utente specificare nome e cognome, un nome descrittivo e un ruolo utente dall'elenco **Ruoli**. Per altre informazioni sui ruoli utente e di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md). Specificare eventualmente **Abilita Multi-Factor Authentication** per l'utente.
 7. Nella pagina **Ottieni password temporanea** selezionare **Crea**.
 
 > [AZURE.IMPORTANT] Se l'organizzazione usa più di un dominio, è opportuno essere a conoscenza dei problemi seguenti quando si aggiunge un account utente:
@@ -55,7 +55,7 @@ Gli account guest rappresentano utenti di altre directory che sono stati invitat
 
 Nella directory gli utenti guest hanno un set di diritti limitato. Questi diritti limitano la possibilità per gli utenti guest di trovare informazioni sugli altri utenti nella directory. Gli utenti guest possono comunque interagire con gli utenti e i gruppi associati alle risorse su cui stanno lavorando. Gli utenti guest possono:
 
-- Visualizzare altri utenti e gruppi associati a una sottoscrizione di Azure a cui sono stati assegnati
+- Visualizzare altri utenti e gruppi associati a una sottoscrizione di Azure a cui sono assegnati
 - Visualizzare i membri dei gruppi a cui appartengono
 - Cercare altri utenti nella directory, se conoscono l'indirizzo di posta elettronica completo dell'utente
 - Visualizzare solo un set limitato di attributi degli utenti cercati, ad esempio solo il nome visualizzato, l'indirizzo di posta elettronica, il nome dell'entità utente e la foto di anteprima
@@ -86,4 +86,4 @@ Si potranno quindi modificare le opzioni per controllare l'accesso per gli utent
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

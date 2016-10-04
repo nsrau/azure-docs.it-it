@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Ottenere informazioni dettagliate sui dati del Centro sicurezza di Azure con Power BI
@@ -26,7 +26,7 @@ Il [dashboard di Power BI](http://aka.ms/azure-security-center-power-bi) nel Cen
 
 1. Nel dashboard **Centro sicurezza di Azure** fare clic sul pulsante **Esplora in Power BI**.
 
-	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png)
+	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
 
 2. Sul lato destro verrà visualizzato il pannello **Esplora in Power BI**, come illustrato nella schermata seguente:
 
@@ -115,4 +115,4 @@ In questo documento è stato descritto come usare Power BI nel Centro sicurezza 
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
-<!-----HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

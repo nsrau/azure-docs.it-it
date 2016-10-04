@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -49,7 +49,7 @@ Il diagramma seguente illustra l'architettura in modo più dettagliato.
 
 **Nodi di calcolo:** offrono le potenzialità necessarie per SQL Data Warehouse. Sono database SQL che archiviano i dati ed elaborano le query. Quando si aggiungono dati, SQL Data Warehouse distribuisce le righe ai nodi di calcolo. I nodi di calcolo sono i ruoli di lavoro che eseguono le query parallele sui dati. Dopo l'elaborazione, restituiscono i risultati al nodo del controllo. Per completare la query, il nodo controllo aggrega i risultati e restituisce il risultato finale.
 
-**Archiviazione**: i dati vengono memorizzati nell'archivio BLOB di Azure. Quando i nodi di calcolo interagiscono con i dati, scrivono e leggono direttamente da e nell'archiviazione BLOB. Poiché l'archiviazione di Azure si espande in modo trasparente e senza limiti, SQL Data Warehouse può fare la stessa cosa. Poiché elaborazione e archiviazione sono indipendenti, SQL Data Warehouse può ridimensionare automaticamente le risorse di archiviazione separatamente dal ridimensionamento delle risorse di calcolo e viceversa. Anche l'archivio BLOB di Azure è completamente a tolleranza di errore e semplifica il processo di backup e ripristino.
+**Archiviazione**: i dati vengono memorizzati nell'archivio BLOB di Azure. Quando i nodi di calcolo interagiscono con i dati, scrivono e leggono direttamente da e nell'archiviazione BLOB. Dato che l'archiviazione di Azure si espande in modo trasparente ed esteso, SQL Data Warehouse può fare altrettanto. Poiché elaborazione e archiviazione sono indipendenti, SQL Data Warehouse può ridimensionare automaticamente le risorse di archiviazione separatamente dal ridimensionamento delle risorse di calcolo e viceversa. Anche l'archivio BLOB di Azure è completamente a tolleranza di errore e semplifica il processo di backup e ripristino.
 
 **Data Movement Service:** (DMS) sposta i dati tra i nodi. DMS fornisce ai nodi di calcolo l'accesso ai dati necessario per eseguire join e aggregazioni. DMS non è un servizio di Azure. È un servizio di Windows che viene eseguito insieme al database SQL in tutti i nodi. Poiché DMS viene eseguito in background, l'utente non interagisce direttamente con esso. Quando tuttavia si esaminano i piani di query, si noterà che includono alcune operazioni DMS perché lo spostamento dei dati è necessario per eseguire ogni query in parallelo.
 
@@ -60,7 +60,7 @@ L'approccio MPP è supportato da numerose ottimizzazioni delle prestazioni speci
 
 - Un'utilità di ottimizzazione delle query distribuita e un set di statistiche complesse su tutti i dati. Usando le informazioni sulla distribuzione e sulle dimensioni dei dati, il servizio è in grado di ottimizzare le query in base a una valutazione del costo di operazioni di query distribuite specifiche.
 
-- Tecniche e algoritmi avanzati integrati nel processo di spostamento dei dati per spostare in modo efficiente i dati tra le diverse risorse di calcolo, secondo le esigenze, per eseguire la query. Queste operazioni di spostamento dei dati sono integrate e tutte le ottimizzazioni di Data Movement Service vengono eseguite automaticamente.
+- Tecniche e algoritmi avanzati integrati nel processo di spostamento dei dati per spostare in modo efficiente i dati tra le diverse risorse di calcolo, secondo le esigenze, per eseguire la query. Queste operazioni di spostamento dei dati sono predefinite e tutte le ottimizzazioni di Data Movement Service vengono eseguite automaticamente.
 
 - Indici **columnstore** cluster per impostazione predefinita. Usando una risorsa di archiviazione basata su colonne, SQL Data Warehouse raggiunge una compressione cinque volte superiore all'archiviazione tradizionale basata su righe e prestazioni delle query fino a dieci volte o maggiori. Query di analisi che devono eseguire l'analisi di un numero elevato di righe forniscono prestazioni eccezionali sugli indici columnstore.
 
@@ -83,7 +83,7 @@ L'allocazione di risorse per SQL Data Warehouse viene misurata in Unità Data Wa
 
 - Per Microsoft, apportare modifiche all'architettura sottostante del servizio senza influire sulle prestazioni del carico di lavoro.
 
-- Per Microsoft, migliorare rapidamente le prestazioni in SQL Data Warehouse, avendo la certezza che ciò avvenga in modo scalabile e con un impatto uniforme sul sistema.
+- Per Microsoft, migliorare rapidamente le prestazioni in SQL Data Warehouse, in modo scalabile e con un impatto uniforme sul sistema.
 
 Le Unità Data Warehouse offrono una misura di tre metriche precise strettamente correlate alle prestazioni del carico di lavoro di data warehousing. L'obiettivo è che queste metriche chiave del carico di lavoro vengano ridimensionate in modo lineare con le DWU scelte per il data warehouse.
 
@@ -130,11 +130,11 @@ SQL Data Warehouse si integra anche con molti degli strumenti di SQL Server con 
 
 **Strumenti basati sul cloud:** SQL Data Warehouse può essere usato insieme a numerosi nuovi strumenti di Azure, tra cui Data factory, Analisi di flusso, Machine Learning e Power BI. Per un elenco più completo, vedere la [panoramica degli strumenti integrati][].
 
-**Strumenti di terze parti:** numerosi provider di strumenti di terze parti hanno certificato l'integrazione dei propri strumenti con SQL Data Warehouse. Vedere [Partner di business intelligence per SQL Data Warehouse][].
+**Strumenti di terze parti:** numerosi provider di strumenti di terze parti hanno certificato l'integrazione dei propri strumenti con SQL Data Warehouse. Per l'elenco completo, vedere [Partner di soluzioni per SQL Data Warehouse][].
 
 ## Scenari di origini dati ibride
 
-L'uso di SQL Data Warehouse con PolyBase offre agli utenti capacità senza precedenti per spostare dati nel proprio ecosistema, consentendo di configurare scenari ibridi avanzati con origini dati non relazionali e locali.
+L'uso di SQL Data Warehouse con PolyBase offre agli utenti funzionalità senza precedenti per spostare dati nel proprio ecosistema, consentendo di configurare scenari ibridi avanzati con origini dati locali e non relazionali.
 
 Polybase consente di sfruttare i dati provenienti da origini diverse eseguendo i comandi T-SQL familiari. Polybase consente di eseguire query su dati non relazionali presenti nell'archivio BLOB di Azure come se si trattasse di una normale tabella. Usare Polybase per eseguire query su dati non relazionali o per importare dati non relazionali in SQL Data Warehouse.
 
@@ -142,18 +142,19 @@ Polybase consente di sfruttare i dati provenienti da origini diverse eseguendo i
 
 - Polybase è agnostico nella relativa integrazione, quindi espone le stesse caratteristiche e funzionalità a tutte le origini supportate. I dati letti da Polybase possono essere in vari formati, inclusi i file delimitati o i file ORC.
 
-- PolyBase può essere usato per accedere all'archivio BLOB usato come risorsa di archiviazione anche per un cluster HDInsight. Ciò consente di accedere agli stessi dati con strumenti relazionali e non relazionali.
+- È possibile usare PolyBase per accedere all'archivio BLOB che viene usato anche come risorsa di archiviazione per un cluster HDInsight. Ciò consente di accedere agli stessi dati con strumenti relazionali e non relazionali.
 
 ## Passaggi successivi
 
-Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][] rapidamente e [caricare i dati di esempio][]. Se non si ha familiarità con Azure, il [glossario di Azure][] può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.
+Dopo aver appreso alcune informazioni su SQL Data warehouse, vedere come [Creare un Azure SQL Data Warehouse][] rapidamente e [Caricare i dati di esempio in SQL Data Warehouse][]. Se non si ha familiarità con Azure, il [glossario di Azure][] può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle risorse seguenti per SQL Data Warehouse.
 
+- [Casi di successo dei clienti]
 - [Blog]
 - [Richieste di funzionalità]
 - [Video]
-- [Blog del team CAT]
+- [Blog Customer Advisory Team]
 - [Creare un ticket di supporto]
-- [Forum di MSDN]
+- [Forum MSDN]
 - [Forum su Stack Overflow]
 - [Twitter]
 
@@ -162,24 +163,25 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Creare un ticket di supporto]: sql-data-warehouse-get-started-create-support-ticket.md
-[caricare i dati di esempio]: sql-data-warehouse-load-sample-databases.md
-[creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[documentazione sulla migrazione]: sql-data-warehouse-overview-migrate.md
-[Partner di business intelligence per SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
-[panoramica degli strumenti integrati]: sql-data-warehouse-overview-integrate.md
-[panoramica su backup e ripristino]: sql-data-warehouse-restore-database-overview.md
+[Creare un ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Caricare i dati di esempio in SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
+[Creare un Azure SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[documentazione sulla migrazione]: ./sql-data-warehouse-overview-migrate.md
+[Partner di soluzioni per SQL Data Warehouse]: ./sql-data-warehouse-partner-business-intelligence.md
+[panoramica degli strumenti integrati]: ./sql-data-warehouse-overview-integrate.md
+[panoramica su backup e ripristino]: ./sql-data-warehouse-restore-database-overview.md
 [glossario di Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Casi di successo dei clienti]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Blog]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Blog del team CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Blog Customer Advisory Team]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Richieste di funzionalità]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum di MSDN]: https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=AzureSQLDataWarehouse
+[Forum MSDN]: https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=AzureSQLDataWarehouse
 [Forum su Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

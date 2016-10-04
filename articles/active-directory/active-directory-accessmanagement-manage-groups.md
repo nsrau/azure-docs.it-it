@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 
@@ -77,6 +77,8 @@ Questo articolo descrive l'esecuzione delle attività nel portale di Azure class
 
 In Azure AD è molto facile configurare una regola semplice per determinare quali utenti devono essere membri del gruppo. Una regola semplice è una regola che esegue un solo confronto. Se un gruppo è assegnato a un'applicazione SaaS, ad esempio, è possibile configurare una regola per aggiungere gli utenti con la posizione di "Rappresentante". Questa regola concede l'accesso all'applicazione SaaS a tutti gli utenti con tale posizione nella directory.
 
+Quando gli attributi di un utente cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica degli attributi dell'utente attiverà aggiunte o rimozioni nel gruppo. Se un utente soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfa più la regola di un gruppo di cui è membro, viene rimosso come membro da tale gruppo.
+
 > [AZURE.NOTE] È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. Le appartenenze a gruppi annidati non sono attualmente supportate per l'assegnazione alle applicazioni in base al gruppo.
 >
 > Le appartenenze dinamiche ai gruppi richiedono che venga assegnata una licenza Azure AD Premium a:
@@ -106,7 +108,7 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 
-* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md) (Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo)
+* [Azure Active Directory cmdlets for configuring group settings (Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
@@ -114,4 +116,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 # Report di Azure Active Directory: anteprima
@@ -26,7 +26,7 @@ Le aree principali dei report sono due:
 
 - **Attività di accesso**: informazioni sull'utilizzo delle applicazioni gestite e sulle attività di accesso utente
 
-- **Attività di sistema**: informazioni di controllo sulla gestione di utenti e gruppi, sulle applicazioni gestite e sulle attività di directory
+- **Log di controllo**: informazioni relative alle attività di sistema sulla gestione di utenti e gruppi, sulle applicazioni gestite e sulle attività di directory
 
 A seconda dell'ambito dei dati cercati, è possibile accedere a questi report facendo clic su **Utenti e gruppi** o su **Applicazioni aziendali** nell'elenco di servizi nel [portale di Azure](https://portal.azure.com).
 
@@ -118,7 +118,7 @@ Un altro metodo per filtrare le voci nelle attività di accesso consiste nel cer
 
 ![Creazione di report](./media/active-directory-reporting-azure-portal/84.png "Creazione di report")
 
-## Attività di sistema
+## Log di controllo
 
 I log di controllo in Azure Active Directory forniscono i record delle attività di sistema per la conformità.
 
@@ -216,4 +216,4 @@ Un altro metodo per filtrare le voci di un log di controllo consiste nel cercare
 
 Vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

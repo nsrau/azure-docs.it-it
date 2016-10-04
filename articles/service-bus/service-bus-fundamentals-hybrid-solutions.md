@@ -110,9 +110,9 @@ La connessione tra applicazioni è sempre stata parte integrante dello sviluppo 
 
 A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azure, usare i seguenti collegamenti per altre informazioni.
 
-- Come usare le [code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-- Come usare gli [argomenti del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Come usare l'[inoltro del bus di servizio](service-bus-dotnet-how-to-use-relay.md)
+- Come usare le [code del bus di servizio](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Come usare gli [argomenti del bus di servizio](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Come usare l'[inoltro del bus di servizio](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Esempi relativi al bus di servizio](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -120,4 +120,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -25,7 +25,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database singolo con SQL e C#. Per creare pool di database elastici, vedere [Creare un pool di database elastici](sql-database-elastic-pool-create-portal.md).
+Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database singolo con SQL e C#. Per creare pool di database elastici, vedere [Creare un pool di database elastici](sql-database-elastic-pool-create-csharp.md).
 
 La libreria di database SQL di Azure per .NET include un'API basata su [Gestione risorse di Azure](../resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -291,4 +291,4 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

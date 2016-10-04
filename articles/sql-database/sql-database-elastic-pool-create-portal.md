@@ -29,7 +29,7 @@ Questo articolo illustra come creare un [pool di database elastici](sql-database
 
 È possibile aggiungere più pool a un server, ma non aggiungere database da diversi server nello stesso pool. Per creare un pool, è necessario almeno un database in un server V12. Se non ne è disponibile uno, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md). È possibile creare un pool con un solo database, ma i pool sono convenienti solo con più database. Vedere [Considerazioni su prezzi e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] I pool elastici sono disponibili a livello generale in tutte le aree di Azure ad eccezione di Stati Uniti centro-settentrionali e India occidentale, dove sono attualmente in anteprima. La disponibilità generale dei pool elastici in queste aree verrà offerta al più presto. In più, al momento i pool elastici non supportano i database che utilizzano [OLTP o Analytics in memoria](sql-database-in-memory.md).
+> [AZURE.NOTE] I pool elastici sono disponibili a livello generale in tutte le aree di Azure tranne India occidentale, dove sono attualmente in anteprima. I pool elastici verranno resi disponibili a livello generale in quest'area non appena possibile.
 
 ## Passaggio 1: Creare un nuovo pool
 
@@ -113,4 +113,4 @@ Dopo aver aggiunto i database al pool, le indicazioni verranno dinamicamente gen
 - [Gestire un pool di database elastici SQL con C#](sql-database-elastic-pool-manage-csharp.md)
 - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->
