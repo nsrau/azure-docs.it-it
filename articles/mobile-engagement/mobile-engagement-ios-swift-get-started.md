@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="erikre"
-	editor="" />  
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -58,11 +58,11 @@ Si creerà un'app di base con Xcode per illustrare l'integrazione.
 
 4. Passare alla cartella in cui è stato estratto l'SDK, selezionare la cartella `EngagementSDK` e quindi fare clic su OK.
 
-	![][2]  
+	![][2]
 
 5. Aprire la scheda `Build Phases` e nel menu `Link Binary With Libraries` aggiungere i framework, come illustrato di seguito:
 
-	![][3]  
+	![][3]
 
 8. Creare un'intestazione provvisoria per poter usare le API Objective-C dell'SDK scegliendo File > New > File > iOS > Source > Header File.
 
@@ -195,10 +195,10 @@ Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite n
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Mobile Engagement SDK per iOS]: http://aka.ms/qk2rnj
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png

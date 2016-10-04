@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="ninarn"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -40,17 +40,17 @@ Questo articolo illustra come creare un nuovo pool da un pannello **server** esi
 1. Nel [portale di Azure](http://portal.azure.com/), sotto l'elenco sul lato sinistro, fare clic su **Esplora** **>** **SQL Server** e quindi fare clic sul server che contiene i database da aggiungere a un pool.
 2. Fare clic su **Nuovo pool**.
 
-    ![Aggiungere un pool a un server](./media/sql-database-elastic-pool-create-portal/new-pool.png)  
+    ![Aggiungere un pool a un server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
 
     **-OPPURE-**
 
     Potrebbe essere visualizzato un messaggio che informa che sono disponibili pool di database elastici consigliati per il server (solo V12). Fare clic sul messaggio per visualizzare i pool consigliati in base ai dati di telemetria cronologici relativi all'utilizzo del database e quindi fare clic sul livello per visualizzare altri dettagli e personalizzare il pool. Per informazioni su come vengono create le raccomandazioni, vedere [Informazioni sulle raccomandazioni per i pool](#understand-pool-recommendations) più avanti in questo argomento.
 
-    ![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+    ![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
     Verrà visualizzato il pannello **Pool di database elastici** dove verrà configurato il pool. Se si è fatto clic su **Nuovo pool** nel passaggio precedente, il portale sceglierà un **pool Standard** in **Piano tariffario** e un **nome** univoco e una configurazione predefinita per il pool. Se si sceglie un pool consigliato, la configurazione e il piano del pool consigliati predefiniti sono già impostati, ma è comunque possibile modificarli.
 
-    ![Configurare un pool elastico](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)  
+    ![Configurare un pool elastico](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
 3. Specificare un nome per il pool elastico o lasciare il valore predefinito.
 
@@ -62,7 +62,7 @@ Per modificare il piano tariffario per il pool, fare clic su **Piano tariffario*
 
 > [AZURE.IMPORTANT] Dopo aver scelto il piano tariffario e aver eseguito il commit delle modifiche facendo clic su **OK** nell'ultimo passaggio, non sarà più possibile modificare il piano tariffario del pool. Per modificare il livello di prezzo per un pool di database elastici esistente creare un nuovo pool elastico nel livello di prezzo desiderato e migrare i database elastici in questo nuovo pool.
 
-![Selezione di un livello di prezzo](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)  
+![Selezione di un livello di prezzo](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
 ## Passaggio 3: Configurare il pool
 
@@ -71,13 +71,13 @@ Dopo avere impostato il piano tariffario, fare clic su Configura pool dove è po
 1. Fare clic su **Configura pool**.
 2. Selezionare i database da aggiungere al pool. Questo passaggio è facoltativo durante la creazione del pool. È possibile aggiungere i database dopo aver creato il pool. Per aggiungere i database, fare clic su **Aggiungi database**, selezionare i database da aggiungere e quindi fare clic sul pulsante **Seleziona**.
 
-    ![Aggiungere database](./media/sql-database-elastic-pool-create-portal/add-databases.png)  
+    ![Aggiungere database](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
     Se i dati di telemetria cronologici relativi all'utilizzo disponibili per i database correnti sono sufficienti, il grafico **Utilizzo di eDTU e GB** e il grafico a barre **Utilizzo di eDTU effettivo** vengono aggiornati per semplificare le decisioni relative alla configurazione. Il servizio potrebbe anche visualizzare un messaggio di raccomandazione per facilitare la scelta delle dimensioni corrette per il pool. Vedere la sezione [Indicazioni dinamiche](#dynamic-recommendations).
 
 3. Usare i controlli nella pagina **Configura pool** per esaminare le impostazioni e configurare il pool. Vedere la sezione relativa ai [limiti dei pool elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) per altri dettagli sui limiti per ogni livello di servizio e le [considerazioni su prezzo e prestazioni per i pool di database elastici](sql-database-elastic-pool-guidance.md) per istruzioni dettagliate sul corretto ridimensionamento di un pool. Per altre informazioni sulle impostazioni del pool, vedere la sezione relativa alle [proprietà dei pool di database elastici](sql-database-elastic-pool.md#elastic-database-pool-properties).
 
-	![Configurare un pool elastico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)  
+	![Configurare un pool elastico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
 4. Dopo aver modificato le impostazioni, fare clic su **Seleziona** nel pannello **Configura pool**.
 5. Fare clic su **OK** per creare il pool.
@@ -87,7 +87,7 @@ Dopo avere impostato il piano tariffario, fare clic su Configura pool dove è po
 
 Il servizio di database SQL valuta la cronologia di utilizzo e suggerisce uno o più pool quando questo approccio è più conveniente rispetto all'uso di singoli database. Ogni raccomandazione viene configurata con un subset univoco di database del server che meglio si adatta al pool.
 
-![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
 La raccomandazione per il pool include:
 
@@ -104,7 +104,7 @@ Il servizio valuta le risorse necessarie e la convenienza dello spostamento di s
 
 Dopo aver aggiunto i database al pool, le indicazioni verranno dinamicamente generate in base all'utilizzo storico dei database selezionati. Queste indicazioni saranno visualizzate nel grafico relativo all'uso di eDTU e GB, oltre che come banner nella parte superiore del pannello **Configura pool**. Queste indicazioni sono concepite per facilitare la creazione di un pool ottimizzato per database specifici.
 
-![indicazioni dinamiche](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)  
+![indicazioni dinamiche](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
 ## Risorse aggiuntive
 

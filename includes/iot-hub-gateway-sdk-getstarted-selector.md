@@ -39,7 +39,7 @@ Nonostante sia più semplice concettualizzare il funzionamento di un gateway com
 
 Un modulo usa la funzione **Broker\_Publish** per pubblicare un messaggio nel broker. Il broker recapita i messaggi a un modulo richiamando una funzione di callback. Un messaggio è costituito da un set di proprietà chiave/valore e contenuto passato come blocco di memoria.
 
-![][3]  
+![][3]
 
 ### Routing e filtro dei messaggi
 
@@ -52,7 +52,7 @@ L'esempio Hello World illustra i concetti descritti nella sezione precedente. L'
 -	Il modulo *hello world* crea un messaggio ogni cinque secondi e lo passa al modulo logger.
 -	Il modulo *logger* scrive i messaggi che riceve in un file.
 
-![][4]  
+![][4]
 
 Come descritto nella sezione precedente, il modulo Hello World non passa i messaggi direttamente al modulo logger ogni cinque secondi, ma pubblica un messaggio nel broker ogni cinque secondi.
 
@@ -60,18 +60,18 @@ Il modulo logger riceve il messaggio dal broker e interviene, scrivendo il conte
 
 Il modulo logger utilizza solo i messaggi provenienti dal broker, senza mai pubblicare nuovi messaggi nel broker.
 
-![][5]  
+![][5]
 
 La figura precedente illustra l'architettura dell'esempio Hello World e i percorsi relativi ai file di origine che implementano parti diverse dell'esempio nel [repository][lnk-gateway-sdk]. Esplorare il codice per conto proprio o usare i frammenti di codice seguente come guida.
 
-<!-- Images -->  
+<!-- Images -->
 [1]: media/iot-hub-gateway-sdk-getstarted-selector/modules.png
 [2]: media/iot-hub-gateway-sdk-getstarted-selector/modules_2.png
 [3]: media/iot-hub-gateway-sdk-getstarted-selector/messages_1.png
 [4]: media/iot-hub-gateway-sdk-getstarted-selector/high_level_architecture.png
 [5]: media/iot-hub-gateway-sdk-getstarted-selector/detailed_architecture.png
 
-<!-- Links -->  
+<!-- Links -->
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 

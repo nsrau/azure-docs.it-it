@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/22/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Aggiungere nuovi utenti o utenti con account Microsoft in Azure Active Directory
 
@@ -82,7 +82,7 @@ Si potranno quindi modificare le opzioni per controllare l'accesso per gli utent
 - [Gestire password in Azure AD](active-directory-manage-passwords.md)
 - [Gestire gruppi in Azure AD](active-directory-manage-groups.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 

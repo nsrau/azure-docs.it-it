@@ -6,7 +6,7 @@
     authors="MGoedtel"
     manager="jwhit"
     editor=""
-	/>  
+	/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="09/26/2016"
-    ms.author="magoedte"/>  
+    ms.author="magoedte"/>
 
 # Scenario di Automazione di Azure: automatizzare la rimozione di gruppi di risorse
 

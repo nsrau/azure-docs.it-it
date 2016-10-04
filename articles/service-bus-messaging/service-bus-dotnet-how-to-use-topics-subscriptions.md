@@ -5,7 +5,7 @@
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
     ms.devlang="dotnet"
     ms.topic="get-started-article"
     ms.date="09/16/2016"
-    ms.author="sethm"/>  
+    ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
@@ -37,7 +37,7 @@ Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsA
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva:
 
-    ![][7]  
+    ![][7]
 
 È ora possibile scrivere codice per il bus di servizio.
 

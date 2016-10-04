@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/26/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Creare un account di Servizi multimediali di Azure
@@ -101,7 +101,7 @@ Quando si fa doppio clic sul nome dell'account, per impostazione predefinita vie
   [Before you begin]: #begin
   [How to: Create a Media Services account using Quick Create]: #quick
 
-<!-- URLs. -->  
+<!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 
   [portale di Azure classico]: http://manage.windowsazure.com/

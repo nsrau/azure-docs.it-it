@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="andkjell"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.date="08/19/2016"
-   ms.author="andkjell;shoatman;billmath"/>  
+   ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: aggiornamento da DirSync
 Azure AD Connect è il successore di DirSync. Questo argomento illustra come eseguire l'aggiornamento da DirSync. Questi passaggi non si applicano all'aggiornamento da un'altra versione di Azure AD Connect o da Azure AD Sync.
@@ -56,7 +56,7 @@ Non è possibile aggiornare la modifica seguente. Se è presente questa configur
 
 - Modifiche di DirSync non supportate, ad esempio attributi rimossi e uso di una DLL di estensione personalizzata
 
-![Aggiornamento bloccato](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)  
+![Aggiornamento bloccato](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
 In questi casi è consigliabile installare un nuovo server Azure AD Connect in [modalità di staging](active-directory-aadconnectsync-operations.md#staging-mode) e verificare la configurazione precedente di DirSync e quella nuova di Azure AD Connect. Riapplicare le modifiche utilizzando la configurazione personalizzata, come descritto in [configurazione personalizzata della sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
@@ -101,7 +101,7 @@ Se sono presenti più di 50.000 oggetti, l'installazione di Azure AD Connect con
 
 Viene visualizzata una schermata simile alla seguente:
 
-![Analisi completata](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+![Analisi completata](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
 Per procedere con la distribuzione parallela, è necessario seguire questa procedura:
 
@@ -119,7 +119,7 @@ Se sono presenti meno di 50.000 oggetti ma si desidera comunque eseguire una dis
 4. Dall'installazione locale di Azure AD Connect (percorso predefinito: C:\\Programmi\\Microsoft Azure Active Directory Connect) eseguire il comando seguente: `AzureADConnect.exe /ForceExport`.
 5. Fare clic sul pulsante **Esporta impostazioni**. Quando si installa Azure AD Connect in un server separato, viene eseguita la migrazione di queste impostazioni dall'installazione di DirSync corrente alla nuova installazione di Azure AD Connect.
 
-![Analisi completata](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)  
+![Analisi completata](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
 Una volta esportate le impostazioni, è possibile chiudere la procedura guidata di Azure AD Connect nel server DirSync. Continuare con il passaggio successivo, per [installare Azure AD Connect in un server separato](#installation-of-azure-ad-connect-on-separate-server).
 
@@ -154,7 +154,7 @@ Nell'applicazione passare alla scheda **Operazioni**. In questa scheda verificar
 - Sincronizzazione completa in AD Connector
 - Sincronizzazione completa in Azure AD Connector
 
-![Importazione e sincronizzazione completate](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)  
+![Importazione e sincronizzazione completate](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
 
 Esaminare il risultato di tali operazioni e assicurarsi che non siano presenti errori.
 
@@ -182,7 +182,7 @@ Dovrebbe essere visualizzata la seguente schermata:
 - Selezionare **Configurazione della modalità di gestione temporanea**.
 - Disattivare la gestione temporanea deselezionando la casella di controllo **Modalità di gestione temporanea abilitata**.
 
-![Immettere le credenziali di Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)  
+![Immettere le credenziali di Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
 
 - Fare clic sul pulsante **Avanti**.
 - Nella pagina di conferma fare clic sul pulsante **Installa**.

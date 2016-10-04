@@ -6,7 +6,7 @@
    authors="yushwang"
    manager="rossort"
    editor=""
-   tags=""/>  
+   tags=""/>
 
 <tags
    ms.service="vpn-gateway"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/24/2016"
-   ms.author="yushwang"/>  
+   ms.author="yushwang"/>
 
 # Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata
 
@@ -25,7 +25,7 @@ Questo articolo offre una panoramica delle opzioni di configurazione a disponibi
 
 Ogni gateway VPN di Azure è costituito da due istanze in una configurazione di tipo attivo-standby. In caso di interruzione imprevista o di manutenzione pianificata nell'istanza attiva, l'istanza di standby assume automaticamente il controllo (failover) e riprende le connessioni VPN S2S o da rete virtuale a rete virtuale. Il passaggio causerà una breve interruzione. In caso di manutenzione pianificata, la connettività dovrebbe essere ripristinata entro 10-15 secondi. Per problemi imprevisti, il ripristino della connessione richiederà più tempo, approssimativamente da 1 minuto a 1 minuto e mezzo nel peggiore dei casi. Per le connessioni client VPN P2S al gateway, le connessioni P2S verranno interrotte e gli utenti dovranno riconnettersi dai computer client.
 
-![Attivo-standby](./media/vpn-gateway-highlyavailable/active-standby.png)  
+![Attivo-standby](./media/vpn-gateway-highlyavailable/active-standby.png)
 
 ## Connettività cross-premise a disponibilità elevata
 
@@ -39,7 +39,7 @@ Per offrire una maggiore disponibilità per le connessioni cross premise, sono d
 
 È possibile usare più dispositivi VPN dalla rete locale per connettersi al gateway VPN di Azure, come illustrato nel diagramma seguente:
 
-![Più dispositivi VPN locali](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)  
+![Più dispositivi VPN locali](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
 
 Questa configurazione offre più tunnel attivi dallo stesso gateway VPN di Azure ai dispositivi locali nella stessa località. Esistono alcuni requisiti e vincoli:
 
@@ -61,7 +61,7 @@ In questa configurazione, il gateway VPN di Azure è comunque in modalità attiv
 
 È ora possibile creare un gateway VPN di Azure in una configurazione di tipo attivo-attivo, in cui entrambe le istanze delle VM del gateway stabiliscono tunnel VPN S2S con il dispositivo VPN locale, come illustrato nel diagramma seguente:
 
-![Attivo-attivo](./media/vpn-gateway-highlyavailable/active-active.png)  
+![Attivo-attivo](./media/vpn-gateway-highlyavailable/active-active.png)
 
 In questa configurazione, ogni istanza del gateway di Azure avrà un indirizzo IP pubblico univoco e stabilirà un tunnel VPN S2S IPsec/IKE con il dispositivo VPN locale specificato nella connessione e nel gateway di rete locale. Si noti che entrambi i tunnel VPN sono di fatto parte della stessa connessione. È comunque necessario configurare il dispositivo VPN locale in modo che accetti o stabilisca due tunnel VPN S2S con i due indirizzi IP pubblici del gateway VPN di Azure.
 
@@ -73,7 +73,7 @@ In caso di evento imprevisto o di manutenzione pianificata in un'istanza del gat
 
 L'opzione più affidabile consiste nel combinare gateway di tipo attivo-attivo sia nella propria rete che in Azure, come illustrato nel diagramma di seguito.
 
-![Doppia ridondanza](./media/vpn-gateway-highlyavailable/dual-redundancy.png)  
+![Doppia ridondanza](./media/vpn-gateway-highlyavailable/dual-redundancy.png)
 
 In questo caso si crea e si configura il gateway VPN di Azure in una configurazione di tipo attivo-attivo e si creano due gateway di rete locali e due connessioni per i dispositivi VPN locali, come descritto in precedenza. Si ottiene così una connettività a maglia completa di 4 tunnel IPSec tra la rete virtuale di Azure e la rete locale.
 
@@ -85,7 +85,7 @@ Questa topologia richiederà due gateway di rete locali e due connessioni per su
 
 La stessa configurazione di tipo attivo-attivo può essere applicata anche alle connessioni da rete virtuale a rete virtuale di Azure. È possibile creare gateway VPN di tipo attivo-attivo per entrambe le reti virtuali e connetterle tra loro in modo da ottenere la stessa connettività a maglia completa di 4 tunnel tra le due reti virtuali, come illustrato nel diagramma di seguito:
 
-![Da rete virtuale a rete virtuale](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)  
+![Da rete virtuale a rete virtuale](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
 Ciò assicura che tra le due reti virtuali sia sempre presente una coppia di tunnel per qualsiasi evento di manutenzione pianificata, garantendo una disponibilità ancora maggiore. Anche se la stessa topologia per la connettività cross-premise richiede due connessioni, per la topologia da rete virtuale a rete virtuale illustrata sopra sarà necessaria una sola connessione per ogni gateway. BGP è inoltre facoltativo, a meno che non sia necessario il routing di transito sulla connessione da rete virtuale a rete virtuale.
 

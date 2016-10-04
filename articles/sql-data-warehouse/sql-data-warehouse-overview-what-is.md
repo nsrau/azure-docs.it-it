@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/27/2016"
-   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>  
+   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
 # Che cos'è SQL Data Warehouse di Azure?

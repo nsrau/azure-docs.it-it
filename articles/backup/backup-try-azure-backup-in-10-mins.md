@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="cfreeman"
    editor=""
-   keywords="come eseguire il backup; come eseguire il back up"/>  
+   keywords="come eseguire il backup; come eseguire il back up"/>
 
 <tags
    ms.service="backup"
@@ -15,7 +15,7 @@
    ms.devlang="na"
    ms.topic="hero-article"
    ms.date="09/27/2016"
-   ms.author="markgal;"/>  
+   ms.author="markgal;"/>
 
 # Primi passi: eseguire il backup di file e cartelle con Backup di Azure usando il modello di distribuzione Resource Manager
 

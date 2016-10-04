@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="rwike77"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/13/2016"
-   ms.author="ryanwi"/>  
+   ms.author="ryanwi"/>
 
 # Preparare l'ambiente di sviluppo
 

@@ -5,7 +5,7 @@
    documentationCenter="java"
    authors="seanmck"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/28/2016"
-   ms.author="seanmck"/>  
+   ms.author="seanmck"/>
 
 
 # Creare la prima applicazione di Azure Service Fabric
@@ -39,7 +39,7 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 
 3. Scegliere il tipo del primo servizio e assegnargli un nome. Ai fini di questa esercitazione verrà scelto un servizio Reliable Actor.
 
-  ![Generatore Yeoman di Service Fabric per Java][sf-yeoman]  
+  ![Generatore Yeoman di Service Fabric per Java][sf-yeoman]
 
 >[AZURE.NOTE] Per altre informazioni sulle opzioni, vedere [Panoramica dei modelli di programmazione di Service Fabric](service-fabric-choose-framework.md).
 
@@ -85,7 +85,7 @@ I progetti Actor non eseguono alcuna operazione in modo indipendente. Richiedono
 
 2. In Service Fabric Explorer individuare il nodo che ospita la replica primaria del servizio Actor. Nello screenshot seguente si tratta del nodo 3.
 
-    ![Ricerca della replica primaria in Service Fabric Explorer][sfx-primary]  
+    ![Ricerca della replica primaria in Service Fabric Explorer][sfx-primary]
 
 3. Fare clic sul nodo trovato nel passaggio precedente, quindi selezionare **Disattiva (riavvio)** dal menu Azioni. Con questa operazione verrà riavviato uno dei cinque nodi nel cluster locale e forzato il failover in una delle repliche secondarie in esecuzione in un altro nodo. Durante l'operazione, prestare attenzione all'output dal client di test e notare che l'incremento del contatore prosegue nonostante il failover.
 
@@ -99,7 +99,7 @@ Il plug-in di Service Fabric è disponibile mediante l'estendibilità di Eclipse
 
 1. In Eclipse scegliere **File > Other > Service Fabric** (File > Altro > Service Fabric). Verrà visualizzato un set di opzioni, inclusi attori e contenitori.
 
-    ![Modelli di Service Fabric in Eclipse][sf-eclipse-templates]  
+    ![Modelli di Service Fabric in Eclipse][sf-eclipse-templates]
 
 2. In questo caso scegliere Servizio senza stato.
 
@@ -121,7 +121,7 @@ L'app verrà compilata e distribuita dopo alcuni istanti. È possibile monitorar
 
 - [Altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
-<!-- Images -->  
+<!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png

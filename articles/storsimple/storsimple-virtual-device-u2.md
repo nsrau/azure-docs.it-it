@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carmonm"
-   editor="" />  
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/23/2016"
-   ms.author="alkohli" />  
+   ms.author="alkohli" />
 
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 
@@ -283,7 +283,7 @@ Se durante la creazione di un dispositivo virtuale non è disponibile connettivi
 3. Aprire una finestra di comando nella macchina virtuale (premere tasto WINDOWS + R e quindi digitare `cmd`).
 4. Al prompt eseguire questo comando:
 
-	`nslookup windows.net`  
+	`nslookup windows.net`
 
 5. Se `nslookup` ha esito negativo, l'errore di connettività Internet impedisce la registrazione del dispositivo virtuale nel servizio StorSimple Manager.
 6. Apportare alla rete virtuale le modifiche necessarie perché il dispositivo virtuale possa accedere a siti di Azure come "windows.net".

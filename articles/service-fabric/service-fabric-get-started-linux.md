@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="seanmck"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/26/2016"
-   ms.author="seanmck"/>  
+   ms.author="seanmck"/>
 
 # Preparare l'ambiente di sviluppo in Linux
 
@@ -114,7 +114,7 @@ Se tutti gli elementi sono stati installati, sarà possibile avviare un cluster 
 
 2. Aprire un Web browser e passare a http://localhost:19080/Explorer. Se il cluster è stato avviato, verrà visualizzato il dashboard di Service Fabric Explorer.
 
-    ![Service Fabric Explorer in Linux][sfx-linux]  
+    ![Service Fabric Explorer in Linux][sfx-linux]
 
 A questo punto, è possibile distribuire pacchetti di applicazione di Service Fabric predefiniti o nuovi pacchetti basati su contenitori o eseguibili guest. Per creare nuovi servizi usando gli SDK per Java o .NET Core, seguire le procedure di configurazione facoltative riportate di seguito.
 
@@ -144,7 +144,7 @@ Java SDK offre le librerie e i modelli necessari per creare servizi di Service F
 
 4. Fare clic su Aggiungi.
 
-    ![Plug-in Eclipse][sf-eclipse-plugin]  
+    ![Plug-in Eclipse][sf-eclipse-plugin]
 
 5. Scegliere il plug-in Service Fabric e fare clic su Next (Avanti).
 
@@ -173,13 +173,13 @@ Java SDK offre le librerie e i modelli necessari per creare servizi di Service F
 - [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
 
 
-<!-- Links -->  
+<!-- Links -->
 
 [azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli
 [install-node]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Images -->  
+<!--Images -->
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png

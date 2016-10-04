@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="batch"

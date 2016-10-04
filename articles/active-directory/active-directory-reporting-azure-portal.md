@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="markusvi"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/25/2016"
-   ms.author="markvi"/>  
+   ms.author="markvi"/>
 
 # Report di Azure Active Directory: anteprima
 
@@ -42,15 +42,15 @@ Le informazioni contenute nel report relativo all'accesso utente consentono di r
 
 Il punto di ingresso a questi dati è il grafico relativo agli accessi utente della sezione **Panoramica** in **Utenti e gruppi**.
 
- ![Creazione di report](./media/active-directory-reporting-azure-portal/05.png "Creazione di report")  
+ ![Creazione di report](./media/active-directory-reporting-azure-portal/05.png "Creazione di report")
 
 Il grafico degli accessi utente visualizza le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/02.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/02.png "Creazione di report")
 
 Quando si fa clic su un giorno nel grafico degli accessi, si ottiene un elenco dettagliato delle attività di accesso.
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/03.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/03.png "Creazione di report")
 
 Ogni riga nell'elenco di attività di accesso offre informazioni dettagliate sull'accesso selezionato, ad esempio:
 
@@ -77,32 +77,32 @@ Con una visualizzazione dei dati di accesso basata sulle applicazioni, è possib
 
 Il punto di ingresso a questi dati sono le prime 3 applicazioni nell'organizzazione nel report sugli ultimi 30 giorni della sezione **Panoramica** in **Applicazioni aziendali**.
 
- ![Creazione di report](./media/active-directory-reporting-azure-portal/06.png "Creazione di report")  
+ ![Creazione di report](./media/active-directory-reporting-azure-portal/06.png "Creazione di report")
 
 
 Il grafico sull'utilizzo delle app visualizza le aggregazioni settimanali degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/78.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/78.png "Creazione di report")
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Creazione di report")
 
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Creazione di report")
 
 
 
 L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di accesso nell'applicazione.
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/85.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/85.png "Creazione di report")
 
 Usando la selezione colonne, è possibile selezionare i campi dati che si vuole visualizzare.
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/column_chooser.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/column_chooser.png "Creazione di report")
 
 
 
@@ -110,13 +110,13 @@ Usando la selezione colonne, è possibile selezionare i campi dati che si vuole 
 
 È possibile filtrare gli accessi in base a un intervallo di tempo per limitare la quantità di dati visualizzati.
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/927.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/927.png "Creazione di report")
 
 
 Un altro metodo per filtrare le voci nelle attività di accesso consiste nel cercare voci specifiche. Il metodo della ricerca consente di definire l'ambito degli accessi in base a **utenti**, **gruppi** o **applicazioni** specifiche.
 
 
-![Creazione di report](./media/active-directory-reporting-azure-portal/84.png "Creazione di report")  
+![Creazione di report](./media/active-directory-reporting-azure-portal/84.png "Creazione di report")
 
 ## Log di controllo
 
@@ -137,18 +137,18 @@ Per un elenco completo delle attività dei report di controllo, vedere l'[elenco
 Il punto di ingresso a tutti i dati di controllo è **Log di controllo** nella sezione **Attività** di **Azure Active Directory**.
 
 
-![Controllo](./media/active-directory-reporting-azure-portal/61.png "Controllo")  
+![Controllo](./media/active-directory-reporting-azure-portal/61.png "Controllo")
 
 
 Un log di controllo ha una visualizzazione elenco che indica gli attori (chi), le attività (cosa) e le destinazioni.
 
 
-![Controllo](./media/active-directory-reporting-azure-portal/345.png "Controllo")  
+![Controllo](./media/active-directory-reporting-azure-portal/345.png "Controllo")
 
 
 Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere altri dettagli sull'elemento.
 
-![Controllo](./media/active-directory-reporting-azure-portal/873.png "Controllo")  
+![Controllo](./media/active-directory-reporting-azure-portal/873.png "Controllo")
 
 
 
@@ -178,7 +178,7 @@ Con i report di controllo basati su utenti e gruppi, è possibile ottenere rispo
 Per esaminare semplicemente i dati di controllo relativi a utenti e gruppi, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** di **Utenti e gruppi**.
 
 
-![Controllo](./media/active-directory-reporting-azure-portal/93.png "Controllo")  
+![Controllo](./media/active-directory-reporting-azure-portal/93.png "Controllo")
 
 
 ### Log di controllo delle applicazioni
@@ -199,18 +199,18 @@ Con i report di controllo basati sulle applicazioni, è possibile ottenere rispo
 Per esaminare semplicemente i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** di **Applicazioni aziendali**.
 
 
-![Controllo](./media/active-directory-reporting-azure-portal/134.png "Controllo")  
+![Controllo](./media/active-directory-reporting-azure-portal/134.png "Controllo")
 
 
 ### Filtro dei log di controllo
 
 È possibile filtrare un report di controllo in base a un intervallo di tempo per limitare la quantità di dati visualizzati.
 
-![Controllo](./media/active-directory-reporting-azure-portal/324.png "Controllo")  
+![Controllo](./media/active-directory-reporting-azure-portal/324.png "Controllo")
 
 Un altro metodo per filtrare le voci di un log di controllo consiste nel cercare voci specifiche.
 
-![Controllo](./media/active-directory-reporting-azure-portal/237.png "Controllo")  
+![Controllo](./media/active-directory-reporting-azure-portal/237.png "Controllo")
 
 ## Passaggi successivi
 

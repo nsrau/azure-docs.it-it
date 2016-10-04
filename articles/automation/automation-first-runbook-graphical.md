@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-	keywords="runbook, modello di runbook, automazione runbook, runbook di Azure"/>  
+	keywords="runbook, modello di runbook, automazione runbook, runbook di Azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"

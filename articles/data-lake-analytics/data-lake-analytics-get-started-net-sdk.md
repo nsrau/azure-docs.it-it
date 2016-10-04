@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="edmacauley" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -238,7 +238,7 @@ Un log di ricerca di esempio è disponibile in un contenitore BLOB di Azure pubb
 
 6. Premere **F5** per eseguire l'applicazione. L'output è simile al seguente:
 
-	![Output di .NET SDK per il processo U-SQL di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)  
+	![Output di .NET SDK per il processo U-SQL di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
 
 7. Controllare il file di output. Il nome file e percorso predefinito è c:\\Temp\\SearchLog-from-Data-Lake.csv.
 

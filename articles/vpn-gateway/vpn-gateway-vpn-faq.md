@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="yushwang"
    manager="rossort"
-   editor="" />  
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"

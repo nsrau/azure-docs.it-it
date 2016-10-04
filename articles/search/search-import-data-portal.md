@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="jhubbard"
 	editor=""
-    tags="Azure Portal"/>  
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -15,13 +15,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="08/29/2016"
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Importare dati in Ricerca di Azure tramite il portale
 
 Il portale di Azure include una procedura guidata **Importa dati** nel dashboard di Ricerca di Azure che permette di caricare i dati in un indice.
 
-  ![Importa dati sulla barra dei comandi][1]  
+  ![Importa dati sulla barra dei comandi][1]
 
 Internamente, la procedura guidata configurare e richiama un *indicizzatore*, automatizzando così diversi passaggi del processo di indicizzazione:
 
@@ -116,7 +116,7 @@ Per altre informazioni sugli indicizzatori, usare questi collegamenti:
 
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
 <!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="sonyam"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/26/2016"
-   ms.author="sonyama;barbkess"/>  
+   ms.author="sonyama;barbkess"/>
 
 # Connettersi ad Azure SQL Data Warehouse
 
@@ -29,7 +29,7 @@ Il primo passaggio per connettersi a SQL Data Warehouse è sapere come trovare i
 3. Fare clic sul database a cui si vuole connettersi.
 4. Individuare il nome completo del server.
 
-    ![Nome completo del server][1]  
+    ![Nome completo del server][1]
 
 ## Driver supportati e stringhe di connessione
 
@@ -76,7 +76,7 @@ SQL Data Warehouse standardizza alcune impostazioni durante la connessione e la 
 
 Per connettersi ed eseguire query con Visual Studio, vedere [Eseguire query con Visual Studio][]. Per altre informazioni sulle opzioni di autenticazione, vedere [Autenticazione in Azure SQL Data Warehouse][].
 
-<!--Articles-->  
+<!--Articles-->
 [Eseguire query con Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [Autenticazione in Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
@@ -93,7 +93,7 @@ Per connettersi ed eseguire query con Visual Studio, vedere [Eseguire query con 
 <!--Other-->
 [portale di Azure]: https://portal.azure.com
 
-<!--Image references-->  
+<!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
 <!---HONumber=AcomDC_0928_2016-->

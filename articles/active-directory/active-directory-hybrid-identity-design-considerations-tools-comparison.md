@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="billmath"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,13 +14,13 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità
 
 Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e si sono evoluti. Questo documento offre una panoramica consolidata di questi strumenti e un confronto delle funzionalità disponibili in ognuno.
 
-<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->  
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 >[AZURE.NOTE] Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
 >

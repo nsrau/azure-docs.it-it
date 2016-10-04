@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/27/2016"
-	ms.author="Markvi"/>  
+	ms.author="Markvi"/>
 
 # Introduzione a Registrazione dispositivo Azure Active Directory
 

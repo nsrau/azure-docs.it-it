@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/22/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
 
@@ -54,7 +54,7 @@ Se si vuole mostrare il marchio, i colori e altri elementi personalizzabili dell
 
 Lo screenshot seguente mostra un esempio della pagina di accesso di Office 365 in un computer desktop **prima** di una personalizzazione:
 
-![Pagina di accesso di Office 365 prima della personalizzazione][1]  
+![Pagina di accesso di Office 365 prima della personalizzazione][1]
 
 Lo screenshot seguente mostra un esempio della pagina di accesso di Office 365 in un computer desktop **dopo** una personalizzazione:
 
@@ -209,7 +209,7 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
 [2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
 [3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png

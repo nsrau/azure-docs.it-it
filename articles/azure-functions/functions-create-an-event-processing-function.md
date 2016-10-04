@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />  
+   />
 
 <tags
    ms.service="functions"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="09/25/2016"
-   ms.author="glenga"/>  
+   ms.author="glenga"/>
    
 # Creare una funzione di Azure di elaborazione di eventi
 
@@ -42,11 +42,11 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Prima di cre
 
 4. Nella nuova funzione fare clic sulla scheda **Integra** > **Nuovo output** > **Azure Storage Queue** (Coda di archiviazione di Azure) > **Seleziona**.
 
-	![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)  
+	![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
 5. In **Azure Storage Queue output** (Output della coda di archiviazione di Azure) selezionare una **Storage account connection** (Connessione all'account di archiviazione) esistente o crearne una nuova, quindi fare clic su **Salva**.
 
-	![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)  
+	![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
 6. Nella scheda **Sviluppo** sostituire lo script C# esistente nella finestra **Codice** con il codice seguente:
 

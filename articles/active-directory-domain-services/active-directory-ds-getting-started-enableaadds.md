@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/21/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Abilitare Azure Active Directory Domain Services
 
@@ -27,19 +27,19 @@ In questa attività si abilita Azure Active Directory Domain Services per la dir
 
 3. Selezionare il tenant di Azure AD (directory) per il quale si desidera abilitare Servizi di dominio Azure AD.
 
-    ![Selezionare una directory di Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)  
+    ![Selezionare una directory di Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 
 4. Fare clic sulla scheda **Configure**.
 
-    ![Scheda Configura della directory](./media/active-directory-domain-services-getting-started/configure-tab.png)  
+    ![Scheda Configura della directory](./media/active-directory-domain-services-getting-started/configure-tab.png)
 
 5. Scorrere fino alla sezione **servizi di dominio**.
 
-    ![Sezione per la configurazione di Servizi di dominio](./media/active-directory-domain-services-getting-started/domain-services-configuration.png)  
+    ![Sezione per la configurazione di Servizi di dominio](./media/active-directory-domain-services-getting-started/domain-services-configuration.png)
 
 6. Impostare l'opzione **Abilita Servizi di dominio per la directory** su **Sì**. Nella pagina vengono visualizzate altre opzioni di configurazione per Azure Active Directory Domain Services.
 
-    ![Abilita servizi di dominio](./media/active-directory-domain-services-getting-started/enable-domain-services.png)  
+    ![Abilita servizi di dominio](./media/active-directory-domain-services-getting-started/enable-domain-services.png)
 
     > [AZURE.NOTE] Quando si abilita Azure Active Directory Domain Services per il tenant, Azure AD genera e archivia gli hash delle credenziali Kerberos e NTLM necessari per l'autenticazione degli utenti.
 
@@ -75,21 +75,21 @@ In questa attività si abilita Azure Active Directory Domain Services per la dir
 
 11. Nella pagina viene visualizzato lo stato "In sospeso..." durante l'abilitazione di Azure Active Directory Domain Services per la directory.
 
-    ![Abilitare i servizi di dominio - stato in sospeso](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)  
+    ![Abilitare i servizi di dominio - stato in sospeso](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
     > [AZURE.NOTE] Servizi di dominio Azure AD garantisce un'elevata disponibilità per il dominio gestito. Dopo avere abilitato Azure Active Directory Domain Services, si noti che vengono visualizzati uno alla volta gli indirizzi IP per cui è disponibile Domain Services nella rete virtuale. Il secondo indirizzo IP viene visualizzato dopo breve tempo, non appena il servizio abilita la disponibilità elevata per il dominio. Al termine della configurazione e attivazione della disponibilità elevata per il dominio, nella sezione **Servizi di dominio** della scheda **Configura** dovrebbero comparire due indirizzi IP.
 
 12. Dopo circa 20-30 minuti, il primo indirizzo IP in cui è disponibile Domain Services nella rete virtuale viene visualizzato nel campo **Indirizzo IP** nella pagina **Configura**.
 
-    ![Servizi di dominio abilitato - provisioning del primo indirizzo IP completato](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)  
+    ![Servizi di dominio abilitato - provisioning del primo indirizzo IP completato](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
 13. Quando la disponibilità elevata è operativa per il dominio, nella pagina sono visualizzati due indirizzi IP. Questi sono gli indirizzi IP in cui è disponibile Azure Active Directory Domain Services nella rete virtuale selezionata. Prendere nota degli indirizzi IP per poter aggiornare le impostazioni DNS per la rete virtuale. Questo passaggio consente alle macchine virtuali nella rete virtuale di connettersi al dominio per operazioni quali l'aggiunta al dominio.
 
-    ![Servizi di dominio abilitato - provisioning di entrambi gli indirizzi IP completato](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)  
+    ![Servizi di dominio abilitato - provisioning di entrambi gli indirizzi IP completato](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
 > [AZURE.NOTE] A seconda delle dimensioni del tenant di Azure AD (numero di utenti, gruppi e così via), è richiesto del tempo prima che il contenuto del tenant diventi disponibile in Azure Active Directory Domain Services. Questo processo di sincronizzazione avviene in background. Per tenant di grandi dimensioni con decine di migliaia di oggetti, possono essere necessari anche un paio di giorni perché tutti gli utenti, le appartenenze ai gruppi e le credenziali siano disponibili in Azure Active Directory Domain Services.
 
-<br>  
+<br>
 
 ## Attività 4: Aggiornare le impostazioni DNS per la rete virtuale di Azure
 L'attività di configurazione successiva consiste nell'[aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md).

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/21/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services: Aggiornare le impostazioni DNS per la rete virtuale di Azure
 
@@ -29,13 +29,13 @@ Eseguire i passaggi di configurazione seguenti per aggiornare l'impostazione del
 
 2. Selezionare il nodo **Reti** nel riquadro sinistro.
 
-    ![Nodo Reti virtuali](./media/active-directory-domain-services-getting-started/virtual-network-select.png)  
+    ![Nodo Reti virtuali](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
 
 3. Nella scheda **Reti virtuali** selezionare la rete virtuale in cui è abilitato Servizi di dominio Azure AD per visualizzarne le proprietà.
 
 4. Fare clic sulla scheda **Configure**.
 
-    ![Nodo Reti virtuali](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)  
+    ![Nodo Reti virtuali](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
 
 5. Nella sezione **Server DNS** immettere gli indirizzi IP di Servizi di dominio Azure AD.
 
@@ -43,7 +43,7 @@ Eseguire i passaggi di configurazione seguenti per aggiornare l'impostazione del
 
 7. Per salvare le impostazioni del server DNS per la rete virtuale, fare clic su **Salva** nel riquadro attività nella parte inferiore della pagina.
 
-   ![Aggiornare le impostazioni del server DNS per la rete virtuale.](./media/active-directory-domain-services-getting-started/update-dns.png)  
+   ![Aggiornare le impostazioni del server DNS per la rete virtuale.](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [AZURE.NOTE] Dopo l'aggiornamento delle impostazioni del server DNS per la rete virtuale, l'aggiornamento della configurazione DNS per le reti virtuali nella rete potrebbe richiedere del tempo. Se una macchina virtuale non riesce a connettersi al dominio, è possibile scaricare la relativa cache DNS, ad esempio con ipconfig /flushdns, nella macchina virtuale. Questo comando forza un aggiornamento delle impostazioni DNS nella macchina virtuale.
 

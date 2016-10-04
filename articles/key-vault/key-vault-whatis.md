@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="cabailey"
 	manager="mbaldwin"
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/27/2016"
-	ms.author="cabailey"/>  
+	ms.author="cabailey"/>
 
 
 
@@ -64,7 +64,7 @@ Per altre informazioni sulla registrazione dell'utilizzo per l'insieme di creden
 Per altre informazioni sull'uso di chiavi e segreti con l'insieme di credenziali delle chiavi di Azure, vedere [About Keys, Secrets, and Certificates](https://msdn.microsoft.com/library/azure/dn903623(v=azure.1).aspx) (Informazioni su chiavi, segreti e certificati).
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
 <!---HONumber=AcomDC_0928_2016-->

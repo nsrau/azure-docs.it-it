@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article" 
 	ms.date="09/27/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Uso della crittografia comune dinamica PlayReady e/o Widevine
@@ -63,7 +63,7 @@ Sarà disponibile un esempio .NET completo alla fine dell'argomento.
 
 Nell'immagine seguente viene illustrato il flusso di lavoro descritto in precedenza. Di seguito viene utilizzato il token per l'autenticazione.
 
-![Protezione con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)  
+![Protezione con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 Nella parte rimanente di questo argomento vengono fornite spiegazioni dettagliate, esempi di codice e collegamenti ad argomenti che illustrano come eseguire le attività descritte in precedenza.
 

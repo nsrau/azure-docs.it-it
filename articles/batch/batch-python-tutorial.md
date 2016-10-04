@@ -5,7 +5,7 @@
 	documentationCenter="python"
 	authors="mmacy"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="batch"
@@ -52,19 +52,19 @@ Per eseguire lo script di esempio *python\_tutorial\_client.py* nella workstatio
 
 * Ubuntu
 
-    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`  
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 
 * CentOS
 
-    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`  
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
 
 * SLES/OpenSUSE
 
-    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`  
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 
 * Windows
 
-    `pip install cryptography`  
+    `pip install cryptography`
 
 >[AZURE.NOTE] Se si esegue l'installazione per Python 3.3+ in Linux, usare gli equivalenti di python3 per le dipendenze di Python. Ad esempio, in Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
 
@@ -72,11 +72,11 @@ Per eseguire lo script di esempio *python\_tutorial\_client.py* nella workstatio
 
 Installare poi i pacchetti Python per **Azure Batch** e **Archiviazione di Azure**. A tale scopo, usare **pip** e il file *requirements.txt* disponibile qui:
 
-`/azure-batch-samples/Python/Batch/requirements.txt` 
+`/azure-batch-samples/Python/Batch/requirements.txt`
 
 Per installare i pacchetti per Batch e Archiviazione, eseguire il comando **pip** seguente:
 
-`pip install -r requirements.txt` 
+`pip install -r requirements.txt`
 
 In alternativa, è possibile installare i pacchetti Python [azure-batch][pypi_batch] e [azure-storage][pypi_storage] manualmente:
 

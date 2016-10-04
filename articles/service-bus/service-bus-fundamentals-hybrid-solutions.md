@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -46,7 +46,7 @@ In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti 
 
 Si supponga di dover connettere due applicazioni usando una coda del bus di servizio. Nella figura 2 è illustrato questo scenario.
 
-![][2]  
+![][2]
  
 **Figura 2: le code del bus di servizio forniscono un servizio di accodamento asincrono unidirezionale.**
 
@@ -70,7 +70,7 @@ Le code risultano utili in un numero limitato di situazioni. Permettono alle app
 
 Sebbene siano utili, non sempre le code rappresentano la soluzione più appropriata. Talvolta, sono più indicati gli argomenti del bus di servizio. Nella figura 3 viene illustrato questo concetto.
 
-![][3]  
+![][3]
  
 **Figura 3: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.**
 
@@ -86,7 +86,7 @@ Come per le code, i sottoscrittori di un argomento possono leggere i messaggi us
 
 Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tramite un broker. Il traffico scorre in una sola direzione e non esiste una connessione diretta tra mittenti e ricevitori. Talvolta questo potrebbe non essere sufficiente, ad esempio se è necessario che le applicazioni possano inviare e ricevere messaggi o se occorre un collegamento diretto tra esse e non serve che i messaggi vengano archiviati tramite un broker. In questi scenari nel bus di servizio sono disponibili gli *inoltri*, come illustrato nella figura 4.
 
-![][4]  
+![][4]
  
 **Figura 4: l'inoltro del bus di servizio garantisce la comunicazione sincrona bidirezionale tra applicazioni.**
 

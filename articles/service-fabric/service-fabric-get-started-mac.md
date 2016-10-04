@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="seanmck"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/25/2016"
-   ms.author="seanmck"/>  
+   ms.author="seanmck"/>
 
 # Configurare l'ambiente di sviluppo in Mac OS X
 
@@ -65,11 +65,11 @@ Per creare la VM locale contenente un cluster di Service Fabric a 5 nodi, esegui
 
     In questo passaggio viene scaricata e avviata in locale l'immagine di VM preconfigurata e vi viene quindi configurato un cluster di Service Fabric locale. È probabile che questo passaggio richieda alcuni minuti. Se la configurazione ha esito positivo, nell'output verrà visualizzato un messaggio che indica che è in corso l'avvio del cluster.
 
-    ![Avvio della configurazione del cluster dopo il provisioning della VM][cluster-setup-script]  
+    ![Avvio della configurazione del cluster dopo il provisioning della VM][cluster-setup-script]
 
 5. Verificare che il cluster sia stato configurato correttamente passando a Service Fabric Explorer all'indirizzo http://192.168.50.50:19080/Explorer (presupponendo che sia stato mantenuto l'IP predefinito della rete privata).
 
-    ![Visualizzazione di Service Fabric Explorer dal Mac host][sfx-mac]  
+    ![Visualizzazione di Service Fabric Explorer dal Mac host][sfx-mac]
 
 
 ## Installare il plug-in Service Fabric per Eclipse Neon (facoltativo)
@@ -84,7 +84,7 @@ Service Fabric offre un plug-in per l'IDE di Eclipse Neon che può semplificare 
 
 4. Fare clic su Aggiungi.
 
-    ![Plug-in Eclipse Neon per Service Fabric][sf-eclipse-plugin-install]  
+    ![Plug-in Eclipse Neon per Service Fabric][sf-eclipse-plugin-install]
 
 5. Scegliere il plug-in Service Fabric e fare clic su Next (Avanti).
 
@@ -94,13 +94,13 @@ Service Fabric offre un plug-in per l'IDE di Eclipse Neon che può semplificare 
 
 - [Creare la prima applicazione di Service Fabric per Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
-<!-- Links -->  
+<!-- Links -->
 
 - [Creare un cluster di Service Fabric nel portale di Azure](service-fabric-cluster-creation-via-portal.md)
 - [Creare un cluster di Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 - [Informazioni sul modello applicativo di Service Fabric](service-fabric-application-model.md)
 
-<!-- Images -->  
+<!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png

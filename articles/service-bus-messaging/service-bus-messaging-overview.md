@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.date="09/27/2016"
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 
 # Messaggistica del bus di servizio: recapito flessibile dei dati nel cloud

@@ -6,7 +6,7 @@
 	authors="femila"
 	manager="swadhwa"
 	editor=""
-	tags="azure-classic-portal"/>  
+	tags="azure-classic-portal"/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/27/2016"
-	ms.author="femila"/>  
+	ms.author="femila"/>
 
 # Configurazione di Aggiunta ad Azure AD nell'organizzazione
 

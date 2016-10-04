@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dhanyahk"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -120,7 +120,7 @@ Scorrere fino alla sezione "Notifiche".
 
 Abilitare o disabilitare la sezione "Notifiche tramite posta elettronica di Accessi anomali".
 
-![La sezione delle notifiche](./media/active-directory-reporting-getting-started/notificationsSection.png)  
+![La sezione delle notifiche](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
 ### Integrazione con l'API di creazione report di Azure AD
 

@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="soluzione di backup; servizio di backup"/>  
+   keywords="soluzione di backup; servizio di backup"/>
 
 <tags
    ms.service="backup"

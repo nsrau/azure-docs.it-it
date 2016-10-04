@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />  
+   />
 
 <tags
    ms.service="functions"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/30/2016"
-   ms.author="glenga"/>  
+   ms.author="glenga"/>
    
 # Creare un webhook o una funzione API di Azure
 
@@ -40,7 +40,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Prima di cre
 
 3. Nell'app per le funzioni, fare clic su **+ Nuova funzione** > **Webhook GitHub - Nodo** > **Crea**. Verrà creata una funzione con un nome predefinito basato sul modello specificato.
 
-	![Creare una nuova funzione di webhook in GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png)  
+	![Creare una nuova funzione di webhook in GitHub](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png)
 
 4. In **Sviluppo** prendere nota della funzione di esempio express.js nella finestra **Codice**. Questa funzione riceve una richiesta di GitHub da un webhook di commento al problema, registra il testo relativo al problema e invia una risposta al webhook come `New GitHub comment: <Your issue comment text>`.
 

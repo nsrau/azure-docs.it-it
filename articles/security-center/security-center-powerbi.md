@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="security-center"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/22/2016"
-   ms.author="yurid"/> 
+   ms.author="yurid"/>
 
 # Ottenere informazioni dettagliate sui dati del Centro sicurezza di Azure con Power BI
 Il [dashboard di Power BI](http://aka.ms/azure-security-center-power-bi) nel Centro sicurezza di Azure consente di visualizzare, analizzare e filtrare indicazioni e avvisi di sicurezza da qualunque origine, inclusi i dispositivi mobili. Usare il dashboard di Power BI per rivelare tendenze e modelli di attacco, visualizzare avvisi di sicurezza per ogni risorsa o indirizzo IP di origine, nonché i rischi per la sicurezza non risolti per risorsa ed età.
@@ -26,11 +26,11 @@ Il [dashboard di Power BI](http://aka.ms/azure-security-center-power-bi) nel Cen
 
 1. Nel dashboard **Centro sicurezza di Azure** fare clic sul pulsante **Esplora in Power BI**.
 
-	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
+	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
 
 2. Sul lato destro verrà visualizzato il pannello **Esplora in Power BI**, come illustrato nella schermata seguente:
 
-	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png) 
+	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
 
 3. Se si sta creando il dashboard di Power BI per la prima volta, è possibile scegliere una delle opzioni seguenti nel pannello **Esplora in Power BI**:
 
@@ -40,15 +40,15 @@ Il [dashboard di Power BI](http://aka.ms/azure-security-center-power-bi) nel Cen
 
 4. Ai fini di questo esempio, fare clic sull'opzione **Dashboard degli approfondimenti sulla sicurezza**. Se è la prima volta che si crea un dashboard di Power BI per il Centro sicurezza, verrà chiesto di installare il pacchetto di contenuto. Fare clic sul pulsante **Recupera** nella finestra **Pacchetti di contenuto per Power BI** come illustrato nella schermata seguente:
 
-	![Dashboard degli approfondimenti sulla sicurezza del Centro sicurezza di Azure](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png) 
+	![Dashboard degli approfondimenti sulla sicurezza del Centro sicurezza di Azure](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png)
 
 5. Verrà visualizzata la finestra **Connect to Azure Security Center Security Insights** (Connessione ad approfondimenti sulla sicurezza del Centro sicurezza di Azure). Verificare che **Metodo di autenticazione** sia impostato su **oAuth2** come illustrato di seguito e fare clic sul pulsante **Accedi**.
 	
-	![Autenticazione](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png) 
+	![Autenticazione](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png)
 
 6. Potrebbe essere necessario eseguire nuovamente l'autenticazione con le credenziali di Azure. Dopo l'autenticazione verrà creato il dashboard. Dopo aver creato il dashboard verrà visualizzato un report con una struttura analoga a quella illustrata nella schermata seguente:
 
-	![Dashboard di Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new5.png) 
+	![Dashboard di Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new5.png)
 
 
 > [AZURE.NOTE] Un aggiornamento del report è pianificato su base giornaliera. In caso di errore di questo aggiornamento, vedere [Potential Refresh Issues with the Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/) (Potenziali problemi di aggiornamento con Power BI nel Centro sicurezza di Azure) per altre informazioni su come risolverlo.
@@ -66,7 +66,7 @@ Un collegamento al Centro sicurezza di Azure reindirizza al portale di Azure. I 
 
 Per ogni grafico sono disponibili informazioni dettagliate aggiuntive. Selezionare un riquadro per visualizzare altre informazioni. Il riquadro **Resource Security State** (Stato sicurezza risorse) offre dettagli aggiuntivi sulle raccomandazioni in attesa per ogni risorsa, come illustrato nella schermata seguente:
 
-![Consigli](./media/security-center-powerbi/security-center-powerbi-fig1-new6.png) 
+![Consigli](./media/security-center-powerbi/security-center-powerbi-fig1-new6.png)
 
 Se si fa clic su una riga qualsiasi di questo grafico, le altre saranno visualizzate in grigio consentendo di concentrarsi solo su quella selezionata. Per tornare al dashboard, nel riquadro sinistro della pagina fare clic su **Centro sicurezza di Azure** nell'opzione **Dashboard**.
 
@@ -74,7 +74,7 @@ Se si fa clic su una riga qualsiasi di questo grafico, le altre saranno visualiz
 
 L'output dei riquadri **Avvisi nel tempo, Risorse che hanno subito attacchi** e **Attacker IPs** (IP utenti malintenzionati) sarà simile al seguente quando si fa clic su ognuno di essi. Ciò accade perché il report aggrega le informazioni relative a tutte e tre le variabili e le definisce **Resources under Attack** (Risorse sotto attacco) come illustrato nella schermata seguente:
 
-![Risorse sotto attacco](./media/security-center-powerbi/security-center-powerbi-fig1-new7.png) 
+![Risorse sotto attacco](./media/security-center-powerbi/security-center-powerbi-fig1-new7.png)
 
 A questo punto è anche possibile salvare una copia di questo report, stamparlo o pubblicarlo sul Web usando le opzioni disponibili nel menu **File**.
 
@@ -86,7 +86,7 @@ Connettersi ai [servizi per i pacchetti di contenuto di Power BI](https://msit.p
 
 1. Nella finestra **Content Pack for Power BI** (Pacchetto di contenuto per Power BI) verranno visualizzate due opzioni, come illustrato di seguito.
 
-	![Content pack for Power BI (Pacchetto di contenuto per Power BI)](./media/security-center-powerbi/security-center-powerbi-fig1-new.png) 
+	![Content pack for Power BI (Pacchetto di contenuto per Power BI)](./media/security-center-powerbi/security-center-powerbi-fig1-new.png)
 
 	>[AZURE.NOTE] Se è già stata eseguita la prima parte di questo articolo si vedrà solo un'opzione, ovvero Azure Security Center Policy Management (Gestione criteri del Centro sicurezza di Azure).
 
@@ -94,17 +94,17 @@ Connettersi ai [servizi per i pacchetti di contenuto di Power BI](https://msit.p
 
 3. Nella finestra **Connect to Azure Security Center Policy Management** (Connessione a Gestione criteri del Centro sicurezza di Azure) assicurarsi di selezionare **oAuth2** nell'elenco a discesa **Metodo di autenticazione** come illustrato di seguito e fare clic sul pulsante **Accedi**.
 
-	![Finestra Gestione criteri](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png) 
+	![Finestra Gestione criteri](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png)
 
 4. Si verrà reindirizzati a una pagina di autenticazione in cui è necessario digitare le credenziali usate per connettersi al Centro sicurezza di Azure. Al termine del processo di autenticazione, Power BI inizierà a importare dati per compilare i report. Durante questa fase potrebbe essere visualizzato il messaggio seguente nell'angolo destro del browser:
 
-	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig4.png) 
+	![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig4.png)
 
 	>[AZURE.NOTE] Quando viene creato il dashboard per la prima volta, è possibile che richieda più tempo del solito, soprattutto per gli scenari in cui sono disponibili più sottoscrizioni.
 
 5. Una volta completato il processo, nel dashboard di Power BI nel Centro sicurezza di Azure verrà caricato un report **Gestione dei criteri** simile a quello illustrato di seguito:
 
-	![Dashboard di Gestione criteri](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png) 
+	![Dashboard di Gestione criteri](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
 ## Vedere anche
 In questo documento è stato descritto come usare Power BI nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:

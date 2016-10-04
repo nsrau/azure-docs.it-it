@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="CarlRabeler"
 	manager="jhubbard"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="09/27/2016"
-	ms.author="carlrab"/>  
+	ms.author="carlrab"/>
 
 # Monitoraggio delle prestazioni del database nel database SQL di Azure
 Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Il monitoraggio consente di determinare se il database ha capacità in eccesso o se presenta problemi perché è stato superato il limite massimo di risorse e quindi decidere se è opportuno modificare il livello di prestazioni e il [livello di servizio](sql-database-service-tiers.md) del database. È possibile monitorare il database con strumenti grafici nel [portale di Azure](https://portal.azure.com) o con le [viste a gestione dinamica](https://msdn.microsoft.com/library/ms188754.aspx) di SQL.

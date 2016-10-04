@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="09/16/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l'attività di copia usando il portale di Azure
 > [AZURE.SELECTOR]
@@ -47,18 +47,18 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 
 1.	Dopo aver eseguito l'accesso al [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo**, selezionare **Intelligence e analisi** e quindi scegliere **Data Factory**.
 
-	![Nuovo->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)  
+	![Nuovo->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)
 
 6. Nel pannello **Nuova data factory**:
 	1. Immettere **ADFTutorialDataFactory** come **nome**.
 	
-  		![Pannello Nuova data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)  
+  		![Pannello Nuova data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
 
 		Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'argomento [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md).
 	
 			Data factory name “ADFTutorialDataFactory” is not available  
 	 
-		![Nome di data factory non disponibile](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)  
+		![Nome di data factory non disponibile](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
 	2. Selezionare la **sottoscrizione** di Azure.
 	3. Per il gruppo di risorse, eseguire una di queste operazioni:
 		1. Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
@@ -74,10 +74,10 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
 		>  Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 9.  Per visualizzare i messaggi di stato o notifica, fare clic sull'icona a forma di campanello sulla barra degli strumenti.
 
-	![Messaggi di notifica](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png)  
+	![Messaggi di notifica](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png)
 10. Al termine della creazione verrà visualizzato il pannello **Data Factory**, come illustrato nell'immagine.
 
-    ![Home page di Data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)  
+    ![Home page di Data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## Creazione di servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Vedere gli [archivi dati supportati](data-factory-data-movement-activities.md##supported-data-stores-and-formats) per tutte le origini e i sink supportati dall'attività di copia. Per l'elenco di servizi di calcolo supportati da Data Factory, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md). Questa esercitazione non prevede l'uso di servizi di calcolo.
@@ -87,16 +87,16 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
 ### Creare un servizio collegato per l'account di archiviazione di Azure
 1.	Nel pannello **Data Factory** fare clic sul riquadro **Creare e distribuire** per avviare l'**editor** della data factory.
 
-	![Riquadro Creare e distribuire](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png)  
+	![Riquadro Creare e distribuire](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png)
 5. Nell'**Editor** fare clic sul pulsante **Nuovo archivio dati** sulla barra degli strumenti, quindi scegliere **Archiviazione di Azure** dal menu a discesa. Nel riquadro a destra verrà visualizzato il modello JSON per la creazione di un servizio collegato di archiviazione di Azure.
 
-	![Pulsante Nuovo archivio dati dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)  
+	![Pulsante Nuovo archivio dati dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)
 6. Sostituire `<accountname>` e `<accountkey>` con i valori del nome e della chiave dell'account di archiviazione di Azure.
 
-	![JSON dell'archivio BLOB dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)  
+	![JSON dell'archivio BLOB dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)
 6. Fare clic su **Distribuisci** sulla barra degli strumenti. Nella visualizzazione albero dovrebbe essere visibile il servizio **AzureStorageLinkedService** distribuito.
 
-	![Distribuzione dell'archivio BLOB dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)  
+	![Distribuzione dell'archivio BLOB dell'editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
 > [AZURE.NOTE]
 Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o in BLOB di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service).
@@ -118,7 +118,7 @@ In questo passaggio viene creato un set di dati denominato **InputDataset** che 
 
 1. Nell'**editor** della data factory fare clic su **... Altro**, fare clic su **Nuovo set di dati** e quindi scegliere **Archivio BLOB di Azure** dal menu a discesa.
 
-	![Menu Nuovo set di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)  
+	![Menu Nuovo set di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente:
 
 		{
@@ -294,18 +294,18 @@ In questo passaggio viene creata una pipeline con un'**attività di copia** che 
 ### Visualizzare la data factory in una vista diagramma 
 1. Nel pannello **Data Factory** fare clic su **Diagramma**.
 
-	![Pannello Data factory - Riquadro Diagramma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)  
+	![Pannello Data factory - Riquadro Diagramma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
 2. Verrà visualizzato un diagramma simile all'immagine seguente:
 
-	![Vista diagramma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)  
+	![Vista diagramma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)
 
 	È possibile eseguire lo zoom avanti, lo zoom indietro e lo zoom al 100%, adattare alla finestra, posizionare automaticamente pipeline e tabelle e visualizzare le informazioni sulla derivazione, evidenziando gli elementi upstream e downstream degli elementi selezionati. È possibile fare doppio clic su un oggetto (tabella di input/output o pipeline) per visualizzare le relative proprietà.
 3. Fare clic con il pulsante destro del mouse su **ADFTutorialPipeline** nella vista diagramma e scegliere **Apri pipeline**.
 
-	![Apri pipeline](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)  
+	![Apri pipeline](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
 4. Dovrebbero essere visualizzate le attività della pipeline, oltre ai set di dati di input e output per le attività. In questa esercitazione la pipeline include una sola attività, ovvero l'attività di copia, con InputDataset come set di dati di input e OutputDataset come set di dati di output.
 
-	![Visualizzazione della pipeline aperta](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)  
+	![Visualizzazione della pipeline aperta](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)
 5. Fare clic su **Data factory** sulla barra di navigazione nell'angolo superiore sinistro per tornare alla vista diagramma in cui sono visualizzate tutte le pipeline. In questo esempio è stata creata una sola pipeline.
  
 
@@ -319,14 +319,14 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 	2. Fare doppio clic su **ADFTutorialDataFactory** nella **schermata iniziale** oppure fare clic su **Data factory** nel menu a sinistra e cercare ADFTutorialDataFactory.
 3. Viene visualizzato il numero e i nomi delle tabelle e delle pipeline create nel pannello.
 
-	![Home page con nomi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png)  
+	![Home page con nomi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png)
 4. A questo punto fare clic sul riquadro **Set di dati**.
 5. Nel pannello **Set di dati** fare clic su **InputDataset**. Si tratta del set di dati di input per **ADFTutorialPipeline**.
 
-	![Set di dati con InputDataset selezionato](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)  
+	![Set di dati con InputDataset selezionato](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)
 5. Fare clic sui puntini di sospensione **…** per visualizzare tutte le sezioni dati.
 
-	![Tutte le sezioni dati di input](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
+	![Tutte le sezioni dati di input](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)
 
 	Si noti che le sezioni dati fino all'ora corrente sono nello stato **Pronto**, perché il file **emp.txt** è sempre presente nel contenitore BLOB **adftutorial\\input**. Verificare che non sia visualizzata alcuna sezione in **Sezioni non riuscite di recente** nella parte inferiore della pagina.
 
@@ -334,40 +334,40 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
     
 	Fare clic su **Filtro** sulla barra degli strumenti per filtrare le sezioni.
 	
-	![Filtrare le sezioni di input](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)  
+	![Filtrare le sezioni di input](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)
 6. Chiudere i pannelli fino a visualizzare il pannello **Set di dati**. Fare clic su **OutputDataset**. Si tratta del set di dati di output per **ADFTutorialPipeline**.
 
-	![Pannello Set di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png)  
+	![Pannello Set di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png)
 6. Il pannello **OutputDataset** visualizzato dovrebbe avere un aspetto simile al seguente:
 
-	![Pannello Tabella](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png)  
+	![Pannello Tabella](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png)
 7. Le sezioni di dati fino all'ora corrente sono state già generate e sono in stato **Pronto**. Non sono visualizzate sezioni in **Sezioni con errori** nella parte inferiore della pagina.
 8. Fare clic su **… (puntini di sospensione)** per visualizzare tutte le sezioni.
 
-	![Pannello Sezioni dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png)  
+	![Pannello Sezioni dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png)
 9. Fare clic su una qualsiasi sezione dati dell'elenco per visualizzare il pannello **Sezione dati**.
 
-	![Pannello Sezione di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)  
+	![Pannello Sezione di dati](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
   
 	Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
 11. Nel pannello **SEZIONE DI DATI** è possibile visualizzare tutte le esecuzioni di attività nell'elenco in basso. Fare clic su un'**esecuzione di attività** per visualizzare il pannello **Dettagli esecuzione attività**.
 
-	![Dettagli esecuzione attività](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)  
+	![Dettagli esecuzione attività](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
 12. Fare clic su **X** per chiudere tutti i pannelli finché non viene visualizzato il pannello iniziale per **ADFTutorialDataFactory**.
 14. (facoltativo) Fare clic su **Pipeline** nella home page di **ADFTutorialDataFactory**, quindi su **ADFTutorialPipeline** nel pannello **Pipeline** e infine eseguire il drill-through delle tabelle di input (**Utilizzate**) o di output (**Prodotte**).
 15. Avviare **SQL Server Management Studio**, connettersi al database SQL di Azure e verificare che le righe vengano inserite nella tabella **emp** nel database.
 
-	![Risultati della query SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)  
+	![Risultati della query SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
 ### Monitorare la pipeline con l'app Monitoraggio e gestione
 È anche possibile usare l'applicazione Monitoraggio e gestione per monitorare le pipeline. Per informazioni dettagliate sull'uso di questa applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione](data-factory-monitor-manage-app.md).
 
 1. Fare clic sul riquadro **Monitoraggio e gestione** nella home page della data factory.
 
-	![Riquadro Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png)  
+	![Riquadro Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png)
 2. Verrà visualizzata l'applicazione **Monitoraggio e gestione**. Modificare l'**ora di inizio** e l'**ora di fine** in modo da includere le ore di inizio (2016-07-12) e di fine (2016-07-13) della pipeline e quindi fare clic su **Applica**.
 
-	![App Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png)  
+	![App Monitoraggio e gestione](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png)
 3. Selezionare una finestra attività nell'elenco **Activity Windows** (Finestre attività) per visualizzare i relativi dettagli. ![Dettagli finestra attività](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
 ## Riepilogo 
