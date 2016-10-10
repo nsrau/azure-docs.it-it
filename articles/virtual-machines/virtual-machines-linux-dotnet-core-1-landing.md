@@ -45,7 +45,9 @@ Quando si sviluppano modelli di Azure Resource Manager, l'obiettivo è quello di
 
 Per distribuire l'applicazione Music Store è possibile usare questo pulsante.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-linux%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/> </a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-linux%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 Per il modello di Azure Resource Manager è necessario impostare i valori dei parametri seguenti.
 
@@ -71,4 +73,4 @@ Al termine della distribuzione del modello, passare all'indirizzo IP pubblico us
 
 [Passaggio 4: Distribuzione di applicazioni con i modelli di Azure Resource Manager](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_0928_2016--->
