@@ -4,8 +4,8 @@
   services="active-directory"
   documentationCenter=""
   authors="msStevenPo"
-  manager="stevenpo"
-  editor=""/>
+  manager="femila"
+  editor=""/>  
 
  <tags
   ms.service="active-directory"
@@ -75,4 +75,4 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 - [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 - [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0928_2016-->

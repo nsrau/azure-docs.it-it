@@ -4,15 +4,15 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="femila"/>
+    manager="femila"/>  
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
-    ms.author="jeedes" />
+    ms.date="09/26/2016" 
+    ms.author="jeedes" />  
 
 #Esercitazione: Integrazione di Azure Active Directory con PolicyStat
   
@@ -45,11 +45,11 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-policystat-tutorial/IC700994.png "Applicazioni")
+    ![Applicazioni](./media/active-directory-saas-policystat-tutorial/IC700994.png "Applicazioni")  
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-policystat-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-policystat-tutorial/IC749321.png "Aggiunta di un'applicazione")  
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -104,7 +104,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     2.  Nella casella di testo **Attributo nome** digitare **firstname**.
     3.  Nella casella di testo **Attributo cognome** digitare **lastname**.
     4.  Nella casella di testo **Attributo posta elettronica** digitare **emailaddress**.
-    5.  Fare clic su **Salva modifiche**.
+    5.  Fare clic su **Save** per salvare le modifiche.
 
 9.  Fare clic su **Metadati del provider di identità** quindi nella sezione **Metadati del provider di identità**, eseguire la procedura seguente:
 
@@ -115,15 +115,15 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configura accesso Single Sign-On")  
 
 11. 12. Nel menu in alto fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
 
-    ![Attributi](./media/active-directory-saas-policystat-tutorial/IC795920.png "Attributi")
+    ![Attributi](./media/active-directory-saas-policystat-tutorial/IC795920.png "Attributi")  
 
 13. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
 
-    ![Attributi](./media/active-directory-saas-policystat-tutorial/IC804823.png "Attributi")
+    ![Attributi](./media/active-directory-saas-policystat-tutorial/IC804823.png "Attributi")  
 
     1.  Fare clic su **Aggiungi attributo utente**.
     2.  Nella casella di testo **Nome attributo**, digitare **uid**.
@@ -138,7 +138,7 @@ Per consentire agli utenti di Azure AD di accedere a PolicyStat, è necessario e
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a PolicyStat eseguire la procedura seguente:
 
@@ -154,4 +154,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

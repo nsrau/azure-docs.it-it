@@ -3,10 +3,10 @@
 	description="Informazioni su come connettersi a un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima. Connettersi usando la stringa di connessione MongoDB." 
 	keywords="stringa di connessione mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>  
 
 # Procedura di connessione a un account DocumentDB con supporto del protocollo per MongoDB
 
@@ -26,7 +26,7 @@ Informazioni su come connettersi a un account Azure DocumentDB con supporto del 
 1. In una nuova finestra accedere al [portale di Azure](https://portal.azure.com).
 2. Nella **riquadro di spostamento sinistro** del pannello Account, fare clic su **Stringa di connessione**. Per passare al **pannello Account**, nell'indice fare clic su **More Services** (Altri servizi), fare clic su **DocumentDB (NoSQL)** e quindi selezionare l'account DocumentDB con supporto del protocollo per MongoDB.
 
-	![Screenshot del pannello Tutte le impostazioni](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
+	![Screenshot del pannello Tutte le impostazioni](./media/documentdb-connect-mongodb-account/SettingsBlade.png)  
 
 3. Verrà visualizzato il pannello **Informazioni sulla stringa di connessione** con tutte le informazioni necessarie per connettersi all'account usando un driver per MongoDB, inclusa una stringa di connessione predefinita.
 
@@ -84,4 +84,4 @@ Come già accennato, tutti gli account di DocumentDB richiedono l'autenticazione
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

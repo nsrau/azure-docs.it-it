@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>
+	editor="tysonn"/>  
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="dineshm;tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
 
@@ -163,4 +163,4 @@ Ad esempio, la stringa di connessione avrà un aspetto simile al seguente:
 - [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
 - [Strumenti di esplorazione degli archivi di Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

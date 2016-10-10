@@ -6,7 +6,7 @@
     authors="hedidin" 
     manager="jhubbard" 
     editor="mimig" 
-    documentationCenter=""/>
+    documentationCenter=""/>  
 
 <tags 
     ms.service="documentdb" 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="06/14/2016" 
-    ms.author="b-hoedid"/>
+    ms.date="09/23/2016" 
+    ms.author="b-hoedid"/>  
 
 # Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica
 
@@ -1156,4 +1156,4 @@ Scaricare e usare il codice delle app per la logica disponibile in [Github](http
 
 Per altre informazioni su DocumentDB, visitare il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

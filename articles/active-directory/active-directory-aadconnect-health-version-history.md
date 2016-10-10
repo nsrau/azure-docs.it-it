@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+	manager="femila" 
+	editor="curtand"/>  
 
 <tags 
 	ms.service="active-directory" 
@@ -93,4 +93,4 @@ Questo articolo permette di tenere traccia delle versioni che sono state rilasci
 ## Passaggi successivi
 Informazioni su come [monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](active-directory-aadconnect-health.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

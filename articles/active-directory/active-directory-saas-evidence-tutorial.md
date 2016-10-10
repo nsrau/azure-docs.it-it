@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -51,7 +51,7 @@ Questa sezione descrive come permettere agli utenti di eseguire l'autenticazione
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
-1.	Dopo aver aggiunto Evidence.com nel portale di Azure classico, fare clic su **Configura accesso Single Sign-On**. 
+1.	Dopo aver aggiunto Evidence.com nel portale di Azure classico, fare clic su **Configura accesso Single Sign-On**.
  
 2.	Nella schermata successiva selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
 
@@ -107,4 +107,4 @@ Per fare in modo che gli utenti di AAD di cui è stato effettuato il provisionin
  
 4.	Fare clic sul pulsante **Assegna** nel piè di pagina.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0928_2016-->

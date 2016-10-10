@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Connessione a un account di Servizi multimediali mediante l'API REST" 
+	pageTitle="Connessione a un account di Servizi multimediali mediante l'API REST | Microsoft Azure" 
 	description="Questo argomento illustra come connettersi a Servizi multimediali mediante l'API REST." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
-	ms.author="juliako"/>
+	ms.date="09/26/2016"  
+	ms.author="juliako"/>  
 
 
 # Connessione a un account di Servizi multimediali mediante l'API REST di Servizi multimediali
@@ -169,7 +169,7 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 >[AZURE.NOTE] Il nuovo URI ottenuto è quello da usare per comunicare con Servizi multimediali.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -177,4 +177,4 @@ Il seguente esempio illustra la richiesta HTTP all'URI radice di Servizi multime
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

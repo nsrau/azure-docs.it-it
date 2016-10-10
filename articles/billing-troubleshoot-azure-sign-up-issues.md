@@ -3,10 +3,10 @@
 	description="Risolvere le cause più comuni dei problemi che possono verificarsi durante l'iscrizione ad Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
-	tags="billing,top-support-issue"/>
+	tags="billing,top-support-issue"/>  
 
 <tags
 	ms.service="billing"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="cjiang"/>
+	ms.author="cjiang"/>  
 
 # Se non è possibile eseguire la sottoscrizione di Azure
 
@@ -87,4 +87,4 @@ se è già stata attivata una sottoscrizione di Azure in passato e l'attivazione
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

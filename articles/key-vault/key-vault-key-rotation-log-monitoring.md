@@ -241,7 +241,7 @@ Dopo aver abilitato la registrazione, i log di controllo inizieranno la raccolta
 
 > [AZURE.NOTE] È possibile accedere alle informazioni di registrazione dopo un massimo di 10 minuti dall'operazione sull'insieme di credenziali delle chiavi, ma nella maggior parte dei casi si potrà farlo prima.
 
-Il passaggio successivo consiste nella [creazione di una coda del bus di servizio di Azure](../service-bus/service-bus-dotnet-get-started-with-queues.md). Qui verranno inseriti i log di controllo dell'insieme di credenziali delle chiavi. Quando i log si trovano nella coda, l'app per la logica li seleziona ed esegue operazioni su di essi. Creare un bus di servizio è relativamente semplice e di seguito sono riportati i passaggi generali:
+Il passaggio successivo consiste nella [creazione di una coda del bus di servizio di Azure](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). Qui verranno inseriti i log di controllo dell'insieme di credenziali delle chiavi. Quando i log si trovano nella coda, l'app per la logica li seleziona ed esegue operazioni su di essi. Creare un bus di servizio è relativamente semplice e di seguito sono riportati i passaggi generali:
 
 1. Creare uno spazio dei nomi del bus di servizio. Se è già presente uno spazio dei nomi da usare a questo scopo, andare direttamente al passaggio 2.
 2. Passare al bus di servizio nel portale e selezionare lo spazio dei nomi nel quale creare la coda.
@@ -424,4 +424,4 @@ Per l'azione, scegliere _Office 365 - send email_. Compilare i campi per creare 
 
 A questo punto è disponibile una pipeline end-to-end che, una volta al minuto, cercherà nuovi log di controllo dell'insieme di credenziali delle chiavi. I nuovi log trovati verranno inseriti in una coda del bus di servizio. L'app per la logica verrà attivata non appena arriva un nuovo messaggio nella coda e se l'appid all'interno dell'evento non corrisponde all'id app dell'applicazione chiamante verrà inviato un messaggio di posta elettronica.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

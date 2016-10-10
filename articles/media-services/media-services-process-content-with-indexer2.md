@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview"
+	pageTitle="Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview | Microsoft Azure"
 	description="Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. Questo argomento illustra come usare Media Indexer 2 Preview."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016" 
-	ms.author="adsolank;juliako;"/>
+	ms.date="09/26/2016" 
+	ms.author="adsolank;juliako;"/>  
 
 
 # Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
 
-##Panoramica
+##Overview
 
 Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate includono l'inglese, lo spagnolo, il francese, il tedesco, l'italiano, il cinese, il portoghese e l'arabo.
 
@@ -36,7 +36,7 @@ Questo argomento illustra come creare processi di indicizzazione con **Azure Med
 >Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
 
 
-Questo argomento fornisce informazioni dettagliate su **Azure Media Indexer 2 Preview** e illustra come usare questo processore con Media Services SDK per .NET
+Questo argomento offre informazioni dettagliate su **Azure Media Indexer 2 Preview** e illustra come usare questo processore con Media Services SDK per .NET
 
 ##File di input e output
 
@@ -274,7 +274,7 @@ Il programma seguente illustra come:
 		}
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -289,4 +289,4 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

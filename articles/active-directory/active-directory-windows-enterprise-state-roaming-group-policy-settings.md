@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory"  
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 
 # Impostazioni di Criteri di gruppo e di gestione di dispositivi mobili
 
@@ -55,4 +55,4 @@ Le impostazioni di Criteri di gruppo sono applicabili ai dispositivi Windows 10 
 - [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 - [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

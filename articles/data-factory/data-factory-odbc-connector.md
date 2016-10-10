@@ -3,9 +3,9 @@
 	description="Informazioni su come spostare dati da archivi dati ODBC con Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Spostare dati da archivi dati ODBC con Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da un archivio dati ODBC locale a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
@@ -363,10 +363,10 @@ Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Ge
 
 1. Avviare **Gestione configurazione di Gateway di gestione dati**. È possibile eseguire direttamente "C:\\Programmi\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" o eseguire una ricerca di **Gateway** per trovare un collegamento all'applicazione **Gateway di gestione dati di Microsoft** come mostrato nell'immagine seguente.
 
-	![Ricerca nel gateway](./media/data-factory-odbc-connector/search-gateway.png)
+	![Ricerca nel gateway](./media/data-factory-odbc-connector/search-gateway.png)  
 2. Passare alla scheda **Diagnostica**.
 
-	![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+	![Diagnostica del gateway](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)  
 3. Selezionare il **tipo** di archivio dati (servizio collegato).
 4. Specificare l'**autenticazione** e immettere le **credenziali** o la **stringa di connessione** usati per la connessione all'archivio dati.
 5. Fare clic su **Test connessione** per testare la connessione all'archivio dati.
@@ -374,4 +374,4 @@ Per risolvere i problemi di connessione, usare la scheda **Diagnostica** di **Ge
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

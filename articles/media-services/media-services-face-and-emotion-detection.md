@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Rilevare volti ed emozioni con Analisi servizi multimediali di Azure"
-	description="Questo argomento mostra come rilevare volti ed emozioni con Analisi servizi multimediali di Azure."
+	pageTitle="Rilevare volti ed emozioni con Analisi Servizi multimediali di Azure | Microsoft Azure"
+	description="Questo argomento illustra come rilevare volti ed emozioni con Analisi Servizi multimediali di Azure."
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
-	ms.author="milanga;juliako;"/>
+	ms.date="09/26/2016"   
+	ms.author="milanga;juliako;"/>  
  
 #Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
 
-##Panoramica
+##Overview
 
 Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure ** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità:
 
@@ -34,7 +34,7 @@ Il processore di contenuti multimediali **Rilevamento multimediale volti di Azur
 
 Attualmente il processore multimediale **Rilevamento multimediale volti di Azure** è disponibile in Anteprima.
 
-Questo argomento contiene informazioni dettagliate sul **Rilevamento multimediale volti di Azure** e illustra come usare questa funzionalità con Media Services SDK per .NET.
+Questo argomento contiene informazioni dettagliate su **Azure Media Face Detector** e illustra come usare questa funzionalità con Media Services SDK per .NET.
 
 ##File di input di Rilevamento volti
 
@@ -523,7 +523,7 @@ Il programma seguente illustra come:
         }
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -537,4 +537,4 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

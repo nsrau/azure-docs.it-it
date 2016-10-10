@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="erikre"
-	editor="" /> 
+	editor="" />  
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,13 +14,13 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="09/14/2016"
-	ms.author="piyushjo" /> 
+	ms.author="piyushjo" />  
 
 #Come integrare il servizio Reach di Engagement in iOS
 
 Prima di usare questa guida, è necessario eseguire la [procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in iOS](mobile-engagement-ios-integrate-engagement.md).
 
-Questa documentazione richiede XCode 8. Se si dipende davvero da XCode 7, allora è possibile utilizzare l'[SDK di Engagement in iOS v3.2.4](https://aka.ms/r6oouh). Esiste un bug noto nella versione precedente durante l'esecuzione su dispositivi iOS 10: le notifiche di sistema non vengono messe in atto. Per risolvere il problema è necessario implementare l'API deprecata `application:didReceiveRemoteNotification:` nell'app delegata come segue:
+Questa documentazione richiede XCode 8. Se si dipende davvero da XCode 7, è possibile usare [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). Esiste un bug noto nella versione precedente durante l'esecuzione su dispositivi iOS 10: le notifiche di sistema non vengono messe in atto. Per risolvere il problema è necessario implementare l'API deprecata `application:didReceiveRemoteNotification:` nel delegato dell'app come segue:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -101,15 +101,29 @@ Seguire la procedura in: [How to Prepare your Application for Apple Push Notific
 
 *A questo punto, l'applicazione dovrebbe avere un certificato push registrato di Apple nel front-end di Engagement.*
 
-Nel caso in cui non sia stato già fatto, è necessario registrare l'applicazione affinché possa ricevere notifiche push. Aggiungere la riga seguente all'avvio dell'applicazione (in genere, in `application:didFinishLaunchingWithOptions:`):
+Nel caso in cui non sia stato già fatto, è necessario registrare l'applicazione affinché possa ricevere notifiche push.
 
-	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-	  	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-	  	[application registerForRemoteNotifications];
-	}
-	else {
-	  	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-	}
+* Importare il framework `User Notification`:
+
+		#import <UserNotifications/UserNotifications.h>
+
+* Aggiungere la riga seguente all'avvio dell'applicazione (in genere, in `application:didFinishLaunchingWithOptions:`):
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 In seguito, è necessario fornire a Engagement il token del dispositivo restituito dai server Apple. Questa operazione viene effettuata nel delegato dell'applicazione, all'interno del metodo `application:didRegisterForRemoteNotificationsWithDeviceToken:`:
 
@@ -173,7 +187,7 @@ Di seguito, è riportato un esempio completo sull'integrazione:
 
 ### Se si dispone di un'implementazione di UNUserNotificationCenterDelegate:
 
-L'SDK dispone inoltre della propria implementazione del protocollo UNUserNotificationCenterDelegate. Viene utilizzata dall'SDK per monitorare il ciclo di vita delle notifiche di Engagement sui dispositivi che eseguono iOS 10 o versioni successive. Se l'SDK rileva il delegato non utilizza la sua implementazione poiché può esistere un solo delegato UNUserNotificationCenter per applicazione. Ciò significa che è necessario aggiungere la logica di Engagement al proprio delegato.
+L'SDK ha anche la propria implementazione del protocollo UNUserNotificationCenterDelegate. Viene utilizzata dall'SDK per monitorare il ciclo di vita delle notifiche di Engagement sui dispositivi che eseguono iOS 10 o versioni successive. Se l'SDK rileva il delegato non utilizza la sua implementazione poiché può esistere un solo delegato UNUserNotificationCenter per applicazione. Ciò significa che è necessario aggiungere la logica di Engagement al proprio delegato.
 
 A questo scopo è possibile procedere in due modi:
 
@@ -230,7 +244,7 @@ oppure ereditandola dalla classe `AEUserNotificationHandler`
 
 	@end
 
-> [AZURE.NOTE] È possibile determinare se una notifica proviene o no da Engagement passando il suo dizionario `userInfo` al metodo della classe dell'agente `isEngagementPushPayload:`.
+> [AZURE.NOTE] È possibile determinare se una notifica proviene o meno da Engagement passando il suo dizionario `userInfo` al metodo della classe dell'agente `isEngagementPushPayload:`.
 
 ##Come personalizzare le campagne
 
@@ -414,7 +428,7 @@ Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminar
 	-(IBAction)okButtonClicked:(id)sender;
 	-(IBAction)cancelButtonClicked:(id)sender;
 
-`CustomAnnouncementViewController.m` 
+`CustomAnnouncementViewController.m`  
 
 	//Implementation
 	@implementation CustomAnnouncementViewController
@@ -486,4 +500,4 @@ Come per la personalizzazione avanzata delle notifiche, si consiglia di esaminar
 
 	@end
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

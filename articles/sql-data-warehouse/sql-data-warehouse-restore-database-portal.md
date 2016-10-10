@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="Lakshmi1812"
    manager="barbkess"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="lakshmir;barbkess;sonyama"/>
+   ms.date="09/21/2016"
+   ms.author="lakshmir;barbkess;sonyama"/>  
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (portale)
 
@@ -60,7 +60,7 @@ Per ripristinare un database:
 8. Fare clic su **OK**.
 9. Viene avviato il processo di ripristino del database che sarà possibile monitorare tramite **NOTIFICHE**.
 
->[AZURE.NOTE] Al termine del ripristino, sarà possibile configurare il database ripristinato seguendo la guida [Finalizzare un database ripristinato][].
+>[AZURE.NOTE] Al termine del ripristino sarà possibile configurare il database ripristinato seguendo le istruzioni disponibili in [Configurare il database dopo il ripristino][].
 
 
 ## Ripristino di un database eliminato
@@ -92,13 +92,12 @@ Per ripristinare un database eliminato:
 8. Fare clic su **OK**.
 9. Viene avviato il processo di ripristino del database che sarà possibile monitorare tramite **NOTIFICHE**.
 
->[AZURE.NOTE] Al termine del ripristino, sarà possibile configurare il database ripristinato seguendo la guida [Finalizzare un database ripristinato][].
-
+>[AZURE.NOTE] Per configurare il database al termine del ripristino, vedere [Configurare il database dopo il ripristino][].
 
 ## Passaggi successivi
 Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere [Panoramica sulla continuità aziendale del database SQL][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
 [Panoramica sulla continuità aziendale del database SQL]: ./sql-database-business-continuity.md
@@ -106,14 +105,14 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [Portale]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Finalizzare un database ripristinato]: ./sql-database-recovered-finalize.md
+[Configurare il database dopo il ripristino]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [richiedere una modifica della quota DTU]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
 <!--MSDN references-->
 
 <!--Blog references-->
 
-<!--Other Web references-->
+<!--Other Web references-->  
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

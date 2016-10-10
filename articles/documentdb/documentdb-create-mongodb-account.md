@@ -2,10 +2,10 @@
 	pageTitle="Creare un account DocumentDB con supporto del protocollo per MongoDB | Microsoft Azure" 
 	description="Informazioni su come creare un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>  
 
 # Procedura di creazione di un account DocumentDB con supporto del protocollo per MongoDB usando il portale di Azure
 
@@ -48,7 +48,7 @@ Per creare un account DocumentDB con supporto del protocollo per MongoDB seguire
 	![Screenshot del pannello Nuovo DocumentDB con supporto del protocollo per MongoDB](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.png)
 
 
-	- Nella casella **ID** immettere un nome per identificare l'account. Quando l’**ID** viene convalidato, appare un segno di spunta verde nella casella **ID**. Il valore **ID** diventa il nome host nell'URI. L'**ID** può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 50 caratteri. Si noti che al nome endpoint scelto viene aggiunto *documents.azure.com* e il risultato finale sarà l'endpoint dell'account.
+	- Nella casella **ID** immettere un nome per identificare l'account. Quando l’**ID** viene convalidato, appare un segno di spunta verde nella casella **ID**. Il valore **ID** diventa il nome host all'interno dell'URI. L'**ID** può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 50 caratteri. Si noti che al nome endpoint scelto viene aggiunto *documents.azure.com* e il risultato finale sarà l'endpoint dell'account.
 
 	- Per **Sottoscrizione** selezionare la sottoscrizione di Azure da usare per l'account. Se l'account ha solo una sottoscrizione, tale account viene selezionato per impostazione predefinita.
 
@@ -62,7 +62,7 @@ Per creare un account DocumentDB con supporto del protocollo per MongoDB seguire
 
 	o dall'Hub di notifica.
 
-	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
+	![Creare database in modo rapido - Schermata dell'hub Notifiche, che mostra l'account DocumentDB creato](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png) 
 
 	![Schermata dell'hub Notifiche, che mostra che l'account DocumentDB è stato creato correttamente e distribuito a un gruppo di risorse - Creatore di database online](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
 
@@ -78,4 +78,4 @@ Per creare un account DocumentDB con supporto del protocollo per MongoDB seguire
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

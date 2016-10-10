@@ -3,9 +3,9 @@
 	description="Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in C# e riceverli in un cluster di Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="event-hubs"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/06/2016"
-	ms.author="sethm"/>
+	ms.author="jotaub;sethm"/>  
 
 # Introduzione all'Hub eventi
 
@@ -61,15 +61,15 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 - Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][].
 - Una [soluzione di messaggistica accodata][] che usa le code di Bus di servizio.
 
-<!-- Images. -->
+<!-- Images. -->  
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
-<!-- Links -->
-[portale di Azure classico]: https://manage.windowsazure.com/
+<!-- Links -->  
+[Azure classic portal]: https://manage.windowsazure.com/
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

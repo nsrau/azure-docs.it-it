@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="jhubbard"
 	editor=""
-    tags="azure-portal"/>
+    tags="azure-portal"/>  
 
 <tags
 	ms.service="search"
@@ -14,8 +14,8 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
-	ms.author="heidist"/>
+	ms.date="09/22/2016"
+	ms.author="heidist"/>  
 
 #Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 
@@ -25,18 +25,19 @@ Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazio
 
 - [**Esempio di codice per il sito demo: sito Web dei processi di New York**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) fornisce l'origine per il sito di Ricerca di Azure sui dati dei processi di New York, mediante ASP.NET MVC.
 
+- L'[**esempio di codice per il sito demo sulla Tate Art Gallery**](https://github.com/liamca/azure-search-tate-art-gallery/) fornisce il codice sorgente per il sito di Ricerca di Azure di demo in diretta per i dati della galleria d'arte e visualizza tipi di dati Collections e strutture di dati annidati, facet e filtri, nomi di persone e immagini di anteprima.
+
 - [**Esempio di codice per la libreria client .NET**](https://github.com/Azure-Samples/search-dotnet-getting-started): un'applicazione ASP.NET MVC 5 che usa la libreria client .NET per le operazioni di ricerca.
 
 - [**Esempio di codice per l'API REST**](https://github.com/Azure-Samples/search-rest-api-getting-started): fornisce il codice di esempio che illustra come usare l'API REST.
 
 Tutti gli esempi di codice precedenti si trovano nel repository GitHub Esempi di Azure, insieme ad altri esempi che illustrano come usare Ricerca di Azure in scenari specifici: [**Esempi di Azure > Ricerca di Azure**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
 
-##Siti di demo
+## Siti demo online
 
 Questi siti sono applicazioni Web completamente funzionali che usano Ricerca di Azure per l'esperienza di ricerca.
 
 [**Demo del portale dei processi di New York City (NYC) per Ricerca di Azure**](http://aka.ms/azjobsdemo) è un sito Web ASP.NET che illustra le funzionalità di Ricerca di Azure utilizzando i dati di NYC Open Data Initiative. L'app usa la [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). È possibile modificare il codice per provare la [sintassi Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
 
 [**Sito Demo Ricerca di Azure**](https://searchsamples.azurewebsites.net/#/) è una raccolta di app demo per la Ricerca di Azure. Prova la ricerca dei file multimediali, la ricerca geografica e le app dell’inventario del prodotto mediante la Ricerca di Azure.
 
@@ -90,4 +91,4 @@ Procedura dettagliata|Descrizione
 [Esercitazione sui profili di punteggio](search-get-started-scoring-profiles.md)|Provare i profili di punteggio usando un'app console.
 [Esercitazione dell'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md)|Come utilizzare l'API REST di gestione per eseguire il provisioning del servizio e gestire chiavi API di query o di amministrazione.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

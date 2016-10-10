@@ -14,8 +14,8 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="07/19/2016"
-   ms.author="charwen"/>
+   ms.date="09/22/2016"
+   ms.author="charwen"/>  
 
 # Configurare un gateway di rete virtuale per ExpressRoute con Resource Manager e PowerShell
 
@@ -43,4 +43,4 @@ Verificare di avere installato i cmdlet di Azure PowerShell richiesti per questa
 
 Dopo avere creato il gateway VNet, è possibile collegare la rete virtuale a un circuito ExpressRoute. Vedere [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

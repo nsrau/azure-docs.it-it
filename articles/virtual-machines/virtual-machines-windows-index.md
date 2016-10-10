@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    tags="azure-service-management"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>
+   ms.author="danlep"/>  
 
 # Articoli tecnici per le VM Windows nel modello di distribuzione classica
 
@@ -62,7 +62,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azu
 
 [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md)
 
-[Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
 [Manutenzione pianificata per le macchine virtuali di Azure](virtual-machines-windows-planned-maintenance.md)
 
@@ -192,4 +192,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azu
 
 [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

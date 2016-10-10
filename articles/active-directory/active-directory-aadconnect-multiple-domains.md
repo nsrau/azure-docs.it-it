@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+	manager="femila"
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory"
@@ -153,4 +153,4 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
 ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
 5.	Fare clic su Ok. Fare clic su Applica. Fare clic su Ok. Chiudere Gestione ADFS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

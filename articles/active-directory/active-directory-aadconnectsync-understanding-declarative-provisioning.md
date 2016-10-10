@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/29/2016"
-	ms.author="andkjell"/>
+	ms.author="andkjell"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
@@ -23,11 +23,11 @@ Questo argomento illustra il modello di configurazione in Azure AD Connect. Il m
 ## Overview
 Il provisioning dichiarativo è l'elaborazione di oggetti provenienti da una directory di origine connessa e determina il modo in cui l'oggetto e gli attributi devono essere trasformati da un'origine a una destinazione. Un oggetto viene elaborato in una pipeline di sincronizzazione e la pipeline è la stessa per le regole in ingresso e in uscita. Una regola in ingresso origina da uno spazio connettore e ha come destinazione il metaverse, mentre una regola in uscita ha origine nel metaverse e ha come destinazione uno spazio connettore.
 
-![Pipeline di sincronizzazione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)
+![Pipeline di sincronizzazione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)  
 
 La pipeline include diversi moduli. Ognuno di essi è responsabile di un concetto nella sincronizzazione degli oggetti.
 
-![Pipeline di sincronizzazione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)
+![Pipeline di sincronizzazione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
 - Origine, l'oggetto di origine
 - [Ambito](#scope), consente di trovare tutte le regole di sincronizzazione che si trovano nell'ambito
@@ -81,14 +81,14 @@ Quando viene eliminato un oggetto del metaverse, tutti gli oggetti associati a u
 ## Trasformazioni
 Le trasformazioni vengono usate per definire la modalità di trasferimento degli attributi dall'origine alla destinazione. I flussi del trasferimento possono avere uno dei seguenti **tipi**: diretto, costante o espressione. In un flusso diretto, il valore dell'attributo viene passato così com'è, senza altre trasformazioni. Un valore costante imposta il valore specificato. Un'espressione usa il linguaggio delle espressioni del provisioning dichiarativo per specificare la modalità di trasformazione. Per dettagli sul linguaggio delle espressioni, vedere l'argomento [Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-![Provisioning o join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)
+![Provisioning o join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)  
 
 La casella di controllo **Apply once** (Applica una volta) definisce che l'attributo debba essere impostato solo quando l'oggetto viene inizialmente creato. Ad esempio, questa configurazione consente di impostare una password iniziale per un nuovo oggetto utente.
 
 ### Unione di valori degli attributi
 Nei flussi di attributi è disponibile un'impostazione per stabilire se gli attributi multivalore devono essere uniti da molti connettori diversi. Il valore predefinito è **Update** (Aggiorna) e indica che la regola di sincronizzazione con precedenza più alta avrà la priorità.
 
-![Tipi di unione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/mergetype.png)
+![Tipi di unione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/mergetype.png)  
 
 Sono disponibili anche **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole). Queste opzioni consentono di unire i valori da diverse origini. Ad esempio, possono essere usate per unire l'attributo proxyAddresses o membro di più foreste diverse. Quando si usano queste opzioni, tutte le regole di sincronizzazione nell'ambito per un oggetto devono usare lo stesso tipo di unione. Non è possibile definire **Update** (Aggiorna) da un connettore e **Merge** (Unisci) da un altro. In questo caso, viene visualizzato un errore.
 
@@ -121,7 +121,7 @@ Un esempio di questa funzione è disponibile nella regola di sincronizzazione pr
 ## Precedenza
 Quando più regole di sincronizzazione provano a inserire lo stesso valore di attributo nella destinazione, il valore di precedenza viene usato per determinare quale regola di sincronizzazione abbia la priorità. In caso di conflitto, l'attributo verrà specificato dalla regola con la precedenza più alta e il valore numerico più basso.
 
-![Tipi di unione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)
+![Tipi di unione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)  
 
 Questo ordinamento consente di definire flussi di attributi più precisi per un piccolo subset di oggetti. Le regole predefinite assicurano ad esempio che gli attributi di un account abilitato (**User AccountEnabled**) abbiano la precedenza su altri account.
 
@@ -148,4 +148,4 @@ Per questo scenario è necessario modificare l'ambito delle regole di sincronizz
 
 - [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

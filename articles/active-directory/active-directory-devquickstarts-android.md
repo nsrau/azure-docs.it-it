@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="brandwe"/>
+	ms.author="brandwe"/>  
 
 # Integrare Azure AD in un'app per Android
 
@@ -31,6 +31,8 @@ Per i client Android che devono accedere a risorse protette, Azure AD fornisce A
 -	Disconnette gli utenti.
 
 Per iniziare, sarà necessario un tenant di Azure AD in cui poter creare gli utenti e registrare un'applicazione. Se non si ha già un tenant, vedere le [informazioni su come ottenerne uno](active-directory-howto-tenant.md).
+
+> [AZURE.TIP] Si consiglia di provare l'anteprima del nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/Android) che consentirà di imparare a usare Azure Active Directory in pochi minuti. Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice. Al termine si otterrà una semplice applicazione in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida.
 
 ## Passaggio 1: Scaricare ed eseguire il server di esempio dell'API REST TODO per Node.js
 
@@ -100,7 +102,7 @@ Per compilare con Maven, è possibile usare pom.xml al livello principale.
   * Configurare l'emulatore con SDK 19.
   * Passare alla cartella radice in cui è stato clonato il repository.
   * Eseguire il comando: mvn clean install
-  * Passare alla directory dell'esempio di Avvio rapido: cd samples\hello
+  * Passare alla directory dell'esempio di Avvio rapido: cd samples\\hello
   * Eseguire il comando: mvn android:deploy android:run
   * Dovrebbe essere visualizzato l'avvio dell'app.
   * Immettere le credenziali dell'utente test per provare.
@@ -136,7 +138,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -270,8 +272,7 @@ Facoltativo: **acquireTokenSilent**
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Gestore**:
-  l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
+11. **Gestore**: l'app del portale aziendale di Microsoft Intune fornirà il componente gestore. ADAL userà l'account del gestore, se è stato creato un account utente per questo autenticatore e lo sviluppatore ha scelto di non ignorarlo. Lo sviluppatore può ignorare l'utente gestore con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -283,14 +284,14 @@ Facoltativo: **acquireTokenSilent**
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 
-Se l'account è valido, verrà restituito l'utente gestore.
+ ```
+ Se l'account è valido, verrà restituito l'utente gestore.
 
  Il manifesto dell'app dovrà avere le autorizzazioni per usare gli account di AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 Tramite questa procedura dettagliata si dovrebbero avere tutte le informazioni necessarie per una corretta integrazione con Azure Active Directory. Per altre informazioni sull'esecuzione di queste operazioni, visitare il repository AzureADSamples/ su GitHub.
@@ -391,13 +392,12 @@ Il livello di registrazione viene impostato nel modo seguente:
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati.
- È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
+ Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati. È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
-Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ```
+ Altri esempi sui comandi adb sono disponibili qui: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Tracce di rete
 
@@ -418,7 +418,7 @@ ADAL crittografa i token e li archivia in SharedPreferences per impostazione pre
 
 ### Richiesta di connessione di Oauth2
 
-La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization_uri dalla richiesta di connessione di Oauth2.
+La classe AuthenticationParameters fornisce la funzionalità per ottenere authorization\_uri dalla richiesta di connessione di Oauth2.
 
 ### Cookie di sessione in Webview
 
@@ -458,4 +458,4 @@ Informazioni su [Come abilitare l'accesso Single Sign-On tra app su Android usan
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Anteprima dei servizi del Dominio di Azure Active Directory: Aree supportate | Microsoft Azure"
+	pageTitle="Servizi di dominio Azure Active Directory: Aree supportate | Microsoft Azure"
 	description="Le aree di Azure supportate per i servizi di dominio di Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="maheshu"/>
+	ms.date="09/21/2016"
+	ms.author="maheshu"/>  
 
-# Servizi di dominio Azure AD *(anteprima)*
+# Servizi di dominio Azure AD - Aree supportate
 
-Per informazioni su dove sono disponibili i Servizi di dominio Azure Active Directory, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
+Per informazioni su dove è disponibile Servizi di dominio Azure Active Directory, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,8 +4,8 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser"
-    manager="stevenpo"
-    editor=""/>
+    manager="femila"
+    editor=""/>  
 
 <tags
     ms.service="active-directory"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="09/12/2016"
-    ms.author="asmalser"/>
+    ms.author="asmalser"/>  
 
 #Anteprima: gestione del provisioning degli account utenti per app aziendali nel nuovo portale di Azure
 
@@ -28,13 +28,13 @@ A partire dal mese di settembre 2016, tutte le applicazioni configurate per l'ac
 
 Queste applicazioni sono disponibili nella sezione **Applicazioni aziendali** del nuovo portale di Azure, a cui è possibile accedere tramite il menu **More Services** (Altri servizi) nell'area di navigazione a sinistra. Le app aziendali sono app distribuite e usate da utenti all'interno dell'organizzazione.
 
-![Pannello Applicazioni aziendali][0]
+![Pannello Applicazioni aziendali][0]  
 
 Se si seleziona il collegamento **Tutte le applicazioni** a sinistra, viene visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta. Se si seleziona un'app, viene caricato il pannello delle risorse per tale app, in cui è possibile visualizzare i report per l'app e gestire diverse impostazioni.
 
 Le impostazioni del provisioning degli account utente possono essere gestite selezionando **Provisioning** a sinistra.
 
-![Pannello Risorsa applicazione][1]
+![Pannello Risorsa applicazione][1]  
 
 
 ##Modalità di provisioning
@@ -60,7 +60,7 @@ In questa sezione gli amministratori possono visualizzare e modificare gli attri
 
 Esiste un set preconfigurato di mapping tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, quali Gruppi o Contatti. Se si seleziona uno di questi mapping nella tabella, viene visualizzato l'editor di mapping, che consente di visualizzare e personalizzare i mapping.
 
-![Pannello Risorsa applicazione][2]
+![Pannello Risorsa applicazione][2]  
 
 Ecco le personalizzazioni supportate durante la prima anteprima:
 
@@ -88,4 +88,4 @@ Sono disponibili collegamenti al **report dell'attività di provisioning**, che 
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="mmacy"
 	manager="timlt"
-	editor="" />
+	editor="" />  
 
 <tags
 	ms.service="batch"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="09/28/2016"
 	ms.author="marsma" />
 
 # Relazioni tra attività in Azure Batch
@@ -24,13 +24,13 @@ La funzionalità relazioni tra attività di Azure Batch è ideale se si vogliono
 - Processi le cui attività di elaborazione dati può essere espressa come grafo aciclico diretto (DAG).
 - Qualsiasi altro processo in cui le attività downstream dipendono l'output delle attività upstream.
 
-Con questa funzionalità è possibile creare attività pianificate per l'esecuzione nei nodi di calcolo solo dopo il completamento corretto di una o più attività. Ad esempio, è possibile creare un processo che esegue il rendering di ogni fotogramma di un film 3D con le attività parallele separate. L'attività finale, ovvero "attività di unione", unisce i fotogrammi sottoposti a rendering in un filmato completo solo dopo che è stato eseguito il rendering di tutti i fotogrammi.
+Le dipendenze dell'attività di batch consentono di creare attività pianificate per l'esecuzione nei nodi di calcolo solo dopo il completamento corretto di una o più attività. Ad esempio, è possibile creare un processo che esegue il rendering di ogni fotogramma di un film 3D con le attività parallele separate. L'attività finale, ovvero "attività di unione", unisce i fotogrammi sottoposti a rendering in un filmato completo solo dopo che è stato eseguito il rendering di tutti i fotogrammi.
 
 È possibile creare attività che dipendono da altre attività in una relazione uno-a-uno o uno-a-molti. È anche possibile creare una dipendenza dell'intervallo in cui un'attività dipende dal corretto completamento di un gruppo di attività in un intervallo di ID attività specifico. È possibile combinare questi tre scenari di base per creare relazioni molti-a-molti.
 
 ## Relazioni tra attività con Batch .NET
 
-Questo articolo illustra la configurazione di relazioni tra attività tramite la libreria [Batch .NET][net_msdn]. Viene illustrato prima di tutto come [abilitare le relazioni tra attività](#enable-task-dependencies) nei processi, quindi viene spiegato brevemente come [configurare un'attività con relazioni](#create-dependent-tasks). Vengono infine illustrati gli [scenari delle relazione](#dependency-scenarios) supportate da Batch.
+Questo articolo illustra la configurazione di relazioni tra attività tramite la libreria [Batch .NET][net_msdn]. Viene illustrato prima di tutto come [abilitare le dipendenze tra attività](#enable-task-dependencies) nei processi, quindi viene spiegato come [configurare un'attività con dipendenze](#create-dependent-tasks). Vengono infine illustrati gli [scenari delle relazione](#dependency-scenarios) supportate da Batch.
 
 ## Abilitare le relazioni tra attività
 
@@ -133,7 +133,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## Esempio di codice
 
-Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio 2015 illustra come abilitare le relazioni tra attività in un processo, come creare attività dipendenti da altre attività e come eseguire tali attività in un pool di nodi di calcolo.
+Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio 2015 illustra come abilitare le dipendenze tra attività in un processo, come creare attività che dipendono da altre attività e come eseguire tali attività in un pool di nodi di calcolo.
 
 ## Passaggi successivi
 
@@ -143,7 +143,7 @@ La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di
 
 ### Installazione delle applicazioni e staging dei dati
 
-Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] \(Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per ottenere file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e include alcune considerazioni specifiche utili per ogni metodo.
+Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per ottenere file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/it-IT/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -166,4 +166,4 @@ Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuz
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagramma: relazione uno-a-molti"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagramma: relazione tra intervalli di ID attività"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,9 +14,9 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/19/2016" 
+	ms.date="09/23/2016" 
 	ms.author="betorres"
-/>
+/>  
 
 
 # Abilitazione e uso di Analisi del traffico di ricerca
@@ -29,22 +29,22 @@ Analisi del traffico di ricerca è una funzionalità di Ricerca di Azure che con
 
 > [AZURE.IMPORTANT] Per questo account di archiviazione si applicano le tariffe standard.
 
-Dopo averlo abilitato, i dati inizieranno a passare nell'account di archiviazione entro 5-10 minuti, all'interno dei 2 contenitori BLOB seguenti:
+È possibile abilitare l'analisi del traffico di ricerca nel portale o tramite PowerShell. Dopo averlo abilitato, i dati iniziano a passare nell'account di archiviazione entro 5-10 minuti, nei due contenitori BLOB seguenti:
 
     insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
-### 1\. Tramite il portale
-Aprire il servizio Ricerca di Azure nel [portale di Azure](http://portal.azure.com). In Impostazioni si noterà l'opzione Analisi del traffico di ricerca.
+### A. Tramite il portale
+Aprire il servizio Ricerca di Azure nel [portale di Azure](http://portal.azure.com). In Impostazioni trovare l'opzione Analisi del traffico di ricerca.
 
-![][1]
+![][1]  
 
-Selezionare questa opzione e verrà visualizzato un nuovo pannello. Modificare lo stato su **On**, selezionare l'account di Archiviazione di Azure in cui i dati verranno copiati e scegliere i dati che si desidera copiare: log, metriche o entrambi. È consigliabile copiare sia i log che le metriche. È possibile impostare i criteri di conservazione per i dati da 1 a 365 giorni. Se non si desidera applicare criteri di conservazione e conservare i dati per sempre, impostare la conservazione (in giorni) su 0.
+Impostare lo stato su **Sì**, selezionare l'account di archiviazione di Azure e scegliere i dati che si vuole copiare: log, metriche o entrambi. È consigliabile copiare sia i log che le metriche. È possibile impostare i criteri di conservazione per i dati su un valore compreso tra 1 e 365 giorni. Se non si vogliono conservare i dati a tempo indeterminato, impostare Conservazione (giorni) su 0.
 
-![][2]
+![][2]  
 
-### 2\. Tramite PowerShell
+### B. Tramite PowerShell
 
 Verificare innanzitutto che sia installata la versione più recente dei [cmdlet di Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -63,13 +63,13 @@ Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccount
 
 I dati vengono archiviati nei BLOB di Archiviazione di Azure in formato JSON.
 
-Sarà presente un BLOB ogni ora per ciascun contenitore.
+È presente un BLOB ogni ora per ciascun contenitore.
   
 Percorso di esempio: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 ### Log
 
-I BLOB dei log contengono i log di traffico del servizio di ricerca. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log. Ogni BLOB contiene record su tutta l'operazione eseguita alla stessa ora.
+I BLOB dei log contengono i log di traffico del servizio di ricerca. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log. Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
 
 ####Schema del log
 
@@ -83,7 +83,7 @@ category |string |"OperationLogs" |costante
 resultType |string |"Esito positivo" |Valori possibili: esito positivo o negativo 
 resultSignature |int |200 |Codice risultato HTTP 
 durationMS |int |50 |Durata dell'operazione in millisecondi 
-properties |object |vedere di seguito |Oggetto contenente dati specifici dell'operazione
+properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione
 
 ####Schema delle proprietà
 
@@ -94,7 +94,7 @@ properties |object |vedere di seguito |Oggetto contenente dati specifici dell'op
 |Documenti |int |42 |Numero di documenti elaborati|
 |IndexName |string |"testindex"|Nome dell'indice associato all'operazione |
 
-### Metriche
+### Metrica
 
 I BLOB delle metriche contengono i valori aggregati per il servizio di ricerca. In ogni file è presente un oggetto radice denominato **record** contenente una matrice di oggetti di metrica. Questo oggetto radice contiene metriche per ogni minuto per il quale i dati erano disponibili.
 
@@ -120,11 +120,11 @@ Metriche disponibili:
 |count |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
 |timegrain |string |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601|
 
-Tutte le metriche vengono segnalate in intervalli di un minuto. Ogni metrica esporrà quindi i valori minimo, massimo e medio al minuto.
+Tutte le metriche vengono segnalate in intervalli di un minuto. Ogni metrica espone i valori minimi, massimi e medi al minuto.
 
-Nel caso della metrica SearchQueriesPerSecond, il valore minimo è il valore minimo di query di ricerca al secondo registrato durante questo minuto; lo stesso vale anche per il valore massimo. Il valore medio è l'aggregato nel corso dell'intero minuto. Considerare questo scenario: durante un minuto è possibile avere 1 secondo di carico molto elevato che sarà il valore massimo per SearchQueriesPerSecond, seguito da 58 secondi di carico medio e 1 secondo con una sola query, che sarà il valore minimo.
+Per la metrica SearchQueriesPerSecond, il valore minimo è quello più basso per le query di ricerca al secondo registrato durante questo minuto. Lo stesso vale anche per il valore massimo. Il valore medio è l'aggregato nel corso dell'intero minuto. Considerare questo scenario nell'arco di un minuto: un secondo di carico elevato, che è il valore massimo per SearchQueriesPerSecond, seguito da 58 secondi di carico medio e infine da un secondo con una sola query, che è il valore minimo.
 
-Per ThrottledSearchQueriesPercentage, i valori minimo, massimo, medio e totale corrisponderanno tutti allo stesso valore, vale a dire alla percentuale di query di ricerca che sono state limitate, in base al numero totale di query di ricerca durante un minuto.
+Per ThrottledSearchQueriesPercentage, i valori minimo, massimo, medio e totale corrispondono tutti allo stesso valore: la percentuale di query di ricerca che sono state limitate, dal numero totale di query di ricerca nell'arco di un minuto.
 
 ## Analisi dei dati
 
@@ -140,7 +140,7 @@ Innanzitutto, si consiglia di usare [Power BI](https://powerbi.microsoft.com) pe
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/it-IT/desktop): consente di esplorare i dati e creare le proprie visualizzazioni dei dati. Di seguito viene fornita una query iniziale di supporto.
+[Power BI Desktop](https://powerbi.microsoft.com/it-IT/desktop): consente di esplorare i dati e creare le proprie visualizzazioni dei dati. Vedere la query iniziale nella sezione seguente:
 
 1. Aprire un nuovo report di Power BI Desktop
 2. Selezionare Recupera dati -> Altro.
@@ -152,10 +152,10 @@ Innanzitutto, si consiglia di usare [Power BI](https://powerbi.microsoft.com) pe
 	![][6]
 
 4. Immettere il nome e la chiave dell'account di archiviazione
-5. Selezionare "insight-log-operationlogs" e "insights-metrics-pt1m", quindi fare clic su Modifica
-6. Si aprirà l'editor di Query; assicurarsi che "insight-log-operationlogs" sia selezionato a sinistra. A questo punto aprire l'editor avanzato selezionando Visualizza -> Editor avanzato
+5. Selezionare "insight-log-operationlogs" e "insights-metrics-pt1m", quindi fare clic su Modifica.
+6. Quando l'editor di query si apre, verificare che a sinistra sia selezionato "insight-log-operationlogs". A questo punto aprire l'editor avanzato selezionando Visualizza -> Editor avanzato
 
-	![][7]
+	![][7]  
 
 7. Mantenere le prime due righe e sostituire la parte restante con la query seguente:
 
@@ -218,7 +218,7 @@ Altre informazioni sulla sintassi di ricerca e sui parametri di query. Per infor
 
 Altre informazioni sulla creazione di report utili Per informazioni dettagliate, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/it-IT/documentation/powerbi-desktop-getting-started/)
 
-<!--Image references-->
+<!--Image references-->  
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
@@ -228,4 +228,4 @@ Altre informazioni sulla creazione di report utili Per informazioni dettagliate,
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

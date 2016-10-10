@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/18/2016"
-	ms.author="curtand;jeffsta"/>
+	ms.author="curtand;jeffsta"/>  
 
 # Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -68,4 +68,4 @@ Le attività di gestione del dominio possono essere completate dal portale di Az
 
 -   [Uso dell'API Graph di Azure AD per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

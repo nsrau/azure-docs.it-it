@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager"/>  
 
 <tags
    ms.service="virtual-machines-linux"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+   ms.date="09/13/2016"
+   ms.author="kundanap"/>  
 
 # Esempi di configurazione dell’estensione delle macchine virtuali di Linux.
 
@@ -23,7 +23,7 @@
 - [PowerShell - Modello](virtual-machines-windows-extensions-configuration-samples.md)
 - [Interfaccia della riga di comando - Modello](virtual-machines-linux-extensions-configuration-samples.md)
 
-<br>
+<br>  
 
 Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali di Linux.
 
@@ -92,9 +92,10 @@ Il resto dell'articolo fornisce configurazioni di esempio per le estensioni di m
 
 ### Estensione CustomScript per Linux.
     {
-        "publisher": " Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.3",
+        "publisher": " Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
                 "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
@@ -216,4 +217,4 @@ Di seguito è riportato un modello di macchina virtuale completo per la creazion
 
 [Estensione di script personalizzato in una macchina virtuale Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

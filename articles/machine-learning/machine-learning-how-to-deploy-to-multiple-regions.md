@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="v-donglo"/>
+	ms.date="09/22/2016"
+	ms.author="v-donglo"/>  
 
 # Procedura: Come distribuire un servizio Web in più aree
 
-I nuovi servizi Web di Azure consente di distribuire facilmente un servizio Web in più aree, senza la necessità di più sottoscrizioni o aree di lavoro.
+I nuovi servizi Web di Azure consentono di distribuire facilmente un servizio Web in più aree, senza la necessità di più sottoscrizioni o aree di lavoro.
 
 I prezzi sono specifici per ogni area. È quindi necessario definire un piano di fatturazione per ogni area in cui verrà distribuito il servizio Web.
 
@@ -49,4 +49,4 @@ I prezzi sono specifici per ogni area. È quindi necessario definire un piano di
 10. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano nell'area scelta nel passaggio 8.
 11. Fare clic su **Copy**.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

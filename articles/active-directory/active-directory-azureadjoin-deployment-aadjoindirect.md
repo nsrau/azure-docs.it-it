@@ -6,15 +6,9 @@
 	authors="femila"
 	manager="swadhwa"
 	editor=""
-	tags="azure-classic-portal"/>
+	tags="azure-classic-portal"/>  
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/23/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/27/2016"
 
 	ms.author="femila"/>
 
@@ -93,4 +87,4 @@ Le aziende possono fornire account di tipo solo cloud a organizzazioni e societ�
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,11 +14,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="asmalser-msft"/>
+	ms.author="asmalser-msft"/>  
 
 #Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni
 
-##Panoramica
+##Overview
 
 Azure Active Directory può effettuare automaticamente il provisioning di utenti e gruppi in qualsiasi applicazione o archivio identità gestito da un servizio Web con interfaccia definita nella [specifica del protocollo SCIM 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory può inviare richieste per creare, modificare ed eliminare utenti e gruppi assegnati a questo servizio Web, che converte quindi queste richieste in operazioni sull'archivio identità di destinazione
 
@@ -36,7 +36,7 @@ Esistono due casi di utilizzo per SCIM in Azure Active Directory:
 
 Azure Active Directory può essere configurato in modo da effettuare automaticamente il provisioning di determinati utenti e gruppi per le applicazioni che implementano un servizio Web [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) e accettano token di connessione OAuth per l'autenticazione. Nell'ambito della specifica SCIM 2.0, le applicazioni devono soddisfare i requisiti seguenti:
 
-* Supportare la creazione di utenti e/o gruppi, come indicato nella sezione 3.3 del protocollo SCIM.  
+* Supportare la creazione di utenti e/o gruppi, come indicato nella sezione 3.3 del protocollo SCIM.
 
 * Supportare la modifica di utenti e/o gruppi con richieste patch, come indicato nella sezione 3.5.2 del protocollo SCIM.
 
@@ -59,7 +59,7 @@ Le applicazioni che supportano il profilo SCIM descritto in precedenza possono e
 **Per connettere un'applicazione che supporta SCIM:**
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
-2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
+2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
 3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome per l'applicazione e quindi fare clic sull'icona del segno di spunta per creare un oggetto app.
 
 ![][2]
@@ -67,11 +67,11 @@ Le applicazioni che supportano il profilo SCIM descritto in precedenza possono e
 4.	Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account**.
 5.	Nel campo **URL dell'endpoint di provisioning** immettere l'URL dell'endpoint SCIM dell'applicazione.
 6.	Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token di autenticazione (facoltativo)**. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
-7.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
+7.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.
 8.	Se i tentativi di connessione all'applicazione hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
 9.	Nella schermata risultante selezionare il terzo pulsante **Assegna account**. Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
 10.	Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
-11.	In **Provisioning account** verificare che lo stato sia attivo. 
+11.	In **Provisioning account** verificare che lo stato sia attivo.
 12.	In **Strumenti** fare clic su **Riavvia provisioning account** per avviare il processo di provisioning.
 
 Si noti che è possibile che trascorrano 5-10 minuti prima che il processo di provisioning inizi ad avviare richieste all'endpoint SCIM. Un riepilogo dei tentativi di connessione viene fornito nella scheda Dashboard dell'applicazione ed è possibile scaricare un report delle attività di provisioning ed eventuali errori di provisioning dalla scheda Reports della directory.
@@ -93,7 +93,7 @@ Per semplificare il processo, viene fornito un set di [esempi di codice](https:/
 
 **Prerequisiti**
 
-* Visual Studio 2013 o versione successiva
+* Visual Studio 2013 o versioni successive
 * [Azure SDK per .NET](https://azure.microsoft.com/downloads/)
 * Computer Windows che supporta ASP.NET Framework 4.5 da usare come endpoint SCIM. Questo computer deve essere accessibile dal cloud.
 * [Una sottoscrizione di Azure con una versione di prova o concessa in licenza di Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
@@ -108,7 +108,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 1.	Scaricare il pacchetto dell'esempio di codice da [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master).
 2.	Decomprimere il pacchetto e salvarlo nel computer Windows in un percorso analogo a C:\\AzureAD-BYOA-Provisioning-Samples.
 3.	In questa cartella avviare la soluzione FileProvisioningAgent in Visual Studio.
-4.	Selezionare **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti** e quindi eseguire i comandi seguenti per il progetto FileProvisioningAgent per risolvere i riferimenti alla soluzione:
+4.	Selezionare **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti ** e quindi eseguire i comandi seguenti per il progetto FileProvisioningAgent per risolvere i riferimenti alla soluzione:
 
     Install-Package Microsoft.SystemForCrossDomainIdentityManagement Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory Install-Package Microsoft.Owin.Diagnostics Install-Package Microsoft.Owin.Host.SystemWeb
 
@@ -125,18 +125,18 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 **Per registrare l'endpoint SCIM di esempio in Azure AD:**
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
-2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
+2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
 3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM", quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
 
 ![][2]
 
 4.	Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account**.
-5.	Nella finestra di dialogo immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questi valori saranno analoghi a http://testmachine.contoso.com:9000 o http://<ip-address>:9000/, dove <ip-address> è l'indirizzo IP esposto a Internet.  
-6.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
+5.	Nella finestra di dialogo immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questi valori saranno analoghi a http://testmachine.contoso.com:9000 o http://<ip-address>:9000/, dove <ip-address> è l'indirizzo IP esposto a Internet.
+6.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.
 7.	Se i tentativi di connessione al servizio Web hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
 8.	Nella schermata risultante selezionare il terzo pulsante **Assegna account**. Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
 9.	Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
-10.	In **Provisioning account** verificare che lo stato sia attivo. 
+10.	In **Provisioning account** verificare che lo stato sia attivo.
 11.	In **Strumenti** fare clic su **Riavvia provisioning account** per avviare il processo di provisioning.
 
 Si noti che è possibile che trascorrano 5-10 minuti prima che il processo di provisioning inizi ad avviare richieste all'endpoint SCIM. Un riepilogo dei tentativi di connessione viene fornito nella scheda Dashboard dell'applicazione ed è possibile scaricare un report delle attività di provisioning ed eventuali errori di provisioning dalla scheda Reports della directory.
@@ -149,7 +149,7 @@ Per sviluppare un servizio Web personalizzato conforme alla specifica SCIM, è p
 
 **1:** Vengono fornite librerie Common Language Infrastructure da usare con linguaggi basati su questa infrastruttura, ad esempio C#. Una di queste librerie, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), dichiara un'interfaccia, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, illustrata nella figura seguente. Uno sviluppatore che usa le librerie implementerà questa interfaccia con una classe a cui è possibile fare riferimento, in modo generico, come provider. Le librerie consentono agli sviluppatori di distribuire con facilità un servizio Web conforme alla specifica SCIM, ospitato in Internet Information Services o in qualsiasi assembly Common Language Infrastructure eseguibile. Le richieste a questo servizio Web verranno convertite in chiamate ai metodi del provider, che sarà programmato dallo sviluppatore per agire su un archivio identità.
 
-![][3]
+![][3]  
 
 **2:** I [gestori di route Express](http://expressjs.com/guide/routing.html) sono disponibili per l'analisi degli oggetti di richiesta node.js che rappresentano chiamate, in base alla definizione della specifica SCIM, effettuate a un servizio Web node.js.
 
@@ -360,7 +360,7 @@ Le risorse gruppo sono rilevate dall'identificatore dello schema, http://schemas
 
 ###Tabella 2: mapping predefinito degli attributi gruppo
 
-| Gruppo di Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
+| Gruppo di Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group   |
 | ------------- | ------------- |
 | displayName | externalId |
 | mail | emails[type eq "work"].value |
@@ -435,7 +435,7 @@ Nel caso dell'esempio precedente di una query per un utente con un determinato v
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
 * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
-* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"]
 
 **2:** Se la risposta a una query per il servizio per la ricerca di un utente con valore dell'attributo externalId corrispondente al valore dell'attributo mailNickname di un utente in Azure Active Directory non restituisce alcun utente, Azure Active Directory richiederà che il servizio effettui il provisioning di un utente corrispondente a quello in Azure Active Directory. Ecco un esempio di questa richiesta:
 
@@ -677,9 +677,9 @@ Nel caso dell'esempio precedente di una richiesta per il deprovisioning di un ut
 
 La figura seguente illustra i messaggi che Azure Active Directory invierà al servizio SCIM per gestire il ciclo di vita di un gruppo in un altro archivio identità. Questi messaggi si differenziano dai messaggi relativi agli utenti in tre modi:
 
-* Lo schema di una risorsa gruppo verrà identificato come http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
-* Le richieste per il recupero di gruppi stipuleranno che l'attributo members deve essere escluso da qualsiasi risorsa fornita in risposta alla richiesta.  
-* Le richieste per determinare se un attributo reference ha un determinato valore saranno richieste relative all'attributo members.  
+* Lo schema di una risorsa gruppo verrà identificato come http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.
+* Le richieste per il recupero di gruppi stipuleranno che l'attributo members deve essere escluso da qualsiasi risorsa fornita in risposta alla richiesta.
+* Le richieste per determinare se un attributo reference ha un determinato valore saranno richieste relative all'attributo members.
 
 ![][5] *Figura: Sequenza di provisioning e deprovisioning gruppi*
 
@@ -695,11 +695,11 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 
 
 	
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
 [2]: ./media/active-directory-scim-provisioning/scim-figure-2.PNG
 [3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

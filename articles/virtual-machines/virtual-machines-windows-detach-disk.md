@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-service-management"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
-	ms.author="cynthn"/>
+	ms.date="09/27/2016"
+	ms.author="cynthn"/>  
 
 
 
@@ -66,4 +66,4 @@ Per altre informazioni, vedere [Remove-AzureRmVMDataDisk](https://msdn.microsoft
 
 Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](virtual-machines-windows-attach-disk-portal.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

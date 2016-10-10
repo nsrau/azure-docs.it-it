@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="mysql"/>
+	tags="mysql"/>  
 
 <tags
 	ms.service="multiple"
@@ -15,11 +15,11 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm;cephalin"/>
+	ms.author="robmcm;cephalin"/>  
 
 # Creare e connettersi a un database MySQL in Azure
 
-Questa guida descrive come creare un database MySQL nel [portale Azure](https://portal.azure.com) (provider [ClearDB](http://www.cleardb.com/)) e come connettersi al database da un'app Web PHP in esecuzione sul [Servizio app di Azure](./app-service/app-service-value-prop-what-is.md).
+Questa esercitazione spiega come creare un database MySQL nel [portale di Azure](https://portal.azure.com) (provider [ClearDB](http://www.cleardb.com/)) e come connettersi al database da un'app Web PHP in esecuzione sul [Servizio app di Azure](./app-service/app-service-value-prop-what-is.md).
 
 > [AZURE.NOTE] È anche possibile creare un database MySQL come parte di un [modello di applicazione Marketplace](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
 
@@ -56,19 +56,20 @@ Per creare un database MySQL nel portale di Azure, seguire questa procedura:
 
 	Al termine della distribuzione verrà visualizzata un'altra finestra popup. Il portale apre il pannello del database MySQL in automatico.
 
-## Connettersi al database MySQL da un'app Web PHP in Azure
+<a name="connect"></a>
+## Connettersi al database MySQL
 
-Per visualizzare le informazioni di connessione per il nuovo database MySQL, fare clic su **Proprietà**. Se non viene visualizzato il pannello **Impostazioni**, fare clic su **Impostazioni** > **Proprietà**.
+Per visualizzare le informazioni di connessione del nuovo database MySQL, fare clic su **Proprietà** nel pannello dell'app Web.
 	
-![Creare un database MySQL in Azure: pannello Database MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
+![Creare un database MySQL in Azure: pannello Database MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)  
 
 È ora possibile usare le informazioni di connessione in qualsiasi app Web. [Qui](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql) è disponibile un esempio che illustra come usare le informazioni di connessione da una semplice app PHP.
 
-### Connettere un'app web Laravel (dall'esercitazione introduttiva di PHP)
+## Connettere un'app web Laravel (dall'esercitazione introduttiva di PHP)
 
-Si supponga che sia stata completata l'esercitazione [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md) (Creare, configurare e distribuire un'app Web PHP in Azure) e che un'app Web [Laravel](https://www.laravel.com/) sia in esecuzione su Azure. È possibile aggiungere funzionalità di database all'app Laravel in modo semplice. Seguire questa procedura:
+Si supponga che sia stata completata l'esercitazione [Creare, configurare e distribuire un'app Web PHP in Azure](./app-service-web/app-service-web-php-get-started.md) e che un'app Web [Laravel](https://www.laravel.com/) sia in esecuzione su Azure. È possibile aggiungere funzionalità di database all'app Laravel in modo semplice. Seguire questa procedura:
 
->[AZURE.NOTE] Per questa procedura si presuppone che sia stata completata l'esercitazione [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md) (Creare, configurare e distribuire un'app Web PHP in Azure).
+>[AZURE.NOTE] Per questa procedura si presuppone che sia stata completata l'esercitazione [Creare, configurare e distribuire un'app Web PHP in Azure](./app-service-web/app-service-web-php-get-started.md).
 
 1. Configurare l'app Laravel nell'ambiente di sviluppo locale in modo che punti al database MySQL. A tale scopo, aprire `.env` dalla directory radice dell'app Laravel e configurare le opzioni del database MySQL.
 
@@ -139,4 +140,4 @@ Si supponga che sia stata completata l'esercitazione [Create, configure, and dep
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

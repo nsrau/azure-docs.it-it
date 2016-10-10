@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -26,4 +26,4 @@ Questo articolo descrive i vincoli di utilizzo e altri limiti del servizio per i
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Come vengono associate le sottoscrizioni di Azure e Azure AD](active-directory-how-subscriptions-associated-directory.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+	tags="azure-portal"/>  
 
 <tags
    ms.service="hdinsight"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
-   ms.author="larryfr"/>
+   ms.date="09/27/2016"
+   ms.author="larryfr"/>  
 
 #Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari
 
@@ -49,7 +49,7 @@ Quando ci si connette all'interfaccia utente Web Ambari, sarà necessario esegui
 
 Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni e i controlli seguenti:
 
-![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)  
 
 * **Logo di Ambari**: apre il dashboard, che può essere usato per monitorare il cluster.
 
@@ -91,21 +91,21 @@ Gli avvisi sono organizzati in diversi gruppi predefiniti, che possono essere vi
 
 È possibile gestire i gruppi scegliendo **Manage Alert Groups** dal menu **Actions**. In questo modo è possibile modificare i gruppi esistenti o crearne dei nuovi.
 
-![finestra di dialogo Manage Alert Groups](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
+![finestra di dialogo Manage Alert Groups](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)  
 
 È inoltre possibile creare notifiche scegliendo Alert Notifications dal menu **Actions**. In questo modo è possibile creare trigger che inviano notifiche tramite **EMAIL** o **SNMP** quando si verificano combinazioni specifiche di avviso/gravità. Ad esempio, è possibile inviare un avviso quando uno degli avvisi nel gruppo **YARN Default** è impostato su **Critical**.
 
-![finestra di dialogo Create Alert](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+![finestra di dialogo Create Alert](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)  
 
 ###HDInsight
 
 La scheda **Metrics** del dashboard contiene una serie di widget che consentono di monitorare lo stato del cluster in modo immediato. Widget diversi, ad esempio **CPU Usage**, forniscono informazioni aggiuntive quando vengono selezionati.
 
-![dashboard con metriche](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![dashboard con metriche](./media/hdinsight-hadoop-manage-ambari/metrics.png)  
 
 La scheda **Heatmaps** visualizza le metriche come mappe termiche colorate, dal verde al rosso.
 
-![dashboard con mappe termiche](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![dashboard con mappe termiche](./media/hdinsight-hadoop-manage-ambari/heatmap.png)  
 
 Per altre informazioni sui nodi del cluster, selezionare **Hosts**, quindi il nodo specifico desiderato.
 
@@ -119,7 +119,7 @@ La barra laterale **Services** sul dashboard fornisce informazioni rapide sullo 
 
 Selezionando un servizio verranno visualizzate informazioni più dettagliate su di esso.
 
-![informazioni di riepilogo sul servizio](./media/hdinsight-hadoop-manage-ambari/service-details.png)
+![informazioni di riepilogo sul servizio](./media/hdinsight-hadoop-manage-ambari/service-details.png)  
 
 ####Collegamenti rapidi
 
@@ -149,7 +149,7 @@ Non eseguire la gestione di utenti, gruppi e autorizzazioni con i cluster HDInsi
 
 La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seguire questa procedura.
 
-![pagina Hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
+![pagina Hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)  
 
 > [AZURE.NOTE] Non eseguire l'aggiunta, la rimozione o il ripristino di un host con i cluster HDInsight.
 
@@ -196,7 +196,7 @@ Il pulsante **Actions** consente di riavviare tutti i servizi, ma spesso si desi
 
 2. Nella parte superiore della scheda **Summary** fare clic sul pulsante **Service Actions** e selezionare l'azione da intraprendere. Il servizio verrà riavviato in tutti i nodi.
 
-	![azione del servizio](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
+	![azione del servizio](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)  
 
 	> [AZURE.NOTE] Se si riavviano alcuni servizi mentre il cluster è in esecuzione, è possibile che vengano generati avvisi. Per evitare questo problema, è possibile abilitare la modalità di manutenzione facendo clic sul pulsante **Service Actions** e selezionando **Turn On Maintenance Mode** per il servizio prima di eseguire il riavvio.
 
@@ -210,7 +210,7 @@ Per configurare un servizio, seguire questa procedura:
 
 2. Selezionare la scheda **Configs**. Verrà visualizzata la configurazione corrente insieme a un elenco delle configurazioni precedenti.
 
-	![configurazioni](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+	![configurazioni](./media/hdinsight-hadoop-manage-ambari/service-configs.png)  
 
 3. Usare i campi visualizzati per modificare la configurazione, quindi selezionare **Save**. In alternativa, selezionare una configurazione precedente, quindi **Make current** per ripristinare le impostazioni precedenti.
 
@@ -222,4 +222,4 @@ Le viste di Ambari consentono agli sviluppatori di collegare gli elementi dell'i
 * Viste di Hive: le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all'[uso delle viste Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Vista di Tez: la vista di Tez consente di comprendere e ottimizzare i processi visualizzando le informazioni sull'esecuzione dei processi di Tez e quali risorse sono usate dal processo.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

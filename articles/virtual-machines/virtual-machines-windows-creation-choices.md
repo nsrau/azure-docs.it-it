@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>
+	tags="azure-resource-manager"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/06/2016"
-	ms.author="cynthn"/>
+	ms.date="09/27/2016"
+	ms.author="cynthn"/>  
 
 # Diversi modi per creare una macchina virtuale Windows con Gestione risorse
 
@@ -47,4 +47,4 @@ Usare Visual Studio per creare, gestire e distribuire VM con gli strumenti di Az
 
 [Strumenti di Azure per Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

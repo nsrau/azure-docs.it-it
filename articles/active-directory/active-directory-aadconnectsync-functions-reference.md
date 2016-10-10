@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="StevenPo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="andkjell;markvi"/>
+	ms.author="andkjell;markvi"/>  
 
 
 # Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
@@ -724,7 +724,7 @@ Il formato è {source1}:{target1},{source2}:{target2},{sourceN},{targetN} dove s
 - La funzione accetta ogni occorrenza delle origini definite e le sostituisce con le destinazioni.
 - Source deve corrispondere esattamente a un carattere (Unicode).
 - Source non può essere una stringa vuota e non può essere più lunga di un carattere (errore di analisi).
-- Target può contenere più caratteri, ad esempio ö:oe, β:ss.
+- Il target può contenere più caratteri, ad esempio ö:oe, β:ss.
 - Target può essere una stringa vuota, per indicare che il carattere deve essere rimosso.
 - Source fa distinzione tra maiuscole e minuscole e deve essere una corrispondenza esatta.
 - I caratteri , (virgola) e : (due punti) sono riservati e non possono essere sostituiti usando questa funzione.
@@ -867,4 +867,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -6,7 +6,7 @@
    authors="byham"
    manager="barbkess"
    editor=""
-   tags=""/>
+   tags=""/>  
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/04/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>
+   ms.date="09/24/2016"
+   ms.author="rickbyh;barbkess;sonyama"/>  
 
 # Autenticazione in Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-connect-overview.md)
+- [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
 - [Autenticazione](sql-data-warehouse-authentication.md)
-- [Driver](sql-data-warehouse-connection-strings.md)
+- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
+- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Per connettersi a SQL Data Warehouse è necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione, alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.
 
@@ -90,4 +91,4 @@ Per iniziare a eseguire query sul data warehouse con Visual Studio e altre appli
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [le funzionalità e le limitazioni di Azure AD]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

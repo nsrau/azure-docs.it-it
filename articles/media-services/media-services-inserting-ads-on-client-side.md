@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Inserimento di annunci sul lato client" 
+	pageTitle="Inserimento di annunci sul lato client | Microsoft Azure" 
 	description="Questo argomento illustra come inserire annunci sul lato client." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/26/2016" 
+	ms.author="juliako"/>  
 
 
 #Inserimento di annunci sul lato client
@@ -35,7 +35,7 @@ Servizi multimediali di Azure offre il supporto per l'inserimento di annunci tra
 
 Gli annunci possono essere inseriti in qualsiasi punto della sequenza temporale del video principale. È necessario indicare al lettore quando riprodurre l'annuncio e quali annunci riprodurre. Questa operazione viene eseguita mediante una serie di file standard basati su XML: Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) e Digital Video Player Ad Interface Definition (VPAID). I file VAST indicano quali annunci visualizzare, mentre i file VMAP specificano quando riprodurre i vari annunci e contengono XML VAST. I file MAST rappresentano invece un altro modo di riprodurre in sequenza annunci contenenti XML VAST. I file VPAID, infine, definiscono un'interfaccia tra il lettore video e l'annuncio o il server di annunci.
 
-Ogni player framework ha un funzionamento diverso, che verrà illustrato in un argomento specifico. Questo argomento illustra i meccanismi di base usati per inserire gli annunci. Le applicazioni di tipo lettore video richiedono gli annunci da un server di annunci. Il server di annunci può rispondere in diversi modi:
+Ogni Player Framework ha un funzionamento diverso, che verrà illustrato in un argomento specifico. Questo argomento illustra i meccanismi di base usati per inserire gli annunci. Le applicazioni di tipo lettore video richiedono gli annunci da un server di annunci. Il server di annunci può rispondere in diversi modi:
 
 - Restituzione di un file VAST
 - Restituzione di un file VMAP (con VAST incorporato)
@@ -800,7 +800,7 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -813,4 +813,4 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

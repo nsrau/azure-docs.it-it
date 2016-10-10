@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="msfussell"
    manager="timlt"
-   editor="masnider"/>
+   editor="masnider"/>  
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/03/2016"
+   ms.date="09/22/2016"
    ms.author="mfussell"/>  
 
 # Panoramica di Service Fabric
@@ -41,9 +41,9 @@ Per altre informazioni sull'approccio basato su microservizi, leggere [Perché u
 ## Creare i cluster di Service Fabric in qualsiasi ambiente
 È possibile creare cluster di Service Fabric in molti ambienti, tra cui Azure o in locale, in Windows Server o su Linux. Inoltre l'ambiente di sviluppo nell'SDK è identico all'ambiente di produzione senza emulatori coinvolti. In altre parole, se è in esecuzione nel cluster di sviluppo locale viene distribuito nello stesso cluster in altri ambienti.
 
-Per altre informazioni sulla creazione di cluster in locale, vedere [Creare cluster autonomi di Service Fabric in Windows Server o Linux](service-fabric-deploy-anywhere.md) o [Creare un cluster di Service Fabric dal portale di Azure](service-fabric-cluster-creation-via-portal.md).
+Per altre informazioni sulla creazione di cluster in locale, vedere gli articoli relativi alla [creazione di un cluster in Windows Server o Linux](service-fabric-deploy-anywhere.md) o alla creazione di un cluster in Azure [tramite il portale di Azure](service-fabric-cluster-creation-via-portal.md).
 
-![Piattaforma Service Fabric][Image1]
+![Piattaforma Service Fabric][Image1]  
 
 ## Microservizi di Service Fabric con e senza stato
 
@@ -110,4 +110,4 @@ Usando Service Fabric è possibile:
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

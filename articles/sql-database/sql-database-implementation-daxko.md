@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="carlrabeler"
    manager="jhubbard"
-   editor=""/> 
+   editor=""/>  
 
 <tags
    ms.service="sql-database"
@@ -14,11 +14,11 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/08/2016"
-   ms.author="carlrab"/> 
+   ms.author="carlrab"/>  
    
 # Daxko/CSI ha usato Azure per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni
 
-![Logo](./media/sql-database-case-study-daxko/csidaxkologo25.png) 
+![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)  
 
 Daxko/CSI Software ha affrontato una sfida: la base di clienti dei centri fitness e di ricreazione ha registrato un aumento rapido grazie alla soluzione software aziendale onnicomprensiva. Tuttavia, il supporto delle esigenze dell'infrastruttura IT per la crescita della base di clienti metteva a dura prova lo staff IT aziendale. La società era sempre più vincolata alle crescenti spese operative, in particolare per la gestione dei database in continua crescita. Ancor peggio, le spese operative venivano tagliate dalle risorse di sviluppo impegnate su nuove iniziative, tra cui le funzionalità di mobilità per il software aziendale.
 
@@ -75,7 +75,7 @@ SpectrumNG usa i ruoli Web. Poiché l'applicazione è multi-tenant, viene usato 
 Per il livello Web del servizio, CSI Software usa il ridimensionamento automatico di Azure, in base a data e ora. Le risorse disponibili vengono automaticamente aumentate per soddisfare l'incremento dell'uso durante le ore lavorative, secondo il fuso orario di ciascun datacenter regionale. Viene anche impostata la riduzione automatica delle risorse durante il weekend, quando le esigenze dei clienti sono inferiori.
 
      
-![Figura 1](./media/sql-database-case-study-daxko/figure1.png) 
+![Architettura di Daxko/CSI](./media/sql-database-implementation-daxko/figure1.png)  
 
 Figura 1. Un ruolo di lavoro dei servizi cloud consente di disegnare dati strutturati dal database SQL di Azure e dati semistrutturati dall'archiviazione di tabelle. Gli utenti SpectrumNG interagiscono con i dati tramite un ruolo Web dei servizi cloud.
 
@@ -105,4 +105,4 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 
 - Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

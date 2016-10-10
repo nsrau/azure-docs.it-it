@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Quote e limitazioni di Servizi multimediali" 
+	pageTitle="Quote e limitazioni di Servizi multimediali | Microsoft Azure" 
 	description="Questo argomento descrive le quote e le limitazioni associate a Servizi multimediali di Microsoft Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/26/2016" 
+	ms.author="juliako"/>  
 
 
 #Quote e limitazioni
@@ -24,7 +24,7 @@ Questo argomento descrive le quote e le limitazioni associate a Servizi multimed
 [AZURE.INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -32,4 +32,4 @@ Questo argomento descrive le quote e le limitazioni associate a Servizi multimed
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,8 +1,5 @@
 Il log di attività contiene tutte le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle risorse. Non include le operazioni di lettura (GET). È possibile usare i log di controllo per trovare un errore durante la risoluzione dei problemi o per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
 
-Esistono due importanti limitazioni da tenere presenti quando si lavora con i log di attività:
+I registri attività vengono conservati per 90 giorni. È possibile eseguire query per qualsiasi intervallo di date, purché la data di inizio non risalga a più di 90 giorni prima.
 
-1. I log di attività vengono conservati solo per 90 giorni.
-2. È possibile eseguire solo query per un intervallo di 15 giorni o meno.
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

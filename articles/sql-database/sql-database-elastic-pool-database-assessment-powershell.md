@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Script di PowerShell per identificare database singoli adatti per un pool"
+	pageTitle="Script di PowerShell per identificare database singoli adatti a un pool | Microsoft Azure"
 	description="Un pool di database elastico è una raccolta di risorse disponibili condivise da un gruppo di database elastici. Questo documento fornisce uno script di PowerShell per valutare l'idoneità dell'utilizzo di un pool di database elastici per un gruppo di database."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
 	manager="jhubbard"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/06/2016"
+	ms.date="09/22/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+	ms.tgt_pltfrm="NA"/>  
 
 # Script di PowerShell per identificare database adatti a un pool di database elastici
 
@@ -28,7 +28,7 @@ Questo script è particolarmente utile per la valutazione di database nei server
 
 Installare i componenti seguenti prima di eseguire lo script.:
 
-- La versione più recente di [Strumenti della riga di comando di PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+- Versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 - Il [pacchetto delle funzionalità di SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ### Dettagli script
@@ -266,4 +266,4 @@ Al completamento dello script il risultato sarà il numero stimato di eDTU neces
 
         
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

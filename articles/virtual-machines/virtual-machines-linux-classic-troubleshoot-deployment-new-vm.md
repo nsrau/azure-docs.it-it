@@ -3,10 +3,10 @@
    description="Risolvere i problemi della distribuzione classica quando si crea una nuova macchina virtuale Linux in Azure"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
-   tags="top-support-issue"/>
+   tags="top-support-issue"/>  
 
 <tags
   ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="09/06/2016"
-  ms.author="cjiang"/>
+  ms.author="cjiang"/>  
 
 # Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure
 
@@ -84,4 +84,4 @@ In base ai vincoli del servizio cloud usato per creare la nuova VM, si potrebbe 
 ## Passaggi successivi
 Se si incontrano problemi quando si avvia una VM Linux arrestata o si ridimensiona una VM Linux esistente in Azure, vedere [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Linux esistente in Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

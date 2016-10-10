@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Anteprima dei servizi di dominio di Azure Active Directory: Scenari di distribuzione | Microsoft Azure"
+	pageTitle="Servizi di dominio Azure Active Directory: Scenari di distribuzione | Microsoft Azure"
 	description="Scenari di distribuzione per i Servizi di dominio Azure Active Directory"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="maheshu"/>
+	ms.date="09/21/2016"
+	ms.author="maheshu"/>  
 
 
 # Scenari di distribuzione e casi d'uso
@@ -25,7 +25,7 @@ Questa sezione illustra alcuni scenari e casi d'uso che traggono vantaggio dall'
 
 Le macchine virtuali del server aggiunte al dominio gestito possono inoltre essere gestite e protette tramite i criteri di gruppo. È possibile applicare le linee di base della sicurezza necessaria alle macchine virtuali di Azure e bloccarle in conformità con le linee guida sulla sicurezza aziendale. Ad esempio, è possibile utilizzare le funzionalità di gestione dei criteri di gruppo per limitare i tipi di applicazioni che possono essere avviate su tali macchine virtuali.
 
-![Gestione ottimizzata delle macchine virtuali di Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
+![Gestione ottimizzata delle macchine virtuali di Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)  
 
 Man mano che i server e altri elementi dell'infrastruttura raggiungono la fine del ciclo di vita, Contoso sposta molte delle applicazioni attualmente ospitate in locale nel cloud. Lo standard IT corrente prevede che i server che ospitano applicazioni aziendali sia aggiunto a un dominio e gestito tramite Criteri di gruppo. L'amministratore IT di Contoso preferisce aggiungere a un dominio le macchine virtuali distribuite in Azure per semplificarne la gestione. Di conseguenza, gli amministratori e gli utenti possono accedere utilizzando le proprie credenziali aziendali. Allo stesso tempo, le macchine possono essere configurate per essere conformi alle linee di base della sicurezza necessaria utilizzando i criteri di gruppo. Contoso preferisce non dover distribuire, monitorare e gestire i controller di dominio in Azure per proteggere le macchine virtuali di Azure. Servizi di dominio Azure Active Directory è quindi un'ottima soluzione per questo caso di utilizzo.
 
@@ -42,7 +42,7 @@ Considerare i seguenti punti importanti per questo scenario di distribuzione:
 
 ## Spostamento di un'applicazione locale che usa l'autenticazione di binding LDAP nei servizi di infrastruttura di Azure
 
-![Binding LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
+![Binding LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)  
 
 Contoso ha un'applicazione locale acquistata da un fornitore di software indipendente molti anni fa. L'applicazione è attualmente in modalità manutenzione presso il fornitore di software indipendente e le modifiche apportate all'applicazione sono estremamente costose per Contoso. L'applicazione ha un front-end basato sul Web che raccoglie le credenziali degli utenti tramite un modulo Web e che autentica gli utenti tramite un binding LDAP con l'istanza di Active Directory aziendale. Contoso vorrebbe eseguire la migrazione di questa applicazione ai servizi di infrastruttura di Azure. Sarebbe opportuno che l'applicazione funzionasse così com'è, senza richiedere modifiche. Gli utenti dovrebbero inoltre poter eseguire l'autenticazione usando le credenziali aziendali esistenti senza che sia necessaria una formazione sulle nuove procedure. In altre parole, gli utenti non devono accorgersi che è stata eseguita la migrazione dell'applicazione e che l'applicazione non è più in esecuzione in locale.
 
@@ -70,7 +70,7 @@ Considerare i seguenti punti importanti per questo scenario di distribuzione:
 ## Eseguire la migrazione di un servizio locale o di un'applicazione daemon ai servizi di infrastruttura di Azure
 Alcune applicazioni sono costituite da più livelli, dove uno dei livelli deve eseguire chiamate autenticate a un livello di back-end, ad esempio un livello di database. Gli account di servizio di Active Directory vengono comunemente utilizzati per questi casi di utilizzo. È possibile sollevare e spostare tali applicazioni per i servizi dell'infrastruttura Azure e utilizzare Servizi di dominio Azure Active Directory per le esigenze di identità di queste applicazioni. È possibile scegliere di utilizzare lo stesso account di servizio che viene sincronizzato dalla directory locale ad Azure AD. In alternativa, è possibile creare innanzitutto un'unità organizzativa, quindi un account di servizio separato nell'unità organizzativa, per distribuire tali applicazioni.
 
-![Account del servizio mediante WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
+![Account del servizio mediante WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)  
 
 Contoso ha un'applicazione di insieme di credenziali appositamente sviluppata e personalizzata che include un front-end Web, un server SQL e un server FTP back-end. L'autenticazione integrata di Windows degli account del servizio viene usata per eseguire l'autenticazione del front-end Web con il server FTP. Il front-end Web è configurato per l'esecuzione come account del servizio. Il server back-end è configurato per autorizzare l'accesso dall'account del servizio per il front-end Web. Contoso preferisce non dover distribuire una macchina virtuale del controller di dominio nel cloud per spostare questa applicazione nei servizi dell'infrastruttura di Azure. L'amministratore IT di Contoso può distribuire i server che ospitano il front-end Web, il server SQL e il server FTP in macchine virtuali di Azure. Dopodiché, queste macchine virtuali vengono aggiunte al dominio gestito di Servizi di dominio Azure AD. Successivamente, sarà possibile usare lo stesso account del servizio nella directory locale per l'autenticazione dell'app. Questo account del servizio viene sincronizzato con il dominio gestito di servizi di Servizi di dominio Azure Active Directory ed è disponibile per l'utilizzo.
 
@@ -86,8 +86,8 @@ Considerare i seguenti punti importanti per questo scenario di distribuzione:
 ## Azure RemoteApp
 Azure RemoteApp consente all'amministratore di Contoso di creare una raccolta aggiunta al dominio. Questa funzione consente alle applicazioni remote gestite da Azure RemoteApp potranno quindi essere eseguite in computer aggiunti al dominio e potranno accedere altre risorse tramite l'autenticazione integrata di Windows. Contoso può usare Servizi di dominio Azure Active Directory per fornire un dominio gestito usato dalle raccolte aggiunte al dominio di Azure RemoteApp.
 
-![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
+![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)  
 
 Per altre informazioni su questo scenario di distribuzione, vedere il post del blog su Servizi Desktop remoto che illustra come [sollevare e spostare i carichi di lavoro con Azure RemoteApp e Servizi di dominio Azure Active Directory](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

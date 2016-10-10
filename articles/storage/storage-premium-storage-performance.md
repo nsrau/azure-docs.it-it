@@ -4,8 +4,8 @@
     services="storage"
     documentationCenter="na"
     authors="aungoo-msft"
-    manager=""
-	editor="tysonn" /> 
+    manager="tadb"
+	editor="tysonn" />  
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/19/2016"
-    ms.author="aungoo-msft"/> 
+    ms.author="aungoo;robinsh"/>  
 
 # Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -542,4 +542,4 @@ Per gli utenti di SQL Server sono disponibili articoli sulle procedure consiglia
 - [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

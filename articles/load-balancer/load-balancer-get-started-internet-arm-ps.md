@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags
   ms.service="load-balancer"
   ms.devlang="na"
@@ -15,9 +15,9 @@
   ms.tgt_pltfrm="na"
   ms.workload="infrastructure-services"
   ms.date="08/31/2016"
-  ms.author="sewhee" />
+  ms.author="sewhee" />  
 
-# <a name="get-started"></a>Introduzione su come creare un servizio di bilanciamento del carico per Internet in Resource Manager con PowerShell
+# <a name="get-started"></a>Creazione di un servizio di bilanciamento del carico per Internet in Resource Manager con PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -254,4 +254,4 @@ Usare il comando `Remove-AzureLoadBalancer` per eliminare un servizio di bilanci
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

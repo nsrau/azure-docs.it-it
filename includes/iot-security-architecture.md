@@ -218,7 +218,9 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Spoofing**: un utente malintenzionato potrebbe intercettare o parzialmente sostituire la trasmissione e rubare l'identità dell'iniziatore (attacco man in the middle)
 
-**Tampering**, ovvero la manomissione dei dati: un utente malintenzionato potrebbe intercettare o parzialmente sostituire la trasmissione e inviare informazioni false Divulgazione di informazioni: un utente malintenzionato può intercettare una trasmissione e ottenere le informazioni senza autorizzazione Denial of Service: un utente malintenzionato può bloccare il segnale di trasmissione e negare la distribuzione di informazioni
+**Manomissione**: un utente malintenzionato può intercettare o sostituire parzialmente la trasmissione e inviare informazioni false
+
+**Divulgazione di informazioni:** un utente malintenzionato può intercettare una trasmissione e ottenere le informazioni senza autorizzazione **Denial of Service:** un utente malintenzionato può bloccare il segnale di trasmissione e negare la distribuzione di informazioni
 
 #### Archiviazione
 
@@ -252,4 +254,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Architettura di riferimento di Microsoft Azure IoT](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

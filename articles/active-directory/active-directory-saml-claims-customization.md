@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -40,9 +40,9 @@ Per risolvere il problema relativo alla distribuzione dell'applicazione con un n
 
 Nel menu **Valore attributo** selezionare **user.mail** per impostare l'attestazione NameIdentifier in modo che corrisponda all’indirizzo di posta elettronica dell'utente nella directory o selezionare**user.onpremisessamaccountname** per impostare il nome utente dell’account SAM che è stato sincronizzato da Azure AD in locale.
 
-Inoltre, è possibile utilizzare la funzione specifica ExtractMailPrefix() per rimuovere il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente in modo che venga passata solo la prima parte del nome utente (ad esempio, "joesmith" invece di joesmith@contoso.com).
+È anche possibile usare la funzione specifica ExtractMailPrefix() per rimuovere il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente in modo che venga passata solo la prima parte del nome utente (ad esempio, "joesmith" invece di joesmith@contoso.com).
 
-![][3]
+![][3]  
 
 ##Aggiunta di attestazioni
 
@@ -62,10 +62,10 @@ Se per un determinato utente non è stato archiviato alcun valore per un attribu
 - [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md)
 - [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 	
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
 [2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0928_2016-->

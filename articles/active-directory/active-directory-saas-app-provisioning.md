@@ -4,8 +4,8 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
-    editor=""/>
+    manager="femila"
+    editor=""/>  
 
 <tags
     ms.service="active-directory"
@@ -116,4 +116,4 @@ Per contattare il team di progettazione di Azure AD per richiedere supporto sul 
 - [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

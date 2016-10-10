@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="ninarn"
 	manager="jhubbard"
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="sql-database"
@@ -31,10 +31,10 @@
 
 L'immagine seguente mostra un esempio di pool elastico. La visualizzazione include:
 
-*  Grafici per il monitoraggio dell'utilizzo delle risorse da parte del pool elastico e dei database al suo interno. 
-*  Il pulsante **Configura pool** per apportare modifiche al pool elastico. 
+*  Grafici per il monitoraggio dell'utilizzo delle risorse da parte del pool elastico e dei database al suo interno.
+*  Il pulsante **Configura pool** per apportare modifiche al pool elastico.
 *  Il pulsante **Crea database** per creare un nuovo database e aggiungerlo al pool elastico corrente.
-*  Processi elastici che consentono di gestire un numero elevato di database tramite l'esecuzione di script Transact SQL in tutti i database in un elenco. 
+*  Processi elastici che consentono di gestire un numero elevato di database tramite l'esecuzione di script Transact SQL in tutti i database in un elenco.
 
 ![Visualizzazione del pool][2]
 
@@ -56,14 +56,16 @@ Per eseguire i passaggi descritti in questo articolo è necessaria un'istanza di
 ### Per personalizzare la visualizzazione del grafico
 
 È possibile modificare il grafico e il pannello Metrica per visualizzare altre metriche, ad esempio la percentuale di CPU, la percentuale di IO dei dati e la percentuale di IO del log usata.
- 
+
 2. Nel pannello Metrica fare clic su **Modifica**.
 
 	![Fare clic su Modifica][6]
 
-- Nel pannello **Modifica grafico** selezionare un nuovo intervallo di tempo, ad esempio ora precedente, oggi o settimana precedente, oppure fare clic su **personalizzato** per impostare un qualsiasi intervallo di tempo nelle due settimane precedenti. Selezionare il tipo di grafico (a barre o a linee), quindi selezionare le risorse da monitorare. 
+- Nel pannello **Modifica grafico** selezionare un nuovo intervallo di tempo, ad esempio ora precedente, oggi o settimana precedente, oppure fare clic su **personalizzato** per impostare un qualsiasi intervallo di tempo nelle due settimane precedenti. Selezionare il tipo di grafico (a barre o a linee), quindi selezionare le risorse da monitorare.
 
-	![Fare clic su Modifica](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+> Nota: solo le metriche con la stessa unità di misura possono essere visualizzate nel grafico nello stesso momento. Se, ad esempio, si seleziona "eDTU percentage" (Percentuale eDTU), sarà possibile selezionare solo altre metriche con percentuale come unità di misura.
+
+	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 - Fare quindi clic su **OK**.
 
@@ -99,7 +101,7 @@ Per eseguire i passaggi descritti in questo articolo è necessaria un'istanza di
 Nell'elenco dei database del pannello **Utilizzo risorse database** è possibile trovare database specifici scorrendo le pagine dell'elenco o digitando il nome di un database. Usare la casella di controllo per selezionare il database.
 
 ![Cercare i database da monitorare][7]
-  
+
 
 ## Aggiungere un avviso a una risorsa di pool
 
@@ -130,9 +132,9 @@ Nell'elenco dei database del pannello **Utilizzo risorse database** è possibile
 
 2. Nel pannello **Configura pool** fare clic su **Aggiungi al pool**.
 
-	![Fare clic su Aggiungi al pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
+	![Fare clic su Aggiungi al pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)  
 
-	
+
 3. Nel pannello **Aggiungi database** selezionare uno o più database da aggiungere al pool. Quindi fare clic su **Seleziona**.
 
 	![Selezionare i database da aggiungere](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
@@ -156,7 +158,7 @@ Nell'elenco dei database del pannello **Utilizzo risorse database** è possibile
     ![elenchi di database](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
     Il pannello **Configura pool** mostra il database selezionato per la rimozione, con lo stato impostato su **In sospeso**.
-    
+
     ![anteprima aggiunta e rimozione database](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
 3. Nel pannello **Configura pool** fare clic su **Salva**.
@@ -202,7 +204,7 @@ Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azu
 - [Considerazioni di prezzo e prestazioni per un pool di database flessibile](sql-database-elastic-pool-guidance.md)
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/sql-database-elastic-pool-manage-portal/configure-pool.png
 [2]: ./media/sql-database-elastic-pool-manage-portal/basic.png
 [3]: ./media/sql-database-elastic-pool-manage-portal/basic-2.png
@@ -213,4 +215,4 @@ Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azu
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

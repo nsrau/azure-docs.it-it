@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="app-service" 
@@ -148,8 +148,9 @@ Per visualizzare i nomi di dominio, fare clic su **Tutte le impostazioni** > **D
 
 ### Deployments
 
-- Configurare la distribuzione continua. Vedere [Using Git to deploy Web Apps in Azure App Service] \(Uso di Git per distribuire app Web nel servizio app di Azure)
+- Configurare la distribuzione continua. Vedere [Uso di Git per distribuire app Web nel servizio App di Azure](./web-sites-deploy.md).
 - Slot di distribuzione. Vedere [Configurare ambienti di staging per le app Web nel servizio app di Azure].
+
 
 Per visualizzare gli slot di distribuzione, fare clic su **Tutte le impostazioni** > **Slot di distribuzione**.
 
@@ -188,4 +189,4 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

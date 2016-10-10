@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="mmacy"
 	manager="timlt"
-	editor="" />
+	editor="" />  
 
 <tags
 	ms.service="batch"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
 	ms.date="08/29/2016"
-	ms.author="marsma" />
+	ms.author="marsma" />  
 
 # Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch
 
@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 Le attività a istanze multiple possono essere eseguite *soltanto* nei nodi all'interno di **pool creati dopo il 14 dicembre 2015**.
 
-> [AZURE.TIP] Quando si usano [nodi di calcolo con dimensioni A8 o A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) nel pool Batch, l'applicazione MPI può sfruttare i vantaggi legati alle prestazioni elevate e alla latenza ridotta della rete con Accesso diretto a memoria remota (RDMA) di Azure. Per l'elenco completo delle dimensioni dei nodi di calcolo disponibili per i pool di Batch, vedere [Dimensioni dei servizi cloud](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] Quando si sceglie [una dimensione che supporta RDMA](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) come ad esempio A9 per i nodi di calcolo nel pool Batch, l'applicazione MPI può sfruttare i vantaggi legati alle prestazioni elevate e alla latenza ridotta della rete con Accesso diretto a memoria remota (RDMA) di Azure. Per l'elenco completo delle dimensioni dei nodi di calcolo disponibili per i pool di Batch, vedere [Dimensioni dei servizi cloud](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Usare StartTask per l'installazione dell'applicazione MPI
 
@@ -146,19 +146,19 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 
 Le variabili di ambiente riportate di seguito sono disponibili nel nodo di calcolo per le applicazioni e gli script eseguiti dal comando applicazione dell'attività principale:
 
-* `CCP_NODES`
+* `CCP_NODES`  
 
   * **Disponibilità**: pool di CloudServiceConfiguration e VirtualMachineConfiguration
   * **Formato**: `numNodes<space>nodeIP<space>numCores<space>`
   * **Esempio**: `2 10.0.0.4 1 10.0.0.5 1`
 
-* `AZ_BATCH_NODE_LIST`
+* `AZ_BATCH_NODE_LIST`  
 
   * **Disponibilità**: pool di CloudServiceConfiguration e VirtualMachineConfiguration
   * **Formato**: `nodeIP;nodeIP`
   * **Esempio**: `10.0.0.4;10.0.0.5`
 
-* `AZ_BATCH_HOST_LIST`
+* `AZ_BATCH_HOST_LIST`  
 
   * **Disponibilità**: pool di VirtualMachineConfiguration
   * **Formato**: `nodeIP,nodeIP`
@@ -237,7 +237,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Passaggi successivi
 
-- Si consiglia di compilare una semplice applicazione MS-MPI da usare per il test delle attività a istanze multiple in Batch. L'articolo [How to compile and run a simple MS-MPI program][msmpi_howto] \(Come compilare ed eseguire un semplice programma MS-MPI), nel blog del team Microsoft HPC & Azure Batch, contiene una procedura dettagliata per la creazione di una semplice applicazione MPI con MS-MPI.
+- Si consiglia di compilare una semplice applicazione MS-MPI da usare per il test delle attività a istanze multiple in Batch. L'articolo [How to compile and run a simple MS-MPI program][msmpi_howto] (Come compilare ed eseguire un semplice programma MS-MPI), nel blog del team Microsoft HPC & Azure Batch, contiene una procedura dettagliata per la creazione di una semplice applicazione MPI con MS-MPI.
 
 - Per informazioni aggiornate su MS-MPI, vedere la pagina [Microsoft MPI][msmpi_msdn] in MSDN.
 
@@ -275,4 +275,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Panoramica sulle istanze multiple"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

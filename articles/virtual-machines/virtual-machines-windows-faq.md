@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-management"/>
+	tags="azure-resource-management"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="cynthn"/>
+	ms.author="cynthn"/>  
 
 # Domande frequenti sulle Macchine virtuali Windows 
 
@@ -131,7 +131,6 @@ Le password devono contenere da 8 a 123 caratteri e soddisfare 3 dei seguenti 4 
 
 Le password seguenti non sono consentite:
 
-Le password seguenti non sono consentite
 <table>
 	<tr>
 		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
@@ -141,4 +140,4 @@ Le password seguenti non sono consentite
 	</tr>
 </table>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

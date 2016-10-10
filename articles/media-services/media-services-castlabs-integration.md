@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure" 
+	pageTitle="Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure | Microsoft Azure" 
 	description="Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze castLabs." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Mingfeiy" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
-	ms.author="Mingfeiy;willzhan;Juliako"/>
+	ms.date="09/26/2016"  
+	ms.author="Mingfeiy;willzhan;Juliako"/>  
 
 
 #Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure
@@ -23,7 +23,7 @@
 - [Axinom](media-services-axinom-integration.md)
 - [castLabs](media-services-castlabs-integration.md)
 
-##Panoramica
+##Overview
 
 Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze **castLabs**.
 
@@ -114,7 +114,7 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 8.	A questo punto, dovrebbe essere possibile riprodurre il video.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -122,4 +122,4 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

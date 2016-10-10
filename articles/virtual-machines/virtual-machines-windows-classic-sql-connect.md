@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jhubbard"
-	tags="azure-service-management"/>
+	tags="azure-service-management"/>  
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/23/2016"
-	ms.author="jroth" />
+	ms.date="09/22/2016"
+	ms.author="jroth" />  
 
 # Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)
 
@@ -21,7 +21,7 @@
 - [Gestione risorse](virtual-machines-windows-sql-connect.md)
 - [Classico](virtual-machines-windows-classic-sql-connect.md)
 
-## Panoramica
+## Overview
 
 Questo argomento descrive la modalità di connessione all'istanza di SQL Server in esecuzione su una macchina virtuale di Azure. Illustra alcuni [scenari di connettività generali](#connection-scenarios) e quindi descrive la [procedura dettagliata per la configurazione della connettività di SQL Server in una macchina virtuale di Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
@@ -83,7 +83,7 @@ Prima di poter eseguire la connessione all'istanza di SQL Server da un’altra V
 - [Determinare il nome DNS della macchina virtuale](#determine-the-dns-name-of-the-virtual-machine)
 - [Eseguire la connessione al motore di database da un altro computer](#connect-to-the-database-engine-from-another-computer)
 
-Il percorso di connessione è riepilogato nel seguente diagramma:
+Il percorso di connessione è riepilogato nel diagramma seguente:
 
 ![Connessione a una macchina virtuale di SQL Server](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
@@ -103,4 +103,4 @@ Se si intende anche usare gruppi di disponibilità AlwaysOn per la disponibilit�
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

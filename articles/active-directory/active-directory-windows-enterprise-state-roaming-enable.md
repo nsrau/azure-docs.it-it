@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags
     ms.service="active-directory"  
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 
 
 
@@ -51,15 +51,15 @@ I dati sincronizzati in Azure tramite il servizio Enterprise State Roaming verra
 
 **Eliminazione esplicita:** i dati vengono eliminati quando un amministratore di Azure elimina un utente o una directory oppure quando un amministratore richiede in modo esplicito l'eliminazione dei dati.
 
-- **Eliminazione dell'utente**: quando un utente viene eliminato in Azure AD, i dati mobili dell'account utente saranno contrassegnati per l'eliminazione ed eliminati entro 90-180 giorni. 
-- **Eliminazione della directory**: l'eliminazione di un'intera directory in Azure AD è un'operazione immediata. Tutti i dati delle impostazioni associati alla directory saranno contrassegnati per l'eliminazione ed eliminati entro 90-180 giorni. 
-- **Eliminazione su richiesta**: se l'amministratore di Azure AD vuole eliminare manualmente i dati delle impostazioni o di un utente specifico, può inviare un ticket al [supporto tecnico Azure](https://azure.microsoft.com/support/). 
+- **Eliminazione dell'utente**: quando un utente viene eliminato in Azure AD, i dati mobili dell'account utente saranno contrassegnati per l'eliminazione ed eliminati entro 90-180 giorni.
+- **Eliminazione della directory**: l'eliminazione di un'intera directory in Azure AD è un'operazione immediata. Tutti i dati delle impostazioni associati alla directory saranno contrassegnati per l'eliminazione ed eliminati entro 90-180 giorni.
+- **Eliminazione su richiesta**: se l'amministratore di Azure AD vuole eliminare manualmente i dati delle impostazioni o di un utente specifico, può inviare un ticket al [supporto tecnico Azure](https://azure.microsoft.com/support/).
 
-**Eliminazione dei dati obsoleti**: i dati a cui non è stato eseguito l'accesso per un anno ("periodo di conservazione") verranno considerati obsoleti e potranno essere eliminati da Azure. Il periodo di conservazione è soggetto a modifiche ma non sarà inferiore a 90 giorni. I dati obsoleti possono essere un set specifico di impostazioni di Windows/dell'applicazione o tutte le impostazioni per un utente. Ad esempio:
+**Eliminazione dei dati obsoleti**: i dati a cui non è stato eseguito l'accesso per un anno ("periodo di conservazione") verranno considerati obsoleti e potranno essere eliminati da Azure. Il periodo di conservazione è soggetto a modifiche ma non sarà inferiore a 90 giorni. I dati obsoleti possono essere un set specifico di impostazioni di Windows/dell'applicazione o tutte le impostazioni per un utente. ad esempio:
  
-- Se nessun dispositivo accede a una raccolta specifica di impostazioni, ad esempio se un'applicazione viene rimossa dal dispositivo o un gruppo di impostazioni come "Tema" viene disabilitato per tutti i dispositivi di un utente, la raccolta diventerà obsoleta dopo il periodo di conservazione e potrà essere eliminata. 
-- Se un utente ha disattivato la sincronizzazione delle impostazioni in tutti i propri dispositivi, non verrà effettuato l'accesso ad alcun dato delle impostazioni e tutti i dati delle impostazioni per tale utente diventeranno obsoleti e potranno essere eliminati allo scadere del periodo di conservazione. 
-- Se l'amministratore della directory di Azure AD disattiva il servizio Enterprise State Roaming per l'intera directory, tutti gli utenti in tale directory non sincronizzeranno più le impostazioni e tutti i dati delle impostazioni per tutti gli utenti diventeranno obsoleti e potranno essere eliminati allo scadere del periodo di conservazione. 
+- Se nessun dispositivo accede a una raccolta specifica di impostazioni, ad esempio se un'applicazione viene rimossa dal dispositivo o un gruppo di impostazioni come "Tema" viene disabilitato per tutti i dispositivi di un utente, la raccolta diventerà obsoleta dopo il periodo di conservazione e potrà essere eliminata.
+- Se un utente ha disattivato la sincronizzazione delle impostazioni in tutti i propri dispositivi, non verrà effettuato l'accesso ad alcun dato delle impostazioni e tutti i dati delle impostazioni per tale utente diventeranno obsoleti e potranno essere eliminati allo scadere del periodo di conservazione.
+- Se l'amministratore della directory di Azure AD disattiva il servizio Enterprise State Roaming per l'intera directory, tutti gli utenti in tale directory non sincronizzeranno più le impostazioni e tutti i dati delle impostazioni per tutti gli utenti diventeranno obsoleti e potranno essere eliminati allo scadere del periodo di conservazione.
 
 **Recupero dei dati eliminati**: il criterio relativo alla conservazione dei dati non può essere configurato. Dopo l'eliminazione definitiva, non sarà possibile recuperare i dati. È tuttavia importante notare che i dati delle impostazioni verranno eliminati solo da Azure, non dal dispositivo dell'utente finale. Se un dispositivo si riconnette successivamente al servizio Enterprise State Roaming, le impostazioni verranno sincronizzate e archiviate di nuovo in Azure.
 
@@ -70,4 +70,4 @@ I dati sincronizzati in Azure tramite il servizio Enterprise State Roaming verra
 - [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,8 +1,11 @@
-Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Quando il gateway di rete virtuale viene creato, viene compilato come hardware virtuale. Quando si seleziona un codice SKU del gateway più elevato viene allocata al gateway una potenza di elaborazione maggiore per instradare il traffico e, in caso di gateway VPN, elaborare la crittografia VPN.
+Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Quando si seleziona uno SKU del gateway superiore, al gateway vengono allocati un maggior numero di CPU e una larghezza di banda superiore, di conseguenza il gateway può supportare una velocità effettiva di rete più elevata per la rete virtuale.
 
 I gateway di rete virtuale ExpressRoute possono usare i seguenti SKU:
 
 - Standard
 - HighPerformance
+- UltraPerformance
 
-<!---HONumber=AcomDC_0921_2016-->
+>[AZURE.IMPORTANT] Il gateway ExpressRoute UltraPerformance è attualmente disponibile nelle aree Stati Uniti centro occidentali e Stati Uniti centrali e può essere collegato a circuiti ExpressRoute a Chicago e Dallas. Nelle prossime settimane saranno disponibili altre aree di Azure e località di ExpressRoute.
+
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,15 +4,15 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="femila"/>
+    manager="femila"/>  
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
-    ms.author="jeedes" />
+    ms.date="09/26/2016" 
+    ms.author="jeedes" />  
 
 #Esercitazione: Integrazione di Azure Active Directory con ShiftPlanning
   
@@ -45,11 +45,11 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-    ![Applicazioni](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Applicazioni")
+    ![Applicazioni](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Applicazioni")  
 
 4.  Fare clic su **Add** nella parte inferiore della pagina.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Aggiunta di un'applicazione](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Aggiunta di un'applicazione")  
 
 5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -64,7 +64,7 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
     ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
 ##Configurazione dell'accesso Single Sign-On
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a ScreenSteps tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a ScreenSteps tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -88,7 +88,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 6.  Nel menu in alto fare clic su **Admin**.
 
-    ![Amministratore](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Amministratore")
+    ![Amministratore](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
 
 7.  In **Integrazione** fare clic su **Single Sign-On**.
 
@@ -111,7 +111,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configura accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configura accesso Single Sign-On")  
 ##Configurazione del provisioning utente
   
 Per consentire agli utenti di Azure AD di accedere a ShiftPlanning, è necessario eseguirne il provisioning in ShiftPlanning. Nel caso di ShiftPlanning, il provisioning è un'attività manuale.
@@ -122,7 +122,7 @@ Per consentire agli utenti di Azure AD di accedere a ShiftPlanning, è necessari
 
 2.  Fare clic su **Admin**.
 
-    ![Amministratore](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Amministratore")
+    ![Amministratore](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
 
 3.  Fare clic su **Personale**.
 
@@ -143,7 +143,7 @@ Per consentire agli utenti di Azure AD di accedere a ShiftPlanning, è necessari
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a ShiftPlanning, eseguire la procedura seguente:
 
@@ -159,4 +159,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

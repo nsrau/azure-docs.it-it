@@ -5,7 +5,7 @@
 	manager="erikre" 
 	editor="" 
 	services="logic-apps" 
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags
 	ms.service="logic-apps"
@@ -22,9 +22,9 @@ Dopo aver [creato un'app per la logica](app-service-logic-create-a-logic-app.md)
 
 ## Eseguire il monitoraggio nel portale di Azure
 
-Per visualizzare la cronologia, selezionare **Esplora** e quindi **App per la logica**. Verrà visualizzato un elenco di tutte le app per la logica incluse nella sottoscrizione. Selezionare l'app per la logica che si vuole monitorare. Verrà visualizzato un elenco di tutte le azioni e tutti i trigger che si sono verificati per tale app per la logica.
+Per visualizzare la cronologia, selezionare **Esplora** e quindi **App per la logica**. Viene visualizzato un elenco di tutte le app per la logica incluse nella sottoscrizione. Selezionare l'app per la logica che si vuole monitorare. Verrà visualizzato un elenco di tutte le azioni e tutti i trigger che si sono verificati per tale app per la logica.
 
-![Panoramica](./media/app-service-logic-monitor-your-logic-apps/overview.png)
+![Overview](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
 Il pannello include alcune sezioni utili:
 
@@ -33,13 +33,15 @@ Il pannello include alcune sezioni utili:
 	- In **Cronologia trigger** sono riportate tutte le attività dei trigger per l'app per la logica. Lo stato delle attività potrebbe essere "Ignorato" per una verifica della presenza di nuovi dati (ad esempio dell'eventuale aggiunta su FTP di un nuovo file), "Operazione riuscita" in relazione alla restituzione di dati per l'attivazione di un'app per la logica o "Non riuscito" per un errore nella configurazione.
 - **Diagnostica** consente di visualizzare dettagli ed eventi della fase di esecuzione e di sottoscrivere [avvisi di Azure](#adding-azure-alerts)
 
+>[AZURE.NOTE] Tutti i dettagli ed eventi di runtime vengono crittografati in fase inattiva all'interno del servizio app per la logica. Vengono decrittografati solo in caso di richiesta di visualizzazione da parte di un utente. L'accesso a questi eventi può essere anche controllato dal Controllo di accesso in base al ruolo (RBAC) di Azure.
+
 ### Visualizzare i dettagli delle esecuzioni
 
 L'elenco delle esecuzioni mostra **Stato**, **Ora di inizio** e **Durata** delle specifica esecuzione. Selezionare una riga qualsiasi per visualizzare informazioni dettagliate relative a tale esecuzione.
 
 La visualizzazione di monitoraggio mostra ogni passaggio dell'esecuzione, gli input, gli output e i messaggi di errore eventualmente generati.
 
-![Esecuzione e azioni](./media/app-service-logic-monitor-your-logic-apps/monitor-view.png)
+![Esecuzione e azioni](./media/app-service-logic-monitor-your-logic-apps/monitor-view.png)  
 
 Se sono necessari dettagli aggiuntivi come l'**ID correlazione**, che può essere usato per l'API REST, è possibile fare clic sul pulsante **Dettagli esecuzione**. I dettagli includono tutti i passaggi, lo stato e gli input/output dell'esecuzione.
 
@@ -51,13 +53,13 @@ In aggiunta ai dettagli descritti sopra forniti dal portale di Azure e dall'API 
 1. Fare clic per configurare **Impostazioni di diagnostica**
 1. Configurare un hub eventi o un account di archiviazione a cui inviare i dati
 
-	![Impostazioni di diagnostica di Azure](./media/app-service-logic-monitor-your-logic-apps/diagnostics.png)
+	![Impostazioni di diagnostica di Azure](./media/app-service-logic-monitor-your-logic-apps/diagnostics.png)  
 
 ### Aggiunta di avvisi di Azure
 
 Dopo aver configurato la diagnostica, è possibile aggiungere avvisi di Azure da attivare quando vengono superate determinate soglie. Nel pannello **Diagnostica** selezionare il riquadro **Avvisi** e quindi **Aggiungi avviso**. È così possibile configurare un avviso in base a diverse soglie e metriche.
 
-![Metriche per gli avvisi di Azure](./media/app-service-logic-monitor-your-logic-apps/alerts.png)
+![Metriche per gli avvisi di Azure](./media/app-service-logic-monitor-your-logic-apps/alerts.png)  
 
 È possibile configurare **Condizione**, **Soglia** e **Periodo** in base alle esigenze. Si può infine configurare un indirizzo di posta elettronica a cui inviare una notifica oppure un webhook. È possibile usare il [trigger di richiesta](../connectors/connectors-native-reqres.md) di un'app per la logica in modo che venga eseguito anche in un avviso, ad esempio per la [pubblicazione su un canale slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app), l'[invio di un SMS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) o l'[aggiunta di un messaggio a una coda](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
 
@@ -107,7 +109,7 @@ L'ID rilevamento client è un valore che correla gli eventi nell'esecuzione di u
 
 #### Proprietà rilevate
 
-Le proprietà rilevate possono essere aggiunte alle azioni nella definizione del flusso di lavoro per rilevare gli input o gli output nei dati di diagnostica. Ciò può risultare utile se si vogliono rilevare dati come un "ID ordine" nella telemetria. Per aggiungere una proprietà rilevata, includere la proprietà `trackedProperties` in un'azione. Le proprietà rilevate possono rilevare solo gli input e gli output di una singola azione, ma le proprietà `correlation` degli eventi consentono la correlazione tra le azioni di un'esecuzione.
+Le proprietà rilevate possono essere aggiunte alle azioni nella definizione del flusso di lavoro per rilevare gli input o gli output nei dati di diagnostica. Ciò può risultare utile se si vogliono rilevare dati come un "ID ordine" nella telemetria. Per aggiungere una proprietà rilevata, includere la proprietà `trackedProperties` in un'azione. Le proprietà rilevate possono tenere traccia solo di singoli input e output di azioni, ma è possibile usare le proprietà `correlation` degli eventi per correlare più azioni in un'esecuzione.
 
 ```javascript
 {
@@ -138,4 +140,4 @@ I dati di telemetria di Hub eventi o Archiviazione possono essere sfruttati in a
 - [Creazione di un modello di distribuzione di app per la logica](app-service-logic-create-deploy-template.md)
 - [Funzionalità di Enterprise Integration](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

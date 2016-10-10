@@ -3,11 +3,11 @@
 	description="Informazioni su come risolvere i problemi relativi alla carta di credito o di debito quando viene rifiutata al momento dell'iscrizione ad Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"
-	keywords="carta di credito rifiutata, carta di debito rifiutata, carta di credito non accettata, carta di credito non riconosciuta"/>
+	keywords="carta di credito rifiutata, carta di debito rifiutata, carta di credito non accettata, carta di credito non riconosciuta"/>  
 
 <tags
 	ms.service="billing"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="cjiang"/>
+	ms.author="cjiang"/>  
 
 # Carta di credito o di debito rifiutata al momento dell'iscrizione
 
@@ -74,4 +74,4 @@ Per modificare o rimuovere una carta oppure per aggiornare i relativi dettagli, 
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

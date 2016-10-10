@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mgoedtel"
 	manager="jwhit"
-	editor="tysonn" />
+	editor="tysonn" />  
 <tags 
 	ms.service="automation"
 	ms.devlang="na"
@@ -63,11 +63,11 @@ I runbook richiedono gli asset seguenti, che devono essere creati e popolati con
 
 Ogni runbook è associato ai parametri seguenti. È necessario fornire valori per tutti i parametri obbligatori ed è possibile facoltativamente specificare i valori per gli altri parametri a seconda delle esigenze.
 
-| Parametro | Tipo | Obbligatorio | Descrizione |
+| Parametro | Tipo | Mandatory | Descrizione |
 |:---|:---|:---|:---|
-| ServiceName | stringa | No | Se viene specificato un valore, verranno avviate o arrestate tutte le macchine virtuali con lo stesso nome di servizio. Se invece non viene specificato alcun valore, verranno avviate o arrestate tutte le macchine virtuali classiche della sottoscrizione di Azure. |
-| AzureSubscriptionIdAssetName | stringa | No | Contiene il nome dell'[asset di tipo variabile](#installing-and-configuring-the-scenario) che include l'ID sottoscrizione della sottoscrizione di Azure. Se non si specifica un valore, verrà usato *AzureSubscriptionId*. |
-| AzureCredentialAssetName | stringa | No | Contiene il nome dell'[asset di tipo credenziali](#installing-and-configuring-the-scenario) che include le credenziali per il runbook da usare. Se non si specifica un valore, verrà usato *AzureCredential*. |
+| ServiceName | string | No | Se viene specificato un valore, verranno avviate o arrestate tutte le macchine virtuali con lo stesso nome di servizio. Se invece non viene specificato alcun valore, verranno avviate o arrestate tutte le macchine virtuali classiche della sottoscrizione di Azure. |
+| AzureSubscriptionIdAssetName | string | No | Contiene il nome dell'[asset di tipo variabile](#installing-and-configuring-the-scenario) che include l'ID sottoscrizione della sottoscrizione di Azure. Se non si specifica un valore, verrà usato *AzureSubscriptionId*. |
+| AzureCredentialAssetName | string | No | Contiene il nome dell'[asset di tipo credenziali](#installing-and-configuring-the-scenario) che include le credenziali per il runbook da usare. Se non si specifica un valore, verrà usato *AzureCredential*. |
 
 ### Avvio dei runbook
 
@@ -87,9 +87,9 @@ I runbook [restituiranno un messaggio](automation-runbook-output-and-messages.md
 | Start-AzureVMs | Macchina virtuale già in esecuzione | MyVM is already running |
 | Start-AzureVMs | Richiesta di avvio per la macchina virtuale inviata correttamente | MyVM has been started |
 | Start-AzureVMs | Richiesta di avvio per la macchina virtuale non riuscita | MyVM failed to start |
-| Stop-AzureVMs | Macchina virtuale già in esecuzione | MyVM is already stopped |
-| Stop-AzureVMs | Richiesta di avvio per la macchina virtuale inviata correttamente | MyVM has been started |
-| Stop-AzureVMs | Richiesta di avvio per la macchina virtuale non riuscita | MyVM failed to start |
+| Stop-AzureVMs | Macchina virtuale già arrestata | MyVM is already stopped |
+| Stop-AzureVMs | Richiesta di arresto per la macchina virtuale inviata correttamente | MyVM è stata già arrestata |
+| Stop-AzureVMs | Richiesta di arresto la macchina virtuale non riuscita | Errore di avvio di MyVM |
 
 Il frammento di codice di un runbook seguente ad esempio tenta di avviare tutte le macchine virtuali con nome di servizio *MyServiceName*. Se una delle azioni di avvio ha esito negativo, è possibile eseguire le azioni di errore.
 
@@ -193,4 +193,4 @@ Le righe successive eseguono i passaggi per ogni macchina virtuale. Viene prima 
 - Per ulteriori informazioni sull’utilizzo dei runbook figlio, vedere [Runbook figlio in Automazione di Azure](automation-child-runbooks.md)
 - Per ulteriori informazioni sui messaggi di output durante l'esecuzione di runbook e la registrazione per la risoluzione dei problemi, vedere [Output di runbook e messaggi in Automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

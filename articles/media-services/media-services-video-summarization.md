@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Uso delle anteprime video multimediali di Azure per creare un riepilogo video"
+	pageTitle="Usare Azure Media Video Thumbnails per creare un riepilogo video | Microsoft Azure"
 	description="Il riepilogo video consente di creare un riepilogo per video lunghi selezionando in modo automatico frammenti interessanti del video di origine. Questa funzione risulta particolarmente utile quando si intende creare una panoramica rapida dei contenuti offerti nella versione più lunga del video."
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="media-services"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
-	ms.author="milanga;juliako;"/>
+	ms.date="09/26/2016"   
+	ms.author="milanga;juliako;"/>  
 
 #Uso delle anteprime video multimediali di Azure per creare un riepilogo video
-##Panoramica
+##Overview
 
 Il processore multimediale delle **anteprime video multimediali di Azure** processore di contenuti multimediali (MP) consente di creare il riepilogo di un video, utile per i clienti che desiderano solo visualizzare in anteprima il riepilogo di un video di lunga durata. Ad esempio, i clienti potrebbero voler vedere un breve "riepilogo video" quando passano il mouse sull'anteprima. Modificando i parametri delle **anteprime video multimediali di Azure** con un set di impostazioni di configurazione, è possibile usare l'efficiente tecnologia di concatenazione e rilevamento delle schermate offerta dal processore multimediale per generare in modo algoritmico una sottoclip descrittiva.
 
 Al momento, il processore multimediale di **anteprime video multimediali di Azure** è disponibile in Anteprima.
 
-Questo argomento fornisce informazioni dettagliate sulle **anteprime video multimediali di Azure** e illustra come usare questa funzionalità con l'SDK di Servizi multimediali per .NET
+Questo argomento offre informazioni dettagliate su **Azure Media Video Thumbnails** e illustra come usare questa funzionalità con Media Services SDK per .NET
 
 ##Esempio di riepilogo video 
 
@@ -259,7 +259,7 @@ Il programma seguente illustra come:
 
 [Output di anteprima video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -273,4 +273,4 @@ Il programma seguente illustra come:
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

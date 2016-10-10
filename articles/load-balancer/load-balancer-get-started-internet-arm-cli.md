@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>
+/>  
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -15,9 +15,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/31/2016"
-   ms.author="sewhee" />
+   ms.author="sewhee" />  
 
-# Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite l’interfaccia di riga di comando di Azure
+# Creazione di un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -306,4 +306,4 @@ Dove **nrprg** è il gruppo di risorse e **nrplb** è il nome del servizio di bi
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

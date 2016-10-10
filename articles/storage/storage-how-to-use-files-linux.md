@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="mine-msft"
         manager="aungoo"
-        editor="tysonn" />
+        editor="tysonn" />  
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,12 +13,12 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="02/29/2016"
-      ms.author="minet" />
+      ms.author="minet;robinsh" />  
 
 
 # Come usare l'archiviazione file di Azure con Linux
 
-## Panoramica
+## Overview
 
 L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. Con l’archiviazione file di Azure è possibile migrare le applicazioni aziendali basate su server di file in Azure. Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure con Linux. Con la versione più recente dell’archiviazione di file, è inoltre possibile montare una condivisione di file da un'applicazione locale che supporta SMB 3.0.
 
@@ -64,7 +64,7 @@ Si noti che qui 0777 rappresenta un codice di autorizzazione file/directory che 
 
 Inoltre, per mantenere una condivisione di file montata dopo il riavvio, è possibile aggiungere un'impostazione come indicato di seguito a /etc/fstab:
 
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
 Ad esempio, se è stata creata una VM di Azure usando l'immagine Linux di Ubuntu Server 15.04 (che è disponibile nella raccolta immagini di Azure), è possibile montare il file come indicato di seguito:
 
@@ -129,7 +129,7 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Creare e gestire condivisioni di file](storage-azure-cli.md#create-and-manage-file-shares) tramite l'interfaccia della riga di comando di Azure
 
-### Riferimento
+### riferimento
 
 - [Riferimento API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
@@ -140,4 +140,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

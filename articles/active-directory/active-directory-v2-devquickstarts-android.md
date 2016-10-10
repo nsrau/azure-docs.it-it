@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/> 
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -32,7 +32,7 @@ Non tutti gli scenari e le funzionalità di Azure Active Directory sono supporta
 
 
 ## Scaricare il codice da GitHub
-Il codice per questa esercitazione è salvato [su GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) o clonare la struttura:
+Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) o clonare la struttura:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
@@ -197,4 +197,4 @@ Una volta eseguita l'autenticazione, premere il pulsante **Request Protected Res
 
 È consigliabile ricevere notifiche sui problemi di sicurezza. A tale scopo, visitare [Security TechCenter](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

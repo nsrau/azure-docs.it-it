@@ -6,7 +6,7 @@
 	documentationCenter=""
 	services="virtual-machines-linux"
 	authors="gbowerman"
-	tags="azure-service-management"/>
+	tags="azure-service-management"/>  
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2015"
-	ms.author="guybo"/>
+	ms.date="09/13/2016"
+	ms.author="guybo"/>  
 
 #Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux#
 
@@ -81,7 +81,7 @@ Creare inoltre un file JSON che descrive la procedura di download dello script d
 
 A questo punto, è possibile utilizzare il seguente comando per distribuire l'estensione CustomScript di Linux alla macchina virtuale remota utilizzando l'interfaccia della riga di comando di Azure.
 
-    azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
+    azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
 
 In tal modo verrà scaricato ed eseguito lo script *install\_lamp.sh* in una macchina virtuale denominata *lamp-vm*.
 
@@ -93,8 +93,8 @@ Poiché l'applicazione include un server Web, ricordarsi di aprire una porta di 
 
 È possibile controllare l'avanzamento dell'esecuzione dello script personalizzato esaminando il file di log nella macchina virtuale remota. SSH per *lamp-vm* e tail per il file di log con il seguente comando:
 
-    cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
-    tail -f extension.log
+    cd /var/log/azure/customscript
+    tail -f handler.log
 
 Dopo aver eseguito l'estensione CustomScript, è possibile esplorare la pagina PHP creata per le informazioni. Ad esempio, in questo articolo la pagina PHP è *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
@@ -110,4 +110,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="php"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="app-service"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="robmcm"/>  
 
 #Configurazione di PHP nelle app Web di Servizio app di Azure
 
@@ -86,6 +86,9 @@ Per qualsiasi runtime PHP incorporato, è possibile modificare le opzioni di con
 		; Example Settings
 		display_errors=On
 		upload_max_filesize=10M
+		
+		; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
+		; log_errors=On
 
 3. Distribuire l'app Web.
 4. Riavviare l'app Web . Il riavvio è necessario in quanto la frequenza di lettura dei file `.user.ini` a parte di PHP è governata dall'impostazione `user_ini.cache_ttl` configurata a livello di sistema, che per impostazione predefinita corrisponde a 300 secondi (5 minuti). Il riavvio del sito forza PHP a leggere le nuove impostazioni nel file `.user.ini`.
@@ -171,13 +174,13 @@ Per impostazione predefinita, il servizio app non esegue operazioni relative a c
 
     ![Pannello delle impostazioni del portale di Azure per abilitare l'automazione Composer in Azure](./media/web-sites-php-configure/composer-extension-settings.png)
 
-2. Fare clic su **Aggiungi**, quindi su **Composer**.
+2. Fare clic su **Aggiungi**, quindi su **Compositore**.
 
     ![Aggiungere l’estensione Composer per abilitare l’automazione Composer in Azure](./media/web-sites-php-configure/composer-extension-add.png)
     
 3. Fare clic su **OK** per accettare le note legali. Fare di nuovo clic su **OK** per aggiungere l'estensione.
 
-    Nel pannello **Estensioni installate** è ora visualizzata l'estensione Composer. ![Accettare le note legali per abilitare l’automazione Composer in Azure](./media/web-sites-php-configure/composer-extension-view.png)
+    Nel pannello **Estensioni installate** è ora visualizzata l'estensione Compositore. ![Accettare le note legali per abilitare l’automazione Composer in Azure](./media/web-sites-php-configure/composer-extension-view.png)
     
 4. Eseguire ora `git add`, `git commit` e `git push` come nella sezione precedente. Si noterà che ora Composer installa le dipendenze definite in composer.json.
 
@@ -208,4 +211,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

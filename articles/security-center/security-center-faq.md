@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # Domande frequenti sul Centro sicurezza di Azure
@@ -121,10 +121,10 @@ Se è necessario:
 ### Quali risorse di Azure vengono monitorate dal Centro sicurezza di Azure?
 Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 
-- Macchine virtuali (inclusi i Servizi cloud)
+- Macchine virtuali (VM) (inclusi i [Servizi cloud](../cloud-services/cloud-services-choose-me.md))
 - Reti virtuali di Azure
 - Servizio di SQL Azure
-- Le soluzioni partner integrate con la sottoscrizione di Azure, ad esempio un firewall applicazione Web
+- Soluzioni partner integrate con la sottoscrizione di Azure, ad esempio un Web application firewall, nelle VM e nell'[ambiente del servizio app](../app-service/app-service-app-service-environments-readme.md)
 
 ## Macchine virtuali
 
@@ -141,9 +141,9 @@ Macchine virtuali di Linux supportate:
 
 - Versioni di Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versioni di Debian 7, 8
-- Versioni di CentOS 6.\*, 7.*
-- Versioni di Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-- Versioni di SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
+- Versioni di CentOS 6.*, 7.*
+- Versioni di Red Hat Enterprise Linux (RHEL) 6.*, 7.*
+- Versioni di SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
 Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
 
@@ -159,4 +159,4 @@ L'analisi dei dati da popolare può richiedere tempo (in genere meno di un'ora) 
 
 Per poter abilitare la raccolta dei dati, l'agente di macchine virtuali deve essere installato sulle VM. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. Per altre informazioni su come installare l'agente di maccine virtuali in altre VM, vedere il post di blog [Estensioni e agente di macchine virtuali](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

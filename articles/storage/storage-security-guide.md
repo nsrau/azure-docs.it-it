@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor="tysonn"/>
+	editor="tysonn"/>  
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="robinsh"/>
+	ms.author="cbrooks;robinsh"/>  
 
 #Guida alla sicurezza di Archiviazione di Azure
 
@@ -632,4 +632,4 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
 	Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

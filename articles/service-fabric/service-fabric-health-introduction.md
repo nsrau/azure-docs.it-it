@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="service-fabric"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
-   ms.author="oanapl"/>
+   ms.date="09/28/2016"
+   ms.author="oanapl"/>  
 
 # Introduzione al monitoraggio dell'integrità di Service Fabric
-Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. È incluso il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo permette di ottenere facilmente informazioni relative all'integrità e intraprendere azioni correttive dei potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
+Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
 
-I componenti di Service Fabric usano questo modello di integrità per segnalare il proprio stato corrente ed è possibile avvalersi dello stesso meccanismo per segnalare l'integrità delle proprie applicazioni. La qualità e il livello di dettaglio dei report sull'integrità specifici delle proprie condizioni personalizzate determinano il grado di facilità con cui sarà possibile rilevare e risolvere i problemi relativi all'applicazione in esecuzione.
+I componenti di Service Fabric usano questo dettagliato modello di integrità per segnalare il proprio stato corrente ed è possibile avvalersi dello stesso meccanismo per segnalare l'integrità delle proprie applicazioni. Investendo nella creazione di report sull'integrità di alta qualità con acquisizione delle proprie condizioni personalizzate, è possibile rilevare e risolvere i problemi dell'applicazione in esecuzione con maggiore facilità.
 
-> [AZURE.NOTE] Il sottosistema di integrità è stato introdotto per rispondere alla necessità di aggiornamenti monitorati. Service Fabric fornisce aggiornamenti monitorati che permettono di aggiornare un cluster o un'applicazione senza tempi di inattività, con un intervento minimo o addirittura nessun intervento da parte dell'utente e con la disponibilità completa del cluster e dell'applicazione. A tale scopo, l'aggiornamento verifica l'integrità in base ai criteri di aggiornamento configurati e prosegue solo se l'integrità rientra nelle soglie specificate. In caso contrario, l'aggiornamento viene sottoposto a rollback o sospeso automaticamente per consentire agli amministratori di risolvere il problema. Per altre informazioni sugli aggiornamenti delle applicazioni, vedere [questo articolo](service-fabric-application-upgrade.md).
+> [AZURE.NOTE] Il sottosistema di integrità è stato introdotto per rispondere alla necessità di aggiornamenti monitorati. Service Fabric offre aggiornamenti monitorati delle applicazioni e dei cluster che garantiscono disponibilità completa, senza tempi di inattività e con un intervento minimo o addirittura nessun intervento da parte dell'utente. Per raggiungere tali obiettivi, l'aggiornamento verifica l'integrità in base ai criteri di aggiornamento configurati e prosegue solo se l'integrità rientra nelle soglie specificate. In caso contrario, l'aggiornamento viene sottoposto a rollback o sospeso automaticamente per consentire agli amministratori di risolvere il problema. Per altre informazioni sugli aggiornamenti delle applicazioni, vedere [questo articolo](service-fabric-application-upgrade.md).
 
 ## Archivio integrità
-L'archivio integrità mantiene le informazioni di integrità relative alle entità del cluster per facilitarne il recupero e la valutazione. Viene implementato come servizio con stato persistente di Service Fabric per garantire la scalabilità e una disponibilità elevata. L'archivio integrità fa parte dell'applicazione **fabric:/System** e diventa disponibile non appena il cluster è operativo.
+L'archivio integrità mantiene le informazioni di integrità relative alle entità del cluster per facilitarne il recupero e la valutazione. Viene implementato come servizio con stato persistente di Service Fabric per garantire la scalabilità e una disponibilità elevata. L'archivio integrità fa parte dell'applicazione **fabric:/System** ed è disponibile quando il cluster è operativo.
 
 ## Entità e gerarchia di integrità
 Le entità di integrità sono organizzate in una gerarchia logica che acquisisce le interazioni e le dipendenze tra le diverse entità. Le entità e la gerarchia vengono compilate automaticamente dall'archivio integrità in base ai report inviati dai componenti di Service Fabric.
@@ -49,19 +49,19 @@ Le entità di integrità sono le seguenti:
 
 - **Partizione**. Rappresenta l'integrità di una partizione del servizio. I report sull'integrità della partizione illustrano le condizioni che influiscono sull'intero set di repliche. Ad esempio, indicano quando un numero di repliche è al di sotto del conteggio target o quando una partizione mostra una perdita di quorum. L'entità partizione è identificata dall'ID partizione (GUID).
 
-- **Replica**. Rappresenta l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato. Si tratta dell'unità più piccola di cui i watchdog e i componenti di sistema possono segnalare la condizione per un'applicazione. Ad esempio, nel caso di servizi con stato, la replica primaria può segnalare se non riesce a replicare le operazioni nelle repliche secondarie o se il processo di replica non procede con il ritmo previsto. Un'istanza senza stato può segnalare se le risorse si stanno esaurendo o se presenta problemi di connettività. L'entità replica è identificata dall'ID partizione (GUID) e dall'ID replica o dall'ID istanza (long).
+- **Replica**. Rappresenta l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato. È l'unità più piccola di cui i watchdog e i componenti di sistema possono segnalare la condizione per un'applicazione. Ad esempio, nel caso di servizi con stato, la replica primaria può segnalare se non riesce a replicare le operazioni nelle repliche secondarie o se il processo di replica non procede con il ritmo previsto. Un'istanza senza stato può segnalare se le risorse si stanno esaurendo o se presenta problemi di connettività. L'entità replica è identificata dall'ID partizione (GUID) e dall'ID replica o dall'ID istanza (long).
 
 - **Applicazione distribuita**. Rappresenta l'integrità di un'*applicazione in esecuzione in un nodo*. I report sull'integrità dell'applicazione distribuita illustrano le condizioni specifiche dell'applicazione nel nodo che non possono essere ricondotte ai pacchetti servizio distribuiti nello stesso nodo. Ad esempio, indicano quando non è possibile scaricare il pacchetto dell'applicazione nel nodo o quando si verifica un problema durante la configurazione delle entità di sicurezza dell'applicazione nel nodo. L'applicazione distribuita è identificata dal nome dell'applicazione (URI) e dal nome del nodo (stringa).
 
-- **Pacchetto servizio distribuito**. Rappresenta l'integrità di un pacchetto servizio di un'applicazione in esecuzione in un nodo del cluster. Illustra le condizioni specifiche di un pacchetto servizio che non influiscono sugli altri pacchetti servizio nello stesso nodo per la stessa applicazione. Ad esempio, indica che non è possibile avviare un pacchetto di codice nel pacchetto del servizio o leggere un pacchetto di configurazione. Il pacchetto del servizio distribuito è identificato dal nome dell'applicazione (URI), dal nome del nodo (stringa) e dal nome del manifesto del servizio (stringa).
+- **Pacchetto servizio distribuito**. Rappresenta l'integrità di un pacchetto servizio in esecuzione in un nodo del cluster. Illustra le condizioni specifiche di un pacchetto servizio che non influiscono sugli altri pacchetti servizio nello stesso nodo per la stessa applicazione. Ad esempio, indica che non è possibile avviare un pacchetto di codice nel pacchetto del servizio o leggere un pacchetto di configurazione. Il pacchetto del servizio distribuito è identificato dal nome dell'applicazione (URI), dal nome del nodo (stringa) e dal nome del manifesto del servizio (stringa).
 
-La granularità del modello di integrità facilita il rilevamento e l'eliminazione dei problemi. Ad esempio, se un servizio non risponde, è possibile segnalare che l'istanza dell'applicazione non è integra. Tuttavia, il problema potrebbe non riguardare tutti i servizi all'interno dell'applicazione. Il report dovrebbe essere applicato al servizio non integro oppure a una partizione figlio specifica a cui eventualmente puntano altre informazioni. I dati vengono esposti automaticamente attraverso la gerarchia e la partizione non integra sarà visibile a livello del servizio e dell'applicazione. Questo consente di trovare ed eliminare più rapidamente la causa principale dei problemi.
+La granularità del modello di integrità facilita il rilevamento e l'eliminazione dei problemi. Ad esempio, se un servizio non risponde, è possibile segnalare che l'istanza dell'applicazione non è integra. La segnalazione a tale livello non è tuttavia l'approccio ideale, perché il problema potrebbe non riguardare tutti i servizi all'interno dell'applicazione. Il report dovrebbe essere applicato al servizio non integro oppure a una partizione figlio specifica a cui eventualmente puntano altre informazioni. I dati vengono esposti automaticamente attraverso la gerarchia e la partizione non integra sarà visibile a livello di servizio e di applicazione. Questa aggregazione di individuare e risolvere più rapidamente la causa radice del problema.
 
-La gerarchia di integrità è costituita da relazioni padre-figlio. Un cluster è costituito da nodi e applicazioni. Le applicazioni hanno servizi e applicazioni distribuite e le applicazioni distribuite hanno pacchetti del servizio distribuiti. I servizi dispongono di partizioni e ogni partizione dispone di una o più repliche. Tra i nodi e le entità distribuite esiste una relazione speciale. Se un nodo non è integro in base alla segnalazione effettuata dal relativo componente di sistema autorevole (servizio Gestione failover), il problema interessa le applicazioni distribuite, i pacchetti del servizio e le repliche distribuiti al suo interno.
+La gerarchia di integrità è costituita da relazioni padre-figlio. Un cluster è costituito da nodi e applicazioni. Le applicazioni hanno servizi e applicazioni distribuite e le applicazioni distribuite hanno pacchetti del servizio distribuiti. I servizi dispongono di partizioni e ogni partizione dispone di una o più repliche. Tra i nodi e le entità distribuite esiste una relazione speciale. Se un nodo non è integro in base alla segnalazione effettuata dal relativo componente di sistema autorevole (servizio Gestione failover), il problema interessa le applicazioni distribuite, i pacchetti servizio e le repliche distribuiti al suo interno.
 
 La gerarchia di integrità rappresenta lo stato più recente del sistema in base agli ultimi report sull'integrità, che forniscono informazioni quasi in tempo reale. I watchdog interni ed esterni possono segnalare la condizione delle stesse entità in base alla logica specifica dell'applicazione o a condizioni monitorate personalizzate. I report utente coesistono con i report di sistema.
 
-Quando si progetta un servizio cloud di grandi dimensioni, la pianificazione delle modalità di reporting e di risposta allo stato di integrità permette di eseguire il debug, monitorare e successivamente far funzionare più agevolmente il servizio.
+Durante la progettazione di un servizio cloud di grandi dimensioni, pianificare di investire nella segnalazione dello stato di integrità e nella relativa risposta, in modo da facilitare il debug, il monitoraggio e il funzionamento del servizio.
 
 ## Stati di integrità
 Service Fabric usa tre stati di integrità per indicare se un'entità è integra o meno: OK, Warning ed Error. Tutti i report inviati all'archivio integrità devono specificare uno di questi stati. Come risultato della valutazione dell'integrità viene restituito uno di tali stati.
@@ -70,16 +70,16 @@ I possibili [stati di integrità](https://msdn.microsoft.com/library/azure/syste
 
 - **OK**. L'entità è integra. Non vengono segnalati problemi noti per l'entità o i relativi elementi figlio (se esistenti).
 
-- **Warning**. L'entità presenta qualche problema, ma non può essere considerata non integra, ovvero si verificano ritardi imprevisti che però non causano problemi funzionali. In alcuni casi questa condizione può risolversi senza alcun intervento particolare ed è utile per avere visibilità sulle operazioni in corso. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
+- **Warning**. L'entità presenta qualche problema, ma non può essere considerata non integra. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi questa condizione può risolversi senza alcun intervento particolare ed è utile per avere visibilità sulle operazioni in corso. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
 
 - **Error**. L'entità non è integra. È necessario intervenire per correggere lo stato dell'entità, che non può funzionare correttamente.
 
-- **Unknown**. L'entità non è presente nell'archivio integrità. È possibile ottenere questo risultato dalle query distribuite che uniscono i risultati da più componenti. Si tratta, ad esempio, della query per ottenere l'elenco dei nodi di Service Fabric, che passa a **FailoverManager** e **HealthManager**, o della query per ottenere l'elenco delle applicazioni, che passa a **ClusterManager** e **HealthManager**. Tali query uniscono i risultati provenienti da più componenti di sistema. Se un altro componente di sistema include un'entità che ancora non ha raggiunto l'archivio integrità o che è stata rimossa dall'archivio integrità, la query unita inserisce lo stato Unknown come risultato dell'integrità.
+- **Unknown**. L'entità non è presente nell'archivio integrità. È possibile ottenere questo risultato dalle query distribuite che uniscono i risultati da più componenti. Ad esempio, la query per ottenere l'elenco dei nodi passa a **FailoverManager** e **HealthManager**, mentre la query per ottenere l'elenco delle applicazioni passa a **ClusterManager** e **HealthManager**. Tali query uniscono i risultati provenienti da più componenti di sistema. Se un altro componente di sistema restituisce un'entità che ancora non ha raggiunto l'archivio integrità o ne è stata rimossa, il risultato unito presenterà lo stato di integrità "Unknown".
 
 ## Criteri di integrità
 L'archivio integrità applica criteri di integrità per determinare se un'entità è integra in base ai relativi report e agli elementi figlio.
 
-> [AZURE.NOTE] I criteri di integrità possono essere specificati nel manifesto del cluster, per la valutazione dell'integrità del cluster e dei nodi, o nel manifesto dell'applicazione, per la valutazione dell'applicazione e degli eventuali elementi figlio. Le richieste di valutazione dell'integrità possono anche passare in criteri personalizzati, che verranno usati solo per la valutazione in questione.
+> [AZURE.NOTE] I criteri di integrità possono essere specificati nel manifesto del cluster, per la valutazione dell'integrità del cluster e dei nodi, o nel manifesto dell'applicazione, per la valutazione dell'applicazione e degli eventuali elementi figlio. Le richieste di valutazione dell'integrità possono anche passare in criteri personalizzati, usati solo per la valutazione in questione.
 
 Per impostazione predefinita, per la relazione gerarchica padre-figlio Service Fabric applica regole severe, in base alle quali tutti gli elementi devono essere integri. Se anche uno solo degli elementi figlio presenta un evento non integro, l'elemento padre è considerato non integro.
 
@@ -90,11 +90,11 @@ I [criteri di integrità del cluster](https://msdn.microsoft.com/library/azure/s
 
 - [MaxPercentUnhealthyApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications.aspx). Specifica la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error.
 
-- [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Specifica la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Quando si configura questa percentuale occorre tenere conto anche del fatto che nei cluster di grandi dimensioni ci sono sempre nodi inattivi o in fase di riparazione.
+- [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Specifica la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Questa percentuale dovrà essere configurata in modo da tenere conto del fatto che in cluster di grandi dimensioni sono sempre presenti nodi inattivi o in fase di riparazione.
 
-- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). La mappa dei criteri di integrità dei tipi di applicazioni può essere usata durante la valutazione dell'integrità del cluster per descrivere i tipi di applicazioni speciali. Per impostazione predefinita, tutte le applicazioni vengono inserite in un pool e valutate con MaxPercentUnhealthyApplications. Se uno o più tipi di applicazioni sono speciali e devono essere trattati in modo diverso, possono essere estratti dal pool globale e valutati in base alle percentuali associate al loro nome nella mappa. Ad esempio, in un cluster esistono migliaia di applicazioni di tipi diversi e alcune istanze di applicazioni di controllo di un tipo di applicazione speciale. Le applicazioni di controllo non devono mai riscontrare errori. Pertanto, gli utenti possono specificare MaxPercentUnhealthyApplications globale al 20% per tollerare alcuni errori, ma per il tipo di applicazione "ControlApplicationType" devono impostare MaxPercentUnhealthyApplications su 0. In questo modo, se alcune delle numerose applicazioni non sono integre, ma si trovano al di sotto della percentuale di non integrità globale, il cluster verrà valutato come Warning. Uno stato di integrità Warning non influisce sull'aggiornamento del cluster o su altri tipi di monitoraggio attivati dallo stato di integrità Error. Tuttavia, se una sola applicazione di controllo riscontra errori, lo stato di integrità del cluster sarà Error ed è possibile che venga eseguito il ripristino dello stato precedente o impedito un aggiornamento del cluster. Per i tipi di applicazioni definiti nella mappa, tutte le istanze delle applicazioni vengono estratte dal pool globale di applicazioni. Vengono valutate in base al numero totale di applicazioni del tipo di applicazione, usando il valore MaxPercentUnhealthyApplications specifico della mappa. Tutte le altre applicazioni rimangono nel pool globale e vengono valutate con MaxPercentUnhealthyApplications.
+- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). La mappa dei criteri di integrità dei tipi di applicazioni può essere usata durante la valutazione dell'integrità del cluster per descrivere i tipi di applicazioni speciali. Per impostazione predefinita, tutte le applicazioni vengono inserite in un pool e valutate con MaxPercentUnhealthyApplications. I tipi di applicazioni che devono essere trattati in modo diverso possono essere estratti dal pool globale ed essere invece valutati in base alle percentuali associate al nome del tipo di applicazione nella mappa. Ad esempio, in un cluster esistono migliaia di applicazioni di tipi diversi e alcune istanze di applicazioni di controllo di un tipo di applicazione speciale. Le applicazioni di controllo non devono mai riscontrare errori. È possibile specificare l'impostazione globale di MaxPercentUnhealthyApplications al 20% per tollerare alcuni errori, impostando però MaxPercentUnhealthyApplications su 0 per il tipo di applicazione "ControlApplicationType". In questo modo, se alcune delle numerose applicazioni non sono integre, ma si trovano al di sotto della percentuale di non integrità globale, il cluster verrà valutato come Warning. Uno stato di integrità Warning non influisce sull'aggiornamento del cluster o su altri tipi di monitoraggio attivati dallo stato di integrità Error. Una sola applicazione di controllo in errore rende tuttavia il cluster non integro attivando, a seconda della configurazione di aggiornamento, il rollback o la sospensione dell'aggiornamento. Per i tipi di applicazioni definiti nella mappa, tutte le istanze delle applicazioni vengono estratte dal pool globale di applicazioni. Vengono valutate in base al numero totale di applicazioni del tipo di applicazione, usando il valore MaxPercentUnhealthyApplications specifico della mappa. Tutte le altre applicazioni rimangono nel pool globale e vengono valutate con MaxPercentUnhealthyApplications.
 
-Di seguito è riportato un estratto del manifesto di un cluster: Per definire le voci nella mappa dei tipi di applicazioni, anteporre "ApplicationTypeMaxPercentUnhealthyApplications-" al nome del parametro, seguito dal nome del tipo di applicazione.
+L'esempio seguente è un estratto del manifesto di un cluster. Per definire le voci nella mappa dei tipi di applicazioni, anteporre "ApplicationTypeMaxPercentUnhealthyApplications-" al nome del parametro, seguito dal nome del tipo di applicazione.
 
 ```xml
 <FabricSettings>
@@ -114,9 +114,9 @@ I [criteri di integrità delle applicazioni](https://msdn.microsoft.com/library/
 
 - [MaxPercentUnhealthyDeployedApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications.aspx). Specifica la percentuale massima tollerata di applicazioni distribuite che possono risultare non integre prima che per l'applicazione venga impostato lo stato Error. Tale percentuale viene calcolata dividendo il numero delle applicazioni distribuite non integre per il numero dei nodi in cui tali applicazioni sono attualmente distribuite nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Percentuale predefinita: zero.
 
-- [DefaultServiceTypeHealthPolicy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy.aspx). Specifica i criteri di integrità predefiniti per il tipo di servizio, che sostituiranno i criteri di integrità predefiniti usati per tutti i tipi di servizi nell'applicazione.
+- [DefaultServiceTypeHealthPolicy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy.aspx). Specifica i criteri di integrità predefiniti per il tipo di servizio, che sostituiscono i criteri di integrità predefiniti usati per tutti i tipi di servizi nell'applicazione.
 
-- [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Fornisce una mappa dei criteri di integrità del servizio per tipo di servizio. Questi sostituiscono i criteri di integrità del tipo di servizio predefiniti per ogni tipo di servizio specificato. Ad esempio, in un'applicazione contenente un tipo di servizio Gateway senza stato e un tipo di servizio Engine con stato, i criteri di integrità per il servizio senza stato e quelli per il servizio con stato possono essere configurati in modo diverso. Specificando i criteri in base al tipo di servizio è possibile ottenere un controllo più granulare sull'integrità del servizio.
+- [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Fornisce una mappa dei criteri di integrità del servizio per tipo di servizio. Questi criteri sostituiscono i criteri di integrità del tipo di servizio predefiniti per ogni tipo di servizio specificato. Se un'applicazione include un tipo di servizio gateway senza stato e un tipo di servizio motore con stato, ad esempio, è possibile configurare in modo diverso i criteri di integrità per la relativa valutazione. Specificando i criteri in base al tipo di servizio è possibile ottenere un controllo più granulare sull'integrità del servizio.
 
 ### Criteri di integrità del tipo di servizio
 I [criteri di integrità dei tipi di servizi](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) specificano come valutare e aggregare i servizi e i relativi elementi figlio. I criteri includono:
@@ -127,7 +127,7 @@ I [criteri di integrità dei tipi di servizi](https://msdn.microsoft.com/library
 
 - [MaxPercentUnhealthyServices](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices.aspx). Specifica la percentuale massima tollerata di servizi che possono risultare non integri prima che l'applicazione venga considerata non integra. Percentuale predefinita: zero.
 
-Di seguito è riportato un estratto del manifesto di un'applicazione:
+L'esempio seguente è un estratto del manifesto di un'applicazione:
 
 ```xml
     <Policies>
@@ -157,9 +157,9 @@ Per una stessa entità possono essere disponibili più report sull'integrità in
 
 Lo stato di integrità aggregato viene attivato dai report sull'integrità *peggiori* relativi all'entità. Se è presente almeno un report sull'integrità di tipo Error, lo stato di integrità aggregato sarà Error.
 
-![Aggregazione dei report sull'integrità con report di tipo Error.][2]
+![Aggregazione dei report sull'integrità con report di tipo Error.][2]  
 
-Un report sull'integrità Error o un report sull'integrità scaduto (indipendentemente dal suo stato di integrità) attiva l'entità di integrità nello stato Error.
+Un'entità di integrità con uno o più report sull'integrità di tipo Error viene valutata come Error. La stesso accade in caso di report sull'integrità scaduto, indipendentemente dallo stato di integrità.
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
@@ -180,7 +180,7 @@ Aggregazione degli elementi figlio in base ai criteri di integrità.
 
 [4]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png
 
-Dopo aver eseguito la valutazione di tutti gli elementi figlio, l'archivio integrità ne aggrega gli stati di integrità in base alla percentuale massima configurata di elementi figlio che possono risultare non integri. La percentuale viene estratta dai criteri in base al tipo di entità e di elemento figlio.
+Dopo aver eseguito la valutazione di tutti gli elementi figlio, l'archivio integrità ne aggrega gli stati di integrità in base alla percentuale massima configurata di elementi figlio non integri. Tale percentuale è ricavata dai criteri in base al tipo di entità e di elemento figlio.
 
 - Se lo stato è OK per tutti gli elementi figlio, lo stato di integrità aggregato di tali elementi sarà OK.
 
@@ -191,7 +191,7 @@ Dopo aver eseguito la valutazione di tutti gli elementi figlio, l'archivio integ
 - Se gli elementi figlio con stato Error non superano la percentuale massima di elementi figlio non integri consentita, lo stato di integrità aggregato sarà Warning.
 
 ## Creazione di report sull'integrità
-I componenti di sistema, le applicazioni Fabric di sistema e i watchdog interni/esterni possono generare report in base alle entità di Service Fabric. I generatori di report determinano *localmente* l'integrità delle entità monitorate in base alle condizioni sottoposte a monitoraggio. Non considerano alcuno stato globale o dato aggregato perché diventerebbero organismi complessi che devono tenere conto di numerosi aspetti per decidere quali informazioni inviare.
+I componenti di sistema, le applicazioni Fabric di sistema e i watchdog interni/esterni possono generare report in relazione alle entità di Service Fabric. I generatori di report determinano *localmente* l'integrità delle entità monitorate in base alle condizioni sottoposte a monitoraggio. Non considerano alcuno stato globale o dato aggregato Il comportamento desiderato prevede generatori di report semplici e non organismi complessi che devono tenere conto di numerosi aspetti per decidere quali informazioni inviare.
 
 Per inviare i dati di integrità all'archivio integrità, i generatori di report devono identificare l'entità interessata e creare un report sull'integrità. Il report può quindi essere inviato tramite l'API, usando [FabricClient.HealthClient.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx), tramite PowerShell o tramite REST.
 
@@ -202,7 +202,7 @@ I [report sull'integrità](https://msdn.microsoft.com/library/azure/system.fabri
 
 - **Entity identifier**. Identifica l'entità a cui viene applicato il report. Varia in base al [tipo di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy):
 
-  - Cluster. Nessuno.
+  - Cluster. Nessuna.
 
   - Node. Nome del nodo (stringa)
 
@@ -220,20 +220,20 @@ I [report sull'integrità](https://msdn.microsoft.com/library/azure/system.fabri
 
 - **Property**. *Stringa* (non un'enumerazione fissa) che consente al generatore di report di categorizzare l'evento di integrità per una proprietà specifica dell'entità. Ad esempio, il generatore di report A può segnalare l'integrità di Node01 in base alla proprietà "storage", mentre il generatore di report B può segnalare l'integrità di Node01 in base alla proprietà "connectivity". Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per l'entità Node01.
 
-- **Description**. Stringa che consente a un generatore di report di fornire informazioni dettagliate sull'evento di integrità. **SourceId**, **Property** e **HealthState** descrivono il report in modo esauriente. Description aggiunge informazioni leggibili sul report semplificandone la comprensione per gli amministratori e gli utenti.
+- **Description**. Stringa che consente a un generatore di report di fornire informazioni dettagliate sull'evento di integrità. **SourceId**, **Property** e **HealthState** descrivono il report in modo esauriente. Description aggiunge informazioni leggibili sul report semplificando la comprensione del report sull'integrità da parte di amministratori e utenti.
 
 - **HealthState**. [Enumerazione](service-fabric-health-introduction.md#health-states) che descrive lo stato di integrità del report. I valori accettati sono OK, Warning ed Error.
 
 - **TimeToLive**. Intervallo di tempo che indica per quanto è valido il report sull'integrità. Insieme a **RemoveWhenExpired**, indica all'archivio integrità come valutare gli eventi scaduti. Per impostazione predefinita, il valore è infinito e quindi il report è sempre valido.
 
-- **RemoveWhenExpired**. Valore booleano. Se è impostato su true, il report sull'integrità scaduto viene rimosso automaticamente dall'archivio integrità e non incide sulla valutazione dell'integrità dell'entità. Viene usato quando il report è valido solo per un periodo di tempo specificato e il generatore di report non ha necessità di eliminarlo esplicitamente. Viene usato anche per eliminare i report dall'archivio integrità. Ad esempio, se un watchdog viene modificato e smette di inviare report con la proprietà e l'origine precedenti. Può inviare un report con un valore TimeToLive basso e RemoveWhenExpired per cancellare qualsiasi stato precedente dall'archivio integrità. Se il valore è impostato su false, il report scaduto viene considerato come un errore nella valutazione dell'integrità. Il valore false indica all'archivio integrità che l'origine dovrebbe inviare periodicamente informazioni su questa proprietà. In caso contrario, il watchdog potrebbe avere un problema. L'integrità del watchdog viene acquisita considerando l'evento come un errore.
+- **RemoveWhenExpired**. Valore booleano. Se è impostato su true, il report sull'integrità scaduto viene rimosso automaticamente dall'archivio integrità e non incide sulla valutazione dell'integrità dell'entità. Viene usato quando il report è valido solo per un periodo di tempo specificato e non deve essere eliminato esplicitamente dal generatore di report. Viene usato anche per eliminare i report dall'archivio integrità. Ad esempio, se un watchdog viene modificato e smette di inviare report con la proprietà e l'origine precedenti. Può inviare un report con un valore TimeToLive basso e RemoveWhenExpired per cancellare qualsiasi stato precedente dall'archivio integrità. Se il valore è impostato su false, il report scaduto viene considerato come un errore nella valutazione dell'integrità. Il valore false indica all'archivio integrità che l'origine dovrebbe inviare periodicamente informazioni su questa proprietà. In caso contrario, il watchdog potrebbe avere un problema. L'integrità del watchdog viene acquisita considerando l'evento come un errore.
 
 - **SequenceNumber**. Numero intero positivo che deve essere sempre crescente, perché rappresenta l'ordine dei report. Viene usato dall'archivio integrità per rilevare i report non aggiornati, ricevuti in ritardo a causa di ritardi sulla rete o di altri problemi. I report vengono rifiutati se il numero di sequenza è minore o uguale all'ultimo numero applicato per la stessa entità, origine e proprietà. Se non è specificato, il numero di sequenza viene generato automaticamente. È necessario inserire il numero di sequenza solo quando si inviano report sulle transizioni di stato. In questo caso, l'origine deve ricordare i report inviati e mantenere le informazioni per recuperarle in caso di failover.
 
-SourceId, l'identificatore dell'entità, Property e HealthState sono dati obbligatori per tutti i report sull'integrità. La stringa SourceId non può iniziare con il prefisso "**System.**", che è riservato ai report di sistema. Per la stessa entità è disponibile un solo report per la stessa origine e la stessa proprietà. Se vengono generati più report per la stessa origine e la stessa proprietà, si sostituiscono l'uno all'altro sul lato del client di integrità (se sono in batch) o sul lato dell'archivio integrità. La sostituzione avviene in base al numero di sequenza, quindi i report più recenti con un numero di sequenza più alto sostituiscono quelli meno recenti.
+SourceId, l'identificatore dell'entità, Property e HealthState sono dati obbligatori per tutti i report sull'integrità. La stringa SourceId non può iniziare con il prefisso "**System.**", che è riservato ai report di sistema. Per la stessa entità è disponibile un solo report per la stessa origine e la stessa proprietà. Più report per la stessa origine e la stessa proprietà si sostituiscono l'uno all'altro sul lato del client di integrità (se sono in batch) o sul lato dell'archivio integrità. La sostituzione avviene in base al numero di sequenza, quindi i report più recenti con un numero di sequenza più alto sostituiscono quelli meno recenti.
 
 ### Eventi di integrità
-Al suo interno, l'archivio integrità mantiene gli [eventi di integrità](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), che contengono tutte le informazioni provenienti dai report e anche metadati aggiuntivi. Contengono, ad esempio, l'ora in cui un report è stato consegnato al client di integrità e l'ora in cui è stato modificato sul lato server. Gli eventi di integrità vengono restituiti dalle [query sull'integrità](service-fabric-view-entities-aggregated-health.md#health-queries).
+Internamente, l'archivio integrità mantiene [eventi di integrità](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx) contenenti tutte le informazioni provenienti dai report e metadati aggiuntivi. I metadati includono l'ora in cui un report è stato consegnato al client di integrità e l'ora in cui è stato modificato sul lato server. Gli eventi di integrità vengono restituiti dalle [query sull'integrità](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 I metadati aggiunti includono quanto segue:
 
@@ -247,7 +247,7 @@ I metadati aggiunti includono quanto segue:
 
 I campi di transizione dello stato possono essere usati per ottenere avvisi più intelligenti o informazioni "cronologiche" sull'evento di integrità. Consentono l'uso di scenari simili ai seguenti:
 
-- Avviso quando lo stato di una proprietà è impostato su Warning/Error da più di X minuti. In questo modo si evitano avvisi per condizioni temporanee. Ad esempio, se si vuole un avviso quando lo stato di integrità rimane impostato su Warning per più di 5 minuti, è possibile usare: (HealthState == Warning and Now - LastWarningTransitionTime > 5 minutes).
+- Avviso quando lo stato di una proprietà è impostato su Warning/Error da più di X minuti. Controllando la condizione per un determinato periodo di tempo si evitano avvisi per condizioni temporanee. Ad esempio, se si vuole un avviso quando lo stato di integrità rimane impostato su Warning per più di 5 minuti, è possibile usare: (HealthState == Warning and Now - LastWarningTransitionTime > 5 minutes).
 
 - Avviso solo per le condizioni cambiate negli ultimi X minuti. Se un report segnalava lo stato Error anche prima dell'ora specificata, può essere ignorato perché il problema era già stato segnalato in precedenza.
 
@@ -322,7 +322,7 @@ HealthEvents                    :
 ```
 
 ## Uso del modello di integrità
-Il modello di integrità consente la scalabilità dei servizi cloud e della piattaforma Service Fabric sottostante perché il monitoraggio e la determinazione dell'integrità vengono distribuiti tra i diversi monitor all'interno del cluster. Altri sistemi hanno un unico servizio centralizzato a livello di cluster che analizza tutte le informazioni *potenzialmente* utili emesse dai servizi. Questo approccio ne impedisce la scalabilità e non consente la raccolta di informazioni molto specifiche per identificare i problemi effettivi e potenziali risalendo alla causa principale.
+Il modello di integrità consente la scalabilità dei servizi cloud e della piattaforma Service Fabric sottostante perché il monitoraggio e la determinazione dell'integrità vengono distribuiti tra i diversi monitor all'interno del cluster. Altri sistemi hanno un unico servizio centralizzato a livello di cluster che analizza tutte le informazioni *potenzialmente* utili generate dai servizi. Questo approccio ne impedisce la scalabilità e non consente la raccolta di informazioni molto specifiche per identificare i problemi effettivi e potenziali risalendo alla causa principale.
 
 Il modello di integrità viene usato in larga misura per il monitoraggio e la diagnosi, per la valutazione dell'integrità del cluster e dell'applicazione e per aggiornamenti monitorati. Altri servizi usano i dati di integrità per eseguire riparazioni automatiche, generare la cronologia dell'integrità del cluster e inviare avvisi in determinate condizioni.
 
@@ -339,4 +339,4 @@ Il modello di integrità viene usato in larga misura per il monitoraggio e la di
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

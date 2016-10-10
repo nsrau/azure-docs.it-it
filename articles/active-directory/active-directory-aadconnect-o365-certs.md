@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+	manager="femila"
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory"
@@ -84,9 +84,7 @@ Nell'output di Get-MsolFederationProperty o Get-AdfsCertificate verificare la da
 
 | AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Azione |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Sì | Sì | Sì | - | Nessuna azione necessaria. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew). |
-| Sì | No | - | Meno di 15 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
-| No | - | - | Meno di 30 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
+| Sì | Sì | Sì | - | Nessuna azione necessaria. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew). | | Sì | No | - | Meno di 15 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). | | No | - | - | Meno di 30 giorni | Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
 
 [-] Non è rilevante
 
@@ -163,4 +161,4 @@ Se la farm AD FS e il trust di Azure AD sono stati configurati con Azure AD Conn
 
 Per altre informazioni, vedere [Ripristino del trust](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -7,7 +7,7 @@ Se il formato è impostato su **TextFormat**, è possibile specificare le propri
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------- | -------- | 
 | columnDelimiter | Il carattere usato per separare le colonne in un file. | È consentito un solo carattere. Il valore predefinito è la virgola (","). | No |
-| rowDelimiter | Il carattere usato per separare le righe in un file. | È consentito un solo carattere. Sono consentiti i valori predefiniti seguenti: ["\\r\\n", "\\r", "\\n"] e "\\r\\n" in scrittura. | No |
+| rowDelimiter | Il carattere usato per separare le righe in un file. | È consentito un solo carattere. Sono consentiti i seguenti valori predefiniti in lettura: ["\\r\\n", "\\r", "\\n"] e "\\r\\n" in scrittura. | No |
 | escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. | È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire "$" come carattere di escape e usare la stringa "Hello$, world" nell'origine. | No | 
 | quoteChar | Carattere usato per delimitare tra virgolette un valore stringa. I delimitatori di colonne e righe tra virgolette sono considerati parte del valore stringa. Questa proprietà è applicabile sia ai set di dati di input che a quelli di output.<br/><br/>Non è possibile specificare sia escapeChar che quoteChar per una tabella. | È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. | No |
 | nullValue | Uno o più caratteri usati per rappresentare un valore null. | Uno o più caratteri. I valori predefiniti sono "\\N" e "NULL" in lettura e "\\N" in scrittura. | No |
@@ -36,7 +36,7 @@ L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
 	    }
 	},
 
-Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con la stringa seguente:
+Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar con il seguente escapeChar:
 
 	"escapeChar": "$",
 
@@ -46,7 +46,7 @@ Per usare un escapeChar anziché un quoteChar, sostituire la riga con quoteChar 
 
 - Si desidera copiare da un'origine non basata su file in un file di testo e aggiungere una riga di intestazione contenente i metadati dello schema (ad esempio: schema SQL). Per questo scenario specificare **firstRowAsHeader** come true nel set di dati di output.
 - Si desidera copiare da un file di testo contenente una riga di intestazione a un sink non basato su file ed eliminare tale riga. Specificare **firstRowAsHeader** come true nel set di dati di input.
-- Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non sono né dati né un'intestazione. Specificare **skipLineCount** per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è inoltre possibile specificare **firstRowAsHeader**. Se sono specificati sia **skipLineCount** e **firstRowAsHeader**, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input
+- Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare **skipLineCount** per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è inoltre possibile specificare **firstRowAsHeader**. Se sono specificati sia **skipLineCount** e **firstRowAsHeader**, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input
 
 ### Specifica di AvroFormat
 Se il formato è impostato su AvroFormat, non è necessario specificare proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
@@ -241,7 +241,7 @@ Se il formato è impostato su OrcFormat, non è necessario specificare le propri
 
 	"format":
 	{
-	    "type": "OrcFormat",
+	    "type": "OrcFormat"
 	}
 
 > [AZURE.IMPORTANT] Se non si esegue una copia **identica** dei file ORC tra l'archivio dati locale e quello nel cloud, nel computer gateway è necessario installare JRE 8 (Java Runtime Environment). Per un gateway a 64 bit è necessario JRE a 64 bit, mentre per un gateway a 32 bit è necessario JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605). Scegliere la versione appropriata.
@@ -251,4 +251,19 @@ Tenere presente quanto segue:
 -	Tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION)
 -	Il file ORC dispone di tre [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
-<!---HONumber=AcomDC_0907_2016-->
+### Specificare ParquetFormat
+Se il formato è impostato su ParquetFormat, non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+
+	"format":
+	{
+	    "type": "ParquetFormat"
+	}
+
+> [AZURE.IMPORTANT] Se non si esegue una copia **identica** dei file Parquet tra l'archivio dati locale e quello nel cloud, nel computer gateway è necessario installare JRE 8 (Java Runtime Environment). Per un gateway a 64 bit è necessario JRE a 64 bit, mentre per un gateway a 32 bit è necessario JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605). Scegliere la versione appropriata.
+
+Tenere presente quanto segue:
+
+-	Tipi di dati complessi non sono supportati (MAP, LIST)
+-	Un file Parquet ha le seguenti opzioni relative alla compressione: NONE, SNAPPY, GZIP e LZO. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file Parquet, Data Factory sceglie SNAPPY, cioè il valore predefinito per il formato Parquet. Al momento non esiste alcuna opzione per ignorare tale comportamento.
+
+<!---HONumber=AcomDC_0928_2016-->

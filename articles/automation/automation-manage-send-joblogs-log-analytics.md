@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="08/08/2016"
+    ms.date="09/22/2016"
     ms.author="magoedte" />
 
 # Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics (OMS)
@@ -77,6 +77,41 @@ Per verificare che lo script abbia configurato correttamente l'account di Automa
 
     Verranno restituite le informazioni di archiviazione per l'area di lavoro di OMS specificata. Si vuole verificare che le informazioni di archiviazione per l'account di Automazione specificate in precedenza siano presenti e che l'oggetto **State** mostri un valore **OK**.<br> ![Risultati del cmdlet Get-AzureRmOperationalInsightsStorageInsights](media/automation-manage-send-joblogs-log-analytics/automation-posh-getstorageinsights-results.png).
 
+
+## Record di Log Analytics
+
+Automazione crea due tipi di record nel repository OMS.
+
+### Log del processo
+
+Proprietà | Descrizione|
+----------|----------|
+Time | Data e ora di esecuzione del processo del runbook.|
+resourceId | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
+operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore sarà Job.|
+resultType | Lo stato del processo di runbook. I valori possibili sono: <br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato|
+resultDescription | Descrive lo stato del risultato del processo di runbook. I valori possibili sono: <br>- Processo avviato<br>- Processo non riuscito<br>- Processo completato|
+CorrelationId | Il GUID che rappresenta l'ID di correlazione del processo di runbook.|
+Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
+RunbookName | Il nome del runbook.|
+JobId | Il GUID che rappresenta l'ID del processo del runbook.|
+Chiamante | Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
+
+### Flussi del processo
+Proprietà | Descrizione|
+----------|----------|
+Time | Data e ora di esecuzione del processo del runbook.|
+resourceId | Specifica il tipo di risorsa in Azure. Per Automazione, il valore è l'account di Automazione associato al runbook.|
+operationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore sarà Job.|
+resultType | Lo stato del processo di runbook. I valori possibili sono: <br>- InProgress|
+resultDescription | Include il flusso di output dal runbook.|
+CorrelationId | Il GUID che rappresenta l'ID di correlazione del processo di runbook.|
+Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
+RunbookName | Il nome del runbook.|
+JobId | Il GUID che rappresenta l'ID del processo del runbook.|
+Chiamante | Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.| 
+StreamType | Il tipo di flusso del processo. I valori possibili sono: <br>-Avanzamento<br>- Output<br>- Avviso<br>- Errore<br>- Debug<br>- Dettagliato|
+
 ## Visualizzazione dei log di Automazione in Log Analytics 
 
 Dopo avere avviato l'invio di log del processo di automazione a Log Analytics, si vedrà quali operazioni è possibile eseguire con questi log in OMS.
@@ -114,6 +149,7 @@ Infine, è consigliabile visualizzare la cronologia dei processi nel tempo. È p
 
 `Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day` <br> ![Grafico dello stato cronologico del processo OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+
 ## Riepilogo
 
 Inviando lo stato del processo e i flussi del processo di Automazione a Log Analytics, è possibile ottenere informazioni più dettagliate dello stato dei processi di Automazione per configurare avvisi che notifichino all'utente quando è presente un problema, nonché dashboard personalizzati usando query avanzate per visualizzare i risultati del runbook, lo stato del processo del runbook e altri indicatori chiave o metriche correlate. Questo consente di fornire una più ampia visibilità operativa e affrontare più velocemente gli eventi imprevisti.
@@ -126,4 +162,4 @@ Inviando lo stato del processo e i flussi del processo di Automazione a Log Anal
 - Per maggiori informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere come tenere traccia del processo di un runbook in [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)
 - Per altre informazioni su Log Analytics di OMS e sulle origini di raccolta dati, vedere la [panoramica della raccolta dati di Archiviazione di Azure in Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

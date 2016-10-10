@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
 	ms.date="03/07/2016"
-	ms.author="dhanyahk"/>
+	ms.author="dhanyahk"/>  
 
 # Ricerca di Report di Azure Active Directory
 
@@ -58,4 +58,4 @@ Utilizzo dispositivi RMS | No
  - [Report di Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Enti di controllo per il report di Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

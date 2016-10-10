@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="asteen"
 	manager="femila"
-	editor="curtand"/>
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory"
@@ -202,9 +202,8 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 </p>
                 <ul>
                   <li class="unordered">
-												Se impostato su No, tutti gli utenti finali nella directory possono effettuare la registrazione per la reimpostazione delle password in <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
-                  <li class="unordered">
-												Se impostato su Sì, solo gli utenti finali specificati nel controllo <strong>Gruppo che può eseguire la reimpostazione delle password</strong> possono effettuare la registrazione per la reimpostazione delle password in <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
+                    Questa impostazione non influenza l'accesso degli utenti al portale di registrazione per la reimpostazione della password. Se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>, tutti gli utenti finali nella directory possono effettuare la registrazione per la reimpostazione delle password in <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portale di reimpostazione delle password:</strong>
@@ -245,7 +244,8 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 </p>
                 <ul>
                   <li class="unordered">
-												Se <strong>Limitare l'accesso per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>, solo gli utenti finali di questo gruppo sono in grado di effettuare la registrazione per la reimpostazione delle password. <br><br></li>
+                    Questa impostazione non influenza l'accesso degli utenti al portale di registrazione per la reimpostazione della password. Se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>, tutti gli utenti finali nella directory possono effettuare la registrazione per la reimpostazione delle password in <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portale di reimpostazione delle password:</strong>
@@ -270,12 +270,6 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 <p>(Visibile solo se <strong>Utenti abilitati per la reimpostazione delle password</strong> è impostato su <strong>Sì</strong>).</p>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Nota:</strong>
                 </p>
@@ -875,4 +869,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

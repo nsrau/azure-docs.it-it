@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Configurazione di un nuovo dispositivo con Azure AD durante l'installazione| Microsoft Azure"
-	description="Argomento che spiega come configurare Aggiunta di Azure AD durante la procedura di configurazione iniziale guidata."
+	description="Argomento che spiega come configurare l'aggiunta di Azure AD durante la procedura di configurazione guidata iniziale."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
 	editor=""
-	tags="azure-classic-portal"/>
+	tags="azure-classic-portal"/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 
 # Configurazione di un nuovo dispositivo con Azure AD durante l'installazione
 
@@ -25,15 +25,14 @@ In Windows 10 gli utenti finali possono aggiungere il proprio dispositivo ad Azu
 
 
 1. Quando si accende il nuovo dispositivo e viene avviato il processo di installazione, viene visualizzato il messaggio **Preparazione**. Seguire le istruzioni per configurare il dispositivo.
-2. Iniziare personalizzando il paese e la lingua. Quindi accettare le Condizioni di licenza software Microsoft.
-![Personalizzare il paese](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
+2. Iniziare personalizzando il paese e la lingua. Quindi accettare le Condizioni di licenza software Microsoft. ![Personalizzare il paese](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Selezionare la rete che si desidera usare per la connessione a Internet.
 4. Selezionare se si usa un dispositivo personale o di proprietà dell'azienda. Se il dispositivo è di proprietà dell'azienda, fare clic su **Questo dispositivo appartiene alla mia azienda**. Verrà avviata l'esperienza di aggiunta ad Azure AD. Di seguito è riportata la schermata che viene visualizzata se si usa Windows 10 Professional.
 <center>
 ![Schermata A chi appartiene questo PC?](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)
 
 5.	Immettere le credenziali fornite dall'organizzazione.
-<center>
+<center>  
 ![Schermata di accesso](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)
 6.	Dopo aver immesso il nome utente, viene trovato il tenant corrispondente in Azure AD. Se si è in un dominio federato, si verrà reindirizzati al server del servizio token di sicurezza locale, ad esempio Active Directory Federation Services (AD FS).
 7. Se si è in un dominio non federato, immettere le credenziali direttamente nella pagina ospitata da Azure AD. Se sono state configurate le informazioni personalizzate distintive dell'azienda, vengono visualizzati anche il logo dell'organizzazione e la documentazione di supporto.
@@ -53,4 +52,4 @@ In Windows 10 gli utenti finali possono aggiungere il proprio dispositivo ad Azu
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

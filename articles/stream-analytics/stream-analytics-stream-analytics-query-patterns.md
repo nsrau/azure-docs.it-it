@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/> 
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
-	ms.author="jeffstok"/> 
+	ms.date="09/26/2016"
+	ms.author="jeffstok"/>  
 
 
 # Esempi di query per modelli di uso comune di Analisi di flusso
@@ -25,7 +25,7 @@
 Le query in analisi di flusso di Azure vengono espresse in un linguaggio di query simile a SQL, documentato nella guida di [riferimento sul linguaggio di query con l'analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx). Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali. È un lavoro in corso che continuerà a essere aggiornato con nuovi modelli su base continuativa.
 
 ## Esempio di query: Conversioni di tipi di dati
-**Descrizione**: definire i tipi delle proprietà nel flusso di input. Ad esempio: il peso dell’auto è immesso nel flusso di input come stringa e deve essere convertito in INT per eseguire SUM dei vari valori.
+**Descrizione**: definire i tipi delle proprietà nel flusso di input. Ad esempio, il peso dell'auto è immesso nel flusso di input come stringa e deve essere convertito in INT per eseguire SUM dei vari valori.
 
 **Input**:
 
@@ -55,7 +55,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 
 
 ## Esempio di query: Uso di Like/Not like per la corrispondenza dei modelli
-**Descrizione**: verificare che un valore del campo dell'evento corrisponda a un determinato modello. Ad esempio: restituire le targhe che iniziano per A e terminano con 9
+**Descrizione**: verificare che un valore del campo dell'evento corrisponda a un determinato modello. Ad esempio, restituire le targhe che iniziano per A e terminano con 9
 
 **Input**:
 
@@ -84,7 +84,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 **Spiegazione**: utilizzare l'istruzione LIKE per verificare che il valore del campo LicensePlate inizi con la lettera A, contenga una stringa di zeri o altri caratteri e termini con 9.
 
 ## Esempio di query: Specificare la logica per i diversi casi/valori (istruzioni CASE)
-**Descrizione**: fornire calcoli differenti per un campo in base ad alcuni criteri. Ad esempio: fornire una stringa descrittiva per il numero di auto passate della stessa casa automobilistica, con un caso speciale per 1.
+**Descrizione**: fornire calcoli differenti per un campo in base ad alcuni criteri. Ad esempio, fornire una stringa descrittiva relativa al numero di automobili della stessa casa automobilistica sono passate con un caso speciale di 1.
 
 **Input**:
 
@@ -118,7 +118,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 **Spiegazione**: la clausola CASE consente di fornire un calcolo diverso in base ad alcuni criteri (in questo esempio, il numero di automobili nella finestra di aggregazione).
 
 ## Esempio di query: Invio di dati a più output
-**Descrizione**: inviare dati a più destinazioni di output da un singolo processo. Ad esempio: analizzare i dati per un avviso di soglia e archiviare tutti gli eventi nell'archivio blob
+**Descrizione**: inviare dati a più destinazioni di output da un singolo processo. Ad esempio, analizzare i dati per un avviso basato su soglie e archiviare tutti gli eventi nell'archiviazione BLOB
 
 **Input**:
 
@@ -169,7 +169,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 	HAVING
 		[Count] >= 3
 
-**Spiegazione**: la clausola INTO indica all’analisi di flusso in quali output scrivere i dati ottenuti con questa istruzione. La prima è una query pass-through dei dati ricevuti per un output denominato ArchiveOutput. La seconda query effettua una semplice aggregazione, filtra e invia i risultati a un sistema di avviso downstream. *Nota*: è inoltre possibile riutilizzare i risultati delle CTE (vale a dire le istruzioni WITH) in più istruzioni di output; questo ha l'ulteriore vantaggio di aprire ad esempio un numero inferiore di lettori nell’origine di input.
+**Spiegazione**: la clausola INTO indica all’analisi di flusso in quali output scrivere i dati ottenuti con questa istruzione. La prima è una query pass-through dei dati ricevuti per un output denominato ArchiveOutput. La seconda query effettua una semplice aggregazione, filtra e invia i risultati a un sistema di avviso downstream. *Nota*: è inoltre possibile riutilizzare i risultati delle CTE (vale a dire le istruzioni WITH) in più istruzioni di output; questo ha l'ulteriore vantaggio di aprire ad esempio un numero inferiore di lettori nell'origine di input. Ad esempio,
 
 	WITH AllRedCars AS (
 		SELECT
@@ -183,7 +183,7 @@ Le query in analisi di flusso di Azure vengono espresse in un linguaggio di quer
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## Esempio di query: Conteggio di valori univoci
-**Descrizione**: contare i valori di campo univoci presenti nel flusso all'interno di una finestra temporale. Ad esempio, il numero di auto di una stessa casa automobilistica passate da un casello autostradale in una finestra di 2 secondi.
+**Descrizione**: contare il numero di valori di campo univoci presenti nel flusso in un intervallo di tempo. Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono passate da un casello autostradale in una finestra di due secondi?
 
 **Input**:
 
@@ -353,7 +353,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 **Spiegazione**: nella query esistono due passaggi: il primo rileva il timestamp più recente in finestre di 10 minuti. Il secondo passaggio unisce i risultati della prima query con il flusso originale per trovare gli eventi corrispondenti ai timestamp più recenti in ogni finestra.
 
 ## Esempio di query: Rilevare l'assenza di eventi
-**Descrizione**: verificare che in un flusso non sia presente alcun valore corrispondente a determinati criteri. Ad esempio, 2 automobili consecutive della stessa casa automobilistica entrate in autostrada nell'arco di 90 secondi.
+**Descrizione**: verificare che un flusso non abbia un valore corrispondente a determinati criteri. Ad esempio, 2 automobili consecutive della stessa casa automobilistica sono entrate in autostrada entro 90 secondi?
 
 **Input**:
 
@@ -386,7 +386,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 **Spiegazione**: utilizzare LAG per esaminare il flusso di input di un evento precedente e ottenere il valore per la casa automobilistica. Quindi confrontare tale valore con il valore Casa automobilistica dell'evento corrente e ottenere l'evento di eventuale corrispondenza, quindi usare LAG per ottenere dati sull'auto precedente.
 
 ## Esempio di query: Rilevare la durata tra gli eventi
-**Descrizione**: individuare la durata di un dato evento ad esempio determinando il tempo dedicato a una funzionalità in base a un clickstream Web.
+**Descrizione**: trovare la durata di un determinato evento. Ad esempio, dato un clickstream Web determinare i tempi di una funzionalità.
 
 **Input**:
   
@@ -415,7 +415,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 **Spiegazione**: usare la funzione LAST per recuperare l'ultimo valore di Time quando il tipo di evento presenta il valore 'Start'. Notare che la funzione LAST usa PARTITION BY [user] per indicare che il risultato deve essere calcolato per utente univoco. La query dispone di una soglia massima di 1 ora per la differenza di tempo tra gli eventi 'Start' e 'Stop', ma è configurabile in base alle esigenze: LIMIT DURATION(hour, 1).
 
 ## Esempio di query: Rilevare la durata di una condizione
-**Descrizione**: scoprire per quanto tempo si è verificata una condizione. Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le automobili (oltre 20.000 libbre) e che si desideri calcolare la durata di tale bug.
+**Descrizione**: individuare la durata di una condizione. Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le automobili (oltre 20.000 libbre) e che si desideri calcolare la durata di tale bug.
 
 **Input**:
 
@@ -514,4 +514,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

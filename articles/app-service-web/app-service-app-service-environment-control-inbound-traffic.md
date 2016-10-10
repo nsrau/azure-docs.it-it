@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="app-service" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/02/2016" 
-	ms.author="stefsch"/>
+	ms.author="stefsch"/>  
 
 # Come controllare il traffico in ingresso a un ambiente del servizio app
 
@@ -23,7 +23,7 @@ Un ambiente del servizio app può essere creato **in** una rete virtuale di Azur
 
 È sempre necessario creare un ambiente del servizio app all'interno di una subnet perché la subnet fornisce un limite di rete che può essere usato per bloccare il traffico in ingresso proveniente da dispositivi e servizi upstream, in modo che il traffico HTTP e HTTPS sia accettato solo da indirizzi IP upstream specifici.
 
-Il traffico in ingresso e in uscita a e da una subnet è controllato tramite un [gruppo di sicurezza di rete][NetworkSecurityGroups]. Attualmente, per l'ambiente del servizio App, sono supportati solo i gruppi di sicurezza di rete creati nel modello di distribuzione classica. Per controllare il traffico in ingresso è necessario creare regole di sicurezza di rete in un gruppo di sicurezza di rete, quindi assegnare al gruppo di sicurezza di rete la subnet contenente l'ambiente del servizio app.
+Il traffico in ingresso e in uscita a e da una subnet è controllato tramite un [gruppo di sicurezza di rete][NetworkSecurityGroups]. Per controllare il traffico in ingresso è necessario creare regole di sicurezza di rete in un gruppo di sicurezza di rete, quindi assegnare al gruppo di sicurezza di rete la subnet contenente l'ambiente del servizio app.
 
 Dopo aver assegnato un gruppo di sicurezza di rete a una subnet, il traffico in ingresso alle app nell'ambiente del servizio app è consentito/bloccato in base alle regole di autorizzazione consentita o negata definite nel gruppo di sicurezza di rete.
 
@@ -129,7 +129,7 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- LINKS -->
+<!-- LINKS -->  
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
@@ -138,7 +138,7 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [SecurelyConnecttoBackend]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
 [NewPortal]: https://portal.azure.com
 
-<!-- IMAGES -->
+<!-- IMAGES -->  
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

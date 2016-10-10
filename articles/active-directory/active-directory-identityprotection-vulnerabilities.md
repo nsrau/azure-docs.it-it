@@ -5,8 +5,8 @@
 	keywords="azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="markvi"/>
+	ms.author="markvi"/>  
 
 # Vulnerabilità rilevate da Azure Active Directory Identity Protection 
 
@@ -62,4 +62,4 @@ Per altre informazioni, vedere [Azure AD Privileged Identity Management](active-
 
  - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

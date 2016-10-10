@@ -6,7 +6,7 @@
 	services="stream-analytics"
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/> 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Come scrivere query in Analisi di flusso
@@ -25,11 +25,11 @@ La scrittura di query per la logica di elaborazione del flusso in Analisi di flu
 
 1. Nel processo di Analisi di flusso nel portale di gestione di Azure, fare clic su **Query**.
 
-    ![Query di selezione](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png) 
+    ![Query di selezione](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
 
     Nel portale di Azure fare clic su **Query**.
 
-    ![Selezionare l'anteprima della query](./media/stream-analytics-write-queries/query-preview-portal.png) 
+    ![Selezionare l'anteprima della query](./media/stream-analytics-write-queries/query-preview-portal.png)  
 
 2.	I nuovi processi dispongono di un modello di query per rendere più semplice l’inizio. Il modello di query esegue una query "pass-through" che proietta tutti i campi dagli eventi di input nell'output.
 
@@ -52,7 +52,7 @@ La scrittura di query per la logica di elaborazione del flusso in Analisi di flu
 
     ![Verificare query sui dati](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Passare a un file di test. Diversi file di esempio sono disponibili su [github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample dati) ed è anche possibile recuperare dati di esempio dai propri input del flusso di dati tramite la funzione Dati di esempio nella scheda Input.
+3.	Passare a un file di test. Diversi file di esempio sono disponibili su [github] (https://github.com/Azure/azure-stream-analytics/tree/master/Sample dati) ed è anche possibile recuperare dati di esempio dai propri input del flusso di dati tramite la funzione Dati di esempio nella scheda Input.
 
     ![Input della query](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 
@@ -71,4 +71,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

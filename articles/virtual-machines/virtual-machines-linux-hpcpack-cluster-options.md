@@ -6,32 +6,30 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management,hpc-pack"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>  
 <tags
 ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="06/17/2016"
- ms.author="danlep"/>
+ ms.date="09/26/2016"
+ ms.author="danlep"/>  
 
-# Opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack
+# Opzioni con pacchetto HPC per creare e gestire un cluster HPC in Azure per i carichi di lavoro di Linux
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 In questo articolo sono trattate le opzioni per l'uso di HPC Pack per l'esecuzione di carichi di lavoro di Linux. Esistono anche opzioni per l'esecuzione di [carichi di lavoro di Windows HPC con HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Eseguire un cluster HPC Pack nelle VM di Azure
 
 ### Modelli di Azure
 
 
-* (Marketplace) [Cluster HPC Pack per carichi di lavoro Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+* (Marketplace) [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) (Cluster HPC Pack per carichi di lavoro di Linux)
 
-* (Guida introduttiva) [Creare un cluster HPC con nodi di calcolo Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
+* (Guida introduttiva) [Create an HPC cluster with Linux compute nodes](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn) (Creare un cluster HPC con nodi di calcolo Linux)
 
 
 ### Script di distribuzione di PowerShell
@@ -52,6 +50,8 @@ In questo articolo sono trattate le opzioni per l'uso di HPC Pack per l'esecuzio
 
 * [Inviare processi a un cluster HPC Pack in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 
+* [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx) (Gestione dei processi in HPC Pack)
+
 
 ## Creare cluster RDMA per carichi di lavoro MPI
 
@@ -59,4 +59,4 @@ In questo articolo sono trattate le opzioni per l'uso di HPC Pack per l'esecuzio
 
 * [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

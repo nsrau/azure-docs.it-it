@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Trasformare l'unità D di una macchina virtuale in disco dati | Microsoft Azure"
+	pageTitle="Usare l'unità D come unità dati in una macchina virtuale Windows | Microsoft Azure"
 	description="Descrive come modificare le lettere di unità per una VM Windows, in modo da poter usare l'unità D: come unità dati."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+	tags="azure-resource-manager,azure-service-management"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="cynthn"/>
+	ms.date="09/27/2016"
+	ms.author="cynthn"/>  
 
 # Usare l'unità D come unità dati in una macchina virtuale Windows 
 
@@ -111,4 +111,4 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale.
 ## Passaggi successivi
 - È possibile aumentare la memoria disponibile per la macchina virtuale [collegando un disco dati aggiuntivo](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

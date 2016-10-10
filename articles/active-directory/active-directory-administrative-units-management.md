@@ -4,8 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+   manager="femila"
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -37,4 +37,4 @@ Per ulteriori informazioni sui requisiti software e l'installazione del modulo d
 ## Passaggi successivi
 [Edizioni di Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

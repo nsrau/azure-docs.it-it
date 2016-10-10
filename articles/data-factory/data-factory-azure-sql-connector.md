@@ -3,9 +3,9 @@
 	description="Informazioni su come spostare i dati da e verso il database SQL di Azure mediante Data factory di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
-	editor="monicar"/> 
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -14,11 +14,25 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="spelluru"/> 
+	ms.author="jingwang"/>  
 
 # Spostare dati da e nel database SQL di Azure con Data factory di Azure
-
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati tra un database SQL di Azure e un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+
+## Sink e origini supportate
+Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella [Archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). È possibile spostare i dati da qualsiasi archivio dati di origine supportato al database SQL di Azure o dal database SQL di Azure a qualsiasi archivio dati sink supportato.
+
+## Creare una pipeline
+È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un database SQL di Azure usando diversi strumenti/API.
+
+- Copia guidata
+- Portale di Azure
+- Visual Studio
+- Azure PowerShell
+- API .NET
+- API REST
+
+Vedere [Esercitazione dell'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per ottenere le istruzioni dettagliate sulle diverse modalità di creazione di una pipeline con un'attività di copia.
 
 ## Copia di dati guidata
 Il modo più semplice di creare una pipeline che copia i dati in/da un database SQL di Azure consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -397,17 +411,17 @@ Vedere la sezione [SqlSink](#sqlsink) e [BlobSink](data-factory-azure-blob-conne
 
 
 ## Proprietà del servizio collegato Azure SQL
-
-La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SQL di Azure.
+Negli esempi si è usato un servizio collegato di tipo **AzureSqlDatabase** per collegare un database SQL di Azure a una data factory. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SQL di Azure.
 
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- |
-| type | La proprietà del tipo deve essere impostata su: AzureSqlDatabase | Sì |
+| type | La proprietà del tipo deve essere impostata su: **AzureSqlDatabase** | Sì |
 | connectionString | Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. | Sì |
 
 > [AZURE.NOTE] Configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati nel database SQL di Azure dall'esterno di Azure e da origini dati locali con gateway di data factory, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati al database SQL di Azure.
 
 ## Proprietà del tipo del set di dati di Azure SQL
+Negli esempi si è stato un set di dati di tipo **AzureSqlTable** per rappresentare una tabella in un database SQL di Azure.
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
@@ -418,12 +432,13 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 | tableName | Nome della tabella nell'istanza di database SQL di Azure a cui fa riferimento il servizio collegato. | Sì |
 
 ## Proprietà del tipo di attività di copia di Azure SQL
-
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
 > [AZURE.NOTE] L'attività di copia accetta solo un input e produce solo un output.
 
-Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
+D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
+
+Se si effettua il trasferimento dei dati da un database SQL di Azure, impostare il tipo di origine nell'attività di copia su **SqlSource**. Analogamente, se si effettua il trasferimento dei dati in un database SQL di Azure, impostare il tipo di sink nell'attività di copia su **SqlSink**. Questa sezione presenta un elenco delle proprietà supportate da SqlSource e SqlSink.
 
 ### SqlSource
 
@@ -527,7 +542,6 @@ Si noti che la tabella di destinazione contiene una colonna identity.
 	{
 	    "name": "SampleSource",
 	    "properties": {
-	        "published": false,
 	        "type": " SqlServerTable",
 	        "linkedServiceName": "TestIdentitySQL",
 	        "typeProperties": {
@@ -551,7 +565,6 @@ Si noti che la tabella di destinazione contiene una colonna identity.
 	            { "name": "name" },
 	            { "name": "age" }
 	        ],
-	        "published": false,
 	        "type": "AzureSqlTable",
 	        "linkedServiceName": "TestIdentitySQLSource",
 	        "typeProperties": {
@@ -568,6 +581,8 @@ Si noti che la tabella di destinazione contiene una colonna identity.
 
 
 Si noti che la tabella di origine e la tabella di destinazione hanno schemi diversi (la destinazione include una colonna aggiuntiva identity). In questo scenario è necessario specificare la proprietà **structure** nella definizione del set di dati di destinazione che non include la colonna identity.
+
+Dopodiché, eseguire il mapping delle colonne dal set di dati di origine alle colonne del set di dati di destinazione. Per avere un esempio, vedere la sezione [Esempi di mapping di colonne](#column-mapping-samples).
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -630,4 +645,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

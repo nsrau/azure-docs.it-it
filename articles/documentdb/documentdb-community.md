@@ -5,7 +5,7 @@
   documentationCenter=""
   authors="aliuy"
   manager="johnmac"
-  editor="mimig"/>
+  editor="mimig"/>  
 
 <tags
   ms.service="documentdb"
@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/12/2016"
+  ms.date="09/26/2016"
   ms.author="andrl"/>
 
 # Portale della community
@@ -120,8 +120,9 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Relatore | Percorso | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu e Tara Jana | Atlanta, GA | Dal 26 al 30 settembre, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
-| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Da definire | New York, NY | 26-29 settembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb)<br><br>[Idea chiave: consentire la trasformazione digitale facendo riferimento all'articolo "Unreasonable Effectiveness of A.C.I.D" con Joseph Sirosh](https://myignite.microsoft.com/sessions/34953)<br><br>[Sessione: Azure DocumentDB su massima scala: schemi di progettazione e di successo dei cliente con Syam Kumar Nair e Andrew Liu](https://myignite.microsoft.com/sessions/3066)<br><br>[Sessione: gestire gli asset IoT con Node.js e DocumentDB con Joshua Davis](https://myignite.microsoft.com/sessions/39704)<br><br>[Sessione: sviluppare applicazioni più intelligenti e scalabili attraverso i servizi di database di Microsoft Azure con Tara Jana e Moshe Gutman](https://myignite.microsoft.com/sessions/2633)| Andrew Liu, Syam Kumar Nair e Tara Jana | Atlanta, GA | Dal 26 al 30 settembre, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Riunione presso Ignite: DocumentDB - funzionalità avanzate per le applicazioni su larga scala](http://www.meetup.com/Azure-in-the-ATL/events/234252070/) | Andrew Liu, Syam Kumar Nair | Atlanta, GA | 27 settembre 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) [@FlatironCity](https://twitter.com/FlatironCity) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Visita il nostro stand! | New York, NY | 26-29 settembre 2016 | [#StrataConf](https://twitter.com/strataconf) |
 | [Capital City .NET Users Group (Gruppo di utenti .NET della capitale)](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | 3 novembre 2016 | n/d |
 
 
@@ -137,7 +138,8 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Howard S. Edidin | Webcast | 20 giugno 2016 | [Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [Meetup: gruppo di utenti di Azure Regno Unito](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu | Londra, Regno Unito | 12 maggio 2016 | N/D
 |[Meetup: ONETUG - Orlando .NET User Group ](http://www.meetup.com/ONETUG/events/230797164/)| Santosh Hari| Orlando, FL| 12 maggio 2016| N/D 
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Regno Unito | 4-7 maggio 2016 | N/D| [Meetup: Gruppo sviluppatori .NET di New York](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | New York, NY | 21 aprile 2016 | N/D |
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Regno Unito | 4-7 maggio 2016 | N/D| 
+| [Meetup: Gruppo sviluppatori .NET di New York](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | New York, NY | 21 aprile 2016 | N/D |
 | [Integration User Group](http://www.integrationusergroup.com/#) | Howard Edidin | Webinar | 25 aprile 2016 | N/D |
 | [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 aprile 2016 | N/D |
 | [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 aprile 2016 | n/d |
@@ -170,7 +172,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [DevIntersection](https://devintersection.com/) | Andrew Liu | Scottsdale, Arizona | 18-21 maggio 2015 | n/d |
 | [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Andrew Liu | Seattle, WA | 14 maggio 2015 | n/d |
 | [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [Video: SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) (Ultime novità di DocumentDB) [Video: DocumentDB and Azure HDInsight: Better Together](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) (Vantaggi dell'uso combinato di DocumentDB e Azure HDInsight) |
-| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1 maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
+| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1° maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Spagna](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | Madrid, Spagna | 25 aprile 2015 | [#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | Copenhagen, Danimarca | 16 aprile 2015 | N/D |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Jamie Rance | Charlotte, NC | 8 aprile 2015 | n/d |
@@ -229,7 +231,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 ## Contattare il team
 
-![Team](./media/documentdb-community/documentdb-team.png)
+![Team](./media/documentdb-community/documentdb-team.png)  
 
 È necessaria l'assistenza tecnica? Altre domande? NoSQL è una buona scelta per le proprie esigenze? È possibile [pianificare una chat 1:1 direttamente con il team di progettazione di DocumentDB](http://www.askdocdb.com/). È anche possibile inviare un messaggio di [posta elettronica](mailto:askdocdb@microsoft.com) o un tweet a [@DocumentDB](https://twitter.com/DocumentDB).
 
@@ -269,4 +271,4 @@ Procedura guidata | Immagine
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

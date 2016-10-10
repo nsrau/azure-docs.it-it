@@ -6,7 +6,7 @@
    authors="viv-liu"
    manager="femila"
    editor=""
-   tags=""/>
+   tags=""/>  
 
 <tags
    ms.service="active-directory"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="08/11/2016"
-   ms.author="femila"/>
+   ms.date="09/27/2016"
+   ms.author="femila"/>  
 
 # Anteprima di Collaborazione B2B di Azure AD: integrazione cloud dei partner semplice e sicura
 
@@ -42,4 +42,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

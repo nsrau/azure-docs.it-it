@@ -6,7 +6,7 @@
 	services="stream-analytics"
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,24 +14,24 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
-	ms.author="jeffstok"/>
+	ms.date="09/26/2016" 
+	ms.author="jeffstok"/>  
 
 # Come configurare gli output dei dati per i processi di Analisi di flusso
 
-I processi di Analisi di flusso di Azure possono essere connessi a uno o più output dei dati, che definisce una connessione a un sink di dati esistente. Poiché il processo di Analisi di flusso elabora e trasforma i dati in entrata, un flusso di eventi di output dei dati viene scritto nell'output del processo.
+I processi di Analisi di flusso di Azure possono essere connessi a uno o più output dei dati, che definisce una connessione a un sink di dati esistente. Dato che il processo di Analisi di flusso elabora e trasforma i dati in entrata, un flusso di eventi di output dei dati viene scritto nell'output del processo.
 
-È possibile usare gli output dei dati di Analisi di flusso per creare dashboard o avvisi in tempo reale, attivare i flussi di lavoro degli spostamenti dei dati o semplicemente archiviare i dati per l'elaborazione batch in un secondo momento. L’analisi di flusso dispone dell’integrazione di prima classe con diversi servizi di Azure, che sono documentati in dettaglio di seguito.
+È possibile usare gli output dei dati di Analisi di flusso per creare dashboard o avvisi in tempo reale, attivare i flussi di lavoro degli spostamenti dei dati o semplicemente archiviare i dati per una successiva elaborazione batch. L’analisi di flusso dispone dell’integrazione di prima classe con diversi servizi di Azure, che sono documentati in dettaglio di seguito.
 
 Per aggiungere un output al processo di analisi di flusso:
 
 1. Nel portale di Azure classico fare clic su **Output** e poi scegliere **Aggiungi output** nel processo di analisi di flusso.
 
-    ![Aggiungere output](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
+    ![Aggiungere output](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)  
 
     Nel portale di Azure fare clic sul riquadro **Output** nel processo di analisi di flusso.
 
-    ![Aggiungere output dal portale di Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
+    ![Aggiungere output dal portale di Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)  
 
 2. Specificare il tipo di output:
 
@@ -66,4 +66,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

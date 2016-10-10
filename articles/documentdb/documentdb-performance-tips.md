@@ -6,7 +6,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
-	documentationCenter=""/> 
+	documentationCenter=""/>  
 
 <tags 
 	ms.service="documentdb" 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="mimig"/> 
+	ms.date="09/27/2016" 
+	ms.author="mimig"/>  
 
 # Suggerimenti sulle prestazioni per DocumentDB
 
@@ -46,7 +46,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     - TCP
     - HTTPS
 
-    DocumentDB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
+    DocumentDB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Sia il protocollo TCP diretto che il protocollo HTTPS usano SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.
 
     La modalità di connessione viene configurata durante la creazione dell'istanza di DocumentClient con il parametro ConnectionPolicy. Se si usa la modalità diretta, è possibile configurare il protocollo entro il parametro ConnectionPolicy.
 
@@ -93,7 +93,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 4. **Ottimizzazione delle query parallele per le raccolte partizionate**
 
-    DocumentDB .NET SDK 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query in una raccolta partizionata in parallelo. Per altre informazioni, vedere Uso degli SDK e gli esempi di codice correlati. Le query parallele sono progettate per migliorare la velocità effettiva e la latenza delle query. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
+     DocumentDB .NET SDK 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query in una raccolta partizionata in parallelo (vedere [Uso degli SDK](documentdb-partition-data.md#working-with-the-sdks) e i relativi [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) per maggiori dettagli). Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
     
     (a) ***Ottimizzazione di MaxDegreeOfParallelism:*** la query parallela funziona eseguendo query su più partizioni in parallelo. I dati di una singola raccolta partizionata vengono recuperati in modo seriale per quanto riguarda la query. L'impostazione di MaxDegreeOfParallelism sul numero di partizioni offre quindi la massima probabilità di ottenere la query più efficiente, se tutte le altre condizioni del sistema rimangono invariate. Se non si conosce il numero di partizioni, è possibile impostare il valore di MaxDegreeOfParallelism su un numero elevato; il sistema sceglierà il numero minimo (numero di partizioni, input specificato dall'utente) come valore di MaxDegreeOfParallelism.
     
@@ -211,4 +211,4 @@ Per un'applicazione di esempio usata per valutare DocumentDB per scenari a prest
 
 Per altre informazioni sulla progettazione dell'applicazione per scalabilità e prestazioni elevate, vedere [Partizionamento e scalabilità in Azure DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

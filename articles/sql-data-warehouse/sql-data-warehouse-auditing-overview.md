@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="ronortloff"
    manager="barbkess"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,23 +13,16 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="09/24/2016" 
+   ms.author="rortloff;barbkess;sonyama"/>  
 
 # Servizio di controllo di Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md)
+- [Controllo](sql-data-warehouse-auditing-overview.md)
 - [Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md)
-- [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
-- [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Servizio di controllo di Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md)
-- [SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica](sql-data-warehouse-auditing-downlevel-clients.md)
 
-
-Il servizio di controllo di Azure SQL Data Warehouse tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di Archiviazione di Azure.
-
-Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
+La funzionalità di controllo di SQL Data Warehouse consente di registrare gli eventi nel database in un log di controllo nell'account di archiviazione di Azure. Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. La funzionalità di controllo di SQL Data Warehouse si integra inoltre con Microsoft Power BI per l'esecuzione di analisi e report drill-down.
 
 Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di conformità, ma non garantiscono la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro protezione Azure</a>.
 
@@ -135,7 +128,7 @@ Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per config
 Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command *AzureSql*` per visualizzare l'elenco dei cmdlet disponibili.
 
 
-<!--Anchors-->
+<!--Anchors-->  
 [Nozioni di base sul controllo del database]: #subheading-1
 [Configurare il controllo per il database]: #subheading-2
 [Analizzare i log di controllo e i report]: #subheading-3
@@ -149,6 +142,6 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
+<!--Link references-->  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

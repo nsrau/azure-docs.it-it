@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72"
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/29/2016"
-	ms.author="jeffstok"/>
+	ms.date="09/26/2016"
+	ms.author="jeffstok"/>  
 
 # Output di Analisi di flusso: opzioni per archiviazione, analisi
 
@@ -31,11 +31,11 @@ Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft
 
 Quando Archivio Data Lake è selezionato come output nel portale di gestione di Azure, viene richiesto di autorizzare una connessione a un Archivio Data Lake esistente.
 
-![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
+![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 Compilare quindi le proprietà per l'output di Archivio Data Lake come illustrato di seguito:
 
-![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
+![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione necessari per la creazione di un output di Archivio Data Lake.
 
@@ -88,7 +88,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 
 Se la password dell'account di Archivio Data Lake è stata modificata dopo la creazione o l'ultima autenticazione del processo, sarà necessario autenticare nuovamente l'account.
 
-![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 
 ## Database SQL
@@ -192,11 +192,11 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 
 1.	Quando Power BI è selezionato come output nel portale di gestione di Azure, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.
 
-    ![Autorizzare l'utente di Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
+    ![Autorizzare l'utente di Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2.	Creare un nuovo account se non è ancora presente, quindi scegliere Autorizza ora. Viene presentata una schermata simile a quella seguente:
 
-    ![Power BI account Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)
+    ![Power BI account Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3.	In questo passaggio immettere l'account aziendale o dell'istituto di istruzione per autorizzare l'output di Power BI. Se non si è già iscritti a Power BI, scegliere Iscriviti ora. L'account aziendale o dell'istituto di istruzione usato per Power BI potrebbe differire dall'account della sottoscrizione di Azure con cui si è attualmente connessi.
 
@@ -219,11 +219,11 @@ Per una procedura dettagliata di configurazione di un output di Power BI e del d
 
 Se la password dell'account Power BI è stata modificata dopo la creazione o l'ultima autenticazione del processo, sarà necessario autenticare nuovamente l'account. Se Multi-Factor Authentication (MFA) è configurata nel tenant Azure Active Directory (AAD), sarà necessario rinnovare anche l'autorizzazione Power BI ogni due settimane. Un sintomo di questo problema è che non ci sono output del processo e un "Errore nell’autenticazione dell’utente" nei log delle operazioni:
 
-  ![Errore token di aggiornamento di Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
+  ![Errore token di aggiornamento di Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Power BI. Fare clic sul collegamento "Rinnovare autorizzazione" e riavviare il processo dall'ultima volta che è stato arrestato per evitare la perdita di dati.
 
-  ![Rinnovo di autorizzazione di Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
+  ![Rinnovo di autorizzazione di Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## Archiviazione tabelle
 
@@ -327,7 +327,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Link references-->
+<!--Link references-->  
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
@@ -335,4 +335,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

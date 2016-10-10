@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="adamglick"
    manager="saladki"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="resiliency"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/18/2016"
-   ms.author="aglick"/>
+   ms.author="aglick"/>  
 
 #Informazioni tecniche sulla resilienza di Azure - Ripristino da errori locali in Azure
 
@@ -160,7 +160,7 @@ Le applicazioni basate su Azure usufruiscono delle funzionalità della piattafor
 
 ###Bus di servizio
 
-Per attenuare gli effetti di un'interruzione temporanea del bus di servizio di Azure, può essere opportuno creare una coda durevole sul lato client. In questo modo viene usato temporaneamente un meccanismo di archiviazione locale alternativo per archiviare i messaggi che non possono essere aggiunti alla coda del bus di servizio. L'applicazione può decidere come gestire i messaggi archiviati temporaneamente dopo che è stato ripristinato il servizio. Per altre informazioni, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](../service-bus/service-bus-performance-improvements.md) e la sezione sul [bus di servizio (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
+Per attenuare gli effetti di un'interruzione temporanea del bus di servizio di Azure, può essere opportuno creare una coda durevole sul lato client. In questo modo viene usato temporaneamente un meccanismo di archiviazione locale alternativo per archiviare i messaggi che non possono essere aggiunti alla coda del bus di servizio. L'applicazione può decidere come gestire i messaggi archiviati temporaneamente dopo che è stato ripristinato il servizio. Per altre informazioni, vedere [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](../service-bus-messaging/service-bus-performance-improvements.md) e la sezione sul [bus di servizio (in relazione al ripristino di emergenza)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Servizi mobili
 
@@ -223,4 +223,4 @@ I dati associati ad AzureHDInsight vengono archiviati per impostazione predefini
 
 Questo articolo fa parte della serie [Materiale sussidiario sulla resilienza di Azure](./resiliency-technical-guidance.md). L'articolo successivo della serie è [Ripristino dopo un'interruzione di servizio di un'area](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

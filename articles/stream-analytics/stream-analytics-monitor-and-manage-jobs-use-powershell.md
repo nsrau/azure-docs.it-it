@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/> 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,8 +14,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
-	ms.author="jeffstok"/> 
+	ms.date="09/26/2016" 
+	ms.author="jeffstok"/>  
 
 
 # Monitorare e gestire i processi di Analisi di flusso con i cmdlet di Azure PowerShell
@@ -472,4 +472,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

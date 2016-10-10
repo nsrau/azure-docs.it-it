@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
-   ms.author="v-jeana; hascipio"/>
+   ms.date="02/05/2016"
+   ms.author="v-jeana; hascipio"/>  
 
 # Descrizione del report sulle informazioni dettagliate del venditore
 
@@ -92,9 +92,11 @@ Passare a https://publish.windowsazure.com/ e accedere con le credenziali dell'a
 Selezionare la scheda **Editori**. ![selectpublisherstab][8]
 
 
-Trovare l'ID dell'editore nell'URL e usarlo come password per aprire il file di Excel delle informazioni dettagliate del venditore. Questa è la password che verrà usata fino a ulteriore comunicazione. Si consiglia di usare Microsoft Office 2013 con Windows per aprire la cartella di lavoro. Sono stati segnalati problemi relativi all'uso di Microsoft Office per Mac.
+Trovare l'ID editore nell'URL:
+- Usare questo ID come password per aprire il file di Excel delle informazioni dettagliate del venditore. Questa password sarà valida fino a nuova comunicazione.
+- È consigliabile usare Microsoft Office 2013 con Windows per aprire la cartella di lavoro. Sono stati segnalati problemi relativi all'uso di Microsoft Office per Mac.
 
-![publisherid][9]
+![publisherid][9]  
 
 
 ## Passaggi successivi  
@@ -118,4 +120,4 @@ In caso di domande relative ai report e alle informazioni dettagliate, contattar
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

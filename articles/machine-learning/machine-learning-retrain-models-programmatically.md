@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="raymondlaghaeian"
-	manager="jhubbard"
-	editor="cgronlun"/>
+	manager="paulettm"
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="machine-learning"
@@ -13,35 +13,41 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="raymondl;garye;v-donglo"/>
+	ms.date="09/28/2016"
+	ms.author="raymondl;garye;v-donglo"/>  
 
 
 #Ripetere il training dei modelli di Machine Learning a livello di codice  
 
-Come parte del processo di messa in funzione dei modelli di apprendimento automatico in Azure Machine Learning, è necessario sottoporre a training e salvare il modello. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web può quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
+Come parte del processo di messa in funzione dei modelli di apprendimento automatico in Azure Machine Learning, è necessario sottoporre a training e salvare il modello. Lo si userà quindi per creare un servizio Web predicativo. Il servizio Web potrà quindi essere utilizzato in siti Web, dashboard e app per dispositivi mobili.
 
 I modelli creati con Machine Learning in genere non sono statici. Quando sono disponibili nuovi dati o quando il consumer dell'API ha i propri dati, è necessario ripetere il training del modello. Oppure potrebbe essere necessario applicare filtri per ottenere un subset dei dati e ripetere il training del modello.
 
-La ripetizione del training può avvenire di frequente. Con la funzionalità delle API ripetizione del training a livello di codice, è possibile ripetere il training a livello di codice del modello usando le API di ripetizione del training e aggiornare il servizio Web con un modello di cui è stato appena eseguito il training.
+La ripetizione del training può avvenire di frequente. Con la funzionalità delle API di ripetizione del training a livello di codice, è possibile ripetere il training del modello a livello di codice usando le API di ripetizione del training e aggiornare il servizio Web con un modello di cui è stato appena eseguito il training.
 
 Questo documento descrive il processo di ripetizione del training e illustra come usare le API per la ripetizione del training.
 
 ## Motivi per cui ripetere il training: definizione del problema  
 
-Durante il processo di training di ML, viene eseguito il training di un modello usando un set di dati. I modelli creati con Machine Learning in genere non sono statici. Quando sono disponibili nuovi dati o quando il consumer dell'API ha i propri dati, è necessario ripetere il training del modello. In altri scenari potrebbe essere necessario applicare filtri per ottenere un subset dei dati e ripetere il training del modello.
+Durante il processo di training di Machine Learning viene eseguito il training di un modello usando un set di dati. I modelli creati con Machine Learning in genere non sono statici. Quando sono disponibili nuovi dati o quando il consumer dell'API ha i propri dati, è necessario ripetere il training del modello. In altri scenari potrebbe essere necessario applicare filtri per ottenere un subset dei dati e ripetere il training del modello.
 
 In questi scenari un'API a livello di codice offre un modo pratico per consentire all'utente dell'API di creare un client in grado di ripetere il training del modello una tantum o periodicamente usando i propri dati. Sarà quindi possibile valutare i risultati della ripetizione del training e aggiornare l'API del servizio Web per l'uso del modello appena sottoposto a training.
 
 ##Come ripetere il training: il processo end-to-end  
 
-Per il processo sono innanzitutto necessari i componenti seguenti: un esperimento di training e un esperimento predittivo pubblicato come servizio Web. Per abilitare la ripetizione del training di un modello con training, l'esperimento di training deve essere pubblicato come servizio Web con l'output di un modello con training. In questo modo viene abilitato l'accesso dell'API al modello per la ripetizione del training.
+Per iniziare, il processo include i componenti seguenti: un esperimento di training e un esperimento predittivo pubblicato come servizio Web. Per abilitare la ripetizione del training di un modello con training, l'esperimento di training deve essere pubblicato come servizio Web con l'output di un modello con training. In questo modo viene abilitato l'accesso dell'API al modello per la ripetizione del training.
 
-Il processo per la configurazione della ripetizione del training prevede i passaggi seguenti:
+Il processo per la configurazione della ripetizione del training per un servizio Web classico prevede i passaggi seguenti:
 
-![Panoramica del processo di ripetizione del training][1]
+![Panoramica del processo di ripetizione del training][1]  
 
-Diagramma 1: panoramica del processo di ripetizione del training
+Diagramma 1: panoramica del processo di ripetizione del training per un servizio Web classico
+
+Il processo per la configurazione della ripetizione del training per un nuovo servizio Web prevede i passaggi seguenti:
+
+![Panoramica del processo di ripetizione del training][7]  
+
+Diagramma 2: panoramica del processo di ripetizione del training per un nuovo servizio Web
 
 ## Creare un esperimento di training
  
@@ -57,7 +63,7 @@ Per creare l'esperimento:
 6.	Fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
 7.	Fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Retraining Web Service** (Servizio Web di ripetizione del training).
 
- 	![Esperimento iniziale.][2]
+ 	![Esperimento iniziale.][2]  
 
 Diagramma 2: esperimento iniziale.
 
@@ -65,75 +71,103 @@ Diagramma 2: esperimento iniziale.
 
 Ora viene creato un esperimento predicativo.
 
-1.	Nella parte inferiore dell'area di disegno dell'esperimento, fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Predictive Web Service** (Servizio Web predittivo). In questo modo verrà salvato il modello come modello con training e verranno aggiunti i moduli di input e output del servizio Web.
+1.	Nella parte inferiore dell'area di disegno dell'esperimento, fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Predictive Web Service** (Servizio Web predittivo). In questo modo, il modello verrà salvato come modello con training e verranno aggiunti i moduli di input e output del servizio Web.
 2.	Fare clic su **Run**.
-3.	Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]). L'esperimento predittivo viene distribuito come servizio Web classico.
+3.	Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o su **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]).
 
 ## Distribuire l'esperimento di training come servizio Web di training
 
-Per ripetere il training del modello con training, è necessario distribuire l'esperimento di training creato come servizio Web di ripetizione del training. Per produrre nuovi modelli con training, questo servizio Web dovrà disporre di un modulo di output del servizio Web connesso al modulo [modello di training][train-model].
+Per ripetere il training del modello con training, è necessario distribuire l'esperimento di training creato come servizio Web di ripetizione del training. Per produrre nuovi modelli con training, questo servizio Web necessita di un modulo *Web service output* connesso al modulo *[Train Model][train-model]*.
 
 1. Per tornare all'esperimento di training, fare clic sull'icona Experiments (Esperimenti) nel riquadro sinistro e quindi sull'esperimento denominato Census Model.
-2. Nella casella di ricerca Search Experiment Items (Cerca elementi esperimento) digitare Web Service.
-3. Trascinare un modulo Web Service Input sull'area di disegno dell'esperimento e connetterne l'output al modulo Clean Missing Data.
-4. Trascinare due moduli *Web Service Output* sull'area di disegno dell'esperimento. Connettere l'output del modulo *Train Model* a uno e l'output del modulo *Evaluate Model* all'altro. Con l'output del servizio Web per il modello di training è possibile ottenere il nuovo modello con training. L'output associato al modello di valutazione restituisce l'output del modello di valutazione del modulo.
+2. Nella casella di ricerca Search Experiment Items (Cerca elementi esperimento) digitare Web service.
+3. Trascinare un modulo *Web Service Input* nell'area di disegno dell'esperimento e connetterne l'output al modulo *Clean Missing Data* (Pulisci dati mancanti).
+4. Trascinare due moduli *Web service Output* nell'area di disegno dell'esperimento. Connettere l'output del modulo *Train Model* a uno e l'output del modulo *Evaluate Model* all'altro. Con l'output del servizio Web per **Train Model** è possibile ottenere il nuovo modello con training. L'output associato al modulo **Evaluate Model** restituisce l'output del modulo.
 5. Fare clic su **Run**.
-6. Nella parte inferiore dell'area di disegno dell'esperimento, fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Predictive Web Service** (Servizio Web di ripetizione del training). L'esperimento di training viene distribuito come un servizio Web che produce un modello con training e risultati di valutazione del modello. Viene visualizzato il **Dashboard** del servizio Web con la chiave API e la pagina della guida dell'API per l'esecuzione batch. È possibile usare solo il metodo di esecuzione batch per la creazione di modelli di training.
-  
-Al termine dell'esecuzione dell'esperimento, il flusso di lavoro risultante dovrebbe avere un aspetto simile al seguente:
 
-![Flusso di lavoro risultante dopo l'esecuzione.][4]
+Sarà quindi necessario distribuire l'esperimento di training come un servizio Web che produce un modello con training e risultati di valutazione del modello. A tale scopo, il set di azioni successivo dipende dall'uso di un servizio Web classico o di un nuovo servizio Web.
+  
+**Servizio Web classico**
+
+Nella parte inferiore dell'area di disegno dell'esperimento, fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]). Viene visualizzato il **Dashboard** del servizio Web con la chiave API e la pagina della guida dell'API per l'esecuzione batch. È possibile usare solo il metodo di esecuzione batch per la creazione di modelli di training.
+
+**Nuovo servizio Web**
+
+Nella parte inferiore dell'area di disegno dell'esperimento, fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]). Il portale di Microsoft Azure Machine Learning Web Services (Servizi Web Microsoft Azure Machine Learning) visualizzerà la pagina Deploy Web service (Distribuisci servizio Web). Digitare un nome per il servizio Web e scegliere un piano di pagamento, quindi fare clic su **Deploy** (Distribuisci). È possibile usare solo il metodo di esecuzione batch per la creazione di modelli di training
+
+Al termine dell'esecuzione dell'esperimento, il flusso di lavoro sarà in ogni caso simile al seguente:
+
+![Flusso di lavoro risultante dopo l'esecuzione.][4]  
 
 Diagramma 3: flusso di lavoro risultante dopo l'esecuzione.
-
-## Aggiungere un nuovo endpoint
- 
-Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito.
-
-Per creare un nuovo endpoint dei punteggi, nel servizio Web predittivo che può essere aggiornato con il modello con training:
-
->[AZURE.NOTE] Assicurarsi di aggiungere l'endpoint al servizio Web predittivo, non al servizio Web di training. Se sono stati distribuiti correttamente sia un servizio Web di training che uno predittivo, verranno visualizzati due servizi Web elencati separatamente. Il servizio Web predittivo deve terminare con "[predictive exp.]".
-
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Nel menu a sinistra fare clic su **Machine Learning**.
-3. In Nome fare clic sull'area di lavoro e quindi su **Servizi Web**.
-4. In Nome fare clic su **Census Model [predictive exp.]**.
-5. Nella parte inferiore della pagina fare clic su **Aggiungi endpoint**. Per altre informazioni sull'aggiunta di endpoint, vedere [Creazione di endpoint](machine-learning-create-endpoint.md).
-
-È anche possibile aggiungere gli endpoint di assegnazione dei punteggi usando il codice di esempio disponibile in questo [repository GitHub](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
 ## Ripetere il training del modello con i nuovi dati usando BES
 
 Per chiamare le API per la ripetizione del training:
 
 1. Creare un'applicazione console C# in Visual Studio. A tale scopo, selezionare Nuovo->Progetto->Windows Desktop->Applicazione console.
-2. Copiare il codice C# di esempio dalla pagina della guida dell'API del servizio Web di training per l'esecuzione batch e incollarlo nel file Program.cs, verificando che lo spazio dei nomi rimanga invariato.
-3. Il codice di esempio contiene commenti che indicano le parti del codice che è necessario aggiornare.
-4. Quando si specifica il percorso di output nel payload della richiesta, l'estensione del file specificata in *RelativeLocation* deve passare da CSV a ILEARNER. Vedere l'esempio seguente.
+2.	Accedere al portale dei servizi Web di Machine Learning.
+3.	Se si usa un servizio Web classico, fare clic su **Classic Web Services** (Servizi Web classici).
+	1.	Fare clic sul servizio Web usato.
+	2.	Fare clic sull'endpoint predefinito.
+	3.	Fare clic su **Consume** (Uso).
+	4.	Nella parte inferiore della pagina **Consume** (Utilizzo), nella sezione **Sample Code** (Codice di esempio), fare clic su **Batch**.
+	5.	Procedere al passaggio 5 di questa procedura.
+4.	Se si usa un nuovo servizio Web, fare clic su **Web Services** (Servizi Web).
+	1.	Fare clic sul servizio Web usato.
+	2.	Fare clic su **Consume** (Uso).
+	3.	Nella parte inferiore della pagina Consume (Utilizzo), nella sezione **Sample Code** (Codice di esempio), fare clic su **Batch**.
+5.	Copiare il codice C# di esempio per l'esecuzione batch e incollarlo nel file Program.cs, verificando che lo spazio dei nomi rimanga invariato.
 
-		Outputs = new Dictionary<string, AzureBlobDataReference>()
-		{
-			{
-				"output1",
-				new AzureBlobDataReference()
-				{
-					ConnectionString = "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==",
-					RelativeLocation = "mycontainer/output1results.ilearner"
-				}
-			},
-		},
+Aggiungere il pacchetto NuGet Microsoft.AspNet.WebApi.Client come specificato nei commenti. Per aggiungere il riferimento a Microsoft.WindowsAzure.Storage.dll, potrebbe essere prima necessario installare la libreria client per i servizi di archiviazione di Microsoft Azure. Per altre informazioni, vedere i [servizi di archiviazione Windows](https://www.nuget.org/packages/WindowsAzure.Storage).
 
->[AZURE.NOTE] I nomi dei percorsi di output possono essere diversi da quelli di questa procedura dettagliata a seconda dell'ordine in cui sono stati aggiunti i moduli di output del servizio Web. Dato che questo esperimento di training è stato configurato con due output, i risultati includono le informazioni sul percorso di archiviazione per entrambi.
+### Aggiornare la dichiarazione apikey
+
+Individuare la dichiarazione **apikey**.
+
+	const string apiKey = "abc123"; // Replace this with the API key for the web service
+
+Nella sezione **Basic consumption info** (Informazioni di base sul consumo) della pagina **Consume** (Utilizzo) individuare la chiave primaria e copiarla nella dichiarazione **apikey**.
 
 ### Aggiornare le informazioni di archiviazione di Azure
 
 Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\\temp\\CensusIpnput.csv") in Archiviazione di Azure, lo elabora e scrive i risultati in Archiviazione di Azure.
 
-Per eseguire questa attività, è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni relative al contenitore dal portale di Azure classico e quindi aggiornare i valori corrispondenti nel codice.
+Per eseguire questa attività è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni sul per l'account di archiviazione dal portale di Azure classico e quindi aggiornare i valori corrispondenti nel codice.
 
+1. Accedere al portale di Azure classico.
+1. Nella colonna di spostamento a sinistra fare clic su **Archiviazione**.
+1. Nell'elenco degli account di archiviazione selezionarne uno per l'archiviazione del modello per il quale è stato ripetuto il training.
+1. Nella parte inferiore della pagina fare clic su **Gestisci chiavi di accesso**.
+1. Copiare e salvare la **chiave di accesso primaria**, quindi chiudere la finestra di dialogo.
+1. Nella parte superiore della pagina fare clic su **Contenitori**.
+1. Selezionare un contenitore esistente oppure crearne uno nuovo e salvare il nome.
+
+Individuare le dichiarazioni *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* dichiarazioni e aggiornare i valori salvati dal portale di Azure.
+
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
+    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage Key
+    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage Container name
+            
 È necessario anche assicurarsi che il file di input sia disponibile nella posizione specificata nel codice.
 
-![Output della ripetizione del training.][6]
+### Specificare il percorso di output
+
+Quando si specifica il percorso di output nel payload della richiesta, l'estensione del file specificata in *RelativeLocation* deve essere indicata come ilearner. Vedere l'esempio seguente.
+
+    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+        {
+            "output1",
+            new AzureBlobDataReference()
+            {
+                ConnectionString = storageConnectionString,
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you would like to use for your output file, and valid file extension (usually .csv for scoring results, or .ilearner for trained models)*/
+            }
+        },
+
+>[AZURE.NOTE] I nomi dei percorsi di output possono essere diversi da quelli di questa procedura dettagliata a seconda dell'ordine in cui sono stati aggiunti i moduli di output del servizio Web. Dato che questo esperimento di training è stato configurato con due output, i risultati includono le informazioni sul percorso di archiviazione per entrambi.
+
+![Output della ripetizione del training.][6]  
 
 Diagramma 4: output della ripetizione del training.
 
@@ -145,87 +179,16 @@ Quando si esegue l'applicazione, l'output include l'URL e il token di firma di a
 
 Esaminare i risultati per determinare se le prestazioni del modello appena sottoposto a training sono abbastanza elevate da sostituire quello esistente.
 
-## Aggiornare il modello con training dell'endpoint aggiunto
-
-Per completare il processo di ripetizione del training, è necessario aggiornare il modello con training del nuovo endpoint aggiunto.
-
-* Se il nuovo endpoint è stato aggiunto usando il portale di Azure, è possibile fare clic sul nome del nuovo endpoint nel portale di Azure, quindi sul collegamento **UpdateResource** per ottenere l'URL necessario per aggiornare il modello dell'endpoint.
-* Se l'endpoint è stato aggiunto usando il codice di esempio, è inclusa la posizione dell'URL della guida identificato dal valore *HelpLocationURL* nell'output.
-
-Per recuperare l'URL del percorso:
-
-1. Copiare e incollare l'URL nel browser.
-2. Fare clic sul collegamento Aggiorna risorsa.
-3. Copiare l'URL POST della richiesta PATCH. ad esempio:
-
-		PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
-
-Ora è possibile usare il modello con training per aggiornare l'endpoint dei punteggi creato prima.
-
-Il codice di esempio seguente illustra come usare *BaseLocation*, *RelativeLocation*, *SasBlobToken* e L'URL PATCH per aggiornare l'endpoint.
-
-	private async Task OverwriteModel()
-	{
-		var resourceLocations = new
-		{
-			Resources = new[]
-			{
-				new
-				{
-					Name = "Census Model [trained model]",
-					Location = new AzureBlobDataReference()
-					{
-						BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-						RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-						SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
-					}
-				}
-			}
-		};
-
-		using (var client = new HttpClient())
-		{
-			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-
-			using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), endpointUrl))
-			{
-				request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations), System.Text.Encoding.UTF8, "application/json");
-				HttpResponseMessage response = await client.SendAsync(request);
-
-				if (!response.IsSuccessStatusCode)
-				{
-					await WriteFailedResponse(response);
-				}
-
-				// Do what you want with a successful response here.
-			}
-		}
-	}
-
-I valori *apiKey* ed *endpointUrl* per la chiamata possono essere ottenuti dal dashboard dell'endpoint.
-
-Il valore del parametro *Name* in *Resources* deve corrispondere al nome risorsa del modello sottoposto a training e salvato nell'esperimento predittivo. Per ottenere il nome della risorsa:
-
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Nel menu a sinistra fare clic su **Machine Learning**.
-3. In Nome fare clic sull'area di lavoro e quindi su **Servizi Web**.
-4. In Nome fare clic su **Census Model [predictive exp.]**.
-5. Fare clic sul nuovo endpoint aggiunto.
-6. Nel dashboard dell'endpoint fare clic su *Aggiorna risorsa*.
-7. Nella pagina di aggiornamento della documentazione dell'API di risorsa del servizio Web è possibile trovare **Nome risorsa** in **Updatable Resources** (Risorse aggiornabili).
-
-Se il token di firma di accesso condiviso scade prima di avere terminato l'aggiornamento dell'endpoint, è necessario eseguire un'operazione GET con l'ID processo per ottenere un nuovo token.
-
-Al termine dell'esecuzione del codice, il nuovo endpoint verrà avviato con il modello di cui è stato ripetuto il training in circa 30 secondi.
-
-##Riepilogo  
-Usando le API per la ripetizione del training, è possibile aggiornare il modello con training di un servizio Web predittivo abilitando scenari come:
-
-* Ripetizione periodica del training del modello con nuovi dati.
-* Distribuzione di un modello ai clienti per fare in modo che possano ripetere il training del modello con i propri dati.
+Copiare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di output. Verranno usati durante il processo di ripetizione del training.
 
 ## Passaggi successivi
-[Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning](machine-learning-troubleshooting-retraining-models.md)
+
+[Ripetere il training di un servizio Web classico](machine-learning-retrain-a-classic-web-service.md)
+
+[Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione per Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md)
+
+<!-- Retrain a New Web service using the Machine Learning Management REST API -->  
+
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
 [2]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE02.png
@@ -233,9 +196,10 @@ Usando le API per la ripetizione del training, è possibile aggiornare il modell
 [4]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE04.png
 [5]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE05.png
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
+[7]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
 
 
-<!-- Module References -->
+<!-- Module References -->  
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

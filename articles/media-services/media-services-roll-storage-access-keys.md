@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione" 
+	pageTitle="Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione | Microsoft Azure" 
 	description="Questo articolo fornisce informazioni sulle modalità per aggiornare Servizi multimediali dopo aver eseguito il rollover delle chiavi di accesso alle risorse di archiviazione." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako"
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="milangada;cenkdin;juliako"/>
+	ms.date="09/26/2016" 
+	ms.author="milangada;cenkdin;juliako"/>  
 
-#Procedura: Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
+#Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
 
 Quando si crea un nuovo account di Servizi multimediali di Azure, viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile [aggiungere più di un account di archiviazione](meda-services-managing-multiple-storage-accounts.md) all'account di Servizi multimediali.
 
 Quando viene creato un nuovo account di archiviazione, Azure genera due chiavi di accesso a 512 bit alle risorse di archiviazione, che consentono di autenticare l'accesso all'account di archiviazione. Per mantenere le connessioni di archiviazione più sicure, si consiglia di rigenerare e far ruotare periodicamente la chiave di accesso alle risorse di archiviazione. Per non perdere mai la connessione all'account di archiviazione, vengono fornite due chiavi di accesso (primaria e secondaria), in modo da poter usare la prima mentre si rigenera la seconda. Questa procedura viene anche denominata "rollover delle chiavi di accesso".
 
-Servizi multimediali dipende da una chiave di archiviazione fornita. In particolare, i localizzatori che sono usati per trasmettere in streaming o scaricare gli asset dipendono dalla chiave di accesso alle risorse di archiviazione specificata. Quando viene creato un account AMS, esso assume una dipendenza dalla chiave di accesso alle risorse di archiviazione primaria per impostazione predefinita, ma l’utente può aggiornare la chiave di archiviazione di Servizi multimediali di Azure. È necessario assicurarsi di comunicare a Servizi multimediali la chiave da utilizzare, seguendo i passaggi descritti in questo argomento. Quando si esegue il rollover delle chiavi di accesso alle risorse di archiviazione, inoltre, è necessario assicurarsi di aggiornare i localizzatori, in modo da evitare qualsiasi interruzione nel servizio di streaming (il passaggio viene descritto in questo argomento).
+Servizi multimediali dipende da una chiave di archiviazione fornita. In particolare, i localizzatori che sono usati per trasmettere in streaming o scaricare gli asset dipendono dalla chiave di accesso alle risorse di archiviazione specificata. Quando viene creato un account AMS, esso assume una dipendenza dalla chiave di accesso alle risorse di archiviazione primaria per impostazione predefinita, ma l’utente può aggiornare la chiave di archiviazione di Servizi multimediali di Azure. È necessario comunicare a Servizi multimediali la chiave da usare, seguendo i passaggi descritti in questo argomento. Quando si esegue il rollover delle chiavi di accesso alle risorse di archiviazione, è anche necessario aggiornare i localizzatori, in modo da evitare qualsiasi interruzione nel servizio di streaming. Il passaggio viene descritto in questo argomento.
 
 >[AZURE.NOTE]Se si dispone di più account di archiviazione, è necessario eseguire questa procedura per ogni account di archiviazione.
 >
@@ -145,7 +145,7 @@ Dopo 30 minuti è possibile ricreare i localizzatori su richiesta in modo che ac
 Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -159,4 +159,4 @@ Utilizzare la stessa procedura, come descritto nel [passaggio 3](media-services-
 
 Siamo lieti di conferire un riconoscimento alle seguenti persone che hanno contribuito alla realizzazione di questo documento: Cenk Dingiloglu, Gada Milano, Seva Titov.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

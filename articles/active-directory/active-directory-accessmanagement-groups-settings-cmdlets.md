@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
-	ms.author="curtand"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>  
 
 
 # Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
@@ -143,4 +143,4 @@ Ulteriori istruzioni del responsabile del programma Microsoft Rob de Jong sono d
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

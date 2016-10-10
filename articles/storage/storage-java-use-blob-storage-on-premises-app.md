@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>  
 
 <tags
 	ms.service="storage"
@@ -14,11 +14,11 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="rmcmurray"/>
+	ms.author="jwillis;rmcmurray"/>  
 
 # Applicazione locale con archiviazione BLOB
 
-## Panoramica
+## Overview
 
 Nell'esempio seguente viene illustrato come utilizzare Azure per archiviare immagini in Azure. Il codice in questo articolo è per un'applicazione console che carica un'immagine in Azure e quindi crea un file HTML che visualizza l'immagine nel browser.
 
@@ -69,7 +69,7 @@ Dichiarare le variabili del tipo seguente (le descrizioni sono relative all'util
 -   **CloudBlobContainer**: usata per creare un contenitore BLOB, elencare i BLOB nel contenitore ed eliminare il contenitore.
 -   **CloudBlockBlob**: usata per caricare un file di immagine locale nel contenitore.
 
-<!-- -->
+<!-- -->  
 
     CloudStorageAccount account;
     CloudBlobClient serviceClient;
@@ -359,4 +359,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

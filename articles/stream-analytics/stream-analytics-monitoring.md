@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/> 
+	editor="cgronlun"/>  
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,8 +14,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/19/2016" 
-	ms.author="jeffstok"/> 
+	ms.date="09/26/2016" 
+	ms.author="jeffstok"/>  
 
 # Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -54,13 +54,13 @@ In un grafico è possibile visualizzare fino a 6 metriche.
 
 Per passare dalla visualizzazione di valori relativi (solo il valore finale per ogni metrica) e valori assoluti (asse Y visualizzato), selezionare Relative o Absolute nella parte superiore del grafico.
 
-  ![Monitoraggio query, relativo/assoluto](./media/stream-analytics-monitoring/02-stream-analytics-monitoring.png) 
+  ![Monitoraggio query, relativo/assoluto](./media/stream-analytics-monitoring/02-stream-analytics-monitoring.png)  
 
 È possibile visualizzare le metriche nel grafico Monitoraggio in aggregazioni di 1 ora, 12 ore, 24 ore o 7 giorni.
 
 Per modificare l'intervallo di tempo visualizzato sul grafico delle metriche, selezionare 1 ora, 24 ore o 7 giorni nella parte superiore del grafico.
 
-  ![Monitoraggio query, scala cronologica](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png) 
+  ![Monitoraggio query, scala cronologica](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png)  
 
 È possibile impostare regole che possono inviare una notifica per posta elettronica nel caso in cui il processo supera una soglia definita.
 
@@ -68,7 +68,7 @@ Per modificare l'intervallo di tempo visualizzato sul grafico delle metriche, se
 
 È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [Come personalizzare il monitoraggio](../azure-portal/insights-how-to-customize-monitoring.md).
 
-  ![Portale di Azure, monitoraggio query, scala cronologica](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png) 
+  ![Portale di Azure, monitoraggio query, scala cronologica](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 ## Stato processo
 
@@ -89,11 +89,11 @@ Lo stato dei processi di Analisi di flusso può essere visualizzato nel portale 
 
 Nel portale di gestione di Azure, il dashboard di processo contiene informazioni su dove è necessario cercare la diagnosi, vale a dire gli input, gli output e/o il log delle operazioni. È possibile fare clic sul collegamento per passare alla posizione appropriata per esaminare la diagnosi.
 
-  ![Errore di monitoraggio query](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png) 
+  ![Errore di monitoraggio query](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png)  
 
 Facendo clic sulla risorsa di input o output si ottengono informazioni di diagnostica dettagliate. Queste vengono aggiornate con le ultime informazioni di diagnostica durante l'esecuzione del processo.
 
-  ![Diagnostica query](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png) 
+  ![Diagnostica query](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)  
 
 ## Ottenere aiuto
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
@@ -106,4 +106,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

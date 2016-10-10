@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+	manager="femila"
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory"
@@ -72,4 +72,4 @@
 
 - Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

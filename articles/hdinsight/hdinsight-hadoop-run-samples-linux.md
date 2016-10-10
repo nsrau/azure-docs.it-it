@@ -6,7 +6,7 @@
 	authors="Blackmist"
 	manager="jhubbard"
 	editor="cgronlun"
-    tags="azure-portal"/>
+    tags="azure-portal"/>  
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -47,7 +47,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 - **aggregatewordcount**: programma di mapping/riduzione basato su aggregazione che conta le parole nei file di input.
 - **aggregatewordhist**: programma di mapping/riduzione basato su aggregazione che calcola l'istogramma delle parole nei file di input.
 - **bbp**: programma di mapping/riduzione che usa la formula Bailey-Borwein-Plouffe per calcolare le cifre esatte del pi greco.
-- **dbcount**: processo di esempio che conta il numero di pageview da un database.
+- **dbcount**: processo di esempio che conta i log di pageview memorizzati in un database
 - **distbbp**: programma di mapping /riduzione che usa una formula di tipo BBP per calcolare i bit esatti del pi greco.
 - **grep**: programma di mapping /riduzione che conta le corrispondenze di un regex nell'input.
 - **join**: processo che interessa un join su set di dati ordinati ed equamente partizionati.
@@ -83,7 +83,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
-    Verrà generato l'elenco degli esempi presenti nella sezione precedente di questo documento.
+    Ciò consente di generare l'elenco degli esempi presenti nella sezione precedente di questo documento.
 
 3. Usare il comando seguente per ottenere informazioni della guida su un esempio specifico. In questo caso, l'esempio **wordcount**:
 
@@ -93,7 +93,7 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
         Usage: wordcount <in> [<in>...] <out>
 
-    Indica che è possibile fornire più percorsi di input per i documenti di origine e il percorso finale corrisponde alla posizione in cui sarà inserito l'output (conteggio delle parole nei documenti di origine).
+    Ciò indica che è possibile specificare alcuni percorsi di input per i documenti di origine. Il percorso finale corrisponde alla posizione in cui verrà memorizzato l'output (conteggio delle parole nei documenti di origine).
 
 4. Usare il comando seguente per contare tutte le parole nei Codici di Leonardo da Vinci, forniti come dati di esempio con il cluster:
 
@@ -109,9 +109,9 @@ I cluster HDInsight basati su Linux forniscono una serie di esempi MapReduce che
 
         hdfs dfs -cat /example/data/davinciwordcount/*
 
-    Tutti i file di output prodotti dal processo saranno concatenati e visualizzati. Per questo esempio di base viene usato un solo file, tuttavia se fossero specificati più file, il comando li scorrerebbe tutti.
+    Tutti i file di output prodotti dal processo sono concatenati e visualizzati. Per questo esempio di base viene usato un solo file, tuttavia se fossero specificati più file, il comando li scorrerebbe tutti.
 
-    L'output di questo comando sarà simile al seguente:
+    L'output è simile al seguente:
 
         zum     1
         zur     1
@@ -236,4 +236,4 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bsiva"
 	manager="abhiag"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="site-recovery"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="07/12/2016"
-	ms.author="bsiva"/>
+	ms.date="09/27/2016"
+	ms.author="bsiva"/>  
 
 # Eseguire la replica tra macchine virtuali Hyper-V locali e Azure con PowerShell e Azure Resource Manager
 
@@ -25,7 +25,7 @@
 
 
 
-## Panoramica
+## Overview
 
 Azure Site Recovery favorisce la strategia di continuità aziendale e ripristino di emergenza gestendo la replica, il failover e il ripristino delle macchine virtuali in diversi scenari di distribuzione. Per un elenco completo degli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
 
@@ -41,7 +41,7 @@ Non è necessario essere un esperto di PowerShell per usare questo articolo, ma 
 
 Altrei informazioni sono disponibili in [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-> [AZURE.NOTE] I partner Microsoft che fanno parte del programma Cloud Solution Provider (CSP) possono configurare e gestire la protezione dei server dei clienti nelle rispettive sottoscrizioni CSP dei clienti (sottoscrizioni tenant).
+> [AZURE.NOTE] I partner Microsoft che fanno parte del programma Cloud Solution Provider (CSP) possono configurare e gestire la protezione dei server dei clienti nelle rispettive sottoscrizioni CSP dei clienti, ovvero le sottoscrizioni tenant.
 
 ## Prima di iniziare
 
@@ -71,16 +71,16 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 		Login-AzureRmAccount -Tenant "fabrikam.com"
 
-2. Un account può disporre di molte sottoscrizioni, pertanto è necessario associare la sottoscrizione da utilizzare all'account.
+2. Un account può avere molte sottoscrizioni, è quindi necessario associare la sottoscrizione che si vuole usare all'account.
 
     	Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-3.  Verificare che la sottoscrizione sia registrata per usare i provider di Azure per Servizi di ripristino e Site Recovery usando i comandi seguenti:
+3.  Verificare che la sottoscrizione sia registrata per l'uso dei provider di Azure per Servizi di ripristino e Site Recovery usando i comandi seguenti:
 
 	- `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 	-  `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
-	Nell’output di questi comandi, se **RegistrationState** è impostato su **Registered**, è possibile procedere con il passaggio 2. Se non lo è, è necessario registrare il provider mancante nella sottoscrizione.
+	Nell’output di questi comandi, se **RegistrationState** è impostato su **Registered**, è possibile procedere con il passaggio 2. In caso contrario è necessario registrare il provider mancante nella sottoscrizione.
 
 	Per registrare il provider di Azure per Site Recovery e Servizi di ripristino, eseguire i comandi seguenti:
 
@@ -99,7 +99,7 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 	dove la variabile $ResourceGroupName contiene il nome del gruppo di risorse che si vuole creare e la variabile $Geo contiene l'area di Azure in cui creare il gruppo di risorse (ad esempio, Brasile meridionale).
 
-	È possibile ottenere un elenco di gruppi di risorse nella sottoscrizione usando il cmdlet `Get-AzureRmResourceGroup`.
+	È possibile ottenere un elenco dei gruppi di risorse nella sottoscrizione usando il cmdlet `Get-AzureRmResourceGroup`.
 
 2. Creare un nuovo insieme di credenziali di Servizi di ripristino di Azure, come segue:
 
@@ -257,4 +257,4 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) sui cmdlet PowerShell per Azure Site Recovery con Azure Resource Manager.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
     description="Informazioni sulla connessione self-service di applicazioni in Azure Active Directory con SAML e SSO basato su password " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>  
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -22,9 +22,9 @@ La raccolta di applicazioni di Azure Active Directory offre un elenco di applica
 I clienti con licenze [Azure Active Directory Premium](active-directory-editions.md) ottengono anche le funzionalità aggiuntive seguenti:
 
 * Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0 (avviato dal provider di servizi o dal provider di identità)
-* Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
-* Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](active-directory-scim-provisioning))
-* Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
+* Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](active-directory-scim-provisioning.md))
+* Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 
 Possono essere incluse le applicazioni SaaS usate ma non ancora caricate nella raccolta di applicazioni di Azure AD, nonché le applicazioni Web di terze parti che l'organizzazione ha distribuito nei server sotto il suo controllo, nel cloud o in locale.
 
@@ -51,7 +51,7 @@ La procedura per l'aggiunta di un'applicazione non pubblicata è molto simile a 
 
 Selezionare questa opzione per configurare l'autenticazione basata su SAML per l'applicazione. Per questa opzione è necessario che l'applicazione supporti SAML 2.0. Prima di continuare è consigliabile raccogliere informazioni sull'uso delle funzionalità SAML dell'applicazione. Dopo aver selezionato **Avanti**, viene richiesto di immettere tre diversi URL corrispondenti agli endpoint SAML per l'applicazione.
 
-![][4]
+![][4]  
  
 Si tratta di:
 
@@ -71,7 +71,7 @@ Si tratta di:
       </Conditions>
 ```
 
-* **URL di risposta**: è l'indirizzo a cui l'applicazione prevede di ricevere il token SAML. Viene anche definito **URL del servizio consumer di asserzione (ACS)**. Per informazioni dettagliate sull'URL ACS o sull'URL di risposta del token SAML, controllare la documentazione SAML dell'applicazione. Dopo averli immessi, fare clic su **Avanti** per passare alla schermata successiva. Questa schermata fornisce informazioni su ciò che è necessario configurare sul lato applicazione in modo che questa accetti un token SAML da Azure AD. 
+* **URL di risposta**: è l'indirizzo a cui l'applicazione prevede di ricevere il token SAML. Viene anche definito **URL del servizio consumer di asserzione (ACS)**. Per informazioni dettagliate sull'URL ACS o sull'URL di risposta del token SAML, controllare la documentazione SAML dell'applicazione. Dopo averli immessi, fare clic su **Avanti** per passare alla schermata successiva. Questa schermata fornisce informazioni su ciò che è necessario configurare sul lato applicazione in modo che questa accetti un token SAML da Azure AD.
 
 ![][5]
 
@@ -125,7 +125,7 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 
 Selezionare questa opzione per aggiungere un collegamento a un'applicazione nel riquadro di accesso di Azure AD o nel portale di Office 365 dell'organizzazione. È possibile usare questa opzione per aggiungere collegamenti ad app Web personalizzate che usano Active Directory Federation Services di Azure (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente.
 
-Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applicazione da collegare. Al termine sarà possibile assegnare utenti e gruppi all'applicazione e questa verrà visualizzata nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) per tali utenti.
+Dopo aver selezionato **Avanti**, viene richiesto di immettere l'URL dell'applicazione da collegare. Al termine sarà possibile assegnare utenti e gruppi all'applicazione e questa verrà visualizzata nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) per tali utenti.
 
 Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante **Carica Logo** nella scheda **Configura** dell'applicazione.
 
@@ -135,7 +135,7 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 - [Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md)
 - [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png
 [2]: ./media/active-directory-saas-custom-apps/customapp2.png
 [3]: ./media/active-directory-saas-custom-apps/customapp3.png
@@ -144,4 +144,4 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

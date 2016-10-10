@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -33,4 +33,4 @@ A questo punto è necessario assegnare utenti e gruppi all'applicazione. Vedere 
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	manager="erikre" 
 	editor="" 
 	services="logic-apps" 
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags
 	ms.service="logic-apps"
@@ -28,13 +28,14 @@ Di seguito sono riportati i passaggi per installare e configurare gli strumenti 
 
 - [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - [Versione più recente di Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 o versione successiva)
+- [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 - Accesso al Web mentre viene usata la finestra di progettazione incorporata
 
 ### Installare gli strumenti di Visual Studio per le app per la logica
 
 Dopo aver installato i prerequisiti:
 
-1. Aprire Visual Studio 2015 e quindi scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**
+1. Aprire Visual Studio 2015 e quindi scegliere **Estensioni e aggiornamenti** nel menu **Strumenti**
 1. Selezionare la categoria **Online** per eseguire la ricerca online
 1. Cercare **App per la logica** per visualizzare **Azure Logic Apps Tools for Visual Studio** (Strumenti per app per la logica di Azure per Visual Studio)
 1. Fare clic sul pulsante **Scarica** per scaricare e installare l'estensione
@@ -50,20 +51,20 @@ Dopo l'installazione sarà possibile usare il progetto Gruppo di risorse di Azur
 
 1. Nella finestra di dialogo selezionare **Cloud** e quindi **Gruppo di risorse di Azure**. Digitare un **Nome** e fare clic su **OK**. ![Add new project](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-1. Selezionare il modello **App per la logica**. Verrà creato un modello di distribuzione di un'app per la logica vuota come punto di partenza. ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+1. Selezionare il modello **App per la logica**. Verrà creato un modello di distribuzione di un'app per la logica vuoto come punto di partenza. ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
-1. Dopo aver selezionato il **modello**, fare clic su **OK**.
+1. Dopo avere selezionato il **modello**, fare clic su **OK**.
 
 	Il progetto di app per la logica viene aggiunto alla soluzione. Il file di distribuzione verrà visualizzato in Esplora soluzioni:
 
-	![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)
+	![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)  
 
 ## Uso della finestra di progettazione delle app per la logica
 
 Dopo aver creato un progetto Gruppo di risorse di Azure contenente un'app per la logica, è possibile aprire la finestra di progettazione in Visual Studio per creare il flusso di lavoro. La finestra di progettazione richiede una connessione Internet per eseguire query sui connettori per ottenere le proprietà e i dati disponibili. Se si usa il connettore Dynamics CRM Online, ad esempio, la finestra di progettazione eseguirà una query sull'istanza di CRM per ottenere un elenco delle proprietà predefinite e personalizzate.
 
 1. Fare clic con il pulsante destro del mouse sul file `<template>.json` e scegliere **Open with Logic App Designer** (Apri con finestra di progettazione app per la logica) (o `Ctrl+L`)
-1. Scegliere la sottoscrizione, il gruppo di risorse e la località per il modello di distribuzione
+1. Scegliere la sottoscrizione, il gruppo di risorse e il percorso per il modello di distribuzione
 	- È importante notare che progettando un'app per la logica verranno create risorse **Connessione API** per l'esecuzione di query per ottenere le proprietà durante la progettazione. Il gruppo di risorse selezionato sarà il gruppo usato per creare tali connessioni durante la fase di progettazione. È possibile visualizzare o modificare qualsiasi connessione API passando al portale di Azure e cercando **Connessioni API**. ![Selezione della sottoscrizione](./media/app-service-logic-deploy-from-vs/designer_picker.png)
 1. La finestra di progettazione eseguirà il rendering in base alla definizione contenuta nel file `<template>.json`.
 1. È ora possibile creare e progettare l'app per la logica. Il modello di distribuzione verrà aggiornato con le modifiche. ![Finestra di progettazione in Visual Studio](./media/app-service-logic-deploy-from-vs/designer_in_vs.png)
@@ -105,4 +106,4 @@ In futuro sarà possibile modificare l'app per la logica nel controllo del codic
 - [Le app per la logica consentono di automatizzare i processi aziendali](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

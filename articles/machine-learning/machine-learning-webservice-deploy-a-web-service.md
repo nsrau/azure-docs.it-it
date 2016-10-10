@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="07/06/2016"
-   	ms.author="v-donglo"/>
+   	ms.date="09/22/2016"
+   	ms.author="v-donglo"/>  
 
 # Distribuire un nuovo servizio Web
 
-Microsoft Azure Machine Learning ora fornisce i servizi Web basati su [Azure Resource Manager](../azure-portal/resource-group-overview.md) consentendo nuove opzioni del piano di fatturazione e di distribuzione del servizio Web in più aree.
+Microsoft Azure Machine Learning offre ora servizi Web basati su [Azure Resource Manager](../resource-group-overview.md) consentendo nuove opzioni del piano di fatturazione e la distribuzione del servizio Web in più aree.
 
 Il flusso di lavoro generale per distribuire un servizio Web usando i servizi Web di Microsoft Azure Machine Learning è:
 
@@ -87,11 +87,18 @@ Nella pagina relativa all'uso è possibile trovare:
 
 Per altre informazioni sull'uso dei servizi Web, vedere [Come usare un servizio Web di Azure Machine Learning distribuito da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
 
+## Passaggi successivi
 
-<!--Image references-->
+Per altre informazioni sull'utilizzo dei servizi Web, vedere:
+
+[Come utilizzare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](machine-learning-consume-web-services.md)
+
+[Servizi Web di Azure Machine Learning: distribuzione e uso](machine-learning-deploy-consume-web-service-guide.md)
+
+<!--Image references-->  
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png
 
 
-<!--links-->
+<!--links-->  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

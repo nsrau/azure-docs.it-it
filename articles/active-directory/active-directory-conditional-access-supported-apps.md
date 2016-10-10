@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,64 +14,49 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/12/2016"
-	ms.author="markvi"/>
+	ms.date="09/26/2016"
+	ms.author="markvi"/>  
 
 
 # Supporto dell'accesso condizionale per le applicazioni
 
 Le regole di accesso condizionale sono supportate in applicazioni connesse di Azure Active Directory, applicazioni SaaS federate preintegrate, applicazioni che usano l'accesso Single Sign-On basato su password, applicazioni line-of-business e proxy dell'applicazione di Azure AD. Per un elenco dettagliato delle applicazioni in cui è possibile abilitare l'accesso condizionale, vedere [Servizi abilitati con l'accesso condizionale](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). L'accesso condizionale è ideale per le applicazioni desktop e per dispositivi mobili che usano un'autenticazione moderna. Questo argomento illustra le funzionalità supportate nelle versioni desktop e per dispositivi mobili di queste app.
 
-Le applicazioni di questo tipo possono visualizzare le pagine di accesso al servizio Azure Active Directory. In questo modo, a un utente viene chiesto inline di eseguire l'autenticazione Multi-Factor Authentication oppure un utente finale visualizza un messaggio quando viene bloccato l'accesso. È importante comprendere quali applicazioni sono supportate nonché i passaggi che potrebbero essere necessari per la protezione di altri punti di ingresso.
+Le applicazioni di questo tipo possono visualizzare le pagine di accesso al servizio Azure Active Directory. In questo modo, a un utente viene chiesto inline di eseguire l'autenticazione Multi-Factor Authentication oppure un utente finale visualizza un messaggio quando viene bloccato l'accesso. L'autenticazione moderna è necessaria anche per consentire al dispositivo di eseguire l'autenticazione con Azure AD, in modo che vengano valutati i criteri di accesso condizionale basato sul dispositivo.
+
+È importante comprendere quali applicazioni sono supportate nonché i passaggi che potrebbero essere necessari per la protezione di altri punti di ingresso.
 
 ## Applicazioni che utilizzano l'autenticazione moderna
-Le applicazioni seguenti sono state testate con l'autenticazione Multi-Factor Authentication (MFA) e i criteri di posizione impostati sul servizio di destinazione.
+Le applicazioni seguenti supportano l'accesso condizionale quando accedono a Office 365 e ad altre applicazioni di servizio connesse ad Azure AD:
 
-| Applicazione | Servizio di destinazione | Piattaforma |
+| Servizio di destinazione | Piattaforma | Applicazione |
 |--------------|-----------------|----------------------------------------------------------------|
-| Outlook 2016 | Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
-| Outlook 2013 (richiede l'abilitazione dell'autenticazione moderna)| Exchange |Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
-|Skype for Business (con autenticazione moderna)|Exchange (accesso a Exchange per il calendario e la cronologia delle conversazioni)| Windows 10, Windows 8.1, Windows 7 |
-|App Outlook Mobile|Exchange| iOS e Android |
-|Office 2016; Word, Excel, SharePoint|SharePoint| Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
-|Outlook 2013 (richiede l'abilitazione dell'autenticazione moderna)|SharePoint|Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
-|Dynamics CRM|Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| App Yammer|Yammer| Windows Mobile 10, iOS, Android|
-|App remote di Azure|Servizio app Azure Remote|Windows 10, Windows 8.1, Windows 7, Mac, iOS, Android|
-
-
-
-
-
-Le applicazioni seguenti supportano criteri basati sul dispositivo impostati nel servizio di destinazione:
-
-| Applicazione | Servizio di destinazione | Piattaforma |
-| :--                                     | :--            | :--      |
-| Posta elettronica/Calendario/Persone | Exchange | Windows 10, Windows Mobile 10 |
-| Office universale: Word/Excel/PowerPoint | SharePoint | Windows 10, Windows Mobile 10 |
-| Outlook 2016 | Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7 |
-|Outlook 2013 (richiede l'abilitazione dell'autenticazione moderna) | Exchange | Windows 8.1, Windows 7 |
-
-
-Le applicazioni seguenti non supportano criteri basati sul dispositivo impostati nel servizio di destinazione.
-
-| Applicazione | Servizio di destinazione | Piattaforma |
-| :--                                     | :--            | :--      |
-| OneDrive for Business usando il client di sincronizzazione di nuova generazione (sia siti personali che del team) | SharePoint | Windows 10, Windows Mobile 10 |
-| App Mie app | Qualsiasi | iOS, Android |
+|Office 365 Exchange Online | Windows 10|App Mail/Calendar/People, Outlook 2016, Outlook 2013 (con l'autenticazione moderna abilitata), Skype for Business (con l'autenticazione moderna)|
+|Office 365 Exchange Online| Windows 7, Windows 8.1, |Outlook 2016, Outlook 2013 (con l'autenticazione moderna abilitata), Skype for Business (con l'autenticazione moderna)|
+|Office 365 Exchange Online|iOS, Android| App Outlook Mobile|
+|Office 365 Exchange Online|Mac OSX| Outlook 2016 solo per MFA/posizione; il supporto dei criteri basati sul dispositivo è previsto per il futuro, il supporto per Skype for Business è previsto per il futuro|
+|Office 365 SharePoint Online|Windows 10| App Office 2016, app Office Universal, Office 2013 (con l'autenticazione moderna abilitata), il supporto dell'app OneDrive for Business (NGSC o client di sincronizzazione di nuova generazione) è previsto per il futuro, il supporto dei gruppi di Office è previsto per il futuro, il supporto dell'app SharePoint è previsto per il futuro|
+|Office 365 SharePoint Online|Windows 7, Windows 8.1,|App Office 2016, Office 2013 (con l'autenticazione moderna abilitata), app OneDrive for Business (client di sincronizzazione Groove)|
+|Office 365 SharePoint Online|iOS, Android| App Office per dispositivi mobili |
+|Office 365 SharePoint Online|Mac OSX| App Office 2016 solo per MFA/posizione; il supporto per i criteri basati sui dispositivi è previsto per il futuro|
+|Office 365 Yammer|Windows 10, iOS e Android | App Office Yammer|
+|Dynamics CRM|Windows 10, 7, 8.1, iOS e Android | Dynamics CRM|
+|Servizio PowerBI|Windows 10, 7, 8.1, iOS e Android | App PowerBI|
+|Servizio app Azure Remote|Windows 10, 7, 8.1, iOS e Android, Mac OSX |App Azure Remote|
+|Qualsiasi servizio app Mie app|Android e iOS|Qualsiasi servizio app Mie app |
 
 
 ## Applicazioni che non utilizzano l'autenticazione moderna
 
 Attualmente, l'accesso delle app che non utilizzano l'autenticazione moderna deve essere bloccato utilizzando altri metodi, poiché esse non sono regolate dall'accesso condizionale. Ciò vale soprattutto per l'accesso a Exchange e SharePoint, poiché le app di versioni precedenti sono state compilate utilizzando protocolli meno recenti.
 
-## SharePoint
+## Office 365 SharePoint Online
 
 I protocolli legacy possono essere disabilitati in SharePoint, tramite il cmdlet Set-SPOTenant, che impedirà ai client di Office che utilizzano protocolli di autenticazione non moderni di accedere alle risorse di SharePoint Online.
 
 **Comando di esempio**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
  
-## Exchange
+## Office 365 Exchange Online
 
 In Exchange esistono due categorie principali di revisione dei protocolli e occorre selezionare il criterio corretto per la propria organizzazione:
 
@@ -130,4 +115,4 @@ Regola 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

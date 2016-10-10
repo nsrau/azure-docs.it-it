@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="robinsh" 
 	manager="carmonm" 
-	editor="tysonn"/>
+	editor="tysonn"/>  
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/03/2016" 
-	ms.author="robinsh"/>
+	ms.author="fryu;robinsh"/>
 
 # Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica
 
@@ -212,4 +212,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 [Abilitazione della registrazione di Analisi archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

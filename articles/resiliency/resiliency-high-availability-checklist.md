@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="adamglick"
    manager="saladki"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="resiliency"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/18/2016"
-   ms.author="aglick"/>
+   ms.author="aglick"/>  
 
 #Elenco di controllo per la disponibilità elevata
 Uno dei principali vantaggi dell'uso di Azure è la possibilità di aumentare la disponibilità e la scalabilità delle applicazioni con l'aiuto del cloud. Per trarre il massimo da queste opzioni, l'elenco di controllo riportato di seguito offre alcune nozioni di base dell'infrastruttura per garantire che le applicazioni siano resilienti.
@@ -52,7 +52,7 @@ __Cosa accade se non si usa un set di scalabilità di macchine virtuali per i se
 __Cosa accade se non si usano account di archiviazione separati per ogni macchina virtuale?__ Come molte altre risorse, un account di archiviazione è un singolo punto di errore. Anche se esistono numerose funzionalità di protezione e resilienza in Archiviazione di Azure, un singolo punto di errore non è mai indice di una buona progettazione. Se ad esempio i diritti di accesso sono danneggiati per quell'account, viene raggiunto un limite di archiviazione oppure un limite di [operazioni di I/O](../azure-subscription-service-limits.md#virtual-machine-disk-limits) al secondo, tutte le macchine virtuali con tale account di archiviazione saranno interessate da questi eventi. Se si verifica un'interruzione del servizio che interessa uno stamp di archiviazione che include quel particolare account di archiviazione, il problema potrebbe ripercuotersi su più macchine virtuali.
 
 ###Si usa un servizio di bilanciamento del carico o una coda tra ogni livello dell'applicazione?
-L'uso di servizi di bilanciamento del carico o code tra ogni livello dell'applicazione consente la scalabilità di ogni livello dell'applicazione in modo semplice e indipendente. È necessario scegliere tra queste tecnologie in base alle esigenze di latenza, complessità e distribuzione, ovvero all'estensione della distribuzione dell'app. Le code tendono in generale ad avere latenza e complessità maggiori, ma offrono più resilienza e consentono una distribuzione più estesa dell'applicazione, ad esempio su più aree. Per altre informazioni su come usare i servizi di bilanciamento del carico interni o le code, vedere [Panoramica del bilanciamento del carico interno](../load-balancer/load-balancer-internal-overview.md) e [Analogie e differenze tra le code di Azure e le code del bus di servizio](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+L'uso di servizi di bilanciamento del carico o code tra ogni livello dell'applicazione consente la scalabilità di ogni livello dell'applicazione in modo semplice e indipendente. È necessario scegliere tra queste tecnologie in base alle esigenze di latenza, complessità e distribuzione, ovvero all'estensione della distribuzione dell'app. Le code tendono in generale ad avere latenza e complessità maggiori, ma offrono più resilienza e consentono una distribuzione più estesa dell'applicazione, ad esempio su più aree. Per altre informazioni su come usare i servizi di bilanciamento del carico interni o le code, vedere [Panoramica del bilanciamento del carico interno](../load-balancer/load-balancer-internal-overview.md) e [Analogie e differenze tra le code di Azure e le code del bus di servizio](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 __Cosa accade se non si usa un servizio di bilanciamento del carico o una coda tra ogni livello dell'applicazione?__ Senza un servizio di bilanciamento del carico o una coda tra ogni livello dell'applicazione è difficile aumentare le prestazioni o le istanze dell'applicazione e distribuirne il carico tra più macchine. La conseguenza può essere un provisioning eccessivo o insufficiente delle risorse, con il rischio di tempi di inattività o esperienze utente di scarsa qualità, in caso di variazioni impreviste del traffico o errori di sistema.
  
@@ -79,4 +79,4 @@ __Cosa accade se non si usa una rete CDN?__ Se non si usa una rete CDN, tutto il
 ##Passaggi successivi:
 Per altre informazioni sulla progettazione delle applicazioni per la disponibilità elevata, vedere [Disponibilità elevata per le applicazioni basate su Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 # Criteri di accesso condizionale dei dispositivi per i servizi di Office 365
 
 Al termine "accesso condizionale" sono associate molte condizioni, ad esempio l'utente autenticato con più fattori, il dispositivo autenticato, il dispositivo compatibile e così via. Questo argomento si concentra principalmente sulle condizioni basate sul dispositivo per controllare l'accesso ai servizi di Office 365. Mentre gli Information Worker vogliono accedere a servizi Office 365 come Exchange e SharePoint Online al lavoro o a scuola dai propri dispositivi personali, per l'amministratore IT è importante che l'accesso sia sicuro. Gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli Information Worker che usano dispositivi conformi di accedere ai servizi. I criteri di accesso condizionale per Office 365 possono essere configurati dal portale di accesso condizionale di Intune.
@@ -44,4 +44,4 @@ D: Quando è previsto che i criteri di accesso condizionale per i servizi di Off
 
 R: Attualmente l'accesso condizionale ai servizi di Office 365 è limitato alle applicazioni avanzate su dispositivo. Secondo la roadmap, i criteri di accesso condizionale verranno estesi agli utenti che accedono ai servizi tramite browser.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="sonyam"
    manager="barbkess"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,19 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="09/24/2016"
+   ms.author="sonyama;barbkess"/>  
 
 
 # Driver per Azure SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-connect-overview.md)
-- [Autenticazione](sql-data-warehouse-authentication.md)
-- [Driver](sql-data-warehouse-connection-strings.md)
-
-
-È possibile connettersi a SQL Data Warehouse con diversi protocolli applicativi, ad esempio, [ADO.NET][], [ODBC][], [PHP][] e [JDBC][]. Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo. Per impostare la stringa di connessione, è anche possibile usare il portale di Azure. Per compilare la stringa di connessione tramite il portale di Azure, passare al pannello database e in *Essentials* fare clic su *Mostra stringhe di connessione del database*.
+È possibile connettersi a SQL Data Warehouse con diversi protocolli applicativi, ad esempio, [ADO.NET][], [ODBC][], [PHP][] e [JDBC][]. Di seguito sono riportati esempi di stringhe di connessione per ogni protocollo. Per impostare la stringa di connessione, è anche possibile usare il portale di Azure. Per compilare la stringa di connessione tramite il portale di Azure, passare al pannello database e in *Informazioni di base* fare clic su *Mostra stringhe di connessione del database*.
 
 ## Stringa di connessione ADO.NET di esempio
 
@@ -57,7 +51,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Azure.com references-->
  [Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
@@ -70,4 +64,4 @@ Per iniziare a eseguire query sul data warehouse con Visual Studio e altre appli
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

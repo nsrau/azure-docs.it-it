@@ -6,7 +6,7 @@
   authors="ahmetalpbalkan"
   editor="squillace"
   manager="timlt"
-  tags="azure-service-management,azure-resource-manager" />
+  tags="azure-service-management,azure-resource-manager" />  
 
 <tags
   ms.service="virtual-machines-linux"
@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="07/11/2016" 
+  ms.date="09/27/2016" 
   ms.author="ahmetb" />
 
 # Distribuzione del registro Docker privato in Azure
@@ -100,4 +100,4 @@ Dopo aver configurato il registro, è possibile iniziare a usarlo. Iniziare con 
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

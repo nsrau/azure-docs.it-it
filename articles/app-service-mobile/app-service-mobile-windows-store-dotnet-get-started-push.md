@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/15/2016"
-	ms.author="glenga"/>
+	ms.date="09/25/2016"
+	ms.author="glenga"/>  
 
 # Aggiungere notifiche push all'app di Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##Panoramica
+##Overview
 
 Questo argomento descrive come inviare notifiche push a un'app UWP (Universal Windows Platform) tramite App per dispositivi mobili del servizio app di Azure con Hub di notifica di Azure. In questo scenario, quando viene aggiungo un nuovo elemento, il back-end dell'app per dispositivi mobili invia una notifica push a tutte le app di Windows registrate al servizio di notifica Windows.
 
@@ -216,11 +216,11 @@ Altre informazioni sulle notifiche push:
 
 + [Abilitare la sincronizzazione offline per l'app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
 
-<!-- Anchors. -->
+<!-- Anchors. --> 
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
 
-<!-- Images. -->
+<!-- Images. -->  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

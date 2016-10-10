@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -48,4 +48,4 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 * [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,8 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+   manager="femila"
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/23/2016"
-   ms.author="curtand"/>
+   ms.author="curtand"/>  
 
 # Azure Active Directory B2B Collaboration
 
@@ -58,4 +58,4 @@ Vedere gli altri articoli su Collaborazione B2B di Azure AD.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

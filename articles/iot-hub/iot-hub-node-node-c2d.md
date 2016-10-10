@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="07/04/2016"
-     ms.author="dobett"/>
+     ms.date="09/23/2016"
+     ms.author="dobett"/>  
 
 # Esercitazione: Inviare messaggi da cloud a dispositivo con l'hub IoT e Node.js
 
@@ -24,7 +24,7 @@
 
 L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end applicazioni. L’esercitazione [Introduzione all’hub IoT] illustra come creare un hub IoT, eseguire il provisioning dell’identità di un dispositivo al suo interno e creare il codice di un dispositivo simulato che invia messaggi da dispositivo a cloud.
 
-Questa esercitazione si basa su [Introduzione all'hub IoT di Azure per Node.js]. Illustra le operazioni seguenti:
+Questa esercitazione si basa su [Introduzione all'hub IoT di Azure]. Illustra le operazioni seguenti:
 
 - Dal back-end cloud dell'applicazione, inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
 - Ricevere messaggi da cloud a dispositivo in un dispositivo.
@@ -32,22 +32,22 @@ Questa esercitazione si basa su [Introduzione all'hub IoT di Azure per Node.js].
 
 È possibile trovare ulteriori informazioni sui messaggi da cloud a dispositivo nella [Guida per sviluppatori di hub IoT][IoT Hub Developer Guide - C2D].
 
-Al termine di questa esercitazione si eseguiranno due applicazioni console Node.js:
+Al termine di questa esercitazione si devono eseguire due applicazioni console Node.js:
 
 * **SimulatedDevice**, una versione modificata dell'app creata in [Introduzione all’hub IoT], che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
 * **SendCloudToDeviceMessage**, che invia un messaggio da cloud a dispositivo al dispositivo simulato tramite l'hub IoT e riceve quindi l'acknowledgement di recapito.
 
 > [AZURE.NOTE] L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT].
 
-Per completare l'esercitazione sono necessari gli elementi seguenti:
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-+ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
++ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
 + Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
 
 ## Ricevere messaggi sul dispositivo simulato
 
-In questa sezione si modificherà l'applicazione del dispositivo simulato creata in [Introduzione all'hub IoT di Azure per Node.js] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
+In questa sezione si modifica l'applicazione del dispositivo simulato creata in [Introduzione all'hub IoT di Azure per Node.js] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
 
 1. Con un editor di testo aprire il file SimulatedDevice.js.
 
@@ -79,9 +79,9 @@ In questa sezione si modificherà l'applicazione del dispositivo simulato creata
 
 ## Inviare un messaggio da cloud a dispositivo
 
-In questa sezione si creerà un'app console Node.js che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT di Azure per Java] e la stringa di connessione per l'hub IoT che si trova nel [portale di Azure].
+In questa sezione si crea un'app console Node.js che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT di Azure]. Occorre anche la stringa di connessione per l'hub IoT, disponibile nel [portale di Azure].
 
-1. Creare una nuova cartella vuota denominata **sendcloudtodevicemessage**. Nella cartella **sendcloudtodevicemessage** creare un nuovo file package.json eseguendo questo comando al prompt dei comandi. Accettare tutte le impostazioni predefinite:
+1. Creare una cartella vuota denominata **sendcloudtodevicemessage**. Nella cartella **sendcloudtodevicemessage** creare un file package.json eseguendo questo comando al prompt dei comandi. Accettare tutte le impostazioni predefinite:
 
     ```
     npm init
@@ -104,7 +104,7 @@ In questa sezione si creerà un'app console Node.js che invia messaggi da cloud 
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Aggiungere il codice seguente al file **SendCloudToDeviceMessage.js** e sostituire il valore di segnaposto della stringa di connessione con la stringa di connessione per l'hub IoT creato nell'esercitazione [Introduzione all'hub IoT di Azure per Node.js] il segnaposto del dispositivo di destinazione con l'ID dispositivo del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT di Azure per Node.js]\:
+5. Aggiungere il codice seguente al file **SendCloudToDeviceMessage.js**. Sostituire il valore del segnaposto della stringa di connessione con la stringa di connessione per l'hub IoT creato durante l'esercitazione [Introduzione all'hub IoT]. Sostituire il segnaposto del dispositivo di destinazione con l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT].
 
     ```
     var connectionString = '{iot hub connection string}';
@@ -175,7 +175,7 @@ A questo punto è possibile eseguire le applicazioni.
 
     ![Eseguire l'app per inviare il comando c2d][img-send-command]
 
-    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
+    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
 
 ## Passaggi successivi
 
@@ -185,13 +185,14 @@ Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la
 
 Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
-<!-- Images -->
+<!-- Images -->  
 [img-simulated-device]: media/iot-hub-node-node-c2d/receivec2d.png
 [img-send-command]: media/iot-hub-node-node-c2d/sendc2d.png
 
 <!-- Links -->
 
-[Introduzione all'hub IoT di Azure per Java]: iot-hub-node-node-getstarted.md
+[Introduzione all'hub IoT]: iot-hub-node-node-getstarted.md
+[Introduzione all'hub IoT di Azure]: iot-hub-node-node-getstarted.md
 [Introduzione all'hub IoT di Azure per Node.js]: iot-hub-node-node-getstarted.md
 [Introduzione all’hub IoT]: iot-hub-node-node-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
@@ -203,4 +204,4 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 [portale di Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

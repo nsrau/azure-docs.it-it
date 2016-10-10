@@ -6,7 +6,7 @@
 	authors="femila"
 	manager="swadhwa"
 	editor=""
-	tags="azure-classic-portal"/>
+	tags="azure-classic-portal"/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 
 # Uso di dispositivi Windows 10 in azienda
 
@@ -139,7 +139,7 @@ Per consentire l'uso di BYOD (Bring Your Own Device) con gli account aziendali o
 Per abilitare Microsoft Passport, è necessario quanto segue:
 
 - Un'infrastruttura a chiave pubblica (PKI) per il supporto dell'autenticazione basata su certificati che usa Microsoft Passport.
-- Una sottoscrizione di Intune per il supporto dell'autenticazione basata su certificati che usa Microsoft Passport per Aggiunta ad Azure AD e gli account aziendali o dell'istituto di istruzione.
+- Una sottoscrizione di Intune per il supporto dell'autenticazione basata su certificati che usa Microsoft Passport per l'aggiunta ad Azure AD e gli account aziendali o dell'istituto di istruzione.
 - System Center Configuration Manager versione 1509 per Technical Preview (vedere la documentazione di TechNet e il post di blog) per il supporto dell'autenticazione basata su certificati che usa Microsoft Passport per l'aggiunta a un dominio.
 - Criteri per abilitare Microsoft Passport nell'organizzazione.
 
@@ -177,4 +177,4 @@ L'account Microsoft connesso degli utenti che eseguono l'aggiornamento da dispos
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/> 
+	editor="cgronlun"/>  
 
 <tags
 	ms.service="stream-analytics"
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
-	ms.author="jeffstok"/> 
+	ms.date="09/26/2016"
+	ms.author="jeffstok"/>  
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati
 
@@ -27,7 +27,7 @@ Una definizione del processo di Analisi di flusso include input, query e output.
 Un processo richiede almeno un'origine di input per il flusso dei dati. L'origine di input del flusso di dati può essere archiviata in un hub eventi del bus di servizio di Azure o un archivio BLOB di Azure. Per altre informazioni, vedere [Introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md) e [Introduzione all'uso di Analisi di flusso di Azure](stream-analytics-get-started.md).
 
 ## Configurazione delle unità di streaming
-Le unità di streaming rappresentano le risorse e le funzionalità dedicate all'esecuzione di un processo di Analisi di flusso di Azure. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva.
+Le unità di streaming rappresentano le risorse e la potenza di elaborazione necessarie all'esecuzione di un processo di Analisi di flusso di Azure. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva.
 
 Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione della partizione per gli input e dalla query definita per il processo. È possibile selezionare un numero massimo pari alla quota di unità di streaming per un processo mediante il portale di Azure classico. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota di un massimo di 50 unità di streaming per tutti i processi di analisi in un'area specifica. Per aumentare le unità di streaming per le sottoscrizioni, contattare il [Supporto tecnico Microsoft](http://support.microsoft.com).
 
@@ -330,7 +330,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
-<!--Image references--> 
+<!--Image references-->  
 
 [img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
@@ -338,7 +338,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 [img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
-<!--Link references--> 
+<!--Link references-->  
 
 [microsoft.support]: http://support.microsoft.com
 [azure.management.portal]: http://manage.windowsazure.com
@@ -350,4 +350,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

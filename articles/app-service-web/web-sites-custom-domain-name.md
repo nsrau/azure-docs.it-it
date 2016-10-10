@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	editor="jimbe"
-	tags="top-support-issue"/>
+	tags="top-support-issue"/>  
 
 <tags
 	ms.service="app-service"
@@ -81,7 +81,7 @@ Per eseguire il mapping di un nome dominio personalizzato usando un record A è 
 
 6.  Prendere nota dell'indirizzo IP sopra la sezione Nomi host.
 
-    ![Eseguire il mapping del nome di dominio personalizzato al record A: ottenere l'indirizzo IP per l'app del servizio app di Azure](./media/web-sites-custom-domain-name/virtual-ip-address.png)
+    ![Eseguire il mapping del nome di dominio personalizzato al record A: ottenere l'indirizzo IP per l'app del servizio app di Azure](./media/web-sites-custom-domain-name/virtual-ip-address.png)  
 
 7.  Tenere aperto questo pannello del portale. Verrà usato di nuovo dopo aver creato i record DNS.
 
@@ -191,7 +191,7 @@ Nel pannello **Domini personalizzati** del portale di Azure (vedere il [passaggi
 
 4.	Aggiungere il nome di dominio completo del dominio personalizzato all'elenco, ad esempio **www.contoso.com**.
 
-    ![Eseguire il mapping di un nome di dominio personalizzato a un'app Azure: aggiungere il nome di dominio all'elenco di nomi di dominio](./media/web-sites-custom-domain-name/add-custom-domain.png)
+    ![Eseguire il mapping di un nome di dominio personalizzato a un'app Azure: aggiungere il nome di dominio all'elenco di nomi di dominio](./media/web-sites-custom-domain-name/add-custom-domain.png)  
 
     >[AZURE.NOTE] Azure tenterà di verificare il nome di dominio usato. Assicurarsi che si tratti dello stesso nome di dominio per cui è stato creato un record DNS nel [passaggio 2](#createdns).
 
@@ -199,7 +199,7 @@ Nel pannello **Domini personalizzati** del portale di Azure (vedere il [passaggi
 
 6.  Dopo aver fatto clic su **Convalida**, Azure avvierà il flusso di lavoro Verifica del dominio, che controllerà la proprietà del dominio oltre alla disponibilità del nome host e segnalerà la riuscita o un errore dettagliato con le linee guida consigliate per correggere l'errore.
 
-7.  Se la convalida avrà esito positivo, il pulsante **Aggiungi il nome host** diventerà attivo e sarà possibile assegnare il nome host. Ora passare al nome di dominio personalizzato in un browser. Sarà visibile l'app in esecuzione con il nome di dominio personalizzato.
+7.  Se la convalida avrà esito positivo, il pulsante **Aggiungi il nome host** diventerà attivo e sarà possibile assegnare il nome host.
 
 8.  Al termine della configurazione del nuovo nome di dominio personalizzato, passare al nome di dominio personalizzato in un browser. Se l'app Azure viene aperta dal browser, il nome di dominio personalizzato è configurato correttamente.
 
@@ -246,7 +246,7 @@ Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS 
 [Introduzione al servizio DNS di Azure](../dns/dns-getstarted-create-dnszone.md) [Creare record DNS per un'app Web in un dominio personalizzato](../dns/dns-web-sites-custom-domain.md) [Delegare un dominio al servizio DNS di Azure](../dns/dns-domain-delegation.md)
 
 
-<!-- Images -->
+<!-- Images -->  
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

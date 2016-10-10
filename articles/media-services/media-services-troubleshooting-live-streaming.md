@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Guida per la risoluzione dei problemi relativi allo streaming live" 
-	description="In questo argomento sono disponibili suggerimenti per la risoluzione dei problemi relativi allo streaming live." 
+	pageTitle="Guida per la risoluzione dei problemi relativi allo streaming live | Microsoft Azure" 
+	description="Questo argomento offre suggerimenti per la risoluzione dei problemi relativi allo streaming live." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
-	ms.author="juliako"/>
+	ms.date="09/26/2016"  
+	ms.author="juliako"/>  
 
 #Guida per la risoluzione dei problemi relativi allo streaming live
 
-In questo argomento sono disponibili suggerimenti per la risoluzione di alcuni problemi relativi allo streaming live.
+Questo argomento offre suggerimenti per la risoluzione di alcuni problemi relativi allo streaming live.
 
 ## Problemi relativi ai codificatori locali 
 
@@ -77,7 +77,7 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 >[AZURE.NOTE] Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di Azure classico.
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -85,4 +85,4 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

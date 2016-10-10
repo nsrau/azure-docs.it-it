@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -23,10 +23,10 @@ Questa esercitazione descrive l’integrazione di Facebook at Work con Azure Act
 
 L'integrazione di Facebook at Work con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Facebook at Work 
+- È possibile controllare in Azure AD chi può accedere a Facebook at Work
 - È possibile effettuare automaticamente il provisioning degli account per gli utenti autorizzati ad accedere a Facebook at Work
 - È possibile abilitare gli utenti per l'accesso automatico a Facebook at Work (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account da una posizione centralizzata 
+- È possibile gestire gli account da una posizione centralizzata
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con CS Stars, sono necessari gli elem
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si ha un ambiente di prova di Azure AD, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per ottenere una versione di valutazione valida un mese. 
+- Se non si ha un ambiente di prova di Azure AD, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per ottenere una versione di valutazione valida un mese.
 
 
 ## Aggiunta di Facebook at Work dalla raccolta
@@ -49,19 +49,19 @@ Per configurare l'integrazione di Facebook at Work in Azure AD, è necessario ag
 
 **Per aggiungere Facebook at Work dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]
+	![Active Directory][1]  
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 
-	![Applicazioni][2]
+	![Applicazioni][2]  
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 	
-	![Applicazioni][3]
+	![Applicazioni][3]  
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -80,7 +80,7 @@ Questa sezione descrive come permettere agli utenti di eseguire l'autenticazione
 
 1.	Dopo aver aggiunto Facebook at Work nel portale di Azure classico, fare clic su **Configura accesso Single Sign-On**.
 
-2.	Nella schermata **Configura URL app** immettere l'URL che verrà digitato dagli utenti per accedere all'applicazione Facebook at Work. Si tratta dell'URL del tenant di Facebook at Work, ad esempio https://example.facebook.com/). Al termine, fare clic su **Avanti**.
+2.	Nella schermata **Configura URL app** immettere l'URL che verrà digitato dagli utenti per accedere all'applicazione Facebook at Work. Si tratta dell'URL del tenant di Facebook at Work, ad esempio https://example.facebook.com/. Al termine, fare clic su **Avanti**.
 
 3.	In un'altra finestra del Web browser accedere al sito aziendale di Facebook at Work come amministratore.
 
@@ -93,7 +93,7 @@ Questa sezione descrive come permettere agli utenti di eseguire l'autenticazione
 
 Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli utenti assegnati a Facebook at Work. La sincronizzazione automatica consente a Facebook at Work di ottenere i dati necessari per autorizzare gli utenti all'accesso, prima che questi tentino di eseguire l'accesso per la prima volta. Esegue anche il deprovisioning degli utenti da Facebook at Work una volta che l'accesso viene revocato in Azure AD.
 
-Per impostare il provisioning automatico, fare clic su **Configura provisioning account** nella finestra del portale di Azure classico.
+Per impostare il provisioning automatico, fare clic su **Configura provisioning account ** nella finestra del portale di Azure classico.
 
 Per altre informazioni su come configurare il provisioning automatico, vedere [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
@@ -118,10 +118,10 @@ Per fare in modo che gli utenti di AAD di cui è stato effettuato il provisionin
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0928_2016-->

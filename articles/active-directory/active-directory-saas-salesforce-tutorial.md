@@ -4,8 +4,8 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
-    editor=""/>
+    manager="femila"
+    editor=""/>  
 
 <tags
     ms.service="active-directory"
@@ -48,7 +48,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Selezionare Active Directory dal riquadro di spostamento a sinistra.][0]
+	![Selezionare Active Directory dal riquadro di spostamento a sinistra.][0]  
 
 2. Dall'elenco **Directory** selezionare la directory in cui si vuole aggiungere Salesforce.
 
@@ -58,7 +58,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Fare clic su Aggiungi per aggiungere una nuova applicazione.][2]
+	![Fare clic su Aggiungi per aggiungere una nuova applicazione.][2]  
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
@@ -160,7 +160,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 16. Nella pagina finale della finestra di dialogo immettere un indirizzo di posta elettronica se si vogliono ricevere notifiche tramite posta elettronica relative a errori e avvisi correlati alla manutenzione di questa configurazione dell'accesso Single Sign-On.
 
-	![Immettere l'indirizzo di posta elettronica.][19]
+	![Immettere l'indirizzo di posta elettronica][19]
 
 17. Fare clic su **Completa** per chiudere la finestra di dialogo. Per testare la configurazione, vedere la sezione seguente intitolata [Assegnare utenti a Salesforce](#step-4-assign-users-to-salesforce).
 
@@ -204,7 +204,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 2. Nella pagina di Avvio rapido di Salesforce fare clic sul pulsante **Assegna utenti**.
 
-	![Fare clic su Assegna utenti.][27]
+	![Fare clic su Assegna utenti][27]
 
 3. Selezionare l'utente di test e quindi fare clic su **Assegna** nella parte inferiore della schermata:
 
@@ -216,7 +216,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Se si esegue il provisioning in un ambiente **sviluppatore** di Salesforce, l'utente disporrà di un numero limitato di licenze per ogni profilo. Pertanto, si consiglia di eseguire il provisioning nel profilo **Utente Chatter gratuito**, dal momento che dispone di 4.999 licenze.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di accesso all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/), quindi accedere all'account di test e fare clic su **Salesforce**.
 
@@ -256,4 +256,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

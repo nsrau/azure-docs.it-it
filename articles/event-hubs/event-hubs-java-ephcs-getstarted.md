@@ -3,9 +3,9 @@
 	description="Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in Java e riceverli in C# mediante EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="event-hubs"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="sethm"/>
+	ms.date="09/27/2016"
+	ms.author="jotaub;sethm"/>  
 
 # Introduzione all'Hub eventi
 
@@ -64,11 +64,11 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 
 Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
-<!-- Images. -->
+<!-- Images. -->  
 [21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-java-ephcs-getstarted/java-send.png
 
-<!-- Links -->
+<!-- Links -->  
 [Azure classic portal]: https://manage.windowsazure.com/
 [Host processore di eventi]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md
@@ -77,4 +77,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/jav
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

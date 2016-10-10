@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="09/02/2016"
-    ms.author="sethm" />
+    ms.author="sethm" />  
 
 # Eccezioni di messaggistica del bus di servizio
 
@@ -58,8 +58,7 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | È stata inoltrata una richiesta per un'operazione di runtime su un'entità disattivata. | Attivare l'entità. | Se nel frattempo l'entità è stata attivata, può essere utile ripetere l'operazione. |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | Il bus di servizio restituisce questa eccezione se si invia un messaggio a un argomento in cui è abilitato il filtro preliminare e nessuno dei filtri corrisponde. | Assicurarsi che almeno un filtro corrisponda. | Ripetere l'operazione non serve. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | Un payload del messaggio supera il limite di 256 KB. Il limite di 256 KB è la dimensione totale del messaggio, che può includere proprietà di sistema ed eventuali overhead .NET. | Ridurre le dimensioni del payload del messaggio e quindi ripetere l'operazione. | Ripetere l'operazione non serve. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | | Ripetere l'operazione non serve. | - 
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | È stata tentata un'operazione su una transazione in dubbio oppure si è tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. | L'applicazione deve gestire questa eccezione (come caso speciale) perché è possibile che sia già stato eseguito il commit della transazione. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | La transazione di ambiente (*Transaction.Current*) non è valida. È possibile che nel frattempo sia stata interrotta o completata. L'eccezione interna può fornire informazioni aggiuntive. | | Ripetere l'operazione non serve. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | È stata tentata un'operazione su una transazione in dubbio oppure si è tentato di eseguire il commit della transazione e la transazione è diventata in dubbio. | L'applicazione deve gestire questa eccezione (come caso speciale) perché è possibile che sia già stato eseguito il commit della transazione. | - |
 
 ## QuotaExceededException
 
@@ -137,8 +136,8 @@ Per informazioni complete sull'API .NET del bus di servizio e di Hub eventi, ved
 
 Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/services/service-bus/), vedere gli argomenti seguenti.
 
-- [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
+- [Panoramica della messaggistica del bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

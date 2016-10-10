@@ -4,8 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+   manager="femila"
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/23/2016"
-   ms.author="curtand"/>
+   ms.author="curtand"/>  
 
 # Aggiungere e gestire più directory di Azure Active Directory
 
@@ -45,4 +45,4 @@ Per aggiungere una directory di Azure AD nel portale di Azure classico, selezion
 
 Per un'ampia panoramica dei problemi relativi alle licenze di Microsoft Azure e le procedure consigliate, vedere[che cosa sono le licenze di Azure Active Directory?](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

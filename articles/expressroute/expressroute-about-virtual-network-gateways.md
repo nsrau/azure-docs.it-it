@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager, azure-service-management"/> 
+   tags="azure-resource-manager, azure-service-management"/>  
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
@@ -14,16 +14,16 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/21/2016"
-   ms.author="cherylmc" /> 
+   ms.author="cherylmc" />  
 
 # Informazioni sui gateway di rete virtuale per ExpressRoute
 
 
 Il gateway di rete virtuale viene usato per inviare il traffico di rete tra le reti virtuali di Azure e i percorsi locali. Quando si configura una connessione ExpressRoute, è necessario creare e configurare un gateway di rete virtuale e la connessione corrispondente.
 
-Quando si crea un gateway di rete virtuale, si devono specificare alcune impostazioni. Una delle impostazioni necessarie indica se il gateway verrà utilizzato per il traffico ExpressRoute o del gateway VPN. Nel modello di distribuzione di Gestione risorse, l'impostazione è "-GatewayType".
+Quando si crea un gateway di rete virtuale, si devono specificare alcune impostazioni. Una delle impostazioni necessarie indica se il gateway verrà usato per il traffico VPN sito a sito o ExpressRoute. Nel modello di distribuzione di Gestione risorse, l'impostazione è "-GatewayType".
 
-Quando il traffico di rete viene inviato con una connessione privata dedicata, si usa il tipo di gateway 'ExpressRoute', detto appunto gateway ExpressRoute. Quando il traffico di rete viene inviato crittografato con una connessione pubblica, si usa il tipo di gateway 'Vpn', detto appunto gateway VPN. Le connessioni da sito a sito, da punto a sito e da rete virtuale a rete virtuale usano tutte un gateway VPN.
+Quando il traffico di rete viene inviato con una connessione privata dedicata, si usa il tipo di gateway 'ExpressRoute', detto appunto gateway ExpressRoute. Quando il traffico di rete viene inviato crittografato attraverso una rete Internet pubblica, si usa il gateway di tipo 'VPN', detto appunto gateway VPN. Le connessioni da sito a sito, da punto a sito e da rete virtuale a rete virtuale usano tutte un gateway VPN.
 
 Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gateway. Ad esempio, è possibile configurare un gateway di rete virtuale che usa -GatewayType Vpn e una che usa -GatewayType ExpressRoute. L'articolo è incentrato sul gateway di rete virtuale per ExpressRoute.
 
@@ -63,4 +63,4 @@ Per altre informazioni sulle configurazioni delle connessioni disponibili, veder
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

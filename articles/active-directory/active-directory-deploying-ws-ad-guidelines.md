@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="femila"
    manager="stevenpo"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
-   ms.author="femila"/>
+   ms.date="09/27/2016"
+   ms.author="femila"/>  
 
 # Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure
 
@@ -176,7 +176,7 @@ Poiché tuttavia Azure non fornisce funzionalità firewall native complete, è n
 
 In questo caso, ecco i passaggi generali per distribuire AD FS:
 
-1. Creare una [rete virtuale con connettività cross-premise](../vpn-gateway/vpn-gateway-cross-premises-options.md) usando una VPN o [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+1. Creare una rete virtuale con connettività cross-premise usando una VPN o [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 2. Distribuire i controller di dominio nella rete virtuale. Questo passaggio è facoltativo ma consigliato.
 
@@ -202,7 +202,7 @@ In questo caso, ecco i passaggi generali per distribuire AD FS:
 
 Per limitare il traffico, il set con carico bilanciato per il servizio di bilanciamento del carico interno di Azure deve essere configurato solo per il traffico verso le porte TCP 80 e 443, mentre tutto il resto del traffico verso l'indirizzo IP dinamico interno del set con carico bilanciato viene eliminato.
 
-![Diagramma di ACL di rete AD FS con porte TCP 443 e 80 consentite.](media/active-directory-deploying-ws-ad-guidelines/ADFS_ACLs.png)
+![Diagramma di ACL di rete AD FS con porte TCP 443 e 80 consentite.](media/active-directory-deploying-ws-ad-guidelines/ADFS_ACLs.png)  
 
 Il traffico verso i server AD FS sarà consentito solo da queste origini:
 
@@ -213,13 +213,13 @@ Il traffico verso i server AD FS sarà consentito solo da queste origini:
 
 Uno svantaggio di questa opzione è la necessità di configurare gli ACL di rete per più dispositivi, tra cui il servizio di bilanciamento del carico interno, i server AD FS e gli eventuali altri server aggiunti alla rete virtuale. Se un dispositivo viene aggiunto alla distribuzione senza configurare gli ACL di rete per limitare il traffico destinato al dispositivo stesso, l'intera distribuzione può essere a rischio. Se gli indirizzi IP dei nodi Proxy applicazione Web cambiano, è necessario reimpostare gli ACL di rete, ovvero i proxy devono essere configurati per l'uso di [indirizzi IP interni statici](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
 
-![AD FS in Azure con ACL di rete.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)
+![AD FS in Azure con ACL di rete.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)  
 
 Un'altra opzione consiste nell'usare il dispositivo [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) per controllare il traffico tra i server proxy AD FS e i server AD FS. Questa opzione è conforme alle procedure consigliate per la sicurezza e la disponibilità elevata e richiede meno attività di amministrazione dopo l'installazione iniziale, perché il dispositivo Barracuda NG Firewall offre una modalità di tipo elenco elementi consentiti per l'amministrazione del firewall e può essere installato direttamente in una rete virtuale di Azure. Questo approccio elimina la necessità di configurare gli ACL di rete ogni volta che si aggiunge un nuovo server alla distribuzione. Questa opzione comporta tuttavia maggiori costi e complessità per la distribuzione iniziale.
 
 In questo caso, vengono distribuite due reti virtuali invece di una, ad esempio rete virtuale 1 e rete virtuale 2. La rete virtuale 1 contiene i proxy, mentre la rete virtuale 2 contiene i servizi token di sicurezza e la connessione di rete alla rete aziendale. La rete virtuale 1 è quindi fisicamente, anche se virtualmente, isolata dalla rete virtuale 2 e di conseguenza anche dalla rete aziendale. La rete virtuale 1 è quindi connessa alla rete virtuale 2 con una speciale tecnologia di tunneling chiamata Transport Independent Network Architecture (TINA). Il tunnel TINA è collegato a ognuna delle reti virtuali tramite un dispositivo Barracuda NG Firewall, uno in ogni rete virtuale. Per garantire la disponibilità elevata, è consigliabile distribuire due dispositivi Barracuda in ogni rete virtuale, uno attivo e l'altro passivo. Questi dispositivi offrono funzionalità firewall complesse che consentono di simulare il funzionamento di una tradizionale rete perimetrale locale in Azure.
 
-![AD FS in Azure con firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
+![AD FS in Azure con firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)  
 
 Per altre informazioni, vedere [AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni](#BKMK_CloudOnlyFed).
 
@@ -263,7 +263,7 @@ La sezione seguente descrive scenari di distribuzione comuni per mettere in evid
 
     Ad esempio, un servizio SharePoint con connessione Internet viene distribuito in una macchina virtuale di Azure. L'applicazione non ha dipendenze delle risorse di rete aziendale. L'applicazione richiede Servizi di dominio Active Directory di Windows Server, ma NON Servizi di dominio Active Directory di Windows Server aziendale.
 
-2. [AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni](#BKMK_CloudOnlyFed).
+2. [AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni.](#BKMK_CloudOnlyFed)
 
     Ad esempio, un'applicazione in grado di riconoscere attestazioni distribuita correttamente in locale e usata dagli utenti aziendali deve essere accessibile da Internet. L'accesso all'applicazione direttamente tramite Internet deve essere garantito sia ai partner commerciali con le relative identità aziendali sia agli utenti esistenti.
 
@@ -299,7 +299,7 @@ SharePoint viene distribuito in una macchina virtuale di Azure e l'applicazione 
 
 - [Backup e ripristino](#BKMK_BUR): determinare la posizione in cui archiviare i backup dello stato del sistema. Se necessario, aggiungere un altro disco dati alla VM del controller di dominio per archiviare i backup.
 
-### <a name="BKMK_CloudOnlyFed"></a>2. AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni.
+### <a name="BKMK_CloudOnlyFed"></a>2. AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni
 
 ![Federazione con connettività cross-premise](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png) **Figura 2**
 
@@ -338,7 +338,7 @@ Un'applicazione compatibile con LDAP viene distribuita in una macchina virtuale 
 
 - [Topologia di rete](#BKMK_NetworkTopology): creare una rete virtuale di Azure con la [connettività cross-premise](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-- [Metodo di installazione](#BKMK_InstallMethod): distribuire controller di dominio di replica dal dominio Active Directory di Windows Server aziendale. Per un controller di dominio di replica è possibile installare Servizi di dominio Active Directory di Windows Server nella VM e, facoltativamente, usare la funzionalità Installazione da supporto per ridurre la quantità di dati che devono essere replicati nel nuovo controller di dominio durante l'installazione. Per un'esercitazione, vedere [Install a replica Active Directory domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md) (Installare un controller di dominio Active Directory di replica in una rete virtuale di Azure). Anche se si usa Installazione da supporto, potrebbe risultare più pratico compilare il controller di dominio virtuale in locale e spostare l'intero disco rigido virtuale (VHD) nel cloud, invece di replicare Servizi di dominio Active Directory di Windows Server durante l'installazione. Per motivi di sicurezza, è consigliabile eliminare il disco rigido virtuale dalla rete locale dopo che è stato copiato in Azure.
+- [Metodo di installazione](#BKMK_InstallMethod): distribuire controller di dominio di replica dal dominio Active Directory di Windows Server aziendale. Per un controller di dominio di replica è possibile installare Servizi di dominio Active Directory di Windows Server nella VM e, facoltativamente, usare la funzionalità Installazione da supporto per ridurre la quantità di dati che devono essere replicati nel nuovo controller di dominio durante l'installazione. Per un'esercitazione, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Anche se si usa Installazione da supporto, potrebbe risultare più pratico compilare il controller di dominio virtuale in locale e spostare l'intero disco rigido virtuale (VHD) nel cloud, invece di replicare Servizi di dominio Active Directory di Windows Server durante l'installazione. Per motivi di sicurezza, è consigliabile eliminare il disco rigido virtuale dalla rete locale dopo che è stato copiato in Azure.
 
 - [Topologia del sito Active Directory di Windows Server](#BKMK_ADSiteTopology): creare un nuovo sito di Azure in Siti e servizi di Active Directory. Creare un oggetto subnet di Active Directory di Windows Server per rappresentare la rete virtuale di Azure e aggiungere la subnet al sito. Creare un nuovo collegamento di sito che include il nuovo sito di Azure e il sito in cui si trova l'endpoint VPN della rete virtuale di Azure per controllare e ottimizzare il traffico di Active Directory di Windows Server da e verso Azure.
 
@@ -413,7 +413,7 @@ Anche i requisiti di disponibilità e tolleranza di errore influiscono sulla sce
 
 - Il traffico in ingresso è gratuito
 
-- Il traffico in uscita viene addebitato in base ai [Prezzi di Azure](http://azure.microsoft.com/pricing/). È possibile ottimizzare le proprietà dei collegamenti di sito tra i siti locali e i siti cloud come indicato di seguito:
+- Il traffico in uscita viene addebitato in base ai [prezzi di Azure](http://azure.microsoft.com/pricing/). È possibile ottimizzare le proprietà dei collegamenti di sito tra i siti locali e i siti cloud come indicato di seguito:
 
  - Se si usano più reti virtuali, configurare i collegamenti di sito e i relativi costi in modo appropriato, per impedire che Servizi di dominio Active Directory di Windows Server assegni la priorità al sito di Azure rispetto a un sito in grado di fornire gli stessi livelli di servizio gratuitamente. È anche possibile prendere in considerazione la disabilitazione dell'opzione relativa al bridge dei collegamenti di sito, abilitata per impostazione predefinita. Ciò garantisce che la replica venga eseguita solo tra i siti connessi direttamente. Nei controller di dominio di siti connessi in modo transitivo la replica non può più essere eseguita in reciprocamente e direttamente, bensì tramite uno o più siti comuni. Se per qualche motivo i siti intermedi non sono disponibili, la replica tra controller di dominio nei siti connessi in modo transitivo non verrà eseguita, anche se la connettività tra i siti è presente. Infine, dove sezioni di comportamento di replica transitiva possono essere utili, creare bridge di collegamenti di sito che contengono siti e collegamenti di sito appropriati, ad esempio siti di rete aziendale in locale.
 
@@ -440,7 +440,7 @@ Per la risoluzione dei nomi, distribuire l'infrastruttura del server DNS o usare
 
 Le VM registrano il relativo nome DNS automaticamente all'avvio o in caso di modifica di un nome.
 
-Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima macchina virtuale e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841).
+Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841).
 
 ### <a name="BKMK_DistributedDCs"></a>Controller di dominio con distribuzione geografica
 
@@ -548,14 +548,14 @@ I servizi cloud sono necessari se si vuole esporre una VM direttamente a Interne
 
 Ogni macchina virtuale di Azure riceve un indirizzo IP dinamico. Un indirizzo IP dinamico è un indirizzo privato accessibile solo all'interno di Azure. Nella maggior parte dei casi sarà tuttavia necessario configurare un indirizzo IP virtuale per le distribuzioni di AD FS di Windows Server. L'indirizzo IP virtuale è necessario per esporre a Internet gli endpoint AD FS di Windows Server che saranno usati da partner e client federativi per l'autenticazione e la gestione continuativa. Un indirizzo IP virtuale è una proprietà di un servizio cloud che contiene una o più macchine virtuali di Azure. Se le sessioni dell'applicazione in grado di riconoscere attestazioni distribuita in Azure e AD FS di Windows Server sono entrambi con connessione Internet e condividono porte comuni, per ognuna sarà necessario un indirizzo IP virtuale specifico e sarà quindi necessario creare un servizio cloud per l'applicazione e un altro per AD FS di Windows Serve.
 
-Per le definizioni dei termini indirizzo IP virtuale condizioni e indirizzo IP dinamico, vedere [Termini e definizioni](#BKMK_Glossary).
+Per le definizioni dei termini "indirizzo IP virtuale", "condizioni" e "indirizzo IP dinamico", vedere [Termini e definizioni](#BKMK_Glossary).
 
 ### <a name="BKMK_ADFSHighAvail"></a>Configurazione con disponibilità elevata di AD FS di Windows Server
 
 Anche se è possibile distribuire servizi federativi AD FS di Windows Server autonomi, è consigliabile distribuire una farm con almeno due nodi sia per il servizio token di sicurezza di AD FS che per i proxy per gli ambienti di produzione.
 
-Per stabilire le opzioni di configurazione della distribuzione che meglio soddisfano esigenze particolari, vedere [Considerazioni sulla topologia di distribuzione di AD FS](https://technet.microsoft.com/library/gg982489) nella [Guida alla progettazione di AD FS in Windows Server 2012](https://technet.microsoft.com/library/dd807036).
+Per stabilire le opzioni di configurazione della distribuzione che meglio soddisfano esigenze particolari, vedere [Considerazioni sulla topologia di distribuzione di AD FS 2.0](https://technet.microsoft.com/library/gg982489) nella [Guida alla progettazione di AD FS 2.0](https://technet.microsoft.com/library/dd807036).
 
-> [AZURE.NOTE] Per ottenere il bilanciamento del carico per gli endpoint AD FS di Windows Server in Azure, configurare tutti i membri della farm AD FS di Windows Server nello stesso servizio cloud e usare la funzionalità di bilanciamento del carico di Azure per le porte HTTP (80 predefinita) e HTTPS (443 predefinita). Per altre informazioni, vedere relativo al [probe di bilanciamento del carico di Azure](https://msdn.microsoft.com/library/azure/jj151530). Il bilanciamento del carico di rete di Windows Server non è supportato in Azure.
+> [AZURE.NOTE] Per ottenere il bilanciamento del carico per gli endpoint AD FS di Windows Server in Azure, configurare tutti i membri della farm AD FS di Windows Server nello stesso servizio cloud e usare la funzionalità di bilanciamento del carico di Azure per le porte HTTP (80 predefinita) e HTTPS (443 predefinita). Per altre informazioni, vedere l'articolo relativo al [probe di bilanciamento del carico di Azure](https://msdn.microsoft.com/library/azure/jj151530). Il bilanciamento del carico di rete di Windows Server non è supportato in Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

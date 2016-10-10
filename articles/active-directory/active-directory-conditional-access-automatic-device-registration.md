@@ -3,9 +3,9 @@
 	description="L'amministratore IT può scegliere di registrare con Azure Active Directory (Azure AD) i dispositivi Windows aggiunti a un dominio in modo automatico e invisibile all'utente."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="Markvi"
 	manager="swadhwa"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 
 # Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
 
 L'amministratore IT può scegliere di registrare in modo automatico e invisibile all'utente i dispositivi Windows aggiunti a un dominio con Azure Active Directory (Azure AD). Questa operazione può risultare utile se sono stati configurati criteri di accesso condizionale basati sul dispositivo per applicazioni di Office 365 o applicazioni gestite in locale da AD FS. Per altre informazioni sugli scenari di registrazione dei dispositivi, vedere [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
+
+>AZURE.NOTA Per le istruzioni più recenti su come configurare la registrazione automatica dei dispositivi, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 La registrazione automatica dei dispositivi con Azure Active Directory è disponibile per computer Windows 7 e Windows 8.1 aggiunti a un dominio di Active Directory. Si tratta in genere di computer aziendali assegnati agli Information Worker.
 
@@ -46,7 +48,7 @@ Configurare un riferimento aggiuntivo alla classe di autenticazione del trust de
 Nel server federativo aprire una finestra di comando di Windows PowerShell e digitare:
 
 
-  `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
+  `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`  
 
 Dove <RPObjectName> è il nome dell'oggetto relying party per l'oggetto trust della relying party di Azure Active Directory. Tale oggetto in genere è denominato Piattaforma delle identità di Microsoft Office 365.
 
@@ -105,4 +107,4 @@ Per altre informazioni sulla distribuzione della registrazione dei dispositivi c
 - [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@ services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
 manager="jhubbard"
-editor="cgronlun"/>
+editor="cgronlun"/>  
 
 <tags
 ms.service="hdinsight"
@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/07/2016"
+ms.date="09/27/2016"
 ms.author="larryfr"/>
 
 #Utilizzare una UDF Java con Hive in HDInsight
@@ -67,7 +67,61 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
     Queste voci specificano la versione di Hadoop e Hive inclusa con i cluster HDInsight 3.3 e 3.4. È possibile trovare informazioni sulle versioni di Hadoop e Hive fornite con HDInsight dal documento relativo al [controllo delle versioni dei componenti di HDInsight](hdinsight-component-versioning.md).
 
-    Al termine delle modifiche, salvare il file.
+    Aggiungere una sezione `<build>` prima della riga `</project>` alla fine del file. Questa sezione deve contenere quanto segue:
+
+        <build>
+            <plugins>
+                <!-- build for Java 1.7, even if you're on a later version -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <!-- build an uber jar -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <!-- Keep us from getting a can't overwrite file error -->
+                        <transformers>
+                            <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                            </transformer>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
+                            </transformer>
+                        </transformers>
+                        <!-- Keep us from getting a bad signature error -->
+                        <filters>
+                            <filter>
+                                <artifact>*:*</artifact>
+                                <excludes>
+                                    <exclude>META-INF/*.SF</exclude>
+                                    <exclude>META-INF/*.DSA</exclude>
+                                    <exclude>META-INF/*.RSA</exclude>
+                                </excludes>
+                            </filter>
+                        </filters>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    
+    Queste voci definiscono la modalità di realizzazione del progetto. In particolare, la versione di Java usata dal progetto e il modo in cui creare un file uberjar per la distribuzione nel cluster.
+
+    Salvare il file dopo avere apportato le modifiche.
 
 4. Rinominare __exampleudf/src/main/java/com/microsoft/examples/App.java__ in __ExampleUDF.java__ e aprire il file nell'editor.
 
@@ -136,7 +190,7 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 
 2. Una volta arrivati al prompt `jdbc:hive2://localhost:10001/>`, immettere il comando seguente per aggiungere la UDF a Hive ed esporla come una funzione.
 
-        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. Utilizzare la UDF per convertire i valori recuperati da una tabella in stringhe con lettere minuscole.
@@ -166,4 +220,4 @@ Per apprendere altri modi di utilizzare Hive, vedere [Utilizzare Hive con HDInsi
 
 Per ulteriori informazioni sulle UDF di Hive, vedere la sezione [Operatori e funzioni definite dall’utente di Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) del wiki di Hive all’indirizzo apache.org.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

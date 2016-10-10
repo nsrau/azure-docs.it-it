@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -48,4 +48,4 @@ Utenti RMS più attivi | 30 giorni
 Utilizzo dispositivi RMS | 30 giorni
 Utilizzo applicazioni abilitate per RMS | 30 giorni
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

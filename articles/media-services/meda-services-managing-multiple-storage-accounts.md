@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Gestione di asset di Servizi multimediali su più account di archiviazione" 
+	pageTitle="Gestione di asset di Servizi multimediali su più account di archiviazione | Microsoft Azure" 
 	description="Questo articolo fornisce informazioni sulle modalità per gestire asset di Servizi multimediali su più account di archiviazione." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
-	ms.author="juliako"/>
+	ms.date="09/26/2016"    
+	ms.author="juliako"/>  
 
 
 #Gestione di asset di Servizi multimediali su più account di archiviazione
@@ -40,7 +40,7 @@ Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante 
 
 ##Per collegare un account di archiviazione con l'API REST di gestione dei servizi di Azure
 
-Attualmente, l'[API REST di gestione dei servizi di Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx) costituisce l'unico strumento disponibile per collegare più account di archiviazione. L'esempio di codice riportato nell'argomento [Procedura: utilizzare l'API REST di gestione dei servizi multimediali](https://msdn.microsoft.com/library/azure/dn167656.aspx) definisce il metodo **AttachStorageAccountToMediaServiceAccount** da usare per collegare un account di archiviazione all'account di Servizi multimediali specificato. Nello stesso argomento è riportato anche il codice relativo al metodo **ListStorageAccountDetails**, che consente di elencare tutti gli account di archiviazione collegati all'account di Servizi multimediali specificato.
+Attualmente, l'[API REST di gestione dei servizi di Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx) costituisce l'unico strumento disponibile per collegare più account di archiviazione. L'esempio di codice riportato nell'argomento [Procedura: usare l'API REST di gestione di Servizi multimediali](https://msdn.microsoft.com/library/azure/dn167656.aspx) definisce il metodo **AttachStorageAccountToMediaServiceAccount** da usare per collegare un account di archiviazione all'account di Servizi multimediali specificato. Il codice nello stesso argomento definisce il metodo **ListStorageAccountDetails** che elenca tutti gli account di archiviazione collegati all'account di Servizi multimediali specificato.
 
 
 ##Per gestire asset di Servizi multimediali su più account di archiviazione
@@ -251,7 +251,7 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 		}
  
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -259,4 +259,4 @@ Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

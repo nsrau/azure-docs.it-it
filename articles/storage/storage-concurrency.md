@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor="tysonn"/>
+	editor="tysonn"/>  
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
-	ms.author="jahogg;tamram"/>
+	ms.date="09/22/2016"
+	ms.author="jahogg;tamram"/>  
 
 # Gestione della concorrenza nell'archiviazione di Microsoft Azure
 
@@ -284,4 +284,4 @@ Per altre informazioni sull'archiviazione di Azure, vedere:
 - Introduzione all'archiviazione per [BLOB](storage-dotnet-how-to-use-blobs.md), [tabelle](storage-dotnet-how-to-use-tables.md), [code](storage-dotnet-how-to-use-queues.md) e [file](storage-dotnet-how-to-use-files.md)
 - Architettura di archiviazione - [Archiviazione di Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

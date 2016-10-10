@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+	manager="femila"
+	editor="curtand"/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,12 +14,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/25/2016"
-	ms.author="billmath"/>
+	ms.author="billmath"/>  
 
 # Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
 Il documento seguente è un riferimento tecnico per fornire informazioni sulle porte e i protocolli necessari per l'implementazione di una soluzione ibrida di gestione delle identità. Usare la figura riportata di seguito e vedere la tabella corrispondente.
 
-![Cos'è Azure AD Connect](./media/active-directory-aadconnect-ports/required1.png)
+![Cos'è Azure AD Connect](./media/active-directory-aadconnect-ports/required1.png)  
 
 ## Tabella 1 - Azure AD Connect e AD locale
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e l'AD locale.
@@ -81,4 +81,4 @@ Bus di servizio di Azure|5671 (TCP/UDP)| In uscita
 ### 6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere la sezione [Requisiti in Installazione dell'agente di Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md#requirements).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

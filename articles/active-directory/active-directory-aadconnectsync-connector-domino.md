@@ -4,8 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
-   editor=""/>
+   manager="femila"
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/30/2016"
-   ms.author="andkjell"/>
+   ms.author="andkjell"/>  
 
 # Documentazione tecnica sul connettore Lotus Domino
 Questo articolo descrive il connettore Lotus Domino ed è applicabile ai prodotti seguenti:
@@ -251,7 +251,7 @@ Quando si configurano partizioni e gerarchie, è necessario selezionare la rubri
 ### Selezionare gli attributi
 Quando si configurano gli attributi, è necessario selezionare tutti quelli con prefisso **\_MMS\_**. Questi attributi sono obbligatori quando si effettua il provisioning di nuovi oggetti in Lotus Domino.
 
-![Attributi](./media/active-directory-aadconnectsync-connector-domino/attributes.png)
+![Attributi](./media/active-directory-aadconnectsync-connector-domino/attributes.png)  
 
 ## Gestione del ciclo di vita degli oggetti
 Questa sezione fornisce una panoramica dei diversi oggetti disponibili in Domino.
@@ -477,4 +477,4 @@ Esistono diverse modalità in Domino per estendere lo schema in modo che venga v
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

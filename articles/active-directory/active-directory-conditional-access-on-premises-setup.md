@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 
 
 # Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
@@ -71,14 +71,14 @@ Per distribuire il servizio Registrazione dispositivo di Azure Active Directory 
 
 Seguire questo elenco di controllo per abilitare e configurare il servizio Registrazione dispositivo di Azure Active Directory.
 
-| Attività | Riferimento |
+| Attività | riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Abilitare Registrazione dispositivo nel tenant di Azure Active Directory per consentire l'aggiunta dei dispositivi all'area di lavoro. Per impostazione predefinita, l'autenticazione a più fattori non è abilitata per il servizio. L'autenticazione a più fattori è tuttavia consigliata quando si registra un dispositivo. Prima di abilitare l'autenticazione a più fattori in ADRS, assicurarsi che AD FS sia configurato per un provider di autenticazione a più fattori. | [Abilitare Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
 | I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. | [Configurare l'individuazione di Registrazione dispositivo di Azure Active Directory.](active-directory-conditional-access-device-registration-overview.md) |
 
 ##Parte 2: Distribuire e configurare Active Directory Federation Services con Windows Server 2012 R2 e configurare una relazione federativa con Azure AD
 
-| Attività | Riferimento |
+| Attività | riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Distribuire un dominio di Servizi di dominio Active Directory con le estensioni dello schema di Windows Server 2012 R2. Non è necessario aggiornare alcun controller di dominio a Windows Server 2012 R2. L'unico requisito è l'aggiornamento dello schema. | [Aggiornare lo schema di Servizi di dominio Active Directory](#upgrade-your-active-directory-domain-services-schema) |
 | I dispositivi individueranno il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. È necessario configurare il DNS della società in modo che i dispositivi possano trovare il servizio Registrazione dispositivo di Azure Active Directory. | [Preparare Active Directory per supportare i dispositivi](#prepare-your-active-directory-to-support-devices) |
@@ -86,7 +86,7 @@ Seguire questo elenco di controllo per abilitare e configurare il servizio Regis
 
 ##Parte 3: Abilitare il writeback dei dispositivi in Azure AD
 
-| Attività | Riferimento |
+| Attività | riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Completare la parte 2 di Abilitazione del writeback dei dispositivi in Azure AD Connect. Al termine, tornare a questa guida. | [Abilitazione del writeback dei dispositivi in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
@@ -100,7 +100,7 @@ Seguire questo elenco di controllo per abilitare e configurare il servizio Regis
 La distribuzione è completata. È ora possibile provare alcuni scenari. Seguire i collegamenti riportati di seguito per provare il servizio e acquisire familiarità con le funzionalità.
 
 
-| Attività | Riferimento |
+| Attività | riferimento |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | Aggiungere alcuni dispositivi all'area di lavoro con Registrazione dispositivo di Azure Active Directory. È possibile aggiungere dispositivi iOS, Windows e Android. | [Aggiungere dispositivi all'area di lavoro con Registrazione dispositivo di Azure Active Directory](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | È possibile visualizzare e abilitare/disabilitare i dispositivi registrati tramite il portale dell'amministratore. In questa attività si visualizzeranno alcuni dispositivi registrati tramite il portale dell'amministratore. | [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
@@ -120,9 +120,9 @@ Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Ac
   1.	Aggiungere i domini.
   2.	Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni seguenti, [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
-
-  >[AZURE.NOTE] Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente.
-  >[AZURE.NOTE] Non è necessario configurare le funzionalità di anteprima.
+  
+  > [AZURE.NOTE] 
+  Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. Non è necessario configurare le funzionalità di anteprima.
 
 
 ## Aggiornare lo schema di Servizi di dominio Active Directory
@@ -252,4 +252,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

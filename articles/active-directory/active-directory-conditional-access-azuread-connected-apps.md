@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
-	ms.author="markvi"/>
+	ms.date="09/26/2016"
+	ms.author="markvi"/>  
 
 # Introduzione all'accesso condizionale di Azure Active Directory
 
@@ -55,7 +55,7 @@ Per impostazione predefinita, i criteri verranno applicati a tutti gli utenti ch
 
 È anche possibile escludere in modo esplicito i gruppi di sicurezza dai criteri selezionando l'opzione relativa alle **eccezioni** e quindi specificando uno o più gruppi. Gli utenti membri di un gruppo nell'elenco delle **eccezioni** non saranno soggetti al requisito di Multi-Factor Authentication, anche se sono membri di un gruppo a cui si applica la regola di accesso. La regola di accesso mostrata di seguito impone a tutti gli utenti del gruppo Responsabili di usare l'autenticazione a più fattori quando accedono all'applicazione.
 
-![Impostazione delle regole di accesso condizionale con MFA](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)
+![Impostazione delle regole di accesso condizionale con MFA](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)  
 
 ## Regole di accesso condizionale con MFA
 Se un utente è stato configurato usando la funzionalità di autenticazione Multi-Factor Authentication per utente, questa impostazione per l'utente andrà ad aggiungersi alle regole di Multi-Factor Authentication dell'app. Di conseguenza, un utente configurato per l'autenticazione a più fattori per utente dovrà eseguire l'autenticazione a più fattori anche se è stato escluso dalle regole di autenticazione a più fattori per l'applicazione. Altre informazioni sull'autenticazione a più fattori e le impostazioni per utente.
@@ -93,4 +93,4 @@ Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve esser
 - [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

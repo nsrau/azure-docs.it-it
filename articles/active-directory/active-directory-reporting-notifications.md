@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -38,7 +38,7 @@ Il messaggio di posta elettronica viene inviato se si verificano 10 nuove attivi
 
 Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di Azure classico. Per accedere al report, è necessario essere:
 
-- Un amministratore o un coamministratore della sottoscrizioni di Azure
+- Un amministratore o un coamministratore della sottoscrizione di Azure.
 
 - Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
@@ -51,4 +51,4 @@ Sì, per disattivare le notifiche correlate ad accessi anomali all'interno del p
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

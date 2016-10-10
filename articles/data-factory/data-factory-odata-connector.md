@@ -3,9 +3,9 @@
 	description="Informazioni su come spostare i dati da origini OData usando Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Spostare i dati da un'origine OData usando Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da un'origine OData a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
@@ -71,7 +71,7 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 
 **Set di dati di input OData**
 
-Impostando "external" su "true" e specificando i criteri externalData si comunica al servizio Data factory che la tabella è esterna e non è prodotta da un'attività al suo interno.
+Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 	
     {
     	"name": "ODataDataset",
@@ -97,7 +97,7 @@ Impostando "external" su "true" e specificando i criteri externalData si comunic
 		}
 	}
 
-Si noti che la specifica di **path** nella definizione del set di dati è facoltativa.
+La specifica di **path** nella definizione del set di dati è facoltativa.
 
 
 **Set di dati di output del BLOB di Azure**
@@ -162,7 +162,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati più recenti dall'origine OData.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati più recenti dall'origine OData.
 	
 	{
 	    "name": "CopyODataToBlob",
@@ -209,7 +209,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	}
 
 
-Si noti che la specifica di **query** nella definizione della pipeline è facoltativa. L'**URL** è che il servizio Data Factory usa per recuperare i dati è il seguente: URL specificato nel servizio collegato (obbligatorio) + percorso specificato nel set di dati (facoltativo) + query nella pipeline (facoltativa).
+La specifica di **query** nella definizione della pipeline è facoltativa. L'**URL** è che il servizio Data Factory usa per recuperare i dati è il seguente: URL specificato nel servizio collegato (obbligatorio) + percorso specificato nel set di dati (facoltativo) + query nella pipeline (facoltativa).
 
 ## Proprietà del servizio collegato OData
 
@@ -219,7 +219,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | -------- | ----------- | -------- | 
 | type | La proprietà type deve essere impostata su: **OData** | Sì |
 | URL| URL del servizio OData. | Sì |
-| authenticationType | Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/>Per le origini OData cloud, i valori possibili sono anonima e di base. Per le origini OData locali, i valori possibili sono anonima, di base e Windows. | Sì | 
+| authenticationType | Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData nel cloud, i valori possibili sono Anonima e Di base. Per OData locale, i valori possibili sono Anonima, Di base e Windows. | Sì | 
 | username | Specificare il nome utente se si usa l'autenticazione di base. | Sì (solo se si usa l'autenticazione di base) | 
 | password | Specificare la password per l'account utente specificato per il nome utente. | Sì (solo se si usa l'autenticazione di base) | 
 | gatewayName | Nome del gateway che il servizio Data Factory deve usare per connettersi al servizio OData locale. Specificare solo se si copiano dati da un'origine OData locale. | No |
@@ -278,7 +278,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 ## Proprietà del tipo di set di dati OData
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **ODataResource**, che include il set di dati OData, presenta le proprietà seguenti
 
@@ -288,11 +288,11 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 ## Proprietà del tipo di attività di copia OData
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
-Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
+Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
-In caso di attività di copia con origine di tipo **RelationalSource**, che include OData, sono disponibili le proprietà seguenti nella sezione typeProperties:
+Se l'origine è di tipo **RelationalSource** (che comprende OData), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
 | Proprietà | Descrizione | Esempio | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -302,7 +302,7 @@ In caso di attività di copia con origine di tipo **RelationalSource**, che incl
 
 ### Mapping dei tipi per OData
 
-Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni di tipi automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md), l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -317,4 +317,4 @@ Quando i dati vengono spostati da archivi OData, i tipi di dati OData vengono ma
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

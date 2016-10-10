@@ -6,7 +6,7 @@
 	authors="femila"
 	manager="swadhwa"
 	editor=""
-	tags="azure-classic-portal"/>
+	tags="azure-classic-portal"/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="femila"/>  
 
 # Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10
 
@@ -33,7 +33,7 @@ Dopo aver connesso i dispositivi ad Azure Active Directory (Azure AD), l'aggiunt
 
 Aggiunta a un dominio continua a essere utile. Tuttavia, per poter sfruttare i vantaggi offerti da Azure AD per l'accesso SSO, il roaming delle impostazioni e l'accesso a Windows Store con account aziendali o dell'istituto di istruzione, è necessario quanto segue:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Azure AD Connect per estendere la directory locale ad Azure AD.
 - Criteri impostati per connettere dispositivi aggiunti a un dominio ad Azure AD.
 - Build di Windows 10 (build 10551 o successiva) per i dispositivi.
@@ -123,21 +123,12 @@ I computer Windows 10 usano l'autenticazione integrata di Windows per eseguire l
 
 ### Passaggio 2: Configurare la registrazione automatica dei dispositivi tramite Criteri di gruppo in Active Directory
 
-È possibile usare Criteri di gruppo di Active Directory per configurare i dispositivi Windows 10 aggiunti a un dominio per la registrazione automatica in Azure AD. A questo scopo, seguire queste istruzioni dettagliate:
+È possibile usare Criteri di gruppo di Active Directory per configurare i dispositivi Windows 10 aggiunti a un dominio per la registrazione automatica in Azure AD.
 
-1. 	Aprire Server Manager e passare a **Strumenti** > **Gestione Criteri di gruppo**.
-2.	Da Gestione Criteri di gruppo passare al nodo corrispondente al dominio in cui si desidera abilitare la funzionalità di aggiunta ad Azure AD.
-3.	Fare clic con il pulsante destro del mouse su **Oggetti Criteri di gruppo** e quindi scegliere **Nuovo**. Assegnare un nome all'oggetto Criteri di gruppo, ad esempio Aggiunta automatica ad Azure AD. Fare clic su **OK**.
-4.	Fare clic con il pulsante destro del mouse sul nuovo oggetto Criteri di gruppo e scegliere **Modifica**.
-5.	Passare a **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Aggiunta all'area di lavoro**.
-6.	Fare clic con il pulsante destro del mouse su **Eseguire automaticamente l'unione dell'area di lavoro dei computer client** e scegliere **Modifica**.
-7.	Selezionare il pulsante di opzione **Abilitato** e fare clic su **Applica**. Fare clic su **OK**.
-8.	Collegare l'oggetto Criteri di gruppo a una posizione scelta. Per abilitare questi criteri per tutti i dispositivi Windows 10 aggiunti a un dominio nell'organizzazione, collegare l'oggetto Criteri di gruppo al dominio. Ad esempio:
- - Una specifica unità organizzativa in Active Directory in cui saranno posizionati i computer Windows 10 aggiunti a un dominio.
- - Uno specifico gruppo di sicurezza contenente i computer Windows 10 aggiunti a un dominio che verranno registrati automaticamente in Azure AD.
-
->[AZURE.NOTE]
-In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si esegue lo strumento Criteri di gruppo da un computer Windows 10, i criteri verranno visualizzati come: <br> **Registra i computer aggiunti a un dominio come dispositivi**<br> I criteri verranno memorizzati nel percorso seguente: <br>***Configurazione computer/Criteri/Modelli amministrativi/Componenti di Windows/Registrazione dispositivi***
+> [AZURE.NOTE]
+Per le istruzioni più recenti su come configurare la registrazione automatica dei dispositivi, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
+>
+> In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si esegue lo strumento Criteri di gruppo da un computer Windows 10, i criteri verranno visualizzati come: <br> **Registra i computer aggiunti a un dominio come dispositivi**<br> I criteri verranno memorizzati nel percorso seguente: <br>***Configurazione computer/Criteri/Modelli amministrativi/Componenti di Windows/Registrazione dispositivi***
 
 
 ## Informazioni aggiuntive
@@ -147,4 +138,4 @@ In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si ese
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

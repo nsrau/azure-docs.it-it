@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-service-management"/>  
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
-	ms.author="cynthn"/>
+	ms.date="09/27/2016"
+	ms.author="cynthn"/>  
 
 # Come configurare gli endpoint in una macchina virtuale Windows classica in Azure
 
@@ -38,4 +38,4 @@ Quando si crea una macchina virtuale Windows nel portale di Azure classico, gli 
 
 * Se una macchina virtuale è stata creata nel modello di distribuzione Resource Manager, è possibile usare Azure PowerShell per [creare gruppi di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-ps.md) per controllare il traffico verso la VM.
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

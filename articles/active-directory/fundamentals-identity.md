@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=".net"
 	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="multiple"
@@ -25,4 +25,4 @@
 
 [AZURE.INCLUDE [identità](../../includes/identity.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

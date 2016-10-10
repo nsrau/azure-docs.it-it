@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="Lakshmi1812"
    manager="barbkess"
-   editor=""/>
+   editor=""/>  
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (API REST)
@@ -38,7 +38,7 @@ Per ripristinare un database:
 2. Iniziare il ripristino utilizzando l'operazione [Create database restore request][]
 3. Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status][].
 
->[AZURE.NOTE] Al termine del ripristino sarà possibile configurare il database ripristinato seguendo la guida disponibile in [Finalizzare il database SQL di Azure ripristinato][].
+>[AZURE.NOTE] Al termine del ripristino sarà possibile configurare il database ripristinato seguendo le istruzioni disponibili in [Configurare il database dopo il ripristino][].
 
 ## Ripristino di un database eliminato
 
@@ -49,18 +49,18 @@ Per ripristinare un database eliminato:
 3.	Iniziare il ripristino utilizzando l'operazione [Create database restore request][].
 4.	Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status][].
 
->[AZURE.NOTE] Al termine del ripristino sarà possibile configurare il database ripristinato seguendo la guida disponibile in [Finalizzare il database SQL di Azure ripristinato][].
+>[AZURE.NOTE] Per configurare il database al termine del ripristino, vedere [Configurare il database dopo il ripristino][].
 
 
 ## Passaggi successivi
-Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, vedere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL][].
+Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere [Panoramica sulla continuità aziendale del database SQL][].
 
-<!--Image references-->
+<!--Image references-->  
 
 <!--Article references-->
-[Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL]: ./sql-database-business-continuity.md
+[Panoramica sulla continuità aziendale del database SQL]: ./sql-database-business-continuity.md
 [richiedere una modifica della quota DTU]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Finalizzare il database SQL di Azure ripristinato]: ./sql-database-recovered-finalize.md
+[Configurare il database dopo il ripristino]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [How to install and configure Azure PowerShell]: ./powershell-install-configure.md
 [Panoramica]: ./sql-data-warehouse-restore-database-overview.md
 [Portale]: ./sql-data-warehouse-restore-database-portal.md
@@ -78,4 +78,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

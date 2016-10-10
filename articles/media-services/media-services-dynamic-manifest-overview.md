@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Filtri e manifesti dinamici" 
+	pageTitle="Filtri e manifesti dinamici | Microsoft Azure" 
 	description="Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per archiviare questo streaming selettivo." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="cenkdin" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="cenkdin;juliako"/>
+	ms.date="09/26/2016" 
+	ms.author="cenkdin;juliako"/>  
 
-#Filtri e manifesti dinamici
+# Filtri e manifesti dinamici
 
 A partire dalla versione 2.11, Servizi multimediali consente di definire filtri per i propri asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici** creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
-Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere particolarmente vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di programmazione (attualmente, è possibile creare filtri solo con le API REST).
+Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere particolarmente vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice. È attualmente possibile creare filtri solo con le API REST.
 
-##Panoramica
+##Overview
 
 Quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, eseguire queste operazioni:
 
@@ -69,7 +69,7 @@ Di seguito è riportato un esempio di file manifesto:
 	
 ###Manifesti dinamici
 
-Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui il client deve poter disporre di una flessibilità maggiore rispetto a quanto descritto nel file manifesto predefinito dell'asset. Ad esempio:
+Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui il client deve poter disporre di una flessibilità maggiore rispetto a quanto descritto nel file manifesto predefinito dell'asset. ad esempio:
 
 - Per il dispositivo: distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering").
 - Ridurre il manifesto in modo da mostrare solo una sottoclip di un evento live ("filtro di sottoclip").
@@ -118,7 +118,7 @@ Come accennato in precedenza, quando si distribuiscono contenuti ai clienti (eve
 Con il manifesto dinamico, è possibile creare profili di dispositivo, ad esempio mobile, console, HD/SD e così via, e includere le tracce e la qualità desiderate per ogni profilo.
 
  
-![Esempio di filtro di rendering][renditions2]
+![Esempio di filtro di rendering][renditions2]  
 
 Nell'esempio seguente si usa un codificatore per codificare un asset in formato intermedio in sette rendering video ISO MP4 (da 180p a 1080p). L'asset così codificato può essere quindi riorganizzato dinamicamente in pacchetti creati con uno dei seguenti protocolli di streaming: HLS, Smooth, MPEG DASH e HDS. Nella parte superiore del diagramma è riportato il manifesto HLS per l'asset senza filtri (contiene tutti i sette rendering), mentre in basso a sinistra è riportato il manifesto HLS con applicato un filtro denominato "ott". Il filtro "ott" indica che devono essere rimosse tutte le velocità in bit inferiori a 1 Mbps. L'applicazione di questo filtro ha generato i due livelli di qualità inferiori rimossi nella risposta. In basso a destra è riportato invece il manifesto HLS con applicato un filtro denominato "mobile". Il filtro "mobile" indica che devono essere rimossi tutti i rendering con risoluzione superiore a 720p. L'applicazione di questo filtro ha generato i due rendering 1080p rimossi.
 
@@ -172,7 +172,7 @@ Oltre a fornire il supporto per gli annunci pubblicitari, LiveBackoff consente a
 
 ##Creare filtri a livello di codice
 
-L'argomento seguente descrive le entità di Servizi multimediali correlati ai filtri. Illustra inoltre la procedura per creare filtri a livello di codice.
+L'argomento seguente descrive le entità di Servizi multimediali correlate ai filtri. Illustra anche la procedura per creare filtri a livello di codice.
 
 [Creare filtri con le API REST](media-services-rest-dynamic-manifest.md).
 
@@ -202,7 +202,7 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 - Se si aggiorna un filtro, l'endpoint di streaming può impiegare fino a due minuti per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento dei filtri può determinare un errore del lettore. È consigliabile quindi cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -236,4 +236,4 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

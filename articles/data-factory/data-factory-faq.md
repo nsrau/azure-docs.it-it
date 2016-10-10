@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="spelluru"/>  
 
 # Azure Data Factory - Domande frequenti
 
@@ -67,7 +67,18 @@ No. Come per le altre risorse di Azure, non è possibile modificare il nome di u
 ### È possibile trasferire una data factory da una sottoscrizione di Azure a un'altra? 
 Sì. Usare il pulsante **Sposta** nel pannello della data factory come mostrato nel diagramma seguente.
 
-![Spostare una data factory](media/data-factory-faq/move-data-factory.png)
+![Spostare una data factory](media/data-factory-faq/move-data-factory.png)  
+
+### Quali sono gli ambienti di calcolo supportati da Data Factory?
+La seguente tabella presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti.
+
+| Ambiente di calcolo | attività |
+| ------------------- | -------- | 
+| [Cluster HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | 
+| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) | [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics.](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) | [Stored procedure](data-factory-stored-proc-activity.md)
 
 ## Attività - Domande frequenti
 ### Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory? 
@@ -82,8 +93,13 @@ L'impostazione di configurazione **availability** della tabella dati di output d
 ### È consigliabile avere una pipeline con più attività o una pipeline distinta per ogni attività? 
 Le pipeline sono state progettate per aggregare attività correlate. Se i set di dati che si interconnettono non vengono usati da altre attività esterne alla pipeline, è possibile mantenere le attività in un'unica pipeline. In questo modo non sarà necessario concatenare periodi attivi della pipeline per allinearli reciprocamente. Ciò consentirà anche di mantenere meglio l'integrità dei dati delle tabelle interne alla pipeline durante l'aggiornamento di quest'ultima. Essenzialmente, l'aggiornamento arresta tutte le attività nella pipeline, le rimuove e le crea di nuovo. Dal punto di vista della creazione, potrebbe anche risultare più semplice visualizzare il flusso di dati entro le attività correlate in un file JSON per la pipeline.
 
-### Dove viene eseguita l'operazione di copia? 
+### Quali sono gli archivi dati supportati?
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+### Quali sono i formati di file supportati? 
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+
+### Dove viene eseguita l'operazione di copia? 
 Per altre informazioni, vedere la sezione [Spostamento dei dati disponibile a livello globale](data-factory-data-movement-activities.md#global). In breve, quando è coinvolto un archivio dati locale, l'operazione di copia viene eseguita dal Gateway di gestione dati nell'ambiente locale. Quando lo spostamento dei dati avviene tra due archivi cloud, l'operazione di copia viene eseguita nell'area più vicina alla località del sink nella stessa area geografica.
 
 
@@ -192,4 +208,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

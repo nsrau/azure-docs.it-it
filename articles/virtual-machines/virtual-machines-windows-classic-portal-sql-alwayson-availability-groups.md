@@ -6,25 +6,25 @@
 	authors="MikeRayMSFT"
 	manager="jhubbard"
 	editor=""
-	tags="azure-service-management" />
+	tags="azure-service-management" />  
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
-	ms.author="mikeray" />
+	ms.date="09/22/2016"
+	ms.author="mikeray" />  
 
 # Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure - Versione classica
 
 > [AZURE.SELECTOR]
-- [Resource Manager: automatica](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: modello](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager: manuale](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
-<br/>
+<br/>  
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -76,7 +76,7 @@ Si inizia con un nuovo account di prova di Azure. Una volta terminata la configu
 	|Page|Impostazioni|
 |---|---|
 |Dettagli della rete virtuale|**NOME = ContosoNET**<br/>**AREA = Stati Uniti occidentali**|
-|Server DNS e connettività VPN|Nessuno|
+|Server DNS e connettività VPN|None|
 |Spazi di indirizzi della rete virtuale|Le impostazioni sono mostrate nella schermata riportata di seguito: ![Creare una rete virtuale](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
 1. Successivamente, si crea la macchina virtuale verrà utilizzata come controller di dominio (DC). Fare di nuovo clic su **Nuovo**, **Calcola**, **Macchina virtuale**, quindi su **Da raccolta**, come mostrato di seguito.
@@ -221,7 +221,7 @@ Una volta eseguito il provisioning completo delle tre macchine virtuali, sarà n
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -548,4 +548,4 @@ SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

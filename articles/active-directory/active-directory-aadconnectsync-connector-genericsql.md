@@ -4,8 +4,8 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
-   editor=""/>
+   manager="femila"
+   editor=""/>  
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/30/2016"
-   ms.author="andkjell"/>
+   ms.author="andkjell"/>  
 
 # Documentazione tecnica sul connettore Generic SQL
 
@@ -101,7 +101,7 @@ Ogni tipo di oggetto viene presentato come una partizione e configurato ulterior
 ### Schema 2 (rilevare i tipi di attributo)
 In questa pagina si configura in che modo verranno rilevati i nomi e i tipi di attributi. Le opzioni di configurazione sono elencate per ogni tipo di oggetto rilevato nella pagina precedente.
 
-![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
+![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)  
 
 **Attribute Type detection method**: il connettore supporta questi metodi di rilevamento del tipo di attributo con ogni tipo di oggetto rilevato nella schermata di Schema 1.
 
@@ -111,7 +111,7 @@ In questa pagina si configura in che modo verranno rilevati i nomi e i tipi di a
 ### Schema 3 (definire ancoraggio e DN)
 Questa pagina consente di configurare l'attributo di ancoraggio e DN per ogni tipo di oggetto rilevato. È possibile selezionare più attributi per rendere univoco l'ancoraggio.
 
-![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
+![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)  
 
 - Non sono elencati gli attributi multivalore e booleani.
 - Lo stesso attributo non può essere usato per DN e ancoraggio, a meno che nella pagina Connectivity non sia selezionata l'opzione **DN is Anchor**.
@@ -120,7 +120,7 @@ Questa pagina consente di configurare l'attributo di ancoraggio e DN per ogni ti
 ### Schema 4 (definire tipo di attributo, riferimento e direzione)
 Questa pagina consente di configurare il tipo di attributo, ad esempio valore integer, binario o booleano, e la direzione per ogni attributo. Tutti gli attributi della pagina **Schema 2** sono elencati con i relativi attributi multivalore.
 
-![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
+![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)  
 
 - **DataType**: usato per associare il tipo di attributo ai tipi noti al motore di sincronizzazione. Per impostazione predefinita, viene usato lo stesso tipo, come rilevato in SQL schema, ma DateTime e il Reference non sono facilmente rilevabili. Per questi è necessario specificare **DateTime** o **Reference**.
 - **Direction**: è possibile impostare la direzione dell'attributo su Import, Export o ImportExport. ImportExport è il valore predefinito. ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
@@ -134,7 +134,7 @@ Note:
 ### Schema 5 (definire la partizione per gli attributi di riferimento)
 In questa pagina si configura, per tutti gli attributi di riferimento, a quale partizione (tipo di oggetto) fa riferimento un attributo.
 
-![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
+![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)  
 
 Se si usa **DN is anchor** (DN è Anchor) è necessario usare lo stesso tipo di oggetto da cui si fa riferimento. Non è possibile fare riferimento a un altro tipo di oggetto.
 
@@ -159,7 +159,7 @@ Il connettore archivia sempre data e data-ora in formato UTC. Per poter converti
 
 Durante l'esportazione è necessario fornire al connettore ogni attributo di data e ora in formato UTC.
 
-![globalparameters2](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters2.png)
+![globalparameters2](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters2.png)  
 
 **Password Configuration**: il connettore fornisce funzionalità di sincronizzazione password e supporta l'impostazione e la modifica della password.
 
@@ -173,16 +173,16 @@ Il connettore fornisce due metodi per supportare la sincronizzazione password:
 ### Configurare partizioni e gerarchie
 Nella pagina di configurazione di partizioni e gerarchie selezionare tutti i tipi di oggetto. Ogni tipo di oggetto si trova nella propria partizione.
 
-![partitions1](./media/active-directory-aadconnectsync-connector-genericsql/partitions1.png)
+![partitions1](./media/active-directory-aadconnectsync-connector-genericsql/partitions1.png)  
 
 È anche possibile sostituire i valori definiti nella pagina **Connectivity** o **Global Parameters**.
 
-![partitions2](./media/active-directory-aadconnectsync-connector-genericsql/partitions2.png)
+![partitions2](./media/active-directory-aadconnectsync-connector-genericsql/partitions2.png)  
 
 ### Configurare gli ancoraggi
 Questa pagina è di sola lettura perché l'ancoraggio è già stato definito. L'attributo di ancoraggio selezionato viene sempre aggiunto con il tipo di oggetto in modo che rimanga univoco in tutti i tipi di oggetto.
 
-![ancoraggi](./media/active-directory-aadconnectsync-connector-genericsql/anchors.png)
+![ancoraggi](./media/active-directory-aadconnectsync-connector-genericsql/anchors.png)  
 
 ## Configurare il parametro per l'esecuzione dei passaggi
 Questi passaggi vengono configurati nei profili di esecuzione del connettore. Queste configurazioni eseguono l'effettiva operazione di importazione ed esportazione dei dati.
@@ -195,7 +195,7 @@ Il connettore Generic SQL supporta l'importazione completa e delta usando questi
 - Stored Procedure
 - Query SQL
 
-![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
+![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)  
 
 **Table/View** (Tabella/Vista) Per importare gli attributi multivalore per un oggetto, è necessario specificare i nomi di tabella o vista delimitati da virgole in **Name of Multi-Valued table/views** (Nome delle tabelle/viste multivalore) e le rispettive condizioni di join in **Join condition** (Condizione di join) con la tabella padre.
 
@@ -216,13 +216,13 @@ Esempio: si vuole importare l'oggetto Employee e tutti i relativi attributi mult
 
 **SQL Query** (Query SQL) ![runstep4](./media/active-directory-aadconnectsync-connector-genericsql/runstep4.png)
 
-![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)
+![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)  
 
 - Le query con più set di risultati non sono supportate.
 - La query SQL supporta la paginazione e fornisce i valori per Start Index e End Index di una variabile per supportare la paginazione.
 
 ### Importazione delta
-![runstep6](./media/active-directory-aadconnectsync-connector-genericsql/runstep6.png)
+![runstep6](./media/active-directory-aadconnectsync-connector-genericsql/runstep6.png)  
 
 La configurazione dell'importazione differenziale richiede un numero maggiore di operazioni di configurazione rispetto all'importazione completa.
 
@@ -267,4 +267,4 @@ Se si sceglie l'opzione SQL query, l'esportazione richiede tre diverse query per
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Esercitazione per l'app Smooth Streaming Windows Store" 
+	pageTitle="Esercitazione per l'app Smooth Streaming Windows Store | Microsoft Azure" 
 	description="Informazioni su come usare Servizi multimediali di Azure per creare un'applicazione Windows Store C# con un controllo XML MediaElement per riprodurre contenuto Smooth Streaming." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
-	ms.author="juliako"/>
+	ms.date="09/26/2016"  
+	ms.author="juliako"/>  
 
 
 
@@ -81,7 +81,7 @@ Crea directory per soluzione|(selezionata)
 Nome|Valore
 ---|---
 Gruppo di riferimenti|Windows/Estensioni
-Riferimento|Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package.
+riferimento|Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package.
 	
 3.	Fare clic su **OK**.
 
@@ -134,7 +134,7 @@ Dopo avere aggiunto i riferimenti, è necessario selezionare la piattaforma di d
 		    <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
 		</StackPanel>
 
-	Il controllo MediaElement viene usato per riprodurre i file multimediali. Nella lezione successiva verrà utilizzato il controllo del dispositivo di scorrimento denominato sliderProgress per controllare l'avanzamento del file multimediale.
+	Il controllo MediaElement viene utilizzato per riprodurre i file multimediali. Nella lezione successiva verrà utilizzato il controllo del dispositivo di scorrimento denominato sliderProgress per controllare l'avanzamento del file multimediale.
 
 3.	Premere **CTRL+S** per salvare il file.
 
@@ -837,7 +837,7 @@ Una presentazione Smooth Streaming può contenere più file video codificati con
 	    }
 	    #endregion class Track
 
-3. All'inizio della classe MainPage aggiungere le definizioni di variabili seguenti:
+3. All'inizio della classe MainPage aggiungere le seguenti definizioni di variabili:
 	
 		private List<Track> availableTracks;
 
@@ -969,7 +969,7 @@ Una presentazione Smooth Streaming può contenere più file video codificati con
 La lezione 4 è stata completata. In questa lezione è stata aggiunta la funzionalità per la selezione delle tracce.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -986,4 +986,4 @@ La lezione 4 è stata completata. In questa lezione è stata aggiunta la funzion
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

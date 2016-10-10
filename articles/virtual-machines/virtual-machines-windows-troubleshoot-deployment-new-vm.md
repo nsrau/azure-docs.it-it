@@ -3,10 +3,10 @@
    description="Risolvere i problemi della distribuzione Resource Manager quando si crea una nuova macchina virtuale Windows in Azure"
    services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
-   tags="top-support-issue, azure-resource-manager"/>
+   tags="top-support-issue, azure-resource-manager"/>  
 
 <tags
   ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="09/09/2016"
-  ms.author="cjiang"/>
+  ms.author="cjiang"/>  
 
 # Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure
 
@@ -57,7 +57,7 @@ Per risolvere entrambi questi errori, usare [Add-AzureRMVhd per caricare il disc
 
 Per risolvere entrambi questi errori, eliminare l'immagine corrente dal portale e [acquisirla di nuovo dai dischi rigidi virtuali correnti](virtual-machines-windows-capture-image.md) con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato).
 
-## Problema: Immagine personalizzata/della raccolta/del marketplace - errore di allocazione
+## Problema: Immagine personalizzata/della raccolta/del marketplace; errore di allocazione
 Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene aggiunta a un cluster che non può supportare le dimensioni della VM richieste oppure non ha spazio disponibile sufficiente per soddisfare la richiesta.
 
 **Causa 1:** il cluster non supporta le dimensioni della VM richieste.
@@ -82,4 +82,4 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 ## Passaggi successivi
 Se si incontrano problemi quando si avvia una VM Windows arrestata o si ridimensiona una VM Windows esistente in Azure, vedere l'articolo su come [risolvere i problemi della distribuzione di Resource Manager con il riavvio o il ridimensionamento di una macchina virtuale Windows esistente in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

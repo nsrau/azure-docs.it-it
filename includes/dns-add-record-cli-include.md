@@ -39,6 +39,11 @@ In questo esempio viene usato il nome del set di record "@" per creare il record
 
 	azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Creare un set di record PTR con un singolo record  
+In questo caso 'my-arpa-zone.com' è la zona ARPA che rappresenta l'intervallo IP dell'utente. Ogni record PTR impostato in questa zona corrisponde a un indirizzo IP che rientra nell'intervallo IP.
+
+	azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Creare un set di record SRV con un singolo record
 
 Se si crea un record SRV nella radice della zona, è possibile specificare "\_service" e "\_protocol" nel nome del record. Non è necessario includere "@" nel nome del record.
@@ -54,4 +59,4 @@ Se si crea un record SRV nella radice della zona, è possibile specificare "\_se
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

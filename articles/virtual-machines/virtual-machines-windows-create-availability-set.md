@@ -7,15 +7,15 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>
+	tags="azure-resource-manager"/>  
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="cynthn"/>
+	ms.date="09/27/2016"
+	ms.author="cynthn"/>  
 
 
 # Creare un set di disponibilità 
@@ -79,4 +79,4 @@ Per ulteriori informazioni, vedere [New AzureRmAvailabilitySet](https://msdn.mic
 
 Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	manager="rboucher"
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+	documentationCenter="monitoring-and-diagnostics"/>  
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="johnkem"/>
+	ms.date="09/26/2016"
+	ms.author="johnkem"/>  
 
 # Panoramica dei log di diagnostica di Azure
 I **log di diagnostica di Azure** sono log generati da una risorsa che forniscono dati completi e frequenti sul funzionamento di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa. Ad esempio, i log eventi del sistema di Windows sono una categoria di log di diagnostica per le macchine virtuali, mentre i log delle code, delle tabelle e dei BLOB sono categorie di log di diagnostica per gli account di archiviazione. I log di diagnostica sono diversi dal [log attività](monitoring-overview-activity-logs.md), precedentemente noto come log di controllo o log operativo, che fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Non tutte le risorse supportano il nuovo tipo di log di diagnostica descritto di seguito. L'elenco dei servizi supportati seguente illustra i tipi di risorse che supportano i nuovi log di diagnostica.
 
-![Posizione logica dei log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+![Posizione logica dei log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)  
 
 ## Che cosa si può fare con i log di diagnostica
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
@@ -52,7 +52,7 @@ La raccolta dei log di diagnostica può essere abilitata durante la creazione di
 1.	Andare a **Nuovo** e scegliere la risorsa a cui si è interessati.
 2.	Dopo aver configurato le impostazioni di base e aver selezionato una dimensione, nel pannello **Impostazioni**, in **Monitoraggio** selezionare **Abilitato** e scegliere un account di archiviazione in cui archiviare i log di diagnostica. Per l'invio della diagnostica a un account di archiviazione vengono addebitate le normali tariffe dati per l'archiviazione e le transazioni.
 
-    ![Abilitare i log di diagnostica durante la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+    ![Abilitare i log di diagnostica durante la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)  
 3.	Fare clic su **OK** e creare la risorsa.
 
 Per abilitare i log di diagnostica nel portale di Azure dopo la creazione di una risorsa, seguire questa procedura:
@@ -60,7 +60,7 @@ Per abilitare i log di diagnostica nel portale di Azure dopo la creazione di una
 1.	Passare al pannello della risorsa e aprire il pannello **Diagnostica**.
 2.	Fare clic su **Sì** e selezionare un account di archiviazione e/o un hub eventi.
 
-    ![Abilitare i log di diagnostica dopo la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+    ![Abilitare i log di diagnostica dopo la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)  
 3.	In **Log** selezionare le **categorie di log** da raccogliere o trasmettere.
 4.	Fare clic su **Save**.
 
@@ -69,15 +69,23 @@ Per abilitare i log di diagnostica tramite i cmdlet di Azure PowerShell, usare i
 
 Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione, usare questo comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -StorageAccountId [your storage account id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
 L'ID account di archiviazione è l'ID risorsa per l'account di archiviazione a cui devono essere inviati i log.
 
 Per abilitare la trasmissione dei log di diagnostica a un hub eventi, usare questo comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 
 L'ID regola del bus di servizio è una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`.
+
+Per consentire l'invio dei log di diagnostica all'area di lavoro di Log Analytics , usare questo comando:
+
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+
+È possibile ottenere l'ID dell'area di lavoro di Log Analytics nel portale di Azure.
+
+È possibile combinare questi parametri per abilitare più opzioni di output.
 
 Per abilitare i log di diagnostica tramite l'interfaccia della riga di comando di Azure, usare i comandi seguenti:
 
@@ -93,7 +101,33 @@ Per abilitare la trasmissione dei log di diagnostica a un hub eventi, usare ques
 
 L'ID regola del bus di servizio è una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`.
 
+Per consentire l'invio dei log di diagnostica all'area di lavoro di Log Analytics , usare questo comando:
+
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
+
+È possibile ottenere l'ID dell'area di lavoro di Log Analytics nel portale di Azure.
+
+È possibile combinare questi parametri per abilitare più opzioni di output.
+
 Per modificare le impostazioni di diagnostica usando l'API REST di Insights, vedere [questo documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+
+## Gestire le impostazioni di diagnostica nel portale
+
+Per garantire che tutte le risorse siano configurate correttamente con le impostazioni di diagnostica, è possibile accedere al pannello **Monitoraggio** nel portale e aprire il pannello **Log di diagnostica**.
+
+![Pannello Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)  
+
+Potrebbe essere necessario fare clic su "Altri servizi" per individuare il pannello Monitoraggio.
+
+Qui è possibile visualizzare e filtrare tutte le risorse che supportano i log di diagnostica per verificare che sia stata abilitata la diagnostica e in quali account di archiviazione, hub eventi, e/o area di lavoro di Log Analytics confluiscano tali log.
+
+![Risultati del pannello Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)  
+
+Facendo clic su una risorsa vengono visualizzati tutti i log memorizzati nell'account di archiviazione ed è possibile disattivare o modificare le impostazioni di diagnostica. Fare clic sull'icona di download per scaricare i log relativi a un periodo di tempo specifico.
+
+![Una risorsa del pannello Log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)  
+
+> [AZURE.NOTE] I log di diagnostica verranno visualizzati soltanto in questa vista e saranno disponibili per il download se le impostazioni di diagnostica sono state configurate per salvare i log in un account di archiviazione.
 
 ## Servizi supportati e schema per i log di diagnostica
 Lo schema per i log di diagnostica varia a seconda della risorsa e della categoria di log. Di seguito sono riportati i servizi supportati e il relativo schema.
@@ -133,10 +167,13 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log delle prestazioni del gateway applicazione|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log del firewall del gateway applicazione|
 |Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
+|Microsoft.ServerManagement/nodes|RequestLogs|Log delle richieste|
+|Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
+|Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
 
 ## Passaggi successivi
 - [Trasmettere log di diagnostica di Azure a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Modificare le impostazioni di diagnostica usando l'API REST di Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Analyze the logs with OMS Log Analytics (Analizzare i log con OMS Log Analytics)](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

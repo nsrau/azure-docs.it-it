@@ -5,15 +5,15 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="" />
+    editor="" />  
 <tags 
     ms.service="event-hubs"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/07/2016"
-    ms.author="sethm" />
+    ms.date="09/27/2016"
+    ms.author="sethm" />  
 
 # Quote di Hub eventi
 
@@ -21,4 +21,4 @@ Questa sezione elenca le quote e i limiti di base di Hub eventi di Microsoft Azu
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
 
-<!----HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,8 +5,8 @@
 	  keywords="Licenze di Azure AD"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
-    editor=""/>
+    manager="femila"
+    editor=""/>  
 
 <tags
     ms.service="active-directory"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="08/23/2016"
-    ms.author="curtand"/>
+    ms.author="curtand"/>  
 
 # Che cosa sono le licenze di Microsoft Azure Active Directory?
 
@@ -140,4 +140,4 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

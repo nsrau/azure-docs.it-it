@@ -1,12 +1,12 @@
 
 <properties 
-	pageTitle="Gestione di entità di Servizi multimediali con l'API REST" 
+	pageTitle="Gestione di entità di Servizi multimediali con l'API REST | Microsoft Azure" 
 	description="Informazioni su come gestire entità di Servizi multimediali con l'API REST." 
 	authors="juliako" 
 	manager="dwrede" 
 	editor="" 
 	services="media-services" 
-	documentationCenter=""/>
+	documentationCenter=""/>  
 
 <tags 
 	ms.service="media-services" 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/26/2016" 
+	ms.author="juliako"/>  
 
 #Gestione di entità di Servizi multimediali con l'API REST
 
@@ -167,7 +167,7 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -175,4 +175,4 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

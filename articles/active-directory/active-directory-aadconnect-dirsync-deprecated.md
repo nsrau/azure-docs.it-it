@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
-	editor=""/>
+	manager="femila"
+	editor=""/>  
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/27/2016"
-	ms.author="andkjell"/>
+	ms.author="andkjell"/>  
 
 
 # Aggiornare il servizio di sincronizzazione di Microsoft Azure Active Directory ("DirSync") e Azure Active Directory Sync ("Azure AD Sync")
@@ -29,7 +29,7 @@ Azure AD Connect è il successore di DirSync e Azure AD Sync. La soluzione combi
 
 ## Pianificazione della deprecazione
 
-Data | Commento
+Date | Commento
  --- | ---
 13 aprile 2016 | Annuncio della deprecazione dei servizi di sincronizzazione di Azure Active Directory ("DirSync") e Microsoft Azure Active Directory Sync ("Azure AD Sync").
 13 aprile 2017 | Termine del supporto. I clienti non potranno più aprire un caso di supporto senza prima eseguire l'aggiornamento ad Azure AD Connect.
@@ -61,4 +61,4 @@ Per istruzioni su come eseguire un aggiornamento sul posto da DirSync ad Azure A
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

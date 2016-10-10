@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="06/27/2016"
+  ms.date="09/26/2016"
   ms.author="araguila"/>
    
 # Domande frequenti su IoT Suite
@@ -53,7 +53,7 @@ Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per B
 
 5. Modificare la riga seguente in modo da includere il valore copiato da QueryKey:
    
-  `<setting name="MapApiQueryKey" value="" />`
+  `<setting name="MapApiQueryKey" value="" />`  
 
 ### È possibile creare una soluzione preconfigurata se è disponibile Microsoft Azure per DreamSpark?
 Al momento non è possibile creare una soluzione preconfigurata con un account [Microsoft Azure per DreamSpark][lnk-dreamspark]. Tuttavia, è possibile creare un [account di valutazione gratuito per Azure][lnk-30daytrial] in pochi minuti, che consentirà di creare una soluzione preconfigurata.
@@ -82,4 +82,4 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -23,9 +23,9 @@
 - [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 
 
-Azure offre attualmente di due modelli di gestione: classico e Resource Manager. Se si usa Azure da qualche tempo, si dispone probabilmente di VM e istanze del ruolo di Azure in esecuzione su una rete virtuale classica. Le VM e le istanze del ruolo più recenti potrebbero invece essere in esecuzione su una rete virtuale creata in Resource Manager. Questo articolo descrive come connettere le reti virtuali classiche alle reti virtuali di Resource Manager per consentire alle risorse presenti nei modelli di distribuzione separati di comunicare tra di loro tramite una connessione gateway.
+Azure offre attualmente due modelli di gestione: classico e Resource Manager. Se si usa Azure da qualche tempo, si dispone probabilmente di VM e istanze del ruolo di Azure in esecuzione su una rete virtuale classica. Le macchine virtuali e le istanze del ruolo più recenti potrebbero invece essere in esecuzione su una rete virtuale creata in Resource Manager. Questo articolo descrive come connettere le reti virtuali classiche alle reti virtuali di Resource Manager per consentire alle risorse presenti nei modelli di distribuzione separati di comunicare tra di loro tramite una connessione gateway.
 
-È possibile creare una connessione tra reti virtuali in diverse sottoscrizioni, in aree diverse e in diversi modelli di distribuzione. È anche possibile connettere reti virtuali che già dispongono di connessioni alle reti locali, purché il gateway con cui sono state configurate sia dinamico o basato su route. Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere le [Domande frequenti relative alla connessione da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
+È possibile creare una connessione tra reti virtuali in sottoscrizioni diverse, in aree diverse e in modelli di distribuzione diversi. È anche possibile connettere reti virtuali che già dispongono di connessioni alle reti locali, purché il gateway con cui sono state configurate sia dinamico o basato su route. Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
 
 [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
@@ -41,15 +41,15 @@ Prima di iniziare, verificare quanto segue:
 
 ### <a name="values"></a>Impostazioni di esempio
 
-È possibile usare le impostazioni di esempio come riferimento quando si usano i cmdlet di PowerShell nei passaggi seguenti.
+È possibile usare le impostazioni di esempio come riferimento quando si usano i cmdlet di PowerShell nei passaggi seguenti:
 
-**Impostazioni classiche della rete virtuale**
+**Impostazioni della rete virtuale classica**
 
-Nome rete virtuale = ClassicVNet <br> Posizione = Stati Uniti occidentali <br> Spazi di indirizzi della rete virtuale = 10.0.0.0/8 <br> Subnet-1 = 10.0.0.0/11 <br> GatewaySubnet = 10.32.0.0/29 <br> Nome della rete locale = RMVNetLocal <br>
+Nome rete virtuale = ClassicVNet <br> Località = Stati Uniti occidentali <br> Spazi di indirizzi della rete virtuale = 10.0.0.0/24 <br> Subnet-1 = 10.0.0.0/27 <br> GatewaySubnet = 10.0.0.32/29 <br> Nome della rete locale = RMVNetLocal <br>
 
 **Impostazioni della rete virtuale di Resource Manager**
 
-Nome della rete virtuale = RMVNet <br> Gruppo di risorse = RG1 <br> Spazi di indirizzi IP della rete virtuale = 192.168.1.0/16 <br> Subnet -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Posizione = Stati Uniti orientali <br> Nome del gateway di rete virtuale = RMGateway <br> Nome IP pubblico del gateway = gwpip <br> Tipo di gateway = VPN <br> Tipo di VPN = basata su route <br> Gateway di rete locale = ClassicVNetLocal <br>
+Nome della rete virtuale = RMVNet <br> Gruppo di risorse = RG1 <br> Spazi di indirizzi IP della rete virtuale = 192.168.0.0/16 <br> Subnet -1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Località = Stati Uniti orientali <br> Nome del gateway di rete virtuale = RMGateway <br> Nome IP pubblico del gateway = gwpip <br> Tipo di gateway = VPN <br> Tipo di VPN = basata su route <br> Gateway di rete locale = ClassicVNetLocal <br>
 
 ## <a name="createsmgw"></a>Sezione 1: Configurare le impostazioni di una rete virtuale classica
 
@@ -156,7 +156,7 @@ In questa sezione viene creata la connessione tra le reti virtuali. Per eseguire
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
 
-4. Creare la connessione VPN eseguendo i comandi seguenti.
+4. Creare la connessione VPN eseguendo i comandi seguenti:
 	
 	**Impostare le variabili**
 
@@ -182,4 +182,4 @@ Visualizzare i dettagli delle frequenti per altre informazioni sulle connessioni
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

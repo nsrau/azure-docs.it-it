@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>  
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="04/06/2016" 
-    ms.author="jeedes" />
+    ms.author="jeedes" />  
 
 #Esercitazione: Configurazione di Workday per la sincronizzazione in ingresso
 >[AZURE.NOTE]Azure Active Directory (AD) Premium sono disponibili per i clienti in Cina che usano l'istanza globale di Azure AD. Azure AD Premium non è attualmente supportato nel servizio Microsoft Azure gestito da 21Vianet in Cina.
@@ -181,4 +181,4 @@ Questa sezione descrive come configurare Microsoft Azure AD per importare utenti
 
 È ora possibile passare alla sezione **Utenti** e verificare se l'utente Workday è stato importato.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->
