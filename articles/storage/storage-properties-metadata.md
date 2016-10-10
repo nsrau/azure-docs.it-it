@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="dineshm;tamram"/>  
+	ms.author="dineshm;tamram"/>
 
 # Impostare e recuperare proprietà e metadati #
 

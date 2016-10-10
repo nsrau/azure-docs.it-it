@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="vDonGlover"
 	manager="raymondlaghaeian"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="v-donglo"/>  
+	ms.author="v-donglo"/>
 
 # Ripetere il training di un servizio Web classico
 

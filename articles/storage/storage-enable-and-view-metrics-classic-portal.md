@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="robinsh" 
 	manager="carmonm" 
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 

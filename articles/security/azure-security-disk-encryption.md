@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor="TomSh"/>  
+   editor="TomSh"/>
 
 <tags
    ms.service="security"
@@ -100,7 +100,7 @@ Ecco la procedura generale richiesta per abilitare la crittografia del disco per
 4. Il cliente specifica l'identità dell'applicazione di Azure AD per la scrittura del materiale della chiave di crittografia nell'insieme di credenziali delle chiavi locale per abilitare la crittografia nella VM IaaS per gli scenari indicati nel punto 2 descritto in precedenza
 5.  Azure aggiorna il modello di servizi della VM con la configurazione della crittografia e dell'insieme di credenziali delle chiavi ed effettua il provisioning automatico della VM crittografata
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)  
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
 
 ### Flusso di lavoro della decrittografia
 
@@ -334,7 +334,7 @@ Per creare un nuovo insieme di credenziali delle chiavi, usare una delle opzioni
 
 **Nota:** se per la sottoscrizione è già configurato un insieme di credenziali delle chiavi, passare alla sezione successiva.
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)  
+![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### Provisioning di una chiave di crittografia della chiave (facoltativo)
 
@@ -344,7 +344,7 @@ Se si vuole usare una chiave di crittografia della chiave (KEK) per avere un liv
 
 La chiave di crittografia della chiave può essere aggiunta dal portale di Azure Resource Manager e con l'esperienza utente dell'insieme di credenziali delle chiavi di Azure.
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig2.png)  
+![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig2.png)
 
 #### Impostare le autorizzazioni dell'insieme di credenziali delle chiavi per consentire alla piattaforma Azure di accedere a chiavi e segreti
 
@@ -356,13 +356,13 @@ La piattaforma Azure deve avere accesso ai segreti o alle chiavi di crittografia
 
 È possibile configurare i criteri di accesso per l'applicazione AAD dall'esperienza utente dell'insieme di credenziali delle chiavi:
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)  
+![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)  
+![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 Verificare che l'insieme di credenziali delle chiavi sia abilitato per la crittografia del disco in "Criteri di accesso avanzati":
 
-![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)  
+![Insieme di credenziali chiave Azure](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
 ## Scenari di distribuzione di Disk Encryption ed esperienze utente
 
@@ -530,7 +530,7 @@ La crittografia del disco può essere abilitata in un VHD crittografato del clie
 
 È possibile ottenere lo stato della crittografia della VM IaaS dal portale di Azure Resource Manager. Accedere al portale di Azure all'indirizzo https://portal.azure.com/, fare clic sul collegamento Macchine virtuali nel menu a sinistra per passare alla visualizzazione di riepilogo della macchine virtuali disponibili nella sottoscrizione. È possibile filtrare la visualizzazione Macchine virtuali selezionando il nome della sottoscrizione dall'elenco a discesa Sottoscrizione. Fare clic sulle colonne che trovano in alto nel menu della pagina Macchine virtuali. Selezionare la colonna relativa alla crittografia del disco nel pannello per la scelta delle colonne e fare clic su Aggiorna. Verrà visualizzata la colonna relativa alla crittografia del disco con lo stato della crittografia "Abilitata" o "Non abilitata" per ogni VM, come illustrato nella figura seguente.
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.png)  
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
 
 #### Ottenere lo stato della crittografia di una VM IaaS crittografata Windows o Linux usando il cmdlet di PowerShell per la crittografia del disco
 È possibile ottenere lo stato della crittografia della VM IaaS dal cmdlet PS per la crittografia del disco "Get-AzureRmVMDiskEncryptionStatus". Per ottenere le impostazioni delle crittografia per la VM, nella sessione di Azure PowerShell digitare:
@@ -718,7 +718,7 @@ Per CentOS 7.2, la crittografia del disco del sistema operativo è supportata tr
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 
-È consigliabile salvare la [diagnostica di avvio](https://azure.microsoft.com/it-IT/blog/boot-diagnostics-for-virtual-machines-v2/) della macchina virtuale *prima* del riavvio.
+È consigliabile salvare la [diagnostica di avvio](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) della macchina virtuale *prima* del riavvio.
 
 #### Monitoraggio dello stato della crittografia del sistema operativo
 
@@ -751,9 +751,9 @@ Passare a [Esplora risorse di Azure](https://resources.azure.com/), quindi espan
 
 In InstanceView scorrere verso il basso per visualizzare lo stato della crittografia delle unità.
 
-![Visualizzazione dell'istanza della VM](./media/azure-security-disk-encryption/vm-instanceview.png)  
+![Visualizzazione dell'istanza della VM](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-2\. Esaminare la [diagnostica di avvio](https://azure.microsoft.com/it-IT/blog/boot-diagnostics-for-virtual-machines-v2/). I messaggi provenienti dall'estensione ADE avranno il prefisso `[AzureDiskEncryption]`.
+2\. Esaminare la [diagnostica di avvio](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). I messaggi provenienti dall'estensione ADE avranno il prefisso `[AzureDiskEncryption]`.
 
 3\. Accedere alla VM tramite SSH e ottenere il log di estensione da
 
@@ -769,25 +769,25 @@ Non è consigliabile accedere alla VM mentre è in corso la crittografia del sis
 
 1\. Selezionare "Configure encrypted volumes" (Configura volumi crittografati) durante il partizionamento dei dischi.
 
-![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)  
+![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2\. Creare un'unità di avvio separata che non deve essere crittografata. Crittografare l'unità radice.
 
-![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)  
+![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3\. Specificare una passphrase. Si tratta della passphrase che verrà caricata nell'insieme di credenziali delle chiavi.
 
-![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)  
+![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4\. Terminare il partizionamento.
 
-![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)  
+![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5\. Quando si avvia la VM, verrà richiesta una passphrase. Usare la passphrase immessa nel passaggio 3.
 
-![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)  
+![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6\. Preparare la VM per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
+6\. Preparare la VM per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
 ###### Configurare la crittografia per l'uso di Azure
 
@@ -846,7 +846,7 @@ Non è consigliabile accedere alla VM mentre è in corso la crittografia del sis
 
 5\. Eseguire `update-initramfs -u -k all` per aggiornare initramfs e rendere operativo il `keyscript`. 6. È ora possibile effettuare il deprovisioning della VM.
 
-![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)  
+![Configurazione di Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 7\. Continuare con il passaggio successivo e [caricare il VHD](#upload-encrypted-vhd-to-an-azure-storage-account) in Azure.
 
@@ -856,13 +856,13 @@ Non è consigliabile accedere alla VM mentre è in corso la crittografia del sis
 
 1\. Selezionare "Encrypt Volume Group" (Crittografa gruppi di volumi) durante il partizionamento dei dischi. Specificare una passphrase. Si tratta della passphrase che verrà caricata nell'insieme di credenziali delle chiavi.
 
-![Configurazione di openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)  
+![Configurazione di openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2\. Avviare la VM usando la passphrase.
 
-![Configurazione di openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)  
+![Configurazione di openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3\. Preparare la VM per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
+3\. Preparare la VM per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
 ###### Configurare la crittografia per l'uso di Azure
 
@@ -928,21 +928,21 @@ to
 
 1\. Selezionare "Encrypt my data" (Crittografa dati personali) durante il partizionamento dei dischi.
 
-![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)  
+![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2\. Assicurarsi che "Encrypt" (Crittografa) sia selezionato per la partizione radice.
 
-![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)  
+![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3\. Specificare una passphrase. Si tratta della passphrase che verrà caricata nell'insieme di credenziali delle chiavi.
 
-![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)  
+![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4\. Quando si avvia la VM, verrà richiesta una passphrase. Usare la passphrase immessa nel passaggio 3.
 
-![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)  
+![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5\. Preparare la VM per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/it-IT/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
+5\. Preparare la VM per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
 6\. È ora possibile effettuare il deprovisioning della VM e [caricare il VHD](#upload-encrypted-vhd-to-an-azure-storage-account) in Azure.
 
@@ -1002,7 +1002,7 @@ to
 
 5\.Eseguire "/usr/sbin/dracut -f -v" per aggiornare initrd.
 
-![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)  
+![Configurazione di CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ### Caricare il VHD crittografato in un account di archiviazione di Azure
 Dopo aver abilitato la crittografia BitLocker o la crittografia DM-Crypt, il VHD crittografato locale dovrà essere caricato nell'account di archiviazione.

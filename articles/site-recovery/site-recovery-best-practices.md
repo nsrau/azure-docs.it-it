@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="site-recovery"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="07/06/2016"
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 # Preparare la distribuzione di Azure Site Recovery
 
@@ -149,8 +149,8 @@ Assicurarsi che questi URL siano accessibili dal server
  *.hypervrecoverymanager.windowsazure.com | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
  *. store.core.windows.net | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
  *.blob.core.windows.net | | Accesso richiesto | Accesso richiesto | Accesso richiesto
- https://www.msftncsi.com/ncsi.txt   | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
- https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi   | | | | Accesso richiesto
+ https://www.msftncsi.com/ncsi.txt | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi | | | | Accesso richiesto
 
 
 ## Passaggi successivi

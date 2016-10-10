@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="jahogg;robinsh"/>  
+	ms.author="jahogg;robinsh"/>
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 
@@ -258,7 +258,7 @@ Per caricare rapidamente un singolo BLOB di grandi dimensioni, l'applicazione cl
 -	.NET: Impostare ParallelOperationThreadCount in un oggetto BlobRequestOptions da usare.
 -	Java/Android: Usare BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: Usare parallelOperationThreadCount nelle opzioni della richiesta o nel servizio BLOB.
--	C++: Usare il metodo blob\_request\_options::set\_parallelism\_factor.
+-	C++: Usare il metodo blob_request_options::set_parallelism_factor.
 
 ####<a name="subheading22"></a>Caricamento rapido di più BLOB
 Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della redazione di questo documento, un account di archiviazione con ridondanza locale (LRS) basato negli Stati Uniti supporta fino a 20 Gbps in ingresso, un valore molto più alto della velocità effettiva supportata da un singolo BLOB. [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.

@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>  
+ tags="azure-service-management"/>
 <tags
 ms.service="virtual-machines-linux"
  ms.devlang="na"
@@ -14,7 +14,7 @@ ms.service="virtual-machines-linux"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
  ms.date="09/21/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 

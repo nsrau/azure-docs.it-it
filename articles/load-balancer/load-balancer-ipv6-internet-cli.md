@@ -7,7 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
-/>  
+/>
 <tags
     ms.service="load-balancer"
     ms.devlang="na"
@@ -16,7 +16,7 @@
     ms.workload="infrastructure-services"
     ms.date="09/14/2016"
     ms.author="sewhee"
-/>  
+/>
 
 # Creare un servizio di bilanciamento del carico con connessione Internet con IPv6 in Azure Resource Manager usando l'interfaccia della riga di comando di Azure
 
@@ -31,7 +31,7 @@ Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP
 
 Il diagramma seguente illustra la soluzione di bilanciamento del carico distribuita usando il modello di esempio descritto in questo articolo.
 
-![Scenario del bilanciamento del carico](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)  
+![Scenario del bilanciamento del carico](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
 In questo scenario si creeranno le seguenti risorse di Azure:
 

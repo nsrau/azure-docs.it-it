@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="RahulPrasad16"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="documentdb"
@@ -15,7 +15,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="09/23/2016"
-	ms.author="raprasa"/>  
+	ms.author="raprasa"/>
 
 # Backup online e ripristino automatico con DocumentDB 
 
@@ -31,10 +31,10 @@ Come illustrato nel diagramma seguente, un'unica raccolta DocumentDB è [partizi
 
 L'immagine seguente mostra l'alto livello di ridondanza con DocumentDB.
 
-![Alto livello di ridondanza con DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-redundancy.png)  
+![Alto livello di ridondanza con DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-redundancy.png)
 
 
-![Alto livello di ridondanza con DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)  
+![Alto livello di ridondanza con DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
 ## Backup online, completi, automatici
 
@@ -46,7 +46,7 @@ A differenza dei dati archiviati all'interno di DocumentDB, i backup automatici 
 
 L'immagine di seguito illustra i backup completi periodici di tutte le entità di DocumentDB nell'archiviazione di Azure con archiviazione con ridondanza geografica.
 
-![Backup completi periodici di tutte le entità di DocumentDB nell'archiviazione di Azure con archiviazione con ridondanza geografica](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-automatic-backup.png)  
+![Backup completi periodici di tutte le entità di DocumentDB nell'archiviazione di Azure con archiviazione con ridondanza geografica](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-automatic-backup.png)
 
 
 ## Periodo di conservazione di uno snapshot specifico

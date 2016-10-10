@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
 	ms.date="09/27/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Diversi modi per creare una macchina virtuale Windows con Gestione risorse
 

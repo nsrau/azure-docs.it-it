@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="ryansoc"
 	manager="zakramer"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="multiple"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="08/25/2016"
-	ms.author="ryansoc"/>  
+	ms.author="ryansoc"/>
 
 
 #  Panoramica della documentazione di Azure per enti pubblici
@@ -36,7 +36,7 @@ Azure Government offre una gamma di funzionalità e servizi che è possibile usa
 
 Il diagramma seguente illustra il modello di difesa avanzata di Azure. Ad esempio, Microsoft offre la protezione di base da attacchi DDoS per l'infrastruttura cloud, unitamente alle funzionalità dei clienti, come le appliance di sicurezza, per le esigenze riguardanti gli attacchi DDoS specifiche delle applicazioni dei clienti.
 
-![testo alternativo](./media/azure-government-Defenseindepth.png)  
+![testo alternativo](./media/azure-government-Defenseindepth.png)
 
 Questa pagina descrive i principi fondamentali per la protezione dei servizi e delle applicazioni e offre indicazioni e procedure consigliate su come applicare questi principi. In altre parole, illustra in che modo è consigliabile che i clienti usino al meglio Azure per enti pubblici per soddisfare gli obblighi e le responsabilità necessari per una soluzione che gestisce informazioni soggette alla normativa ITAR.
 

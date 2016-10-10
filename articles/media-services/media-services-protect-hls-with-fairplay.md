@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/27/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 # Proteggere il contenuto HLS con Apple FairPlay e/o Microsoft PlayReady
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure consente di crittografare dinamicamente i contenut
 
 L'immagine seguente illustra il flusso di lavoro della **crittografia dinamica HLS + FairPlay e/o PlayReady**.
 
-![Proteggere con FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)  
+![Proteggere con FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 Questo argomento illustra come usare Servizi multimediali di Azure per crittografare dinamicamente il contenuto HLS con Apple FairPlay. Viene anche illustrato come usare il servizio di distribuzione delle licenze di Servizi multimediali per distribuire le licenze FairPlay ai client.
 

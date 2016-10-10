@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Usare Servizi multimediali di Azure per distribuire licenze DRM o chiavi AES

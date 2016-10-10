@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager,azure-service-management"/>  
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"

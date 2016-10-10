@@ -86,7 +86,7 @@ In una macchina virtuale basata su Windows, utilizzare Windows Firewall con sicu
 
 Provare ad accedere all'applicazione da un computer all'esterno della rete virtuale come VM in cui è in esecuzione l'applicazione. Usare una rete diversa come computer client originale.
 
-![avviare l'applicazione da un computer all'esterno della rete virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)  
+![avviare l'applicazione da un computer all'esterno della rete virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 Ad esempio, se l'applicazione è un server web, tentare di accedere a una pagina web da un browser in esecuzione su un computer che non è presente nella rete virtuale.
 

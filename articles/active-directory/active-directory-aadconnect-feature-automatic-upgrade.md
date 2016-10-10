@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="AndKjell"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/24/2016"
-   ms.author="andkjell"/>  
+   ms.author="andkjell"/>
 
 # Azure AD Connect: aggiornamento automatico
 Questa funzionalità è stata introdotta nella build 1.1.105.0 rilasciata nel mese di febbraio 2016.

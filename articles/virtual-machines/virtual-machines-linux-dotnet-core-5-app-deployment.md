@@ -6,7 +6,7 @@
    authors="neilpeterson"
    manager="timlt"
    editor="tysonn"
-   tags="azure-service-management"/>  
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/21/2016"
-   ms.author="nepeters"/>  
+   ms.author="nepeters"/>
 
 # Distribuzione di applicazioni con i modelli di Azure Resource Manager
 

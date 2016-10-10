@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/26/2016"  
-	ms.author="anilmur;juliako;"/>  
+	ms.author="anilmur;juliako;"/>
 
 # Ritagliare video con Media Encoder Standard
 

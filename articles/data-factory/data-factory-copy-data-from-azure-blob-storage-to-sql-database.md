@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -47,13 +47,13 @@ Per eseguire questa esercitazione, sono necessari il nome e la chiave dell'accou
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Altri servizi** nel menu a sinistra e selezionare **Account di archiviazione**.
 
-	![Sfoglia - Account di archiviazione](media\data-factory-copy-data-from-azure-blob-storage-to-sql-database\browse-storage-accounts.png)  
+	![Sfoglia - Account di archiviazione](media\data-factory-copy-data-from-azure-blob-storage-to-sql-database\browse-storage-accounts.png)
 3. Nel pannello **Account di archiviazione** selezionare l'**account di archiviazione di Azure** da usare in questa esercitazione.
 4. Selezionare **Chiavi di accesso** in **IMPOSTAZIONI**.
 5.  Fare clic sul pulsante **copia** (immagine) accanto alla casella di testo **Nome dell'account di archiviazione** e salvarlo/incollarlo, ad esempio, in un file di testo.
 6. Ripetere il passaggio precedente per copiare o annotare la chiave denominata **key1**.
 	
-	![Chiave di accesso alle risorse di archiviazione](media\data-factory-copy-data-from-azure-blob-storage-to-sql-database\storage-access-key.png)  
+	![Chiave di accesso alle risorse di archiviazione](media\data-factory-copy-data-from-azure-blob-storage-to-sql-database\storage-access-key.png)
 7. Fare clic su **X** per chiudere tutti i pannelli.
 
 ## Raccogliere i nomi del server, del database e dell'utente per il database SQL
@@ -83,7 +83,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)  
+    ![Azure Storage Explorer Copiare dati da un archivio BLOB al database SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 

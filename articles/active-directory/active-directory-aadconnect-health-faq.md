@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="billmath"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2016"
-	ms.author="vakarand"/>  
+	ms.author="vakarand"/>
 
 
 # Domande frequenti su Azure AD Connect Health

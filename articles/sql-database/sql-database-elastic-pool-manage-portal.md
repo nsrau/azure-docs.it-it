@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="ninarn"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
@@ -132,7 +132,7 @@ Nell'elenco dei database del pannello **Utilizzo risorse database** è possibile
 
 2. Nel pannello **Configura pool** fare clic su **Aggiungi al pool**.
 
-	![Fare clic su Aggiungi al pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)  
+	![Fare clic su Aggiungi al pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
 
 3. Nel pannello **Aggiungi database** selezionare uno o più database da aggiungere al pool. Quindi fare clic su **Seleziona**.
@@ -204,7 +204,7 @@ Vedere l'articolo sull'[aumento del numero di istanze con il database SQL di Azu
 - [Considerazioni di prezzo e prestazioni per un pool di database flessibile](sql-database-elastic-pool-guidance.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-database-elastic-pool-manage-portal/configure-pool.png
 [2]: ./media/sql-database-elastic-pool-manage-portal/basic.png
 [3]: ./media/sql-database-elastic-pool-manage-portal/basic-2.png

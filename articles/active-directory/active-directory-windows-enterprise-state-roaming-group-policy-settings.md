@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"  
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="femila"/>  
+	ms.author="femila"/>
 
 # Impostazioni di Criteri di gruppo e di gestione di dispositivi mobili
 

@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="MGoedtel"
     manager="jwhit"
-    editor="tysonn" />  
+    editor="tysonn" />
 <tags
     ms.service="automation"
     ms.devlang="na"
@@ -141,7 +141,7 @@ Oltre agli avvisi basati sugli errori, è probabile che si voglia sapere quando 
 
 Quando si esegue il debug di un processo, è consigliabile esaminarne anche i flussi. La query seguente illustra tutti i flussi per un singolo processo con GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
 
-`Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`  
+`Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`
 
 ### Visualizzare lo stato cronologico del processo 
 

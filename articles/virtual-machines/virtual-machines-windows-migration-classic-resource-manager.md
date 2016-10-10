@@ -6,7 +6,7 @@
 	authors="mahthi"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="mahthi"/>  
+	ms.author="mahthi"/>
 
 # Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 

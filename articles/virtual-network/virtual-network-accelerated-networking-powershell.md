@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/23/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 # Rete accelerata per macchine virtuali
 
@@ -23,7 +23,7 @@ La funzionalità Rete accelerata abilita Single Root I/O Virtualization (SR-IOV)
 
 L'immagine seguente illustra le comunicazioni tra due macchine virtuali (VM), con e senza Rete accelerata:
 
-![Confronto](./media/virtual-network-accelerated-networking-powershell/image1.png)  
+![Confronto](./media/virtual-network-accelerated-networking-powershell/image1.png)
 
 Senza Rete accelerata, tutto il traffico di rete in ingresso e in uscita dalla macchina virtuale deve attraversare l'host e il commutatore virtuale. Quest'ultimo è responsabile dell'applicazione di tutti i criteri al traffico di rete, ad esempio gruppi di sicurezza di rete, elenchi di controllo di accesso, isolamento e altri servizi di rete virtualizzati. Per altre informazioni, vedere l'articolo [Hyper-V Network Virtualization and Virtual Switch](https://technet.microsoft.com/library/jj945275.aspx) (Virtualizzazione rete Hyper-V e commutatore virtuale).
 
@@ -121,6 +121,6 @@ Le modifiche apportate a queste limitazioni verranno annunciate nella pagina rel
 
 13. Fare clic con il pulsante destro del mouse sul pulsante Windows e scegliere **Gestione dispositivi**. Espandere l'opzione **Rete** e verificare che la voce **Scheda Ethernet VF Mellanox ConnectX-3** sia visualizzata, come illustra la figura seguente:
 
-	![Gestione dispositivi](./media/virtual-network-accelerated-networking-powershell/image2.png)  
+	![Gestione dispositivi](./media/virtual-network-accelerated-networking-powershell/image2.png)
 
 <!---HONumber=AcomDC_0928_2016-->

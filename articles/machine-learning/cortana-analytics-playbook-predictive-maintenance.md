@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="fboylu"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="cortana-analytics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="fboylu" />  
+	ms.author="fboylu" />
 
 # Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
 
@@ -196,7 +196,7 @@ Per ogni record di un asset viene selezionata una finestra con dimensione "W" ch
 
 Per una dimostrazione, vedere la figura 1 dove sono rappresentati i valori di un sensore registrati per un asset per ogni unità di tempo con la linea blu e dove viene contrassegnato il calcolo della funzione media mobile per W=3 per i record in t<sub>1</sub> e t<sub>2</sub>, indicati rispettivamente dai raggruppamenti arancione e verde.
 
-![Figura 1. Funzioni di aggregazione in sequenza](media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)  
+![Figura 1. Funzioni di aggregazione in sequenza](media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
 
 Figura 1. Funzioni di aggregazione in sequenza
 
@@ -209,7 +209,7 @@ Selezionando una dimensione W molto ampia, ad esempio anni, è anche possibile o
 ##### *Aggregazioni a cascata*
 Per ogni record con etichetta di un asset, viene selezionata una finestra con dimensione "W-<sub>k</sub>", dove k è il numero o le finestre con dimensione "W" per cui si vogliono creare funzioni di ritardo. Si può selezionare "k" come numero elevato per acquisire schemi di degradazione a lungo termine o un numero ridotto per acquisire gli effetti a breve termine. Si usano quindi finestre a cascata k W-<sub>k</sub> , W-<sub>(k-1)</sub>, …, W-<sub>2</sub> , W-<sub>1</sub> per creare funzioni di aggregazione per i periodi precedenti la data e l'ora del record (vedere la figura 2). Queste sono anche finestre in sequenza a livello di record per un'unità di tempo che non viene acquisita nella figura 2, ma l'idea è la stessa illustrata nella figura 1 dove t<sub>2</sub> viene usato anche per dimostrare l'effetto della sequenza.
 
-![Figura 2. Funzioni di aggregazione a cascata](media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)  
+![Figura 2. Funzioni di aggregazione a cascata](media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
 
 Figura 2. Funzioni di aggregazione a cascata
 
@@ -242,7 +242,7 @@ Per usare la classificazione binaria, è necessario identificare due tipi di ese
 #### Costruzione delle etichette
 Per creare un modello predittivo che risponda alla domanda "qual è la probabilità che l'asset si guasti entro X unità di tempo", l'assegnazione di etichette viene eseguita scegliendo i record X prima dell'errore di un asset e assegnando l'etichetta "possibile guasto" (etichetta = 1), mentre l'etichetta per tutti gli altri record sarà "normale" (etichetta =0). In questo metodo le etichette sono variabili categoriche, vedere la figura 3.
 
-![Figura 3. Assegnazione di etichette per la classificazione binaria](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)  
+![Figura 3. Assegnazione di etichette per la classificazione binaria](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
 
 Figura 3. Assegnazione di etichette per la classificazione binaria
 
@@ -256,7 +256,7 @@ I modelli di regressione nella manutenzione predittiva vengono usati per calcola
 #### Costruzione delle etichette
 Data la domanda "qual è la vita utile rimanente dell'apparecchiatura", è possibile costruire le etichette scegliendo ogni record prima del guasto e assegnando l'etichetta mediante il calcolo del numero di unità di tempo rimanenti prima del guasto successivo. In questo metodo le etichette sono variabili continue, vedere la figura 4.
 
-![Figura 4. Assegnazione di etichette per la regressione](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)  
+![Figura 4. Assegnazione di etichette per la regressione](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
 
 Figura 4. Assegnazione di etichette per la regressione
 
@@ -270,13 +270,13 @@ Date le due domande "qual è la probabilità che un asset si guasti nelle prossi
 
 Per la prima domanda l'assegnazione di etichette viene eseguita scegliendo i record aZ prima del guasto di un asset e assegnando un'etichetta usando intervalli di tempo (3Z, 2Z, Z), mentre l'etichetta di tutti gli altri record sarà "normale" (etichetta =0). In questo metodo l'etichetta è una variabile categorica, vedere la figura 5.
 
-![Figura 5. Assegnazione di etichette per la classificazione multiclasse per la stima dell'ora del guasto](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)  
+![Figura 5. Assegnazione di etichette per la classificazione multiclasse per la stima dell'ora del guasto](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 
 Figura 5. Assegnazione di etichette per la classificazione multiclasse per la stima dell'ora del guasto
 
 Per la seconda domanda l'assegnazione di etichette viene eseguita scegliendo i record X prima del guasto di un asset e assegnando un'etichetta "possibile guasto a causa del problema P<sub>i</sub>" (etichetta = P<sub>i</sub>), mentre l'etichetta di tutti gli altri record sarà "normale" (etichetta =0). In questo metodo le etichette sono variabili categoriche, vedere la figura 6.
 
-![Figura 6. Assegnazione di etichette per la classificazione multiclasse per la stima delle cause radice](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)  
+![Figura 6. Assegnazione di etichette per la classificazione multiclasse per la stima delle cause radice](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
 Figura 6. Assegnazione di etichette per la classificazione multiclasse per la stima delle cause radice
 
@@ -310,7 +310,7 @@ Come procedura consigliata, in questa sezione si esaminerà più in dettaglio co
 
 Si supponga di avere un flusso di eventi con timestamp, ad esempio le misurazioni da diversi sensori. Le funzioni degli esempi di training e test e le relative etichette sono definite in base a intervalli di tempo che contengono più eventi. Ad esempio, per la classificazione binaria descritte nelle sezioni Progettazione delle funzioni e Tecniche di modellazione, le funzioni vengono create in base agli eventi passati e le etichette in base agli eventi futuri nelle unità di tempo "X" future. Quindi, l'intervallo di tempo dell'assegnazione di etichette è successivo all'intervallo di tempo delle relative funzioni. Per la suddivisione dipendente dal tempo viene selezionato un momento in cui si esegue il training di un modello con iperparametri ottimizzati usando dati cronologici fino a quel momento. Per impedire la perdita di etichette future che si trovano al di fuori del punto di taglio nei dati di training, si sceglierà l'ultimo intervallo di tempo per l'assegnazione di etichette agli esempi di training impostando X unità prima della data del punto di taglio di training. Nella figura 7 ogni cerchio pieno rappresenta una riga nel set di dati finale delle funzioni per cui le funzioni e le etichette vengono calcolate in base al metodo descritto sopra. Ciò detto, la figura mostra i record che dovranno essere inseriti nei set di training e test quando si implementa la suddivisone dipendente dal tempo per X=2 e W=3:
 
-![Figura 7. Suddivisione dipendente dal tempo per la classificazione binaria](media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)  
+![Figura 7. Suddivisione dipendente dal tempo per la classificazione binaria](media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
 
 Figura 7. Suddivisione dipendente dal tempo per la classificazione binaria
 
@@ -347,7 +347,7 @@ Nella classificazione binaria anche le tabelle di classificazione decile e i gra
 ## Architettura della soluzione di esempio
 Quando si distribuisce una soluzione di manutenzione predittiva, si vuole avere una soluzione end-to-end che offra un ciclo continuo di inserimento dei dati, archiviazione dei dati per il training del modello, generazione di funzioni, stima e visualizzazione dei risultati insieme a un meccanismo di generazione di avvisi quale un dashboard di monitoraggio degli asset. Si vuole una pipeline di dati che fornisca all'utente informazioni dettagliate future in modo automatico e continuo. Un'architettura di manutenzione predittiva di esempio per una pipeline di dati IoT è illustrata nella figura 8 seguente. Nell'architettura vengono raccolti dati di telemetria in tempo reale in un hub eventi che archivia i dati di streaming. Questi dati vengono inseriti da Analisi di flusso per l'elaborazione in tempo reale dei dati, come la generazione di funzioni. Le funzioni vengono quindi usate per chiamare il servizio Web del modello predittivo e i risultati vengono visualizzati nel dashboard. contemporaneamente i dati inseriti vengono anche archiviati in un database cronologico e uniti a origine dati esterne, ad esempio i database locali, per creare esempi di training per la modellazione. Gli stessi data warehouse possono essere usati per i punteggi batch degli esempi e l'archiviazione dei risultati, che possono essere usati di nuovo per fornire report predittivi sul dashboard.
 
-![Figura 8. Architettura della soluzione di esempio per la manutenzione predittiva](media/cortana-analytics-playbook-predictive-maintenance/example-solution-architecture-for-predictive-maintenance.png)  
+![Figura 8. Architettura della soluzione di esempio per la manutenzione predittiva](media/cortana-analytics-playbook-predictive-maintenance/example-solution-architecture-for-predictive-maintenance.png)
 
 Figura 8. Architettura della soluzione di esempio per la manutenzione predittiva
 

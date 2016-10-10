@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="cawams"
     manager="timlt"
-    editor="" />  
+    editor="" />
 
 <tags
     ms.service="multiple"
@@ -22,7 +22,7 @@
 - [PowerShell](service-fabric-deploy-remove-applications.md)
 - [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
-<br/>  
+<br/>
 
 L'estensione Service Fabric di Azure per Visual Studio offre un modo semplice, ripetibile e configurabile tramite script per pubblicare un'applicazione su un cluster Service Fabric.
 
@@ -54,7 +54,7 @@ I passaggi seguenti illustrano come pubblicare un'applicazione usando la finestr
 
 1. Nel menu di scelta rapida del progetto dell'applicazione di Service Fabric scegliere **Pubblica** per visualizzare la finestra di dialogo **Pubblica applicazione di Service Fabric**.
 
-    ![Finestra di dialogo **Pubblica applicazione di Service Fabric**][0]  
+    ![Finestra di dialogo **Pubblica applicazione di Service Fabric**][0]
 
     Il file selezionato nell'elenco a discesa **Profilo di destinazione** si trova nella stessa posizione di tutte le impostazioni, ad eccezione di **Versioni manifesto**. È possibile riutilizzare un profilo esistente o crearne uno nuovo selezionando **<Gestione profili...>** nell'elenco a discesa **Profilo di destinazione**. Dopo aver scelto un profilo di pubblicazione, il relativo contenuto viene visualizzato nei campi corrispondenti della finestra di dialogo. Per salvare le modifiche in qualsiasi momento, scegliere il collegamento **Salva profilo**.
 
@@ -62,7 +62,7 @@ I passaggi seguenti illustrano come pubblicare un'applicazione usando la finestr
 
     Usare la finestra di dialogo di selezione cluster per scegliere tra le sottoscrizioni e i cluster disponibili.
 
-    ![Finestra di dialogo per la selezione del cluster di Service Fabric][1]  
+    ![Finestra di dialogo per la selezione del cluster di Service Fabric][1]
 
     >[AZURE.NOTE] Se si vuole pubblicare in un endpoint arbitrario (ad esempio un party cluster), vedere la sezione **Pubblicazione in un endpoint di cluster arbitrario** riportata di seguito.
 
@@ -70,13 +70,13 @@ I passaggi seguenti illustrano come pubblicare un'applicazione usando la finestr
 
 3. Nell'elenco a discesa **File di parametri dell'applicazione** passare a un file di parametri dell'applicazione. Un file di parametri dell'applicazione contiene valori specificati dall'utente per i parametri nel file manifesto dell'applicazione. Per aggiungere o modificare un parametro, scegliere il pulsante **Modifica**. Immettere o modificare il valore del parametro nella griglia **Parametri**. Al termine, scegliere il pulsante **Salva**.
 
-    ![Finestra di dialogo **Modifica parametri**][2]  
+    ![Finestra di dialogo **Modifica parametri**][2]
 
 4. Usare la casella di controllo **Aggiorna l'applicazione** per specificare se questa azione di pubblicazione è un aggiornamento. Le operazioni di pubblicazione di aggiornamento differiscono dalle normali operazioni di pubblicazione. Per un elenco delle differenze, vedere l'articolo relativo all'[aggiornamento di un'applicazione dell'infrastruttura di servizi](service-fabric-application-upgrade.md). Per configurare le impostazioni di aggiornamento, scegliere il collegamento **Configura impostazioni di aggiornamento**. Viene visualizzato l'editor del parametro di aggiornamento. Per altre informazioni sui parametri di aggiornamento, vedere l'articolo relativo alla [configurazione dell'aggiornamento di un'applicazione dell'infrastruttura di servizi](service-fabric-visualstudio-configure-upgrade.md).
 
 5. Scegliere il pulsante **Versioni del manifesto** per visualizzare la finestra di dialogo **Modifica versioni**. Affinché l'aggiornamento sia effettivo, è necessario aggiornare le versioni del servizio e dell'applicazione. Per informazioni sull'impatto delle versioni del manifesto del servizio e dell'applicazione su un processo di aggiornamento, vedere l'[esercitazione sull'aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade-tutorial.md).
 
-    ![Finestra di dialogo **Modifica versioni**][3]  
+    ![Finestra di dialogo **Modifica versioni**][3]
 
     Se le versioni del servizio e dell'applicazione usano il controllo delle versioni semantico, ad esempio 1.0.0, o valori numerici in formato 1.0.0.0, selezionare l'opzione **Aggiorna automaticamente le versioni del servizio e dell'applicazione**. Se si seleziona questa opzione, i numeri di versione del servizio e dell'applicazione vengono aggiornati automaticamente ogni volta che viene aggiornata la versione di un codice, una configurazione o un pacchetto dati. Se si preferisce modificare le versioni manualmente, deselezionare la casella di controllo per disabilitare questa funzionalità.
 
@@ -98,7 +98,7 @@ Se ci si connette a un cluster non protetto, è necessario unicamente l'endpoint
 
   Dopo aver configurato il profilo di pubblicazione, è possibile farvi riferimento nella finestra di dialogo di pubblicazione come illustrato di seguito.
 
-  ![Nuovo profilo di pubblicazione nella finestra di dialogo di pubblicazione][4]  
+  ![Nuovo profilo di pubblicazione nella finestra di dialogo di pubblicazione][4]
 
   Notare che, in questo caso, il nuovo profilo di pubblicazione punta a uno dei file di parametri dell'applicazione predefiniti. Questo va bene se si vuole pubblicare la stessa configurazione dell'applicazione in un certo numero di ambienti. Al contrario, nei casi in cui si desidera avere diverse configurazioni per ogni ambiente su cui pubblicare, è opportuno creare un file di parametri dell'applicazione corrispondente.
 

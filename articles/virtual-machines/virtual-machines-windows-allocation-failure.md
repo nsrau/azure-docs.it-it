@@ -6,7 +6,7 @@
 	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue,azure-resource-manager,azure-service-management"/>  
+	tags="top-support-issue,azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"

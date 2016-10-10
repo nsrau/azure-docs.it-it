@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jtaubensee"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="event-hubs"
@@ -14,7 +14,7 @@
 	ms.devlang="csharp"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="jotaub;sethm"/>  
+	ms.author="jotaub;sethm"/>
 
 # Introduzione all'Hub eventi
 
@@ -67,7 +67,7 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [21]: ./media/event-hubs-c-ephjava-getstarted/ephjava.png
 [24]: ./media/event-hubs-c-ephjava-getstarted/receive-eph-c.png
 
-<!-- Links -->  
+<!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [e come recuperarli in parallelo usando la libreria dell'Host processore di eventi ]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Panoramica di Hub eventi]: event-hubs-overview.md

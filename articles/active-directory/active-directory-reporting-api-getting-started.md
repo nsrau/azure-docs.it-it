@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="dhanyahk"
     manager="femila"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="active-directory"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="09/25/2016"
-    ms.author="dhanyahk;markvi"/>  
+    ms.author="dhanyahk;markvi"/>
 
 # Introduzione all'API di creazione report di Azure Active Directory
 

@@ -5,7 +5,7 @@
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="logic-apps"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="08/10/2016"
-   ms.author="jehollan"/>  
+   ms.author="jehollan"/>
 
 # Gestione degli errori e delle eccezioni in App per la logica
 

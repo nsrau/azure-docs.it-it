@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="cbrooks;tamram"/>  
+	ms.author="cbrooks;tamram"/>
 
 
 # Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB

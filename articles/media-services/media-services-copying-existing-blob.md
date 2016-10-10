@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Copia di un BLOB esistente in un asset di Servizi multimediali
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 

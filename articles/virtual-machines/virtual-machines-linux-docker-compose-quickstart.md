@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/22/2016"
-   ms.author="danlep"/>  
+   ms.author="danlep"/>
 
 # Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure
 
@@ -97,7 +97,7 @@ ess_1              apache2-for ...                       /tcp
 
 Ora è possibile connettersi a WordPress direttamente nella VM dalla porta 80. Se per la creazione della macchina virtuale è stato usato un modello di Resource Manager, provare a connettersi a `http://<dnsname>.<region>.cloudapp.azure.com`. Se invece la macchina virtuale è stata creata usando il modello di distribuzione classico, provare a connettersi a `http://<cloudservicename>.cloudapp.net`. Viene visualizzata la schermata di avvio di WordPress, in cui è possibile completare l'installazione e iniziare a utilizzare l’applicazione.
 
-![Schermata iniziale di WordPress][wordpress_start]  
+![Schermata iniziale di WordPress][wordpress_start]
 
 
 ## Passaggi successivi
@@ -107,7 +107,7 @@ Ora è possibile connettersi a WordPress direttamente nella VM dalla porta 80. S
 * Utilizzare un modello di Gestione risorse di Azure, quello proprio o uno fornito dalla [community](https://azure.microsoft.com/documentation/templates/), per distribuire una macchina virtuale di Azure con Docker e un'applicazione configurata con Compose. Ad esempio, il modello [Distribuire un blog WordPress con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) utilizza Docker e Compose per distribuire rapidamente WordPress con un back-end MySQL in una VM Ubuntu.
 * Provare a integrare Docker Compose con un cluster [Docker Swarm](virtual-machines-linux-docker-swarm.md). Per gli scenari, vedere [Using Compose with Swarm](https://docs.docker.com/compose/swarm/) (Uso di Swarm con Compose).
 
-<!--Image references-->  
+<!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
 

@@ -8,7 +8,7 @@
 	authors="femila"
 	manager="swadhwa"
 	editor=""
-	tags="azure-classic-portal"/>  
+	tags="azure-classic-portal"/>
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="femila"/>  
+	ms.author="femila"/>
 
 # Aggiunta di un dispositivo personale all'organizzazione
 

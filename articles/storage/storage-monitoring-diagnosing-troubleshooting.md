@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="jahogg;robinsh"/>  
+	ms.author="jahogg;robinsh"/>
 
 # Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 
@@ -127,7 +127,8 @@ La parte rimanente di questa sezione descrive le metriche che è necessario moni
 
 Usare il [portale di Azure](https://portal.azure.com) per visualizzare lo stato del servizio di archiviazione (e altri servizi di Azure) in tutte le aree Azure del mondo. Ciò consente di vedere immediatamente se un problema al di fuori del proprio controllo incide sul servizio di archiviazione nell'area in uso per l'applicazione.
 
-Il [portale di Azure](https://portal.azure.com) può inoltre fornire notifiche sugli incidenti che influiscono sui vari servizi di Azure. Nota: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul [dashboard dei servizi di Azure](http://status.azure.com).
+Il [portale di Azure](https://portal.azure.com) può inoltre fornire notifiche sugli incidenti che influiscono sui vari servizi di Azure. 
+Nota: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul [dashboard dei servizi di Azure](http://status.azure.com).
 
 Benché il [portale di Azure](https://portal.azure.com) raccolga le informazioni sullo stato dall'interno dei data center di Azure (monitoraggio da interno a esterno), si può anche considerare l'adozione di un approccio da esterno a interno per generare transazioni sintetiche che accedano periodicamente all'applicazione Web in hosting su Azure da più postazioni. I servizi offerti da [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights per Visual Studio Team Services sono esempi di tale approccio da esterno a interno. Per altre informazioni su Application Insights per Visual Studio Team Services, vedere la sezione "[Appendice 5: monitoraggio con Application Insights per Visual Studio Team Services](#appendix-5)".
 
@@ -494,7 +495,7 @@ In questo scenario, è necessario verificare perché il token SAS scade prima ch
 
 - Di solito non è consigliabile impostare un orario di inizio quando si crea una SAS che un client deve utilizzare immediatamente. Se esistono piccoli sfasamenti di orario tra l'host che genera la SAS utilizzando l'ora attuale e il servizio di archiviazione, è possibile che il servizio di archiviazione riceva una SAS non ancora valida.
 - Non impostare tempi troppo brevi per la scadenza di una SAS. Come già detto, eventuali piccole differenze di orario tra l'host che genera la SAS e il servizio di archiviazione possono causa un'apparente scadenza della SAS prima del tempo.
-- Il parametro della versione nella chiave di firma di accesso condiviso (ad esempio **sv=2015-04-05**) deve corrispondere alla versione di Storage Client Library in uso? Si consiglia di usare sempre la versione più recente di [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/).
+- Il parametro della versione nella chiave di firma di accesso condiviso (ad esempio **sv=2015-04-05**) deve corrispondere alla versione di Storage Client Library in uso? Si consiglia di usare sempre la versione più recente di [Libreria del client di archiviazione](https://www.nuget.org/packages/WindowsAzure.Storage/). Per altre informazioni sul controllo della versione del token di firma di accesso condiviso e delle dipendenze nella versione della libreria client, vedere [Novità di Archiviazione di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
 - Se si rigenerano le chiavi di accesso di archiviazione, questa operazione può invalidare tutti i token della firma di accesso condiviso esistenti. Questo può essere un problema se si generano token SAS con tempo di scadenza lungo per le applicazioni client da memorizzare nella cache.
 
 Se si utilizza Storage Client Library per generare i token SAS, sarà semplice creare un token valido. Se invece si usa l'API REST di archiviazione e si creano i token della firma di accesso condiviso manualmente, è consigliabile leggere con attenzione l'argomento [Delega dell'accesso con una firma di accesso condiviso](http://msdn.microsoft.com/library/azure/ee395415.aspx).
@@ -852,7 +853,7 @@ Nel passaggio 1 dell'**Importazione guidata testo**, selezionare **Punto e virgo
 
 Ulteriori informazioni sono disponibili in [Informazioni su Azure Application Insights](../application-insights/app-insights-overview.md).
 
-<!--Anchors-->  
+<!--Anchors-->
 [Introduzione]: #introduction
 [Organizzazione di questa guida]: #how-this-guide-is-organized
 
@@ -913,7 +914,7 @@ Ulteriori informazioni sono disponibili in [Informazioni su Azure Application In
 [Appendice 4: Uso di Excel per la visualizzazione di metriche e dati di log]: #appendix-4
 [Appendice 5: Monitoraggio con Application Insights per Visual Studio Team Services]: #appendix-5
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
 [3]: ./media/storage-monitoring-diagnosing-troubleshooting/hour-minute-metrics.png
 [4]: ./media/storage-monitoring-diagnosing-troubleshooting/high-e2e-latency.png

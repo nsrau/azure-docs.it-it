@@ -6,7 +6,7 @@
    authors="yushwang"
    manager="rossort"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
-   ms.author="yushwang"/>  
+   ms.author="yushwang"/>
 
 # Configurare connessioni VPN S2S active-active con i gateway VPN di Azure tramite Azure Resource Manager e PowerShell
 
@@ -155,7 +155,7 @@ Usare i cmdlet seguenti per visualizzare i due indirizzi IP pubblici allocati pe
 
 L'ordine degli indirizzi IP pubblici per le istanze del gateway e i relativi indirizzi di peering BGP corrispondono. In questo esempio, la VM del gateway con l'indirizzo IP pubblico 40.112.190.5 userà 10.12.255.4 come indirizzo di peering BGP, mentre il gateway con 138.91.156.129 userà 10.12.255.5. Queste informazioni sono necessarie quando si configurano dispositivi VPN locali che si connettono al gateway active-active. Il gateway è mostrato nel diagramma riportato di seguito con tutti gli indirizzi:
 
-![active-active gateway](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)  
+![active-active gateway](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
 
 Una volta creato il gateway, è possibile usarlo per stabilire una connessione da rete virtuale a rete virtuale o cross-premise active-active. Le sezioni seguenti illustrano i passaggi per completare l'esercizio.
 
@@ -226,7 +226,7 @@ L'esempio seguente elenca i parametri che si immetteranno nella sezione della co
 
 La connessione verrà stabilita in pochi minuti e la sessione di peering BGP verrà avviata una volta stabilità la connessione IPSec. In questo esempio finora è stato configurato un solo dispositivo VPN locale; il risultato è nel diagramma di seguito:
 
-![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)  
+![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
 ### Passaggio 3: connettere due dispositivi VPN locali al gateway VPN active-active
 
@@ -267,7 +267,7 @@ In modo analogo, di seguito sono elencati i parametri che verranno immessi nel s
 
 Una volta che viene stabilita la connessione (tunnel), si disporrà di dispositivi VPN a doppia ridondanza e di tunnel che connettono la rete locale e Azure:
 
-![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)  
+![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 
 ## <a name ="aav2v"></a>Parte 3: stabilire una connessione da rete virtuale a rete virtuale active-active
@@ -356,7 +356,7 @@ In questo passaggio si creerà la connessione da TestVNet1 a TestVNet2 e la conn
 
 Dopo avere completato questi passaggi, la connessione verrà stabilita in pochi minuti e la sessione di peering BGP sarà attiva una volta completata la connessione da rete virtuale e rete virtuale con doppia ridondanza:
 
-![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)  
+![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
 ## <a name ="aaupdate"></a>Parte 4: aggiornare il gateway tra modalità active-active e active-standby
 

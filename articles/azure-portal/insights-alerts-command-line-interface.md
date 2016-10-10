@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/23/2016"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Usare l'interfaccia della riga di comando multipiattaforma per creare gli avvisi per i servizi di Azure 
 

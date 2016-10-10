@@ -5,7 +5,7 @@
     documentationCenter=".NET"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="06/24/2016"
-    ms.author="sethm"/>  
+    ms.author="sethm"/>
 
 # Usare PowerShell per gestire le risorse del bus di servizio e di Hub eventi
 
@@ -264,7 +264,7 @@ Sono disponibili per il download anche alcuni script predefiniti:
 
 - [Script PowerShell del bus di servizio](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
-<!--Anchors-->  
+<!--Anchors-->
 
 [opzioni di acquisto]: http://azure.microsoft.com/pricing/purchase-options/
 [offerte per i membri]: http://azure.microsoft.com/pricing/member-offers/

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="BorisB2015"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/22/2016"
-   ms.author="borisb"/>  
+   ms.author="borisb"/>
 
 # Red Hat Update Infrastructure (RHUI) per macchine virtuali Red Hat Enterprise Linux su richiesta in Azure
 

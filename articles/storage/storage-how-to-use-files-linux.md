@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="mine-msft"
         manager="aungoo"
-        editor="tysonn" />  
+        editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,7 +13,7 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="02/29/2016"
-      ms.author="minet;robinsh" />  
+      ms.author="minet;robinsh" />
 
 
 # Come usare l'archiviazione file di Azure con Linux

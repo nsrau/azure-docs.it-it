@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="AndKjell"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/30/2016"
-   ms.author="andkjell"/>  
+   ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic LDAP
 Questo articolo descrive il connettore Generic LDAP ed è applicabile ai prodotti seguenti:
@@ -127,7 +127,7 @@ Il connettore prova a rilevare le opzioni presenti nel server. Se le opzioni non
 ### Importazione delta
 L'importazione delta è disponibile solo quando è stata rilevata una directory di supporto. Attualmente vengono usati i metodi seguenti:
 
-- LDAP Accesslog. Vedere [http://www.openldap.org/doc/admin24/overlays.html#Access Logging] (http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+- LDAP Accesslog. Vedere [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 - LDAP Changelog. Vedere [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 - TimeStamp. Per Novell/NetIQ eDirectory il connettore usa l'ultima data/ora per ottenere gli oggetti creati e aggiornati. Novell/NetIQ eDirectory non fornisce un modo equivalente per recuperare gli oggetti eliminati. Questa opzione può essere usata anche se nessun altro metodo di importazione delta è attivo nel server LDAP. Questa opzione non consente di importare gli oggetti eliminati.
 - USNChanged. Vedere: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
@@ -140,7 +140,7 @@ Le funzionalità LDAP seguenti non sono supportate:
 ## Creare un nuovo connettore
 Per creare un connettore Generic LDAP, in **Synchronization Service** selezionare **Management Agent** e quindi **Create**. Selezionare il connettore **Generic LDAP (Microsoft)**.
 
-![CreateConnector](./media/active-directory-aadconnectsync-connector-genericldap/createconnector.png)  
+![CreateConnector](./media/active-directory-aadconnectsync-connector-genericldap/createconnector.png)
 
 ### Connettività
 Nella pagina Connectivity (Connettività) è necessario specificare le informazioni relative a host, porta e binding. A seconda del valore di Binding selezionato, potrebbero essere fornite altre informazioni nelle sezioni seguenti.
@@ -154,11 +154,11 @@ Nella pagina Connectivity (Connettività) è necessario specificare le informazi
 
 La casella di testo **Attribute Aliases** viene usata per gli attributi definiti nello schema con la sintassi RFC4522. Questi attributi non possono essere rilevati durante il rilevamento dello schema ed è necessario l'intervento dell'utente per consentire al connettore di identificarli. Ad esempio, è necessario immettere quanto segue nella casella Attribute Aliases per identificare correttamente l'attributo userCertificate come attributo binario:
 
-`userCertificate;binary`  
+`userCertificate;binary`
 
 Di seguito è riportato un esempio del possibile aspetto di questa configurazione:
 
-![Connettività](./media/active-directory-aadconnectsync-connector-genericldap/connectivityattributes.png)  
+![Connettività](./media/active-directory-aadconnectsync-connector-genericldap/connectivityattributes.png)
 
 Selezionare la casella di controllo **Include operational attributes in schema** per includere anche gli attributi creati dal server. Sono d esempio inclusi gli attributi relativi all'ora di creazione e dell'ultimo aggiornamento dell'oggetto.
 
@@ -167,7 +167,7 @@ Selezionare **Include extensible attributes in schema** (Includi attributi esten
 ### Global Parameters
 Nella pagina Global Parameters configurare il DN per il log delle modifiche delta e altre funzionalità LDAP. La pagina è già popolata con le informazioni fornite dal server LDAP.
 
-![Connettività](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)  
+![Connettività](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
 
 La sezione superiore mostra le informazioni fornite dal server, ad esempio il nome del server. Il connettore verifica anche che i controlli obbligatori siano presenti in Root DSE. Se questi controlli non sono elencati, viene visualizzato un avviso. Alcune directory LDAP non elencano tutte le funzioni in Root DSE ed è possibile che il connettore funzioni senza problemi anche se è presente un avviso.
 
@@ -204,14 +204,14 @@ Nell'elenco delle partizioni aggiuntive è possibile aggiungere altri spazi dei 
 ### Configurare una gerarchia di provisioning
 Questa pagina viene usata per associare il componente DN, ad esempio OU, al tipo di oggetto di cui deve essere eseguito il provisioning, ad esempio organizationalUnit.
 
-![Gerarchia di provisioning](./media/active-directory-aadconnectsync-connector-genericldap/provisioninghierarchy.png)  
+![Gerarchia di provisioning](./media/active-directory-aadconnectsync-connector-genericldap/provisioninghierarchy.png)
 
 Configurando una gerarchia di provisioning, è possibile configurare il connettore per creare automaticamente una struttura quando necessario. Ad esempio, se è presente uno spazio dei nomi dc=contoso,dc=com e viene eseguito il provisioning di un nuovo oggetto cn=Joe, ou=Seattle, c=US, dc=contoso, dc=com, il connettore può creare un oggetto di tipo paese per US e un'unità organizzativa (organizationalUnit) per Seattle, se non sono già presenti nella directory.
 
 ### Configurare partizioni e gerarchie
 Nella pagina Configure Partitions and Hierarchies selezionare tutti gli spazi dei nomi con gli oggetti da importare ed esportare.
 
-![Partitions](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)  
+![Partitions](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
 
 Per ogni spazio dei nomi è anche possibile configurare le impostazioni di connettività che sostituiscono i valori specificati nella schermata Connectivity (Connettività). Se questi valori vengono lasciati sul valore vuoto predefinito, vengono usate le informazioni dalla schermata Connectivity (Connettività).
 
@@ -220,7 +220,7 @@ Per ogni spazio dei nomi è anche possibile configurare le impostazioni di conne
 ### Configurare gli ancoraggi
 Questa pagina ha sempre un valore preconfigurato e non può essere modificato. Se il fornitore del server è stato identificato, l'ancoraggio potrebbe essere popolato con un attributo non modificabile, ad esempio, il GUID di un oggetto. Se non è stato rilevato o non ha un attributo non modificabile, il connettore usa un DN (nome distinto) come ancoraggio.
 
-![ancoraggi](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)  
+![ancoraggi](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
 
 Di seguito è riportato un elenco di server LDAP e l' ancoraggio usato:
 

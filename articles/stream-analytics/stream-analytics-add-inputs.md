@@ -7,7 +7,7 @@
 	authors="jeffstokes72"
 	manager="jhubbard"
 	editor="cgronlun"
-/>  
+/>
 
 <tags
 	ms.service="stream-analytics"
@@ -17,7 +17,7 @@
 	ms.workload="data-services"
 	ms.date="09/26/2016"
 	ms.author="jeffstok"
-/>  
+/>
 
 
 # Aggiungere un input di dati di streaming o dati di riferimento a un processo di analisi di flusso

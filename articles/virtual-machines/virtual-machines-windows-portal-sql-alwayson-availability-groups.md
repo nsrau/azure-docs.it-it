@@ -6,7 +6,7 @@
 	authors="MikeRayMSFT"
 	manager="jhubbard"
 	editor=""
-	tags="azure-resource-manager" />  
+	tags="azure-resource-manager" />
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/22/2016"
-	ms.author="mikeray" />  
+	ms.author="mikeray" />
 
 # Configurare automaticamente il gruppo di disponibilità AlwaysOn in macchine virtuali di Azure con Resource Manager
 
@@ -24,7 +24,7 @@
 - [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
-<br/>  
+<br/>
 
 Questa esercitazione end-to-end mostra come creare un gruppo di disponibilità di SQL Server con macchine virtuali di Gestione risorse di Azure. L'esercitazione usa pannelli di Azure per configurare un modello. Nel corso dell'esercitazione l'utente rivedrà le impostazioni predefinite, digiterà i valori necessari e aggiornerà i pannelli nel portale.
 

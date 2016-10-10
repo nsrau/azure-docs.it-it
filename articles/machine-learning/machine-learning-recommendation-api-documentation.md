@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="LuisCabrer" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="machine-learning" 
@@ -587,8 +587,8 @@ Codice stato HTTP: 200
 
 I dati vengono restituiti come una raccolta di proprietà.
 
-- `feed/entry/id/content/properties/key`  
-- `feed/entry/id/content/properties/value`  
+- `feed/entry/id/content/properties/key`
+- `feed/entry/id/content/properties/value`
 
 
 La tabella seguente illustra il valore rappresentato da ogni chiave.
@@ -881,15 +881,16 @@ XML OData
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|POST |`<rootURI>/AddRule?apiVersion=%271.0%27`  |
-|INTESTAZIONE |`"Content-Type", "text/xml"`  |
+|POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|INTESTAZIONE |`"Content-Type", "text/xml"`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | 
-<ins>Ogni volta che si forniscono gli ID elementi per le regole business, verificare di usare l'ID esterno dell'elemento, ovvero lo stesso ID usato nel file di catalogo</ins><br> <ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Per aggiungere una regola WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Ogni volta che si forniscono gli ID elementi per le regole business, verificare di usare l'ID esterno dell'elemento, ovvero lo stesso ID usato nel file di catalogo</ins><br>
+<ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Per aggiungere una regola WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Risposta**:
@@ -989,7 +990,7 @@ Nota: le dimensioni massime del file sono pari a 200 MB.
 | Metodo HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Esempio:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
-|INTESTAZIONE |`"Content-Type", "text/xml"`  |
+|INTESTAZIONE |`"Content-Type", "text/xml"`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
@@ -1243,8 +1244,8 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`  |
-|INTESTAZIONE |`"Content-Type", "text/xml"`  |
+|POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|INTESTAZIONE |`"Content-Type", "text/xml"`|
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
@@ -3068,7 +3069,7 @@ Elimina tutte le notifiche relative a tutti i modelli.
 
 | Metodo HTTP | URI |
 |:--------|:--------|
-|DELETE |`<rootURI>/DeleteUserNotifications?apiVersion=%271.0%27`  |
+|DELETE |`<rootURI>/DeleteUserNotifications?apiVersion=%271.0%27`|
 
 
 |	Nome parametro |	Valori validi |

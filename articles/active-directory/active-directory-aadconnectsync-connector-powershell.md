@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="AndKjell"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="08/30/2016"
-   ms.author="andkjell"/>  
+   ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Windows PowerShell
 Questo articolo descrive il connettore Windows PowerShell ed è applicabile ai prodotti seguenti:
@@ -43,12 +43,12 @@ Il connettore Windows PowerShell è progettato per archiviare ogni script all'in
 
 Per creare un connettore PowerShell, in **Synchronization Service** selezionare **Management Agent** e quindi **Create**. Selezionare il connettore **PowerShell (Microsoft)**.
 
-![Create Connector](./media/active-directory-aadconnectsync-connector-powershell/createconnector.png)  
+![Create Connector](./media/active-directory-aadconnectsync-connector-powershell/createconnector.png)
 
 ### Connettività
 Specificare i parametri di configurazione per la connessione a un sistema remoto. Questi valori verranno archiviati in modo sicuro dal servizio di sincronizzazione e resi disponibili per gli script Windows PowerShell quando viene eseguito il connettore.
 
-![Connettività](./media/active-directory-aadconnectsync-connector-powershell/connectivity.png)  
+![Connettività](./media/active-directory-aadconnectsync-connector-powershell/connectivity.png)
 
 È possibile configurare i parametri di connettività seguenti:
 
@@ -109,7 +109,7 @@ Per accedere alle impostazioni di configurazione personalizzate da uno script, �
 ### Funzionalità
 La scheda Capabilities della finestra di progettazione dell'agente di gestione definisce il comportamento e le funzionalità del connettore. Dopo aver creato il connettore, non sarà più possibile modificare le selezioni effettuate in questa scheda. La tabella elenca le impostazioni delle funzionalità.
 
-![Capabilities](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)  
+![Capabilities](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
 Funzionalità | Descrizione |
 --- | --- |
@@ -185,7 +185,7 @@ GetImportEntriesRunStep | [ImportRunStep][irs] | Contiene la filigrana (CustomDa
 OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Fornisce informazioni allo script sul tipo di esecuzione dell'importazione (differenziale o completa), la partizione, la gerarchia, la filigrana e la dimensione della pagina prevista.
 Types | [Schema][schema] | Schema per lo spazio connettore che verrà importato.
 
-Lo script di importazione dei dati deve scrivere un oggetto List[[[CSEntryChange]]] nella pipeline. Questa raccolta è costituita da attributi CSEntryChange che rappresentano ogni oggetto da importare. Durante l'esecuzione di una importazione completa, questa raccolta deve avere un set completo di oggetti CSEntryChange con tutti gli attributi per ogni oggetto. Durante un'importazione differenziale, l'oggetto CSEntryChange deve contenere i differenziali a livello di attributo per ogni oggetto da importare oppure una rappresentazione completa degli oggetti modificati (modalità di sostituzione).
+Lo script di importazione dei dati deve scrivere un oggetto List[[CSEntryChange][csec]] nella pipeline. Questa raccolta è costituita da attributi CSEntryChange che rappresentano ogni oggetto da importare. Durante l'esecuzione di una importazione completa, questa raccolta deve avere un set completo di oggetti CSEntryChange con tutti gli attributi per ogni oggetto. Durante un'importazione differenziale, l'oggetto CSEntryChange deve contenere i differenziali a livello di attributo per ogni oggetto da importare oppure una rappresentazione completa degli oggetti modificati (modalità di sostituzione).
 
 **Fine importazione** Al termine dell'esecuzione dell'importazione viene eseguito lo script di fine importazione che deve eseguire tutte le operazioni di pulizia necessarie, ad esempio chiudere le connessioni ai sistemi e rispondere agli errori.
 
@@ -297,7 +297,7 @@ Sostituire il nome del connettore Windows PowerShell per il segnaposto {Connecto
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->  
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx
 [keyk]: https://msdn.microsoft.com/library/ms132438.aspx
 [cp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx

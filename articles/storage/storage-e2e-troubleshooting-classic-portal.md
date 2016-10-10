@@ -4,7 +4,7 @@
 	services="storage" 
 	documentationCenter="dotnet" 
 	authors="robinsh" 
-	manager="carmonm"/>  
+	manager="carmonm"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/03/2016" 
-	ms.author="jahogg;robinsh"/>  
+	ms.author="jahogg;robinsh"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
 
@@ -176,11 +176,11 @@ Dopo un certo periodo di esecuzione dell'applicazione, è possibile esaminare i 
 2. Fare clic su **Aggiungi metriche** per visualizzare la finestra di dialogo **Scegli metriche**.
 3. Scorrere fino al gruppo **Percentuale di operazioni riuscite**, espanderlo, quindi selezionare **Aggregato**, come illustrato nell'immagine seguente. Questa metrica aggrega i dati delle percentuali di operazioni riuscite da tutte le operazioni BLOB.
 
-![Scelta delle metriche](./media/storage-e2e-troubleshooting-classic-portal/choose-metrics-portal-1.png)  
+![Scelta delle metriche](./media/storage-e2e-troubleshooting-classic-portal/choose-metrics-portal-1.png)
 
 La metrica **Percentuale di operazioni riuscite** verrà aggiunta al grafico di monitoraggio nel portale di Azure classico, insieme alle altre metriche aggiunte in precedenza (il grafico ne può contenere al massimo sei). Nell'immagine seguente si noterà che la percentuale di operazioni riuscite è leggermente inferiore al 100%. Questo è lo scenario che si passerà a esaminare analizzando i log in Message Analyzer:
 
-![Grafico delle metriche nel portale](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)  
+![Grafico delle metriche nel portale](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)
 
 Per maggiori dettagli sull'aggiunta di metriche alla pagina di monitoraggio, vedere [Procedura: aggiungere metriche alla relativa tabella](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
@@ -217,7 +217,7 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 	- **Layout di Archiviazione di Azure:** i layout di visualizzazione di Archiviazione di Azure sono layout di colonna e raggruppamenti predefiniti nella griglia di analisi.
 4. Riavviare Message Analyzer dopo aver installato le risorse.
 
-![Gestione asset di Message Analyzer](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)  
+![Gestione asset di Message Analyzer](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
 > [AZURE.NOTE] Installare tutte le risorse di Archiviazione di Azure per questa esercitazione.
 
@@ -347,7 +347,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Per esaminare... | Usare l'espressione di filtro... | Log a cui è applicabile l'espressione (client, server, rete, tutti) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
-| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
+| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
 | Aumento di PercentTimeoutError (tutti) | *StatusCode == 500 | Tutti |
 | Aumento di PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |

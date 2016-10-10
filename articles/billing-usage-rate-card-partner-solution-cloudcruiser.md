@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""
    tags="billing"
-   />  
+   />
 
 <tags
    ms.service="billing"
@@ -57,7 +57,7 @@ Le cartelle di lavoro di Cloud Cruiser consentono di raccogliere ed elaborare in
 
 Ogni cartella di lavoro può avere una o più raccolte consentendo di correlare le informazioni provenienti da origini diverse per integrare o estendere i dati di utilizzo. I due screenshot seguenti illustrano come creare una nuova *raccolta* in una cartella di lavoro esistente e l'importazione di informazioni nella *raccolta* dall'API RateCard:
 
-![Figura 1 - Creazione di una nuova raccolta][1]  
+![Figura 1 - Creazione di una nuova raccolta][1]
 
 ![Figura 2 - Importare i data dalla nuova raccolta][2]
 
@@ -65,7 +65,7 @@ Dopo aver importato i dati nella cartella di lavoro, è possibile creare più pa
 
 Lo screenshot seguente illustra la procedura di trasformazione usata per elaborare i dati raccolti dall'API RateCard:
 
-![Figura 3 - Procedura di trasformazione per elaborare i dati raccolti dall'API RateCard][3]  
+![Figura 3 - Procedura di trasformazione per elaborare i dati raccolti dall'API RateCard][3]
 
 ### Definizione di nuovi servizi e piani tariffari
 
@@ -101,7 +101,7 @@ L'ultimo passaggio nella cartella di lavoro consiste nel pubblicare i dati nel d
 
 Dopo avere completato la cartella di lavoro, è possibile automatizzare l'elaborazione dei dati aggiungendo un'attività nell'utilità di pianificazione e specificando la frequenza e l'ora di esecuzione della cartella di lavoro.
 
-![Figura 8 - Pianificazione della cartella di lavoro][8]  
+![Figura 8 - Pianificazione della cartella di lavoro][8]
 
 ### Creare report per l'analisi di simulazione dei costi del carico di lavoro
 
@@ -109,7 +109,7 @@ Dopo che l'utilizzo viene raccolto e le spese vengono caricate nel database Clou
 
 Per illustrare questo scenario, è stato creato il report seguente:
 
-![Confronto dei costi][9]  
+![Confronto dei costi][9]
 
 Il grafico superiore illustra un confronto dei costi per servizi confrontando il costo dell'esecuzione del carico di lavoro per ogni specifico servizio tra WAP (blu scuro) e Azure (blu chiaro).
 
@@ -128,7 +128,7 @@ In questa esercitazione verrà presentato un esempio di come Cloud Cruiser possa
  
 L'obiettivo finale è riuscire a creare report come quello seguente e ad analizzare i costi e il consumo in base alla struttura del conto popolata dai tag.
 
-![Figura 10 - Report con suddivisioni usando i tag][10]  
+![Figura 10 - Report con suddivisioni usando i tag][10]
 
 ### Tag di Microsoft Azure
 
@@ -149,7 +149,7 @@ Il primo passaggio in questa esercitazione consiste nel creare un gruppo di riso
 
 Lo screenshot seguente illustra un gruppo di risorse di esempio con i tag associati.
 
-![Figura 11 - Gruppo di risorse con tag associati nel portale di Azure][11]  
+![Figura 11 - Gruppo di risorse con tag associati nel portale di Azure][11]
 
 Il passaggio successivo è estrarre le informazioni dall'API di utilizzo in Cloud Cruiser. L'API di utilizzo attualmente fornisce risposte nel formato JSON. Segue un esempio dei dati recuperati:
 
@@ -193,7 +193,7 @@ Verrà quindi usata l'API di utilizzo per popolare il foglio _UsageAPI_ e correl
 
 Dopo aver importato i dati nella cartella di lavoro, verranno creati passaggi di trasformazione nel foglio _UsageAPI_ per elaborare le informazioni provenienti dall'API. Il primo passaggio consiste nell'usare un processore "JSON split" per estrarre i tag da un campo singolo e creare campi per ogni tag (reparto, progetto, proprietario e ambiente).
 
-![Figura 4 - Creare nuovi campi per le informazioni sui tag][13]  
+![Figura 4 - Creare nuovi campi per le informazioni sui tag][13]
 
 Si noti che nel servizio "Reti" mancano le informazioni sui tag (riquadro giallo), ma è possibile verificare che questo servizio fa parte dello stesso gruppo di risorse esaminando il campo _ResourceGroupName_. Dal momento che ci sono tag per le altre risorse di questo gruppo di risorse, è possibile usare queste informazioni per applicare i tag mancanti a questa risorsa più avanti nel processo.
 
@@ -221,7 +221,7 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 ### Ulteriori informazioni
 + Per altre informazioni su Gestione risorse di Azure, vedere l'articolo [Panoramica su Gestione risorse di Azure](resource-group-overview.md).
 
-<!--Image references-->  
+<!--Image references-->
  
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Figura 1 - Creazione di una nuova raccolta"
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figura 2 - Importare i data dalla nuova raccolta"

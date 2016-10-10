@@ -5,7 +5,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 #Unità richiesta in DocumentDB
 Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di DocumentDB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](documentdb-request-units.md#estimating-throughput-needs).

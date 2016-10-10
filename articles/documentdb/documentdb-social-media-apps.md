@@ -6,7 +6,7 @@
 	authors="ealsur" 
 	manager="" 
 	editor="" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/27/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Uso di DocumentDB per i social media
 
@@ -224,7 +224,7 @@ Un'altra opzione disponibile consiste nell'usare i [servizi cognitivi Microsoft]
 
 Questo articolo illustra come creare social network interamente in Azure, con servizi a costo contenuto e ottimi risultati, promuovendo l'uso di una distribuzione dei dati e di una soluzione di archiviazione a più livelli detta "a gradini".
 
-![Diagramma di interazione tra servizi di Azure per il social networking](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)  
+![Diagramma di interazione tra servizi di Azure per il social networking](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)
 
 Non esiste un metodo infallibile per questo tipo di scenario. È la sinergia creata dall'unione di servizi di alto livello che porta a grandi risultati. La velocità e la libertà di Azure DocumentDB che permettono di realizzare un'applicazione social ottimale, l'intelligenza di una soluzione di ricerca di alto livello come Ricerca di Azure, la flessibilità dei servizi app di Azure che permettono di ospitare non applicazioni indipendenti dal linguaggio ma potenti processi in background, l'espandibilità di Archiviazione di Azure e del database SQL di Azure che permettono di archiviare grandi quantità di dati e la potenza delle analisi di Azure Machine Learning che permette di creare conoscenza e informazioni per migliorare i processi e fornire i contenuti più appropriati agli utenti giusti.
 

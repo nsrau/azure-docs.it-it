@@ -7,7 +7,7 @@
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
-/>  
+/>
 <tags  
    ms.service="application-gateway"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
-   ms.author="gwallace" />  
+   ms.author="gwallace" />
 
 # Creare un gateway applicazione con il firewall applicazione Web tramite il portale
 
@@ -35,7 +35,7 @@ Nel primo scenario si apprenderà come [aggiungere un firewall applicazione Web 
 
 Nel secondo scenario si apprenderà come [creare un gateway applicazione con il firewall applicazione Web](#create-an-application-gateway-with-web-application-firewall).
 
-![Esempio dello scenario][scenario]  
+![Esempio dello scenario][scenario]
 
 >[AZURE.NOTE] La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
 
@@ -51,7 +51,7 @@ Questo scenario consente di aggiornare un gateway applicazione esistente per sup
 
 Passare al portale di Azure e selezionare un gateway applicazione esistente.
 
-![Creazione di un gateway applicazione][1]  
+![Creazione di un gateway applicazione][1]
 
 ### Passaggio 2
 
@@ -64,7 +64,7 @@ Di seguito vengono elencate le impostazioni per aggiornare un gateway applicazio
 - **Stato Firewall**: questa impostazione consente di abilitare o disabilitare il firewall applicazione Web.
 - **Modalità firewall**: questa impostazione riguarda la modalità di gestione del traffico dannoso da parte del firewall applicazione Web. La modalità **Rilevamento** registra solo gli eventi. La modalità **Prevenzione** registra gli eventi e blocca il traffico dannoso.
 
-![Pannello con impostazioni di base][2]  
+![Pannello con impostazioni di base][2]
 
 >[AZURE.NOTE] Per visualizzare i log del firewall applicazione Web, è necessario abilitare la diagnostica e selezionare ApplicationGatewayFirewallLog. A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. Con il firewall applicazione Web non è possibile usare gateway di piccole dimensioni.
 
@@ -81,7 +81,7 @@ Questo scenario illustrerà come:
 
 Passare al portale di Azure e fare clic su **Nuovo** > **Rete** > **Gateway applicazione**
 
-![Creazione di un gateway applicazione][1-1]  
+![Creazione di un gateway applicazione][1-1]
 
 ### Passaggio 2
 
@@ -96,7 +96,7 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 - **Gruppo di risorse**: gruppo di risorse in cui includere il gateway applicazione. Può essere un gruppo di risorse esistente o uno nuovo.
 - **Località**: area del gateway applicazione. È la stessa località del gruppo di risorse. *La località è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa località del gateway*.
 
-![Pannello con impostazioni di base][2-2]  
+![Pannello con impostazioni di base][2-2]
 
 >[AZURE.NOTE] A scopo di test si può scegliere 1 come numero di istanze. È importante sapere che un numero di istanze inferiore a due non è coperto dal contratto di servizio e non è quindi consigliabile. I gateway di piccole dimensioni non sono supportati negli scenari di firewall applicazione Web.
 
@@ -106,7 +106,7 @@ Dopo che sono state definite le impostazioni di base, il passaggio successivo co
 
 Fare clic su **Scegliere una rete virtuale** per configurare la rete virtuale.
 
-![Pannello con impostazioni per il gateway applicazione][3]  
+![Pannello con impostazioni per il gateway applicazione][3]
 
 ### Passaggio 4
 
@@ -114,13 +114,13 @@ Nel pannello **Scegli rete virtuale** fare clic su **Crea nuovo**.
 
 Anche se non illustrato in questo scenario, a questo punto si potrebbe selezionare una rete virtuale esistente. Se si usa una rete virtuale esistente, è importante sapere che, per poter essere usata, la rete virtuale deve avere una subnet vuota o una subnet contenente solo risorse gateway applicazione.
 
-![Pannello Scegli rete virtuale][4]  
+![Pannello Scegli rete virtuale][4]
 
 ### Passaggio 5
 
 Inserire le informazioni relative alla rete nel pannello **Crea rete virtuale** come descritto nella precedente sezione [Scenario](#scenario).
 
-![Pannello Crea rete virtuale con informazioni immesse][5]  
+![Pannello Crea rete virtuale con informazioni immesse][5]
 
 ### Passaggio 6
 
@@ -128,13 +128,13 @@ Dopo che è stata creata la rete virtuale, il passaggio successivo consiste nel 
 
 Fare clic su **Scegliere un indirizzo IP pubblico**. Se è disponibile un indirizzo IP pubblico esistente, a questo punto è possibile sceglierlo. In questo scenario verrà creato un nuovo indirizzo IP pubblico. Fare clic su **Crea nuovo**.
 
-![Pannello Scegli indirizzo IP pubblico][6]  
+![Pannello Scegli indirizzo IP pubblico][6]
 
 ### Passaggio 7
 
 Assegnare quindi un nome descrittivo all'indirizzo IP pubblico e fare clic su **OK**.
 
-![Pannello Crea indirizzo IP pubblico][7]  
+![Pannello Crea indirizzo IP pubblico][7]
 
 ### Passaggio 8
 
@@ -146,7 +146,7 @@ Fare clic su **HTTPS** e quindi sull'icona a forma di **cartella** accanto alla 
 
 Al termine, fare clic su **OK** per rivedere le impostazioni del gateway applicazione.
 
-![Sezione Configurazione listener nel pannello Impostazioni][8]  
+![Sezione Configurazione listener nel pannello Impostazioni][8]
 
 ### Passaggio 9:
 
@@ -155,7 +155,7 @@ Configurare le impostazioni specifiche del **WAF**.
 - **Stato firewall**: consente di attivare o disattivare il WAF.
 - **Modalità firewall**: questa impostazione determina le misure che il firewall deve adottare contro il traffico dannoso. Se viene scelta l'opzione **Rilevamento**, il traffico sarà solo registrato. Se viene scelta l'opzione **Prevenzione** scelto, il traffico viene registrato e interrotto con un errore 403 di accesso non autorizzato.
 
-![Impostazioni firewall applicazione Web][9]  
+![Impostazioni firewall applicazione Web][9]
 
 ### Passaggio 10
 
@@ -165,7 +165,7 @@ Esaminare la pagina di riepilogo e fare clic su **OK**. Il gateway applicazione 
 
 Al termine della creazione del gateway applicazione, passare al gateway applicazione nel portale per proseguirne la configurazione.
 
-![Visualizzazione della risorsa del gateway applicazione][10]  
+![Visualizzazione della risorsa del gateway applicazione][10]
 
 Questi passaggi creano un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 
@@ -177,7 +177,7 @@ Per informazioni su come creare probe di integrità personalizzati, vedere [Crea
 
 Per informazioni su come configurare l'offload SSL ed evitare costose attività di decrittografia SSL nei server Web, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-portal.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
 [2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
 [1-1]: ./media/application-gateway-web-application-firewall-portal/figure1-1.png

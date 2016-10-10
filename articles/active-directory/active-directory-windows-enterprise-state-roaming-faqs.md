@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"  

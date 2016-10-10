@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mmacy"
 	manager="timlt"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="batch"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
 	ms.date="09/27/2016"
-	ms.author="marsma"/>  
+	ms.author="marsma"/>
 
 # Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
 
@@ -26,7 +26,7 @@ Con il ridimensionamento automatico, il servizio Azure Batch può aggiungere o r
 
 ## Formule di ridimensionamento automatico
 
-Una formula di ridimensionamento automatico è un valore stringa definito dall'utente che contiene una o più istruzioni ed è assegnato all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Quando le formule sono assegnate a un pool, vengono usate dal servizio Batch per determinare il numero di nodi di calcolo disponibili nel pool per l'intervallo di elaborazione successivo. Altre informazioni sugli intervalli sono disponibili più avanti. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
+Una formula di ridimensionamento automatico è un valore stringa definito dall'utente che contiene una o più istruzioni ed è assegnato all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(Batch .NET). Quando le formule sono assegnate a un pool, vengono usate dal servizio Batch per determinare il numero di nodi di calcolo disponibili nel pool per l'intervallo di elaborazione successivo. Altre informazioni sugli intervalli sono disponibili più avanti. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
 
 È possibile paragonare le formule di ridimensionamento automatico all'uso di un "linguaggio" di ridimensionamento automatico di Batch. Le istruzioni nella formula sono espressioni in formato libero che possono includere variabili definite dal servizio Batch e variabili definite dall'utente. Possono eseguire diverse operazioni su questi valori usando funzioni, operatori e tipi predefiniti. Ad esempio, un'istruzione può avere il formato seguente:
 
@@ -133,7 +133,14 @@ Queste **operazioni** sono consentite sui tipi elencati sopra.
 | timeinterval *operatore* timeinterval | +, - | timeInterval |
 | timeinterval *operatore* timestamp | + | timestamp |
 | timestamp *operatore* timeinterval | + | timestamp |
-| timestamp *operatore* timestamp | - | timeinterval | | *operatore*double | -, ! | double | | *operatore*timeinterval | - | timeinterval | | double *operatore* double | <, <=, ==, >=, >, != | double | | string *operatore* string | <, <=, ==, >=, >, != | double | | timestamp *operatore* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operatore* timeinterval | <, <=, ==, >=, >, != | double | | double *operatore* double | &&, || | double |
+| timestamp *operatore* timestamp | - | timeinterval |
+| *operatore*double | -, ! | double |
+| *operatore*timeinterval | - | timeinterval |
+| double *operatore* double | <, <=, ==, >=, >, != | double |
+| string *operatore* string | <, <=, ==, >=, >, != | double |
+| timestamp *operatore* timestamp | <, <=, ==, >=, >, != | double |
+| timeinterval *operatore* timeinterval | <, <=, ==, >=, >, != | double |
+| double *operatore* double | &&, &#124;&#124; | double |
 
 Durante il test di un valore double con un operatore ternario (`double ? statement1 : statement2`), diverso da zero è **true** e zero è **false**.
 
@@ -165,7 +172,7 @@ Queste **funzioni** predefinite sono disponibili per consentire la definizione d
 
 Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. ad esempio:
 
-`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`  
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
 Il valore *doubleVecList* viene convertito in un singolo valore *doubleVec* prima della valutazione. Ad esempio, se `v = [1,2,3]`, la chiamata di `avg(v)` equivale alla chiamata di `avg(1,2,3)`. La chiamata di `avg(v, 7)` equivale alla chiamata di `avg(1,2,3,7)`.
 
@@ -173,7 +180,7 @@ Il valore *doubleVecList* viene convertito in un singolo valore *doubleVec* prim
 
 Le formule di ridimensionamento automatico agiscono sui dati di metrica (campioni) forniti dal servizio Batch. Una formula aumenta o riduce le dimensioni del pool in base ai valori che ottiene dal servizio. Le variabili definite dal servizio descritte sopra sono oggetti che offrono vari metodi per accedere ai dati associati a un dato oggetto. Ad esempio, l'espressione seguente mostra una richiesta per recuperare gli ultimi 5 minuti di utilizzo della CPU:
 
-`$CPUPercent.GetSample(TimeInterval_Minute * 5)`  
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 | Metodo | Descrizione |
 | --- | --- |
@@ -203,17 +210,17 @@ Le formule di ridimensionamento automatico aumentano e riducono i pool, aggiunge
 
 A tale scopo, usare `GetSample(interval look-back start, interval look-back end)` per restituire un **vettore** di campioni:
 
-`runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);`  
+`runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);`
 
 Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Ad esempio:
 
-`runningTasksSample=[1,1,1,1,1,1,1,1,1,1];`  
+`runningTasksSample=[1,1,1,1,1,1,1,1,1,1];`
 
 Dopo aver raccolto il vettore di campioni, è possibile usare funzioni come `min()`, `max()` e `avg()` per derivare valori significativi dall'intervallo raccolto.
 
 Per maggiore sicurezza, è possibile fare in modo che la valutazione di una formula *non riesca* se per un determinato periodo di tempo è disponibile una quantità di campioni inferiore a una certa percentuale. L'impostazione di un esito negativo della valutazione della formula indica a Batch di interromperne l'ulteriore valutazione se la percentuale di campioni specificata non è disponibile, evitando quindi di modificare le dimensioni del pool. Per specificare una percentuale di campioni obbligatoria perché la valutazione riesca, specificarla come terzo parametro in `GetSample()`. Qui è specificato un requisito pari al 75% dei campioni:
 
-`runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);`  
+`runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);`
 
 A causa del ritardo nella disponibilità dei campioni citato in precedenza, è anche importante specificare sempre un intervallo di tempo con un'ora di inizio antecedente di almeno un minuto. La propagazione dei campioni attraverso il sistema richiede infatti un minuto circa, quindi i campioni nell'intervallo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` spesso non saranno disponibili. Anche in questo caso, è possibile usare il parametro percentuale di `GetSample()` per imporre uno specifico requisito di percentuale dei campioni.
 
@@ -273,15 +280,15 @@ La creazione di una formula di ridimensionamento automatico prevede la composizi
 
 Per l'*aumento* dei nodi durante l'uso elevato della CPU, viene definita un'istruzione che popola una variabile definita dall'utente ($TotalNodes) con un valore pari al 110% dell'attuale numero di destinazione dei nodi, se l'uso minimo medio della CPU negli ultimi 10 minuti è superiore al 70%:
 
-`$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`  
+`$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
 L'istruzione successiva imposta la stessa variabile sul 90% dell'attuale numero di destinazione dei nodi, se l'uso medio della CPU negli ultimi 60 minuti è stato *inferiore* al 20%. Questo riduce il numero di destinazione durante l'utilizzo ridotto della CPU. Si noti che questa istruzione fa anche riferimento alla variabile definita dall'utente *$TotalNodes* dell'istruzione precedente.
 
-`$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`  
+`$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
 Ora viene limitato il numero di destinazione dei nodi di calcolo dedicati a un **massimo** di 400:
 
-`$TargetDedicated = min(400, $TotalNodes)`  
+`$TargetDedicated = min(400, $TotalNodes)`
 
 Ecco la formula completa:
 
@@ -393,7 +400,7 @@ if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 
 La valutazione corretta della formula in questo frammento di codice genererà un output simile al seguente:
 
-`AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0`  
+`AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0`
 
 ## Ottenere informazioni sulle esecuzioni del ridimensionamento automatico
 

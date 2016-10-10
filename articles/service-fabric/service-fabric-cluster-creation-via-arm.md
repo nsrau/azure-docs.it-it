@@ -6,7 +6,7 @@
    documentationCenter=".net"
    authors="chackdan"
    manager="timlt"
-   editor="vturecek"/>  
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/25/2016"
-   ms.author="vturecek"/>  
+   ms.author="vturecek"/>
 
 # Creare un cluster di Service Fabric in Azure tramite Azure Resource Manager
 
@@ -57,7 +57,7 @@ Service Fabric usa certificati X.509 per proteggere un cluster e fornire le funz
 
 Nel diagramma seguente viene illustrata la relazione tra l'insieme di credenziali delle chiavi, un cluster di Service Fabric e il provider di risorse di Azure che usa i certificati archiviati nell'insieme di credenziali delle chiavi durante la creazione di un cluster:
 
-![Installazione del certificato][cluster-security-cert-installation]  
+![Installazione del certificato][cluster-security-cert-installation]
 
 ### Creare un gruppo di risorse
 
@@ -216,7 +216,7 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di AAD con 
 
     **WebApplicationReplyUrl** è l'endpoint predefinito che AAD restituisce agli utenti dopo aver completato il processo di accesso. Deve essere impostato sull'endpoint di Service Fabric Explorer per il cluster, che per impostazione predefinita è:
 
-    https://&lt;cluster_domain&gt;:19080/Explorer  
+    https://&lt;cluster_domain&gt;:19080/Explorer
 
     Verrà richiesto di accedere a un account con privilegi amministrativi per il tenant AAD. Dopo che è stato eseguito l'accesso, lo script crea l'applicazione Web e l'applicazione nativa per rappresentare il cluster di Service Fabric. Tra le applicazioni del tenant nel [portale di Azure classico][azure-classic-portal] dovrebbero essere visualizzate due nuove voci:
 
@@ -456,11 +456,11 @@ Dopo aver creato le applicazioni per rappresentare il cluster, è necessario ass
 3. Fare clic sulla scheda Utenti.
 4. Scegliere un utente per l'assegnazione e quindi fare clic sul pulsante **Assegna** nella parte inferiore della schermata.
 
-    ![Pulsante di assegnazione di utenti ai ruoli][assign-users-to-roles-button]  
+    ![Pulsante di assegnazione di utenti ai ruoli][assign-users-to-roles-button]
 
 5. Selezionare il ruolo da assegnare all'utente.
 
-    ![Assegnare utenti ai ruoli][assign-users-to-roles-dialog]  
+    ![Assegnare utenti ai ruoli][assign-users-to-roles-dialog]
 
 >[AZURE.NOTE] Per altre informazioni sui ruoli in Service Fabric, vedere [Controllo degli accessi in base al ruolo per i client di Service Fabric](service-fabric-cluster-security-roles.md).
 
@@ -517,7 +517,7 @@ I parametri forniti dallo script helper possono essere immessi nel portale come 
 
 A questo punto, è stato creato un cluster con Azure Active Directory che fornisce l'autenticazione per la gestione. Successivamente, [connettersi al cluster](service-fabric-connect-to-secure-cluster.md) e scoprire come [gestire i segreti delle applicazioni](service-fabric-application-secret-management.md).
 
-<!-- Links -->  
+<!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [key-vault-get-started]: ../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]: https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
@@ -532,7 +532,7 @@ A questo punto, è stato creato un cluster con Azure Active Directory che fornis
 [service-fabric-secure-cluster-5-node-1-nodetype-wad]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype-wad/
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 
-<!-- Images -->  
+<!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png

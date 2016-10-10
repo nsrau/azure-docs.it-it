@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="08/26/2016" 
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 # Creare un'app Web Hello World per Azure in Eclipse
 
@@ -72,7 +72,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
    
 1. Se non si è già eseguito l'accesso ad Azure da Eclipse, verrà richiesto di accedere all'account Azure:
 
-    ![Finestra di dialogo di accesso di Azure][04]  
+    ![Finestra di dialogo di accesso di Azure][04]
    
     Se si hanno più account Azure, durante il processo di accesso alcune richieste, all'apparenza identiche, possono essere visualizzate più volte, ognuna per un account diverso. In questo caso, continuare a seguire le istruzioni di accesso.
 
@@ -88,7 +88,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
     1. Fare clic su **New** (Nuovo).
 
-        ![Finestra di dialogo Deploy to Azure Web App Container (Distribuisci in un contenitore app Web di Azure)][15]  
+        ![Finestra di dialogo Deploy to Azure Web App Container (Distribuisci in un contenitore app Web di Azure)][15]
 
     1. Verrà visualizzata la finestra di dialogo **New Web App Container** (Nuovo contenitore App Web):
 
@@ -124,7 +124,7 @@ Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java 
 
             * **Deploy my own JDK from this download location** (Distribuisci JDK personalizzato da questo percorso di download): questa opzione consente di specificare una distribuzione JDK personalizzata, che deve essere compressa come file ZIP e caricata in un percorso di download disponibile pubblicamente o in un account di Archiviazione di Azure per cui si dispone dell'accesso.
 
-            ![Finestra di dialogo New Web App Container (Nuovo contenitore App Web)][07b]  
+            ![Finestra di dialogo New Web App Container (Nuovo contenitore App Web)][07b]
 
 	* Fare clic su **OK**.
 
@@ -222,7 +222,7 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Azure Toolkit per Eclipse]: ../azure-toolkit-for-eclipse.md
 [Toolkit di Azure per Eclipse]: ../azure-toolkit-for-eclipse.md

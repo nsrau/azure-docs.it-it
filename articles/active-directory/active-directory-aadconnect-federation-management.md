@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="anandyadavmsft"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -49,11 +49,11 @@ Azure AD Connect può controllare lo stato di integrità corrente della relazion
 
     Dopo aver fatto clic su **Avanti**, Azure AD Connect verifica l'integrità del certificato e visualizza gli eventuali problemi.
 
-    ![Stato dei certificati](media\active-directory-aadconnect-federation-management\RepairADTrust4.PNG)  
+    ![Stato dei certificati](media\active-directory-aadconnect-federation-management\RepairADTrust4.PNG)
 
     La pagina **Pronto per la configurazione** mostra l'elenco delle azioni che verranno eseguite per ripristinare il trust.
 
-    ![Pronto per la configurazione](media\active-directory-aadconnect-federation-management\RepairADTrust5.PNG)  
+    ![Pronto per la configurazione](media\active-directory-aadconnect-federation-management\RepairADTrust5.PNG)
 
 4. Fare clic su **Installa** per ripristinare il trust.
 
@@ -71,13 +71,13 @@ Azure AD Connect può controllare lo stato di integrità corrente della relazion
 
 4. Azure AD Connect chiederà la password del file PFX specificato durante la configurazione della nuova farm AD FS con Azure AD Connect. Fare clic su **Immettere la password** per specificare la password del file PFX. ![Password certificato](media\active-directory-aadconnect-federation-management\AddNewADFSServer4.PNG)
 
-    ![Specificare il certificato SSL](media\active-directory-aadconnect-federation-management\AddNewADFSServer5.PNG)  
+    ![Specificare il certificato SSL](media\active-directory-aadconnect-federation-management\AddNewADFSServer5.PNG)
 
 5. Nella pagina **Server ADFS** immettere il nome del server o l'indirizzo IP da aggiungere alla farm ADFS. ![Server AD FS](media\active-directory-aadconnect-federation-management\AddNewADFSServer6.PNG)
 
 6. Fare clic su **Avanti** e procedere fino alla pagina **Configura** finale. Quando Azure AD Connect avrà completato l'aggiunta dei server alla farm AD FS, si potrà verificare la connettività. ![Pronto per la configurazione](media\active-directory-aadconnect-federation-management\AddNewADFSServer7.PNG)
 
-    ![Installazione completata](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)  
+    ![Installazione completata](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
 ### Aggiungere un server proxy applicazione Web AD FS <a name=addwapserver></a>
 
@@ -190,7 +190,7 @@ Per impostazione predefinita, la regola attestazioni per l'ID autorità di certi
 
 	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-![Attestazione predefinita per l'ID autorità di certificazione](media\active-directory-aadconnect-federation-management\issuer_id_default.png)  
+![Attestazione predefinita per l'ID autorità di certificazione](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
 
 La regola predefinita usa semplicemente il suffisso UPN nell'attestazione per l'ID autorità di certificazione. Ad esempio, John è un utente in sub.contoso.com e contoso.com è federato con Azure AD. John immette john@sub.contoso.com come nome utente durante l'accesso ad Azure AD e la regola attestazioni predefinita per l'ID autorità di certificazione in AD FS lo gestisce nel modo seguente.
 

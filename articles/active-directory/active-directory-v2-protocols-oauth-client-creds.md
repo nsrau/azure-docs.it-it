@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="msmbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/26/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/>
 
 # Protocolli 2.0 - Flusso di credenziali client di OAuth 2.0
 
@@ -29,7 +29,7 @@ Nel più comune "OAuth a tre vie," a un'applicazione client viene concessa l'aut
 ## Diagramma di protocollo
 L'intero flusso di credenziali client è simile al seguente: i singoli passaggi sono descritti in dettaglio di seguito.
 
-![Flusso di credenziali client](../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)  
+![Flusso di credenziali client](../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
 ## Ottenere l'autorizzazione diretta 
 Esistono due metodi tramite i quali l'applicazione riceve generalmente autorizzazione diretta per l'accesso alla risorsa: tramite un elenco di controllo di accesso alla risorsa o per mezzo dell'assegnazione dell'autorizzazione a un'applicazione in Azure AD. Esistono diversi altri metodi per l'autorizzazione dei client da parte della risorsa e ogni server della risorsa può scegliere il metodo più appropriato per l'applicazione. Questi due metodi sono i più comuni in Azure AD e sono consigliati per i client e le risorse che desiderano eseguire il flusso di credenziali client.

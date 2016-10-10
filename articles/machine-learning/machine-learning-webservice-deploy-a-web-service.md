@@ -14,7 +14,7 @@
    	ms.devlang="na"
    	ms.topic="article"
    	ms.date="09/22/2016"
-   	ms.author="v-donglo"/>  
+   	ms.author="v-donglo"/>
 
 # Distribuire un nuovo servizio Web
 
@@ -95,10 +95,10 @@ Per altre informazioni sull'utilizzo dei servizi Web, vedere:
 
 [Servizi Web di Azure Machine Learning: distribuzione e uso](machine-learning-deploy-consume-web-service-guide.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png
 
 
-<!--links-->  
+<!--links-->
 
 <!---HONumber=AcomDC_0928_2016-->

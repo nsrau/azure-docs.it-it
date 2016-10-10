@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	authors="RickSaling"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="09/23/2016"
-	ms.author="adrianha"/>  
+	ms.author="adrianha"/>
 
 
 # Come usare la libreria client Android per le app per dispositivi mobili
@@ -119,7 +119,7 @@ Se la propria tabella di SQL Azure include più colonne, aggiungere i campi corr
 	    mPriority = priority;
 	}
 
-Per informazioni su come creare altre tabelle nel back-end delle app per dispositivi mobili, vedere [Procedura: Definire un controller tabelle][15] (back-end .NET) o [Procedura: Definire le tabelle con uno schema dinamico][16] (back-end Node.js). Per un back-end Node.js è anche possibile usare l'impostazione **Easy tables** nel [portale di Azure].
+Per informazioni su come creare altre tabelle nel back-end delle app per dispositivi mobili, vedere [Procedura: Definire un controller tabelle][15] \(back-end .NET) o [Procedura: Definire le tabelle con uno schema dinamico][16] \(back-end Node.js). Per un back-end Node.js è anche possibile usare l'impostazione **Easy tables** nel [portale di Azure].
 
 ###<a name="create-client"></a>Procedura: Creare il contesto client
 
@@ -786,7 +786,7 @@ Questo codice deve essere eseguito prima di usare **MobileServiceClient**.
 
 Fino ad ora gli esempi di serializzazione hanno riguardato tipi primitivi, ad esempio interi e stringhe. I tipi primitivi serializzano facilmente in JSON. Se si vuole aggiungere un oggetto complesso che non viene serializzato automaticamente in JSON, è necessario fornire il metodo di serializzazione JSON. Per un esempio su come fornire la serializzazione JSON personalizzata, vedere il post del blog relativo alla [personalizzazione della serializzazione tramite la libreria gson nel client Android di Servizi mobili][2].
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
@@ -821,7 +821,7 @@ Fino ad ora gli esempi di serializzazione hanno riguardato tipi primitivi, ad es
 
 <!-- Images. -->
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033

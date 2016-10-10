@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/23/2016"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Usare il portale di Azure per creare avvisi per i servizi di Azure
 
@@ -54,12 +54,12 @@ Questo articolo descrive come impostare gli avvisi di Azure tramite il portale d
 
 2. Selezionare **Avvisi** o **Regole di avviso** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.
 
-	![Monitoraggio](./media/insights-alerts-portal/AlertRulesButton.png)  
+	![Monitoraggio](./media/insights-alerts-portal/AlertRulesButton.png)
 
 
 3. Selezionare il comando **Aggiungi avviso** e compilare i campi.
 
-	![Aggiungi un avviso](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)  
+	![Aggiungi un avviso](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. Assegnare alla regola di avviso un **Nome** e scegliere una **Descrizione**, così da visualizzare anche i messaggi di posta elettronica di notifica.
 5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione** e un valore **Soglia**. Scegliere inoltre il **Periodo** di tempo entro il quale la metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, se si usa il periodo "PT5M" e l'avviso deve rilevare una CPU superiore all'80%, l'avviso si attiva quando la CPU resta costantemente sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU resta al di sotto dell'80% per 5 minuti. La CPU viene misurata ogni minuto.

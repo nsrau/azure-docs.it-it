@@ -6,7 +6,7 @@
    authors="neilpeterson"
    manager="timlt"
    editor="tysonn"
-   tags="azure-service-management"/>  
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/21/2016"
-   ms.author="nepeters"/>  
+   ms.author="nepeters"/>
 
 # Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure
 
@@ -27,7 +27,7 @@ L'esempio usato in questa serie consiste in un'applicazione .NET Core che simula
 
 Per il modello Music Store di Resource Manager, accedere alla pagina [Music Store Linux Template (Modello Music Store per Linux)](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db)
 
-![Applicazione Music Store](./media/virtual-machines-linux-dotnet-core/music-store.png)  
+![Applicazione Music Store](./media/virtual-machines-linux-dotnet-core/music-store.png)
 
 Ognuno di questi componenti, incluso il codice JSON associato al modello, viene esaminato nei quattro articoli seguenti.
 

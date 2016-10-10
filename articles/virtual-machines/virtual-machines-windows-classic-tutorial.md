@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Creare una macchina virtuale con Windows nel portale di Azure classico
 
@@ -23,7 +23,7 @@
 - [Portale di Azure classico](virtual-machines-windows-classic-tutorial.md)
 - [PowerShell: distribuzione classica](virtual-machines-windows-classic-create-powershell.md)
 
-<br>  
+<br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di distribuzione di Resource Manager](virtual-machines-windows-hero-tutorial.md). Se si vuole usare il nuovo portale di Azure, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](virtual-machines-windows-hero-tutorial.md).
 

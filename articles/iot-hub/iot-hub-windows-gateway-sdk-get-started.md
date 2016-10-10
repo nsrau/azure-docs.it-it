@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/25/2016"
-     ms.author="andbuc"/>  
+     ms.author="andbuc"/>
 
 
 # IoT SDK per gateway (beta): introduzione all'uso in Windows
@@ -78,7 +78,7 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 
-<!-- Links -->  
+<!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
 <!---HONumber=AcomDC_0928_2016-->

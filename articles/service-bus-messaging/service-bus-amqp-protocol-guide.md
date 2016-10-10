@@ -5,7 +5,7 @@
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na" 
     ms.date="07/01/2016"
-    ms.author="clemensv;jotaub;hillaryc;sethm"/>  
+    ms.author="clemensv;jotaub;hillaryc;sethm"/>
 
 # Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 

@@ -6,7 +6,7 @@
 	authors="MikeRayMSFT"
 	manager="timlt"
 	editor="monicar"
-	tags="azure-service-management" />  
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -24,7 +24,7 @@
 - [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
-<br/>  
+<br/>
 
 Questa esercitazione end-to-end mostra come implementare i gruppi di disponibilità di SQL Server nelle macchine virtuali di Azure Resource Manager.
 
@@ -44,7 +44,7 @@ In questa esercitazione verranno creati gli elementi seguenti:
 
 La figura seguente è una rappresentazione grafica della soluzione.
 
-![Architettura dei gruppi di disponibilità in Azure Resource Manager](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/00-EndstateSampleNoELB.png)  
+![Architettura dei gruppi di disponibilità in Azure Resource Manager](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/00-EndstateSampleNoELB.png)
 
 Si tratta di una configurazione possibile, modificabile in base alle specifiche esigenze. È possibile, ad esempio, ridurre il numero di macchine virtuali usando un controller di dominio come condivisione file di controllo del quorum. Questo consente di ridurre il numero di macchine virtuali per un gruppo di disponibilità con due repliche. Questo metodo consente di ridurre di un'unità il numero di macchine virtuali della soluzione.
 
@@ -129,7 +129,7 @@ Per creare la rete virtuale:
 
 1. Fare clic su **Crea**
 
-  ![Configurare la rete virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)  
+  ![Configurare la rete virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 In questo modo, si torna al dashboard del portale e Azure invia una notifica dopo la creazione della rete.
 
@@ -261,7 +261,7 @@ Nei passaggi seguenti configurare la macchina virtuale **ad-primary-dc** come co
 
 	>[AZURE.NOTE] Windows visualizza un avviso per indicare che non è presente alcun indirizzo IP statico. Se si sta eseguendo il test della configurazione, fare clic su Continua. Per gli scenari di produzione, impostare l'indirizzo IP come statico nel portale di Azure o seguire le istruzioni riportate nell'articolo [Come impostare un indirizzo IP privato interno statico tramite PowerShell (classico)](./virtual-network/virtual-networks-reserved-private-ip.md).
 
-	![Finestra di dialogo Aggiungi ruoli](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784624.png)  
+	![Finestra di dialogo Aggiungi ruoli](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784624.png)
 
 1. Fare clic su **Avanti** fino a raggiungere la sezione **Conferma**. Selezionare la casella di controllo **Riavvia automaticamente il server di destinazione se necessario**.
 
@@ -310,7 +310,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -318,7 +318,7 @@ Dopo il riavvio del controller di dominio primario, è possibile configurare il 
 
 1. L'indirizzo è quello assegnato a una VM nella subnet subnet-1 nella rete virtuale di Azure e la VM in questione è **ad-primary-dc**. Per verificare l'indirizzo IP di **ad-primary-dc** digitare **nslookup ad-primary-dc** nel prompt dei comandi, come illustrato di seguito.
 
-	![Usare NSLOOKUP per trovare l'indirizzo IP del controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)  
+	![Usare NSLOOKUP per trovare l'indirizzo IP del controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
  >[AZURE.NOTE] Dopo aver impostato il DNS, è possibile che la sessione RDP sul server membro venga persa. In questo caso, riavviare la VM dal portale di Azure.
 
@@ -429,7 +429,7 @@ Usare questi indirizzi per configurare il servizio DNS per ogni VM. Seguire ques
 
 	![Modificare il Server DNS preferito della macchina virtuale](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784629.png)
 
-1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione ** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
+1. Sulla barra dei comandi fare clic su **Cambia impostazioni di connessione** (a seconda delle dimensioni della finestra, potrebbe essere necessario fare clic sulla doppia freccia destra per visualizzare questo comando).
 
 1. Selezionare **Protocollo Internet versione 4 (TCP/IPv4)** e fare clic su Proprietà.
 
@@ -437,7 +437,7 @@ Usare questi indirizzi per configurare il servizio DNS per ogni VM. Seguire ques
 
 1. L'indirizzo è quello assegnato a una VM nella subnet subnet-1 nella rete virtuale di Azure e la VM in questione è **ad-primary-dc**. Per verificare l'indirizzo IP di **ad-primary-dc** digitare **nslookup ad-primary-dc** nel prompt dei comandi, come illustrato di seguito.
 
-	![Usare NSLOOKUP per trovare l'indirizzo IP del controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)  
+	![Usare NSLOOKUP per trovare l'indirizzo IP del controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
  >[AZURE.NOTE] Dopo aver impostato il DNS, è possibile che la sessione RDP sul server membro venga persa. In questo caso, riavviare la VM dal portale di Azure.
 
@@ -734,7 +734,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 1. A questo punto, nella pagina **Specifica repliche** viene visualizzato **sqlserver-1** elencato in **Repliche di disponibilità**. Configurare le repliche come mostrato di seguito:
 
-	![Creazione guidata nuovo gruppo di disponibilità: specificare le repliche (complete)](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665528.png)  
+	![Creazione guidata nuovo gruppo di disponibilità: specificare le repliche (complete)](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665528.png)
 
 1. Fare clic su **Endpoint** per vedere l'endpoint di mirroring del database che verrà usato dal gruppo di disponibilità. Ciascuna istanza di SQL Server deve disporre di un endpoint di mirroring del database. Annotare la porta TCP specificata dalla procedura guidata per l'endpoint. Su ciascun server creare una regola del firewall in ingresso per questa porta TCP.
 	
@@ -746,7 +746,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
 1. Nella pagina **Convalida** fare clic su **Avanti**. L'aspetto di questa pagina dovrebbe essere simile a quanto riportato di seguito. È presente un avviso per la configurazione del listener in quanto non è stato configurato un listener del gruppo di disponibilità. È possibile ignorare questo avviso, poiché l'esercitazione non configura alcun listener. In questa esercitazione il listener verrà creato più avanti.
 
-	![Creazione guidata nuovo gruppo di disponibilità: convalida](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)  
+	![Creazione guidata nuovo gruppo di disponibilità: convalida](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
 
 1. Nella pagina **Riepilogo** fare clic su **Fine**, quindi attendere il completamento della configurazione del nuovo gruppo di disponibilità tramite la procedura guidata. Per visualizzare lo stato dettagliato è possibile fare clic su **Ulteriori dettagli** nella pagina **Avanzamento**. Al termine della procedura guidata, controllare la pagina **Risultati** per verificare la corretta creazione del gruppo di disponibilità, come mostrato di seguito, quindi fare clic su **Chiudi** per uscire dalla procedura guidata.
 

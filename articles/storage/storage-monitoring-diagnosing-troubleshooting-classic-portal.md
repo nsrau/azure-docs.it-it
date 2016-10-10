@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="jahogg;robinsh"/>  
+	ms.author="jahogg;robinsh"/>
 
 # Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 
@@ -766,7 +766,7 @@ Dopo l'avvio, Fiddler inizia ad acquisire il traffico HTTP e HTTPS sul computer 
 
 Per limitare il volume del traffico acquisito da Fiddler, utilizzare i filtri configurabili nella scheda **Filters**. La schermata che segue mostra un esempio di filtro che acquisisce solo il traffico inviato all'endpoint di archiviazione **contosoemaildist.table.core.windows.net**:
 
-![][5]  
+![][5]
 
 ### <a name="appendix-2"></a>Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete
 
@@ -779,7 +779,7 @@ La procedura che segue indica come acquisire informazioni dettagliate sui pacche
 3.	Fare clic su **Capture Options**.
 4.	Aggiungere un filtro nella casella di testo **Capture Filter**. Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark in modo che acquisisca solo i pacchetti inviati a o dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Per un elenco completo dei filtri di acquisizione, vedere <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
 
-    ![][6]  
+    ![][6]
 
 5.	Fare clic su **Avvia**. Wireshark acquisirà tutti i pacchetti inviati a o dall'endpoint del servizio tabelle non appena l'applicazione client viene utilizzata sul computer locale.
 6.	Al termine, nel menu principale fare clic su **Capture** e quindi su **Stop**.
@@ -787,11 +787,11 @@ La procedura che segue indica come acquisire informazioni dettagliate sui pacche
 
 WireShark evidenzia tutti gli errori presenti nella finestra **packetlist**. Utilizzare la finestra **Expert Info** (fare clic su **Analyze**, quindi su **Expert Info**) per visualizzare un riepilogo di errori e avvisi.
 
-![][7]  
+![][7]
 
 È anche possibile scegliere di visualizzare i dati TCP appena il livello dell'applicazione li vede, facendo clic con il pulsante destro del mouse sui dati TCP e selezionando **Follow TCP Stream**. Ciò è particolarmente utile se si acquisisce il dump senza un filtro di acquisizione. Leggere <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">qui</a> per ulteriori informazioni.
 
-![][8]  
+![][8]
 
 > [AZURE.NOTE] Per ulteriori informazioni sull'uso di Wireshark, vedere la <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">guida dell'utente di Wireshark</a>.
 
@@ -819,11 +819,11 @@ Oltre a utilizzare la traccia **Web Proxy** di Microsoft Message Analyzer per ac
 
 Nella schermata che segue è riportato un esempio della traccia **Local Link Layer** con alcuni messaggi **informativi** nella colonna **DiagnosisTypes**. Facendo clic su un'icona nella colonna **DiagnosisTypes** verranno visualizzati i dettagli del messaggio. In questo esempio, il server ha ritrasmesso il messaggio #305 perché non riceveva una conferma dal client:
 
-![][9]  
+![][9]
 
 Quando si crea la sessione di traccia in Microsoft Message Analyzer, è possibile specificare dei filtri per ridurre la quantità di disturbi nella traccia. Nella pagina **Capture / Trace** in cui si definisce la traccia, fare clic sul collegamento **Configure** accanto a **Microsoft-Windows-NDIS-PacketCapture**. La schermata che segue mostra una configurazione in cui il traffico TCP viene filtrato per gli indirizzi IP di tre servizi di archiviazione:
 
-![][10]  
+![][10]
 
 Per altre informazioni sulla traccia di Local Link Layer di Microsoft Message Analyzer, vedere l'argomento <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture Provider</a> su TechNet.
 
@@ -849,7 +849,7 @@ Nel passaggio 1 dell'**Importazione guidata testo**, selezionare **Punto e virgo
 Al momento della redazione di questo documento Application Insights è disponibile in anteprima. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights per Visual Studio Team Services su MSDN</a>.
 
 
-<!--Anchors-->  
+<!--Anchors-->
 [Introduzione]: #introduction
 [Organizzazione di questa guida]: #how-this-guide-is-organized
 
@@ -910,7 +910,7 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [Appendice 4: Uso di Excel per la visualizzazione di metriche e dati di log]: #appendix-4
 [Appendice 5: Monitoraggio con Application Insights per Visual Studio Team Services]: #appendix-5
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/overview.png
 [2]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/portal-screenshot.png
 [3]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/hour-minute-metrics.png

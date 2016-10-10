@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun" />  
+	editor="cgronlun" />
 
 <tags
 	ms.service="stream-analytics"

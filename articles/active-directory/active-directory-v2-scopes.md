@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/26/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/>
 
 # Ambiti, autorizzazioni e consenso nell'endpoint v2.0
 

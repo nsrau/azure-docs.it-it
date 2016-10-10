@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeevansd"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/28/2016"
-	ms.author="jeedes"/>  
+	ms.author="jeedes"/>
 
 
 # Esercitazione: Integrazione di Azure Active Directory con Deputy
@@ -62,29 +62,29 @@ Per configurare l'integrazione di Deputy in Azure AD, è necessario aggiungere D
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Active Directory][1]  
+	![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
 	
-	![Applicazioni][2]  
+	![Applicazioni][2]
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 	
-	![Applicazioni][3]  
+	![Applicazioni][3]
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
-	![Applicazioni][4]  
+	![Applicazioni][4]
 
 6. Nella casella di ricerca digitare **Deputy**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_01.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_01.png)
 
 7. Nel riquadro dei risultati selezionare **Deputy** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-	![Selezione dell'app nella raccolta](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_0001.png)  
+	![Selezione dell'app nella raccolta](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_0001.png)
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Deputy in base a un utente test di nome "Britta Simon".
@@ -109,15 +109,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Deputy** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 	 
-	![Configura accesso Single Sign-On][6]  
+	![Configura accesso Single Sign-On][6]
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Deputy** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
     
-	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_03.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_03.png)
 
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente e fare clic su **Avanti**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_04.png)  
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_04.png)
 
 	a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<your-subdomain>.<region>.deputy.com`.
 
@@ -127,7 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Se si vuole desidera l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"**, quindi digitare l'**URL di accesso** e fare clic su **Avanti**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_05.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_05.png)
 
 	a. Nella casella di testo **URL accesso** digitare un URL corrispondente al modello seguente: `https://<your-subdomain>.<region>.deputy.com`.
 
@@ -137,20 +137,20 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 5. Nella pagina **Configura accesso Single Sign-On in Deputy** seguire questa procedura e fare clic su **Avanti**:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_06.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_06.png)
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
     
 6. Accedere all'URL seguente: https://(your-subdomain).deputy.com/exec/config/system_config. Passare a **Security Settings** (Impostazioni di sicurezza) e fare clic su **Edit** (Modifica).
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
 
 7. Nel portale di Azure classico, nella pagina Configura accesso Single Sign-On in Deputy copiare l'URL SSO SAML.
 
 8. In questa pagina **Security Settings** (Impostazioni di sicurezza) attenersi alla procedura seguente.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_005.png)
 
 	a. Abilitare **Social Login** (Accesso social).
 
@@ -166,32 +166,32 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 9. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
     
-	![Accesso Single Sign-On di Azure AD][10]  
+	![Accesso Single Sign-On di Azure AD][10]
 
 10. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
     
-	![Accesso Single Sign-On di Azure AD][11]  
+	![Accesso Single Sign-On di Azure AD][11]
 
 ### Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
-![Creare un utente di Azure AD][20]  
+![Creare un utente di Azure AD][20]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_09.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_09.png)
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png)
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png)  
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png)
 
 5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
 
@@ -205,7 +205,7 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_06.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_06.png)
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -219,11 +219,11 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_07.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_07.png)
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
     
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_08.png)  
+	![Creazione di un utente test di Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_08.png)
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -241,15 +241,15 @@ Per consentire agli utenti di Azure AD di accedere a Deputy, è necessario esegu
 
 2.  Nel pannello di navigazione in alto fare clic su **People** (Persone).
 
-    ![Persone](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "Persone")  
+    ![Persone](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "Persone")
 
 3.  Fare clic su **Add People** (Aggiungi persone) e quindi su **Add a single person** (Aggiungi una singola persona).
 
-    ![Add People (Aggiungi persone)](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "Add People (Aggiungi persone)")  
+    ![Add People (Aggiungi persone)](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "Add People (Aggiungi persone)")
 
 4.  Eseguire i passaggi seguenti e fare clic su **Save & Invite** (Salva e invita).
 
-    ![New User](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "New User")  
+    ![New User](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "New User")
 
     a. Nella casella di testo **Name** (Nome) digitare **Britta** e **Simon**.
 
@@ -266,27 +266,27 @@ Per consentire agli utenti di Azure AD di accedere a Deputy, è necessario esegu
 
 L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Deputy.
 	
-![Assegna utente][200]  
+![Assegna utente][200]
 
 **Per assegnare Britta Simon a Deputy, seguire questa procedura:**
 
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
     
-	![Assegna utente][201]  
+	![Assegna utente][201]
 
 2. Nell'elenco di applicazioni selezionare **Deputy**.
     
-	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_50.png)  
+	![Configura accesso Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_50.png)
 
 3. Scegliere **Utenti** dal menu in alto.
     
-	![Assegna utente][203]  
+	![Assegna utente][203]
 
 4. Nell'elenco di utenti selezionare **Britta Simon**.
 
 5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
     
-	![Assegna utente][205]  
+	![Assegna utente][205]
 
 ### Test dell'accesso Single Sign-On
 
@@ -301,7 +301,7 @@ Quando si fa clic sul riquadro Deputy nel pannello di accesso, si dovrebbe acced
 
 
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_02.png

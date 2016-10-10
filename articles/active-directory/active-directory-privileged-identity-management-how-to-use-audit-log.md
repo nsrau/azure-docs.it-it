@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="kgremban"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/22/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Come usare il log di controllo in Azure AD Privileged Identity Management
 
@@ -56,7 +56,7 @@ Se si sceglie il pulsante **Personalizzato**, vengono visualizzati i campi di da
 Selezionare o deselezionare la casella di controllo **Ruolo** accanto a ogni ruolo per includerlo o escluderlo dal log.
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

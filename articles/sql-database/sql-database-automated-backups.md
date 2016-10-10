@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="CarlRabeler"
    manager="jhubbard"
-   editor="monicar"/>  
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/26/2016"
-   ms.author="carlrab"/>  
+   ms.author="carlrab"/>
 
 # Backup del database SQL
 
@@ -30,7 +30,7 @@ I backup dei database sono una parte essenziale di qualsiasi strategia di contin
 
 Il servizio database SQL archivia i file di backup del database in un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS). La funzionalità Archiviazione con ridondanza geografica e accesso in lettura di Archiviazione di Azure replica i file di backup in un [data center associato](../best-practices-availability-paired-regions.md). La replica geografica assicura che sia possibile ripristinare un database nel caso in cui non si possa accedere al backup del database dall'area del database primario. Nell'esempio seguente il database SQL crea backup di database nell'area Stati Uniti orientali e li archivia in un account di Archiviazione con ridondanza geografica e accesso in lettura. Archiviazione di Azure esegue quindi la replica geografica dei backup in un data center associato nell'area Stati Uniti occidentali.
 
-![ripristino geografico](./media/sql-database-geo-restore/geo-restore-1.png)  
+![ripristino geografico](./media/sql-database-geo-restore/geo-restore-1.png)
 
 >[AZURE.NOTE] In Archiviazione di Azure il termine *replica* fa riferimento alla copia dei file da una località a un'altra. La *replica di database* di SQL fa riferimento a più database secondari sincronizzati con un database primario.
 
@@ -90,8 +90,8 @@ Per informazioni su:
 - Archiviazione di un database, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 - Opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
 
-<!-- ### Tasks -->  
+<!-- ### Tasks -->
 
-<!-- ### Tutorials -->  
+<!-- ### Tutorials -->
 
 <!---HONumber=AcomDC_0928_2016-->

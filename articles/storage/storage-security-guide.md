@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="cbrooks;robinsh"/>  
+	ms.author="cbrooks;robinsh"/>
 
 #Guida alla sicurezza di Archiviazione di Azure
 

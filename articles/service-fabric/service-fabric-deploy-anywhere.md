@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/22/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/>
 
 # Creare cluster di Service Fabric in Windows Server o Linux
 

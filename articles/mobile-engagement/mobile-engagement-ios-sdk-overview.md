@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="09/14/2016"
-	ms.author="piyushjo" />  
+	ms.author="piyushjo" />
 
 #iOS SDK per Azure Mobile Engagement
 

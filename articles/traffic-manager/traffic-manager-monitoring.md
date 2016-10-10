@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="sdwheeler"
    manager="carmonm"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags
    ms.service="traffic-manager"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/01/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Monitoraggio e failover degli endpoint di Gestione traffico
 

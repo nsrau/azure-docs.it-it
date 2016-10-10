@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"  
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="femila"/>  
+	ms.author="femila"/>
 
 # Riferimento alle impostazioni di roaming di Windows 10
 
@@ -45,7 +45,7 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 - Accessibilità: Assistente vocale, tastiera su schermo, lente di ingrandimento.
 - Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)  
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
 
 La sincronizzazione del gruppo di impostazioni del browser Edge (Preferiti, Elenco di lettura) può essere abilitata o disabilitata dagli utenti finali tramite la relativa opzione del menu Impostazioni del browser Edge.
 

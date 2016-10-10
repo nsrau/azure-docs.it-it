@@ -5,7 +5,7 @@
 	documentationCenter="ruby"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/>
 <tags
 	ms.service="storage"
 	ms.workload="storage"
@@ -13,7 +13,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="gusapost;robmcm"/>  
+	ms.author="gusapost;robmcm"/>
 
 
 # Come usare l'archiviazione tabelle di Azure da Ruby

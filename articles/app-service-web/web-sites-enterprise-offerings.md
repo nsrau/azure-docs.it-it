@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="apwestgarth" 
 	manager="wpickett" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/29/2016" 
-	ms.author="anwestg"/>  
+	ms.author="anwestg"/>
 
 # Servizio di applicazione Azure Web App offerte per white paper aziendali #
 

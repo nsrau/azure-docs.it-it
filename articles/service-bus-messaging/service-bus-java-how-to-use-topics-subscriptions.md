@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="sethmanheim"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
@@ -46,7 +46,7 @@ Per creare uno spazio dei nomi:
 
 Assicurarsi di aver installato [Azure SDK per Java][] prima di compilare questo esempio. Se si utilizza Eclipse, è possibile installare [Azure Toolkit per Eclipse][] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
 
-![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)  
+![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 Aggiungere le seguenti istruzioni import all'inizio del file Java:
 

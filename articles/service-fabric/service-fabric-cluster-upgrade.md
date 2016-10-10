@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/22/2016"
-   ms.author="chackdan"/>  
+   ms.author="chackdan"/>
 
 
 # Aggiornare un cluster di Service Fabric
@@ -36,7 +36,7 @@ A questo scopo, impostare l'opzione di configurazione "upgradeMode" del cluster 
 
 È possibile impostare l'aggiornamento automatico o manuale durante la creazione del cluster.
 
-![Creazione - Modalità manuale][Create_Manualmode]  
+![Creazione - Modalità manuale][Create_Manualmode]
 
 È possibile impostare l'aggiornamento automatico o manuale in un cluster attivo con l'esperienza di gestione.
 
@@ -48,13 +48,13 @@ Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito i
 
 Dopo aver risolto i problemi che hanno determinato il rollback, è necessario avviare di nuovo l'aggiornamento, seguendo la stessa procedura precedente.
 
-![Gestione - Modalità automatica][Manage_Automaticmode]  
+![Gestione - Modalità automatica][Manage_Automaticmode]
 
 ### Impostazione della modalità di aggiornamento tramite un modello di Resource Manager 
 
 Aggiungere l'opzione di configurazione "upgradeMode" alla definizione della risorsa Microsoft.ServiceFabric/clusters e impostare "clusterCodeVersion" su una delle versioni di Fabric supportate come illustrato di seguito, quindi distribuire il modello. I valori validi per "upgradeMode" sono "Manual" e "Automatic"
  
-![Modalità di aggiornamento tramite Azure Resource Manager][ARMUpgradeMode]  
+![Modalità di aggiornamento tramite Azure Resource Manager][ARMUpgradeMode]
 
 #### Aggiornamento a una nuova versione in un cluster impostato sulla modalità manuale tramite un modello di Resource Manager
  
@@ -164,7 +164,7 @@ Oltre a poter impostare la modalità di aggiornamento del cluster, in un cluster
 
 È facile aggiungere o eliminare i certificati di cluster e client tramite il portale. Fare riferimento a [questo documento per altre informazioni](service-fabric-cluster-security-update-certs-azure.md)
 
-![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]  
+![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]
 
 
 ### Porte dell'applicazione
@@ -177,13 +177,13 @@ Per aprire una nuova porta in tutte le VM di un tipo di nodo, seguire questa pro
 
     Se il cluster è stato distribuito tramite il portale, il bilanciamento del carico verrà denominato "LB-nome del gruppo di risorse-NodeTypename", uno per ogni tipo di nodo. Poiché i nomi del servizio di bilanciamento del carico sono univoci solo nell'ambito di un gruppo di risorse, è consigliabile cercarli in uno specifico gruppo di risorse.
 
-    ![Schermata che illustra l'aggiunta di un probe a un servizio di bilanciamento del carico nel portale.][AddingProbes]  
+    ![Schermata che illustra l'aggiunta di un probe a un servizio di bilanciamento del carico nel portale.][AddingProbes]
 
 2. Aggiungere una nuova regola al servizio di bilanciamento del carico.
 
     Aggiungere una nuova regola allo stesso servizio di bilanciamento del carico usando il probe creato nel passaggio precedente.
 
-    ![Aggiunta di una nuova regola a un servizio di bilanciamento del carico nel portale][AddingLBRules]  
+    ![Aggiunta di una nuova regola a un servizio di bilanciamento del carico nel portale][AddingLBRules]
 
 
 ### Proprietà di posizionamento
@@ -202,7 +202,7 @@ Per ogni tipo di nodo è possibile aggiungere metriche di capacità personalizza
 
 È possibile specificare criteri di integrità personalizzati o esaminare le impostazioni correnti nel pannello relativo agli aggiornamenti di Fabric, selezionando le impostazioni di aggiornamento avanzate. La figura seguente illustra questo passaggio.
 
-![Gestire criteri di integrità personalizzati][HealthPolices]  
+![Gestire criteri di integrità personalizzati][HealthPolices]
 
 ### Personalizzare le impostazioni di Fabric per il cluster
 
@@ -221,7 +221,7 @@ Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virt
 - Informazioni su come [aumentare o ridurre le istanze del cluster](service-fabric-cluster-scale-up-down.md)
 - Informazioni su come eseguire [aggiornamenti dell'applicazione](service-fabric-application-upgrade.md)
 
-<!--Image references-->  
+<!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png

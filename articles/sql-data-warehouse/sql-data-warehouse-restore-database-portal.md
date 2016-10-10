@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="Lakshmi1812"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/21/2016"
-   ms.author="lakshmir;barbkess;sonyama"/>  
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Ripristinare un'istanza di Azure SQL Data Warehouse (portale)
 
@@ -97,7 +97,7 @@ Per ripristinare un database eliminato:
 ## Passaggi successivi
 Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere [Panoramica sulla continuità aziendale del database SQL][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Panoramica sulla continuità aziendale del database SQL]: ./sql-database-business-continuity.md
@@ -112,7 +112,7 @@ Per altre informazioni sulle funzionalità di continuità aziendale delle edizio
 
 <!--Blog references-->
 
-<!--Other Web references-->  
+<!--Other Web references-->
 [portale di Azure]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0928_2016-->

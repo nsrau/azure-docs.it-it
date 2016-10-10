@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="kgremban"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/22/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Come concedere l'accesso per la gestione di Azure AD Privileged Identity Management
 
@@ -52,11 +52,11 @@ Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi
 3. Fare clic su **Rimuovi**. Verrà visualizzato un messaggio di richiesta di conferma.
 4. Fare clic su **Sì** per rimuovere l'utente dal ruolo.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png

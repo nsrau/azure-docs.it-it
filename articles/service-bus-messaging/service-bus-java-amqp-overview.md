@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus-messaging" 
@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="06/24/2016" 
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 
 # Supporto per il protocollo AMQP 1.0 nel bus di servizio

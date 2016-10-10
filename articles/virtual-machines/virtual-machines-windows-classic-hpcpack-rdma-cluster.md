@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>  
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines-windows"
  ms.devlang="na"
@@ -14,7 +14,7 @@ ms.service="virtual-machines-windows"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
  ms.date="09/20/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI
 
@@ -44,7 +44,7 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
 
 >[AZURE.NOTE] Per un'esercitazione che esegue il burst in Azure con HPC Pack, vedere [Configurare un cluster ibrido con HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Si noti che le considerazioni riportate nella procedura seguente si applicano specificatamente ai nodi di Azure con supporto per RDMA.
 
-![Burst in Azure][burst]  
+![Burst in Azure][burst]
 
 ### Passaggi
 
@@ -94,7 +94,7 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
 
 In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del cluster in macchine virtuali aggiunte a un dominio di Active Directory in una rete virtuale di Azure. HPC Pack fornisce una serie di [opzioni di distribuzione nelle VM di Azure](virtual-machines-linux-hpcpack-cluster-options.md), inclusi script di distribuzione automatizzati e modelli di avvio rapido di Azure. Ad esempio, le considerazioni e i passaggi riportati di seguito consentono di usare lo [script di distribuzione HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) per automatizzare la maggior parte di questo processo.
 
-![Cluster in macchine virtuali di Azure][iaas]  
+![Cluster in macchine virtuali di Azure][iaas]
 
 
 
@@ -172,7 +172,7 @@ Per eseguire mpipingpong sul cluster:
 
     Nell'output saranno inclusi risultati relativi alla latenza simili a quanto riportato di seguito.
 
-    ![Latenza ping pong][pingpong1]  
+    ![Latenza ping pong][pingpong1]
 
 4. Per stimare la velocità effettiva tra coppie di nodi di potenziamento in Azure, digitare il comando seguente per inviare un processo per eseguire **mpipingpong** con pacchetti di grandi dimensioni e un numero limitato di iterazioni:
 
@@ -192,7 +192,7 @@ Per eseguire mpipingpong sul cluster:
 
   Nell'output saranno inclusi risultati relativi alla velocità effettiva simili a quanto riportato di seguito.
 
-  ![Velocità effettiva ping pong][pingpong2]  
+  ![Velocità effettiva ping pong][pingpong2]
 
 
 ### Considerazioni sulle applicazioni MPI
@@ -232,7 +232,7 @@ Di seguito sono riportate alcune considerazioni riguardanti l'esecuzione di appl
 
 * Per eseguire applicazioni MPI Linux che accedono alla rete RDMA in Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-<!--Image references-->  
+<!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/burst.png
 [iaas]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/iaas.png
 [pingpong1]: ./media/virtual-machines-windows-classic-hpcpack-rdma-cluster/pingpong1.png

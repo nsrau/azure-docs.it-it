@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management,hpc-pack"/>  
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines-windows"
  ms.devlang="na"
@@ -14,7 +14,7 @@ ms.service="virtual-machines-windows"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
  ms.date="09/26/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Opzioni con HPC Pack per creare e gestire un cluster Windows HPC in Azure
 

@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    tags="azure-service-management"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>  
+   ms.author="danlep"/>
 
 # Articoli tecnici per le VM Windows nel modello di distribuzione classica
 

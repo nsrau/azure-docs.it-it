@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="AndKjell"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/17/2016"
-   ms.author="andkjell"/>  
+   ms.author="andkjell"/>
 
 # Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.

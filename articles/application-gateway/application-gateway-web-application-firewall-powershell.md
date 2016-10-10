@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="georgewallace"
    manager="carmonm"
-   editor="tysonn"/>  
+   editor="tysonn"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
-   ms.author="gwallace"/>  
+   ms.author="gwallace"/>
 
 # Configurare un firewall applicazione Web su un gateway applicazione nuovo o esistente
 
@@ -27,7 +27,7 @@ Il firewall applicazione Web (WAF) nel gateway applicazione di Azure protegge le
 
 L'articolo seguente illustra come [aggiungere il firewall applicazione Web a un gateway applicazione esistente](#add-web-application-firewall-to-an-existing-application-gateway) e [creare un gateway applicazione che usa il firewall applicazione Web](#create-an-application-gateway-with-web-application-firewall).
 
-![immagine dello scenario][scenario]  
+![immagine dello scenario][scenario]
 
 ## Differenze di configurazione dei WAF
 

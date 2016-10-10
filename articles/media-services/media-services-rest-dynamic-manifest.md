@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="dwrede" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/26/2016"  
-	ms.author="juliako;cenkdin"/>  
+	ms.author="juliako;cenkdin"/>
 
 #Creazione di filtri con l'API REST di Servizi multimediali di Azure
 

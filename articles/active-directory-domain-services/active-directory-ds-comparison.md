@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/23/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
 Servizi di dominio Azure AD consente di distribuire i carichi di lavoro nei servizi di infrastruttura di Azure senza preoccuparsi di mantenere l'infrastruttura di identità. Questo servizio gestito è diverso da una tipica distribuzione di Windows Server Active Directory che viene distribuita e amministrata in modo autonomo. Il servizio è progettato in modo da semplificare la distribuzione, automatizzare il monitoraggio dell'integrità e la correzione e semplificare l'infrastruttura di identità per il cloud. Il servizio è in continua evoluzione per l'aggiunta del supporto di scenari di distribuzione comuni.

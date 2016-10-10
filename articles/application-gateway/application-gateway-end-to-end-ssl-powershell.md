@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="georgewallace"
     manager="carmonmills"
-    editor="tysonn"/>  
+    editor="tysonn"/>
 
 <tags
     ms.service="application-gateway"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
     ms.date="09/26/2016"
-    ms.author="gwallace"/>  
+    ms.author="gwallace"/>
 
 # Configurare SSL end-to-end e i criteri SSL con il gateway applicazione tramite PowerShell
 
@@ -24,7 +24,7 @@ Il gateway applicazione supporta la crittografia end-to-end del traffico. A tale
 
 Un'altra funzionalità supportata dal gateway applicazione è l a disabilitazione di alcune versioni del protocollo SSL. Il gateway applicazione supporta la disattivazione delle versioni del protocollo seguenti: TLSv1.0, TLSv1.1 e TLSv1.2.
 
-![immagine dello scenario][scenario]  
+![immagine dello scenario][scenario]
 
 ## Scenario
 

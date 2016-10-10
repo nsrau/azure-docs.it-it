@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/05/2016"
-   ms.author="tomfitz"/>  
+   ms.author="tomfitz"/>
 
 # Assegnazioni di ruolo - Schema del modello
 
@@ -49,7 +49,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | dependsOn | Array<br />Facoltativo<br />Elenco di valori separati da virgole di nomi di risorsa o di identificatori univoci di risorse. | La raccolta di risorse da cui dipende questa assegnazione di ruolo. Se l'assegnazione di un ruolo ha come ambito una risorsa e tale risorsa viene distribuita nello stesso modello, includere il nome della risorsa in questo elemento per assicurarsi che la risorsa venga distribuita per prima. | 
 | properties | Object<br />Obbligatorio<br />[oggetto properties](#properties) | Un oggetto che identifica la definizione del ruolo, l'entità e l'ambito. |  
 
-<a id="properties" />  
+<a id="properties" />
 
 ### Oggetto properties
 

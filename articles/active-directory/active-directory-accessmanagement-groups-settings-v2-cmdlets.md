@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Cmdlet dell'anteprima di Azure Active Directory per la gestione di gruppo
 

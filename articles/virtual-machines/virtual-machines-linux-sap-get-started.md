@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-resource-manager"
-   keywords=""/>  
+   keywords=""/>
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/23/2016"
-   ms.author="rclaus"/>  
+   ms.author="rclaus"/>
 
 # Uso di soluzioni SAP nelle macchine virtuali di Microsoft Azure
 

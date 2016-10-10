@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Markvi"
 	manager="swadhwa"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="femila"/>  
+	ms.author="femila"/>
 
 # Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio
 
@@ -48,7 +48,7 @@ Configurare un riferimento aggiuntivo alla classe di autenticazione del trust de
 Nel server federativo aprire una finestra di comando di Windows PowerShell e digitare:
 
 
-  `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`  
+  `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
 Dove <RPObjectName> è il nome dell'oggetto relying party per l'oggetto trust della relying party di Azure Active Directory. Tale oggetto in genere è denominato Piattaforma delle identità di Microsoft Office 365.
 

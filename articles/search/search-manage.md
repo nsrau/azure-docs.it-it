@@ -6,7 +6,7 @@
 	authors="HeidiSteen" 
 	manager="jhubbard" 
 	editor=""
-    tags="azure-portal"/>  
+    tags="azure-portal"/>
 
 <tags 
 	ms.service="search" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.date="09/26/2016" 
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [AZURE.SELECTOR]
@@ -75,7 +75,7 @@ Le chiavi di query sono progettate per le applicazioni client che chiamano il se
 
 Per ottenere o rigenerare le chiavi API, aprire il Dashboard servizi. Fare clic su **CHIAVI** per aprire la pagina di gestione delle chiavi con effetto scorrimento. I comandi per rigenerare o creare le chiavi sono visualizzati nella parte superiore della pagina. Per impostazione predefinita, vengono create solo le chiavi amministratore. Le chiavi API di query devono essere create manualmente.
 
- ![][9]  
+ ![][9]
 
 <a id="rbac"></a>
 ## Impostare i ruoli Controllo degli accessi in base al ruolo nell'accesso amministrativo per Ricerca di Azure
@@ -124,7 +124,7 @@ Ogni servizio di ricerca viene creato con un minimo di una replica e una partizi
 
 Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunta viene usata dal servizio in modo automatico. Non sono necessarie ulteriori azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.
 
- ![][10]  
+ ![][10]
 
 ### Aggiungere repliche
 
@@ -172,7 +172,7 @@ Dopo avere compreso i tipi di operazioni relative all'amministrazione del serviz
 Se non è già stato fatto, vedere anche l'[articolo su prestazioni e ottimizzazione](search-performance-optimization.md) e guardare il video citato nella sezione precedente per informazioni più approfondite e dimostrazioni delle tecniche consigliate.
 
 
-<!--Image references-->  
+<!--Image references-->
 [7]: ./media/search-manage/rbac-icon.png
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png

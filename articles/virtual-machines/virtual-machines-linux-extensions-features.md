@@ -6,7 +6,7 @@
  authors="neilpeterson"
  manager="timlt"
  editor=""
- tags="azure-service-management,azure-resource-manager"/>  
+ tags="azure-service-management,azure-resource-manager"/>
 
 <tags
  ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
  ms.date="09/22/2016"
- ms.author="nepeters"/>  
+ ms.author="nepeters"/>
 
 # Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali
 
@@ -39,7 +39,7 @@ Molte estensioni di macchine virtuali di diverso tipo sono disponibili per l'uso
 azure vm extension-image list westus
 ```
 
-<br />  
+<br />
 
 ## Estensioni comuni delle macchine virtuali
 

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="09/26/2016"
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/>
 
 
 # Management .NET SDK: impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso di Azure per .NET
@@ -343,13 +343,13 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
-<!--Image references-->  
+<!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
-<!--Link references-->  
+<!--Link references-->
 [azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 

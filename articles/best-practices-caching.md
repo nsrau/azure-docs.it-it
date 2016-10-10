@@ -6,7 +6,7 @@
    authors="dragon119"
    manager="christb"
    editor=""
-   tags=""/>  
+   tags=""/>
 
 <tags
    ms.service="best-practice"

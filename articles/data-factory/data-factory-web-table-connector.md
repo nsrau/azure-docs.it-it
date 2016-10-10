@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="linda33wj" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="jingwang"/>  
+	ms.author="jingwang"/>
 
 # Spostare i dati da un'origine tabella Web con Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per copiare dati da una tabella in una pagina Web a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
@@ -256,26 +256,26 @@ Quando l'origine nell'attività di copia è di tipo **WebSource** non sono attua
 1. Avviare **Excel 2016** e passare alla scheda **Dati**.
 2. Fare clic su **Nuova query** sulla barra degli strumenti, scegliere **Da altre origini** e fare clic su **Da Web**.
 	
-	![Menu di Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)  
+	![Menu di Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
 3. Nella finestra di dialogo **Da Web** immettere l'**URL** che si intende usare nel servizio collegato JSON, ad esempio https://en.wikipedia.org/wiki/, insieme al percorso specificato per il set di dati, ad esempio AFI%27s\_100\_Years...100\_Movies, e fare clic su **OK**.
 
-	![Finestra di dialogo Da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)  
+	![Finestra di dialogo Da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
 	URL usato nell'esempio: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare l'**URL** corretto, l'**autenticazione** e fare clic su **Connetti**.
 
-	![Finestra di dialogo Accedi a contenuto Web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)  
+	![Finestra di dialogo Accedi a contenuto Web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5.  Fare clic su un elemento della **tabella** nella visualizzazione albero per visualizzare il contenuto dalla tabella e quindi fare clic su **Modifica** nella parte inferiore.
 
-	![Finestra di dialogo Strumento di spostamento](./media/data-factory-web-table-connector/Navigator-DialogBox.png)  
+	![Finestra di dialogo Strumento di spostamento](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
 
 5. Nella finestra **Editor di query** fare clic sul pulsante **Editor avanzato** sulla barra degli strumenti.
 
-	![Pulsante Editor avanzato](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)  
+	![Pulsante Editor avanzato](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
 
 6. Nella finestra di dialogo Editor avanzato il numero accanto a "Source" è l'indice.
 
-	![Editor avanzato - Indice](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)  
+	![Editor avanzato - Indice](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
 
 Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379). Per informazioni dettagliate, vedere l'articolo [Connettersi a una pagina Web (Power Query)](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8). I passaggi sono simili se si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).

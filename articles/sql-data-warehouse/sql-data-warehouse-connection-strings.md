@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="sonyam"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/24/2016"
-   ms.author="sonyama;barbkess"/>  
+   ms.author="sonyama;barbkess"/>
 
 
 # Driver per Azure SQL Data Warehouse
@@ -51,7 +51,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 Per iniziare a eseguire query sul data warehouse con Visual Studio e altre applicazioni, vedere [Eseguire query in Azure SQL Data Warehouse (Visual Studio)][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Azure.com references-->
  [Eseguire query in Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md

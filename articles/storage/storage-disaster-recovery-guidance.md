@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="jutang;robinsh"/>  
+	ms.author="jutang;robinsh"/>
 
 
 # Cosa fare se si verifica un'interruzione di Archiviazione di Azure

@@ -6,7 +6,7 @@
 	authors="davidmu1"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machine-scale-sets"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="davidmu"/>  
+	ms.author="davidmu"/>
 
 # Ridimensionamento automatico e set di scalabilità di macchine virtuali
 
@@ -84,7 +84,7 @@ Questo esempio illustra la definizione dell'estensione nel modello:
 
 Quando viene eseguita l'estensione della diagnostica, i dati vengono raccolti in una tabella inclusa nell'account di archiviazione specificato. I dati raccolti sono disponibili nella tabella WADPerformanceCounters:
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)  
+![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
 ### Configurare la risorsa autoScaleSettings
 
@@ -180,7 +180,7 @@ Quando viene creato un carico nelle macchine virtuali che attiva un'azione di ri
 
 Quando viene creato il carico che causa il superamento della soglia di 650 del conteggio medio dei thread:
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)  
+![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
 
 Viene attivata un'azione di aumento delle istanze a causa della quale la capacità del set viene aumentata di uno:
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="ggailey777"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/25/2016"
-	ms.author="adrianha"/>  
+	ms.author="adrianha"/>
 
 # Come usare il client gestito per App per dispositivi mobili di Azure
 
@@ -905,7 +905,7 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
     }
 
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 [Filtrare i dati restituiti]: #filtering
 [Ordinare i dati restituiti]: #sorting
 [Restituire i dati in pagine]: #paging

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="femila"/>  
+	ms.author="femila"/>
 
 # Azure Authenticator per Android
 

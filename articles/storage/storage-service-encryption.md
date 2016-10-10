@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="lakasa;robinsh"/>  
+	ms.author="lakasa;robinsh"/>
 
 # Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -36,11 +36,11 @@ La crittografia del servizio di archiviazione esegue la crittografia dei dati du
 
 Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://azure.portal.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.
 
-![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)  
+![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption/image1.png)
 
 Dopo avere selezionato l'impostazione Crittografia, è possibile abilitare o disabilitare Crittografia del servizio di archiviazione.
 
-![Schermata del portale che mostra le proprietà della crittografia](./media/storage-service-encryption/image2.png)  
+![Schermata del portale che mostra le proprietà della crittografia](./media/storage-service-encryption/image2.png)
 
 ##Scenari di crittografia
 

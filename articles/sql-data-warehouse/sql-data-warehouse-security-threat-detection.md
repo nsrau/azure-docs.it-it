@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/24/2016"
-   ms.author="lodipalm;sonyama;barbkess"/>  
+   ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Introduzione al rilevamento delle minacce
@@ -38,11 +38,11 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 2. Passare al pannello di configurazione dell’SQL Data Warehouse che si vuole monitorare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
 
-	![Riquadro di spostamento][1]  
+	![Riquadro di spostamento][1]
 
 3. Nel pannello di configurazione **Controllo e rilevamento delle minacce** attivare il controllo selezionando **SÌ** per visualizzare le impostazioni di rilevamento delle minacce.
 
-	![Riquadro di spostamento][2]  
+	![Riquadro di spostamento][2]
 
 4. Impostare il rilevamento delle minacce su **SÌ**.
 
@@ -50,39 +50,39 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
 6. Fare clic su **Salva** nel pannello di configurazione di **Controllo e rilevamento delle minacce** per salvare i criteri di controllo e rilevamento delle minacce nuovi o aggiornati.
 
-	![Riquadro di spostamento][3]  
+	![Riquadro di spostamento][3]
 
 
 ## Esaminare le attività anomale di data warehouse quando viene rilevato un evento sospetto
 
 1. Si riceverà una notifica tramite posta elettronica al rilevamento di attività di database anomale. <br/> Il messaggio di posta elettronica fornirà informazioni sull'evento di sicurezza sospetto, inclusi la natura delle attività anomale, il nome del database, il nome del server e l'ora dell'evento. Verranno anche fornite informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia al database.<br/>
 
-	![Riquadro di spostamento][4]  
+	![Riquadro di spostamento][4]
 
 2. Nel messaggio di posta elettronica fare clic sul collegamento relativo al **log di controllo SQL di Azure** che avvierà il portale di Azure classico visualizzando i record di controllo pertinenti intorno all'ora dell'evento sospetto.
 
-	![Riquadro di spostamento][5]  
+	![Riquadro di spostamento][5]
 
 3. Fare clic sui record di controllo per visualizzare altri dettagli sulle attività di database sospette, come l'istruzione SQL, il motivo dell'errore e l'indirizzo IP del client.
 
-	![Riquadro di spostamento][6]  
+	![Riquadro di spostamento][6]
 
 4. Nel pannello dei record di controllo fare clic su **Apri in Excel** per aprire un modello di Excel preconfigurato per importare ed eseguire analisi più approfondite del log di controllo intorno all'ora dell'evento sospetto.<br/> **Nota:** in Excel 2010 o versione successiva sono richiesti Power Query e l'impostazione **Combinazione rapida**
 
-	![Riquadro di spostamento][7]  
+	![Riquadro di spostamento][7]
 
 5. Per configurare l'impostazione **Combinazione rapida** - Nella scheda della barra multifunzione**POWER QUERY** selezionare **Opzioni** per visualizzare la finestra di dialogo Opzioni. Selezionare la sezione Privacy e scegliere la seconda opzione - "Ignora i livelli di privacy per un potenziale miglioramento delle prestazioni":
 
-	![Riquadro di spostamento][8]  
+	![Riquadro di spostamento][8]
 
 6. Per caricare i log di controllo SQL, assicurarsi che i parametri nella scheda Impostazioni siano configurati correttamente e quindi selezionare "Dati" sulla barra multifunzione e fare clic sul pulsante "Aggiorna tutto".
 
-	![Riquadro di spostamento][9]  
+	![Riquadro di spostamento][9]
 
 7. I risultati vengono visualizzati nel foglio dei **log di controllo SQL** che consente di eseguire un'analisi più approfondita delle attività anomale rilevate e di ridurre l'impatto dell'evento di sicurezza nell'applicazione.
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/sql-data-warehouse-security-threat-detection/1_td_click_on_settings.png
 [2]: ./media/sql-data-warehouse-security-threat-detection/2_td_turn_on_auditing.png
 [3]: ./media/sql-data-warehouse-security-threat-detection/3_td_turn_on_threat_detection.png

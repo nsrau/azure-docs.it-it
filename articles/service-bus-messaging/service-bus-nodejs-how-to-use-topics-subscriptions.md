@@ -5,7 +5,7 @@
 	documentationCenter="nodejs" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus-messaging" 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="05/10/2016" 
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
@@ -27,7 +27,7 @@ Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di se
 
 ## Creare un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o Sito Web con WebMatrix.
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Node.js Cloud Service] \(usando Windows PowerShell) o Sito Web con WebMatrix.
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 

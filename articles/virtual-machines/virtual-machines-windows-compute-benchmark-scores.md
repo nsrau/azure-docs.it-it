@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>  
+ tags="azure-resource-manager,azure-service-management"/>
 <tags
 ms.service="virtual-machines-windows"
  ms.devlang="na"
@@ -14,7 +14,7 @@ ms.service="virtual-machines-windows"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
  ms.date="09/22/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Calcolare i punteggi di benchmark per le VM Windows
 

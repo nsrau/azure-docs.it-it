@@ -6,7 +6,7 @@
 	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
-	tags="billing,top-support-issue"/>  
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="cjiang"/>  
+	ms.author="cjiang"/>
 
 # Associare un tenant di Office 365 con una sottoscrizione di Azure
 Scenari: in passato sono state acquistate separatamente la sottoscrizione di Azure e l'abbonamento a Office 365 e si vuole poter accedere al tenant di Office 365 dalla sottoscrizione di Azure. Questo articolo mostra come è facile ottenere questo risultato.

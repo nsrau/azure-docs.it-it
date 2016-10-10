@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="asmalser-msft"
     manager="femila"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="active-directory"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="05/16/2016"
-    ms.author="asmalser-msft"/>  
+    ms.author="asmalser-msft"/>
 
 #Esercitazione: Come integrare Google Apps ad Azure Active Directory
 
@@ -64,7 +64,7 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
 
-	![Fare clic su Aggiungi per aggiungere una nuova applicazione.][2]  
+	![Fare clic su Aggiungi per aggiungere una nuova applicazione.][2]
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 

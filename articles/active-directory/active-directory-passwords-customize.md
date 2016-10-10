@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="asteen"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="asteen"/>  
+	ms.author="asteen"/>
 
 # Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Mingfeiy" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"  
-	ms.author="Mingfeiy;willzhan;Juliako"/>  
+	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
 #Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure

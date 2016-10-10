@@ -6,7 +6,7 @@
 	authors="rothja"
 	manager="jhubbard"
 	editor=""
-	tags="azure-service-management" />  
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/26/2016"
-	ms.author="jroth" />  
+	ms.author="jroth" />
 
 # Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)
 

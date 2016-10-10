@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="stevestein"
 	manager="jhubbard"
-	editor="monicar" />  
+	editor="monicar" />
 
 
 <tags
@@ -47,7 +47,7 @@ La funzionalità Replica geografica attiva implementa un meccanismo per garantir
 
 Uno dei principali vantaggi offerti dalla replica geografica attiva è quello di fornire una soluzione di ripristino di emergenza a livello di database con tempi di ripristino ridotti. Quando si inserisce il database secondario in un server in un'area diversa, viene aggiunta la massima flessibilità all'applicazione. La ridondanza tra aree consente il ripristino delle applicazioni dalla perdita definitiva di un intero data center o di parti di esso causata da calamità naturali, errori umani irreversibili o atti dolosi. La figura seguente illustra un esempio di replica geografica attiva configurata con il database primario nell'area Stati Uniti centro-settentrionali e il database secondario nell'area Stati Uniti centro-meridionali.
 
-![Relazione di replica geografica](./media/sql-database-active-geo-replication/geo-replication-relationship.png)  
+![Relazione di replica geografica](./media/sql-database-active-geo-replication/geo-replication-relationship.png)
 
 Un altro vantaggio importante riguarda i database secondari, che sono leggibili e possono essere usati per l'offload dei carichi di lavoro di sola lettura, ad esempio i processi di creazione di report. Se si intende usare il database secondario solo per il bilanciamento del carico è possibile crearlo nella stessa area del database primario. Questo tuttavia non aumenta la resilienza dell'applicazione in caso di errori irreversibili.
 

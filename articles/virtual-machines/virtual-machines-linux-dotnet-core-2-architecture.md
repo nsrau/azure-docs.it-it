@@ -6,7 +6,7 @@
    authors="neilpeterson"
    manager="timlt"
    editor="tysonn"
-   tags="azure-service-management"/>  
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/21/2016"
-   ms.author="nepeters"/>  
+   ms.author="nepeters"/>
 
 # Architettura delle applicazioni con i modelli di Azure Resource Manager
 
@@ -59,7 +59,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Dopo la distribuzione, le proprietà della macchina virtuale possono essere visualizzate nel portale di Azure.
 
-![Macchina virtuale](./media/virtual-machines-linux-dotnet-core/vm.png)  
+![Macchina virtuale](./media/virtual-machines-linux-dotnet-core/vm.png)
 
 ## Account di archiviazione
 
@@ -100,11 +100,11 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Dopo la distribuzione, l'account di archiviazione può essere visualizzato nel portale di Azure.
 
-![Account di archiviazione](./media/virtual-machines-linux-dotnet-core/storacct.png)  
+![Account di archiviazione](./media/virtual-machines-linux-dotnet-core/storacct.png)
 
 Facendo clic sul contenitore BLOB dell'account di archiviazione, è possibile visualizzare il file del driver del disco rigido virtuale per ogni macchina virtuale distribuita con il modello.
 
-![Unità disco rigido virtuali](./media/virtual-machines-linux-dotnet-core/vhd.png)  
+![Unità disco rigido virtuali](./media/virtual-machines-linux-dotnet-core/vhd.png)
 
 Per altre informazioni su Archiviazione di Azure, vedere [Documentazione su Archiviazione](https://azure.microsoft.com/documentation/services/storage/).
 
@@ -149,7 +149,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Nel portale di Azure la rete virtuale ha un aspetto simile all'immagine seguente. Si noti che tutte le macchine virtuali distribuite con il modello sono collegate alla rete virtuale.
 
-![Rete virtuale](./media/virtual-machines-linux-dotnet-core/vnet.png)  
+![Rete virtuale](./media/virtual-machines-linux-dotnet-core/vnet.png)
 
 ## Interfaccia di rete
 
@@ -219,7 +219,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Nel portale di Azure l'interfaccia di rete ha un aspetto simile all'immagine seguente. L'associazione dell'indirizzo IP interno con la macchina virtuale è visibile nella risorsa dell'interfaccia di rete.
 
-![Interfaccia di rete](./media/virtual-machines-linux-dotnet-core/nic.png)  
+![Interfaccia di rete](./media/virtual-machines-linux-dotnet-core/nic.png)
 
 Per altre informazioni sulle reti virtuali di Azure, vedere [Documentazione su Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/).
 
@@ -267,7 +267,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Di seguito è illustrato il database MusicStore di SQL Server come visualizzato nel portale di Azure.
 
-![SQL Server](./media/virtual-machines-linux-dotnet-core/sql.png)  
+![SQL Server](./media/virtual-machines-linux-dotnet-core/sql.png)
 
 Per altre informazioni sulla distribuzione del database SQL di Azure, vedere [Documentazione su Database SQL](https://azure.microsoft.com/documentation/services/sql-database/).
 

@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="" />   
+    editor="" /> 
 <tags 
     ms.service="service-bus-messaging"
     ms.devlang="na"
@@ -82,8 +82,8 @@ Dove `[namespace]`, `[username]` e `[password]` hanno i significati seguenti:
 
 | Nome | Significato | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]`   | Spazio dei nomi del bus di servizio ottenuto dal [portale di Azure][]. | | | | |
-| `[username]`   | Nome dell'autorità emittente del bus di servizio ottenuto dal [portale di Azure][]. | | | | |
+| `[namespace]` | Spazio dei nomi del bus di servizio ottenuto dal [portale di Azure][]. | | | | |
+| `[username]` | Nome dell'autorità emittente del bus di servizio ottenuto dal [portale di Azure][]. | | | | |
 | `[password]` | Chiave dell'autorità emittente del bus di servizio con codifica URL ottenuta dal [portale di Azure][]. | | | | |
 
 > [AZURE.NOTE] è necessario applicare manualmente la codifica URL alla password. Un'efficace utilità di codifica URL è disponibile all'indirizzo [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).

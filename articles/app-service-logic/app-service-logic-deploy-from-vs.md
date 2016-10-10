@@ -5,7 +5,7 @@
 	manager="erikre" 
 	editor="" 
 	services="logic-apps" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags
 	ms.service="logic-apps"
@@ -57,7 +57,7 @@ Dopo l'installazione sarà possibile usare il progetto Gruppo di risorse di Azur
 
 	Il progetto di app per la logica viene aggiunto alla soluzione. Il file di distribuzione verrà visualizzato in Esplora soluzioni:
 
-	![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)  
+	![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Uso della finestra di progettazione delle app per la logica
 

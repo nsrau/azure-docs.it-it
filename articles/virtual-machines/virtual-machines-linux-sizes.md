@@ -6,7 +6,7 @@
  authors="cynthn"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>  
+ tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 ms.service="virtual-machines-linux"
@@ -29,7 +29,7 @@ Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine 
 >
 >- Per i limiti generali delle macchine virtuali di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
-<br>  
+<br>
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 

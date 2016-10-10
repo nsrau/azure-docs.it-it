@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="09/26/2016"
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/>
 
 # Uso dei dati di riferimento o delle tabelle di ricerca in un flusso di input di Analisi di flusso
 
@@ -102,7 +102,7 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Link references-->  
+<!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md

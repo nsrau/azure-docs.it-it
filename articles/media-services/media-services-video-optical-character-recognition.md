@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/26/2016"   
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
  
 #Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale 
 

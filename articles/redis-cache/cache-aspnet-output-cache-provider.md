@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="steved0x"
 	manager="douge"
-	editor="tysonn" />  
+	editor="tysonn" />
 <tags
 	ms.service="cache"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
 	ms.date="09/27/2016"
-	ms.author="sdanie" />  
+	ms.author="sdanie" />
 
 # Provider di cache di output ASP.NET per la Cache Redis di Azure
 

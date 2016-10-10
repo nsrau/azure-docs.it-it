@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/29/2016"
-     ms.author="andbuc"/>  
+     ms.author="andbuc"/>
 
 
 # IoT SDK per gateway (beta): invio di messaggi da dispositivo a cloud con un dispositivo simulato usando Linux

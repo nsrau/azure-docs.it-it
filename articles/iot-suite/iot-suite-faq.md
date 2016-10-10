@@ -53,7 +53,7 @@ Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per B
 
 5. Modificare la riga seguente in modo da includere il valore copiato da QueryKey:
    
-  `<setting name="MapApiQueryKey" value="" />`  
+  `<setting name="MapApiQueryKey" value="" />`
 
 ### È possibile creare una soluzione preconfigurata se è disponibile Microsoft Azure per DreamSpark?
 Al momento non è possibile creare una soluzione preconfigurata con un account [Microsoft Azure per DreamSpark][lnk-dreamspark]. Tuttavia, è possibile creare un [account di valutazione gratuito per Azure][lnk-30daytrial] in pochi minuti, che consentirà di creare una soluzione preconfigurata.

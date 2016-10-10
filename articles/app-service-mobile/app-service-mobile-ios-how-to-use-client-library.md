@@ -5,7 +5,7 @@
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -597,7 +597,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Facebook seguendo l'esercitazione [Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook][9].
 
-2. Installare Facebook SDK for iOS secondo le indicazioni della documentazione [Facebook SDK for iOS - Getting Started][10] (Facebook SDK for iOS: guida introduttiva). Anziché creare un'app, è possibile aggiungere la piattaforma iOS alla procedura di registrazione esistente.
+2. Installare Facebook SDK for iOS secondo le indicazioni della documentazione [Facebook SDK for iOS - Getting Started][10] \(Facebook SDK for iOS: guida introduttiva). Anziché creare un'app, è possibile aggiungere la piattaforma iOS alla procedura di registrazione esistente.
 
 3. La documentazione di Facebook include codice Objective-C nel delegato dell'app. Se si usa **Swift**, è possibile usare le seguenti traduzioni per AppDelegate.swift:
   
@@ -674,7 +674,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 1. Configurare il back-end dell'app per dispositivi mobili per l'accesso con l'account Twitter seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Twitter](app-service-mobile-how-to-configure-twitter-authentication.md).
 
-2. Aggiungere Fabric al progetto seguendo le indicazioni della documentazione [Fabric for iOS - Getting Started] (Fabric for iOS: guida introduttiva) e configurando TwitterKit.
+2. Aggiungere Fabric al progetto seguendo le indicazioni della documentazione [Fabric for iOS - Getting Started] \(Fabric for iOS: guida introduttiva) e configurando TwitterKit.
 
     > [AZURE.NOTE] Per impostazione predefinita, Fabric crea automaticamente un'applicazione Twitter. È possibile evitare di creare un'applicazione registrando la chiave utente e il segreto utente creati in precedenza tramite i frammenti di codice seguenti. In alternativa, è possibile sostituire i valori relativi alla chiave utente e al segreto utente forniti al servizio app con i valori visualizzati nel [dashboard di Fabric]. Se si sceglie questa opzione, assicurarsi di impostare l'URL di callback su un valore segnaposto, ad esempio `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
 

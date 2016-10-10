@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework

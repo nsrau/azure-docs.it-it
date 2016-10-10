@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/28/2016"
-   ms.author="oanapl"/>  
+   ms.author="oanapl"/>
 
 # Come visualizzare i report sull'integrità di Service Fabric
 Service Fabric introduce un [modello di integrità](service-fabric-health-introduction.md) in cui sono incluse entità di integrità per le quali i componenti di sistema e i watchdog possono segnalare le condizioni locali sottoposte a monitoraggio. L'[archivio integrità](service-fabric-health-introduction.md#health-store) aggrega tutti i dati di integrità per determinare se le entità sono integre.

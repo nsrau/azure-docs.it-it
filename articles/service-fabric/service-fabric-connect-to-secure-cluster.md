@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/25/2016"
-   ms.author="ryanwi"/>  
+   ms.author="ryanwi"/>
 
 # Connettersi a un cluster sicuro senza AAD
 Quando un client si connette a un nodo di un cluster Service Fabric, è possibile autenticare il client e proteggere la comunicazione stabilita mediante la sicurezza dei certificati. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere stata attivata in precedenza sul cluster durante la creazione del cluster stesso. È necessario usare almeno due certificati per proteggere il cluster, uno per il certificato del server e del cluster e un altro per l'accesso client. È consigliabile usare anche altri certificati secondari e certificati di accesso client. Per altre informazioni sugli scenari di sicurezza dei cluster, vedere [Sicurezza del cluster](service-fabric-cluster-security.md).

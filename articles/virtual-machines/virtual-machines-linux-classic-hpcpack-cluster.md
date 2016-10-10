@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,azure-resource-manager,hpc-pack"/>  
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
  ms.date="06/23/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure
 
@@ -25,7 +25,7 @@ Configurare un cluster di Microsoft HPC Pack in Azure contenente un nodo head ch
 
 Il diagramma seguente illustra a livello generale il cluster HPC Pack creato e usato.
 
-![Cluster HPC Pack con nodi Linux][scenario]  
+![Cluster HPC Pack con nodi Linux][scenario]
 
 
 ## Distribuzione di un cluster HPC Pack con nodi di calcolo Linux
@@ -69,7 +69,7 @@ Prerequisiti aggiuntivi per distribuire il cluster usando lo script di distribuz
 
 2. Nel portale di Azure verificare le informazioni e quindi fare clic su **Crea**.
 
-    ![Creazione nel portale][portal]  
+    ![Creazione nel portale][portal]
 
 3. Nel pannello **Informazioni di base** immettere un nome per il cluster, che è anche il nome della macchina virtuale del nodo head. È possibile scegliere un gruppo di risorse esistente o creare un gruppo per la distribuzione.
 
@@ -148,7 +148,7 @@ Lo script di distribuzione di HPC Pack IaaS usa come input un file di configuraz
 
     b. Lo script avvia quindi la convalida del file di configurazione. Questa operazione richiede alcuni minuti a seconda della connessione di rete.
 
-    ![Convalida][validate]  
+    ![Convalida][validate]
 
     c. Una volta superate le convalide, lo script elenca le risorse cluster da creare. Immettere *Y* per continuare.
 
@@ -156,7 +156,7 @@ Lo script di distribuzione di HPC Pack IaaS usa come input un file di configuraz
 
     d. Lo script inizia a distribuire il cluster HPC Pack e completa la configurazione senza ulteriori passaggi manuali. L'esecuzione dello script può richiedere diversi minuti.
 
-    ![Distribuisci][deploy]  
+    ![Distribuisci][deploy]
 
 ## Connettersi al nodo head
 
@@ -164,11 +164,11 @@ Al termine della distribuzione, [connettersi con Desktop remoto al nodo head](vi
 
 Nel nodo head avviare Gestione cluster HPC per controllare lo stato del cluster HPC Pack. È possibile gestire e monitorare i nodi di calcolo di Linux nello stesso modo dei nodi di calcolo di Windows. Ad esempio, vengono visualizzati i nodi Linux elencati in **Gestione risorse** (questi nodi vengono distribuiti con il modello **LinuxNode**).
 
-![Gestione dei nodi][management]  
+![Gestione dei nodi][management]
 
 I nodi Linux vengono visualizzati anche in **Mappa termica**.
 
-![Mappa termica][heatmap]  
+![Mappa termica][heatmap]
 
 ## Spostamento dei dati in un cluster con nodi Linux
 
@@ -217,7 +217,7 @@ In alternativa, montare una cartella condivisa del nodo head nei nodi Linux. Una
 
     ![Autorizzazioni di condivisione file][fileshareperms]
 
-    ![Condivisione di file][filesharing]  
+    ![Condivisione di file][filesharing]
 
 2. Aprire una finestra di Windows PowerShell ed eseguire i comandi seguenti:
 
@@ -240,13 +240,13 @@ Il servizio NFS consente di condividere e migrare i file tra computer che eseguo
 
     Ad esempio, creare una condivisione NFS denominata nfs con le proprietà seguenti:
 
-    ![Autorizzazione NFS][nfsauth]  
+    ![Autorizzazione NFS][nfsauth]
 
     ![Autorizzazioni di condivisione NFS][nfsshare]
 
     ![Autorizzazioni NFS NTFS][nfsperm]
 
-    ![Proprietà di gestione di NFS][nfsmanage]  
+    ![Proprietà di gestione di NFS][nfsmanage]
 
 2. Aprire una finestra di Windows PowerShell ed eseguire i comandi seguenti:
 
@@ -302,7 +302,7 @@ Lo strumento **clusrun** di HPC Pack può essere usato per eseguire comandi su n
 
 * Se si è interessati a usare i nodi Linux in un cluster di HPC Pack locale, vedere le [linee guida di TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
-<!--Image references-->  
+<!--Image references-->
 [scenario]: ./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
 [portal]: ./media/virtual-machines-linux-classic-hpcpack-cluster/portal.png
 [validate]: ./media/virtual-machines-linux-classic-hpcpack-cluster/validate.png

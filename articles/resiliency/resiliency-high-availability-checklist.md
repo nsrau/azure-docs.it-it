@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="adamglick"
    manager="saladki"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="resiliency"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/18/2016"
-   ms.author="aglick"/>  
+   ms.author="aglick"/>
 
 #Elenco di controllo per la disponibilità elevata
 Uno dei principali vantaggi dell'uso di Azure è la possibilità di aumentare la disponibilità e la scalabilità delle applicazioni con l'aiuto del cloud. Per trarre il massimo da queste opzioni, l'elenco di controllo riportato di seguito offre alcune nozioni di base dell'infrastruttura per garantire che le applicazioni siano resilienti.

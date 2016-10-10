@@ -6,7 +6,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig1" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/05/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 #Modellazione dei dati in DocumentDB#
 Anche se con i database privi di schema, come Azure DocumentDB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati.

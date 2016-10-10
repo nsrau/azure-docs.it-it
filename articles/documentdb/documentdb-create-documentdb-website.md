@@ -5,7 +5,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/02/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Distribuire DocumentDB e app Web del servizio app di Azure mediante un modello di Gestione risorse di Azure
 

@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="rnagpal" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/27/2016" 
-	ms.author="rnagpal"/>  
+	ms.author="rnagpal"/>
 
 # SDK e API di DocumentDB 
 
@@ -28,7 +28,7 @@
 
 ## SDK e API di DocumentDB .NET
 
-<table>  
+<table>
 <tr><td>**Download dell'SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentazione sull'API**</td><td>[.NET API Reference Documentation (Documentazione di riferimento sull'API .NET)](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
 <tr><td>**Esempi**</td><td>[.NET code samples (Esempi di .NET in DocumentDB)](documentdb-dotnet-samples.md)</td></tr>
@@ -147,9 +147,9 @@
   - Supporto del provider LINQ per OrderBy() o OrderByDescending()
   - IndexingPolicy per il supporto di Order By
   
-		**NB: Possible breaking change** 
+		**NB: possibile modifica importante** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    	Se è presente un codice che esegue il provisioning delle raccolte con criteri di indicizzazione personalizzati, tale codice dovrà essere aggiornato per supportare la nuova classe IndexingPolicy. Se non sono presenti criteri di indicizzazione, tale modifica non avrà alcun impatto.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Supporto per il partizionamento dei dati con IPartitionResolver e le nuove classi HashPartitionResolver e RangePartitionResolver
@@ -177,11 +177,36 @@ Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata da
 > [AZURE.WARNING]
 Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione **1.0.0** verranno ritirate il **29 febbraio 2016**.
  
-<br/>  
+<br/>
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.10.0](#1.10.0) | 27 settembre 2016 |--- | [1\.9.5](#1.9.5) | 1 settembre 2016 |--- | [1\.9.4](#1.9.4) | 24 agosto 2016 |--- | [1\.9.3](#1.9.3) | 15 agosto 2016 |--- | [1\.9.2](#1.9.2) | 23 luglio 2016 |---| 1.9.1 | Deprecato |--- |1.9.0 | Deprecato |--- |[1\.8.0](#1.8.0) | 14 giugno 2016 |--- | [1\.7.1](#1.7.1) | 6 maggio 2016 |--- | [1\.7.0](#1.7.0) | 26 aprile 2016 |--- | [1\.6.3](#1.6.3) | 8 aprile 2016 |--- | [1\.6.2](#1.6.2) | 29 marzo 2016 |--- | [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- | [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- | [1\.5.1](#1.5.1) | 23 novembre 2015 |--- | [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- | [1\.4.1](#1.4.1) | 25 agosto 2015 |--- | [1\.4.0](#1.4.0) | 13 agosto 2015 |--- | [1\.3.0](#1.3.0) | 05 agosto 2015 |--- | [1\.2.0](#1.2.0) | 06 luglio 2015 |--- | [1\.1.0](#1.1.0) | 30 aprile 2015 |--- | [1\.0.0](#1.0.0) | 8 aprile 2015 |[0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 | [0\.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 | [.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 |29 febbraio 2016 | [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
+| [1\.10.0](#1.10.0) | 27 settembre 2016 |--- 
+| [1\.9.5](#1.9.5) | 1 settembre 2016 |--- 
+| [1\.9.4](#1.9.4) | 24 agosto 2016 |--- 
+| [1\.9.3](#1.9.3) | 15 agosto 2016 |--- 
+| [1\.9.2](#1.9.2) | 23 luglio 2016 |---
+| 1.9.1 | Deprecato |--- 
+|1.9.0 | Deprecato |--- 
+|[1\.8.0](#1.8.0) | 14 giugno 2016 |--- 
+| [1\.7.1](#1.7.1) | 6 maggio 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
+| [1\.6.3](#1.6.3) | 8 aprile 2016 |--- 
+| [1\.6.2](#1.6.2) | 29 marzo 2016 |--- 
+| [1\.5.3](#1.5.3) | 19 febbraio 2016 |--- 
+| [1\.5.2](#1.5.2) | 14 dicembre 2015 |--- 
+| [1\.5.1](#1.5.1) | 23 novembre 2015 |--- 
+| [1\.5.0](#1.5.0) | 05 ottobre 2015 |--- 
+| [1\.4.1](#1.4.1) | 25 agosto 2015 |--- 
+| [1\.4.0](#1.4.0) | 13 agosto 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 agosto 2015 |--- 
+| [1\.2.0](#1.2.0) | 06 luglio 2015 |--- 
+| [1\.1.0](#1.1.0) | 30 aprile 2015 |--- 
+| [1\.0.0](#1.0.0) | 8 aprile 2015 |--- 
+[0\.9.3-versione non definitiva](#0.9.x-preview) | 12 marzo 2015 | 29 febbraio 2016 
+| [0\.9.2-versione non definitiva](#0.9.x-preview) | gennaio 2015 | 29 febbraio 2016 
+| [.9.1-versione non definitiva](#0.9.x-preview) | 13 ottobre 2014 |29 febbraio 2016 
+| [0\.9.0-versione non definitiva](#0.9.x-preview) | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

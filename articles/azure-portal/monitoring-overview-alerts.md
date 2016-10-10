@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/24/2016"
-	ms.author="robb"/>  
+	ms.author="robb"/>
 
 # Panoramica degli avvisi in Microsoft Azure 
 
@@ -43,7 +43,7 @@ Gli avvisi sono disponibili in diversi servizi
 - inviare notifiche tramite posta elettronica all'amministratore del servizio, ai co-amministratori e/o altri messaggi di posta elettronica specificati;
 - richiamare un webhook, che consente di avviare altre azioni di automazione
 
- ![Avvisi illustrati.](./media/monitoring-overview-alerts/AlertsOverviewResource3.png)  
+ ![Avvisi illustrati.](./media/monitoring-overview-alerts/AlertsOverviewResource3.png)
 
 
 ## Passaggi successivi

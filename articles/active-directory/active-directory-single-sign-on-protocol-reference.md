@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="priyamohanram"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/28/2016"
-	ms.author="priyamo"/>  
+	ms.author="priyamo"/>
 
 # Protocollo SAML per Single Sign-On
 

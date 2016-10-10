@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="sewhee" />  
+   ms.author="sewhee" />
 
 # Creazione di un servizio di bilanciamento del carico Internet mediante l'uso di un modello
 

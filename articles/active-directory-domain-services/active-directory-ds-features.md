@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/21/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Servizi di dominio Azure Active Directory
 

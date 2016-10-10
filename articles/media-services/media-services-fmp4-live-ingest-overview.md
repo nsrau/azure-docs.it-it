@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="cenkdin" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"     
-	ms.author="cenkdin;juliako"/>  
+	ms.author="cenkdin;juliako"/>
 
 #Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
 

@@ -6,7 +6,7 @@
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="mimig"/>  
+	ms.author="mimig"/>
 
 # Esempi di supporto del protocollo DocumentDB per MongoDB
 Per usare questi esempi, è necessario seguire questa procedura:

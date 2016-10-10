@@ -6,7 +6,7 @@
    authors="neilpeterson"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/22/2016"
-   ms.author="nepeters"/>  
+   ms.author="nepeters"/>
 
 # Uso dell'estensione script personalizzata di Azure con macchine virtuali Linux
 

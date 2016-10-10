@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="security-center"

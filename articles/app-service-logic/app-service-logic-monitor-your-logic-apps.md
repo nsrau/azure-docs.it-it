@@ -5,7 +5,7 @@
 	manager="erikre" 
 	editor="" 
 	services="logic-apps" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags
 	ms.service="logic-apps"
@@ -41,7 +41,7 @@ L'elenco delle esecuzioni mostra **Stato**, **Ora di inizio** e **Durata** delle
 
 La visualizzazione di monitoraggio mostra ogni passaggio dell'esecuzione, gli input, gli output e i messaggi di errore eventualmente generati.
 
-![Esecuzione e azioni](./media/app-service-logic-monitor-your-logic-apps/monitor-view.png)  
+![Esecuzione e azioni](./media/app-service-logic-monitor-your-logic-apps/monitor-view.png)
 
 Se sono necessari dettagli aggiuntivi come l'**ID correlazione**, che può essere usato per l'API REST, è possibile fare clic sul pulsante **Dettagli esecuzione**. I dettagli includono tutti i passaggi, lo stato e gli input/output dell'esecuzione.
 
@@ -53,13 +53,13 @@ In aggiunta ai dettagli descritti sopra forniti dal portale di Azure e dall'API 
 1. Fare clic per configurare **Impostazioni di diagnostica**
 1. Configurare un hub eventi o un account di archiviazione a cui inviare i dati
 
-	![Impostazioni di diagnostica di Azure](./media/app-service-logic-monitor-your-logic-apps/diagnostics.png)  
+	![Impostazioni di diagnostica di Azure](./media/app-service-logic-monitor-your-logic-apps/diagnostics.png)
 
 ### Aggiunta di avvisi di Azure
 
 Dopo aver configurato la diagnostica, è possibile aggiungere avvisi di Azure da attivare quando vengono superate determinate soglie. Nel pannello **Diagnostica** selezionare il riquadro **Avvisi** e quindi **Aggiungi avviso**. È così possibile configurare un avviso in base a diverse soglie e metriche.
 
-![Metriche per gli avvisi di Azure](./media/app-service-logic-monitor-your-logic-apps/alerts.png)  
+![Metriche per gli avvisi di Azure](./media/app-service-logic-monitor-your-logic-apps/alerts.png)
 
 È possibile configurare **Condizione**, **Soglia** e **Periodo** in base alle esigenze. Si può infine configurare un indirizzo di posta elettronica a cui inviare una notifica oppure un webhook. È possibile usare il [trigger di richiesta](../connectors/connectors-native-reqres.md) di un'app per la logica in modo che venga eseguito anche in un avviso, ad esempio per la [pubblicazione su un canale slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app), l'[invio di un SMS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) o l'[aggiunta di un messaggio a una coda](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
 

@@ -7,7 +7,7 @@
 	authors="gatneil"
 	manager="madhana"
 	editor="tysonn"
-	tags="azure-resource-manager" />  
+	tags="azure-resource-manager" />
 
 <tags
 	ms.service="virtual-machine"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/15/2016"
-	ms.author="gatneil"/>  
+	ms.author="gatneil"/>
 
 # Creare un set di scalabilità tramite il portale di Azure
 
@@ -28,7 +28,7 @@ Dal portale è possibile distribuire facilmente un set di scalabilità con CentO
 
 Innanzitutto, passare al [portale di Azure](https://portal.azure.com) in un browser Web. Fare clic su `New`, cercare `scale set` e quindi selezionare la voce `Virtual machine scale set`:
 
-![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)  
+![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
 ## Creare la macchina virtuale Windows
 
@@ -38,7 +38,7 @@ Innanzitutto, passare al [portale di Azure](https://portal.azure.com) in un brow
 
 * Selezionare il tipo di sistema operativo desiderato, immettere il nome utente desiderato e selezionare il tipo di autenticazione preferito. Se è stata scelta una password, questa deve avere una lunghezza di 12 caratteri e deve soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). Se si sceglie `SSH public key`, assicurarsi di incollare solo la chiave pubblica, NON quella privata:
 
-![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)  
+![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
 * Immettere il nome del gruppo di risorse desiderato e il percorso e quindi fare clic su `OK`.
 
@@ -48,7 +48,7 @@ Innanzitutto, passare al [portale di Azure](https://portal.azure.com) in un brow
 
 * Abilitare o disabilitare il ridimensionamento automatico e, se abilitato, configurarlo:
 
-![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)  
+![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
 * Nel pannello `Summary`, dopo aver completato la convalida, fare clic su `OK`.
 
@@ -58,7 +58,7 @@ Innanzitutto, passare al [portale di Azure](https://portal.azure.com) in un brow
 
 Dopo aver distribuito il set di scalabilità, passare alla scheda `Inbound NAT Rules` del bilanciamento del carico per il set di scalabilità:
 
-![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)  
+![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
 È possibile connettersi a ogni macchina virtuale nel set di scalabilità usando le regole NAT. Ad esempio, per un set di scalabilità di Windows, se è disponibile una regola NAT nella porta di ingresso 50000, è possibile connettersi a tale computer tramite RDP in `<load-balancer-ip-address>:50000`. Per un set di scalabilità di Linux, è necessario connettersi usando il comando `ssh -p 50000 <username>@<load-balancer-ip-address>`.
 

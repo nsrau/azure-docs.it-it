@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="" />  
+    editor="" />
 <tags
     ms.service="service-bus-relay"
     ms.devlang="na"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="09/27/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Esercitazione su REST di Inoltro del bus di servizio
 

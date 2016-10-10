@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="willzhan" 
 	manager="dwrede" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"   
-	ms.author="willzhan;Mingfeiy;rajputam;Juliako"/>  
+	ms.author="willzhan;Mingfeiy;rajputam;Juliako"/>
 
 #Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure  
 

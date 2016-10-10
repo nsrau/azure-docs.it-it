@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/26/2016"  
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 # Community di Servizi multimediali di Azure  
 
@@ -61,6 +61,6 @@ Funzionalità|Email
 Analisi Servizi multimediali di Azure|amsanalytics@microsoft.com
 Azure Media Player|ampinfo@microsoft.com 
 Azure Media Explorer|amse@microsoft.com
-Progettazione flussi di lavoro|mepd@microsoft.com  
+Progettazione flussi di lavoro|mepd@microsoft.com
 
 <!---HONumber=AcomDC_0928_2016-->

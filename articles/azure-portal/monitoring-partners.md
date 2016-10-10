@@ -5,7 +5,7 @@
 	manager="rboucher"
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/26/2016"
-	ms.author="johnkem"/>  
+	ms.author="johnkem"/>
 
 # Integrazioni partner del monitoraggio di Azure
 
@@ -87,7 +87,7 @@ Le informazioni sulle prestazioni e sulla diagnostica vengono raccolte dalle tab
 - [Altre informazioni sul log attività (in precedenza, log di controllo)](../resource-group-audit.md)
 - [Trasmettere il log attività di Azure a Hub eventi](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!--Connectors Documentation-->  
+<!--Connectors Documentation-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
@@ -115,7 +115,7 @@ Le informazioni sulle prestazioni e sulla diagnostica vengono raccolte dalle tab
 [splunk-logo]: ./media/partner-logos/splunk.png
 [sumologic-logo]: ./media/partner-logos/sumologic.png
 
-<!--Partner Documentation-->  
+<!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentazione di AlertLogic."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Documentazione di AppDynamics."
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introduzione a CloudMonix."

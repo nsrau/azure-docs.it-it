@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="Lakshmi1812"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -55,7 +55,7 @@ Per ripristinare un database eliminato:
 ## Passaggi successivi
 Per altre informazioni sulle funzionalità di continuità aziendale delle edizioni del database SQL di Azure, leggere [Panoramica sulla continuità aziendale del database SQL][].
 
-<!--Image references-->  
+<!--Image references-->
 
 <!--Article references-->
 [Panoramica sulla continuità aziendale del database SQL]: ./sql-database-business-continuity.md

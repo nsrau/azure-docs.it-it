@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="cenkdin" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="cenkdin;juliako"/>  
+	ms.author="cenkdin;juliako"/>
 
 # Filtri e manifesti dinamici
 
@@ -118,7 +118,7 @@ Come accennato in precedenza, quando si distribuiscono contenuti ai clienti (eve
 Con il manifesto dinamico, è possibile creare profili di dispositivo, ad esempio mobile, console, HD/SD e così via, e includere le tracce e la qualità desiderate per ogni profilo.
 
  
-![Esempio di filtro di rendering][renditions2]  
+![Esempio di filtro di rendering][renditions2]
 
 Nell'esempio seguente si usa un codificatore per codificare un asset in formato intermedio in sette rendering video ISO MP4 (da 180p a 1080p). L'asset così codificato può essere quindi riorganizzato dinamicamente in pacchetti creati con uno dei seguenti protocolli di streaming: HLS, Smooth, MPEG DASH e HDS. Nella parte superiore del diagramma è riportato il manifesto HLS per l'asset senza filtri (contiene tutti i sette rendering), mentre in basso a sinistra è riportato il manifesto HLS con applicato un filtro denominato "ott". Il filtro "ott" indica che devono essere rimosse tutte le velocità in bit inferiori a 1 Mbps. L'applicazione di questo filtro ha generato i due livelli di qualità inferiori rimossi nella risposta. In basso a destra è riportato invece il manifesto HLS con applicato un filtro denominato "mobile". Il filtro "mobile" indica che devono essere rimossi tutti i rendering con risoluzione superiore a 720p. L'applicazione di questo filtro ha generato i due rendering 1080p rimossi.
 

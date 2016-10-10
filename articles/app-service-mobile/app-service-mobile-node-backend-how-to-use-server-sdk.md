@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="adrianhall"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="node"
 	ms.topic="article"
 	ms.date="09/23/2016"
-	ms.author="adrianha"/>  
+	ms.author="adrianha"/>
 
 # Come usare Node.js SDK per App per dispositivi mobili di Azure
 
@@ -54,7 +54,7 @@ Ogni back-end Node.js per le app per dispositivi mobili del servizio app di Azur
 
     Il comando npm init pone una serie di domande per inizializzare il progetto. Vedere l'output di esempio:
 
-    ![L'output di init npm][0]  
+    ![L'output di init npm][0]
 
 3. Installare le librerie express e azure-mobile-apps dal repository npm.
 
@@ -101,7 +101,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 
 4. Immettere il nome del progetto. Fare clic su *OK*.
 
-	![Nuovo progetto di Visual Studio 2015][1]  
+	![Nuovo progetto di Visual Studio 2015][1]
 
 5. Fare clic sul nodo **npm** e selezionare **Install New npm packages**.
 
@@ -109,7 +109,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 
 7. Immettere _azure-mobile-apps_ nella casella di ricerca. Fare clic sul pacchetto **azure-mobile-apps 2.0.0**, quindi fare clic su **Install Package**.
 
-	![Installare nuovi pacchetti npm][2]  
+	![Installare nuovi pacchetti npm][2]
 
 8. Fare clic su **Close**.
 
@@ -395,7 +395,7 @@ Una volta creato il back-end dell'app per dispositivi mobili, è possibile scegl
 
 8. Fare clic su **Server**. Nel pannello **Nuovo server** immettere un nome di server univoco nel campo **Nome server** e specificare un **Account di accesso amministratore server** e una **Password** idonei. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Fare clic su **OK**.
 
-	![Creare un database SQL di Azure][6]  
+	![Creare un database SQL di Azure][6]
 
 9. Nel pannello **Nuovo database** fare clic su **OK**.
 
@@ -403,7 +403,7 @@ Una volta creato il back-end dell'app per dispositivi mobili, è possibile scegl
 
 11. Nel pannello **Aggiungi connessione dati** fare nuovamente clic su **OK** per creare il database.
 
-<!--- END OF ALTERNATE INCLUDE -->  
+<!--- END OF ALTERNATE INCLUDE -->
 
 La creazione del database può richiedere alcuni minuti. Usare l'area **Notifiche** per monitorare l'avanzamento della distribuzione. L'avanzamento non viene eseguito se il database non è stato distribuito correttamente. Al termine della distribuzione viene creata una stringa di connessione per l'istanza di database SQL nelle impostazioni dell'app del back-end mobile. È possibile visualizzare l'impostazione dell'app in **Impostazioni** > **Impostazioni applicazione** > **Stringhe di connessione**.
 
@@ -850,7 +850,7 @@ L'impostazione Easy Tables nel portale consente di creare e usare tabelle dirett
 
 Quando si fa clic su **Tabelle semplici** nelle impostazioni del sito di back-end, è possibile aggiungere, modificare o eliminare una tabella. È anche possibile visualizzare i dati nella tabella.
 
-![Utilizzare Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)  
+![Utilizzare Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
 I comandi seguenti sono disponibili sulla barra dei comandi di una tabella:
 
@@ -867,7 +867,7 @@ L'impostazione Easy APIs nel portale consentono di creare e usare API personaliz
 
 Quando si fa clic su **API semplici** nelle impostazioni del sito di back-end, è possibile aggiungere, modificare o eliminare un endpoint API personalizzato.
 
-![Utilizzare Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)  
+![Utilizzare Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
 Nel portale è possibile modificare le autorizzazioni di accesso per una determinata azione HTTP, modificare il file di script dell'API nell'editor del servizio app o visualizzare i log in streaming.
 
@@ -877,7 +877,7 @@ Il portale di Azure consente di modificare i file di script del back-end Node.js
 
 1. Nel pannello del back-end delle app per dispositivi mobili fare clic su **Tutte le impostazioni** > **Easy tables** o **Easy APIs**, fare clic su una tabella o un'API e quindi su **Modifica script**. Il file di script viene aperto nell'editor del servizio app.
 
-	![Editor del servizio app](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)  
+	![Editor del servizio app](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Apportare le modifiche al file di codice nell'editor online. Le modifiche vengono salvate automaticamente durante la digitazione.
 

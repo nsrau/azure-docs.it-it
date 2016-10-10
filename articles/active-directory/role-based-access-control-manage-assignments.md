@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="jeffsta"/>  
+	editor="jeffsta"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
 	ms.date="09/21/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 # Visualizzare le assegnazioni di accesso per utenti e gruppi nel portale di Azure - Anteprima pubblica
 

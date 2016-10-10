@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mgoedtel"
 	manager="jwhit"
-	editor="tysonn" />  
+	editor="tysonn" />
 <tags 
 	ms.service="automation"
 	ms.devlang="na"

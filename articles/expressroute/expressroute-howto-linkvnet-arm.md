@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/08/2016"
-   ms.author="ganesr" />  
+   ms.author="ganesr" />
 
 # Collegare una rete virtuale a un circuito ExpressRoute
 

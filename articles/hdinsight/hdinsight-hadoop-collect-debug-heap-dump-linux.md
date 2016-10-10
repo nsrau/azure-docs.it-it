@@ -6,7 +6,7 @@
 	authors="Blackmist"
 	manager="jhubbard"
 	editor="cgronlun"
-	tags="azure-portal"/>  
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="larryfr"/>  
+	ms.author="larryfr"/>
 
 
 #Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux (anteprima)

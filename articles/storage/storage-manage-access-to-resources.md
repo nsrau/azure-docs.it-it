@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="michaelhauss;jwillis;tamram"/>  
+	ms.author="michaelhauss;jwillis;tamram"/>
 
 # Gestire l'accesso in lettura anonimo a contenitori e BLOB
 
@@ -51,7 +51,7 @@ Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https:
 3. Selezionare **Criteri di accesso** nella barra degli strumenti.
 4. Nel campo **Tipo di accesso** selezionare il livello di autorizzazioni desiderato come illustrato nello screenshot di seguito.
 
-	![Finestra di dialogo Modifica metadati contenitore](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)  
+	![Finestra di dialogo Modifica metadati contenitore](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Impostazione delle autorizzazioni per il contenitore a livello di programmazione con .NET
 

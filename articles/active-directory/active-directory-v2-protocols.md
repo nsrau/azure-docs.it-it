@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,12 +14,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/>
 
 # Protocolli v2.0 - OAuth 2.0 e OpenID Connect
 
 L'endpoint v2.0 può usare Azure AD per il servizio IaaS (identity-as-a-service) con protocolli standard del settore, OpenID Connect e OAuth 2.0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. Le informazioni in questo argomento sono utili se si sceglie di scrivere codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una delle librerie open source di Microsoft.
-<!-- TODO: Need link to libraries above -->  
+<!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
 	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).

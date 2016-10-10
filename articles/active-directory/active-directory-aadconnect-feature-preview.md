@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="andkjell"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"  
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="06/27/2016"
-   ms.author="andkjell;billmath"/>  
+   ms.author="andkjell;billmath"/>
 
 # Altre informazioni sulle funzionalità in anteprima
 Questo argomento descrive come usare le funzionalità attualmente in anteprima.

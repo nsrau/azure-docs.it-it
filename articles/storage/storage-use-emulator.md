@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tamram" 
 	manager="carmonm" 
-	editor="tysonn"/>  
+	editor="tysonn"/>
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
@@ -13,7 +13,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/07/2016" 
-	ms.author="micurd;tamram"/>  
+	ms.author="micurd;tamram"/>
 
 # Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -153,11 +153,11 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
 | Opzione | Descrizione | Comando | Argomenti |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Inizia** | Avvia l'emulatore di archiviazione. | `AzureStorageEmulator start [-inprocess]`   | *-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
-| **Stop** | Interrompe l'emulatore di archiviazione. | `AzureStorageEmulator stop`   | |
-| **Status** | Stampa lo stato dell'emulatore di archiviazione. | `AzureStorageEmulator status`   | |
-| **Cancella** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `  | *blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
-| **Init** | Esegue l'inizializzazione una tantum per configurare l'emulatore. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]`   | *-server serverName\\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. È necessario avviare il processo corrente con autorizzazioni elevate per eseguire l'inizializzazione. |
+| **Inizia** | Avvia l'emulatore di archiviazione. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
+| **Stop** | Interrompe l'emulatore di archiviazione. | `AzureStorageEmulator stop` | |
+| **Status** | Stampa lo stato dell'emulatore di archiviazione. | `AzureStorageEmulator status` | |
+| **Cancella** | Cancella i dati in tutti i servizi specificati nella riga di comando. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
+| **Init** | Esegue l'inizializzazione una tantum per configurare l'emulatore. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. È necessario avviare il processo corrente con autorizzazioni elevate per eseguire l'inizializzazione. |
                                                                                                                   
 ## Differenze tra l'emulatore di archiviazione e Archiviazione di Azure
 

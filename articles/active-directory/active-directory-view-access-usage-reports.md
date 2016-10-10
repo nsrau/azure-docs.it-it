@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dhanyahk"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/07/2016"
-	ms.author="dhanyahk"/>  
+	ms.author="dhanyahk"/>
 
 
 # Visualizzare i report di accesso e utilizzo
@@ -101,9 +101,9 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 <p>Tutti questi report, ad eccezione del report "Accessi dopo errori multipli", segnalano inoltre gli accessi <i>federati</i> ai servizi menzionati in precedenza, indipendentemente dal provider di federazione. </p>
 <p>Sono disponibili i seguenti report: </p><ul>
 <li>[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
-<li>[Accessi dopo più errori] (active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
-<li>[Accessi da più aree geografiche] (active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
-<li>[Accessi da indirizzi IP con attività sospetta] (active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
 <li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li>
 <li>[Accessi da dispositivi probabilmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
 <li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>

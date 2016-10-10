@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/24/2016"
-   ms.author="subramar"/>  
+   ms.author="subramar"/>
 
 
 # Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale

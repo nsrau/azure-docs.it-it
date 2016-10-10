@@ -7,7 +7,7 @@
 	authors="femila"
 	manager="swadhwa"
 	editor=""
-	tags="azure-classic-portal"/>  
+	tags="azure-classic-portal"/>
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/27/2016"
 
@@ -17,7 +17,7 @@
 
 Windows 10 offre la possibilità di sfruttare Azure Active Directory (Azure AD). È possibile connettere i dispositivi Windows 10 ad Azure AD in modo che gli utenti possano accedere a Windows usando gli account di Azure AD o aggiungendo i propri ID Azure per accedere alle risorse e alle app aziendali.
 
-![Azure Active Directory con cloud Windows](./media/active-directory-azureadjoin/windows10-overview.png)  
+![Azure Active Directory con cloud Windows](./media/active-directory-azureadjoin/windows10-overview.png)
 
 
 ## Integrazione di dispositivi Windows 10 con Azure Active Directory - una mappa del contenuto

@@ -6,7 +6,7 @@
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>  
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="support-article"
 	ms.date="09/27/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure
 

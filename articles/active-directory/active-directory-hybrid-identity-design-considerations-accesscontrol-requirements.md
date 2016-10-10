@@ -6,7 +6,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Determinare i requisiti di controllo di accesso per una soluzione di identità ibrida
 Durante la progettazione di una soluzione di identità ibrida, le aziende hanno la possibilità di valutare i requisiti di accesso per le risorse che prevedono di rendere disponibili agli utenti. L'accesso ai dati coinvolge tutti i quattro pilastri dell'identità, ovvero:

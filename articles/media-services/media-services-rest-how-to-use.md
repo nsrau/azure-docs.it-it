@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/26/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Informazioni generali sull'API REST di Servizi multimediali 

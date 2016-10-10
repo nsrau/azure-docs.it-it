@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/29/2016"
-     ms.author="andbuc"/>  
+     ms.author="andbuc"/>
 
 
 # IoT SDK per gateway (beta): invio di messaggi da dispositivo a cloud con un dispositivo simulato usando Windows
@@ -140,7 +140,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 - [Informazioni sulla gestione dei dispositivi tramite l'interfaccia utente di esempio][lnk-dmui]
 - [Gestire hub IoT tramite il portale di Azure][lnk-portal]
 
-<!-- Links -->  
+<!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

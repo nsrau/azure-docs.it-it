@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/21/2016"    
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 # Configurazione dei criteri di protezione del contenuto tramite il portale di Azure
 
@@ -39,7 +39,7 @@ Per usare il portale per avviare la configurazione della protezione del contenut
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Selezionare **Impostazioni** > **Protezione del contenuto**.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
  
 
 ## Criteri di autorizzazione per chiavi e licenze
@@ -58,7 +58,7 @@ I criteri con restrizione Token devono essere accompagnati da un token rilasciat
 
 Quando si configurano i criteri di restrizione token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection002.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## Modello dei diritti PlayReady
 
@@ -68,13 +68,13 @@ Per informazioni dettagliate sul modello dei diritti PlayReady, vedere [Panorami
 
 Se viene configurata come non persistente, la licenza verrà conservata in memoria solo mentre il lettore la usa.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection003.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### Persistente
 
 Se viene configurata come persistente, la licenza verrà salvata nell'archivio persistente del client.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection004.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## Modello dei diritti Widevine
 
@@ -88,13 +88,13 @@ Se si seleziona **Basic**, il modello verrà creato con tutti i valori predefini
 
 Per informazioni dettagliate sull'opzione avanzata delle configurazioni Widevine, vedere [questo](media-services-widevine-license-template-overview.md) argomento.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection005.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## Configurazione di FairPlay
 
 Per abilitare la crittografia FairPlay, è necessario indicare il certificato dell'app e la chiave privata dell'applicazione (ASK) tramite l'opzione di configurazione FairPlay. Per informazioni dettagliate sulla configurazione e i requisiti di FairPlay, vedere [questo](media-services-protect-hls-with-fairplay.md) articolo.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection006.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## Applicare la crittografia dinamica agli asset
 
@@ -107,7 +107,7 @@ Per sfruttare i vantaggi della crittografia dinamica, è necessario seguire ques
 
 Per visualizzare tutti gli asset, selezionare**Impostazioni** > **Asset**.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection007.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### Crittografare con AES o DRM
 
@@ -117,7 +117,7 @@ Quando si seleziona **Crittografa** per un asset, sono disponibili due opzioni: 
 
 La crittografia con chiave non crittografata AES sarà abilitata su tutti i protocolli di streaming: Smooth Streaming, HLS e MPEG-DASH.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection008.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### DRM
 
@@ -131,7 +131,7 @@ Nella scheda DRM sono disponibili diverse opzioni per i criteri di protezione de
 
 Per abilitare la crittografia FairPlay, è necessario indicare il certificato dell'app e la chiave privata dell'applicazione (ASK) tramite l'opzione di configurazione FairPlay del pannello delle impostazioni di Protezione del contenuto.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection009.png)  
+![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
 Dopo aver selezionato la crittografia, fare clic su **Applica**.
 

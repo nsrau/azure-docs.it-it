@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="harikm"/>  
+	ms.author="harikm"/>
 
 
 # Compilare e distribuire la soluzione MyDriving nell'ambiente

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeffsta"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/18/2016"
-	ms.author="curtand;jeffsta"/>  
+	ms.author="curtand;jeffsta"/>
 
 # Panoramica concettuale dei nomi di dominio personalizzati in Azure Active Directory
 

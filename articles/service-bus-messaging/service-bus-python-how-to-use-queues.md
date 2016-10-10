@@ -5,7 +5,7 @@
 	documentationCenter="python" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus-messaging" 
@@ -14,7 +14,7 @@
 	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="09/21/2016" 
-	ms.author="sethm;lmazuel"/>  
+	ms.author="sethm;lmazuel"/>
 
 
 # Come usare le code del bus di servizio

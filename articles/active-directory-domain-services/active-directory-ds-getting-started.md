@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/21/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Introduzione ai servizi di dominio Azure AD
 
@@ -33,7 +33,7 @@ In questa attività di configurazione verrà creato il gruppo amministrativo al 
 
 3. Selezionare il tenant di Azure AD (directory) per il quale si desidera abilitare Servizi di dominio Azure AD. È possibile creare solo un dominio per ogni directory di Azure AD.
 
-    ![Selezionare una directory di Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)  
+    ![Selezionare una directory di Azure AD](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 
 4. Fare clic sulla scheda **Gruppi**.
 
@@ -43,7 +43,7 @@ In questa attività di configurazione verrà creato il gruppo amministrativo al 
 
     > [AZURE.WARNING] Per consentire l'accesso a Servizi di dominio Azure AD, creare un gruppo con questo nome esatto.
 
-	![Creare un gruppo di amministratori](./media/active-directory-domain-services-getting-started/create-admin-group.png)  
+	![Creare un gruppo di amministratori](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 
 7. Aggiungere una descrizione per il gruppo in modo che gli altri capiscano che questo gruppo viene usato per concedere privilegi amministrativi all'interno di Servizi di dominio Azure AD.
 
@@ -51,9 +51,9 @@ In questa attività di configurazione verrà creato il gruppo amministrativo al 
 
 9. Nella finestra di dialogo **Aggiungi membri** selezionare gli utenti da includere in questo gruppo e selezionare la casella di controllo al termine.
 
-    ![Aggiungere utenti al gruppo di amministratori](./media/active-directory-domain-services-getting-started/add-group-members.png)  
+    ![Aggiungere utenti al gruppo di amministratori](./media/active-directory-domain-services-getting-started/add-group-members.png)
 
-<br>  
+<br>
 
 ## Attività 2: Creare o selezionare una rete virtuale di Azure
 L'attività di configurazione successiva consiste nel [creare o selezionare una rete virtuale di Azure](active-directory-ds-getting-started-vnet.md).

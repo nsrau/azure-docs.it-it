@@ -6,7 +6,7 @@
    authors="chkuhtz"
    manager="narayan"
    editor=""
-/>  
+/>
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.workload="infrastructure-services"
    ms.date="08/11/2016"
    ms.author="chkuhtz"
-/>  
+/>
 
 # Più indirizzi VIP per Azure Load Balancer
 
@@ -47,7 +47,7 @@ Questi scenari verranno approfonditi iniziando con il comportamento predefinito.
 
 ## Regola di tipo 1: nessun riutilizzo delle porte back-end
 
-![Illustrazione di più indirizzi VIP](./media/load-balancer-multivip-overview/load-balancer-multivip.png)  
+![Illustrazione di più indirizzi VIP](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
 In questo scenario, gli indirizzi VIP front-end sono configurati nel modo seguente:
 
@@ -88,7 +88,7 @@ Con il tipo di regola predefinito, Azure espone uno schema di mappatura degli in
 
 Il diagramma seguente illustra questa configurazione:
 
-![Illustrazione di più indirizzi VIP](./media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png)  
+![Illustrazione di più indirizzi VIP](./media/load-balancer-multivip-overview/load-balancer-multivip-dsr.png)
 
 Per questo scenario, ogni macchina virtuale nel pool back-end ha tre interfacce di rete:
 

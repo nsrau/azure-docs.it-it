@@ -6,7 +6,7 @@
     authors="sdwheeler"
     manager="carmonm"
     editor=""
-/>  
+/>
 <tags
     ms.service="load-balancer"
     ms.devlang="na"
@@ -15,7 +15,7 @@
     ms.workload="infrastructure-services"
     ms.date="09/14/2016"
     ms.author="sewhee"
-/>  
+/>
 
 # Configurazione di DHCPv6 per VM Linux
 

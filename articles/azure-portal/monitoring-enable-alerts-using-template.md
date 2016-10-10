@@ -5,7 +5,7 @@
 	manager="rboucher"
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/26/2016"
-	ms.author="johnkem"/>  
+	ms.author="johnkem"/>
 
 # Creare un avviso metrica con un modello di Resource Manager
 

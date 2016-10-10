@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/22/2016"
-   ms.author="charwen"/>  
+   ms.author="charwen"/>
 
 # Configurare un gateway di rete virtuale per ExpressRoute con il modello di distribuzione classico e PowerShell
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="05/06/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Esempi relativi al bus di servizio
 

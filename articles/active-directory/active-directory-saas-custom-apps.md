@@ -3,7 +3,7 @@
     description="Informazioni sulla connessione self-service di applicazioni in Azure Active Directory con SAML e SSO basato su password " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="femila"/>  
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -51,7 +51,7 @@ La procedura per l'aggiunta di un'applicazione non pubblicata è molto simile a 
 
 Selezionare questa opzione per configurare l'autenticazione basata su SAML per l'applicazione. Per questa opzione è necessario che l'applicazione supporti SAML 2.0. Prima di continuare è consigliabile raccogliere informazioni sull'uso delle funzionalità SAML dell'applicazione. Dopo aver selezionato **Avanti**, viene richiesto di immettere tre diversi URL corrispondenti agli endpoint SAML per l'applicazione.
 
-![][4]  
+![][4]
  
 Si tratta di:
 
@@ -135,7 +135,7 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 - [Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md)
 - [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png
 [2]: ./media/active-directory-saas-custom-apps/customapp2.png
 [3]: ./media/active-directory-saas-custom-apps/customapp3.png

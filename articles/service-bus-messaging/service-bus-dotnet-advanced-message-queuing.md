@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus-messaging" 

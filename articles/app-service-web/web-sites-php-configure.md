@@ -5,7 +5,7 @@
 	documentationCenter="php"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>  
+	ms.author="robmcm"/>
 
 #Configurazione di PHP nelle app Web di Servizio app di Azure
 

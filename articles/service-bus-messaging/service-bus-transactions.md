@@ -5,7 +5,7 @@
     documentationCenter=".net" 
     authors="sethmanheim" 
     manager="timlt" 
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na" 
     ms.date="05/16/2016"
-    ms.author="clemensv;sethm"/>  
+    ms.author="clemensv;sethm"/>
 
 # Panoramica dell'elaborazione delle transazioni del bus di servizio
 

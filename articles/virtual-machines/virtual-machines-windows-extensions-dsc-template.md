@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-service-management,azure-resource-manager"
-   keywords=""/>  
+   keywords=""/>
 
 <tags
    ms.service="virtual-machines-windows"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
    ms.date="09/15/2016"
-   ms.author="zachal"/>  
+   ms.author="zachal"/>
 
 # Set di scalabilità di macchine virtuali (VMSS) Windows e Desired State Configuration (DSC) con modelli di Azure Resource Manager
 Questo articolo descrive il modello di Resource Manager per il [gestore estensione Desired State Configuration (DSC)](virtual-machines-windows-extensions-dsc-overview.md).

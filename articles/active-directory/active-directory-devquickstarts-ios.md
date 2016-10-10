@@ -5,7 +5,7 @@
 	documentationCenter="ios"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="brandwe"/>  
+	ms.author="brandwe"/>
 
 # Integrare Azure AD in un'app iOS
 

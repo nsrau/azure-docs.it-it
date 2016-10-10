@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="aungoo-msft"
 	manager="tadb"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="aungoo;tamram"/>  
+	ms.author="aungoo;tamram"/>
 
 
 # Backup dei dischi delle macchine virtuali di Azure con snapshot incrementali

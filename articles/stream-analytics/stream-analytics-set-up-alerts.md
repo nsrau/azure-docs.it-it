@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -39,7 +39,7 @@ Esistono due modi per configurare gli avvisi nel portale di Azure classico:
 
 1.	Selezionare la metrica nella scheda di monitoraggio, fare clic sul pulsante **Aggiungi regola** nella parte inferiore del dashboard e configurare le regole desiderate.
 
-    ![Dashboard](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)  
+    ![Dashboard](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)
 
 2.	Definire il nome e la descrizione dell'avviso
 
@@ -54,11 +54,11 @@ Esistono due modi per configurare gli avvisi nel portale di Azure classico:
 1.	Visitare la scheda **Avvisi** nei servizi di gestione nel [Portale di Azure classico](https://manage.windowsazure.com).
 2.	Fare clic su **Aggiungi regola**
 
-    ![Criteri](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)  
+    ![Criteri](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
 
 3.	Definire il nome e la descrizione dell'avviso. Selezionare 'Analisi di flusso' come Tipo di servizio e il nome del processo come Nome del servizio.
 
-    ![Definire l’avviso](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)  
+    ![Definire l’avviso](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
 
 ## Configurare gli avvisi nel portale di Azure ##
 
@@ -70,7 +70,7 @@ Nel portale di Azure individuare il processo di analisi di flusso per cui si vuo
 
 Quando si seleziona Metriche, è possibile scegliere una condizione e un valore soglia per la metrica.
 
-  ![Metrica di selezione del portale di Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)  
+  ![Metrica di selezione del portale di Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
 
 Per altre informazioni dettagliate sulla configurazione degli avvisi nel portale di Azure, vedere [Ricevere notifiche di avviso](../azure-portal/insights-receive-alert-notifications.md).
 

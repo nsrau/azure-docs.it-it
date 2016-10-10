@@ -6,7 +6,7 @@
 	documentationCenter=""
 	services="virtual-machines-linux"
 	authors="gbowerman"
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="guybo"/>  
+	ms.author="guybo"/>
 
 #Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux#
 

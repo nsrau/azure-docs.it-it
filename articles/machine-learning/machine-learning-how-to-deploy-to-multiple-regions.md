@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="v-donglo"/>  
+	ms.author="v-donglo"/>
 
 # Procedura: Come distribuire un servizio Web in più aree
 

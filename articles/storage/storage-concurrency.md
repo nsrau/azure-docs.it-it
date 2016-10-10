@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="jahogg;tamram"/>  
+	ms.author="jahogg;tamram"/>
 
 # Gestione della concorrenza nell'archiviazione di Microsoft Azure
 

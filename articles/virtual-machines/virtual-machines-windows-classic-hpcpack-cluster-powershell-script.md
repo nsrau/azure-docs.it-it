@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management,hpc-pack"/>  
+   tags="azure-service-management,hpc-pack"/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="big-compute"
    ms.date="07/07/2016"
-   ms.author="danlep"/>  
+   ms.author="danlep"/>
 
 # Creare un cluster Windows HPC (High Performance Computing) con lo script di distribuzione IaaS di HPC Pack
 

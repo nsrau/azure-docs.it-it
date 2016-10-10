@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="mysql"/>  
+	tags="mysql"/>
 
 <tags
 	ms.service="multiple"
@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm;cephalin"/>  
+	ms.author="robmcm;cephalin"/>
 
 # Creare e connettersi a un database MySQL in Azure
 
@@ -61,7 +61,7 @@ Per creare un database MySQL nel portale di Azure, seguire questa procedura:
 
 Per visualizzare le informazioni di connessione del nuovo database MySQL, fare clic su **Proprietà** nel pannello dell'app Web.
 	
-![Creare un database MySQL in Azure: pannello Database MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)  
+![Creare un database MySQL in Azure: pannello Database MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
 
 È ora possibile usare le informazioni di connessione in qualsiasi app Web. [Qui](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql) è disponibile un esempio che illustra come usare le informazioni di connessione da una semplice app PHP.
 

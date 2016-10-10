@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="skwan"
    manager="mbaldwin"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/22/2016"
-   ms.author="skwan;bryanla"/>  
+   ms.author="skwan;bryanla"/>
 
 #Come ottenere la certificazione AppSource per Azure Active Directory (AD) 
 
@@ -39,6 +39,6 @@ La sezione dei commenti Disqus di seguito consente di fornire commenti e suggeri
 [AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#web-application-quick-start-guides
 
 
-<!--Image references-->  
+<!--Image references-->
 
 <!---HONumber=AcomDC_0928_2016-->

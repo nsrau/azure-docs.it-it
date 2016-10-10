@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,12 +14,12 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
  	ms.date="09/26/2016"    
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 # Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 
->[AZURE.NOTE]La fine della vita per Microsoft Azure Media Packager e Microsoft Azure Media Encryptor è stata estesa al 1° marzo 2017. Prima di tale data, le funzionalità di questi processori verranno aggiunte a Media Encoder Standard (MES). I clienti riceveranno istruzioni per eseguire la migrazione dei flussi di lavoro per inviare processi a MES. Le funzionalità di crittografia e di conversione di formato possono anche essere disponibili tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
+>[AZURE.NOTE]La fine della vita per Microsoft Azure Media Packager e Microsoft Azure Media Encryptor è stata estesa al 1 marzo 2017. Prima di tale data, le funzionalità di questi processori verranno aggiunte a Media Encoder Standard (MES). I clienti riceveranno istruzioni per eseguire la migrazione dei flussi di lavoro per inviare processi a MES. Le funzionalità di crittografia e di conversione di formato possono anche essere disponibili tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
 
 ## Overview
 

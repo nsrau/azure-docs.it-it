@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="asmalser-msft"
     manager="femila"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="active-directory"

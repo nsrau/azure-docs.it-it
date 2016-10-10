@@ -6,7 +6,7 @@
     authors="hedidin" 
     manager="jhubbard" 
     editor="mimig" 
-    documentationCenter=""/>  
+    documentationCenter=""/>
 
 <tags 
     ms.service="documentdb" 
@@ -15,7 +15,7 @@
     ms.devlang="rest-api" 
     ms.topic="article" 
     ms.date="09/23/2016" 
-    ms.author="b-hoedid"/>  
+    ms.author="b-hoedid"/>
 
 # Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica
 

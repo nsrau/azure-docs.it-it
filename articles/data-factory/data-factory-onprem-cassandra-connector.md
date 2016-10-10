@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="linda33wj" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 

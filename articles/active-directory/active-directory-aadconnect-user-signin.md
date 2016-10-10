@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="billmath"
 	manager="femila"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 
 

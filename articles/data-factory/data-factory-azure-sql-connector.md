@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="linda33wj" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="jingwang"/>  
+	ms.author="jingwang"/>
 
 # Spostare dati da e nel database SQL di Azure con Data factory di Azure
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati tra un database SQL di Azure e un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="msfussell"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="na"
    ms.date="09/22/2016"
-   ms.author="msfussell;mikhegn"/>  
+   ms.author="msfussell;mikhegn"/>
 
 # Distribuire un eseguibile guest in Service Fabric
 
@@ -104,7 +104,7 @@ Il processo per la creazione manuale del pacchetto di un eseguibile guest si bas
 
 <!--
 >[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
--->  
+-->
 
 ### Creare la struttura di directory del pacchetto
 È possibile iniziare creando la struttura di directory come descritto in precedenza.
@@ -309,15 +309,15 @@ Questa configurazione è utile per applicazioni front-end (ad esempio, un endpoi
 
 In Esplora infrastruttura di servizi identificare il nodo in cui è in esecuzione il servizio. In questo esempio è in esecuzione in Node1:
 
-![Nodo in cui è in esecuzione il servizio](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)  
+![Nodo in cui è in esecuzione il servizio](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
 Se si passa al nodo e si accede all'applicazione, è possibile visualizzare le informazioni essenziali sul nodo, incluso il percorso sul disco.
 
-![Percorso sul disco](./media/service-fabric-deploy-existing-app/locationondisk2.png)  
+![Percorso sul disco](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
 Se si passa alla directory usando Esplora server, si possono trovare la directory di lavoro e la cartella dei log del servizio, come illustrato nell'immagine seguente.
 
-![Percorso del log](./media/service-fabric-deploy-existing-app/loglocation.png)  
+![Percorso del log](./media/service-fabric-deploy-existing-app/loglocation.png)
 
 
 ## Passaggi successivi

@@ -6,7 +6,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"

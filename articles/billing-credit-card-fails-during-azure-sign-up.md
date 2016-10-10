@@ -7,7 +7,7 @@
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"
-	keywords="carta di credito rifiutata, carta di debito rifiutata, carta di credito non accettata, carta di credito non riconosciuta"/>  
+	keywords="carta di credito rifiutata, carta di debito rifiutata, carta di credito non accettata, carta di credito non riconosciuta"/>
 
 <tags
 	ms.service="billing"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="cjiang"/>  
+	ms.author="cjiang"/>
 
 # Carta di credito o di debito rifiutata al momento dell'iscrizione
 

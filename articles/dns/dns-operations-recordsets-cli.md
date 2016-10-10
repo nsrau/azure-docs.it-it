@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="jtuliani"
    manager="carmonm"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="dns"

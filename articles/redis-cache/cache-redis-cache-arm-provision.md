@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="douge" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="cache" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/27/2016" 
-	ms.author="sdanie"/>  
+	ms.author="sdanie"/>
 
 # Creare una Cache Redis utilizzando un modello
 

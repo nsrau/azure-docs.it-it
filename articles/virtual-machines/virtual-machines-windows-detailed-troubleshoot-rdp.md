@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"
-	keywords="non è possibile connettersi a Remote Desktop, risolvere i problemi di Remote Desktop, Remote Desktop non riesce a connettersi, errori di Remote Desktop, risoluzione dei problemi di Remote Desktop, problemi di Remote Desktop"/>  
+	keywords="non è possibile connettersi a Remote Desktop, risolvere i problemi di Remote Desktop, Remote Desktop non riesce a connettersi, errori di Remote Desktop, risoluzione dei problemi di Remote Desktop, problemi di Remote Desktop"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="support-article"
 	ms.date="09/27/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
 
@@ -35,7 +35,7 @@ Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possi
 
 Di seguito sono riportati i componenti di una connessione RDP:
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_0.png)  
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_0.png)
 
 Prima di procedere, può essere utile riflettere su cosa è stato modificato dall'ultima connessione Desktop remoto riuscita alla VM. ad esempio:
 
@@ -68,7 +68,7 @@ Il client Desktop remoto potrebbe non essere in grado di raggiungere il servizio
 
 Verificare che il computer sia in grado di stabilire connessioni Desktop remoto a un altro computer locale basato su Windows.
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_1.png)  
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 Se non è possibile, verificare le impostazioni seguenti sul computer:
 
@@ -83,7 +83,7 @@ In tutti questi casi, disabilitare temporaneamente il software e provare a conne
 
 Verificare che un computer connesso direttamente a Internet possa eseguire connessioni Desktop remoto alla macchina virtuale di Azure.
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_2.png)  
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_2.png)
 
 Se non si ha un computer connesso direttamente a Internet, creare una nuova macchina virtuale di Azure in un gruppo di risorse o servizio cloud per eseguire un test. Per ulteriori informazioni, vedere [Creare una macchina virtuale con Windows in Azure](virtual-machines-windows-hero-tutorial.md). Dopo aver completato il test, eliminare la macchina virtuale e il gruppo di risorse o il servizio cloud.
 
@@ -99,7 +99,7 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni del disposi
 
 Per le VM create mediante il modello di distribuzione classico, verificare che un'altra VM di Azure che si trova nello stesso servizio cloud o rete virtuale sia in grado di stabilire connessioni Desktop remoto alla VM di Azure.
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_3.png)  
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [AZURE.NOTE] Per le macchine virtuali create in Gestione risorse, andare su [Origine 4: gruppi di sicurezza di rete](#source-4-network-security-groups).
 
@@ -128,7 +128,7 @@ Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../vi
 
 ## Origine 5: Macchina virtuale di Azure basata su Windows
 
-![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)  
+![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Usare il [pacchetto di diagnostica di IaaS di Azure (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) per verificare se l'errore è dovuto alla macchina virtuale di Azure stessa. Se il pacchetto di diagnostica non riesce a risolvere il problema di **connettività RDP a una VM di Azure (riavvio necessario)**, seguire le istruzioni riportate in [questo articolo](virtual-machines-windows-reset-rdp.md) per reimpostare il servizio Desktop remoto nella macchina virtuale:
 

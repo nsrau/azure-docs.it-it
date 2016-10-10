@@ -5,7 +5,7 @@
 	documentationCenter="nodejs" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus-messaging" 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="05/06/2016" 
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
 
@@ -26,7 +26,7 @@ Questo articolo illustra come usare le code del bus di servizio in Node.js. Gli 
 
 ## Creare un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][] o [Servizio cloud Node.js][] (usando Windows PowerShell).
+Creare un'applicazione Node.js vuota. Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][] o [Servizio cloud Node.js][] \(usando Windows PowerShell).
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 

@@ -7,7 +7,7 @@
 	manager="msmbaldwin"
 	editor=""
 	tags="billing"
-	/>  
+	/>
 
 <tags
 	ms.service="billing"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2016"
-	ms.author="genli"/>  
+	ms.author="genli"/>
 
 # Non è possibile accedere per gestire la sottoscrizione di Azure
 
@@ -74,7 +74,7 @@ L’account Microsoft è l'indirizzo di posta elettronica che si utilizza, insie
 
 La pagina di accesso predefinita del portale di Azure è relativa all'account Microsoft. Se l'account è associato a un account aziendale, selezionare l'opzione di accesso corretta come illustrato di seguito. Per altre informazioni sull'uso dell’account aziendale, vedere [Iscrizione ad Azure come organizzazione](./active-directory/sign-up-organization.md):
 
-![pagina di accesso](./media/billing-cannot-login-subscription/signin.png)  
+![pagina di accesso](./media/billing-cannot-login-subscription/signin.png)
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 

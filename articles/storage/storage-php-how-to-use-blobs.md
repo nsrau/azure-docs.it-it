@@ -5,7 +5,7 @@
 	services="storage"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,11 +14,11 @@
 	ms.devlang="PHP"
 	ms.topic="article"
     	ms.date="08/11/2016"
-	ms.author="jwillis;robmcm"/>  
+	ms.author="jwillis;robmcm"/>
 
 # Come usare l'archiviazione BLOB da PHP
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/>   [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 

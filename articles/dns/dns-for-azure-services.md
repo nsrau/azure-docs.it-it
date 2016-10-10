@@ -7,7 +7,7 @@
   manager="carmonm"
   editor=""
   tags="azure dns"
-/>  
+/>
 <tags
   ms.service="dns"
   ms.devlang="na"
@@ -16,7 +16,7 @@
   ms.workload="infrastructure-services"
   ms.date="09/21/2016"
   ms.author="sewhee"
-/>  
+/>
 
 # Uso del servizio DNS di Azure con altri servizi di Azure
 

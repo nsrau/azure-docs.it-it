@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor="curtland"/>  
+	editor="curtland"/>
 
 <tags
 	ms.service="multi-factor-authentication"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 # Informazioni su Azure Multi-Factor Authentication
 Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:
@@ -53,7 +53,7 @@ Azure multi-Factor Authentication è una soluzione semplice da usare, scalabile 
 
 La sicurezza dell'autenticazione a più fattori si fonda sull'approccio basato su livelli. La manomissione di più fattori rappresenta una sfida significativa per gli autori di attacchi. Anche se un utente malintenzionato riesce a ottenere la password dell'utente, questa risulta inutile se non è in possesso del dispositivo attendibile. Se l'utente smarrisce il dispositivo, la persona che lo trova non potrà usarlo a meno che non ne conosca anche la password.
 
-![Verifica](./media/multi-factor-authentication-how-it-works/howitworks.png)  
+![Verifica](./media/multi-factor-authentication-how-it-works/howitworks.png)
 
 
 

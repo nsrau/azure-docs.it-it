@@ -6,7 +6,7 @@
 	authors="MikeRayMSFT"
 	manager="jhubbard"
 	editor=""
-	tags="azure-service-management" />  
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/22/2016"
-	ms.author="mikeray" />  
+	ms.author="mikeray" />
 
 # Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure con PowerShell
 
@@ -24,7 +24,7 @@
 - [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
-<br/>  
+<br/>
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -535,7 +535,7 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
 		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Scaricare **CreateAzureFailoverCluster.ps1** dalla pagina [Create WSFC Cluster for AlwaysOn Availability Groups in Windows Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creare il cluster WSFC per i gruppi di disponibilità AlwaysOn in una VM di Azure) nella directory di lavoro locale. Usare lo script per creare un cluster WSFC funzionale. Per informazioni importanti sull'interazione di WSFC con la rete di Azure, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
+1. Scaricare **CreateAzureFailoverCluster.ps1** dalla pagina [Create WSFC Cluster for AlwaysOn Availability Groups in Microsoft Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creare il cluster WSFC per i gruppi di disponibilità AlwaysOn in una VM di Azure) nella directory di lavoro locale. Usare lo script per creare un cluster WSFC funzionale. Per informazioni importanti sull'interazione di WSFC con la rete di Azure, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 1. Passare alla directory di lavoro e creare il cluster WSFC con lo script scaricato.
 

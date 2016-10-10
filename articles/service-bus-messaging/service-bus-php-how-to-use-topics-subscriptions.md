@@ -5,7 +5,7 @@
 	documentationCenter="php" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus-messaging" 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="05/10/2016" 
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio

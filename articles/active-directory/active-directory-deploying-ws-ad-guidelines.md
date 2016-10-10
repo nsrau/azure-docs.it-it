@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="femila"
    manager="stevenpo"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/27/2016"
-   ms.author="femila"/>  
+   ms.author="femila"/>
 
 # Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure
 
@@ -202,7 +202,7 @@ In questo caso, ecco i passaggi generali per distribuire AD FS:
 
 Per limitare il traffico, il set con carico bilanciato per il servizio di bilanciamento del carico interno di Azure deve essere configurato solo per il traffico verso le porte TCP 80 e 443, mentre tutto il resto del traffico verso l'indirizzo IP dinamico interno del set con carico bilanciato viene eliminato.
 
-![Diagramma di ACL di rete AD FS con porte TCP 443 e 80 consentite.](media/active-directory-deploying-ws-ad-guidelines/ADFS_ACLs.png)  
+![Diagramma di ACL di rete AD FS con porte TCP 443 e 80 consentite.](media/active-directory-deploying-ws-ad-guidelines/ADFS_ACLs.png)
 
 Il traffico verso i server AD FS sarà consentito solo da queste origini:
 
@@ -213,13 +213,13 @@ Il traffico verso i server AD FS sarà consentito solo da queste origini:
 
 Uno svantaggio di questa opzione è la necessità di configurare gli ACL di rete per più dispositivi, tra cui il servizio di bilanciamento del carico interno, i server AD FS e gli eventuali altri server aggiunti alla rete virtuale. Se un dispositivo viene aggiunto alla distribuzione senza configurare gli ACL di rete per limitare il traffico destinato al dispositivo stesso, l'intera distribuzione può essere a rischio. Se gli indirizzi IP dei nodi Proxy applicazione Web cambiano, è necessario reimpostare gli ACL di rete, ovvero i proxy devono essere configurati per l'uso di [indirizzi IP interni statici](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
 
-![AD FS in Azure con ACL di rete.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)  
+![AD FS in Azure con ACL di rete.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure.png)
 
 Un'altra opzione consiste nell'usare il dispositivo [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) per controllare il traffico tra i server proxy AD FS e i server AD FS. Questa opzione è conforme alle procedure consigliate per la sicurezza e la disponibilità elevata e richiede meno attività di amministrazione dopo l'installazione iniziale, perché il dispositivo Barracuda NG Firewall offre una modalità di tipo elenco elementi consentiti per l'amministrazione del firewall e può essere installato direttamente in una rete virtuale di Azure. Questo approccio elimina la necessità di configurare gli ACL di rete ogni volta che si aggiunge un nuovo server alla distribuzione. Questa opzione comporta tuttavia maggiori costi e complessità per la distribuzione iniziale.
 
 In questo caso, vengono distribuite due reti virtuali invece di una, ad esempio rete virtuale 1 e rete virtuale 2. La rete virtuale 1 contiene i proxy, mentre la rete virtuale 2 contiene i servizi token di sicurezza e la connessione di rete alla rete aziendale. La rete virtuale 1 è quindi fisicamente, anche se virtualmente, isolata dalla rete virtuale 2 e di conseguenza anche dalla rete aziendale. La rete virtuale 1 è quindi connessa alla rete virtuale 2 con una speciale tecnologia di tunneling chiamata Transport Independent Network Architecture (TINA). Il tunnel TINA è collegato a ognuna delle reti virtuali tramite un dispositivo Barracuda NG Firewall, uno in ogni rete virtuale. Per garantire la disponibilità elevata, è consigliabile distribuire due dispositivi Barracuda in ogni rete virtuale, uno attivo e l'altro passivo. Questi dispositivi offrono funzionalità firewall complesse che consentono di simulare il funzionamento di una tradizionale rete perimetrale locale in Azure.
 
-![AD FS in Azure con firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)  
+![AD FS in Azure con firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
 
 Per altre informazioni, vedere [AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni](#BKMK_CloudOnlyFed).
 

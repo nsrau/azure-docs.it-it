@@ -6,7 +6,7 @@
    authors="JiangChen79"
    manager="felixwu"
    editor=""
-   tags="top-support-issue, azure-resource-manager"/>  
+   tags="top-support-issue, azure-resource-manager"/>
 
 <tags
   ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="09/09/2016"
-  ms.author="cjiang"/>  
+  ms.author="cjiang"/>
 
 # Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure
 

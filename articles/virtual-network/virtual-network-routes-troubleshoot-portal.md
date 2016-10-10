@@ -7,7 +7,7 @@
    manager="narayan"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/23/2016"
-   ms.author="anithaa" />  
+   ms.author="anithaa" />
 
 # Risolvere i problemi relativi alle route con il portale di Azure
 
@@ -52,17 +52,17 @@ Per visualizzare le route aggregate applicate a una VM, seguire questa procedura
 3. Selezionare una VM in cui risolvere i problemi nell'elenco visualizzato. Verrà visualizzato un pannello della VM contenente opzioni.
 4. Fare clic su **Diagnostica e risoluzione dei problemi** e quindi selezionare un problema comune. Per questo esempio si seleziona **Non è possibile connettersi alla macchina virtuale Windows**.
 
-	![](./media/virtual-network-routes-troubleshoot-portal/image1.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image1.png)
 
 5. Sotto il problema vengono visualizzati i passaggi, come illustrato nell'immagine seguente:
 
-	![](./media/virtual-network-routes-troubleshoot-portal/image2.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image2.png)
 
 	Fare clic su *effective routes* (route valide) nell'elenco dei passaggi consigliati.
 
 6. Verrà visualizzato il pannello **Route valide**, come illustrato nell'immagine seguente:
 
-	![](./media/virtual-network-routes-troubleshoot-portal/image3.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image3.png)
 
 	Se la VM ha una sola interfaccia di rete, sarà selezionata per impostazione predefinita. Se sono presenti più interfacce di rete, selezionare quella per cui si vogliono visualizzare le route valide.
 
@@ -76,13 +76,13 @@ Per visualizzare le route aggregate applicate a una VM, seguire questa procedura
     
 7. Nell'immagine del passaggio precedente non sono elencate route alla rete virtuale *WestUS-VNET3* (prefisso 10.10.0.0/16) da *WestUS-VNet1* (prefisso 10.9.0.0/16). Nell'immagine seguente, lo stato del collegamento per il peering è *Disconnesso*:
 	
-	![](./media/virtual-network-routes-troubleshoot-portal/image4.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
 
 	Il collegamento bidirezionale per il peering è interrotto e questo spiega perché la macchina virtuale VM1 non è riuscita a connettersi a VM3 nella rete virtuale *WestUS-VNet3*.
 
 8. L'immagine seguente illustra le route dopo che è stato stabilito il collegamento bidirezionale per il peering:
 
-	![](./media/virtual-network-routes-troubleshoot-portal/image5.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image5.png)
 
 Per altri scenari di risoluzione dei problemi correlati al tunneling forzato e alla valutazione delle route, vedere la sezione [Considerazioni](virtual-network-routes-troubleshoot-portal.md#Considerations) di questo articolo.
 
@@ -95,11 +95,11 @@ In caso di impatto sul flusso del traffico di rete per una determinata interfacc
 3. Cercare nell'elenco il nome di un'interfaccia di rete oppure selezionarlo nell'elenco visualizzato. In questo esempio si seleziona **VM1-NIC1**.
 4. Selezionare **Route valide** nel pannello **Interfaccia di rete**, come illustrato nell'immagine seguente:
    
-   	![](./media/virtual-network-routes-troubleshoot-portal/image6.png)  
+   	![](./media/virtual-network-routes-troubleshoot-portal/image6.png)
 
     L'impostazione predefinita di **Ambito** corrisponde all'interfaccia di rete selezionata.
 
-  	![](./media/virtual-network-routes-troubleshoot-portal/image7.png)  
+  	![](./media/virtual-network-routes-troubleshoot-portal/image7.png)
 
 
 ### Visualizzare le route valide per una tabella di route
@@ -108,7 +108,7 @@ Quando si modificano route definite dall'utente in una tabella di route, può es
 
 Per questo esempio, la route definita dall'utente *UDRoute* è specificata nella tabella di route *UDRouteTable* e invia tutto il traffico Internet da *Subnet1* della rete virtuale *WestUS-VNet1*, attraverso un'appliance virtuale di rete, a *Subnet2* della stessa rete virtuale. La route è illustrata nella figura seguente:
 
-![](./media/virtual-network-routes-troubleshoot-portal/image8.png)  
+![](./media/virtual-network-routes-troubleshoot-portal/image8.png)
 
 Per visualizzare le route aggregate per una tabella di rete, seguire questa procedura:
 
@@ -116,13 +116,13 @@ Per visualizzare le route aggregate per una tabella di rete, seguire questa proc
 2. Fare clic su **Altri servizi** e quindi su **Tabelle route**.
 3. Cercare nell'elenco la tabella di route per cui si vogliono visualizzare le route aggregate e selezionarla. In questo esempio si seleziona **UDRouteTable**. Viene visualizzato un pannello per la tabella di route selezionata, come illustrato nell'immagine seguente:
 
-	![](./media/virtual-network-routes-troubleshoot-portal/image9.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image9.png)
 
 4. Selezionare **Route valide** nel pannello **Tabella route**. L'impostazione di **Ambito** corrisponde alla tabella di route selezionata.
 5. Una tabella di route può essere applicata a più subnet. In **Subnet** selezionare quella che si vuole esaminare nell'elenco. In questo esempio si seleziona **Subnet1**.
 6. Selezionare un'opzione in **Interfaccia di rete**. Nell'elenco sono incluse tutte le interfacce di rete connesse alla subnet selezionata. In questo esempio si seleziona **VM1-NIC1**.
 
-	![](./media/virtual-network-routes-troubleshoot-portal/image10.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image10.png)
 
 	>[AZURE.NOTE] Se l'interfaccia di rete non è associata a una VM in esecuzione, non vengono visualizzate route valide.
 

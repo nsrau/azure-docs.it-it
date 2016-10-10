@@ -7,7 +7,7 @@
    manager="rossort"
    editor="tysonn"
    tags="azure-resource-manager"
-/>  
+/>
 <tags 
    ms.service="application-gateway"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
-   ms.author="amitsriva" />  
+   ms.author="amitsriva" />
 
 # Registrazione diagnostica e metriche per il gateway applicazione
 
@@ -40,11 +40,11 @@ La registrazione di controllo viene abilitata automaticamente per ogni risorsa d
 
 1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il formato sarà: /subscriptions/<ID sottoscrizione>/resourceGroups/<nome gruppo di risorse>/providers/Microsoft.Storage/storageAccounts/<nome account di archiviazione>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. Per reperire queste informazioni è possibile usare il portale di anteprima.
 
-	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)  
+	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
 
 2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il formato sarà: /subscriptions/<ID sottoscrizione>/resourceGroups/<nome gruppo di risorse>/providers/Microsoft.Network/applicationGateways/<nome gateway applicazione>. Per reperire queste informazioni è possibile usare il portale di anteprima.
 
-	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)  
+	![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente:
 
@@ -66,25 +66,25 @@ Per il gateway applicazione, sono disponibili 3 log.
 
 Fare clic su **Attiva diagnostica** per avviare la raccolta dei dati.
 
-![pannello impostazioni di diagnostica][1]  
+![pannello impostazioni di diagnostica][1]
 
 ### Passaggio 2
 
 Nel pannello **Impostazioni diagnostica** vengono configurate le impostazioni per i log di diagnostica. In questo esempio viene usato Log Analytics per archiviare i log. Fare clic su **Configura** in **Log Analytics** per configurare l'area di lavoro. Per salvare i log di diagnostica, è possibile anche usare l'hub eventi e un account di archiviazione.
 
-![pannello Diagnostica][2]  
+![pannello Diagnostica][2]
 
 ### Passaggio 3
 
 Scegliere un'area di lavoro di OMS oppure crearne una nuova. In questo esempio viene usata un'area di lavoro esistente.
 
-![area di lavoro oms][3]  
+![area di lavoro oms][3]
 
 ### Passaggio 4
 
 Al termine, verificare le impostazioni e fare clic su **Salva** per salvarle.
 
-![confermare la selezione][4]  
+![confermare la selezione][4]
 
 ## Log di controllo
 
@@ -181,7 +181,7 @@ Metrica è una funzionalità di alcune risorse di Azure che consente di visualiz
 
 Per un elenco delle metriche attualmente supportate, visitare [Supported metrics with Azure Monitor](../azure-portal/monitoring-supported-metrics.md) (Metriche supportate con Monitoraggio di Azure).
 
-![visualizzazione della metrica][5]  
+![visualizzazione della metrica][5]
 
 ## Regole di avviso
 
@@ -193,7 +193,7 @@ L'esempio seguente illustra la creazione di una regola di avviso per l'invio di 
 
 Per iniziare, fare clic su **Add metric alert** (Aggiungi avviso sulla metrica). Questo può essere visualizzato anche dal pannello delle metriche.
 
-![pannello Regole di avviso][6]  
+![pannello Regole di avviso][6]
 
 ### Passaggio 2
 
@@ -205,15 +205,15 @@ Lo strumento di selezione **Period** (Periodo) è possibile inserire valori comp
 
 Selezionando **Email owners, contributors, and readers** (Invia messaggio a proprietari, collaboratori e lettori), il messaggio di posta elettronica può essere dinamicamente basato sugli utenti che dispongono di accesso a questa risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella di testo **Additional administrator email(s)** (Indirizzi di posta elettronica aggiuntivi dell'amministratore).
 
-![aggiungere regole di avviso][7]  
+![aggiungere regole di avviso][7]
 
 Se il limite viene superato, l'utente riceve un messaggio di posta elettronica simile al seguente:
 
-![messaggio di posta elettronica sul superamento della soglia][8]  
+![messaggio di posta elettronica sul superamento della soglia][8]
 
 Dopo la creazione dell'avviso sulla metrica, viene visualizzato un elenco degli avvisi e viene fornita una panoramica su tutte le regole di avviso.
 
-![visualizzazione della regola di avviso][9]  
+![visualizzazione della regola di avviso][9]
 
 Per altre informazioni sulle notifiche di avviso, visitare [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md) (Ricevere notifiche di avviso).
 

@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="mumian" 
    manager="jhubbard" 
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="09/23/2016"
-   ms.author="jgao"/>  
+   ms.author="jgao"/>
 
 # Gestire Azure Data Lake Analytics tramite .NET SDK di Azure
 
@@ -29,8 +29,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
-<!-- ################################ -->  
-<!-- ################################ -->  
+<!-- ################################ -->
+<!-- ################################ -->
 
 
 ## Connettersi ad Azure Data Lake Analytics
@@ -169,8 +169,8 @@ Il frammento di codice seguente elimina un account Data Lake Analytics:
 
 	_adlaClient.Account.Delete(resourceGroupName, adlaAccountName);
 
-<!-- ################################ -->  
-<!-- ################################ -->  
+<!-- ################################ -->
+<!-- ################################ -->
 ## Gestire le origini dati degli account
 
 Data Lake Analytics attualmente supporta le seguenti origini dati:
@@ -200,7 +200,7 @@ Un servizio di Analisi Data Lake può includere i componenti seguenti:
 
 È possibile creare tutti questi componenti in un unico gruppo di gestione delle risorse per semplificarne la gestione.
 
-![Account e archiviazione di Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)  
+![Account e archiviazione di Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
 Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono trovarsi nello stesso data center di Azure, mentre il gruppo di gestione delle risorse può trovarsi anche in un data center diverso.
 

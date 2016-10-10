@@ -6,7 +6,7 @@
 	services="stream-analytics"
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="09/26/2016" 
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/>
 
 # Come eseguire un processo di streaming in Analisi di flusso di Azure
 
@@ -25,11 +25,11 @@ Per avviare il processo:
 
 1.	Nel portale di Azure classico, dal dashboard del processo, fare clic su **Start** nella parte inferiore della pagina.
 
-    ![Pulsante Avvia processo](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)  
+    ![Pulsante Avvia processo](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
 
     Nel portale di Azure fare clic su **Start** nella parte superiore della pagina del processo.
 
-    ![Portale di Azure, Pulsante Avvia processo](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
+    ![Portale di Azure, Pulsante Avvia processo](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
 
 2.	Specificare un valore per **Avvia output** per determinare quando questo processo inizierà a produrre output. L'impostazione predefinita per i processi che non sono stati precedentemente avviati è **Ora di inizio processo**, il che significa che il processo avvia immediatamente l'elaborazione dati. È inoltre possibile specificare un tempo **personalizzato** passato (per l'utilizzo di dati cronologici) o futuro (per posticipare l'elaborazione a un secondo momento). Nei casi in cui un processo è stato precedentemente avviato e arrestato, l'opzione **Ultimo arresto** è disponibile per consentire di riprendere il processo dall'ultima data di output ed evitare la perdita di dati.
 

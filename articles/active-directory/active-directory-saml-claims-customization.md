@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="asmalser-msft"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -42,7 +42,7 @@ Nel menu **Valore attributo** selezionare **user.mail** per impostare l'attestaz
 
 È anche possibile usare la funzione specifica ExtractMailPrefix() per rimuovere il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente in modo che venga passata solo la prima parte del nome utente (ad esempio, "joesmith" invece di joesmith@contoso.com).
 
-![][3]  
+![][3]
 
 ##Aggiunta di attestazioni
 
@@ -62,7 +62,7 @@ Se per un determinato utente non è stato archiviato alcun valore per un attribu
 - [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md)
 - [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 	
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
 [2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/23/2016"
-	ms.author="curtand"/>  
+	ms.author="curtand"/>
 
 # Gestire password in Azure Active Directory
 

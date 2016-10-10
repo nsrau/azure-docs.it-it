@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/21/2016"
-	ms.author="jutang;tamram"/>  
+	ms.author="jutang;tamram"/>
 
 # Replica di Archiviazione di Azure
 

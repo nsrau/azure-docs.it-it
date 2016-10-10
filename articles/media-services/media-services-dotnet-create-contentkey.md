@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Creare entità ContentKey mediante .NET

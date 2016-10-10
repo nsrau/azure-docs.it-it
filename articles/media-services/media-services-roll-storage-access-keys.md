@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako"
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="milangada;cenkdin;juliako"/>  
+	ms.author="milangada;cenkdin;juliako"/>
 
 #Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
 

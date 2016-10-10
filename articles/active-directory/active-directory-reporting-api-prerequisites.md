@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="dhanyahk"
     manager="femila"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="active-directory"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="09/25/2016"
-    ms.author="dhanyahk;markvi"/>  
+    ms.author="dhanyahk;markvi"/>
 
 # Prerequisiti di accesso all'API di creazione report di Azure AD 
 
@@ -42,21 +42,21 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)
 
 2. Nell'elenco **Active Directory** selezionare la directory.
 
 3. Scegliere **Applicazioni** dal menu in alto.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)
 
 4. Nella barra inferiore fare clic su **Aggiungi**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/03.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/03.png)
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/04.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/04.png)
 
 
 6. Nella finestra di dialogo **Informazioni sull'applicazione** seguire questa procedura:
@@ -86,32 +86,32 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)
 
 2. Nell'elenco **Active Directory** selezionare la directory.
 
 3. Scegliere **Applicazioni** dal menu in alto.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)
 
 
 3. Nell'elenco delle applicazioni selezionare l'applicazione appena creata.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/07.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/07.png)
 
 4. Nel menu in alto fare clic su **Configura**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/08.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/08.png)
 
 
 5. Nella sezione **Autorizzazioni per altre applicazioni**, per la risorsa **Azure Active Directory** fare clic sull'elenco a discesa **Autorizzazioni applicazione** e selezionare **Lettura dati directory**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/09.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/09.png)
 
 
 5. Nella barra inferiore fare clic su **Salva**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/10.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/10.png)
 
 
 ## Raccogliere le impostazioni di configurazione dalla directory
@@ -129,42 +129,42 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)
 
 2. Nell'elenco **Active Directory** selezionare la directory.
 
 3. Nel menu in alto fare clic su **Domini**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/11.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/11.png)
 
 4. Nella colonna **Nome di dominio** copiare il nome di dominio.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/12.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/12.png)
 
 
 ### Ottenere l'ID client dell'applicazione
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)
 
 2. Nell'elenco **Active directory** selezionare la directory.
 
 3. Scegliere **Applicazioni** dal menu in alto.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)
 
 4. Nell'elenco delle applicazioni selezionare l'applicazione appena creata.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/07.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/07.png)
 
 4. Nel menu in alto fare clic su **Configura**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/08.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/08.png)
 
 4. Copiare l'**ID client**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/13.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/13.png)
 
 
 ### Ottenere il segreto client dell'applicazione
@@ -173,31 +173,31 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/01.png)
 
 2. Nell'elenco **Active directory** selezionare la directory.
 
 3. Scegliere **Applicazioni** dal menu in alto.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/02.png)
 
 4. Nell'elenco delle applicazioni selezionare l'applicazione appena creata.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/07.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/07.png)
 
 4. Nel menu in alto fare clic su **Configura**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/08.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/08.png)
 
 5. Nella sezione **Chiavi** eseguire la procedura seguente:
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/14.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/14.png)
 
     a. Nell'elenco delle durate selezionare una durata
 
     b. Nella barra inferiore fare clic su **Salva**.
 
-	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/10.png)  
+	![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites/10.png)
 
     c. Copiare il valore della chiave.
 

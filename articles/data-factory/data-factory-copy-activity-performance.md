@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="linda33wj"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="jingwang"/>  
+	ms.author="jingwang"/>
 
 
 # Guida alle prestazioni dell'attività di copia e all'ottimizzazione
@@ -160,11 +160,11 @@ Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'
 
 Nello scenario di copia cloud (entrambi gli archivi dati di origine e sink si trovano nel cloud), il gateway non viene usato. Il servizio Data Factory esegue le operazioni di copia.
 
-![Copia di staging: scenario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)  
+![Copia di staging: scenario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
 Nello scenario di copia ibrido (l'origine è in locale e il sink è nel cloud), il gateway sposta i dati dall'archivio dati di origine a un archivio dati di staging. Il servizio di Data Factory sposta i dati dall'archivio dati di staging all'archivio dati sink. La copia di dati da un archivio dati cloud in un archivio dati locale tramite la funzionalità di staging è supportata anche con un flusso invertito.
 
-![Copia di staging: scenario ibrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)  
+![Copia di staging: scenario ibrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
 Quando si attiva lo spostamento dei dati usando un archivio di staging, è possibile specificare se i dati devono essere compressi prima dello spostamento dall'archivio dati di origine all'archivio dati provvisorio o di staging e poi decompressi prima dello spostamento dall'archivio dati provvisorio o di staging all'archivio dati sink.
 
@@ -353,7 +353,7 @@ Prestare attenzione al numero di set di dati e di attività di copia che richied
 
 Come si può notare, i dati vengono elaborati e spostati in base a un flusso sequenziale: SQL Server > LAN > Gateway > WAN > archivio BLOB. **Le prestazioni complessive vengono controllate dalla velocità effettiva minima in tutta la pipeline**.
 
-![Flusso di dati](./media/data-factory-copy-activity-performance/case-study-pic-1.png)  
+![Flusso di dati](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
 
 Uno o più dei fattori seguenti possono provocare un collo di bottiglia nelle prestazioni:
 
@@ -375,19 +375,19 @@ In tal caso, la compressione dati bzip2 potrebbe rallentare l'intera pipeline. I
 
 **Analisi e ottimizzazione delle prestazioni**: si supponga di aver installato il gateway in un computer quad-core. Data Factory usa 16 copie parallele per spostare simultaneamente i file dal file system all'archivio BLOB. L'esecuzione parallela deve garantire una velocità effettiva elevata. È anche possibile specificare in modo esplicito il numero di copie parallele. Quando si copiano molti file di piccole dimensioni, le copie parallele migliorano notevolmente la velocità effettiva garantendo un uso più efficiente delle risorse.
 
-![Scenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)  
+![Scenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
 **Scenario II**: copiare 20 BLOB da 500 MB dall'archivio BLOB in Data Lake Store Analytics e ottimizzare le prestazioni.
 
 **Analisi e ottimizzazione delle prestazioni**: in questo scenario Data Factory copia i dati dall'archivio BLOB in Data Lake Store tramite copia singola, con **parallelCopies** impostato su 1, e unità di spostamento dati cloud singole. La velocità effettiva osservata si avvicinerà ai valori indicati nella sezione [Informazioni di riferimento sulle prestazioni](#performance-reference) precedente.
 
-![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)  
+![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
 **Scenario III**: i singoli file hanno grandi dimensioni e il volume totale molto elevato.
 
 **Analisi e ottimizzazione delle prestazioni**: l'aumento di **parallelCopies** non permette di migliorare le prestazioni di copia a causa dei limiti previsti per le risorse di una unità di spostamento dati cloud singola. È invece necessario specificare altre unità di spostamento dati cloud per ottenere più risorse ed eseguire lo spostamento dati. Non specificare un valore per la proprietà **parallelCopies**. Il parallelismo è gestito da Data Factory. Se, in questo caso, si imposta **cloudDataMovementUnits** su 4, è possibile ottenere una velocità effettiva di circa quattro volte superiore.
 
-![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)  
+![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
 ## Riferimenti
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:

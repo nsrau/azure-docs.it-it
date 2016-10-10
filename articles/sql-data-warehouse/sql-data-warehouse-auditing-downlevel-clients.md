@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="ronortloff"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>  
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica
 

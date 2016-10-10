@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />  
+    editor="tysonn" />
 <tags 
     ms.service="service-bus-relay"
     ms.devlang="na"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="09/27/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Esercitazione su Inoltro del bus di servizio
 
@@ -43,13 +43,13 @@ Il contratto di servizio specifica le operazioni (terminologia dei servizi Web p
 
 2. Creare un nuovo progetto di applicazione console. Fare clic sul menu**File**, selezionare **Nuovo**, quindi fare clic su **Progetto**. Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C#** (se **Visual C#** non è visualizzato, vedere in **Altri linguaggi**). Fare clic sul modello **Applicazione console** e denominarlo **EchoService**. Fare clic su **OK** per creare il progetto.
 
-	![][2]  
+	![][2]
 
 3. Installare il pacchetto NuGet del bus di servizio. Questo pacchetto aggiunge automaticamente i riferimenti alle librerie del bus di servizio, oltre all'oggetto **System.ServiceModel** di WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) è lo spazio dei nomi che consente l'accesso a livello di codice alle funzionalità di base di WCF. Il bus di servizio utilizza molti degli oggetti e degli attributi di WCF per definire i contratti di servizio.
 
 	In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Assicurarsi che il nome del progetto sia selezionato nella casella **Versione/i**. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-	![][3]  
+	![][3]
 
 3. In Esplora soluzioni fare doppio clic sul file Program.cs per aprirlo nell'editor, se non è già aperto.
 
@@ -431,7 +431,7 @@ Il passaggio successivo consiste nel creare un'applicazione console del bus di s
 
 1. Installare il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus). In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **EchoClient** e quindi scegliere **Gestisci pacchetti NuGet**. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
-	![][3]  
+	![][3]
 
 1. Aggiungere un'istruzione `using` per lo spazio dei nomi [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) nel file Program.cs.
 
@@ -645,11 +645,11 @@ Una delle differenze principali, tuttavia, consiste nel fatto che l'applicazione
 
 4. Impostare su **Avvio** la casella **Azione** per entrambi i progetti **EchoService** ed **EchoClient**.
 
-	![][5]  
+	![][5]
 
 5. Fare clic su **Dipendenze progetto**. Nella casella **Progetti** selezionare **EchoClient**. Nella casella **Dipendente da** verificare che sia selezionato **EchoService**.
 
-	![][6]  
+	![][6]
 
 6. Fare clic su **OK** per chiudere la finestra di dialogo **Proprietà**.
 
@@ -671,15 +671,15 @@ Una delle differenze principali, tuttavia, consiste nel fatto che l'applicazione
 
 11. Dopo l'immissione di questi valori, il client aprirà un canale per il servizio e richiederà l'immissione dello stesso testo, come mostrato nell'esempio di output della console seguente.
 
-	`Enter text to echo (or [Enter] to exit):`  
+	`Enter text to echo (or [Enter] to exit):`
 
 	Immettere il testo da inviare all'applicazione del servizio, quindi premere INVIO. Il testo viene inviato al servizio tramite l'operazione del servizio Echo e viene visualizzato nella finestra della console del servizio, come illustrato nell'output di esempio seguente.
 
-	`Echoing: My sample text`  
+	`Echoing: My sample text`
 
 	L'applicazione client riceve il valore restituito dell'operazione `Echo`, ovvero il testo originale, quindi lo stampa nella finestra della console. Di seguito è riportato un output di esempio dalla finestra della console client.
 
-	`Server echoed: My sample text`  
+	`Server echoed: My sample text`
 
 12. È possibile continuare a inviare messaggi di testo dal client al servizio in questo modo. Al termine, premere INVIO nelle finestre del client e della console per terminare entrambe le applicazioni.
 

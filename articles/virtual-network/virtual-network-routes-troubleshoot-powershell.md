@@ -7,7 +7,7 @@
    manager="narayan"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/23/2016"
-   ms.author="anithaa" />  
+   ms.author="anithaa" />
 
 # Risoluzione dei problemi di route con Azure PowerShell
 
@@ -96,7 +96,7 @@ Per visualizzare le route di aggregazione applicate a un'interfaccia di rete, co
 
 3. Non ci sono route elencate per la rete virtuale *WestUS VNet3* (prefisso 10.10.0.0/16)** da *WestUS VNet1* (prefisso 10.9.0.0/16) nell'output del passaggio precedente. Come illustrato nell'immagine seguente, la rete virtuale che collega in peering il collegamento con la rete virtuale *WestUS VNet3* ha lo stato *Disconnesso*.
 	
-	![](./media/virtual-network-routes-troubleshoot-portal/image4.png)  
+	![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
 
 	Il collegamento bidirezionale per il peering è interrotto, il che spiega il motivo per cui non è riuscita la connessione tra VM1 e VM3 nella rete virtuale *WestUS VNet3*. Configurare di nuovo un collegamento di peering di rete virtuale bidirezionale per le reti virtuali *WestUS VNet1* e *WestUS VNet3*. Di seguito è mostrato l'output restituito dopo che il collegamento di peering della rete virtuale è stato stabilito correttamente:
 

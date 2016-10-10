@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/21/2016"
-	ms.author="Markvi"/>  
+	ms.author="Markvi"/>
 
 # Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1
 

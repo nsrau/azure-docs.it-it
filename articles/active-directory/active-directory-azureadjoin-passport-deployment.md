@@ -7,7 +7,7 @@
 	authors="markusvi"
 	manager="femila"
 	editor=""
-	tags="azure-classic-portal"/>  
+	tags="azure-classic-portal"/>
 
 <tags
 	ms.service="active-directory"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/28/2016"
-	ms.author="femila;markvi"/>  
+	ms.author="femila;markvi"/>
 
 
 # Abilitare Microsoft Windows Hello for Business nell'organizzazione
@@ -52,16 +52,16 @@ Per distribuire certificati utente in base alle chiavi di Windows Hello for Busi
 
 1. Aprire **System Center Configuration Manager**, passare ad **Asset e conformità > Impostazioni di conformità > Accesso risorse aziendali > Profili Windows Hello for Business**.
 
-	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/01.png)  
+	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/01.png)
 
 
 2. Nella barra degli strumenti nella parte superiore fare clic su **Crea profilo Windows Hello for Business**.
 
-	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/02.png)  
+	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/02.png)
 
 2. Nella finestra di dialogo **Generale** seguire questa procedura:
 
-	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/03.png)  
+	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/03.png)
 
 	a. Nella casella di testo **Nome** digitare un nome per il profilo, ad esempio **Il mio profilo WHfB**.
 
@@ -70,12 +70,12 @@ Per distribuire certificati utente in base alle chiavi di Windows Hello for Busi
 
 2. Nella finestra di dialogo **Piattaforme supportate** selezionare le piattaforme che saranno fornite con questo profilo Windows Hello for Business e fare clic su **Avanti**.
 
-	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/04.png)  
+	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/04.png)
 
 
 2. Nella finestra di dialogo **Impostazioni** seguire questa procedura:
 
-	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/05.png)  
+	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/05.png)
 
 	a. Per **Configura Windows Hello for Business** selezionare **Attivato**.
 
@@ -94,7 +94,7 @@ Per distribuire certificati utente in base alle chiavi di Windows Hello for Busi
 
 2. Nel barra degli strumenti in alto fare clic su **Distribuisci**.
 
-	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/06.png)  
+	![Configurare Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/06.png)
 
 
 

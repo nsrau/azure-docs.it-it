@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="willzhan"  
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"  
-	ms.author="willzhan;kilroyh;yanmf;juliako"/>  
+	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure
 

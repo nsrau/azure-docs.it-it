@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Come configurare un set di disponibilità per le macchine virtuali Windows nel modello di distribuzione classica
 

@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/26/2016"
-	ms.author="ashwink"/>  
+	ms.author="ashwink"/>
 
 # Panoramica delle metriche in Microsoft Azure 
 
@@ -52,7 +52,7 @@ Le metriche presentano le caratteristiche seguenti:
 - **Usare** le metriche mediante le nuove API REST del monitoraggio di Azure.
 - **Eseguire query** delle metriche usando i cmdlet di PowerShell o l'API REST multi-piattaforma.
 
- ![Reindirizzamento delle metriche nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview0.png)  
+ ![Reindirizzamento delle metriche nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview0.png)
 
 ## Accedere alle metriche dal portale
 Ecco una breve procedura dettagliata per creare un grafico delle metriche attraverso il portale di Azure
@@ -63,7 +63,7 @@ Ecco una breve procedura dettagliata per creare un grafico delle metriche attrav
 3. Dopo aver creato un sito Web, accedere al pannello Panoramica del sito Web.
 4. È possibile visualizzare nuove metriche come un riquadro "Monitoraggio". È possibile modificare il riquadro e selezionare altre metriche
 
- ![Metriche su una risorsa nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview1.png)  
+ ![Metriche su una risorsa nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### Accedere a tutte le metriche in un'unica posizione
 1. Aprire il portale di Azure
@@ -73,7 +73,7 @@ Ecco una breve procedura dettagliata per creare un grafico delle metriche attrav
 5. Selezionare la metrica desiderata e tracciarla.
 6. È possibile aggiungerla al dashboard facendo clic sul pin nell'angolo superiore destro.
 
- ![Accedere a tutte le metriche in un'unica posizione nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview2.png)  
+ ![Accedere a tutte le metriche in un'unica posizione nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 
 >[AZURE.NOTE] È possibile accedere alle metriche a livello di host dalle VM (basate su Azure Resource Manager) e dai set di scalabilità delle VM senza altre eventuali configurazioni di diagnostica. Queste nuove metriche a livello di host sono disponibili per le istanze di Windows e Linux. Queste metriche non vanno confuse con le metriche a livello di sistema operativo guest a cui si accede quando si attiva la diagnostica di Azure sulle VM o sui set di scalabilità delle VM. Per ulteriori informazioni sulla configurazione della diagnostica di Azure, vedere [Che cos'è la diagnostica di Microsoft Azure?](../azure-diagnostics.md).
@@ -91,7 +91,7 @@ Per una procedura ancor più dettagliata con le API REST del monitoraggio di Azu
 ## Opzioni di esportazione delle metriche
 È possibile accedere al pannello Log di diagnostica nella scheda Monitoraggio e visualizzare le opzioni di esportazione delle metriche. È possibile selezionare le metriche (e i log di diagnostica) da reindirizzare nell'archivio BLOB, negli hub eventi o in Log Analytics di OMS per i casi di uso descritti in precedenza in questo articolo.
 
- ![Opzioni di esportazione per le metriche nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview3.png)  
+ ![Opzioni di esportazione per le metriche nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 È configurabile tramite i modelli di Resource Manager, [PowerShell](insights-powershell-samples.md), [interfaccia della riga di comando](insights-cli-samples.md) o [API REST](https://msdn.microsoft.com/library/dn931943.aspx).
 
@@ -101,12 +101,12 @@ Per una procedura ancor più dettagliata con le API REST del monitoraggio di Azu
 ### Regole di avviso
 È possibile configurare le regole di avviso sulle metriche. Queste regole di avviso permettono di controllare se una metrica ha superato una determinata soglia e inviare all'utente una notifica tramite posta elettronica o generare un webhook con cui eseguire qualsiasi script personalizzato. È anche possibile usare il webhook per configurare le integrazioni dei prodotti di terze parti.
 
- ![Metriche e regole di avviso nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview4.png)  
+ ![Metriche e regole di avviso nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
 ### Autoscale
 Alcune risorse di Azure supportano la scalabilità orizzontale o verticale di più istanze per gestire i carichi di lavoro. La scalabilità automatica si applica ai servizi app (app Web), ai set di scalabilità delle macchine virtuali (VMSS) e ai servizi Cloud classici. È possibile configurare le regole di scalabilità automatica per una scalabilità orizzontale o verticale quando una data metrica che influisce sul carico di lavoro supera una soglia specificata. Per ulteriori informazioni, vedere [Panoramica della scalabilità automatica](monitoring-overview-autoscale.md).
 
- ![Metriche e scalabilità automatica nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview5.png)  
+ ![Metriche e scalabilità automatica nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## Metriche e servizi supportati
 Il monitoraggio di Azure è una nuova infrastruttura di metriche. Fornisce supporto per i seguenti servizi di Azure nel portale di Azure e la nuova versione dell'API del monitoraggio di Azure:

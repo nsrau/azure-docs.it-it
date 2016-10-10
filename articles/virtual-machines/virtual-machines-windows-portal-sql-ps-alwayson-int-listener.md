@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="MikeRayMSFT"
    manager="jhubbard"
-   editor="monicar"/>  
+   editor="monicar"/>
 
 <tags
    ms.service="virtual-machines"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-windows-sql-server"
    ms.workload="infrastructure-services"
    ms.date="09/22/2016"
-   ms.author="MikeRayMSFT"/>  
+   ms.author="MikeRayMSFT"/>
 
 # Configurare uno o più listener nei gruppi di disponibilità AlwaysOn - Resource Manger 
 

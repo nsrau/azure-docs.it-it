@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Pianificazione ed esecuzione con Data Factory
 Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo Azure Data Factory.
@@ -35,7 +35,7 @@ La sezione scheduler del file JSON dell'attività consente di specificare una pi
 	    "interval": 1
 	},  
 
-![Esempio di utilità di pianificazione](./media/data-factory-scheduling-and-execution/scheduler-example.png)  
+![Esempio di utilità di pianificazione](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
 Come illustrato nel diagramma, se si specifica una pianificazione per l'attività vengono create finestre a cascata costituite da una serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti. Queste finestre logiche a cascata per l'attività vengono denominate *finestre attività*.
 
@@ -58,7 +58,7 @@ Con Data Factory è possibile elaborare i dati in serie temporale in modalità b
 
 Ogni unità di dati usata e prodotta da un'esecuzione di attività prende il nome di sezione di dati. Nel diagramma seguente viene illustrato un esempio di un'attività con un set di dati di input e un set di dati di output. Il parametro **availability** per questi set di dati è impostato su frequenza oraria.
 
-![Utilità di pianificazione della disponibilità](./media/data-factory-scheduling-and-execution/availability-scheduler.png)  
+![Utilità di pianificazione della disponibilità](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
 Il diagramma precedente illustra le sezioni di dati orarie per i set di dati di input e di output. Il diagramma mostra tre sezioni di input che sono pronte per l'elaborazione. L'attività 10-11 AM è in corso e produce la sezione di output 10-11 AM.
 
@@ -203,7 +203,7 @@ Nell'esempio, le sezioni relative alla pianificazione dell'attività e alla disp
 
 Quando vengono eseguite tre delle sezioni nella fascia oraria 8-11 AM, i dati nel database SQL di Azure sono i seguenti:
 
-![Input di esempio](./media/data-factory-scheduling-and-execution/sample-input-data.png)  
+![Input di esempio](./media/data-factory-scheduling-and-execution/sample-input-data.png)
 
 Dopo la distribuzione della pipeline, l'archiviazione BLOB di Azure viene popolata come segue:
 
@@ -236,7 +236,7 @@ L'articolo [Creazione di pipeline](data-factory-create-pipelines.md) ha introdot
 
 Si consideri l'esempio seguente che descrive due attività. Activity1 produce un set di dati in serie temporale il cui output è costituito da sezioni usate come input da Activity2 per la produzione del set di dati in serie temporale che rappresenta l'output finale.
 
-![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)  
+![Sezione non riuscita](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
 Il diagramma illustra che in una delle tre sezioni recenti si è verificato un errore durante la produzione della sezione 9-10 AM per Dataset2. Data Factory tiene automaticamente traccia della dipendenza per il set di dati della serie temporale. Di conseguenza, non viene avviata l'esecuzione dell'attività per la sezione di downstream 9-10 AM.
 
@@ -244,7 +244,7 @@ Gli strumenti di monitoraggio e gestione di Data Factory consentono inoltre di a
 
 Dopo che la sezione 9-10 AM di **Dataset2** è stata eseguita nuovamente, Data Factory avvia l'esecuzione della sezione dipendente 9-10 AM nel set di dati finale.
 
-![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)  
+![Nuova esecuzione di una sezione non riuscita](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
 ## Eseguire attività in sequenza
 È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Le attività possono essere nella stessa pipeline o in pipeline diverse. La seconda attività viene eseguita solo quando la prima viene completata correttamente.
@@ -258,11 +258,11 @@ In questo scenario, le attività A1 e A2 si trovano in pipeline differenti. L'at
 
 La visualizzazione diagramma sarebbe simile al diagramma seguente:
 
-![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)  
+![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
 Come anticipato, le attività possono essere nella stessa pipeline. La visualizzazione diagramma con entrambe le attività nella stessa pipeline sarebbe simile al diagramma seguente:
 
-![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)  
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### Copiare in sequenza
 È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Ad esempio, si supponga di avere due attività di copia in una pipeline (CopyActivity1 e CopyActivity2) con i set di dati di input e output seguenti:
@@ -573,7 +573,7 @@ Lo script Hive riceve le informazioni *DateTime* appropriate sotto forma di para
 
 Il diagramma seguente illustra lo scenario dal punto di vista della dipendenza dei dati.
 
-![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)  
+![Dipendenza dei dati](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
 Per ogni giorno, la sezione di output dipende dalle 24 sezioni orarie ottenute dal set di dati di input. Data Factory calcola automaticamente queste dipendenze prevedendo le sezioni di dati di input che rientrano nello stesso periodo di tempo della sezione di output da produrre. Se una delle 24 sezioni di input non è disponibile, Data Factory attenderà che la sezione di input sia pronta prima di avviare l'esecuzione dell'attività giornaliera.
 

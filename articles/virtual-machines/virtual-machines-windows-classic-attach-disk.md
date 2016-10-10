@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/27/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 # Collegare un disco dati da una macchina virtuale di Windows creata con il modello di distribuzione classico.
 
@@ -34,7 +34,7 @@ Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e
 
 2. Dopo aver eseguito l'accesso alla macchina virtuale, aprire **Server Manager**. Nel riquadro sinistro fare clic su **Servizi file e archiviazione**.
 
-	![Avviare Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)  
+	![Avviare Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
 
 3. Espandere il menu e selezionare **Dischi**.
 
@@ -44,7 +44,7 @@ Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e
 
 6.	Completare la procedura guidata usando i valori predefiniti. Al termine della procedura guidata, nella sezione **Volumi** verrà visualizzato il nuovo volume. Il disco sarà ora online e pronto per l'archiviazione di dati.
 
-	![Inizializzazione del volume completata](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)  
+	![Inizializzazione del volume completata](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [AZURE.NOTE] Le dimensioni della VM determinano il numero di dischi che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md).
 

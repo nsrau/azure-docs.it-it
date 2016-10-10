@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article"
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Pipeline e attività in Azure Data Factory
 Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per creare flussi di lavoro completi basati sui dati per gli scenari di elaborazione e trasferimento dei dati.
@@ -150,11 +150,11 @@ In questo scenario, l'attività A1 viene eseguita quando i dati esterni sono dis
 
 Vista diagramma:
 
-![Concatenamento di attività in due pipeline](./media/data-factory-create-pipelines/chaining-two-pipelines.png)  
+![Concatenamento di attività in due pipeline](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
 
 Vista diagramma con entrambe le attività nella stessa pipeline:
 
-![Concatenamento di attività nella stessa pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)  
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
 Per altre informazioni, vedere [Pianificazione ed esecuzione](#chaining-activities).
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="SSalahAhmed"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>  
+	ms.author="saah;kenhoff"/>
 
 # Accessi dopo più errori
 Questo report indica gli utenti che hanno eseguito correttamente l'accesso dopo più tentativi di accesso consecutivi non riusciti. Le possibili cause includono:

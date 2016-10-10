@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bsiva"
 	manager="abhiag"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
 	ms.date="09/27/2016"
-	ms.author="bsiva"/>  
+	ms.author="bsiva"/>
 
 # Eseguire la replica tra macchine virtuali Hyper-V locali e Azure con PowerShell e Azure Resource Manager
 

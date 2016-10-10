@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
 	ms.date="09/27/2016"
-	ms.author="sdanie" />  
+	ms.author="sdanie" />
 
 # Come amministrare Cache Redis di Azure
 
@@ -35,7 +35,7 @@ Le impostazioni di **amministrazione** di Cache Redis di Azure consentono di ese
 
 Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
 
-![Reboot](./media/cache-administration/redis-cache-reboot.png)  
+![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
@@ -90,7 +90,7 @@ La funzionalità di riavvio è disponibile solo per il piano tariffario Premium.
 
 Il pannello **Pianifica aggiornamenti** consente di definire un intervallo di manutenzione per la cache. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. Si noti che l'intervallo di manutenzione è applicabile solo agli aggiornamenti del server Redis e non a tutti gli aggiornamenti di Azure o del sistema operativo delle macchine virtuali che ospitano la cache.
 
-![Pianificare gli aggiornamenti](./media/cache-administration/redis-schedule-updates.png)  
+![Pianificare gli aggiornamenti](./media/cache-administration/redis-schedule-updates.png)
 
 Per specificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno, quindi fare clic su **OK**. Si noti che l'orario dell'intervallo di manutenzione è in formato UTC.
 

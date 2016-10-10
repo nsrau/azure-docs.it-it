@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="linda33wj"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -101,7 +101,7 @@ Impostando **external** su **true** si comunica al servizio Data Factory che il 
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)  
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Set di dati di output del BLOB di Azure**
 
@@ -179,7 +179,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)  
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Proprietà del servizio collegato Salesforce
 
@@ -204,7 +204,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 > [AZURE.IMPORTANT]  La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)  
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## Proprietà del tipo RelationalSource
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo relativo alla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e diversi criteri.
@@ -219,7 +219,7 @@ Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che i
 
 > [AZURE.IMPORTANT] La parte "\_\_c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.<br> Quando si specifica una query che include la clausola **where** nella colonna DateTime, usare SOQL. Ad esempio: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)  
+![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Recupero di dati dal report di Salesforce
 È possibile recuperare i dati dai report di Salesforce specificando una query come `{call "<report name>"}`, ad es. `"query": "{call "TestReport"}"`.

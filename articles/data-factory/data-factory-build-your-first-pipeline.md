@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager=""
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="data-factory"
@@ -44,7 +44,7 @@ In questa esercitazione si segue questa procedura:
  
 Di seguito è riportata la **vista diagramma** della data factory di esempio creata in questa esercitazione.
 
-![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)  
+![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 In questa esercitazione, la cartella **inputdata** del contenitore BLOB di Azure **adfgetstarted** contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2016. Ecco le righe di esempio per ogni mese nel file di input.
 

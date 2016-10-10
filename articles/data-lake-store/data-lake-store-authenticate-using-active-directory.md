@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>  
+   editor="cgronlun"/>
 
 <tags
    ms.service="data-lake-store"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/26/2016"
-   ms.author="nitinme"/>  
+   ms.author="nitinme"/>
 
 # Eseguire l'autenticazione con Data Lake Store usando Azure Active Directory
 
@@ -31,11 +31,11 @@ Entrambe queste opzioni comportano che l'applicazione venga fornita con un token
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * ID sottoscrizione personale. È possibile recuperarlo dal portale di Azure. Ad esempio, è disponibile dal pannello dell'account Data Lake Store.
 
-	![Ottenere l'ID sottoscrizione](./media/data-lake-store-authenticate-using-active-directory/get-subscription-id.png)  
+	![Ottenere l'ID sottoscrizione](./media/data-lake-store-authenticate-using-active-directory/get-subscription-id.png)
 
 * Il nome di dominio di Azure AD. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure.
 
-	![Ottenere il dominio AAD](./media/data-lake-store-authenticate-using-active-directory/get-aad-domain.png)  
+	![Ottenere il dominio AAD](./media/data-lake-store-authenticate-using-active-directory/get-aad-domain.png)
 
 ## Autenticazione dell'utente finale
 

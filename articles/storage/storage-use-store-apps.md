@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tamram"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="micurd;tamram"/>  
+	ms.author="micurd;tamram"/>
 	
 # Come usare l'archiviazione di Azure nelle app di Windows Store
 

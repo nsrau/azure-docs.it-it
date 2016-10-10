@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="media-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/26/2016"   
-	ms.author="milanga;juliako;"/>  
+	ms.author="milanga;juliako;"/>
 
 #Uso delle anteprime video multimediali di Azure per creare un riepilogo video
 ##Overview

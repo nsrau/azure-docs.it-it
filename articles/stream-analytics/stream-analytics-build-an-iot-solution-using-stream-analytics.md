@@ -7,7 +7,7 @@
 	authors="jeffstokes72"
 	manager="jhubbard"
 	editor="cgronlun"
-/>  
+/>
 
 <tags
 	ms.service="stream-analytics"
@@ -17,7 +17,7 @@
 	ms.workload="data-services"
 	ms.date="09/26/2016"
 	ms.author="jeffstok"
-/>  
+/>
 
 # Compilare una soluzione IoT con Analisi di flusso
 
@@ -155,21 +155,21 @@ Aprire una finestra di **Microsoft Azure PowerShell** _come amministratore_. Se 
 
 Dato che Windows blocca automaticamente i file con estensione ps1, dll ed exe, è necessario impostare i criteri di esecuzione prima di eseguire lo script. Assicurarsi che la finestra di Azure PowerShell sia in esecuzione _come amministratore_. Eseguire **Set-ExecutionPolicy unrestricted**. Quando richiesto, digitare **Y**.
 
-![Screenshot di "Set-ExecutionPolicy unrestricted" in esecuzione nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image2.png)  
+![Screenshot di "Set-ExecutionPolicy unrestricted" in esecuzione nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image2.png)
 
 Eseguire **Get-ExecutionPolicy** per assicurarsi che il comando sia stato eseguito correttamente.
 
-![Screenshot di "Get-ExecutionPolicy" in esecuzione nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image3.png)  
+![Screenshot di "Get-ExecutionPolicy" in esecuzione nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image3.png)
 
 Passare alla directory contenente gli script e l'applicazione di generazione.
 
-![Screenshot di "cd .\\TollApp\\TollApp" in esecuzione nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image4.png)  
+![Screenshot di "cd .\\TollApp\\TollApp" in esecuzione nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image4.png)
 
 Digitare **.\\Setup.ps1** per configurare l'account Azure, creare e configurare tutte le risorse necessarie e quindi avviare la generazione di eventi. Lo script seleziona in modo casuale un'area per creare le risorse. Per specificare un'area in modo esplicito, è possibile passare il parametro **-location** come nell'esempio seguente:
 
 **.\\Setup.ps1 -location "Stati Uniti centrali"**
 
-![Screenshot della pagina di accesso di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)  
+![Screenshot della pagina di accesso di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
 
 Lo script apre quindi la pagina di **accesso** a Microsoft Azure. Immettere le credenziali dell'account.
 
@@ -177,11 +177,11 @@ Lo script apre quindi la pagina di **accesso** a Microsoft Azure. Immettere le c
 
 L'esecuzione dello script può richiedere qualche minuto. Al termine, l'output dovrebbe avere un aspetto simile allo screenshot seguente.
 
-![Screenshot dell'output dello script nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image6.PNG)  
+![Screenshot dell'output dello script nella finestra di Azure PowerShell](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image6.PNG)
 
 Viene visualizzata anche un'altra finestra simile allo screenshot seguente. Questa applicazione invia eventi a Hub eventi di Azure, che è quindi necessario per eseguire l'esercitazione. Non arrestare l'applicazione o chiudere la finestra prima di aver terminato l'esercitazione.
 
-![Screenshot dell'invio dei dati dell'hub eventi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)  
+![Screenshot dell'invio dei dati dell'hub eventi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
 A questo punto tutte le risorse create dovrebbero essere visibili nel portale di Azure. Passare a <https://manage.windowsazure.com> e accedere con le credenziali dell'account.
 
@@ -189,11 +189,11 @@ A questo punto tutte le risorse create dovrebbero essere visibili nel portale di
 
 Fare clic su **BUS DI SERVIZIO** sulla sinistra del portale di Azure per visualizzare gli hub eventi creati dallo script nella sezione precedente.
 
-![Bus di servizio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)  
+![Bus di servizio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
 
 Vengono visualizzati tutti gli spazi dei nomi disponibili nella sottoscrizione. Fare clic su quello che inizia per *tolldata*, in questo esempio tolldata4637388511. Fare clic sulla scheda **HUB EVENTI**.
 
-![Scheda Hub eventi nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)  
+![Scheda Hub eventi nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
 
 Vengono visualizzati due Hub eventi denominati *entry* ed *exit* creati in questo spazio dei nomi.
 
@@ -203,25 +203,25 @@ Vengono visualizzati due Hub eventi denominati *entry* ed *exit* creati in quest
 
 1. Fare clic su **ARCHIVIAZIONE** sulla sinistra del portale di Azure per visualizzare il contenitore di Archiviazione di Azure usato nell'esercitazione.
 
-	![Voce di menu Archiviazione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)  
+	![Voce di menu Archiviazione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
 
 2. Fare clic su quello che inizia per *tolldata*, in questo esempio tolldata4637388511. Fare clic sulla scheda **CONTENITORI** per visualizzare il contenitore creato.
 
-	![Scheda Contenitori nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)  
+	![Scheda Contenitori nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
 
 3. Fare clic sul contenitore **tolldata** per visualizzare il file JSON caricato con i dati di registrazione del veicolo.
 
-	![Screenshot del file registration.json nel contenitore](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image13.png)  
+	![Screenshot del file registration.json nel contenitore](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image13.png)
 
 ### Database SQL di Azure
 
 1. Fare clic su **DATABASE SQL** sulla sinistra del portale di Azure per visualizzare il database SQL che verrà usato nell'esercitazione.
 
-	![Database SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image14.png)  
+	![Database SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image14.png)
 
 2. Fare clic su **tolldatadb**.
 
-	![Screenshot del database SQL creato](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)  
+	![Screenshot del database SQL creato](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
 
 3. Copiare il nome del server senza il numero di porta, ad esempio *nomeserver*.database.windows.net.
 
@@ -235,7 +235,7 @@ Connettersi al database SQL di destinazione da Visual Studio:
 
 2. Se richiesto, selezionare **Microsoft SQL Server** come origine dati.
 
-	![Finestra di dialogo Modifica origine dati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)  
+	![Finestra di dialogo Modifica origine dati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
 
 3. Nel campo *Nome server* incollare il nome copiato nella sezione precedente dal portale di Azure, ovvero **nomeserver**.database.windows.net.
 
@@ -245,17 +245,17 @@ Connettersi al database SQL di destinazione da Visual Studio:
 
 6. Fare clic su **Seleziona o immetti nome di database** e selezionare il database **TollDataDB**.
 
-	![Finestra di dialogo Aggiungi connessione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)  
+	![Finestra di dialogo Aggiungi connessione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
 
 7. Fare clic su **OK**.
 
 8. Aprire Esplora server.
 
-	![Esplora server](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)  
+	![Esplora server](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
 
 9. Nel database TollDataDB sono presenti quattro tabelle.
 
-	![Tabelle nel database TollDataDB](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)  
+	![Tabelle nel database TollDataDB](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
 
 ## Generatore di eventi: progetto di esempio TollApp
 
@@ -263,13 +263,13 @@ Lo script di PowerShell avvia automaticamente l'invio di eventi tramite l'applic
 
 Per informazioni dettagliate sull'implementazione, il codice sorgente dell'applicazione TollApp è disponibile in [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source) in GitHub.
 
-![Screenshot del codice di esempio visualizzato in Visual Studio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)  
+![Screenshot del codice di esempio visualizzato in Visual Studio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
 ## Creare un processo di Analisi di flusso.
 
 1. Nel portale di Azure aprire Analisi di flusso e fare clic su **NUOVO** nell'angolo inferiore sinistro della pagina per creare un nuovo processo di analisi.
 
-	![New button](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)  
+	![New button](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image21.png)
 
 2. Fare clic su **CREAZIONE RAPIDA**. Selezionare la stessa area in cui vengono create dallo script le altre risorse.
 
@@ -277,29 +277,29 @@ Per informazioni dettagliate sull'implementazione, il codice sorgente dell'appli
 
 4. Fare clic su **CREA PROCESSO DI ANALISI DI FLUSSO** nella parte inferiore della pagina.
 
-	![Opzione Crea processo di Analisi di flusso](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)  
+	![Opzione Crea processo di Analisi di flusso](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
 ## Definire le origini di input
 
 1. Fare clic sul processo di analisi creato nel portale.
 
-	![Screenshot del processo di analisi nel portale](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image23.jpg)  
+	![Screenshot del processo di analisi nel portale](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image23.jpg)
 
 2. Fare clic sulla scheda **INPUT** per definire i dati di origine.
 
-	![Scheda Input](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.jpg)  
+	![Scheda Input](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.jpg)
 
 3. Fare clic su **AGGIUNGERE UN INPUT**.
 
-	![Opzione Aggiungere un input](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image25.png)  
+	![Opzione Aggiungere un input](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image25.png)
 
 4. Fare clic su **FLUSSO DATI** nella prima pagina.
 
-	![Opzione Flusso dati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image26.png)  
+	![Opzione Flusso dati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image26.png)
 
 5. Fare clic su **HUB EVENTI** nella seconda pagina della procedura guidata.
 
-	![Opzione Hub eventi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image27.png)  
+	![Opzione Hub eventi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image27.png)
 
 6. Immettere **EntryStream** come **ALIAS DI INPUT**.
 
@@ -309,37 +309,37 @@ Per informazioni dettagliate sull'implementazione, il codice sorgente dell'appli
 
 	Le impostazioni vengono visualizzate in questo modo:
 
-	![Impostazioni dell'hub eventi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)  
+	![Impostazioni dell'hub eventi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)
 
 9. Nella pagina successiva selezionare **JSON** per **FORMATO DI SERIALIZZAZIONE EVENTI** e **UTF8** per **CODIFICA**.
 
-	![Impostazioni di serializzazione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image29.png)  
+	![Impostazioni di serializzazione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image29.png)
 
 10. Fare clic su **OK** nella parte inferiore della pagina per terminare la procedura guidata.
 
-	![Screenshot dell'input EntryStream nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image30.jpg)  
+	![Screenshot dell'input EntryStream nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image30.jpg)
 
 	Dopo aver creato il flusso in ingresso, seguirà la stessa procedura per creare il flusso in uscita. Nella terza pagina della procedura guidata assicurarsi di immettere i valori come nello screenshot seguente.
 
-	![Impostazioni per il flusso in uscita](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)  
+	![Impostazioni per il flusso in uscita](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
 
 	Sono stati definiti due flussi di input:
 
-	![Flussi di input definiti nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.jpg)  
+	![Flussi di input definiti nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.jpg)
 
 	Successivamente, si aggiungeranno dati di riferimento per il file BLOB contenente i dati di registrazione dell'automobile.
 
 11. Fare clic su **AGGIUNGI INPUT** e quindi su **DATI DI RIFERIMENTO**.
 
-	![Opzioni "Aggiungere un input" con Dati di riferimento selezionati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image33.png)  
+	![Opzioni "Aggiungere un input" con Dati di riferimento selezionati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image33.png)
 
 12. Nella pagina successiva selezionare l'account di archiviazione che inizia per **tolldata**. Il nome del contenitore deve essere **tolldata** e il nome del BLOB in **MODELLO PERCORSO** deve essere **registration.json**. Il nome file fa distinzione tra maiuscole e minuscole e deve contenere solo lettere minuscole.
 
-	![Impostazioni dell'archivio BLOB](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)  
+	![Impostazioni dell'archivio BLOB](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
 
 13. Nella pagina successiva selezionare i valori come nello screenshot seguente e quindi fare clic su **OK** per terminare la procedura guidata.
 
-	![Selezione di JSON per "Formato di serializzazione eventi" e UTF8 per "Codifica"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image35.png)  
+	![Selezione di JSON per "Formato di serializzazione eventi" e UTF8 per "Codifica"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image35.png)
 
 Ora sono definiti tutti gli input.
 
@@ -349,7 +349,7 @@ Ora sono definiti tutti gli input.
 
 1. Fare clic sulla scheda **OUTPUT** e quindi su **AGGIUNGERE UN OUTPUT**.
 
-	![Scheda Output e opzione "Aggiungere un output"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.jpg)  
+	![Scheda Output e opzione "Aggiungere un output"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.jpg)
 
 2. Fare clic su **SQL Database**.
 
@@ -357,13 +357,13 @@ Ora sono definiti tutti gli input.
 
 4. Immettere **tolladmin** nel campo **NOME UTENTE**, **123toll!** nel campo **PASSWORD** e **TollDataRefJoin** nel campo **TABELLA**.
 
-	![Impostazioni del database SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)  
+	![Impostazioni del database SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
 ## Query di analisi di flusso di Azure
 
 La scheda **QUERY** contiene una query SQL che trasforma i dati in ingresso.
 
-![Query aggiunta alla scheda Query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.jpg)  
+![Query aggiunta alla scheda Query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image39.jpg)
 
 Questa esercitazione ha lo scopo di rispondere a diverse domande aziendali relative ai dati dei caselli e costruire query di Analisi di flusso da poter usare in Analisi di flusso di Azure per fornire risposte pertinenti.
 
@@ -400,15 +400,15 @@ Questa cartella contiene i file seguenti:
 
 1. Aprire il portale di Azure e passare al processo di Analisi di flusso di Azure creato. Fare clic sulla scheda **QUERY** e incollare la query dalla sezione precedente.
 
-	![Query incollata nella scheda Query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image40.png)  
+	![Query incollata nella scheda Query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image40.png)
 
 2. Per convalidare la query in base ai dati di esempio, fare clic sul pulsante **Test**. Nella finestra di dialogo visualizzata passare al file Entry.json, che contiene dati di esempio provenienti dal flusso di eventi **EntryTime**.
 
-	![Screenshot del file Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)  
+	![Screenshot del file Entry.json](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
 
 3. Verificare che l'output della query sia come previsto:
 
-	![Risultati del test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)  
+	![Risultati del test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
 
 ## Domanda 2: Report del tempo totale impiegato da ogni automobile per attraversare il casello
 
@@ -424,15 +424,15 @@ Per trovare il tempo totale, è necessario creare un join tra il flusso EntryTim
 
 1. Per testare questa query, aggiornarla nella scheda **QUERY** del processo:
 
-	![Query aggiornata nella scheda Query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.jpg)  
+	![Query aggiornata nella scheda Query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.jpg)
 
 2. Fare clic su **Test** e specificare i file di input di esempio per EntryTime ed ExitTime.
 
-	![Screenshot dei file di input selezionati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image44.png)  
+	![Screenshot dei file di input selezionati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image44.png)
 
 3. Selezionare la casella di controllo per testare la query e visualizzare l'output:
 
-	![Output del test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)  
+	![Output del test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
 ## Domanda 3: Report di tutti i veicoli commerciali con registrazione scaduta
 
@@ -450,11 +450,11 @@ Per testare una query usando dati di riferimento, è necessario definire un'orig
 
 1. Per testare questa query, incollarla query nella scheda **QUERY**, fare clic su **Test** e specificare le due origini di input:
 
-	![Screenshot dei file di input selezionati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)  
+	![Screenshot dei file di input selezionati](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
 
 2. Visualizzare l'output della query:
 
-	![Screenshot dell'output della query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)  
+	![Screenshot dell'output della query](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
 ## Avviare il processo di analisi di flusso
 
@@ -463,7 +463,7 @@ A questo punto è possibile terminare la configurazione e avviare il processo. S
 
 Passare al **DASHBOARD** del processo e fare clic su **AVVIA**.
 
-![Screenshot del pulsante Avvia nel dashboard del processo](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.jpg)  
+![Screenshot del pulsante Avvia nel dashboard del processo](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.jpg)
 
 Nella finestra di dialogo visualizzata, modificare l'ora di **AVVIA OUTPUT** in **ORA PERSONALIZZATA**. Modificare l'ora impostandola su un'ora prima dell'ora corrente. In questo modo tutti gli eventi dall'hub eventi vengono elaborati da quando si è iniziato a generare eventi all'inizio dell'esercitazione. Fare clic sul segno di spunta per avviare il processo.
 
@@ -471,14 +471,14 @@ Nella finestra di dialogo visualizzata, modificare l'ora di **AVVIA OUTPUT** in 
 
 L'avvio del processo può richiedere alcuni minuti. Lo stato è disponibile nella pagina di livello principale di Analisi di flusso.
 
-![Screenshot dello stato del processo](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)  
+![Screenshot dello stato del processo](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
 ## Controllare i risultati in Visual Studio
 
 1. Aprire Esplora server di Visual Studio e fare clic con il pulsante destro del mouse sulla tabella **TollDataRefJoin**.
 2. Fare clic su **Mostra dati tabella** per visualizzare l'output del processo.
 
-	![Selezione di "Mostra dati tabella" in Esplora server](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)  
+	![Selezione di "Mostra dati tabella" in Esplora server](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
 ## Scalabilità orizzontale dei processi di Analisi di flusso di Azure
 
@@ -494,7 +494,7 @@ Analisi di flusso di Azure è progettato per offrire elasticità di ridimensiona
 
 2. Spostare il dispositivo di scorrimento su 6.
 
-	![Screenshot della selezione di sei unità di streaming](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.jpg)  
+	![Screenshot della selezione di sei unità di streaming](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.jpg)
 
 3. Passare alla scheda **OUTPUT** e modificare il nome della tabella SQL in **TollDataTumblingCountPartitioned**.
 
@@ -504,17 +504,17 @@ Se si avvia il processo a questo punto, Analisi di flusso di Azure può distribu
 
 La scheda **MONITORAGGIO** contiene le statistiche relative al processo in esecuzione.
 
-![Screenshot delle statistiche dei processi in esecuzione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image53.png)  
+![Screenshot delle statistiche dei processi in esecuzione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image53.png)
 
 Per accedere ai **log delle operazioni** è possibile usare la scheda **DASHBOARD**.
 
-![Opzione "Log delle operazioni"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image54.jpg)  
+![Opzione "Log delle operazioni"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image54.jpg)
 
-![Screenshot dei log delle operazioni in cui è visibile lo stato dei processi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image55.png)  
+![Screenshot dei log delle operazioni in cui è visibile lo stato dei processi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image55.png)
 
 Per visualizzare informazioni aggiuntive su un evento specifico, selezionare l'evento e quindi fare clic sul pulsante **DETTAGLI**.
 
-![Screenshot dei dettagli di un evento selezionato](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)  
+![Screenshot dei dettagli di un evento selezionato](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
 ## Conclusioni
 
@@ -532,6 +532,6 @@ Anche se questa esercitazione offre una buona introduzione, non può ritenersi c
 
 	> [AZURE.NOTE] Le risorse vengono identificate in base al nome. Assicurarsi di controllare attentamente ogni elemento prima di confermarne la rimozione.
 
-	![Screenshot del processo di pulizia](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)  
+	![Screenshot del processo di pulizia](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
 <!---HONumber=AcomDC_0928_2016-->

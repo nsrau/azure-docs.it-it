@@ -6,7 +6,7 @@
    authors="neilpeterson"
    manager="timlt"
    editor="tysonn"
-   tags="azure-service-management"/>  
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/21/2016"
-   ms.author="nepeters"/>  
+   ms.author="nepeters"/>
 
 # Accesso e sicurezza nei modelli di Azure Resource Manager
 
@@ -70,7 +70,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Di seguito è illustrato l'indirizzo IP pubblico come visualizzato nel portale di Azure. Si noti che l'indirizzo IP pubblico è associato a un servizio di bilanciamento del carico e non a una macchina virtuale. I servizi di bilanciamento del carico di rete sono descritti in dettaglio nel documento successivo di questa serie.
 
-![Indirizzo IP pubblico](./media/virtual-machines-linux-dotnet-core/pubip.png)  
+![Indirizzo IP pubblico](./media/virtual-machines-linux-dotnet-core/pubip.png)
 
 Per altre informazioni sugli indirizzi IP pubblici di Azure, vedere [Indirizzi IP in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
@@ -131,7 +131,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Di seguito è illustrato il gruppo di sicurezza di rete come visualizzato nel portale di Azure. Si noti che un gruppo di sicurezza di rete può essere associato a una subnet e/o a un'interfaccia di rete. In questo caso, il gruppo di sicurezza di rete è associato a una subnet. In questa configurazione, le regole in ingresso si applicano a tutte le macchine virtuali connesse alla subnet.
 
-![Gruppo di sicurezza di rete](./media/virtual-machines-linux-dotnet-core/nsg.png)  
+![Gruppo di sicurezza di rete](./media/virtual-machines-linux-dotnet-core/nsg.png)
 
 Per informazioni approfondite sui gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/).
 

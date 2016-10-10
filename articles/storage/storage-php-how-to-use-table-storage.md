@@ -5,7 +5,7 @@
 	documentationCenter="php"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="gusapost;robmcm"/>  
+	ms.author="gusapost;robmcm"/>
 
 
 # Come usare l'archiviazione tabelle da PHP

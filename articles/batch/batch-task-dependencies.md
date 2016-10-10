@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="mmacy"
 	manager="timlt"
-	editor="" />  
+	editor="" />
 
 <tags
 	ms.service="batch"
@@ -69,7 +69,7 @@ In Azure Batch è possibile usare tre scenari di relazioni tra attività di base
 
  Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Esempio | |
  :-------------------: | ------------------- | -------------------
- [Uno-a-uno](#one-to-one) | L'*attivitàB* dipende dall'*attivitàA* <p/> L'*attivitàB* sarà pianificata per l'esecuzione solo dopo il completamento corretto dell'*attivitàA* | ![Diagramma: relazione uno-a-uno tra attività][1]  
+ [Uno-a-uno](#one-to-one) | L'*attivitàB* dipende dall'*attivitàA* <p/> L'*attivitàB* sarà pianificata per l'esecuzione solo dopo il completamento corretto dell'*attivitàA* | ![Diagramma: relazione uno-a-uno tra attività][1]
  [Uno-a-molti](#one-to-many) | L'*attivitàC* dipende dall'*attivitàA* e dall'*attivitàB* <p/> L'*attivitàC* sarà pianificata per l'esecuzione solo dopo il completamento corretto dell'*attivitàA* e dell'*attivitàB* | ![Diagramma: relazione uno-a-molti tra attività][2]
  [Intervallo di ID attività](#task-id-range) | L'*attivitàD* dipende da un intervallo di attività <p/> L'*attivitàD* sarà pianificata per l'esecuzione solo dopo il completamento corretto delle attività con ID compresi tra *1* e *10* | ![Diagramma: relazione tra intervalli di ID attività][3]
 
@@ -143,7 +143,7 @@ La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di
 
 ### Installazione delle applicazioni e staging dei dati
 
-Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] (Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per ottenere file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e
+Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog [Installing applications and staging data on Batch compute nodes][forum_post] \(Installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch) nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per ottenere file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/it-IT/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

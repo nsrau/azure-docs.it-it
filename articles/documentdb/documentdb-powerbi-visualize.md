@@ -6,7 +6,7 @@
 	authors="h0n"
 	manager="jhubbard"
 	editor="mimig"
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags
 	ms.service="documentdb"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="hawong"/>  
+	ms.author="hawong"/>
 
 # Esercitazione su Power BI per DocumentDB: Visualizzare dati tramite il connettore Power BI
 
@@ -91,13 +91,13 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 
 	Lasciare vuoti i campi Nome database, Nome raccolta e iItruzione SQL poiché si tratta di campi facoltativi. Si userà invece lo strumento di navigazione per selezionare il database e la raccolta per identificare la provenienza dei dati.
 
-    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Finestra di connessione desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)  
+    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Finestra di connessione desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 
 7. Se ci si connette a questo endpoint per la prima volta, verrà richiesta la chiave dell'account. È possibile recuperare la chiave dalla casella **Chiave primaria** nel pannello **[Chiavi di sola lettura](documentdb-manage-account.md#keys)** del portale di Azure, oppure si può usare l'account demo, nel qual caso la chiave è `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Immettere la chiave dell'account e fare clic su **Connetti**.
 
 	È consigliabile usare la chiave di sola lettura durante la creazione di report. In questo modo si impedirà un'inutile esposizione della chiave master a potenziali rischi di sicurezza. La chiave di sola lettura è disponibile nel pannello [Chiavi](documentdb-manage-account.md#keys) del portale di Azure oppure si possono usare le informazioni dell'account demo fornite in precedenza.
 
-    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Chiave account](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)  
+    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Chiave account](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
 8. Una volta che l'account è connesso, viene visualizzato lo **Strumento di navigazione**. Lo **Strumento di navigazione** visualizza un elenco dei database che fanno parte dell'account.
 9. Fare clic per espandere il database di origine dei dati per il report e se si usa l'account demo, selezionare **volcanodb**.
@@ -106,7 +106,7 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 
 	Il riquadro di anteprima mostra un elenco di elementi **Record**. In Power BI un documento viene rappresentato come tipo di **Record**. In modo analogo, anche un blocco JSON annidato in un documento è un **Record**.
 
-    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Finestra Strumento di navigazione](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)  
+    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Finestra Strumento di navigazione](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
 
 11. Fare clic su **Modifica** per avviare l'Editor di query che consente di trasformare i dati.
 
@@ -115,16 +115,16 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 
 2. Fare clic sul pulsante di espansione a destra dell'intestazione della colonna **Documento**. Verrà visualizzato il menu di scelta rapida con un elenco di campi. Selezionare i campi necessari per il report, ad esempio, nome del vulcano, paese, area geografica, località, altezza, tipo, stato e ultima eruzione nota, quindi fare clic su **OK**.
 
-	![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Espandere i documenti](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)  
+	![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Espandere i documenti](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 
 3. Nel riquadro centrale verrà visualizzata un'anteprima del risultato con i campi selezionati.
 
-	![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Appiattire i risultati](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)  
+	![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Appiattire i risultati](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 
 4. Nell'esempio la proprietà relativa alla località è un blocco GeoJSON in un documento. Come si può vedere, la località è rappresentata come tipo di **Record** in Power BI Desktop.
 5. Fare clic sul pulsante di espansione a destra dell'intestazione della colonna relativa alla località. Verrà visualizzato il menu di scelta rapida con i campi relativi a tipo e coordinate. Selezionare il campo delle coordinate e fare clic su **OK**.
 
-    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Record di posizione](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)  
+    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Record di posizione](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 
 6. Il riquadro centrale mostra una colonna di coordinate di tipo **Elenco**. Come illustrato all'inizio dell'esercitazione, i dati GeoJSON in questa esercitazione sono di tipo Punto con i valori di latitudine e longitudine registrati nella matrice di coordinate.
 
@@ -138,30 +138,30 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
 
     Per altre informazioni su Data Analysis Expressions (DAX), incluse le funzioni DAX, vedere [Nozioni di base su DAX in Power BI Designer](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
 
-    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Aggiungi colonna personalizzata](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)  
+    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Aggiungi colonna personalizzata](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
 10. Il riquadro centrale mostrerà la nuova colonna LatLong popolata con i valori di latitudine e longitudine separati da una virgola.
 
-	![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Colonna LatLong personalizzata](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)  
+	![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Colonna LatLong personalizzata](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
 
     Se viene restituito un errore nella nuova colonna, assicurarsi che i passaggi applicati in Impostazioni query corrispondano alla figura seguente:
 
-    ![I passaggi applicati devono essere Origine, Navigazione, Documento espanso, Documento posizione espanso, Aggiunto personalizzato](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-applied-steps.png)  
+    ![I passaggi applicati devono essere Origine, Navigazione, Documento espanso, Documento posizione espanso, Aggiunto personalizzato](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-applied-steps.png)
 
     Se i passaggi sono diversi, eliminare i passaggi aggiuntivi e tentare di aggiungere nuovamente la colonna personalizzata.
 
 11. L'operazione per rendere flat i dati convertendoli in formato tabulare è stata completata. È possibile sfruttare tutte le funzionalità disponibili nell'Editor di Query per definire la forma e trasformare i dati in DocumentDB. Se si usa il campione, modificare il tipo di dati per il parametro Altezza su **Numero intero**, modificando il parametro **Tipo di dati** nella barra multifunzione **Home**.
 
-    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Modificare il tipo di colonna](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)  
+    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Modificare il tipo di colonna](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
-12. Fare clic su **Applica e chiudi ** per salvare il modello di dati.
+12. Fare clic su **Applica e chiudi** per salvare il modello di dati.
 
-    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Chiudi e applica](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)  
+    ![Esercitazione su Power BI per il connettore Power BI di DocumentDB -Chiudi e applica](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
 ## Compilare i report
 È possibile iniziare a creare i rapporti nella visualizzazione Report di Power BI Desktop per visualizzare dati. È possibile creare report trascinando i campi nell'area di disegno **Report**.
 
-![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)  
+![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
 
 Nella visualizzazione Report dovrebbero essere presenti:
 
@@ -186,7 +186,7 @@ Di seguito sono illustrati i passaggi di base per la creazione di un semplice re
 
 6. È stato così creato un report di base. È possibile continuare a personalizzare il report aggiungendo più visualizzazioni. In questo caso, è stato aggiunto un filtro dei dati al tipo di vulcano per rendere il report interattivo.
 
-    ![Schermata del report di Power BI Desktop finale al termine dell'esercitazione su Power BI per DocumentDB](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)  
+    ![Schermata del report di Power BI Desktop finale al termine dell'esercitazione su Power BI per DocumentDB](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 ## Pubblicare e condividere il report
 Per condividere il report, è necessario avere un account in PowerBI.com.
@@ -196,7 +196,7 @@ Per condividere il report, è necessario avere un account in PowerBI.com.
 3. Dopo l'autenticazione delle credenziali, il report viene pubblicato nella destinazione selezionata.
 4. Fare clic su **Apri 'PowerBITutorial.pbix' in Power BI** per visualizzare e condividere il report in PowerBI.com.
 
-    ![Pubblicazione su Power BI riuscita Aprire Esercitazione in Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)  
+    ![Pubblicazione su Power BI riuscita Aprire Esercitazione in Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
 ## Creare un dashboard in Power BI
 
@@ -204,11 +204,11 @@ Ora che si dispone di un report, è possibile condividerlo in PowerBI.com
 
 Quando si pubblica il report da Power BI Desktop a PowerBI.com, nel tenant di PowerBI.com. vengono generati un **Report** e **set di dati** . Ad esempio, dopo aver pubblicato un report denominato **PowerBITutorial** su PowerBI.com, PowerBITutorial verrà visualizzato in entrambe le sezioni **report** e **Set di dati** in PowerBI.com.
 
-   ![Schermata del report e del set di dati creati in PowerBI.com](./media/documentdb-powerbi-visualize/documentdb-powerbi-reports-datasets.png)  
+   ![Schermata del report e del set di dati creati in PowerBI.com](./media/documentdb-powerbi-visualize/documentdb-powerbi-reports-datasets.png)
 
 Per creare un dashboard condivisibile, fare clic sul pulsante **Aggiungi pagina dinamica** nel report di PowerBI.com.
 
-   ![Schermata del report e del set di dati creati in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-pin-live-tile.png)  
+   ![Schermata del report e del set di dati creati in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-pin-live-tile.png)
 
 Dopodiché, seguire le istruzioni fornite in [Aggiungere un riquadro da un report](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) per creare un nuovo dashboard.
 
@@ -220,7 +220,7 @@ Esistono due modi per aggiornare i dati: procedura ad hoc e pianificata.
 
 Per un aggiornamento ad hoc, è sufficiente fare clic su (...) accanto al **set di dati**, ad esempio PowerBITutorial. A questo punto viene visualizzato un elenco di azioni, tra cui **Aggiorna adesso**. Fare clic su **Aggiorna adesso** per aggiornare i dati.
 
-![Schermata di Aggiorna adesso in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-refresh-now.png)  
+![Schermata di Aggiorna adesso in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-refresh-now.png)
 
 Per un aggiornamento pianificato, attenersi alla seguente procedura.
 

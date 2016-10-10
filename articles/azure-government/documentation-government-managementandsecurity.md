@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="ryansoc"
 	manager="zakramer"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="multiple"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
 	ms.date="09/23/2016"
-	ms.author="ryansoc"/>  
+	ms.author="ryansoc"/>
 
 
 #  Sicurezza e gestione di Azure per enti pubblici

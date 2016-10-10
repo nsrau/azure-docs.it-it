@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="amsriva"
    manager="rossort"
-   editor="amsriva"/>  
+   editor="amsriva"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,13 +13,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
-   ms.author="amsriva"/>  
+   ms.author="amsriva"/>
 
 # Firewall applicazione Web del gateway applicazione (anteprima)
 
 Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può risultare un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. La protezione centralizzata dagli attacchi Web rende molto più semplice la gestione della sicurezza e offre all'applicazione migliori garanzie contro le minacce di intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota che si trova in una posizione centrale e mette in sicurezza ogni singola applicazione Web.
 
-![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)  
+![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
 Il gateway applicazione funziona come un application delivery controller che offre terminazione SSL, affinità di sessione basate su cookie, distribuzione del carico round robin, routing basato sui contenuti, possibilità di ospitare più siti Web e miglioramenti alla sicurezza. I miglioramenti della sicurezza offerti dal gateway applicazione includono la gestione dei criteri di SSL e il supporto di SSL end-to-end. Introducendo il WAF (firewall applicazione Web) integrato direttamente nell'offerta ADC, stiamo rinforzando le funzionalità di sicurezza dell'applicazione. In questo modo è facile configurare una posizione centrale per gestire e proteggere le applicazioni Web dalle vulnerabilità Web più comuni.
 
@@ -54,7 +54,7 @@ Il WAF del gateway applicazione può essere configurato per l'esecuzione nelle d
 
 Il WAF del gateway applicazione fornisce rapporti dettagliati su ogni minaccia rilevata. La registrazione è integrata con i log di diagnostica di Azure e gli avvisi vengono registrati in formato json.
 
-![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)  
+![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
     {
         "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",

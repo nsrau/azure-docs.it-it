@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="andkjell"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="markusvi;andkjell"/>  
+	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
@@ -39,7 +39,7 @@ Gli attributi sono fortemente tipizzati. Una funzione accetta solo gli attributi
 ### Funzioni
 Il provisioning dichiarativo usa molte funzioni per rendere possibile la trasformazione dei valori dell'attributo. Queste funzioni possono essere annidate, in modo che il risultato di una funzione venga passato a un'altra.
 
-`Function1(Function2(Function3()))`  
+`Function1(Function2(Function3()))`
 
 L'elenco completo delle funzioni è disponibile nel [riferimento di funzione](active-directory-aadconnectsync-functions-reference.md).
 

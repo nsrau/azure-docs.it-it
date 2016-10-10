@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="asmalser-msft"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="asmalser-msft"/>  
+	ms.author="asmalser-msft"/>
 
 #Gestione di certificati per Single Sign-On federato in Azure Active Directory
 

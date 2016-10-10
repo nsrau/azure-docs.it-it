@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="msfussell"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/22/2016"
-   ms.author="mfussell"/>  
+   ms.author="mfussell"/>
 
 # Configurare i criteri di sicurezza per l'applicazione
 Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni in fase di distribuzione con l'account utente, ad esempio file, directory e certificati. In questo modo le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette.
@@ -89,7 +89,7 @@ A questo punto, aggiungere il file MySetup.bat al progetto di Visual Studio per 
 
 Verificare quindi che il file MySetup.bat sia incluso nel pacchetto del servizio. Per impostazione predefinita, non è incluso. Selezionare il file, fare clic con il pulsante destro del mouse per visualizzare il menu di scelta rapida e scegliere **Proprietà**. Nella finestra di dialogo delle proprietà, assicurarsi che **Copia nella directory di output** sia impostato su **Copia se più recente**. Vedere lo screenshot seguente.
 
-![CopyToOutput di Visual Studio per il file batch SetupEntryPoint][image1]  
+![CopyToOutput di Visual Studio per il file batch SetupEntryPoint][image1]
 
 Aprire il file MySetup.bat e aggiungere i comandi seguenti:
 
@@ -362,7 +362,7 @@ Il manifesto dell'applicazione seguente illustra molte delle impostazioni:
 ~~~
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
 * [Informazioni sul modello applicativo](service-fabric-application-model.md)

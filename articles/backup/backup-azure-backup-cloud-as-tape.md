@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="trinadhk"
    manager="vijayts"
-   editor=""/>  
+   editor=""/>
 <tags
    ms.service="backup"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="09/27/2016"
-   ms.author="jimpark;trinadhk;markgal"/>  
+   ms.author="jimpark;trinadhk;markgal"/>
 
 # Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
 
@@ -28,22 +28,22 @@ Questo articolo illustra come abilitare i criteri di backup e di conservazione. 
 ## Che cos'è la pianificazione di backup?
 La pianificazione del backup indica la frequenza dell'operazione di backup. Ad esempio, le impostazioni nella schermata di seguito indicano che i backup vengono eseguiti ogni giorno alle ore 18.00 e a mezzanotte.
 
-![Pianificazione giornaliera](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)  
+![Pianificazione giornaliera](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
 
 I clienti possono anche pianificare un backup settimanale. Ad esempio, le impostazioni nella schermata di seguito indicano che verranno eseguiti backup a domeniche e mercoledì alterni alle 9:30 e all'1: 00.
 
-![Pianificazione settimanale](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)  
+![Pianificazione settimanale](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
 ## Che cos'è il criterio di conservazione?
 I criteri di conservazione specificano il periodo di tempo per cui il backup deve essere archiviato. Anziché specificare solo un "criterio semplice" per tutti i punti di backup, i clienti possono specificare criteri di conservazione diversi in base al momento in cui viene eseguito il backup. Ad esempio, un punto di backup eseguito quotidianamente, che funge da punto di ripristino operativo, viene conservato per 90 giorni. Il punto di backup eseguito alla fine di ogni trimestre per scopi di controllo viene mantenuto per un periodo più lungo.
 
-![Criteri di conservazione](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)  
+![Criteri di conservazione](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 Il numero totale di "punti di conservazione" specificati in questi criteri è pari a 90 (punti giornalieri) + 40 (uno per ogni trimestre per 10 anni) = 130.
 
 ## Esempio: Uso di entrambi i metodi
 
-![Schermata di esempio](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)  
+![Schermata di esempio](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Criteri di mantenimento giornaliero**: i backup eseguiti quotidianamente vengono archiviati per sette giorni.
 2. **Criteri di conservazione settimanale**: i backup eseguiti ogni giorno a mezzanotte e ogni sabato alle 18.00 verranno conservati per quattro settimane
@@ -64,7 +64,7 @@ Il numero totale dei punti di ripristino è 56.
 ## Configurazione avanzata
 Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di un'ulteriore flessibilità nella definizione delle pianificazioni di conservazione.
 
-![Modifica](./media/backup-azure-backup-cloud-as-tape/modify.png)  
+![Modifica](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## Passaggi successivi
 Per ulteriori informazioni sul Backup di Azure vedere:

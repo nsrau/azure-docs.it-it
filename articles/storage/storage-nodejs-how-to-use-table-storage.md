@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="gusapost;robmcm"/>  
+	ms.author="gusapost;robmcm"/>
 
 
 # Come usare l'archiviazione tabelle di Azure da Node.js
@@ -180,7 +180,7 @@ Nell'esempio seguente viene illustrato l'aggiornamento di un'entità mediante **
 >
 > 2. Quando si esegue un'operazione di aggiornamento su un'entità, aggiungere le informazioni ETag precedentemente recuperate alla nuova entità. Ad esempio:
 >
->     `entity2['.metadata'].etag = currentEtag;`  
+>     `entity2['.metadata'].etag = currentEtag;`
 >
 > 3. Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore di ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` che indica che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
 

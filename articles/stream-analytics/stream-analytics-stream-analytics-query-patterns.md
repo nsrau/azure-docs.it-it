@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="stream-analytics"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="09/26/2016"
-	ms.author="jeffstok"/>  
+	ms.author="jeffstok"/>
 
 
 # Esempi di query per modelli di uso comune di Analisi di flusso

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="luiscabrer"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="cognitive-services"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="luisca"/>  
+	ms.author="luisca"/>
 
 # Guida introduttiva per l'API Recommendations dei servizi cognitivi
 

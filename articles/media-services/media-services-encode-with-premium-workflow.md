@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
 

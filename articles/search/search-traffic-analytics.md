@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.date="09/23/2016" 
 	ms.author="betorres"
-/>  
+/>
 
 
 # Abilitazione e uso di Analisi del traffico di ricerca
@@ -38,11 +38,11 @@ Analisi del traffico di ricerca è una funzionalità di Ricerca di Azure che con
 ### A. Tramite il portale
 Aprire il servizio Ricerca di Azure nel [portale di Azure](http://portal.azure.com). In Impostazioni trovare l'opzione Analisi del traffico di ricerca.
 
-![][1]  
+![][1]
 
 Impostare lo stato su **Sì**, selezionare l'account di archiviazione di Azure e scegliere i dati che si vuole copiare: log, metriche o entrambi. È consigliabile copiare sia i log che le metriche. È possibile impostare i criteri di conservazione per i dati su un valore compreso tra 1 e 365 giorni. Se non si vogliono conservare i dati a tempo indeterminato, impostare Conservazione (giorni) su 0.
 
-![][2]  
+![][2]
 
 ### B. Tramite PowerShell
 
@@ -155,7 +155,7 @@ Innanzitutto, si consiglia di usare [Power BI](https://powerbi.microsoft.com) pe
 5. Selezionare "insight-log-operationlogs" e "insights-metrics-pt1m", quindi fare clic su Modifica.
 6. Quando l'editor di query si apre, verificare che a sinistra sia selezionato "insight-log-operationlogs". A questo punto aprire l'editor avanzato selezionando Visualizza -> Editor avanzato
 
-	![][7]  
+	![][7]
 
 7. Mantenere le prime due righe e sostituire la parte restante con la query seguente:
 
@@ -218,7 +218,7 @@ Altre informazioni sulla sintassi di ricerca e sui parametri di query. Per infor
 
 Altre informazioni sulla creazione di report utili Per informazioni dettagliate, vedere [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/it-IT/documentation/powerbi-desktop-getting-started/)
 
-<!--Image references-->  
+<!--Image references-->
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png

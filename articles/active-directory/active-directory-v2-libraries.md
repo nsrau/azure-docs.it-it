@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="skwan"
    manager="mbaldwin"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/26/2016"
-   ms.author="skwan;bryanla"/>  
+   ms.author="skwan;bryanla"/>
 
 
 # Azure Active Directory (AD) 2.0 e librerie di autenticazione
@@ -48,7 +48,7 @@ Per un elenco di librerie che funzionano con l'endpoint 2.0, vedere le sezioni s
 | iOS, Mac | Microsoft Authentication Library (MSAL) for ObjC | In development | In development | In development |
 | Android | Microsoft Authentication Library (MSAL) for Android | In development | In development | In development |
 | JavaScript | Microsoft Authentication Library (MSAL) for JavaScript | In development | In development | In development |
- -->  
+ -->
 
 ## Librerie middleware server con supporto di Microsoft
 | Piattaforma| Nome della libreria| Scaricare | Codice sorgente | Esempio |
@@ -60,7 +60,7 @@ Per un elenco di librerie che funzionano con l'endpoint 2.0, vedere le sezioni s
 | Node.js | Componente aggiuntivo di Microsoft Azure Active Directory Passport.js | [Passport-Azure-AD (npm)][ServerLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] | [Esempio di app Web][ServerLib-Node-Sample] |
 <!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
 | .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
---->  
+--->
 ## Librerie client compatibili
 | Piattaforma| Nome | Versione verificata | Codice sorgente | Esempio |
 | :-: | :-: | :-: | :-: | :-: |
@@ -76,7 +76,7 @@ Per un elenco di librerie che funzionano con l'endpoint 2.0, vedere le sezioni s
 | Java | [Java Gluu Server](https://gluu.org/docs/) |   | [oxAuth](https://github.com/GluuFederation/oxAuth)  | Coming soon |
 | Node.js | [NPM passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect) | 0.0.1  | [Passport-OpenID Connect](https://github.com/jaredhanson/passport-openidconnect) | Coming soon  |
 | PHP | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP) |   | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)  | Coming soon  |
--->  
+-->
 
 ## Librerie middleware server compatibili 
 Presto disponibile
@@ -87,9 +87,9 @@ Per altre informazioni sull'endpoint 2.0 di Azure AD, vedere il [Panoramica del 
 
 La sezione dei commenti Disqus di seguito consente di fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 
-<!--Image references-->  
+<!--Image references-->
 
-<!--Reference style links -->  
+<!--Reference style links -->
 [AAD-App-Model-V2-Overview]: active-directory-appmodel-v2-overview.md
 [ClientLib-NET-Lib]: http://www.nuget.org/packages/Microsoft.Identity.Client
 [ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
@@ -107,7 +107,7 @@ La sezione dei commenti Disqus di seguito consente di fornire commenti e suggeri
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/it-IT/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]: /
@@ -119,6 +119,6 @@ La sezione dei commenti Disqus di seguito consente di fornire commenti e suggeri
 [ServerLib-NetCore-Owin-Oauth-Sample]: /
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/it-IT/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/
 
 <!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/25/2016"
-	ms.author="glenga"/>  
+	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Windows
 
@@ -216,11 +216,11 @@ Altre informazioni sulle notifiche push:
 
 + [Abilitare la sincronizzazione offline per l'app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
 
-<!-- Anchors. --> 
+<!-- Anchors. -->
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
 
-<!-- Images. -->  
+<!-- Images. -->
 
 <!---HONumber=AcomDC_0928_2016-->

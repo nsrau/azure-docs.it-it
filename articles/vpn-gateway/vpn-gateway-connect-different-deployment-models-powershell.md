@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-service-management,azure-resource-manager"/>  
+   tags="azure-service-management,azure-resource-manager"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/23/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Connettere reti virtuali da diversi modelli di distribuzione usando PowerShell
 

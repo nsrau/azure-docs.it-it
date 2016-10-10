@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/27/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Informazioni generali sulla protezione dei contenuti
 
@@ -23,7 +23,7 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 L'immagine seguente illustra i flussi di lavoro di protezione del contenuto supportati da AMS.
 
-![Protezione con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)  
+![Protezione con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
 >[AZURE.NOTE]Per poter usare la crittografia dinamica, è prima necessario ottenere almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere in streaming i contenuti crittografati.
 

@@ -5,7 +5,7 @@
 	documentationCenter="ruby" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,12 +14,12 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="cbrooks;robmcm"/>  
+	ms.author="cbrooks;robmcm"/>
 
 
 # Come usare l'archiviazione di accodamento da Ruby
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/>   [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 

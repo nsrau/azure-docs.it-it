@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="" />   
+    editor="" /> 
 <tags 
     ms.service="service-bus-messaging"
     ms.devlang="na"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="09/02/2016"
-    ms.author="sethm;hillaryc" />  
+    ms.author="sethm;hillaryc" />
 
 # Code e argomenti partizionati
 

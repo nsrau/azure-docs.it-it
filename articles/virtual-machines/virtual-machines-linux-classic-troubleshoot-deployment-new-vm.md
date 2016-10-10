@@ -6,7 +6,7 @@
    authors="JiangChen79"
    manager="felixwu"
    editor=""
-   tags="top-support-issue"/>  
+   tags="top-support-issue"/>
 
 <tags
   ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="09/06/2016"
-  ms.author="cjiang"/>  
+  ms.author="cjiang"/>
 
 # Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Linux in Azure
 

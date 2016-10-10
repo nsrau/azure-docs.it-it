@@ -5,7 +5,7 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>  
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="mcollier"/>  
+	ms.author="mcollier"/>
 
 # Procedura dettagliata sull'API REST di monitoraggio di Azure
 In questo articolo viene illustrato come eseguire l'autenticazione in modo che il codice possa usare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
@@ -101,7 +101,7 @@ Invoke-RestMethod -Uri $request `
 ```
 Per un'app per la logica di Azure, le definizioni delle metriche avranno un aspetto simile alla schermata seguente:
 
-![Alt "Visualizzazione JSON della risposta alle definizioni delle metriche"](./media/monitoring-rest-api-walkthrough/available_metric_definitions_logic_app_json_response_clean.png)  
+![Alt "Visualizzazione JSON della risposta alle definizioni delle metriche"](./media/monitoring-rest-api-walkthrough/available_metric_definitions_logic_app_json_response_clean.png)
 
 Per ulteriori informazioni, vedere la documentazione [Elencare le definizioni delle metriche per una risorsa nell'API REST di monitoraggio di Azure](https://msdn.microsoft.com/library/azure/mt743621.aspx).
 
@@ -128,7 +128,7 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 
 Il risultato sarà simile alla seguente schermata di esempio:
 
-![Alt "Risposta JSON che mostra il valore della metrica per il tempo medio di risposta"](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_json_response.png)  
+![Alt "Risposta JSON che mostra il valore della metrica per il tempo medio di risposta"](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_json_response.png)
 
 Per recuperare più punti dati o di aggregazione, aggiungere i nomi delle definizioni delle metriche e i tipi di aggregazione al filtro, come illustrato nell'esempio seguente:
 
@@ -154,7 +154,7 @@ Un'alternativa all'uso di PowerShell (come illustrato in precedenza) consiste ne
 4. Digitare _armclient GET [your\_resource\_id]/providers/microsoft.insights/metrics?api-version=2016-06-01_
 
 
-![Alt "Uso di ARMClient con l'API REST di monitoraggio di Azure"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)  
+![Alt "Uso di ARMClient con l'API REST di monitoraggio di Azure"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
 
 
 ## Recuperare l'ID risorsa
@@ -186,22 +186,22 @@ Esistono approcci alternativi per recuperare l'ID risorsa, tra cui l'uso di Espl
 ### Esplora risorse di Azure
 Per trovare l'ID risorsa per la risorsa desiderata, un approccio utile consiste nell'usare lo strumento [Esplora risorse di Azure](https://resources.azure.com). Individuare la risorsa desiderata e quindi esaminare l'ID indicato, come illustrato nella schermata seguente:
 
-![Alt "Esplora risorse di Azure"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)  
+![Alt "Esplora risorse di Azure"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
 ### Portale di Azure
 L'ID risorsa può anche essere ottenuto dal portale di Azure. A tale scopo, accedere alla risorsa desiderata e scegliere Proprietà. L'ID risorsa viene visualizzato nel pannello Proprietà, come illustrato nella schermata seguente:
 
-![Alt "ID risorsa visualizzato nel pannello Proprietà del portale di Azure"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)  
+![Alt "ID risorsa visualizzato nel pannello Proprietà del portale di Azure"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### Azure PowerShell
 L'ID risorsa può essere recuperato anche tramite i cmdlet di Azure PowerShell. Ad esempio, per ottenere l'ID risorsa per un'App Web di Azure, eseguire il cmdlet Get-AzureRmWebApp, come illustrato nella seguente schermata:
 
-![Alt "ID risorsa ottenuto tramite PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_powershell.png)  
+![Alt "ID risorsa ottenuto tramite PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_powershell.png)
 
 ### Interfaccia della riga di comando di Azure
 Per recuperare l'ID risorsa tramite l'interfaccia della riga di comando di Azure, eseguire il comando 'azure webapp show', specificando l'opzione '-json' come mostrato nella schermata seguente:
 
-![Alt "ID risorsa ottenuto tramite PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_azurecli.png)  
+![Alt "ID risorsa ottenuto tramite PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_azurecli.png)
 
 ## Recuperare i dati del registro attività
 Oltre a lavorare con le definizioni delle metriche e i valori correlati, è anche possibile recuperare interessanti informazioni aggiuntive relative alle risorse di Azure. Ad esempio, è possibile eseguire query sui dati del [registro attività](https://msdn.microsoft.com/library/azure/dn931934.aspx). Nell'esempio seguente viene illustrato l'uso dell'API REST di monitoraggio di Azure per eseguire query sui dati del registro attività all'interno di un intervallo di date specifico per una sottoscrizione di Azure:

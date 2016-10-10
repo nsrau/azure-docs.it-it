@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="multiple"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="09/22/2016"
-   ms.author="danlep"/>  
+   ms.author="danlep"/>
 
 # Big Compute in Azure: risorse tecniche per Batch e High Performance Computing 
 Si tratta di una guida alle risorse tecniche che permettono di eseguire carichi di lavoro paralleli, batch e HPC (High Performance Computing) su larga scala in Azure. La vasta gamma di servizi Azure consente di estendere il batch esistente o i carichi di lavoro HPC nel cloud Azure o creare nuove soluzioni Big Compute.

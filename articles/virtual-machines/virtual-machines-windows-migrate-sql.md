@@ -6,7 +6,7 @@
 	authors="sabotta"
 	manager="jhubbard"
 	editor=""
-	tags="azure-service-management" />  
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/26/2016"
-	ms.author="carlasab"/>  
+	ms.author="carlasab"/>
 
 
 # Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure

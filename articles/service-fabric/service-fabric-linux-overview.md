@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mani-ramaswamy"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/26/2016"
-   ms.author="SubramaR"/>  
+   ms.author="SubramaR"/>
 
 # Service Fabric in Linux
 

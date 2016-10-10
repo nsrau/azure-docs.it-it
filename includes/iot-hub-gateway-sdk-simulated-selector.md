@@ -64,7 +64,7 @@ Invece di aprire una connessione all'hub IoT per ogni dispositivo simulato, ques
 [1]: media/iot-hub-gateway-sdk-simulated-selector/image1.png
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
-<!-- Links -->  
+<!-- Links -->
 [esempio di caricamento su cloud del dispositivo simulato]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md

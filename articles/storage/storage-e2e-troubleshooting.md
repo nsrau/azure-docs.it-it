@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="dotnet"
 	authors="robinsh"
-	manager="carmonm"/>  
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="jahogg;robinsh"/>  
+	ms.author="jahogg;robinsh"/>
 
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
@@ -210,7 +210,7 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 	- **Layout di Archiviazione di Azure:** i layout di visualizzazione di Archiviazione di Azure sono layout di colonna e raggruppamenti predefiniti nella griglia di analisi.
 4. Riavviare Message Analyzer dopo aver installato le risorse.
 
-![Gestione asset di Message Analyzer](./media/storage-e2e-troubleshooting/mma-start-page-1.png)  
+![Gestione asset di Message Analyzer](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [AZURE.NOTE] Installare tutte le risorse di Archiviazione di Azure per questa esercitazione.
 
@@ -340,7 +340,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Per esaminare... | Usare l'espressione di filtro... | Log a cui è applicabile l'espressione (client, server, rete, tutti) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
-| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
+| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
 | Aumento di PercentTimeoutError (tutti) | *StatusCode == 500 | Tutti |
 | Aumento di PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |

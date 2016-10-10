@@ -96,7 +96,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | Standard\_A6 | 4 | 28 | 285 | 8 | 8x500 | 2/alta |
 | Standard\_A7 | 8 | 56 | 605 | 16 | 16x500 | 4/alta |
 
-<br>  
+<br>
 ## Serie A - Istanze a elevato utilizzo di calcolo
 
 Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
@@ -112,7 +112,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 
 *Con supporto di RDMA
 
-<br>  
+<br>
 ## Serie D
 
 
@@ -127,7 +127,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard\_D13 | 8 | 56 | 400 | 16 | 16x500 | 8/alta |
 | Standard\_D14 | 16 | 112 | 800 | 32 | 32x500 | 8/molto alta |
 
-<br>  
+<br>
 ## Serie Dv2
 
 | Dimensione | Core CPU | Memoria: GiB | Dimensioni del disco locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
@@ -143,7 +143,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 | Standard\_D14\_v2 | 16 | 112 | 800 | 32 | 32x500 | 8/estremamente alta |
 | Standard\_D15\_v2 | 20 | 140 | 1\.000 | 40 | 40x500 | 8/estremamente alta |
 
-<br>  
+<br>
 ## Serie DS*
 
 
@@ -198,7 +198,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 | Standard\_F8 | 8 | 16 | 128 | 16 | 16x500 | 8/alta |
 | Standard\_F16 | 16 | 32 | 256 | 32 | 32x500 | 8/estremamente alta |
 
-<br>  
+<br>
 ## Serie Fs*
 
 | Dimensione | Core CPU | Memoria: GiB | Dimensioni del disco SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
@@ -214,7 +214,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 *La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie Fs può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
 
 
-<br>  
+<br>
 ## Serie G
 
 | Dimensione | Core CPU | Memoria: GiB | Dimensioni unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
@@ -227,7 +227,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 
 
-<br>  
+<br>
 ## Serie GS*
 
 
@@ -243,7 +243,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 *La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.
 
-<br>  
+<br>
 ## Serie H
 
 Le macchine virtuali serie H di Azure sono le VM high performance computing di prossima generazione che puntano a risolvere esigenze di calcolo di fascia alta, come modellazione molecolare e fluidodinamica computazionale. Queste VM a 8 e 16 core sono basate sulla tecnologia del processore Intel Haswell E5-2667 V3 con memoria DDR4 e archiviazione basata su SSD locale.
@@ -263,7 +263,7 @@ Oltre alla sostanziale potenza della CPU, la serie H offre diverse opzioni per r
 
 *Con supporto di RDMA
 
-<br>  
+<br>
 ## Serie N (anteprima)
 
 Le dimensioni NC e NV sono dette anche istanze abilitate tramite GPU. Si tratta di macchine virtuali specializzate dotate di schede GPU NVIDIA e ottimizzate per diversi scenari e casi d'uso. Le dimensioni NV sono ottimizzate e progettate per le operazioni di visualizzazione remota, streaming, giochi, codifica e scenari VDI che utilizzano framework come OpenGL e DirectX. Le dimensioni NC sono più adatte per applicazioni a elevato utilizzo di calcolo e reti, nonché algoritmi, tra cui applicazioni e simulazioni basate su CUDA e OpenCL.
@@ -294,7 +294,7 @@ Le istanze NC sono basate su GPU NVIDIA Tesla K80. Gli utenti possono ora elabor
 
 
 
-<br>  
+<br>
 ## Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e PowerShell 
 
 

@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>  
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines-windows"
  ms.devlang="na"
@@ -24,7 +24,7 @@ Questo articolo illustra come aggiungere nodi "burst" di Azure (istanze del ruol
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-![Nodi burst][burst]  
+![Nodi burst][burst]
 
 I passaggi descritti in questo articolo consentono di aggiungere rapidamente nodi di Azure a una macchina virtuale del nodo head HPC Pack basato su cloud per una distribuzione di test o con modello di verifica. La procedura è essenzialmente identica a quella per il "potenziamento in Azure" per aggiungere capacità di calcolo del cloud a un cluster HPC Pack locale. Per un'esercitazione, vedere [Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Per istruzioni dettagliate e considerazioni per le distribuzioni di produzione, vedere [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
@@ -86,7 +86,7 @@ Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Ris
 
 * Se si vogliono aumentare o ridurre automaticamente le risorse di calcolo di Azure in base al carico di lavoro del cluster, vedere [Aumentare e ridurre automaticamente le risorse di calcolo di Azure in un cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
-<!--Image references-->  
+<!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
 <!---HONumber=AcomDC_0928_2016-->

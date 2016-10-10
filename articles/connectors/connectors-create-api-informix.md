@@ -6,7 +6,7 @@
     authors="gplarsen"
     manager="erikre"
     editor=""
-    tags="connectors"/>  
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
    ms.date="09/26/2016"
-   ms.author="plarsen"/>  
+   ms.author="plarsen"/>
 
 
 # Introduzione al connettore Informix
@@ -63,7 +63,7 @@ All'interno dell'app per la logica è possibile aggiungere un'azione per elencar
 4.	Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
 5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Get tables (Preview)** (Informix - Ottieni tabelle - anteprima).
 
-	![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorActions.png)
 
 6.	Nel riquadro di configurazione **Informix - Get tables** (Informix - Ottieni tabelle) fare clic sulla **casella di controllo** per abilitare **Connetti tramite gateway dati locale**. Notare che le impostazioni verranno modificate da cloud a locale.
 	- Digitare un valore in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio, digitare `ibmserver01:9089`.
@@ -74,12 +74,12 @@ All'interno dell'app per la logica è possibile aggiungere un'azione per elencar
 	- Selezionare un valore in **Gateway**, ad esempio, selezionare **datagateway01**.
 7. Selezionare **Crea** e **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
 
 8.	Nel pannello **InformixgetTables** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 9.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_tables**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** per visualizzare gli output, che devono includere un elenco di tabelle.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 
 ## Creare le connessioni
 Il connettore supporta le connessioni al database locale e cloud mediante le proprietà di connessione seguenti.
@@ -105,7 +105,7 @@ Il connettore può accedere a un database Informix locale tramite il gateway dat
 7. Selezionare un valore in **Gateway**, ad esempio, selezionare **datagateway01**.
 8. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
 
 ## Creare la connessione cloud
 Il connettore può accedere a un database Informix cloud.
@@ -118,7 +118,7 @@ Il connettore può accedere a un database Informix cloud.
 5. Digitare un valore in **Password**, ad esempio, digitare `Password1`.
 6. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
 
 ## Recuperare tutte le righe con SELECT
 È possibile creare un'azione di app per la logica al fine di recuperare tutte le righe della tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione SELECT di Informix, ad esempio `SELECT * FROM AREA`.
@@ -136,7 +136,7 @@ Il connettore può accedere a un database Informix cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic su **Crea nuova**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorNewConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorNewConnection.png)
   
 8. Nel riquadro di configurazione **Gateway** lasciare disabilitata (deselezionata) la **casella di controllo** **Connetti tramite gateway**.
 	- Digitare un valore in **Nome connessione**, ad esempio, digitare `HISDEMO2`.
@@ -146,18 +146,18 @@ Il connettore può accedere a un database Informix cloud.
 	- Digitare un valore in **Password**, ad esempio, digitare `Password1`.
 9. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
 
 10. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
 11. Se lo si desidera, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
 12. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowsTableName.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowsTableName.png)
 
 13.	Nel pannello **InformixgetRows** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 14.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** per visualizzare gli output, che devono includere un elenco di righe.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## Aggiunta di una riga con INSERT
 È possibile creare un'azione di app per la logica per aggiungere una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione INSERT di Informix, ad esempio `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
@@ -175,18 +175,18 @@ Il connettore può accedere a un database Informix cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**, `Area 99999` e `102` per **REGIONID**.
 10. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorInsertRowValues.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorInsertRowValues.png)
  
 11.	Nel pannello **InformixinsertRow**, all'interno dell'elenco **Tutte le esecuzioni** di **Riepilogo**, selezionare il primo elemento elencato (che corrisponde all'esecuzione più recente).
 12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere una riga nuova.
 
-	![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## Recuperare una riga con SELECT
 È possibile creare un'azione di app per la logica per recuperare una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione SELECT WHERE di Informix, ad esempio `SELECT FROM AREA WHERE AREAID = '99999'`.
@@ -204,19 +204,19 @@ Il connettore può accedere a un database Informix cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**.
 10. Se lo si desidera, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
 11. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowValues.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowValues.png)
 
 12.	Nel pannello **InformixgetRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 13.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere una riga.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## Modificare una riga con UPDATE
 È possibile creare un'azione di app per la logica per modificare una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione UPDATE di Informix, ad esempio `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
@@ -234,18 +234,18 @@ Il connettore può accedere a un database Informix cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**, `Updated 99999` e `102` per **REGIONID**.
 10. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowValues.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowValues.png)
 
 11.	Nel pannello **InformixupdateRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere una riga nuova.
 
-	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## Rimozione di una riga con DELETE
 È possibile creare un'azione di app per la logica per rimuovere una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione DELETE di Informix, ad esempio `DELETE FROM AREA WHERE AREAID = '99999'`.
@@ -263,18 +263,18 @@ Il connettore può accedere a un database Informix cloud.
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
 8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
 9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**.
 10. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowValues.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowValues.png)
 
 11.	Nel pannello **InformixdeleteRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
 12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere la riga eliminata.
 
-	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)  
+	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
 ## Dettagli tecnici
 

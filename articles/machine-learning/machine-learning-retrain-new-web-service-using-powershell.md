@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="vDonGlover"
 	manager="raymondlaghaeian"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="v-donglo"/>  
+	ms.author="v-donglo"/>
 
 # Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning
 

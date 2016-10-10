@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Inserimento di annunci sul lato client
@@ -160,7 +160,7 @@ Application/x-javascript: la risorsa viene visualizzata in un tag HTML <**script
 
 Application/x-shockwave-flash: la risorsa viene visualizzata in un lettore Flash.
 
-**<IFrameResource>** descrive una risorsa HTML che può essere visualizzata in un IFrame. **<HTMLResource>** descrive una parte di codice HTML che può essere inserita in una pagina Web. **<TrackingEvents>** specifica gli eventi di rilevamento e l'URI da richiedere quando si verifica un evento. In questo esempio vengono rilevati gli eventi acceptInvitation e collapse. Per altre informazioni sull'elemento **<NonLinearAds>** e i rispettivi figli, vedere IAB.NET/VAST. Si noti che l'elemento **<TrackingEvents>** si trova entro l'elemento ** <NonLinearAds>** invece dell'elemento **<NonLinear>**.
+**<IFrameResource>** descrive una risorsa HTML che può essere visualizzata in un IFrame. **<HTMLResource>** descrive una parte di codice HTML che può essere inserita in una pagina Web. **<TrackingEvents>** specifica gli eventi di rilevamento e l'URI da richiedere quando si verifica un evento. In questo esempio vengono rilevati gli eventi acceptInvitation e collapse. Per altre informazioni sull'elemento **<NonLinearAds>** e i rispettivi figli, vedere IAB.NET/VAST. Si noti che l'elemento **<TrackingEvents>** si trova entro l'elemento **<NonLinearAds>** invece dell'elemento **<NonLinear>**.
 
 Gli annunci complementari vengono definiti entro un elemento <CompanionAds>. L'elemento <CompanionAds> può contenere uno o più elementi <Companion>. Ogni elemento <Companion> descrive un annuncio complementare e può contenere una risorsa di tipo <StaticResource>, <IFrameResource> o <HTMLResource> specificata in modo analogo a un annuncio non lineare. Un file VAST può contenere più annunci complementari e il lettore può scegliere quello più adatto da visualizzare. Per altre informazioni su VAST, vedere [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 

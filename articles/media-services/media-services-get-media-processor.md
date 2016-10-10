@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Procedura: Ottenere un'istanza del processore di contenuti multimediali

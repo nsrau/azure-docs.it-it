@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="msmbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/>
 
 # Protocolli della versione 2.0: OpenID Connect
 OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 utilizzabile per far accedere in sicurezza gli utenti nelle applicazioni Web. Usando l'implementazione dell'endpoint v2.0 di OpenID Connect, è possibile aggiungere l'accesso e l'API di accesso alle applicazioni basate sul Web. Questa guida illustra come effettuare questa operazione in modo indipendente dal linguaggio, descrivendo come inviare e ricevere messaggi HTTP senza utilizzare le nostre librerie open-source.
@@ -119,7 +119,7 @@ La tabella seguente descrive i diversi codici errore che possono essere restitui
 La semplice ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare le attestazioni nel token per i requisiti dell'app. L'endpoint 2.0 usa i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
 
 È possibile scegliere di convalidare `id_token` nel codice client, ma una procedura comune consiste nell'inviare `id_token` a un server back-end dove verrà eseguita la convalida. Dopo aver convalidato la firma dell'id\_token, è necessario verificare alcune attestazioni. Per altre informazioni, ad esempio relative alla [convalida del token](active-directory-v2-tokens.md#validating-tokens) e al [rollover della chiave di firma](active-directory-v2-tokens.md#validating-tokens), vedere il [riferimento al token della versione 2.0](active-directory-v2-tokens.md). È consigliabile usare una libreria per l'analisi e la convalida dei token. È disponibile almeno una libreria per la maggior parte dei linguaggi e delle piattaforme.
-<!--TODO: Improve the information on this-->  
+<!--TODO: Improve the information on this-->
 
 È inoltre consigliabile convalidare attestazioni aggiuntive in base allo scenario. Alcune convalide comuni includono:
 

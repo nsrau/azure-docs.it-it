@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="justinconway"
     manager=""
-    editor="" />  
+    editor="" />
 <tags 
     ms.service="service-bus-messaging"
     ms.devlang="na"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="06/09/2016"
-    ms.author="sethm;juconway" />  
+    ms.author="sethm;juconway" />
 
 # Domande frequenti sul bus di servizio
 

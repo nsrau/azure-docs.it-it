@@ -6,7 +6,7 @@
     authors="sdwheeler"
     manager="carmonm"
     editor=""
-/>  
+/>
 <tags
     ms.service="load-balancer"
     ms.devlang="na"
@@ -15,7 +15,7 @@
     ms.workload="infrastructure-services"
     ms.date="09/14/2016"
     ms.author="sewhee"
-/>  
+/>
 
 # Panoramica di IPv6 per Azure Load Balancer
 
@@ -26,7 +26,7 @@ I servizi di bilanciamento del carico con connessione Internet possono essere di
 
 L'immagine seguente illustra la funzionalità IPv6 per Azure Load Balancer.
 
-![Azure Load Balancer con IPv6](./media/load-balancer-ipv6-overview/load-balancer-ipv6.png)  
+![Azure Load Balancer con IPv6](./media/load-balancer-ipv6-overview/load-balancer-ipv6.png)
 
 Dopo la distribuzione, un client Internet abilitato per IPv4 o IPv6 può comunicare con gli indirizzi (o nomi host) IPv4 o IPv6 pubblici dell'istanza di Azure Load Balancer con connessione Internet. Il servizio di bilanciamento del carico instrada i pacchetti IPv6 agli indirizzi IPv6 privati delle macchine virtuali tramite NAT (Network Address Translation). Il client Internet IPv6 non può comunicare direttamente con l'indirizzo IPv6 delle macchine virtuali.
 

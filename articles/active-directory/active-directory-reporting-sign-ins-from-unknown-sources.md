@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="SSalahAhmed"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>  
+	ms.author="saah;kenhoff"/>
 
 # Accessi da origini sconosciute
 Questo report indica gli utenti che hanno eseguito correttamente l'accesso alla directory mentre era loro assegnato un indirizzo IP client riconosciuto da Microsoft come indirizzo IP proxy anonimo (ad esempio un indirizzo Tor IP). Questi proxy vengono spesso usati dagli utenti che vogliono nascondere l'indirizzo IP del computer e possono essere usati per attacchi dannosi.

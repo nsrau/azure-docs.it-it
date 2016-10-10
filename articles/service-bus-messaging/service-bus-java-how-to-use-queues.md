@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="sethmanheim"
 	manager="timlt"
-	/>  
+	/>
 
 <tags
 	ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="05/06/2016"
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
 

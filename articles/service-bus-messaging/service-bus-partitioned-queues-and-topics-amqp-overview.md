@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="hillaryc" 
 	manager="timlt" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="service-bus-messaging" 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="07/08/2016" 
-	ms.author="hillaryc;sethm"/>  
+	ms.author="hillaryc;sethm"/>
 
 # Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio 
 

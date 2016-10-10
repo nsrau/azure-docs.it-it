@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Rajani-Janaki-Ram"
 	manager="mkjain"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="09/12/2016"
-	ms.author="rajanaki"/>  
+	ms.author="rajanaki"/>
 
 
 # Replica Hyper-V con Azure Site Recovery
@@ -25,7 +25,7 @@ Questo articolo descrive i concetti tecnici che permettono di configurare e gest
 
 Durante la configurazione del ripristino di emergenza tra locale e Azure, assicurarsi di scaricare e installare il provider di Azure Site Recovery nel server VMM. Installare l'agente di Servizi di ripristino di Azure in ognuno degli host Hyper-V.
 
-![Distribuzione del sito VMM per la replica tra ambiente locale e Azure](media/site-recovery-understanding-site-to-azure-protection/image00.png)  
+![Distribuzione del sito VMM per la replica tra ambiente locale e Azure](media/site-recovery-understanding-site-to-azure-protection/image00.png)
 
 La configurazione dell'ambiente di origine in un'infrastruttura Hyper-V gestita è simile a quella che si esegue in un'infrastruttura VMM gestita. L'unica differenza è che il provider e l'agente sono installati nell'host Hyper-V stesso. Nell'ambiente VMM il provider è installato nel server VMM e l'agente è installato negli host Hyper-V, in caso di replica in Azure.
 
@@ -34,13 +34,13 @@ La configurazione dell'ambiente di origine in un'infrastruttura Hyper-V gestita 
 ### Abilitare la protezione
 Dopo aver protetto una macchina virtuale dal portale di Azure o in locale, viene avviato un processo di Azure Site Recovery denominato **Abilita protezione**, che è possibile monitorare nella scheda **Processi**.
 
-![Processo "Abilita protezione" nell'elenco dei processi](media/site-recovery-understanding-site-to-azure-protection/image001.PNG)  
+![Processo "Abilita protezione" nell'elenco dei processi](media/site-recovery-understanding-site-to-azure-protection/image001.PNG)
 
 Il processo **Abilita protezione** verifica i prerequisiti prima di richiamare il metodo [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx). Questo metodo crea una replica in Azure usando input configurati durante la protezione.
 
 Il processo **Abilita protezione** avvia la replica iniziale dall'ambiente locale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), che invia ad Azure i dischi virtuali della macchina virtuale.
 
-![Dettagli del processo "Abilita protezione"](media/site-recovery-understanding-site-to-azure-protection/IMAGE002.PNG)  
+![Dettagli del processo "Abilita protezione"](media/site-recovery-understanding-site-to-azure-protection/IMAGE002.PNG)
 
 ### Finalizzare la protezione nella macchina virtuale
 Quando viene attivata la replica iniziale, viene acquisito uno [snapshot della VM Hyper-V](https://technet.microsoft.com/library/dd560637.aspx). I dischi rigidi virtuali vengono elaborati uno alla volta fino a quando tutti i dischi non sono stati caricati in Azure. Questa operazione richiede in genere un po' di tempo, a seconda delle dimensioni dei dischi e della larghezza di banda. Per informazioni su come ottimizzare l'utilizzo della rete, vedere [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159) (Come gestire l'utilizzo della larghezza di banda di rete per la protezione da ambiente locale ad Azure).
@@ -52,7 +52,7 @@ Al termine della replica iniziale, il processo **Finalizza la protezione nella m
 
 Al termine della replica iniziale, lo snapshot della macchina virtuale Hyper-V viene eliminato. L'eliminazione comporta l'unione delle modifiche ai dati dopo la replica iniziale nel disco padre.
 
-![Processo "Finalizza la protezione nella macchina virtuale" nell'elenco dei processi](media/site-recovery-understanding-site-to-azure-protection/image03.png)  
+![Processo "Finalizza la protezione nella macchina virtuale" nell'elenco dei processi](media/site-recovery-understanding-site-to-azure-protection/image03.png)
 
 ### Replica dei dati
 Lo strumento di monitoraggio della replica Hyper-V, che fa parte del motore di replica Hyper-V, tiene traccia delle modifiche apportate a un disco rigido virtuale in file di log della replica Hyper-V (HRL). I file HRL si trovano nella stessa directory dei dischi associati.
@@ -68,7 +68,7 @@ Al termine della risincronizzazione, dovrebbe riprendere la normale replica diff
 
 Per impostazione predefinita, la risincronizzazione automatica viene configurata con una pianificazione al di fuori dell'orario lavorativo. Se la macchina virtuale deve essere risincronizzata manualmente, selezionarla dal portale e fare clic su **Risincronizza**.
 
-![Risincronizzazione manuale](media/site-recovery-understanding-site-to-azure-protection/image04.png)  
+![Risincronizzazione manuale](media/site-recovery-understanding-site-to-azure-protection/image04.png)
 
 La risincronizzazione usa un algoritmo di suddivisione in blocchi a blocchi fissi che suddivide appunto i file di origine e di destinazione in blocchi fissi. I checksum per ogni blocco vengono generati e messi a confronto per determinare quali blocchi dell'origine devono essere applicati alla destinazione.
 
@@ -82,7 +82,7 @@ Per gli errori di replica viene applicata una logica di ripetizione dei tentativ
 
 ## Ciclo di vita di ripristino e protezione di macchine virtuali Hyper-V
 
-![Ciclo di vita di ripristino e protezione di macchine virtuali Hyper-V](media/site-recovery-understanding-site-to-azure-protection/image05.png)  
+![Ciclo di vita di ripristino e protezione di macchine virtuali Hyper-V](media/site-recovery-understanding-site-to-azure-protection/image05.png)
 
 ## Altri riferimenti
 

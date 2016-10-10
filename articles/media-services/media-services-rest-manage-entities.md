@@ -6,7 +6,7 @@
 	manager="dwrede" 
 	editor="" 
 	services="media-services" 
-	documentationCenter=""/>  
+	documentationCenter=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016" 
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Gestione di entità di Servizi multimediali con l'API REST
 

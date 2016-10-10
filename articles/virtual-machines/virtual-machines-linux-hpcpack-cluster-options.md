@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management,hpc-pack"/>  
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines-linux"
  ms.devlang="na"
@@ -14,7 +14,7 @@ ms.service="virtual-machines-linux"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
  ms.date="09/26/2016"
- ms.author="danlep"/>  
+ ms.author="danlep"/>
 
 # Opzioni con pacchetto HPC per creare e gestire un cluster HPC in Azure per i carichi di lavoro di Linux
 

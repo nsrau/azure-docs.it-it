@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="azure-resource-manager"
-   keywords=""/>  
+   keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/18/2016"
-   ms.author="sedusch"/>  
+   ms.author="sedusch"/>
 
 # SAP NetWeaver in macchine virtuali (VM) Windows - Guida alla distribuzione
 

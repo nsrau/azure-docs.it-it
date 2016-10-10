@@ -5,7 +5,7 @@
 	documentationCenter="javascript"
 	authors="adrianhall"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="adrianha;ricksal"/>  
+	ms.author="adrianha;ricksal"/>
 
 # Come usare la libreria client JavaScript per le app per dispositivi mobili di Azure
 
@@ -100,7 +100,7 @@ L'esecuzione in locale può causare problemi perché, per impostazione predefini
     
 Dopo l'aggiornamento del backend, sarà possibile usare i nuovi URL di loopback nell'app.
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Avvio rapido alle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

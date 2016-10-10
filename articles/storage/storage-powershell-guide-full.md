@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="robinsh"
-	manager="carmonm"/>  
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="micurd;robinsh"/>  
+	ms.author="micurd;robinsh"/>
 
 # Uso di Azure PowerShell con Archiviazione di Azure
 

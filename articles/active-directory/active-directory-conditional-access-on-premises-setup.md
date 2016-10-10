@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="femila"/>  
+	ms.author="femila"/>
 
 
 # Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory

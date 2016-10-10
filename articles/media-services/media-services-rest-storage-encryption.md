@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 
 #Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS

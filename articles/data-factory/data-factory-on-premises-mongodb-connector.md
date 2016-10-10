@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="linda33wj" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2016" 
-	ms.author="jingwang"/>  
+	ms.author="jingwang"/>
 
 # Spostare i dati da MongoDB con Azure Data Factory
 

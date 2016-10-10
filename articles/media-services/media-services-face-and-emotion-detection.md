@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="juliako"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="media-services"
@@ -14,13 +14,13 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/26/2016"   
-	ms.author="milanga;juliako;"/>  
+	ms.author="milanga;juliako;"/>
  
 #Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
 
 ##Overview
 
-Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure ** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità:
+Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità:
 
 - **Rilevamento volti**
 

@@ -5,7 +5,7 @@
    services="application-gateway"
    authors="amsriva"
    manager="rossort"
-   editor="amsriva"/>  
+   editor="amsriva"/>
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
-   ms.author="amsriva"/>  
+   ms.author="amsriva"/>
 
 # Abilitazione di criteri SSL ed SSL end-to-end nel gateway applicazione
 
@@ -25,7 +25,7 @@ La crittografia SSL end-to-end consente di trasmettere in modo sicuro i dati sen
 
 Se configurato con la modalità di comunicazione SSL end-to-end, il gateway applicazione termina le sessioni SSL dell'utente nel gateway ed esegue la decrittografia del traffico utente. Applica quindi le regole configurate per selezionare un'istanza del pool di back-end adeguata su cui instradare il traffico. Il gateway applicazione avvia a questo punto una nuova connessione SSL al server back-end e crittografa nuovamente i dati tramite il certificato di chiave pubblica del server back-end prima di trasmettere la richiesta al back-end. L'SSL end-to-end viene abilitato impostando la configurazione del protocollo in BackendHTTPSetting su Https, che viene quindi applicata a un pool di back-end. Per una comunicazione protetta, ogni server back-end nel pool di back-end con SSL end-to-end abilitato deve essere configurato con un certificato.
 
-![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)  
+![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
 In questo esempio, le richieste di https://contoso.com possono essere indirizzate a ContosoServerPool su HTTP e https://fabrikam.com verrà indirizzato a FabrikamServerPool su HTTPS tramite SSL end-to-end.
 

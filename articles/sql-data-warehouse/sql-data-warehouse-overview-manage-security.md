@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="ronortloff"
    manager="barbkess"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"

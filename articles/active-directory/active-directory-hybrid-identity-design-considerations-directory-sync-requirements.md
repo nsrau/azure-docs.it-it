@@ -5,7 +5,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Determinare i requisiti di sincronizzazione delle directory
 La sincronizzazione consiste nel fornire agli utenti un'identità nel cloud basata sulla rispettiva identità locale. Gli utenti, infatti, devono necessariamente disporre di un'identità nel cloud, indipendentemente dal fatto che per autenticarsi si avvalgano di un account sincronizzato o di un'autenticazione federata. L'identità dovrà inoltre essere gestita e aggiornata periodicamente. Gli aggiornamenti possono assumere molte forme, tra cui modifiche al titolo o alla password.

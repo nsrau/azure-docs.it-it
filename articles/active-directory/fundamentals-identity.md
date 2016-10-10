@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="curtand"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="multiple"

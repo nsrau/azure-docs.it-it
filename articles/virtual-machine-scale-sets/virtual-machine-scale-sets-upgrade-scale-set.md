@@ -6,7 +6,7 @@
 	authors="gbowerman"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machine-scale-sets"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="guybo"/>  
+	ms.author="guybo"/>
 
 
 # Aggiornare un set di scalabilità di macchine virtuali
@@ -86,7 +86,7 @@ Di seguito sono riportati due esempi di Python che usano l'API REST di Azure per
 
  [Vmssupgrade](https://github.com/gbowerman/vmsstools) è uno script Python utile per implementare un aggiornamento del sistema operativo per un set di scalabilità di macchine virtuali in esecuzione, un dominio di aggiornamento alla volta.
 
-![Script Vmssupgrade per la scelta delle macchine virtuali o di un dominio di aggiornamento](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)  
+![Script Vmssupgrade per la scelta delle macchine virtuali o di un dominio di aggiornamento](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)
 
 Questo script consente di scegliere le macchine virtuali specifiche per aggiornare o specificare un dominio di aggiornamento. Supporta la modifica di una versione dell'immagine della piattaforma o la modifica dell'URI di un'immagine personalizzata.
 
@@ -96,10 +96,10 @@ Questo script consente di scegliere le macchine virtuali specifiche per aggiorna
 
 La schermata seguente illustra un modello di un set di scalabilità per Ubuntu 14.04-2LTS versione 14.04.201507060. Da quando è stata acquisita questa schermata, sono state aggiunte a questo strumento molte opzioni.
 
-![Modello Vmsseditor di un set di scalabilità per Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)  
+![Modello Vmsseditor di un set di scalabilità per Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
 Dopo aver fatto clic su **Aggiorna** e quindi su **Dettagli**, le macchine virtuali in UD 0 avviano l'aggiornamento.
 
-![Vmsseditor che illustra un aggiornamento in corso](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)  
+![Vmsseditor che illustra un aggiornamento in corso](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
 <!---HONumber=AcomDC_0928_2016-->

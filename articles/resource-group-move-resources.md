@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="timlt" 
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -183,23 +183,23 @@ con il seguente corpo della richiesta:
 
 Per spostare le risorse in un nuovo gruppo di risorse nella stessa sottoscrizione, selezionare il gruppo di risorse contenente tali risorse, quindi utilizzare il pulsante **Sposta**.
 
-![Spostare le risorse](./media/resource-group-move-resources/edit-rg-icon.png)  
+![Spostare le risorse](./media/resource-group-move-resources/edit-rg-icon.png)
 
 Per spostare le risorse in una nuova sottoscrizione, selezionare il gruppo di risorse contenente tali risorse, quindi utilizzare l'icona del comando Modifica sottoscrizione.
 
-![Spostare le risorse](./media/resource-group-move-resources/change-subscription.png)  
+![Spostare le risorse](./media/resource-group-move-resources/change-subscription.png)
 
 Selezionare le risorse da spostare e il gruppo di risorse di destinazione. Confermare di dover aggiornare gli script per queste risorse e selezionare **OK**. Se si seleziona l'icona del comando Modifica sottoscrizione nel passaggio precedente, è necessario anche selezionare la sottoscrizione di destinazione.
 
-![Selezione della destinazione](./media/resource-group-move-resources/select-destination.png)  
+![Selezione della destinazione](./media/resource-group-move-resources/select-destination.png)
 
 In **Notifiche** si nota che è in corso l'operazione di spostamento.
 
-![Visualizzare lo stato dello spostamento](./media/resource-group-move-resources/show-status.png)  
+![Visualizzare lo stato dello spostamento](./media/resource-group-move-resources/show-status.png)
 
 Al completamento dell'operazione si riceverà la notifica del risultato.
 
-![Visualizzare il risultato dello spostamento](./media/resource-group-move-resources/show-result.png)  
+![Visualizzare il risultato dello spostamento](./media/resource-group-move-resources/show-result.png)
 
 ## Usare PowerShell
 

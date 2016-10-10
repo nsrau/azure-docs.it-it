@@ -5,7 +5,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Considerazioni di progettazione dell'identità ibrida di Azure Active Directory
 
@@ -31,7 +31,7 @@ I dispositivi basati sull’utente stanno proliferando nel mondo aziendale, e le
 ## Come può essere d’aiuto questa guida? 
 E’ possibile utilizzare la guida per capire come progettare una soluzione con identità ibrida che possa integrare un sistema di gestione delle identità basato sul cloud alla propria soluzione con identità locale. Il seguente grafico mostra un esempio di soluzione con identità ibrida che permette agli amministratori IT di integrare la propria soluzione Windows Server Active Directory in locale con Microsoft Azure Active Directory per permettere agli utenti di utilizzare Single Sign-On (SSO) nelle applicazioni situate nel cloud e in locale.
 
-![](./media/hybrid-id-design-considerations/hybridID-example.png)  
+![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
 
 L’illustrazione precedente è un esempio di soluzione con identità ibrida che sta spingendo i servizi cloud a integrare funzionalità locali per fornire un’esperienza unica di autenticazione all’utente finale e facilitare l’informatica nella gestione di queste risorse. Sebbene questo possa essere uno scenario molto comune, il progetto di identità ibrida di ogni organizzazione è diverso dall’esempio illustrato nella Figura 1 poiché ogni organizzazione presenta diversi requisiti. Questa guida fornisce una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfa i requisiti specifici della propria organizzazione. Nel corso dei passaggi e delle attività, la guida presenta tecnologie rilevanti e opzioni delle funzionalità disponibili per soddisfare i requisiti di qualità delle funzionalità e del servizio della propria organizzazione.

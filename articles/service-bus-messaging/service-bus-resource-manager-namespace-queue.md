@@ -5,7 +5,7 @@
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="07/11/2016"
-    ms.author="sethm;shvija"/>  
+    ms.author="sethm;shvija"/>
 
 # Creare uno spazio dei nomi e una coda del bus di servizio tramite il modello di Azure Resource Manager
 

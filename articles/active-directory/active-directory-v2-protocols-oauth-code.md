@@ -7,7 +7,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="msmbaldwin"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="dastrock"/>  
+	ms.author="dastrock"/>
 
 # Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0
 

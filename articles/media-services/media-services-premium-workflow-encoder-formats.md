@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erik43" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"    
-	ms.author="juliako;anilmur"/>  
+	ms.author="juliako;anilmur"/>
 
 #Codec e formati del flusso di lavoro Premium del codificatore multimediale
 

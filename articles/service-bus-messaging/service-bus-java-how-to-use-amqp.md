@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="sethmanheim"  
 	manager="timlt" 
-	editor="" />  
+	editor="" />
 
 <tags 
 	ms.service="service-bus-messaging" 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="06/20/2016" 
-	ms.author="sethm"/>  
+	ms.author="sethm"/>
 
 # Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
 

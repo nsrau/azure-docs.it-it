@@ -5,7 +5,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Determinare i requisiti di gestione dei contenuti per una soluzione di identità ibrida
 
@@ -22,7 +22,7 @@ Comprendere i requisiti aziendali relativi alla gestione dei contenuti può inci
 
 La soluzione di identità deve essere inoltre sottoposta a vari controlli tecnici per permettere la gestione dei contenuti, come illustrato nella figura seguente:
  
-![](./media/hybrid-id-design-considerations/securitycontrols.png)  
+![](./media/hybrid-id-design-considerations/securitycontrols.png)
 
 **Controlli di protezione che interessano il sistema di gestione delle identità**
 

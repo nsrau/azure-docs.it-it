@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/05/2016"
-   ms.author="v-jeana; hascipio"/>  
+   ms.author="v-jeana; hascipio"/>
 
 # Descrizione del report sulle informazioni dettagliate del venditore
 
@@ -96,7 +96,7 @@ Trovare l'ID editore nell'URL:
 - Usare questo ID come password per aprire il file di Excel delle informazioni dettagliate del venditore. Questa password sarà valida fino a nuova comunicazione.
 - È consigliabile usare Microsoft Office 2013 con Windows per aprire la cartella di lavoro. Sono stati segnalati problemi relativi all'uso di Microsoft Office per Mac.
 
-![publisherid][9]  
+![publisherid][9]
 
 
 ## Passaggi successivi  

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="raymondlaghaeian"
 	manager="paulettm"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/28/2016"
-	ms.author="raymondl;garye;v-donglo"/>  
+	ms.author="raymondl;garye;v-donglo"/>
 
 
 #Ripetere il training dei modelli di Machine Learning a livello di codice  
@@ -39,13 +39,13 @@ Per iniziare, il processo include i componenti seguenti: un esperimento di train
 
 Il processo per la configurazione della ripetizione del training per un servizio Web classico prevede i passaggi seguenti:
 
-![Panoramica del processo di ripetizione del training][1]  
+![Panoramica del processo di ripetizione del training][1]
 
 Diagramma 1: panoramica del processo di ripetizione del training per un servizio Web classico
 
 Il processo per la configurazione della ripetizione del training per un nuovo servizio Web prevede i passaggi seguenti:
 
-![Panoramica del processo di ripetizione del training][7]  
+![Panoramica del processo di ripetizione del training][7]
 
 Diagramma 2: panoramica del processo di ripetizione del training per un nuovo servizio Web
 
@@ -63,7 +63,7 @@ Per creare l'esperimento:
 6.	Fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
 7.	Fare clic su **Set Up Web Service** (Configura servizio Web) e selezionare **Retraining Web Service** (Servizio Web di ripetizione del training).
 
- 	![Esperimento iniziale.][2]  
+ 	![Esperimento iniziale.][2]
 
 Diagramma 2: esperimento iniziale.
 
@@ -97,7 +97,7 @@ Nella parte inferiore dell'area di disegno dell'esperimento, fare clic su **Set 
 
 Al termine dell'esecuzione dell'esperimento, il flusso di lavoro sarà in ogni caso simile al seguente:
 
-![Flusso di lavoro risultante dopo l'esecuzione.][4]  
+![Flusso di lavoro risultante dopo l'esecuzione.][4]
 
 Diagramma 3: flusso di lavoro risultante dopo l'esecuzione.
 
@@ -167,7 +167,7 @@ Quando si specifica il percorso di output nel payload della richiesta, l'estensi
 
 >[AZURE.NOTE] I nomi dei percorsi di output possono essere diversi da quelli di questa procedura dettagliata a seconda dell'ordine in cui sono stati aggiunti i moduli di output del servizio Web. Dato che questo esperimento di training è stato configurato con due output, i risultati includono le informazioni sul percorso di archiviazione per entrambi.
 
-![Output della ripetizione del training.][6]  
+![Output della ripetizione del training.][6]
 
 Diagramma 4: output della ripetizione del training.
 
@@ -187,7 +187,7 @@ Copiare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di out
 
 [Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione per Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md)
 
-<!-- Retrain a New Web service using the Machine Learning Management REST API -->  
+<!-- Retrain a New Web service using the Machine Learning Management REST API -->
 
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
@@ -199,7 +199,7 @@ Copiare *BaseLocation*, *RelativeLocation* e *SasBlobToken* dai risultati di out
 [7]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
 
 
-<!-- Module References -->  
+<!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 <!---HONumber=AcomDC_0928_2016-->

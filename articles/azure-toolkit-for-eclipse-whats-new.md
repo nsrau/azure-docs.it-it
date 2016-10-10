@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="multiple"
@@ -16,7 +16,7 @@
 	ms.date="08/26/2016" 
 	ms.author="robmcm;asirveda;martinsawicki"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->  
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
 # Novità di Azure Toolkit for Eclipse
 
@@ -336,7 +336,7 @@ Per ulteriori informazioni sui Toolkit di Azure per gli IDE di Java, consultare 
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Toolkit di Azure per Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
@@ -373,7 +373,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [Per creare un nuovo account di archiviazione]: http://go.microsoft.com/fwlink/?LinkID=699528#create_new
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure]: http://go.microsoft.com/fwlink/?LinkId=466520
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [ic710876]: ./media/azure-toolkit-for-eclipse-whats-new/ic710876.png
 [ic710877]: ./media/azure-toolkit-for-eclipse-whats-new/ic710877.png

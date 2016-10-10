@@ -7,7 +7,7 @@
    manager="narayan"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/23/2016"
-   ms.author="anithaa" />  
+   ms.author="anithaa" />
 
 # Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
 
@@ -48,17 +48,17 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 3. Selezionare una VM in cui risolvere i problemi nell'elenco visualizzato. Verrà visualizzato un pannello della VM contenente opzioni.
 4. Fare clic su **Diagnostica e risoluzione dei problemi** e quindi selezionare un problema comune. Per questo esempio si seleziona **Non è possibile connettersi alla macchina virtuale Windows**.
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image1.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image1.png)
 
 5. Sotto il problema vengono visualizzati i passaggi, come illustrato nell'immagine seguente:
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image2.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image2.png)
 
 	Fare clic su *effective security group rules* (regole effettive del gruppo di sicurezza) nell'elenco dei passaggi consigliati.
 
 6. Verrà visualizzato il pannello **Ottieni regole di sicurezza valide**, come illustrato nell'immagine seguente:
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image3.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image3.png)
 
 	Si notino le sezioni seguenti dell'immagine:
 
@@ -71,7 +71,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 	- Regola in ingresso **AllowRDP**: questa regola consente le connessioni RDP alla VM.
 7. Fare clic sulla scheda **Subnet1-NSG** per visualizzare le regole effettive del gruppo di sicurezza di rete applicato alla subnet, come illustrato nell'immagine seguente:
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image4.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image4.png)
 
 	Si noti la regola **in ingresso** *denyRDP*. Le regole in ingresso applicate alla subnet vengono valutate prima delle regole applicate all'interfaccia di rete. La regola di accesso negato viene applicata alla subnet, quindi la richiesta di connessione alla porta TCP 3389 ha esito negativo perché la regola di accesso consentito applicata all'interfaccia di rete non viene mai valutata.
 
@@ -81,11 +81,11 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 
 8. Per modificare le regole del gruppo di sicurezza di rete, fare clic su *Subnet1-NSG* nella sezione **Gruppi di sicurezza di rete associati**. Verrà visualizzato il pannello **Subnet1-NSG**. È possibile modificare le regole direttamente facendo clic su **Regole di sicurezza in ingresso**.
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image7.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image7.png)
 
 9. Dopo aver rimosso la regola in ingresso *denyRDP* dal gruppo di sicurezza di rete **Subnet1-NSG** e aver aggiunto una regola *allowRDP*, l'elenco delle regole effettive sarà simile all'immagine seguente:
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image8.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image8.png)
 
 	Verificare che la porta TCP 3389 sia aperta aprendo una connessione RDP alla VM o usando lo strumento PsPing. Per altre informazioni su PsPing, vedere la [pagina di download di PsPing](https://technet.microsoft.com/sysinternals/psping.aspx).
 
@@ -97,7 +97,7 @@ In caso di problemi con il flusso del traffico della VM in un'interfaccia di ret
 2. Fare clic su **Altri servizi** e quindi su **Interfacce di rete** nell'elenco visualizzato.
 3. Selezionare un'interfaccia di rete. Nell'immagine seguente è stata selezionata un'interfaccia di rete denominata *VM1-NIC1*.
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
 
 	Si noti che il valore di **Ambito** corrisponde all'interfaccia di rete selezionata. Per informazioni sugli altri dati visualizzati, vedere il passaggio 6 della sezione relativa alla **risoluzione dei problemi dei gruppi di sicurezza di rete per una VM** di questo articolo.
 
@@ -113,7 +113,7 @@ Quando si modificano le regole del gruppo di sicurezza di rete, può essere oppo
 2. Fare clic su **Altri servizi** e quindi su **Gruppi di sicurezza di rete** nell'elenco visualizzato.
 3. Selezionare un gruppo di sicurezza di rete. Nell'immagine seguente è stato selezionato un gruppo di sicurezza di rete denominato VM1-nsg.
 
-	![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)  
+	![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)
 
 	Si notino le sezioni seguenti dell'immagine precedente:
 

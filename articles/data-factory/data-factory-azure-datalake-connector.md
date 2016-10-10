@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="linda33wj"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="data-factory"
@@ -75,7 +75,7 @@ La procedura seguente descrive i passaggi per la creazione di un servizio colleg
 2. Nell'editor JSON per la proprietà **dataLakeStoreUri** immettere l'URI per il Data Lake.
 3. Fare clic sul pulsante **Autorizza** sulla barra dei comandi. Verrà visualizzata una finestra popup.
 
-	![Pulsante Autorizza](./media/data-factory-azure-data-lake-connector/authorize-button.png)  
+	![Pulsante Autorizza](./media/data-factory-azure-data-lake-connector/authorize-button.png)
 
 4. Usare le credenziali per accedere. A questo punto alla proprietà **authorization** in JSON dovrebbe essere assegnato un valore.
 5. (Facoltativo) Specificare i valori per i parametri facoltativi, ad esempio **accountName**, **subscriptionID** e **resourceGroupName** in JSON oppure eliminare queste proprietà da JSON.

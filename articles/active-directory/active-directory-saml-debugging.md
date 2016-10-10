@@ -3,7 +3,7 @@
     description="Informazioni su come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="femila"/>  
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -11,7 +11,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
     ms.date="02/09/2016" 
-    ms.author="asmalser" />  
+    ms.author="asmalser" />
 
 #Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory
 
@@ -31,7 +31,7 @@ La risposta da Azure AD che contiene il token SAML è in genere quella che si ve
 - [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md)
 - [Come personalizzare lle attestazioni rilasciate nel token SAML per le app preintegrate](active-directory-saml-claims-customization.md)
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
 <!---HONumber=AcomDC_0928_2016-->

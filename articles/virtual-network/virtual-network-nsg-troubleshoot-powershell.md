@@ -7,7 +7,7 @@
    manager="narayan"
    editor=""
    tags="azure-resource-manager"
-/>  
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/23/2016"
-   ms.author="anithaa" />  
+   ms.author="anithaa" />
 
 # Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite Azure PowerShell
 
@@ -48,7 +48,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 
 	>[AZURE.TIP] Se non si conosce il nome di un'interfaccia di rete, immettere il comando seguente per recuperare i nomi di tutte le interfacce di rete in un gruppo di risorse:
 	
-	>`Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`  
+	>`Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`
 
 	Il testo riportato di seguito è un esempio delle regole valide restituite per l'interfaccia di rete *VM1 NIC1*:
 
@@ -165,7 +165,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 
 	Viene applicato un filtro per il traffico RDP (porta TCP 3389) alla visualizzazione griglia, come illustrato nell'immagine seguente:
 
-	![Elenco di regole](./media/virtual-network-nsg-troubleshoot-powershell/rules.png)  
+	![Elenco di regole](./media/virtual-network-nsg-troubleshoot-powershell/rules.png)
 	
 4. Come si può vedere, sono presenti regole sia di tipo "allow" che di tipo "deny" per RDP. L'output del passaggio 2 mostra che la regola *DenyRDP* si trova nel gruppo di sicurezza di rete applicato alla subnet. Per le regole in entrata, vengono elaborati per primi i gruppi di sicurezza di rete applicati alla subnet. Se viene trovata una corrispondenza, il gruppo di sicurezza di rete applicato all'interfaccia di rete non viene elaborato. In questo caso, la regola *DenyRDP* della subnet blocca RDP verso la VM (**VM1**).
 

@@ -6,7 +6,7 @@
    authors="viv-liu"
    manager="femila"
    editor=""
-   tags=""/>  
+   tags=""/>
 
 <tags
    ms.service="active-directory"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
    ms.date="09/27/2016"
-   ms.author="femila"/>  
+   ms.author="femila"/>
 
 # Anteprima di Collaborazione B2B di Azure AD: integrazione cloud dei partner semplice e sicura
 

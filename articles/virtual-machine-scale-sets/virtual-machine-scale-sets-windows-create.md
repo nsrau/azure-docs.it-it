@@ -6,7 +6,7 @@
 	authors="davidmu1"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machine-scale-sets"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/25/2016"
-	ms.author="davidmu"/>  
+	ms.author="davidmu"/>
 
 # Creare un set di scalabilità di macchine virtuali Windows tramite Azure PowerShell
 

@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />  
+    editor="tysonn" />
 <tags 
     ms.service="service-bus-messaging"
     ms.devlang="na"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="06/20/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Code, argomenti e sottoscrizioni del bus di servizio
 

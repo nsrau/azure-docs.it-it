@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />  
+   />
 
 <tags
    ms.service="functions"
@@ -16,7 +16,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="09/26/2016"
-   ms.author="glenga"/>  
+   ms.author="glenga"/>
    
 # Usare Funzioni di Azure per eseguire un'attività di pulizia pianificata
 

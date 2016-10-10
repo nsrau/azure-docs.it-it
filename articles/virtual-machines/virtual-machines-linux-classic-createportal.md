@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="cynthn"/>  
+	ms.author="cynthn"/>
 
 
 # Creare una macchina virtuale personalizzata che esegue Linux

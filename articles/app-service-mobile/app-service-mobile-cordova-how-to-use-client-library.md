@@ -5,7 +5,7 @@
 	documentationCenter="javascript"
 	authors="ggailey777"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="09/23/2016"
-	ms.author="adrianha"/>  
+	ms.author="adrianha"/>
 
 # Come usare la libreria client Apache Cordova per le app per dispositivi mobili di Azure
 
@@ -141,7 +141,7 @@ pushHandler.on('error', function (error) {
 
 Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare mai le notifiche push direttamente dai client. Questa operazione può essere usata per attivare un attacco denial-of-service agli Hub di notifica o al servizio PNS. Il servizio PNS potrebbe escludere il traffico come conseguenza di questi attacchi.
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [portale di Azure]: https://portal.azure.com
 [esercitazione introduttiva sulle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md

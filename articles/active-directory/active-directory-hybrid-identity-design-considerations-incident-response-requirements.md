@@ -6,7 +6,7 @@
 	services="active-directory"
 	authors="billmath"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
 

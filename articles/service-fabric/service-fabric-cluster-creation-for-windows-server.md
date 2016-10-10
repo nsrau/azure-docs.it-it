@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ChackDan"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/26/2016"
-   ms.author="dkshir;chackdan"/>  
+   ms.author="dkshir;chackdan"/>
 
 
 # Creare e gestire un cluster eseguito in Windows Server
@@ -251,7 +251,7 @@ Nessuna.
 - [Proteggere un cluster autonomo in Windows con certificati X.509](service-fabric-windows-cluster-x509-security.md)
 
 
-<!--Image references-->  
+<!--Image references-->
 [TrustedZone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
 <!---HONumber=AcomDC_0928_2016-->

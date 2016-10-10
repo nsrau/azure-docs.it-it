@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="dlepow"
 	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
-	tags="azure-resource-manager,azure-service-management"/>  
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="multiple"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="danlep"/>  
+	ms.author="danlep"/>
     
 # Installare l'interfaccia della riga di comando di Azure
 

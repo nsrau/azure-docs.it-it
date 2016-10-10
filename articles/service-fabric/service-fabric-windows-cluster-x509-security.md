@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="dsk-2015"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"

@@ -6,7 +6,7 @@
    authors="dragon119"
    manager="christb"
    editor=""
-   tags=""/>  
+   tags=""/>
 
 <tags
    ms.service="best-practice"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/13/2016"
-   ms.author="masashin"/>  
+   ms.author="masashin"/>
 
 # Indicazioni di monitoraggio e diagnostica
 

@@ -6,7 +6,7 @@
    authors="neilpeterson"
    manager="timlt"
    editor="tysonn"
-   tags="azure-service-management"/>  
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="09/21/2016"
-   ms.author="nepeters"/>  
+   ms.author="nepeters"/>
 
 # Disponibilità e scalabilità nei modelli di Azure Resource Manager
 
@@ -60,7 +60,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 ```
 Di seguito è illustrato il set di disponibilità come visualizzato nel portale di Azure. Nell'immagine sono riportate le singole macchine virtuali con i relativi dettagli di configurazione.
 
-![Set di disponibilità](./media/virtual-machines-linux-dotnet-core/aset.png)  
+![Set di disponibilità](./media/virtual-machines-linux-dotnet-core/aset.png)
 
 Per informazioni approfondite sui set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali](./virtual-machines-linux-manage-availability.md).
 
@@ -102,7 +102,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Nel portale di Azure le informazioni generali sul servizio di bilanciamento del carico di rete mostrano l'associazione con l'indirizzo IP pubblico.
 
-![Servizio di bilanciamento del carico](./media/virtual-machines-linux-dotnet-core/nlb.png)  
+![Servizio di bilanciamento del carico](./media/virtual-machines-linux-dotnet-core/nlb.png)
 
 ## Regola del servizio di bilanciamento del carico
 
@@ -137,7 +137,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Di seguito è illustrata la regola del servizio di bilanciamento del carico di rete come visualizzata nel portale.
 
-![Regola del servizio di bilanciamento del carico di rete](./media/virtual-machines-linux-dotnet-core/lbrule.png)  
+![Regola del servizio di bilanciamento del carico di rete](./media/virtual-machines-linux-dotnet-core/lbrule.png)
 
 ## Probe del servizio di bilanciamento del carico
 
@@ -162,7 +162,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Di seguito è illustrato il probe del servizio di bilanciamento del carico come visualizzato nel portale di Azure.
 
-![Probe del servizio di bilanciamento del carico di rete](./media/virtual-machines-linux-dotnet-core/lbprobe.png)  
+![Probe del servizio di bilanciamento del carico di rete](./media/virtual-machines-linux-dotnet-core/lbprobe.png)
 
 ## Regole NAT in ingresso
 
@@ -202,7 +202,7 @@ Fare clic su questo collegamento per vedere l'esempio JSON incluso nel modello d
 
 Di seguito è illustrato un esempio di regola NAT in ingresso come visualizzata nel portale di Azure. Per ogni macchina virtuale nella distribuzione viene creata una regola NAT SSH.
 
-![Regola NAT in ingresso](./media/virtual-machines-linux-dotnet-core/natrule.png)  
+![Regola NAT in ingresso](./media/virtual-machines-linux-dotnet-core/natrule.png)
 
 Per informazioni approfondite sul servizio di bilanciamento del carico di rete di Azure, vedere [Bilanciamento del carico per i servizi di infrastruttura di Azure](./virtual-machines-linux-load-balance.md).
 

@@ -6,7 +6,7 @@
 	documentationCenter=".net,nodejs,java"
 	authors="msftman"
 	manager="erikre"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
 	ms.service="logic-apps"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/06/2016"
-	ms.author="deonhe"/>  
+	ms.author="deonhe"/>
 
 # Informazioni sui certificati ed Enterprise Integration Pack
 

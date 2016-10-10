@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="ms-toddabel"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/28/2016"
-   ms.author="toddabel"/>  
+   ms.author="toddabel"/>
 
 
 # Come raccogliere log con Diagnostica di Azure
@@ -49,7 +49,7 @@ Il primo passaggio per la raccolta dei log consiste nel distribuire l'estensione
 ### Distribuire l'estensione di diagnostica come parte della creazione di cluster tramite il portale
 Per distribuire l'estensione di diagnostica nelle VM del cluster come parte della creazione di cluster, verrà usato il pannello Impostazioni di diagnostica illustrato nella figura seguente. Per abilitare la raccolta di eventi Actor o Reliable Service, verificare che l'opzione Diagnostica sia impostata su **Sì**, che corrisponde all'impostazione predefinita. Dopo aver creato il cluster, queste impostazioni non possono essere modificate tramite il portale.
 
-![Impostazione di Diagnostica di Azure nel portale per la creazione di cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)  
+![Impostazione di Diagnostica di Azure nel portale per la creazione di cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
 I log di supporto sono **necessari** al team di supporto di Azure per gestire le richieste di supporto create dall'utente. Questi log vengono raccolti in tempo reale e verranno archiviati in uno degli account di archiviazione creato nel gruppo di risorse. L'impostazione di Diagnostica consente di configurare eventi a livello di applicazione, come eventi [Actor](service-fabric-reliable-actors-diagnostics.md), eventi [Reliable Service](service-fabric-reliable-services-diagnostics.md) e alcuni eventi di Service Fabric a livello di sistema da archiviare in Archiviazione di Azure. Gli eventi possono essere acquisiti dall'account di archiviazione da prodotti come [ElasticSearch](service-fabric-diagnostic-how-to-use-elasticsearch.md) o da un processo personalizzato. Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non viene implementato un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare.
 

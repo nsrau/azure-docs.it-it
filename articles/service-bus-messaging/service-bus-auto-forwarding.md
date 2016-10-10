@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="" />   
+    editor="" /> 
 <tags 
     ms.service="service-bus-messaging"
     ms.devlang="na"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="na"
     ms.date="05/06/2016"
-    ms.author="sethm" />  
+    ms.author="sethm" />
 
 # Concatenamento di entità del bus di servizio con l'inoltro automatico
 

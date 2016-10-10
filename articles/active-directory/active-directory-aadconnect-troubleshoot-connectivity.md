@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="andkjell"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/27/2016"
-	ms.author="andkjell"/>  
+	ms.author="andkjell"/>
 
 # Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -26,8 +26,7 @@ Questo articolo illustra in che modo Fabrikam si connette ad Azure AD tramite il
 
 Prima di tutto è necessario verificare che [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) sia configurato correttamente. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
->[AZURE.NOTE]
-In alcuni blog non Microsoft è invece documentato che le modifiche devono essere apportate a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
+>[AZURE.NOTE] In alcuni blog non Microsoft è invece documentato che le modifiche devono essere apportate a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
 
 Per il server proxy devono essere aperti anche gli URL necessari. L'elenco ufficiale è documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

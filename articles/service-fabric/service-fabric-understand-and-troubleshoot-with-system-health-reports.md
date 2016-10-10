@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/28/2016"
-   ms.author="oanapl"/>  
+   ms.author="oanapl"/>
 
 # Usare i report sull'integrità del sistema per la risoluzione dei problemi
 

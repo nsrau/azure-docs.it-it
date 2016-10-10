@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="femila"
 	manager="swadhwa"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/21/2016"
-	ms.author="MarkVi"/>  
+	ms.author="MarkVi"/>
 
 # Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio
 
@@ -27,14 +27,14 @@ In qualità di amministratore IT, è possibile configurare i dispositivi Windows
 
 Il software per la registrazione dei dispositivi per Windows 7 è disponibile come [pacchetto MSI scaricabile](https://connect.microsoft.com/site1164). Il pacchetto deve essere installato nei computer Windows 7 aggiunti a un dominio di Active Directory. È necessario distribuire il pacchetto usando un sistema di distribuzione software, ad esempio System Center Configuration Manager. Il pacchetto MSI supporta le opzioni standard di installazione invisibile all'utente usando il parametro /quiet. Il pacchetto software è disponibile per il download dal [sito Web Microsoft Connect](https://connect.microsoft.com/site1164). Qui sarà possibile selezionare e scaricare il software per l'aggiunta all'area di lavoro per Windows 7.
 
-![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)  
+![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)
 
 ## Aggiunta all'area di lavoro con Azure Active Directory
 La registrazione dei dispositivi per i dispositivi Windows 7 aggiunti a un dominio non richiede o include un'interfaccia utente. Una volta installato il software nel computer, qualsiasi utente di dominio che accede al computer verrà automaticamente registrato con un oggetto dispositivo in Azure AD. In Azure AD sarà quindi presente un oggetto dispositivo per ogni utente del dispositivo fisico registrato.
 
 Il programma di installazione crea nel sistema un'attività pianificata che viene eseguita nel contesto dell'utente e attivata al momento dell'accesso dell'utente. Una volta completato l'accesso, l'attività registra automaticamente l'utente e il dispositivo in Azure AD. L'attività pianificata è disponibile nella libreria dell'Utilità di pianificazione in **Microsoft** > **Aggiunta all'area di lavoro**. L'attività verrà eseguita e registrerà tutti gli utenti di Active Directory che accedono al computer. La figura seguente illustra la procedura dettagliata per la registrazione automatica dei dispositivi.
 
-![](./media/active-directory-conditional-access/automatic-device-registration-windows7.png)  
+![](./media/active-directory-conditional-access/automatic-device-registration-windows7.png)
 
 1. Un utente (Information Worker) accede a un computer client Windows 7 usando le credenziali del dominio di Active Directory.
 1. Viene eseguita l'attività pianificata di aggiunta all'area di lavoro.

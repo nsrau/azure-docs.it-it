@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/28/2016"
-   ms.author="oanapl"/>  
+   ms.author="oanapl"/>
 
 # Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
@@ -157,7 +157,7 @@ Per una stessa entità possono essere disponibili più report sull'integrità in
 
 Lo stato di integrità aggregato viene attivato dai report sull'integrità *peggiori* relativi all'entità. Se è presente almeno un report sull'integrità di tipo Error, lo stato di integrità aggregato sarà Error.
 
-![Aggregazione dei report sull'integrità con report di tipo Error.][2]  
+![Aggregazione dei report sull'integrità con report di tipo Error.][2]
 
 Un'entità di integrità con uno o più report sull'integrità di tipo Error viene valutata come Error. La stesso accade in caso di report sull'integrità scaduto, indipendentemente dallo stato di integrità.
 

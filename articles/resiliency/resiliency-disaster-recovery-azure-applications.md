@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="adamglick"
    manager="saladki"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="resiliency"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/18/2016"
-   ms.author="aglick"/>  
+   ms.author="aglick"/>
 
 #Ripristino di emergenza per le applicazioni basate su Microsoft Azure
 

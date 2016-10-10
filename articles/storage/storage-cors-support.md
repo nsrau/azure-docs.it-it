@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="cbrooks"
 	manager="carmonm"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="cbrooks;tamram"/>  
+	ms.author="cbrooks;tamram"/>
 
 # Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
 

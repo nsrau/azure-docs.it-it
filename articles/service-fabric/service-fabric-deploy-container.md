@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="msfussell"
    manager=""
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/25/2016"
-   ms.author="msfussell"/>  
+   ms.author="msfussell"/>
 
 # Anteprima: Distribuire un contenitore in Service Fabric
 

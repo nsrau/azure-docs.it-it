@@ -6,7 +6,7 @@
 	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
-	tags="billing,top-support-issue"/>  
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/17/2016"
-	ms.author="cjiang"/>  
+	ms.author="cjiang"/>
 
 # Se non è possibile eseguire la sottoscrizione di Azure
 

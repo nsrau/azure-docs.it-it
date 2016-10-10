@@ -6,7 +6,7 @@
 	authors="rothja"
 	manager="jhubbard"
 	editor=""
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/26/2016"
-	ms.author="jroth"/>  
+	ms.author="jroth"/>
 
 # Estensione SQL Server Agent per VM di SQL Server (distribuzione classica)
 
@@ -25,7 +25,8 @@
 
 L'Estensione Agente IaaS di SQL Server (SQLIaaSAgent) viene eseguita sulle macchine virtuali di Azure per automatizzare le attività di amministrazione. Questo argomento fornisce una panoramica dei servizi supportati dall'estensione e delle istruzioni per l'installazione, lo stato e la rimozione.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Per visualizzare la versione di Resource Manager di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md) (Estensione Agente IaaS per le VM SQL Resource Manager).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+Per visualizzare la versione di Resource Manager di questo articolo, vedere [SQL Server Agent Extension for SQL Server VMs Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md) (Estensione Agente IaaS per le VM SQL Resource Manager).
 
 ## Servizi supportati
 
@@ -82,7 +83,7 @@ Se si esegue l'aggiornamento alla versione più recente dell'estensione dell'age
 
 Un modo per verificare che l'estensione sia installata consiste nel visualizzare lo stato dell'agente nel portale di Azure. Selezionare **Tutte le impostazioni** nel pannello della macchina virtuale e quindi fare clic su **Estensioni**. Verrà elencata l'estensione **SQLIaaSAgent**.
 
-![Estensione Agente IaaS di SQL Server nel portale di Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)  
+![Estensione Agente IaaS di SQL Server nel portale di Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
 È anche possibile usare il cmdlet di Azure PowerShell **Get-AzureVMSqlServerExtension**.
 
@@ -92,7 +93,7 @@ Un modo per verificare che l'estensione sia installata consiste nel visualizzare
 
 Nel portale di Azure è possibile disinstallare l'estensione facendo clic sui puntini di sospensione nel pannello **Estensioni** delle proprietà della macchina virtuale. Fare quindi clic su **Elimina**.
 
-![Disinstallare l'Estensione Agente IaaS di SQL Server nel portale di Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)  
+![Disinstallare l'Estensione Agente IaaS di SQL Server nel portale di Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 
 È anche possibile usare il cmdlet di PowerShell **Remove-AzureVMSqlServerExtension**.
 

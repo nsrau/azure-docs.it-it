@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,azure-resource-manager,hpc-pack"/>  
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
@@ -328,7 +328,7 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. È quind
 
 5.	In **Risorse del processo** scegliere "Node" come tipo di risorsa e impostare il valore di Minimum su 2. Questa configurazione esegue il processo in due nodi Linux che, in questo esempio, presentano otto core ciascuno.
 
-    ![Risorse del processo][job_resources]  
+    ![Risorse del processo][job_resources]
 
 6. Fare clic su **Edit Tasks** (Modifica attività) nel riquadro di spostamento sinistro e quindi fare clic su **Add** (Aggiungi) per aggiungere un'attività al processo. Aggiungere al processo quattro attività con le righe di comando e le impostazioni seguenti.
 
@@ -378,7 +378,7 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. È quind
 
     Per impostazione predefinita, HPC Pack invia il processo usando l'account utente attualmente connesso. Dopo aver fatto clic su **Submit**, potrebbe essere visualizzata una finestra di dialogo che richiede l'immissione del nome utente e della password.
 
-    ![Credenziali del processo][creds]  
+    ![Credenziali del processo][creds]
 
     In alcune condizioni, HPC Pack ricorda le informazioni utente inserite in precedenza e non visualizza questa finestra di dialogo. Per fare in modo che HPC Pack la mostri di nuovo, immettere il comando seguente nel prompt dei comandi e quindi inviare il processo.
 
@@ -388,11 +388,11 @@ A questo punto è possibile inviare un processo in HPC Cluster Manager. È quind
 
 8.	Il processo richiede da alcuni minuti a diverse ore in base ai parametri impostati per l'esempio. Nella mappa termica viene visualizzato il processo in esecuzione nei nodi Linux.
 
-    ![Mappa termica][heat_map]  
+    ![Mappa termica][heat_map]
 
     In ogni nodo vengono avviati otto processi.
 
-    ![Processi Linux][linux_processes]  
+    ![Processi Linux][linux_processes]
 
 9.  Al termine del processo, i risultati del processo saranno disponibili in C:\\OpenFoam\\sloshingTank3D e i file di log in C:\\OpenFoam.
 
@@ -407,11 +407,11 @@ Facoltativamente è possibile usare [EnSight](https://www.ceisoftware.com/) per 
 
     Nel visualizzatore viene visualizzato un serbatoio.
 
-    ![Serbatoio in EnSight][tank]  
+    ![Serbatoio in EnSight][tank]
 
 3.	Creare un oggetto **Isosurface** da **internalMesh** e quindi scegliere la variabile **alpha\_water**.
 
-    ![Creare un oggetto isosurface][isosurface]  
+    ![Creare un oggetto isosurface][isosurface]
 
 4.	Impostare il colore per l'oggetto **Isosurface\_part** creato nel passaggio precedente. Ad esempio, impostarlo su azzurro.
 

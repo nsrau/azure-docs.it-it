@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/13/2016"
-   ms.author="kundanap"/>  
+   ms.author="kundanap"/>
 
 # Esempi di configurazione dell’estensione delle macchine virtuali di Linux.
 
@@ -23,7 +23,7 @@
 - [PowerShell - Modello](virtual-machines-windows-extensions-configuration-samples.md)
 - [Interfaccia della riga di comando - Modello](virtual-machines-linux-extensions-configuration-samples.md)
 
-<br>  
+<br>
 
 Questo articolo fornisce una configurazione di esempio per la configurazione di estensioni di macchina virtuale di Azure per macchine virtuali di Linux.
 

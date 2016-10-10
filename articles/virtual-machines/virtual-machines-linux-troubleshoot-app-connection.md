@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"
-	keywords="non è possibile avviare l'applicazione, il programma non si apre, la porta di ascolto è bloccata, non è possibile avviare il programma, blocco della porta di ascolto"/>  
+	keywords="non è possibile avviare l'applicazione, il programma non si apre, la porta di ascolto è bloccata, non è possibile avviare il programma, blocco della porta di ascolto"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="support-article"
 	ms.date="09/27/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Risolvere i problemi di connettività delle applicazioni in una macchina virtuale di Azure per Linux
 

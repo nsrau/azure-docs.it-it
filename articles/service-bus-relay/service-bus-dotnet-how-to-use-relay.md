@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="service-bus-relay"
@@ -27,7 +27,7 @@ Questo articolo descrive come usare il servizio Inoltro del bus di servizio. Neg
 
 Il [servizio *Inoltro* del bus di servizio](service-bus-relay-overview.md) consente di creare applicazioni ibride che vengono eseguite sia in un data center di Azure che nell'ambiente aziendale locale. A tale scopo, consente di esporre in modo sicuro nel cloud servizi WCF (Windows Communication Foundation) che risiedono in una rete aziendale sul cloud pubblico, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
-![Concetti relativi all'inoltro](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)  
+![Concetti relativi all'inoltro](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
 Il servizio Inoltro del bus di servizio consente di ospitare servizi WCF nell'ambiente aziendale esistente. È quindi possibile delegare al servizio del bus di servizio in esecuzione in Azure l'ascolto delle sessioni in ingresso e delle richieste a questi servizi WCF. In questo modo è possibile esporre tali servizi al codice dell'applicazione in esecuzione in Azure oppure ad ambienti destinati a personale che accede da dispositivi mobili o a partner che accedono tramite Extranet. Il bus di servizio consente di controllare in modo sicuro ed estremamente dettagliato gli utenti autorizzati ad accedere ai servizi. È uno strumento efficace e sicuro per esporre dati e funzionalità dell'applicazione dalle soluzioni aziendali esistenti e di sfruttarle dal cloud.
 
@@ -48,7 +48,7 @@ Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsA
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva:
 
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)  
+	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
 ## Esporre e usare un servizio Web SOAP con TCP tramite il bus di servizio
 

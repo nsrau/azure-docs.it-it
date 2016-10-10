@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bsiva"
 	manager="abhiag"
-	editor="tysonn"/>  
+	editor="tysonn"/>
 
 <tags
 	ms.service="site-recovery"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="bsiva"/>  
+	ms.author="bsiva"/>
 
 # Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell - Distribuzione classica
 

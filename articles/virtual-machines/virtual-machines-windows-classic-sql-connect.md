@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jhubbard"
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/22/2016"
-	ms.author="jroth" />  
+	ms.author="jroth" />
 
 # Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)
 

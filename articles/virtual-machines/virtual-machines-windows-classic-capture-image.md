@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines-windows"

@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dominicbetts"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="07/19/2016"
-     ms.author="dobett"/>  
+     ms.author="dobett"/>
 
 # Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT usando .Net
 
@@ -92,7 +92,7 @@ In questa sezione viene modificata l'applicazione del dispositivo simulato creat
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE] Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling] (Gestione degli errori temporanei).
+    > [AZURE.NOTE] Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling] \(Gestione degli errori temporanei).
 
 ## Elaborare i messaggi da dispositivo a cloud
 
@@ -135,7 +135,7 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria 
 
 1. Nella soluzione corrente di Visual Studio fare clic su **File** > **Aggiungi** > **Nuovo progetto** per creare un progetto di Windows in Visual C# usando il modello di progetto **Applicazione console**. Verificare che la versione di .NET Framework sia 4.5.1 o successiva. Denominare il progetto **ProcessDeviceToCloudMessages** e fare clic su **OK**.
 
-    ![Nuovo progetto in Visual Studio][10]  
+    ![Nuovo progetto in Visual Studio][10]
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProcessDeviceToCloudMessages** e quindi scegliere **Gestisci pacchetti NuGet**. Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
 
@@ -390,7 +390,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 2.	Premere **F5** per avviare le tre applicazioni console. L'applicazione **ProcessD2CInteractiveMessages** deve elaborare tutti i messaggi interattivi inviati dall'applicazione **SimulatedDevice**.
 
-  ![Tre applicazioni console][50]  
+  ![Tre applicazioni console][50]
 
 > [AZURE.NOTE] Per visualizzare gli aggiornamenti nel file BLOB, potrebbe essere necessario ridurre la costante **MAX\_BLOCK\_SIZE** nella classe **StoreEventProcessor** a un valore inferiore, ad esempio **1024**. Questa modifica è utile perché raggiungere il limite di dimensione del blocco con i dati inviati dal dispositivo simulato può richiedere tempo. Con una dimensione del blocco ridotta, la creazione e l'aggiornamento del BLOB richiedono meno tempo. Tuttavia, una dimensione del blocco maggiore rende l'applicazione più scalabile.
 
@@ -404,7 +404,7 @@ Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la
 
 Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
-<!-- Images. -->  
+<!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
 
@@ -434,7 +434,7 @@ Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere 
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
-<!-- Links -->  
+<!-- Links -->
 [Informazioni sugli account di archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Introduzione all'Hub eventi]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure]: ../storage/storage-scalability-targets.md

@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="09/23/2016"
-     ms.author="dobett"/>  
+     ms.author="dobett"/>
 
 # Esercitazione: Inviare messaggi da cloud a dispositivo con l'hub IoT e Node.js
 
@@ -41,7 +41,7 @@ Al termine di questa esercitazione si devono eseguire due applicazioni console N
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-+ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
++ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
 + Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
 
@@ -175,7 +175,7 @@ A questo punto è possibile eseguire le applicazioni.
 
     ![Eseguire l'app per inviare il comando c2d][img-send-command]
 
-    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] (Gestione degli errori temporanei).
+    > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling] \(Gestione degli errori temporanei).
 
 ## Passaggi successivi
 
@@ -185,7 +185,7 @@ Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la
 
 Per ulteriori informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
 
-<!-- Images -->  
+<!-- Images -->
 [img-simulated-device]: media/iot-hub-node-node-c2d/receivec2d.png
 [img-send-command]: media/iot-hub-node-node-c2d/sendc2d.png
 

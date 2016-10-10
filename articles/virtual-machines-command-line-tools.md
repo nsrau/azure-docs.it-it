@@ -6,7 +6,7 @@
 	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-service-management"/>  
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="multiple"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="danlep"/>  
+	ms.author="danlep"/>
 
 # Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)
 
@@ -188,7 +188,7 @@ Questo comando elimina l'ambiente specificato dall'account.
 ## Comandi per la gestione delle macchine virtuali classiche
 Nel diagramma seguente vengono illustrate le modalità di hosting delle macchine virtuali di Azure classiche nell'ambiente della distribuzione di produzione di un servizio cloud di Azure.
 
-![Diagramma tecnico di Azure](./media/virtual-machines-command-line-tools/architecturediagram.jpg)  
+![Diagramma tecnico di Azure](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
 **create-new** consente di creare l'unità nell'archiviazione BLOB (E:/ nel diagramma); **attach** consente di collegare un disco già creato, ma non collegato, a una macchina virtuale.
 
@@ -335,7 +335,7 @@ Questo comando esporta un'immagine di una macchina virtuale di Azure in un file.
 ##  Comandi per la gestione degli endpoint delle macchine virtuali di Azure
 Nel diagramma seguente viene illustrata l'architettura di una tipica distribuzione di più istanze di una macchina virtuale classica. In questo esempio, la porta 3389 è aperta su ogni macchina virtuale (per l'accesso RDP). Su ogni macchina virtuale è anche presente un indirizzo IP interno (ad esempio 168.55.11.1), che viene usato dal servizio di bilanciamento del carico per l'indirizzamento del traffico alla macchina virtuale. L'indirizzo IP interno può essere utilizzato anche per la comunicazione tra macchine virtuali.
 
-![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)  
+![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
 
 Le richieste esterne alle macchine virtuali passano attraverso un servizio di bilanciamento del carico. Per questo motivo, in distribuzioni con più macchine virtuali, non è possibile specificare richieste indirizzate a una macchina virtuale specifica. Per le distribuzioni con più macchine virtuali, è necessario configurare il mapping delle porte tra le macchine virtuali (porta-vm) e il servizio di bilanciamento del carico (porta-bc).
 

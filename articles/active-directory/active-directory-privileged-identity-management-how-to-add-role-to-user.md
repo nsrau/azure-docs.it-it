@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="kgremban"
    manager="femila"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="active-directory"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="09/22/2016"
-   ms.author="kgremban"/>  
+   ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente
 
@@ -61,7 +61,7 @@ Per rimuovere un utente specifico da un ruolo, seguire questa procedura:
 Se non si è certi se gli utenti necessitano ancora delle assegnazioni di ruoli, è possibile [avviare una verifica di accesso per il ruolo](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->  
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

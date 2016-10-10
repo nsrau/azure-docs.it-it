@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="juliako" 
 	manager="erikre" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="media-services" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/26/2016"  
-	ms.author="juliako"/>  
+	ms.author="juliako"/>
 
 #Guida per la risoluzione dei problemi relativi allo streaming live
 
