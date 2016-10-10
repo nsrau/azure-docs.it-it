@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/26/2016"
 	ms.author="carlasab"/>
 
 
@@ -98,7 +98,7 @@ Se viene eseguita la migrazione a una macchina virtuale di Azure esistente, è n
 
 6. Fare clic su Avanti.
 7. Nella pagina di accesso di Microsoft Azure, fare clic su Accedi e accedere al proprio account di Azure.
-8. Selezionare la sottoscrizione che si desidera utilizzare e fare clic su Avanti.
+8. Selezionare la sottoscrizione che si vuole usare e fare clic su Avanti.
 
 	![Accesso ad Azure](./media/virtual-machines-windows-migrate-sql/azure-signin.png)
 
@@ -180,4 +180,4 @@ Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azu
 
 Per istruzioni sulla creazione di una macchina virtuale di SQL Server di Azure da un'immagine acquisita, vedere [Tips & Tricks on 'cloning' Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) (Suggerimenti per clonare macchine virtuali di SQL Server di Azure da immagini acquisite) nel blog degli ingegneri di SQL Server CSS.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

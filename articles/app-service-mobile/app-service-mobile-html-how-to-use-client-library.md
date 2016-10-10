@@ -22,6 +22,12 @@
 
 Questa guida descrive come eseguire scenari comuni usando il più recente [JavaScript SDK per le app per dispositivi mobili di Azure]. Se si ha familiarità con le app per dispositivi mobili di Azure, prima è necessario completare l'[Avvio rapido alle app per dispositivi mobili di Azure] per creare un back-end e una tabella. In questa Guida, l'attenzione è posta sull'uso di un back-end mobile nelle applicazioni Web HTML/JavaScript.
 
+## Piattaforme supportate
+
+Il supporto del browser è limitato alle versioni correnti e aggiornate dei browser principali: Google Chrome, Microsoft Edge, Microsoft Internet Explorer e Mozilla Firefox. L'SDK dovrebbe funzionare con qualsiasi browser abbastanza aggiornato.
+
+Il pacchetto viene distribuito come Universal JavaScript Module, in modo da supportare i formati globali, AMD e CommonJS.
+
 ##<a name="Setup"></a>Installazione e prerequisiti
 
 In questa guida si presuppone che siano stati creati un backend e una tabella. In questa guida si presuppone che la tabella abbia lo stesso schema delle tabelle presenti in tali esercitazioni.
@@ -73,7 +79,7 @@ L'esecuzione in locale può causare problemi perché, per impostazione predefini
 4. Fare clic su **Vai** per aprire Esplora risorse per il back-end dell'app per dispositivi mobili in una nuova scheda o finestra.
 5. Espandere il nodo **config** > **authsettings** per l'app.
 6. Fare clic sul pulsante **Modifica** per abilitare la modifica della risorsa.
-7. Cercare l'elemento **allowedExternalRedirectUrls** che deve essere null. Modificarlo come segue:
+7. Cercare l'elemento **allowedExternalRedirectUrls** che deve essere null. Aggiungere gli URL in una matrice:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -97,10 +103,10 @@ Dopo l'aggiornamento del backend, sarà possibile usare i nuovi URL di loopback 
 <!-- URLs. -->
 [Avvio rapido alle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
-[Aggiungere l'autenticazione all'app]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [portale di Azure]: https://portal.azure.com/
 [JavaScript SDK per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[documentazione relativa all'oggetto Query]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

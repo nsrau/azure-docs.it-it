@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="micurd"/>
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram"/>
 
 # Strumento client di Archiviazione di Azure
 
@@ -30,8 +30,8 @@ Si tratta unicamente di un riepilogo degli strumenti client di Archiviazione di 
     <th rowspan="2">BLOB in blocchi</th>
     <th rowspan="2">BLOB di pagine</th>
     <th rowspan="2">Append Blob</th>
-    <th rowspan="2">Tables</th>
-    <th rowspan="2">Code</th>
+    <th rowspan="2">Tabelle</th>
+    <th rowspan="2">Queues</th>
     <th rowspan="2">File</th>
     <th rowspan="2">Free</th>
     <th colspan="4">Piattaforma</th>
@@ -96,8 +96,8 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <th rowspan="2">BLOB in blocchi</th>
     <th rowspan="2">BLOB di pagine</th>
     <th rowspan="2">Append Blob</th>
-    <th rowspan="2">Tables</th>
-    <th rowspan="2">Code</th>
+    <th rowspan="2">Tabelle</th>
+    <th rowspan="2">Queues</th>
     <th rowspan="2">File</th>
     <th rowspan="2">Free</th>
     <th colspan="4">Piattaforma</th>
@@ -250,4 +250,4 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

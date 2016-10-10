@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Gestione della disponibilità delle macchine virtuali
@@ -31,4 +31,4 @@ Per istruzioni sulla creazione e l'uso dei set di disponibilità con il modello 
 
 Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Bilanciamento del traffico di Azure per macchine virtuali](virtual-machines-windows-load-balance.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

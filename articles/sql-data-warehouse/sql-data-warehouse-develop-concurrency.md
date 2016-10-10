@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/27/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
@@ -48,9 +48,9 @@ La tabella seguente descrive i limiti sia per le query simultanee che per gli sl
 | DW3000 | 32 | 120 |
 | DW6000 | 32 | 240 |
 
-Quando viene raggiunta una di queste soglie, le nuove query vengono messe in coda. SQL Data Warehouse esegue le query in coda secondo il metodo FIFO (First In, First Out) man mano che le altre query vengono terminate e il numero di query e di slot scende al di sotto dei limiti.
+Quando viene raggiunta una di queste soglie, le nuove query vengono accodate e vengono eseguite in base al principio FIFO (First-In-First-Out). Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, le code accodate vengono rilasciate.
 
-> [AZURE.NOTE]  Le query di *selezione* eseguite esclusivamente sulle viste del catalogo o sulle viste a gestione dinamica (DMV) non sono disciplinate da nessuno dei limiti di concorrenza. Gli utenti possono monitorare il sistema indipendentemente dal numero di query in esecuzione nel sistema.
+> [AZURE.NOTE]  Le query di *selezione* eseguite esclusivamente sulle viste del catalogo o sulle viste a gestione dinamica (DMV) non sono disciplinate da nessuno dei limiti di concorrenza. È possibile monitorare il sistema indipendentemente dal numero di query in esecuzione nel sistema.
 
 ## Classi di risorse
 
@@ -76,9 +76,9 @@ Per un esempio dettagliato, vedere [Esempio di modifica della classe di risorse 
 
 ## Allocazione della memoria
 
-Esistono vantaggi e svantaggi legati all'incremento della classe di risorse dell'utente. Se da un lato aumentare una classe di risorse per un utente può significare che le query hanno accesso a una maggiore quantità memoria e possono essere eseguite più velocemente, dall'altro classi di risorse superiori riducono il numero di query simultanee che è possibile eseguire. Questo è il compromesso tra il fatto di allocare grandi quantità di memoria a una singola query e consentire l'esecuzione simultanea di altre query che necessitano di allocazioni di memoria. Se a un utente vengono allocate grandi quantità di memoria per una query, gli altri utenti non potranno accedere alla stessa memoria per eseguire una query.
+Esistono vantaggi e svantaggi legati all'incremento della classe di risorse dell'utente. L'incremento della classe di risorse per un utente consentirà alle rispettive query di accedere a una quantità maggiore di memoria, ovvero le query verranno eseguite con maggiore rapidità. Una quantità maggiore di classi di risorse, tuttavia, riduce anche il numero di query simultanee che è possibile eseguire. Questo è il compromesso tra il fatto di allocare grandi quantità di memoria a una singola query o consentire l'esecuzione simultanea di altre query che necessitano di allocazioni di memoria. Se a un utente vengono allocate grandi quantità di memoria per una query, gli altri utenti non potranno accedere alla stessa memoria per eseguire una query.
 
-Nella tabella seguente la memoria allocata è associata a ogni distribuzione per classe DWU e classe di risorse. In SQL Data Warehouse sono presenti 60 distribuzioni. Ad esempio, una query in esecuzione in DW2000 nella classe di risorse xlargerc avrà accesso a 6.400 MB di memoria in ognuno dei 60 database distribuiti.
+Nella tabella seguente la memoria allocata è associata a ogni distribuzione per classe DWU e classe di risorse.
 
 ### Allocazioni di memoria per ogni distribuzione (MB)
 
@@ -97,7 +97,7 @@ Nella tabella seguente la memoria allocata è associata a ogni distribuzione per
 | DW3000 | 100 | 1\.600 | 3\.200 | 6\.400 |
 | DW6000 | 100 | 3\.200 | 6\.400 | 12\.800 |
 
-Nell'esempio precedente, a una query in esecuzione in DW2000 nella classe di risorse xlargerc viene allocato un totale di 375 GB di memoria (6.400 MB * 60 distribuzioni/1.024 per la conversione in GB) nell'intero SQL Data Warehouse.
+Come si può notare nella tabella precedente, una query in esecuzione in DW2000 nella classe di risorse xlargerc avrà accesso a 6.400 MB di memoria in ognuno dei 60 database distribuiti. In SQL Data Warehouse sono presenti 60 distribuzioni. Per calcolare quindi l'allocazione totale di memoria per una query in una classe di risorse specifica, è necessario moltiplicare per 60 i valori precedenti.
 
 ### Allocazioni di memoria a livello di sistema (GB)
 
@@ -116,10 +116,11 @@ Nell'esempio precedente, a una query in esecuzione in DW2000 nella classe di ris
 | DW3000 | 6 | 94 | 188 | 375 |
 | DW6000 | 6 | 188 | 375 | 750 |
 
+Come si può notare in questa tabella di allocazioni di memoria a livello di sistema, a una query in esecuzione in DW2000 nella classe di risorse xlargerc viene allocato un totale di 375 GB di memoria (6.400 MB * 60 distribuzioni/1.024 per la conversione in GB) nell'intero SQL Data Warehouse.
 
 ## Utilizzo di slot di concorrenza
 
-SQL Data Warehouse concede più memoria alle query in esecuzione nelle classi di risorse più grandi. Poiché la memoria è una risorsa fissa, maggiore è la quantità di memoria allocata per ogni query, minore è la concorrenza che può essere supportata. La tabella seguente riprende tutti i concetti descritti finora in un'unica rappresentazione che mostra il numero di slot di concorrenza disponibili per DWU e gli slot usati da ogni classe di risorse.
+SQL Data Warehouse concede più memoria alle query in esecuzione nelle classi di risorse più grandi. La memoria è una risorsa fissa. Maggiore sarà la quantità di memoria allocata per ogni query, quindi, minore sarà il numero di richieste simultanee che è possibile eseguire. La tabella seguente riprende tutti i concetti descritti finora in un'unica rappresentazione che mostra il numero di slot di concorrenza disponibili per DWU e gli slot usati da ogni classe di risorse.
 
 ### Allocazione e consumo di slot di concorrenza
 
@@ -149,27 +150,27 @@ Nella tabella seguente vengono riportati i mapping di priorità per ogni gruppo 
 
 ### Mapping dei gruppi di carichi di lavoro agli slot di concorrenza e relativa importanza
 
-| Gruppi di carichi di lavoro | Mapping degli slot di concorrenza | Mapping delle priorità |
-| :-------------- | :----------------------: | :----------------- |
-| SloDWGroupC00 | 1 | Media |
-| SloDWGroupC01 | 2 | Media |
-| SloDWGroupC02 | 4 | Media |
-| SloDWGroupC03 | 8 | Media |
-| SloDWGroupC04 | 16 | Alto |
-| SloDWGroupC05 | 32 | Alto |
-| SloDWGroupC06 | 64 | Alto |
-| SloDWGroupC07 | 128 | Alto |
+| Gruppi di carichi di lavoro | Mapping degli slot di concorrenza | MB/Distribuzione | Mapping delle priorità |
+| :-------------- | :----------------------: | :---------------: | :----------------- |
+| SloDWGroupC00 | 1 | 100 | Media |
+| SloDWGroupC01 | 2 | 200 | Media |
+| SloDWGroupC02 | 4 | 400 | Media |
+| SloDWGroupC03 | 8 | 800 | Media |
+| SloDWGroupC04 | 16 | 1\.600 | Alto |
+| SloDWGroupC05 | 32 | 3\.200 | Alto |
+| SloDWGroupC06 | 64 | 6\.400 | Alto |
+| SloDWGroupC07 | 128 | 12\.800 | Alto |
 
 Come illustrato nel grafico **Allocation and consumption of concurrency slots** (Allocazione e utilizzo degli slot di concorrenza), DW500 utilizza 1, 4, 8 o 16 slot di concorrenza per smallrc, mediumrc, largerc e xlargerc rispettivamente. È possibile cercare questi valori nel grafico precedente per identificare la priorità di ciascuna classe di risorse.
 
 ### Mapping dell'importanza delle classi di risorse in DW500
 
-| Classe di risorse | Gruppo del carico di lavoro | Numero di slot di concorrenza usati | Importance |
-| :------------- | :------------- | :--------------------: | :--------- |
-| smallrc | SloDWGroupC00 | 1 | Media |
-| mediumrc | SloDWGroupC02 | 4 | Media |
-| largerc | SloDWGroupC03 | 8 | Media |
-| xlargerc | SloDWGroupC04 | 16 | Alto |
+| Classe di risorse | Gruppo del carico di lavoro | Numero di slot di concorrenza usati | MB/Distribuzione | Importance |
+| :------------- | :------------- | :--------------------: | :---------------: | :--------- |
+| smallrc | SloDWGroupC00 | 1 | 100 | Media |
+| mediumrc | SloDWGroupC02 | 4 | 400 | Media |
+| largerc | SloDWGroupC03 | 8 | 800 | Media |
+| xlargerc | SloDWGroupC04 | 16 | 1\.600 | Alto |
 
 
 Per esaminare in dettaglio le differenze nell'allocazione delle risorse di memoria dal punto di vista di resource governor o per analizzare l'utilizzo attivo e cronologico dei gruppi di carichi di lavoro in caso di risoluzione dei problemi, è possibile usare la query DMV seguente:
@@ -429,4 +430,4 @@ Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del dat
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

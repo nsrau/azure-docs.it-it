@@ -13,12 +13,12 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Calcolare i punteggi di benchmark per le VM Linux
 
-I seguenti punteggi del benchmark CoreMark mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Ubuntu. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Windows](virtual-machines-windows-compute-benchmark-scores.md).
+I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Ubuntu. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Windows](virtual-machines-windows-compute-benchmark-scores.md).
 
 
 
@@ -84,15 +84,29 @@ Standard\_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 a 2 GHz | 84 | 194\.111 | 4\.735
 Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 a 2 GHz | 84 | 357\.396 | 16\.228
 
 
+## Serie H
+
+Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Iterazioni/sec | Deviazione standard
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard\_H8 | 8 | 1 | Intel Xeon E5-2667 v3 a 3,2 GHz | 28 | 140\.782 | 2512
+Standard\_H16 | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 35 | 275\.289 | 7110 
+Standard\_H18m | 8 | 1 | Intel Xeon E5-2667 v3 a 3,2 GHz | 28 | 139\.071 | 3988 
+Standard\_H16m | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 28 | 275\.988 | 6963 
+Standard\_H16r | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 28 | 273\.982 | 6069 
+Standard\_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 28 | 274\.523 | 5698 
+
+
+
 ## Informazioni su CoreMark
 
-I numeri di Linux sono stati calcolati eseguendo [CoreMark](http://www.eembc.org/coremark/faq.php) su Ubuntu. CoreMark è stato configurato con il numero di thread impostato sul numero di CPU virtuali e la concorrenza impostata su PThreads. Il numero di iterazioni è stato rettificato in base alle prestazioni previste per fornire un runtime di almeno 20 secondi (ma in genere molto di più); il punteggio finale rappresentava il numero di iterazioni completate, diviso per la durata del test espressa in secondi. Ogni test è stato eseguito almeno sette volte per ogni VM. I test sono stati eseguiti nell'ottobre 2015 su più VM in ogni area pubblica di Azure in cui erano supportate le macchine virtuali alla data di esecuzione.
+I numeri di Linux sono stati calcolati eseguendo [CoreMark](http://www.eembc.org/coremark/faq.php) su Ubuntu. CoreMark è stato configurato con il numero di thread impostato sul numero di CPU virtuali e la concorrenza impostata su PThreads. Il numero di iterazioni è stato rettificato in base alle prestazioni previste per fornire un runtime di almeno 20 secondi (ma in genere molto di più). Il punteggio finale rappresentava il numero di iterazioni completate, diviso per la durata del test espressa in secondi. Ogni test è stato eseguito almeno sette volte per ogni VM. I test (ad eccezione di quelli della serie H) sono stati eseguiti nell'ottobre 2015 su più VM in ogni area pubblica di Azure in cui erano supportate le macchine virtuali alla data di esecuzione.
+
 ## Passaggi successivi
 
 
 
-* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle VM, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-linux-sizes.md).
+* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-linux-sizes.md).
 
 * Per eseguire gli script CoreMark nelle VM Linux, scaricare il [pacchetto di script CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

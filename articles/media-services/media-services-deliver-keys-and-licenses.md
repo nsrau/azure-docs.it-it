@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 Servizi multimediali di Azure (AMS) consente di inserire contenuti, codificarli, proteggerli ed eseguirne lo streaming. Per i dettagli, vedere [questo](media-services-protect-with-drm.md) articolo. Tuttavia, alcuni clienti vogliono usare AMS solo per distribuire licenze e/o chiavi ed eseguire codifica, crittografia e streaming tramite server locali. Questo articolo descrive come usare Servizi multimediali di Azure per distribuire licenze PlayReady e/o Widevine, usando server locali per tutte le altre operazioni.
 
 
-## Panoramica
+## Overview
 
 Servizi multimediali rende disponibili servizi per la distribuzione di licenze DRM PlayReady e Widevine e chiavi AES-128. Servizi multimediali fornisce anche le API che consentono di configurare i diritti e le restrizioni che il runtime DRM deve imporre quando l'utente riproduce contenuto protetto DRM. Quando un utente richiede contenuto protetto, il lettore richiederà una licenza dal servizio licenze AMS. Il servizio licenze AMS rilascia la licenza al lettore, se questo è autorizzato. Le licenze PlayReady e Widevine contengono la chiave di decrittografia che può essere usata dal lettore client per decrittografare e trasmettere il contenuto.
 
@@ -39,7 +39,7 @@ Il diagramma seguente mostra i passaggi principali necessari per usare AMS per d
 
 ##Esempio di codice .NET
 
-Nell'esempio di codice in questo argomento viene illustrato come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. È necessario ottenere le informazioni seguenti da AMS e configurare il server locale: **chiave simmetrica**, **ID chiave**, **URL di acquisizione di licenze**. Dopo aver configurato il server locale, è possibile effettuare lo streaming dal server locale destinato a questo scopo. Poiché il flusso crittografato punta al server licenze AMS, il lettore richiederà una licenza da AMS. Se si sceglie l'autenticazione tramite token, il server licenze AMS esegue la convalida del token inviato tramite HTTPS e, se questo è valido, distribuisce la licenza al lettore. Nell'esempio di codice viene illustrato solo come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Se si desidera distribuire chiavi AES-128, è necessario creare una chiave simmetrica envelope e ottenere un URL di acquisizione della chiave. [Questo](media-services-protect-with-aes128.md) articolo illustra come eseguire questa operazione.
+L'esempio di codice in questo argomento descrive come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. È necessario ottenere le informazioni seguenti da AMS e configurare il server locale: **chiave simmetrica**, **ID chiave**, **URL di acquisizione di licenze**. Dopo aver configurato il server locale, è possibile effettuare lo streaming dal server locale destinato a questo scopo. Poiché il flusso crittografato punta al server licenze AMS, il lettore richiederà una licenza da AMS. Se si sceglie l'autenticazione tramite token, il server licenze AMS esegue la convalida del token inviato tramite HTTPS e, se questo è valido, distribuisce la licenza al lettore. Nell'esempio di codice viene illustrato solo come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Se si desidera distribuire chiavi AES-128, è necessario creare una chiave simmetrica envelope e ottenere un URL di acquisizione della chiave. [Questo](media-services-protect-with-aes128.md) articolo illustra come eseguire questa operazione.
 	
 	
 	using System;
@@ -334,7 +334,7 @@ Nell'esempio di codice in questo argomento viene illustrato come creare una chia
 	}
 	
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -351,4 +351,4 @@ Nell'esempio di codice in questo argomento viene illustrato come creare una chia
 
 [Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure](media-services-licenses-partner-integration.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

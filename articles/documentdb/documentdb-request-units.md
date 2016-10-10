@@ -2,7 +2,7 @@
 	pageTitle="Unità richiesta in DocumentDB | Microsoft Azure" 
 	description="Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in DocumentDB." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #Unità richiesta in DocumentDB
 Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di DocumentDB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](documentdb-request-units.md#estimating-throughput-needs).
@@ -220,4 +220,4 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

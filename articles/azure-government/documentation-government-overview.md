@@ -90,10 +90,7 @@ Per alte informazioni, vedere l'articolo sull'[insieme di credenziali delle chia
 L'isolamento riguarda l'uso di limiti, segmentazione e contenitori per limitare l'accesso ai dati solo a utenti, servizi e applicazioni autorizzati. Ad esempio, la separazione tra i tenant è un meccanismo di sicurezza essenziali per le piattaforme cloud multi-tenant, come Microsoft Azure. L'isolamento logico consente di evitare che un tenant interferisca con le operazioni di qualsiasi altro tenant.
 
 ### <a name="Overview"></a>Isolamento dell'ambiente
-L'ambiente di Azure per enti pubblici è un'istanza fisica e con isolamento di rete separata dal resto della rete Microsoft. L'isolamento viene ottenuto attraverso una serie di controlli fisici e logici che includono:
-* Protezione delle barriere fisiche tramite fotocamere e dispositivi biometrici.
-* Uso di credenziali specifiche e dell'autenticazione a più fattori da parte del personale Microsoft che richiede l'accesso logico all'ambiente di produzione.
-* Tutta l'infrastruttura dei servizi per Azure per enti pubblici si trova all'interno degli Stati Uniti.
+L'ambiente di Azure per enti pubblici è un'istanza separata dal resto della rete Microsoft. Questa separazione si ottiene tramite una serie di controlli fisici e logici, tra cui la protezione con barriere fisiche usando dispositivi biometrici e fotocamere digitali. Uso di credenziali specifiche e dell'autenticazione a più fattori da parte del personale Microsoft che richiede l'accesso logico all'ambiente di produzione. Tutta l'infrastruttura dei servizi per Azure per enti pubblici si trova all'interno degli Stati Uniti.
 
 #### <a name="Overview"></a>Isolamento per ogni cliente
 Azure implementa il controllo di accesso alla rete e la separazione tramite l'isolamento VLAN, gli ACL, i servizi di bilanciamento del carico e i filtri IP
@@ -104,4 +101,4 @@ Per ulteriori informazioni sull'isolamento in Microsoft Azure, vedere la[sezione
 
 Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

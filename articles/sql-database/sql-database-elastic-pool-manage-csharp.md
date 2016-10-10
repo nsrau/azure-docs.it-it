@@ -108,7 +108,7 @@ Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile i
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere l'ID client richiesto e i valori correlati, vedere l'articolo relativo a [registrare l'app e ottenere i valori client per la connessione dell'applicazione al database SQL](sql-database-client-id-keys.md).
+Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere gli ID client necessari e i valori correlati, vedere [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../resource-group-authenticate-service-principal.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -430,4 +430,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [Quando usare un pool di database elastici](sql-database-elastic-pool-guidance.md)
 - Vedere l'articolo sulla [scalabilità orizzontale con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti di database elastico per scalare in orizzontale, spostare dati, eseguire query o creare transazioni.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

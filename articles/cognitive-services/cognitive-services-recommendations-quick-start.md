@@ -60,7 +60,7 @@ In questa attività verranno effettuata l'iscrizione al servizio API Recommendat
 
 1. In **tipo API**, selezionare **Raccomandazioni**.
 
-1. In **Piano tariffario**, è possibile selezionare un piano. È possibile selezionare il livello **Gratuito** per 10.000 transazioni al mese**. Si tratta di un piano gratuito, pertanto è un buon modo per iniziare a provare il sistema. Quando si passa alla produzione, è consigliabile prendere in considerazione il volume di richiesta e modificare di conseguenza il tipo di piano.
+1. In **Piano tariffario**, è possibile selezionare un piano. È possibile selezionare il livello **gratuito** per 10.000 transazioni al mese. Si tratta di un piano gratuito, pertanto è un buon modo per iniziare a provare il sistema. Quando si passa alla produzione, è consigliabile prendere in considerazione il volume di richiesta e modificare di conseguenza il tipo di piano. Nota: è possibile avere una sola sottoscrizione di livello gratuito per volta
 
 1. Selezionare un **Gruppo di risorse** se esistente o crearne uno nuovo.
 
@@ -168,4 +168,4 @@ Vedere la [documentazione su come ottenere le raccomandazioni sugli elementi](ht
 ### Passaggi successivi
 Congratulazioni per i passaggi effettuati fino ad ora! Per altre informazioni, è possibile visitare l'intero [Riferimento all'API Recommendations](http://go.microsoft.com/fwlink/?LinkId=759348). In caso di domande, non esitare a contattarci all'indirizzo mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -22,7 +22,7 @@ App per la logica offre un set completo di strumenti e modelli per garantire la 
 
 ## Criteri di ripetizione dei tentativi
 
-Il tipo più semplice di gestione degli errori e delle eccezioni è costituito dai criteri di ripetizione dei tentativi. Tali criteri definiscono se l'azione dovrà essere ripetuta in caso di timeout o esito negativo (con restituzione di una risposta 429 o 5xx) della richiesta iniziale. Per impostazione predefinita, tutte le azioni vengono ripetute altre 3 volte a intervalli di 20 secondi. Se la prima richiesta ha ricevuto una risposta `500 Internal Server Error`, il motore del flusso di lavoro viene sospeso per 20 secondi e quindi ripete la richiesta. Se dopo tutti i tentativi la risposta è ancora un'eccezione o un errore, il flusso di lavoro continua e contrassegna l'azione con lo stato `Failed`.
+Il tipo più semplice di gestione degli errori e delle eccezioni è costituito dai criteri di ripetizione dei tentativi. Tali criteri definiscono se l'azione dovrà essere ripetuta in caso di timeout o esito negativo (con restituzione di una risposta 429 o 5xx) della richiesta iniziale. Per impostazione predefinita, tutte le azioni vengono ripetute altre 4 volte a intervalli di 20 secondi. Se la prima richiesta ha ricevuto una risposta `500 Internal Server Error`, il motore del flusso di lavoro viene sospeso per 20 secondi e quindi ripete la richiesta. Se dopo tutti i tentativi la risposta è ancora un'eccezione o un errore, il flusso di lavoro continua e contrassegna l'azione con lo stato `Failed`.
 
 È possibile configurare i criteri di ripetizione dei tentativi nell'elemento **inputs** di una determinata azione. I criteri di ripetizione possono essere configurati fino a un massimo di 4 tentativi a intervalli di 1 ora. I dettagli completi sulle proprietà di input sono [disponibili su MSDN][retryPolicyMSDN].
 
@@ -207,4 +207,4 @@ I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni i
 <!-- References -->
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

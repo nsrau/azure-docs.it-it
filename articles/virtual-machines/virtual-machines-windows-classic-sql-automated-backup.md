@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/14/2016"
+	ms.date="09/26/2016"
 	ms.author="jroth" />
 
 # Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)
@@ -41,19 +41,23 @@ Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
+>[AZURE.NOTE] SQL Server 2016 non supporta ancora il backup automatizzato.
+
 **Configurazione del database**:
 
-- I database di destinazione devono usare il modello di recupero con registrazione completa
+- I database di destinazione devono usare il modello di recupero con registrazione completa.
 
 **Azure PowerShell**:
 
-- [Installare i comandi di Azure PowerShell più recenti](../powershell-install-configure.md) se si prevede di configurare il backup automatico con PowerShell.
+- [Installare i comandi di Azure PowerShell più recenti](../powershell-install-configure.md).
 
->[AZURE.NOTE] Il backup automatico si basa sull'estensione dell'agente IaaS di SQL Server. Per impostazione predefinita, le attuali immagini della raccolta di macchine virtuali di SQL aggiungono questa estensione. Per altre informazioni, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+**Estensione di SQL Server IaaS**:
+
+- [Installare l'estensione di SQL Server IaaS](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Impostazioni
 
-Nella seguente tabella sono descritte le opzioni che possono essere configurate per il backup automatico. I passaggi di configurazione effettivi variano a seconda che venga usato il portale di Azure o i comandi di Windows PowerShell di Azure.
+Nella seguente tabella sono descritte le opzioni che possono essere configurate per il backup automatico. Nella macchine virtuali classiche, per configurare queste impostazioni è necessario usare PowerShell.
 
 |Impostazione|Intervallo (impostazione predefinita)|Descrizione|
 |---|---|---|
@@ -62,23 +66,6 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 |**Storage Account**|Account di archiviazione di Azure (account di archiviazione creato per la macchina virtuale specificata)|Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il nome del computer.|
 |**Crittografia**|Enable/Disable (disabilitato)|Abilita o disabilita la crittografia. Quando è abilitata la crittografia, i certificati usati per ripristinare il backup sono contenuti nell'account di archiviazione specificato, nello stesso contenitore automaticbackup con la stessa convenzione di denominazione Se la password viene modificata, viene generato un nuovo certificato con tale password, ma il certificato precedente viene mantenuto per ripristinare i backup precedenti.|
 |**Password**|Testo della password (nessuno)|Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup.|
-
-## Configurazione nel Portale
-È possibile utilizzare il portale di Azure per configurare il backup automatico durante il provisioning o per le VM esistenti.
-
-### Nuove VM
-Usare il portale di Azure per configurare il backup automatico quando si crea una nuova macchina virtuale di SQL Server 2014 nel modello di distribuzione classica.
-
-La seguente schermata del portale di Azure mostra queste opzioni in **CONFIGURAZIONE FACOLTATIVA** | **BACKUP AUTOMATIZZATO SQL**.
-
-![Configurazione del backup automatizzato di SQL nel portale di Azure](./media/virtual-machines-windows-classic-sql-automated-backup/IC778483.jpg)
-
-### VM esistenti
-Per le macchine virtuali esistenti di SQL Server 2014, selezionare le impostazioni relative al **backup automatizzato** nella sezione di **configurazione** delle proprietà della macchina virtuale Nella finestra relativa al **backup automatico** è possibile abilitare la funzionalità, impostare il periodo di memorizzazione, selezionare l'account di archiviazione e impostare la crittografia. Queste impostazioni sono illustrate nella seguente schermata.
-
-![Configurazione del backup automatizzato nel portale di Azure](./media/virtual-machines-windows-classic-sql-automated-backup/IC792133.jpg)
-
->[AZURE.NOTE] Quando si abilita il backup automatico per la prima volta, Azure configura l'agente IaaS di SQL Server in background. Durante questo periodo, nel portale di Azure potrebbe non essere visualizzata l'informazione relativa alla configurazione del backup automatico. Attendere alcuni minuti per l'installazione e la configurazione dell'agente. A questo punto, nel portale di Azure verranno visualizzate le nuove impostazioni.
 
 ## Configurazione con PowerShell
 
@@ -112,10 +99,10 @@ Per disabilitare il backup automatizzato, eseguire lo stesso script senza il par
 
 Backup automatico configura backup gestito in Macchine virtuali di Azure. Pertanto è importante [esaminare la documentazione per il backup gestito](https://msdn.microsoft.com/library/dn449496.aspx) per comprendere il comportamento e le implicazioni.
 
-È possibile trovare ulteriori indicazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'argomento seguente: [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
+È possibile trovare altre indicazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'argomento seguente: [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server nelle macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

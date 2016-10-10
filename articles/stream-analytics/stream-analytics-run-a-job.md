@@ -6,7 +6,7 @@
 	services="stream-analytics"
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/> 
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,8 +14,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
-	ms.author="jeffstok"/> 
+	ms.date="09/26/2016" 
+	ms.author="jeffstok"/>
 
 # Come eseguire un processo di streaming in Analisi di flusso di Azure
 
@@ -23,7 +23,7 @@ Dopo che sono stati specificati un processo di input, una query e un output, è 
 
 Per avviare il processo:
 
-1.	Nel portale di Azure classico, dal dashboard del processo fare clic su **Start** nella parte inferiore della pagina.
+1.	Nel portale di Azure classico, dal dashboard del processo, fare clic su **Start** nella parte inferiore della pagina.
 
     ![Pulsante Avvia processo](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
 
@@ -54,4 +54,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

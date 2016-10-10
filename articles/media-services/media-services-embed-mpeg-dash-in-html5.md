@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js" 
-	description="Questo argomento illustra come integrare un video di streaming adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js" 
+	pageTitle="Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js | Microsoft Azure" 
+	description="Questo argomento illustra come integrare un video in streaming adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js." 
 	authors="Juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
 #Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
 
-##Panoramica
+##Overview
 
 MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli utenti che desiderano distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente impostato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. Questo riduce il rischio che il video si interrompa mentre il lettore scarica i secondi successivi da riprodurre (noto anche come buffering). Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.
 
@@ -100,7 +100,7 @@ Infine, imposta la dimensione dell'elemento video usando lo stile CSS. In un amb
 Per riprodurre un video, passare nel browser al file basicPlayback.html e fare clic sul pulsante di riproduzione sul lettore video visualizzato.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -114,4 +114,4 @@ Per riprodurre un video, passare nel browser al file basicPlayback.html e fare c
 
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

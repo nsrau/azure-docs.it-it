@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -40,7 +40,7 @@ Per risolvere il problema relativo alla distribuzione dell'applicazione con un n
 
 Nel menu **Valore attributo** selezionare **user.mail** per impostare l'attestazione NameIdentifier in modo che corrisponda all’indirizzo di posta elettronica dell'utente nella directory o selezionare**user.onpremisessamaccountname** per impostare il nome utente dell’account SAM che è stato sincronizzato da Azure AD in locale.
 
-Inoltre, è possibile utilizzare la funzione specifica ExtractMailPrefix() per rimuovere il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente in modo che venga passata solo la prima parte del nome utente (ad esempio, "joesmith" invece di joesmith@contoso.com).
+È anche possibile usare la funzione specifica ExtractMailPrefix() per rimuovere il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente in modo che venga passata solo la prima parte del nome utente (ad esempio, "joesmith" invece di joesmith@contoso.com).
 
 ![][3]
 
@@ -68,4 +68,4 @@ Se per un determinato utente non è stato archiviato alcun valore per un attribu
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="rboucher"
 	manager=""
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="multiple"
@@ -200,7 +200,7 @@ Oggi Azure viene eseguito in numerosi data center distribuiti in tutto il mondo.
 
 
 ### Rete virtuale
-![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png) 
+![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
 *Figura: le reti virtuali forniscono una rete privata nel cloud in modo da consentire a servizi diversi di comunicare reciprocamente o in risorse locali se si imposta una connessione VPN tra più sedi locali.*
 
@@ -227,7 +227,7 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 ### Gestione traffico
 
-![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png) 
+![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)
 
 *Figura: Gestione traffico di Azure consente di instradare il traffico globale al servizio dell'utente in base a regole intelligenti.*
 
@@ -361,7 +361,7 @@ Nonostante sia certamente possibile creare il back-end per un'app per dispositiv
 
 ### App per dispositivi mobili
 
-![App per dispositivi mobili](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png) 
+![App per dispositivi mobili](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)
 
 *Figura: App per dispositivi mobili fornisce funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 
@@ -378,7 +378,7 @@ Poiché Azure supporta già un livello avanzato di scalabilità, è possibile ge
 
 ### Hub di notifica
 
-![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png) 
+![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)
 
 *Figura: Hub di notifica fornisce le funzionalità comunemente richieste dalle applicazioni che si interfacciano con dispositivi mobili.*
 
@@ -430,7 +430,7 @@ Indipendentemente dall'attività svolta, spesso il codice deve interagire con al
 
 L'accodamento si basa su un concetto semplice: un'applicazione colloca un messaggio in una coda e il messaggio viene quindi letto da un'altra applicazione. Se l'applicazione richiede solo questo semplice servizio, il servizio Code di Azure risulta la scelta ottimale.
 
-Per effetto del modo in cui la piattaforma Azure è cresciuta nel corso del tempo, Code di archiviazione e Code bus di servizio di Azure forniscono servizi di accodamento simili. I motivi per i quali è preferibile usare una o l'altra soluzione sono descritti nel documento tecnico [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Analogie e differenze tra le code di Azure e le code del bus di servizio"). In molti scenari saranno valide entrambe le soluzioni.
+Per effetto del modo in cui la piattaforma Azure è cresciuta nel corso del tempo, Code di archiviazione e Code bus di servizio di Azure forniscono servizi di accodamento simili. I motivi per i quali è preferibile usare una o l'altra soluzione sono descritti nel documento tecnico [Analogie e differenze tra le code di Azure e le code del bus di servizio](http://msdn.microsoft.com/library/azure/hh767287.aspx). In molti scenari saranno valide entrambe le soluzioni.
 
 **Scenari di coda**
 
@@ -606,4 +606,4 @@ Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scriver
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

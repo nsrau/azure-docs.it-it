@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,12 +14,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="dastrock"/> 
+	ms.author="dastrock"/>
 
 # Protocolli v2.0 - OAuth 2.0 e OpenID Connect
 
 L'endpoint v2.0 può usare Azure AD per il servizio IaaS (identity-as-a-service) con protocolli standard del settore, OpenID Connect e OAuth 2.0. Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli. Le informazioni in questo argomento sono utili se si sceglie di scrivere codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una delle librerie open source di Microsoft.
-<!-- TODO: Need link to libraries above --> 
+<!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
 	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
@@ -40,9 +40,9 @@ Ogni app che usa l'endpoint v2.0 dovrà essere registrata in [apps.dev.microsoft
 
 - Un **ID applicazione** che identifica l'app in modo univoco
 - Un **URI di reindirizzamento** o un **identificatore di pacchetto** che possono essere usati per indirizzare le risposte all'app
-- Altri valori specifici dello scenario.
+- Altri valori specifici dello scenario
 
-Per informazioni dettagliate, consultare l'argomento relativo alla [registrazione di un'app](active-directory-v2-app-registration.md).
+Per altri dettagli, vedere [Azure Active Directory B2C: registrare l'applicazione](active-directory-v2-app-registration.md).
 
 ## Endpoint
 Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint v2.0:
@@ -75,9 +75,9 @@ Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle eserci
 - [Creazione di un’applicazione Mobile e Nativa con OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 - [Creazione di Web App con collegamento ID Open](active-directory-v2-protocols-oidc.md)
 - [Creazione di app a pagina singola con OAuth 2.0 flusso implicito](active-directory-v2-protocols-implicit.md)
-- Compilare daemon o processi sul lato Server con il OAuth 2.0 Client flusso di credenziali (presto disponibile)
+- [Compilare daemon o processi sul lato server con il flusso di credenziali client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 - Ottenere i token in un'API Web con OAuth 2.0 per conto del flusso (presto disponibile)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

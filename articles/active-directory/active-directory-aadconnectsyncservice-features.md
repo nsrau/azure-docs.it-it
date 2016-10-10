@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -98,4 +98,4 @@ Dopo aver abilitato questa funzionalità, i valori di userPrincipalName esistent
 - [Servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

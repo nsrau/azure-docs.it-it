@@ -70,7 +70,7 @@ Per aumentare la disponibilità delle applicazioni Azure, prendere in consideraz
 
 Una variante usa le code di Archiviazione di Azure (BLOB, tabelle, code) o del bus di servizio come posizione di failover per le chiamate al database non riuscite. Se una chiamata sincrona all'interno di un'applicazione verso un altro servizio (come il database SQL di Azure) ha ripetutamente esito negativo, ad esempio, è possibile serializzare tali dati in una risorsa di archiviazione durevole. Successivamente, quando il servizio o il database è di nuovo online, l'applicazione può inviare nuovamente la richiesta dalla risorsa di archiviazione. Questo modello si differenzia perché la posizione intermedia non è una parte costante del flusso di lavoro dell'applicazione. Viene usata solo in scenari di errore.
 
-In entrambi gli scenari, la comunicazione asincrona e l'archiviazione intermedia impediscono a un servizio back-end inattivo di arrestare l'intera applicazione. Le code fungono da intermediario logico. Per altre indicazioni sulla scelta del servizio di accodamento corretto, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+In entrambi gli scenari, la comunicazione asincrona e l'archiviazione intermedia impediscono a un servizio back-end inattivo di arrestare l'intera applicazione. Le code fungono da intermediario logico. Per altre indicazioni sulla scelta del servizio di accodamento corretto, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ###Rilevamento degli errori e logica di ripetizione dei tentativi
 
@@ -143,4 +143,4 @@ Si noti che la figura precedente illustra un'implementazione di questo approccio
 
 Questo articolo fa parte di una serie dedicata al [ripristino di emergenza e disponibilità elevata per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). L'articolo successivo della serie riguarda il [ripristino di emergenza per le applicazioni basate su Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

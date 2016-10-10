@@ -61,6 +61,7 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - Cache Redis
 - Utilità di pianificazione
 - Search
+- Bus di servizio
 - Archiviazione
 - Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 - Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
@@ -257,4 +258,4 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 - Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](./azure-portal/resource-group-portal.md).
 - Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

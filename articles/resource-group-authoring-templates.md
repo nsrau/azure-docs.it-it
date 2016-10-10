@@ -202,7 +202,7 @@ Nell'esempio successivo viene illustrata una variabile che rappresenta un tipo J
 
 ## Risorse
 
-Nella sezione delle risorse è possibile definire le risorse che vengono distribuite o aggiornate. È qui che il modello può diventare più complicato, perché per fornire i valori corretti è necessario conoscere i tipi da distribuire. Per informazioni utili sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
+Nella sezione risorse è possibile definire le risorse da distribuire o aggiornare. È qui che il modello può diventare più complicato, perché per fornire i valori corretti è necessario conoscere i tipi da distribuire. Per informazioni utili sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
 
 Le risorse vengono definite con la struttura seguente:
 
@@ -367,4 +367,4 @@ Per altre informazioni sull'utilizzo dell'output, vedere [Condivisione dello sta
 
 [deployment2cmdlet]: https://msdn.microsoft.com/library/mt740620(v=azure.200).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

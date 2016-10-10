@@ -151,8 +151,7 @@ Prendere in considerazione la possibilità di implementare una cache locale priv
 
 Questo approccio richiede una configurazione attenta per evitare che la cache locale diventi obsoleta rispetto alla cache condivisa. Tuttavia, la cache locale funge da buffer se la cache condivisa non è raggiungibile. Nella Figura 3 viene illustrata questa struttura.
 
-![Uso di una cache privata locale con una cache condivisa](media/best-practices-caching/Caching3.png) 
-_Figura 3: uso di una cache locale, privata con una cache condivisa_
+![Uso di una cache privata locale con una cache condivisa](media/best-practices-caching/Caching3.png) _Figura 3: uso di una cache locale, privata con una cache condivisa_
 
 Per supportare la cache di grandi dimensioni che contengono dati di durata relativamente lunga, alcuni servizi cache forniscono un'opzione di disponibilità elevata che implementa il failover automatico, se la cache non è più disponibile. Questo approccio implica in genere la replica in un server di cache secondario dei dati memorizzati nella cache archiviati in un server di cache primario, implicando anche il passaggio al server secondario se il server primario non funziona o se la connessione viene persa.
 
@@ -340,7 +339,7 @@ Si tratta di un processo potenzialmente complesso, poiché, se si desidera imple
 
 Ogni coppia master/subordinato deve trovarsi in posizione ravvicinata per ridurre al minimo la latenza. Tuttavia, ogni set di coppie può essere in esecuzione in data center di Azure diversi ubicati in aree diverse, se si desidera posizionare dati memorizzati nella cache vicino alle applicazioni che hanno maggiori probabilità di usarli. La pagina relativa all'[esecuzione di Redis in una VM CentOS Linux in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) nel sito Web Microsoft illustra un esempio di creazione e configurazione di un nodo Redis in esecuzione come VM di Azure.
 
-Si noti che se si implementa la propria cache Redis in questo modo, si sarà responsabili del monitoraggio, della gestione e della protezione del servizio.
+[AZURE.NOTE] Si noti che se si implementa la propria cache Redis in questo modo, si è responsabili del monitoraggio, della gestione e della protezione del servizio.
 
 ## Partizionamento di una cache Redis
 
@@ -936,4 +935,4 @@ Anche il modello seguente potrebbe essere importante per lo scenario quando si i
 - Pagina sulle [transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nel repository di StackExchange.Redis
 - Pagina di [guida al partizionamento dei dati](http://msdn.microsoft.com/library/dn589795.aspx) nel sito Web Microsoft
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

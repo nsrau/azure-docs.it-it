@@ -5,7 +5,7 @@
 	documentationCenter="ios"
 	authors="brandwe"
 	manager="mbaldwin"
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="brandwe"/> 
+	ms.author="brandwe"/>
 
 # Integrare Azure AD in un'app iOS
 
@@ -34,6 +34,8 @@ Per compilare l'applicazione funzionante completa, sarà necessario:
 5. Usare ADAL per ottenere i token da Azure AD.
 
 Per iniziare, [scaricare la struttura dell'app](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) o [scaricare l'esempio completato](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Sarà necessario anche un tenant di Azure AD in cui poter creare gli utenti e registrare un'applicazione. Se non si ha già un tenant, vedere le [informazioni su come ottenerne uno](active-directory-howto-tenant.md).
+
+> [AZURE.TIP] Si consiglia di provare l'anteprima del nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/iOS) che consentirà di imparare a usare Azure Active Directory in pochi minuti. Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice. Al termine si otterrà una semplice applicazione in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida.
 
 ## *1. Determinare quale sarà l'URI di reindirizzamento per iOS*
 
@@ -230,4 +232,4 @@ Ora è possibile passare ad altri scenari. È possibile consultare:
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

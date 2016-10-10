@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Informazioni sui criteri di sicurezza RunAs dell'applicazione dell'infrastruttura di servizi | Microsoft Azure"
+   pageTitle="Informazioni sui criteri di sicurezza del servizio e dell'applicazione di Service Fabric | Microsoft Azure"
    description="Panoramica dell'esecuzione di un'applicazione di Service Fabric con account di sicurezza di sistema e locali, incluso il punto SetupEntry in cui un'applicazione deve eseguire un'azione con privilegi prima dell'avvio"
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
    manager="timlt"
-   editor="bscholl"/>
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -13,23 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="09/22/2016"
    ms.author="mfussell"/>
 
-# RunAs: Eseguire un'applicazione di Service Fabric con varie autorizzazioni di sicurezza
-Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi, noti come **RunAs**. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni con l'account utente, ad esempio file, directory e certificati.
+# Configurare i criteri di sicurezza per l'applicazione
+Azure Service Fabric consente di proteggere le applicazioni in esecuzione nel cluster con account utente diversi. Service Fabric permette anche di proteggere le risorse usate dalle applicazioni in fase di distribuzione con l'account utente, ad esempio file, directory e certificati. In questo modo le applicazioni in esecuzione, anche in un ambiente ospitato condiviso, sono reciprocamente protette.
 
-Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. Service Fabric consente anche di eseguire le applicazioni con un account utente locale o un account di sistema locale, specificato nel manifesto dell'applicazione. I tipi di account supportati dal sistema locale per RunAs sono **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
+Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. Service Fabric consente anche di eseguire le applicazioni con un account utente locale o un account di sistema locale, specificato nel manifesto dell'applicazione. I tipi di account supportati dal sistema locale sono **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
 
-> [AZURE.NOTE] Gli account di dominio sono supportati nelle distribuzioni di Windows Server in cui è disponibile Azure Active Directory.
+ Quando si esegue Service Fabric in Windows Server nel data center usando il programma di installazione autonomo, è possibile usare gli account di dominio Active Directory (AD).
 
-È possibile definire e creare gruppi di utenti per aggiungere uno o più utenti a ogni gruppo e gestirli insieme. Questo aspetto è particolarmente utile quando sono presenti più utenti per punti di ingresso del servizio differenti che devono avere determinati privilegi comuni disponibili a livello di gruppo.
+È possibile definire e creare gruppi di utenti per aggiungere uno o più utenti a ogni gruppo e gestirli insieme. Questo aspetto è utile quando sono presenti più utenti per punti di ingresso del servizio differenti che devono avere determinati privilegi comuni disponibili a livello di gruppo.
 
-## Impostare i criteri RunAs per SetupEntryPoint
+## Configurare i criteri per l'oggetto SetupEntryPoint del servizio
 
-Come descritto nel [modello applicativo](service-fabric-application-model.md), l'elemento **SetupEntryPoint** è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric (in genere, l'account *NetworkService*) prima di qualsiasi altro punto di ingresso. Dal momento che l'eseguibile specificato da **EntryPoint** è in genere l'host servizio a esecuzione prolungata, avere un punto di ingresso di configurazione separato evita di dover eseguire l'eseguibile dell'host servizio con privilegi elevati per periodi di tempo estesi. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Il processo risultante viene monitorato e riavviato (iniziando di nuovo con **SetupEntryPoint**) se termina o si arresta in modo anomalo.
+Come descritto nel [modello applicativo](service-fabric-application-model.md), **SetupEntryPoint** è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric (in genere, l'account *NetworkService*) prima di qualsiasi altro punto di ingresso. Dal momento che l'eseguibile specificato da **EntryPoint** è in genere l'host servizio a esecuzione prolungata, avere un punto di ingresso di configurazione separato evita di dover eseguire l'eseguibile dell'host servizio con privilegi elevati per periodi di tempo estesi. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Il processo risultante viene monitorato e riavviato (iniziando di nuovo con **SetupEntryPoint**) se termina o si arresta in modo anomalo.
 
-Di seguito è illustrato un semplice esempio di manifesto del servizio in cui sono presenti un elemento SetupEntryPoint e il punto di ingresso principale per il servizio.
+Il seguente è un semplice esempio di manifesto del servizio in cui sono presenti SetupEntryPoint e l'elemento EntryPoint principale per il servizio.
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -55,7 +55,7 @@ Di seguito è illustrato un semplice esempio di manifesto del servizio in cui so
 </ServiceManifest>
 ~~~
 
-### Configurare i criteri RunAs mediante un account locale
+### Configurare i criteri usando un account locale
 
 Dopo aver configurato un punto di ingresso di configurazione per il servizio, è possibile modificare le autorizzazioni di sicurezza in base alle quali viene eseguito nel manifesto dell'applicazione. L'esempio seguente illustra come configurare il servizio per l'esecuzione con i privilegi dell'account amministratore utenti.
 
@@ -83,11 +83,11 @@ Dopo aver configurato un punto di ingresso di configurazione per il servizio, è
 
 Creare prima di tutto una sezione **Principals** con un nome utente, ad esempio SetupAdminUser. Ciò indica che l'utente è un membro del gruppo di sistema Administrators.
 
-Successivamente, configurare nella sezione **ServiceManifestImport** un criterio per applicare tale entità a **SetupEntryPoint**. Questo indica a Service Fabric che, quando viene eseguito, il file **MySetup.bat** deve avere criteri RunAs con privilegi di amministratore. Dato che *non* sono stati applicati criteri al punto di ingresso principale, il codice in **MyServiceHost.exe** verrà eseguito con l'account **NetworkService** di sistema, ossia l'account predefinito con cui vengono eseguiti tutti i punti di ingresso del servizio.
+Successivamente, configurare nella sezione **ServiceManifestImport** un criterio per applicare tale entità a **SetupEntryPoint**. Questo indica a Service Fabric che, quando viene eseguito, il file **MySetup.bat** deve avere criteri RunAs con privilegi di amministratore. Dato che *non* sono stati applicati criteri al punto di ingresso principale, il codice in **MyServiceHost.exe** viene eseguito con l'account **NetworkService** di sistema, ossia l'account predefinito con cui vengono eseguiti tutti i punti di ingresso del servizio.
 
 A questo punto, aggiungere il file MySetup.bat al progetto di Visual Studio per testare i privilegi di amministratore. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di servizio e aggiungere un nuovo file denominato MySetup.bat.
 
-Verificare quindi che il file MySetup.bat sia incluso nel pacchetto del servizio. Per impostazione predefinita, non è incluso. Selezionare il file, fare clic con il pulsante destro del mouse per visualizzare il menu di scelta rapida e scegliere **Proprietà**. Nella finestra di dialogo delle proprietà, assicurarsi che **Copia nella directory di output** sia impostato su **Copia se più recente**, come illustrato nella schermata seguente.
+Verificare quindi che il file MySetup.bat sia incluso nel pacchetto del servizio. Per impostazione predefinita, non è incluso. Selezionare il file, fare clic con il pulsante destro del mouse per visualizzare il menu di scelta rapida e scegliere **Proprietà**. Nella finestra di dialogo delle proprietà, assicurarsi che **Copia nella directory di output** sia impostato su **Copia se più recente**. Vedere lo screenshot seguente.
 
 ![CopyToOutput di Visual Studio per il file batch SetupEntryPoint][image1]
 
@@ -103,7 +103,7 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Successivamente, compilare e distribuire la soluzione a un cluster di sviluppo locale. Dopo aver avviato il servizio, come visualizzato in Service Fabric Explorer, sarà possibile verificare la corretta esecuzione del file MySetup.bat in due modi. Avviare un prompt dei comandi di PowerShell e digitare:
+Successivamente, compilare e distribuire la soluzione in un cluster di sviluppo locale. Dopo aver avviato il servizio, come visualizzato in Service Fabric Explorer, sarà possibile verificare la corretta esecuzione del file MySetup.bat in due modi. Avviare un prompt dei comandi di PowerShell e digitare:
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
@@ -116,8 +116,8 @@ Annotare il nome del nodo in cui il servizio è stato distribuito e avviato in S
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  Configurare i criteri RunAs mediante gli account del sistema locale
-Spesso è preferibile eseguire lo script di avvio usando un account di sistema locale anziché un account amministratore, come illustrato in precedenza. L'esecuzione dei criteri RunAs come amministratori in genere non ha esito positivo in quanto per i computer è abilitato il controllo di accesso dell'utente per impostazione predefinita. In questi casi, **si consiglia di eseguire SetupEntryPoint come LocalSystem anziché un utente locale aggiunto al gruppo amministratori**. L'esempio seguente illustra l'impostazione di SetupEntryPoint per l'esecuzione come LocalSystem.
+###  Configurare i criteri usando gli account di sistema locale
+Spesso è preferibile eseguire lo script di avvio usando un account di sistema locale invece di un account amministratore, come illustrato prima. L'esecuzione dei criteri RunAs come amministratori in genere non ha esito positivo in quanto per i computer è abilitato il controllo di accesso dell'utente per impostazione predefinita. In questi casi, **si consiglia di eseguire SetupEntryPoint come LocalSystem invece che come utente locale aggiunto al gruppo di amministratori**. L'esempio seguente illustra l'impostazione di SetupEntryPoint per l'esecuzione come LocalSystem.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -138,7 +138,7 @@ Spesso è preferibile eseguire lo script di avvio usando un account di sistema l
 ~~~
 
 ##  Avviare i comandi di PowerShell da SetupEntryPoint
-Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire **PowerShell.exe** in un file batch che punta a un file di PowerShell. Aggiungere innanzitutto un file di PowerShell al progetto del servizio, ad esempio **MySetup.ps1**. Ricordarsi di impostare la proprietà *Copia se più recente* in modo che il file venga incluso anche nel Service Pack. L'esempio seguente illustra un file batch di esempio per avviare un file di PowerShell denominato MySetup.ps1, che imposta una variabile di ambiente di sistema denominata **TestVariable**.
+Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire **PowerShell.exe** in un file batch che punta a un file di PowerShell. Aggiungere prima di tutto un file di PowerShell al progetto del servizio, ad esempio **MySetup.ps1**. Ricordarsi di impostare la proprietà *Copia se più recente* in modo che il file venga incluso anche nel pacchetto servizio. L'esempio seguente illustra un file batch di esempio per avviare un file di PowerShell denominato MySetup.ps1, che imposta una variabile di ambiente di sistema denominata **TestVariable**.
 
 
 MySetup. bat per avviare il file di PowerShell.
@@ -154,7 +154,7 @@ Nel file di PowerShell aggiungere quanto segue per impostare una variabile di am
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ~~~
 
-**Nota:** per impostazione predefinita, quando viene eseguito il file batch cerca i file nella cartella dell'applicazione denominata **work**. In questo caso, quando MySetup.bat viene eseguito si desidera che trovi MySetup.ps1 nella stessa cartella, ovvero la cartella **code package** dell'applicazione. Per modificare questa cartella, impostare la cartella di lavoro come illustrato di seguito.
+**Nota:** per impostazione predefinita, quando viene eseguito, il file batch cerca i file nella cartella dell'applicazione denominata **work**. In questo caso, quando MySetup.bat viene eseguito deve trovare MySetup.ps1 nella stessa cartella, ovvero la cartella **code package** dell'applicazione. Per modificare questa cartella, impostare la cartella di lavoro come illustrato di seguito.
 
 ~~~
 <SetupEntryPoint>
@@ -165,10 +165,10 @@ Nel file di PowerShell aggiungere quanto segue per impostare una variabile di am
 </SetupEntryPoint>
 ~~~
 
-## Uso dei criteri di reindirizzamento della console per il debug locale dei punti di ingresso
-A volte può essere utile visualizzare l'output della console dall'esecuzione di uno script a scopo di debug. A questo scopo, è possibile impostare criteri di reindirizzamento della console che scrivono l'output in un file. L'output del file viene scritto nella cartella dell'applicazione denominata **log** sul nodo in cui l'applicazione viene distribuita ed eseguita (vedere la posizione in cui si trova nell'esempio precedente).
+## Uso del reindirizzamento della console per il debug locale
+A volte può essere utile visualizzare l'output della console dall'esecuzione di uno script a scopo di debug. A questo scopo, è possibile impostare criteri di reindirizzamento della console che scrivono l'output in un file. L'output del file viene scritto nella cartella dell'applicazione denominata **log** nel nodo in cui l'applicazione viene distribuita ed eseguita. Vedere la posizione in cui si trova nell'esempio precedente.
 
-**Nota: mai** usare i criteri di reindirizzamento della console in un'applicazione distribuita nell'ambiente di produzione, poiché ciò può influire sul failover dell'applicazione. Usare questa opzione **SOLO** a scopo di sviluppo e debug locale.
+**Nota: non usare mai** i criteri di reindirizzamento della console in un'applicazione distribuita nell'ambiente di produzione, perché ciò può influire sul failover dell'applicazione. Usare questa opzione **SOLO** a scopo di sviluppo e debug locale.
 
 L'esempio seguente illustra come impostare il reindirizzamento della console con un valore FileRetentionCount.
 
@@ -190,7 +190,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **Dopo aver eseguito il debug dello script, rimuovere immediatamente i criteri di reindirizzamento della console**
 
-## Applicare i criteri RunAs ai servizi
+## Configurare i criteri per il pacchetto di codice del servizio 
 Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a SetupEntryPoint. A questo punto è possibile vedere come creare entità diverse che possono essere applicate come criteri del servizio.
 
 ### Creare gruppi di utenti locali
@@ -221,7 +221,7 @@ Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a Set
 ~~~
 
 ### Creare utenti locali
-È possibile creare un utente locale che può essere usato per proteggere un servizio all'interno dell'applicazione. Quando viene specificato un tipo di account **LocalUser** nella sezione Principals del manifesto dell'applicazione, Service Fabric crea account utente locali nei computer in cui viene distribuita l'applicazione. Per impostazione predefinita, questi account non hanno gli stessi nomi di quelli specificati nel manifesto dell'applicazione (Customer3 nell'esempio riportato di seguito). Vengono invece generati in modo dinamico e hanno password casuali.
+È possibile creare un utente locale che può essere usato per proteggere un servizio all'interno dell'applicazione. Quando viene specificato un tipo di account **LocalUser** nella sezione Principals del manifesto dell'applicazione, Service Fabric crea account utente locali nei computer in cui viene distribuita l'applicazione. Per impostazione predefinita, questi account non hanno gli stessi nomi di quelli specificati nel manifesto dell'applicazione (Customer3 nell'esempio seguente). Vengono invece generati in modo dinamico e hanno password casuali.
 
 ~~~
 <Principals>
@@ -240,8 +240,8 @@ Nei passaggi precedenti è stato illustrato come applicare i criteri RunAs a Set
  </Section>
 -->
 
-## Assegnare criteri ai pacchetti di codice del servizio
-La sezione **RunAsPolicy** di un oggetto **ServiceManifestImport** specifica l'account nella sezione Principals che deve essere usato per eseguire un pacchetto di codice. Associa anche i pacchetti di codice nel manifesto del servizio agli account utente nella sezione Principals. È possibile specificare questa opzione per i punti di ingresso principale o di configurazione oppure specificare Tutti per applicarla a entrambi. L'esempio seguente illustra l'applicazione di diversi criteri:
+### Assegnare criteri ai pacchetti di codice del servizio
+La sezione **RunAsPolicy** di un oggetto **ServiceManifestImport** specifica l'account nella sezione Principals che deve essere usato per eseguire un pacchetto di codice. Associa anche i pacchetti di codice nel manifesto del servizio agli account utente nella sezione Principals. È possibile specificare questa opzione per i punti di ingresso principale o di configurazione oppure specificare `All` per applicarla a entrambi. L'esempio seguente illustra l'applicazione di diversi criteri:
 
 ~~~
 <Policies>
@@ -253,16 +253,36 @@ La sezione **RunAsPolicy** di un oggetto **ServiceManifestImport** specifica l'a
 Se **EntryPointType** non è specificato, il valore predefinito è impostato su EntryPointType="Main". Specificare l'oggetto **SetupEntryPoint** risulta particolarmente utile per eseguire determinate operazioni di configurazione con privilegi elevati con un account di sistema, mentre il codice del servizio effettivo può essere eseguito con un account con privilegi inferiori.
 
 ### Applicare un criterio predefinito a tutti i pacchetti di codice del servizio
-La sezione **DefaultRunAsPolicy** consente di specificare un account utente predefinito per tutti i pacchetti di codice per i quali non è definito un oggetto **RunAsPolicy** specifico. Se la maggior parte dei pacchetti di codice specificati nei manifesti del servizio usati da un'applicazione deve essere eseguita con lo stesso utente RunAs, l'applicazione può definire solo criteri RunAs predefiniti con tale account utente anziché specificare **RunAsPolicy** per ogni pacchetto di codice. L'esempio seguente mostra che se l'oggetto **RunAsPolicy** non è specificato per un pacchetto di codice, questo deve essere eseguito con l'account **MyDefaultAccount** specificato nella sezione Principals.
+La sezione **DefaultRunAsPolicy** consente di specificare un account utente predefinito per tutti i pacchetti di codice per i quali non è definito un oggetto **RunAsPolicy** specifico. Se la maggior parte dei pacchetti di codice specificati nel manifesto del servizio usato da un'applicazione deve essere eseguita con lo stesso utente, l'applicazione può definire solo criteri RunAs predefiniti con tale account utente. L'esempio seguente mostra che se l'oggetto **RunAsPolicy** non è specificato per un pacchetto di codice, questo deve essere eseguito con l'account **MyDefaultAccount** specificato nella sezione Principals.
 
 ~~~
 <Policies>
   <DefaultRunAsPolicy UserRef="MyDefaultAccount"/>
 </Policies>
 ~~~
+### Uso di un gruppo o di un utente del dominio di Active Directory
+Per Service Fabric installato in Windows Server con il programma di installazione autonomo, è possibile eseguire il servizio con le credenziali per un account utente o gruppo di Active Directory (AD). Nota: si tratta di Active Directory locale nel dominio e non di Azure Active Directory (AAD). Usando un utente o un gruppo del dominio, sarà quindi possibile accedere ad altre risorse del dominio (ad esempio, condivisioni file) a cui sono state concesse le autorizzazioni.
+
+L'esempio seguente illustra un utente di AD denominato *TestUser* con la password del dominio crittografata con un certificato denominato *MyCert*. È possibile usare il comando `Invoke-ServiceFabricEncryptText` di Powershell per creare il testo crittografato segreto. Per informazioni dettagliate in proposito, vedere l'articolo sulla [gestione dei segreti in Service Fabric](service-fabric-application-secret-management.md). La chiave privata del certificato per decrittografare la password deve essere distribuita nel computer locale con un metodo fuori banda (in Azure, tramite Resource Manager). Quando distribuisce il pacchetto servizio nel computer, Service Fabric può quindi decrittografare il segreto e, con il nome utente, eseguire l'autenticazione ad AD per l'esecuzione con tali credenziali.
+
+~~~
+<Principals>
+  <Users>
+    <User Name="TestUser" AccountType="DomainUser" AccountName="Domain\User" Password="[Put encrypted password here using MyCert certificate]" PasswordEncrypted="true" />
+  </Users>
+</Principals>
+<Policies>
+  <DefaultRunAsPolicy UserRef="TestUser" />
+  <SecurityAccessPolicies>
+    <SecurityAccessPolicy ResourceRef="MyCert" PrincipalRef="TestUser" GrantRights="Full" ResourceType="Certificate" />
+  </SecurityAccessPolicies>
+</Policies>
+<Certificates>
+~~~
+
 
 ## Assegnare SecurityAccessPolicy per gli endpoint HTTP e HTTPS
-Se si applicano criteri RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy** per garantire che le porte allocate a tali endpoint siano correttamente inserite nell'elenco di controllo di accesso per l'account utente RunAs con cui viene eseguito il servizio. In caso contrario, **http.sys** non avrà accesso al servizio e le chiamate del client avranno esito negativo. L'esempio seguente applica l'account Customer3 a un endpoint denominato **ServiceEndpointName**, a cui assegna diritti di accesso completi.
+Se si applicano criteri RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy** per garantire che le porte allocate a tali endpoint siano correttamente inserite nell'elenco di controllo di accesso per l'account utente RunAs con cui viene eseguito il servizio. In caso contrario, **http.sys** non ha accesso al servizio e le chiamate del client hanno esito negativo. L'esempio seguente applica l'account Customer3 a un endpoint denominato **ServiceEndpointName**, a cui assegna diritti di accesso completi.
 
 ~~~
 <Policies>
@@ -286,7 +306,7 @@ Per l'endpoint HTTPS, è necessario indicare anche il nome del certificato da re
 
 
 ## Esempio completo del manifesto dell'applicazione
-Il manifesto dell'applicazione riportato di seguito illustra molte delle impostazioni descritte in precedenza:
+Il manifesto dell'applicazione seguente illustra molte delle impostazioni:
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -351,4 +371,4 @@ Il manifesto dell'applicazione riportato di seguito illustra molte delle imposta
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

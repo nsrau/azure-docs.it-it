@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -190,7 +190,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 
 1. Nella pagina di Avvio rapido per NetSuite in Azure Active Directory fare clic su **Configura provisioning utenti**.
 
-	![Configurare il provisioning utente.][28]
+	![Configurare il provisioning utente][28]
 
 2. Nella finestra di dialogo visualizzata immettere le credenziali di amministratore per NetSuite, quindi fare clic su **Avanti**.
 
@@ -259,4 +259,4 @@ Questa esercitazione illustrerà come connettere l'ambiente di NetSuite ad Azure
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

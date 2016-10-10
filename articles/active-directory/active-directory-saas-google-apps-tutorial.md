@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -100,7 +100,7 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 	> [AZURE.NOTE] Se si preferisce configurare Single Sign-On manualmente, vedere [Passaggio facoltativo: Configurare Single Sign-On manualmente](#optional-step-manually-configure-single-sign-on).
 
-5. Accedere all'account amministrativo di Google Apps. Fare quindi clic su **Allow** per permettere ad Azure Active Directory di apportare modifiche alla configurazione nella sottoscrizione di Google Apps.
+5. Accedere all'account amministrativo di Google Apps. Fare quindi clic su **Allow** (Consenti) per permettere ad Azure Active Directory di apportare modifiche alla configurazione nella sottoscrizione di Google Apps.
 
 	![Digitare il nome di dominio e scegliere Configura.](./media/active-directory-saas-google-apps-tutorial/ga-consent.PNG)
 
@@ -108,7 +108,7 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 10. Nella pagina finale della finestra di dialogo immettere un indirizzo di posta elettronica se si vogliono ricevere notifiche tramite posta elettronica relative a errori e avvisi correlati alla manutenzione di questa configurazione dell'accesso Single Sign-On.
 
-	![Immettere l'indirizzo di posta elettronica.][14]
+	![Immettere l'indirizzo di posta elettronica][14]
 
 11. Fare clic su **Complete** per chiudere la finestra di dialogo. Per testare la configurazione, vedere la sezione seguente intitolata [Assegnare utenti a Google Apps](#step-4-assign-users-to-google-apps).
 
@@ -313,4 +313,4 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

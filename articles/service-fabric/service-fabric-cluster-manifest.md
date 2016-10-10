@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="dsk-2015"
    manager="timlt"
-   editor=""/> 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -117,10 +117,12 @@ Si noti che poiché un nodo primario esegue una sola copia dei servizi di sistem
 ### **nodeTypes**
 La sezione **nodeTypes** descrive il tipo dei nodi del cluster. Per ogni cluster deve essere specificato almeno un tipo di nodo, come illustrato nel frammento riportato di seguito.
 
-	"nodeTypes": [{
+    "nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
+        "leaseDriverEndpointPort": "19002"
+        "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
 			"startPort": "20001",
@@ -133,7 +135,7 @@ La sezione **nodeTypes** descrive il tipo dei nodi del cluster. Per ogni cluster
         "isPrimary": true
     }]
 
-**name** è il nome descrittivo per questo tipo di nodo particolare. Per creare un nodo di questo tipo, è necessario assegnare il nome descrittivo per questo tipo di nodo alla variabile **nodeTypeRef** per tale nodo, come indicato nella sezione precedente [Nodi del cluster](#clusternodes). Per ogni tipo di nodo, è possibile definire vari endpoint per la connessione al cluster. È possibile scegliere qualsiasi numero di porta per gli endpoint di connessione, purché non entrino in conflitto con altri endpoint in questo cluster. Per un cluster con più tipi di nodo, sarà presente un tipo di nodo primario, per il quale **isPrimary** sarà impostato su *true*. Il resto dei nodi avrà **isPrimary** impostato su *false*. Leggere l'articolo [Considerazioni sulla pianificazione della capacità del cluster Service Fabric](service-fabric-cluster-capacity.md) per maggiori informazioni sui valori **nodeTypes** e **reliabilityLevel** in base alla capacità del cluster e per conoscere la differenza tra i tipi di nodo primari e non primari.
+**name** è il nome descrittivo per questo tipo di nodo particolare. Per creare un nodo di questo tipo, è necessario assegnare il nome descrittivo per questo tipo di nodo alla variabile **nodeTypeRef** per tale nodo, come indicato nella sezione precedente [Nodi del cluster](#clusternodes). Per ogni tipo di nodo, è possibile definire vari endpoint per la connessione al cluster. È possibile scegliere qualsiasi numero di porta per gli endpoint di connessione, purché non entrino in conflitto con altri endpoint in questo cluster. Se si vuole creare una porta del gateway applicazione HTTP, è possibile specificare "reverseProxyEndpointPort": [numero porta] in aggiunta alle altre porte riportate sopra. Per un cluster con più tipi di nodo, sarà presente un tipo di nodo primario, per il quale **isPrimary** sarà impostato su *true*. Il resto dei nodi avrà **isPrimary** impostato su *false*. Leggere l'articolo [Considerazioni sulla pianificazione della capacità del cluster Service Fabric](service-fabric-cluster-capacity.md) per maggiori informazioni sui valori **nodeTypes** e **reliabilityLevel** in base alla capacità del cluster e per conoscere la differenza tra i tipi di nodo primari e non primari.
 
 
 ### **fabricSettings**
@@ -156,4 +158,4 @@ Si consiglia di usare un'unità non del sistema operativo come FabricDataRoot e 
 
 Dopo aver completato la configurazione di un file ClusterConfig.JSON in base alla configurazione del cluster autonomo, è possibile distribuire il cluster seguendo l'articolo [Creare un cluster di Azure Service Fabric locale o nel cloud](service-fabric-cluster-creation-for-windows-server.md) e quindi proseguire per [visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

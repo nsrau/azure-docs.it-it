@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -36,4 +36,4 @@ In questo articolo si presuppone che siano già stati creati gruppi nella active
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

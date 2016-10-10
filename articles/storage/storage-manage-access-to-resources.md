@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Gestire l'accesso in lettura anonimo a contenitori e BLOB | Microsoft Azure" 
-	description="Informazioni su come rendere disponibili per l'accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Gestire l'accesso in lettura anonimo a contenitori e BLOB | Microsoft Azure"
+	description="Informazioni su come rendere disponibili per l'accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/27/2016"
+	ms.author="michaelhauss;jwillis;tamram"/>
 
 # Gestire l'accesso in lettura anonimo a contenitori e BLOB
 
@@ -47,11 +47,11 @@ I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al con
 Per impostare le autorizzazioni per il contenitore dal [portale di Azure](https://portal.azure.com), eseguire le operazioni seguenti:
 
 1. Passare al dashboard per l'account di archiviazione.
-2. Selezionare il nome del contenitore nell'elenco. Si noti che è necessario fare clic a destra della colonna Nome per selezionare il nome del contenitore. Se si fa clic sul nome viene eseguito il drill-down nel contenitore per visualizzare i relativi BLOB.
-3. Selezionare **Modifica** sulla barra degli strumenti.
-4. Nella finestra di dialogo **Modifica metadati contenitore** selezionare il livello desiderato di autorizzazioni per il campo **Accesso**, come illustrato nello screenshot di seguito.
+2. Selezionare il nome del contenitore nell'elenco. Facendo clic sul nome, i BLOB vengono esposti nel contenitore selezionato.
+3. Selezionare **Criteri di accesso** nella barra degli strumenti.
+4. Nel campo **Tipo di accesso** selezionare il livello di autorizzazioni desiderato come illustrato nello screenshot di seguito.
 
-	![Finestra di dialogo Modifica metadati contenitore](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
+	![Finestra di dialogo Modifica metadati contenitore](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Impostazione delle autorizzazioni per il contenitore a livello di programmazione con .NET
 
@@ -155,4 +155,4 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 - [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
 - [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -39,7 +39,7 @@ Questo articolo illustra come creare e popolare un nuovo gruppo in anteprima di 
 
 5. Nel pannello **Gruppo** aggiungere un nome e una descrizione per il gruppo.
 
-6. Per selezionare i membri da aggiungere al gruppo, selezionare **Assegnato** nella casella **Tipo di appartenenza** e quindi selezionare **Membri**. Per altre informazioni su come gestire l'appartenenza di un gruppo in modo dinamico, vedere [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-users-azure-portal.md) o [Gestire le regole dinamiche per i dispositivi in un gruppo](active-directory-groups-dynamic-devices-azure-portal.md).
+6. Per selezionare i membri da aggiungere al gruppo, selezionare **Assegnato** nella casella **Tipo di appartenenza** e quindi selezionare **Membri**. Per altre informazioni su come gestire l'appartenenza di un gruppo in modo dinamico, vedere [Utilizzo degli attributi per creare regole avanzate per l'appartenenza al gruppo](active-directory-groups-dynamic-membership-azure-portal.md).
 
   ![Selezione dei membri da aggiungere](./media/active-directory-groups-create-azure-portal/select-members.png)
 
@@ -62,4 +62,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

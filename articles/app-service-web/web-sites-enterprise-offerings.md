@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/29/2016" 
 	ms.author="anwestg"/>
 
 # Servizio di applicazione Azure Web App offerte per white paper aziendali #
@@ -116,7 +116,7 @@ Quando si esegue la migrazione dell'applicazione da un ambiente locale, è consi
 -	Componenti COM: App Web non consente la registrazione di componenti COM sulla piattaforma. Di conseguenza l'applicazione effettua utilizzare tutti i componenti COM, questi dovranno essere riscritte nel codice gestito e distribuito con l'applicazione.
 -	Filtri ISAPI, filtri ISAPI possono essere supportati in applicazioni Web. Si dovrà essere distribuito come parte dell'applicazione e registrato nel file Web. config dell'applicazione web. Per altre informazioni, vedere [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md).
 
-Una volta considerati questi argomenti, l'applicazione Web dovrebbe essere pronta per il Cloud. Non bisogna preoccuparsi se alcuni argomenti non vengono seguiti alla lettera: lo strumento di migrazione consentirà di usare la procedura migliore per la migrazione.
+Una volta considerati questi argomenti, l'applicazione Web dovrebbe essere pronta per il cloud. Non bisogna preoccuparsi se alcuni argomenti non vengono seguiti alla lettera: lo strumento di migrazione consentirà di usare la procedura migliore per la migrazione.
 
 I passaggi successivi del processo di migrazione consistono nel creare un sito Web di Azure e un Database SQL di Azure. Esistono più dimensioni di istanze di Siti Web di Microsoft Azure con un numero variabile di core CPU e di quantità di RAM disponibili da selezionare in base alle proprie esigenze di applicazioni Web. Per altre informazioni sui prezzi, vedere [http://aka.ms/azurewebsitesskus](/pricing/details/websites/). Analogamente, il Database SQL di Microsoft Azure risolve tutte le esigenze di un'azienda con vari livelli di servizio e livelli di prestazioni per soddisfare i requisiti. Altre informazioni sono reperibili all'indirizzo [http://aka.ms/azuresqldbskus](/pricing/details/sql-database/). Una volta creato, il sito/l'applicazione viene caricato nel sito Web di Azure tramite FTP o WebDeploy e quindi trasferito al database.
 
@@ -159,4 +159,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

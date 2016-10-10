@@ -3,7 +3,7 @@
 	description="Informazioni su come condividere il tenant di Azure AD per Office 365 e i relativi utenti con la sottoscrizione di Azure o viceversa"
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -151,4 +151,4 @@ Esiste uno scenario correlato in cui sono state acquistate separatamente la sott
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

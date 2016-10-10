@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -313,7 +313,7 @@ L'entità [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) rap
 
 Si noti che l'istanza di **AssetFile** e l'effettivo file multimediale sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
 
-Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è necessario usare la richiesta HTTP **MERGE** per aggiornare l'istanza AssetFile con le informazioni relative al file multimediale. Questa procedura non è illustrata in questo argomento.
+Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è necessario usare la richiesta HTTP **MERGE** per aggiornare l'istanza AssetFile con le informazioni relative al file multimediale. La procedura non è illustrata in questo argomento.
 
 **Richiesta HTTP**
 
@@ -375,4 +375,4 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 	   "ContentChecksum":null
 	}
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

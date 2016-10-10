@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -58,4 +58,4 @@ Utilizzo dispositivi RMS | No
  - [Report di Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Enti di controllo per il report di Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

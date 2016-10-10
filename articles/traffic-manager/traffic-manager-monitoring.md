@@ -164,6 +164,34 @@ L'intestazione host usata nei controlli di integrità HTTP e HTTPS è il nome DN
 
 Questo valore fa parte della configurazione dell'endpoint. Il valore usato nell'intestazione host non può essere specificato separatamente dalla proprietà target.
 
+### Quali sono gli indirizzi IP da cui si originano i controlli di integrità?
+
+L'elenco seguente contiene gli indirizzi IP da cui è possibile aspettarsi che si originino i controlli di integrità di Gestione traffico. È possibile usare questo elenco per assicurarsi che le connessioni in ingresso da questi indirizzi IP siano consentite agli endpoint per controllarne lo stato di integrità.
+
+
+
+- 13\.75.153.124
+- 13\.75.152.253
+- 191\.232.214.62
+- 191\.232.208.52
+- 52\.172.155.168
+- 52\.172.158.37
+- 13\.75.124.254
+- 13\.75.127.63
+- 137\.135.82.249
+- 137\.135.80.149
+- 104\.41.190.203
+- 104\.41.187.209
+- 65\.52.217.19
+- 23\.96.236.252
+- 40\.87.147.10
+- 40\.87.151.34
+- 104\.215.91.84
+- 13\.84.222.37
+- 40\.68.30.66
+- 40\.68.31.178
+- 137\.135.47.215
+- 137\.135.46.163
 
 ## Passaggi successivi
 
@@ -175,4 +203,4 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 
 [Risoluzione dei problemi relativi allo stato Degraded](traffic-manager-troubleshooting-degraded.md) di un endpoint di Gestione traffico
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

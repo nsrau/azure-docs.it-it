@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
@@ -142,7 +142,7 @@ Per consentire agli utenti di Azure AD di accedere a **ScreenSteps**, è necessa
 
 6.  Nella sezione User Role (Ruolo utente) digitare "**First name** (Nome), **Last name** (Cognome), **Email** (Indirizzo di posta elettronica), **Login** (Account di accesso), **Password** (Password) e **Password Confirmation** (Password di conferma)" di un account di AAD valido di cui si desidera eseguire il provisioning nelle relative caselle di testo.
 
-    ![Nuovo utente](./media/active-directory-saas-screensteps-tutorial/IC778546.png "Nuovo utente")
+    ![Nuovo utente](./media/active-directory-saas-screensteps-tutorial/IC778546.png "New user")
 
 7.  Nella sezione Groups selezionare **Authentication Group (SAML)** e fare clic su **Create User**.
 
@@ -152,7 +152,7 @@ Per consentire agli utenti di Azure AD di accedere a **ScreenSteps**, è necessa
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti ad ScreenSteps eseguire la procedura seguente:
 
@@ -168,4 +168,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

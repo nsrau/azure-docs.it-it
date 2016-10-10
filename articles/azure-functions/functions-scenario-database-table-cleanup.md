@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usare Funzioni di Azure per eseguire un'attività di pulizia pianificata | Microsoft Azure"
    description="Usare Funzioni di Azure per creare una funzione C# che viene eseguita in base a un timer di eventi."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/26/2016"
    ms.author="glenga"/>
    
 # Usare Funzioni di Azure per eseguire un'attività di pulizia pianificata
@@ -38,7 +38,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. È consiglia
 
 1. Passare al [portale di Funzioni di Azure](https://functions.azure.com/signin) e accedere con l'account Azure.
 
-2. Se si dispone di un'app per le funzioni esistente da usare, selezionarla da **App per le funzioni personali** e fare clic su **Apri**. Per creare una nuova app per le funzioni, digitare un **nome** univoco da assegnare o accettare quello generato automaticamente, selezionare l'**area** desiderata, quindi fare clic su **Crea + Attività iniziali**.
+2. Se si dispone di un'app per le funzioni esistente da poter usare, selezionarla da **App per le funzioni personali** e fare clic su **Apri**. Per creare una nuova app per le funzioni, digitare un **nome** univoco da assegnare o accettare quello generato automaticamente, selezionare l'**area** desiderata, quindi fare clic su **Crea + Attività iniziali**.
 
 3. Nell'app per le funzioni fare clic su **Function app settings** (Impostazioni dell'app per le funzioni) > **Go to App Service settings** (Vai a Impostazioni del servizio app).
 
@@ -52,7 +52,7 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
 
 ## Creare una funzione attivata tramite timer a partire dal modello
 
-1. Nell'app per le funzioni fare clic su **+ Nuova funzione** > **TimerTrigger - Nodo** > **Crea**. Verrà creata una funzione con un nome predefinito, che viene eseguita in base alla pianificazione predefinita, ovvero una volta al minuto. 
+1. Nell'app per le funzioni fare clic su **+ Nuova funzione** > **TimerTrigger - Nodo** > **Crea**. Verrà creata una funzione con un nome predefinito, che viene eseguita in base alla pianificazione predefinita, ovvero una volta al minuto.
 
 	![Creare una nuova funzione attivata tramite timer](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
@@ -95,8 +95,8 @@ Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
 
 + [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 + [Test di Funzioni di Azure](functions-test-a-function.md) Descrive diversi strumenti e tecniche per il test delle funzioni.
-+ [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md) Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.  
++ [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md) Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.
 
 [AZURE.INCLUDE [Nota introduttiva](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

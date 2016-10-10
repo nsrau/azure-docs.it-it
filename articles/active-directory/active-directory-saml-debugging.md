@@ -1,9 +1,9 @@
 <properties 
     pageTitle="Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory | Microsoft Azure" 
-    description="Informazioni su come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory" 
+    description="Informazioni su come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -34,4 +34,4 @@ La risposta da Azure AD che contiene il token SAML è in genere quella che si ve
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

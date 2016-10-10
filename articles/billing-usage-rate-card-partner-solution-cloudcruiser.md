@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="08/16/2016"
+   ms.date="09/08/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure
@@ -25,44 +25,45 @@ In questo articolo viene descritto in che modo le informazioni raccolte dalle nu
 ## API RateCard di Azure
 L'API RateCard fornisce informazioni sui costi da Azure. Dopo l'autenticazione con le credenziali appropriate, è possibile eseguire query all’API per raccogliere i metadati relativi a servizi disponibili in Azure, insieme ai costi associati al proprio ID di offerta.
 
-Di seguito viene fornita una risposta di esempio dell’API in cui sono mostrati i prezzi per l’istanza A0 (Windows):
+Di seguito viene fornita una risposta di esempio dell'API in cui sono mostrati i prezzi per l'istanza A0 (Windows):
 
     {
-		"MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
-		"MeterName": "Compute Hours",
-		"MeterCategory": "Virtual Machines",
-		"MeterSubCategory": "A0 VM (Windows)",
-		"Unit": "Hours",
-		"MeterRates":
-		{
-			"0": 0.029
-		},
-		"EffectiveDate": "2014-08-01T00:00:00Z",
-		"IncludedQuantity": 0.0
-	},
+        "MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
+        "MeterName": "Compute Hours",
+        "MeterCategory": "Virtual Machines",
+        "MeterSubCategory": "A0 VM (Windows)",
+        "Unit": "Hours",
+        "MeterRates":
+        {
+            "0": 0.029
+        },
+        "EffectiveDate": "2014-08-01T00:00:00Z",
+        "IncludedQuantity": 0.0,
+        "MeterStatus": "Active"
+    },
 
 ### Interfaccia di Cloud Cruiser per l’API RateCard di Azure
 Cloud Cruiser può utilizzare le informazioni dell’API RateCard in modi diversi. In questo articolo verrà illustrato come può essere utilizzata per eseguire la simulazione dei costi e l’analisi del carico di lavoro IaaS.
 
 Per illustrare questo caso di utilizzo, si immagini un carico di lavoro di diverse istanze in esecuzione in Microsoft Azure Pack (WAP). L'obiettivo è quello di simulare questo stesso carico di lavoro in Azure e di stimare i costi dell’esecuzione di tale migrazione. Per creare questa simulazione, è necessario eseguire due attività principali:
 
-1. **Importare ed elaborare le informazioni sul servizio raccolti dall'API RateCard**: questa attività viene eseguita anche sulle cartelle di lavoro, dove l'estratto dall'API RateCard viene trasformato e pubblicato in un nuovo piano tariffario. Questo nuovo piano tariffario verrà utilizzato nelle simulazioni per stimare i prezzi di Azure.
+1. **Importare ed elaborare le informazioni sul servizio raccolte dall'API RateCard.** Questa attività viene eseguita anche sulle cartelle di lavoro, dove l'estratto dall'API RateCard viene trasformato e pubblicato in un nuovo piano tariffario. Questo nuovo piano tariffario verrà utilizzato nelle simulazioni per stimare i prezzi di Azure.
 
-2. **Normalizzare i servizi WAP e i servizi di Azure per IaaS**: per impostazione predefinita, i servizi WAP sono basati sulle singole risorse (CPU, dimensioni della, dimensioni del disco e così via) mentre i servizi di Azure si basano sulle dimensioni dell’istanza (A0, A1, A2, ecc.). Questa prima attività può essere eseguita dal motore ETL di Cloud Cruiser, denominato cartelle di lavoro, in cui queste risorse possono essere inserite in dimensioni di istanza, in modo analogo ai servizi di istanza di Azure.
+2. **Normalizzare i servizi WAP e i servizi di Azure per IaaS.** Per impostazione predefinita, i servizi WAP sono basati sulle singole risorse, come CPU, dimensioni della memoria, dimensioni del disco e così via, mentre i servizi di Azure si basano sulle dimensioni dell'istanza, come A0, A1, A2 e così via. Questa prima attività può essere eseguita dal motore ETL di Cloud Cruiser, denominato cartelle di lavoro, in cui queste risorse possono essere inserite in dimensioni di istanza, in modo analogo ai servizi di istanza di Azure.
 
 ### Importare dati dall’API RateCard
 
 Le cartelle di lavoro di Cloud Cruiser consentono di raccogliere ed elaborare informazioni dall'API RateCard in modo automatico. Le cartelle di lavoro ETL (extract-transform-load) consentono di configurare la raccolta, la trasformazione e la pubblicazione dei dati nel database Cloud Cruiser.
 
-Ogni cartella di lavoro può contenere una o più raccolte. In tal modo è possibile correlare le informazioni provenienti da origini diverse per integrare o estendere i dati di utilizzo. I due screenshot seguenti illustrano come creare una nuova *raccolta* in una cartella di lavoro esistente e l'importazione di informazioni nella *raccolta* dall'API RateCard:
+Ogni cartella di lavoro può avere una o più raccolte consentendo di correlare le informazioni provenienti da origini diverse per integrare o estendere i dati di utilizzo. I due screenshot seguenti illustrano come creare una nuova *raccolta* in una cartella di lavoro esistente e l'importazione di informazioni nella *raccolta* dall'API RateCard:
 
 ![Figura 1 - Creazione di una nuova raccolta][1]
 
 ![Figura 2 - Importare i data dalla nuova raccolta][2]
 
-Dopo aver importato i dati nella cartella di lavoro, è possibile creare più passaggi e processi di trasformazione per modificare e modellare i dati. Per questo esempio, poiché l’interesse è incentrato unicamente su IaaS, è possibile utilizzare la procedura di trasformazione per rimuovere le righe o i record non necessari correlati a servizi diversi da IaaS.
+Dopo aver importato i dati nella cartella di lavoro, è possibile creare più passaggi e processi di trasformazione per modificare e modellare i dati. Poiché in questo esempio l'interesse è incentrato unicamente su IaaS, è possibile usare la procedura di trasformazione per rimuovere le righe o i record non necessari correlati a servizi diversi da IaaS.
 
-Nella schermata riportata di seguito viene illustrata la procedura di trasformazione utilizzata per elaborare i dati raccolti dall'API RateCard:
+Lo screenshot seguente illustra la procedura di trasformazione usata per elaborare i dati raccolti dall'API RateCard:
 
 ![Figura 3 - Procedura di trasformazione per elaborare i dati raccolti dall'API RateCard][3]
 
@@ -98,21 +99,21 @@ Per questo esempio, al fine di confrontare i costi tra WAP e Azure, è necessari
 
 L'ultimo passaggio nella cartella di lavoro consiste nel pubblicare i dati nel database Cloud Cruiser. Durante questo passaggio, i dati di utilizzo sono ora aggregati in servizi (che eseguono il mapping ai servizi di Azure) e associati a costi predefiniti per creare gli addebiti.
 
-Dopo aver completato la cartella di lavoro, è possibile automatizzare l'elaborazione dei dati aggiungendo una nuova attività nell'utilità di pianificazione e specificando la frequenza e l'ora di esecuzione della cartella di lavoro.
+Dopo avere completato la cartella di lavoro, è possibile automatizzare l'elaborazione dei dati aggiungendo un'attività nell'utilità di pianificazione e specificando la frequenza e l'ora di esecuzione della cartella di lavoro.
 
 ![Figura 8 - Pianificazione della cartella di lavoro][8]
 
 ### Creare report per l'analisi di simulazione dei costi del carico di lavoro
 
-Quando l'utilizzo viene raccolto e le spese vengono caricate nel database Cloud Cruiser, è possibile utilizzare il modulo Insights di Cloud Cruiser, uno strumento avanzato per la creazione di report, per creare la simulazione dei costi del carico di lavoro che si desidera.
+Dopo che l'utilizzo viene raccolto e le spese vengono caricate nel database Cloud Cruiser, è possibile usare il modulo Insights di Cloud Cruiser per creare la simulazione dei costi del carico di lavoro desiderato.
 
 Per illustrare questo scenario, è stato creato il report seguente:
 
 ![Confronto dei costi][9]
 
-Nel grafico superiore è illustrato un confronto dei costi suddivisi per servizi e viene confrontato il costo dell’esecuzione del carico di lavoro per ogni specifico servizio tra WAP (blu scuro) e Azure (blu chiaro).
+Il grafico superiore illustra un confronto dei costi per servizi confrontando il costo dell'esecuzione del carico di lavoro per ogni specifico servizio tra WAP (blu scuro) e Azure (blu chiaro).
 
-Nel grafico inferiore vengono illustrati gli stessi dati ma suddivisi per reparto, per illustrare i costi di ciascun reparto per eseguire il relativo carico di lavoro in WAP e Azure, insieme alle differenze tra i due (barra Risparmi, in verde)
+Il grafico inferiore riporta gli stessi dati suddivisi per reparto. Mostra i costi sostenuti da ogni reparto per eseguire il carico di lavoro in WAP e in Azure e le relative differenze nella barra dei risparmi (verde).
 
 ## API di utilizzo di Azure
 
@@ -123,9 +124,9 @@ Microsoft ha introdotto di recente l'API di utilizzo di Azure, che consente ai s
 
 Cloud Cruiser può sfruttare l'integrazione con l'API di utilizzo in diversi modi. La granularità (informazioni di utilizzo ogni ora) e i metadati delle risorse disponibili con l'API offrono il set di dati necessario per supportare modelli Showback o Chargeback flessibili.
 
-In questa esercitazione verrà presentato un esempio di come Cloud Cruiser possa trarre vantaggio dalle informazioni sull'API di utilizzo. In particolare verrà creato un nuovo gruppo di risorse in Azure, verranno associati tag per la struttura dei conti e quindi verrà descritto il processo di estrazione ed elaborazione delle informazioni sui tag in Cloud Cruiser.
+In questa esercitazione verrà presentato un esempio di come Cloud Cruiser possa trarre vantaggio dalle informazioni sull'API di utilizzo. In particolare verrà creato un gruppo di risorse in Azure, verranno associati tag per la struttura dei conti e quindi verrà descritto il processo di estrazione ed elaborazione delle informazioni sui tag in Cloud Cruiser.
  
-L'obiettivo finale è riuscire a creare report come quello riportato di seguito e ad analizzare i costi e il consumo in base alla struttura del conto popolata dai tag.
+L'obiettivo finale è riuscire a creare report come quello seguente e ad analizzare i costi e il consumo in base alla struttura del conto popolata dai tag.
 
 ![Figura 10 - Report con suddivisioni usando i tag][10]
 
@@ -136,17 +137,17 @@ I dati disponibili attraverso l'API di utilizzo di Azure includono non solo le i
 - I tag vengano applicati correttamente alle risorse in fase di provisioning
 - I tag vengano usati correttamente nel processo Showback/Chargeback per collegare l'utilizzo alla struttura dei conti dell'organizzazione.
 
-Entrambi questi requisiti possono essere complessi, specialmente quando esiste una sorta di processo manuale sul lato del provisioning e degli addebiti. I clienti spesso si lamentano di tag errati, non corretti o addirittura mancanti quando li usano e questi errori possono creare molti problemi sul lato degli addebiti.
+Entrambi questi requisiti possono essere complessi, specialmente quando esiste un processo manuale sul lato del provisioning e degli addebiti. I clienti spesso si lamentano di tag errati, non corretti o addirittura mancanti quando li usano e questi errori possono creare molti problemi sul lato degli addebiti.
 
-Cloud Cruiser con la nuova API di utilizzo di Azure può ottenere informazioni sull'aggiunta di tag alle risorse e attraverso uno strumento ETL molto sofisticato chiamato cartelle di lavoro, correggere i comuni errori di aggiunta tag. Attraverso i passaggi di trasformazione che sfruttano le espressioni regolari e la correlazione dei dati, Cloud Cruiser riesce a identificare le risorse provviste di tag non corretti e applicare quelli corretti, riempiendo i vuoti e assicurando l'associazione corretta delle risorse al consumatore.
+Cloud Cruiser con la nuova API di utilizzo di Azure può ottenere informazioni sull'aggiunta di tag alle risorse e attraverso uno strumento ETL sofisticato chiamato cartelle di lavoro, correggere i comuni errori di aggiunta tag. Attraverso la trasformazione che sfrutta le espressioni regolari e la correlazione dei dati, Cloud Cruiser riesce a identificare le risorse provviste di tag non corretti e applicare quelli corretti e assicurando l'associazione corretta delle risorse al consumatore.
 
 Sul lato degli addebiti Cloud Cruiser automatizza il processo Showback/Chargeback e può sfruttare le informazioni sui tag per collegare l'utilizzo al consumatore appropriato (reparto, divisione, progetto e così via). Questa automazione offre un notevole miglioramento e può assicurare un processo di addebito coerente e controllabile.
  
 
 ### Creazione di un gruppo di risorse con tag in Microsoft Azure
-Il primo passaggio in questa esercitazione è creare un nuovo gruppo di risorse nel portale di Azure e quindi creare nuovi tag da associare alle risorse. Per questo esempio verranno creati i seguenti tag: reparto, ambiente, proprietario, progetto.
+Il primo passaggio in questa esercitazione consiste nel creare un gruppo di risorse nel portale di Azure e quindi creare nuovi tag da associare alle risorse. Per questo esempio verranno creati i seguenti tag: reparto, ambiente, proprietario, progetto.
 
-Lo screenshot seguente del portale di Azure illustra un gruppo di risorse con i tag associati.
+Lo screenshot seguente illustra un gruppo di risorse di esempio con i tag associati.
 
 ![Figura 11 - Gruppo di risorse con tag associati nel portale di Azure][11]
 
@@ -186,15 +187,15 @@ Ogni cartella di lavoro può contenere una o più raccolte. In tal modo è possi
 
 Si noti che questa cartella di lavoro ha già altri fogli per importare servizi da Azure (_ImportServices_) ed elabora le informazioni sul consumo dall'API di fatturazione (_PublishData_).
 
-Verranno estratte ed elaborate le informazioni provenienti dall'API di utilizzo nel foglio _UsageAPI_ e verranno correlate le informazioni con i dati di consumo provenienti dall'API di fatturazione nel foglio _PublishData_.
+Verrà quindi usata l'API di utilizzo per popolare il foglio _UsageAPI_ e correlare le informazioni con i dati di consumo provenienti dall'API di fatturazione nel foglio _PublishData_.
 
 ### Elaborazione delle informazioni sui tag provenienti dall'API di utilizzo
 
-Dopo aver importato i dati nella cartella di lavoro, verranno creati passaggi di trasformazione nel foglio _UsageAPI_ per elaborare le informazioni provenienti dall'API. Il primo passaggio è usare un processore "JSON split" per estrarre i tag da un campo singolo (mentre vengono importati dall'API) e creare nuovi campi per ogni tag (reparto, progetto, proprietario e ambiente).
+Dopo aver importato i dati nella cartella di lavoro, verranno creati passaggi di trasformazione nel foglio _UsageAPI_ per elaborare le informazioni provenienti dall'API. Il primo passaggio consiste nell'usare un processore "JSON split" per estrarre i tag da un campo singolo e creare campi per ogni tag (reparto, progetto, proprietario e ambiente).
 
 ![Figura 4 - Creare nuovi campi per le informazioni sui tag][13]
 
-Si noti che nel servizio "Reti" mancano le informazioni sui tag (riquadro giallo), ma si può ritenere questo servizio parte dello stesso gruppo di risorse guardando il campo _ResourceGroupName_. Dal momento che ci sono tag per le altre risorse di questo stesso gruppo di risorse, è possibile usare queste informazioni per applicare i tag mancanti a questa risorsa più avanti nel processo.
+Si noti che nel servizio "Reti" mancano le informazioni sui tag (riquadro giallo), ma è possibile verificare che questo servizio fa parte dello stesso gruppo di risorse esaminando il campo _ResourceGroupName_. Dal momento che ci sono tag per le altre risorse di questo gruppo di risorse, è possibile usare queste informazioni per applicare i tag mancanti a questa risorsa più avanti nel processo.
 
 Il passaggio successivo è creare una tabella di ricerca associando le informazioni dei tag a _ResourceGroupName_. Questa tabella di ricerca verrà usata nel passaggio successivo per migliorare i dati sul consumo con le informazioni sui tag.
 
@@ -206,9 +207,9 @@ Ora è possibile passare al foglio _PublishData_, che elabora le informazioni su
 
 Si noti che sono stati applicati i campi appropriati della struttura dei conti per il servizio "Reti", correggendo l'errore con i tag mancanti. Sono stati anche popolati i campi della struttura dei conti per risorse diverse dal gruppo di risorse di destinazione allo scopo di differenziarli nei report.
 
-Ora è necessario solo aggiungere un altro passaggio per pubblicare i dati di utilizzo. Durante questo passaggio le tariffe appropriate per ogni servizio definito nel piano tariffario verranno applicate alle informazioni sull'utilizzo e l'addebito risultante viene quindi caricato nel database.
+Ora è necessario solo aggiungere un passaggio per pubblicare i dati di utilizzo. Durante questo passaggio le tariffe appropriate per ogni servizio definito nel piano tariffario verranno applicate alle informazioni sull'utilizzo con l'addebito risultante caricato nel database.
 
-Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la cartella di lavoro è completata, è necessario solo aggiungerla all'utilità di pianificazione e verrà eseguita su base oraria o giornaliera all'ora pianificata. Poi si tratta solo di creare nuovi report o di personalizzare quelli esistenti, per visualizzare e analizzare i dati per ottenere informazioni significative dall'utilizzo del cloud.
+Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la cartella di lavoro è completata, è necessario solo aggiungerla all'utilità di pianificazione e verrà eseguita su base oraria o giornaliera all'ora pianificata. Poi si tratta solo di creare nuovi report o di personalizzare quelli esistenti, per analizzare i dati per ottenere informazioni significative dall'utilizzo del cloud.
 
 ### Passaggi successivi
 
@@ -237,4 +238,4 @@ Il vantaggio è che questo processo si deve eseguire solo una volta. Quando la c
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - Creare nuovi campi per le informazioni sui tag"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - Popolamento della struttura dei conti con le informazioni provenienti dalle ricerche"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

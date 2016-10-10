@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Come configurare un set di disponibilità per le macchine virtuali Windows nel modello di distribuzione classica
@@ -27,4 +27,4 @@
 
 Per altri articoli sulla modalità di distribuzione classica, vedere [Articoli tecnici per le VM Windows nel modello di distribuzione classica](virtual-machines-windows-index.md).
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Rally Software
@@ -84,13 +84,13 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 5.  Accedere al tenant **Rally Software**.
 
-6.  Nella barra degli strumenti in alto, fare clic su **Impostazione**, quindi selezionare **Sottoscrizione**.
+6.  Nella barra degli strumenti in alto fare clic su **Setup** (Configurazione), quindi selezionare **Subscription** (Sottoscrizione).
 
-    ![Sottoscrizione](./media/active-directory-saas-rally-software-tutorial/IC769531.png "Sottoscrizione")
+    ![Subscription](./media/active-directory-saas-rally-software-tutorial/IC769531.png "Subscription")
 
-7.  Scegliere il pulsante **Azione** nella barra degli strumenti in alto a destra e selezionare **Modifica sottoscrizione**.
+7.  Scegliere il pulsante **Action** (Azione) nella barra degli strumenti in alto a destra e selezionare **Edit Subscription** (Modifica sottoscrizione).
 
-8.  Nella finestra di dialogo **Sottoscrizione** eseguire la procedura seguente, quindi fare clic su **Salva e chiudi**:
+8.  Nella finestra di dialogo **Subscription** (Sottoscrizione) eseguire la procedura seguente, quindi fare clic su **Save & Close** (Salva e chiudi):
 
     ![Autenticazione](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Autenticazione")
 
@@ -105,7 +105,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
   
 Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il privisioning nell’applicazione Rally Software utilizzando i relativi nomi utente di Azure Active Directory.
 
-###Per configurare il provisioning utente, eseguire la procedura seguente:
+###Per configurare il provisioning utente, seguire questa procedura:
 
 1.  Accedere al tenant Rally Software.
 
@@ -127,7 +127,7 @@ Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il p
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a Rally Software, eseguire la procedura seguente:
 
@@ -143,4 +143,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

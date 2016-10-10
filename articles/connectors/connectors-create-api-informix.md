@@ -3,10 +3,10 @@
     description="Panoramica del connettore Informix con i parametri dell'API REST"
     services=""
     documentationCenter="" 
-    authors="MandiOhlinger"
+    authors="gplarsen"
     manager="erikre"
     editor=""
-    tags="connectors"/> 
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -14,12 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="09/19/2016"
-   ms.author="plarsen"/> 
+   ms.date="09/26/2016"
+   ms.author="plarsen"/>
 
 
 # Introduzione al connettore Informix
-Microsoft Connector for Informix connette le app per la logica alle risorse archiviate in un database IBM Informix. Il connettore include un client Microsoft per la comunicazione con computer server Informix remoti su una rete TCP/IP, con database cloud (ad esempio, IBM Informix per Windows in esecuzione nel servizio di virtualizzazione di Azure) e database locali che usano il gateway dati locale. Vedere l'elenco delle piattaforme e delle versioni di IBM Informix supportate alla fine di questo argomento.
+Microsoft Connector for Informix connette le app per la logica alle risorse archiviate in un database IBM Informix. Il connettore Informix include un client Microsoft per comunicare con computer server Informix remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Informix per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-informix.md#supported-informix-platforms-and-versions) delle piattaforme e delle versioni di IBM Informix supportate (in questo argomento).
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.
 
 Il connettore supporta le operazioni di database seguenti:
 
@@ -32,11 +34,9 @@ Il connettore supporta le operazioni di database seguenti:
 
 Questo argomento illustra come usare il connettore in un'app per la logica per elaborare operazioni su database.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.
-
 Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Azioni delle app per la logica
+## Azioni disponibili
 Il connettore supporta le azioni delle app per la logica seguenti:
 
 - GetTables
@@ -47,232 +47,234 @@ Il connettore supporta le azioni delle app per la logica seguenti:
 - DeleteRow
 
 
-## Definire un'app per la logica per elencare le tabelle
-La definizione di un'app per la logica per qualsiasi operazione prevede numerosi passaggi eseguiti tramite il portale di Microsoft Azure. È possibile definire un'azione dell'app per la logica per elencare le tabelle in un database Informix, indicando al connettore di elaborare un'istruzione Informix relativa allo schema (CALL SYSIBM.SQLTABLES).
+## Visualizzazione di un elenco di tabelle
+La creazione di un'app per la logica per qualsiasi operazione prevede numerosi passaggi eseguiti tramite il portale di Microsoft Azure.
 
-### Definire l'istanza dell'app per la logica
+All'interno dell'app per la logica è possibile aggiungere un'azione per elencare le tabelle in un database di Informix. Questa azione indica al connettore di elaborare un'istruzione schematica di Informix, ad esempio `CALL SYSIBM.SQLTABLES`.
+
+### Creare un'app per la logica
 1.	Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
-2.	Immettere un valore in **Nome** (ad esempio "**InformixgetTables**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Fare clic su **Aggiungi al dashboard** e quindi selezionare **Crea**.
+2.	Compilare i campi **Nome**, ad esempio `InformixgetTables`, **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Selezionare **Aggiungi al dashboard** e fare clic su **Crea**.
 
-### Definire il trigger e l'azione dell'app per la logica
-1.	In **Progettazione app per la logica** fare clic su **LogicApp vuoto** nell'elenco **Modelli**.
+### Aggiungere un trigger e un'azione
+1.	In **Progettazione app per la logica**, selezionare **LogicApp vuoto** nell'elenco **Modelli**.
 2.	Nell'elenco dei **trigger** fare clic su **Ricorrenza**.
-3.	Nel trigger **Ricorrenza** fare clic su **Modifica**, fare clic sull'elenco a discesa **Frequenza** per selezionare **Giorno** e quindi fare clic su **Intervallo** per digitare **7**.
-4.	Fare clic sulla casella **+ Nuovo passaggio** e quindi su **Aggiungi un'azione**.
+3.	Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**.
+4.	Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
 5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Get tables (Preview)** (Informix - Ottieni tabelle - anteprima).
 
-	![](./media/connectors-create-api-informix/InformixconnectorActions.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorActions.png)
 
-6.	Nel riquadro di configurazione **Informix - Get tables** (Informix - Ottieni tabelle) fare clic sulla **casella di controllo** per abilitare **Connetti tramite gateway dati locale**. Le impostazioni verranno modificate da cloud a locale.
-	- Digitare un valore in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio **ibmserver01:9089**.
-	- Digitare un valore in **Database**, ad esempio **nwind**.
+6.	Nel riquadro di configurazione **Informix - Get tables** (Informix - Ottieni tabelle) fare clic sulla **casella di controllo** per abilitare **Connetti tramite gateway dati locale**. Notare che le impostazioni verranno modificate da cloud a locale.
+	- Digitare un valore in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio, digitare `ibmserver01:9089`.
+	- Digitare un valore in **Database**, ad esempio, digitare `nwind`.
 	- Selezionare un valore in **Autenticazione**, ad esempio **Basic**.
-	- Digitare un valore in **Nome utente**, ad esempio **informix**.
-	- Digitare un valore in **Password**, ad esempio **Password1**.
-	- Selezionare un valore in **Gateway**, ad esempio **datagateway01**.
-7. Fare clic su **Crea** e quindi su **Salva**.
+	- Digitare un valore in **Nome utente**, ad esempio, digitare `informix`.
+	- Digitare un valore in **Password**, ad esempio, digitare `Password1`.
+	- Selezionare un valore in **Gateway**, ad esempio, selezionare **datagateway01**.
+7. Selezionare **Crea** e **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
 
 8.	Nel pannello **InformixgetTables** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
-9.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_tables**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere un elenco di tabelle.
+9.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_tables**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** per visualizzare gli output, che devono includere un elenco di tabelle.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 
-## Definire le connessioni Informix
-Il connettore supporta connessioni a database sia locali che cloud con le proprietà di connessione seguenti.
+## Creare le connessioni
+Il connettore supporta le connessioni al database locale e cloud mediante le proprietà di connessione seguenti.
 
 Proprietà | Descrizione
 --- | ---
-server | La proprietà server obbligatoria accetta un valore stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, delimitato da due punti e seguito da un numero di porta TCP/IP. 
-database | La proprietà database obbligatoria accetta un valore stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA. Informix accetta una stringa di 128 byte (il database è definito come nome di database IBM Informix, ovvero come dbname).
-authentication | La proprietà authentication facoltativa accetta un valore elemento di elenco, ovvero Basic o Windows (kerberos). 
-username | La proprietà username obbligatoria accetta un valore stringa.
-password | La proprietà password obbligatoria accetta un valore stringa.
-gateway | La proprietà gateway obbligatoria accetta un valore elemento di elenco, che rappresenta il gateway dati locale definito per le app per la logica nel gruppo di archiviazione.  
+server | Obbligatorio. Accetta un valore stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, delimitato da due punti e seguito da un numero di porta TCP/IP. 
+database | Obbligatorio. Accetta un valore stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA. Informix accetta una stringa di 128 byte (il database è definito come nome di database IBM Informix, ovvero come dbname).
+authentication | facoltativo. Accetta un valore elemento di elenco, ovvero Basic o Windows (kerberos). 
+username | Obbligatorio. Accetta il valore della stringa.
+password | Obbligatorio. Accetta il valore della stringa.
+gateway | Obbligatorio. Accetta un valore elemento di elenco, che rappresenta il gateway dati locale definito per le app per la logica nel gruppo di archiviazione.  
 
-## Definire una connessione gateway locale
+## Creare una connessione gateway locale
 Il connettore può accedere a un database Informix locale tramite il gateway dati locale. Per altre informazioni, vedere gli argomenti relativi al gateway.
 
 1. Nel riquadro di configurazione **Gateway** fare clic sulla **casella di controllo** per abilitare **Connetti tramite gateway**. Le impostazioni verranno modificate da cloud a locale.
-2. Digitare un valore in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio **ibmserver01:9089**.
-3. Digitare un valore in **Database**, ad esempio **nwind**.
+2. Digitare un valore in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio, digitare `ibmserver01:9089`.
+3. Digitare un valore in **Database**, ad esempio, digitare `nwind`.
 4. Selezionare un valore in **Autenticazione**, ad esempio **Basic**.
-5. Digitare un valore in **Nome utente**, ad esempio **informix**.
-6. Digitare un valore in **Password**, ad esempio **Password1**.
-7. Selezionare un valore in **Gateway**, ad esempio **datagateway01**.
+5. Digitare un valore in **Nome utente**, ad esempio, digitare `informix`.
+6. Digitare un valore in **Password**, ad esempio, digitare `Password1`.
+7. Selezionare un valore in **Gateway**, ad esempio, selezionare **datagateway01**.
 8. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
 
-## Definire una connessione cloud
+## Creare la connessione cloud
 Il connettore può accedere a un database Informix cloud.
 
 1. Nel riquadro di configurazione **Gateway** lasciare disabilitata (deselezionata) la **casella di controllo** **Connetti tramite gateway**.
-2. Digitare un valore in **Nome connessione**, ad esempio **hisdemo2**.
-3. Digitare un valore per il nome del server Informix in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio **hisdemo2.cloudapp.net:9089**.
-3. Digitare un valore per il nome del database Informix in **Database**, ad esempio **nwind**.
-4. Digitare un valore in **Nome utente**, ad esempio **informix**.
-5. Digitare un valore in **Password**, ad esempio **Password1**.
+2. Digitare un valore in **Nome connessione**, ad esempio, digitare `hisdemo2`.
+3. Digitare un valore per il nome del server Informix in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio, digitare `hisdemo2.cloudapp.net:9089`.
+3. Digitare un valore per il nome del database Informix in **Database**, ad esempio, digitare `nwind`.
+4. Digitare un valore in **Nome utente**, ad esempio, digitare `informix`.
+5. Digitare un valore in **Password**, ad esempio, digitare `Password1`.
 6. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
 
-## Definire l'app per la logica per recuperare tutte le righe con SELECT
-È possibile definire un'azione dell'app per la logica per recuperare tutte le righe in una tabella Informix, indicando al connettore di elaborare un'istruzione Informix SELECT, ad esempio **SELECT * FROM AREA**.
+## Recuperare tutte le righe con SELECT
+È possibile creare un'azione di app per la logica al fine di recuperare tutte le righe della tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione SELECT di Informix, ad esempio `SELECT * FROM AREA`.
 
-### Definire l'istanza dell'app per la logica
+### Creare un'app per la logica
 1.	Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
-2.	Immettere un valore in **Nome** (ad esempio "**InformixgetRows**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Fare clic su **Aggiungi al dashboard** e quindi selezionare **Crea**.
+2.	Immettere un valore in **Nome** (ad esempio "**InformixgetRows**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Selezionare **Aggiungi al dashboard** e fare clic su **Crea**.
 
-### Definire il trigger e l'azione dell'app per la logica
-1.	In **Progettazione app per la logica** fare clic su **LogicApp vuoto** nell'elenco **Modelli**.
+### Aggiungere un trigger e un'azione
+1.	In **Progettazione app per la logica**, selezionare **LogicApp vuoto** nell'elenco **Modelli**.
 2.	Nell'elenco dei **trigger** fare clic su **Ricorrenza**.
-3.	Nel trigger **Ricorrenza** fare clic su **Modifica**, fare clic sull'elenco a discesa **Frequenza** per selezionare **Giorno** e quindi fare clic su **Intervallo** per digitare **7**.
-4.	Fare clic sulla casella **+ Nuovo passaggio** e quindi su **Aggiungi un'azione**.
-5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Get rows (Preview)** (Informix - Ottieni righe - anteprima).
+3.	Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**.
+4.	Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
+5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e fare clic su **Informix - Get rows (Preview)** (Informix - Ottieni righe - anteprima).
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic su **Crea nuova**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorNewConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorNewConnection.png)
   
 8. Nel riquadro di configurazione **Gateway** lasciare disabilitata (deselezionata) la **casella di controllo** **Connetti tramite gateway**.
-	- Digitare un valore in **Nome connessione**, ad esempio **hisdemo2**.
-	- Digitare un valore per il nome del server Informix in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio **hisdemo2.cloudapp.net:9089**.
-	- Digitare un valore per il nome del database Informix in **Database**, ad esempio **nwind**.
-	- Digitare un valore in **Nome utente**, ad esempio **informix**.
-	- Digitare un valore in **Password**, ad esempio **Password1**.
+	- Digitare un valore in **Nome connessione**, ad esempio, digitare `HISDEMO2`.
+	- Digitare un valore per il nome del server Informix in **Server** sotto forma di indirizzo o alias-due punti-numero di porta, ad esempio, digitare `HISDEMO2.cloudapp.net:9089`.
+	- Digitare un valore per il nome del database Informix in **Database**, ad esempio, digitare `NWIND`.
+	- Digitare un valore in **Nome utente**, ad esempio, digitare `informix`.
+	- Digitare un valore in **Password**, ad esempio, digitare `Password1`.
 9. Fare clic su **Crea** per continuare.
 
-	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
 
-10. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
-11. Facoltativamente, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
-12. Fare clic su **Save**.
+10. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
+11. Se lo si desidera, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
+12. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowsTableName.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowsTableName.png)
 
 13.	Nel pannello **InformixgetRows** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
-14.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere un elenco di righe.
+14.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** per visualizzare gli output, che devono includere un elenco di righe.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
-## Definire l'app per la logica per aggiungere una riga con INSERT
-È possibile definire un'azione dell'app per la logica per aggiungere una riga in una tabella Informix, indicando al connettore di elaborare un'istruzione Informix INSERT, ad esempio **INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)**.
+## Aggiunta di una riga con INSERT
+È possibile creare un'azione di app per la logica per aggiungere una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione INSERT di Informix, ad esempio `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
-### Definire l'istanza dell'app per la logica
+### Creare un'app per la logica
 1.	Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
-2.	Immettere un valore in **Nome** (ad esempio "**InformixinsertRow**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Fare clic su **Aggiungi al dashboard** e quindi selezionare **Crea**.
+2.	Compilare i campi **Nome**, ad esempio `InformixinsertRow`, **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Selezionare **Aggiungi al dashboard** e fare clic su **Crea**.
 
-### Definire il trigger e l'azione dell'app per la logica
-1.	In **Progettazione app per la logica** fare clic su **LogicApp vuoto** nell'elenco **Modelli**.
+### Aggiungere un trigger e un'azione
+1.	In **Progettazione app per la logica**, selezionare **LogicApp vuoto** nell'elenco **Modelli**.
 2.	Nell'elenco dei **trigger** fare clic su **Ricorrenza**.
-3.	Nel trigger **Ricorrenza** fare clic su **Modifica**, fare clic sull'elenco a discesa **Frequenza** per selezionare **Giorno** e quindi fare clic su **Intervallo** per digitare **7**.
-4.	Fare clic sulla casella **+ Nuovo passaggio** e quindi su **Aggiungi un'azione**.
-5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Insert row (Preview)** (Informix - Inserisci riga - anteprima).
+3.	Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**.
+4.	Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
+5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e fare clic su **Informix - Insert row (Preview)** (Informix - Inserisci riga - anteprima).
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
-7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione. Ad esempio, fare clic su **hisdemo2**.
+7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
-8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
-9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**, "**Area 99999**" e quindi "**102**" per **REGIONID**.
-10. Fare clic su **Save**.
+8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
+9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**, `Area 99999` e `102` per **REGIONID**.
+10. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorInsertRowValues.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorInsertRowValues.png)
  
-11.	Nel pannello **InformixinsertRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
-12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la nuova riga.
+11.	Nel pannello **InformixinsertRow**, all'interno dell'elenco **Tutte le esecuzioni** di **Riepilogo**, selezionare il primo elemento elencato (che corrisponde all'esecuzione più recente).
+12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere una riga nuova.
 
-	![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
-## Definire l'app per la logica per recuperare una riga con SELECT
-È possibile definire un'azione dell'app per la logica per recuperare una riga in una tabella Informix, indicando al connettore di elaborare un'istruzione Informix SELECT WHERE, ad esempio **SELECT FROM AREA WHERE AREAID = '99999'**.
+## Recuperare una riga con SELECT
+È possibile creare un'azione di app per la logica per recuperare una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione SELECT WHERE di Informix, ad esempio `SELECT FROM AREA WHERE AREAID = '99999'`.
 
-### Definire l'istanza dell'app per la logica
+### Creare un'app per la logica
 1.	Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
-2.	Immettere un valore in **Nome** (ad esempio "**InformixgetRow**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Fare clic su **Aggiungi al dashboard** e quindi selezionare **Crea**.
+2.	Compilare i campi **Nome**, ad esempio `InformixgetRow`, **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Selezionare **Aggiungi al dashboard** e fare clic su **Crea**.
 
-### Definire il trigger e l'azione dell'app per la logica
-1.	In **Progettazione app per la logica** fare clic su **LogicApp vuoto** nell'elenco **Modelli**.
+### Aggiungere un trigger e un'azione
+1.	In **Progettazione app per la logica**, selezionare **LogicApp vuoto** nell'elenco **Modelli**.
 2.	Nell'elenco dei **trigger** fare clic su **Ricorrenza**.
-3.	Nel trigger **Ricorrenza** fare clic su **Modifica**, fare clic sull'elenco a discesa **Frequenza** per selezionare **Giorno** e quindi fare clic su **Intervallo** per digitare **7**.
-4.	Fare clic sulla casella **+ Nuovo passaggio** e quindi su **Aggiungi un'azione**.
-5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Get rows (Preview)** (Informix - Ottieni righe - anteprima).
+3.	Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**.
+4.	Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
+5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e fare clic su **Informix - Get rows (Preview)** (Informix - Ottieni righe - anteprima).
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
-7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. Ad esempio, fare clic su **hisdemo2**.
+7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
-8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
-9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**.
-10. Facoltativamente, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
-11. Fare clic su **Save**.
+8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
+9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**.
+10. Se lo si desidera, fare clic su **Mostra le opzioni avanzate** per specificare le opzioni di query.
+11. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowValues.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowValues.png)
 
 12.	Nel pannello **InformixgetRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
-13.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la riga.
+13.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere una riga.
 
-	![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
-## Definire l'app per la logica per modificare una riga con UPDATE
-È possibile definire un'azione dell'app per la logica per modificare una riga in una tabella Informix, indicando al connettore di elaborare un'istruzione Informix UPDATE, ad esempio **UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)**.
+## Modificare una riga con UPDATE
+È possibile creare un'azione di app per la logica per modificare una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione UPDATE di Informix, ad esempio `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
-### Definire l'istanza dell'app per la logica
+### Creare un'app per la logica
 1.	Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
-2.	Immettere un valore in **Nome** (ad esempio "**InformixupdateRow**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Fare clic su **Aggiungi al dashboard** e quindi selezionare **Crea**.
+2.	Compilare i campi **Nome**, ad esempio `InformixupdateRow`, **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Selezionare **Aggiungi al dashboard** e fare clic su **Crea**.
 
-### Definire il trigger e l'azione dell'app per la logica
-1.	In **Progettazione app per la logica** fare clic su **LogicApp vuoto** nell'elenco **Modelli**.
+### Aggiungere un trigger e un'azione
+1.	In **Progettazione app per la logica**, selezionare **LogicApp vuoto** nell'elenco **Modelli**.
 2.	Nell'elenco dei **trigger** fare clic su **Ricorrenza**.
-3.	Nel trigger **Ricorrenza** fare clic su **Modifica**, fare clic sull'elenco a discesa **Frequenza** per selezionare **Giorno** e quindi fare clic su **Intervallo** per digitare **7**.
-4.	Fare clic sulla casella **+ Nuovo passaggio** e quindi su **Aggiungi un'azione**.
+3.	Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**.
+4.	Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
 5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Update row (Preview)** (Informix - Aggiorna riga - anteprima).
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
-7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. Ad esempio, fare clic su **hisdemo2**.
+7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
-8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
-9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**, "**Updated 99999**" e quindi "**102**" per **REGIONID**.
-10. Fare clic su **Save**.
+8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
+9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**, `Updated 99999` e `102` per **REGIONID**.
+10. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowValues.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowValues.png)
 
 11.	Nel pannello **InformixupdateRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
-12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la nuova riga.
+12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere una riga nuova.
 
-	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
-## Definire l'app per la logica per rimuovere una riga con DELETE
-È possibile definire un'azione dell'app per la logica per rimuovere una riga in una tabella Informix, indicando al connettore di elaborare un'istruzione Informix DELETE, ad esempio **DELETE FROM AREA WHERE AREAID = '99999'**.
+## Rimozione di una riga con DELETE
+È possibile creare un'azione di app per la logica per rimuovere una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione DELETE di Informix, ad esempio `DELETE FROM AREA WHERE AREAID = '99999'`.
 
-### Definire l'istanza dell'app per la logica
+### Creare un'app per la logica
 1.	Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
-2.	Immettere un valore in **Nome** (ad esempio "**InformixdeleteRow**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Fare clic su **Aggiungi al dashboard** e quindi selezionare **Crea**.
+2.	Compilare i campi **Nome**, ad esempio `InformixdeleteRow`, **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Selezionare **Aggiungi al dashboard** e fare clic su **Crea**.
 
-### Definire il trigger e l'azione dell'app per la logica
-1.	In **Progettazione app per la logica** fare clic su **LogicApp vuoto** nell'elenco **Modelli**.
+### Aggiungere un trigger e un'azione
+1.	In **Progettazione app per la logica**, selezionare **LogicApp vuoto** nell'elenco **Modelli**.
 2.	Nell'elenco dei **trigger** fare clic su **Ricorrenza**.
-3.	Nel trigger **Ricorrenza** fare clic su **Modifica**, fare clic sull'elenco a discesa **Frequenza** per selezionare **Giorno** e quindi fare clic su **Intervallo** per digitare **7**.
-4.	Fare clic sulla casella **+ Nuovo passaggio** e quindi su **Aggiungi un'azione**.
+3.	Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**.
+4.	Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
 5.	Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Delete row (Preview)** (Informix - Elimina riga - anteprima).
 6. Nell'azione **Get rows (Preview)** (Ottieni righe - anteprima) fare clic su **Cambia connessione**.
-7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. Ad esempio, fare clic su **hisdemo2**.
+7. Nel riquadro di configurazione **Connessioni** selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 
-8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e quindi su **AREA**.
-9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Digitare ad esempio "**99999**" per **AREAID**.
-10. Fare clic su **Save**.
+8. Nell'elenco **Nome tabella** fare clic sulla **freccia in giù** e selezionare **AREA**.
+9. Immettere valori per tutte le colonne obbligatorie (asterisco rosso). Ad esempio digitare `99999` per **AREAID**.
+10. Selezionare **Salva**.
 
-	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowValues.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowValues.png)
 
 11.	Nel pannello **InformixdeleteRow** fare clic sul primo elemento dell'elenco **Tutte le esecuzioni** (corrispondente all'esecuzione più recente) in **Riepilogo**.
-12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Fare clic su **Collegamento agli input**. Visualizzare gli input. Fare clic su **Collegamento agli output**. Visualizzare gli output, che dovrebbero includere la riga eliminata.
+12.	Nel pannello **Esecuzione dell'app per la logica** fare clic su **Dettagli esecuzione**. Nell'elenco **Azione** fare clic su **Get\_rows**. Verificare che il valore di **Stato** sia **Operazione riuscita**. Selezionare il **collegamento Input** per visualizzare gli input. Selezionare il **collegamento Output** e visualizzare gli output, che devono includere la riga eliminata.
 
-	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png) 
+	![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
 ## Dettagli tecnici
 
@@ -411,6 +413,7 @@ Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determi
 
 ## Piattaforme e versioni di Informix supportate
 Il connettore supporta le versioni di IBM Informix seguenti, in caso di configurazione per il supporto di connessioni client DRDA (Distributed Relational Database Architecture).
+
 - IBM Informix 12.1
 - IBM Informix 11.7
 
@@ -419,4 +422,4 @@ Il connettore supporta le versioni di IBM Informix seguenti, in caso di configur
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell'[elenco delle API](apis-list.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

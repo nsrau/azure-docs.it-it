@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@
 - [.NET](media-services-dotnet-connect_programmatically.md)
 
 
-Questo argomento descrive come ottenere una connessione a Servizi multimediali di Microsoft Azure a livello di codice quando si programma con l'SDK di Servizi multimediali per .NET.
+Questo argomento descrive come ottenere una connessione a Servizi multimediali di Microsoft Azure a livello di codice quando si programma con Media Services SDK per .NET.
 
 
 ## Connessione a Servizi multimediali
@@ -188,7 +188,7 @@ Per recuperare i valori di connessione dalla configurazione, è possibile usare 
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -196,4 +196,4 @@ Per recuperare i valori di connessione dalla configurazione, è possibile usare 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

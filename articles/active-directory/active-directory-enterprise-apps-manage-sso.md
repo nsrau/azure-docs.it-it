@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -101,4 +101,4 @@ Se supportato dall'applicazione, la selezione della modalità di accesso Single 
 [4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
 [5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

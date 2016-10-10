@@ -1,7 +1,7 @@
 <properties
    pageTitle="Distribuzione continua per Funzioni di Azure | Microsoft Azure"
    description="Per pubblicare Funzioni di Azure, usare le funzionalità di distribuzione continua del servizio app di Azure."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/15/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
 
 # Distribuzione continua per Funzioni di Azure 
@@ -48,7 +48,9 @@ Usare la procedura seguente per configurare la distribuzione continua per un'app
 1. Nell'app per le funzioni nel [portale Funzioni di Azure](https://functions.azure.com/signin) fare clic su **Impostazioni dell'app per le funzioni** > **Configura integrazione continua** > **Configurazione**.
 
 	![Configurare la distribuzione continua](./media/functions-continuous-deployment/setup-deployment.png)
-
+	
+	![Configurare la distribuzione continua](./media/functions-continuous-deployment/setup-deployment-1.png)
+	
 	È anche possibile accedere al pannello Distribuzioni dall'avvio rapido Funzioni facendo clic su **Iniziare dal controllo del codice sorgente**.
 
 2. Nel pannello Distribuzioni fare clic su **Scegliere l'origine**, quindi digitare le informazioni per l'origine della distribuzione scelta e fare clic su **OK**.
@@ -128,4 +130,4 @@ Prima di poter scaricare i file dall'app per le funzioni è necessario configura
 
 [GitHub]: https://github.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

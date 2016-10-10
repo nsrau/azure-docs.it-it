@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/05/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
 # Scenario dell'appliance virtuale
 
@@ -69,7 +69,7 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
 
 ## Routing definito dall'utente
 
-Ogni subnet in Azure può essere collegata a una tabella di route definite dall'utente usata per definire come viene indirizzato il traffico che ha origine nella subnet. Se non sono presenti route definite dall'utente, Azure usa le route predefinite per consentire il flusso del traffico da una subnet all'altra. Per altre informazioni sulle route definite dall'utente vedere Informazioni sulle route definite dall'utente e sull'inoltro IP.
+Ogni subnet in Azure può essere collegata a una tabella di route definite dall'utente usata per definire come viene indirizzato il traffico che ha origine nella subnet. Se non sono presenti route definite dall'utente, Azure usa le route predefinite per consentire il flusso del traffico da una subnet all'altra. Per informazioni approfondite sulle route definite dall'utente, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](./virtual-networks-udr-overview.md#ip-forwarding).
 
 Per garantire la comunicazione tramite l'appliance firewall corretta, in base all'ultimo requisito indicato in precedenza, è necessario creare la tabella seguente contenente le route definite dall'utente in **azurevnet**.
 
@@ -178,4 +178,4 @@ Per distribuire lo scenario seguire questi passaggi generali.
 4.	Effettuare il provisioning del tunnel da **onpremvnet** ad **azurevnet**.
 5.	Dopo aver effettuato il provisioning di tutte le risorse, accedere a **onpremvm2** ed eseguire il ping di 10.0.3.101 per verificare la connessione tra **onpremsn2** e **azsn3**.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="msStevenPo"
- 	manager="stevenpo"
+ 	manager="femila"
 	editor=""/>
 
  <tags
@@ -18,7 +18,7 @@
 
 # Condivisione di account con Azure AD
 
-## Panoramica
+## Overview
 In alcuni casi le organizzazioni devono usare un singolo nome e una singola password per più utenti. Questa situazione si verifica in genere in due casi:
 
 - Quando si accede alle applicazioni che richiedono account di accesso e password univoci per ogni utente, in caso di app locali o servizi cloud di livello consumer (ad esempio, gli account aziendali di social media).
@@ -73,4 +73,4 @@ Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite M
 - [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access.md)
 - [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

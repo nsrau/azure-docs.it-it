@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima di Servizi di dominio di Azure Active Directory: Guida alla risoluzione dei problemi | Microsoft Azure"
+	pageTitle="Servizi di dominio Azure Active Directory: Guida alla risoluzione dei problemi | Microsoft Azure"
 	description="Guida alla risoluzione dei problemi di Servizi di dominio di Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
-# Servizi di dominio di Azure AD *(Anteprima)* - Guida alla risoluzione dei problemi
+# Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
 Questo articolo offre suggerimenti per la risoluzione dei problemi che possono verificarsi quando si configura o si amministra Servizi di dominio di Azure Active Directory (AD).
 
 
 ### Non è possibile abilitare i Servizi di dominio Azure AD per la directory Azure AD
-Se si verifica una situazione in cui il tentativo di abilitazione di Servizi di dominio Azure AD per la directory ha esito negativo o lo stato viene impostato su 'Disabilitato', seguire questa procedura per la risoluzione dei problemi:
+Se il tentativo di abilitazione di Servizi di dominio Azure AD per la directory ha esito negativo o lo stato viene impostato su "Disabilitato", seguire questa procedura per la risoluzione dei problemi:
 
-- Assicurarsi che non sia presente un dominio esistente con lo stesso nome di dominio disponibile nella rete virtuale. Ad esempio, si supponga che un dominio denominato 'contoso.com' sia già disponibile nella rete virtuale selezionata. Successivamente provare ad abilitare un dominio gestito di Servizi di dominio Azure AD con lo stesso nome di dominio, ovvero 'contoso.com', alla rete virtuale. Si verificherà un errore quando si prova ad abilitare Servizi di dominio Azure AD. L'errore è dovuto a conflitti di nomi per il nome di dominio nella rete virtuale. In questa situazione è necessario usare un nome diverso per configurare il dominio gestito di Servizi di dominio Azure AD. In alternativa, è possibile eseguire il deprovisioning del dominio esistente e quindi abilitare Servizi di dominio Azure AD.
+- Assicurarsi che non sia presente un dominio esistente con lo stesso nome di dominio disponibile nella rete virtuale. Ad esempio, si supponga che un dominio denominato 'contoso.com' sia già disponibile nella rete virtuale selezionata. Provare successivamente ad abilitare un dominio gestito di Servizi di dominio Azure AD con lo stesso nome di dominio, ovvero "contoso.com", alla rete virtuale. Si verifica un errore quando si prova ad abilitare Azure AD Domain Services. L'errore è dovuto a conflitti di nomi per il nome di dominio nella rete virtuale. In questa situazione è necessario usare un nome diverso per configurare il dominio gestito di Servizi di dominio Azure AD. In alternativa, è possibile eseguire il deprovisioning del dominio esistente e quindi abilitare Servizi di dominio Azure AD.
 
-- Verificare se nella directory Azure AD è presente un'applicazione con nome 'Azure AD Domain Services Sync'. Se l'applicazione esiste, sarà necessario eliminarla e quindi abilitare di nuovo Servizi di dominio Azure AD. Seguire questa procedura per verificare se l'applicazione è presente e per eliminarla, se esiste:
+- Verificare se nella directory Azure AD è presente un'applicazione con nome 'Azure AD Domain Services Sync'. Se l'applicazione esiste, sarà necessario eliminarla e quindi abilitare di nuovo Servizi di dominio Azure AD. Per verificare se l'applicazione è presente e per eliminarla, se esiste, seguire questa procedura:
 
-  1. Accedere al **portale di gestione di Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+  1. Passare al **portale di Azure classico** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
   2. Selezionare il nodo **Active Directory** nel riquadro sinistro.
   3. Selezionare il tenant di Azure AD (directory) per il quale si desidera abilitare Servizi di dominio Azure AD.
   4. Passare alla scheda **Applicazioni**.
@@ -37,15 +37,19 @@ Se si verifica una situazione in cui il tentativo di abilitazione di Servizi di 
 
 
 ### Impossibile accedere al dominio gestito di Servizi di dominio di Azure AD
-Se si verifica una situazione in cui uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dominio gestito appena creato, seguire questa procedura di risoluzione dei problemi:
+Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dominio gestito appena creato, seguire questa procedura di risoluzione dei problemi:
+
+- Provare a effettuare l'accesso usando il formato UPN (ad esempio "joeuser@contoso.com") anziché il formato SAMAccountName ("CONTOSO\\joeuser"). In alcuni casi l'attributo SAMAccountName può essere generato automaticamente per gli utenti il cui prefisso UPN è troppo lungo o è identico a un altro utente nel dominio gestito. Il formato UPN è garantito come univoco all'interno di un tenant di Azure AD.
+
+> [AZURE.NOTE] Si consiglia di usare il formato UPN per accedere al dominio gestito di Servizi di dominio Azure AD.
 
 - Assicurarsi di avere [abilitato la sincronizzazione delle password](active-directory-ds-getting-started-password-sync.md) secondo i passaggi descritti nella Guida introduttiva.
 
 - **Account esterni**: assicurarsi che l'account utente interessato non sia un account esterno nel tenant di Azure AD. Esempi di account esterni sono gli account Microsoft (ad esempio, 'luca@live.com') o gli account utente di una directory esterna di Azure AD. Servizi di dominio di Azure AD non dispone di credenziali per questo tipo di account utente, pertanto questi utenti non sono in grado di accedere al dominio gestito.
 
-- **Prefisso UPN eccessivamente lungo**: assicurarsi che il prefisso UPN dell'account utente interessato, ad esempio la prima parte dell’UPN,non superi i 20 caratteri nel tenant di Azure AD. Ad esempio, per l'UPN 'joereallylongnameuser@contoso.com', il prefisso ('joereallylongnameuser') supera i 20 caratteri e questo account non sarà disponibile nel dominio gestito di Servizi di dominio di Azure AD.
+- **Prefisso UPN eccessivamente lungo**: assicurarsi che il prefisso UPN dell'account utente interessato, ad esempio la prima parte dell'UPN, non superi i 20 caratteri nel tenant di Azure AD. Ad esempio, per l'UPN "joereallylongnameuser@contoso.com", il prefisso ('joereallylongnameuser') supera i 20 caratteri e questo account non sarà disponibile nel dominio gestito.
 
-- **Prefisso UPN duplicato**: assicurarsi di non avrere altri account utente nel tenant di Azure AD con lo stesso prefisso UPN, ad esempio la prima parte dell’UPN, di quello dell'account utente interessato. Ad esempio, se si dispone di due account utente joeuser@finance.contoso.com e joeuser@engineering.contoso.com, si verificheranno errori di accesso al dominio gestito. Questo problema può verificarsi anche se uno degli account utente è un account esterno, ad esempio joeuser@live.com. Microsoft sta lavorando per risolvere questo problema.
+- **Prefisso UPN duplicato**: assicurarsi di non avrere altri account utente nel tenant di Azure AD con lo stesso prefisso UPN, ad esempio la prima parte dell'UPN, di quello dell'account utente interessato. Ad esempio, se si dispone di due account utente, joeuser@finance.contoso.com e joeuser@engineering.contoso.com, si verificheranno errori di accesso al dominio gestito. Questo problema può verificarsi anche se uno degli account utente è un account esterno, ad esempio joeuser@live.com. Microsoft sta lavorando per risolvere questo problema.
 
 - **Account sincronizzati:**: se gli account utente interessati sono sincronizzati da una directory locale, verificare quanto segue:
     - È stata eseguita la distribuzione o l'aggiornamento all'[ultima versione consigliata di Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
@@ -64,4 +68,4 @@ Se si verifica una situazione in cui uno o più utenti nel tenant di Azure AD no
 ### Contattaci
 Contattare il team di prodotto di Servizi di dominio Azure AD per [condividere commenti e suggerimenti o per chiedere supporto tecnico](active-directory-ds-contact-us.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -16,7 +16,7 @@
 	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
-# Accedere e disconnettersi dalle app Web con Azure AD
+# Accesso e disconnessione all'app Web NodeJS con Azure AD
 
 
 Passport viene usato per:
@@ -286,7 +286,7 @@ app.get('/logout', function(req, res){
 
 ```JavaScript
 
-// Simple route middleware to ensure user is authenticated. (Section 4)
+// Route middleware semplice per garantire che l'utente sia autenticato. (Section 4)
 
 //   Utilizzare questa route middleware sulle risorse che devono essere protette.  Se
 //   la richiesta è autenticata (in genere tramite una sessione di accesso permanente),
@@ -414,4 +414,4 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

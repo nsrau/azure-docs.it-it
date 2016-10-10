@@ -22,9 +22,9 @@ Dopo aver [creato un'app per la logica](app-service-logic-create-a-logic-app.md)
 
 ## Eseguire il monitoraggio nel portale di Azure
 
-Per visualizzare la cronologia, selezionare **Esplora** e quindi **App per la logica**. Verrà visualizzato un elenco di tutte le app per la logica incluse nella sottoscrizione. Selezionare l'app per la logica che si vuole monitorare. Verrà visualizzato un elenco di tutte le azioni e tutti i trigger che si sono verificati per tale app per la logica.
+Per visualizzare la cronologia, selezionare **Esplora** e quindi **App per la logica**. Viene visualizzato un elenco di tutte le app per la logica incluse nella sottoscrizione. Selezionare l'app per la logica che si vuole monitorare. Verrà visualizzato un elenco di tutte le azioni e tutti i trigger che si sono verificati per tale app per la logica.
 
-![Panoramica](./media/app-service-logic-monitor-your-logic-apps/overview.png)
+![Overview](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
 Il pannello include alcune sezioni utili:
 
@@ -32,6 +32,8 @@ Il pannello include alcune sezioni utili:
 	- In **Tutte le esecuzioni** sono elencate le esecuzioni più recenti dell'app per la logica. È possibile fare clic su qualsiasi riga per visualizzare i dettagli dell'esecuzione oppure sul riquadro per estendere l'elenco ad altre esecuzioni.
 	- In **Cronologia trigger** sono riportate tutte le attività dei trigger per l'app per la logica. Lo stato delle attività potrebbe essere "Ignorato" per una verifica della presenza di nuovi dati (ad esempio dell'eventuale aggiunta su FTP di un nuovo file), "Operazione riuscita" in relazione alla restituzione di dati per l'attivazione di un'app per la logica o "Non riuscito" per un errore nella configurazione.
 - **Diagnostica** consente di visualizzare dettagli ed eventi della fase di esecuzione e di sottoscrivere [avvisi di Azure](#adding-azure-alerts)
+
+>[AZURE.NOTE] Tutti i dettagli ed eventi di runtime vengono crittografati in fase inattiva all'interno del servizio app per la logica. Vengono decrittografati solo in caso di richiesta di visualizzazione da parte di un utente. L'accesso a questi eventi può essere anche controllato dal Controllo di accesso in base al ruolo (RBAC) di Azure.
 
 ### Visualizzare i dettagli delle esecuzioni
 
@@ -107,7 +109,7 @@ L'ID rilevamento client è un valore che correla gli eventi nell'esecuzione di u
 
 #### Proprietà rilevate
 
-Le proprietà rilevate possono essere aggiunte alle azioni nella definizione del flusso di lavoro per rilevare gli input o gli output nei dati di diagnostica. Ciò può risultare utile se si vogliono rilevare dati come un "ID ordine" nella telemetria. Per aggiungere una proprietà rilevata, includere la proprietà `trackedProperties` in un'azione. Le proprietà rilevate possono rilevare solo gli input e gli output di una singola azione, ma le proprietà `correlation` degli eventi consentono la correlazione tra le azioni di un'esecuzione.
+Le proprietà rilevate possono essere aggiunte alle azioni nella definizione del flusso di lavoro per rilevare gli input o gli output nei dati di diagnostica. Ciò può risultare utile se si vogliono rilevare dati come un "ID ordine" nella telemetria. Per aggiungere una proprietà rilevata, includere la proprietà `trackedProperties` in un'azione. Le proprietà rilevate possono tenere traccia solo di singoli input e output di azioni, ma è possibile usare le proprietà `correlation` degli eventi per correlare più azioni in un'esecuzione.
 
 ```javascript
 {
@@ -138,4 +140,4 @@ I dati di telemetria di Hub eventi o Archiviazione possono essere sfruttati in a
 - [Creazione di un modello di distribuzione di app per la logica](app-service-logic-create-deploy-template.md)
 - [Funzionalità di Enterprise Integration](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

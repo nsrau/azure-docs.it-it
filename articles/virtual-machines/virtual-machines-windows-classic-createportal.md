@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Creare una macchina virtuale personalizzata che esegue Windows
+# Creare una macchina virtuale personalizzata che esegue Windows usando il modello di distribuzione classico
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Se si vuole usare il nuovo portale di Azure, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](virtual-machines-windows-hero-tutorial.md).
 
 [AZURE.INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
@@ -28,6 +28,6 @@
 
 ## Passaggi successivi
 
-È anche possibile [creare una macchina virtuale personalizzata che esegue Linux](virtual-machines-linux-classic-createportal.md) usando il portale classico.
+È anche possibile [Creare una macchina virtuale personalizzata che esegue Linux](virtual-machines-linux-classic-createportal.md) usando il portale classico.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

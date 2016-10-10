@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffstokes72"
 	manager="jhubbard"
-	editor="cgronlun"/> 
+	editor="cgronlun"/>
 
 <tags
 	ms.service="stream-analytics"
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/11/2016"
-	ms.author="jeffstok"/> 
+	ms.date="09/26/2016"
+	ms.author="jeffstok"/>
 
 
 # Analisi dei social media: analisi dei sentimenti di Twitter in tempo reale in Analisi di flusso
@@ -62,7 +62,16 @@ Attenersi alla seguente procedura per configurare l'applicazione:
 	[Passaggi per generare un token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Si noti che è necessario eseguire un'applicazione vuota per generare un token.
-3.	Sostituire i valori EventHubConnectionString ed EventHubName in TwitterClient.exe.config con la stringa di connessione hub eventi e il nome. La stringa di connessione copiata in precedenza fornisce sia la stringa di connessione di Hub eventi che il nome, pertanto è necessario fare attenzione a separarli e a inserire ogni elemento nel campo corretto.
+3.	Sostituire i valori EventHubConnectionString ed EventHubName in TwitterClient.exe.config con la stringa di connessione hub eventi e il nome. La stringa di connessione copiata in precedenza fornisce sia la stringa di connessione di Hub eventi che il nome, pertanto è necessario fare attenzione a separarli e a inserire ogni elemento nel campo corretto. Ad esempio con una stringa di connessione:
+
+    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
+
+	Il file TwitterClient.exe.config deve contenere le impostazioni come nell'esempio seguente:
+
+	add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey" add key="EventHubName" value="yourhub"
+
+	È importante notare che il testo "EntityPath=" NON viene visualizzato nel valore EventHubName.
+	
 4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter\_keywords in TwitterClient.exe.config, se necessario.
 5.	Eseguire **TwitterClient.exe** per avviare l'applicazione. Gli eventi di Tweet con i valori CreatedAt, Topic e SentimentScore inviati all'hub eventi:
 
@@ -236,4 +245,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

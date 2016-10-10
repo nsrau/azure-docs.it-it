@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -89,7 +89,7 @@ Quando si elimina un'istanza del servizio, tenere presente quanto segue:
 
 [//]: # "Inizio della sezione Controllo degli accessi in base al ruolo"
 ## Gestire l'accesso con il controllo degli accessi in base al ruolo
-### Panoramica
+### Overview
 Il [controllo degli accessi in base al ruolo](role-based-access-control-configure.md) per Azure AD Connect Health consente l'accesso al servizio Azure AD Connect Health agli utenti e/o ai gruppi che non sono amministratori globali. Questo avviene tramite l'assegnazione di ruoli agli utenti e/o ai gruppi previsti e si ottiene così un meccanismo per limitare gli amministratori globali all'interno della directory.
 
 #### Ruoli
@@ -99,7 +99,7 @@ Azure AD Connect Health supporta i ruoli predefiniti seguenti.
 | ----------- | ---------- |
 | Proprietario | I proprietari possono ***gestire l'accesso*** (ad esempio, assegnare ruoli a un utente/gruppo), ***visualizzare tutte le informazioni*** (ad esempio, visualizzare gli avvisi) dal portale e ***modificare le impostazioni *** (ad esempio notifiche di posta elettronica) all'interno di Azure AD Connect Health. <br>Per impostazione predefinita, gli amministratori globali di Azure AD vengono assegnati a questo ruolo e questa assegnazione non è modificabile. |
 |Collaboratore| I collaboratori possono ***visualizzare tutte le informazioni*** (ad esempio, visualizzare gli avvisi) dal portale e ***modificare le impostazioni *** (ad esempio notifiche di posta elettronica) all'interno di Azure AD Connect Health.|
-|Lettore| I lettori possono ***visualizzare tutte le informazioni*** (ad esempio, visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health.|
+|Reader| I lettori possono ***visualizzare tutte le informazioni*** (ad esempio, visualizzare gli avvisi) dal portale all'interno di Azure AD Connect Health.|
 
 Tutti gli altri ruoli, ad esempio gli amministratori dell'accesso utente o gli utenti DevTest Labs, anche se disponibili nell'esperienza del portale, non influiscono sull'accesso all'interno di Azure AD Connect Health.
 
@@ -118,11 +118,10 @@ L'autorizzazione viene concessa se un utente finale dispone di accesso a livello
 #### Passaggio 1: Selezionare l'ambito di accesso appropriato
 Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio* dall'interno di Azure AD Connect Health, aprire il pannello principale in Azure AD Connect Health.<br>
 #### Passaggio 2: Aggiungere utenti, gruppi e assegnare ruoli
-1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br>  
+1. Fare clic sulla parte "Utenti" dalla sezione Configura.<br>
 ![Pannello principale del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Selezionare "Aggiungi"
-3. Selezionare il "Ruolo", ad esempio "Proprietario"<br>
-![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
+3. Selezionare il "Ruolo", ad esempio "Proprietario"<br> ![Aggiungere utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
 4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente. Fare clic su "seleziona". ![Selezionare utente del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Selezionare "Ok".<br>
 
@@ -136,7 +135,8 @@ Con questi passaggi verrà consentito l'accesso agli utenti e ai gruppi in base 
 
 #### Passaggio 3: Condividere il percorso del pannello con utenti o gruppi
 1. Dopo l'assegnazione delle autorizzazioni, un utente può accedere ad Azure AD Connect Health passando a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Dopo l'accesso al pannello, l'utente può aggiungere il pannello o varie parti al dashboard facendo semplicemente clic su "Aggiungi al dashboard"<br> ![Pannello Pin del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+2. Dopo l'accesso al pannello, l'utente può aggiungere il pannello o varie parti al dashboard facendo semplicemente clic su "Aggiungi al dashboard"<br>
+![Pannello Pin del Controllo degli accessi in base al ruolo di Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 
 >[AZURE.NOTE] Un utente assegnato al ruolo "Lettore" non potrà eseguire l'operazione di creazione per recuperare l'estensione Azure AD Connect Health da Azure Marketplace. L'utente potrà comunque ancora accedere al pannello tramite il collegamento sopra riportato. Per gli utilizzi successivi, l'utente può aggiungere il pannello al dashboard.
@@ -157,4 +157,4 @@ Per rimuovere un utente o un gruppo aggiunto alla parte del controllo degli acce
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="ryansoc"/>
 
 
@@ -22,6 +22,7 @@
 
 ##  Macchine virtuali
 
+###  Considerazioni sui dati
 
 Le informazioni seguenti identificano il limite di Azure per enti pubblici per Macchine virtuali di Azure:
 
@@ -33,4 +34,4 @@ Per altre informazioni, vedere la <a href=https://azure.microsoft.com/documentat
 
 Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

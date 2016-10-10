@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="markvi"/>  
+	ms.date="09/26/2016"
+	ms.author="markvi"/>
 
 
 
@@ -30,8 +30,6 @@ L'aggiornamento è finalizzato, ad esempio, a consentire l'utilizzo dell'account
 La registrazione è supportata nelle versioni di Windows precedenti, tra cui:
 
 - Windows 8.1
-
-- Windows 8.0
 
 - Windows 7
 
@@ -212,9 +210,6 @@ Per farlo, è necessario disporre di una regola di trasformazione del rilascio c
 
 Dove **<RPObjectName>** è il nome dell'oggetto relying party per l'oggetto trust della relying party di Azure Active Directory. Tale oggetto in genere è denominato Piattaforma delle identità di Microsoft Office 365.
 
-
-
-
  
 
 ## Distribuzione e implementazione 
@@ -223,15 +218,15 @@ Una volta soddisfatti tutti i prerequisiti, i computer aggiunti a un dominio son
 
 I computer con l'aggiornamento dell'anniversario di Windows 10 e Windows Server 2016 aggiunti a un dominio verranno automaticamente registrati ad Azure AD al successivo riavvio o accesso a Windows da parte dell'utente. I nuovi computer aggiunti al dominio verranno registrati con Azure AD al riavvio successivo all'operazione di aggiunta a un dominio.
 
-> [AZURE.NOTE] I computer aggiunti al dominio che eseguono l'aggiornamento di Windows 10 di novembre 2015 verranno automaticamente registrati in Azure AD solo se risulta impostato l'oggetto Criteri di gruppo di implementazione. Per altre informazioni, vedi la sezione seguente.
+> [AZURE.NOTE] I computer aggiunti al dominio che eseguono Windows 10 verranno automaticamente registrati in Azure AD solo se risulta impostato l'oggetto Criteri di gruppo di implementazione. Per altre informazioni, vedi la sezione seguente.
 
 Per controllare l'implementazione della registrazione automatica dei computer Windows 10/Windows Server 2016 aggiunti al dominio, è disponibile un oggetto Criteri di gruppo utilizzabile a tale scopo. Per implementare la registrazione automatica dei computer non Windows 10 aggiunti a un dominio, esiste un pacchetto Windows Installer da distribuire nei computer desiderati.
 
-> [AZURE.NOTE] Tramite i Criteri di gruppo per il controllo dell'implementazione, viene inoltre attivata la registrazione dei computer Windows 8.1 aggiunti al dominio. È possibile scegliere di usare i criteri per la registrazione dei computer Windows 8.1 aggiunti a un dominio o, se si dispone di una combinazione delle versioni di Windows 7 e 8.0 oppure Windows Server, è possibile abilitare la registrazione di tutti i computer non Windows 10/Windows Server 2016 usando il pacchetto Windows Installer.
+> [AZURE.NOTE] Tramite i Criteri di gruppo per il controllo dell'implementazione, viene inoltre attivata la registrazione dei computer Windows 8.1 aggiunti al dominio. È possibile scegliere di usare i criteri per la registrazione dei computer Windows 8.1 aggiunti a un dominio o, se si dispone di una combinazione delle versioni di Windows 7 o Windows Server, è possibile abilitare la registrazione di tutti i computer non Windows 10/Windows Server 2016 usando il pacchetto Windows Installer.
 
 ### Oggetto Criteri di gruppo per controllare l'implementazione della registrazione automatica 
 
-Per controllare l'implementazione della registrazione automatica dei computer aggiunti a un dominio con Azure AD, è possibile distribuire i computer aggiunti al dominio del registro Criteri di gruppo come dispositivi ai computer che si desidera registrare; ad esempio, è possibile distribuire i criteri a un'unità organizzativa o in base a un gruppo di sicurezza.
+Per controllare l'implementazione della registrazione automatica dei computer aggiunti a un dominio con Azure AD, è possibile distribuire i computer aggiunti al dominio del registro Criteri di gruppo come dispositivi ai computer che si desidera registrare. Ad esempio, è possibile distribuire i criteri a un'unità organizzativa o in base a un gruppo di sicurezza.
 
 Per impostare tali criteri, seguire questa procedura:
 
@@ -257,7 +252,7 @@ Per impostare tali criteri, seguire questa procedura:
 
 ## Pacchetto MSI per computer non Windows 10  
 
-Per registrare i computer aggiunti a un dominio che eseguono Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 o Windows Server 2012 R2, è possibile scaricare il pacchetto Windows Installer (MSI):
+Per registrare i computer aggiunti a un dominio che eseguono Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 o Windows Server 2012 R2, è possibile scaricare il pacchetto Windows Installer (MSI):
 
 - [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 - [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
@@ -272,4 +267,4 @@ Il programma di installazione crea nel sistema un'attività pianificata che vien
 
 - [Accesso condizionale di Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

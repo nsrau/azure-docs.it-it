@@ -32,9 +32,9 @@ L'API Recommendations di Azure Machine Learning può essere suddivisa nei seguen
 
 - <ins>Limitazioni</ins>: limitazioni dell'API Recommendations.
 - <ins>Informazioni generali</ins>: informazioni su autenticazione, URI del servizio e controllo delle versioni.
-- <ins>Modello Basic</ins>: API che consentono di eseguire operazioni di base sul modello (ad esempio, creare, aggiornare ed eliminare un modello).
+- <ins>Modello Basic</ins>: API che consentono di eseguire operazioni di base sul modello, ad esempio creazione, aggiornamento ed eliminazione di un modello.
 - <ins>Modello Advanced</ins>: API che consentono di eseguire analisi avanzate sui dati del modello.
-- <ins>Modello Business Rules</ins>: API che consentono di gestire regole di business sui risultati delle raccomandazioni relative al modello.
+- <ins>Modello Business Rules</ins>: API che consentono di gestire regole business sui risultati delle raccomandazioni relative al modello.
 - <ins>Catalog</ins>: API che consentono di eseguire operazioni di base sul catalogo di un modello. Un catalogo contiene informazioni sui metadati relativi agli elementi dei dati di utilizzo.
 - <ins>Feature</ins>: API che consentono di ottenere approfondimenti sull'elemento nel catalogo e su come usare queste informazioni per creare raccomandazioni migliori.
 - <ins>Usage Data</ins>: API che consentono di eseguire operazioni di base sui dati di utilizzo del modello. Nel form di base i dati di utilizzo sono costituiti da righe che includono coppie di &#60;userId&#62;,&#60;itemId&#62;.
@@ -889,7 +889,7 @@ XML OData
 |	apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | 
-<ins>Ogni volta che si forniscono gli ID elementi per le regole business, verificare di usare l'ID esterno dell'elemento, ovvero lo stesso ID usato nel file di catalogo</ins><br> 
+<ins>Ogni volta che si forniscono gli ID elementi per le regole business, verificare di usare l'ID esterno dell'elemento, ovvero lo stesso ID usato nel file di catalogo</ins><br>
 <ins>Per aggiungere una regola BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Per aggiungere una regola WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Per aggiungere una regola FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Per aggiungere una regola PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
@@ -1052,7 +1052,7 @@ Codice stato HTTP: 200
 
 La risposta include una voce per ogni elemento del catalogo. Ogni voce include i dati seguenti:
 
-- `feed/entry/content/properties/ExternalId`: ID esterno dell'elemento del catalogo, fornito dal cliente.
+- `feed/entry/content/properties/ExternalId`: ID esterno dell'elemento del catalogo, specificato dal cliente.
 - `feed/entry/content/properties/InternalId`: ID interno dell'elemento del catalogo, generato dall'API Recommendations di Azure Machine Learning.
 - `feed/entry/content/properties/Name`: nome dell'elemento del catalogo.
 - `feed/entry/content/properties/Category`: categoria dell'elemento del catalogo.
@@ -2068,8 +2068,8 @@ La risposta include una voce per ogni compilazione. Ogni voce include i dati seg
 - `feed/entry/content/properties/Status`: stato della compilazione. Può essere uno dei seguenti: Error, Building, Queued, Cancelling, Cancelled, Success.
 - `feed/entry/content/properties/StatusMessage`: messaggio di stato dettagliato (si applica solo a stati specifici).
 - `feed/entry/content/properties/Progress`: stato di avanzamento della compilazione (%).
-- `feed/entry/content/properties/StartTime`: ora di inizio della compilazione.
-- `feed/entry/content/properties/EndTime`: ora di fine della compilazione.
+- `feed/entry/content/properties/StartTime`: data/ora di inizio della compilazione.
+- `feed/entry/content/properties/EndTime`: data/ora di fine della compilazione.
 - `feed/entry/content/properties/ExecutionTime`: durata della compilazione.
 - `feed/entry/content/properties/ProgressStep`: dettagli relativi alla fase corrente di una compilazione in corso.
 
@@ -2152,8 +2152,8 @@ La risposta include una voce per ogni compilazione. Ogni voce include i dati seg
 - `feed/entry/content/properties/Status`: stato della compilazione. Può essere uno dei seguenti: Error, Building, Queued, Cancelled, Cancelling, Success.
 - `feed/entry/content/properties/StatusMessage`: messaggio di stato dettagliato (si applica solo a stati specifici).
 - `feed/entry/content/properties/Progress`: stato di avanzamento della compilazione (%).
-- `feed/entry/content/properties/StartTime`: ora di inizio della compilazione.
-- `feed/entry/content/properties/EndTime`: ora di fine della compilazione.
+- `feed/entry/content/properties/StartTime`: data/ora di inizio della compilazione.
+- `feed/entry/content/properties/EndTime`: data/ora di fine della compilazione.
 - `feed/entry/content/properties/ExecutionTime`: durata della compilazione.
 - `feed/entry/content/properties/ProgressStep`: dettagli relativi alla fase corrente di una compilazione in corso.
 
@@ -2473,7 +2473,7 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 La risposta di esempio seguente include 10 elementi raccomandati.
@@ -2654,7 +2654,7 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
@@ -2686,7 +2686,7 @@ La risposta include una voce per ogni set di elementi consigliati (un set di ele
 - `Feed\entry\content\properties\Name1`: nome dell'elemento.
 - `Feed\entry\content\properties\Id2`: ID 2° elemento consigliato (facoltativo).
 - `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo).
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 La risposta di esempio seguente include tre set di elementi consigliati.
@@ -2778,7 +2778,7 @@ La risposta include una voce per ogni set di elementi consigliati (un set di ele
 - `Feed\entry\content\properties\Name1`: nome dell'elemento.
 - `Feed\entry\content\properties\Id2`: ID 2° elemento consigliato (facoltativo).
 - `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo).
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.3.
@@ -2813,7 +2813,7 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
@@ -2850,7 +2850,7 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
@@ -2885,7 +2885,7 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
@@ -2923,7 +2923,7 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto significa maggiore attendibilità.
+- `Feed\entry\content\properties\Rating`: classificazione della raccomandazione; un numero più alto significa maggiore confidenza.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione (ad esempio, spiegazioni delle raccomandazioni).
 
 Vedere un esempio di risposta nella sezione 12.1.
@@ -2956,8 +2956,8 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni elemento raccomandato. Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id`: ID elemento consigliato.
 - `Feed\entry\content\properties\Name`: nome dell'elemento.
-- `Feed\entry\content\properties\Rating`: N/D.
-- `Feed\entry\content\properties\Reasoning`: N/D.
+- `Feed\entry\content\properties\Rating`: N/A.
+- `Feed\entry\content\properties\Reasoning`: N/A.
 
 XML OData
 
@@ -3015,11 +3015,11 @@ Codice stato HTTP: 200
 XML OData
 
     The response includes one entry per notification. Each entry has the following data:
-		* feed\entry\content\properties\UserName – Internal user name identification.
-		* feed\entry\content\properties\ModelId – Model ID.
-		* feed\entry\content\properties\Message – Notification message.
-		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
-		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
+		* feed\entry\content\properties\UserName - Internal user name identification.
+		* feed\entry\content\properties\ModelId - Model ID.
+		* feed\entry\content\properties\Message - Notification message.
+		* feed\entry\content\properties\DateCreated - Date that this notification was created in UTC format.
+		* feed\entry\content\properties\NotificationType - Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -3089,4 +3089,4 @@ Codice stato HTTP: 200
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

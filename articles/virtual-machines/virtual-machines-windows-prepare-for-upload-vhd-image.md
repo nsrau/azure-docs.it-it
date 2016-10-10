@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/> 
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -15,14 +15,18 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/18/2016"
-	ms.author="glimoli;genli"/> 
+	ms.author="glimoli;genli"/>
 
 # Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure
 Per caricare una macchina virtuale di Windows da una posizione locale ad Azure, è necessario preparare correttamente il disco rigido virtuale (VHD). Esistono alcune procedure consigliate da svolgere prima di caricare un disco VHD in Azure. Questo articolo descrive come preparare un disco rigido virtuale di Windows da caricare in Microsoft Azure e illustra anche [come e quando usare Sysprep](#step23).
 
 ## Preparare il disco virtuale
 
->[AZURE.NOTE] Il formato VHDX più recente non è supportato in Azure. Il disco VHD deve essere a dimensione fissa, non dinamica. Se richiesto, consultare le istruzioni riportate di seguito che descrivono nel dettaglio la conversione da dischi VHDX o dinamici. La dimensione massima consentita per il disco rigido virtuale è 1023 GB.
+>[AZURE.NOTE] 
+Azure supporta solo [macchine virtuali di prima generazione](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) nel formato di file VHD. Il formato VHDX più recente non è supportato in Azure.
+>
+> Il disco VHD deve essere a dimensione fissa, non dinamica. Se richiesto, consultare le istruzioni riportate di seguito che descrivono nel dettaglio la conversione da dischi VHDX o dinamici. La dimensione massima consentita per il disco rigido virtuale è 1023 GB.
+
 
 Assicurarsi che il disco VHD di Windows funzioni correttamente sul server locale. Risolvere qualsiasi errore nella macchina virtuale prima di provare a convertire o caricare il disco in Azure.
 
@@ -319,4 +323,4 @@ Le seguenti impostazioni non influenzano il caricamento del disco rigido virtual
 
 - [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

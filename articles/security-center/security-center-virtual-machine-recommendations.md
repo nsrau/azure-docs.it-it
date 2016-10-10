@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="security-center"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/04/2016"
+   ms.date="09/25/2016"
    ms.author="terrylan"/>
 
 # Protezione delle macchine virtuali nel Centro sicurezza di Azure
@@ -35,12 +35,14 @@ Questo articolo illustra le raccomandazioni applicabili alle macchine virtuali. 
 |[Abilita l'agente di macchine virtuali](security-center-enable-vm-agent.md)|Consente di identificare le macchine virtuali per le quali è necessario l'agente di macchine virtuali, che deve essere installato nelle macchine virtuali per poter effettuare il provisioning dei programmi di analisi delle patch, analisi della baseline e antimalware. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. L'articolo relativo all'[agente di macchine virtuali e relative estensioni, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornisce informazioni su come installare l'agente di macchine virtuali.|
 | [Applicare Crittografia dischi](security-center-apply-disk-encryption.md) |Suggerisce di crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure (VM Windows e Linux). La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale.|
 | [Aggiornare la versione sistema operativo](security-center-update-os-version.md) | Suggerisce di aggiornare la versione del sistema operativo per il servizio cloud alla versione più recente disponibile per la famiglia di sistemi operativi. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md). |
+| [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md) | Consiglia di installare una soluzione di valutazione della vulnerabilità nella VM. |
+| [Correggi le vulnerabilità](security-center-vulnerability-assessment-recommendations.md#review-recommendation) | Consente di visualizzare le vulnerabilità del sistema e delle applicazioni rilevate dalla soluzione di valutazione delle vulnerabilità installata nella VM. |
 
 ## Vedere anche
 
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
-- [Protecting your applications in Azure Security Center](security-center-application-recommendations.md) (Protezione delle applicazioni nel Centro sicurezza di Azure)
+- [Protecting your applications in Azure Security Center (Protezione delle applicazioni nel Centro sicurezza di Azure)](security-center-application-recommendations.md)
 - [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)
 - [Protezione del servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 
@@ -50,4 +52,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con PolicyStat
@@ -104,7 +104,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     2.  Nella casella di testo **Attributo nome** digitare **firstname**.
     3.  Nella casella di testo **Attributo cognome** digitare **lastname**.
     4.  Nella casella di testo **Attributo posta elettronica** digitare **emailaddress**.
-    5.  Fare clic su **Salva modifiche**.
+    5.  Fare clic su **Save** per salvare le modifiche.
 
 9.  Fare clic su **Metadati del provider di identità** quindi nella sezione **Metadati del provider di identità**, eseguire la procedura seguente:
 
@@ -138,7 +138,7 @@ Per consentire agli utenti di Azure AD di accedere a PolicyStat, è necessario e
 
 ##Assegnazione degli utenti
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
 ###Per assegnare gli utenti a PolicyStat eseguire la procedura seguente:
 
@@ -154,4 +154,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

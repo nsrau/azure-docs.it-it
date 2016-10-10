@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver in macchine virtuali (VM) Windows - Guida alle funzionalità di disponibilità elevata | Microsoft Azure"
    description="SAP NetWeaver in macchine virtuali (VM) Windows - Guida alle funzionalità di disponibilità elevata"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="goraco"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="goraco"/>
 
@@ -1432,4 +1432,4 @@ Il disco condiviso è ora montato sul nodo B del cluster. SIOS DataKeeper sta re
 
 _**Figura 62:** SIOS DataKeeper: replica del volume locale dal nodo B al nodo A del cluster_
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

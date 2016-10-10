@@ -79,7 +79,7 @@ Installare:
 
 -   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Necessario per compilare l'estensione del [microservizio](../service-fabric/service-fabric-get-started.md).
 
-Verificare anche che siano disponibili le estensioni di Visual Studio corrette. Verificare che in **Strumenti** siano visualizzati **Android, iOS, Xamarin e così via**. In caso contrario aprire il Pannello di controllo e quindi selezionare **Programmi e funzionalità** > **Microsoft** > **Visual Studio 2015** > **Modifica**. In **Sviluppo di app per dispositivi mobili multipiattaforma** scegliere **C#/.Net (Xamarin)**. Verificare anche che **GitHub** sia installato.
+Verificare anche che siano disponibili le estensioni di Visual Studio corrette. Verificare che in **Strumenti** siano visualizzati **Android, iOS, Xamarin e così via**. In caso contrario aprire il Pannello di controllo e quindi selezionare **Programmi e funzionalità** > **Microsoft** > **Visual Studio 2015** > **Modifica**. In **Sviluppo di app per dispositivi mobili multipiattaforma** scegliere **C#/.Net (Xamarin)**. Verificare anche che **GitHub per Windows** sia installato.
 
 ### Computer di sviluppo Mac
 
@@ -462,4 +462,4 @@ Tutti i commenti e suggerimenti saranno apprezzati.
 
 È consigliabile leggere la [guida di riferimento a MyDriving](http://aka.ms/mydrivingdocs), una descrizione completa della progettazione del sistema e dei relativi componenti.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

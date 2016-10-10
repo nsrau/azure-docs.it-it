@@ -3,7 +3,7 @@
 	description="Informazioni su come connettersi a un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima. Connettersi usando la stringa di connessione MongoDB." 
 	keywords="stringa di connessione mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Procedura di connessione a un account DocumentDB con supporto del protocollo per MongoDB
 
@@ -84,4 +84,4 @@ Come già accennato, tutti gli account di DocumentDB richiedono l'autenticazione
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

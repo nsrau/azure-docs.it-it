@@ -26,7 +26,7 @@ Tramite l'estensione di OAuth 2.0, consente inoltre alle app di acquisire in mod
 
 Azure AD B2C estende il protocollo standard OpenID Connect per non limitarsi esclusivamente a semplici operazioni di autenticazione e autorizzazione. Introduce il [**parametro criteri**](active-directory-b2c-reference-policies.md), che consente di usare OpenID Connect per aggiungere esperienze utente all'applicazione, ad esempio gestione dell'iscrizione, dell'accesso e del profilo. Di seguito viene illustrato come usare OpenID Connect e i criteri per implementare ciascuna di queste esperienze nelle applicazioni Web. Viene anche illustrato come ottenere i token di accesso per accedere alle API Web.
 
-Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio **https://aadb2cplayground.azurewebsites.net** e i criteri. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati. Altre informazioni su come [ottenere un tenant, un'applicazione e criteri B2C](#use-your-own-b2c-directory).
+Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio **https://aadb2cplayground.azurewebsites.net** e i criteri. Si possono provare le richieste in totale autonomia usando questi valori oppure è possibile sostituirli con valori personalizzati. Altre informazioni su come [ottenere tenant, applicazione e criteri B2C](#use-your-own-b2c-directory).
 
 ## Invio di richieste di autenticazione
 Quando l'app Web deve autenticare l'utente ed eseguire un criterio, può indirizzarlo all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l'utente opera effettivamente in base ai criteri.
@@ -162,12 +162,18 @@ Se l'app Web deve solo eseguire criteri, è possibile saltare le prossime sezion
 È possibile riscattare il codice di autorizzazione acquisito, tramite `response_type=code+id_token`, per un token nella risorsa desiderata, inviando una richiesta `POST` all'endpoint `/token`. Attualmente, l'unica risorsa per la quale è possibile richiedere un token è l'API Web back-end dell'app stessa. La convenzione per richiedere un token di questo tipo consiste nell'usare l'ID client dell'app come ambito:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
-
+{
+	"grant_type": "authorization_code",
+	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
+	"scope": "openid offline_access",
+	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+	"client_secret": "<your-application-secret>"
+}
 ```
 
 | Parametro | Obbligatorio? | Descrizione |
@@ -228,11 +234,18 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 I token ID hanno breve durata. È necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, questa volta specificando `refresh_token` invece di `code`:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
+{
+	"grant_type": "refresh_token",
+	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
+	"scope": "openid offline_access",
+	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+	"client_secret": "<your-application-secret>"
+}
 ```
 
 | Parametro | Obbligatorio | Descrizione |
@@ -309,4 +322,4 @@ Per provare queste richieste autonomamente, è innanzitutto necessario eseguire 
 - [Creare un'applicazione](active-directory-b2c-app-registration.md) per ottenere un ID applicazione e un URI di reindirizzamento. È possibile includere poi un’**app Web/API Web** nell'applicazione e, facoltativamente, creare una **chiave privata dell'applicazione**.
 - [Creare i criteri](active-directory-b2c-reference-policies.md) per ottenere i nomi dei criteri.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

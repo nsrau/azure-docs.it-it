@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -105,7 +105,7 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 <li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
 <li>[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
 <li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li>
-<li>[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Accessi da dispositivi probabilmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
 <li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
 <li>Utenti con credenziali perse</li></ul>
 
@@ -269,7 +269,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
     - Ultimi 30 giorni
 4. Fare clic sull'icona del segno di spunta per eseguire il report.
 	- Nel portale di Azure classico vengono visualizzati fino a 1000 eventi.
-5. Se applicabile, fare clic su **Download** per scaricare il report in un file compresso in formato valori separati da virgole (CSV) per visualizzarlo offline o a scopo di archiviazione.
+5. Se applicabile, fare clic su **Scarica** per scaricare il report in un file compresso in formato valori separati da virgole (CSV) per visualizzarlo offline o a scopo di archiviazione.
 	- Fino a 75.000 eventi verranno inclusi nel file scaricato.
 	- Per altri dati, vedere [Introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
 
@@ -286,4 +286,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -22,7 +22,7 @@ Leggere questo articolo per ottenere una panoramica generale dei requisiti di di
 
 Dopo la lettura di questo articolo, è possibile inviare commenti o domande nella parte inferiore di questo articolo oppure nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Panoramica
+## Overview
 
 Le organizzazioni necessitano di una strategia di continuità aziendale e ripristino di emergenza per determinare come app, carichi di lavoro e dati possano rimanere in esecuzione e disponibili durante i periodi di inattività, pianificati o meno, e come ripristinare le normali condizioni di lavoro il prima possibile. La strategia di continuità aziendale e ripristino di emergenza deve garantire la sicurezza dei dati aziendali e la possibilità di recuperarli, oltre alla disponibilità costante dei carichi di lavoro in caso di emergenza.
 
@@ -32,7 +32,7 @@ Il servizio Azure Site Recovery contribuisce alla strategia BCDR orchestrando la
 
 Azure offre due [modelli di distribuzione](../resource-manager-deployment-model.md) diversi per la creazione e l'uso delle risorse: il modello Azure Resource Manager e il modello di gestione classica dei servizi. Sono anche disponibili il [portale di Azure classico](https://manage.windowsazure.com/), che supporta il modello di distribuzione classica, e il [portale di Azure](https://ms.portal.azure.com/), che supporta entrambi i modelli di distribuzione.
 
-Site Recovery è disponibile nel portale classico e nel portale di Azure. Nel portale di Azure classico è possibile supportare Site Recovery con il modello di gestione classica dei servizi. Nel portale di Azure è possibile supportare il modello di distribuzione classica o Resource Manager. [Altre informazioni](site-recovery-overview.md#site-recovery-in-the-azure-portal) sulla distribuzione con il portale di Azure.
+Site Recovery è disponibile sia nel portale classico che nel portale di Azure. Nel portale di Azure classico è possibile supportare Site Recovery con il modello di gestione classica dei servizi. Nel portale di Azure è possibile supportare i modelli di distribuzione classica e Resource Manager. [Altre informazioni](site-recovery-overview.md#site-recovery-in-the-azure-portal) sulla distribuzione con il portale di Azure.
 
 Quando si sceglie un modello di distribuzione, tenere presente che:
 
@@ -89,7 +89,7 @@ Assicurarsi che questi URL siano accessibili dai server.
 *.accesscontrol.windows.net | Consenti | Consenti | Consenti | Consenti
 *.backup.windowsazure.com | Facoltativo | Consenti | Consenti | Consenti
 *.hypervrecoverymanager.windowsazure.com | Consenti | Consenti | Consenti | Consenti
-*.store.core.windows.net | Consenti | Consenti | Consenti | Consenti
+*. store.core.windows.net | Consenti | Consenti | Consenti | Consenti
 *.blob.core.windows.net | Facoltativo | Consenti | Consenti | Consenti
 https://www.msftncsi.com/ncsi.txt | Consenti | Consenti | Consenti | Consenti
 https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi | Facoltativo | Facoltativo | Facoltativo | Consenti
@@ -111,10 +111,11 @@ Conteggio dischi dati | 16 o meno (il valore massimo è una funzione delle dimen
 Dimensioni VHD dischi dati | Fino a 1023 GB | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Schede di rete | Sono supportate più schede |
 Indirizzo IP statico | Supportato | Se la macchina virtuale principale usa un indirizzo IP statico, è possibile specificare l'indirizzo IP statico per la macchina virtuale che verrà creata in Azure Si noti che l'indirizzo IP statico per una macchina virtuale Linux in esecuzione su Hyper-V non è supportato.
-Disco iSCSI | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
-VHD condiviso | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
-Disco FC | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
+Disco iSCSI | Non supportate | Il controllo dei prerequisiti avrà esito negativo se non supportato
+VHD condiviso | Non supportate | Il controllo dei prerequisiti avrà esito negativo se non supportato
+Disco FC | Non supportate | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Formato disco rigido| VHD <br/><br/> VHDX | Anche se VHDX al momento non è supportato in Azure, in Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a utilizzare il formato VHDX.
+BitLocker | Non supportate | Prima di proteggere una macchina virtuale è necessario disabilitare BitLocker.
 Nome macchina virtuale| Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero | Aggiornare il valore nelle proprietà della macchina virtuale in Site Recovery
 Tipo di macchina virtuale | <p>Prima generazione</p> <p>Seconda generazione - Windows</p> | È supportata una macchina virtuale di seconda generazione con disco del sistema operativo di base che include uno o due volumi di dati in formato VHDX inferiore a 300 GB. Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
 
@@ -127,13 +128,13 @@ Usare i suggerimenti seguenti per ottimizzare e ridimensionare la distribuzione.
 - **Dimensioni del volume del sistema operativo**: quando si replica una macchina virtuale in Azure, il volume del sistema operativo deve essere inferiore a 1 TB. Se si dispone di volumi superiori, è possibile spostarli manualmente in un altro disco prima di iniziare la distribuzione.
 - **Dimensioni del disco dati**: se si esegue la replica ad Azure è possibile avere fino a 32 dischi dati in una macchina virtuale, ciascuno con un massimo di 1 TB. È possibile replicare in modo efficiente una macchina virtuale di ~32 TB ed eseguirne il failover.
 - **Limiti del piano di ripristino**: Site Recovery è in grado di supportare migliaia di macchine virtuali. I piani di ripristino sono progettati come modello per le applicazioni devono eseguire il failover insieme. Pertanto, il numero di macchine in un piano di ripristino viene limitato a 50.
-- **Limiti dei servizi Azure**: ogni sottoscrizione ad Azure include un insieme di limiti predefiniti su core, servizi cloud e via di seguito. Si consiglia di eseguire un failover di test per convalidare la disponibilità di risorse nella sottoscrizione. È possibile modificare questi limiti tramite il supporto di Azure.
+- **Limiti dei servizi di Azure**: ogni sottoscrizione di Azure include un set di limiti predefiniti su core, servizi cloud e così via. È consigliabile eseguire un failover di test per convalidare la disponibilità di risorse nella sottoscrizione. È possibile modificare questi limiti tramite il supporto di Azure.
 - **Pianificazione della capacità**: altre informazioni sulla [pianificazione della capacità](site-recovery-capacity-planner.md) per Site Recovery.
 - **Larghezza di banda della replica**: in caso di larghezza di banda insufficiente, è opportuno notare quanto indicato di seguito.
 	- **ExpressRoute**: Site Recovery funziona con Azure ExpressRoute e con gli ottimizzatori WAN, ad esempio Riverbed. [Ulteriori informazioni](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) su ExpressRoute.
 	- **Traffico di replica**: Site Recovery esegue una replica iniziale intelligente utilizzando solo i blocchi di dati, non l'intero VHD. Solo le modifiche vengono replicate durante la replica in corso.
 	- **Traffico di rete**: è possibile controllare il traffico di rete utilizzato per la replica configurando [QoS di Windows](https://technet.microsoft.com/library/hh967468.aspx) con un criterio basato sull'indirizzo IP di destinazione e la porta. Inoltre, se si esegue la replica ad Azure Site Recovery usando l'agente di backup di Azure è possibile configurare la limitazione per l'agente. [Altre informazioni](https://support.microsoft.com/kb/3056159).
-- **RTO**: per misurare l'obiettivo del tempo di ripristino (RTO) che è possibile prevedere con Site Recovery, è consigliabile eseguire un failover di test e visualizzare i processi di Site Recovery per analizzare qual è il tempo necessario per completare le operazioni. Se si sta eseguendo il failover ad Azure, per l'obiettivo RTO ottimale è consigliabile automatizzare tutte le azioni manuali mediante l'integrazione con i piani di automazione e di ripristino di Azure.
+- **RTO**: per misurare l'obiettivo del tempo di ripristino (RTO) che è possibile prevedere con Site Recovery, è consigliabile eseguire un failover di test e visualizzare i processi di Site Recovery per analizzare il tempo necessario per completare le operazioni. Se si sta eseguendo il failover ad Azure, per l'obiettivo RTO ottimale è consigliabile automatizzare tutte le azioni manuali mediante l'integrazione con i piani di automazione e di ripristino di Azure.
 - **RPO**: Site Recovery supporta un obiettivo del punto di ripristino (RPO) quasi sincrono quando si esegue la replica ad Azure. Ciò presuppone sufficiente larghezza di banda tra il datacenter e Azure.
 
 
@@ -146,7 +147,7 @@ Assicurarsi che questi URL siano accessibili dal server
  *.accesscontrol.windows.net | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
  *.backup.windowsazure.com | | Accesso richiesto | Accesso richiesto | Accesso richiesto
  *.hypervrecoverymanager.windowsazure.com | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
- *.store.core.windows.net | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
+ *. store.core.windows.net | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
  *.blob.core.windows.net | | Accesso richiesto | Accesso richiesto | Accesso richiesto
  https://www.msftncsi.com/ncsi.txt | Accesso richiesto | Accesso richiesto | Accesso richiesto | Accesso richiesto
  https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi | | | | Accesso richiesto
@@ -164,4 +165,4 @@ Dopo aver compreso e confrontato i requisiti generali di distribuzione, è possi
 - [Replicare le VM Hyper-V in un sito secondario con SAN](site-recovery-vmm-san.md)
 - [Replicare le VM Hyper-V con un singolo server VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

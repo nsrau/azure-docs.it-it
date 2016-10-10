@@ -23,7 +23,7 @@ Un ambiente del servizio app può essere creato **in** una rete virtuale di Azur
 
 È sempre necessario creare un ambiente del servizio app all'interno di una subnet perché la subnet fornisce un limite di rete che può essere usato per bloccare il traffico in ingresso proveniente da dispositivi e servizi upstream, in modo che il traffico HTTP e HTTPS sia accettato solo da indirizzi IP upstream specifici.
 
-Il traffico in ingresso e in uscita a e da una subnet è controllato tramite un [gruppo di sicurezza di rete][NetworkSecurityGroups]. Attualmente, per l'ambiente del servizio App, sono supportati solo i gruppi di sicurezza di rete creati nel modello di distribuzione classica. Per controllare il traffico in ingresso è necessario creare regole di sicurezza di rete in un gruppo di sicurezza di rete, quindi assegnare al gruppo di sicurezza di rete la subnet contenente l'ambiente del servizio app.
+Il traffico in ingresso e in uscita a e da una subnet è controllato tramite un [gruppo di sicurezza di rete][NetworkSecurityGroups]. Per controllare il traffico in ingresso è necessario creare regole di sicurezza di rete in un gruppo di sicurezza di rete, quindi assegnare al gruppo di sicurezza di rete la subnet contenente l'ambiente del servizio app.
 
 Dopo aver assegnato un gruppo di sicurezza di rete a una subnet, il traffico in ingresso alle app nell'ambiente del servizio app è consentito/bloccato in base alle regole di autorizzazione consentita o negata definite nel gruppo di sicurezza di rete.
 
@@ -141,4 +141,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -137,8 +137,8 @@ Per informazioni complete sull'API .NET del bus di servizio e di Hub eventi, ved
 
 Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/services/service-bus/), vedere gli argomenti seguenti.
 
-- [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
+- [Panoramica della messaggistica del bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Architettura del bus di servizio](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

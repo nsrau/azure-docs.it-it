@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="Markvi"/>
 
 # Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1
 
 È possibile usare un oggetto Criteri di gruppo di Active Directory per configurare i dispositivi appartenenti a un dominio di Windows 8.1 per la registrazione automatica in Azure AD. Per configurare Criteri di gruppo, è necessario avere almeno un computer Windows Server 2012 R2 o Windows 8.1 aggiunto a un dominio con la funzionalità Gestione Criteri di gruppo installata. Dopo aver abilitato Criteri di gruppo per il dominio, qualsiasi utente di dominio che accede al computer verrà automaticamente registrato con un oggetto dispositivo in Azure AD. in cui sarà presente un oggetto dispositivo per ogni utente registrato del dispositivo fisico. Leggere i prerequisiti elencati in Registrazione automatica dei dispositivi con Azure Active Directory per dispositivi appartenenti a un dominio di Windows e assicurarsi che siano soddisfatti.
+
+>[AZURE.NOTE]
+ Per le istruzioni più recenti su come configurare la registrazione automatica dei dispositivi, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+
 
 ## Configurare l'oggetto Criteri di gruppo per i dispositivi appartenenti al dominio di Windows 8.1
 
@@ -61,4 +66,4 @@ L'oggetto Criteri di gruppo abilita nel sistema un'attività pianificata che vie
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

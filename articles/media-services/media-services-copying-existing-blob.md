@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copia di un BLOB esistente in un asset di Servizi multimediali" 
+	pageTitle="Copia di un BLOB esistente in un asset di Servizi multimediali | Microsoft Azure" 
 	description="Questo argomento illustra come copiare un BLOB esistente in un asset di Servizi multimediali." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Copia di un BLOB esistente in un asset di Servizi multimediali
@@ -30,7 +30,7 @@ I BLOB possono essere presenti sia in un account di archiviazione associato al p
 
 ##Prerequisiti
 
-- Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-create-account.md).
+- Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account Servizi multimediali](media-services-create-account.md).
 - Sistemi operativi: Windows 10, Windows 7, Windows 2008 R2 o Windows 8.
 - .NET Framework 4.5
 - Visual Studio 2010, SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
@@ -314,7 +314,7 @@ L'esempio di codice che segue effettua le attività seguenti:
 
  
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -322,4 +322,4 @@ L'esempio di codice che segue effettua le attività seguenti:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

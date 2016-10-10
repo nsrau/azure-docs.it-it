@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="mbaldwin"
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -16,7 +16,7 @@
 	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
-# Accedere e disconnettersi dalle app Web con Azure AD
+# Accesso e disconnessione all'app Web ASP.NET con Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -178,4 +178,4 @@ Come riferimento, viene fornito l'esempio completato (senza i valori di configur
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

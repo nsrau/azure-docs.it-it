@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurazione di un nuovo dispositivo con Azure AD durante l'installazione| Microsoft Azure"
-	description="Argomento che spiega come configurare Aggiunta di Azure AD durante la procedura di configurazione iniziale guidata."
+	description="Argomento che spiega come configurare l'aggiunta di Azure AD durante la procedura di configurazione guidata iniziale."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Configurazione di un nuovo dispositivo con Azure AD durante l'installazione
@@ -53,4 +53,4 @@ In Windows 10 gli utenti finali possono aggiungere il proprio dispositivo ad Azu
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

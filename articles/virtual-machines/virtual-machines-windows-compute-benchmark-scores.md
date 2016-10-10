@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Calcolare i punteggi di benchmark per le VM Windows
@@ -59,13 +59,24 @@ Standard\_G3, Standard\_GS3 | 8 | 1 | Intel Xeon E5-2698B v3 a 2 GHz | 6 | 242,3
 Standard\_G4, Standard\_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 a 2 GHz | 15 | 398,9 | 6\.0
 Standard\_G5, Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 a 2 GHz | 22 | 762,8 | 3,7
 
+## Serie H
+
+Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Iterazioni/sec | Deviazione standard
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard\_H8 | 8 | 1 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 297\.4 | 0\.9
+Standard\_H16 | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 575\.8 | 6\.8
+Standard\_H8m | 8 | 1 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 297\.0 | 1\.2
+Standard\_H16m | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 572\.2 | 3\.9
+Standard\_H16r | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 573\.2 | 2,9
+Standard\_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 7 | 569\.6 | 2\.8
+
 ## Informazioni su SPECint
 
-I valori di Windows sono stati calcolati eseguendo [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) in Windows Server. SPECint è stato eseguito utilizzando la velocità di base (SPECint\_rate2006), con una copia per core. SPECint consiste in 12 test distinti, ognuno eseguito tre volte prendendo i valori mediani di tutti i test e ponderandoli in modo da ottenere un punteggio composito. Dopodiché, i valori sono stati eseguiti tra più VM per arrivare alla media dei punteggi illustrata.
+I valori di Windows sono stati calcolati eseguendo [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) in Windows Server. SPECint è stato eseguito utilizzando la velocità di base (SPECint\_rate2006), con una copia per core. SPECint consiste in 12 test distinti, ognuno eseguito tre volte prendendo i valori mediani di tutti i test e ponderandoli in modo da ottenere un punteggio composito. Questi test sono stati quindi eseguiti su più VM per ottenere la media dei punteggi illustrata.
 
 
 ## Passaggi successivi
 
-* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle VM, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-windows-sizes.md).
+* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-windows-sizes.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

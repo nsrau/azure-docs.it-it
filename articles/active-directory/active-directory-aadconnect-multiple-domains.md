@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 # Supporto di più domini per la federazione con Azure AD
 La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.
@@ -153,4 +153,4 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
 ![Sostituzione dell'attestazione](./media/active-directory-multiple-domains/sub2.png)
 5.	Fare clic su Ok. Fare clic su Applica. Fare clic su Ok. Chiudere Gestione ADFS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

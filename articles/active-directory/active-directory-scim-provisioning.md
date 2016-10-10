@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -18,7 +18,7 @@
 
 #Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni
 
-##Panoramica
+##Overview
 
 Azure Active Directory può effettuare automaticamente il provisioning di utenti e gruppi in qualsiasi applicazione o archivio identità gestito da un servizio Web con interfaccia definita nella [specifica del protocollo SCIM 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory può inviare richieste per creare, modificare ed eliminare utenti e gruppi assegnati a questo servizio Web, che converte quindi queste richieste in operazioni sull'archivio identità di destinazione
 
@@ -36,7 +36,7 @@ Esistono due casi di utilizzo per SCIM in Azure Active Directory:
 
 Azure Active Directory può essere configurato in modo da effettuare automaticamente il provisioning di determinati utenti e gruppi per le applicazioni che implementano un servizio Web [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) e accettano token di connessione OAuth per l'autenticazione. Nell'ambito della specifica SCIM 2.0, le applicazioni devono soddisfare i requisiti seguenti:
 
-* Supportare la creazione di utenti e/o gruppi, come indicato nella sezione 3.3 del protocollo SCIM.  
+* Supportare la creazione di utenti e/o gruppi, come indicato nella sezione 3.3 del protocollo SCIM.
 
 * Supportare la modifica di utenti e/o gruppi con richieste patch, come indicato nella sezione 3.5.2 del protocollo SCIM.
 
@@ -67,11 +67,11 @@ Le applicazioni che supportano il profilo SCIM descritto in precedenza possono e
 4.	Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account**.
 5.	Nel campo **URL dell'endpoint di provisioning** immettere l'URL dell'endpoint SCIM dell'applicazione.
 6.	Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token di autenticazione (facoltativo)**. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
-7.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
+7.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.
 8.	Se i tentativi di connessione all'applicazione hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
 9.	Nella schermata risultante selezionare il terzo pulsante **Assegna account**. Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
 10.	Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
-11.	In **Provisioning account** verificare che lo stato sia attivo. 
+11.	In **Provisioning account** verificare che lo stato sia attivo.
 12.	In **Strumenti** fare clic su **Riavvia provisioning account** per avviare il processo di provisioning.
 
 Si noti che è possibile che trascorrano 5-10 minuti prima che il processo di provisioning inizi ad avviare richieste all'endpoint SCIM. Un riepilogo dei tentativi di connessione viene fornito nella scheda Dashboard dell'applicazione ed è possibile scaricare un report delle attività di provisioning ed eventuali errori di provisioning dalla scheda Reports della directory.
@@ -93,7 +93,7 @@ Per semplificare il processo, viene fornito un set di [esempi di codice](https:/
 
 **Prerequisiti**
 
-* Visual Studio 2013 o versione successiva
+* Visual Studio 2013 o versioni successive
 * [Azure SDK per .NET](https://azure.microsoft.com/downloads/)
 * Computer Windows che supporta ASP.NET Framework 4.5 da usare come endpoint SCIM. Questo computer deve essere accessibile dal cloud.
 * [Una sottoscrizione di Azure con una versione di prova o concessa in licenza di Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
@@ -136,7 +136,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 7.	Se i tentativi di connessione al servizio Web hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
 8.	Nella schermata risultante selezionare il terzo pulsante **Assegna account**. Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
 9.	Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
-10.	In **Provisioning account** verificare che lo stato sia attivo. 
+10.	In **Provisioning account** verificare che lo stato sia attivo.
 11.	In **Strumenti** fare clic su **Riavvia provisioning account** per avviare il processo di provisioning.
 
 Si noti che è possibile che trascorrano 5-10 minuti prima che il processo di provisioning inizi ad avviare richieste all'endpoint SCIM. Un riepilogo dei tentativi di connessione viene fornito nella scheda Dashboard dell'applicazione ed è possibile scaricare un report delle attività di provisioning ed eventuali errori di provisioning dalla scheda Reports della directory.
@@ -702,4 +702,4 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

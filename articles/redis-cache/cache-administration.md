@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/13/2016"
+	ms.date="09/27/2016"
 	ms.author="sdanie" />
 
 # Come amministrare Cache Redis di Azure
@@ -33,7 +33,7 @@ Le impostazioni di **amministrazione** di Cache Redis di Azure consentono di ese
 
 ## Reboot
 
-Il pannello **Reboot** (Riavvio) consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
+Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. Ciò consente di verificare la resilienza dell'applicazione in caso di errore.
 
 ![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
@@ -47,7 +47,7 @@ L'impatto sulle applicazioni client varia a seconda dei nodi che si riavviano.
 
 -	**Principale**: quando il nodo principale viene riavviato, Cache Redis di Azure esegue il failover del nodo della replica, che diventa principale. Durante il failover potrebbe verificarsi un breve intervallo in cui le connessioni alla cache potrebbero avere esito negativo.
 -	**Slave**: il riavvio del nodo slave in genere non comporta alcun impatto sui client della cache.
--	**Principale e slave**: al riavvio di entrambi i nodi della cache, tutti i dati della cache vengono persi e le connessioni alla cache hanno esito negativo fino a quando il nodo primario non torna online. Se è stata configurata la [persistenza dei dati](cache-how-to-premium-persistence.md), quando la cache ritorna online viene ripristinato il backup più recente. Si noti che le eventuali scritture nella cache che si sono verificate dopo il backup più recente vengono perse.
+-	**Principale e slave**: al riavvio di entrambi i nodi della cache, tutti i dati della cache vengono persi e le connessioni alla cache hanno esito negativo fino a quando il nodo primario non torna online. Se è stata configurata la [persistenza dei dati](cache-how-to-premium-persistence.md), quando la cache torna online verrà ripristinato il backup più recente. Si noti che le eventuali scritture nella cache che si sono verificate dopo il backup più recente vengono perse.
 -	**Nodi di una cache Premium con clustering abilitato**: al riavvio dei nodi di una cache Premium con clustering abilitato, il comportamento è identico al riavvio dei nodi di una cache senza cluster.
 
 
@@ -94,10 +94,13 @@ Il pannello **Pianifica aggiornamenti** consente di definire un intervallo di ma
 
 Per specificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno, quindi fare clic su **OK**. Si noti che l'orario dell'intervallo di manutenzione è in formato UTC.
 
+>[AZURE.NOTE] La finestra di manutenzione predefinita per gli aggiornamenti è di 5 ore. Questo valore non è configurabile dal portale di Azure, ma può essere configurato in PowerShell usando il parametro `MaintenanceWindow` del cmdlet [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx). Per altre informazioni, vedere [È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
+
 ## Domande frequenti sulla pianificazione degli aggiornamenti
 
 -	[Quando vengono eseguiti gli aggiornamenti se non si usa la funzionalità di pianificazione degli aggiornamenti?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 -	[Quale tipo di aggiornamenti vengono eseguiti durante l'intervallo di manutenzione pianificato?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+-	[È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 -	[Con quali piani tariffari è possibile usufruire della funzionalità di pianificazione degli aggiornamenti?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### Quando vengono eseguiti gli aggiornamenti se non si usa la funzionalità di pianificazione degli aggiornamenti?
@@ -108,12 +111,21 @@ Se non si specifica un intervallo di manutenzione, è possibile eseguire aggiorn
 
 Durante l'intervallo di manutenzione pianificato vengono eseguiti solo gli aggiornamenti del server Redis. L'intervallo di manutenzione non si applica agli aggiornamenti di Azure o del sistema operativo della macchina virtuale.
 
+### È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?
+
+Sì, è possibile gestire gli aggiornamenti pianificati con i cmdlet di PowerShell seguenti.
+
+-	[Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
+-	[New-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763834.aspx)
+-	[New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
+-	[Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
+
 ### Con quali piani tariffari è possibile usufruire della funzionalità di pianificazione degli aggiornamenti?
 
 La funzionalità di pianificazione degli aggiornamenti è disponibile solo per il piano tariffario Premium.
 
 ## Passaggi successivi
 
--	Esplorare le funzionalità del [piano Premium della cache Redis di Azure](cache-premium-tier-intro.md).
+-	Esplorare altre funzionalità del [piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Connettere le macchine virtuali Windows create con il modello di distribuzione classica con un servizio cloud o rete virtuale
@@ -33,4 +33,4 @@ Se si inseriscono le macchine virtuali nello stesso servizio cloud autonomo, si 
 
 Dopo avere creato una macchina virtuale, è consigliabile [aggiungere un disco dati](virtual-machines-windows-classic-attach-disk.md), in modo che i servizi e i carichi di lavoro possano usarlo per archiviare i dati.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

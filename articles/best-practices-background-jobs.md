@@ -318,7 +318,7 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - [Ciclo di vita di avvio del ruolo di Azure](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (post di blog)
 - [Ciclo di vita del ruolo di Servizi cloud di Azure](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)
 - [Introduzione a Azure WebJobs SDK](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- [Analogie e differenze tra le code di Azure e le code del bus di servizio](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Analogie e differenze tra le code di Azure e le code del bus di servizio](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Come abilitare il modulo Diagnostica in un servizio cloud](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

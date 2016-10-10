@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>  
+	ms.author="jutang;robinsh"/>
 
 
 # Cosa fare se si verifica un'interruzione di Archiviazione di Azure
@@ -81,4 +81,4 @@ Esistono alcuni approcci consigliati per il backup periodico dei dati di archivi
 
 -   File: usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'altra area.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

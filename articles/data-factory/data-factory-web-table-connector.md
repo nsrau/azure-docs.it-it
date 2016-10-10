@@ -3,7 +3,7 @@
 	description="Informazioni su come spostare dati da una tabella locale a una pagina Web con Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Spostare i dati da un'origine tabella Web con Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per copiare dati da una tabella in una pagina Web a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
 Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web ad altri archivi dati, non da altri archivi dati a una tabella Web.
 
-> [AZURE.NOTE] Questo connettore Web attualmente supporta solo l'estrazione del contenuto della tabella da una pagina HTML.
+> [AZURE.NOTE] Questo connettore Web attualmente supporta soltanto l'estrazione del contenuto della tabella da una pagina HTML.
 
 ## Esempio: Copiare i dati da una tabella Web al BLOB di Azure
 
@@ -65,7 +65,7 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 	  }
 	}
 
-**Set di dati di input WebTable**: impostando **external** su **true** e specificando i criteri **externalData** (facoltativi) si comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da alcuna attività al suo interno.
+**Set di dati di input WebTable** Impostando **external** su **true**, si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
 > [AZURE.NOTE] Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page).
 
@@ -213,13 +213,13 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 ## Proprietà set di dati WebTable
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti
 
 Proprietà | Descrizione | Obbligatorio
 :-------- | :----------- | :--------
-type | Tipo del set di dati. Deve essere impostato su **WebTable**. | Sì
+type | Tipo del set di dati. Deve essere impostato su **WebTable** | Sì
 path | URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. 
 index | Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page). | Sì
 
@@ -245,11 +245,11 @@ index | Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice
 
 ## Proprietà del tipo di attività di copia WebSource
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
-Le proprietà disponibili nella sezione typeProperties dell'attività variano invece per ogni tipo di attività e in caso di attività di copia variano in base ai tipi di origini e ai sink.
+Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
-Per le attività di copia con origine di tipo **WebSource** attualmente non sono supportate altre proprietà.
+Quando l'origine nell'attività di copia è di tipo **WebSource** non sono attualmente supportate altre proprietà.
 
 ## Ottenere l'indice di una tabella in una pagina HTML
 
@@ -265,7 +265,7 @@ Per le attività di copia con origine di tipo **WebSource** attualmente non sono
 4.  Se viene visualizzata la finestra di dialogo **Accedi a contenuto Web**, selezionare l'**URL** corretto, l'**autenticazione** e fare clic su **Connetti**.
 
 	![Finestra di dialogo Accedi a contenuto Web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
-5.  Fare clic su un elemento **tabella** nella visualizzazione albero per visualizzare il contenuto dalla tabella e quindi fare clic su **Modifica** nella parte inferiore.
+5.  Fare clic su un elemento della **tabella** nella visualizzazione albero per visualizzare il contenuto dalla tabella e quindi fare clic su **Modifica** nella parte inferiore.
 
 	![Finestra di dialogo Strumento di spostamento](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
 
@@ -287,4 +287,4 @@ Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Exc
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

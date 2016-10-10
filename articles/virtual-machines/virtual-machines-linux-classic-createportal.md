@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
 # Creare una macchina virtuale personalizzata che esegue Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Per informazioni sulla creazione di una macchina virtuale Linux usando il nuovo portale di Azure, vedere [Creare una VM Linux in Azure usando il portale](virtual-machines-linux-quick-create-portal.md).
 
 
 
@@ -30,8 +30,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
 
-## Passaggi successivi
-
-È anche possibile [creare una macchina virtuale personalizzata che esegue Windows](virtual-machines-windows-classic-createportal.md) usando il portale classico.
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

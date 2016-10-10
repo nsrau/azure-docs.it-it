@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni
@@ -45,4 +45,4 @@ Se si sta usando Windows 7 o Windows 8 e il computer o il dispositivo è stato a
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticazione delle identità senza password con Microsoft Passport](active-directory-azureadjoin-passport.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

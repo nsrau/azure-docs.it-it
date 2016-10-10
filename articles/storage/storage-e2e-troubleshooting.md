@@ -13,14 +13,14 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>  
+	ms.author="jahogg;robinsh"/>
 
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 
 [AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## Panoramica
+## Overview
 
 Diagnostica e risoluzione dei problemi sono competenze fondamentali per la creazione e il supporto di applicazioni client con Archiviazione di Microsoft Azure. Data la natura distribuita di un'applicazione Azure, la diagnostica e la risoluzione dei problemi di prestazioni possono risultare più complesse che in ambienti tradizionali.
 
@@ -145,14 +145,14 @@ La libreria client di archiviazione archivia i dati di log lato client nel perco
 
 1. Installare [Fiddler](http://www.telerik.com/download/fiddler).
 2. Avviare Fiddler.
-2. Selezionare **Strumenti | Opzioni Fiddler**.
+2. Selezionare **Strumenti| Fiddler Options**.
 3. Nella finestra di dialogo Opzioni, verificare che siano selezionate le opzioni **Acquisisci HTTPS CONNECTs** e **Decrittografa il traffico HTTPS**, come illustrato di seguito.
 
 ![Configurare le opzioni Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyzer, quindi creare una sessione di analisi per analizzare la traccia e i log. Per raccogliere una traccia di rete in Message Analyzer:
 
-1. In Message Analyzer selezionare **File | Traccia rapida | HTTPS non crittografato**.
+1. In Message Analyzer selezionare **File| Quick Trace | Unencrypted HTTPS**.
 2. La traccia inizierà immediatamente. Selezionare **Interrompi** per interrompere la traccia in modo da poterla configurare solo per il traffico di archiviazione.
 3. Selezionare **Modifica** per modificare la sessione di traccia.
 4. Selezionare il collegamento **Configura** a destra del provider ETW **Microsoft-Pef-WebProxy**.
@@ -366,4 +366,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

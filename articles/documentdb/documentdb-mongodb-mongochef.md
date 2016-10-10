@@ -3,7 +3,7 @@
 	description="Informazioni su come usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima." 
 	keywords="mongochef"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB
 
@@ -132,4 +132,4 @@ Per creare un database, una raccolta e documenti usando MongoChef, seguire quest
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

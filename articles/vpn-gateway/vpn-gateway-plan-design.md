@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc"/>
 
 # Pianificazione e progettazione per il gateway VPN
 
-Le operazioni di pianificazione e progettazione di connessioni cross-premise e da rete virtuale a rete virtuale possono essere molto semplici o piuttosto complicate, a seconda delle esigenze relative alla rete. Questo articolo illustra in dettaglio alcune considerazioni di base sulla progettazione e sulla pianificazione.
+Le operazioni di pianificazione e progettazione di connessioni cross-premise e da rete virtuale a rete virtuale possono essere molto semplici o piuttosto complicate, a seconda delle esigenze di rete. Questo articolo illustra in dettaglio alcune considerazioni di base sulla progettazione e sulla pianificazione.
 
 ## Pianificazione
 
 
 ### <a name="compare"></a>Opzioni di connettività di più sedi locali
 
-Se si desidera connettere i siti locali in modo sicuro a una rete virtuale, sono disponibili tre modi diversi: da sito a sito, da punto a sito ed ExpressRoute. Confrontare le diverse connessioni cross-premise disponibili. La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
+Se si desidera connettere i siti locali in modo sicuro a una rete virtuale, sono disponibili tre modi diversi: Da sito a sito, Da punto a sito ed ExpressRoute. Confrontare le diverse connessioni cross-premise disponibili. La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
 
 
 - Che tipo di velocità effettiva richiede la soluzione?
@@ -46,20 +46,13 @@ La tabella seguente può aiutare nella scelta della migliore opzione di connetti
 
 ### <a name="gwrequire"></a>Requisiti del gateway per tipo di VPN e SKU
 
+[AZURE.INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Quando si crea un gateway VPN, è necessario specificare la SKU del gateway da usare. Sono disponibili tre SKU del gateway VPN:
-
-- Basic
-- Standard
-- Prestazioni elevate
+Per informazioni sugli SKU del gateway, vedere [Impostazioni dello SKU del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-
-
-### <a name="aggthroughput"></a>Tipi di gateway e stime della velocità effettiva aggregata
-
-La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. La velocità effettiva aggregata stimata può essere un fattore determinante per la progettazione. I prezzi variano a seconda dello SKU del gateway. Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/). La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
+<br> La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. La velocità effettiva aggregata stimata può essere un fattore determinante per la progettazione. I prezzi variano a seconda dello SKU del gateway. Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/). La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -161,4 +154,4 @@ Per altre informazioni che aiutano a semplificare la progettazione, vedere gli a
 
 Per altre informazioni sulle impostazioni specifiche del gateway, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

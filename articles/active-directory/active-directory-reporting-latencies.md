@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -52,4 +52,4 @@ Utilizzo applicazioni abilitate per RMS | 2 ore | 4 ore | 8 ore
 **Report di anteprima personalizzati** | | |
 Attività di accesso di tutti gli utenti | 2 ore | 4 ore | 8 ore
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Panoramica del modello di licenza PlayReady di Servizi multimediali" 
-	description="Questo argomento fornisce una panoramica di un modello di licenza PlayReady usato per configurare le licenze PlayReady." 
+	description="Questo argomento offre una panoramica di un modello di licenza PlayReady usato per configurare le licenze PlayReady." 
 	authors="juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"  
+ 	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #Panoramica del modello di licenza PlayReady di Servizi multimediali
@@ -303,7 +303,7 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -311,4 +311,4 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

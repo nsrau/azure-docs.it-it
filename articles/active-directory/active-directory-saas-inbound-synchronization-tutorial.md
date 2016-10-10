@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -181,4 +181,4 @@ Questa sezione descrive come configurare Microsoft Azure AD per importare utenti
 
 È ora possibile passare alla sezione **Utenti** e verificare se l'utente Workday è stato importato.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

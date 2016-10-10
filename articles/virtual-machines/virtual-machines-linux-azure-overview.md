@@ -98,27 +98,27 @@ Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microso
 
 
 ## Configurazione in Azure
-Per iniziare a usare Azure, è necessario un account Azure, aver installato l'interfaccia della riga di comando Azure e disporre di una coppia di chiavi pubblica e privata SSH.
+Per iniziare a usare Azure, è necessario un account Azure, aver installato l'interfaccia della riga di comando di Azure e disporre di una coppia di chiavi pubblica e privata SSH.
 
-## Iscrizione per la creazione di un account
-Il primo passaggio quando si usa il Cloud di Azure è effettuare l'iscrizione per un account Azure. Per iniziare, accedere alla pagina relativa alla [creazione di un account Azure](https://azure.microsoft.com/pricing/free-trial/).
+## Iscriversi per ottenere un account
+Il primo passaggio quando si usa il cloud di Azure è effettuare l'iscrizione per un account Azure. Per iniziare, accedere alla pagina relativa alla [creazione di un account Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Installare l'interfaccia della riga di comando
-Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web. Per gestire il Cloud di Azure tramite la riga di comando, installare `azure-cli`. Installare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) sulla workstation Mac o Linux.
+Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web. Per gestire il cloud di Azure tramite la riga di comando, installare `azure-cli`. Installare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) sulla workstation Mac o Linux.
 
 ## Creare una coppia di chiavi SSH
 A questo punto si dispone di un account Azure, del portale Web di Azure e dell'interfaccia della riga di comando di Azure. Il passaggio successivo consiste nel creare una coppia di chiavi SSH per accedere tramite SSH in Linux senza specificare una password. [Creare le chiavi SSH in Linux e Mac](virtual-machines-linux-mac-create-ssh-keys.md) per abilitare gli accessi senza password e migliorare la sicurezza.
 
 ## Introduzione a Linux in Microsoft Azure
-Dopo la configurazione dell'account Azure, l'installazione dell'interfaccia della riga di comando di Azure e la creazione delle chiavi SSH è ora possibile iniziare a creare un'infrastruttura nel Cloud di Azure. La prima attività consiste nel creare due VM.
+Dopo la configurazione dell'account Azure, l'installazione dell'interfaccia della riga di comando di Azure e la creazione delle chiavi SSH è ora possibile iniziare a creare un'infrastruttura nel Cloud di Azure. La prima attività consiste nel creare due macchine virtuali.
 
-## Creare una VM nell'interfaccia della riga di comando
-La creazione di una VM Linux nell'interfaccia della riga di comando è un modo rapido per distribuire una VM senza uscire dal terminale in cui si sta operando. Tutte le informazioni specificate nel portale Web sono disponibili tramite un flag o un'opzione della riga di comando.
+## Creare una macchina virtuale usando l'interfaccia della riga di comando
+La creazione di una VM Linux usando l'interfaccia della riga di comando è un modo rapido per distribuire una VM senza uscire dal terminale in cui si sta operando. Tutte le informazioni specificate nel portale Web sono disponibili tramite un flag o un'opzione della riga di comando.
 
 - [Creare una VM Linux usando l'interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md)
 
 ## Creare una VM nel portale
-La creazione di una VM Linux nel portale Web di Azure è un modo per selezionare facilmente le varie opzioni per eseguire una distribuzione. Anziché usare i flag o le opzioni della riga di comando, è possibile visualizzare un pratico layout Web con diverse opzioni e impostazioni. Tutti gli elementi disponibili tramite l'interfaccia della riga di comando sono disponibili anche nel portale.
+La creazione di una VM Linux nel portale Web di Azure consente di selezionare facilmente le diverse opzioni per eseguire una distribuzione. Anziché usare i flag o le opzioni della riga di comando, è possibile visualizzare un pratico layout Web con diverse opzioni e impostazioni. Tutti gli elementi disponibili tramite l'interfaccia della riga di comando sono presenti anche nel portale.
 
 - [Creare una VM Linux usando il portale](virtual-machines-linux-quick-create-portal.md)
 
@@ -158,10 +158,10 @@ La VM è ora in esecuzione in Azure ed è possibile eseguire l'accesso. L'uso di
 
 ## Passaggi successivi
 
-Quella descritta è panoramica di Linux in Azure. Il passaggio successivo consiste nel cimentarsi con la creazione di alcune VM.
+Quella descritta è panoramica di Linux in Azure. Il passaggio successivo consiste nella creazione di alcune macchine virtuali.
 
 - [Creare una VM Linux in Azure usando il portale.](virtual-machines-linux-quick-create-portal.md)
 
 - [Creare una VM Linux in Azure tramite l'interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

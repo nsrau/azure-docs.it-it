@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor=""/> 
+	editor=""/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Architettura di riferimento: elaborazione di eventi in tempo reale con Analisi di flusso di Microsoft Azure
@@ -63,4 +63,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

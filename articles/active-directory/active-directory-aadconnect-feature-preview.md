@@ -1,10 +1,10 @@
 <properties
    pageTitle="Funzionalità in anteprima di Azure AD Connect | Microsoft Azure"
-   description="In questo argomento vengono descritte in maggiore dettaglio le funzionalità in anteprima in Azure AD Connect."
+   description="Questo argomento descrive in maggiore dettaglio le funzionalità in anteprima di Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -17,7 +17,7 @@
    ms.author="andkjell;billmath"/>
 
 # Altre informazioni sulle funzionalità in anteprima
-In questo argomento viene descritto come usare le funzionalità attualmente in anteprima.
+Questo argomento descrive come usare le funzionalità attualmente in anteprima.
 
 ## Writeback dei gruppi
 L'opzione per il writeback dei gruppi nelle funzionalità facoltative consentirà il writeback dei **gruppi di Office 365** in una foresta in cui è installato Exchange. Si tratta di un gruppo che viene sempre gestito nel cloud. Se Exchange è disponibile in locale, è possibile eseguire il writeback di questi gruppi in locale in modo che gli utenti con una cassetta postale di Exchange locale possano inviare e ricevere messaggi di posta elettronica da questi gruppi.
@@ -33,7 +33,7 @@ Questo gruppo verrà rappresentato come gruppo di distribuzione in AD DS locale.
 - Attualmente sono supportate solo le distribuzioni in organizzazioni di Exchange a foresta singola. Se sono presenti più organizzazioni di Exchange locali, sarà necessaria una soluzione GALSync locale per visualizzare questi gruppi nelle altre foreste.
 - La funzionalità di writeback dei gruppi al momento non gestisce gruppi di protezione o gruppi di distribuzione.
 
->[AZURE.NOTE] Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei gruppi.
+>[AZURE.NOTE] Per il writeback dei gruppi è necessaria una sottoscrizione di Azure AD Premium.
 
 ## Writeback degli utenti
 > [AZURE.IMPORTANT] La funzionalità di anteprima di writeback degli utenti è stata rimossa nell'aggiornamento di agosto 2015 di Azure AD Connect. Se questa funzionalità è stata abilitata, è necessario disabilitarla.
@@ -43,4 +43,4 @@ Continuare l'[Installazione personalizzata di Azure AD Connect](active-directory
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

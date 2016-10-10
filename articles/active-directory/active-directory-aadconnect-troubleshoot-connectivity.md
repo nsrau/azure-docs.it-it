@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -26,14 +26,13 @@ Questo articolo illustra in che modo Fabrikam si connette ad Azure AD tramite il
 
 Prima di tutto è necessario verificare che [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) sia configurato correttamente. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
->[AZURE.NOTE]
-In alcuni blog non Microsoft è invece documentato che le modifiche devono essere apportate a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
+>[AZURE.NOTE] In alcuni blog non Microsoft è invece documentato che le modifiche devono essere apportate a miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare dopo il primo aggiornamento. Per questo motivo è consigliabile aggiornare invece machine.config.
 
 Per il server proxy devono essere aperti anche gli URL necessari. L'elenco ufficiale è documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 Quelle riportate nella tabella seguente sono le impostazioni minime assolutamente indispensabili per potersi connettere ad Azure AD. L'elenco non include le funzionalità facoltative, ad esempio il writeback delle password o Azure AD Connect Health. Le impostazioni documentate di seguito sono finalizzate alla risoluzione dei problemi relativi alla configurazione iniziale.
 
-URL | Porta | Descrizione
+URL | Port | Descrizione
 ---- | ---- | ----
 mscrl.microsoft.com | HTTP/80 | Usate per scaricare gli elenchi di CRL.
 *.verisign.com | HTTP/80 | Usate per scaricare gli elenchi di CRL.
@@ -74,7 +73,7 @@ Se viene visualizzato il messaggio **Impossibile effettuare la connessione al se
 
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-Errore | Testo dell'errore | Commento
+Tipi di errore | Testo dell'errore | Commento
 ---- | ---- | ---- |
 403 | Accesso negato | Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti.
 407 | Autenticazione proxy obbligatoria | Il server proxy ha richiesto l'accesso, che non è stato fornito. Se il server proxy richiede l'autenticazione, assicurarsi di averla configurata in machine.config. Verificare anche di usare account di dominio sia per l'utente che esegue la procedura guidata sia per l'account del servizio.
@@ -175,4 +174,4 @@ Questo errore viene visualizzato quando l'Assistente per l'accesso non riesce a 
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

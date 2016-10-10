@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/26/2016" 
 	ms.author="nitinme"/>
 
 
@@ -51,24 +51,7 @@ Prima di installare i notebook Jupyter è necessario installare Python. Sia Pyth
 
 ## Installare i kernel e il magic Spark
 
-Questa sezione illustra come installare il magic Spark e i kernel PySpark e Spark. Illustra quindi come configurare i kernel per la connessione a un cluster Apache Spark in esecuzione in Azure HDInsight.
-
-1. Scaricare l'anteprima pubblica più recente di Spark magic da [GitHub](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
-
-2. Decomprimere il file scaricato in un percorso sul disco. Nelle istruzioni fornite di seguito questo percorso è denominato `$SPARKMAGIC_PATH`.
-
-2. Eseguire il comando seguente
-
-		pip install -r $SPARKMAGIC_PATH/requirements.txt  
-
-3. Eseguire il comando seguente per installare il magic Spark.
-
-		pip install -e $SPARKMAGIC_PATH
-
-4. Installare i kernel PySpark e Spark. Eseguire i comandi seguenti.
-
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/sparkkernel
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/pysparkkernel
+Per le istruzioni su come installare il magic Spar, i kernel Spark e PySpark, consultare la [documentazione sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) su GitHub.
 
 ## Configurare il magic Spark per l'accesso al cluster HDInsight Spark
 
@@ -97,7 +80,7 @@ Questa sezione illustra come configurare il magic Spark installato in precedenza
 		  },
 		  "kernel_scala_credentials" : {
 		    "username": "{USERNAME}",
-		    " base64_password ": "{BASE64ENCODEDPASSWORD}",
+		    "base64_password": "{BASE64ENCODEDPASSWORD}",
 		    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
 		  }
 		}
@@ -185,4 +168,4 @@ Può esistere una serie di motivi per cui è consigliabile installare Jupyter ne
 
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

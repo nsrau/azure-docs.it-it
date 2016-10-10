@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="micurd;robinsh"/>
 
 # Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -752,4 +752,4 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/15/2016"
+	ms.date="09/25/2016"
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##Panoramica
+##Overview
 
 Questo argomento descrive come inviare notifiche push a un'app UWP (Universal Windows Platform) tramite App per dispositivi mobili del servizio app di Azure con Hub di notifica di Azure. In questo scenario, quando viene aggiungo un nuovo elemento, il back-end dell'app per dispositivi mobili invia una notifica push a tutte le app di Windows registrate al servizio di notifica Windows.
 
@@ -223,4 +223,4 @@ Altre informazioni sulle notifiche push:
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

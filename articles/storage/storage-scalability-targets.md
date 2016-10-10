@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Obiettivi di scalabilità e prestazioni di Archiviazione di Azure | Microsoft Azure"
-   description="Scopri gli obiettivi di scalabilità e prestazioni di Archiviazione di Azure, incluse la capacità, la velocità di richiesta e la larghezza di banda in entrata e in uscita sia per gli account di archiviazione standard che premium. Comprendere obiettivi di prestazioni per le partizioni all'interno di ciascun servizio Archiviazione di Azure."
-   services="storage"
-   documentationCenter="na"
-   authors="robinsh"
-   manager="carmonm"
-   editor="tysonn" />
+	pageTitle="Obiettivi di scalabilità e prestazioni di Archiviazione di Azure | Microsoft Azure"
+	description="Scopri gli obiettivi di scalabilità e prestazioni di Archiviazione di Azure, incluse la capacità, la velocità di richiesta e la larghezza di banda in entrata e in uscita sia per gli account di archiviazione standard che premium. Comprendere obiettivi di prestazioni per le partizioni all'interno di ciascun servizio Archiviazione di Azure."
+	services="storage"
+	documentationCenter="na"
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn" />
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="08/03/2016"
-   ms.author="robinsh" />
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="08/03/2016"
+	ms.author="jahogg;robinsh" />
 
 # Obiettivi di scalabilità e prestazioni per Archiviazione di Azure
 
@@ -83,4 +83,4 @@ Suggerimenti dettagliati per la progettazione della strategia di partizionamento
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](storage-performance-checklist.md)
 - [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

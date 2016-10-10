@@ -5,8 +5,8 @@
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
-	manager="stevenpo"
-	editor=""/>  
+	manager="femila"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -95,4 +95,4 @@ Per altre informazioni, vedere [Integrazione delle identità locali con Azure Ac
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

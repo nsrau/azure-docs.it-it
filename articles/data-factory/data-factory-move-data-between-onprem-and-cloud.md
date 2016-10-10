@@ -4,7 +4,7 @@
     keywords="gateway dati, integrazione di dati, spostare dati, credenziali del gateway"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 Questo articolo offre una panoramica sull'integrazione tra archivi dati locali e archivi dati cloud con Data Factory. Si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) e su altri articoli che illustrano i concetti di base relativi a Data Factory: [set di dati](data-factory-create-datasets.md) e [pipeline](data-factory-create-pipelines.md).
@@ -100,12 +100,12 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Azure Da
 
 	![Configurazione certificati del gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-	È inoltre possibile eseguire le operazioni seguenti nella scheda Impostazioni: -Verificare o esportare il certificato utilizzato dal gateway. - Modificare l'endpoint HTTPS usato dal gateway-
+	È inoltre possibile eseguire le azioni seguenti nella scheda Impostazioni: -Verificare o esportare il certificato usato dal gateway. - Modificare l'endpoint HTTPS usato dal gateway-
 9. (facoltativo) Passare alla scheda **Diagnostica**, selezionare l'opzione **Abilita la registrazione dettagliata** se si vuole abilitare la registrazione dettagliata che è possibile usare per risolvere i problemi del gateway. Le informazioni sulla registrazione si trovano nel **Visualizzatore eventi**, nel nodo **Registri applicazioni e servizi** -> **Gateway di gestione dati**.
 
 	![Scheda Diagnostica](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-	È inoltre possibile eseguire le operazioni seguenti nella scheda **Diagnostica**:
+	È inoltre possibile eseguire le azioni seguenti nella scheda **Diagnostica**:
 	
 	- Usare la sezione **Connessione di test** su un'origine dati locale con il gateway.
 	- Fare clic su **Visualizza registri** per vedere il registro del gateway di gestione dati in una finestra del Visualizzatore eventi.
@@ -121,7 +121,7 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
 1.	Nell'**editor di Data Factory** fare clic su **Nuovo archivio dati** sulla barra degli strumenti e selezionare **SQL Server**.
 
 	![Nuovo servizio collegato di SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-3.	Nell'**editor JSON** seguire questa procedura:
+3.	Nell'**editor JSON** attenersi a questa procedura:
 	1. Per **gatewayName** specificare **adftutorialgateway**.
 	2. Se si usa l'autenticazione di Windows:
 		1. In **connectionString**, impostare **Integrated Security** su **true**, specificare il **nome server** del database e il **nome del database**, quindi rimuovere **ID utente** e **password**.
@@ -157,7 +157,7 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
    
  
 ## Creare set di dati
-In questo passaggio vengono creati i set di dati di input e di output che rappresentano i dati di input e di output per l'operazione di copia (database SQL Server locale => archiviazione BLOB di Azure). Prima di creare i set di dati o le tabelle (set di dati rettangolari), è necessario eseguire quanto segue (i passaggi dettagliati seguono l'elenco):
+In questo passaggio vengono creati i set di dati di input e di output che rappresentano i dati di input e di output per l'operazione di copia (database SQL Server locale => archiviazione BLOB di Azure). Prima di creare i set di dati o le tabelle (set di dati rettangolari), è necessario attenersi alla seguente procedura (i passaggi vengono descritti in modo dettagliato dopo l'elenco):
 
 - Creare una tabella denominata **emp** nel database SQL Server aggiunto come servizio collegato all'istanza di Data factory e inserire una coppia di voci di esempio nella tabella.
 - Creare un contenitore BLOB denominato **adftutorial** nell'account di archiviazione BLOB di Azure aggiunto come servizio collegato alla data factory.
@@ -358,7 +358,7 @@ In questo passaggio viene creata una **pipeline** con un'**attività di copia** 
 
 	![Collegamento al diagramma](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
-2. Viene visualizzato un diagramma simile al seguente:
+2. Verrà visualizzato un diagramma simile all'immagine seguente:
 
 	![Vista Diagramma](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
@@ -414,4 +414,4 @@ In questo passaggio viene usato il portale di Azure per monitorare le attività 
 - Leggere l’articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per tutti i dettagli sul gateway di gestione dati.
 - Per informazioni su come usare l'attività di copia per spostare i dati da un archivio dati di origine a un archivio dati sink, vedere l'articolo [Copiare dati dal BLOB di Azure in SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

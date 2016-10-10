@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Cmdlet dell'anteprima di Azure Active Directory per la gestione di gruppo
 
-Il seguente documento riporta esempi di come usare PowerShell per gestire i gruppi in Azure Active Directory (Azure AD). Fornisce anche informazioni su come configurare il modulo di anteprima di Azure AD PowerShell. In primo luogo è necessario [scaricare il modulo Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+Il seguente documento riporta esempi di come usare PowerShell per gestire i gruppi in Azure Active Directory (Azure AD). Fornisce anche informazioni su come configurare il modulo di anteprima di Azure AD PowerShell. In primo luogo è necessario [scaricare il modulo Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
 
 ## Installazione del modulo Azure AD PowerShell
 
@@ -223,4 +223,4 @@ Per altre informazioni su Azure Active Directory PowerShell, consultare la docum
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

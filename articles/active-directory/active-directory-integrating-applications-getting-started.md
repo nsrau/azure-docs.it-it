@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="ihenkel"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
    <tags
@@ -17,8 +17,8 @@
       ms.author="inhenk"/>
 
 # Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
-## Panoramica
-Questo argomento intende fornire una guida di orientamento per l'integrazione di applicazioni con Azure Active Directory (AD). Ogni sezione seguente contiene un breve riepilogo di un argomento più dettagliato, per consentire di identificare le parti di questa guida introduttiva rilevanti per la situazione specifica. Per approfondimenti su ogni argomento, selezionare i collegamenti.
+## Overview
+Questo argomento intende fornire una guida di orientamento per l'integrazione di applicazioni con Azure Active Directory (AD). Ciascuna delle sezioni seguenti contiene un breve riepilogo di un argomento più dettagliato, per consentire di identificare le parti di questa guida introduttiva rilevanti per la situazione specifica. Per approfondimenti su ogni argomento, selezionare i collegamenti.
 
 ## Considerazioni preliminari
 Prima di iniziare a integrare applicazioni con Azure AD, è importante avere un quadro preciso della situazione attuale e degli obiettivi desiderati. Le domande seguenti sono utili per valutare i diversi aspetti del progetto di integrazione delle applicazioni con Azure AD.
@@ -89,4 +89,4 @@ Per aggiungere un'applicazione personalizzata alla raccolta di applicazioni di A
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

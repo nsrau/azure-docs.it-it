@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Implementazione di uno scenario di streaming con failover
@@ -964,7 +964,7 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 È ora possibile usare uno strumento di gestione traffico per instradare le richieste tra i due data center e quindi il failover in caso di guasti.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -972,4 +972,4 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

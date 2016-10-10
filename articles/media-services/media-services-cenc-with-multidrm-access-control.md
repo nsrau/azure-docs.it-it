@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure" 
+	pageTitle="CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure | Microsoft Azure" 
 	description="Informazioni su come ottenere la licenza per Microsoft® Smooth Streaming Client Porting Kit." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure
@@ -293,7 +293,7 @@ Esistono alcuni "trabocchetti" nell'implementazione. L'elenco seguente di "trabo
 	Dopo l'aggiunta del supporto di JWT (AAD) oltre a SWT (ACS), l'oggetto TokenType predefinito è TokenType.JWT. Se si usa SWT/ACS, è necessario impostarlo su TokenType.SWT.
 
 ## Argomenti aggiuntivi per l'implementazione
-Ora verranno illustrati alcuni argomenti aggiuntivi sulla progettazione e l'implementazione.
+Verranno ora illustrati alcuni argomenti aggiuntivi sulla progettazione e l'implementazione.
 
 ###HTTP o HTTPS?
 
@@ -510,7 +510,7 @@ In questo documento è stata illustrata la crittografia CENC con DRM nativo mult
 - Sono stati illustrati anche alcuni argomenti direttamente collegati alla progettazione e all'implementazione.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -522,4 +522,4 @@ In questo documento è stata illustrata la crittografia CENC con DRM nativo mult
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

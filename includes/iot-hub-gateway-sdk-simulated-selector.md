@@ -27,7 +27,7 @@ Il diagramma seguente illustra i componenti principali dell'esempio, inclusi i m
 ![][1]
 
 
-> [AZURE.NOTE] I moduli non si scambiano direttamente i messaggi, ma li pubblicano in un bus di messaggi interno che invia li invia ad altri moduli usando un meccanismo di sottoscrizione, come mostrato nel diagramma seguente. Per altre informazioni, vedere la pagina di [introduzione a Gateway SDK][lnk-gw-getstarted].
+> [AZURE.NOTE] I moduli non si scambiano direttamente i messaggi, ma li pubblicano in un broker interno che li invia ad altri moduli usando un meccanismo di sottoscrizione, come mostrato nel diagramma seguente. Per altre informazioni, vedere la pagina di [introduzione a Gateway SDK][lnk-gw-getstarted].
 
 ### Modulo di inserimento del protocollo
 
@@ -69,3 +69,4 @@ Invece di aprire una connessione all'hub IoT per ogni dispositivo simulato, ques
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
+<!---HONumber=AcomDC_0928_2016-->

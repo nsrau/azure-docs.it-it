@@ -24,6 +24,13 @@ In questo esempio viene usato il nome del set di record "@" per creare un record
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
+### Creare un set di record PTR con un singolo record
+In questo caso 'my-arpa-zone.com' è la zona ARPA che rappresenta l'intervallo IP dell'utente. Ogni record PTR impostato in questa zona corrisponde a un indirizzo IP che rientra nell'intervallo IP.
+
+	$rs = New-AzureRmDnsRecordSet -Name "10" -RecordType PTR -Ttl 3600 -ZoneName my-arpa-zone.com -ResourceGroupName MyAzureResourceGroup
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ptrdname "myservice.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
+
 ### Creare un set di record SRV con un singolo record
 
 Se si crea un record SRV nella radice della zona, specificare semplicemente *\_service* e *\_protocol* nel nome del record. Non è necessario includere "@" nel nome del record.
@@ -38,4 +45,4 @@ Se si crea un record SRV nella radice della zona, specificare semplicemente *\_s
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

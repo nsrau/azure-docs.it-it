@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+	ms.author="billmath"/>
 
 
 # Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
@@ -58,7 +58,7 @@ Nel server AD FS aprire Powershell. Verificare che il valore AutoCertificateRoll
 
 	Get-Adfsproperties
 
-![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)  
+![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
 [AZURE.NOTE] Se si usa AD FS 2.0, eseguire prima Add-Pssnapin Microsoft.Adfs.Powershell.
 
@@ -98,7 +98,7 @@ Non è necessario eseguire passaggi manuali se vengono soddisfatte entrambe le c
 
 Verificare quanto segue per assicurarsi che il certificato possa essere aggiornato.
 
-**1. La proprietà AutoCertificateRollover di AD FS deve essere impostata su True. ** Ciò indica che AD FS genererà automaticamente nuovi certificati per la firma di token e certificati di decrittografia token prima della scadenza di quelli precedenti.
+**1. La proprietà AutoCertificateRollover di AD FS deve essere impostata su True.** Ciò indica che AD FS genererà automaticamente nuovi certificati per la firma di token e certificati di decrittografia token prima della scadenza di quelli precedenti.
 
 **2. I metadati della federazione di AD FS sono accessibili pubblicamente.** Verificare che i metadati di federazione siano accessibili pubblicamente, passare all'URL seguente da un computer sulla rete Internet pubblica (all'esterno della rete aziendale):
 
@@ -163,4 +163,4 @@ Se la farm AD FS e il trust di Azure AD sono stati configurati con Azure AD Conn
 
 Per altre informazioni, vedere [Ripristino del trust](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

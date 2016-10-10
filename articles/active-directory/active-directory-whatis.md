@@ -55,7 +55,7 @@ Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.c
 L'organizzazione può usare Azure AD per migliorare la produttività dei dipendenti, semplificare i processi IT, migliorare la sicurezza e ridurre i costi in molti modi:
 
 -	Adozione rapida dei servizi cloud, per offrire a dipendenti e partner un'esperienza di accesso Single-Sign-On semplificata basata sulle capacità completamente automatizzate di Azure AD per la gestione dell'accesso alle app SaaS e sulle capacità dei servizi di provisioning.
--	Possibilità di offrire ai dipendenti l'accesso ad app e servizi cloud di qualità elevata e le capacità self-service ovunque si trovino e con qualsiasi dispositivo.
+-	Possibilità di offrire ai dipendenti l'accesso ad app cloud di qualità elevata e le capacità self-service ovunque si trovino e con qualsiasi dispositivo.
 -	Gestione semplice e sicura dell'accesso di dipendenti e fornitori agli account aziendali per social media.
 -	Miglioramento della sicurezza delle applicazioni grazie all'autenticazione a più fattori e all'accesso condizionale di Azure AD.
 -	Implementazione di una gestione coerente e self-service degli accessi alle applicazioni, in modo da permettere ai titolari di aziende di mantenere la rapidità di azione, riducendo al tempo stesso costi IT e costi generali.
@@ -104,4 +104,4 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 
 - [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

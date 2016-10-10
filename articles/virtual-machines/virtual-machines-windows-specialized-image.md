@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Creare una copia di una macchina virtuale Windows nel modello di distribuzione Azure Resource Manager
@@ -32,7 +32,7 @@ Accertarsi che prima di iniziare la procedura siano soddisfatti i prerequisiti s
 
 - **È presente una macchina virtuale di Azure che esegue Windows**, creata con il modello di distribuzione classica o il modello di distribuzione Resource Manager. Il sistema operativo è stato configurato, i dischi dati sono stati collegati e sono state eseguite altre personalizzazioni, ad esempio l'installazione delle applicazioni necessarie. Questa VM verrà usata per creare la copia. Per assistenza nella creazione della VM di origine, vedere [Creare una VM Windows con Resource Manager e PowerShell](virtual-machines-windows-ps-create.md).
 
-- **Azure PowerShell 1.0 (o versioni successive)** è stato installato nel computer ed è stato eseguito l'accesso alla propria sottoscrizione di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+- **Azure PowerShell 1.0 (o versione successiva)** è installato sul computer ed è stato eseguito l'accesso alla propria sottoscrizione di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 - È stato scaricato e installato lo **strumento AzCopy**. Per altre informazioni su questo strumento, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](../storage/storage-use-azcopy.md).
 
@@ -126,4 +126,4 @@ Per accedere alla nuova macchina virtuale, passare alla VM nel [portale](https:/
 
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0928_2016-->

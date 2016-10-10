@@ -13,13 +13,13 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/03/2016" 
-	ms.author="robinsh"/>  
+	ms.author="jahogg;robinsh"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
 
 [AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## Panoramica
+## Overview
 
 Diagnostica e risoluzione dei problemi sono competenze fondamentali per la creazione e il supporto di applicazioni client con Archiviazione di Microsoft Azure. Data la natura distribuita di un'applicazione Azure, la diagnostica e la risoluzione dei problemi di prestazioni possono risultare più complesse che in ambienti tradizionali.
 
@@ -144,14 +144,14 @@ La libreria client di archiviazione archivia i dati di log lato client nel perco
 
 1. Installare [Fiddler](http://www.telerik.com/download/fiddler).
 2. Avviare Fiddler.
-2. Selezionare **Strumenti | Opzioni Fiddler**.
+2. Selezionare **Strumenti| Fiddler Options**.
 3. Nella finestra di dialogo Opzioni, verificare che siano selezionate le opzioni **Acquisisci HTTPS CONNECTs** e **Decrittografa il traffico HTTPS**, come illustrato di seguito.
 
 ![Configurare le opzioni Fiddler](./media/storage-e2e-troubleshooting-classic-portal/fiddler-options-1.png)
 
 Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyzer, quindi creare una sessione di analisi per analizzare la traccia e i log. Per raccogliere una traccia di rete in Message Analyzer:
 
-1. In Message Analyzer selezionare **File | Traccia rapida | HTTPS non crittografato**.
+1. In Message Analyzer selezionare **File| Quick Trace | Unencrypted HTTPS**.
 2. La traccia inizierà immediatamente. Selezionare **Interrompi** per interrompere la traccia in modo da poterla configurare solo per il traffico di archiviazione.
 3. Selezionare **Modifica** per modificare la sessione di traccia.
 4. Selezionare il collegamento **Configura** a destra del provider ETW **Microsoft-Pef-WebProxy**.
@@ -176,11 +176,11 @@ Dopo un certo periodo di esecuzione dell'applicazione, è possibile esaminare i 
 2. Fare clic su **Aggiungi metriche** per visualizzare la finestra di dialogo **Scegli metriche**.
 3. Scorrere fino al gruppo **Percentuale di operazioni riuscite**, espanderlo, quindi selezionare **Aggregato**, come illustrato nell'immagine seguente. Questa metrica aggrega i dati delle percentuali di operazioni riuscite da tutte le operazioni BLOB.
 
-![Scelta delle metriche](./media/storage-e2e-troubleshooting-classic-portal/choose-metrics-portal-1.png)  
+![Scelta delle metriche](./media/storage-e2e-troubleshooting-classic-portal/choose-metrics-portal-1.png)
 
 La metrica **Percentuale di operazioni riuscite** verrà aggiunta al grafico di monitoraggio nel portale di Azure classico, insieme alle altre metriche aggiunte in precedenza (il grafico ne può contenere al massimo sei). Nell'immagine seguente si noterà che la percentuale di operazioni riuscite è leggermente inferiore al 100%. Questo è lo scenario che si passerà a esaminare analizzando i log in Message Analyzer:
 
-![Grafico delle metriche nel portale](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)  
+![Grafico delle metriche nel portale](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)
 
 Per maggiori dettagli sull'aggiunta di metriche alla pagina di monitoraggio, vedere [Procedura: aggiungere metriche alla relativa tabella](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
@@ -217,7 +217,7 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 	- **Layout di Archiviazione di Azure:** i layout di visualizzazione di Archiviazione di Azure sono layout di colonna e raggruppamenti predefiniti nella griglia di analisi.
 4. Riavviare Message Analyzer dopo aver installato le risorse.
 
-![Gestione asset di Message Analyzer](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)  
+![Gestione asset di Message Analyzer](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
 > [AZURE.NOTE] Installare tutte le risorse di Archiviazione di Azure per questa esercitazione.
 
@@ -375,4 +375,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
  
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

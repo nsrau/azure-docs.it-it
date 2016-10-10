@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Panoramica della community di Servizi multimediali di Azure"
+	pageTitle="Panoramica sulla community di Servizi multimediali di Azure | Microsoft Azure"
 	description="La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure, visualizzare nuovi video e podcast, porre domande e inviare commenti e suggerimenti. "
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 # Community di Servizi multimediali di Azure  
@@ -63,4 +63,4 @@ Azure Media Player|ampinfo@microsoft.com
 Azure Media Explorer|amse@microsoft.com
 Progettazione flussi di lavoro|mepd@microsoft.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

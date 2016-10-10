@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -88,4 +88,4 @@ Sono disponibili collegamenti al **report dell'attività di provisioning**, che 
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

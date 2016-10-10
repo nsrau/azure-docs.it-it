@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure con PowerShell
 
 > [AZURE.SELECTOR]
-- [Resource Manager: automatica](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: modello](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager: manuale](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -58,9 +58,9 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 		Get-AzurePublishSettingsFile
 		Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-	Il comando **Get AzurePublishgSettingsFile** genera automaticamente un certificato di gestione con Azure e lo scarica nel computer. Verrà aperto un browser e verrà richiesto di immettere le credenziali dell'account Microsoft per la sottoscrizione di Azure. Il file **publishsettings** scaricato contiene tutte le informazioni necessarie per gestire la sottoscrizione di Azure. Dopo aver salvato il file in una directory locale, importarlo usando il comando **Import-AzurePublishSettingsFile**.
+	Il comando **Get AzurePublishgSettingsFile** genera automaticamente un certificato di gestione con Azure e lo scarica nel computer. Verrà aperto automaticamente un browser e verrà richiesto di immettere le credenziali dell'account Microsoft per la sottoscrizione di Azure. Il file con estensione **publishsettings** scaricato contiene tutte le informazioni necessarie per gestire la sottoscrizione di Azure. Dopo aver salvato il file in una directory locale, importarlo usando il comando **Import-AzurePublishSettingsFile**.
 
-	>[AZURE.NOTE] Nel file publishsettings sono incluse le credenziali (non codificate) usate per amministrare i servizi e le sottoscrizioni di Azure. La procedura consigliata di sicurezza per questo file consiste nell'archiviarlo temporaneamente all'esterno delle directory di origine, ad esempio nella cartella Raccolte\\Documenti, e quindi di eliminarlo al termine dell'importazione. Un utente malintenzionato che accede al file publishsettings può modificare, creare ed eliminare i servizi di Azure.
+	>[AZURE.NOTE] Nel file con estensione publishsettings sono incluse le credenziali (non codificate) usate per amministrare i servizi e le sottoscrizioni di Azure. La procedura consigliata di sicurezza per questo file consiste nell'archiviarlo temporaneamente all'esterno delle directory di origine, ad esempio nella cartella Raccolte\\Documenti, e quindi di eliminarlo al termine dell'importazione. Un utente malintenzionato che accede al file publishsettings può modificare, creare ed eliminare i servizi di Azure.
 
 1. Definire una serie di variabili con cui si creerà l'infrastruttura IT cloud.
 
@@ -128,7 +128,7 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 		  </VirtualNetworkConfiguration>
 		</NetworkConfiguration>
 
-1. Creare un account di archiviazione associato al set di affinità creato e impostarlo come account di archiviazione corrente nella sottoscrizione.
+1. Creare un account di archiviazione associato al gruppo di affinità creato e impostarlo come account di archiviazione corrente nella sottoscrizione.
 
 		New-AzureStorageAccount `
 			-StorageAccountName $storageAccountName `
@@ -535,7 +535,7 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
 		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Scaricare **CreateAzureFailoverCluster.ps1** dalla pagina [Create WSFC Cluster for AlwaysOn Availability Groups in Windows Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creare il cluster WSFC per i gruppi di disponibilità AlwaysOn in una VM di Azure) nella directory di lavoro locale. Usare lo script per creare un cluster WSFC funzionale. Per informazioni importanti sull'interazione di WSFC con la rete di Azure, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
+1. Scaricare **CreateAzureFailoverCluster.ps1** dalla pagina [Create WSFC Cluster for AlwaysOn Availability Groups in Microsoft Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creare il cluster WSFC per i gruppi di disponibilità AlwaysOn in una VM di Azure) nella directory di lavoro locale. Usare lo script per creare un cluster WSFC funzionale. Per informazioni importanti sull'interazione di WSFC con la rete di Azure, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 1. Passare alla directory di lavoro e creare il cluster WSFC con lo script scaricato.
 
@@ -630,4 +630,4 @@ SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

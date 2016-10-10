@@ -3,7 +3,7 @@
 	description="Informazioni su come spostare i dati da e verso la raccolta di Azure DocumentDB mediante Data factory di Azure" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Spostare dati da e verso DocumentDB mediante Data factory di Azure
 
@@ -353,7 +353,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 
 ## Proprietà del tipo del set di dati di Azure DocumentDB
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo [Creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
  
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **DocumentDbCollection** presenta le proprietà seguenti.
 
@@ -384,13 +384,13 @@ Esempio:
 Per gli archivi di dati privi di schema, ad esempio DocumentDB, il servizio Data Factory deduce lo schema in uno dei modi seguenti:
 
 1.	Se si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, verrà inserito un valore null.
-2.	Se non si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
+2.	Se non si specifica la struttura dei dati usando la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
 
 Di conseguenza, per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
 
 ## Proprietà del tipo di attività di copia di Azure DocumentDB
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
  
 **Nota:** l'attività di copia accetta solo un input e produce solo un output.
 
@@ -400,14 +400,14 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Specificare la query per leggere i dati. | Stringa di query supportata da DocumentDB. <br/><br/>Esempio: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | No <br/><br/>Se non è specificata, corrisponde all'istruzione SQL eseguita: select <colonne definite nella struttura> from mycollection 
+| query | Specificare la query per leggere i dati. | Stringa di query supportata da DocumentDB. <br/><br/>Esempio: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"` | No <br/><br/>Se non specificato, l'istruzione SQL eseguita: `select <columns defined in structure> from mycollection` 
 | nestingSeparator | Carattere speciale per indicare che il documento è nidificato | Qualsiasi carattere. <br/><br/>DocumentDB è un archivio NoSQL per i documenti JSON, dove sono consentite strutture nidificate. Data factory di Azure consente di indicare una gerarchia tramite nestingSeparator, ovvero "." negli esempi precedenti. Con il separatore, l'attività copia genererà l'oggetto "Name" con tre elementi figlio First, Middle e Last, in base a "Name.First", "Name.Middle" e "Name.Last" nella definizione della tabella. | No
 
 **DocumentDbCollectionSink** supporta le proprietà seguenti:
 
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Ad esempio, Name.First nella tabella di output produce la struttura JSON seguente nel documento di DocumentDB:<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Carattere usato per separare i livelli di annidamento.<br/><br/>Il valore predefinito è "." (punto). | Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è "." (punto). | No | 
+| nestingSeparator | È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di DocumentDB:<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Carattere usato per separare i livelli di annidamento.<br/><br/>Il valore predefinito è `.` (punto). | Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). | No | 
 | writeBatchSize | Numero di richieste in parallelo per il servizio DocumentDB per la creazione di documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso DocumentDB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a DocumentDB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore relativo alla dimensione della frequenza di richiesta.<br/><br/>La limitazione viene stabilita da numerosi fattori, tra cui le dimensioni dei documenti, il numero di termini nei documenti, l'indicizzazione dei criteri di raccolta di destinazione e così via. Per le operazioni di copia, è possibile usare una raccolta migliore, ad esempio S3, per disporre della massima velocità effettiva disponibile, ovvero 2500 unità di richiesta al secondo. | Integer | No (valore predefinito: 10000) |
 | writeBatchTimeout | Tempo di attesa per il completamento dell’operazione prima del timeout. | Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). | No |
  
@@ -430,4 +430,4 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 ## Ottimizzazione delle prestazioni  
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

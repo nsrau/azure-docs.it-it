@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Codec e formati del flusso di lavoro Premium del codificatore multimediale" 
-	description="Questo argomento fornisce una panoramica dei codec e dei formati del flusso di lavoro Premium del codificatore multimediale" 
+	pageTitle="Codec e formati del flusso di lavoro Premium del codificatore multimediale | Microsoft Azure" 
+	description="Questo argomento offre una panoramica dei codec e dei formati del flusso di lavoro Premium del codificatore multimediale" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako;anilmur"/>
 
 #Codec e formati del flusso di lavoro Premium del codificatore multimediale
@@ -130,7 +130,7 @@ Nota: non tutti i formati di output precedenti sono supportati per il recapito t
 Se il video di input non contiene i sottotitoli codificati, l'asset di output conterrà comunque un file TTML vuoto.
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -138,4 +138,4 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

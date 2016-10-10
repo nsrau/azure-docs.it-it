@@ -147,7 +147,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     e. Nel portale di Azure classico copiare il valore di **Modifica URL password** e incollarlo nella casella di testo **Change Password URL** (Modifica URL password).
 
-    e. Fare clic su **Save**.
+    f. Fare clic su **Save**.
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
 
@@ -314,4 +314,4 @@ Quando si fa clic sul riquadro @Task nel pannello di accesso, si dovrebbe accede
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

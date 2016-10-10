@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente
@@ -26,7 +26,7 @@ L'applicazione Azure AD Privileged Identity Management consente agli amministrat
 
 All'interno dell'organizzazione è possibile assegnare gli utenti a diversi ruoli amministrativi in Azure AD, Office 365 e altri servizi e applicazioni Microsoft. Per informazioni dettagliate sui ruoli disponibili, vedere [Ruoli in Azure AD PIM](active-directory-privileged-identity-management-roles.md).
 
-Per aggiungere o rimuovere un utente a un ruolo usando Privileged Identity Management, passare al dashboard di PIM e quindi fare clic sul pulsante **Utenti con ruoli di amministratore** oppure selezionare un ruolo specifico, ad esempio Amministratore globale, nella tabella dei ruoli.
+Per aggiungere o rimuovere un utente in un ruolo usando Privileged Identity Management, visualizzare il dashboard PIM. Quindi fare clic sul pulsante **Utenti in ruoli amministrativi** o selezionare un ruolo specifico (ad esempio Amministratore globale) dalla tabella dei ruoli.
 
 > [AZURE.NOTE] Se ancora non è stato abilitato il servizio PIM nel portale di Azure, vedere [Introduzione ad Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
 
@@ -58,11 +58,11 @@ Per rimuovere un utente specifico da un ruolo, seguire questa procedura:
 3. Fare clic su **Rimuovi**. Verrà visualizzato un messaggio che richiede la conferma.
 4. Fare clic su **Sì** per rimuovere il ruolo dall'utente.
 
-Se non si è certi se gli utenti necessitano ancora delle assegnazioni di ruoli, è possibile [avviare una verifica di sicurezza per il ruolo](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Se non si è certi se gli utenti necessitano ancora delle assegnazioni di ruoli, è possibile [avviare una verifica di accesso per il ruolo](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

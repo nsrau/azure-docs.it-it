@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager=""
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="data-factory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/06/2016"
+	ms.date="09/26/2016"
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop 
@@ -44,7 +44,7 @@ In questa esercitazione si segue questa procedura:
  
 Di seguito è riportata la **vista diagramma** della data factory di esempio creata in questa esercitazione.
 
-![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png) 
+![Vista diagramma nell'esercitazione su Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 In questa esercitazione, la cartella **inputdata** del contenitore BLOB di Azure **adfgetstarted** contiene un file denominato input.log. Questo file di log contiene voci relative ai tre mesi di gennaio, febbraio e marzo 2016. Ecco le righe di esempio per ogni mese nel file di input.
 
@@ -216,4 +216,12 @@ Questa sezione contiene istruzioni sull'uso dello strumento **AzCopy** per copia
 	
 		AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storageaccesskey>  /Pattern:partitionweblogs.hql
 
-<!---HONumber=AcomDC_0921_2016-->
+I passaggi relativi ai prerequisiti sono stati completati. È possibile creare un data factory usando uno dei seguenti metodi. Fare clic su una delle schede in alto oppure selezionare i collegamenti seguenti per eseguire l'esercitazione.
+
+- [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+<!---HONumber=AcomDC_0928_2016-->

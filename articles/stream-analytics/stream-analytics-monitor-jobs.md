@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="jhubbard" 
-	editor="cgronlun"/> 
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -14,8 +14,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
-	ms.author="jeffstok"/> 
+	ms.date="09/26/2016" 
+	ms.author="jeffstok"/>
 
 
 # Creare un monitoraggio dei processi di Analisi di flusso a livello di codice
@@ -180,4 +180,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

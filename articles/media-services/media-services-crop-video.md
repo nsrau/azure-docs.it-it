@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/11/2016"  
+	ms.date="09/26/2016"  
 	ms.author="anilmur;juliako;"/>
 
 # Ritagliare video con Media Encoder Standard
@@ -146,4 +146,4 @@ Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informaz
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
+	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
 # Introduzione all'accesso condizionale di Azure Active Directory
@@ -93,4 +93,4 @@ Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve esser
 - [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Descrive gli addebiti relativi agli ordini del Marketplace."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing"
@@ -31,11 +31,11 @@ Per visualizzare o scaricare la fattura:
 1. Accedere al portale degli account di Azure usando l'ID organizzazione.
 2. Fare clic su **Marketplace**. Viene visualizzato un elenco completo di tutti gli ordini del Marketplace inseriti dall'account Azure. Si noterà che gli ordini sono raggruppati per nome e ID delle sottoscrizioni di Azure padre.
 
-    ![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+	![Ordini del Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
 3. Facendo clic su uno degli ordini visualizzati, si aprirà la panoramica di riepilogo di tale ordine per il ciclo di fatturazione corrente. Una descrizione dei diversi modelli tariffari è disponibile nelle [Domande frequenti su Azure Marketplace](https://azure.microsoft.com/marketplace/faq/).
 
-    ![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+	![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La visualizzazione di riepilogo contiene le informazioni seguenti per ogni ordine:
 - Prezzo
@@ -61,11 +61,11 @@ Per modificare il metodo di pagamento, seguire questa procedura:
 
 1. Fare clic su **Change how you pay** (Modifica la modalità di pagamento).
 
-    ![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+	![Sottoscrizioni](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
 2. Selezionare il metodo di pagamento che si vuole modificare. L'opzione **Pay with** (Paga con) consente di selezionare la carta di credito. L'opzione **Add a new way to pay** (Aggiungi una nuova modalità di pagamento) consente di aggiungere una nuova carta di credito.
 
-    ![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+	![Modificare il metodo di pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## Gestione degli ordini
 Nella pagina di riepilogo è presente un collegamento **Gestisci ordine**. Questo collegamento consente di accedere al portale in cui è possibile visualizzare tutti gli ordini del Marketplace, le informazioni sull'integrità del servizio e richiedere assistenza.
@@ -94,12 +94,12 @@ Per visualizzare gli addebiti effettivi, seguire questa procedura:
 
     Si noti che, se si cerca di accedere all'utilizzo non elaborato nel portale di gestione dell'account e della fatturazione, sarà necessario contattare il supporto facendo clic sul relativo collegamento nella parte inferiore della pagina.
 
-    ![Cronologia degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+	![Cronologia degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 
 2. Identificare l'ordine da esaminare e fare clic su **Dettagli** per visualizzare un'analisi degli addebiti che includerà il subtotale, le imposte e gli addebiti totali.
 
-    ![Dettagli ordine](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+	![Dettagli ordine](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
 > [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

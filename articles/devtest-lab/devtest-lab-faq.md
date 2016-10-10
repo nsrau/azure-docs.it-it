@@ -110,7 +110,7 @@ Poiché gli ambiti sono gerarchici, quando un utente ha le autorizzazioni per un
 ### Come si crea un ruolo per consentire agli utenti di eseguire un'attività specifica?
 Un articolo completo su come creare i ruoli personalizzati e assegnare le autorizzazioni è disponibile qui. Ecco un esempio di script che crea il ruolo "DevTest Labs Advanced User", con l'autorizzazione per avviare e arrestare tutte le VM del lab:
  
-	$policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User") 
+	$policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User" 
 	$policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*') 
 	$policyRoleDef.Id = $null 
 	$policyRoleDef.Name = "DevTest Labs Advance User" 
@@ -119,7 +119,7 @@ Un articolo completo su come creare i ruoli personalizzati e assegnare le autori
 	$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action") 
-	$policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)  
+	$policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
  
 ### Azure DevTest Labs si integra con la toolchain CI/CD? 
 Se si usa VSTS, è disponibile un'[estensione Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) che consente di automatizzare la pipeline di tipo Versione in Azure DevTest Labs. Alcuni degli usi di questa estensione includono:
@@ -244,4 +244,4 @@ Vedere il post di blog [How to troubleshoot failing Artifacts in AzureDevTestLab
 ### Perché la rete virtuale esistente non viene salvata correttamente?  
 È possibile che il nome della rete virtuale contenga dei punti. In questo caso, provare a rimuovere i punti o a sostituirli con trattini e quindi provare a salvare di nuovo la rete virtuale.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

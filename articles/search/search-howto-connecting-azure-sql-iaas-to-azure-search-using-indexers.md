@@ -13,53 +13,87 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/06/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jackma"/>
 
 # Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure
 
-Come indicato in [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md#frequently-asked-questions), la creazione di indici su **SQL Server in VM di Azure** (o **VM SQL Azure** per brevità) è supportata da Ricerca di Azure, ma prima è necessario occuparsi di due prerequisiti riguardanti la sicurezza.
+Come indicato in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md#frequently-asked-questions) (Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori), la creazione di indici su **SQL Server in macchine virtuali di Azure** (o **VM di SQL Azure** per brevità) è supportata da Ricerca di Azure, ma prima è necessario occuparsi di alcuni prerequisiti riguardanti la sicurezza.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+**Durata attività:** circa 30 minuti, presumendo di avere già installato un certificato nella VM.
 
 ## Abilitare le connessioni crittografate
 
-Ricerca di Azure richiede una connessione sicura per leggere i dati dal database. Ciò significa che è necessario abilitare le connessioni crittografate nella VM di SQL Azure tramite la configurazione di un certificato SSL.
+Ricerca di Azure richiede un canale crittografato per tutte le richieste di indicizzatori su una connessione Internet pubblica. Questa sezione elenca i passaggi necessari per eseguire questa operazione.
 
-I passaggi per abilitare le connessioni crittografate a SQL Server sono documentati in [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192.aspx), ma per le connessioni Internet pubbliche, ad esempio una connessione da Ricerca di Azure a una VM di SQL Azure, esistono alcuni requisiti aggiuntivi per il corretto funzionamento.
+1. Controllare le proprietà del certificato per verificare che il nome del soggetto sia il nome di dominio completo (FQDN) della VM di Azure. È possibile usare uno strumento come CertUtils o lo snap-in Certificati per visualizzare le proprietà. È possibile ottenere il nome FQDN dalla sezione Informazioni di base del pannello dei servizi della VM nel campo **Etichetta Indirizzo IP pubblico/Nome DNS** del [portale di Azure](https://portal.azure.com/).
 
-### Specificare un FQDN nel certificato SSL
+    - Per le VM create con il nuovo modello di **Resource Manager**, il nome FQDN segue la formattazione `<your-VM-name>.<region>.cloudapp.azure.com`.
 
-Il nome dell'oggetto del certificato SSL deve essere un nome di dominio completo (o **FQDN**) della VM di SQL Azure. È lo stesso FQDN che si specificherà nella stringa di connessione del database durante la creazione di un'origine dati nel servizio di ricerca. Un FQDN è formattato come `<your-VM-name>.<region>.cloudapp.azure.com` per le VM di **Resource Manager**. Se ci si trova ancora in VM **classiche**, è formattato come `<your-cloud-service-name.cloudapp.net>`. È possibile trovare il nome di dominio completo della VM di SQL Azure come nome/etichetta DNS nel [portale Azure](https://portal.azure.com/).
+    - Per le VM meno recenti create come VM **classica**, il nome FQDN segue la formattazione `<your-cloud-service-name.cloudapp.net>`.
 
-### Usare REGEDIT per configurare il certificato SSL
+2. Configurare SQL Server per l'uso del certificato con l'editor del Registro di sistema (regedit).
 
-Gestione configurazione SQL Server non è in grado di mostrare il certificato SSL del FQDN nell'elenco a discesa **Certificato** come descritto nella documentazione. La soluzione alternativa è configurare il certificato SSL modificando questa chiave di registro: **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server[MSSQL13.MSSQLSERVER]\\MSSQLServer\\SuperSocketNetLib\\Certificate**. La parte *[MSSQL13.MSSQLSERVER]* varia in base alla versione e al nome dell'istanza di SQL Server. Questa chiave deve essere aggiornata con l'**identificazione personale** del certificato SSL che è stato installato nella VM di SQL Azure.
+    Anche se Gestione configurazione SQL Server viene usato spesso per questa attività, non è possibile usarlo per questo scenario. Non troverà il certificato importato perché il nome FQDN della VM in Azure non corrisponde al nome FQDN determinato dalla VM. Identifica il dominio come computer locale o come dominio di rete a cui è aggiunto. Quando i nomi non corrispondono, usare regedit per specificare il certificato.
 
-### Concedere autorizzazioni all'account del servizio
+    - In regedit passare a questa chiave del Registro di sistema: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
+     
+    La parte `[MSSQL13.MSSQLSERVER]` varia a seconda della versione e del nome dell'istanza.
 
-Assicurarsi che l'account del servizio SQL Server riceva l'autorizzazione appropriata per la chiave privata del certificato SSL. Se si ignora questo passaggio, SQL Server non verrà avviato.
+    - Impostare il valore della chiave **Certificate** sull'**identificazione personale** del certificato SSL importato nella VM.
 
-## Configurare il firewall per consentire le connessioni da Ricerca di Azure
+    È possibile ottenere l'identificazione personale in diversi modi, alcuni dei quali preferibili ad altri. Se la si copia dallo snap-in **Certificati** in MMC, esiste il rischio di selezionare un carattere iniziale invisibile, [come illustrato in questo articolo del supporto](https://support.microsoft.com/kb/2023869/), e di ottenere un errore quando si prova a stabilire una connessione. Esistono diverse soluzioni alternative per risolvere il problema. La più semplice consiste nel premere il tasto BACKSPACE e quindi nel digitare di nuovo il primo carattere dell'identificazione personale per rimuovere il carattere iniziale nel campo del valore della chiave in regedit. In alternativa, è possibile usare un altro strumento per copiare l'identificazione personale.
 
-Non è insolito configurare il firewall e il corrispondente endpoint o elenco di controllo di accesso (ACL) di Azure in modo da rendere accessibile la VM di Azure da parte di altri soggetti. Probabilmente questa configurazione è già stata eseguita per consentire alla logica applicativa di connettersi alla VM di SQL Azure. Non è diverso per una connessione di Ricerca di Azure alla VM di SQL Azure. Se non lo si è ancora fatto, ecco alcune procedure consigliate di sicurezza da tenere presenti.
+3. Concedere autorizzazioni all'account del servizio.
 
-Se si usano macchine virtuali di **Resource Manager**, vedere [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/virtual-machines-windows-sql-connect.md) (Connettersi a una macchina virtuale SQL Server su Azure tramite Resource Manager). Se si usano ancora VM **classiche**, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)](../virtual-machines/virtual-machines-windows-classic-sql-connect.md).
+    Assicurarsi che l'account del servizio SQL Server riceva l'autorizzazione appropriata per la chiave privata del certificato SSL. Se si ignora questo passaggio, SQL Server non verrà avviato. È possibile usare lo snap-in **Certificati** o **CertUtils** per questa attività.
 
-### Limitare l'accesso all'indirizzo IP del servizio di ricerca
+4. Riavviare il servizio SQL Server.
 
-Per qualsiasi modello di distribuzione, quando si configurano le connessioni da Ricerca di Azure si consiglia di limitare l'accesso all'indirizzo IP del servizio di ricerca nell'elenco di controllo di accesso anziché aprire le VM di SQL Azure a tutte le richieste di connessione. È possibile trovare facilmente l'indirizzo IP eseguendo il ping del nome FQDN (ad esempio, `<your-search-service-name>.search.windows.net`) del servizio di ricerca.
+## Configurare la connettività di SQL Server nella VM
 
-### Configurare l'intervallo di indirizzi IP
+Dopo avere configurato la connessione crittografata da Ricerca di Azure, è necessario eseguire altri passaggi di configurazione intrinseci di SQL Server nelle VM di Azure. Se non è già stato fatto, il passaggio successivo prevede di completare la configurazione seguendo le istruzioni contenute in uno di questi articoli:
 
-Si noti che se il servizio di ricerca ha solo un'unità di ricerca (vale a dire una replica e una partizione), l'indirizzo IP può cambiare durante il riavvio del servizio di routine. Per evitare errori di connessione, è necessario specificare l'intervallo di indirizzi IP dell'area Azure in cui viene eseguito il provisioning del servizio di ricerca. L'elenco degli intervalli IP da cui gli indirizzi IP pubblici vengono allocati alle risorse di Azure è pubblicato negli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+- Per una VM di **Resource Manager**, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Gestione risorse)](../virtual-machines/virtual-machines-windows-sql-connect.md).
 
-### Includere gli indirizzi IP del portale di Ricerca di Azure
+- Per una VM **classica**, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)](../virtual-machines/virtual-machines-windows-classic-sql-connect.md).
 
-Inoltre, se si usa il portale di Azure per creare un indicizzatore, anche la logica del portale di Ricerca di Azure deve poter accedere alla VM di SQL Azure durante la fase di creazione. Gli indirizzi IP del portale di Ricerca di Azure sono reperibile eseguendo il ping di `stamp1.search.ext.azure.com` e `stamp2.search.ext.azure.com`.
+In particolare, vedere in ogni articolo la sezione relativa alla "connessione via Internet".
+
+## Configurare il gruppo di sicurezza di rete
+
+Non è insolito configurare il gruppo di sicurezza di rete e il corrispondente endpoint o elenco di controllo di accesso (ACL) di Azure in modo da rendere accessibile la VM di Azure ad altri soggetti. Probabilmente questa operazione è stata eseguita prima per consentire alla logica applicativa di connettersi alla VM di SQL Azure. Non è diverso per una connessione di Ricerca di Azure alla VM di SQL Azure.
+
+I collegamenti seguenti forniscono istruzioni sulla configurazione del gruppo di sicurezza di rete per le distribuzioni VM. Usare queste istruzioni per inserire nell'elenco di controllo di accesso un endpoint di Ricerca di Azure in base all'indirizzo IP.
+
+> [AZURE.NOTE] Per informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+
+- Per una VM di **Resource Manager**, vedere [Come creare gruppi di sicurezza di rete per le distribuzioni Azure Resource Manager](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+
+- Per una VM **classica**, vedere [Come creare gruppi di sicurezza di rete per le distribuzioni classiche](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+
+L'indirizzamento IP può creare alcune difficoltà facilmente superabili se si conoscono il problema e le potenziali soluzioni alternative. Le sezioni rimanenti contengono suggerimenti per gestire i problemi correlati agli indirizzi IP nell'elenco di controllo di accesso.
+
+#### Limitare l'accesso all'indirizzo IP del servizio di ricerca
+
+Si consiglia di limitare l'accesso all'indirizzo IP del servizio di ricerca nell'elenco di controllo di accesso invece di aprire le VM di SQL Azure a tutte le richieste di connessione. È possibile trovare facilmente l'indirizzo IP eseguendo il ping del nome FQDN (ad esempio, `<your-search-service-name>.search.windows.net`) del servizio di ricerca.
+
+#### Gestire le fluttuazioni degli indirizzi IP
+
+Se il servizio di ricerca ha solo un'unità di ricerca (vale a dire una replica e una partizione), l'indirizzo IP cambierà durante il riavvio del servizio di routine, invalidando un elenco di controllo di accesso esistente con l'indirizzo IP del servizio di ricerca.
+
+Per evitare il conseguente errore di connettività, è possibile usare più di una replica e di una partizione in Ricerca di Azure. In questo modo, pur aumentando il costo, viene risolto il problema degli indirizzi IP. In Ricerca di Azure gli indirizzi IP non vengono modificati quando si ha più di un'unità di ricerca.
+
+Un altro approccio è quello di consentire che la connessione non riesca e quindi di riconfigurare gli elenchi di controllo di accesso nel gruppo di sicurezza di rete. In media, gli indirizzi IP vengono modificati a distanza di alcune settimane. Per i clienti che hanno controllato l'indicizzazione raramente, questo potrebbe essere un approccio valido.
+
+Un terzo approccio valido (ma non particolarmente sicuro) consiste nello specificare l'intervallo di indirizzi IP dell'area di Azure in cui viene effettuato il provisioning del servizio di ricerca. L'elenco degli intervalli IP da cui gli indirizzi IP pubblici vengono allocati alle risorse di Azure è pubblicato negli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### Includere gli indirizzi IP del portale di Ricerca di Azure
+
+Se si usa il portale di Azure per creare un indicizzatore, anche la logica del portale di Ricerca di Azure deve poter accedere alla VM di SQL Azure durante la fase di creazione. Gli indirizzi IP del portale di Ricerca di Azure sono reperibili eseguendo il ping di `stamp2.search.ext.azure.com`.
 
 ## Passaggi successivi
 
-Dopo aver soddisfatto i precedenti requisiti di configurazione, è possibile specificare un SQL Server nella VM di Azure come origine dati per un indicizzatore di Ricerca di Azure. Per altre informazioni, vedere [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+Dopo avere eseguito la configurazione, è possibile specificare un'istanza di SQL Server nella VM di Azure come origine dati per un indicizzatore di Ricerca di Azure. Per altre informazioni, vedere [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

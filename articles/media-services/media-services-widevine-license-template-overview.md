@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Panoramica del modello di licenza Widevine" 
-	description="Questo argomento fornisce una panoramica di un modello di licenza Widevine usato per configurare licenze Widevine." 
+	pageTitle="Panoramica del modello di licenza Widevine | Microsoft Azure" 
+	description="Questo argomento offre una panoramica di un modello di licenza Widevine usato per configurare le licenze Widevine." 
 	authors="juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #Panoramica del modello di licenza Widevine
 
-##Panoramica
+##Overview
 
 Servizi multimediali di Azure consente ora di configurare e richiedere licenze Widevine. Quando il lettore dell'utente finale tenta di riprodurre contenuto protetto da Widevine, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e potrà essere usata per decrittografare e riprodurre il contenuto specificato.
 
@@ -61,8 +61,8 @@ Nome | Valore | Descrizione
 ---|---|---
 payload |Stringa con codifica Base64 |Richiesta di licenza inviata da un client. 
 content\_id | Stringa con codifica Base64|Identificatore usato per derivare KeyId(s) e Content Key(s) per ogni content\_key\_specs.track\_type.
-provider |stringa |Consente di cercare criteri e chiavi simmetriche. Obbligatorio.
-policy\_name | stringa |Nome di un criterio precedentemente registrato. Facoltativo
+provider |string |Consente di cercare criteri e chiavi simmetriche. Obbligatorio.
+policy\_name | string |Nome di un criterio precedentemente registrato. Facoltativo
 allowed\_track\_types | enum | SD\_ONLY o SD\_HD. Consente di specificare le chiavi simmetriche da includere in una licenza
 content\_key\_specs | Matrice di strutture JSON. Vedere la sezione **Specifiche della chiave simmetrica** riportata di seguito | Controllo più granulare dei contenuti da restituire. Per informazioni, vedere la sezione Specifiche della chiave simmetrica riportata di seguito. È possibile specificare solo uno dei valori allowed\_track\_types e content\_key\_specs. 
 use\_policy\_overrides\_exclusively | Booleano: true o false | Usare gli attributi di criteri specificati in policy\_overrides e omettere tutti i criteri memorizzati in precedenza.
@@ -80,7 +80,7 @@ Ogni valore content\_key\_specs deve essere specificato per tutte le singole tra
 
 Nome | Valore | Descrizione
 ---|---|---
-content\_key\_specs. track\_type | stringa | Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content\_key\_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non potranno essere riprodotti gli ultimi 10 secondi. 
+content\_key\_specs. track\_type | string | Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content\_key\_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non potranno essere riprodotti gli ultimi 10 secondi. 
 content\_key\_specs <br/> security\_level | Valore UInt32 | Definisce i requisiti di affidabilità client per la riproduzione. <br/> 1 - È richiesta una soluzione di crittografia white box basata su software. <br/> 2 - È necessaria una soluzione di crittografia software e un decodificatore offuscato. <br/> 3 - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> 4 - Le operazioni di crittografia e decodifica devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> 5 - Le operazioni di crittografia e decodifica e l'intera gestione dei contenuti multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  
 content\_key\_specs <br/> required\_output\_protection.hdc | Stringa - uno di: HDCP\_NONE, HDCP\_V1, HDCP\_V2 | Indica se è necessario il protocollo HDCP
 content\_key\_specs <br/>key | Stringa con <br/>codifica Base64|Chiave simmetrica da usare per la traccia. Se specificato, è necessario immettere il valore track\_type o key\_id Questa opzione consente al provider di contenuti di inserire manualmente la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave.
@@ -97,7 +97,7 @@ policy\_overrides. can\_renew | Booleano: true o false |Indica che è consentito
 policy\_overrides. license\_duration\_seconds | int64 | Indica la finestra temporale di validità della licenza. Il valore 0 indica che non esiste alcun limite di durata. Il valore predefinito è 0. 
 policy\_overrides. rental\_duration\_seconds | int64 | Indica la finestra temporale in cui è consentita la riproduzione. Il valore 0 indica che non esiste alcun limite di durata. Il valore predefinito è 0. 
 policy\_overrides. playback\_duration\_seconds | int64 | La finestra temporale di visualizzazione a partire dall'inizio della riproduzione nell'ambito del periodo di validità della licenza. Il valore 0 indica che non esiste alcun limite di durata. Il valore predefinito è 0. 
-policy\_overrides. renewal\_server\_url |stringa | Tutte le richieste di heartbeat (rinnovo) per la licenza saranno inoltrate all'URL specificato. Questo campo viene usato solo se can\_renew è true.
+policy\_overrides. renewal\_server\_url |string | Tutte le richieste di heartbeat (rinnovo) per la licenza saranno inoltrate all'URL specificato. Questo campo viene usato solo se can\_renew è true.
 policy\_overrides. renewal\_delay\_seconds |int64 |Numero di secondi prima che venga eseguito il primo tentativo di rinnovo, a partire dal valore license\_start\_time. Questo campo viene usato solo se can\_renew è true. Il valore predefinito è 0 
 policy\_overrides. renewal\_retry\_interval\_seconds | int64 | Specifica l'intervallo di tempo, espresso in secondi, tra richieste di rinnovo della licenza consecutive, in caso di errore. Questo campo viene usato solo se can\_renew è true. 
 policy\_overrides. renewal\_recovery\_duration\_seconds | int64 | Il periodo di tempo per il quale può continuare la riproduzione mentre vengono eseguiti nuovi tentativi di rinnovo, ancora con negativo a causa di problemi di back-end con il server licenze. Il valore 0 indica che non esiste alcun limite di durata. Questo campo viene usato solo se can\_renew è true.
@@ -197,7 +197,7 @@ L'esempio seguente mostra come usare le API .NET per configurare una licenza Wid
     }
 
 
-##Percorsi di apprendimento di Media Services
+##Percorsi di apprendimento di Servizi multimediali
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -210,4 +210,4 @@ L'esempio seguente mostra come usare le API .NET per configurare una licenza Wid
 
 [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

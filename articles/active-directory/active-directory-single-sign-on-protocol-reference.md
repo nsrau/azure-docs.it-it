@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/28/2016"
 	ms.author="priyamo"/>
 
 # Protocollo SAML per Single Sign-On
@@ -45,14 +45,14 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Versione | Obbligatoria | Deve essere **2.0**.|
 | IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativa | Se specificato deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
-| ForceAuthn | Facoltativa | Se specificato deve essere false. Qualsiasi altro valore causa un errore.|
-| IsPassive | Facoltativa | Se specificato deve essere false. Qualsiasi altro valore causa un errore. |  
+| ForceAuthn | Facoltativo | Se specificato deve essere false. Qualsiasi altro valore causa un errore.|
+| IsPassive | Facoltativo | Se specificato deve essere false. Qualsiasi altro valore causa un errore. |  
 
 Tutti gli altri attributi `AuthnRequest`, ad esempio Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName, vengono **ignorati**.
 
 Azure AD ignora anche l'elemento `Conditions` in `AuthnRequest`.
 
-### Autorità di certificazione
+### Issuer
 
 L'elemento `Issuer` in una `AuthnRequest` deve corrispondere esattamente a uno dei **ServicePrincipalNames** nel servizio cloud in Azure AD. Viene in genere impostato sull'**URI ID app** specificato durante la registrazione dell'applicazione.
 
@@ -98,7 +98,7 @@ Non includere un elemento `Signature` negli elementi `AuthnRequest` perché Azur
 
 Azure AD ignora l'elemento `Subject` degli elementi `AuthnRequest`.
 
-## Risposta
+## Response
 
 Quando viene completato un accesso richiesto, Azure AD invia una risposta al servizio cloud. Un esempio di risposta a un tentativo di accesso riuscito è simile al seguente:
 
@@ -145,14 +145,14 @@ Quando viene completato un accesso richiesto, Azure AD invia una risposta al ser
 </samlp:Response>
 ```
 
-### Risposta
+### Response
 
 L'elemento `Response` include il risultato della richiesta di autorizzazione. Azure AD imposta i valori `ID`, `Version` e `IssueInstant` nell'elemento `Response`. Imposta anche gli attributi seguenti:
 
 - `Destination`: quando l'accesso viene completato correttamente, questo attributo viene impostato sul `RedirectUri` del provider di servizi (servizio cloud).
 - `InResponseTo`: viene impostato sull'attributo `ID` dell'elemento `AuthnRequest` che ha avviato la risposta.
 
-### Autorità di certificazione
+### Issuer
 
 Azure AD imposta l'elemento `Issuer` su `https://login.microsoftonline.com/<TenantIDGUID>/`, dove <TenantIDGUID> è l'ID del tenant di Azure AD.
 
@@ -160,22 +160,6 @@ Una risposta di esempio con elemento Issuer può avere un aspetto simile al segu
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-```
-
-### Firma
-
-Azure AD firma l'elemento `Response` quando l'accesso viene completato. L'elemento `Signature` contiene una firma digitale che l'applicazione può usare per autenticare l'origine e verificare l'integrità della risposta.
-
-Azure AD usa la chiave di firma specificata nell'elemento `IDPSSODescriptor` del relativo documento di metadati. Per altre informazioni, vedere [Metadati della federazione](active-directory-federation-metadata.md).
-
-Azure AD firma anche l'elemento `Assertion`, ma i due elementi di firma sono indipendenti.
-
-Un esempio di elemento `Signature` nella risposta può essere simile al seguente:
-
-```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-    ...
-  </ds:Signature>
 ```
 
 ### Stato
@@ -203,7 +187,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Oltre a `ID`, `IssueInstant` e `Version`, Azure AD imposta gli elementi seguenti nell'elemento `Assertion` della risposta.
 
-#### Autorità di certificazione
+#### Issuer
 
 Viene impostato su `https://sts.windows.net/<TenantIDGUID>/`, dove <TenantIDGUID> è l'ID del tenant di Azure AD.
 
@@ -301,4 +285,4 @@ Questo elemento asserisce che l'oggetto dell'asserzione è stato autenticato in 
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

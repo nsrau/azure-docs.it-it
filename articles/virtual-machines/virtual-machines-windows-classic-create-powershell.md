@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell 
@@ -42,7 +42,7 @@ Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argo
 3. Digitare la password per l'account.
 4. Fare clic su **Accedi**.
 
-## Passaggio 2: impostare l'account di archiviazione e la sottoscrizione
+## Passaggio 2: Impostare l'account di archiviazione e la sottoscrizione
 
 Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < e >, con i nomi corretti.
 
@@ -108,7 +108,7 @@ Facoltativamente, per un computer Windows autonomo, specificare l'account ammini
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
- Scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 Facoltativamente, per aggiungere il computer Windows a un dominio di Active Directory esistente, specificare l'account e la password di amministratore locale, il dominio e infine il nome e la password di un account di dominio.
 
@@ -262,4 +262,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 Se è necessario un disco del sistema operativo superiore a 127 GB, è possibile [espandere l'unità del sistema operativo](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

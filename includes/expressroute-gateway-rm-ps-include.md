@@ -5,7 +5,7 @@ Elenco di riferimento per la configurazione:
 - Nome rete virtuale = "TestVNet"
 - Spazio degli indirizzi della rete virtuale = 192.168.0.0/16
 - Gruppo di risorse = "TestRG"
-- Nome subnet1 = "FrontEnd" 
+- Nome subnet1 = "FrontEnd"
 - Spazio degli indirizzi della subnet1 = "192.168.0.0/16"
 - Nome subnet del gateway: "GatewaySubnet" Il nome della subnet del gateway deve sempre essere *GatewaySubnet*.
 - Spazio degli indirizzi della subnet gateway = "192.168.200.0/26"
@@ -19,7 +19,7 @@ Elenco di riferimento per la configurazione:
 
 ## Aggiungere un gateway
 
-1. Connettersi alla sottoscrizione di Azure. 
+1. Connettersi alla sottoscrizione di Azure.
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
@@ -70,7 +70,9 @@ Utilizzare il comando seguente per verificare che il gateway sia stato creato.
 
 ## Ridimensionare un gateway
 
-Sono disponibili tre [SKU del gateway](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). È possibile usare il comando seguente per modificare la SKU del gateway in qualsiasi momento.
+Esistono diversi [SKU del gateway](../articles/expressroute/expressroute-about-virtual-network-gateways.md). È possibile usare il comando seguente per modificare la SKU del gateway in qualsiasi momento.
+
+>[AZURE.IMPORTANT] Questo comando non funziona per il gateway UltraPerformance. Per modificare il gateway in un gateway UltraPerformance, innanzitutto rimuovere il gateway ExpressRoute esistente, quindi creare un nuovo gateway UltraPerformance. Per effettuare il downgrade del gateway da un gateway UltraPerformance, innanzitutto rimuovere il gateway UltraPerformance, quindi creare un nuovo gateway.
 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
@@ -81,4 +83,4 @@ Usare il comando seguente per rimuovere un gateway
 
 	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

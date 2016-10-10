@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
@@ -26,7 +26,7 @@ Con il ridimensionamento automatico, il servizio Azure Batch può aggiungere o r
 
 ## Formule di ridimensionamento automatico
 
-Una formula di ridimensionamento automatico è un valore stringa definito dall'utente che contiene una o più istruzioni ed è assegnato all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Quando le formule sono assegnate a un pool, vengono usate dal servizio Batch per determinare il numero di nodi di calcolo disponibili nel pool per l'intervallo di elaborazione successivo. Altre informazioni sugli intervalli sono disponibili più avanti. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
+Una formula di ridimensionamento automatico è un valore stringa definito dall'utente che contiene una o più istruzioni ed è assegnato all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(Batch .NET). Quando le formule sono assegnate a un pool, vengono usate dal servizio Batch per determinare il numero di nodi di calcolo disponibili nel pool per l'intervallo di elaborazione successivo. Altre informazioni sugli intervalli sono disponibili più avanti. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
 
 È possibile paragonare le formule di ridimensionamento automatico all'uso di un "linguaggio" di ridimensionamento automatico di Batch. Le istruzioni nella formula sono espressioni in formato libero che possono includere variabili definite dal servizio Batch e variabili definite dall'utente. Possono eseguire diverse operazioni su questi valori usando funzioni, operatori e tipi predefiniti. Ad esempio, un'istruzione può avere il formato seguente:
 
@@ -60,99 +60,32 @@ Le tabelle seguenti includono variabili di lettura/scrittura e di sola lettura d
 
 È possibile **ottenere** e **impostare** i valori di queste variabili definite dal servizio per gestire il numero di nodi di calcolo in un pool:
 
-<table>
-  <tr>
-    <th>Variabili in lettura/scrittura<br/>definite dal servizio</th>
-    <th>Descrizione</th>
-  </tr>
-  <tr>
-    <td>$TargetDedicated</td>
-    <td>Numero di <b>destinazione</b> dei <b>nodi di calcolo dedicati</b> per il pool. È il numero di nodi di calcolo in cui deve essere ridimensionato il pool. È un numero di "destinazione", perché è possibile che un pool non raggiunga il numero di nodi di destinazione. Questa condizione può verificarsi se il numero di nodi di destinazione viene modificato di nuovo da una valutazione di ridimensionamento automatico successiva, prima che il pool abbia raggiunto la destinazione iniziale Può verificarsi anche se è stata raggiunta la quota di nodi o di core di un account Batch prima che venga raggiunto il numero di nodi di destinazione.</td>
-  </tr>
-  <tr>
-    <td>$NodeDeallocationOption</td>
-    <td>L'azione che si verifica quando i nodi di calcolo vengono rimossi da un pool. I valori possibili sono:
-      <br/>
-      <ul>
-        <li><p><b>requeue</b>: termina immediatamente le attività e le reinserisce nella coda dei processi in modo che vengano ripianificate.</p></li>
-        <li><p><b>terminate</b>: termina immediatamente le attività e le rimuove dalla coda dei processi.</p></li>
-        <li><p><b>taskcompletion</b>: attende il completamento delle attività in esecuzione e quindi rimuove il nodo dal pool.</p></li>
-        <li><p><b>retaineddata</b>: attende che tutti i dati mantenuti per le attività locali nel nodo vengano ripuliti prima di rimuovere il nodo dal pool.</p></li>
-      </ul></td>
-   </tr>
-</table>
+| Variabili in lettura/scrittura definite dal servizio | Descrizione |
+| --- | --- |
+| $TargetDedicated | Numero di **destinazione** dei **nodi di calcolo dedicati** per il pool. È il numero di nodi di calcolo in cui deve essere ridimensionato il pool. È un numero di "destinazione", perché è possibile che un pool non raggiunga il numero di nodi di destinazione. Questa condizione può verificarsi se il numero di nodi di destinazione viene modificato di nuovo da una valutazione di ridimensionamento automatico successiva, prima che il pool abbia raggiunto la destinazione iniziale Può verificarsi anche se è stata raggiunta la quota di nodi o di core di un account Batch prima che venga raggiunto il numero di nodi di destinazione. |
+| $NodeDeallocationOption | L'azione che si verifica quando i nodi di calcolo vengono rimossi da un pool. I valori possibili sono:<ul><li>**requeue** - termina immediatamente le attività e le inserisce nuovamente nella coda dei processi affinché vengano ripianificate;<li>**terminate** - termina immediatamente le attività e le rimuove dalla coda dei processi;<li>**taskcompletion** - attende il completamento delle attività attualmente in esecuzione e successivamente rimuove il nodo dal pool;<li>**retaineddata** - attende che tutti i dati conservati dalle attività locali sul nodo vengano cancellati prima di rimuovere il nodo dal pool.</ul> |
 
 È possibile **ottenere** il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 
-<table>
-  <tr>
-    <th>Variabili<br/>di sola lettura<br/>definite dal servizio</th>
-    <th>Descrizione</th>
-  </tr>
-  <tr>
-    <td>$CPUPercent</td>
-    <td>Percentuale media di utilizzo della CPU.</td>
-  </tr>
-  <tr>
-    <td>$WallClockSeconds</td>
-    <td>Numero di secondi utilizzati.</td>
-  </tr>
-  <tr>
-    <td>$MemoryBytes</td>
-    <td>Numero medio di megabyte usati.</td>
-  <tr>
-    <td>$DiskBytes</td>
-    <td>Numero medio di gigabyte usati sui dischi locali.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadBytes</td>
-    <td>Numero di byte letti.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteBytes</td>
-    <td>Numero di byte scritti.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadOps</td>
-    <td>Numero di operazioni di lettura del disco eseguite.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteOps</td>
-    <td>Numero di operazioni di scrittura sul disco eseguite.</td>
-  </tr>
-  <tr>
-    <td>$NetworkInBytes</td>
-    <td>Numero di byte in ingresso.</td>
-  </tr>
-  <tr>
-    <td>$NetworkOutBytes</td>
-    <td>Numero di byte in uscita.</td>
-  </tr>
-  <tr>
-    <td>$SampleNodeCount</td>
-    <td>Conteggio dei nodi di calcolo.</td>
-  </tr>
-  <tr>
-    <td>$ActiveTasks</td>
-    <td>Numero di attività in uno stato attivo.</td>
-  </tr>
-  <tr>
-    <td>$RunningTasks</td>
-    <td>Numero di attività nello stato in corso di esecuzione.</td>
-  </tr>
-  <tr>
-    <td>$SucceededTasks</td>
-    <td>Numero di attività completate correttamente.</td>
-  </tr>
-  <tr>
-    <td>$FailedTasks</td>
-    <td>Numero di attività non riuscite.</td>
-  </tr>
-  <tr>
-    <td>$CurrentDedicated</td>
-    <td>Numero corrente di nodi di calcolo dedicati.</td>
-  </tr>
-</table>
+| Variabili di sola lettura definite dal servizio | Descrizione |
+| --- | --- |
+| $CPUPercent | Percentuale media di utilizzo della CPU. |
+| $WallClockSeconds | Numero di secondi utilizzati. |
+| $MemoryBytes | Numero medio di megabyte usati. |
+| $DiskBytes | Numero medio di gigabyte usati sui dischi locali. |
+| $DiskReadBytes | Numero di byte letti. |
+| $DiskWriteBytes | Numero di byte scritti. |
+| $DiskReadOps | Numero di operazioni di lettura del disco eseguite. |
+| $DiskWriteOps | Numero di operazioni di scrittura sul disco eseguite. |
+| $NetworkInBytes | Numero di byte in ingresso. |
+| $NetworkOutBytes | Numero di byte in uscita. |
+| $SampleNodeCount | Conteggio dei nodi di calcolo. |
+| $ActiveTasks | Numero di attività in uno stato attivo. |
+| $RunningTasks | Numero di attività nello stato in corso di esecuzione. |
+| $PendingTasks | La somma di $ActiveTasks e $RunningTasks. |
+| $SucceededTasks | Numero di attività completate correttamente. |
+| $FailedTasks | Numero di attività non riuscite. |
+| $CurrentDedicated | Numero corrente di nodi di calcolo dedicati. |
 
 > [AZURE.TIP] Le variabili di sola lettura definite dal servizio illustrate sopra sono *oggetti* che offrono vari metodi per accedere ai dati associati a ognuno. Per altre informazioni, vedere [Ottenere dati di esempio](#getsampledata) di seguito.
 
@@ -237,7 +170,7 @@ Queste **funzioni** predefinite sono disponibili per consentire la definizione d
 | time(string dateTime="") | timestamp | Restituisce il timestamp dell'ora corrente se non vengono passati parametri oppure il timestamp della stringa dateTime, se è stata passata. I formati dateTime supportati sono W3C-DTF e RFC 1123.
 | val(doubleVec v, double i) | double | Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero.
 
-Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio:
+Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. ad esempio:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -249,44 +182,13 @@ Le formule di ridimensionamento automatico agiscono sui dati di metrica (campion
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
-<table>
-  <tr>
-    <th>Metodo</th>
-    <th>Descrizione</th>
-  </tr>
-  <tr>
-    <td>GetSample()</td>
-    <td><p>Il metodo <b>GetSample()</b> restituisce un vettore di campioni di dati.
-	<p>Un campione rappresenta 30 secondi di dati di metrica. In altre parole i campioni vengono raccolti ogni 30 secondi, ma come indicato di seguito si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, i campioni per un determinato periodo di tempo potrebbero non essere tutti disponibili per la valutazione da parte di una formula.
-        <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>: specifica il numero di campioni da ottenere tra quelli raccolti più di recente.</p>
-				  <p>GetSample (1) restituisce l'ultimo campione disponibile. Per le metriche come $CPUPercent non deve tuttavia essere usato perché non è possibile sapere <em>quando</em> è stato raccolto il campione. Potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo, come illustrato di seguito.</p></li>
-          <li><p><b>doubleVec GetSample ((timestamp | timeinterval) startTime [, double samplePercent])</b>: specifica un intervallo di tempo per la raccolta di dati campione. Facoltativamente specifica anche la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi dieci minuti. Se l'ultimo minuto della cronologia non è disponibile, vengono tuttavia restituiti solo 18 campioni. In questo caso:<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> non riesce perché è disponibile solo il 90% dei campioni.<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> ha esito positivo.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>: specifica un intervallo di tempo per la raccolta dei dati, con un'ora di inizio e un'ora di fine.</p></li></ul>
-		  <p>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. È necessario tenere presente questo particolare quando si usa il metodo <em>GetSample</em>. Vedere <em>GetSamplePercent</em> di seguito.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePeriod()</td>
-    <td>Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici.</td>
-  </tr>
-	<tr>
-		<td>Count()</td>
-		<td>Restituisce il numero totale di campioni nella cronologia dei dati di metrica.</td>
-	</tr>
-  <tr>
-    <td>HistoryBeginTime()</td>
-    <td>Restituisce il timestamp del campione di dati disponibile meno recente per la metrica.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePercent()</td>
-    <td><p>Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio:</p>
-    <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>Poiché il metodo GetSample non riesce se la percentuale di campioni restituiti è minore del valore samplePercent specificato, è possibile eseguire prima il controllo con il metodo GetSamplePercent. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico.</p></td>
-  </tr>
-</table>
+| Metodo | Descrizione |
+| --- | --- |
+| GetSample() | Il metodo `GetSample()` restituisce un vettore relativo al campione di dati.<br/><br/>Un campione vale 30 secondi di dati metrici. In altre parole i campioni vengono raccolti ogni 30 secondi, ma come indicato di seguito si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, non tutti i campioni di un determinato periodo di tempo possono essere disponibili per la valutazione mediante una formula.<ul><li>`doubleVec GetSample(double count)`<br/> specifica il numero di campioni da ottenere dai campioni raccolti più di recente.<br/><br/>`GetSample(1)` restituisce l'ultimo campione disponibile. Per le metriche come `$CPUPercent` non deve tuttavia essere usato perché non è possibile sapere *quando* è stato raccolto il campione. Potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo come illustrato di seguito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/> specifica una finestra temporale per la raccolta dei dati campione. Opzionalmente, specifica anche la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi dieci minuti. Se l'ultimo minuto della cronologia non è disponibile, vengono tuttavia restituiti solo 18 campioni. In questo caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` avrebbe esito negativo poiché è disponibile solo il 90% dei campioni.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` potrebbe avere successo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/> specifica un intervallo di tempo per la raccolta dei dati, con un'ora di inizio e un'ora di fine.<br/><br/>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. È necessario tenere presente questo particolare quando si usa il metodo `GetSample`. Vedere `GetSamplePercent` di seguito.|
+| GetSamplePeriod() | Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici. |
+| Count() | Restituisce il numero totale di campioni nella cronologia dei dati di metrica. |
+| HistoryBeginTime() | Restituisce il timestamp del campione di dati disponibile meno recente per la metrica. |
+| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico.|
 
 ### Campioni, percentuale di campioni e metodo *GetSample()*
 
@@ -294,7 +196,7 @@ L'operazione di base per il funzionamento di una formula di ridimensionamento au
 
 **Esempi**
 
-Il servizio Batch acquisisce periodicamente *campioni * di metriche relative a risorse ed attività e li rende disponibili per le formule di ridimensionamento automatico. Questi campioni vengono registrati ogni 30 secondi dal servizio Batch. In genere si verifica una certa latenza che causa un ritardo tra il momento in cui i campioni sono stati registrati e il momento in cui vengono resi disponibili e possono essere letti dalle formule di ridimensionamento automatico. Inoltre, a causa di vari fattori, ad esempio problemi di rete o dell'infrastruttura, è possibile che i campioni non siano stati registrati per un particolare intervallo, determinando una condizione di campioni "mancanti".
+Il servizio Batch acquisisce periodicamente *campioni* di metriche relative a risorse ed attività e li rende disponibili per le formule di ridimensionamento automatico. Questi campioni vengono registrati ogni 30 secondi dal servizio Batch. In genere si verifica una certa latenza che causa un ritardo tra il momento in cui i campioni sono stati registrati e il momento in cui vengono resi disponibili e possono essere letti dalle formule di ridimensionamento automatico. Inoltre, a causa di vari fattori, ad esempio problemi di rete o dell'infrastruttura, è possibile che i campioni non siano stati registrati per un particolare intervallo, determinando una condizione di campioni "mancanti".
 
 **Percentuale di campioni**
 
@@ -361,6 +263,7 @@ Quando si definisce una formula, è possibile usare metriche di **risorse** e di
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
 			<li>$FailedTasks</li></ul></p>
 		</td>
@@ -375,11 +278,11 @@ La creazione di una formula di ridimensionamento automatico prevede la composizi
 2. Riduce il numero di destinazione dei nodi di calcolo in un pool se l'utilizzo della CPU è basso.
 3. Limita sempre il numero massimo di nodi a 400.
 
-Per l'*aumento* dei nodi durante l'utilizzo elevato della CPU, viene definita un'istruzione che popola una variabile definita dall'utente ($TotalNodes) con un valore pari al 110% dell'attuale numero di destinazione dei nodi, se l'utilizzo minimo medio della CPU negli ultimi 10 minuti è superiore al 70%:
+Per l'*aumento* dei nodi durante l'uso elevato della CPU, viene definita un'istruzione che popola una variabile definita dall'utente ($TotalNodes) con un valore pari al 110% dell'attuale numero di destinazione dei nodi, se l'uso minimo medio della CPU negli ultimi 10 minuti è superiore al 70%:
 
 `$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
-L'istruzione successiva imposta la stessa variabile sul 90% dell'attuale numero di destinazione dei nodi, se l'utilizzo medio della CPU negli ultimi 60 minuti è stato *inferiore* al 20%. Questo riduce il numero di destinazione durante l'utilizzo ridotto della CPU. Si noti che questa istruzione fa anche riferimento alla variabile definita dall'utente *$TotalNodes* dell'istruzione precedente.
+L'istruzione successiva imposta la stessa variabile sul 90% dell'attuale numero di destinazione dei nodi, se l'uso medio della CPU negli ultimi 60 minuti è stato *inferiore* al 20%. Questo riduce il numero di destinazione durante l'utilizzo ridotto della CPU. Si noti che questa istruzione fa anche riferimento alla variabile definita dall'utente *$TotalNodes* dell'istruzione precedente.
 
 `$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
@@ -430,7 +333,7 @@ L'intervallo minimo è di 5 minuti e il massimo di 168 ore. Se viene specificato
 
 ## Abilitare il ridimensionamento automatico dopo la creazione di un pool
 
-Se è già stato configurato un pool con un numero specificato di nodi di calcolo usando il parametro *targetDedicated*, è possibile aggiornare il pool esistente in un secondo momento per il ridimensionamento automatico. Questa operazione può essere eseguita in uno dei modi seguenti:
+Se è già stato configurato un pool con un numero specificato di nodi di calcolo usando il parametro *targetDedicated*, è possibile aggiornare il pool esistente in un secondo momento per la scalabilità automatica. Questa operazione può essere eseguita in uno dei modi seguenti:
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]\: questo metodo .NET richiede l'ID di un pool esistente e la formula di ridimensionamento automatico da applicare al pool.
 - [Abilitare il ridimensionamento automatico in un pool][rest_enableautoscale]\: questa richiesta dell'API REST richiede la presenza dell'ID del pool esistente nell'URI e della formula di ridimensionamento automatico nel corpo della richiesta.
@@ -593,7 +496,7 @@ La formula nel frammento di codice precedente:
 
 ## Passaggi successivi
 
-* [Ottimizzare l'utilizzo delle risorse di calcolo di Azure Batch con attività dei nodi simultanee](batch-parallel-node-tasks.md) contiene informazioni dettagliate su come è possibile eseguire più attività contemporaneamente sui nodi di calcolo nel pool. Oltre al ridimensionamento automatico, questa funzionalità può contribuire a ridurre la durata del processo per alcuni carichi di lavoro, riducendo i costi.
+* [Ottimizzare l'uso delle risorse di calcolo di Azure Batch con attività dei nodi simultanee](batch-parallel-node-tasks.md) contiene informazioni dettagliate su come è possibile eseguire più attività contemporaneamente sui nodi di calcolo nel pool. Oltre al ridimensionamento automatico, questa funzionalità può contribuire a ridurre la durata del processo per alcuni carichi di lavoro, riducendo i costi.
 
 * Per ottimizzare ulteriormente l'efficienza, assicurarsi che l'applicazione Batch esegua query sul servizio Batch in modo ottimale. In [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md) si apprenderà come limitare la quantità dei dati trasmessi in rete quando si esegue una query sullo stato di migliaia di nodi di calcolo o attività.
 
@@ -611,4 +514,4 @@ La formula nel frammento di codice precedente:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/it-IT/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -160,7 +160,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 16. Nella pagina finale della finestra di dialogo immettere un indirizzo di posta elettronica se si vogliono ricevere notifiche tramite posta elettronica relative a errori e avvisi correlati alla manutenzione di questa configurazione dell'accesso Single Sign-On.
 
-	![Immettere l'indirizzo di posta elettronica.][19]
+	![Immettere l'indirizzo di posta elettronica][19]
 
 17. Fare clic su **Completa** per chiudere la finestra di dialogo. Per testare la configurazione, vedere la sezione seguente intitolata [Assegnare utenti a Salesforce](#step-4-assign-users-to-salesforce).
 
@@ -204,7 +204,7 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 
 2. Nella pagina di Avvio rapido di Salesforce fare clic sul pulsante **Assegna utenti**.
 
-	![Fare clic su Assegna utenti.][27]
+	![Fare clic su Assegna utenti][27]
 
 3. Selezionare l'utente di test e quindi fare clic su **Assegna** nella parte inferiore della schermata:
 
@@ -256,4 +256,4 @@ Se si usa un ambiente Salesforce Sandbox, vedere l'[Esercitazione: Integrazione 
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->
