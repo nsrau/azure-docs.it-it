@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="wesmc7777"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="notification-hubs"
@@ -15,7 +15,7 @@
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Inviare notifiche push alle app Chrome con Hub di notifica di Azure
 
@@ -438,7 +438,7 @@ Per rivolgersi a utenti specifici, vedere l'esercitazione sull'uso di [Hub di no
 
 Per segmentare gli utenti per gruppi di interesse, eseguire l'esercitazione sull'uso di [Hub di notifica di Azure per inviare le ultime notizie].
 
-<!-- Images. -->  
+<!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
 [2]: ./media/notification-hubs-chrome-get-started/GoogleProjectNumber.png
 [3]: ./media/notification-hubs-chrome-get-started/EnableGCM.png
@@ -461,7 +461,7 @@ Per segmentare gli utenti per gruppi di interesse, eseguire l'esercitazione sull
 [20]: ./media/notification-hubs-chrome-get-started/ChromeAppNH.png
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [esempio di hub di notifica per l'app Chrome]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Google Cloud Console]: http://cloud.google.com/console
 [Azure Classic Portal]: https://manage.windowsazure.com/

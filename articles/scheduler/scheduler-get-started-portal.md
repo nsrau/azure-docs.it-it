@@ -5,7 +5,7 @@
  documentationCenter=".NET"
  authors="derek1ee"
  manager="kevinlam1"
- editor=""/>  
+ editor=""/>
 <tags
  ms.service="scheduler"
  ms.workload="infrastructure-services"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/10/2016"
- ms.author="deli"/>  
+ ms.author="deli"/>
 
 # Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
 
@@ -25,7 +25,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
 2.  Fare clic su **+Nuovo**, digitare _Utilità di pianificazione_ nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
 
-     ![][marketplace-create]  
+     ![][marketplace-create]
 
 3.  Creiamo un processo che parte semplicemente http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
 
@@ -43,7 +43,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 
     3.  **URL:** ` http://www.microsoft.com`
 
-      ![][action-settings]  
+      ![][action-settings]
 
 5.  Infine, definire una pianificazione. È possibile impostare il processo come unico, ma in questo esempio viene selezionata una pianificazione ricorrenza.
 
@@ -73,13 +73,13 @@ Un processo appena creato viene visualizzato nel dashboard principale di Azure. 
 
 5.  Utenti
 
-    ![][job-overview]  
+    ![][job-overview]
 
 ### Proprietà
 
 Queste proprietà di sola lettura descrivono i metadati di gestione per il processo dell'Utilità di pianificazione.
 
-   ![][job-properties]  
+   ![][job-properties]
 
 
 ### Impostazioni di azione
@@ -94,7 +94,7 @@ Per le azioni di tipo coda di archiviazione, è possibile modificare l'account d
 
 Per i tipi di azione del bus di servizio è possibile modificare lo spazio dei nomi, il percorso della coda o dell'argomento, le impostazioni di autenticazione, il tipo di trasporto, le proprietà del messaggio e il corpo del messaggio.
 
-   ![][job-action-settings]  
+   ![][job-action-settings]
 
 ### Pianificazione
 
@@ -104,7 +104,7 @@ Offre la possibilità di creare [pianificazioni complesse e operazioni ricorrent
 
 È possibile modificare data e ora di inizio, la pianificazione di ricorrenza, e data e ora di fine (se il processo è ricorrente).
 
-   ![][job-schedule]  
+   ![][job-schedule]
 
 
 ### Cronologia
@@ -123,11 +123,11 @@ La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di p
 
 6.  Ora di fine dell'esecuzione
 
-   ![][job-history]  
+   ![][job-history]
 
 È possibile fare clic su un'esecuzione per visualizzarne i **Dettagli cronologia**, inclusa l'intera risposta per ogni esecuzione. La finestra di dialogo consente anche di copiare la risposta negli appunti.
 
-   ![][job-history-details]  
+   ![][job-history-details]
 
 ### Utenti
 

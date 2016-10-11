@@ -6,7 +6,7 @@
 	documentationCenter="nodejs" 
 	authors="AndrewHoh" 
 	manager="jhubbard" 
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
 	ms.date="08/25/2016" 
-	ms.author="anhoh"/> 
+	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con DocumentDB
 

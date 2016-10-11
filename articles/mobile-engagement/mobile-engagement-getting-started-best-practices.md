@@ -5,7 +5,7 @@
 	documentationCenter="mobile" 
 	authors="wesmc7777"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
 	ms.date="10/04/2016"
-	ms.author="wesmc;ricksal"/>  
+	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guida introduttiva con procedure consigliate
 
@@ -401,10 +401,10 @@ Dopo avere accumulato un po' di esperienza, è possibile considerare l'aggiunta 
 
   
 
-<!--Image references-->  
+<!--Image references-->
 
 
-<!--Link references-->  
+<!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 <!---HONumber=AcomDC_1005_2016-->

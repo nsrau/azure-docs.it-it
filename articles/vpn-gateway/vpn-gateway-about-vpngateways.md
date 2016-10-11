@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager,azure-service-management"/>  
+   tags="azure-resource-manager,azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/21/2016"
-   ms.author="cherylmc" />  
+   ms.author="cherylmc" />
 
 # Informazioni sul gateway VPN
 
@@ -60,7 +60,7 @@ Usare i diagrammi e le descrizioni per selezionare la topologia di connessione p
 
 Una connessione gateway VPN da sito a sito (S2S) avviene tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico assegnato e non dietro una NAT. Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride.
 
-![Connessione da sito a sito](./media/vpn-gateway-about-vpngateways/demos2s.png "Da sito a sito")  
+![Connessione da sito a sito](./media/vpn-gateway-about-vpngateways/demos2s.png "Da sito a sito")
 
 
 ### Multisito
@@ -68,7 +68,7 @@ Una connessione gateway VPN da sito a sito (S2S) avviene tramite un tunnel VPN I
 È possibile creare e configurare una connessione gateway VPN tra la rete virtuale e più reti locali. Quando si usano più connessioni, è necessario usare una rete VPN di tipo RouteBased o un gateway dinamico per le reti virtuali classiche. Dato che una rete virtuale può avere un solo gateway VPN, tutte le connessioni che usano il gateway condividono la larghezza di banda disponibile. Questo tipo di connessione è spesso definito "multisito".
  
 
-![Connessione multisito](./media/vpn-gateway-about-vpngateways/demomulti.png "multisito")  
+![Connessione multisito](./media/vpn-gateway-about-vpngateways/demomulti.png "multisito")
 
 ### Metodi e modelli di distribuzione per connessioni da sito a sito e multisito
 
@@ -106,7 +106,7 @@ Azure offre attualmente di due modelli di distribuzione: classica e Resource Man
 Una connessione gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. P2S è una connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol). Le connessioni P2S non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per stabilire la connessione VPN, avviarla dal computer client. Questa è la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito possono essere usate in combinazione con le connessioni da sito a sito attraverso lo stesso gateway VPN, purché tutti i requisiti di configurazione per entrambe le connessioni siano compatibili.
 
 
-![Connessione da punto a sito](./media/vpn-gateway-about-vpngateways/demop2s.png "da punto a sito")  
+![Connessione da punto a sito](./media/vpn-gateway-about-vpngateways/demop2s.png "da punto a sito")
 
 ### Metodi e modelli di distribuzione per connessioni da punto a sito
 
@@ -127,7 +127,7 @@ ExpressRoute è una connessione dedicata diretta dalla rete WAN (non sulla rete 
 È possibile configurare una VPN da sito a sito come percorso di failover sicuro per ExpressRoute oppure usare VPN da sito a sito per connettersi a siti che non fanno parte della rete, ma che sono connessi tramite ExpressRoute. Si noti che questa configurazione richiede due gateway di rete virtuale per la stessa rete virtuale, uno che usa -GatewayType Vpn e l'altro che usa -GatewayType ExpressRoute.
 
 
-![Connessioni coesistenti](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-da sito a sito")  
+![Connessioni coesistenti](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-da sito a sito")
 
 
 ### Metodi e modelli di distribuzione per le connessioni da sito a sito ed ExpressRoute

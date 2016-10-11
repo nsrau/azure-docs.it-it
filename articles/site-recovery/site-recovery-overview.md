@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="rayne-wiselman" 
 	manager="jwhit" 
-	editor=""/>  
+	editor=""/>
 
 <tags 
 	ms.service="site-recovery" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
 	ms.date="09/29/2016" 
-	ms.author="raynew"/>  
+	ms.author="raynew"/>
 
 #  Che cos'è Site Recovery?
 

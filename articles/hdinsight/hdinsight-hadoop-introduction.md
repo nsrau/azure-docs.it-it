@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="cjgronlund"
 	manager="jhubbard"
-	editor="cgronlun"/>  
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"

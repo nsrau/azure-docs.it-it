@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-/>  
+/>
 
 <tags
 	ms.service="app-service-web"

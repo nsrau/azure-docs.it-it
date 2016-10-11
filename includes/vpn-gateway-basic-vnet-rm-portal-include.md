@@ -4,20 +4,20 @@ Per creare una rete virtuale nel portale di Azure, seguire questa procedura. Gli
 
 2. Fare clic su **New**. Nel campo **Cerca nel Marketplace** digitare "Rete virtuale". Trovare **Rete virtuale** nell'elenco restituito e fare clic per aprire il pannello **Rete virtuale**.
 
-	![Pannello per la ricerca della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Pannello per la ricerca della rete virtuale")  
+	![Pannello per la ricerca della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Pannello per la ricerca della rete virtuale")
 
 3. Nella parte inferiore del pannello Rete virtuale selezionare **Resource Manager** nell'elenco **Selezionare un modello di distribuzione** e quindi fare clic su **Crea**.
 
 
-	![Selezionare Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Selezionare Resource Manager")  
+	![Selezionare Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Selezionare Resource Manager")
 
 4. Nel pannello **Crea rete virtuale** configurare le impostazioni della rete virtuale. Quando si compilano i campi, il punto esclamativo rosso diventa un segno di spunta verde quando i caratteri immessi nel campo sono validi.
 
-	![Convalida campi](./media/vpn-gateway-basic-vnet-rm-portal-include/checkmark300.png "Convalida campi")  
+	![Convalida campi](./media/vpn-gateway-basic-vnet-rm-portal-include/checkmark300.png "Convalida campi")
 
 5. Il pannello **Crea rete virtuale** è simile all'esempio seguente. Alcuni valori possono essere compilati automaticamente. In questo caso, sostituire i valori con quelli personalizzati.
 
-	![Pannello Creare la rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/createvnet300.png "Pannello Creare la rete virtuale")  
+	![Pannello Creare la rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/createvnet300.png "Pannello Creare la rete virtuale")
 
 6. **Nome**: immettere un nome per la rete virtuale.
 
@@ -33,10 +33,10 @@ Per creare una rete virtuale nel portale di Azure, seguire questa procedura. Gli
 
 13. Selezionare **Aggiungi al dashboard** se si vuole trovare facilmente la rete virtuale nel dashboard e quindi fare clic su **Crea**.
 	
-	![Aggiungi al dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "Aggiungere al dashboard")  
+	![Aggiungi al dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "Aggiungere al dashboard")
 
 14. Dopo aver fatto clic su **Crea**, nel dashboard verrà visualizzato un riquadro che riflette lo stato di avanzamento della rete virtuale. Il riquadro cambia durante la creazione della rete virtuale.
 
-	![Pannello Creazione della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Pannello Creazione della rete virtuale")  
+	![Pannello Creazione della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Pannello Creazione della rete virtuale")
 
 <!---HONumber=AcomDC_1005_2016-->

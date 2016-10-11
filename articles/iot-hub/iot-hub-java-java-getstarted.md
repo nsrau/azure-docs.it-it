@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="dominicbetts"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/11/2016"
-     ms.author="dobett"/> 
+     ms.author="dobett"/>
 
 # Introduzione all'hub IoT di Azure per Java
 
@@ -453,7 +453,7 @@ A questo punto è possibile eseguire le applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![Applicazione client Java per dispositivi dell'hub IoT per l'invio dei messaggi da dispositivo a cloud][8] 
+    ![Applicazione client Java per dispositivi dell'hub IoT per l'invio dei messaggi da dispositivo a cloud][8]
 
 3. Il riquadro **Utilizzo** nel [portale di Azure][lnk-portal] mostra il numero di messaggi inviati all'hub:
 
@@ -471,13 +471,13 @@ Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare al
 
 Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messaggi da dispositivo a cloud su vasta scala, vedere [Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial].
 
-<!-- Images. --> 
+<!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-java-java-getstarted/runapp1.png
 [8]: ./media/iot-hub-java-java-getstarted/runapp2.png
 [43]: ./media/iot-hub-java-java-getstarted/usage.png
 
-<!-- Links --> 
+<!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

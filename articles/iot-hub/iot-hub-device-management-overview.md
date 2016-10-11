@@ -5,7 +5,7 @@
  documentationCenter=""
  authors="bzurcher"
  manager="timlt"
- editor=""/>  
+ editor=""/>
 
 <tags
  ms.service="iot-hub"
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="09/16/2016"
- ms.author="bzurcher"/>  
+ ms.author="bzurcher"/>
 
 
 
@@ -34,7 +34,7 @@ I dispositivi si considerano gestiti dall'hub IoT quando eseguono una semplice a
 
 All'IoT è associato un esclusivo insieme di sfide di gestione e una soluzione deve tenere in considerazione i principi di gestione dei dispositivi IoT riportati di seguito.
 
-![][img-dm_principles]  
+![][img-dm_principles]
 
 - **Scalabilità e automazione**: l'IoT richiede strumenti semplici per automatizzare le attività di routine e consentire a uno staff operativo relativamente ridotto di gestire milioni di dispositivi. Quotidianamente, gli operatori si aspettano di gestire le operazioni dei dispositivi in remoto e in blocco ricevendo avvisi solo quando si verificano problemi che richiedono attenzione diretta.
 
@@ -48,7 +48,7 @@ All'IoT è associato un esclusivo insieme di sfide di gestione e una soluzione d
 
 Nonostante i progetti IoT varino considerevolmente, esiste un set di modelli comuni per la gestione dei dispositivi. In Azure IoT, questi modelli sono identificati all'interno di un ciclo di vita dei dispositivi IoT costituito da cinque fasi distinte:
 
-![][img-device_lifecycle]  
+![][img-device_lifecycle]
 
 1. **Pianificazione**: gli operatori possono creare uno schema di proprietà dei dispositivi che consentirà di eseguire query su un gruppo di dispositivi e indirizzare le operazioni di gestione in blocco in modo facile e accurato.
 
@@ -76,23 +76,23 @@ L'hub IoT supporta il set seguente di modelli (iniziali) di gestione dei disposi
 
 1. **Riavvio**: l'applicazione back-end comunica al dispositivo tramite un metodo D2C che è stato avviato un riavvio. Il dispositivo usa le proprietà segnalate del dispositivo gemello per aggiornare il proprio stato di riavvio.
 
-    ![][img-reboot_pattern]  
+    ![][img-reboot_pattern]
 
 2. **Ripristino delle impostazioni predefinite**: l'applicazione back-end comunica al dispositivo tramite un metodo D2C che è stato avviato un ripristino delle impostazioni predefinite. Il dispositivo usa le proprietà segnalate del dispositivo gemello per aggiornare il proprio stato di ripristino delle impostazioni predefinite.
 
-    ![][img-facreset_pattern]  
+    ![][img-facreset_pattern]
 
 3. **Configurazione**: l'applicazione back-end usa le proprietà desiderate del dispositivo gemello per configurare il software in esecuzione nel dispositivo. Il dispositivo usa le proprietà segnalate del dispositivo gemello per aggiornare il proprio stato di configurazione.
 
-    ![][img-config_pattern]  
+    ![][img-config_pattern]
 
 4. **Aggiornamento del firmware**: l'applicazione back-end comunica al dispositivo tramite un metodo D2C che è stato avviato un aggiornamento del firmware. Il dispositivo avvia un processo in più passaggi per scaricare il pacchetto del firmware, applicarlo e infine riconnettersi al servizio hub IoT. Durante questo processo in più passaggi, il dispositivo usa le proprietà segnalate del dispositivo gemello per aggiornare il proprio avanzamento e stato.
 
-    ![][img-fwupdate_pattern]  
+    ![][img-fwupdate_pattern]
 
 5. **Creazione di report sull'avanzamento e sullo stato**: l'applicazione back-end esegue query sui dispositivi gemelli in un set di dispositivi per creare report sullo stato e sull'avanzamento delle azioni in esecuzione nel dispositivo.
 
-    ![][img-report_progress_pattern]  
+    ![][img-report_progress_pattern]
 
 ## Passaggi successivi
 
@@ -100,7 +100,7 @@ Usando i blocchi predefiniti offerti dall'hub IoT di Azure, gli sviluppatori pos
 
 Per altre informazioni sulle funzionalità di gestione dei dispositivi dell'hub IoT di Azure, vedere l'esercitazione di [introduzione alla gestione dei dispositivi dell'hub IoT di Azure][lnk-get-started].
 
-<!-- Images and links -->  
+<!-- Images and links -->
 [img-dm_principles]: media/iot-hub-device-management-overview/image4.png
 [img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
 [img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png

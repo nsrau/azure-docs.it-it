@@ -12,7 +12,7 @@ Azure IoT Hub è un componente essenziale quando si implementa questa architettu
 
 Il diagramma seguente mostra una tipica architettura di soluzione IoT. Il diagramma non include i nomi di alcun servizio di Azure specifico, ma descrive gli elementi chiave di un'architettura di soluzione IoT generica. In questa architettura, i dispositivi IoT raccolgono i dati che inviano a un gateway nel cloud. Il gateway nel cloud rende disponibili i dati per l'elaborazione da altri servizi back-end da cui i dati vengono recapitati ad altre applicazioni line-of-business o agli operatori umani tramite un dashboard o un altro dispositivo di presentazione.
 
-![Architettura della soluzione IoT][img-solution-architecture]  
+![Architettura della soluzione IoT][img-solution-architecture]
 
 > [AZURE.NOTE] Per un'analisi approfondita dell'architettura IoT, vedere l'[architettura di riferimento di Microsoft Azure IoT][lnk-refarch].
 
@@ -51,7 +51,7 @@ Le soluzioni IoT possono includere cicli di feedback automatici. Un modulo di an
 
 Il livello di connettività aziendale e di presentazione consente agli utenti finali di interagire con la soluzione IoT e i dispositivi. Consente anche agli utenti di visualizzare e analizzare i dati raccolti dai dispositivi. Queste visualizzazioni possono assumere la forma di dashboard o report di BI che possono mostrare sia i dati cronologici sia i dati quasi in tempo reale. Ad esempio, un operatore può controllare lo stato di determinate stazioni di pompaggio e vedere gli avvisi generati dal sistema. Questo livello consente inoltre l'integrazione della soluzione back-end IoT con le applicazioni line-of-business esistenti che possono legarsi ai processi o ai flussi di lavoro aziendali. La soluzione di manutenzione predittiva, ad esempio, può essere integrata con un sistema di pianificazione che prenota un tecnico per visitare una stazione di pompaggio quando la soluzione identifica una pompa che richiede manutenzione.
 
-![Dashboard della soluzione IoT][img-dashboard]  
+![Dashboard della soluzione IoT][img-dashboard]
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png

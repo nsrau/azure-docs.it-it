@@ -5,7 +5,7 @@
 	documentationCenter="xamarin"
 	authors="adrianhall"
 	manager="dwrede"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="10/01/2016"
-	ms.author="adrianha"/>  
+	ms.author="adrianha"/>
 
 
 #Creare un'app per Xamarin.iOS
@@ -65,13 +65,13 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 
 	![][9]
 
-	![][8]  
+	![][8]
 
 4. Premere F5 per compilare il progetto e avviare l'app nell'emulatore iPhone.
 
 5. Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_, e quindi fare clic sul pulsante **+**.
 
-	![][10]  
+	![][10]
 
 	Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
 
@@ -83,7 +83,7 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 
 * [Aggiungere notifiche push all'app](app-service-mobile-xamarin-ios-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. -->  
+<!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
 [Create a new mobile app backend]: #create-new-service
 [Next Steps]: #next-steps
@@ -96,7 +96,7 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 [9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_1005_2016-->

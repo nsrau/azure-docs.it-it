@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jeffsta"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/30/2016"
-	ms.author="curtand;jeffsta"/>  
+	ms.author="curtand;jeffsta"/>
 
 # Aggiungere un nome di dominio personalizzato ad Azure Active Directory
 

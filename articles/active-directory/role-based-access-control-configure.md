@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
 	ms.date="09/30/2016"
-	ms.author="kgremban"/>  
+	ms.author="kgremban"/>
 
 # Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure
 
@@ -32,7 +32,7 @@ Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione
 3. Selezionare **Utenti** nella parte superiore destra del pannello del gruppo di risorse. ![Utenti, icona](./media/role-based-access-control-configure/users_icon.png)
 4. Il pannello **Utenti** elenca tutti gli utenti, i gruppi e le applicazioni a cui è stato consentito l'accesso al gruppo di risorse.
 
-	![Screenshot del pannello Utenti: accesso ereditato e assegnato](./media/role-based-access-control-configure/view-access.png)  
+	![Screenshot del pannello Utenti: accesso ereditato e assegnato](./media/role-based-access-control-configure/view-access.png)
 
 Si noti che per alcuni utenti l'accesso è stato **Assegnato**, mentre per altri è stato **Ereditato**. L'accesso viene assegnato in modo specifico al gruppo di risorse oppure ereditato da un'assegnazione nella sottoscrizione padre.
 
@@ -46,7 +46,7 @@ Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione
 2. Selezionare il ruolo da assegnare nel pannello **Selezionare un ruolo**.
 3. Selezionare l'utente, il gruppo o l'applicazione nella directory a cui si vuole concedere l'accesso. È possibile cercare nella directory usando nomi visualizzati, indirizzi di posta elettronica e identificatori di oggetto.
 
-	![Screenshot del pannello Aggiungi utenti: casella di ricerca](./media/role-based-access-control-configure/grant-access2.png)  
+	![Screenshot del pannello Aggiungi utenti: casella di ricerca](./media/role-based-access-control-configure/grant-access2.png)
 
 4. Fare clic su **OK** per creare l'assegnazione. Il popup **Aggiunta dell'utente in corso** tiene traccia dello stato. ![Indicatore di stato dell'aggiunta di utenti, schermata](./media/role-based-access-control-configure/addinguser_popup.png)
 
@@ -60,7 +60,7 @@ Dopo aver aggiunto un'assegnazione di ruolo, viene visualizzato il pannello **Ut
 
 Le assegnazioni ereditate non possono essere rimosse. Si noti nell'immagine seguente che il pulsante Rimuovi è disabilitato. Esaminare i dettagli in **Nodo assegnazione**. Passare alla risorsa inclusa nell'elenco per rimuovere l'assegnazione di ruolo.
 
-![Screenshot del pannello Utenti: l'accesso ereditato disabilita il pulsante Rimuovi](./media/role-based-access-control-configure/remove-access2.png)  
+![Screenshot del pannello Utenti: l'accesso ereditato disabilita il pulsante Rimuovi](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Altri strumenti per gestire l'accesso
 È possibile assegnare i ruoli e gestire l'accesso con i comandi del Controllo degli accessi in base al ruolo di Azure in strumenti diversi dal portale di Azure. Per altre informazioni sui prerequisiti e iniziare a usare i comandi del Controllo degli accessi in base al ruolo di Azure, usare i collegamenti seguenti.

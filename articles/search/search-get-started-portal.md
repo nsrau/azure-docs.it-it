@@ -6,7 +6,7 @@
 	authors="HeidiSteen" 
 	manager="jhubbard" 
 	editor=""
-    tags="azure-portal"/>  
+    tags="azure-portal"/>
 
 <tags 
 	ms.service="search" 
@@ -15,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.date="10/03/2016" 
-	ms.author="heidist"/>  
+	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure nel portale
 
@@ -58,7 +58,7 @@ Prima di continuare, creare un [database di DocumentDB di esempio](#apdx-sampled
 
 3. Scegliere l'account DocumentDB esistente, nonché il database e la raccolta. Se si usano i dati di esempio messi a disposizione, la definizione dell'origine dati sarà simile alla seguente:
 
-    ![][2]  
+    ![][2]
 
 Si noti che la query viene ignorata. Il motivo è che questa volta non viene implementato il rilevamento delle modifiche nel set di dati. Se il set di dati include un campo che tiene traccia del momento in cui un record viene aggiornato, è possibile configurare un indicizzatore di Ricerca di Azure per usare il rilevamento delle modifiche per aggiornamenti selettivi dell'indice.
 
@@ -150,7 +150,7 @@ Questa sezione crea un piccolo database in DocumentDB che può essere usato per 
 
 Le istruzioni seguenti forniscono indicazioni generali, ma non sono esaustive. Se è necessaria altra assistenza per le attività o lo spostamento nel portale di DocumentDB, è possibile vedere la documentazione di DocumentDB. La maggior parte dei comandi necessari sono tuttavia sulla barra dei comandi del servizio nella parte superiore del dashboard o nel pannello del database.
 
-  ![][1]  
+  ![][1]
 
 ### Creare musicstoredb per questa esercitazione
 
@@ -174,7 +174,7 @@ Un modo semplice per eseguire questa operazione consiste nell'usare la query pre
 Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al documento 669. Dopo aver caricato i dati, è possibile [tornare ai passaggi di questa procedura dettagliata](#defineDS) per creare un indice tramite la procedura guidata **Importa dati**.
 
 
-<!--Image references-->  
+<!--Image references-->
 [1]: ./media/search-get-started-portal/AzureSearch-GetStart-Docdbmenu1.png
 [2]: ./media/search-get-started-portal/AzureSearch-GetStart-DataSource.png
 [3]: ./media/search-get-started-portal/AzureSearch-GetStart-DefaultIndex.png

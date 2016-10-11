@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="stevenpo"
-	editor="curtand"/>  
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="10/03/2016"
-	ms.author="maheshu"/>  
+	ms.author="maheshu"/>
 
 # Creare o selezionare una rete virtuale per Servizi di dominio Azure AD
 
@@ -35,17 +35,17 @@ Eseguire i passaggi di configurazione seguenti per creare una rete virtuale di A
 
 2. Selezionare il nodo **Reti** nel riquadro sinistro.
 
-    ![Reti virtuali](./media/active-directory-domain-services-getting-started/networks-node.png)  
+    ![Reti virtuali](./media/active-directory-domain-services-getting-started/networks-node.png)
 
 3. Fare clic su **NUOVO** nel riquadro attività nella parte inferiore della pagina.
 
-    ![Nodo Reti virtuali](./media/active-directory-domain-services-getting-started/virtual-networks.png)  
+    ![Nodo Reti virtuali](./media/active-directory-domain-services-getting-started/virtual-networks.png)
 
 4. Nel nodo **Servizi di rete** selezionare **Rete virtuale**.
 
 5. Fare clic su **Creazione rapida** per creare una rete virtuale.
 
-    ![Rete virtuale - creazione rapida](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)  
+    ![Rete virtuale - creazione rapida](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 
 6. Specificare un **Nome** per la rete virtuale. È inoltre possibile scegliere di configurare i campi **Spazio di indirizzi** o **Numero massimo VM** per la rete. Per il momento è possibile confermare l'impostazione "Nessuno" per **Server DNS**. È possibile aggiornare l'impostazione Server DNS dopo l'abilitazione di Azure AD Domain Services.
 
@@ -53,18 +53,18 @@ Eseguire i passaggi di configurazione seguenti per creare una rete virtuale di A
 
 8. Per creare la rete virtuale, fare clic sul pulsante **Crea rete virtuale**.
 
-    ![Creare una rete virtuale per Servizi di dominio Azure AD.](./media/active-directory-domain-services-getting-started/create-vnet.png)  
+    ![Creare una rete virtuale per Servizi di dominio Azure AD.](./media/active-directory-domain-services-getting-started/create-vnet.png)
 
 9. Dopo avere creato la rete virtuale, selezionarla e fare clic sulla scheda **CONFIGURA**.
 
-    ![Creare una subnet](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)  
+    ![Creare una subnet](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
 
 10. Passare alla sezione **Spazi di indirizzi della rete virtuale**. Fare clic su **Aggiungi subnet** e specificare una subnet con il nome **AaddsSubnet**. Fare clic su **Salva** per creare la subnet.
 
-    ![Creare una subnet per Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)  
+    ![Creare una subnet per Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
 
-<br>  
+<br>
 
 ## Attività 3: Abilitare Servizi di dominio Azure AD
 L'attività di configurazione successiva consiste nell'[abilitare Servizi di dominio Azure AD](active-directory-ds-getting-started-enableaadds.md).

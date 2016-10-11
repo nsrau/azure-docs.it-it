@@ -6,7 +6,7 @@
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
- editor=""/>  
+ editor=""/>
 
 <tags
  ms.service="iot-suite"
@@ -15,7 +15,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="08/09/2016"
- ms.author="dobett"/>  
+ ms.author="dobett"/>
 
 # Informazioni sulle soluzioni preconfigurate di Azure IoT Suite
 
@@ -34,7 +34,8 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoraggio remoto][lnk-getstarted-preconfigured] | Sì | Sì | Sì | Sì | - | | [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
+| [Monitoraggio remoto][lnk-getstarted-preconfigured] | Sì | Sì | Sì | Sì | - |
+| [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
 
 - *Inserimento di dati*: inserimento di dati su vasta scala nel cloud.
 - *Identità del dispositivo*: gestione delle identità univoche di ogni dispositivo connesso.

@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
 	ms.date="07/01/2016"
-	ms.author="cephalin"/>  
+	ms.author="cephalin"/>
 
 # Introduzione alle app Web Node.js nel servizio app di Azure
 
@@ -220,7 +220,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 - [Introduzione alle app Web in Servizio app di Azure](app-service-web-get-started.md)
 - [Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)]
 
-<!-- URL List -->  
+<!-- URL List -->
 
 [Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
@@ -240,7 +240,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
-<!-- IMG List -->  
+<!-- IMG List -->
 
 [deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
 [iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png

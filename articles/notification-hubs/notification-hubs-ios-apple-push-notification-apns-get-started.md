@@ -6,7 +6,7 @@
     keywords="notifica push,notifiche push,notifiche push ios"
 	authors="wesmc7777"
 	manager="erikre"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="notification-hubs"
@@ -15,7 +15,7 @@
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Invio di notifiche push a iOS con Hub di notifica di Azure
 
@@ -469,7 +469,7 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 
 
-<!-- Images. -->  
+<!-- Images. -->
 
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
@@ -487,7 +487,7 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Mobile Services iOS SDK]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK versione 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533

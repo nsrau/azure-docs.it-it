@@ -5,7 +5,7 @@
  documentationCenter=".NET"
  authors="derek1ee"
  manager="kevinlam1"
- editor=""/>  
+ editor=""/>
 <tags
  ms.service="scheduler"
  ms.workload="infrastructure-services"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="get-started-article"
  ms.date="08/18/2016"
- ms.author="deli"/>  
+ ms.author="deli"/>
 
 # Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
 

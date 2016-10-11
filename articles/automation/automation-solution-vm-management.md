@@ -6,7 +6,7 @@
     authors="MGoedtel"
     manager="jwhit"
     editor=""
-	/>  
+	/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="10/04/2016"
-    ms.author="magoedte"/>  
+    ms.author="magoedte"/>
 
 # Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 
@@ -42,7 +42,7 @@ CleanSolution-MS-Mgmt-VM | Quando si elimina la soluzione dalla sottoscrizione, 
 SendMailO365-MS-Mgmt | Questo runbook invia un messaggio di posta elettronica tramite Office 365 Exchange.|
 StartByResourceGroup-MS-Mgmt-VM | Questo runbook avvia le macchine virtuali, sia quelle classiche che quelle basate su Azure Resource Manager, che si trovano in un determinato elenco di gruppi di risorse di Azure.
 StopByResourceGroup-MS-Mgmt-VM | Questo runbook arresta le macchine virtuali, sia quelle classiche che quelle basate su Azure Resource Manager, che si trovano in un determinato elenco di gruppi di risorse di Azure.|
-<br>  
+<br>
 
 ### Variabili
 
@@ -69,7 +69,7 @@ StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifica il testo per l
 StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifica i destinatari del messaggio di posta elettronica. Immettere i nomi separati da un punto e virgola (;).|
 StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;). I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco. Il valore predefinito (asterisco) permette di includere tutti i gruppi di risorse nella sottoscrizione.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifica la sottoscrizione che contiene le macchine virtuali che la soluzione deve gestire. Deve trattarsi della stessa sottoscrizione in cui risiede l'account di Automazione della soluzione.|  
-<br>  
+<br>
 
 ### Pianificazioni
 

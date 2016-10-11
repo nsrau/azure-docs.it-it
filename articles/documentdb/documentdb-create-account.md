@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="mimig1"
 	manager="jhubbard"
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags
 	ms.service="documentdb"
@@ -64,7 +64,7 @@ Se non si ha familiarità con DocumentDB, è possibile guardare [questo](https:/
 
     ![Screenshot del pannello Gruppo di risorse: inizio dello sviluppo dell'applicazione](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-6.png)
 
-    ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Screenshot del pannello del livello di coerenza: coerenza di sessione](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps

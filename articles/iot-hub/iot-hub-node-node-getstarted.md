@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="dominicbetts"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -30,7 +30,7 @@ Al termine di questa esercitazione si avranno tre applicazioni console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-+ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
++ Node. js 0.12.x o versione successiva. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
 + Un account Azure attivo. Se non si ha un account è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Crea subito il tuo account Azure gratuito][lnk-free-trial].
 
@@ -262,7 +262,7 @@ A questo punto è possibile eseguire le applicazioni.
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![Applicazione client Node.js del servizio hub IoT per il monitoraggio dei messaggi da dispositivo a cloud][7]  
+    ![Applicazione client Node.js del servizio hub IoT per il monitoraggio dei messaggi da dispositivo a cloud][7]
 
 2. Eseguire questo comando al prompt dei comandi nella cartella **simulateddevice** per iniziare a inviare dati di telemetria all'hub IoT:
 
@@ -270,7 +270,7 @@ A questo punto è possibile eseguire le applicazioni.
     node SimulatedDevice.js
     ```
 
-    ![Applicazione client Node.js per dispositivi dell'hub IoT per l'invio dei messaggi da dispositivo a cloud][8]  
+    ![Applicazione client Node.js per dispositivi dell'hub IoT per l'invio dei messaggi da dispositivo a cloud][8]
 
 3. Il riquadro **Utilizzo** nel [portale di Azure][lnk-portal] mostra il numero di messaggi inviati all'hub:
 
@@ -288,12 +288,12 @@ Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare al
 
 Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messaggi da dispositivo a cloud su vasta scala, vedere [Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial].
 
-<!-- Images. --> 
+<!-- Images. -->
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 
-<!-- Links -->  
+<!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

@@ -6,7 +6,7 @@
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager"/>  
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="09/27/2016"
-	ms.author="iainfou"/>  
+	ms.author="iainfou"/>
 
 # Diversi modi per creare una macchina virtuale Linux in Azure
 

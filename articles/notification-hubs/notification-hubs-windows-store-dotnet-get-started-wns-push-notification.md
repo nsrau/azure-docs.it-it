@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="erikre"
-	editor="erikre"/>  
+	editor="erikre"/>
 
 <tags
 	ms.service="notification-hubs"
@@ -259,13 +259,13 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 
 
 
-<!-- Images. --> 
+<!-- Images. -->
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
-<!-- URLs. --> 
+<!-- URLs. -->
 
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

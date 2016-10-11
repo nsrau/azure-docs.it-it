@@ -5,7 +5,7 @@
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
- editor=""/>  
+ editor=""/>
 
 <tags
  ms.service="iot-hub"

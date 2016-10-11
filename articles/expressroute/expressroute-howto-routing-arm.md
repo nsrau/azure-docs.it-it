@@ -6,7 +6,7 @@
    authors="ganesr"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 <tags
    ms.service="expressroute"
    ms.devlang="na"

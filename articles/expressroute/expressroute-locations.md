@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
-   editor="" />  
+   editor="" />
 <tags
    ms.service="expressroute"
    ms.devlang="na"

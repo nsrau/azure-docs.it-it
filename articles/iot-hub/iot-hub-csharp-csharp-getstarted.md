@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dominicbetts"
 	manager="timlt"
-	editor=""/>  
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -44,13 +44,13 @@ In questa sezione si scriverà un'app console di Windows che crea un'identità d
 
 1. In Visual Studio aggiungere un progetto desktop di Windows classico in Visual C# usando il modello di progetto **Applicazione console**. Verificare che la versione di .NET Framework sia 4.5.1 o successiva. Denominare il progetto **CreateDeviceIdentity**.
 
-	![Nuovo progetto desktop di Windows classico in Visual C#][10]  
+	![Nuovo progetto desktop di Windows classico in Visual C#][10]
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **CreateDeviceIdentity** e quindi scegliere **Gestisci pacchetti NuGet**.
 
 3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'utilizzo. Questa procedura scarica e installa il pacchetto NuGet [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] e aggiunge un riferimento a tale pacchetto e alle relative dipendenze.
 
-	![Finestra Gestione pacchetti NuGet][11]  
+	![Finestra Gestione pacchetti NuGet][11]
 
 4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs**:
 
@@ -101,7 +101,7 @@ In questa sezione si creerà un'app console di Windows che legge i messaggi da d
 
 1. In Visual Studio aggiungere un progetto desktop di Windows classico in Visual C# usando il modello di progetto **Applicazione console**. Verificare che la versione di .NET Framework sia 4.5.1 o successiva. Denominare il progetto **ReadDeviceToCloudMessages**.
 
-    ![Nuovo progetto desktop di Windows classico in Visual C#][10]  
+    ![Nuovo progetto desktop di Windows classico in Visual C#][10]
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ReadDeviceToCloudMessages** e quindi scegliere **Gestisci pacchetti NuGet**.
 
@@ -165,7 +165,7 @@ In questa sezione si creerà un'app console di Windows che simula un dispositivo
 
 1. In Visual Studio aggiungere un progetto desktop di Windows classico in Visual C# usando il modello di progetto **Applicazione console**. Verificare che la versione di .NET Framework sia 4.5.1 o successiva. Denominare il progetto **SimulatedDevice**.
 
-    ![Nuovo progetto desktop di Windows classico in Visual C#][10]  
+    ![Nuovo progetto desktop di Windows classico in Visual C#][10]
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulatedDevice** e quindi scegliere **Gestisci pacchetti NuGet**.
 
@@ -231,7 +231,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 1.	In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli** e quindi selezionare **Avvio** come azione per entrambi i progetti **ReadDeviceToCloudMessages** e **SimulatedDevice**.
 
-   	![Proprietà del progetto di avvio][41]  
+   	![Proprietà del progetto di avvio][41]
 
 2.	Premere **F5** avviare entrambe le app in esecuzione. L'output della console dall'app **SimulatedDevice** visualizza i messaggi inviati dal dispositivo simulato all'hub IoT. L'output della console dall'app **ReadDeviceToCloudMessages** visualizza i messaggi ricevuti dall'hub IoT.
 
@@ -254,7 +254,7 @@ Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare al
 
 Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messaggi da dispositivo a cloud su vasta scala, vedere [Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial].
 
-<!-- Images. --> 
+<!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png

@@ -6,7 +6,7 @@
     keywords="notifica push, inviare notifiche push, push per windows phone"
 	authors="wesmc7777"
 	manager="erikre"
-	editor="erikre"/>  
+	editor="erikre"/>
 
 <tags
 	ms.service="notification-hubs"
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="10/03/2016"
-	ms.author="wesmc"/>  
+	ms.author="wesmc"/>
 
 # Invio di notifiche push con Hub di notifica di Azure in Windows Phone
 
@@ -190,7 +190,7 @@ Per ulteriori informazioni sull'utilizzo di Hub di notifica, vedere la pagina de
 
 
 
-<!-- Images. -->  
+<!-- Images. -->
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
@@ -209,7 +209,7 @@ Per ulteriori informazioni sull'utilizzo di Hub di notifica, vedere la pagina de
 
 
 
-<!-- URLs. -->  
+<!-- URLs. -->
 [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx

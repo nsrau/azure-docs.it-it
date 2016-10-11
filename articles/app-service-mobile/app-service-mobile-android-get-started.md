@@ -5,7 +5,7 @@
     documentationCenter="android"
     authors="yuaxu"
     manager="erikre"
-    editor=""/>  
+    editor=""/>
 
 <tags
     ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
     ms.devlang="java"
     ms.topic="hero-article"
     ms.date="10/01/2016"
-    ms.author="yuaxu"/>  
+    ms.author="yuaxu"/>
 
 #Creare un'app per Android
 

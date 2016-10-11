@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
-	editor=""/>  
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/26/2016"
-	ms.author="rachelap"/>  
+	ms.author="rachelap"/>
 
 # Panoramica di App Web
 

@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>  
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="09/22/2016" 
-	ms.author="spelluru"/>  
+	ms.author="spelluru"/>
 
 # Introduzione al servizio Azure Data Factory, un servizio di integrazione dati nel cloud
 

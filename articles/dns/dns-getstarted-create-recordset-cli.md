@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="sdwheeler"
    manager="carmonm"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="dns"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="sewhee"/> 
+   ms.author="sewhee"/>
 
 # Creare set di record e record DNS con l'interfaccia della riga di comando
 

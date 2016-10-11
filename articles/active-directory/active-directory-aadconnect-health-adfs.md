@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="karavar"
 	manager="femila"
-	editor="karavar"/>  
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/30/2016"
-	ms.author="vakarand"/>  
+	ms.author="vakarand"/>
 
 # Uso di Azure AD Connect Health con AD FS
 La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md).
@@ -25,7 +25,7 @@ La sezione degli avvisi di Azure AD Connect Health contiene l'elenco degli avvis
 
 È possibile fare doppio clic su un avviso attivo o risolto per aprire un nuovo pannello con informazioni aggiuntive, procedure utili per risolvere l'avvisto e collegamenti alla documentazione rilevante. È anche possibile visualizzare dati storici sugli avvisi risolti in passato.
 
-![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/alert2.png)  
+![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/alert2.png)
 
 
 
@@ -34,7 +34,7 @@ Analisi di utilizzo di Azure AD Connect Health analizza il traffico di autentica
 
 >[AZURE.NOTE] Per poter usare l'analisi di utilizzo con AD FS, è necessario verificare che il controllo di AD FS sia abilitato. Per altre informazioni, vedere [Abilitare il controllo per AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
-![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)  
+![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
 Per selezionare altre metriche, specificare un intervallo di tempo o modificare il raggruppamento, è sufficiente fare clic con il pulsante destro del mouse sul pannello dell'analisi di utilizzo e scegliere Modifica grafico. È quindi possibile specificare l'intervallo di tempo, selezionare metriche diverse e cambiare il raggruppamento. È possibile visualizzare la distribuzione del traffico di autenticazione in "metriche" diverse e raggruppare ogni metrica con i parametri di raggruppamento pertinenti descritti nella tabella seguente:
 
@@ -58,7 +58,7 @@ Per selezionare altre metriche, specificare un intervallo di tempo o modificare 
 Il monitoraggio delle prestazioni di Azure AD Connect Health offre informazioni di monitoraggio sulle metriche. Se si seleziona la casella Monitoraggio, viene visualizzato un nuovo pannello che include informazioni dettagliate sulle metriche.
 
 
-![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)  
+![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
 
 
 Selezionando l'opzione Filtro nella parte superiore del pannello, è possibile filtrare in base al server per visualizzare le metriche di un singolo server. Per modificare le metriche, fare clic con il pulsante destro del mouse sul grafico di monitoraggio sotto il pannello Monitoraggio e scegliere Modifica grafico. Dal nuovo pannello visualizzato è quindi possibile selezionare altre metriche nell'elenco a discesa e specificare un intervallo di tempo per cui visualizzare i dati delle prestazioni.
@@ -74,7 +74,7 @@ Esistono tuttavia altri motivi che possono provocare un numero inaspettatamente 
 
 Azure AD Connect Health per AD FS fornisce un report sui primi 50 utenti con tentativi di accesso non riusciti a causa di un nome utente o una password non valida. Questo report viene ottenuto elaborando gli eventi di controllo generati da tutti i server AD FS nelle farm.
 
-![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)  
+![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
 All'interno del report è possibile accedere facilmente alle informazioni seguenti:
 
@@ -88,7 +88,7 @@ Il grafico fornisce le informazioni seguenti:
 - Numero totale di accessi non riusciti a causa di un nome utente o una password non valida ogni giorno.
 - Numero totale di utenti univoci con accessi non riusciti ogni giorno.
 
-![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report2a.png)  
+![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report2a.png)
 
 Il report fornisce le informazioni seguenti:
 
