@@ -3,8 +3,8 @@
  description="Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure, inclusi processi e raccolte di processi. Fornisce un esempio completo di un processo pianificato."
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="get-started-article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 # Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
 
@@ -214,4 +214,4 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'in
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

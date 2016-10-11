@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
@@ -86,14 +86,33 @@ Ecco gli elementi che è possibile personalizzare nella pagina di accesso:
 
 ![][5]
 
- Elemento della pagina | Posizione nella pagina
-	------------- | -------------
-Logo banner | Visualizzato in alto a destra nella pagina. Sostituisce il logo visualizzato dal sito di destinazione a cui si accede, ad esempio Office 365 o Azure.
-Immagine di grandi dimensioni/colore di sfondo | Visualizzati a sinistra nella pagina. Sostituisce l'immagine visualizzata dal sito di destinazione a cui si accede. Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta o su schermi stretti.
-Testo pagina di accesso | Visualizzato sopra il piè di pagina quando è necessario fornire informazioni utili prima di un accesso con un account aziendale o dell'istituto di istruzione. Ad esempio, è possibile includere il numero di telefono dell'help desk o una nota legale.
+
+
+| Elemento della pagina | Posizione nella pagina |
+|:--            | ---                  |
+|Logo banner | Visualizzato in alto a destra nella pagina. Sostituisce il logo visualizzato dal sito di destinazione a cui si accede, ad esempio Office 365 o Azure.|
+|Immagine di grandi dimensioni/colore di sfondo | Visualizzati a sinistra nella pagina. Sostituisce l'immagine visualizzata dal sito di destinazione a cui si accede. Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta o su schermi stretti.|
+|Mantieni l'accesso | Visualizzato sotto la casella di testo Password. |
+|Testo pagina di accesso | Visualizzato sopra il piè di pagina quando è necessario fornire informazioni utili prima di un accesso con un account aziendale o dell'istituto di istruzione. Ad esempio, è possibile includere il numero di telefono dell'help desk o una nota legale.|
+
 
 > [AZURE.NOTE]
 Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di grandi dimensioni, la pagina di accesso mostra il logo e l'immagine per il sito di destinazione, ovvero l'immagine dell'autostrada californiana di Office 365.
+
+
+Nella pagina di accesso la casella di controllo **Mantieni l'accesso** consente a un utente di rimanere connesso quando chiude e riapre il browser. Non influisce sulla durata della sessione. È possibile nascondere la casella di controllo nella pagina di accesso di Azure Active Directory.
+
+La casella di controllo viene selezionata o meno a seconda dell'impostazione di **Nascondi l'opzione Mantieni l'accesso**.
+
+![][9]
+
+
+Per nascondere la casella di controllo, configurare questa impostazione come **Nascosta**.
+
+> [AZURE.NOTE] Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dalla possibilità per gli utenti di selezionare questa casella. Se si configura questa impostazione come nascosta, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con una richiesta di accesso.
+
+
+
 
 È anche possibile localizzare tutti gli elementi della pagina. Dopo aver configurato un set di elementi di personalizzazione "predefinito", è possibile configurare altre versioni per impostazioni locali diverse. È anche possibile combinare e abbinare diversi elementi. Ad esempio, è possibile:
 
@@ -218,5 +237,6 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

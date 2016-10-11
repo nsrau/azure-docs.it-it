@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione all'IoT SDK per gateway | Microsoft Azure"
-	description="Procedura dettagliata dell'Azure IoT SDK per gateway con Linux che illustra i concetti chiave che è necessario comprendere quando si usa l'Azure IoT SDK per gateway."
+	description="Questa procedura dettagliata di Azure IoT Hub Gateway SDK usa Linux per illustrare i concetti chiave che è necessario comprendere quando si usa Azure IoT Hub Gateway SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -83,4 +83,4 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

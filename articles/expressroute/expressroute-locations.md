@@ -89,7 +89,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Softbank** | Supportato | Supportato | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Supportato | Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silicon Valley, Singapore, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Dublino, Londra |
-| **Telefonica** | Supportato | Presto disponibile | Sao Paulo |
+| **Telefonica** | Supportato | Supportato | Sao Paulo |
 | **Telenor** | Supportato | Supportato | Amsterdam, Londra |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Imminente | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
@@ -171,4 +171,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mappa delle località"
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

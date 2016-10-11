@@ -132,7 +132,7 @@ Lo script di PowerShell seguente crea un database SQL e tutte le risorse dipende
 ## Passaggi successivi
 Dopo aver creato un database SQL e aver eseguito le attività di configurazione del database di base, è possibile:
 
-- [Gestire il database SQL con PowerShell](sql-database-command-line-tools.md)
+- [Gestire il database SQL con PowerShell](sql-database-manage-powershell.md)
 - [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
 
 
@@ -140,4 +140,4 @@ Dopo aver creato un database SQL e aver eseguito le attività di configurazione 
 
 - [Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -3,7 +3,7 @@
 	description="Seguire questa esercitazione per iniziare a usare i back-end dell'app per dispositivi mobili di Azure per la distribuzione di app UWP (Universal Windows Platform) in C#, Visual Basic o JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
-	ms.author="glenga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 #Creare un'app Windows
 
@@ -91,4 +91,4 @@ Dopo aver configurato il back-end dell'app per dispositivi mobili, è possibile 
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

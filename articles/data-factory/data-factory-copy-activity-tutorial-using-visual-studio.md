@@ -19,12 +19,13 @@
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio
 > [AZURE.SELECTOR]
 - [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 - [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+
 
 Questa esercitazione mostra come creare e monitorare un'istanza di Azure Data Factory con Visual Studio. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
 
@@ -344,4 +345,4 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 | [Set di dati](data-factory-create-datasets.md) | Questo articolo fornisce informazioni sui set di dati in Azure Data Factory.
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

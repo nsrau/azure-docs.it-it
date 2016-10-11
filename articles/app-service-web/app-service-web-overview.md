@@ -24,6 +24,7 @@ Il video di 5 minuti disponibile di seguito illustra App Web del servizio app di
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
 
+
 ## Informazioni sull'app Web in un servizio app
 
 Un'*app Web* del servizio app è una risorsa di calcolo offerta da Azure per l'hosting di un sito Web o di un'applicazione Web.
@@ -62,4 +63,4 @@ Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio a
 
 Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

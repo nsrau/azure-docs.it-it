@@ -3,7 +3,7 @@
    description="Informazioni su come creare zone DNS per il DNS di Azure dettagliato per avviare l'hosting del dominio DNS utilizzando CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Creare una zona DNS di Azure con l'interfaccia della riga di comando
 
@@ -42,25 +42,25 @@ Per queste istruzioni viene usata l'interfaccia della riga di comando di Microso
 
 Per trovare tutti i comandi del provider di rete nell'interfaccia della riga di comando di Azure, usare il comando seguente:
 
-	Azure network
+	azure network
 
 ### 2\. Passare alla modalità interfaccia della riga di comando
 
 DNS di Azure usa Gestione risorse di Azure. Assicurarsi di passare alla modalità interfaccia della riga di comando per usare i comandi di Azure Resource Manager.
 
-	Azure config mode arm
+	azure config mode arm
 
 ### 3\. Accedere con l'account Azure
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali. Tenere presente che è possibile usare solo account aziendali (ORGID).
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4\. Selezionare la sottoscrizione
 
 Scegliere le sottoscrizioni ad Azure da usare.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5\. Creare un gruppo di risorse
 
@@ -68,21 +68,21 @@ Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un
 
 Se si usa un gruppo di risorse esistente, è possibile ignorare questo passaggio.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6\. Registra
 
-Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network. La sottoscrizione di Azure deve essere registrata per usare questo provider di risorse prima di poter usare DNS di Azure. Questa operazione viene eseguita una sola volta per ogni sottoscrizione.
+Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network. Per poter usare il servizio DNS di Azure, la sottoscrizione di Azure deve essere registrata per l'uso di questo provider di risorse. Questa operazione viene eseguita una sola volta per ogni sottoscrizione.
 
-	Azure provider register --namespace Microsoft.Network
+	azure provider register --namespace Microsoft.Network
 
 
 ## Passaggio 2: Creare una zona DNS
 
 Una zona DNS viene creata utilizzando il comando `azure network dns zone create`. È possibile creare facoltativamente una zona DNS con tag. I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per etichettare le risorse a scopo di fatturazione o di raggruppamento. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
-Nel servizio DNS di Azure i nomi delle zone devono essere specificati senza la terminazione **"."**, ad esempio "**contoso.com**" invece di "**contoso.com."**.
+Nel servizio DNS di Azure i nomi delle zone devono essere specificati senza la terminazione **"."**, ad esempio "**contoso.com**" invece di "**contoso.com.**".
 
 
 ### Per creare una zona DNS
@@ -91,7 +91,7 @@ L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di riso
 
 Usare l'esempio per creare la zona DNS, sostituendo i valori con quelli personalizzati.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Per creare una zona DNS e tag.
 
@@ -99,7 +99,7 @@ L'interfaccia della riga di comando DNS di Azure supporta i tag nelle zone DNS s
 
 Usare l'esempio seguente per creare una zona DNS e i tag, sostituendo i valori con quelli personalizzati.
 
-	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+	azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Visualizzare i record
 
@@ -185,4 +185,4 @@ L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando
 
 Dopo aver creato una zona DNS, creare [set di record e record](dns-getstarted-create-recordset-cli.md) per avviare la risoluzione dei nomi per il dominio Internet.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

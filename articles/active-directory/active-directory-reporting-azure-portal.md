@@ -13,10 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 # Report di Azure Active Directory: anteprima
+
+> [AZURE.SELECTOR]
+- [Portale di Azure](active-directory-reporting-azure-portal.md)
+- [Portale di Azure classico](active-directory-reporting-guide.md)
 
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -216,4 +220,4 @@ Un altro metodo per filtrare le voci di un log di controllo consiste nel cercare
 
 Vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

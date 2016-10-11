@@ -19,12 +19,13 @@
 # Esercitazione: Creare una pipeline con l'attività di copia usando l'API REST
 > [AZURE.SELECTOR]
 - [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 - [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+
 
 Questa esercitazione mostra come creare e monitorare una data factory di Azure con l'API REST. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
 
@@ -464,7 +465,7 @@ In questa esercitazione è stata usata l'API REST per creare una data factory di
 4.	Creare una **pipeline** con un'attività di copia con BlobSource come origine e SqlSink come sink.
 
 ## Vedere anche
-| Argomento | Description |
+| Argomento | Descrizione |
 | :---- | :---- |
 | [Attività di spostamento dei dati](data-factory-data-movement-activities.md) | Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
@@ -491,4 +492,4 @@ In questa esercitazione è stata usata l'API REST per creare una data factory di
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

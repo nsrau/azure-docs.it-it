@@ -3,7 +3,7 @@
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin.Forms."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
-	ms.author="glenga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 #Creare un'app Xamarin.Forms
 
@@ -180,4 +180,4 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

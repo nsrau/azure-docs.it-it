@@ -15,8 +15,8 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
 #Creare un'app Apache Cordova
 
@@ -84,4 +84,4 @@ Informazioni su come usare gli SDK.
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

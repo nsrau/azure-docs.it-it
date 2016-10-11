@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="07/22/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Inviare notifiche push alle app Chrome con Hub di notifica di Azure
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Questo argomento illustra come usare Hub di notifica per inviare notifiche push a un'app Chrome, che saranno visualizzate nel contesto del browser Google Chrome. In questa esercitazione si creerà un'app Chrome che riceve notifiche push tramite [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/).
+Questo argomento illustra come usare Hub di notifica per inviare a un'app Chrome notifiche push che saranno visualizzate nel contesto del browser Google Chrome. In questa esercitazione si creerà un'app Chrome che riceve notifiche push tramite [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/).
 
 >[AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
@@ -434,9 +434,9 @@ A scopo di test, verranno inviate notifiche push a Chrome usando un'applicazione
 
 Per altre informazioni sugli hub di notifica, vedere [Panoramica dell'Hub di notifica].
 
-Per rivolgersi a utenti specifici, vedere l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti].
+Per rivolgersi a utenti specifici, vedere l'esercitazione sull'uso di [Hub di notifica di Azure per inviare notifiche agli utenti].
 
-Per segmentare gli utenti in base ai gruppi di interesse, eseguire l'esercitazione [Uso di Hub di notifica per inviare le ultime notizie].
+Per segmentare gli utenti per gruppi di interesse, eseguire l'esercitazione sull'uso di [Hub di notifica di Azure per inviare le ultime notizie].
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
@@ -474,7 +474,7 @@ Per segmentare gli utenti in base ai gruppi di interesse, eseguire l'esercitazio
 [libreria crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging per Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Uso di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Hub di notifica di Azure per inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

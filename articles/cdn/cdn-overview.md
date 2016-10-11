@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/01/2016"
+	ms.date="09/30/2016"
 	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -52,7 +52,7 @@ Per la rete CDN di Azure sono disponibili tre prodotti: **Rete CDN di Azure Stan
 
 | | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
-| Facile integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Facile integrazione con i servizi di Azure, ad esempio [Archiviazione](cdn-create-a-storage-account-with-cdn.md), [Servizi cloud](cdn-cloud-service-with-cdn.md), [App Web](../app-service-web/cdn-websites-with-cdn.md) e [Servizi multimediali](../media-services/media-services-manage-origins.md#enable-cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
 | Gestione tramite [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) o [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Supporto di HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Bilanciamento del carico. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
@@ -87,4 +87,4 @@ Informazioni su come automatizzare la rete CDN di Azure con [.NET](./cdn-app-dev
 
 Per informazioni sui prezzi, vedere [Prezzi del servizio Rete di distribuzione dei contenuti (rete CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

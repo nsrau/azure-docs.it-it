@@ -26,6 +26,7 @@ Il servizio app di Azure è un servizio cloud concepito per risolvere i problemi
 * Implementare, distribuire e pubblicare API con app per le API.
 * Combinare applicazioni aziendali in flussi di lavoro e trasformare dati con app per la logica.
 
+
 Tutti i tipi di app si basano sulla piattaforma scalabile e flessibile di app Web che offre agli sviluppatori un'esperienza ottimizzata per l'intero ciclo di vita, dalla progettazione di app fino alla manutenzione. Le funzionalità del ciclo di vita mettono a disposizione:
 
 * Creazione rapida di app: iniziare da zero o selezionare un pacchetto OSS da Azure Marketplace.
@@ -39,4 +40,4 @@ Complessivamente le funzionalità del servizio app consentono agli sviluppatori 
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

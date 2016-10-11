@@ -13,12 +13,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/21/2016"
+	ms.date="09/30/2016"
 	ms.author="kgremban"/>
 
 # Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure
 
-Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare. Questo articolo permette di iniziare subito a usare il Controllo degli accessi in base al ruolo nel portale di Azure. Per altri dettagli sulla gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](role-based-access-control-what-is.md).
+> [AZURE.SELECTOR]
+- [Portale di Azure](role-based-access-control-azure-portal.md)
+- [Portale di Azure classico](role-based-access-control-configure.md)
+
+Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare. Questo articolo permette di iniziare subito a usare il Controllo degli accessi in base al ruolo nel portale di Azure. Per altri dettagli sulla gestione degli accessi, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](role-based-access-control-what-is.md).
 
 ## Visualizzare l'accesso
 È possibile visualizzare chi ha accesso a una risorsa, a un gruppo di risorse o a una sottoscrizione dal relativo pannello principale nel [portale di Azure](https://portal.azure.com). Ad esempio, si vuole vedere chi ha accesso a uno dei gruppi di risorse:
@@ -44,7 +48,7 @@ Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione
 
 	![Screenshot del pannello Aggiungi utenti: casella di ricerca](./media/role-based-access-control-configure/grant-access2.png)
 
-4. Selezionare **OK** per creare l'assegnazione. Il popup **Aggiunta dell'utente in corso** tiene traccia dello stato. ![Indicatore di stato dell'aggiunta di utenti, schermata](./media/role-based-access-control-configure/addinguser_popup.png)
+4. Fare clic su **OK** per creare l'assegnazione. Il popup **Aggiunta dell'utente in corso** tiene traccia dello stato. ![Indicatore di stato dell'aggiunta di utenti, schermata](./media/role-based-access-control-configure/addinguser_popup.png)
 
 Dopo aver aggiunto un'assegnazione di ruolo, viene visualizzato il pannello **Utenti**.
 
@@ -66,8 +70,8 @@ Le assegnazioni ereditate non possono essere rimosse. Si noti nell'immagine segu
 - [API REST](role-based-access-control-manage-access-rest.md)
 
 ## Passaggi successivi
-- [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md).
+- [Creare un report della cronologia delle modifiche relative all'accesso.](role-based-access-control-access-change-history-report.md)
 - Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](role-based-access-built-in-roles.md).
 - Definire i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md).
 
-<!-----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -169,7 +169,7 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
 
 	![Stato del comando Remove-AzureService][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Per altre informazioni sull'eliminazione di un account di archiviazione, vedere [Come eliminare un account di archiviazione da una sottoscrizione di Azure].
+	> [AZURE.NOTE] L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Se nient'altro sta usando lo spazio di archiviazione, è possibile eliminarlo.
 
 ## Passaggi successivi
 
@@ -183,7 +183,6 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 [Azure SDK per .NET 2.7]: http://www.microsoft.com/it-IT/download/details.aspx?id=48178
 [Connettere PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Come eliminare un account di archiviazione da una sottoscrizione di Azure]: ../storage/how-to-manage-a-storage-account.md
 [Creazione di un servizio ospitato per Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro per sviluppatori di Node.js]: https://azure.microsoft.com/develop/nodejs/
 
@@ -193,9 +192,8 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

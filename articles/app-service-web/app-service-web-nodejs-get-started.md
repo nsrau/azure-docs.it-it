@@ -22,6 +22,7 @@
 
 Questa esercitazione illustra come creare una semplice applicazione [Node.js] e distribuirla nel [servizio app di Azure] da un ambiente di riga di comando come cmd.exe o bash. Le istruzioni di questa esercitazione possono essere eseguite in tutti i sistemi operativi che possono eseguire Node.js.
 
+
 <a name="prereq"></a>
 ## Prerequisiti
 
@@ -246,4 +247,4 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

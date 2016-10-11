@@ -16,11 +16,9 @@
  ms.date="08/25/2016"
  ms.author="dobett"/>
 
-# Che cos'è l'hub IoT di Azure?
+# Informazioni sull'hub IoT di Azure
 
-Benvenuti nell’hub IoT di Azure. Questo articolo fornisce una panoramica dell'hub IoT di Azure e descrive il motivo per cui è consigliabile usare questo servizio quando si implementa una soluzione di Internet delle cose (IoT).
-
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end della soluzione. L'hub IoT di Azure:
+Benvenuti nell’hub IoT di Azure. Questo articolo offre una panoramica dell'hub IoT di Azure e descrive il motivo per cui è consigliabile usare questo servizio quando si implementa una soluzione Internet delle cose (IoT). L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end della soluzione. L'hub IoT di Azure:
 
 - Garantisce un servizio di messaggistica affidabile da dispositivo a cloud e da cloud a dispositivo su vasta scala.
 - Rende possibili comunicazioni sicure mediante le credenziali di sicurezza per i singoli dispositivi e il controllo di accesso.
@@ -106,15 +104,13 @@ Per iniziare a scrivere codice ed eseguire alcuni esempi, vedere l'esercitazione
 
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-[lnk-d2c]: iot-hub-csharp-csharp-process-d2c.md
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Comunicazione assistita con i servizi, post di blog di Clemens Vasters"
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-gateway]: iot-hub-protocol-gateway.md
-[lnk-field-gateway]: iot-hub-guidance.md#field-gateways
-[lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-devguide-security]: iot-hub-devguide.md#security
+[lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
+[lnk-devguide-identityregistry]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
@@ -123,4 +119,4 @@ Per iniziare a scrivere codice ed eseguire alcuni esempi, vedere l'esercitazione
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

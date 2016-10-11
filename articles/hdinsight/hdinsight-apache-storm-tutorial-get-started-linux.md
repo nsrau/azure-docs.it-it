@@ -24,7 +24,7 @@ Apache Storm è un sistema di calcolo in tempo reale scalabile, a tolleranza di 
 
 > [AZURE.NOTE] I passaggi descritti in questo articolo consentono di creare un cluster HDInsight basato su Linux. Per la procedura necessaria per creare un cluster Storm basato su Windows nel cluster HDInsight, vedere [Esercitazione di Apache Storm: Introduzione all'esempio Storm Starter usando l'analisi dei dati in HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Prima di iniziare
+## Prerequisiti
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,13 +38,17 @@ Per completare correttamente questa esercitazione di Apache Storm, è necessario
 
 	- **Client Windows**: vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
+### Requisiti di controllo di accesso
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ## Creare un cluster di Storm
 
 In questa sezione si crea un cluster HDInsight versione 3.2 (Storm versione 0.9.3) usando un modello di Azure Resource Manager. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md). Per altri metodi di creazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     Il modello è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
@@ -192,4 +196,4 @@ Se si ha già familiarità con lo sviluppo di topologie basate su Java e si vuol
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

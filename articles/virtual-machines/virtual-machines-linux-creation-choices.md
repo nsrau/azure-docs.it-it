@@ -42,7 +42,7 @@ L'interfaccia della riga di comando di Azure è disponibile per più piattaforme
 		--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	```
 
-- [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md)
+- [Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md)
 	- Include la creazione di un servizio di bilanciamento del carico e di più VM in un set di disponibilità.
 
 - [Aggiungere un disco a una VM Linux](virtual-machines-linux-add-disk.md)
@@ -130,4 +130,4 @@ Per personalizzazioni specifiche è possibile usare un'immagine basata su una VM
 
 - Azioni rapide per [reimpostare una password o chiavi SSH e gestire gli utenti](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

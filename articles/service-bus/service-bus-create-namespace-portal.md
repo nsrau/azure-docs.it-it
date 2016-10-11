@@ -24,7 +24,7 @@ Uno spazio dei nomi è un contenitore comune per tutti i componenti di messaggis
 
 2.	[Modelli di Gestione risorse][create-namespace-using-arm]
 
-## Creazione di uno spazio dei nomi nel portale di Azure
+## Creare uno spazio dei nomi nel portale di Azure
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -37,4 +37,4 @@ Vedere il [repository GitHub](https://github.com/Azure-Samples/azure-servicebus-
 [create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

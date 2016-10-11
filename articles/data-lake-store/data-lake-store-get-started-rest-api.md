@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Archivio Azure Data Lake con API REST
@@ -34,17 +34,8 @@ Questo articolo descrive come usare le API REST WebHDFS e le API REST di Archivi
 ## Prerequisiti
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Creare un'applicazione di Azure Active Directory**. Esistono due modalità di autenticazione con Azure Active Directory: **interattiva** e **non interattiva**. I prerequisiti sono diversi a seconda della modalità di autenticazione.
-	* **Per l'autenticazione interattiva** (usata in questo articolo): in Azure Active Directory è necessario creare un'**applicazione client nativa**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
-		- Ottenere l'**ID client** e l'**URI di reindirizzamento** per l'applicazione
-		- Impostare autorizzazioni delegate
 
-	* **Per l'autenticazione non interattiva**: in Azure Active Directory è necessario creare un'**applicazione Web**. Dopo aver creato l'applicazione, recuperare i valori seguenti correlati.
-		- Ottenere l'**ID client**, il **segreto client** e l'**URI di reindirizzamento** per l'applicazione
-		- Impostare autorizzazioni delegate
-		- Assegnare l'applicazione Azure Active Directory a un ruolo. Il ruolo può essere al livello dell'ambito in cui si desidera concedere l'autorizzazione per l'applicazione di Azure Active Directory. Ad esempio, è possibile assegnare l'applicazione al livello della sottoscrizione o del gruppo di risorse. Per istruzioni, vedere [Assegnare l'applicazione al ruolo](../resource-group-create-service-principal-portal.md#assign-application-to-role).
-
-	Per istruzioni su come recuperare questi valori, impostare le autorizzazioni e assegnare i ruoli, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
+- **Creare un'applicazione di Azure Active Directory**. Usare l'applicazione Azure AD per autenticare l'applicazione Data Lake Store con Azure AD. Per l'autenticazione con Azure AD è possibile usare l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Eseguire l'autenticazione in Data Lake Store con Azure Active Directory).
 
 - [cURL](http://curl.haxx.se/). Questo articolo usa cURL per illustrare come effettuare chiamate API REST con un account Archivio Data Lake.
 
@@ -52,7 +43,7 @@ Questo articolo descrive come usare le API REST WebHDFS e le API REST di Archivi
 
 È possibile adottare due approcci per l'autenticazione tramite Azure Active Directory.
 
-### Autenticazione interattiva (autenticazione utente)
+### Autenticazione dell'utente finale (interattiva)
 
 In questo scenario, l'applicazione richiede all'utente di accedere e tutte le operazioni vengono eseguite nel contesto utente. Eseguire la procedura seguente per l'autenticazione interattiva.
 
@@ -60,7 +51,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI> deve essere codificato per essere usato in un URL. Quindi, per https://localhost usare `https%3A%2F%2Flocalhost`
+	>[AZURE.NOTE] \<REDIRECT-URI> deve essere codificato per essere usato in un URL. Per https://localhost usare quindi `https%3A%2F%2Flocalhost`
 
 	Per questa esercitazione, è possibile sostituire i valori segnaposto nell'URL precedente e incollare quest'ultimo nella barra degli indirizzi di un web browser. Si verrà reindirizzati per l'autenticazione tramite l'accesso ad Azure. Dopo aver eseguito correttamente l'accesso, la risposta verrà visualizzata nella barra degli indirizzi del browser. La risposta sarà nel formato seguente:
 		
@@ -91,7 +82,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
  
 Per altre informazioni sull'autenticazione utente interattiva, vedere [Flusso di concessione del codice di autorizzazione](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### Autenticazione non interattiva
+### Autenticazione da servizio a servizio (non interattiva)
 
 In questo scenario, l'applicazione fornisce le proprie credenziali per eseguire le operazioni. A tale scopo, è necessario inviare una richiesta POST come quella riportata di seguito.
 
@@ -275,4 +266,4 @@ Verrà visualizzato un output simile al seguente:
 - [Aprire le applicazioni Big Data di origine che funzionano con Archivio Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

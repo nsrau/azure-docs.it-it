@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="glennga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
-# <a name="getting-started"> </a>Informazioni sulle app per dispositivi mobili
+# <a name="getting-started"></a>Informazioni sulle app per dispositivi mobili
 
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti, che offre un set completo di funzionalità per scenari Web, mobili e di integrazione. Le *app per dispositivi mobili* nel *servizio app di Azure* offrono una piattaforma di sviluppo di applicazioni mobili estremamente scalabile e disponibile a livello globale per sviluppatori aziendali e integratori di sistemi, che fornisce un set completo di funzionalità per gli sviluppatori di soluzioni per dispositivi mobili.
 
@@ -99,8 +99,8 @@ Per altre informazioni sulle app per dispositivi mobili di Azure, vedere la [map
 [opzioni di distribuzione]: ../app-service-web/web-sites-deploy.md
 [connessioni ibride]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [ambienti del servizio app]: ../app-service-web/app-service-app-service-environment-intro.md
 [mappa di apprendimento]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

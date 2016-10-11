@@ -3,7 +3,7 @@
    description="Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/30/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 
 # Delegare un dominio al servizio DNS di Azure
@@ -205,4 +205,4 @@ Creare il set di record NS corrispondente nella zona padre per completare la del
 
 [Gestire i record DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -384,4 +384,4 @@ Si noti che il cmdlet usato per l'autenticazione nel runbook (**Add-AzureRmAccou
 - Per altre informazioni sul controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
 - Per altre informazioni sui certificati e i servizi di Azure, vedere [Panoramica sui certificati per i servizi cloud di Azure](../cloud-services/cloud-services-certs-create.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -29,13 +29,17 @@ Le informazioni contenute in questo documento sono specifiche per i cluster HDIn
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-###Prerequisiti
+##Prerequisiti
 
 Prima di iniziare questa esercitazione di HBase, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell(SSU)](hdinsight-hadoop-linux-use-ssh-unix.md).
+- [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md).
 - [curl](http://curl.haxx.se/download.html).
+
+### Requisiti di controllo di accesso
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Nome del cluster HBase
 
@@ -325,4 +329,4 @@ Per altre informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

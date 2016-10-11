@@ -14,7 +14,7 @@
 
 # Azure AD B2C: chiamare un'API Web da un'applicazione iOS con una libreria di terze parti
 
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)] -->
+<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 La piattaforma delle identità Microsoft usa standard aperti, ad esempio OAuth2 e OpenID Connect. Questo consente agli sviluppatori di sfruttare le librerie che vogliono integrare con i servizi. Per aiutare gli sviluppatori a usare la piattaforma con altre librerie, sono state scritte alcune procedure dettagliate come questa, che illustrano come configurare le librerie di terze parti per connettersi alla piattaforma delle identità Microsoft. La maggior parte delle librerie che implementano la [specifica OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) potrà connettersi alla piattaforma delle identità Microsoft.
 
@@ -151,11 +151,11 @@ Ecco il dettaglio di questi valori.
 
 Si noterà che in `authURL`, `loginURL`, `bhh` e `tokenURL` è necessario immettere il nome del tenant. Si tratta del nome del tenant B2C assegnato all'utente, ad esempio `kidventusb2c.onmicrosoft.com`. Se si usano le librerie di identità open source di Microsoft Azure, verrà effettuato il pull automatico di questi dati usando l'endpoint dei metadati. L'estrazione di questi valori è stata eseguita automaticamente.
 
-Per altre informazioni sui nomi dei tenant B2C, vedere qui: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md).
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Il valore `keychain` è il contenitore che verrà usato dalla libreria NXOAuth2Client per creare un portachiavi per l'archiviazione dei token. Per ottenere l'accesso SSO in più app, è possibile specificare lo stesso portachiavi in ogni applicazione, oltre a richiedere l'uso di tale portachiavi nei diritti XCode. Questa procedura è illustrata nella documentazione di Apple.
 
-I `<policy name>` alla fine di ogni URL sono le posizioni in cui verranno inseriti i criteri creati sopra. L'app chiamerà tali criteri a seconda del flusso.
+Gli elementi `<policy name>` alla fine di ogni URL sono le posizioni in cui verranno inseriti i criteri creati sopra. L'app chiamerà tali criteri a seconda del flusso.
 
 `taskAPI` è l'endpoint REST che verrà chiamato con il token B2C per aggiungere attività o eseguire query sulle attività esistenti. È stato configurato specificamente per l'esempio. Non è necessario modificarlo perché l'esempio funzioni.
 
@@ -226,7 +226,7 @@ Creare un file semplice che analizzi il file `settngs.plist` creato sopra e rend
 @end
 ```
 
-Per accedere facilmente ai dati è ora sufficiente chiamare `  AppData *data = [AppData getInstance];` in tutte le classi, come verrà illustrato di seguito.
+Per accedere facilmente ai dati, è ora sufficiente chiamare `  AppData *data = [AppData getInstance];` in tutte le classi, come verrà illustrato di seguito.
 
 
 
@@ -249,7 +249,7 @@ Per configurare la libreria NXOAuthClient, sono necessari alcuni valori. Al term
 A questo punto è opportuno conoscere alcuni aspetti del servizio B2C che renderanno più comprensibile questo codice:
 
 
-1. Azure AD B2C usa i *criteri* specificati nei parametri di query per gestire la richiesta. In questo modo, Azure Active Directory può fungere da servizio indipendente per l'applicazione. Per specificare questi parametri di query aggiuntivi è necessario fornire i parametri dei criteri personalizzati al metodo `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:`.
+1. Azure AD B2C usa i *criteri* specificati nei parametri di query per gestire la richiesta. In questo modo, Azure Active Directory può fungere da servizio indipendente per l'applicazione. Per specificare questi parametri di query aggiuntivi, è necessario fornire i parametri dei criteri personalizzati al metodo `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:`.
 
 2. Azure AD B2C usa gli ambiti così come gli altri server OAuth2. Poiché l'uso di B2C riguarda in uguale misura l'autenticazione di un utente e l'accesso alle risorse, tuttavia, per il funzionamento corretto del flusso sono assolutamente necessari alcuni ambiti, ovvero l'ambito `openid`. Gli SDK Microsoft Identity forniscono automaticamente l'ambito `openid`, che non è quindi visibile nella configurazione dell'SDK. Poiché viene usata una libreria di terze parti, tuttavia, è necessario specificare questo ambito.
 
@@ -309,7 +309,7 @@ Viene usata una visualizzazione Web per l'accesso all'account. Ciò consente di 
 Ognuno di questi metodi verrà creato di seguito.
 
 > [AZURE.NOTE] 
-    Assicurarsi di associare `loginView` all'effettiva visualizzazione Web all'interno dello storyboard. In caso contrario, non sarà disponibile una visualizzazione Web al momento dell'autenticazione.
+    Assicurarsi di associare `loginView` all'effettiva visualizzazione Web nello dello storyboard. In caso contrario, non sarà disponibile una visualizzazione Web al momento dell'autenticazione.
 
 * Creare una classe `LoginViewController.m`
 
@@ -646,4 +646,4 @@ Si noti che le attività sono archiviate per utente nell'API, perché l'API estr
 
 [Personalizzare l'esperienza utente per un'app B2C]()
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

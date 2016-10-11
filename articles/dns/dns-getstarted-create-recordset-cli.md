@@ -3,7 +3,7 @@
    description="Come creare i record host per DNS di Azure. Configurare i set di record e i record usando CLI"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Creare set di record e record DNS con l'interfaccia della riga di comando
 
@@ -66,4 +66,4 @@ Per gestire i set di record e i record, vedere [Gestire record e set di record D
 
 Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

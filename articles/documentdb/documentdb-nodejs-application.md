@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
 	ms.date="08/25/2016" 
-	ms.author="anhoh"/> 
+	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con DocumentDB
 
@@ -100,7 +100,7 @@ Il file **package.json** è uno di quelli creati nella radice del progetto. Ques
 
 	![Schermata della scheda package.json](./media/documentdb-nodejs-application/image17.png)
 
-       Ciò indicherà a Node (e più avanti ad Azure) che l'applicazione dipende da questi moduli aggiuntivi.
+	Ciò indicherà a Node (e più avanti ad Azure) che l'applicazione dipende da questi moduli aggiuntivi.
 
 ## <a name="_Toc395783180"></a>Passaggio 4: Uso del servizio DocumentDB in un'applicazione Node
 
@@ -568,4 +568,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](https://
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!------HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

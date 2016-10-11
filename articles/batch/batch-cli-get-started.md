@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 # Introduzione all'interfaccia della riga di comando di Azure Batch
 
 L'interfaccia della riga di comando multipiattaforma di Azure consente di gestire gli account Batch e risorse come pool, processi e attività in shell dei comandi Linux, Mac e Windows. Con l'interfaccia della riga di comando di Azure è possibile eseguire molte delle attività eseguite con le API Batch, il portale di Azure e i cmdlet di PowerShell per Batch e creare i relativi script.
 
-Questo articolo si basa sulla versione 0.10.3 dell'interfaccia della riga di comando di Azure.
+Questo articolo si basa sulla versione 0.10.5 dell'interfaccia della riga di comando di Azure.
 
 ## Prerequisiti
 
@@ -215,19 +215,39 @@ Per creare una nuova applicazione e aggiungere una versione del pacchetto, esegu
 
 **Attivare** il pacchetto:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Impostare la **versione predefinita** per l'applicazione:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Distribuire un pacchetto dell'applicazione
 
 Quando si crea un nuovo pool, è possibile specificare uno o più pacchetti dell'applicazione da distribuire. Quando si specifica un pacchetto al momento della creazione del pool, il pacchetto viene distribuito in ogni nodo quando questo viene aggiunto al pool. I pacchetti vengono distribuiti anche quando un nodo viene riavviato o ne viene ricreata l'immagine.
 
-Questo comando specifica un pacchetto alla creazione del pool e ne determina la distribuzione all'aggiunta di ogni nodo al nuovo pool:
+Specificare l'opzione `--app-package-ref` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. L'opzione `--app-package-ref` accetta un elenco di ID applicazione delimitati da punto e virgola da distribuire nei nodi di calcolo.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-Attualmente non è possibile specificare la versione del pacchetto da distribuire con opzioni della riga di comando. Per poter assegnare una versione a un pool, è prima necessario impostare una versione predefinita per l'applicazione usando il portale di Azure. Per informazioni su come impostare una versione predefinita, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md). È tuttavia possibile specificare una versione predefinita se per la creazione di un pool si usa un [file JSON](#json-files) anziché usare opzioni della riga di comando.
+Quando si crea un pool usando le opzioni della riga di comando, non è attualmente possibile specificare *quale* versione del pacchetto dell'applicazione distribuire nei nodi di calcolo, ad esempio "1.10-beta3". Quindi è necessario specificare una versione predefinita per l'applicazione con `azure batch application set [options] --default-version <version-id>` prima di creare il pool. Vedere la sezione precedente. È tuttavia possibile specificare una versione del pacchetto per il pool se per la creazione del pool si usa un [file JSON](#json-files) invece di usare le opzioni della riga di comando.
+
+Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] Per usare i pacchetti dell'applicazione è necessario [collegare un account di archiviazione di Azure](#linked-storage-account-autostorage) all'account Batch.
+
+### Aggiornare i pacchetti dell’applicazione di un pool
+
+Per aggiornare le applicazioni assegnate a un pool esistente, eseguire il comando `azure batch pool set` con l'opzione `--app-package-ref`:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Per distribuire il nuovo pacchetto dell'applicazione nei nodi di calcolo già presenti in un pool esistente, è necessario riavviare o ricreare l'immagine di tali nodi:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] È possibile ottenere un elenco dei nodi in un pool, con gli ID nodo, con `azure batch node list`.
+
+Ricordare che è necessario avere già configurato l'applicazione con una versione predefinita prima della distribuzione (`azure batch application set [options] --default-version <version-id>`).
 
 ## Suggerimenti per la risoluzione dei problemi
 
@@ -254,4 +274,4 @@ Questa sezione ha lo scopo di indicare le risorse da usare per risolvere i probl
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->
