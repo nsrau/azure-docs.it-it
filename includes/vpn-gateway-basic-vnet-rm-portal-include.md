@@ -1,31 +1,42 @@
-Per creare una rete virtuale nel portale di Azure, seguire questa procedura. Si noti che le schermate sono fornite come esempi. Assicurarsi di sostituire i valori con i propri. Per altre informazioni sull'uso delle reti virtuali, vedere la [panoramica sulla rete virtuale](../articles/virtual-network/virtual-networks-overview.md).
+Per creare una rete virtuale nel portale di Azure, seguire questa procedura. Gli screenshot sono forniti come esempi. Assicurarsi di sostituire i valori con i propri. Per altre informazioni sull'uso delle reti virtuali, vedere la [panoramica sulla rete virtuale](../articles/virtual-network/virtual-networks-overview.md).
 
-1. In un browser passare al [portale di Azure](http://portal.azure.com) e, se necessario, accedere con l'account Azure.
+1. Da un browser, passare al [portale di Azure](http://portal.azure.com) e, se necessario, accedere con l'account Azure.
 
-2. Fare clic su **Nuovo** **>** **Rete** **>** **Rete virtuale**.
+2. Fare clic su **New**. Nel campo **Cerca nel Marketplace** digitare "Rete virtuale". Trovare **Rete virtuale** nell'elenco restituito e fare clic per aprire il pannello **Rete virtuale**.
 
-	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
+	![Pannello per la ricerca della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Pannello per la ricerca della rete virtuale")  
 
 3. Nella parte inferiore del pannello Rete virtuale selezionare **Resource Manager** nell'elenco **Selezionare un modello di distribuzione** e quindi fare clic su **Crea**.
 
 
-	![Selezionare Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
+	![Selezionare Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Selezionare Resource Manager")  
 
-4. Nel pannello **Crea rete virtuale** configurare le impostazioni della rete virtuale. Nel pannello si aggiungerà il primo spazio di indirizzi e un intervallo di indirizzi di una singola subnet. Dopo aver creato la rete virtuale, è possibile tornare indietro e aggiungere altre subnet e altri spazi di indirizzi. Si tratta di una limitazione corrente del portale. È sempre possibile tornare indietro per aggiornare i valori modificando le proprietà della rete virtuale nel portale o tramite PowerShell. I valori da usare dipendono dalla configurazione che si vuole creare. Assicurarsi di fare riferimento ai valori di configurazione pianificati.
+4. Nel pannello **Crea rete virtuale** configurare le impostazioni della rete virtuale. Quando si compilano i campi, il punto esclamativo rosso diventa un segno di spunta verde quando i caratteri immessi nel campo sono validi.
 
-	![Pannello Creare la rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
+	![Convalida campi](./media/vpn-gateway-basic-vnet-rm-portal-include/checkmark300.png "Convalida campi")  
 
-5. Verificare che la **sottoscrizione** sia quella corretta. È possibile modificare le sottoscrizioni tramite l'elenco a discesa.
+5. Il pannello **Crea rete virtuale** è simile all'esempio seguente. Alcuni valori possono essere compilati automaticamente. In questo caso, sostituire i valori con quelli personalizzati.
 
-6. Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente o crearne uno nuovo digitandone il nome. Se si crea un nuovo gruppo, denominare il gruppo di risorse in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
+	![Pannello Creare la rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/createvnet300.png "Pannello Creare la rete virtuale")  
 
-7. Selezionare quindi le impostazioni relative alla **località** per la rete virtuale. Si noti che questa impostazione determinerà la posizione in cui risiedono le risorse che si distribuiscono in questa rete virtuale. Non è possibile modificare questa impostazione in un secondo momento senza ridistribuire le risorse.
+6. **Nome**: immettere un nome per la rete virtuale.
 
-8. Selezionare **Aggiungi al dashboard** se si vuole trovare facilmente la rete virtuale nel dashboard e quindi fare clic su **Crea**.
+7. **Spazio indirizzi**: immettere lo spazio degli indirizzi. Se si hanno più spazi di indirizzi da aggiungere, aggiungere il primo. È possibile aggiungere altri spazi di indirizzi in un secondo momento, dopo aver creato la rete virtuale.
+ 
+8. **Nome subnet**: aggiungere il nome e l'intervallo di indirizzi della subnet. È possibile aggiungere altre subnet in un secondo momento, dopo aver creato la rete virtuale.
+
+10. **Sottoscrizione**: verificare che sia visualizzata la sottoscrizione corretta. È possibile cambiare sottoscrizione tramite l'elenco a discesa.
+
+11. **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo digitandone il nome. Se si crea un nuovo gruppo, denominare il gruppo di risorse in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md#resource-groups).
+
+12. **Località**: selezionare la località della rete virtuale. La località determina la posizione in cui risiedono le risorse distribuite in questa rete virtuale.
+
+13. Selezionare **Aggiungi al dashboard** se si vuole trovare facilmente la rete virtuale nel dashboard e quindi fare clic su **Crea**.
 	
-	![Aggiungi al dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+	![Aggiungi al dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "Aggiungere al dashboard")  
 
+14. Dopo aver fatto clic su **Crea**, nel dashboard verrà visualizzato un riquadro che riflette lo stato di avanzamento della rete virtuale. Il riquadro cambia durante la creazione della rete virtuale.
 
-9. Dopo aver fatto clic su Crea, verrà visualizzato un riquadro nel dashboard che riflette lo stato di avanzamento della rete virtuale. Il riquadro verrà modificato durante la creazione della rete virtuale.
+	![Pannello Creazione della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Pannello Creazione della rete virtuale")  
 
-	![Pannello Creazione della rete virtuale](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+<!---HONumber=AcomDC_1005_2016-->

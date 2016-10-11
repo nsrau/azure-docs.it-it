@@ -3,7 +3,7 @@
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili per lo sviluppo per Xamarin iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>  
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
-	ms.author="normesta"/>  
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>  
 
 
 #Creare un'app per Xamarin.iOS
@@ -83,7 +83,7 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 
 * [Aggiungere notifiche push all'app](app-service-mobile-xamarin-ios-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-<!-- Anchors. -->
+<!-- Anchors. -->  
 [Getting started with mobile app backends]: #getting-started
 [Create a new mobile app backend]: #create-new-service
 [Next Steps]: #next-steps
@@ -96,7 +96,7 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 [9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

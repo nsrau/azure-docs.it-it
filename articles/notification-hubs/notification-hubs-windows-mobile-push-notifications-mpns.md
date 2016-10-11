@@ -6,7 +6,7 @@
     keywords="notifica push, inviare notifiche push, push per windows phone"
 	authors="wesmc7777"
 	manager="erikre"
-	editor="erikre"/>
+	editor="erikre"/>  
 
 <tags
 	ms.service="notification-hubs"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.date="10/03/2016"
+	ms.author="wesmc"/>  
 
 # Invio di notifiche push con Hub di notifica di Azure in Windows Phone
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Panoramica
+##Overview
 
 > [AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 
@@ -54,7 +54,7 @@ L'hub viene creato e configurato per l'invio di notifiche autenticate per Window
 
 > [AZURE.NOTE] In questa esercitazione verrà usato il Servizio notifica Push Microsoft in modalità senza autenticazione. Tale modalità prevede restrizioni in relazione alle notifiche che è possibile inviare a ciascun canale. Hub di notifica supporta la [modalità di autenticazione con Servizio notifica push Microsoft ](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) consentendo di caricare il certificato.
 
-##Connettere l'app all'hub di notifica
+##Connessione dell'app all'hub di notifica
 
 1. In Visual Studio creare una nuova applicazione per Windows Phone 8.
 
@@ -132,7 +132,7 @@ Per un esempio di invio di notifiche push con le [API REST](https://msdn.microso
 
    	![Visual Studio Nuovo progetto - Applicazione console][6]
 
-	Una nuova applicazione console Visual C# viene aggiunta alla soluzione. Questa operazione può essere eseguita anche in una soluzione separata.
+	Alla soluzione viene aggiunta una nuova applicazione console in Visual C#: Questa operazione può essere eseguita anche in una soluzione separata.
 
 4. Fare clic su **Strumenti**, su **Gestione pacchetti libreria** e quindi su **Console di Gestione Pacchetti**.
 
@@ -176,7 +176,7 @@ Per un esempio di invio di notifiche push con le [API REST](https://msdn.microso
 
 	Verrà visualizzata una notifica push di tipo avviso popup. Se si tocca il bannner dell'avviso popup, verrà caricata l'app.
 
-Tutti i possibili payload sono disponibili negli argomenti relativi al [catalogo degli avvisi popup] e al [catalogo dei riquadri] su MSDN.
+Tutti i possibili payload sono disponibili negli argomenti relativi al [catalogo degli avvisi popup] e al [catalogo dei riquadri] in MSDN.
 
 ##Passaggi successivi
 
@@ -190,7 +190,7 @@ Per ulteriori informazioni sull'utilizzo di Hub di notifica, vedere la pagina de
 
 
 
-<!-- Images. -->
+<!-- Images. -->  
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
@@ -209,14 +209,14 @@ Per ulteriori informazioni sull'utilizzo di Hub di notifica, vedere la pagina de
 
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Visual Studio 2012 Express per Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Usare Hub di notifica per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-phone-send-breaking-news.md
+[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Esercitazione su Hub di notifica - Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_1005_2016-->

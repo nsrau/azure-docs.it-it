@@ -5,7 +5,7 @@
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor=""/>
+    editor=""/>  
 
 <tags
     ms.service="service-bus-messaging"
@@ -14,7 +14,7 @@
     ms.devlang="dotnet"
     ms.topic="get-started-article"
     ms.date="09/16/2016"
-    ms.author="sethm"/>
+    ms.author="sethm"/>  
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
 
@@ -37,7 +37,7 @@ Il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsA
 1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi fare clic su **Manage NuGet Packages**.
 2.  Cercare "Bus di servizio" e selezionare la voce **Bus di servizio di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione e quindi chiudere la finestra di dialogo successiva:
 
-    ![][7]
+    ![][7]  
 
 È ora possibile scrivere codice per il bus di servizio.
 
@@ -150,6 +150,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 ## Creare una sottoscrizione
 
 È anche possibile usare la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) per creare sottoscrizioni di argomenti. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita l'insieme dei messaggi passati alla coda virtuale della sottoscrizione.
+
+> [AZURE.IMPORTANT] Per far sì che una sottoscrizione riceva i messaggi, è necessario creare la sottoscrizione prima di inviare messaggi all'argomento. Se non sono presenti sottoscrizioni per un argomento, questi messaggi verranno ignorati dall'argomento.
 
 ### Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
@@ -327,4 +329,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti e delle sot
   [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET]: service-bus-brokered-tutorial-dotnet.md
   [esempi di Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

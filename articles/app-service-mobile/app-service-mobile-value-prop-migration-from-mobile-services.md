@@ -5,7 +5,7 @@
 	documentationCenter="ios"
 	authors="adrianhall"
 	manager="dwrede"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2016"
-	ms.author="krisragh"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>  
 
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
 
-##Panoramica
+##Overview
 Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. Vi sono tuttavia alcuni vantaggi per le app per dispositivi mobili, offerti dalla piattaforma del *servizio app di Azure*, a oggi non disponibili in Servizi mobili:
 
 - Offerte semplificate e più economiche per app che includono client sia Web che mobili.
@@ -61,4 +61,4 @@ Con il *servizio app di Azure* è ora possibile creare più ambienti privati di 
 
 È possibile iniziare a usare il *servizio app* sperimentando i vantaggi per il servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-migrating-from-mobile-services.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_1005_2016-->

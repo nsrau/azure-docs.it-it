@@ -6,7 +6,7 @@
    authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager"/>  
 
 <tags
    ms.service="virtual-network"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/14/2016"
-   ms.author="narayanannamalai; annahar"/>
+   ms.author="narayanannamalai; annahar"/>  
 
 # Creare un peering reti virtuali usando i cmdlet di PowerShell
 
@@ -29,7 +29,7 @@ Per creare un peering reti virtuali con PowerShell, seguire questa procedura:
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-        > [AZURE.NOTE] PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+> [AZURE.NOTE] Il cmdlet di PowerShell per la gestione di un peering reti virtuali viene fornito con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Leggere gli oggetti di rete virtuale:
 
@@ -47,7 +47,8 @@ Per creare un peering reti virtuali con PowerShell, seguire questa procedura:
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet1
-        ProvisioningState		: Succeeded
+        PeeringState		: Initiated
+        ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -69,7 +70,8 @@ Per creare un peering reti virtuali con PowerShell, seguire questa procedura:
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet2
-        ProvisioningState		: Succeeded
+        PeeringState		: Connected
+        ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
@@ -91,7 +93,8 @@ Per creare un peering reti virtuali con PowerShell, seguire questa procedura:
 		Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ResourceGroupName	: vnet101
 		VirtualNetworkName	: vnet1
-		ProvisioningState		: Succeeded
+		PeeringState		: Connected
+		ProvisioningState	: Succeeded
 		RemoteVirtualNetwork	: {
 		                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
 		                                }
@@ -124,6 +127,7 @@ Per creare un peering reti virtuali con PowerShell, seguire questa procedura:
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet1
+        PeeringState		: Connected
         ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
@@ -234,4 +238,4 @@ Per creare un peering reti virtuali tra una rete virtuale classica e una rete vi
 
 2. Dopo la rimozione di un collegamento in un peering reti virtuali, lo stato del collegamento peer sarà Disconnesso. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà Avviato. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

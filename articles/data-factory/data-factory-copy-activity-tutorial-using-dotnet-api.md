@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -19,12 +19,13 @@
 # Esercitazione: Creare una pipeline con l'attività di copia usando l'API .NET
 > [AZURE.SELECTOR]
 - [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 - [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+
 
 Questa esercitazione mostra come creare e monitorare una data factory di Azure con l'API .NET. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
 
@@ -458,4 +459,4 @@ Da questi passaggi si avranno i quattro valori seguenti:
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

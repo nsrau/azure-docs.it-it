@@ -5,7 +5,7 @@
 	documentationCenter="mobile" 
 	authors="wesmc7777"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="mobile-engagement"
@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="07/07/2016"
-	ms.author="wesmc;ricksal"/>
+	ms.date="10/04/2016"
+	ms.author="wesmc;ricksal"/>  
 
 # Azure Mobile Engagement - Guida introduttiva con procedure consigliate
 
-## Panoramica
+## Overview
 
 **Lo schermo del dispositivo mobile è uno spazio molto affollato:** uno studio del 2013 ha evidenziato che in un dispositivo mobile sono installate in media 27 applicazioni. Gli utenti in genere hanno dedicato alle app 30 ore al mese, la maggior parte delle quali al social networking e ai giochi (circa 20 ore). Alla fine del 2014, gli utenti del mercato Android potevano scegliere tra circa 1,5 milioni di applicazioni. L'Apple Store conteneva circa 1,2 milioni di app. L'uso di app per dispositivi mobili continua ad aumentare grazie alla competizione tra gli sviluppatori in questo mercato in crescita.
 
@@ -37,7 +37,7 @@ Le app correlate a elementi multimediali di solito sono quelle con i tassi di fi
 
 Il programma Azure Mobile Engagement è progettato per consentire di estendere il ciclo di vita e la fidelizzazione dell'app fornendo un metodo per raccogliere e analizzare informazioni dettagliate sull'uso dell'app. Consentirà di classificare la base utenti in base al comportamento e di creare campagne mirate per inviare notifiche push e messaggi in-app ai segmenti di utenti identificati. Gli indicatori di prestazioni chiave (KPI) misurano il livello di attività degli utenti nei diversi ambiti dell'app. Azure Mobile Engagement fornisce i metodi necessari per determinare questi KPI. Consente di aumentare il rendimento del capitale investito fornendo l'infrastruttura necessaria per migliorare l'interesse verso l'app per dispositivi mobili.
 
-Per ottenere il massimo da Azure Mobile Engagement, è necessario partire da un piano mirato ben concepito. Il piano consentirà di identificare i dati granulari necessari per poter segmentare la base utenti a partire dal comportamento e dalle esperienze in-app. Per la riuscita del piano, è consigliabile definire con precisione l'indicatore KPI che misurerà gli obiettivi dell'app. Con gli indicatori di prestazioni chiaramente definiti, è possibile incorporare facilmente nell'app la logica necessaria per raccogliere dati con granularità fine che si useranno per analizzare e valutare gli indicatori KPI. Questo argomento è una guida alle procedure consigliate per definire gli indicatori KPI che si useranno con il piano di impegno.
+Per ottenere il massimo da Azure Mobile Engagement, è necessario partire da un piano mirato ben concepito. Il piano consentirà di identificare i dati granulari necessari per poter segmentare la base utenti a partire dal comportamento e dalle esperienze in-app. Per la riuscita del piano, è consigliabile definire con precisione l'indicatore KPI che misurerà gli obiettivi dell'app. Con gli indicatori di prestazioni chiaramente definiti, è possibile incorporare facilmente nell'app la logica necessaria per raccogliere dati con granularità fine che si useranno per analizzare e valutare gli indicatori KPI. Questo argomento è una guida alle procedure consigliate per definire gli indicatori KPI che si useranno con il piano di engagement.
 
 
 ## Passaggio 1: Definire gli indicatori KPI per il modello BET
@@ -356,7 +356,7 @@ Testare accuratamente tutti i tipi di comportamento delle notifiche incorporati 
 
 #### Configurazione
 
-Configurare Azure Mobile Engagement è molto semplice. Tutta la documentazione correlata all'interfaccia utente è disponibile nel sito Web di Azure Mobile Engagement, [Come spostarsi nell'interfaccia utente](mobile-engagement-user-interface.md).
+Configurare Azure Mobile Engagement è molto semplice. Tutta la documentazione correlata all'interfaccia utente è disponibile nel sito Web di Azure Mobile Engagement, [Come spostarsi nell'interfaccia utente](mobile-engagement-user-interface-home.md).
 
 È consigliabile iniziare a configurare i ruoli corretti e le appartenenze ai ruoli per gli utenti del progetto. In questo modo è possibile gestire l'accesso adeguato alla piattaforma per tutti gli utenti. I ruoli possono includere:
 
@@ -401,10 +401,10 @@ Dopo avere accumulato un po' di esperienza, è possibile considerare l'aggiunta 
 
   
 
-<!--Image references-->
+<!--Image references-->  
 
 
-<!--Link references-->
+<!--Link references-->  
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_1005_2016-->

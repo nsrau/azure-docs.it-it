@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="erikre"
-	editor="erikre"/>
+	editor="erikre"/>  
 
 <tags
 	ms.service="notification-hubs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/21/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app della piattaforma UWP (Universal Windows Platform)
@@ -259,19 +259,19 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 
 
 
-<!-- Images. -->
+<!-- Images. --> 
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
-<!-- URLs. -->
+<!-- URLs. --> 
 
-[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [catalogo degli avvisi popup]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

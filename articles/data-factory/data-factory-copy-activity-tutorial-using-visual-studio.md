@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -19,12 +19,13 @@
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio
 > [AZURE.SELECTOR]
 - [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 - [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+
 
 Questa esercitazione mostra come creare e monitorare un'istanza di Azure Data Factory con Visual Studio. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
 
@@ -54,11 +55,11 @@ Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
 1. Avviare **Visual Studio 2013**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Si dovrebbe vedere la finestra di dialogo **Nuovo progetto**.
 2. Nella finestra di dialogo **Nuovo progetto** selezionare il modello **DataFactory** e fare clic su **Progetto data factory vuoto**. Se il modello DataFactory non è visibile, chiudere Visual Studio, installare Azure SDK per Visual Studio 2013 e riaprire Visual Studio.
 
-	![Finestra di dialogo Nuovo progetto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
+	![Finestra di dialogo Nuovo progetto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png) 
 
 3. Immettere un **nome** per il progetto, un **percorso** e un nome per la **soluzione** e fare clic su **OK**.
 
-	![Esplora soluzioni](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)
+	![Esplora soluzioni](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png) 
 
 ## Creazione di servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Vedere gli [archivi dati supportati](data-factory-data-movement-activities.md##supported-data-stores-and-formats) per tutte le origini e i sink supportati dall'attività di copia. Per l'elenco di servizi di calcolo supportati da Data Factory, vedere [Servizi collegati di calcolo](data-factory-compute-linked-services.md). Questa esercitazione non prevede l'uso di servizi di calcolo.
@@ -70,11 +71,11 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
 4. Fare clic con il pulsante destro del mouse su **Servizi collegati** in Esplora soluzioni, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
 5. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare **Servizio collegato Archiviazione di Azure** nell'elenco e fare clic su **Aggiungi**.
 
-	![Nuovo servizio collegato](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
+	![Nuovo servizio collegato](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)  
  
 3. Sostituire `<accountname>` e `<accountkey>`* con il nome dell'account di archiviazione di Azure e la relativa chiave.
 
-	![Servizio collegato Archiviazione di Azure](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
+	![Servizio collegato Archiviazione di Azure](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)  
 
 4. Salvare il file **AzureStorageLinkedService1.json**.
 
@@ -272,7 +273,7 @@ In questo passaggio vengono pubblicate le entità di Data Factory, ovvero i serv
 19. Se viene visualizzato **Sign in to your Microsoft account** (Accedere all'account Microsoft), nella finestra di dialogo immettere le credenziali per l'account associato alla sottoscrizione di Azure e fare clic su **Accedi**.
 20. Verrà visualizzata la finestra di dialogo seguente:
 
-	![Finestra di dialogo Pubblica](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
+	![Finestra di dialogo Pubblica](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)  
 21. Nella pagina Configure data factory (Configura data factory), procedere come segue:
 	1. Selezionare l'opzione **Crea nuova data factory**.
 	2. Immettere **VSTutorialFactory** per **Nome**.
@@ -286,13 +287,13 @@ In questo passaggio vengono pubblicate le entità di Data Factory, ovvero i serv
 	5. Selezionare l'**area** per la data factory. Nell'elenco a discesa vengono visualizzate solo le aree supportate dal servizio Data Factory.
 	6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**.
 	
-		![Pagina Configure data factory (Configura data factory)](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)
+		![Pagina Configure data factory (Configura data factory)](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)  
 23. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.
 	
-	![Pagina Publish Items (Pubblica elementi)](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png)
+	![Pagina Publish Items (Pubblica elementi)](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png)  
 24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 
-	![Pagina Riepilogo pubblicazione](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
+	![Pagina Riepilogo pubblicazione](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)  
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Finish (Fine) dopo il termine della distribuzione. ![Pagina Stato distribuzione](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png)Tenere presente quanto segue:
 
 - Se viene visualizzato l'errore "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione:
@@ -344,4 +345,4 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 | [Set di dati](data-factory-create-datasets.md) | Questo articolo fornisce informazioni sui set di dati in Azure Data Factory.
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) | Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

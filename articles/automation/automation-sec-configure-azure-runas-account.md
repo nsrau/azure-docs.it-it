@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-	keywords="nome entità servizio, setspn, autenticazione di Azure"/>
+	keywords="nome entità servizio, setspn, autenticazione di Azure"/>  
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/17/2016"
-    ms.author="magoedte"/>
+    ms.author="magoedte"/> 
 
 # Autenticare runbook con account RunAs di Azure
 
@@ -384,4 +384,4 @@ Si noti che il cmdlet usato per l'autenticazione nel runbook (**Add-AzureRmAccou
 - Per altre informazioni sul controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
 - Per altre informazioni sui certificati e i servizi di Azure, vedere [Panoramica sui certificati per i servizi cloud di Azure](../cloud-services/cloud-services-certs-create.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

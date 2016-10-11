@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>
+   editor="cgronlun"/>  
 
 <tags
    ms.service="data-lake-store"
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
-   ms.author="nitinme"/>
+   ms.date="10/04/2016"
+   ms.author="nitinme"/>  
 
 # Introduzione all'archivio Azure Data Lake mediante Azure PowerShell
 
@@ -33,12 +33,13 @@ Informazioni su come usare Azure PowerShell per creare un account di Azure Data 
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
+* **Azure PowerShell 1.0 o versioni successive**. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-##Installare Azure PowerShell 1.0 o versioni successive
+## Autenticazione
 
-Vedere la sezione Prerequisiti in [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+Questo articolo usa un approccio di autenticazione più semplice con Data Lake Store con cui viene richiesto di immettere le credenziali del proprio account di Azure. Il livello di accesso al file system e all'account Data Lake Store viene quindi regolato dal livello di accesso dell'utente connesso. Esistono tuttavia altri approcci oltre all'autenticazione con Data Lake Store, ad esempio l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Eseguire l'autenticazione in Data Lake Store con Azure Active Directory).
 
 ## Creare un account di Azure Data Lake Store
 
@@ -69,7 +70,7 @@ Vedere la sezione Prerequisiti in [Uso di Azure PowerShell con Azure Resource Ma
 		$dataLakeStoreName = "<your new Data Lake Store name>"
     	New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-	![Creare un account di Azure Data Lake Store](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Creare un account di Azure Data Lake Store")
+	![Creare un account di Azure Data Lake Store](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Creare un account di Azure Data Lake Store")  
 
 3. Verificare che l'account sia stato creato correttamente.
 
@@ -95,7 +96,7 @@ Vedere la sezione Prerequisiti in [Uso di Azure PowerShell con Azure Resource Ma
 
 	Verrà visualizzato un output simile al seguente:
 
-	![Verificare la directory](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificare la directory")
+	![Verificare la directory](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificare la directory")  
 
 
 ## Caricare dati in Azure Data Lake Store
@@ -140,4 +141,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"/>  
 
 <tags 
 	ms.service="data-factory" 
@@ -19,12 +19,13 @@
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Azure PowerShell
 > [AZURE.SELECTOR]
 - [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 - [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
+
 
 In questa esercitazione viene creata e monitorata una data factory di Azure mediante i cmdlet di Azure PowerShell. La pipeline nella data factory creata in questa esercitazione usa un'attività di copia per copiare i dati da un BLOB di Azure e inserirli in un database SQL di Azure.
 
@@ -177,7 +178,7 @@ Eseguire i passaggi seguenti per preparare l'archivio BLOB di Azure e il databas
 				
 2. Usare strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) per creare il contenitore **adftutorial** e per caricare il file **emp.txt** nel contenitore.
 
-    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)  
 3. Usare il seguente script SQL per creare la tabella **emp** nel database SQL di Azure.
 
 
@@ -436,7 +437,7 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 4.	Creare una **pipeline** con un'**attività di copia** con **BlobSource** come origine e **SqlSink** come sink.
 
 ## Vedere anche
-| Argomento | Description |
+| Argomento | Descrizione |
 | :---- | :---- |
 | [Attività di spostamento dei dati](data-factory-data-movement-activities.md) | Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) | Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
@@ -463,4 +464,4 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>
+   editor="cgronlun"/>  
 
 <tags
    ms.service="data-lake-store"
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
-   ms.author="nitinme"/>
+   ms.date="09/27/2016"
+   ms.author="nitinme"/>  
 
 # Introduzione ad Azure Data Lake Store tramite la riga di comando di Azure
 
@@ -37,36 +37,40 @@ L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Interfaccia della riga di comando di Azure**: per informazioni sull’installazione e la configurazione vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md). Assicurarsi di riavviare del computer dopo l'installazione dell’interfaccia della riga di comando.
+
+## Autenticazione
+
+Questo articolo usa un approccio di autenticazione più semplice con Data Lake Store in cui si accede come utente finale. Il livello di accesso al file system e all'account Data Lake Store viene quindi regolato dal livello di accesso dell'utente connesso. Esistono tuttavia altri approcci oltre all'autenticazione con Data Lake Store, ad esempio l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Eseguire l'autenticazione in Data Lake Store con Azure Active Directory).
 
 ##Effettuare l'accesso alla sottoscrizione di Azure
 
-Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo __login__.
+1. Seguire i passaggi descritti in [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo `azure login`.
+
+2. Elencare le sottoscrizioni associate all'account usando il comando `azure account list`.
+
+		info:    Executing command account list
+		data:    Name              Id                                    Current
+		data:    ----------------  ------------------------------------  -------
+		data:    Azure-sub-1       ####################################  true
+		data:    Azure-sub-2       ####################################  false
+
+	Dall'output precedente **Azure-sub-1** è attualmente abilitato e l'altra sottoscrizione è **Azure-sub-2**.
+
+3. Selezionare la sottoscrizione da usare. Per usare la sottoscrizione Azure-sub-2, eseguire il comando `azure account set`.
+
+		azure account set Azure-sub-2
 
 
 ## Creare un account di Azure Data Lake Store
 
 Aprire un prompt dei comandi, una shell o una finestra del terminale ed eseguire il seguente comando.
 
-1. Accedere alla sottoscrizione di Azure:
-
-		azure login
-
-	Verrà richiesto di aprire una pagina web e immettere un codice di autenticazione. Seguire le istruzioni nella pagina per accedere alla sottoscrizione di Azure.
-
 2. Passare alla modalità Gestione risorse di Azure usando il comando seguente:
 
 		azure config mode arm
 
-
-3. Elencare le sottoscrizioni di Azure per l'account.
-
-		azure account list
-
-
-4. Se sono disponibili più sottoscrizioni di Azure, è possibile usare il comando seguente per configurare la sottoscrizione che verrà usata dai comandi dell'interfaccia della riga di comando di Azure:
-
-		azure account set <subscriptionname>
 
 5. Creare un nuovo gruppo di risorse. Nel comando seguente, fornire i valori dei parametri da utilizzare.
 
@@ -188,4 +192,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

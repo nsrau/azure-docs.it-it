@@ -6,7 +6,7 @@
     keywords="notifica push,notifiche push,notifiche push ios"
 	authors="wesmc7777"
 	manager="erikre"
-	editor=""/>
+	editor=""/>  
 
 <tags
 	ms.service="notification-hubs"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+	ms.date="10/03/2016"
+	ms.author="wesmc"/>  
 
 # Invio di notifiche push a iOS con Hub di notifica di Azure
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##Panoramica
+##Overview
 
 > [AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
@@ -469,7 +469,7 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 
 
-<!-- Images. -->
+<!-- Images. -->  
 
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
@@ -487,7 +487,7 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 
 
-<!-- URLs. -->
+<!-- URLs. -->  
 [Mobile Services iOS SDK]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK versione 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
@@ -502,10 +502,10 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-send-breaking-news.md
+[Uso di Hub di notifica di Azure per inviare notifiche agli utenti per iOS con back-end .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Usare Hub di notifica per inviare le ultime notizie]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

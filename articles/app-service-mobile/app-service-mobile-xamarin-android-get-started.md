@@ -3,9 +3,9 @@
 	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
-	editor="" />
+	editor="" />  
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
-	ms.author="glenga" />
+	ms.date="10/01/2016"
+	ms.author="adrianha" /> 
 
 #Creare un'app per Xamarin.Android
 
@@ -75,7 +75,7 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 * [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md): informazioni su come utilizzare l'SDK del client gestito nell'app Xamarin.
 
 
-<!-- Images. -->
+<!-- Images. --> 
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
 [6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
 [8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
@@ -86,4 +86,4 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

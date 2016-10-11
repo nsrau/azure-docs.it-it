@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="dominicbetts"
 	manager="timlt"
-	editor=""/>
+	editor=""/>  
 
 <tags
      ms.service="iot-hub"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="08/11/2016"
-     ms.author="dobett"/>
+     ms.author="dobett"/> 
 
 # Introduzione all'hub IoT di Azure per Java
 
@@ -40,7 +40,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Infine prendere nota del valore presente in **Chiave primaria** e quindi fare clic su **Messaggistica**. Nel pannello **Messaggistica** prendere nota del valore presente in **Nome compatibile con l'hub eventi** e in **Endpoint compatibile con l'hub eventi**. Questi tre valori servono quando si creerà l'applicazione **read-d2c-messages**.
 
-![][6]
+![Pannello Messaggistica dell'hub IoT nel portale di Azure][6]
 
 Si è appena creato l'hub IoT e si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, la chiave primaria dell'hub IoT, il nome compatibile con l'Hub eventi e l'endpoint compatibile con l'Hub eventi necessari per completare l'esercitazione.
 
@@ -445,7 +445,7 @@ A questo punto è possibile eseguire le applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Applicazione client Java del servizio hub IoT per il monitoraggio dei messaggi da dispositivo a cloud][7]
 
 2. Al prompt dei comandi nella cartella simulated-device eseguire il comando seguente per iniziare a inviare i dati di telemetria all'hub IoT:
 
@@ -453,11 +453,11 @@ A questo punto è possibile eseguire le applicazioni.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Applicazione client Java per dispositivi dell'hub IoT per l'invio dei messaggi da dispositivo a cloud][8] 
 
 3. Il riquadro **Utilizzo** nel [portale di Azure][lnk-portal] mostra il numero di messaggi inviati all'hub:
 
-    ![][43]
+    ![Riquadro Utilizzo del portale di Azure con il numero dei messaggi inviati all'hub IoT][43]
 
 ## Passaggi successivi
 
@@ -471,23 +471,23 @@ Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare al
 
 Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messaggi da dispositivo a cloud su vasta scala, vedere [Esercitazione: elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial].
 
-<!-- Images. -->
+<!-- Images. --> 
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-java-java-getstarted/runapp1.png
 [8]: ./media/iot-hub-java-java-getstarted/runapp2.png
 [43]: ./media/iot-hub-java-java-getstarted/usage.png
 
-<!-- Links -->
+<!-- Links --> 
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -495,4 +495,4 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

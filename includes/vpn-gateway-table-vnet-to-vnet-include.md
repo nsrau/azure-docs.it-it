@@ -1,9 +1,9 @@
-| | **Distribuzione classica** | **Distribuzione di Gestione risorse** | **Distribuzione classica e distribuzione di Azure Resource Manager** |
-|----------------------------------------|-------------|----------------------|---------------------------------|
-| **Portale classico** | [Articolo](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Non supportato | [Articolo*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |
-| **Portale di Azure** | Non supportato | Supportato+ | Non supportato |
-| **PowerShell** | Supportato | [Articolo](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Articolo](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+| **Modello/metodo di distribuzione** | **Portale di Azure** | **Portale classico** | **PowerShell** |
+|---|---|---|---|
+|**Classico** | Non supportato | [Articolo](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Supportato |
+|**Gestione risorse** | Non supportato |Supportato+ | [Articolo](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)|
+|**Connessioni tra modelli di distribuzione diversi** | [Articolo*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Articolo*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Articolo](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
 
-(+) indica che questo metodo di distribuzione è disponibile solo per le reti virtuali nella stessa sottoscrizione.<br> (*) indica un supporto parziale.
+(+) indica che questo metodo di distribuzione è disponibile solo per le reti virtuali nella stessa sottoscrizione.<br> (*) indica che questo metodo di distribuzione richiede anche PowerShell.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

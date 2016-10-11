@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="azure-resource-manager"/>  
 
 <tags
    ms.service="vpn-gateway"
@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
-   ms.author="cherylmc"/>
+   ms.date="10/03/2016"
+   ms.author="cherylmc"/>  
 
 # Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure
 
@@ -27,7 +27,7 @@
 
 Questo articolo illustra la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale con il **modello di distribuzione Azure Resource Manager** e il portale di Azure. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
 
-![Diagramma](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
+![Diagramma](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)  
 
 
 
@@ -54,23 +54,22 @@ Prima di iniziare la configurazione, verificare la disponibilità degli elementi
 
 Quando si segue questa procedura come esercizio, è possibile usare i valori della configurazione di esempio:
 
-- Nome della rete virtuale: TestVNet1
-- Spazio degli indirizzi: 10.11.0.0/16 e 10.12.0.0/16
-- Subnet:
+- **Nome della rete virtuale:** TestVNet1
+- **Spazio degli indirizzi:** 10.11.0.0/16 e 10.12.0.0/16
+- **Subnet:**
 	- FrontEnd: 10.11.0.0/24
 	- BackEnd: 10.12.0.0/24
 	- GatewaySubnet: 10.12.255.0/27
-- Gruppo di risorse: TestRG1
-- Location: Stati Uniti orientali
-- Server DNS: 8.8.8.8
-- Nome del gateway: VNet1GW
-- IP pubblico: VNet1GWIP
-- Tipo VPN: Basato su route
-- Tipo di connessione: Da sito a sito (IPSec)
-- Tipo di gateway: VPN
-- Nome del gateway di rete locale: Site2
-- Nome connessione: VNet1toSite2
-
+- **Gruppo di risorse:** TestRG1
+- **Località:** Stati Uniti orientali
+- **Server DNS:** 8.8.8.8
+- **Nome del gateway:** VNet1GW
+- **IP pubblico:** VNet1GWIP
+- **Tipo VPN:** Basato su route
+- **Tipo di connessione:** Da sito a sito (IPSec)
+- **Tipo di gateway:** VPN
+- **Nome del gateway di rete locale:** Site2
+- **Nome connessione:** VNet1toSite2
 
 
 ## 1\. Crea rete virtuale 
@@ -89,29 +88,24 @@ Se si ha già una rete virtuale, verificare che le impostazioni siano compatibil
 
 ## <a name="dns"></a>3. Specificare un server DNS
 
-Se si crea questa configurazione come esercizio, fare riferimento a questi [valori](#values) quando si specifica il server DNS.
-
 ### Per specificare un server DNS
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4\. Creare una subnet del gateway
 
-Prima di connettere la rete virtuale a un gateway, è necessario creare la subnet del gateway per la rete virtuale con cui si vuole stabilire la connessione. La subnet del gateway che si crea deve essere denominata *GatewaySubnet*, perché diversamente non funzionerà nel modo corretto.
-
-Il prefisso della subnet del gateway per alcune configurazioni richiede una subnet con dimensioni di /28 o superiori per contenere il numero di indirizzi IP necessari nel pool. Questo significa che il prefisso della subnet del gateway deve essere /28, /27, /26 e così via. In questo caso è consigliabile creare una subnet più grande per consentire l'eventuale aggiunta di configurazioni in seguito.
+Prima di connettere la rete virtuale a un gateway, è necessario creare la subnet del gateway per la rete virtuale con cui si vuole stabilire la connessione. Se possibile, è consigliabile creare una subnet del gateway con un blocco CIDR di /28 o /27 per fornire indirizzi IP sufficienti a soddisfare altri requisiti di configurazione futuri.
 
 Se si crea questa configurazione come esercizio, fare riferimento a questi [valori](#values) quando si crea la subnet del gateway.
 
 ### Per creare una subnet del gateway
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5\. Creare un gateway di rete virtuale
 
-Se si crea questa configurazione come esercizio, fare riferimento a questi [valori](#values) quando si crea il gateway.
+Se si crea questa configurazione come esercizio, è possibile fare riferimento ai [valori di configurazione di esempio](#values).
 
 ### Per creare un gateway di rete virtuale
 
@@ -119,9 +113,9 @@ Se si crea questa configurazione come esercizio, fare riferimento a questi [valo
 
 ## 6\. Creare un gateway di rete locale
 
-Il *gateway di rete locale* fa riferimento al percorso locale. Assegnare un nome al gateway di rete locale a cui Azure potrà fare riferimento.
+Il 'gateway di rete locale' fa riferimento al percorso locale. Assegnare un nome al gateway di rete locale a cui Azure potrà fare riferimento.
 
-Se si crea questa configurazione come esercizio, fare riferimento a questi [valori](#values) quando si aggiunge il sito locale.
+Se si crea questa configurazione come esercizio, è possibile fare riferimento ai [valori di configurazione di esempio](#values).
 
 ### Per creare un gateway di rete locale
 
@@ -154,4 +148,4 @@ Per verificare la connessione VPN è possibile usare il portale o PowerShell.
 
 - Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

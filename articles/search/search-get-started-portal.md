@@ -1,12 +1,12 @@
 <properties 
-	pageTitle="Introduzione a Ricerca di Azure | Microsoft Azure | Introduzione a Ricerca di Azure | DocumentDB | Servizio di ricerca cloud" 
-	description="Creare la prima soluzione di Ricerca di Azure con questa procedura dettagliata. Informazioni su come creare un indice di Ricerca di Azure con dati di DocumentDB. Questo è un esercizio senza codice basato sul portale, che usa la procedura guidata Importa dati." 
+	pageTitle="Introduzione a Ricerca di Azure | Microsoft Azure | DocumentDB | Servizio di ricerca cloud" 
+	description="Informazioni sulla creazione del primo indice di Ricerca di Azure con questa procedura dettagliata e i dati di esempio di DocumentDB. Questo esercizio senza codice basato sul portale usa l'importazione guidata dati." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
 	manager="jhubbard" 
 	editor=""
-    tags="azure-portal"/>
+    tags="azure-portal"/>  
 
 <tags 
 	ms.service="search" 
@@ -14,8 +14,8 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="08/29/2016" 
-	ms.author="heidist"/>
+	ms.date="10/03/2016" 
+	ms.author="heidist"/>  
 
 # Introduzione a Ricerca di Azure nel portale
 
@@ -23,7 +23,7 @@ Questa introduzione senza codice permette di iniziare a usare Ricerca di Microso
 
 L'esercitazione presuppone un [database di Azure DocumentDB di esempio](#apdx-sampledata) semplice da creare usando i dati e le istruzioni, ma è anche possibile adattare questi passaggi ai dati esistenti in DocumentDB o nel database SQL.
 
-> [AZURE.NOTE] Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](../../includes/free-trial-note.md) e un [servizio Ricerca di Azure](search-create-service-portal.md).
+> [AZURE.NOTE] Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](/pricing/free-trial/?WT.mc_id=A261C142F) e un [servizio Ricerca di Azure](search-create-service-portal.md).
  
 ## Trovare il servizio
 
@@ -39,11 +39,11 @@ Molti clienti iniziano con il servizio gratuito. Questa versione è limitata a t
 
 ## Creare un indice e caricare i dati
 
-Le query di ricerca scorrono un *indice* contenente dati ricercabili, metadati e costrutti usati per l'ottimizzazione di determinati comportamenti di ricerca. Come primo passaggio, viene definito e popolato un indice.
+Le query di ricerca scorrono un *indice* contenente dati ricercabili, metadati e costrutti usati per l'ottimizzazione di determinati comportamenti di ricerca. Come primo passaggio viene definito e popolato un indice.
 
 Per creare un indice si possono usare diversi modi. Se i dati si trovano in un archivio in cui Ricerca di Azure può eseguire una ricerca per indicizzazione, ad esempio un database SQL di Azure, SQL Server in una macchina virtuale di Azure o DocumentDB, è possibile creare e popolare un indice in tutta semplicità con un *indicizzatore*.
 
-Per mantenere questa attività basata sul portale, si presuppone che sia possibile eseguire una ricerca per indicizzazione sui dati provenienti da DocumentDB usando un indicizzatore con la procedura guidata **Importa dati**.
+Per mantenere questa attività basata sul portale, si usano dati di DocumentDB sui quali è possibile effettuare una ricerca per indicizzazione con un indicizzatore mediante l'**importazione guidata dati**.
 
 Prima di continuare, creare un [database di DocumentDB di esempio](#apdx-sampledata) da usare con l'esercitazione e quindi tornare a questa sezione per completare la procedura seguente.
 
@@ -52,13 +52,13 @@ Prima di continuare, creare un [database di DocumentDB di esempio](#apdx-sampled
 
 1. Nel dashboard del servizio Ricerca di Azure fare clic su **Importa dati** nella barra dei comandi per avviare una procedura guidata che crea e popola un indice.
 
-  ![][7]
+    ![][7]
 
 2. Nella procedura guidata fare clic su **Origine dati** > **DocumentDB** > **Nome** e digitare un nome per l'origine dati. Un'origine dati è un oggetto connessione in Ricerca di Azure che può essere usato con altri indicizzatori. Una volta creata, diventa disponibile come "origine dati esistente" nel servizio.
 
-3. Scegliere l'account DocumentDB esistente, nonché il database e la raccolta. Se si usano i dati di esempio forniti, la definizione dell'origine dati sarà simile alla seguente:
+3. Scegliere l'account DocumentDB esistente, nonché il database e la raccolta. Se si usano i dati di esempio messi a disposizione, la definizione dell'origine dati sarà simile alla seguente:
 
-  ![][2]
+    ![][2]  
 
 Si noti che la query viene ignorata. Il motivo è che questa volta non viene implementato il rilevamento delle modifiche nel set di dati. Se il set di dati include un campo che tiene traccia del momento in cui un record viene aggiornato, è possibile configurare un indicizzatore di Ricerca di Azure per usare il rilevamento delle modifiche per aggiornamenti selettivi dell'indice.
 
@@ -141,22 +141,22 @@ Per informazioni sulle altre funzionalità descritte in questo articolo, visitar
 
 È possibile provare questo stesso flusso di lavoro con la procedura guidata Imposta dati per altre origini dati, ad esempio database SQL di Azure o SQL Server in macchine virtuali di Azure.
 
-> [AZURE.NOTE] È stato annunciato di recente il supporto di un indicizzatore per la ricerca per indicizzazione nell'archiviazione BLOB di Azure, ma la funzionalità è in anteprima e non ancora un'opzione del portale. Per provare l'indicizzatore, è necessario scrivere codice. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). <a id="apdx-sampledata"></a>
+> [AZURE.NOTE] È stato annunciato di recente il supporto di un indicizzatore per la ricerca per indicizzazione nell'archiviazione BLOB di Azure, ma la funzionalità è in anteprima e non ancora un'opzione del portale. Per provare l'indicizzatore è necessario scrivere codice. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). <a id="apdx-sampledata"></a>
 
 
 ## Appendice: Creare dati di esempio in DocumentDB
 
 Questa sezione crea un piccolo database in DocumentDB che può essere usato per completare le attività in questa esercitazione.
 
-Le istruzioni seguenti forniscono indicazioni generali, ma non sono esaustive. Se è necessaria ulteriore assistenza per le attività o lo spostamento nel portale di DocumentDB, è possibile vedere la documentazione di DocumentDB. La maggior parte dei comandi necessari sono tuttavia sulla barra dei comandi del servizio nella parte superiore del dashboard o nel pannello del database.
+Le istruzioni seguenti forniscono indicazioni generali, ma non sono esaustive. Se è necessaria altra assistenza per le attività o lo spostamento nel portale di DocumentDB, è possibile vedere la documentazione di DocumentDB. La maggior parte dei comandi necessari sono tuttavia sulla barra dei comandi del servizio nella parte superiore del dashboard o nel pannello del database.
 
-  ![][1]
+  ![][1]  
 
 ### Creare musicstoredb per questa esercitazione
 
 1. [Fare clic qui](https://github.com/HeidiSteen/azure-search-get-started-sample-data) per scaricare un file ZIP contenente i file di dati JSON del Music Store. Per questo set di dati vengono forniti 246 documenti JSON.
 2. Aggiungere DocumentDB alla sottoscrizione e quindi aprire il dashboard del servizio.
-2. Fare clic su **Aggiungi database** per creare un nuovo database con l'ID `musicstoredb`. Una volta creato, il database verrà visualizzato in un riquadro di database più in basso nella pagina.
+2. Fare clic su **Aggiungi database** per creare un nuovo database con l'ID `musicstoredb`. Una volta creato, il database verrà visualizzato nel riquadro di database più in basso nella pagina.
 2. Fare clic sul nome del database per aprire il pannello corrispondente.
 3. Fare clic su **Aggiungi raccolta** per creare una raccolta con l'ID `musicstorecoll`.
 3. Fare clic su **Esplora documenti**.
@@ -174,7 +174,7 @@ Un modo semplice per eseguire questa operazione consiste nell'usare la query pre
 Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al documento 669. Dopo aver caricato i dati, è possibile [tornare ai passaggi di questa procedura dettagliata](#defineDS) per creare un indice tramite la procedura guidata **Importa dati**.
 
 
-<!--Image references-->
+<!--Image references-->  
 [1]: ./media/search-get-started-portal/AzureSearch-GetStart-Docdbmenu1.png
 [2]: ./media/search-get-started-portal/AzureSearch-GetStart-DataSource.png
 [3]: ./media/search-get-started-portal/AzureSearch-GetStart-DefaultIndex.png
@@ -183,4 +183,4 @@ Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al d
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

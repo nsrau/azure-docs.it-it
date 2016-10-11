@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="rayne-wiselman" 
 	manager="jwhit" 
-	editor=""/>
+	editor=""/>  
 
 <tags 
 	ms.service="site-recovery" 
@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
-	ms.author="raynew"/>
+	ms.date="09/29/2016" 
+	ms.author="raynew"/>  
 
 #  Che cos'è Site Recovery?
 
 Benvenuti in Azure Site Recovery. È possibile iniziare con questo articolo per ottenere una rapida panoramica del servizio Site Recovery e come può favorire l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR).
 
-## Panoramica
+## Overview
 
 Le organizzazioni necessitano di una strategia di continuità aziendale e ripristino di emergenza per determinare come app, carichi di lavoro e dati possano rimanere in esecuzione e disponibili durante i periodi di inattività, pianificati o meno, e come ripristinare le normali condizioni di lavoro il prima possibile. La strategia di continuità aziendale e ripristino di emergenza deve garantire la sicurezza dei dati aziendali e la possibilità di recuperarli, oltre alla disponibilità costante dei carichi di lavoro in caso di emergenza.
 
@@ -81,4 +81,4 @@ Site Recovery può essere utile per una strategia BCDR compatibile con le applic
 - Per altre informazioni sull'architettura di Site Recovery, vedere [Funzionamento di Azure Site Recovery](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="nitinme"
    manager="jhubbard"
-   editor="cgronlun"/>
+   editor="cgronlun"/>  
 
 <tags
    ms.service="data-lake-store"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store con .NET SDK
@@ -65,7 +65,7 @@ Informazioni su come usare [.NET SDK con Azure Data Lake Store](https://msdn.mic
 		* `Microsoft.Azure.Management.DataLake.StoreUploader` - In questa esercitazione si usa v0.10.6-preview.
 		* `Microsoft.Rest.ClientRuntime.Azure.Authentication` - In questa esercitazione si usa v2.2.8-preview.
 
-		![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creare un nuovo account di Azure Data Lake")
+		![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creare un nuovo account di Azure Data Lake")  
 
 	4. Chiudere la finestra **Gestione pacchetti NuGet**.
 
@@ -112,9 +112,9 @@ Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .N
 
 ## Autenticazione
 
-### Se si usa l'autenticazione dell'utente finale
+### Se si usa l'autenticazione dell'utente finale (consigliata per questa esercitazione)
 
-Questo tipo di autenticazione deve essere usato con un'applicazione client nativa Azure AD esistente. Di seguito ne viene riportata una.
+Questo tipo di autenticazione deve essere usato con un'applicazione client nativa Azure AD esistente. Di seguito ne viene riportata una. Per completare più rapidamente questa esercitazione, è consigliabile adottare questo approccio.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -124,7 +124,10 @@ Questo tipo di autenticazione deve essere usato con un'applicazione client nativ
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Nel frammento di codice precedente vengono usati un dominio di Azure AD e un ID client disponibili per impostazione predefinita per tutte le sottoscrizioni di Azure. Per usare il proprio dominio di Azure AD e l'ID client dell'applicazione è necessario creare un'applicazione nativa Azure AD. Per istruzioni, vedere [Creare un'applicazione Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+Informazioni utili sul frammento di codice precedente.
+
+* Per completare più rapidamente l'esercitazione, questo frammento di codice usa un dominio di Azure AD e un ID client disponibili per impostazione predefinita per tutte le sottoscrizioni di Azure. È quindi possibile **usare questo frammento così com'è nell'applicazione**.
+* Se, tuttavia, si vuole usare il proprio dominio di Azure AD e il proprio ID client dell'applicazione, è necessario creare un'applicazione nativa Azure AD e quindi usare il dominio di Azure AD, l'ID client e l'URI di reindirizzamento per l'applicazione creata. Per istruzioni, vedere [Creare un'applicazione Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
 
 >[AZURE.NOTE] Le istruzioni disponibili tramite i collegamenti riportati sopra si riferiscono a un'applicazione Web di Azure AD, ma i passaggi sono gli stessi anche se si sceglie di creare un'applicazione client nativa.
 
@@ -273,4 +276,4 @@ Il frammento seguente illustra il metodo `DownloadFile` da usare per scaricare u
 - [Informazioni di riferimento su .NET SDK con Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST Reference (Informazioni di riferimento su REST per Data Lake Store)](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

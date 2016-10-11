@@ -17,7 +17,7 @@
 
 # Panoramica della rete virtuale
 
-Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud. È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. È anche possibile segmentare ulteriormente la rete virtuale in subnet e avviare macchine virtuali (VM) IaaS di Azure e/o [servizi cloud (istanze del ruolo PaaS)](../cloud-services/cloud-services-choose-me.md). È anche possibile connettere la rete virtuale alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-cross-premises-options.md) disponibili in Azure. In pratica è possibile espandere la rete ad Azure, con il controllo completo sui blocchi di indirizzi IP con tutti i vantaggi di livello aziendale offerti da Azure.
+Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud. È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. È anche possibile segmentare ulteriormente la rete virtuale in subnet e avviare macchine virtuali (VM) IaaS di Azure e/o [servizi cloud (istanze del ruolo PaaS)](../cloud-services/cloud-services-choose-me.md). È anche possibile connettere la rete virtuale alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibili in Azure. In pratica è possibile espandere la rete ad Azure, con il controllo completo sui blocchi di indirizzi IP con tutti i vantaggi di livello aziendale offerti da Azure.
 
 Per meglio comprendere le reti virtuali, vedere la figura seguente che mostra una rete locale semplificata.
 
@@ -95,4 +95,4 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 - Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 - Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
 
-<!----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->
