@@ -79,4 +79,4 @@ Esercitazione | Descrizione
 [Copy data from Blob Storage to SQL Database using Data Factory (Copiare dati dall'archivio BLOB al database SQL usando Data Factory)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | In questa esercitazione viene creata una data factory con una pipeline per **spostare i dati** dall'archivio BLOB al database SQL.
 [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) | In questa esercitazione viene creata una data factory con una pipeline che **sposta i dati** da un database di SQL Server **locale** a un BLOB di Azure. Come parte della procedura dettagliata, viene installato e configurato il Gateway di gestione dati nel computer. 
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
