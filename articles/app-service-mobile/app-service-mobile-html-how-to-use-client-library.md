@@ -103,10 +103,10 @@ Dopo l'aggiornamento del backend, sarà possibile usare i nuovi URL di loopback 
 <!-- URLs. -->
 [Avvio rapido alle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[Aggiungere l'autenticazione all'app]: app-service-mobile-cordova-get-started-users.md
 
 [portale di Azure]: https://portal.azure.com/
 [JavaScript SDK per le app per dispositivi mobili di Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Query object documentation]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
+[documentazione relativa all'oggetto Query]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
 
 <!---HONumber=AcomDC_0928_2016-->

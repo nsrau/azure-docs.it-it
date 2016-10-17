@@ -738,7 +738,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 
 ### Modello della parte finale del log  
 
-recupera le *e*ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.
+recupera le *e* ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.
 
 #### Contesto e problema  
 
@@ -1582,4 +1582,4 @@ I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi c
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
