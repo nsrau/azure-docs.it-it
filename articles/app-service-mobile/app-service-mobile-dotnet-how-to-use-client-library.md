@@ -509,7 +509,7 @@ Vengono forniti esempi per i modelli di autenticazione del flusso client seguent
 	* Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
 	* Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
 	* Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
-	* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a \_https://contoso.azurewebsites.net/.auth/login/done_.
+	* Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint _/.auth/login/done_ del sito, usando lo schema HTTPS. Questo valore dovrebbe essere simile a _https://contoso.azurewebsites.net/.auth/login/done_.
 	
 	Il codice necessario per ogni piattaforma è riportato di seguito:
 	
@@ -927,7 +927,7 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [Sincronizzazione di dati offline nelle App per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [Aggiungere notifiche push all'app]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Come configurare l'applicazione del servizio app per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [riferimento al client .NET di app per dispositivi mobili di Azure]: https://msdn.microsoft.com/it-IT/library/azure/mt419521(v=azure.10).aspx
