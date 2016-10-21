@@ -260,7 +260,8 @@ se si verifica un problema con la connessione RDP, provare a riavviare (forse da
 
 nel caso in cui il riavvio di xrdp come indicato in precedenza non funzioni, verificare se è presente un file con estensione pid e rimuoverlo:
 
-  in /var/run cercare xrdp.pid, rimuoverlo e provare a riavviare di nuovo
+  in /var/run cercare xrdp.pid,   
+  rimuoverlo e provare a riavviare di nuovo
 
 
 
