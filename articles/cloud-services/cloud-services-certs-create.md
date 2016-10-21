@@ -1,65 +1,66 @@
 <properties 
-	pageTitle="Servizi cloud e certificati di gestione | Microsoft Azure" 
-	description="Informazioni su come creare e usare i certificati con Microsoft Azure" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Cloud Services and management certificates | Microsoft Azure" 
+    description="Learn how to create and use certificates with Microsoft Azure" 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/05/2016"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/11/2016"
+    ms.author="adegeo"/>
 
-# Panoramica sui certificati per i servizi cloud di Azure
-I [certificati di servizio](#what-are-service-certificates) vengono usati in Azure per i servizi cloud, mentre i [certificati di gestione](#what-are-management-certificates) vengono usati per l'autenticazione con l'API di gestione e sono legati all'uso del portale di Azure classico e non di Gestione risorse di Azure. Questo argomento fornisce informazioni generali su entrambi i tipi di certificati, su come [crearli](#create) e come [distribuirli](#deploy) in Azure.
 
-Quelli usati in Azure sono certificati x.509 v3 e possono essere firmati da un altro certificato attendibile o essere autofirmati. Un certificato autofirmato viene firmato dal creatore e pertanto non è attendibile per impostazione predefinita. La maggior parte dei browser può ignorarlo. I certificati autofirmati dovrebbero essere usati solo dall'utente quando sviluppa e testa i servizi cloud.
+# <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services
+Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates) when using the Azure classic portal and not ARM). This topic gives a general overview of both certificate types, how to [create](#create) and [deploy](#deploy) them to Azure.
 
-I certificati usati da Azure possono contenere una chiave privata o una pubblica. I certificati hanno un'identificazione personale che consente di identificarli in modo non ambiguo. Questa identificazione personale viene usata nel [file di configurazione](cloud-services-configure-ssl-certificate.md) di Azure per identificare il certificato che un servizio cloud dovrebbe usare.
+Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, and because of this, are not trusted by default. Most browsers can ignore this. Self-signed certificates should only be used by yourself when developing and testing your cloud services. 
 
-## Cosa sono i certificati di servizio?
-I certificati di servizio sono associati ai servizi cloud e consentono la comunicazione sicura verso e dal servizio. Ad esempio, se si distribuisse un ruolo Web, si fornirebbe un certificato per autenticare un endpoint HTTPS esposto. I certificati di servizio, definiti nella definizione del servizio, vengono automaticamente distribuiti nella macchina virtuale che esegue un'istanza del ruolo.
+Certificates used by Azure can contain a private or a public key. Certificates have a thumbprint that provides a means to identify them in an unambiguous way. This thumbprint is used in the Azure [configuration file](cloud-services-configure-ssl-certificate.md) to identify which certificate a cloud service should use. 
 
-È possibile caricare i certificati di servizio nel portale di Azure classico usando il portale di Azure classico o usando l'API di gestione dei servizi. I certificati di servizio vengono associati a un servizio cloud specifico e assegnati a una distribuzione nel file di definizione del servizio.
+## <a name="what-are-service-certificates?"></a>What are service certificates?
+Service certificates are attached to cloud services and enable secure communication to and from the service. For example, if you deployed a web role, you would want to supply a certificate that can authenticate an exposed HTTPS endpoint. Service certificates, defined in your service definition, are automatically deployed to the virtual machine that is running an instance of your role. 
 
-I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato modificando la configurazione del servizio senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico per il certificato e il relativo nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
+You can upload service certificates to Azure classic portal either using the Azure classic portal or by using the Service Management API. Service certificates are associated with a specific cloud service and assigned to a deployment in the service definition file.
 
-## Cosa sono i certificati di gestione?
-I certificati di gestione consentono di eseguire l'autenticazione con l'API di gestione dei servizi fornita da Azure classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) useranno questi certificati per automatizzare la configurazione e la distribuzione dei vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud.
+Service certificates can be managed separately from your services, and may be managed by different individuals. For example, a developer may upload a service package that refers to a certificate that an IT manager has previously uploaded to Azure. An IT manager can manage and renew that certificate changing the configuration of the service without needing to upload a new service package. This is possible because the logical name for the certificate and its store name and location are specified in the service definition file, while the certificate thumbprint is specified in the service configuration file. To update the certificate, it's only necessary to upload a new certificate and change the thumbprint value in the service configuration file.
 
->[AZURE.WARNING] Fare attenzione. Questi tipi di certificati consentono a chiunque esegua l'autenticazione di gestire la sottoscrizione a cui sono associati.
+## <a name="what-are-management-certificates?"></a>What are management certificates?
+Management certificates allow you to authenticate with the Service Management API provided by Azure classic. Many programs and tools (such as Visual Studio or the Azure SDK) will use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 
 
-### Limitazioni
-È previsto un limite di 100 certificati di gestione per ogni sottoscrizione. È anche previsto un limite di 100 certificati di gestione per tutte le sottoscrizioni che fanno riferimento all'ID utente di un amministratore del servizio specifico. Se l'ID utente per l'amministratore dell'account è già stato usato per aggiungere 100 certificati di gestione e ne sono necessari altri, è possibile aggiungere un coamministratore per aumentare il numero di certificati.
+>[AZURE.WARNING] Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with. 
 
-Prima di aggiungere più di 100 certificati, verificare se è possibile riutilizzarne uno esistente. L'uso di coamministratori potrebbe rendere più complesso il processo di gestione dei certificati.
+### <a name="limitations"></a>Limitations
+There is a limit of 100 management certificates per subscription. There is also a limit of 100 management certificates for all subscriptions under a specific service administrator’s user ID. If the user ID for the account administrator has already been used to add 100 management certificates and there is a need for more certificates, you can add a co-administrator to add the additional certificates. 
+
+Before adding more than 100 certificates, see if you can reuse an existing certificate. Using co-administrators adds potentially unneeded complexity to your certificate management process.
 
 
 <a name="create"></a>
-## Creare un nuovo certificato autofirmato
-È possibile usare qualsiasi strumento disponibile per creare un certificato autofirmato purché rispetti queste impostazioni:
+## <a name="create-a-new-self-signed-certificate"></a>Create a new self-signed certificate
+You can use any tool available to create a self-signed certificate as long as they adhere to these settings:
 
-* Un certificato X.509.
-* Contiene una chiave privata.
-* Viene creato per lo scambio di chiave (file PFX).
-* Il nome del soggetto deve corrispondere al dominio usato per accedere al servizio cloud.
-    > Non è possibile ottenere un certificato SSL per il dominio cloudapp.net o per domini di Azure. Il nome del soggetto del certificato deve pertanto corrispondere al nome di dominio personalizzato usato per accedere all'applicazione. Ad esempio,**contoso.net**e non**contoso.cloudapp.net**.
-* Crittografia minima a 2048 bit.
-* **Solo certificato di servizio**: il certificato lato client deve trovarsi nell'archivio certificati *Personale*.
+* An X.509 certificate.
+* Contains a private key.
+* Created for key exchange (.pfx file).
+* Subject name must match the domain used to access the cloud service. 
+    > You cannot acquire an SSL certificate for the cloudapp.net (or for any Azure related) domain; the certificate's subject name must match the custom domain name used to access your application. For example, **contoso.net**, not **contoso.cloudapp.net**.
+* Minimum of 2048-bit encryption.
+* **Service Certificate Only**: Client-side certificate must reside in the *Personal* certificate store.
 
-Sono disponibili due semplici modi per creare un certificato in Windows: con l'utilità `makecert.exe` o con IIS.
+There are two easy ways to create a certificate on Windows, with the `makecert.exe` utility, or IIS.
 
-### Makecert.exe
+### <a name="makecert.exe"></a>Makecert.exe
 
-Questa utilità è stata deprecata e di seguito non è più disponibile la relativa documentazione. Per altre informazioni, vedere [questo articolo di MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
+This utility has been deprecated and is no longer documented here. Please see [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa386968) for more information.
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
@@ -67,31 +68,35 @@ $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
 
->[AZURE.NOTE] Se si vuole usare il certificato con un indirizzo IP anziché un dominio, usare l'indirizzo IP nel parametro -DnsName.
+>[AZURE.NOTE] If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
 
 
-Se si desidera usare questo [certificato con il portale di gestione](../azure-api-management-certs.md), esportarlo in un file con estensione **cer**:
+If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
-### Internet Information Services (IIS)
+### <a name="internet-information-services-(iis)"></a>Internet Information Services (IIS)
 
-Su Internet sono disponibili molte pagine che spiegano come eseguire questa operazione con IIS. [Qui](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html)ce n’è uno ottimo che ho trovato che ritengo che spieghi bene.
+There are many pages on the internet that cover how to do this with IIS. [Here](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) is a great one I found that I think explains it well. 
 
-### Java
-È possibile usare Java per [creare un certificato](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
+### <a name="java"></a>Java
+You can use Java to [create a certificate](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
-### Linux
-[Questo](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) articolo descrive come creare certificati tramite SSH.
+### <a name="linux"></a>Linux
+[This](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) article describes how to create certificates with SSH.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-[Caricare il certificato di servizio nel portale di Azure classico](cloud-services-configure-ssl-certificate.md) o nel [portale di Azure](cloud-services-configure-ssl-certificate-portal.md).
+[Upload your service certificate to the Azure classic portal](cloud-services-configure-ssl-certificate.md) (or the [Azure portal](cloud-services-configure-ssl-certificate-portal.md)).
 
-Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure classico.
+Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal.
 
->[AZURE.NOTE] Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
+>[AZURE.NOTE] The Azure portal does not use management certificates to access the API but instead uses user accounts.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

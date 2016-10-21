@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Informazioni generali sulla sicurezza di Internet delle cose | Microsoft Azure"
-   description=" I servizi di Azure IoT (Internet delle cose) offrono una vasta gamma di funzionalità. Questo articolo illustra come proteggere le soluzioni IoT in Azure. "
+   pageTitle="Internet of Things security overview | Microsoft Azure"
+   description=" Azure internet of things (IoT) services offer a broad range of capabilities. This article helps you understand how to secure your IoT solutions in Azure. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
    manager="MBaldwin"
-   editor="TomSh"/>  
+   editor="TomSh"/>
 
 <tags
    ms.service="security"
@@ -14,58 +14,63 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/09/2016"
-   ms.author="terrylan"/>  
+   ms.author="terrylan"/>
 
-# Informazioni generali sulla sicurezza di Internet delle cose
 
-I servizi di Azure IoT (Internet delle cose) offrono una vasta gamma di funzionalità. Questi servizi di livello aziendale consentono di:
+# <a name="internet-of-things-security-overview"></a>Internet of Things security overview
 
-- Raccogliere dati dai dispositivi
-- Analizzare i flussi dei dati in movimento
-- Archiviare ed eseguire query su set di dati di grandi dimensioni
-- Visualizzare i dati in tempo reale e cronologici
-- Eseguire l'integrazione con i sistemi back-office
+Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
 
-Per offrire queste funzionalità, Azure IoT Suite include più servizi di Azure con estensioni personalizzate come soluzioni preconfigurate. Queste soluzioni preconfigurate sono implementazioni di base dei modelli di soluzione IoT comuni che contribuiscono a ridurre i tempi di distribuzione delle soluzioni IoT. I Software Development Kit IoT consentono di personalizzare ed estendere queste soluzioni per soddisfare le proprie esigenze. È anche possibile usare queste soluzioni come esempi o modelli durante lo sviluppo di nuove soluzioni IoT.
+- Collect data from devices
+- Analyze data streams in-motion
+- Store and query large data sets
+- Visualize both real-time and historical data
+- Integrate with back-office systems
 
-Azure IoT Suite è una potente soluzione per le esigenze di IoT. È tuttavia fondamentale che le soluzioni IoT siano progettate sin dall'inizio pensando alla sicurezza. A causa del numero elevato di dispositivi IoT, qualsiasi evento imprevisto riguardante la sicurezza può diventare rapidamente un evento esteso con conseguenze significative.
+To deliver these capabilities, Azure IoT Suite packages together multiple Azure services with custom extensions as preconfigured solutions. These preconfigured solutions are base implementations of common IoT solution patterns that help to reduce the time you take to deliver your IoT solutions. Using the IoT software development kits, you can customize and extend these solutions to meet your own requirements. You can also use these solutions as examples or templates when you are developing new IoT solutions.
 
-Le informazioni seguenti sono utili per comprendere come proteggere le soluzioni IoT.
+The Azure IoT suite is a powerful solution for your IoT needs. However, it’s of upmost importance that your IoT solutions are designed with security in mind from the start. Because of the sheer number of IoT devices, any security incident can quickly become a widespread event with significant consequences.
 
-## Architettura di sicurezza
+To help you understand how to secure your IoT solutions, we have the following information.
 
-Quando si progetta un sistema, è importante comprendere le potenziali minacce e aggiungere le difese appropriate di conseguenza, perché il sistema è definito da una progettazione e un'architettura specifiche. È particolarmente importante progettare il prodotto tenendo conto della sicurezza, perché comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema aiuta ad implementare le misure appropriate sin dall'inizio.
+## <a name="security-architecture"></a>Security architecture
 
-Informazioni sull'architettura di sicurezza IoT sono disponibili in [Architettura di sicurezza di Internet delle cose](../iot-suite/iot-security-architecture.md).
+When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning.
 
-Questo articolo tratta gli argomenti seguenti:
+You can learn about IoT security architecture by reading [Internet of Things Security Architecture](../iot-suite/iot-security-architecture.md).
 
-- [La sicurezza inizia con un modello di rischio](../iot-suite/iot-security-architecture.md#security-starts-with-a-threat-model)
-- [Sicurezza in IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
-- [Modellazione delle minacce nell'architettura di riferimento di Azure IoT](../iot-suite/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
+This article discusses the following topics:
 
-## Sicurezza sin dall'inizio
+- [Security Starts with a Threat Model](../iot-suite/iot-security-architecture.md#security-starts-with-a-threat-model)
+- [Security in IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+- [Threat Modeling the Azure IoT Reference Architecture](../iot-suite/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
 
-Internet delle cose pone numerose sfide in termini di sicurezza, privacy e conformità per le aziende di tutto il mondo. A differenza delle tecnologie informatiche tradizionali in cui questi problemi riguardano il software e la relativa implementazione, l'IoT riguarda le sfide poste dalla convergenza tra il mondo fisico e quello informatico. Per proteggere le soluzioni IoT, è necessario garantire il provisioning sicuro dei dispositivi, la connettività protetta tra questi dispositivi e il cloud e la protezione dei dati nel cloud durante l'elaborazione e l'archiviazione. A sfavore di queste funzionalità, tuttavia, giocano fattori quali dispositivi con risorse limitate, la distribuzione geografica delle implementazioni e un numero elevato di dispositivi all'interno di un'unica soluzione.
+## <a name="security-from-the-ground-up"></a>Security from the ground up
 
-Informazioni su come gestire la sicurezza in queste aree sono disponibili in [Sicurezza di Internet delle cose sin dall'inizio](../iot-suite/securing-iot-ground-up.md).
+The IoT poses unique security, privacy, and compliance challenges to businesses worldwide. Unlike traditional cyber technology where these issues revolve around software and how it is implemented, IoT concerns what happens when the cyber and the physical worlds converge. Protecting IoT solutions requires ensuring secure provisioning of devices, secure connectivity between these devices and the cloud, and secure data protection in the cloud during processing and storage. Working against such functionality, however, are resource-constrained devices, geographic distribution of deployments, and a large number of devices within a solution.
 
-L'articolo tratta gli argomenti seguenti:
+You can learn how to handle security in these areas by reading [Internet of Things security from the ground up](../iot-suite/securing-iot-ground-up.md).
 
-- [Proteggere l'infrastruttura fin dall'inizio](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
-- [Microsoft Azure: protezione dell'infrastruttura IoT aziendale](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
+The article discusses the following topics:
 
-## Procedure consigliate
+- [Secure infrastructure from the ground up](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
+- [Microsoft Azure – secure IoT infrastructure for your business](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
-Proteggere un'infrastruttura IoT richiede una strategia di sicurezza rigorosa e approfondita. Dalla protezione dei dati nel cloud, alla messa in sicurezza dell'integrità dei dati in transito sulla rete Internet pubblica e alla capacità di eseguire in modo sicuro il provisioning dei dispositivi, ogni strato aumenta il livello di sicurezza dell'intera infrastruttura.
+## <a name="best-practices"></a>Best Practices
 
-Informazioni sulle procedure consigliate per la sicurezza di Internet delle cose sono disponibili in [Procedure consigliate per la sicurezza di Internet delle cose](../iot-suite/iot-security-best-practices.md).
+Securing an IoT infrastructure requires a rigorous security-in-depth strategy. Starting from securing data in the cloud, to protecting data integrity while in transit over the public internet, and providing the ability to securely provision devices, each layer builds greater security assurance in the overall infrastructure.
 
-L'articolo tratta gli argomenti seguenti:
+You can learn about Internet of Things security best practices by reading [Internet of Things security best practices](../iot-suite/iot-security-best-practices.md).
 
-- [Produttore/integratore di hardware IoT](../iot-suite/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
-- [Sviluppatore di soluzioni IoT](../iot-suite/iot-security-best-practices.md#iot-solution-developer)
-- [Distributore di soluzioni IoT](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
-- [Operatore di soluzioni IoT](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
+The article discusses the following topics:
 
-<!---HONumber=AcomDC_0810_2016-->
+- [IoT hardware manufacturer/integrator](../iot-suite/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
+- [IoT solution developer](../iot-suite/iot-security-best-practices.md#iot-solution-developer)
+- [IoT solution deployer](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
+- [IoT solution operator](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Chiave privata nell’insieme di credenziali chiave con il modello di Resource Manager | Microsoft Azure"
-   description="Viene illustrato come passare una chiave privata da un insieme di credenziali chiave come parametro durante la distribuzione."
+   pageTitle="Key Vault secret with Resource Manager template | Microsoft Azure"
+   description="Shows how to pass a secret from a key vault as a parameter during deployment."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,19 +16,20 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
-# Passare valori protetti durante la distribuzione
 
-Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile archiviare tale valore come chiave privata in un [insieme di credenziali chiave di Azure](./key-vault/key-vault-whatis.md) e fare riferimento al valore in altri modelli di Gestione risorse. Includere solo un riferimento alla chiave privata nel modello, in modo che la chiave privata non sia mai esposta, e non è necessario immettere manualmente il valore per la chiave privata ogni volta che si distribuiscono le risorse. Specificare quali utenti o entità servizio possono accedere alla chiave privata.
+# <a name="pass-secure-values-during-deployment"></a>Pass secure values during deployment
 
-## Distribuire un insieme di credenziali chiave e una chiave privata
+When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an [Azure Key Vault](./key-vault/key-vault-whatis.md) and reference the value in other Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed, and you do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.  
 
-Per creare l'insieme di credenziali chiave da utilizzare come riferimento da altri modelli di Gestione risorse, è necessario impostare la proprietà **enabledForTemplateDeployment** su **true** e occorre concedere l'accesso all'utente o entità servizio che eseguirà la distribuzione con riferimento alla chiave privata.
+## <a name="deploy-a-key-vault-and-secret"></a>Deploy a key vault and secret
 
-Per ulteriori informazioni sulla distribuzione di un insieme di credenziali chiave e di una chiave privata, vedere lo [Schema dell'insieme di credenziali chiave](resource-manager-template-keyvault.md) e lo [Schema chiave privata nell'insieme di credenziali chiave](resource-manager-template-keyvault-secret.md).
+To create key vault that can be referenced from other Resource Manager templates, you must set the **enabledForTemplateDeployment** property to **true**, and you must grant access to the user or service principal that will execute the deployment which references the secret.
 
-## Fare riferimento a un segreto con un ID statico
+To learn about deploying a key vault and secret, see [Key vault schema](resource-manager-template-keyvault.md) and [Key vault secret schema](resource-manager-template-keyvault-secret.md).
 
-Si fa riferimento alla chiave privata all'interno di un file dei parametri che passa i valori al modello. Si fa riferimento alla chiave privata passando l'identificatore della risorsa dell'insieme di credenziali chiave e il nome della chiave privata. In questo esempio il segreto dell'insieme di credenziali delle chiavi deve esistere già e si deve usare un valore statico per l'ID risorsa.
+## <a name="reference-a-secret-with-static-id"></a>Reference a secret with static id
+
+You reference the secret from within a parameters file which passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret. In this example, the key vault secret must already exist, and you are using a static value for it resource id.
 
     "parameters": {
       "adminPassword": {
@@ -41,7 +42,7 @@ Si fa riferimento alla chiave privata all'interno di un file dei parametri che p
       }
     }
 
-Un file di parametri completo potrebbe essere simile a:
+An entire parameter file might look like:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -61,7 +62,7 @@ Un file di parametri completo potrebbe essere simile a:
       }
     }
 
-Il parametro che accetta la chiave privata deve essere di tipo **securestring**. Nell'esempio seguente sono illustrate le sezioni pertinenti di un modello che consente di distribuire un server SQL che richiede una password di amministratore.
+The parameter that accepts the secret should be a **securestring**. The following example shows the relevant sections of a template that deploys a SQL server that requires an administrator password.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -94,11 +95,11 @@ Il parametro che accetta la chiave privata deve essere di tipo **securestring**.
         "outputs": { }
     }
 
-## Fare riferimento a un segreto con un ID dinamico
+## <a name="reference-a-secret-with-dynamic-id"></a>Reference a secret with dynamic id
 
-La sezione precedente ha illustrato come passare un ID risorsa statico per il segreto dell'insieme di credenziali delle chiavi. In alcuni scenari, tuttavia, è necessario fare riferimento a un segreto dell'insieme di credenziali delle chiavi che varia a seconda della distribuzione corrente. In questo caso non è possibile impostare come hardcoded l'ID risorsa nel file dei parametri. Non è sfortunatamente possibile generare in modo dinamico l'ID risorsa nel file dei parametri, perché le espressioni del modello non sono consentite nel file dei parametri.
+The previous section showed how to pass a static resource id for the key vault secret. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. In that case, you cannot hard-code the resource id in the parameters file. Unfortunately, you cannot dynamically generate the resource id in the parameters file because template expressions are not permitted in the parameters file.
 
-Per generare in modo dinamico l'ID risorsa per un segreto dell'insieme di credenziali delle chiavi, è necessario spostare la risorsa che necessita del segreto in un modello annidato. Nel modello principale aggiungere il modello annidato e passare un parametro che include l'ID risorsa generato in modo dinamico.
+To dynamically generate the resource id for a key vault secret, you must move the resource that needs the secret into a nested template. In your master template, you add the nested template and pass in a parameter that contains the dynamically generated resource id.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -139,10 +140,15 @@ Per generare in modo dinamico l'ID risorsa per un segreto dell'insieme di creden
     }
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Per informazioni generali sugli insiemi di credenziali chiave, vedere [Introduzione all'insieme di credenziali chiave Azure](./key-vault/key-vault-get-started.md).
-- Per informazioni sull'uso di un insieme di credenziali delle chiavi con una macchina virtuale, vedere [Considerazioni sulla sicurezza per Azure Resource Manager](best-practices-resource-manager-security.md).
-- Per esempi completi di segreti di riferimento alle chiavi private, vedere [Esempi di insiemi di credenziali chiave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
+- For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
+- For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,189 +1,190 @@
 <properties 
-	pageTitle="Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli | Microsoft Azure" 
-	description="Informazioni su come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to customize the Azure API Management developer portal using templates | Microsoft Azure" 
+    description="Learn how to customize the Azure API Management developer portal using templates." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/09/2016" 
+    ms.author="sdanie"/>
 
 
-# Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
-Gestione API di Azure offre diverse funzionalità di personalizzazione per consentire agli amministratori di [personalizzare l'aspetto del portale per sviluppatori](api-management-customize-portal.md) e il contenuto delle relative pagine usando un set di modelli che permettono di configurare il contenuto delle pagine stesse. La sintassi [DotLiquid](http://dotliquidmarkup.org/), insieme a un set fornito di risorse stringa localizzate, icone e controlli di pagina, offre grande flessibilità nella configurazione del contenuto delle pagine con questi modelli.
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>How to customize the Azure API Management developer portal using templates
 
-## Panoramica sui modelli del portale per sviluppatori
+Azure API Management provides several customization features to allow administrators to [customize the look and feel of the developer portal](api-management-customize-portal.md), as well as customize the content of the developer portal pages using a set of templates that configure the content of the pages themselves. Using [DotLiquid](http://dotliquidmarkup.org/) syntax, and a provided set of localized string resources, icons, and page controls, you have great flexibility to configure the content of the pages as you see fit using these templates.
 
-I modelli del portale per sviluppatori vengono gestiti nel portale dagli amministratori dell'istanza del servizio Gestione API. Per gestire i modelli di sviluppo, passare all'istanza del servizio Gestione API nel portale di Azure classico e fare clic su **Sfoglia**.
+## <a name="developer-portal-templates-overview"></a>Developer portal templates overview
 
-![Portale per sviluppatori][api-management-browse]
+Developer portal templates are managed in the developer portal by administrators of the API Management service instance. To manage developer templates, navigate to your API Management service instance in the Azure Classic Portal and click **Browse**.
 
-Se si è già nel portale di pubblicazione, è possibile accedere al **portale per sviluppatori** facendo clic sul relativo collegamento.
+![Developer portal][api-management-browse]
 
-![Menu del portale per sviluppatori][api-management-developer-portal-menu]
+If you are already in the publisher portal, you can access the developer portal by clicking **Developer portal**.
 
-Per accedere ai modelli del portale per sviluppatori, fare clic sull'icona di personalizzazione a sinistra per visualizzare il menu di personalizzazione e quindi fare clic su **Templates**.
+![Developer portal menu][api-management-developer-portal-menu]
 
-![Modelli del portale per sviluppatori][api-management-customize-menu]
+To access the developer portal templates, click the customize icon on the left to display the customization menu, and click **Templates**.
 
-L'elenco dei modelli include varie categorie di modelli che coprono le diverse pagine del portale per sviluppatori. Ogni modello è diverso, ma i passaggi per modificarli e pubblicare le modifiche sono uguali per tutti. Per modificare un modello, fare clic sul nome del modello.
+![Developer portal templates][api-management-customize-menu]
 
-![Modelli del portale per sviluppatori][api-management-templates-menu]
+The templates list displays several categories of templates covering the different pages in the developer portal. Each template is different, but the steps to edit them and publish the changes are the same. To edit a template, click the name of the template.
 
-Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Product list**. Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso.
+![Developer portal templates][api-management-templates-menu]
 
-![Modello Product list][api-management-developer-portal-templates-overview]
+Clicking a template takes you to the developer portal page that is customizable by that template. In this example the **Product list** template is displayed. The **Product list** template controls the area of the screen indicated by the red rectangle. 
 
-Alcuni modelli, come i modelli **User Profile**, permettono di personalizzare parti diverse della stessa pagina.
+![Products list template][api-management-developer-portal-templates-overview]
 
-![Modelli User Profile][api-management-user-profile-templates]
+Some templates, like the **User Profile** templates, customize different parts of the same page. 
 
-L'editor di ogni modello del portale per sviluppatori include due sezioni visualizzate nella parte inferiore della pagina. A sinistra è visualizzato il riquadro di modifica per il modello, mentre a destra è visualizzato il relativo modello di dati.
+![User profile templates][api-management-user-profile-templates]
 
-Il riquadro di modifica del modello contiene il markup che controlla l'aspetto e il comportamento della pagina corrispondente nel portale per sviluppatori. Il markup del modello usa la sintassi [DotLiquid](http://dotliquidmarkup.org/). Uno degli editor più diffusi per DotLiquid è [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Tutte le modifiche apportate al modello in fase di modifica vengono visualizzate in tempo reale nel browser, ma non sono visibili ai clienti finché non si sceglie di [salvare](#to-save-a-template) e [pubblicare](#to-publish-a-template) il modello.
+The editor for each developer portal template has two sections displayed at the bottom of the page. The left-hand side displays the editing pane for the template, and the right-hand side displays the data model for the template. 
 
-![Markup del modello][api-management-template]
+The template editing pane contains the markup that controls the appearance and behavior of the corresponding page in the developer portal. The markup in the template uses the [DotLiquid](http://dotliquidmarkup.org/) syntax. One popular editor for DotLiquid is [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Any changes made to the template during editing are displayed in real-time in the browser, but are not visible to your customers until you [save](#to-save-a-template) and [publish](#to-publish-a-template) the template.
 
-Il riquadro **Template data** fornisce una guida al modello di dati per le entità disponibili per l'uso in un determinato modello. La guida consiste nella possibilità di visualizzare i dati attivi attualmente visualizzati nel portale per sviluppatori. Per espandere i riquadri del modello è possibile fare clic sul rettangolo nell'angolo superiore destro del riquadro **Template data**.
+![Template markup][api-management-template]
 
-![Modello Template data][api-management-template-data]
+The **Template data** pane provides a guide to the data model for the entities that are available for use in a particular template. It provides this guide by displaying the live data that are currently displayed in the developer portal. You can expand the template panes by clicking the rectangle in the upper-right corner of the **Template data** pane.
 
-Nell'esempio precedente sono disponibili due prodotti visualizzati nel portale per gli sviluppatori che sono stati recuperati dai dati visualizzati nel riquadro **Template data**, come illustrato nell'esempio seguente.
+![Template data model][api-management-template-data]
 
-	{
-		"Paging": {
-			"Page": 1,
-			"PageSize": 10,
-			"TotalItemCount": 2,
-			"ShowAll": false,
-			"PageCount": 1
-		},
-		"Filtering": {
-			"Pattern": null,
-			"Placeholder": "Search products"
-		},
-		"Products": [
-			{
-				"Id": "56ec64c380ed850042060001",
-				"Title": "Starter",
-				"Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-				"Terms": "",
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			},
-			{
-				"Id": "56ec64c380ed850042060002",
-				"Title": "Unlimited",
-				"Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
-				"Terms": null,
-				"ProductState": 1,
-				"AllowMultipleSubscriptions": false,
-				"MultipleSubscriptionsCount": 1
-			}
-		]
-	}
+In the previous example there are two products displayed in the developer portal that were retrieved from the data displayed in the **Template data** pane, as shown in the following example.
 
-Il markup del modello **Product list** elabora i dati per fornire l'output previsto scorrendo la raccolta di prodotti per visualizzare le relative informazioni e un collegamento a ogni singolo prodotto. Si notino gli elementi `<search-control>` e `<page-control>` nel markup. Questi controllano la visualizzazione dei controlli di ricerca e di paging nella pagina. `ProductsStrings|PageTitleProducts` è un riferimento a una stringa localizzata che contiene il testo dell'intestazione `h2` della pagina. Per un elenco delle risorse stringa, i controlli di pagina e le icone disponibili per l'uso nei modelli del portale per sviluppatori, vedere il [riferimento ai modelli del portale per sviluppatori di Gestione API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+    {
+        "Paging": {
+            "Page": 1,
+            "PageSize": 10,
+            "TotalItemCount": 2,
+            "ShowAll": false,
+            "PageCount": 1
+        },
+        "Filtering": {
+            "Pattern": null,
+            "Placeholder": "Search products"
+        },
+        "Products": [
+            {
+                "Id": "56ec64c380ed850042060001",
+                "Title": "Starter",
+                "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+                "Terms": "",
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            },
+            {
+                "Id": "56ec64c380ed850042060002",
+                "Title": "Unlimited",
+                "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+                "Terms": null,
+                "ProductState": 1,
+                "AllowMultipleSubscriptions": false,
+                "MultipleSubscriptionsCount": 1
+            }
+        ]
+    }
 
-	<search-control></search-control>
-	<div class="row">
-	    <div class="col-md-9">
-	        <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
-	    </div>
-	</div>
-	<div class="row">
-	    <div class="col-md-12">
-		{% if products.size > 0 %}
-		<ul class="list-unstyled">
-		{% for product in products %}
-			<li>
-				<h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-				{{product.description}}
-			</li>	
-		{% endfor %}
-		</ul>
-		<paging-control></paging-control>
-		{% else %}
-		{% localized "CommonResources|NoItemsToDisplay" %}
-		{% endif %}
-		</div>
-	</div>
+The markup in the **Product list** template processes the data to provide the desired output by iterating through the collection of products to display information and a link to each individual product. Note the `<search-control>` and `<page-control>` elements in the markup. These control the display of the searching and paging controls on the page. `ProductsStrings|PageTitleProducts` is a localized string reference that contains the `h2` header text for the page. For a list of string resources, page controls, and icons available for use in developer portal templates, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-## Per salvare un modello
+    <search-control></search-control>
+    <div class="row">
+        <div class="col-md-9">
+            <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        {% if products.size > 0 %}
+        <ul class="list-unstyled">
+        {% for product in products %}
+            <li>
+                <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+                {{product.description}}
+            </li>   
+        {% endfor %}
+        </ul>
+        <paging-control></paging-control>
+        {% else %}
+        {% localized "CommonResources|NoItemsToDisplay" %}
+        {% endif %}
+        </div>
+    </div>
 
-Per salvare un modello, fare clic sull'icona di salvataggio nell'editor del modello.
+## <a name="to-save-a-template"></a>To save a template
 
-![Salvare il modello][api-management-save-template]
+To save a template, click save in the template editor.
 
-Le modifiche salvate non sono attive nel portale per sviluppatori fino a quando non vengono pubblicate.
+![Save template][api-management-save-template]
 
-## Per pubblicare un modello
+Saved changes are not live in the developer portal until they are published.
 
-I modelli salvati possono essere pubblicati singolarmente o tutti insieme. Per pubblicare un singolo modello, fare clic sull'icona di pubblicazione nell'editor del modello.
+## <a name="to-publish-a-template"></a>To publish a template
 
-![Pubblicare il modello][api-management-publish-template]
+Saved templates can be published either individually, or all together. To publish an individual template, click publish in the template editor.
 
-Fare clic su **Yes** per confermare e rendere il modello attivo nel portale per sviluppatori.
+![Publish template][api-management-publish-template]
 
-![Confermare la pubblicazione][api-management-publish-template-confirm]
+Click **Yes** to confirm and make the template live on the developer portal.
 
-Per pubblicare tutte le versioni dei modelli non ancora pubblicate, fare clic su **Publish** nell'elenco dei modelli. I modelli non pubblicati sono contraddistinti da un asterisco dopo il nome del modello. In questo esempio vengono pubblicati i modelli **Product list** e **Product**.
+![Confirm publish][api-management-publish-template-confirm]
 
-![Pubblicare i modelli][api-management-publish-templates]
+To publish all currently unpublished template versions, click **Publish** in the templates list. Unpublished templates are designated by an asterisk following the template name. In this example, the **Product list** and **Product** templates are being published.
 
-Fare clic su **Publish customizations** per confermare.
+![Publish templates][api-management-publish-templates]
 
-![Confermare la pubblicazione][api-management-publish-customizations]
+Click **Publish customizations** to confirm.
 
-I modelli appena pubblicati diventano immediatamente disponibili nel portale per sviluppatori.
+![Confirm publish][api-management-publish-customizations]
 
-## Per annullare la modifiche alla versione precedente di un modello
+Newly published templates are effective immediately in the developer portal.
 
-Per annullare la modifiche alla versione pubblicata precedente di un modello, fare clic sull'icona di annullamento nell'editor del modello.
+## <a name="to-revert-a-template-to-the-previous-version"></a>To revert a template to the previous version
 
-![Annullare le modifiche al modello][api-management-revert-template]
+To revert a template to the previous published version, click revert in the template editor.
 
-Fare clic su **Yes** per confermare.
+![Revert template][api-management-revert-template]
+
+Click **Yes** to confirm.
 
 ![Confirm][api-management-revert-template-confirm]
 
-Al termine dell'operazione di annullamento, la versione pubblicata precedente del modello sarà disponibile nel portale per sviluppatori.
+The previously published version of a template is live in the developer portal once the revert operation is complete.
 
-## Per ripristinare la versione predefinita di un modello
+## <a name="to-restore-a-template-to-the-default-version"></a>To restore a template to the default version
 
-Il ripristino della versione predefinita di un modello è un processo in due passaggi. Occorre prima di tutto ripristinare i modelli e quindi pubblicare le versioni ripristinate.
+Restoring templates to their default version is a two-step process. First the templates must be restored, and then the restored versions must be published.
 
-Per ripristinare la versione predefinita di un singolo modello, fare clic sull'icona di ripristino nell'editor del modello.
+To restore a single template to the default version click restore in the template editor.
 
-![Annullare le modifiche al modello][api-management-reset-template]
+![Revert template][api-management-reset-template]
 
-Fare clic su **Yes** per confermare.
+Click **Yes** to confirm.
 
 ![Confirm][api-management-reset-template-confirm]
 
-Per ripristinare le versioni predefinite di tutti i modelli, fare clic su **Restore default templates** nell'elenco dei modelli.
+To restore all templates to their default versions, click **Restore default templates** on the template list.
 
-![Ripristinare i modelli][api-management-restore-templates]
+![Restore templates][api-management-restore-templates]
 
-I modelli ripristinati devono poi essere pubblicati singolarmente o tutti insieme seguendo i passaggi descritti nella sezione [Per pubblicare un modello](#to-publish-a-template).
+The restored templates must then be published individually or all at once by following the steps in [To publish a template](#to-publish-a-template).
 
-## Riferimento ai modelli del portale per sviluppatori
+## <a name="developer-portal-templates-reference"></a>Developer portal templates reference
 
-Per informazioni di riferimento sui modelli del portale per sviluppatori, le risorse stringa, le icone e i controlli di pagina, vedere il [riferimento ai modelli del portale per sviluppatori di Gestione API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+For reference information for developer portal templates, string resources, icons, and page controls, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
 
-## Guardare un video introduttivo
+## <a name="watch-a-video-overview"></a>Watch a video overview
 
-Il video seguente illustra come aggiungere classificazioni e un'area discussioni alle pagine dell'API e operative nel portale per sviluppatori usando i modelli.
+Watch the following video to see how to add a discussion board and ratings to the API and operation pages in the developer portal using templates.
 
 > [AZURE.VIDEO adding-developer-portal-functionality-using-templates-in-azure-api-management]
 
@@ -207,4 +208,15 @@ Il video seguente illustra come aggiungere classificazioni e un'area discussioni
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

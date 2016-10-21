@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Azure AD + requisiti di Active Directory per Azure RemoteApp | Microsoft Azure" 
-    description="Informazioni su come configurare Active Directory per lavorare con Azure RemoteApp." 
+    pageTitle="Azure AD + Active Directory requirements for Azure RemoteApp | Microsoft Azure" 
+    description="Learn how to set up Active Directory to work with Azure RemoteApp." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -18,33 +18,37 @@
 
 
 
-# Azure AD + requisiti di Active Directory per Azure RemoteApp
+
+# <a name="azure-ad-+-active-directory-requirements-for-azure-remoteapp"></a>Azure AD + Active Directory requirements for Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 
-Per la raccolta ibrida di RemoteApp di Azure o per un insieme di cloud che si desidera attuare utilizzando una connessione di Active Directory, è necessario eseguire le operazioni seguenti.
+For your Azure RemoteApp hybrid collection or for a cloud collection that you want to federate using AD Connect, you need to do the following.
 
-### Connettersi AD Azure e ad Active Directory
+### <a name="connect-azure-ad-and-active-directory"></a>Connect Azure AD and Active Directory
 
-Se si desidera connettere il tenant di Azure AD e gli ambienti di Active Directory in locale, utilizzare la connessione di Active Directory. Verranno visualizzati solo [4 clic](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) per connettere le due directory.
+If you want to connect your Azure AD tenant and your on-premises Active Directory environments, use AD Connect. It will take you only [4 clicks](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) to connect the two directories.
 
-Nota - la sincronizzazione delle Directory è necessaria per le raccolte ibride.
+Note - Directory synchronization is required for hybrid collections.
 
-### Assicurarsi che il "@domain.com" corrisponda
-Prima di iniziare, assicurarsi che il nome UPN per la foresta locale corrisponda al suffisso del dominio di Microsoft Azure.
+### <a name="make-sure-your-"@domain.com"-match"></a>Make sure your "@domain.com" match
+Before you get started, make sure that the UPN for your on-premises forest matches the suffix of your Azure AD domain. 
 
-Dopo aver impostato il suffisso del dominio UPN in Azure AD, tutti gli utenti che accedono in Azure RemoteApp accederanno come "utente@<il suffisso impostato>". Assicurarsi che gli utenti possano inoltre accedere con lo stesso user@suffix nel dominio locale. In alcuni casi è possibile impostare un nome di dominio in Azure AD quando si specifica un suffisso di dominio diverso per l'utente locale. In questo caso, gli utenti non potranno connettersi a nessun computer appartenente a un dominio o a risorse tramite Azure RemoteApp.
+After you set up the UPN domain suffix in Azure AD, all users logging into Azure RemoteApp will log in as “user@<the suffix you set up>”. Make sure that users can also log in with the same user@suffix into the on-premises domain. In certain cases you can set up one domain name in Azure AD while specifying a different domain suffix for the user on-prem. In this case, your users won't be able to connect to any domain-joined computers or resources through Azure RemoteApp.
 
-Ad esempio, se si imposta il suffisso di dominio UPN in AAD come contoso.com, ma alcuni utenti in locale o Active Directory sono configurati per l'accesso con @contoso.uk, allora tali utenti non potranno accedere correttamente alla raccolta ARA. Gli utenti UPN in AAD e in Active Directory devono essere gli stessi affinché l'accesso sia possibile"
+For example, if you set up your UPN domain suffix in AAD as contoso.com, but some users on premises/AD are configured to log in with @contoso.uk, then those users will not be able to correctly log into the ARA collection. Users UPN in AAD and AD must be the same for the login to be possible”
 
-### Creare gli oggetti per RemoteApp di Azure
-Inoltre, è necessario creare i seguenti oggetti di Active Directory locali:
+### <a name="create-objects-for-azure-remoteapp"></a>Create objects for Azure RemoteApp
+You also need to create the following on-premises Active Directory objects:
 
-- Un account del servizio per fornire l'accesso alle risorse di dominio ai programmi RemoteApp unendo gli endpoint di Host sessione Desktop remoto al dominio locale.
-- Un'unità organizzativa per contenere oggetti computer di RemoteApp. L'uso dell'unità organizzativa è consigliabile (ma non obbligatorio) per isolare gli account e i criteri che si useranno con RemoteApp.
+- A service account to provide access to domain resources for RemoteApp programs by joining RDSH end points to the on-premises domain.
+- An Organizational Unit (OU) to contain RemoteApp machine objects. Use of the OU is recommended (but not required) to isolate the accounts and policies you will use with RemoteApp.
 
-Entrambi questi oggetti sono necessari quando si crea la raccolta di RemoteApp, sarà dunque necessario innanzitutto eseguire questi passaggi.
+You need both of these objects when you create your RemoteApp collection, so be sure to do these steps first.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

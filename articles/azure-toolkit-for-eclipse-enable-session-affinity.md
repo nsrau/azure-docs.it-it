@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Abilitare l'affinità di sessione tramite il Toolkit di Azure per Eclipse"
-    description="Informazioni su come abilitare l'affinità di sessione tramite il Toolkit di Azure per Eclipse"
+    pageTitle="Enable Session Affinity using the Azure Toolkit for Eclipse"
+    description="Learn how to enable session affinity using the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,58 +16,62 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
 
-# Abilitare l'affinità di sessione #
+# <a name="enable-session-affinity"></a>Enable Session Affinity #
 
-Nel Toolkit di Azure per Eclipse, è possibile abilitare l'affinità di sessione HTTP, o "sessioni permanenti", per i ruoli. La figura seguente mostra la finestra di dialogo delle proprietà di **Bilanciamento del carico** utilizzata per abilitare la funzionalità di affinità di sessione:
+Within the Azure Toolkit for Eclipse, you can enable HTTP session affinity, or "sticky sessions", for your roles. The following image shows the **Load Balancing** properties dialog used to enable the session affinity feature:
 
 ![][ic719492]
 
-## Per abilitare l'affinità di sessione per il ruolo ##
+## <a name="to-enable-session-affinity-for-your-role"></a>To enable session affinity for your role ##
 
-1. Fare clic con il tasto destro sul ruolo in Project Explorer di Eclipse, fare clic su **Azure**, quindi fare clic su **Bilanciamento del carico**.
-1. Nella finestra di dialogo **Proprietà per il bilanciamento del carico del WorkerRole1**:
-    1. Controllare **Abilita l'affinità di sessione attiva HTTP (sessioni permanenti) per questo ruolo.**
-    1. Per gli **Endpoint di input da utilizzare**, selezionare un endpoint di input da utilizzare, ad esempio, **http (public: 80, private: 8080)**. L'applicazione deve usare questo endpoint come l’endpoint HTTP. È possibile abilitare più endpoint per il ruolo, ma è possibile selezionare solo uno di essi per supportare le sessioni permanenti.
-    1. Ricompilare l'applicazione
+1. Right-click the role in Eclipse's Project Explorer, click **Azure**, and then click **Load Balancing**.
+1. In the **Properties for WorkerRole1 Load Balancing** dialog:
+    1. Check **Enable HTTP session affinity (sticky sessions) for this role.**
+    1. For **Input endpoint to use**, select an input endpoint to use, for example, **http (public:80, private:8080)**. Your application must use this endpoint as its HTTP endpoint. You can enable multiple endpoints for your role, but you can select only one of them to support sticky sessions.
+    1. Rebuild your application.
 
-Una volta abilitato, se si dispone di più di un'istanza del ruolo, le richieste HTTP provenienti da un determinato client continueranno ad essere gestite dalla stessa istanza del ruolo.
+Once enabled, if you have more than one role instance, HTTP requests coming from a particular client will continue being handled by the same role instance.
 
-Il Toolkit di Eclipse lo consente installando un modulo IIS speciale denominato Application Request Routing (ARR) in tutte le istanze del ruolo. ARR reindirizza le richieste HTTP all'istanza del ruolo appropriato. Il toolkit riconfigura automaticamente l'endpoint selezionato in modo che il traffico HTTP in ingresso viene instradato al software ARR. Il toolkit crea anche un nuovo endpoint interno al quale server Java deve stare attenti per configurazione. Si tratta dell'endpoint usato da ARR per reindirizzare il traffico HTTP all'istanza del ruolo appropriato. In questo modo, ogni istanza del ruolo nella distribuzione multi-istanza funge da proxy inverso per tutte le altre istanze, abilitando le sessioni permanenti.
+The Eclipse Toolkit enables this by installing a special IIS module called Application Request Routing (ARR) into each of your role instances. ARR reroutes HTTP requests to the appropriate role instance. The toolkit automatically reconfigures the selected endpoint so that the incoming HTTP traffic is first routed to the ARR software. The toolkit also creates a new internal endpoint that your Java server is configured to listen to. That is the endpoint used by ARR to reroute the HTTP traffic to the appropriate role instance. This way, each role instance in your multi-instance deployment serves as a reverse proxy for all the other instances, enabling sticky sessions.
 
-## Note sull'affinità di sessione ##
+## <a name="notes-about-session-affinity"></a>Notes about session affinity ##
 
-* L’affinità di sessione non funziona nell'emulatore di calcolo. Le impostazioni possono essere applicate nell'emulatore di calcolo senza interferire con il processo di compilazione o con l’esecuzione dell'emulatore di calcolo, ma la funzionalità di per sé non funziona nell'emulatore di calcolo.
-* L’abilitazione dell’affinità di sessione comporterà un aumento della quantità di spazio nel disco preso dalla distribuzione in Azure, come software aggiuntivo verrà scaricato e installato nelle istanze del ruolo quando il servizio viene avviato nel cloud di Azure.
-* Il tempo necessario per inizializzare ogni ruolo sarà maggiore.
-* Verrà aggiunto un endpoint interno, che fungerà da rerouter di traffico, come indicato in precedenza.
+* Session affinity does not work in the compute emulator. The settings can be applied in the compute emulator without interfering with your build process or compute emulator execution, but the feature itself does not function within the compute emulator.
+* Enabling session affinity will result in an increase in the amount of disk space taken up by your deployment in Azure, as additional software will be downloaded and installed into your role instances when your service is started in the Azure cloud.
+* The time to initialize each role will take longer.
+* An internal endpoint, to function as a traffic rerouter as mentioned above, will be added.
 
-Per un esempio di come gestire i dati della sessione quando viene abilitata l'affinità di sessione, vedere [Come mantenere i dati della sessione con l’Affinità di sessione][].
+For an example of how to maintain session data when session affinity is enabled, see [How to Maintain Session Data with Session Affinity][].
 
-## Vedere anche ##
+## <a name="see-also"></a>See Also ##
 
-[Toolkit di Azure per Eclipse][]
+[Azure Toolkit for Eclipse][]
 
-[Creazione di un'applicazione Hello World per Azure in Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-[Installare il Toolkit di Azure per Eclipse.][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Come gestire i dati della sessione con affinità di sessione][]
+[How to Maintain Session Data with Session Affinity][]
 
-Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creazione di un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Come gestire i dati della sessione con affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Come mantenere i dati della sessione con l’Affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

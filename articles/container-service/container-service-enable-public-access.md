@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Abilitare l'accesso pubblico a un'app del servizio contenitore di Azure | Microsoft Azure"
-   description="Come abilitare l'accesso pubblico a un servizio contenitore di Azure."
+   pageTitle="Enable Public Access to an ACS app | Microsoft Azure"
+   description="How to enable public access to an Azure Container Service."
    services="container-service"
    documentationCenter=""
    authors="Thraka"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Contenitori, Micro-servizi, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,83 +16,87 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/26/2016"
-   ms.author="adegeo"/>
+   ms.author="timlt"/>
 
-# Abilitare l'accesso pubblico a un'applicazione del servizio contenitore di Azure
 
-Qualsiasi contenitore DC/OS nel [pool di agenti pubblico](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) del servizio contenitore di Azure viene esposto automaticamente a Internet. Per impostazione predefinita, le porte **80**, **443**, **8080** sono aperte e qualsiasi contenitore (pubblico) in ascolto su queste porte è accessibile. Questo articolo descrive come aprire altre porte per le applicazioni nel servizio contenitore di Azure.
+# <a name="enable-public-access-to-an-azure-container-service-application"></a>Enable public access to an Azure Container Service application
 
-## Aprire una porta (portale) 
+Any DC/OS container in the ACS [public agent pool](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) is automatically exposed to the internet. By default, ports **80**, **443**, **8080** are opened, and any (public) container listening on those ports are accessible. This article shows you how to open more ports for your applications in Azure Container Service.
 
-Prima di tutto è necessario aprire la porta desiderata.
+## <a name="open-a-port-(portal)"></a>Open a port (portal) 
 
-1. Accedere al portale.
-2. Trovare il gruppo di risorse in cui è stato distribuito il servizio contenitore di Azure.
-3. Selezionare il servizio di bilanciamento del carico dell'agente, che ha un nome simile a **XXXX-agent-lb-XXXX**.
+First, we need to open the port we want.
 
-    ![Servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/agent-load-balancer.png)
+1. Log in to the portal.
+2. Find the resource group that you deployed the Azure Container Service to.
+3. Select the agent load balancer (which is named similar to **XXXX-agent-lb-XXXX**).
 
-4. Fare clic su **Probe** e quindi su **Aggiungi**.
+    ![Azure container service load balancer](media/container-service-dcos-agents/agent-load-balancer.png)
 
-    ![Probe del servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/add-probe.png)
+4. Click **Probes** and then **Add**.
 
-5. Compilare il form dei probe e fare clic su **OK**.
+    ![Azure container service load balancer probes](media/container-service-dcos-agents/add-probe.png)
 
-    | Campo | Descrizione |
-    | ----- | ----------- |
-    | Nome | Nome descrittivo del probe. |
-    | Port | Porta del contenitore da testare. |
-    | Path | (In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
-    | Interval | Intervallo di tempo tra i tentativi del probe, in secondi. |
-    | Soglia non integra | Numero di tentativi consecutivi del probe prima che il contenitore sia considerato non integro. | 
+5. Fill out the probe form and click **OK**.
+
+  	| Field | Description |
+  	| ----- | ----------- |
+  	| Name  | A descriptive name of the probe. |
+  	| Port  | The port of the container to test. |
+  	| Path  | (When in HTTP mode) The relative website path to probe. HTTPS not supported. |
+  	| Interval | The amount of time between probe attempts, in seconds. |
+  	| Unhealthy threshold | Number of consecutive probe attempts before considering the container unhealthy. | 
     
 
-6. Tornare alle proprietà del servizio di bilanciamento del carico dell'agente, fare clic su **Regole di bilanciamento del carico** e quindi su **Aggiungi**.
+6. Back at the properties of the agent load balancer, click **Load balancing rules** and then **Add**.
 
-    ![Regole del servizio di bilanciamento del carico del servizio contenitore di Azure](media/container-service-dcos-agents/add-balancer-rule.png)
+    ![Azure container service load balancer rules](media/container-service-dcos-agents/add-balancer-rule.png)
 
-7. Compilare il modulo del servizio di bilanciamento del carico e fare clic su **OK**.
+7. Fill out the load balancer form and click **OK**.
 
-    | Campo | Descrizione |
-    | ----- | ----------- |
-    | Nome | Nome descrittivo del servizio di bilanciamento del carico. |
-    | Port | Porta pubblica in ingresso. |
-    | Porta back-end | Porta pubblica interna del contenitore a cui instradare il traffico. |
-    | Pool back-end | I contenitori in questo pool saranno la destinazione per questo servizio di bilanciamento del carico. |
-    | Probe | Probe usato per determinare se una destinazione nel **Pool back-end** è integra. |
-    | Persistenza della sessione | Determina la modalità di gestione del traffico da un client per la durata della sessione.<br><br>**Nessuno**: le richieste successive provenienti dallo stesso client possono essere gestite da qualsiasi contenitore.<br>**IP client**: le richieste successive provenienti dallo stesso indirizzo IP client IP vengono gestite dallo stesso contenitore.<br>**IP e protocollo client**: le richieste successive provenienti dalla stessa combinazione di indirizzo IP e protocollo client vengono gestite dallo stesso contenitore. |
-    | Timeout di inattività | (Solo TCP) Tempo necessario, in minuti, per mantenere aperto un client TCP/HTTP aprire senza basarsi sui messaggi *keep-alive*. |
+  	| Field | Description |
+  	| ----- | ----------- |
+  	| Name  | A descriptive name of the load balancer. |
+  	| Port  | The public incoming port. |
+  	| Backend port | The internal-public port of the container to route traffic to. |
+  	| Backend pool | The containers in this pool will be the target for this load balancer. |
+  	| Probe | The probe used to determine if a target in the **Backend pool** is healthy. |
+  	| Session persistence | Determines how traffic from a client should be handled for the duration of the session.<br><br>**None**: Successive requests from the same client can be handled by any container.<br>**Client IP**: Successive requests from the same client IP are handled by the same container.<br>**Client IP and protocol**: Successive requests from the same client IP and protocol combination are handled by the same container. |
+  	| Idle timeout | (TCP only) In minutes, the time to keep a TCP/HTTP client open without relying on *keep-alive* messages. |
 
-## Aggiungere una regola di sicurezza (portale)
+## <a name="add-a-security-rule-(portal)"></a>Add a security rule (portal)
 
-Successivamente, è necessario aggiungere una regola di sicurezza che instradi il traffico dalla porta aperta tramite il firewall.
+Next, we need to add a security rule that routes traffic from our opened port through the firewall.
 
-1. Accedere al portale.
-2. Trovare il gruppo di risorse in cui è stato distribuito il servizio contenitore di Azure.
-3. Selezionare il gruppo di sicurezza di rete dell'agente **pubblico**, che ha un nome simile a **XXXX-agent-public-nsg-XXXX**.
+1. Log in to the portal.
+2. Find the resource group that you deployed the Azure Container Service to.
+3. Select the **public** agent network security group (which is named similar to **XXXX-agent-public-nsg-XXXX**).
 
-    ![Gruppo di sicurezza di rete del servizio contenitore di Azure](media/container-service-dcos-agents/agent-nsg.png)
+    ![Azure container service network security group](media/container-service-dcos-agents/agent-nsg.png)
 
-4. Selezionare **Regole di sicurezza in ingresso** e quindi fare clic su **Aggiungi**.
+4. Select **Inbound security rules** and then **Add**.
 
-    ![Regole del gruppo di sicurezza di rete del servizio contenitore di Azure](media/container-service-dcos-agents/add-firewall-rule.png)
+    ![Azure container service network security group rules](media/container-service-dcos-agents/add-firewall-rule.png)
 
-5. Compilare la regola del firewall per consentire la porta pubblica e fare clic su **OK**.
+5. Fill out the firewall rule to allow your public port and click **OK**.
 
-    | Campo | Descrizione |
-    | ----- | ----------- |
-    | Nome | Nome descrittivo della regola del firewall. |
-    | Priorità | Classificazione di priorità per la regola. Più è basso il numero, maggiore sarà la priorità. |
-    | Sorgente | Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
-    | Service | Selezionare un set di servizi predefiniti a cui è destinata questa regola di sicurezza. In caso contrario, usare **Personalizzato** per crearne di personalizzati. |
-    | Protocol | Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
-    | Intervallo di porte | Quando **Servizio** è **Personalizzato**, specifica l'intervallo di porte interessato da questa regola. È possibile usare una singola porta, ad esempio **80**, o un intervallo come **1024 1500**. |
-    | Azione | Consentire o negare il traffico che soddisfa i criteri. |
+  	| Field | Description |
+  	| ----- | ----------- |
+  	| Name  | A descriptive name of the firewall rule. |
+  	| Priority | Priority rank for the rule. The lower the number the higher the priority. |
+  	| Source | Restrict the incoming IP address range to be allowed or denied by this rule. Use **Any** to not specify a restriction. |
+  	| Service | Select a set of predefined services this security rule is for. Otherwise use **Custom** to create your own. |
+  	| Protocol | Restrict traffic based on **TCP** or **UDP**. Use **Any** to not specify a restriction. |
+  	| Port range | When **Service** is **Custom**, specifies the range of ports that this rule affects. You can use a single port, such as **80**, or a range like **1024-1500**. |
+  	| Action | Allow or deny traffic that meets the criteria. |
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Informazioni sulle differenze tra [agenti DC/OS pubblici e privati](container-service-dcos-agents.md).
+Learn about the difference between [public and private DC/OS agents](container-service-dcos-agents.md).
 
-Sono disponibili altre informazioni sulla [gestione dei contenitori DC/OS](container-service-mesos-marathon-ui.md).
+Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

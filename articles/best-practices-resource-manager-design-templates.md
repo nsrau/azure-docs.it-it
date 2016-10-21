@@ -1,209 +1,210 @@
 <properties
-	pageTitle="Procedure consigliate per modelli di Azure Resource Manager | Microsoft Azure"
-	description="Visualizzazione dei modelli di progettazione per i modelli di Gestione risorse di Azure"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="Patterns for Resource Manager templates | Microsoft Azure"
+    description="Show design patterns for Azure Resource Manager templates"
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="tfitzmac"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="tomfitz"/>
 
-# Procedure consigliate per la progettazione di modelli di Azure Resource Manager
 
-Nel nostro lavoro con aziende, integratori di sistemi (SI), fornitori di servizi cloud (CSV) e team di progetto per software open source (OSS), è spesso necessario distribuire rapidamente ambienti, carichi di lavoro o unità di scala. Queste distribuzioni devono essere supportate, seguire procedure consolidate ed essere conformi ai criteri identificati. Usando un approccio flessibile basato sui modelli di Azure Resource Manager, è possibile distribuire topologie complesse in modo rapido e coerente. È possibile adattare facilmente queste distribuzioni man mano che le offerte principali cambiano o inserire varianti per scenari o clienti esterni.
+# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Patterns for designing Azure Resource Manager templates
 
-Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [Considerazioni e procedure consolidate avanzate per i modelli di Azure Resource Manager](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+In our work with enterprises, system integrator (SIs), cloud service vendor (CSVs), and open source software (OSS) project teams, it's often necessary to quickly deploy environments, workloads, or scale units. These deployments need to be supported, follow proven practices, and adhere to identified policies. Using a flexible approach based on Azure Resource Manager templates, you can deploy complex topologies quickly and consistently. You can adapt these deployments easily as core offerings evolve or to accommodate variants for outlier scenarios or customers.
 
-I modelli uniscono i vantaggi della Gestione risorse di Azure sottostante con l’adattabilità e la leggibilità di JavaScript Object Notation (JSON). Utilizzando i modelli, è possibile:
+This topic is part of a larger whitepaper. To read the full paper, download [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-- Distribuire in modo coerente le topologie e i relativi carichi di lavoro.
-- Gestire tutte le risorse di un’applicazione contemporaneamente utilizzando gruppi di risorse.
-- Applicare il controllo dell'accesso basato sui ruoli (RBAC) per concedere l'accesso appropriato a utenti, gruppi e servizi.
-- Utilizzare le associazioni di assegnazione di tag per semplificare attività come i rollup di fatturazione.
+Templates combine the benefits of the underlying Azure Resource Manager with the adaptability and readability of JavaScript Object Notation (JSON). Using templates, you can:
 
-In questo articolo vengono fornite informazioni dettagliate su scenari di utilizzo, architettura e modelli di implementazione identificati durante le sessioni di progettazione e implementazioni reali dei modelli con i clienti di Azure Customer Advisory Team (AzureCAT). Lungi dall'essere accademici, questi approcci sono procedure consolidate derivanti dallo sviluppo di modelli per 12 delle principali tecnologie OSS basate su Linux, tra cui: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise basato su Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. La maggior parte di questi modelli è stata sviluppata con un noto fornitore di una specifica distribuzione e influenzata dai requisiti di clienti aziendali e SI di Microsoft durante progetti recenti.
+- Deploy topologies and their workloads consistently.
+- Manage all your resources in an application together using resource groups.
+- Apply role-based access control (RBAC) to grant appropriate access to users, groups, and services.
+- Use tagging associations to streamline tasks such as billing rollups.
 
-Nel presente articolo vengono proposte queste procedure consolidate allo scopo di agevolare la progettazione di modelli di Gestione risorse di Azure di elevata qualità.
+This article provides details on consumption scenarios, architecture, and implementation patterns identified during our design sessions and real-world template implementations with Azure Customer Advisory Team (AzureCAT) customers. Far from academic, these approaches are proven practices informed by the development of templates for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis, and Nagios. Most these templates were developed with a well-known vendor of a given distribution and influenced by the requirements of Microsoft’s enterprise and SI customers during recent projects.
 
-Lavorando con i clienti, è stata identificata una serie di esperienze di utilizzo dei modelli di Resource Manager tra aziende, system integrator (SI) e CSV. Le sezioni seguenti forniscono una panoramica generale di scenari e modelli comuni per diversi tipi di clienti.
+This article shares these proven practices to help you architect world class Azure Resource Manager templates.  
 
-## Aziende e integratori di sistemi
+In our work with customers, we have identified several Resource Manager template consumption experiences across enterprises, System Integrators (SI)s, and CSVs. The following sections provide a high-level overview of common scenarios and patterns for different customer types.
 
-Nelle organizzazioni di grandi dimensioni, si osservano comunemente due consumer di modelli di Resource Manager: team di sviluppo di software interno e IT aziendale. È risultato evidente che gli scenari relativi agli SI sono associati a quelli delle grandi imprese, quindi si applicano le stesse considerazioni.
+## <a name="enterprises-and-system-integrators"></a>Enterprises and system integrators
 
-### Team di sviluppo di software interno
+Within large organizations, we commonly see two consumers of Resource Manager templates: internal software development teams and corporate IT. We've found that the scenarios for the SIs map to the scenarios for Enterprises, so the same considerations apply.
 
-Se il team sviluppa software per supportare l’azienda, i modelli forniscono un modo semplice per distribuire rapidamente le tecnologie da utilizzare in soluzioni specifiche per l’azienda. I modelli possono inoltre essere utilizzati per creare rapidamente ambienti di formazione che consentano ai membri del team di acquisire le competenze necessarie.
+### <a name="internal-software-development-teams"></a>Internal software development teams
 
-È possibile utilizzare modelli così come sono oppure estenderli o comporli per adeguarli alle proprie esigenze. Utilizzando l’associazione di tag all’interno dei modelli, è possibile fornire un riepilogo di fatturazione con varie viste quali team, progetto, utente e formazione.
+If your team develops software to support your business, templates provide an easy way to quickly deploy technologies for use in business-specific solutions. You can also use templates to rapidly create training environments that enable team members to gain necessary skills.
 
-Le aziende spesso desiderano team di sviluppo software per creare un modello per la distribuzione coerente di una soluzione offrendo al contempo vincoli per mantenere fissi alcuni elementi all'interno di tale ambiente e impedire che possano essere sottoposti a override. Ad esempio una banca potrebbe richiedere un modello per includere lo RBAC al fine di evitare che un programmatore possa modificare una soluzione di banking per inviare dati a un account di archiviazione personale.
+You can use templates as-is or extend or compose them to accommodate your needs. Using tagging within templates, you can provide a billing summary with various views such as team, project, individual, and education.
 
-### IT aziendale
+Businesses often want software development teams to create a template for consistent deployment of a solution while also offering constraints so certain items within that environment remain fixed and can’t be overridden. For example, a bank might require a template to include RBAC so a programmer can’t revise a banking solution to send data to a personal storage account.
 
-Le organizzazioni IT aziendali in genere utilizzano modelli per la distribuzione di capacità cloud e funzionalità ospitate su cloud.
+### <a name="corporate-it"></a>Corporate IT
 
-#### Capacità cloud
+Corporate IT organizations typically use templates for delivering cloud capacity and cloud-hosted capabilities.
 
-Un metodo comune adottato dai gruppi IT aziendali per fornire capacità cloud ai team sono le "taglie", ovvero dimensioni di offerta standard quali small, medium e large. Le offerte basate sulle taglie possono combinare tipi e quantità differenti di risorse fornendo al tempo stesso un livello di standardizzazione che consente di utilizzare i modelli. I modelli offrono capacità in modo coerente permettendo l’applicazione dei criteri aziendali e l’utilizzo dell’associazione di tag per fornire funzionalità di chargeback alle organizzazioni che ne fanno uso.
+#### <a name="cloud-capacity"></a>Cloud capacity
 
-Ad esempio, potrebbe essere necessario fornire ambienti di sviluppo, test o produzione all'interno dei quali i team di sviluppo software possono distribuire le relative soluzioni. L'ambiente ha una topologia di rete predefinita ed elementi non modificabili dai team di sviluppo software, quali le regole che controllano l'accesso alla rete Internet pubblica e l'ispezione dei pacchetti. Per tali ambienti potrebbero anche esistere regole specifiche dell’organizzazione con diritti di accesso distinti per l’ambiente.
+A common way for corporate IT groups to provide cloud capacity for teams is with "t-shirt sizes", which are standard offering sizes such as small, medium, and large. The t-shirt sized offerings can mix different resource types and quantities while providing a level of standardization that makes it possible to use templates. The templates deliver capacity in a consistent way that enforces corporate policies and uses tagging to provide chargeback to consuming organizations.
 
-#### Funzionalità ospitate nel cloud
+For example, you may need to provide development, test, or production environments within which the software development teams can deploy their solutions. The environment has a predefined network topology and elements that the software development teams cannot change, such as rules governing access to the public internet and packet inspection. You may also have organization-specific roles for these environments with distinct access rights for the environment.
 
-È possibile utilizzare modelli per supportare funzionalità ospitate nel cloud, tra cui singoli pacchetti software oppure offerte combinate disponibili per le linee interne di business. Un esempio di offerta combinata è l’analytics-as-a-service, tecnologie di analisi, virtualizzazione e altre tecnologie, fornita in una configurazione ottimizzata e connessa in una topologia di rete predefinita.
+#### <a name="cloud-hosted-capabilities"></a>Cloud-hosted capabilities
 
-Le funzionalità ospitate nel cloud sono influenzate da considerazioni in materia di sicurezza e ruoli, determinate dall’offerta di capacità cloud su cui sono basate come descritto in precedenza. Queste funzionalità sono disponibili così come sono oppure come servizio gestito. Per quest’ultimo, sono richiesti ruoli con limiti di accesso per abilitare l’accesso all’ambiente a scopo di gestione.
+You can use templates to support cloud-hosted capabilities, including individual software packages or composite offerings that are offered to internal lines of business. An example of a composite offering would be analytics-as-a-service—analytics, visualization, and other technologies—delivered in an optimized, connected configuration on a predefined network topology.
 
-## Fornitori di servizi cloud
+Cloud-hosted capabilities are affected by the security and role considerations established by the cloud capacity offering on which they’re built as described above. These capabilities are offered as is or as a managed service. For the latter, access-constrained roles are required to enable access into the environment for management purposes.
 
-Dopo avere parlato con molti CSV, sono stati identificati molteplici approcci adottabili per distribuire servizi per i clienti e i requisiti associati.
+## <a name="cloud-service-vendors"></a>Cloud service vendors
 
-### Offerta ospitata su CSV
+After talking to many CSVs, we identified multiple approaches you can take to deploy services for your customers and associated requirements.
 
-Quando l'offerta viene ospitata nella propria sottoscrizione di Azure, sono comunemente adottati due approcci di hosting: distribuzione di una implementazione distinta per ogni cliente o distribuzione di unità di scala che supportano un'infrastruttura condivisa usata per tutti i clienti.
+### <a name="csv-hosted-offering"></a>CSV-hosted offering
 
-- **Distribuzioni distinte per ogni cliente.** Le distribuzioni distinte per ogni cliente richiedono topologie fisse di configurazioni note differenti. Queste distribuzioni possono contenere macchine virtuali (VM) di dimensioni differenti, un numero variabile di nodi e volumi diversi di memoria associata. L’associazione di tag alle distribuzioni è utilizzata per i roll-up di fatturazione per ogni cliente. Lo RBAC può essere abilitato per consentire ai clienti di accedere agli aspetti dell’ambiente cloud.
-- **Unità di scala in ambienti multi-tenant condivisi.** Un modello può rappresentare un'unità di scala per ambienti multi-tenant. In questo caso, la stessa infrastruttura viene utilizzata per supportare tutti i clienti. Le distribuzioni rappresentano un gruppo di risorse che forniscono un livello di capacità per le offerte ospitate, ad esempio numero di utenti e numero di transazioni. Tali unità di scala sono aumentate o diminuite secondo necessità.
+If you host your offering in your own Azure subscription, two hosting approaches are common: deploying a distinct deployment for every customer or deploying scale units that underpin a shared infrastructure used for all customers.
 
-### Offerta CSV inserita nella sottoscrizione del cliente
+- **Distinct deployments for each customer.** Distinct deployments per customer require fixed topologies of different known configurations. These deployments may have different virtual machine (VM) sizes, varying numbers of nodes, and different amounts of associated storage. Tagging of deployments is used for roll-up billing of each customer. RBAC may be enabled to allow customers access to aspects of their cloud environment.
+- **Scale units in shared multi-tenant environments.** A template can represent a scale unit for multi-tenant environments. In this case, the same infrastructure is used to support all customers. The deployments represent a group of resources that deliver a level of capacity for the hosted offering, such as number of users and number of transactions. These scale units are increased or decreased as demand requires.
 
-Potrebbe essere necessario distribuire il software in sottoscrizioni appartenenti a clienti finali. È possibile utilizzare modelli per distribuire distribuzioni distinte in un account Azure del cliente.
+### <a name="csv-offering-injected-into-customer-subscription"></a>CSV offering injected into customer subscription
 
-Queste distribuzioni utilizzano lo RBAC, pertanto è possibile aggiornare e gestire la distribuzione all'interno dell’account cliente.
+You may want to deploy your software into subscriptions owned by end customers. You can use templates to deploy distinct deployments into a customer’s Azure account.
 
-### Azure Marketplace
+These deployments use RBAC so you can update and manage the deployment within the customer’s account.
 
-Per pubblicizzare e vendere le proprie offerte tramite un marketplace, ad esempio Azure Marketplace, è possibile sviluppare modelli per la fornitura di tipi distinti di distribuzioni che vengono eseguiti nell'account Azure di un cliente. Queste distribuzioni distinte possono essere descritte in genere come taglia (small, medium, large), tipo di prodotto/pubblico (community, sviluppatore, grande impresa) o tipo di funzionalità (di base, disponibilità elevata). In alcuni casi, tali tipi consentono di specificare determinati attributi di distribuzione, ad esempio il tipo di VM o il numero di dischi.
+### <a name="azure-marketplace"></a>Azure Marketplace
 
-## Progetti OSS
+To advertise and sell your offerings through a marketplace, such as Azure Marketplace, you can develop templates to deliver distinct types of deployments that run in a customer’s Azure account. These distinct deployments can be typically described as a t-shirt size (small, medium, large), product/audience type (community, developer, enterprise), or feature type (basic, high availability).  In some cases, these types allow you to specify certain attributes of the deployment, such as VM type or number of disks.
 
-All'interno dei progetti open source, i modelli di Gestione delle risorse consentono a una community di distribuire rapidamente una soluzione, utilizzando procedure consolidate. I modelli possono essere archiviati in un archivio GitHub in modo che la community possa esaminarli nel tempo. Gli utenti distribuiscono questi modelli nelle proprie sottoscrizioni di Azure.
+## <a name="oss-projects"></a>OSS projects
 
-Nelle sezioni seguenti vengono identificati gli aspetti da considerare prima di progettare la soluzione.
+Within open source projects, Resource Manager templates enable a community to deploy a solution quickly using proven practices. You can store templates in a GitHub repository so the community can revise them over time. Users deploy these templates in their own Azure subscriptions.
 
-## Identificare gli elementi esterni e interni di una VM
+The following sections identify the things you need to consider before designing your solution.
 
-Quando si progetta il modello, è utile esaminare i requisiti in termini di elementi interni ed esterni delle macchine virtuali (VM):
+## <a name="identifying-what-is-outside-and-inside-of-a-vm"></a>Identifying what is outside and inside of a VM
 
-- Per elementi esterni si intendono le VM e altre risorse della distribuzione, quali la topologia di rete, associazione di tag, riferimenti a certificati o chiavi private e controllo di accesso basato sui ruoli. Tutte queste risorse fanno parte del modello.
-- Per elementi interni si intende il software installato e la configurazione dello stato globale desiderato. Altri meccanismi, ad esempio le estensioni di VM o gli script, vengono utilizzati in tutto o in parte. Questi meccanismi possono essere identificati ed eseguiti dal modello ma non al suo interno.
+As you design your template, it’s helpful to look at the requirements in terms of what's outside and inside the virtual machines (VMs):
 
-Esempi comuni di attività eseguite "inside the box" sono:
+- Outside means the VMs and other resources of your deployment, such as the network topology, tagging, references to the certs/secrets, and role-based access control. All these resources are part of your template.
+- Inside means the installed software and overall desired state configuration. Other mechanisms, such as VM extensions or scripts, are used in whole or in part. These mechanisms may be identified and executed by the template but aren’t in it.
 
-- Installare o rimuovere funzionalità e ruoli del server
-- Installare e configurare il software a livello di nodo o cluster
-- Distribuire siti Web in un server Web
-- Distribuire schemi di database
-- Gestire il registro di sistema o altri tipi di impostazioni di configurazione
-- Gestire file e directory
-- Avviare, arrestare e gestire processi e servizi
-- Gestire account utente e gruppi locali
-- Installare e gestire i pacchetti (file con estensione .msi, .exe, yum e così via)
-- Gestire le variabili di ambiente
-- Eseguire gli script nativi (Windows PowerShell, bash e così via)
+Common examples of activities you would do “inside the box” include -  
 
-### Configurazione dello stato desiderato (DSC)
+- Install or remove server roles and features
+- Install and configure software at the node or cluster level
+- Deploy websites on a web server
+- Deploy database schemas
+- Manage registry or other types of configuration settings
+- Manage files and directories
+- Start, stop, and manage processes and services
+- Manage local groups and user accounts
+- Install and manage packages (.msi, .exe, yum, etc.)
+- Manage environment variables
+- Run native scripts (Windows PowerShell, bash, etc.)
 
-Relativamente allo stato interno delle VM dopo la distribuzione, è opportuno verificare che tale distribuzione non "devii" dalla configurazione definita e controllata nel controllo del codice sorgente. Con questo approccio gli sviluppatori o il personale addetto alle operazioni potranno apportare a un ambiente solo le modifiche ad hoc che sono state esaminate, testate o registrate nel controllo del codice sorgente. Questo controllo è importante perché le modifiche manuali non sono presenti nel controllo del codice sorgente e non fanno nemmeno parte della distribuzione standard e avranno un impatto sulle future distribuzioni automatiche del software.
+### <a name="desired-state-configuration-(dsc)"></a>Desired state configuration (DSC)
 
-Oltre che dal punto di vista dei dipendenti interni, la configurazione dello stato desiderato è importante anche in termini di sicurezza. I pirati informatici tentano regolarmente di compromettere e sfruttare i sistemi software. Quando il tentativo riesce, lo scopo è in genere l'installazione di file o altrimenti la modifica dello stato di un sistema compromesso. Utilizzando la configurazione dello stato desiderato, è possibile identificare i delta tra lo stato desiderato e quello effettivo e ripristinare una configurazione nota.
+Thinking about the internal state of your VMs beyond deployment, you want to make sure this deployment doesn’t "drift" from the configuration that you have defined and checked into source control. This approach ensures your developers or operations staff don’t make ad-hoc changes to an environment that are not vetted, tested, or recorded in source control. This control is important, because the manual changes are not in source control, they are also not part of the standard deployment and will impact future automated deployments of the software.
 
-Esistono estensioni di risorsa per i meccanismi più diffusi per DSC - PowerShell DSC, Chef e Puppet. Ognuna di queste estensioni può distribuire lo stato iniziale della VM ed essere usata anche per verificare che venga mantenuto lo stato voluto.
+Beyond your internal employees, desired state configuration is also important from a security perspective. Hackers are regularly trying to compromise and exploit software systems. When successful, it's common to install files and otherwise change the state of a compromised system. Using desired state configuration, you can identify deltas between the desired and actual state and restore a known configuration.
 
-## Ambiti dei modello comuni
+There are resource extensions for the most popular mechanisms for DSC - PowerShell DSC, Chef, and Puppet. Each of these extensions can deploy the initial state of your VM and also be used to make sure the desired state is maintained.
 
-Nella nostra esperienza, abbiamo visto emergere tre ambiti principali per i modelli di soluzioni. Questi tre ambiti, ovvero capacità, funzionalità e soluzione end-to-end, sono descritti nelle sezioni seguenti.
+## <a name="common-template-scopes"></a>Common template scopes
 
-### Ambito di capacità
+In our experience, we’ve seen three key solution templates scopes emerge. These three scopes – capacity, capability, and end-to-end solution – are described in the following sections.
 
-Un ambito di capacità offre un set di risorse in una topologia standard preconfigurata per essere conforme a regolamenti e criteri. L'esempio più comune è la distribuzione di un ambiente di sviluppo standard in uno scenario di IT aziendale o SI.
+### <a name="capacity-scope"></a>Capacity scope
 
-### Ambito di funzionalità
+A capacity scope delivers a set of resources in a standard topology that is pre-configured to be in compliance with regulations and policies. The most common example is deploying a standard development environment in an Enterprise IT or SI scenario.
 
-Un ambito di funzionalità è incentrato sulla distribuzione e configurazione di una topologia per una determinata tecnologia. Scenari comuni includono tecnologie quali SQL Server, Cassandra, Hadoop.
+### <a name="capability-scope"></a>Capability scope
 
-### Ambito di soluzione end-to-end
+A capability scope is focused on deploying and configuring a topology for a given technology. Common scenarios including technologies such as SQL Server, Cassandra, Hadoop.
 
-Un ambito di soluzione end-to-end non riguarda una singola funzionalità ma è invece incentrato sulla fornitura di una soluzione end-to-end costituita da più funzionalità.
+### <a name="end-to-end-solution-scope"></a>End-to-end solution scope
 
-Un ambito di modello con ambito soluzione si manifesta come un set di uno o più modelli con ambito funzionalità con risorse, logica e stato desiderato specifici della soluzione. Un esempio di modello con ambito soluzione è un modello di soluzione di pipeline di dati end-to-end. Il modello può combinare una topologia e uno stato specifici della soluzione con più modelli di soluzione con ambito funzionalità, ad esempio Kafka, Storm e Hadoop.
+An End-to-End Solution Scope is targeted beyond a single capability, and instead focused on delivering an end to end solution comprised of multiple capabilities.  
 
-## Scelta del formato libero rispetto a configurazioni note
+A solution-scoped template scope manifests itself as a set of one or more capability-scoped templates with solution-specific resources, logic, and desired state. An example of a solution-scoped template is an end to end data pipeline solution template. The template might mix solution-specific topology and state with multiple capability scoped solution templates such as Kafka, Storm, and Hadoop.
 
-Inizialmente si potrebbe pensare che un modello debba fornire ai fruitori la massima flessibilità, ma sulla scelta di utilizzare configurazioni in formato libero o configurazioni note influiscono molteplici considerazioni. In questa sezione vengono identificati i principali requisiti dei clienti e le considerazioni tecniche che hanno plasmato l’approccio illustrato nel presente documento.
+## <a name="choosing-free-form-vs.-known-configurations"></a>Choosing free-form vs. known configurations
 
-### Configurazioni in formato libero
+You might initially think a template should give consumers the utmost flexibility, but many considerations affect the choice of whether to use free-form configurations vs. known configurations. This section identifies the key customer requirements and technical considerations that shaped the approach shared in this document.
 
-In apparenza, le configurazioni in formato libero sembrano ideali. Consentono di selezionare un tipo di VM e specificare un numero arbitrario di nodi e dischi collegati per tali nodi, come parametri di un modello. Questo approccio, tuttavia, non è l'ideale per alcuni scenari.
+### <a name="free-form-configurations"></a>Free-form configurations
 
-Nell'articolo [Dimensioni delle macchine virtuali](./virtual-machines/virtual-machines-windows-sizes.md) vengono identificati i diversi tipi di VM e le dimensioni disponibili oltre a ciascuna combinazione di dischi permanenti (2, 4, 8, 16 o 32) collegabile. Ogni disco collegato fornisce 500 IOPS ed è possibile raggruppare più dischi per ottenere un multiplo di tale numero di IOPS. Ad esempio, 16 dischi possono essere raggruppati per fornire 8.000 IOPS. Il pooling viene eseguito con la configurazione nel sistema operativo, utilizzando spazi di archiviazione di Microsoft Windows o RAID (Redundant Array of Inexpensive Disks) in Linux.
+On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes — and do so as parameters to a template. However, this approach is not ideal for some scenarios.
 
-Una configurazione in formato libero consente di selezionare varie istanze di VM, vari tipi e dimensioni differenti di VM per tali istanze, un numero di dischi che può variare in base al tipo di VM e uno o più script per configurare il contenuto delle VM.
+In [Sizes for virtual machines](./virtual-machines/virtual-machines-windows-sizes.md), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
 
-È comune che una distribuzione disponga di più tipi di nodi, ad esempio nodi master e nodi dati, pertanto questa flessibilità viene spesso fornita per ogni tipo di nodo.
+A free-form configuration enables the selection of a number of VM instances, a number of different VM types and sizes for those instances, a number of disks that can vary based on the VM type, and one or more scripts to configure the VM contents.
 
-Man mano che si inizia a distribuire cluster di una qualsiasi importanza, si inizia a lavorare con multipli di tali elementi. Distribuendo un cluster di Hadoop, ad esempio, con 8 nodi master e 200 nodi dati e 4 dischi collegati in pool in ogni nodo master e 16 dischi collegati in pool per ogni nodo dati, occorrerà gestire 208 VM e 3.232 dischi.
+It is common that a deployment may have multiple types of nodes, such as master and data nodes, so this flexibility is often provided for every node type.
 
-Un account di archiviazione limiterà le richieste che superano il limite identificato di 20.000 transazioni/secondo, è pertanto opportuno prendere in considerazione il partizionamento dell’account di archiviazione e utilizzare calcoli per determinare il numero appropriato di account di archiviazione per adattare questa topologia. Data la grande varietà di combinazioni supportate dall'approccio in formato libero, sono necessari calcoli dinamici per determinare il partizionamento appropriato. Il linguaggio del modello di Gestione risorse di Azure non fornisce attualmente funzioni matematiche, pertanto è necessario eseguire tali calcoli nel codice, generando un modello univoco hardcoded con i dettagli appropriati.
+As you start to deploy clusters of any significance, you begin to work with multiples of all of these. If you were deploying a Hadoop cluster, for example, with 8 master nodes and 200 data nodes, and pooled 4 attached disks on each master node and pooled 16 attached disks per data node, you would have 208 VMs and 3,232 disks to manage.
 
-Negli scenari di IT aziendale e SI, un utente deve gestire i modelli e fornire supporto per le topologie distribuite per una o più organizzazioni. Questo sovraccarico aggiuntivo, ovvero configurazioni e modelli differenti per ogni cliente, è tutt’altro che auspicabile.
+A storage account will throttle requests above its identified 20,000 transactions/second limit, so you should look at storage account partitioning and use calculations to determine the appropriate number of storage accounts to accommodate this topology. Given the multitude of combinations supported by the free-form approach, dynamic calculations are required to determine the appropriate partitioning. The Azure Resource Manager Template Language does not presently provide mathematical functions, so you must perform these calculations in code, generating a unique, hard-coded template with the appropriate details.
 
-È possibile usare questi modelli per distribuire gli ambienti nella sottoscrizione di Azure del cliente, ma sia i team IT aziendali che i CSV in genere li distribuiscono nelle proprie sottoscrizioni, usando una funzione di chargeback per la fatturazione dei clienti. In questi scenari, l'obiettivo è distribuire capacità per più clienti in un pool di sottoscrizioni e mantenere le distribuzioni densamente popolate nelle sottoscrizioni per ridurne al minimo la proliferazione, vale a dire più sottoscrizioni da gestire. Con dimensioni di distribuzione realmente dinamiche, per ottenere questo tipo di densità occorre un'attenta pianificazione e un ulteriore sviluppo per l’attività di scaffolding effettuato per conto dell'organizzazione.
+In enterprise IT and SI scenarios, someone must maintain the templates and provide support for the deployed topologies for one or more organizations. This additional overhead — different configurations and templates for each customer — is far from desirable.
 
-Non è poi possibile creare sottoscrizioni tramite una chiamata API, ma è necessaria un'operazione manuale tramite il portale. Man mano che aumenta il numero di sottoscrizioni, l'eventuale proliferazione di sottoscrizioni risultante richiede l'intervento degli operatori perché non può essere gestita in modo automatizzato. Con così tanta variabilità nelle dimensioni delle distribuzioni, è necessario il pre-provisioning manuale di varie sottoscrizioni per garantirne la disponibilità.
+You can use these templates to deploy environments in your customer’s Azure subscription, but both corporate IT teams and CSVs typically deploy them into their own subscriptions, using a chargeback function to bill their customers. In these scenarios, the goal is to deploy capacity for multiple customers across a pool of subscriptions and keep deployments densely populated into the subscriptions to minimize subscription sprawl—that is, more subscriptions to manage. With truly dynamic deployment sizes, achieving this type of density requires careful planning and additional development for scaffolding work on behalf of the organization.
 
-Considerando tutti questi fattori, l’adozione di una configurazione in formato libero risulta meno accattivante che a prima vista.
+In addition, you can’t create subscriptions via an API call but must do so manually through the portal. As the number of subscriptions increases, any resulting subscription sprawl requires human intervention—it can’t be automated. With so much variability in the sizes of deployments, you would have to pre-provision a number of subscriptions manually to ensure subscriptions are available.
 
-### Configurazioni note: l’approccio a taglie
+Considering all these factors, a truly free-form configuration is less appealing than at first blush.
 
-Anziché offrire un modello che fornisce massima flessibilità e innumerevoli variazioni, secondo la nostra esperienza uno schema diffuso è fornire la possibilità di selezionare configurazioni note, ovvero taglie standard quali sandbox, small, medium e large. Altri esempi di taglie sono le offerte di prodotti, come Community Edition o Enterprise Edition. In altri casi, potrebbero essere configurazioni specifiche per i carichi di lavoro di una determinata tecnologia, ad esempio map reduce o no sql.
+### <a name="known-configurations-—-the-t-shirt-sizing-approach"></a>Known configurations — the t-shirt sizing approach
 
-Molteplici organizzazioni IT aziendali, fornitori di OSS e SI oggi rendono disponibili le loro offerte utilizzando questo approccio in ambienti locali virtualizzati (aziende) o come offerte software-as-a-service (SaaS) (CSV e OSV).
+Rather than offer a template that provides total flexibility and countless variations, in our experience a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition.  In other cases, it may be workload-specific configurations of a technology – such as map reduce or no sql.
 
-Questo approccio fornisce configurazioni note ed efficienti di dimensioni variabili, preconfigurate per i clienti. Senza configurazioni note, i clienti devono determinare autonomamente la dimensione del cluster, includere i limiti di risorse della piattaforma ed effettuare calcoli matematici per identificare il partizionamento risultante degli account di archiviazione e altre risorse (a causa della dimensione del cluster e dei limiti di risorse). Le configurazioni note consentono ai clienti di selezionare con facilità la taglia appropriata, ovvero una specifica distribuzione. Oltre a migliorare l'esperienza del cliente, un numero limitato di configurazioni note è più facile da supportare e consente di offrire un livello superiore di densità.
+Many enterprise IT organizations, OSS vendors, and SIs make their offerings available today in this way in on-premises, virtualized environments (enterprises) or as software-as-a-service (SaaS) offerings (CSVs and OSVs).
 
-In un approccio di configurazione nota incentrato sulle taglie, la taglia può inoltre contenere un numero variabile di nodi. Ad esempio, una taglia small può contenere dai 3 ai 10 nodi. Le taglie verrebbero progettate per contenere fino a 10 nodi e fornire ai clienti la possibilità di effettuare scelte in formato libero fino alla taglia massima identificata.
+This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). Known configurations enable customers to easily select the right t-shirt size—that is, a given deployment. In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you deliver a higher level of density.
 
-Una taglia basata sul tipo di carico di lavoro, potrebbe essere per natura un formato più libero in termini di numero di nodi distribuibili ma avrà dimensione dei nodi e configurazione del software nel nodo separate per il carico di lavoro.
+A known configuration approach focused on t-shirt sizes may also have varying number of nodes within a size. For example, a small t-shirt size may be between 3 and 10 nodes.  The t-shirt size would be designed to accommodate up to 10 nodes and provide the consumer the ability to make free form selections up to the maximum size identified.  
 
-Le taglie basate su offerte di prodotti, quali Community o Enterprise, possono disporre di tipi di risorse separati e di un numero massimo di nodi distribuibile, in genere a seguito di considerazioni relative alle licenze o della disponibilità di funzionalità nelle diverse offerte.
+A t-shirt size based on workload type, may be more free form in nature in terms of the number of nodes that can be deployed but will have workload distinct node size and configuration of the software on the node.
 
-Ai clienti è inoltre possibile offrire varianti specifiche utilizzando modelli basati su JSON. Quando si utilizzano gli outlier, è possibile incorporare la pianificazione appropriata e considerazioni relative a sviluppo, supporto e costi.
+T-shirt sizes based on product offerings, such as community or Enterprise, may have distinct resource types and maximum number of nodes that can be deployed, typically tied to licensing considerations or feature availability across the different offerings.
 
-Sulla base degli scenari di utilizzo dei modelli da parte dei clienti, dei requisiti identificati all’inizio di questo documento e alla nostra esperienza pratica nella creazione di numerosi modelli, abbiamo identificato uno schema per la scomposizione dei modelli.
+You can also accommodate customers with unique variants using the JSON-based templates. When dealing with outliers, you can incorporate the appropriate planning and considerations for development, support, and costing.
 
-## Modelli di soluzione con ambito di capacità e funzionalità
+Based on the customer template consumption scenarios, requirements identified at the start of this document, and our hands-on experience creating numerous templates, we identified a pattern for template decomposition.
 
-La scomposizione offre un approccio modulare allo sviluppo dei modelli in grado di supportare riutilizzo, estendibilità e strumenti. In questa sezione vengono forniti dettagli sulla modalità di applicazione di un approccio di scomposizione a modelli con un ambito di capacità o funzionalità.
+## <a name="capacity-and-capability-scoped-solution-templates"></a>Capacity and capability-scoped solution templates
 
-In questo approccio, un modello principale riceve i valori dei parametri da un consumer di modello, quindi si collega a vari tipi di modelli e script a valle come illustrato di seguito. Per inserire ed estrarre valori dei modelli collegati vengono utilizzati parametri, variabili statiche e variabili generate.
+Decomposition provides a modular approach to template development that supports reuse, extensibility, testing, and tooling. This section provides detail on how a decomposition approach can be applied to templates with a Capacity or Capability scope.
 
-![Parametri del modello](./media/best-practices-resource-manager-design-templates/template-parameters.png)
+In this approach, a main template receives parameter values from a template consumer, then links to several types of templates and scripts downstream as shown below. Parameters, static variables, and generated variables are used to provide values in and out of the linked templates.
 
-**I parametri vengono passati a un modello principale, quindi a modelli collegati**
+![Template parameters](./media/best-practices-resource-manager-design-templates/template-parameters.png)
 
-Le sezioni seguenti illustrano i tipi di modelli e di script in cui viene scomposto un singolo modello. Le sezioni descrivono gli approcci per passare le informazioni sullo stato tra i modelli. Ogni modello e i tipi di script nell'immagine sono descritti con esempi. Per un esempio contestuale, vedere "Uso combinato: un'implementazione di esempio", più avanti in questo documento.
+**Parameters are passed to a main template then to linked templates**
 
-### Metadati del modello
+The following sections focus on the types of templates and scripts that a single template is decomposed into. The sections present approaches for passing state information among the templates. Each template and the script types in the image are described along with examples. For a contextual example, see "Putting it together: a sample implementation" later in this document.
 
-I metadati del modello (il file metadata.json) contengono coppie chiave/valore che descrivono un modello in JSON, leggibili da persone e sistemi software.
+### <a name="template-metadata"></a>Template metadata
 
-![Metadati del modello](./media/best-practices-resource-manager-design-templates/template-metadata.png)
+Template metadata (the metadata.json file) contains key/value pairs that describe a template in JSON, which can be read by humans and software systems.
 
-**I metadati del modello sono descritti nel file metadata.json**
+![Template metadata](./media/best-practices-resource-manager-design-templates/template-metadata.png)
 
-Gli agenti software possono recuperare il file metadata.json e pubblicare le informazioni e un collegamento al modello in una pagina Web o in una directory. Gli elementi includono *itemDisplayName*, *description*, *summary*, *githubUsername* e *dateUpdated*.
+**Template metadata is described in the metadata.json file**
 
-Di seguito è riportato un file di esempio nel suo complesso.
+Software agents can retrieve the metadata.json file and publish the information and a link to the template in a web page or directory. Elements include *itemDisplayName*, *description*, *summary*, *githubUsername*, and *dateUpdated*.
+
+An example file is shown below in its entirety.
 
     {
         "itemDisplayName": "PostgreSQL 9.3 on Ubuntu VMs",
@@ -213,171 +214,175 @@ Di seguito è riportato un file di esempio nel suo complesso.
         "dateUpdated": "2015-04-24"
     }
 
-### Modello principale
+### <a name="main-template"></a>Main template
 
-Il modello principale riceve i parametri da un utente, usa tali informazioni per popolare variabili oggetto complesse ed esegue i modelli collegati.
+The main template receives parameters from a user, uses that information to populate complex object variables, and executes the linked templates.
 
-![Modello principale](./media/best-practices-resource-manager-design-templates/main-template.png)
+![Main template](./media/best-practices-resource-manager-design-templates/main-template.png)
 
-**Il modello principale riceve parametri da un utente**
+**The main template receives parameters from a user**
 
-Un parametro fornito è un tipo di configurazione nota conosciuto anche come parametro di taglia a causa dei relativi valori standardizzati quali small, medium o large. In pratica è possibile usare questo parametro in diversi modi. Per ulteriori informazioni, vedere "Modello di risorse di configurazione note", più avanti in questo documento.
+One parameter that is provided is a known configuration type also known as the t-shirt size parameter because of its standardized values such as small, medium, or large. In practice, you can use this parameter in multiple ways. For details, see "Known configuration resources template" later in this document.
 
-Alcune risorse vengono distribuite indipendentemente dalla configurazione nota specificata dal parametro di un utente. Queste risorse vengono sottoposte a provisioning utilizzando un unico modello di risorsa condivisa e vengono condivise da altri modelli, in modo che il modello di risorsa condivisa venga eseguito per primo.
+Some resources are deployed regardless of the known configuration specified by a user parameter. These resources are provisioned using a single shared resource template and are shared by other templates, so the shared resource template is run first.
 
-Alcune risorse vengono distribuite facoltativamente indipendentemente dalla configurazione nota specificata.
+Some resources are deployed optionally regardless of the specified known configuration.
 
-### Modello di risorse condivise
+### <a name="shared-resources-template"></a>Shared resources template
 
-Questo modello offre risorse comuni a tutte le configurazioni note. Contiene la rete virtuale, i set di disponibilità e altre risorse necessarie indipendentemente dal modello di configurazione nota distribuito.
+This template delivers resources that are common across all known configurations. It contains the virtual network, availability sets, and other resources that are required regardless of the known configuration template that is deployed.
 
-![Risorse del modello](./media/best-practices-resource-manager-design-templates/template-resources.png)
+![Template resources](./media/best-practices-resource-manager-design-templates/template-resources.png)
 
-**Modello di risorse condivise**
+**Shared resources template**
 
-I nomi delle risorse, ad esempio il nome della rete virtuale, si basano sul modello principale. È possibile specificarli come una variabile all'interno di tale modello o riceverli come parametro dall'utente, secondo quanto richiesto dall'organizzazione.
+Resource names, such as the virtual network name, are based on the main template. You can specify them as a variable within that template or receive them as a parameter from the user, as required by your organization.
 
-### Modello di risorse facoltative
+### <a name="optional-resources-template"></a>Optional resources template
 
-Il modello di risorse facoltative contiene risorse distribuite a livello di codice in base al valore di un parametro o di una variabile.
+The optional resources template contains resources that are programmatically deployed based on the value of a parameter or variable.
 
-![Risorse facoltative](./media/best-practices-resource-manager-design-templates/optional-resources.png)
+![Optional resources](./media/best-practices-resource-manager-design-templates/optional-resources.png)
 
-**Modello di risorse facoltative**
+**Optional resources template**
 
-Ad esempio, è possibile utilizzare un modello di risorse facoltative per configurare un jumpbox che consente l'accesso indiretto a un ambiente distribuito dalla rete Internet pubblica. È possibile utilizzare un parametro o una variabile per stabilire se il jumpbox deve essere abilitato o meno e identificare la funzione di *contatto* per compilare il nome di destinazione per il modello, ad esempio*jumpbox\_enabled.json*. Il collegamento al modello utilizza la variabile risultante per installare il jumpbox.
+For example, you can use an optional resources template to configure a jumpbox that enables indirect access to a deployed environment from the public Internet. You would use a parameter or variable to identify whether the jumpbox should be enabled and the *concat* function to build the target name for the template, such as *jumpbox_enabled.json*. Template linking would use the resulting variable to install the jumpbox.
 
-È possibile collegare il modello di risorse facoltative da più posizioni:
+You can link the optional resources template from multiple places:
 
--	Quando applicabile a ogni distribuzione, creare un collegamento basato su parametro dal modello di risorse condivise.
--	Quando applicabile alle configurazioni note selezionate, ad esempio, installare solo in distribuzioni di grandi dimensioni, creare un collegamento basato su parametro o su variabile dal modello di configurazione nota.
+-   When applicable to every deployment, create a parameter-driven link from the shared resources template.
+-   When applicable to select known configurations—for example, only install on large deployments—create a parameter-driven or variable-driven link from the known configuration template.
 
-Se una determinata risorsa è facoltativa potrebbe non dipendere dal consumer del modello ma dal fornitore del modello. Ad esempio, potrebbe essere necessario soddisfare un requisito specifico del prodotto o un componente aggiuntivo di prodotto (comune per i CSV) o per applicare i criteri (comune per SI e gruppi IT aziendali). In questi casi, è possibile utilizzare una variabile per stabilire se la risorsa deve essere distribuita o meno.
+Whether a given resource is optional may not be driven by the template consumer but instead by the template provider. For example, you may need to satisfy a particular product requirement or product add-on (common for CSVs) or to enforce policies (common for SIs and enterprise IT groups). In these cases, you can use a variable to identify whether the resource should be deployed.
 
-### Modello di risorse di configurazione note
+### <a name="known-configuration-resources-template"></a>Known configuration resources template
 
-Nel modello principale, un parametro può essere esposto per consentire al consumer del modello di specificare una configurazione nota desiderata da distribuire. Spesso, questa configurazione nota usa un approccio basato sulle taglie con un set di dimensioni di configurazione fisse quali sandbox, small, medium e large.
+In the main template, a parameter can be exposed to allow the template consumer to specify a desired known configuration to deploy. Often, this known configuration uses a t-shirt size approach with a set of fixed configuration sizes such as sandbox, small, medium, and large.
 
-![Risorse di configurazione note](./media/best-practices-resource-manager-design-templates/known-config.png)
+![Known configuration resources](./media/best-practices-resource-manager-design-templates/known-config.png)
 
-**Modello di risorse di configurazione note**
+**Known configuration resources template**
 
-L'approccio a taglie viene comunemente utilizzato, ma i parametri possono rappresentare qualsiasi set di configurazioni note. Ad esempio, è possibile specificare un set di ambienti per un'applicazione aziendale, ad esempio sviluppo, test e prodotto. In alternativa, è possibile utilizzarlo per un servizio cloud per rappresentare unità di scala, versioni di prodotto o le configurazioni del prodotto differenti, ad esempio Community, Developer o Enterprise.
+The t-shirt size approach is commonly used, but the parameters can represent any set of known configurations. For example, you can specify a set of environments for an enterprise application such as Development, Test, and Product. Or you could use it for a cloud service to represent different scale units, product versions, or product configurations such as Community, Developer, or Enterprise.
 
-Come con il modello di risorsa condivisa, le variabili vengono passate al modello di configurazioni note da:
+As with the shared resource template, variables are passed to the known configurations template from either:
 
--	Un utente finale, ovvero i parametri inviati al modello principale.
--	Un'organizzazione, ovvero le variabili nel modello principale che rappresentano requisiti o criteri interni.
+-   An end user—that is, the parameters sent to the main template.
+-   An organization—that is, the variables in the main template that represent internal requirements or policies.
 
-### Modello di risorse membro
+### <a name="member-resources-template"></a>Member resources template
 
-All'interno di una configurazione nota sono spesso inclusi uno o più tipi di nodi membro. Ad esempio, con Hadoop si hanno nodi master e nodi dati. Installando MongoDB, si hanno nodi dati e un arbitro. Distribuendo DataStax, si hanno nodi dati e una VM con OpsCenter installato.
+Within a known configuration, one or more member node types are often included. For example, with Hadoop you have master nodes and data nodes. If you are installing MongoDB, you have data nodes and an arbiter. If you are deploying DataStax, you have data nodes and a VM with OpsCenter installed.
 
-![Risorse membro](./media/best-practices-resource-manager-design-templates/member-resources.png)
+![Members resources](./media/best-practices-resource-manager-design-templates/member-resources.png)
 
-**Modello di risorse membro**
+**Member resources template**
 
-Ogni tipo di nodo può avere dimensioni di VM, numeri di dischi collegati, script per installare e configurare i nodi, configurazioni delle porte per le VM, numero di istanze e altri dettagli diversi. Quindi ogni tipo di nodo ottiene il proprio modello di risorsa membro, contenente i dettagli per la distribuzione e la configurazione di un'infrastruttura, nonché l'esecuzione di script per distribuire e configurare il software all'interno della VM.
+Each type of nodes can have different sizes of VMs, numbers of attached disks, scripts to install and set up the nodes, port configurations for the VMs, number of instances, and other details. So each node type gets its own member resource template, which contains the details for deploying and configuring an infrastructure as well as executing scripts to deploy and configure software within the VM.
 
-Per le VM, in genere vengono utilizzati due tipi di script, ovvero script ampiamente riutilizzabili e script personalizzati.
+For VMs, typically two types of scripts are used, widely reusable and custom scripts.
 
-### Script ampiamente riutilizzabili
+### <a name="widely-reusable-scripts"></a>Widely reusable scripts
 
-Gli script ampiamente riutilizzabili possono essere impiegati in più tipi di modelli. Uno degli esempi migliori per questi script ampiamente riutilizzabili imposta RAID su Linux per raggruppare dischi in pool e ottenere un numero maggiore di IOPS. Indipendentemente dal software installato nella VM, questo script consente di riutilizzare procedure consolidate per scenari comuni.
+Widely reusable scripts can be used across multiple types of templates. One of the better examples of these widely reusable scripts sets up RAID on Linux to pool disks and gain a greater number of IOPS. Regardless of the software being installed in the VM, this script provides reuse of proven practices for common scenarios.
 
-![Script riutilizzabili](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)
+![Reusable scripts](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)
 
-**I modelli di risorse membro possono chiamare script ampiamente riutilizzabili**
+**Member resources templates can call widely reusable scripts**
 
-### Script personalizzati
+### <a name="custom-scripts"></a>Custom scripts
 
-I modelli chiamano comunemente uno o più script che consentono di installare e configurare il software all'interno delle VM. È stato osservato uno schema comune con le topologie di grandi dimensioni in cui vengono distribuite più istanze di uno o più tipi membro. Per ogni macchina virtuale viene avviato uno script di installazione eseguibile in parallelo, seguito da uno script di configurazione chiamato dopo la distribuzione di tutte le VM (o tutte le VM di un tipo di membro specificato).
+Templates commonly call one or more scripts that install and configure software within VMs. A common pattern is seen with large topologies where multiple instances of one or more member types are deployed. An installation script is initiated for every VM that can be run in parallel, followed by a setup script that is called after all VMs (or all VMs of a given member type) are deployed.
 
-![Script personalizzati](./media/best-practices-resource-manager-design-templates/custom-scripts.png)
+![Custom scripts](./media/best-practices-resource-manager-design-templates/custom-scripts.png)
 
-**I modelli di risorse membro possono chiamare script per uno scopo specifico, ad esempio la configurazione della VM**
+**Member resources templates can call scripts for a specific purpose such as VM configuration**
 
-## Esempio di modello di soluzione con ambito di funzionalità - Redis
+## <a name="capability-scoped-solution-template-example---redis"></a>Capability-scoped solution template example - Redis
 
-Per mostrare come potrebbe funzionare un'implementazione, verrà esaminato un esempio pratico di creazione di un modello che facilita la distribuzione e la configurazione di Redis a taglie standard.
+To show how an implementation might work, let's look at a practical example of building a template that facilitates the deployment and configuration of Redis in standard t-shirt sizes.  
 
-Per la distribuzione, sono disponibile un set di risorse condivise (rete virtuale, account di archiviazione, set di disponibilità) e una risorsa facoltativa (jumpbox). Esistono più configurazioni note rappresentate come taglie (small, medium, large) ma ciascuna con un tipo di nodo singolo. Esistono anche due script specifici per lo scopo (installazione, configurazione).
+For the deployment, there are a set of shared resources (virtual network, storage account, availability sets) and an optional resource (jumpbox). There are multiple known configurations represented as t-shirt sizes (small, medium, large) but each with a single node type. There are also two purpose-specific scripts (installation, configuration).
 
-### Creazione dei file dei modelli
+### <a name="creating-the-template-files"></a>Creating the template files
 
-Verrà creato un modello principale denominato azuredeploy.json.
+You would create a Main Template named azuredeploy.json.
 
-Verrà creato un modello di risorse condivise denominato shared-resources.json
+You create Shared Resources Template named shared-resources.json
 
-Verrà creato un modello di risorsa facoltativa per abilitare la distribuzione di un jumpbox denominato jumpbox\_enabled.json
+You create an Optional Resource Template to enable the deployment of a jumpbox, named jumpbox_enabled.json
 
-Redis usa solo un tipo di nodo singolo, in modo che venga creato un unico modello di risorsa membro denominato node-resources.json.
+Redis uses just a single node type, so you create a single Member Resource Template named node-resources.json.
 
-Con Redis, si vuole installare ogni singolo nodo e quindi configurare il cluster. Sono disponibili script per eseguire l'installazione e la configurazione, redis-cluster-install.sh e redis-cluster-setup.sh.
+With Redis, you want to install each individual node, and then set up the cluster.  You have scripts to accommodate the installation and set up, redis-cluster-install.sh and redis-cluster-setup.sh.
 
-### Collegamento dei modelli
+### <a name="linking-the-templates"></a>Linking the templates
 
-Utilizzando il collegamento di modello, il modello principale si collega al modello di risorse condivise, stabilendo in tal modo la rete virtuale.
+Using template linking, the main template links out to the shared resources template, which establishes the virtual network.
 
-Nel modello principale viene aggiunta la logica per consentire ai consumer del modello di specificare se un jumpbox dovrà essere distribuito o meno. Un valore *abilitato* per il parametro *AbilitaJumpbox* indica che il cliente desidera distribuire un jumpbox. Quando questo valore viene specificato, il modello concatena *\_enabled* come suffisso al nome di un modello di base per la funzionalità di jumpbox.
+Logic is added within the main template to enable consumers of the template to specify whether a jumpbox should be deployed. An *enabled* value for the *EnableJumpbox* parameter indicates that the customer wants to deploy a jumpbox. When this value is provided, the template concatenates *_enabled* as a suffix to a base template name for the jumpbox capability.
 
-Il modello principale applica il valore del parametro *grande* come suffisso al nome di un modello di base per le dimensioni della t-shirt, poi utilizza tale valore in un collegamento di modello per*technology\_on\_os\_large.json*.
+The main template applies the *large* parameter value as a suffix to a base template name for t-shirt sizes, and then uses that value in a template link out to *technology_on_os_large.json*.
 
-La topologia sarà simile a questa illustrazione.
+The topology would resemble this illustration.
 
-![Modello di Redis](./media/best-practices-resource-manager-design-templates/redis-template.png)
+![Redis template](./media/best-practices-resource-manager-design-templates/redis-template.png)
 
-**Struttura del modello per un modello di Redis**
+**Template structure for a Redis template**
 
-### Configurazione dello stato
+### <a name="configuring-state"></a>Configuring state
 
-Per i nodi del cluster, esistono due fasi per la configurazione dello stato, entrambe rappresentate da script specifici per lo scopo. "redis-cluster-install.sh" installa Redis e "redis-cluster-setup.sh" configura il cluster.
+For the nodes in the cluster, there are two steps to configuring the state, both represented by Purpose Specific Scripts.  "redis-cluster-install.sh" installs Redis and "redis-cluster-setup.sh" sets up the cluster.
 
-### Supporto di distribuzioni di dimensioni diverse
+### <a name="supporting-different-size-deployments"></a>Supporting Different Size Deployments
 
-Nelle variabili il modello delle taglie specifica il numero di nodi di ogni tipo di distribuzione per la dimensione specificata (*large*). Distribuisce poi il numero di istanze di macchina virtuale utilizzando i cicli di risorse, specificando nomi univoci alle risorse mediante l'aggiunta di un nome di nodo con un numero di sequenza numerica da *copyIndex()*. Questi passaggi vengono eseguiti per le VM di un'area sia sensibile che di una meno sensibile, come definito nel modello di nome della taglia.
+Inside variables, the t-shirt size template specifies the number of nodes of each type to deploy for the specified size (*large*). It then deploys that number of VM instances using resource loops, providing unique names to resources by appending a node name with a numeric sequence number from *copyIndex()*. It does these steps for both hot and warm zone VMs, as defined in the t-shirt name template
 
-## Modelli con ambito di soluzione end-to-end e di scomposizione
+## <a name="decomposition-and-end-to-end-solution-scoped-templates"></a>Decomposition and end-to-end solution scoped templates
 
-Un modello di soluzione con ambito di soluzione end-to-end è incentrato sulla fornitura di una soluzione end-to-end. Questo approccio prevede in genere una composizione di più modelli con ambito di funzionalità con risorse aggiuntive, logica e stato.
+A solution template with an end-to-end solution scope is focused on delivering an end-to-end solution.  This approach is typically a composition of multiple capability scoped templates with additional resources, logic, and state.
 
-Come evidenziato nell'immagine riportata di seguito, lo stesso modello utilizzato per i modelli con ambito di funzionalità viene esteso per i modelli con ambito di soluzione End-to-End.
+As highlighted in the image below, the same model used for capability scoped templates is extended for templates with an End-to-End Solution Scope.
 
-Un modello di risorse condivise e i modelli di risorse facoltative hanno la stessa funzione degli approcci di modelli con ambito di capacità e di funzionalità ma l’ambito è la soluzione end-to-end.
+A Shared Resources Template and Optional Resources Templates serve the same function as in the capacity and capability scoped template approaches, but are scoped for the end to end solution.
 
-Dato che anche i modelli con ambito di soluzione end-to-end possono in genere avere taglie, il modello di risorse di configurazione note riflette ciò che è necessario per una specifica configurazione nota della soluzione.
+As end to end solution scoped templates also can typically have t-shirt sizes, the Known Configuration Resources template reflects what is required for a given known configuration of the solution.
 
-Il modello di risorse di configurazione note crea un collegamento a uno o più modelli di soluzione con ambito funzionalità pertinenti per la soluzione end-to-end nonché ai modelli di risorse membro necessari per la soluzione end-to-end.
+The Known Configuration Resources Template links to one or more capability scoped solution templates that are relevant to the end to end solution as well as the Member Resource Templates that are required for the end to end solution.
 
-Dato che la taglia della soluzione può differire dal modello con ambito di funzionalità individuale, vengono utilizzate variabili all’interno del modello di risorse di configurazione note per fornire i valori appropriati ai modelli di soluzione con ambito di funzionalità downstream allo scopo di distribuire la taglia appropriata.
+As the t-shirt size of the solution may be different than that of individual capability scoped template, variables within the Known Configuration Resources Template are used to provide the appropriate values for downstream capability scoped solution templates to deploy the appropriate t-shirt size.
 
 ![End-to-end](./media/best-practices-resource-manager-design-templates/end-to-end.png)
 
-**Il modello utilizzato per i modelli di soluzioni con ambito di capacità o funzionalità possono essere facilmente estesi per gli ambiti dei modelli di soluzioni end-to-end**
+**The model used for capacity or capability scoped solution templates can be readily extended for end to end solution template scopes**
 
-## Preparazione di modelli per Marketplace
+## <a name="preparing-templates-for-the-marketplace"></a>Preparing templates for the Marketplace
 
-L'approccio precedente si adatta facilmente a scenari in cui le aziende, gli SI e i CSV vogliono distribuire autonomamente i modelli o consentire ai propri clienti di distribuirli in modo indipendente.
+The preceding approach readily accommodates scenarios where Enterprises, SIs, and CSVs want to either deploy the templates themselves or enable their customers to deploy on their own.
 
-Un altro scenario desiderato è la distribuzione di un modello tramite marketplace. Questo approccio di scomposizione funziona anche per il marketplace, con alcune piccole modifiche.
+Another desired scenario is deploying a template via the marketplace.  This decomposition approach works for the marketplace as well, with some minor changes.
 
-Come indicato in precedenza, i modelli possono essere utilizzati per tipi di distribuzione separati per la vendita nel marketplace. Tipi di distribuzioni distinte possono essere le taglie (small, medium, large), il tipo di prodotto/pubblico (community, sviluppatore, grande impresa) o il tipo di funzionalità (di base, disponibilità elevata).
+As mentioned previously, templates can be used to offer distinct deployment types for sale in the marketplace. Distinct deployment types may be t-shirt sizes (small, medium, large), product/audience type (community, developer, enterprise), or feature type (basic, high availability).
 
-Come illustrato di seguito, la soluzione end-to-end o i modelli con ambito di funzionalità esistenti, possono essere facilmente utilizzati per elencare le diverse configurazioni note nel marketplace.
+As shown below, the existing end to end solution or capability scoped templates can be readily utilized to list the different known configurations in the marketplace.
 
-Per rimuovere il parametro in ingresso denominato tshirtSize vengono innanzitutto modificati i parametri per il modello principale.
+The parameters to the main template are first modified to remove the inbound parameter named tshirtSize.
 
-Sebbene i tipi di distribuzione separati eseguano il mapping al modello di risorse di configurazione note, sono necessarie anche le risorse comuni e la configurazione trovate nel modello di risorse condivise e potenzialmente quelle dei modelli di risorse facoltative.
+While the distinct deployment types map to the Known Configuration Resources Template, they also need the common resources and configuration found in the Shared Resources Template and potentially those in Optional Resource Templates.
 
-Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire copie distinte del modello principale che sostituiscano il parametro in ingresso precedentemente disponibile di tshirtSize in una variabile incorporata all'interno del modello.
+If you want to publish your template to the marketplace, you simply establish distinct copies of your Main template that replaces the previously available inbound parameter of tshirtSize to a variable embedded within the template.
 
 ![Marketplace](./media/best-practices-resource-manager-design-templates/marketplace.png)
 
-**Adattamento di un modello con ambito di soluzione per marketplace**
+**Adapting a solution scoped template for the marketplace**
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
-- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
+- For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
+- To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

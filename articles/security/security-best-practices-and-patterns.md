@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Procedure consigliate e modelli per la sicurezza di Azure | Microsoft Azure"
-   description="L'articolo contiene un'introduzione alle procedure consigliate e ai modelli per la sicurezza di Azure e un elenco dettagliato di procedure consigliate per la sicurezza per diverse risorse di Azure."
+   pageTitle="Azure security best practices and patterns | Microsoft Azure"
+   description="The article provides an introduction about Azure Security Best Practices and Patterns and a curated list of security best practices for different Azure resources."
    services="azure-security"
    documentationCenter="na"
    authors="TomShinder"
    manager="MBaldwin"
-   editor="TomSh"/> 
+   editor="TomSh"/>
 
 <tags
    ms.service="security"
@@ -14,34 +14,39 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/16/2016"
-   ms.author="terrylan"/> 
+   ms.author="terrylan"/>
 
-# Procedure consigliate e modelli per la sicurezza di Azure
 
-Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e sui modelli per la sicurezza di Azure. Ricordare di visitare periodicamente questo sito per conoscere gli aggiornamenti dell'elenco in continua espansione di procedure consigliate e modelli per la sicurezza di Azure:
+# <a name="azure-security-best-practices-and-patterns"></a>Azure security best practices and patterns
 
-- [Procedure consigliate per la sicurezza della rete di Azure](azure-security-network-security-best-practices.md)
-- [Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](azure-security-data-encryption-best-practices.md)
-- [Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità](azure-security-identity-management-best-practices.md)
-- [Procedure consigliate per la sicurezza di Internet of Things](azure-security-iot-best-practices.md)
-- [Procedure consigliate per l'aggiornamento software nell'ambiente IaaS di Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
-- [Procedure consigliate per la sicurezza dei limiti di Azure](../best-practices-network-security.md)
-- [Implementing a secure hybrid network architecture in Azure (Implementazione di un'architettura di rete ibrida sicura in Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+We currently have the following Azure security best practices and patterns articles. Make sure to visit this site periodically to see updates to our growing list of Azure security best practices and patterns:  
 
-Azure fornisce una piattaforma sicura per creare le proprie soluzioni. Sono forniti anche servizi e tecnologie che rendono più sicure le soluzioni in Azure. Dato l'alto numero di opzioni disponibili, in molti hanno manifestato interesse per le procedure consigliate e i modelli suggeriti da Microsoft per aumentare la sicurezza.
+- [Azure network security best practices](azure-security-network-security-best-practices.md)
+- [Azure data security and encryption best practices](azure-security-data-encryption-best-practices.md)
+- [Identity management and access control security best practices](azure-security-identity-management-best-practices.md)
+- [Internet of Things security best practices](azure-security-iot-best-practices.md)
+- [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
+- [Azure boundary security best practices](../best-practices-network-security.md)
+- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
-Questo interesse è naturale e perciò è stata creata una raccolta di documenti che descrivono le attività che è possibile eseguire e che, nel giusto contesto, consentiranno di aumentare la sicurezza delle distribuzioni di Azure.
+Azure provides a secure platform on which you can build your solutions. We also provide services and technologies to make your solutions on Azure more secure. Because of the many options available to you, many of you have voiced an interest in what Microsoft recommends as best practices and patterns for improving security.
 
-Questi articoli illustrano una raccolta di procedure consigliate e di utili modelli per argomenti specifici. Le procedure consigliate e i modelli si basano sulle esperienze di tecnici e clienti con queste tecnologie.
+We understand your interest and have created a collection of documents that describe things you can do, given the right context, to improve the security of Azure deployments.
 
-Per ogni procedura consigliata verrà illustrato nel miglior modo possibile:
+In these best practices and patterns articles, we discuss a collection of best practices and useful patterns for specific topics. These best practices and patterns are derived from our experiences with these technologies and the experiences of customers like yourself.
 
-- Qual è la procedura consigliata
-- Il motivo per cui si vuole abilitare tale procedura consigliata
-- Quale potrebbe essere il risultato se non fosse possibile abilitare la procedura consigliata
-- Alternative possibili alla procedura consigliata
-- Come imparare ad abilitare la procedura consigliata
+For each best practice we strive to explain:
 
-È possibile offrire molti altri articoli sull'architettura e le procedure consigliate per la sicurezza di Azure. Richiedere eventuali argomenti specifici nell'area di discussione nella parte inferiore della pagina.
+- What the best practice is
+- Why you want to enable that best practice
+- What might be the result if you fail to enable the best practice
+- Possible alternatives to the best practice
+- How you can learn to enable the best practice
 
-<!---HONumber=AcomDC_0921_2016-->
+We look forward to including many more articles on Azure security architecture and best practices. If there are topics that you'd like us to include, let us know in the discussion area at the bottom of this page.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

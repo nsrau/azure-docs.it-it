@@ -1,97 +1,103 @@
 <properties
-	pageTitle="Statistiche in tempo reale nella rete CDN di Azure | Microsoft Azure"
-	description="Le statistiche in tempo reale forniscono i dati in tempo reale sulle prestazioni della rete CDN durante la distribuzione di contenuto ai client."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Real-Time-Stats in Azure CDN | Microsoft Azure"
+    description="Real-Time Statistics provides real-time data about the performance of Azure CDN when delivering content to your clients."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-# Statistiche in tempo reale nella rete CDN di Microsoft Azure
+
+# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Real-time stats in Microsoft Azure CDN
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Overview
+## <a name="overview"></a>Overview
 
-Questo documento illustra le statistiche in tempo reale nella rete CDN di Microsoft Azure. Questa funzionalità fornisce dati in tempo reale, ad esempio la larghezza di banda, gli stati della cache e le connessioni simultanee al profilo della rete CDN per il recapito di contenuto ai client. In questo modo viene abilitato il monitoraggio continuo dell'integrità del servizio in qualsiasi momento, inclusi gli eventi di go-live.
+This document explains real-time stats in Microsoft Azure CDN.  This functionality provides real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile when delivering content to your clients. This enables continuous monitoring of the health of your service at any time, including go-live events.
 
-Sono disponibili i grafici seguenti:
+The following graphs are available:
 
-* [Larghezza di banda](#bandwidth)
-* [Codici di stato](#status-codes)
-* [Stati della cache](#cache-statuses)
-* [Connessioni](#connections)
+* [Bandwidth](#bandwidth)
+* [Status Codes](#status-codes)
+* [Cache Statuses](#cache-statuses)
+* [Connections](#connections)
 
 
-## Accesso alle statistiche in tempo reale
+## <a name="accessing-real-time-stats"></a>Accessing real-time stats
 
-1. Nel [portale di Azure](https://portal.azure.com) passare al profilo della rete CDN.
+1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
 
-	![Pannello del profilo di rete CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
+    ![CDN profile blade](./media/cdn-real-time-stats/cdn-profile-blade.png)
 
-2. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci**.
+2. From the CDN profile blade, click the **Manage** button.
 
-	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-real-time-stats/cdn-manage-btn.png)
 
-	Si aprirà il portale di gestione della rete CDN.
+    The CDN management portal opens.
 
-3. Passare il puntatore sulla scheda **Analisi**, quindi sul riquadro a comparsa **Statistiche in tempo reale**. Fare clic su **Oggetto di grandi dimensioni HTTP**.
+3. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **HTTP Large Object**.
 
-	![Portale di gestione della rete CDN](./media/cdn-real-time-stats/cdn-premium-portal.png)
+    ![CDN management portal](./media/cdn-real-time-stats/cdn-premium-portal.png)
 
-	Vengono visualizzati i grafici delle statistiche in tempo reale.
-	
-Ogni grafico visualizza le statistiche in tempo reale per l'intervallo di tempo selezionato, a partire dal momento del caricamento della pagina. I grafici vengono aggiornati automaticamente a intervalli di pochi secondi. Il pulsante **Aggiorna grafico**, se presente, consente di cancellare il grafico, dopodiché saranno visualizzati solo i dati selezionati.
+    The real-time stats graphs are displayed.
+    
+Each of the graphs displays real-time statistics for the selected time span, starting when the page loads.  The graphs update automatically every few seconds.  The **Refresh Graph** button, if present, will clear the graph, after which it will only display the selected data.
 
-## Larghezza di banda
+## <a name="bandwidth"></a>Bandwidth
 
-![Grafico Larghezza di banda](./media/cdn-real-time-stats/cdn-bandwidth.png)
+![Bandwidth graph](./media/cdn-real-time-stats/cdn-bandwidth.png)
 
-Il grafico **Larghezza di banda** visualizza la quantità di larghezza di banda usata per la piattaforma corrente nel periodo di tempo specificato. La parte ombreggiata del grafico indica l'utilizzo della larghezza di banda. La quantità esatta di larghezza di banda attualmente in uso viene visualizzata direttamente sotto il grafico a linee.
+The **Bandwidth** graph displays the amount of bandwidth used for the current platform over the selected time span. The shaded portion of the graph indicates bandwidth usage. The exact amount of bandwidth currently being used is displayed directly below the line graph.
 
-## Codici di stato
+## <a name="status-codes"></a>Status Codes
 
-![Grafico Codici di stato](./media/cdn-real-time-stats/cdn-status-codes.png)
+![Status code graph](./media/cdn-real-time-stats/cdn-status-codes.png)
 
-Il grafico **Codici di stato** indica la frequenza con cui si verificano alcuni codici di risposta HTTP durante l'intervallo di tempo selezionato.
+The **Status Codes** graph indicates how often certain HTTP response codes are occurring over the selected time span.
 
-> [AZURE.TIP]  Per una descrizione di ogni opzione relativa ai codici di stato HTTP, vedere [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Codici di stato HTTP della rete CDN di Azure).
+> [AZURE.TIP]  For a description of each HTTP status code option, see [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx).
 
-Direttamente sopra al grafico viene visualizzato un elenco dei codici di stato HTTP. Questo elenco indica ogni codice di stato che può essere incluso nel grafico a linee e il numero di occorrenze correnti al secondo per ogni codice di stato. Per impostazione predefinita, viene visualizzata una riga per ognuno di questi codici di stato nel grafico. Tuttavia, è possibile scegliere di monitorare solo i codici di stato che hanno un significato speciale per la configurazione della rete CDN. A tale scopo, selezionare i codici di stato desiderati e deselezionare tutte le altre opzioni, quindi fare clic su **Aggiorna grafico**.
+A list of HTTP status codes is displayed directly above the graph. This list indicates each status code that can be included in the line graph and the current number of occurrences per second for that status code. By default, a line is displayed for each of these status codes in the graph. However, you can choose to only monitor the status codes that have special significance for your CDN configuration. To do this, check the desired status codes and clear all other options, then click **Refresh Graph**. 
 
-È possibile nascondere temporaneamente i dati registrati per un codice di stato specifico. Nella legenda direttamente sotto il grafico selezionare il codice di stato che si vuole nascondere. Il codice di stato verrà nascosto immediatamente nel grafico. Se si seleziona di nuovo il codice di stato, l'opzione verrà visualizzata nuovamente.
+You can temporarily hide logged data for a particular status code.  From the legend directly below the graph, click the status code you want to hide. The status code will be immediately hidden from the graph. Clicking that status code again will cause that option to be displayed again.
 
-## Stati della cache
+## <a name="cache-statuses"></a>Cache Statuses
 
-![Grafico Stati della cache](./media/cdn-real-time-stats/cdn-cache-status.png)
+![Cache Statuses graph](./media/cdn-real-time-stats/cdn-cache-status.png)
 
-Il grafico **Stati della cache** indica la frequenza con cui si verificano alcuni tipi di stati della cache durante l'intervallo di tempo selezionato.
+The **Cache Statuses** graph indicates how often certain types of cache statuses are occurring over the selected time span. 
 
-> [AZURE.TIP]  Per una descrizione di ogni opzione relativa agli stati della cache, vedere [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Codici di stato della cache della rete CDN di Azure).
+> [AZURE.TIP]  For a description of each cache status code option, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx).
 
-Direttamente sopra al grafico viene visualizzato un elenco di codici di stato della cache. Questo elenco indica ogni codice di stato che può essere incluso nel grafico a linee e il numero di occorrenze correnti al secondo per ogni codice di stato. Per impostazione predefinita, viene visualizzata una riga per ognuno di questi codici di stato nel grafico. Tuttavia, è possibile scegliere di monitorare solo i codici di stato che hanno un significato speciale per la configurazione della rete CDN. A tale scopo, selezionare i codici di stato desiderati e deselezionare tutte le altre opzioni, quindi fare clic su **Aggiorna grafico**.
+A list of cache status codes is displayed directly above the graph. This list indicates each status code that can be included in the line graph and the current number of occurrences per second for that status code. By default, a line is displayed for each of these status codes in the graph. However, you can choose to only monitor the status codes that have special significance for your CDN configuration. To do this, check the desired status codes and clear all other options, then click **Refresh Graph**. 
 
-È possibile nascondere temporaneamente i dati registrati per un codice di stato specifico. Nella legenda direttamente sotto il grafico selezionare il codice di stato che si vuole nascondere. Il codice di stato verrà nascosto immediatamente nel grafico. Se si seleziona di nuovo il codice di stato, l'opzione verrà visualizzata nuovamente.
+You can temporarily hide logged data for a particular status code.  From the legend directly below the graph, click the status code you want to hide. The status code will be immediately hidden from the graph. Clicking that status code again will cause that option to be displayed again.
 
-## Connessioni
+## <a name="connections"></a>Connections
 
-![Grafico Connessioni](./media/cdn-real-time-stats/cdn-connections.png)
+![Connections graph](./media/cdn-real-time-stats/cdn-connections.png)
 
-Questo grafico indica il numero di connessioni stabilite con i server perimetrali. Ogni richiesta per un asset che passa attraverso la rete CDN costituisce una connessione.
+This graph indicates how many connections have been established to your edge servers. Each request for an asset that passes through our CDN results in a connection.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next Steps
 
-- Per impostare la ricezione di notifiche, vedere [Avvisi in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-alerts.md)
-- Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
-- Vedere [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-analyze-usage-patterns.md)
+- Get notified with [Real-time alerts in Azure CDN](cdn-real-time-alerts.md)
+- Dig deeper with [advanced HTTP reports](cdn-advanced-http-reports.md)
+- Analyze [usage patterns](cdn-analyze-usage-patterns.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
