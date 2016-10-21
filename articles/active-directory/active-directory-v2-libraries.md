@@ -20,7 +20,7 @@
 # Azure Active Directory (AD) 2.0 e librerie di autenticazione
 L'endpoint di Azure AD 2.0 supporta i protocolli standard del settore OAuth 2.0 e OpenID Connect 1.0. Con l'endpoint 2.0, è possibile usufruire di un'ampia gamma di librerie di Microsoft e di terzi.
 
-Quando si compila un'applicazione che usa l'endpoint 2.0, è consigliabile usare librerie scritte da esperti del dominio del protocollo che seguono una metodologia di Security Development Lifecycle (SDL), [ad esempio quella seguita da Microsoft][Microsoft-SDL]. Se si decide di codificare manualmente il supporto per i protocolli, è consigliabile seguire la metodologia SDL e osservare con attenzione le considerazioni sulla sicurezza reperibili nelle specifiche degli standard di ogni protocollo.
+Quando si compila un'applicazione che usa l'endpoint 2.0, è consigliabile usare librerie scritte da esperti del dominio del protocollo che seguono una metodologia di Security Development Lifecycle (SDL), [ad esempio quella seguita da Microsoft](Microsoft-SDL). Se si decide di codificare manualmente il supporto per i protocolli, è consigliabile seguire la metodologia SDL e osservare con attenzione le considerazioni sulla sicurezza reperibili nelle specifiche degli standard di ogni protocollo.
 
 ## Tipi di librerie
 Esistono due tipi di librerie che funzionano con la versione 2.0:
