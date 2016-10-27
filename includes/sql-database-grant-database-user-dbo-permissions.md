@@ -1,24 +1,29 @@
 
 
-## Concedere autorizzazioni db\_owner a un nuovo utente del database
+## <a name="grant-new-database-user-db_owner-permissions"></a>Grant new database user db_owner permissions
 
-Usare la procedura seguente per concedere autorizzazioni db\_owner a un utente del database esistente
+Use the following steps to grant an existing database user db_owner permissions
 
-Questa procedura presuppone che l'utente sia connesso al database SQL in Esplora oggetti con SSMS e al server logico del database SQL come amministratore entità di livello server o con un account utente con le autorizzazioni necessarie per concedere autorizzazioni utente.
+Theses steps assume that you are connected to SQL Database in Object Explorer in SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to grant user permissions. 
 
-1. In Esplora oggetti espandere il nodo Database e selezionare il database con l'utente a cui si vogliono concedere le autorizzazioni dbo.
+1. In Object Explorer, expand the Databases node and select the database with the user to which you wish to grant dbo permissions.
 
-     ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Fare clic con il pulsante destro del mouse sul database selezionato e quindi scegliere **Query**.
+2. Right-click the selected database and then click **Query**.
 
-     ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. Nella finestra della query modificare e usare l'istruzione Transact-SQL seguente per concedere le autorizzazioni dbo a un utente specificato.
+3. In the query window, edit and use the following Transact-SQL statement to grant dbo permissions to a specified user. 
 
     ```ALTER ROLE db_owner ADD MEMBER user1;
     ```
 
-     ![SQL Server Management Studio: Connettersi a un server di database SQL](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

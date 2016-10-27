@@ -1,66 +1,71 @@
 <properties
-	pageTitle="Come modificare la carta di credito usata per pagare una sottoscrizione di Azure | Microsoft Azure"
-	description="Descrive come modificare la carta di credito usata per pagare una sottoscrizione di Azure"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="mbaldwin"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="How to change the credit card used to pay for an Azure subscription | Microsoft Azure"
+    description="Describes how to How to change the credit card used to pay for an Azure subscription"
+    services=""
+    documentationCenter=""
+    authors="genlin"
+    manager="mbaldwin"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="genli"/>
 
-# Come modificare la carta di credito usata per pagare una sottoscrizione di Azure
 
-In alcuni casi potrebbe essere necessario aggiornare i dati della carta di credito nelle informazioni dell'account oppure modificare la carta usata per pagare una fattura.
+# <a name="how-to-change-the-credit-card-used-to-pay-for-an-azure-subscription"></a>How to change the credit card used to pay for an Azure subscription
 
-Se la carta di credito viene rinnovata e il numero rimane invariato, è possibile aggiornare semplicemente i dati della carta di credito esistente, ad esempio la data di scadenza.
+You may sometimes need to update details of the credit card in your account information, or change the card used to pay your bill.
 
-Se il numero della carta di credito dovesse cambiare per smarrimento, furto o scadenza, è necessario aggiungere la nuova carta di credito all'account. Questa operazione è necessaria perché il codice di sicurezza CVV cambia insieme al numero della carta di credito.
+If your credit card gets renewed and the number remains the same, you can simply update the details of the existing credit card, such as expiration date.
 
-> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+If your credit card number ever changes, due to being lost, stolen, or expired, you need to add the new credit card to your account. This is because the CVV security code on the card is changed when the credit card number changes.
 
-## Modificare le informazioni di pagamento per una carta di credito esistente
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account. Nel [portale di Azure](https://portal.azure.com) è possibile accedere al Centro account selezionando **Sottoscrizione** > *nome della sottoscrizione* > **Gestisci**.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-	> [AZURE.NOTE] Le autorizzazioni per accedere al Centro account sono concesse solo all'amministratore account. Per altre informazioni sull'amministratore account, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md).
+## <a name="edit-payment-information-for-an-existing-credit-card"></a>Edit payment information for an existing credit card
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator. In the [Azure portal](https://portal.azure.com), you can access the Account Center by selecting **Subscription**>*the subscription name*>**Manage**.
 
-2. In **Fare clic su una sottoscrizione per visualizzare i dettagli e l'utilizzo** selezionare la sottoscrizione collegata alla carta di credito.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
-3. Sul lato destro della pagina selezionare **Manage payment methods** (Gestisci metodi di pagamento).</br>![changesub](./media/billing-how-to-change-credit-card/changesub_new.png)
-4. Nella pagina **Manage payment methods** (Gestisci metodi di pagamento) scegliere **Modifica** accanto al numero della carta di credito.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard_new.png)
-5. Nella pagina **Modifica**, controllare di aver selezionato il tipo di carta e il numero di carta di credito corretti.
-6. Apportare le modifiche necessarie ai dettagli relativi alla carta e quindi fare clic su **Avanti** per tornare alla pagina **Scegli il metodo di pagamento**.
+    > [AZURE.NOTE] Only the  account administrator has permission to access the Account Center. For more information about account administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 
-## Aggiungere una nuova carta di credito come metodo di pagamento
-1. Accedere al [Centro account Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
-2. In **Fare clic su una sottoscrizione per visualizzare i dettagli e l'utilizzo** selezionare la sottoscrizione per la quale si vuole aggiungere un nuovo metodo di pagamento.
-3. Sul lato destro della pagina selezionare **Manage payment methods** (Gestisci metodi di pagamento).
-4. Nella pagina **Manage payment methods** (Gestisci metodi di pagamento), selezionare "+" per aggiungere una nuova carta di credito.
-5. Scegliere un tipo di carta di credito e quindi fornire tutte le informazioni necessarie.
-6. Fare clic su **Avanti** per tornare alla pagina **Manage payment methods** (Gestisci metodi di pagamento). Se la carta di credito specificata è valida, verrà aggiunta all'elenco dei metodi di pagamento disponibili.
+2. Under **Click a subscription to view details and usage**, select the subscription that is linked to the credit card.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
+3. On the right side of the page, select **Manage payment methods**.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub_new.png)
+4. On the **Manage payment methods** page, select **Edit** next to the credit card number.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard_new.png)
+5. On the **Edit** page, verify that you have selected the correct credit card type and card number.
+6. Make the changes you need to the card details, and then select **Next** to the **Choose payment method** page.
 
-## Modificare la carta di credito usata per pagare una fattura di Azure
-1. Accedere al [Centro account Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
-2. In **Fare clic su una sottoscrizione per visualizzare i dettagli e l'utilizzo** selezionare la sottoscrizione per la quale si vuole aggiornare il metodo di pagamento.
-3. Sul lato destro della pagina selezionare **Manage payment methods** (Gestisci metodi di pagamento).
-4. Nella pagina **Manage payment methods** (Gestisci metodi di pagamento) fare clic su **Use Instead** (Usa questa carta) per selezionare la carta di credito da usare.
+## <a name="add-a-new-credit-card-as-a-payment-method"></a>Add a new credit card as a payment method
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to add a new payment method.
+3. On the right side of the page, select **Manage payment methods**.
+4. On the **Manage payment methods** page, select “+” to add a new credit card.
+5. Choose a credit card type, and then provide all the required information.
+6. Select **Next** to return to the **Manage payment methods** page. If the card you added is valid, it will be added to the list of available payment methods.
 
-## Rimozione di una carta di credito dall'account
-1. Accedere al [Centro account Azure](https://account.windowsazure.com/Subscriptions) come amministratore account.
-2. In **Fare clic su una sottoscrizione per visualizzare i dettagli e l'utilizzo** selezionare la sottoscrizione per la quale si vuole aggiornare il metodo di pagamento.
-3. Sul lato destro della pagina selezionare **Manage payment methods** (Gestisci metodi di pagamento).
-4. Nella pagina **Manage payment methods** (Gestisci metodi di pagamento) fare clic su **Elimina** per selezionare la carta di credito da eliminare.
+## <a name="change-the-credit-card-that-you-use-to-pay-an-azure-bill"></a>Change the credit card that you use to pay an Azure bill
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to update the payment method.
+3. On the right side of the page, select **Manage payment methods**.
+4. On the **Manage payment methods** page, click **Use Instead** to select the credit card you want to use.
 
-	> [AZURE.NOTE] Se la carta di credito è associata ad altre sottoscrizioni di Microsoft attive, non sarà possibile eliminarla. Se si riceve un errore che specifica che la carta è in uso, assicurarsi dissociarla da tutte le sottoscrizioni attive con Microsoft.
+## <a name="removing-a-credit-card-from-the-account"></a>Removing a credit card from the account
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to update the payment method.
+3. On the right side of the page, select **Manage payment methods**.
+4. On the **Manage payment methods** page, click **Delete** to select the credit card you want to delete.
 
-> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+    > [AZURE.NOTE] You will not be able to delete a credit card if it is associated with other active Microsoft subscriptions. If you receive an error that the card is in use, please ensure that it is disassociated from all active subscriptions that you have with Microsoft.
 
-<!---HONumber=AcomDC_0831_2016-->
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

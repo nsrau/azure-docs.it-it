@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scenari di test personalizzati | Microsoft Azure"
-   description="Come proteggere i servizi in caso di errori normali e anomali"
+   pageTitle="Custom test scenarios | Microsoft Azure"
+   description="How to harden your services against graceful and ungraceful failures."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -16,18 +16,19 @@
    ms.date="05/17/2016"
    ms.author="anmola"/>
 
-# Simulare gli errori durante i carichi di lavoro del servizio
 
-Gli scenari di testabilità in Service Fabric di Azure consentono agli sviluppatori di non preoccuparsi della gestione dei singoli errori. Tuttavia, sono disponibili scenari in cui potrebbe essere necessaria un'interfoliazione esplicita del carico di lavoro client e degli errori. L'interfoliazione del carico di lavoro client e degli errori garantisce che il servizio stia effettivamente eseguendo un’azione quando si verifica un errore. Dato il livello di controllo fornito dalla testabilità, questi errori potrebbero verificarsi in momenti precisi dell'esecuzione del carico di lavoro. L’induzione degli errori in stati diversi nell'applicazione può consentire di individuare bug e migliorare la qualità.
+# <a name="simulate-failures-during-service-workloads"></a>Simulate failures during service workloads
 
-## Esempio di scenario personalizzato
-In questo test viene illustrato uno scenario in cui si verifica l'interfoliazione del carico di lavoro di business con [errori normali e anomali](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Per ottenere risultati ottimali, gli errori devono essere indotti nel corso delle operazioni del servizio o del calcolo.
+The testability scenarios in Azure Service Fabric enable developers to not worry about dealing with individual faults. There are scenarios, however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults ensures that the service is actually performing some action when failure happens. Given the level of control that testability provides, these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
-Esaminiamo in dettaglio un esempio di servizio che espone quattro carichi di lavoro: A, B, C e D. Ognuno corrisponde a un insieme di flussi di lavoro e potrebbe essere calcolo, archiviazione o una combinazione. Per ragioni di semplicità, nel nostro esempio verranno estrapolati i carichi di lavoro. I diversi errori eseguiti in questo esempio sono:
-  + RestartNode: errore anomalo per simulare un riavvio del computer.
-  + RestartDeployedCodePackage: errore anomalo per simulare arresti anomali del processo host del servizio.
-  + RemoveReplica: errore normale per simulare la rimozione della replica.
-  + MovePrimary: errore normale per simulare gli spostamenti della replica attivati dal servizio di bilanciamento del carico di Service Fabric.
+## <a name="sample-custom-scenario"></a>Sample custom scenario
+This test shows a scenario that interleaves the business workload with [graceful and ungraceful failures](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced in the middle of service operations or compute for best results.
+
+Let's walk through an example of a service that exposes four workloads: A, B, C, and D. Each corresponds to a set of workflows and could be compute, storage, or a mix. For the sake of simplicity, we will abstract out the workloads in our example. The different faults executed in this example are:
+  + RestartNode: Ungraceful fault to simulate a machine restart.
+  + RestartDeployedCodePackage: Ungraceful fault to simulate service host process crashes.
+  + RemoveReplica: Graceful fault to simulate replica removal.
+  + MovePrimary: Graceful fault to simulate replica moves triggered by the Service Fabric load balancer.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -155,4 +156,8 @@ class Test
 }
 ```
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

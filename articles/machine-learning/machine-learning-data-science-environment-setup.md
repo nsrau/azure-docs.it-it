@@ -1,32 +1,38 @@
 <properties 
-	pageTitle="Configurare gli ambienti per l'analisi scientifica dei dati per l'uso nel processo di analisi scientifica dei dati per i team" 
-	description="Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="Set up data science environments for use in the Team Data Science Process | Azure" 
+    description="Set up data science environments for use in the Team Data Science Process" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/23/2016" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/03/2016" 
+    ms.author="bradsev" /> 
 
-# Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team
 
-Il Processo di analisi scientifica dei dati per i team usa una gamma di ambienti per la scienza dei dati per l'archiviazione, l'elaborazione e l'analisi dei dati. Essi includono l’archiviazione BLOB di Azure, diversi tipi di macchine virtuali di Azure, i cluster HDInsight (Hadoop) e le aree di lavoro di Azure Machine Learning. La scelta riguardante quale ambiente usare dipende dal tipo e dalla quantità di dati da modellare con l'apprendimento automatico e dalla destinazione di quei dati nel cloud.
+# <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Set up data science environments for use in the Team Data Science Process
 
-* Per informazioni aggiuntive sulle questioni da prendere in considerazione per prendere questa decisione, vedere [Pianificazione dell'ambiente di analisi scientifica dei dati di Azure Machine Learning](machine-learning-data-science-plan-your-environment.md).
-* Per un catalogo di alcuni degli scenari che potrebbero verificarsi quando si esegue l'analisi avanzata, vedere [Scenarios for the Team Data Science Process](machine-learning-data-science-plan-sample-scenarios.md) (Scenari per il Processo di analisi scientifica dei dati per i team)
+The Team Data Science Process uses various data science environments for the storage, processing, and analysis of data. They include Azure Blob Storage, several types of Azure virtual machines, HDInsight (Hadoop) clusters, and Azure Machine Learning workspaces. The decision about which environment to use depends on the type and quantity of data to be modeled and the target destination for that data in the cloud. 
 
-Questo menu include collegamenti ad argomenti che descrivono come configurare i diversi ambienti di analisi scientifica dei dati usati dal processo di analisi scientifica dei dati per i team.
+* For guidance on questions to consider when making this decision, see [Plan Your Azure Machine Learning Data Science Environment](machine-learning-data-science-plan-your-environment.md). 
+* For a catalog of some of the scenarios you might encounter when doing advanced analytics, see [Scenarios for the Team Data Science Process](machine-learning-data-science-plan-sample-scenarios.md)
+
+This menu links to topics that describe how to set up the various data science environments used by the Team Data Science Process.
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-La **macchina virtuale per l'analisi scientifica dei dati di Microsoft** è disponibile anche come immagine di macchina virtuale (VM) di Azure pre-installata e configurata con diversi strumenti diffusi, usati comunemente per l'analisi dei dati e l'apprendimento automatico. Per informazioni su come usare questa macchina virtuale, vedere [Eseguire il provisioning di una macchina virtuale per l'analisi scientifica dei dati di Microsoft](machine-learning-data-science-provision-vm.md).
+The **Microsoft Data Science Virtual Machine** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. See [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) for how to use this VM.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

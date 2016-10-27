@@ -1,49 +1,56 @@
 <properties
-	pageTitle="Report Utilizzo senza licenza | Microsoft Azure"
-	description="Il report Utilizzo senza licenza semplifica l'identificazione di utenti senza licenza che usano funzionalità a pagamento di Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Unlicensed Usage Report | Microsoft Azure"
+    description="The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features."
+    services="active-directory"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
-# Report Utilizzo senza licenza
 
-Il report Utilizzo senza licenza semplifica l'identificazione di utenti senza licenza che usano funzionalità a pagamento di Azure AD. Ciò consente di usare in modo ottimale le licenze acquistate e di identificare le situazioni in cui potrebbero essere necessarie licenze aggiuntive.
+# <a name="unlicensed-usage-report"></a>Unlicensed usage report
 
-Il report mostra l'utilizzo attivo effettivo delle funzionalità a pagamento negli ultimi 30 giorni.
+The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features. This allows you to make better use of licenses that you have purchased and to identify you know when you may need additional licenses. 
 
-## Struttura del report
+The report shows active usage of the paid features in the last 30 days. 
+
+## <a name="report-structure"></a>Report structure
  
-| Nome colonna |	Descrizione |
+| Column name          |    Description |
 | :--                  | :--         |
-| Utente senza licenza |	Nome dell'utente |
-| Funzionalità | Nome della funzionalità. Ad esempio: accesso condizionale. |
-| Applicazioni a cui è stato eseguito l'accesso | Nome dell'applicazione a cui viene eseguito l'accesso con la funzionalità. Ad esempio: Office 365 SharePoint Online. |
+| Unlicensed User      |    Name of the user |
+| Feature              | The feature name. For example: conditional access |
+| Application Accessed | The name of the application that is being accessed with the feature. For example: Office 365 SharePoint Online |
 
  
-> [AZURE.NOTE] Se l'account utente è stato eliminato, la colonna "Utente senza licenza" verrò popolata con un ID, ad esempio 1003000090D8B285.
+> [AZURE.NOTE] If a user account has been deleted the ‘Unlicensed User’ column will be populated with an ID, like 1003000090D8B285
 
 
-## Funzionalità di accesso condizionale
+## <a name="conditional-access-feature"></a>Conditional access feature
 
-Gli utenti senza licenza verranno contrassegnati quando accedono a un servizio a cui sono applicati criteri di accesso, se non hanno una licenza di Azure AD Premium.
+Unlicensed users will be flagged when they access a service that has conditional access policy applied if they do not have an Azure AD Premium license. 
 
-Questo approccio viene applicato ai criteri di MFA e di posizione, oltre ai dispositivi dei criteri che usano Intune.
+This applies to MFA / Location policies as well as device polices that use Intune.
  
 
-## Vedere anche
+## <a name="see-also"></a>See also
 
-- [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
-- [Guida introduttiva all'accesso condizionale ad Azure AD](active-directory-conditional-access-azuread-connected-apps.md)
+- [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access.md)
+- [Getting started with conditional access to Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

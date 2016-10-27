@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Query Performance Insight del database SQL di Azure" 
-   description="Il monitoraggio delle prestazioni delle query identifica le query principali a livello di utilizzo di CPU per un database SQL di Azure." 
+   pageTitle="Azure SQL Database Query Performance Insight" 
+   description="Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,216 +16,218 @@
    ms.date="08/09/2016"
    ms.author="sstein"/>
 
-# Query Performance Insight del database SQL di Azure
+
+# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 
 
-La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'attività complessa che richiede un'esperienza significativa e un investimento elevato in termini di tempo. Le Informazioni dettagliate sulle prestazioni delle query consentono di dedicare meno tempo alla risoluzione dei problemi delle prestazioni del database, offrendo i vantaggi seguenti:​
+Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:
 
-- Informazioni più approfondite sull'utilizzo delle risorse del database (DTU).
-- Query principali a livello di CPU/durata/conteggio delle esecuzioni, che possono essere potenzialmente ottimizzate per migliorare le prestazioni.
-- La possibilità di eseguire il drill-down nei dettagli di una query, visualizzarne il testo e la cronologia di utilizzo delle risorse.
-- Le annotazioni relative all'ottimizzazione delle prestazioni che descrivono le azioni eseguite da [SQL Azure Database Advisor](sql-database-advisor.md)
+- Deeper insight into your databases resource (DTU) consumption. 
+- The top queries by CPU/Duration/Execution count, which can potentially be tuned for improved performance.
+- The ability to drill down into the details of a query, view its text and history of resource utilization. 
+- Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
 
-​
 
-## Prerequisiti
 
-- Query Performance Insight è disponibile solo con il database SQL di Azure V12.
-- Per Informazioni dettagliate sulle prestazioni delle query è necessario che l'[archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
+## <a name="prerequisites"></a>Prerequisites
+
+- Query Performance Insight is only available with Azure SQL Database V12.
+- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. If Query Store is not running, the portal prompts you to turn it on.
 
  
-## Autorizzazioni
+## <a name="permissions"></a>Permissions
 
-Le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) seguenti sono necessarie per usare Query Performance Insight:
+The following [role-based access control](../active-directory/role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
 
-- Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali che utilizzano le risorse e i grafici.
-- Le autorizzazioni **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.
-
-
-
-## Uso di Query Performance Insight
-
-Query Performance Insight è facile da usare:
-
-- Aprire il [portale di Azure](https://portal.azure.com/) e individuare il database che si desidera esaminare.
-  - Dal menu a sinistra, sotto la sezione dedicata al supporto e alla risoluzione dei problemi, selezionare "Informazioni dettagliate sulle prestazioni delle query".
-- Nella prima scheda, esaminare l'elenco delle query principali a livello di utilizzo delle risorse.
-- Selezionare una singola query per visualizzarne i dettagli.
-- Aprire [SQL Azure Database Advisor](sql-database-advisor.md) e verificare se sono disponibili raccomandazioni.
-- Utilizzare i dispositivi di scorrimento o le icone dello zoom per modificare l'intervallo osservato.
-
-    ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)
-
-> [AZURE.NOTE] Per consentire al database SQL di fornire informazioni dettagliate sulle prestazioni delle query, è necessario che l'archivio query acquisisca un paio di ore di dati. Se il database non ha alcuna attività o l'archivio query non è attivo in un determinato periodo di tempo, i grafici saranno vuoti quando viene visualizzato quel periodo di tempo. È possibile abilitare l'archivio query in qualsiasi momento, se non è in esecuzione.
+- **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
+- **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.
 
 
 
-## Esaminare le query principali a livello di utilizzo di CPU
+## <a name="using-query-performance-insight"></a>Using Query Performance Insight
 
-Eseguire le operazioni seguenti nel [portale](http://portal.azure.com):
+Query Performance Insight is easy to use:
 
-1. Passare a un database SQL e fare clic su **Tutte le impostazioni** > **Supporto e Risoluzione dei problemi** > **Informazioni dettagliate sulle prestazioni delle query**.
+- Open [Azure portal](https://portal.azure.com/) and find database that you want to examine. 
+  - From left-hand side menu, under support and troubleshooting, select “Query Performance Insight”.
+- On the first tab, review the list of top resource-consuming queries.
+- Select an individual query to view its details.
+- Open [SQL Azure Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
+- Use sliders or zoom icons to change observed interval.
+
+    ![performance dashboard](./media/sql-database-query-performance/performance.png)
+
+> [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
+
+
+
+## <a name="review-top-cpu-consuming-queries"></a>Review top CPU consuming queries
+
+In the [portal](http://portal.azure.com) do the following:
+
+1. Browse to a SQL database and click **All settings** > **Support + Troubleshooting** > **Query performance insight**. 
 
     ![Query Performance Insight][1]
 
-    Verrà aperta la visualizzazione relativa alle query principali e verrà mostrato l'elenco delle query principali a livello di utilizzo di CPU.
+    The top queries view opens and the top CPU consuming queries are listed.
 
-1. Per informazioni dettagliate, fare clic nei vari punti del grafico.<br>La prima riga visualizza la percentuale di uso di DTU complessiva per il database, mentre le barre visualizzano la percentuale di CPU usata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ogni barra rappresenta un giorno).
+1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents one day).
 
-    ![query principali][2]
+    ![top queries][2]
 
-    La griglia inferiore rappresenta informazioni aggregate per le query visibili.
+    The bottom grid represents aggregated information for the visible queries.
 
-  -	ID query: identificatore univoco della query all'interno del database.
-  -	Utilizzo della CPU per query durante l'intervallo osservabile (dipende dalla funzione di aggregazione).
-  -	Durata per ogni query (dipende dalla funzione di aggregazione).
-  -	Numero totale di esecuzioni per una query specifica.
+  - Query ID – unique identifier of query inside database.
+  - CPU per query during observable interval (depends on aggregation function).
+  - Duration per query (depends on aggregation function).
+  - Total number of executions for a particular query.
 
-    Selezionare o deselezionare singole query per includerle o escluderle dal grafico utilizzando le caselle di spunta.
+    Select or clear individual queries to include or exclude them from the chart using checkboxes.
 
-1. Se i dati non vengono più aggiornati, fare clic sul pulsante **Aggiorna**.
-1. È possibile utilizzare i dispositivi di scorrimento e i pulsanti dello zoom per modificare l'intervallo di osservazione ed esaminare i picchi: ![Scheda Impostazioni](./media/sql-database-query-performance/zoom.png)
-1. Facoltativamente, se si desidera un'altra visualizzazione, è possibile selezionare la scheda **Personalizzata** e impostare:
+1. If your data becomes stale, click the **Refresh** button.
+1. You can use sliders and zoom buttons to change observation interval and investigate spikes:  ![settings](./media/sql-database-query-performance/zoom.png)
+1. Optionally, if you want a different view, you can select **Custom** tab and set:
   
-  - Metrica (CPU, durata, conteggio delle esecuzioni)
-  - Intervallo di tempo (ultime 24 ore, settimana scorsa, mese scorso).
-  - Numero di query.
-  - Funzione di aggregazione.
+  - Metric (CPU, duration, execution count)
+  - Time interval (Last 24 hours, Past week, Past month). 
+  - Number of queries.
+  - Aggregation function.
 
-    ![Scheda Impostazioni](./media/sql-database-query-performance/custom-tab.png)
+    ![settings](./media/sql-database-query-performance/custom-tab.png)
 
-## Visualizzazione dei dettagli delle singole query
+## <a name="viewing-individual-query-details"></a>Viewing individual query details
 
-Per visualizzare i dettagli relativi alle query:
+To view query details:
 
-1. Fare clic su qualsiasi query nell'elenco delle query principali.
+1. Click any query in the list of top queries.
 
-    ![informazioni dettagliate](./media/sql-database-query-performance/details.png)
+    ![details](./media/sql-database-query-performance/details.png)
 
-1. Verrà aperta la visualizzazione dettagliata e i valori relativi a utilizzo CPU/durata/conteggio delle esecuzioni delle query verranno suddiviso nel tempo.
-1. Fare clic su intorno al grafico per i dettagli.
-  - Il grafico in altomMostra una linea con la percentuale % DTU complessiva del database e le barre rappresentano la percentuale % della CPU utilizzata dalla query selezionata.
-  - Nel secondo grafico viene mostrata la durata totale della query selezionata.
-  - Nel grafico in fondo viene mostrato il numero totale delle esecuzioni effettuate dalla query selezionata.
+1. The details view opens and the queries CPU consumption/Duration/Execution count is broken down over time.
+1. Click around the chart for details.
+  - Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
+  - Second chart shows total duration by the selected query.
+  - Bottom chart shows total number of executions by the selected query.
     
-    ![dettagli sulle query][3]
+    ![query details][3]
 
-1. Facoltativamente, utilizzare i dispositivi di scorrimento, i pulsanti dello zoom oppure fare clic su **Impostazioni** per personalizzare la modalità di visualizzazione dei dati della query o per mostrare un periodo di tempo diverso.
+1. Optionally, use sliders, zoom buttons or click **Settings** to customize how query data is displayed, or to pick a different time period.
 
-## Esaminare le query principali in base alla durata
+## <a name="review-top-queries-per-duration"></a>Review top queries per duration
 
-Nel recente aggiornamento di Informazioni dettagliate sulle prestazioni delle query, abbiamo introdotto due nuove metriche che aiutano a individuare potenziali colli di bottiglia: conteggio delle esecuzioni e durata.<br>
+In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
 
-Le query con esecuzione prolungata hanno le maggiori probabilità di bloccare gli altri utenti e le risorse più a lungo, nonché di limitare la scalabilità. Sono anche i candidati ideali per l'ottimizzazione.<br>
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
 
-Per identificare le query di lunga esecuzione :
+To identify long running queries:
 
-1. Aprire la scheda **Personalizza** in Informazioni dettagliate sulle prestazioni delle query del database selezionato
-1. Modificare le metriche su **Durata**
-1. Selezionare il numero di query e l'intervallo di osservazione
-1. Selezionare la funzione di aggregazione
-  - **Somma** aggiunge il tempo di esecuzione di tutte le query durante l'intero intervallo di osservazione.
-  - **Max** individua le query con il tempo di esecuzione massimo durante l'intero intervallo di osservazione.
-  - **Media** rileva il tempo medio di esecuzione di tutte le query e mostra i valori medi più alti tra quelli rilevati.
+1. Open **Custom** tab in Query Performance Insight for selected database
+1. Change metrics to be **duration**
+1. Select number of queries and observation interval
+1. Select aggregation function
+  - **Sum** adds up all query execution time during whole observation interval.
+  - **Max** finds queries which execution time was maximum at whole observation interval.
+  - **Avg** finds average execution time of all query executions and show you the top out of these averages. 
 
-    ![durata query][4]
+    ![query duration][4]
 
-## Esaminare le query principali in base al conteggio delle esecuzioni
+## <a name="review-top-queries-per-execution-count"></a>Review top queries per execution count
 
-Il numero elevato di esecuzioni potrebbe non influire sul database e l'utilizzo delle risorse potrebbe essere modesto, ma l'applicazione nel suo complesso potrebbe risultare rallentata.
+High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
 
-In alcuni casi, il conteggio di esecuzioni molto elevato potrebbe causare l'aumento dei round trip di rete. I round trip hanno un forte impatto sulle prestazioni. Sono soggetti alla latenza di rete e alla latenza di server downstream.
+In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
 
-Ad esempio, molti siti Web basati sui dati accedono in maniera massiccia al database per tutte le richieste dell'utente. Mentre il pool di connessioni è di supporto, il traffico di rete aumentato e il carico di elaborazione sul server di database possono influire negativamente sulle prestazioni. Il consiglio generico è di mantenere i round trip a un livello minimo assoluto.
+For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
 
-Per identificare le query eseguite di frequente ("chatty"):
+To identify frequently executed queries (“chatty”) queries:
 
-1. Aprire la scheda **Personalizza** in Informazioni dettagliate sulle prestazioni delle query del database selezionato
-1. Modificare le metriche su **Conteggio delle esecuzioni**
-1. Selezionare il numero di query e l'intervallo di osservazione
+1. Open **Custom** tab in Query Performance Insight for selected database
+1. Change metrics to be **execution count**
+1. Select number of queries and observation interval
 
-    ![conteggio delle esecuzioni query][5]
+    ![query execution count][5]
 
-## Informazioni sulle annotazioni di ottimizzazione delle prestazioni 
+## <a name="understanding-performance-tuning-annotations"></a>Understanding performance tuning annotations 
 
-Durante l'esplorazione del carico di lavoro in Informazioni dettagliate sulle prestazioni delle query, è possibile notare la presenza di icone con linea verticale nella parte superiore del grafico.<br>
+While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>
 
-Queste icone sono annotazioni sulle prestazioni che influiscono sulle azioni eseguite da [SQL Azure Database Advisor](sql-database-advisor.md). Passando il cursore del mouse su un'annotazione, si ottengono le informazioni di base relative a tale azione:
+These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
 
-![annotazione query][6]
+![query annotation][6]
 
-Per saperne di più o per applicare il consiglio di SQL Azure Database Advisor, fare clic sull'icona, in modo da visualizzare i dettagli relativi all'azione. Se si tratta di un consiglio attivo è possibile applicarlo direttamente tramite il comando.
+If you want to know more or apply advisor recommendation, click the icon. It will open details of action. If it’s an active recommendation you can apply it straight away using command.
 
-![dettagli annotazione query][7]
+![query annotation details][7]
 
-### Annotazioni multiple. ###
+### <a name="multiple-annotations."></a>Multiple annotations. ###
 
-È possibile che a causa del livello di zoom le annotazioni vicine tra loro vengano compresse in una, che verrà rappresentato dall'icona speciale; facendo clic su tale icona si aprirà un nuovo pannello con l'elenco delle annotazioni raggruppate. Correlare le query e le azioni di ottimizzazione delle prestazioni può servire ad avere una migliore comprensione del carico di lavoro.
+It’s possible, that because of zoom level, annotations that are close to each other will get collapsed into one. This will be represented by special icon, clicking it will open new blade where list of grouped annotations will be shown.
+Correlating queries and performance tuning actions can help to better understand your workload. 
 
 
-## 	Ottimizzare la configurazione dell'archivio query per Informazioni dettagliate prestazioni query
+##  <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>Optimizing the Query Store configuration for Query Performance Insight
 
-Durante l'uso di Informazioni dettagliate prestazioni query, possono essere visualizzati messaggi dell'archivio query simili ai seguenti:
+During your use of Query Performance Insight, you might encounter the following Query Store messages:
 
-- "Archivio query non è correttamente configurato in questo database. Per altre informazioni, fare clic qui."
-- "Archivio query non è correttamente configurato in questo database. Fare clic qui per modificare le impostazioni."
+- "Query Store is not properly configured on this database. Click here to learn more."
+- "Query Store is not properly configured on this database. Click here to change settings." 
 
-Questi messaggi in genere vengono visualizzati quando l'archivio query non è in grado di raccogliere nuovi dati.
+These messages usually appear when Query Store is not able to collect new data. 
 
-Il primo caso si verifica quando l'archivio query è in stato di sola lettura e i parametri sono impostati in modo ottimale. È possibile risolvere il problema aumentando le dimensioni dell'archivio query o svuotandolo del tutto.
+First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store.
 
-![pulsante qds][8]
+![qds button][8]
 
-Il secondo caso si verifica quando l'archivio query è disattivato o se i parametri non sono impostati in modo ottimale. <br>È possibile modificare i criteri di conservazione e acquisizione e abilitare l'archivio query direttamente dal portale oppure eseguendo i comandi indicati sotto:
+Second case happens when Query Store is Off or parameters aren’t set optimally. <br>You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
 
-![pulsante qds][9]
+![qds button][9]
 
-### Criteri di conservazione e acquisizione consigliati
+### <a name="recommended-retention-and-capture-policy"></a>Recommended retention and capture policy
 
-Esistono due tipi di criteri di conservazione:
+There are two types of retention policies:
 
-- Basati sulle dimensioni: se impostati su AUTOMATICO i dati verranno automaticamente cancellati al raggiungimento delle dimensioni massime.
-- Basati sul tempo: per impostazione predefinita verranno impostati su 30 giorni in modo tale che, se verrà esaurito lo spazio, l'archivio query eliminerà le informazioni di query antecedenti a 30 giorni
+- Size based – if set to AUTO it will clean data automatically when near max size is reached.
+- Time based - by default we will set it to 30 days, which means, if Query Store will run out of space, it will delete query information older than 30 days
 
-I criteri di acquisizione possono essere impostati su:
+Capture policy could be set to:
 
-- **Tutte**: acquisisce tutte le query.
-- **Automatico**: le query poco frequenti e con durata di compilazione ed esecuzione trascurabile vengono ignorate. Le soglie per il conteggio delle esecuzioni e la durata di compilazione ed esecuzione vengono stabilite internamente. Questa è l'opzione predefinita.
-- **Nessuna**: l'archivio query interrompe l'acquisizione di nuove query, ma continua a raccogliere le statistiche di runtime per le query già acquisite.
-	
-È consigliabile impostare tutti i criteri su AUTOMATICO e i criteri di pulizia dei dati su 30 giorni:
+- **All** – Captures all queries.
+- **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
+- **None** – Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
+    
+We recommend setting all policies to AUTO and clean policy to 30 days:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
-    	
+        
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
     
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-Aumentare le dimensioni dell'archivio query. È possibile eseguire questa operazione connettendosi a un database ed eseguendo la query seguente:
+Increase size of Query Store. This could be performed by connecting to a database and issuing following query:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-L'applicazione di queste impostazioni porterà l'archivio query a raccogliere nuove query; tuttavia, se non si desidera aspettare è possibile svuotare l'archivio query.
-> [AZURE.NOTE] L'esecuzione della query seguente comporta l'eliminazione di tutte le informazioni correnti nell'archivio query.
+Applying these settings will eventually make Query Store collecting new queries, however if you don’t want to wait you can clear Query Store. 
+> [AZURE.NOTE] Executing following query will delete all current information in the Query Store. 
 
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
-## Riepilogo
+## <a name="summary"></a>Summary
 
-Query Performance Insight semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'utilizzo delle risorse del database. Questa funzionalità consente di ottenere informazioni sulle query principali a livello di utilizzo di risorse e di identificare facilmente le query da correggere prima che si verifichino problemi.
-
-
+Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem.
 
 
-## Passaggi successivi
 
-Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database SQL, fare clic su [Consigli](sql-database-advisor.md) nel pannello **Informazioni dettagliate sulle prestazioni delle query**.
+
+## <a name="next-steps"></a>Next steps
+
+For additional recommendations about improving the performance of your SQL database, click [Recommendations](sql-database-advisor.md) on the **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
@@ -241,4 +243,9 @@ Per ulteriori raccomandazioni sul miglioramento delle prestazioni del database S
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

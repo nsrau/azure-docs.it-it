@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Definizione e gestione dello stato | Microsoft Azure"
-   description="Come definire e gestire lo stato di un servizio in Service Fabric"
+   pageTitle="Defining and managing state | Microsoft Azure"
+   description="How to define and manage service state in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -16,28 +16,33 @@
    ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
-# Stato del servizio
-Per **stato del servizio** si intendono i dati di cui il servizio necessita per funzionare. Si tratta delle strutture e delle variabili di dati che vengono lette e scritte dal servizio per il funzionamento.
 
-Si consideri ad esempio un semplice servizio calcolatrice. Questo servizio accetta due numeri per restituirne la somma. Si tratta di un servizio puramente senza stato, senza dati associati.
+# <a name="service-state"></a>Service state
+**Service state** refers to the data that the service requires in order to function. It includes the data structures and variables that the service reads and writes to do work.
 
-Si consideri ora la stessa calcolatrice, che però oltre al calcolo della somma dispone anche di un metodo per restituire l'ultima somma calcolata. In questo modo ora il servizio è con stato, ovvero contiene uno stato a cui scrive (quando calcola una nuova somma) e da cui legge (quando restituisce l'ultima somma calcolata).
+Consider a simple calculator service, for example. This service takes two numbers and returns their sum. This is a purely stateless service that has no data associated with it.
 
-In Service Fabric di Azure il primo servizio è denominato servizio senza stato. Il secondo invece è denominato servizio con stato.
+Now consider the same calculator, but in addition to computing sum, it also has a method for returning the last sum it has computed. This service is now stateful--it contains some state that it writes to (when it computes a new sum) and reads from (when it returns the last computed sum).
 
-## Archiviazione dello stato del servizio
-Lo stato può essere archiviato all'esterno oppure condividere la posizione con il codice che modifica lo stato. Nel primo caso viene usato in genere un database o un archivio esterno. Nell'esempio della calcolatrice è possibile usare un database SQL in cui il risultato corrente viene archiviato in una tabella. Ogni richiesta di calcolo della somma comporta un aggiornamento della riga corrispondente.
+In Azure Service Fabric, the first service is called a stateless service. The second service is called a stateful service.
 
-Lo stato può anche condividere la posizione con il codice che lo modifica. I servizi con stato in Service Fabric vengono creati usando questo modello. Service Fabric offre l'infrastruttura necessaria per garantire la disponibilità elevata e la tolleranza di errore dello stato in caso di errori.
+## <a name="storing-service-state"></a>Storing service state
+State can be either externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or store. In our calculator example, this could be a SQL database in which the current result is stored in a table. Every request to compute the sum performs an update on this row.
 
-## Passaggi successivi
+State can also be co-located with the code that manipulates this code. Stateful services in Service Fabric are built using this model. Service Fabric provides the infrastructure to ensure that this state is highly available and fault tolerant in the event of a failure.
 
-Per ulteriori informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:
+## <a name="next-steps"></a>Next steps
 
-- [Disponibilità dei servizi di Service Fabric](service-fabric-availability-services.md)
+For more information on Service Fabric concepts, see the following:
 
-- [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
+- [Availability of Service Fabric services](service-fabric-availability-services.md)
 
-- [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
+- [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

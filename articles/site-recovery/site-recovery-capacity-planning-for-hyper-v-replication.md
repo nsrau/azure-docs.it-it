@@ -1,148 +1,152 @@
 <properties
-	pageTitle="Eseguire lo strumento di pianificazione della capacità di Hyper-V per Site Recovery | Microsoft Azure"
-	description="Questo articolo contiene le istruzioni per l'uso dello strumento di pianificazione della capacità di Hyper-V per Azure Site Recovery."
-	services="site-recovery"
-	documentationCenter="na"
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor="" />
+    pageTitle="Run the Hyper-V capacity planner tool for Site Recovery | Microsoft Azure"
+    description="This article contains instructions for using the Hyper-V capacity planner tool for Azure Site Recovery"
+    services="site-recovery"
+    documentationCenter="na"
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor="" />
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="07/12/2016"
-	ms.author="raynew" />
-
-# Eseguire lo strumento di pianificazione della capacità di Hyper-V per Site Recovery
-
-Come parte della distribuzione di Azure Site Recovery, è necessario determinare i requisiti di replica e di larghezza di banda. Lo strumento di pianificazione della capacità di Hyper-V per Site Recovery consente di determinare i requisiti di replica e di larghezza di banda per la replica delle macchine virtuali Hyper-V.
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery"
+    ms.date="07/12/2016"
+    ms.author="raynew" />
 
 
-Questo articolo descrive come eseguire lo strumento di pianificazione della capacità di Hyper-V. Questo strumento deve essere usato con altri strumenti di pianificazione della capacità e in base alle informazioni presenti nell'articolo relativo alla [pianificazione della capacità per Site Recovery](site-recovery-capacity-planner.md).
+# <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Run the Hyper-V capacity planner tool for Site Recovery
+
+As part of your Azure Site Recovery deployment you'll need to figure out your replication and bandwidth requirements. The Hyper-V capacity planner tool for Site Recovery helps you to figure out your replication and bandwidth requirements for Hyper-V virtual machine replication.
 
 
-## Prima di iniziare
-
-Si esegue lo strumento su un server Hyper-V o su un nodo cluster nel sito primario. Per eseguire lo strumento, il server host Hyper-V richiede:
-
-- Sistema operativo: Windows Server® 2012 o Windows Serve ® 2012 R2
-- Memoria: 20 MB (minimo)
-- CPU: sovraccarico del 5% (minimo)
-- Spazio su disco: 5 MB (minimo)
-
-Prima di eseguire lo strumento, sarà necessario preparare il sito primario. Se si sta eseguendo la replica tra due siti locali e si vuole controllare la larghezza di banda, sarà necessario preparare anche un server di replica.
+This article describes how to run the Hyper-V capacity planner tool. This tool should be used together with the other capacity planning tools and information described in [capacity planning for Site Recovery](site-recovery-capacity-planner.md).
 
 
-## Passaggio 1: Preparare il sito primario
-1. Nel sito primario crea un elenco di tutte le macchine virtuali Hyper-V da replicare e degli host/cluster Hyper-V in cui si trovano. Lo strumento può essere eseguito ogni volta per più host autonomi o per un singolo cluster, ma non per entrambi. Deve anche essere eseguito separatamente per ogni sistema operativo, quindi è consigliabile raccogliere e prendere nota dei server Hyper-V, come indicato di seguito:
+## <a name="before-you-start"></a>Before you start
 
-  - Server autonomi di Windows Server® 2012
-  - Cluster di Windows Server® 2012
-  - Server autonomi di Windows Server ® 2012 R2
-  - Cluster di Windows Server ® 2012 R2
+You run the tool on a Hyper-V server or cluster node in your primary site. To run the tool the Hyper-V host servers needs:
 
-3. Abilitare l'accesso remoto a WMI in tutti gli host e cluster Hyper-V. Eseguire questo comando in ogni server/cluster per verificare che le regole del firewall e le autorizzazioni utente siano impostate:
+- Operating system: Windows Server® 2012 or Windows Server® 2012 R2
+- Memory: 20 MB (minimum)
+- CPU: 5 percent overhead (minimum)
+- Disk space: 5 MB (minimum)
+
+Before you run the tool you'll need to prepare the primary site. If you're replicating between two on-premises sites and you want to check bandwidth, you'll need to prepare a replica server as well.
+
+
+## <a name="step-1:-prepare-the-primary-site"></a>Step 1: Prepare the primary site
+1. On the primary site make a list of all of the Hyper-V virtual machines you want to replicate and the Hyper-V hosts/clusters on which they're located. The tool can run each time for multiple standalone hosts, or for a single cluster but not both together. It also needs to run separately for each operating system, so you should gather and note your Hyper-V servers as follows:
+
+  - Windows Server® 2012 standalone servers
+  - Windows Server® 2012 clusters
+  - Windows Server® 2012 R2 standalone servers
+  - Windows Server® 2012 R2 clusters
+
+3. Enable remote access to WMI on all the Hyper-V hosts and clusters. Run this command on each server/cluster to make sure firewall rules and user permissions are set:
 
         netsh firewall set service RemoteAdmin enable
 
-5. Abilitare il monitoraggio delle prestazioni su server e cluster, come indicato di seguito:
+5. Enable performance monitoring on servers and clusters, as follows:
 
-  - Aprire Windows Firewall con lo snap-in **Sicurezza avanzata** e quindi abilitare le regole in ingresso seguenti: **Accesso alla rete COM+ (DCOM-In)** e tutte le regole nel **gruppo Gestione remota registro eventi**.
+  - Open the Windows Firewall with the **Advanced Security** snapin, and then enable the following inbound rules: **COM+ Network Access (DCOM-IN)** and all rules in the **Remote Event Log Management group**.
 
-## Passaggio 2: Preparare un server di replica (replica da locale a locale)
+## <a name="step-2:-prepare-a-replica-server-(on-premises-to-on-premises-replication)"></a>Step 2: Prepare a replica server (on-premises to on-premises replication)
 
-Questo passaggio non è necessario se si sta eseguendo la replica in Azure.
+You don't need to do this if you're replicating to Azure.
 
-È consigliabile configurare un solo host Hyper-V come server di ripristino per potervi replicare una VM fittizia e controllare così la larghezza di banda. È possibile saltare questo passaggio, ma in tal caso non si potrà misurare la larghezza di banda.
+We recommend you set up a single Hyper-V host as a recovery server so that a dummy VM can be replicated to it to check bandwidth.  You can skip this but you won't be able to measure bandwidth unless you do it.
 
-1. Per usare un nodo cluster come replica, configurare il Gestore di replica Hyper-V:
+1. If you want to use a cluster node as the replica configure Hyper-V Replica broker:
 
-	- In **Server Manager**, aprire **Gestione Cluster di Failover**.
-	- Connettersi al cluster, evidenziare il nome del cluster e fare clic su **Azioni** > **Configura ruolo** per aprire la Configurazione guidata disponibilità elevata.
-	- In **Selezione ruolo** fare clic su **Gestore di replica Hyper-V**. Nella procedura guidata specificare un **nome NetBIOS** e un **indirizzo IP** da usare come punto di connessione con il cluster (denominato punto di accesso client). Il **Gestore di replica Hyper-V** verrà configurato con il nome di un punto di accesso client di cui è meglio prendere nota.
-	- Verificare che il ruolo di Gestore di replica Hyper-V sia stato connesso online correttamente e che possa eseguire il failover tra tutti i nodi del cluster. A tale scopo, fare clic con il pulsante del mouse sul ruolo, scegliere **Sposta**, quindi fare clic su **Seleziona nodo**. Selezionare un nodo > **OK**.
-	- Se si usa l'autenticazione basata su certificato, verificare che ogni nodo del cluster e il punto di accesso client abbiano tutti il certificato installato.
-2.  Abilitare un server di replica:
+    - In **Server Manager**, open **Failover Cluster Manager**.
+    - Connect to the cluster, highlight the cluster name and click **Actions** > **Configure Role** to open the High Availability wizard.
+    - In **Select Role** click **Hyper-V Replica Broker**. In the wizard provide a **NetBIOS name** and **IP address** to be used as the connection point to the cluster (called a client access point). The **Hyper-V Replica Broker** will be configured, resulting in a client access point name that you should note.
+    - Verify that the Hyper-V Replica Broker role comes online successfully and can fail over between all nodes of the cluster. To do this, right click the role, point to **Move**, and then click **Select Node**. Select a node > **OK**.
+    - If you're using certificate-based authentication, make sure each cluster node and the client access point all have the certificate installed.
+2.  Enable a replica server:
 
-	- Per un cluster aprire Gestione cluster di failover, connettersi al cluster e fare clic su **Ruoli** > Selezione ruolo > **Impostazioni di replica** > **Abilita questo cluster come server di replica**. Si noti che, se si usa un cluster come replica, il ruolo Gestore di replica Hyper-V dovrà essere presente anche sul cluster nel sito primario.
-	- Per un server autonomo, aprire la Console di gestione di Hyper-V. Nel riquadro **Azioni** fare clic su **Impostazioni Hyper-V** per il server da abilitare e in **Configurazione replica** fare clic **Abilita questo computer come server di replica**.
-3. Configurare l'autenticazione:
+    - For a cluster open Failure Cluster Manager, connect to the cluster and click **Roles** > select role > **Replication Setting**s > **Enable this cluster as a Replica server**. Note that if you're using a cluster as the replica you'll need to have the Hyper-V Replica Broker role present on the cluster in the primary site as well.
+    - For a standalone server open Hyper-V Manager. In the **Actions** pane, click **Hyper-V Settings** for the server you want to enable, and in **Replication Configuration** click **Enable this computer as a Replica server**.
+3. Set up authentication:
 
-	- In **Autenticazione e porte** scegliere come autenticare il server primario e le porte di autenticazione. Se si usa un certificato, fare clic su **Selezione certificato** per selezionarne uno. Usare Kerberos se gli host Hyper-V primario e di ripristino si trovano nello stesso dominio o in domini attendibili. Usare i certificati per la distribuzione in domini diversi o in un gruppo di lavoro.
-	- Nella sezione **Autorizzazione e archiviazione** consentire a **qualsiasi** server (primario) autenticato l'invio di dati di replica al server di replica. Fare clic su **OK** o **Applica**.
+    - In **Authentication and ports** select how to authenticate the primary server and the authentication ports. If you're using certificate click **Select Certificate** to select one. Use Kerberos if the primary and recovery Hyper-V hosts are in the same domain, or trusted domains. Use certificates for different domains or a workgroup deployment.
+    - In **Authorization and Storage** section, allow **any** authenticated (primary) server to send replication data to this replica server. Click **OK** or **Apply**.
 
-	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
+    ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
 
-	- Eseguire **netsh http show servicestate** per controllare che il listener sia in esecuzione per il protocollo o la porta specificata:
-4. Configurare i firewall. Durante l'installazione di Hyper-V, vengono create regole del firewall per consentire il traffico sulle porte predefinite (HTTPS su 443, Kerberos su 80). Abilitare queste regole come indicato di seguito:
+    - Run **netsh http show servicestate** to check that the listener is running for the protocol/port you specified:  
+4. Set up firewalls. During Hyper-V installation firewall rules are created to allow traffic on the default ports (HTTPS on 443, Kerberos on 80). Enable these rules as follows:
 
-		- Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
-		- Kerberos authentication on cluster (80): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}**
-		- Certificate authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"**
-		- Kerberos authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"**
+        - Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
+        - Kerberos authentication on cluster (80): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}**
+        - Certificate authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"**
+        - Kerberos authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"**
 
-## Passaggio 3: Eseguire lo strumento di pianificazione della capacità
+## <a name="step-3:-run-the-capacity-planner-tool"></a>Step 3: Run the capacity planner tool
 
-Dopo avere preparato un sito primario e configurato un server di ripristino, è possibile eseguire lo strumento.
+After you've prepared your primary site and set up a recovery server you can run the tool.
 
-1. [Scaricare](https://www.microsoft.com/download/details.aspx?id=39057) lo strumento dall'Area download Microsoft.
-2. Eseguire lo strumento da uno dei server primari (o uno dei nodi del cluster primario). Il pulsante destro del file .exe e quindi scegliere **Esegui come amministratore**.
-3. In **Before you begin** specificare per quanto tempo raccogliere i dati. È consigliabile eseguire lo strumento durante l'orario di produzione per essere certi che i dati siano rappresentativi. Se si sta cercando solo di convalidare la connettività di rete, è possibile raccoglierli solo per un minuto.
+1. [Download](https://www.microsoft.com/download/details.aspx?id=39057) the tool from the Microsoft Download Center.
+2. Run the tool from one of the primary servers (or one of the nodes from the primary cluster). Right-click the .exe file, and then choose **Run as administrator**.
+3. In **Before you begin** specify for how long you want to collect data. We recommend you run the tool during production hours to ensure that data is representative. If you're only trying to validate network connectivity, you can collect for a minute only.
 
-	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image2.png)
+    ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image2.png)
 
-4. In **Primary site details** specificare il nome del server o il nome FQDN per un host autonomo oppure, per un cluster, specificare il nome FQDN del punto di accettazione client, il nome del cluster o di qualsiasi nodo nel cluster e quindi fare clic su **Next**. Lo strumento rileva automaticamente il nome del server su cui è in esecuzione. Lo strumento seleziona le VM che possono essere monitorate per i server specificati.
+4. In  **Primary site details** specify the server name or FQDN for a standalone host, or for a cluster specify the FQDN of the client accept point, cluster name, or any node in the cluster and then click **Next**. The tool automatically detects the name of the server it's running on. The tool picks up VMs that can be monitored for the specified servers.
 
-	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image3.png)
+    ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image3.png)
 
-5. In **Replica Site Details**, se si sta eseguendo la replica in Azure o se si sta eseguendo la replica in un centro dati secondario e non si è configurato un server di replica, selezionare **Skip tests involving replica site**. Se si sta eseguendo la replica in un centro dati secondario e si è configurato un tipo di replica, digitare il nome FQDN del server autonomo o del punto di accettazione client per il cluster in **Server name (or) Hyper-V Replica Broker CAP**.
+5. In **Replica Site Details** if you're replicating to Azure or if you're replicating to a secondary datacenter and haven't set up a replica server, select **Skip tests involving replica site**. If you are replicating to a secondary datacenter and you've set up a replica type in the FQDN of the standalone server or the client access point for the cluster in **Server name (or) Hyper-V Replica Broker CAP**.
 
-	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image4.png)
+    ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image4.png)
 
-6. In **Extended Replica Details** abilitare **Skip the tests involving Extended Replica site**. Questi test non sono supportati da Site Recovery.
-7. In **Choose VMs to Replicate** lo strumento di connette al server o al cluster e visualizza le VM e i dischi in esecuzione sul server primario, in base alle impostazioni specificate nella pagina **Primary Site Details**. Si noti che le VM già abilitate per la replica o non in esecuzione non verranno visualizzate. Selezionare le VM per cui raccogliere le metriche. Selezionando i VHD, i dati vengono automaticamente raccolti anche per le VM.
-9. Se si è configurato un server o un cluster di replica, in **Network information** specificare la larghezza di banda WAN approssimativa che si ritiene verrà usata tra i siti primario e di replica e selezionare i certificati se si è configurata l'autenticazione del certificato.
+6. In In **Extended Replica Details** enable **Skip the tests involving Extended Replica site**. They aren't supported by Site Recovery.
+7. In **Choose VMs to Replicate** the tools connects to the server or cluster and displays VMs and disks running on the primary server, in accordance with the settings you specified on the **Primary Site Details** page. Note that VMs that are already enabled for replication or that aren't running won't be displayed. Select the VMs for which you want to collect metrics. Selecting the VHDs automatically collects data for the VMs too.
+9. If you've configured a replica server or cluster, in **Network information** specify the approximate WAN bandwidth you think will be used between the primary and replica sites and select the certificates if you've configured certificate authentication.
 
-	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image5.png)
+    ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image5.png)
 
-10. In **Summary** controllare le impostazioni e fare clic su **Next** per iniziare a raccogliere le metriche. L'avanzamento e lo stato dello strumento vengono visualizzati nella pagina **Calculate Capacity**. Quando è terminata l'esecuzione, fare clic su **View Report** per visualizzare l'output. Per impostazione predefinita, i report e i log vengono archiviati in **%systemdrive%\\Users\\Public\\Documents\\Capacity Planner**.
+10. In **Summary** check settings, and click **Next** to begin collecting metrics. Tool progress and status is displayed on the **Calculate Capacity** page. When the tool finishes running click **View Report** to go over the output. By default reports and logs are stored in **%systemdrive%\Users\Public\Documents\Capacity Planner**.
 
-	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image6.png)
-
-
-## Passaggio 4: Interpretazione dei risultati
-Ecco le metriche importanti: È possibile ignorare le metriche non elencate qui. Non sono rilevanti per Site Recovery.
-
-### Replica da sito locale a sito locale
-  - Impatto della replica nella capacità di elaborazione di memoria dell'host primari.
-  - Impatto della replica sullo spazio su disco di archiviazione dell'host di ripristino primario, in IOPS
-  - Larghezza di banda totale necessaria per la replica delta (Mbps)
-  - Larghezza di banda di rete osservata tra l'host primario e l'host di ripristino (Mbps)
-  - Suggerimenti per il numero ideale di trasferimenti paralleli attivi tra due host/cluster
-
-### Replica da sito locale ad Azure
-  - Impatto della replica nella capacità di elaborazione di memoria dell'host primari.
-  - Impatto della replica sullo spazio su disco di archiviazione dell'host primario, in IOPS
-  - Larghezza di banda totale necessaria per la replica delta (Mbps)
-
-## Altre risorse
-
-- Per informazioni dettagliate sullo strumento, leggere il documento che accompagna il download dello strumento.
-- Guardare una procedura dettagliata dello strumento nel [blog TechNet](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx) di Keith Mayer.
-- [Ottenere i risultati](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md) dei test di prestazioni per la replica Hyper-V da sito locale a sito locale
+    ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image6.png)
 
 
+## <a name="step-4:-interpret-the-results"></a>Step 4: Interpret the results
+Here are the important metrics. You can ignore metrics which aren't listed here. They're not relevant for Site Recovery.
 
-## Passaggi successivi
+### <a name="on-premises-to-on-premises-replication"></a>On-premises to on-premises replication
+  - Impact of replication on the primary host's compute, memory
+  - Impact of replication on the primary, recovery hosts's storage disk space, IOPS
+  - Total bandwidth required for delta replication (Mbps)
+  - Observed network bandwidth between the primary host and the recovery host (Mbps)
+  - Suggestion for the ideal number of active parallel transfers between the two hosts/clusters
 
-Dopo aver completato la pianificazione della capacità, iniziare la distribuzione di Site Recovery:
+### <a name="on-premises-to-azure-replication"></a>On-premises to Azure replication
+  - Impact of replication on the primary host's compute, memory
+  - Impact of replication on the primary host's storage disk space, IOPS
+  - Total bandwidth required for delta replication (Mbps)
 
-- [Replicare le VM Hyper-V nei cloud VMM in Azure.](site-recovery-vmm-to-azure.md)
-- [Eseguire la replica di VM Hyper-V (senza VMM) in Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Eseguire la replica di VM Hyper-V tra siti VMM](site-recovery-vmm-to-vmm.md)
-- [Eseguire la replica di VM Hyper-V tra siti VMM con SAN](site-recovery-vmm-san.md)
-- [Eseguire la replica di VM Hyper-V su server VMM singolo](site-recovery-single-vmm.md)
+## <a name="more-resources"></a>More resources
 
-<!---HONumber=AcomDC_0720_2016-->
+- For detailed information about the tool read the document that accompanies the tool download.
+- Watch a walkthrough of the tool on Keith Mayer’s [TechNet blog](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx).
+- [Get the results](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md) of our performance testing for on-premises to on-premises Hyper-V replication
+
+
+
+## <a name="next-steps"></a>Next steps
+
+After you've finished capacity planning you can start deploying Site Recovery:
+
+- [Replicate Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
+- [Replicate Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Replicate Hyper-V VMs between VMM sites](site-recovery-vmm-to-vmm.md)
+- [Replicate Hyper-V VMs between VMM sites with SAN](site-recovery-vmm-san.md)
+- [Replicate hyper-V VMs on single VMM server](site-recovery-single-vmm.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

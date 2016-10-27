@@ -1,135 +1,139 @@
 <properties
-	pageTitle="Procedura dettagliata per un'infrastruttura di esempio di Azure | Microsoft Azure"
-	description="Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un'infrastruttura di esempio in Azure."
-	documentationCenter=""
-	services="virtual-machines-windows"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Example Infrastructure Walkthrough | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure."
+    documentationCenter=""
+    services="virtual-machines-windows"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Procedura dettagliata per un'infrastruttura di esempio di Azure
-
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
-Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Carico di lavoro di esempio
+# <a name="example-azure-infrastructure-walkthrough"></a>Example Azure infrastructure walkthrough
 
-Adventure Works Cycles desidera compilare un'applicazione per un negozio online in Azure, che è costituita da:
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
 
-- Due server IIS che eseguono il client front-end in un livello Web
-- Due server IIS che elaborano i dati e gli ordini in un livello applicazione
-- Due istanze di Microsoft SQL Server con gruppi di disponibilità AlwaysOn (due SQL Server e un server di controllo del nodo di maggioranza) per archiviare dati sui prodotti e ordini in un livello di database
-- Due controller di dominio di Active Directory per gli account dei clienti e dei fornitori in un livello di autenticazione
-- Tutti i server si trovano in due subnet:
-	- una subnet front-end per i server Web
-	- una subnet back-end per i server applicazioni, i cluster SQL e i controller di dominio
-
-![Diagramma dei diversi livelli di infrastruttura dell'applicazione](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
-
-Il traffico Web protetto in ingresso deve essere sottoposto al bilanciamento del carico tra i server Web mentre i clienti visitano il negozio online. Il traffico di elaborazione degli ordini sotto forma di richieste HTTP provenienti dai server Web deve essere bilanciato tra i server applicazioni. Inoltre, l'infrastruttura deve essere progettata per l'elevata disponibilità.
-
-La progettazione risultante deve includere:
-
-- Una sottoscrizione e un account di Azure
-- Un unico gruppo di risorse
-- Account di archiviazione
-- Una rete virtuale con due subnet
-- Set di disponibilità per le macchine virtuali con ruoli simili
-- Macchine virtuali
-
-Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
-
-- Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
-	- In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
-- Gli account di archiviazione usano adventureazosusesa**[descrizione]**
-	- 'adventure' è stato aggiunto al prefisso per garantire l'univocità, e i nomi account di archiviazione non supportano l'uso di trattini.
-- Le reti virtuali usano AZOS-USE-VN**[numero]**
-- I set di disponibilità usano azos-use-as-**[ruolo]**
-- I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
+This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 
-## Sottoscrizioni e account di Azure
+## <a name="example-workload"></a>Example workload
 
-Adventure Works Cycles usa la propria sottoscrizione aziendale, denominata Adventure Works Enterprise Subscription, per fornire la fatturazione per questo carico di lavoro IT.
+Adventure Works Cycles wants to build an on-line store application in Azure that consists of:
 
+- Two IIS servers running the client front-end in a web tier
+- Two IIS servers processing data and orders in an application tier
+- Two Microsoft SQL Server instances with AlwaysOn availability groups (two SQL Servers and a majority node witness) for storing product data and orders in a database tier
+- Two Active Directory domain controllers for customer accounts and suppliers in an authentication tier
+- All the servers are located in two subnets:
+    - a front-end subnet for the web servers 
+    - a back-end subnet for the application servers, SQL cluster, and domain controllers
 
-## Account di archiviazione
+![Diagram of different tiers for application infrastructure](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-Adventure Works Cycles ha stabilito che sono necessari due account di archiviazione:
+Incoming secure web traffic must be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers must be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
-- **adventureazosusesawebapp** per l’archiviazione standard di server Web, server applicazioni, controller di dominio e relativi dischi dati aggiuntivi
-- **adventureazosusesasql** per l'archiviazione Premium per le VM di SQL Server e i relativi dischi dati.
+The resulting design must incorporate:
 
+- An Azure subscription and account
+- A single resource group
+- Storage accounts
+- A virtual network with two subnets
+- Availability sets for the VMs with a similar role
+- Virtual machines
 
-## Rete virtuale e subnet
+All the above follow these naming conventions:
 
-Poiché la rete virtuale non necessita di connettività costante alla rete locale Adventure Work Cycles, l’azienda ha optato per una rete virtuale solo cloud.
-
-Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tramite il portale di Azure:
-
-- Nome: AZOS-USE-VN01
-- Sede: Stati Uniti orientali 2
-- Spazio degli indirizzi della rete virtuale: 10.0.0.0/8
-- Prima subnet:
-	- Nome: FrontEnd
-	- Spazio degli indirizzi: 10.0.1.0/24
-- Seconda subnet:
-	- Nome: BackEnd
-	- Spazio degli indirizzi: 10.0.2.0/24
-
-
-## Set di disponibilità
-
-Per mantenere elevata la disponibilità di tutti i quattro i livelli del negozio online, Adventure Works Cycles ha optato per quattro set di disponibilità:
-
-- **azos-use-as-web** per i server Web
-- **azos-use-as-app** per i server applicazioni
-- **azos-use-as-sql** per SQL Server
-- **azos-use-as-dc** per i controller di dominio
+- Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
+    - For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
+- Storage accounts use adventureazosusesa**[description]**
+    - 'adventure' was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
+- Virtual networks use AZOS-USE-VN**[number]**
+- Availability sets use azos-use-as-**[role]**
+- Virtual machine names use azos-use-vm-**[vmname]**
 
 
-## Macchine virtuali
+## <a name="azure-subscriptions-and-accounts"></a>Azure subscriptions and accounts
 
-Adventure Works Cycles ha optato per i seguenti nomi per le macchine virtuali di Azure:
-
-- **azos-use-vm-web01** per il primo server Web
-- **azos-use-vm-web02** per il secondo server Web
-- **azos-use-vm-app01** per il primo server applicazioni
-- **azos-use-vm-app02**, per il secondo server applicazioni
-- **azos-use-vm-sql01** per il primo SQL Server del cluster
-- **azos-use-vm-sql02** per il secondo SQL Server del cluster
-- **azos-use-vm-dc01** per il primo controller di dominio
-- **azos-use-vm-dc02** per il secondo controller di dominio
-
-Di seguito è riportata la configurazione risultante.
-
-![Infrastruttura dell'applicazione finale distribuita in Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
-
-Questa configurazione include:
-
-- Una rete virtuale solo cloud con due subnet (front-end e back-end)
-- Due account di archiviazione
-- Quattro set di disponibilità, uno per ciascun livello del negozio online
-- Le macchine virtuali per i quattro livelli
-- Un set esterno con bilanciamento del carico per il traffico Web basato su HTTPS da Internet ai server Web
-- Un set interno con bilanciamento del carico per il traffico Web crittografato dai server Web ai server applicazioni
-- Un unico gruppo di risorse
+Adventure Works Cycles is using their Enterprise subscription, named Adventure Works Enterprise Subscription, to provide billing for this IT workload.
 
 
-## Passaggi successivi
+## <a name="storage-accounts"></a>Storage accounts
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+Adventure Works Cycles determined that they needed two storage accounts:
 
-<!---HONumber=AcomDC_0914_2016-->
+- **adventureazosusesawebapp** for the standard storage of the web servers, application servers, and domain controllers and their data disks.
+- **adventureazosusesasql** for the Premium storage of the SQL Server VMs and their data disks.
+
+
+## <a name="virtual-network-and-subnets"></a>Virtual network and subnets
+
+Because the virtual network does not need ongoing connectivity to the Adventure Work Cycles on-premises network, they decided on a cloud-only virtual network.
+
+They created a cloud-only virtual network with the following settings using the Azure portal:
+
+- Name: AZOS-USE-VN01
+- Location: East US 2
+- Virtual network address space: 10.0.0.0/8
+- First subnet:
+    - Name: FrontEnd
+    - Address space: 10.0.1.0/24
+- Second subnet:
+    - Name: BackEnd
+    - Address space: 10.0.2.0/24
+
+
+## <a name="availability-sets"></a>Availability sets
+
+To maintain high availability of all four tiers of their on-line store, Adventure Works Cycles decided on four availability sets:
+
+- **azos-use-as-web** for the web servers
+- **azos-use-as-app** for the application servers
+- **azos-use-as-sql** for the SQL Servers
+- **azos-use-as-dc** for the domain controllers
+
+
+## <a name="virtual-machines"></a>Virtual machines
+
+Adventure Works Cycles decided on the following names for their Azure VMs:
+
+- **azos-use-vm-web01** for the first web server
+- **azos-use-vm-web02** for the second web server
+- **azos-use-vm-app01** for the first application server
+- **azos-use-vm-app02** for the second application server
+- **azos-use-vm-sql01** for the first SQL Server server in the cluster
+- **azos-use-vm-sql02** for the second SQL Server server in the cluster
+- **azos-use-vm-dc01** for the first domain controller
+- **azos-use-vm-dc02** for the second domain controller
+
+Here is the resulting configuration.
+
+![Final application infrastructure deployed in Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+
+This configuration incorporates:
+
+- A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
+- Two storage accounts
+- Four availability sets, one for each tier of the on-line store
+- The virtual machines for the four tiers
+- An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
+- An internal load balanced set for unencrypted web traffic from the web servers to the application servers
+- A single resource group
+
+
+## <a name="next-steps"></a>Next steps
+
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

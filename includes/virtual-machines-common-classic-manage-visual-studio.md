@@ -1,161 +1,164 @@
-È possibile creare macchine virtuali in Azure usando Esplora server in Visual Studio.
+You can create virtual machines in Azure by using Server Explorer in Visual Studio.
 
-## Creare una macchina virtuale di Azure in Esplora server
+## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Create an Azure virtual machine in Server Explorer
 
-Anche se è possibile creare una macchina virtuale nel [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103) è possibile creare una macchina virtuale anche in Azure usando i comandi in Esplora server. È possibile usare le macchine virtuali, ad esempio, per fornire un front-end dietro un comune endpoint pubblico con carico bilanciato.
+While you can create a virtual machine in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), you can also create a virtual machine in Azure by using commands in Server Explorer. Virtual machines can be used, for example, to provide a front end behind a common load-balanced public endpoint.
 
-### Per creare una nuova macchina virtuale
+### <a name="to-create-a-new-virtual-machine"></a>To create a new virtual machine
 
-1. In Esplora Server, aprire il nodo **Azure** e fare clic su **Macchine virtuali**.
+1. In Server Explorer, open the **Azure** node and click **Virtual Machines**.
 
-1. Nel menu di scelta rapida fare clic su **Crea macchina virtuale**.
+1. On the context menu, click **Create Virtual Machine**.
 
-    Viene visualizzata la procedura guidata **Creare una nuova macchina virtuale**.
+    The **Create a New Virtual Machine** wizard appears.
 
-    ![Comando Crea macchina virtuale](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
+    ![The Create Virtual Machine command](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
 
-1. Nella pagina **Scegliere una sottoscrizione** selezionare una sottoscrizione da usare durante la creazione della macchina virtuale e quindi fare clic su **Avanti**.
+1. On the **Choose a Subscription** page, select a subscription to use when creating the virtual machine and then click **Next**.
 
-    Se non si è connessi ad Azure, fare clic su **Accedi** per effettuare l'accesso. Quindi, se non è già selezionata, selezionare la propria sottoscrizione di Azure nell'elenco a discesa.
+    If you aren’t signed in to Azure, click **Sign In** to sign in. Then, select your Azure subscription in the dropdown list box if it’s not already selected.
 
-1. Nella pagina **Selezionare un'immagine di macchina virtuale** selezionare un tipo di immagine nell'elenco a discesa **Tipo immagine** e quindi selezionare le immagini di una macchina virtuale nell'elenco a discesa **Nome immagine**. Al termine, fare clic su **Avanti**.
+1. On the **Select a Virtual Machine Image** page, select an image type in the **Image type** dropdown list box, and then select a virtual machine images in the **Image name** list box. When you're done, click **Next**.
 
-    ![Selezionare una pagina di immagini di macchine virtuali](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
+    ![Select a virtual machine image page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
 
-    È possibile scegliere tra i seguenti tipi di immagine.
+    You can choose the following image types.
 
-    - In **Immagini pubbliche** sono elencate le immagini di macchine virtuali dei sistemi operativi e del software di server come Windows Server ed SQL Server.
+    - **Public Images** lists virtual machine images of operating systems and server software such as Windows Server and SQL Server.
 
-    - In **Immagini MSDN** sono elencate le immagini di macchine virtuali del software disponibile agli abbonati MSDN, ad esempio Visual Studio e Microsoft Dynamics.
+    - **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
 
-    - In **Immagini private** sono elencate le immagini di macchine virtuali specializzate e generalizzate create dall'utente.
+    - **Private Images** lists specialized and generalized virtual machine images that you've created.
 
-    Per altre informazioni sulle macchine virtuali specializzate e generalizzate, vedere il post di blog sull'[immagine della macchina virtuale](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Per informazioni su come trasformare una macchina virtuale in un modello da usare per creare rapidamente nuove macchine virtuali preconfigurate, vedere [Come acquisire una macchina virtuale Windows da usare come modello](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
 
-    È possibile fare clic sul nome di un'immagine di macchina virtuale per visualizzare informazioni sull'immagine nel lato destro della pagina.
+    You can click a virtual machine image name to see information about the image on the right side of the page.
 
-    >[AZURE.NOTE] Non è possibile aggiungere immagini di macchine virtuali agli elenchi **Immagini pubbliche** o **Immagini MSDN** perché sono di sola lettura. Tutte le macchine virtuali create vengono aggiunte all'elenco **Immagini private**.
+    >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
 
-    Gli abbonati MSDN con una sottoscrizione di livello Visual Studio possono creare una macchina virtuale di Azure predefinita contenente Visual Studio, oltre a diverse altre immagini. Per altre informazioni, vedere [Creare una macchina virtuale in Visual Studio mediante le immagini, l'immagine della raccolta di Visual Studio 2013 per gli abbonati MSDN](http://visualstudio2013msdngalleryimage.azurewebsites.net) e le [sottoscrizioni di MSDN](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
+    If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
-1. Nella pagina **Impostazioni di base della macchina virtuale** immettere il nome di una macchina, quindi aggiungere le specifiche della macchina virtuale, inclusi dimensione, nome utente e password. Al termine, fare clic su **Avanti**.
+1. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
 
-    Il nuovo nome e la password verranno usati per accedere alla macchina con il desktop remoto, quindi è consigliabile prenderne nota. Dopo aver creato una macchina virtuale di Azure in Visual Studio, è possibile modificarne le dimensioni e le altre impostazioni nel [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
+    You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-    >[AZURE.NOTE] Se si scelgono dimensioni maggiori per la macchina virtuale potrebbero essere applicati costi aggiuntivi. Per altre informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
+    >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
-1. Le macchine virtuali create in Visual Studio richiedono un servizio cloud. Nella pagina **Impostazioni del servizio cloud** selezionare un servizio cloud per la macchina virtuale oppure fare clic su **<Crea nuovo…>** nell'elenco a discesa se non si ha già un servizio cloud oppure si vuole usarne uno nuovo. È anche necessario un account di archiviazione, quindi sceglierne uno (o crearne uno nuovo) nell'elenco a discesa **Account di archiviazione**. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../articles/storage/storage-introduction.md).
+1. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](../articles/storage/storage-introduction.md) for more information.
 
-1. Per specificare una rete virtuale (facoltativa) selezionarla negli elenchi a discesa Rete virtuale e Subnet.
+1. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
 
-    Le macchine virtuali che fanno parte di un set di disponibilità vengono distribuite in diversi domini di errore. Per altre informazioni, vedere [Rete virtuale di Azure](https://azure.microsoft.com/services/virtual-network/).
+    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) for more information.
 
-1. Se la macchina virtuale deve appartenere a un set di disponibilità (facoltativo), selezionare la casella di controllo **Specificare un set di disponibilità** e quindi scegliere un set di disponibilità nell'elenco a discesa. Al termine, scegliere il pulsante **Avanti**.
+1. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
 
-    L'aggiunta della macchina virtuale a un set di disponibilità garantisce la disponibilità dell'applicazione in caso di errori della rete, guasti hardware di un disco locale ed eventuali tempi di inattività pianificati. Per creare reti virtuali, subnet e set di disponibilità è necessario usare il [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103). Per altre informazioni, vedere [Gestione della disponibilità delle macchine virtuali](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/).
+    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) for more information.
 
-1. Nella pagina **Endpoint** specificare gli endpoint pubblici che dovranno essere disponibili per gli utenti della macchina virtuale. Ad esempio, è possibile scegliere di abilitare il protocollo HTTP (porta 80) oltre agli endpoint Desktop remoto e PowerShell, che sono abilitati per impostazione predefinita. Per aggiungere un endpoint, sceglierne uno nell'elenco a discesa **Nome porta** e quindi scegliere **Aggiungi**. Per rimuovere un endpoint, scegliere la **X** rossa accanto al nome nell'elenco di endpoint.
+1. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
 
-    ![Pagina Endpoint nella procedura guidata delle macchine virtuali.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
+    ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
-    Gli endpoint disponibili dipendono dal servizio cloud selezionato per la macchina virtuale. Per altre informazioni, vedere [Endpoint di servizio di Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
 
-    >[AZURE.NOTE] L'abilitazione degli endpoint pubblici rende i servizi presenti sulla macchina virtuale disponibili in Internet. Assicurarsi di installare e configurare correttamente gli endpoint e i servizi sulla macchina virtuale, ad esempio impostando gli elenchi di controllo di accesso (ACL) per gli endpoint. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+    >[AZURE.NOTE] Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
 
-1. Dopo aver terminato di configurare le impostazioni della macchina virtuale, scegliere **Crea** per creare la macchina virtuale.
+1. After you’re done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
 
-    Durante la creazione della macchina virtuale, la finestra **Log attività di Azure** mostra l'avanzamento dell'operazione di creazione della macchina virtuale.
+    As Azure creates the virtual machine, the **Azure Activity Log** shows the progress of the virtual machine creation operation.
 
-    ![Log attività macchina virtuale - in corso.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
+    ![Virtual machine activity log - in progress.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
 
-    Per visualizzare solo le informazioni sulla macchina virtuale, scegliere la scheda **Macchine virtuali** nella finestra **Log attività di Azure**.
+    To view only virtual machine information, choose the **Virtual Machines** tab in the **Azure Activity Log**.
 
-    ![Log attività macchina virtuale - completato.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
+    ![Virtual machine activity log - completed.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
 
-    Se l'operazione viene completata correttamente, la nuova macchina virtuale viene visualizzata sotto il nodo **Macchine virtuali** in Esplora Server. È possibile accedervi facendo clic con il tasto destro del mouse e scegliendo **Connessione tramite desktop remoto**.
+    If the operation completes successfully, the new virtual machine appears under the **Virtual Machines** node in Server Explorer. You can log into it by clicking the **Connect using Remote Desktop** shortcut.
 
-    ![Macchina virtuale visualizzata in Esplora server.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
+    ![Virtual machine appearing in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
-## Gestire le macchine virtuali
+## <a name="manage-your-virtual-machines"></a>Manage your virtual machines
 
-Nella pagina di configurazione della macchina virtuale, oltre a eseguire le operazioni di arresto, connessione, aggiornamento e di aggiunta di checkpoint alla macchina virtuale selezionata, è anche possibile visualizzare o modificare le impostazioni per la macchina virtuale. È possibile:
+On the virtual machine configuration page, in addition to shutting down, connecting, refreshing, and adding checkpoints to the selected virtual machine, you can also view or change settings for the virtual machine. You can:
 
-- Modificare le dimensioni della macchina virtuale.
+- Change the virtual machine size.
 
-- Selezionare il set di disponibilità da usare con la macchina virtuale.
+- Select the availability set to use with the virtual machine.
 
-- Aggiungere, rimuovere o modificare le impostazioni per gli endpoint pubblici.
+- Add, remove, or change settings for public endpoints.
 
-- Aggiungere, rimuovere o configurare le estensioni delle macchine virtuali.
+- Add, remove, or configure virtual machine extensions.
 
-- Visualizzare informazioni relative ai dischi associati alla macchina virtuale.
+- View information about the disks associated with the virtual machine.
 
-### Visualizzare o modificare impostazioni della macchina virtuale
+### <a name="view-or-change-virtual-machine-settings"></a>View or change virtual machine settings
 
-1. In Esplora Server, scegliere la macchina virtuale nel nodo **Macchine virtuali di Azure**.
+1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
 
-1. Nel menu di scelta rapida, scegliere **Configura** per visualizzare la pagina di configurazione della macchina virtuale.
+1. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
 
-    ![Pagina di configurazione della macchina virtuale di Azure](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
+    ![The Azure virtual machine configuration page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
 
-1. Visualizzare oppure modificare le informazioni relative alla macchina virtuale.
+1. View the virtual machine information or change it.
 
-### Salvare o ripristinare lo stato della macchina virtuale
+### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Save or restore the status of your virtual machine
 
-Quando si configura la macchina virtuale e vi si installa del software, è consigliabile salvare regolarmente lo stato di avanzamento creando dei checkpoint della macchina virtuale. Un checkpoint è una snapshot (o immagine) dello stato corrente della macchina virtuale. Se si verificano problemi con la macchina virtuale oppure si vuole riconfigurarla, è possibile risparmiare tempo ripristinandone lo stato a un checkpoint precedente anziché ricominciare da zero.
+As you configure your virtual machine and install software on it, it's a good idea to regularly save your progress by creating virtual machine checkpoints. A checkpoint is a snapshot, or image, of the current state of your virtual machine. If something goes wrong with the virtual machine, or you want to reconfigure the virtual machine, you can save time by restoring it to a previous checkpoint state rather than starting over from scratch.
 
-### Per creare un checkpoint della macchina virtuale
+### <a name="to-create-a-virtual-machine-checkpoint"></a>To create a virtual machine checkpoint
 
-1. In Esplora Server, scegliere la macchina virtuale nel nodo **Macchine virtuali di Azure**.
+1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
 
-1. Nel menu di scelta rapida, scegliere **Configura** per visualizzare la pagina di configurazione della macchina virtuale.
+1. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
 
-1. Nella pagina di configurazione, scegliere **Capture Image**.
+1. On the configuration page, choose the **Capture Image** button.
 
-    ![Pulsante Acquisisci della pagina di configurazione di Azure](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
+    ![Azure configuration page capture button](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
 
-    Verrà visualizzata la finestra di dialogo **Capture Virtual Machine**.
+    The **Capture Virtual Machine** dialog appears.
 
-    ![Finestra di dialogo Acquisisci macchina virtuale](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
+    ![Azure capture virtual machine dialog box](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
 
-1. Specificare un'etichetta di immagine e una descrizione. Vengono fornite un'etichetta e una descrizione predefinite, ma se si preferisce è possibile sovrascriverle con le proprie.
+1. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
 
-1. Se è già stato eseguito Sysprep in questa macchina virtuale, selezionare la casella **Sysprep eseguito sulla macchina virtuale**.
+1. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
 
-    Sysprep è uno strumento che, tra le altre cose, rimuove i dati specifici del sistema dalla versione della macchina virtuale di Windows, rendendola un modello utilizzabile dagli altri utenti. Per altre informazioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/). Eseguire il backup della VM prima di eseguire Sysprep.
+    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine’s version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for more information. Back up the VM before running Sysprep.
 
-1. Dopo aver terminato di configurare le impostazioni di acquisizione, scegliere **Acquisisci** per creare il checkpoint.
+1. After you’re done configuring the capture settings, choose the **Capture** button to create the checkpoint.
 
-    Durante la creazione del checkpoint, la finestra **Log attività di Azure** mostra l'avanzamento dell'operazione.
+    As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.
 
-    ![Acquisizione di un checkpoint della macchina virtuale](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
+    ![Capturing a virtual machine checkpoint](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
 
-    Il completamento dell'operazione di checkpoint sarà indicato nella finestra **Log attività di Azure**.
+    When the checkpoint operation completes, you’ll see it in the **Azure Activity Log**.
 
-    ![Operazione di checkpoint completata](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
+    ![Checkpoint operation completed](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
 
-## Per gestire i checkpoint delle macchine virtuali
+## <a name="to-manage-virtual-machine-checkpoints"></a>To manage virtual machine checkpoints
 
-### Per ripristinare uno stato precedentemente salvato di una macchina virtuale
+### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>To restore a virtual machine to a previously saved state
 
-- Seguire la procedura dettagliata descritta nella seconda parte del post di blog su come [eseguire ripristini nel cloud delle macchine virtuali di Microsoft Azure con PowerShell](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+- Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Microsoft Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
-### Per eliminare un checkpoint
+### <a name="to-delete-a-checkpoint"></a>To delete a checkpoint
 
-1. Accedere al [portale di gestione di Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
+1. Go to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-1. Nella parte superiore della pagina di configurazione della macchina virtuale scegliere la scheda **Immagini**.
+1. On the virtual machine configuration page, choose the **Images** tab at the top of the page.
 
-1. Scegliere il checkpoint che si vuole eliminare e quindi scegliere **Elimina** nella parte inferiore della pagina.
+1. Choose the checkpoint you want to delete, and then choose the **Delete**  button at the bottom of the page.
 
-## Arrestare la macchina virtuale
+## <a name="shut-down-your-virtual-machine"></a>Shut down your virtual machine
 
-1. In Esplora Server, scegliere la macchina virtuale che si vuole arrestare nel nodo **Macchine virtuali di Azure**.
+1. In Server Explorer, choose the virtual machine you want to shut down in the **Azure Virtual Machines** node.
 
-1. Nel menu di scelta rapida, scegliere il comando **Arresta** oppure scegliere **Configura** per visualizzare la pagina di configurazione della macchina virtuale, quindi scegliere **Arresta**.
+1. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per ulteriori informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
+To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) and [Create a virtual machine running Windows in the Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

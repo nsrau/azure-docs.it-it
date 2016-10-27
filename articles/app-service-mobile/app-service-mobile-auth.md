@@ -1,107 +1,112 @@
 <properties
-	pageTitle="Autenticazione e autorizzazione in App per dispositivi mobili di Azure | Microsoft Azure"
-	description="Riferimento concettuale e panoramica della funzionalità di autenticazione / autorizzazione nelle app per dispositivi mobili di Azure"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="erikref"
-	editor=""/>
+    pageTitle="Authentication and Authorization in Azure Mobile Apps | Microsoft Azure"
+    description="Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps"
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="mattchenderson"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="mahender"/>
 
-# Autenticazione e autorizzazione in App per dispositivi mobili di Azure
 
-## Informazioni sull’autenticazione / autorizzazione di servizio app
+# <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Authentication and Authorization in Azure Mobile Apps
 
-> [AZURE.NOTE] Questo argomento verrà trasferito in un unico argomento [Autenticazione/autorizzazione del servizio app](../app-service/app-service-authentication-overview.md), che illustra l'autenticazione e l'autorizzazione per app Web, app per dispositivi mobili e app per le API.
+## <a name="what-is-app-service-authentication-/-authorization?"></a>What is App Service Authentication / Authorization?
 
-L'autenticazione / autorizzazione del servizio App è una funzionalità che consente all'applicazione di far accedere utenti senza necessità di apportare modifiche al codice nel back-end dell’app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente.
+> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
 
-Il servizio App usa identità federate, in cui un **provider di identità** di terze parti ("IDP") archivia account e autentica utenti e l'applicazione utilizza questa identità anziché la propria. Il servizio App supporta cinque provider di identità pronti all’uso: _Azure Active Directory_, _Facebook_, _Google_, _Account Microsoft_, e _Twitter_. È anche possibile espandere il supporto per le app integrando un altro provider di identità o una soluzione di identità personalizzata.
+App Service Authentication / Authorization is a feature which allows your application to log in users with no code changes required on the app backend. It provides an easy way to protect your application and work with per-user data.
 
-L’app può utilizzare un numero qualsiasi di questi provider di identità, pertanto è possibile offrire agli utenti finali diverse opzioni di modalità di accesso.
+App Service uses federated identity, in which a 3rd-party **identity provider** ("IDP") stores accounts and authenticates users, and the application uses this identity instead of its own. App Service supports five identity providers out of the box: _Azure Active Directory_, _Facebook_, _Google_, _Microsoft Account_, and _Twitter_. You can also expand this support for your apps by integrating another identity provider or your own custom identity solution.
 
-Se si desidera iniziare subito, vedere una delle esercitazioni seguenti:
+Your app can leverage any number of these identity providers, so you can provide your end users with options for how they login.
 
-- [Aggiungere l'autenticazione all'app iOS]
-- [Aggiungere l'autenticazione all'app Xamarin.iOS]
-- [Aggiungere l'autenticazione all'app Xamarin.Android]
-- [Aggiungere l'autenticazione all'app Windows]
+If you wish to get started right away, please see one of the following tutorials:
 
-## Funzionamento dell'autenticazione
+- [Add authentication to your iOS app]
+- [Add authentication to your Xamarin.iOS app]
+- [Add authentication to your Xamarin.Android app]
+- [Add Authentication to your Windows app]
 
-Per l'autenticazione tramite uno dei provider di identità, è necessario innanzitutto configurare il provider di identità per l'applicazione. Il provider di identità quindi fornirà gli ID e i segreti da rimandare all'applicazione. Questo completa la relazione di trust e consente al servizio App di convalidare l'identità fornita.
+## <a name="how-authentication-works"></a>How authentication works
 
-Questi passaggi vengono descritti negli argomenti seguenti:
+In order to authenticate using one of the identity providers, you first need to configure the identity provider to know about your application. The identity provider will then provide you with IDs and secrets that you provide back to the application. This completes the trust relationship and allows App Service to validate identities provided to it.
 
-- [Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory]
-- [Come configurare un'applicazione per usare l'account di accesso di Facebook]
-- [Come configurare un'applicazione per usare l'account di accesso di Google]
-- [Come configurare un'applicazione per usare l'account di accesso Microsoft]
-- [Come configurare un'applicazione per usare l'account di accesso di Twitter]
+These steps are detailed in the following topics:
 
-Dopo che sono state effettuate tutte le configurazioni nel back-end, è possibile modificare il client per l’accesso. Di seguito, sono disponibili due approcci:
+- [How to configure your app to use Azure Active Directory login]
+- [How to configure your app to use Facebook login]
+- [How to configure your app to use Google login]
+- [How to configure your app to use Microsoft Account login]
+- [How to configure your app to use Twitter login]
 
-- Utilizzo di una singola riga di codice che consentire all’SDK del client di App per dispositivi mobili di fare accedere gli utenti.
-- Utilizzo di un SDK pubblicato da un provider di identità specificata per stabilire l'identità e quindi accedere al servizio App.
+Once everything is configured on the backend, you can modify your client to log in. There are two approaches here:
 
->[AZURE.TIP] La maggior parte delle applicazioni devono utilizzare un provider SDK per ottenere un'esperienza di accesso più nativa e sfruttare il supporto dell’aggiornamento e altri vantaggi specifici del provider.
+- Using a single line of code, let the Mobile Apps client SDK sign in users.
+- Leverage an SDK published by a given identity provider to establish identity and then gain access to App Service.
 
-### Funzionamento dell'autenticazione senza un SDK del provider
+>[AZURE.TIP] Most applications should use a provider SDK to get a more native-feeling login experience and to leverage refresh support and other provider-specific benefits.
 
-Se non si desidera configurare un SDK del provider, è possibile consentire ad App per dispositivi mobili di eseguire l'accesso per l'utente. L'SDK client delle app per dispositivi mobili aprirà una visualizzazione web per il provider scelto e completerà l'accesso. In alcuni casi su blog e forum questo verrà definito "flusso server" o "flusso verso il server", perché il server gestisce l'accesso e l'SDK del client non riceve mai il token del provider.
+### <a name="how-authentication-without-a-provider-sdk-works"></a>How authentication without a provider SDK works
 
-Il codice necessario per avviare questo flusso è illustrato nell'esercitazione di autenticazione per ogni piattaforma. Alla fine del flusso, l’SDK del client dispone di un token del servizio App e il token viene associato automaticamente a tutte le richieste per il back-end.
+If you do not wish to set up a provider SDK, you can allow Mobile Apps to perform the login for you. The Mobile Apps client SDK will open a web view to the provider of your choosing and complete the sign in. Occasionally on blogs and forums you will see this referred to as the "server flow" or "server-directed flow" since the server is managing the login, and the client SDK never receives the provider token.
 
-### Funzionamento dell'autenticazione con un SDK del provider
+The code needed to start this flow is covered in the authentication tutorial for each platform. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the backend.
 
-L'uso di un SDK del provider consente all'esperienza di accesso di interagire più strettamente con la piattaforma del sistema operativo su cui è in esecuzione l'app. Inoltre, offre un token del provider e alcune informazioni utente sul client, che rende molto più semplice utilizzare le API Graph e personalizzare l'esperienza utente. In alcuni casi su blog e forum questo verrà definito come “flusso client" o "flusso verso il client" poichè il codice sul client gestisce l'accesso e il codice client ha accesso a un token del provider.
+### <a name="how-authentication-with-a-provider-sdk-works"></a>How authentication with a provider SDK works
 
-Dopo aver ottenuto un token del provider, deve essere inviato al servizio App per la convalida. Alla fine del flusso, l’SDK del client dispone di un token del servizio App e il token viene associato automaticamente a tutte le richieste per il back-end. Lo sviluppatore, se vuole, può anche memorizzare un riferimento al token del provider:
+Working with a provider SDK allows the log-in experience to interact more tightly with the platform OS the app is running on. This also gives you a provider token and some user information on the client, which makes it much easier to consume graph APIs and customize the user experience. Occasionally on blogs and forums you will see this referred to as the "client flow" or "client-directed flow" since code on the client is handling the login, and the client code has access to a provider token.
 
-## Funzionamento dell’autorizzazione
+Once a provider token is obtained, it needs to be sent to App Service for validation. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the backend. The developer can also keep a reference to the provider token if they so choose.
 
-L'autenticazione / autorizzazione del servizio App espone diverse opzioni relative all’ **Azione da intraprendere quando la richiesta non è autenticata**. Prima che il codice ricevi una richiesta specifica, è possibile verificare il servizio App per vedere se la richiesta viene autenticata e se non, rifiutarla e tentare di richiedere all'utente di accedere prima di riprovare.
+## <a name="how-authorization-works"></a>How authorization works
 
-Una possibilità consiste nel reindirizzare le richieste non autenticate a uno dei provider di identità. In un browser web, questa operazione porterebbe effettivamente l'utente in una nuova pagina. Tuttavia, in questo modo il client per dispositivi mobili non può essere reindirizzato e le risposte non autenticate visualizzeranno una risposta HTTP _401 Unauthorized_. Detto questo, la prima richiesta che il client esegue dovrebbe sempre essere diretta all'endpoint di accesso e successivamente sarà possibile effettuare chiamate a qualsiasi altra API. Se si tenta di chiamare un'altra API prima dell'accesso, il client riceverà un errore.
+App Service Authentication / Authorization exposes several choices for **Action to take when request is not authenticated**. Before your code receives a given request, you can have App Service check to see if the request is authenticated and if not, reject it and attempt to have the user log in before trying again.
 
-Se si desidera avere un controllo più granulare su quali endpoint richiedono l'autenticazione, è inoltre possibile selezionare "Nessuna azione (consentire richiesta)" per le richieste non autenticate. In questo caso, tutte le decisioni relative all’autenticazione vengono rinviate al codice dell'applicazione. Ciò consente anche di consentire l'accesso a utenti specifici in base a regole di autorizzazione personalizzate.
+One option is to have unauthenticated requests redirect to one of the identity providers. In a web browser, this would actually take the user to a new page. However, your mobile client cannot be redirected in this way, and unauthenticated responses will receive an HTTP _401 Unauthorized_ response. Given this, the first request your client makes should always be to the login endpoint, and then you can make calls to any other APIs. If you attempt to call another API before logging in, your client will receive an error.
 
-## Documentazione
+If you wish to have more granular control over which endpoints require authentication, you can also pick "No action (allow request)" for unauthenticated requests. In this case, all authentication decisions are deferred to your application code. This also allows you to allow access to specific users based on custom authorization rules.
 
-Le esercitazioni seguenti illustrano come aggiungere l’autenticazione ai client mobili mediante il servizio app:
+## <a name="documentation"></a>Documentation
 
-- [Aggiungere l'autenticazione all'app iOS]
-- [Aggiungere l'autenticazione all'app Xamarin.iOS]
-- [Aggiungere l'autenticazione all'app Xamarin.Android]
-- [Aggiungere l'autenticazione all'app Windows]
+The following tutorials show how to add authentication to your mobile clients using App Service:
 
-Le esercitazioni seguenti illustrano come configurare il servizio App per sfruttare provider di autenticazione diversi:
+- [Add authentication to your iOS app]
+- [Add authentication to your Xamarin.iOS app]
+- [Add authentication to your Xamarin.Android app]
+- [Add Authentication to your Windows app]
 
-- [Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory]
-- [Come configurare un'applicazione per usare l'account di accesso di Facebook]
-- [Come configurare un'applicazione per usare l'account di accesso di Google]
-- [Come configurare un'applicazione per usare l'account di accesso Microsoft]
-- [Come configurare un'applicazione per usare l'account di accesso di Twitter]
+The following tutorials show how to configure App Service to leverage different authentication providers:
 
-Se si desidera utilizzare un sistema di identità diverso da quelli qui forniti, è anche possibile sfruttare l’[Anteprima supporto per l'autenticazione personalizzata nell’SDK del server .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
+- [How to configure your app to use Azure Active Directory login]
+- [How to configure your app to use Facebook login]
+- [How to configure your app to use Google login]
+- [How to configure your app to use Microsoft Account login]
+- [How to configure your app to use Twitter login]
 
-[Aggiungere l'autenticazione all'app iOS]: app-service-mobile-ios-get-started-users.md
-[Aggiungere l'autenticazione all'app Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
-[Aggiungere l'autenticazione all'app Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
-[Aggiungere l'autenticazione all'app Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
+If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the .NET server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-[Come configurare un'applicazione per usare l'account di accesso di Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Come configurare un'applicazione per usare l'account di accesso di Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Come configurare un'applicazione per usare l'account di accesso di Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Come configurare un'applicazione per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Come configurare un'applicazione per usare l'account di accesso di Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[Add authentication to your iOS app]: app-service-mobile-ios-get-started-users.md
+[Add authentication to your Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started-users.md
+[Add authentication to your Xamarin.Android app]: app-service-mobile-xamarin-android-get-started-users.md
+[Add Authentication to your Windows app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-<!---HONumber=AcomDC_0824_2016-->
+[How to configure your app to use Azure Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure your app to use Facebook login]: app-service-mobile-how-to-configure-facebook-authentication.md
+[How to configure your app to use Google login]: app-service-mobile-how-to-configure-google-authentication.md
+[How to configure your app to use Microsoft Account login]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure your app to use Twitter login]: app-service-mobile-how-to-configure-twitter-authentication.md
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,41 +1,42 @@
 <properties
-	pageTitle="Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager | Microsoft Azure"
-	description="Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Set up Key Vault for virtual machines in Azure Resource Manager | Microsoft Azure"
+    description="How to set up Key Vault for use with an Azure Resource Manager virtual machine."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="singhkays"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="singhkay"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/31/2016"
+    ms.author="singhkay"/>
 
-# Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modello di distribuzione classica
+# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Set up Key Vault for virtual machines in Azure Resource Manager
 
-In Azure Resource Manager gli stack, i segreti e i certificati vengono modellati come risorse fornite dal provider di risorse dell'insieme di credenziali delle chiavi. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
 
-Per consentire l'uso dell'insieme di credenziali delle chiavi con le macchine virtuali di Azure Resource Manager, è necessario impostare su true la proprietà *EnabledForDeployment* nell'insieme di credenziali delle chiavi. È possibile farlo in vari tipi di client.
+In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
 
-## Usare l'interfaccia della riga di comando per impostare l'insieme di credenziali delle chiavi
-Per creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando (CLI), vedere l'articolo su come [gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+In order for Key Vault to be used with Azure Resource Manager virtual machines, the *EnabledForDeployment* property on Key Vault must be set to true. You can do this in various clients.”
 
-Per l'interfaccia della riga di comando, prima di assegnare i criteri di distribuzione è necessario creare l'insieme di credenziali delle chiavi. A questo scopo, è possibile eseguire questo comando:
+## <a name="use-cli-to-set-up-key-vault"></a>Use CLI to set up Key Vault
+To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
 
-	azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
 
-## Utilizzare modelli per configurare l'insieme di credenziali delle chiavi
-Se si usa un modello, è necessario impostare la proprietà `enabledForDeployment` su `true` per la risorsa dell'insieme di credenziali delle chiavi.
+    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-	{
+## <a name="use-templates-to-set-up-key-vault"></a>Use templates to set up Key Vault
+When you use a template, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.
+
+    {
       "type": "Microsoft.KeyVault/vaults",
       "name": "ContosoKeyVault",
       "apiVersion": "2015-06-01",
@@ -47,6 +48,10 @@ Se si usa un modello, è necessario impostare la proprietà `enabledForDeploymen
       }
     }
 
-Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere l'articolo su come [creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

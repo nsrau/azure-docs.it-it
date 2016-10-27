@@ -1,15 +1,18 @@
 <!--author=SharS last changed: 03/17/2016-->
 
-#### Per installare l'aggiornamento 1.2 dal portale di Azure classico
+#### <a name="to-install-update-1.2-from-the-azure-classic-portal"></a>To install Update 1.2 from the Azure classic portal
 
-1. Nel portale di Azure classico, accedere alla pagina **Dispositivi** e selezionare il proprio dispositivo.
+1. In the Azure classic portal, go to the **Devices** page and select your device.
 
-2. Andare a **Dispositivi** > **Configura**.
+2. Navigate to **Devices** > **Configure**.
 
-3. In **interfacce di rete**, verificare innanzitutto di disporre di almeno un’interfaccia di rete abilitata per iSCSI. Poi individuare l'interfaccia di rete (diversa da DATA 0) con gateway assegnato.
+3. Under **Network Interfaces**, first verify that you have at least one network interface that is iSCSI-enabled. Then locate the network interface (other than DATA 0) that has a gateway assigned.
 
-4. Disabilitare l'interfaccia di rete con un gateway assegnato e salvare la configurazione modificata. Si noti che vengono mantenute le impostazioni dell'interfaccia di rete e pertanto quando si riattiva questa interfaccia di rete in un secondo momento, il portale consentirà di ripristinare le impostazioni originali.
+4. Disable the network interface that has an assigned gateway and save the modified configuration. Note the network interface settings are retained and so when you re-enable this network interface later, the portal will revert to the original settings.
 
-7. A questo punto è possibile [utilizzare il portale di Azure classico per installare l'aggiornamento 1.2](#install-update-12-via-the-azure-classic-portal). Seguire le istruzioni a partire dal passaggio 3 di questa procedura. Dopo aver installato tutti gli aggiornamenti, è possibile riabilitare l'interfaccia di rete che è stata disabilitata.
+7. You can now [use the Azure classic portal to install Update 1.2](#install-update-12-via-the-azure-classic-portal). Follow the instructions starting from step 3 of this procedure. After you have installed all the updates, you can re-enable the network interface that you disabled.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

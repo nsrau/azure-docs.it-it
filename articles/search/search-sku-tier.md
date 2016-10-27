@@ -1,104 +1,110 @@
 <properties
-	pageTitle="Scegliere uno SKU o un piano tariffario per Ricerca di Azure | Microsoft Azure"
-	description="È possibile effettuare il provisioning di Ricerca di Azure per questi SKU: Gratuito, Basic e Standard; il piano Standard è disponibile in più configurazioni di risorse e livelli di capacità."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""
+    pageTitle="Choose a SKU or pricing tier for Azure Search | Microsoft Azure"
+    description="Azure Search can be provisioned at these SKUs: Free, Basic, and Standard, where Standard is available in various resource configurations and capacity levels."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/08/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.date="10/17/2016"
+    ms.author="heidist"/>
 
-# Scegliere uno SKU o un piano tariffario per Ricerca di Azure
 
-Durante il [provisioning del servizio](search-create-service-portal.md) sarà necessario specificare lo SKU o il piano tariffario. Le opzioni disponibili includono **Gratuito**, **Basic** o **Standard**. Il piano **Standard** è disponibile in più configurazioni e capacità.
+# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Choose a SKU or pricing tier for Azure Search
 
-È consigliabile eseguire sempre il provisioning del servizio **Gratuito** (uno per sottoscrizione, senza scadenza), in modo che sia subito disponibile per progetti leggeri. Usare il servizio **Gratuito** per i test e per la valutazione e quindi creare un secondo servizio fatturabile con i piani **Basic** o **Standard** per carichi di lavoro di produzione o di test di dimensioni maggiori.
+During [service provisioning](search-create-service-portal.md), you'll need to specify a SKU or pricing tier. Choices include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities.
 
-In Ricerca di Azure lo SKU determina la capacità, non la disponibilità delle funzionalità. Tutte le funzionalità sono disponibili su ogni piano tariffario, incluse le funzioni di anteprima.
+We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for light-weight projects. Use the **Free** service for testing and evaluation; create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
 
-## Come prendere una decisione relativa al piano tariffario
+In Azure Search, the SKU determines capacity, not feature availability. All features are available at every pricing tier, including preview features.
 
-La capacità e i costi dell'esecuzione del servizio sono in stretta associazione. Le informazioni in questo articolo consentono di decidere quale SKU offra il giusto equilibrio, ma sarà comunque necessaria una stima almeno approssimativa degli aspetti seguenti:
+## <a name="how-to-approach-a-pricing-tier-decision"></a>How to approach a pricing tier decision
 
-- Numero e dimensioni degli indici che si prevede di creare
-- Numero e dimensioni dei documenti da caricare
-- Stima generica del volume di query in termini di query al secondo (QPS, Queries Per Second)
+Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you will need at least rough estimates on the following:
 
-Il numero e le dimensioni sono importanti perché i limiti massimi vengono raggiunti tramite un limite rigido relativo al numero di indici o documenti in un servizio o alle risorse (di archiviazione o repliche) usate dal servizio. Il limite effettivo per il servizio corrisponderà agli elementi usati completamente per primi, ovvero risorse oppure oggetti.
+- Number and size of indexes you plan to create
+- Number and size of documents to upload
+- Some idea of query volume, in terms of Queries Per Second (QPS)
 
-Con le stime a disposizione, la procedura seguente semplificherà il processo:
+Number and size are important because maximum limits are reached through a hard limit on the count of indexes or documents in a service, or on resources (storage or replicas) used by the service. The actual limit for your service will be whichever is used up first: resources or objects.
 
-- **Passaggio 1** Esaminare le descrizioni degli SKU seguenti per ottenere informazioni sulle opzioni disponibili.
-- **Passaggio 2** Esaminare le domande per restringere la scelta.
-- **Passaggio 3** Convalidare la decisione esaminando i limiti rigidi in termini di archiviazione e prezzi.
+With estimates in hand, the following steps should simplify the process:
 
-> [AZURE.NOTE] Se si sottostima la capacità, sarà necessario effettuare il provisioning di un nuovo servizio a un piano superiore e quindi ricaricare gli indici. Non è disponibile alcun aggiornamento sul posto dello stesso servizio da uno SKU a un altro.
+- **Step 1** Review the SKU descriptions below to learn about available options.
+- **Step 2** Review the questions to narrow down your choice.
+- **Step 3** Validate your decision by reviewing hard limits on storage and pricing.
 
-## Descrizioni degli SKU
+> [AZURE.NOTE] If you underestimate capacity, you will need to provision a new service at the higher tier, and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another.
 
-La tabella seguente fornisce le descrizioni di ogni piano.
+## <a name="sku-descriptions"></a>SKU descriptions
 
-Livello|Scenari principali
+The following table provides descriptions of each tier. 
+
+Tier|Primary scenarios
 ----|-----------------
-**Free**|Servizio condiviso gratuito usato per la valutazione, l'analisi o piccoli carichi di lavoro. Essendo condiviso con altri sottoscrittori, la velocità effettiva e l'indicizzazione delle query varieranno in base agli altri utenti che usano il servizio. La capacità è ridotta (50 MB o 3 indici con un massimo di 10.000 documenti l'uno).
-**Basic**|Piccoli carichi di lavoro di produzione su hardware dedicato. Disponibilità elevata. La capacità prevede al massimo di 3 e 1 partizione (2 GB).
-**S1**|Lo Standard 1 supporta combinazioni flessibili di partizioni (12) e repliche (12). Viene usato per i carichi di lavoro di produzione medi su hardware dedicato. È possibile allocare partizioni e repliche in combinazioni supportate da un numero massimo di 36 unità di ricerca fatturabili. In questo piano le partizioni sono da 25 GB e il valore QPS è pari a circa 15 query al secondo.
-**S2**|Lo Standard 2 esegue carichi di lavoro di produzione più elevati usando le stesse 36 unità di ricerca del piano S1 ma con partizioni e repliche di dimensioni maggiori. In questo piano le partizioni sono da 100 GB e il valore QPS è pari a circa 60 query al secondo.
-**S3** (Anteprima)|Lo Standard 3 esegue carichi di lavoro di produzione in proporzione più elevati su sistemi di fascia superiore, in configurazioni fino a 12 partizioni o 12 repliche in meno di 36 unità di ricerca. In questo piano le partizioni sono da 200 GB e il valore QPS è pari a circa 60 query al secondo. Il piano S3 è in anteprima ed è disponibile a una tariffa promozionale.
-**S3 HD** (Anteprima)|Lo Standard 3 ad alta densità è progettato per un numero elevato di indici più piccoli. È disponibile solo una partizione da 200 GB. Il valore QPS è pari a più di 60 query al secondo. Il piano S3 è in anteprima ed è disponibile a una tariffa promozionale.
+**Free**|A shared service, at no charge, used for evaluation, investigation, or small workloads. Because it's shared with other subscribers, query throughput and indexing will vary based on who else is using the service. Capacity is small (50 MB or 3 indexes with up 10,000 documents each).
+**Basic**|Small production workloads on dedicated hardware. Highly available. Capacity is up to 3 replicas and 1 partition (2 GB).
+**S1**|Standard 1 supports flexible combinations of partitions (12) and replicas (12), used for medium production workloads on dedicated hardware. You can allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. At this level, partitions are 25 GB each and QPS is approximately 15 queries per second.
+**S2**|Standard 2 runs larger production workloads using the same 36 search units as S1 but with larger sized partitions and replicas. At this level, partitions are 100 GB each and QPS is about 60 queries per second.
+**S3** (Preview)|Standard 3 runs proportionally larger production workloads on higher end systems, in configurations of up to 12 partitions or 12 replicas under 36 search units. At this level, partitions are 200 GB each and QPS is more than 60 queries per second. S3 is in preview and available at an introductory rate.
+**S3 HD** (Preview)|Standard 3 High Density is designed for a large number of smaller indexes. There is one partition only, at 200 GB. QPS is more than 60 queries per second. S3 is in preview and available at  an introductory rate.
 
-> [AZURE.NOTE] I valori massimi per le repliche e le partizioni vengono fatturati come unità di servizio (al massimo 36 unità per servizio). Ciò impone un limite effettivo inferiore rispetto al valore massimo nominale. Per usare ad esempio il numero massimo di 12 repliche si possono avere non oltre 3 partizioni perché 12 * 3 = 36 unità. Analogamente, ridurre le repliche a 3 per usare il numero di partizioni massimo. Per un grafico delle combinazioni consentite, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro in Ricerca di Azure](search-capacity-planning.md).
+> [AZURE.NOTE] Replica and partition maximums are billed out as search units (36 unit maximum per service), which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
 
-## Esaminare i limiti per ogni piano
+## <a name="review-limits-per-tier"></a>Review limits per tier
 
-Il grafico seguente è un subset dei limiti tratto da [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md). Elenca i fattori che probabilmente influiranno maggiormente sulla decisione relativa allo SKU. È possibile fare riferimento a questo grafico quando si esaminano le domande seguenti.
+The following chart is a subset of the limits from [Service Limits in Azure Search](search-limits-quotas-capacity.md). It lists the factors most likely to impact a SKU decision. You can refer to this chart when reviewing the questions below.
 
-Risorsa|Free|Basic|S1|S2|S3 <br/>(Anteprima) |S3 HD <br/>(Anteprima) 
+Resource|Free|Basic|S1|S2|S3 <br/>(Preview) |S3 HD <br/>(Preview) 
 ---|---|---|---|----|---|----
-Contratto di servizio (SLA)|No <sup>1</sup> |Sì |Sì |Sì |No <sup>1</sup> |No <sup>1</sup> 
-Indici consentiti per SKU|3|5|50|200|200|1000
-Limiti per i documenti|10\.000 in totale|1 milione per servizio|15 milioni per partizione |60 milioni per partizione|120 milioni per partizione |1 milione per indice
-Partizioni massime|N/D |1 |12 |12 |12|1
-Dimensioni della partizione|50 MB totali|2 GB per servizio|25 GB per partizione |100 GB per partizione (con un massimo di 1,2 TB per ogni servizio)|200 GB per partizione, con un massimo di 2,4 TB per ogni servizio|200 GB per l'unica partizione
-Repliche massime|N/D |3 |12 |12 |12|12
-Query al secondo|N/D|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
+Service Level Agreement (SLA)|No <sup>1</sup> |Yes |Yes  |Yes |No <sup>1</sup> |No <sup>1</sup> 
+Indexes allowed per SKU|3|5|50|200|200|1000
+Documents limits|10,000 total|1 million per service|15 million per partition |60 million per partition|120 million per partition |1 million per index
+Maximum partitions|N/A |1 |12  |12 |12|1
+Partition size|50 MB total|2 GB per service|25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service)|200 GB per partition (up to a maximum of 2.4 TB per service)|200 GB (for the 1 partition)
+Maximum replicas|N/A |3 |12 |12 |12|12
+Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
 
-<sup>1</sup> Gli SKU Gratuito e Anteprima non includono contratti di servizio. I contratti di servizio vengono applicati quando uno SKU è disponibile a livello generale.
+<sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
 
 
-## Eliminare gli SKU che non soddisfano i requisiti 
+## <a name="eliminate-skus-that-don't-meet-requirements"></a>Eliminate SKUs that don't meet requirements 
 
-Le domande seguenti consentono di prendere la decisione corretta per gli SKU per il carico di lavoro.
+The following questions can help you arrive at the right SKU decision for your workload.
 
-1. Si hanno requisiti in termini di **contratti di servizio**? Restringere la decisione sugli SKU alle tipologie Basic o Standard (non anteprima).
-2. **Quanti indici** sono necessari? Una delle variabili principali che influiranno sulla decisione per gli SKU è il numero di indici supportato da ogni SKU. Il supporto degli indici è notevolmente diverso nei piani tariffari più bassi. Il requisito relativo al numero di indici può essere determinante nella scelta dello SKU.
-3. **Quanti documenti** verranno caricati in ogni indice? Il numero e le dimensioni dei documenti determinano le dimensioni finali dell'indice. Supponendo che si possano stimare le dimensioni previste dell'indice, è possibile confrontare tale numero con le dimensioni della partizione per ogni SKU, estese per il numero di partizioni necessarie per archiviare un indice di tali dimensioni.
-4. **Qual è il carico di query previsto**? Dopo aver determinato i requisiti di archiviazione, prendere in considerazione i carichi di lavoro di query. S2 ed entrambi gli SKU S3 offrono una velocità effettiva quasi equivalente, ma i requisiti in termini di contratto di servizio escludono gli SKU di anteprima.
+1. Do you have **Service Level Agreement (SLA)** requirements? Narrow the SKU decision to Basic or non-preview Standard.
+2. **How many indexes** do you require? One of the biggest variables that will factor into a SKU decision is the number of indexes supported by each SKU. Index support is at markedly different levels in the lower pricing tiers. Requirements on number of indexes could be a primary determinant of a SKU decision.
+3. **How many documents** will be loaded into each index? The number and size of documents will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against the partition size per SKU, extended by the number of partitions required to store an index of that size. 
+4. **What is the expected query load**? Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput, but SLA requirements will rule out any preview SKUs. 
 
-La maggior parte dei clienti può prendere in considerazione o escludere uno SKU specifico rispondendo a queste quattro domande. Se non è ancora chiaro quale SKU scegliere, contattare il supporto di Azure per altre informazioni.
+Most customers can rule a specific SKU in or out based on their answers to these four questions. If you still aren't sure which SKU to go with, contact Azure Support for further guidance.
 
-## Convalida della decisione: lo SKU offre una risorsa di archiviazione e un valore di query al secondo sufficienti?
+## <a name="decision-validation:-does-the-sku-offer-sufficient-storage-and-qps?"></a>Decision validation: does the SKU offer sufficient storage and QPS?
 
-Come ultimo passaggio, visitare di nuovo la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/search/) e le [sezioni per servizio e per indice nei limiti di servizio](search-limits-quotas-capacity.md) per verificare le stime rispetto ai limiti di sottoscrizione e di servizio.
+As a last step, revisit the [pricing page](https://azure.microsoft.com/pricing/details/search/) and the [per-service and per-index sections in Service Limits](search-limits-quotas-capacity.md) to double-check your estimates against subscription and service limits. 
 
-Se il prezzo o i requisiti di archiviazione non rientrano nelle stime può essere opportuno effettuare il refactoring dei carichi di lavoro tra una serie di servizi più piccoli, ad esempio. A livello più granulare è possibile progettare nuovamente gli indici perché siano più piccoli oppure usare filtri per rendere le query più efficienti.
+If either the price or storage requirements are out of bounds, you might want to refactor the workloads among multiple smaller services (for example). On more granular level, you could redesign indexes to be smaller, or use filters to make queries more efficient.
 
-> [AZURE.NOTE] I requisiti di archiviazione possono apparire maggiori del necessario se i documenti contengono dati estranei. I documenti contengono idealmente solo da dati o metadati ricercabili. I dati binari non sono ricercabili e devono essere archiviati separatamente, ad esempio in una tabella o un archivio BLOB di Azure, con un campo nell'indice che contenga un riferimento URL ai dati esterni. Le dimensioni massime di un singolo documento sono pari a 16 MB o meno, se si caricano più documenti in una richiesta. Per altre informazioni, vedere [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] Storage requirements can be over-inflated if documents contain extraneous data. Ideally, documents contain only searchable data or metadata. Binary data is non-searchable and should be stored separately (perhaps in an Azure table or blob storage) with a field in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you are bulk uploading multiple documents in one request). See [Service limits in Azure Search](search-limits-quotas-capacity.md) for more information.
 
-## Passaggio successivo
+## <a name="next-step"></a>Next step
 
-Dopo aver determinato lo SKU corretto, continuare con la procedura:
+Once you know which SKU is the right fit, continue on with these steps:
 
-- [Creare un servizio di ricerca nel portale](search-create-service-portal.md)
-- [Modificare l'allocazione di partizioni e repliche per la scalabilità del servizio](search-capacity-planning.md)
+- [Create a search service in the portal](search-create-service-portal.md)
+- [Change the allocation of partitions and replicas to scale your service](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

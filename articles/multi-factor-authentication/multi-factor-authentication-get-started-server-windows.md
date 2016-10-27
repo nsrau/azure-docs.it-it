@@ -1,52 +1,58 @@
 <properties 
-	pageTitle="L'autenticazione di Windows e Azure il Server Multi-Factor Authentication"
-	description="Questa è la pagina di autenticazione a più fattori di Azure che sarà utile per distribuire l'autenticazione di Windows e Server Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Windows Authentication and Azure Multi-Factor Authentication Server"
+    description="This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
-
-# L'autenticazione di Windows e Azure il Server Multi-Factor Authentication
-
-La sezione autenticazione di Windows consente all'amministratore di abilitare e configurare l'autenticazione di Windows per una o più applicazioni. Di seguito è riportato un elenco di aspetti da tenere presenti prima di configurare l'autenticazione di Windows.
-
--  prima che Azure Multi-Factor Authentication per i servizi Terminal venga attivata, è necessario riavviare il computer.
--  Se "Richiedere corrispondenza utente Azure Multi-Factor Authentication" è selezionata e non si è nell'elenco degli utenti, non sarà possibile accedere alla macchina dopo il riavvio.
--  La funzione IP attendibili dipende da se l'applicazione può fornire l'IP del client con l'autenticazione. Attualmente solo la funzione Servizi Terminal è supportata.
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
 
+# <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows Authentication and Azure Multi-Factor Authentication Server
 
+The Windows Authentication section allows the administrator to enable and configure Windows authentication for one or more applications.  The following is a list of things to keep in mind prior to setting up Windows Authentication.
+
+-  reboot is needed before the Azure Multi-Factor Authentication for Terminal Services will be in effect.
+-  If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.
+-  Trusted IPs is dependent on whether the application can provide the client IP with the authentication. Currently only Terminal Services is supported.  
 
 
 
 
->[AZURE.NOTE]Questa funzionalità non è supportata per proteggere Servizi Terminal in Windows Server 2012 R2.
+
+
+
+>[AZURE.NOTE]This feature is not supported to secure Terminal Services on Windows Server 2012 R2.
 
 
 
 
-## Per proteggere un'applicazione con l'autenticazione di Windows, utilizzare la procedura seguente.
+## <a name="to-secure-an-application-with-windows-authentication,-use-the-following-procedure."></a>To secure an application with Windows Authentication, use the following procedure.
 
-1. Nel Server Azure Multi-Factor Authentication fare clic sull'icona Autenticazione di Windows.![Autenticazione di Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
-2. Selezionare la casella di controllo abilita l’autenticazione di Windows. Per impostazione predefinita, questa casella è deselezionata.
-3. La scheda applicazioni consente all'amministratore di configurare uno o più applicazioni per l'autenticazione di Windows.
-4. Selezionare un server o un'applicazione, specificare se il server/applicazione è abilitato. Fare clic su OK.
-5. Fare clic sul pulsante Aggiungi...
-6. La scheda di ID attendibili consente di ignorare Azure Multi-Factor Authentication per le sessioni Windows provenienti da IP specifici. Ad esempio, se i dipendenti usano l'applicazione dall'ufficio e da casa, è possibile decidere di non volere che i loro telefoni squillino per Azure Multi-Factor Authentication in ufficio. A tale scopo, specificare la subnet dell'ufficio come voce di ID attendibili.
-7. Fare clic sul pulsante Aggiungi...
-8. Selezionare IP singolo Se si desidera ignorare un singolo indirizzo IP.
-9. Selezionare intervallo IP se si desidera ignorare un intero intervallo IP. Esempio: 10.63.193.1-10.63.193.100.
-10. Selezionare Subnet se si desidera specificare un intervallo di indirizzi IP utilizzando la notazione di subnet. Immettere l’IP iniziale della subnet e scegliere la mask appropriata dall'elenco a discesa.
-11. Fare clic sul pulsante OK.
+1. In the Azure Multi-Factor Authentication Server click the Windows Authentication icon.
+![Windows Authentication](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+2. Check the Enable Windows authentication checkbox. By default, this box is unchecked.
+3. The Applications tab allows the administrator to configure one or more applications for Windows Authentication.
+4. Select a server or application – specify whether the server/application is enabled. Click OK.
+5. Click Add… button.
+6. The Trusted IPs tab allows you to skip Azure Multi-Factor Authentication for Windows sessions originating from specific IPs. For example, if employees use the application from the office and from home, you may decide you don't want their phones ringing for Azure Multi-Factor Authentication while at the office. For this, you would specify the office subnet as Trusted IPs entry.
+7. Click Add… button.
+8. Select Single IP if you would like to skip a single IP address.
+9. Select IP Range if you would like to skip an entire IP range. Example 10.63.193.1-10.63.193.100.
+10. Select Subnet if you would like to specify a range of IPs using subnet notation. Enter the subnet's starting IP and pick the appropriate netmask from the drop-down list.
+11. Click the OK button.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

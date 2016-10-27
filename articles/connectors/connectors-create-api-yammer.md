@@ -1,6 +1,6 @@
 <properties
-pageTitle="Aggiungere il connettore Yammer alle app per la logica | Microsoft Azure"
-description="Panoramica del connettore Yammer con i parametri dell'API REST"
+pageTitle="Add the Yammer Connector in your Logic Apps | Microsoft Azure"
+description="Overview of the Yammer Connector with REST API parameters"
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,122 +17,125 @@ ms.workload="na"
 ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introduzione al connettore Yammer
 
-Connettersi a Yammer per accedere alle conversazioni della rete dell'organizzazione.
+# <a name="get-started-with-the-yammer-connector"></a>Get started with the Yammer connector
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
+Connect to Yammer to access conversations in your enterprise network.
 
-Con Yammer è possibile:
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-- Creare il flusso aziendale in base ai dati ottenuti da Yammer. 
-- Usare i trigger quando c'è un nuovo messaggio in un gruppo o un feed che si sta seguendo.
-- Usare le azioni per pubblicare un messaggio, ottenere tutti i messaggi e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene visualizzato un nuovo messaggio, è possibile inviare un messaggio di posta elettronica tramite Office 365.
+With Yammer, you can:
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from Yammer. 
+- Use triggers for when there is a new message in a group, or a feed your following.
+- Use actions to post a message, get all messages, and more. These actions get a response, and then make the output available for other actions. For example, when a new message appears, you can send an email using Office 365.
 
-## Trigger e azioni
-Yammer include i trigger e le azioni seguenti.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Trigger | Azioni
+## <a name="triggers-and-actions"></a>Triggers and actions
+Yammer includes the following triggers and actions. 
+
+Trigger | Actions
 --- | ---
 <ul><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>| <ul><li>Get all messages</li><li>Gets messages in a group</li><li>Gets the messages from my Following feed</li><li>Post message</li><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>
 
-Tutti i connettori supportano dati nei formati JSON e XML.
+All connectors support data in JSON and XML formats. 
 
-## Creare una connessione a Yammer
-Per usare il connettore Yammer, creare prima una **connessione**, quindi specificare i dettagli di queste proprietà:
+## <a name="create-a-connection-to-yammer"></a>Create a connection to Yammer
+To use the Yammer connector, you first create a **connection** then provide the details for these properties: 
 
-|Proprietà| Obbligatorio|Descrizione|
+|Property| Required|Description|
 | ---|---|---|
-|Token|Sì|Specificare le credenziali di Yammer|
+|Token|Yes|Provide Yammer Credentials|
 
->[AZURE.INCLUDE [Passaggi per creare una connessione a Yammer](../../includes/connectors-create-api-yammer.md)]
-
-
->[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
-
-## Informazioni di riferimento sulle API REST Yammer
-Questa documentazione è relativa alla versione 1.0
+>[AZURE.INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 
 
-### Ottenere tutti i messaggi pubblici nella rete Yammer dell'utente connesso
-Corrisponde a "Tutte" le conversazioni nell'interfaccia Web di Yammer. ```GET: /messages.json```
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+## <a name="yammer-rest-api-reference"></a>Yammer REST API reference
+This documentation is for version: 1.0
+
+
+### <a name="get-all-public-messages-in-the-logged-in-user's-yammer-network"></a>Get all public messages in the logged in user's Yammer network
+Corresponds to "All" conversations in the Yammer web interface.  
+```GET: /messages.json```
+
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|older\_then|integer|no|query|nessuno|Restituisce i messaggi meno recenti rispetto all'ID del messaggio specificato come stringa numerica. Risulta utile per l'impaginazione dei messaggi. Ad esempio, se si stanno attualmente visualizzando 20 messaggi e il meno recente è il numero 2912, è possibile aggiungere "?older\_than=2912" alla richiesta per ottenere i 20 messaggi precedenti a quelli visualizzati.|
-|newer\_then|integer|no|query|nessuno|Restituisce i messaggi più recenti rispetto all'ID del messaggio specificato come stringa numerica. Risulta utile per il polling dei nuovi messaggi. Se si cercano i messaggi e il messaggio più recente restituito è il numero 3516, è possibile eseguire una richiesta con il parametro "?newer\_than=3516" per garantire che non si ottengono copie duplicate dei messaggi già presenti nella pagina.|
-|limit|integer|no|query|nessuno|Restituisce solo il numero specificato di messaggi.|
-|page|integer|no|query|nessuno|Ottenere la pagina specificata. Se i dati restituiti sono maggiori del limite, è possibile usare questo campo per accedere alle pagine successive|
+|older_then|integer|no|query|none|Returns messages older than the message ID specified as a numeric string. This is useful for paginating messages. For example, if you’re currently viewing 20 messages and the oldest is number 2912, you could append “?older_than=2912″ to your request to get the 20 messages prior to those you’re seeing.|
+|newer_then|integer|no|query|none|Returns messages newer than the message ID specified as a numeric string. This should be used when polling for new messages. If you’re looking at messages, and the most recent message returned is 3516, you can make a request with the parameter “?newer_than=3516″ to ensure that you do not get duplicate copies of messages already on your page.|
+|limit|integer|no|query|none|Return only the specified number of messages.|
+|page|integer|no|query|none|Get the page specified. If returned data is greater than the limit, you can use this field to access subsequent pages|
 
 
-### Risposta
+### <a name="response"></a>Response
 
-|Nome|Descrizione|
+|Name|Description|
 |---|---|
 |200|OK|
 |400|Bad Request|
-|408|Timeout richiesta|
-|429|Troppe richieste|
-|500|Errore interno del server. Si è verificato un errore sconosciuto|
-|503|Servizio Yammer non disponibile|
-|504|Timeout gateway|
-|default|Operazione non riuscita.|
+|408|Request Timeout|
+|429|Too Many Requests|
+|500|Internal Server Error. Unknown error occurred|
+|503|Yammer Service Unavailable|
+|504|Gateway Timeout|
+|default|Operation Failed.|
 
 
-### Pubblica un messaggio in un gruppo o nel feed generale dell'organizzazione
-Se viene indicato l'ID gruppo, il messaggio verrà pubblicato nel gruppo specificato, altrimenti verrà pubblicato nel feed generale dell'organizzazione. ```POST: /messages.json```
+### <a name="post-a-message-to-a-group-or-all-company-feed"></a>Post a Message to a Group or All Company Feed
+If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.    
+```POST: /messages.json``` 
 
-| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|input| |sì|body|nessuno|Pubblica la richiesta del messaggio|
+|input| |yes|body|none|Post Message Request|
 
 
-### Risposta
+### <a name="response"></a>Response
 
-|Nome|Descrizione|
+|Name|Description|
 |---|---|
-|201|Data di creazione|
+|201|Created|
 
 
 
-## Definizioni oggetti
+## <a name="object-definitions"></a>Object definitions
 
-#### Message: messaggio di Yammer
+#### <a name="message:-yammer-message"></a>Message: Yammer Message
 
-| Nome | Tipo di dati | Obbligatorio |
+| Name | Data Type | Required |
 |---|---| --- | 
 |id|integer|no|
-|content\_excerpt|string|no|
-|sender\_id|integer|no|
-|replied\_to\_id|integer|no|
-|created\_at|string|no|
-|network\_id|integer|no|
-|message\_type|string|no|
-|sender\_type|string|no|
-|URL|string|no|
-|web\_url|string|no|
-|group\_id|integer|no|
-|body|non definito|no|
-|thread\_id|integer|no|
-|direct\_message|boolean|no|
-|client\_type|string|no|
-|client\_url|string|no|
-|Lingua|string|no|
-|notified\_user\_ids|array|no|
+|content_excerpt|string|no|
+|sender_id|integer|no|
+|replied_to_id|integer|no|
+|created_at|string|no|
+|network_id|integer|no|
+|message_type|string|no|
+|sender_type|string|no|
+|url|string|no|
+|web_url|string|no|
+|group_id|integer|no|
+|body|not defined|no|
+|thread_id|integer|no|
+|direct_message|boolean|no|
+|client_type|string|no|
+|client_url|string|no|
+|language|string|no|
+|notified_user_ids|array|no|
 |privacy|string|no|
-|liked\_by|non definito|no|
-|system\_message|boolean|no|
+|liked_by|not defined|no|
+|system_message|boolean|no|
 
-#### PostOperationRequest: indica una richiesta di pubblicazione per il connettore Yammer per la pubblicazione in Yammer
+#### <a name="postoperationrequest:-represents-a-post-request-for-yammer-connector-to-post-to-yammer"></a>PostOperationRequest: Represents a post request for Yammer Connector to post to yammer
 
-| Nome | Tipo di dati | Obbligatorio |
+| Name | Data Type | Required |
 |---|---| --- | 
-|body|string|sì|
-|group\_id|integer|no|
-|replied\_to\_id|integer|no|
-|direct\_to\_id|integer|no|
+|body|string|yes|
+|group_id|integer|no|
+|replied_to_id|integer|no|
+|direct_to_id|integer|no|
 |broadcast|boolean|no|
 |topic1|string|no|
 |topic2|string|no|
@@ -155,44 +158,48 @@ Se viene indicato l'ID gruppo, il messaggio verrà pubblicato nel gruppo specifi
 |topic19|string|no|
 |topic20|string|no|
 
-#### MessageList: elenco di messaggi
+#### <a name="messagelist:-list-of-messages"></a>MessageList: List of messages
 
-| Nome | Tipo di dati | Obbligatorio |
+| Name | Data Type | Required |
 |---|---| --- | 
 |messages|array|no|
 
 
-#### MessageBody: corpo del messaggio
+#### <a name="messagebody:-message-body"></a>MessageBody: Message Body
 
-| Nome | Tipo di dati | Obbligatorio |
+| Name | Data Type | Required |
 |---|---| --- | 
 |parsed|string|no|
 |plain|string|no|
 |rich|string|no|
 
-#### LikedBy: utenti che hanno espresso gradimento
+#### <a name="likedby:-liked-by"></a>LikedBy: Liked By
 
-| Nome | Tipo di dati | Obbligatorio |
+| Name | Data Type | Required |
 |---|---| --- | 
 |count|integer|no|
 |names|array|no|
 
-#### YammmerEntity: utenti che hanno espresso gradimento
+#### <a name="yammmerentity:-liked-by"></a>YammmerEntity: Liked By
 
-| Nome | Tipo di dati | Obbligatorio |
+| Name | Data Type | Required |
 |---|---| --- | 
 |type|string|no|
 |id|integer|no|
-|full\_name|string|no|
+|full_name|string|no|
 
 
-## Passaggi successivi
-[Creare una nuova app per la logica che connette servizi SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
-[2]: ./media/connectors-create-api-yammer/connectionconfig2.png
+[2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
 [3]: ./media/connectors-create-api-yammer/connectionconfig3.png
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake| Microsoft Azure"
-   description="Usare lo strumento AdlCopy per copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake"
+   pageTitle="Copy data from Azure Storage Blobs into Data Lake Store| Microsoft Azure"
+   description="Use AdlCopy tool to copy data from Azure Storage Blobs to Data Lake Store"
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
@@ -13,164 +13,172 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
+   ms.date="10/05/2016"
    ms.author="nitinme"/>
 
-# Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
+
+# <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copy data from Azure Storage Blobs to Data Lake Store
 
 > [AZURE.SELECTOR]
-- [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
-- [Con AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+- [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 
-Azure Data Lake Store fornisce uno strumento da riga di comando, [AdlCopy](http://aka.ms/downloadadlcopy), per copiare dati dalle origini seguenti:
+Azure Data Lake Store provides a command line tool, [AdlCopy](http://aka.ms/downloadadlcopy), to copy data from the following sources:
 
-* Dal BLOB di Archiviazione di Azure a Data Lake Store. Non è possibile usare lo strumento AdlCopy per copiare dati da Archivio Data Lake ai BLOB di Archiviazione di Azure.
+* From Azure Storage Blobs into Data Lake Store. You cannot use AdlCopy to copy data from Data Lake Store to Azure Storage blobs.
 
-* Tra due account di Azure Data Lake Store.
+* Between two Azure Data Lake Store accounts. 
 
-È anche possibile usare lo strumento AdlCopy in due modi diversi:
+Also, you can use the AdlCopy tool in two different modes:
 
-* **Autonomo**, in cui lo strumento usa le risorse di Archivio Data Lake per eseguire l'attività.
-* **Tramite un account di Analisi Data Lake**, in cui le unità assegnate all'account di Analisi Data Lake vengono usate per eseguire l'operazione di copia. È consigliabile scegliere questa opzione se si intende eseguire le attività di copia in modo prevedibile.
+* **Standalone**, where the tool uses Data Lake Store resources to perform the task.
 
-##Prerequisiti
+* **Using a Data Lake Analytics account**, where the units assigned to your Data Lake Analytics account are used to perform the copy operation. You might want to use this option when you are looking to perform the copy tasks in a predictable manner.
 
-Per eseguire le procedure descritte nell'articolo è necessario:
+##<a name="prerequisites"></a>Prerequisites
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-- Un contenitore **BLOB di Archiviazione di Azure** con alcuni dati.
-- **Un account di Analisi Azure Data Lake (facoltativo)**. Per istruzioni su come creare un account di Archivio Data Lake, vedere [Introduzione ad Analisi Azure Data Lake con il portale di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
-- **Lo strumento AdlCopy**. Installare lo strumento AdlCopy da [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+Before you begin this article, you must have the following:
 
-## Sintassi dello strumento AdlCopy
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Usare la sintassi seguente per usare lo strumento AdlCopy
+- **Azure Storage Blobs** container with some data.
 
-	AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Unit <Number of Analytics units> /Pattern 
+- **Azure Data Lake Analytics account (optional)** - See [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) for instructions on how to create a Data Lake Store account.
 
-I parametri nella sintassi sono descritti di seguito:
+- **AdlCopy tool**. Install the AdlCopy tool from [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
 
-| Opzione | Descrizione |
+## <a name="syntax-of-the-adlcopy-tool"></a>Syntax of the AdlCopy tool
+
+Use the following syntax to work with the AdlCopy tool
+
+    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Unit <Number of Analytics units> /Pattern 
+
+The parameters in the syntax are described below:
+
+| Option    | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
 |-----------|------------|
-| Sorgente | Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Store. |
-| Dest | Specifica la destinazione di Archivio Data Lake in cui eseguire la copia. |
-| SourceKey | Specifica la chiave di accesso alle risorse di archiviazione per l'origine BLOB di Archiviazione di Azure. La chiave è necessaria solo se l'origine è un contenitore BLOB o un BLOB. |
-| Account | **Facoltativo**. Scegliere questa opzione se si vuole usare l'account di Analisi Azure Data Lake per eseguire il processo di copia. Se si usa l'opzione /Account nella sintassi ma non si specifica un account di Analisi Data Lake, AdlCopy usa un account predefinito per eseguire il processo. Inoltre, se si sceglie questa opzione, è necessario aggiungere l'origine (BLOB di Archiviazione di Azure) e la destinazione (Archivio Azure Data Lake) come origini dati per l'account di Analisi Data Lake. |
-| Unità | Specifica il numero di unità di Analisi Data Lake che verranno usate per il processo di copia. Questa opzione è obbligatoria se si usa l'opzione **/Account** per specificare l'account di Analisi Data Lake.
-| Modello | Specifica un modello regex che indica quali BLOB o file copiare. AdlCopy usa la corrispondenza tra maiuscole e minuscole. La copia di tutti gli elementi è il criterio predefinito usato quando non viene specificato alcun modello. Non è consentito specificare più criteri file.                                                                                                                                                                                                                                                                                                                                               
+| Source    | Specifies the location of the source data in the Azure storage blob. The source can be a blob container, a blob, or another Data Lake Store account.                                                                                                                                                                                                                                                                                                 |
+| Dest      | Specifies the Data Lake Store destination to copy to.                                                                                                                                                                                                                                                                                                                                                                |
+| SourceKey | Specifies the storage access key for the Azure storage blob source. This is required only if the source is a blob container or a blob.                                                                                                                                                                                                                                                                                                                                                 |
+| Account   | **Optional**. Use this if you want to use Azure Data Lake Analytics account to run the copy job. If you use the /Account option in the syntax but do not specify a Data Lake Analytics account, AdlCopy uses a default account to run the job. Also, if you use this option, you must add the source (Azure Storage Blob) and destination (Azure Data Lake Store) as data sources for your Data Lake Analytics account.  |
+| Units     |  Specifies the number of Data Lake Analytics units that will be used for the copy job. This option is mandatory if you use the **/Account** option to specify the Data Lake Analytics account.
+| Pattern   | Specifies a regex pattern that indicates which blobs or files to copy. AdlCopy uses case-sensitive matching. The default pattern used when no pattern is specified is to copy all items. Specifying multiple file patterns is not supported.                                                                                                                                                                                                                                                                                                                                               
 
 
 
-## Usare AdlCopy (come file autonomo) per copiare i dati da un BLOB di Archiviazione di Azure
+## <a name="use-adlcopy-(as-standalone)-to-copy-data-from-an-azure-storage-blob"></a>Use AdlCopy (as standalone) to copy data from an Azure Storage blob
 
-1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
+1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 
-2. Eseguire il comando seguente per copiare un BLOB specifico dal contenitore di origine a un'istanza di Archivio Data Lake:
+2. Run the following command to copy a specific blob from the source container to a Data Lake Store:
 
-		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-	ad esempio:
+    For example:
 
-		AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+        AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-	
-	>[AZURE.NOTE] La sintassi precedente specifica il file da copiare in una cartella dell'account Data Lake Store. Se il nome della cartella specificato non esiste, lo strumento AdlCopy crea una cartella.
+    
+    >[AZURE.NOTE] The syntax above specifies the file to be copied to a folder in the Data Lake Store account. AdlCopy tool creates a folder if the specified folder name does not exist.
 
-	Verrà richiesto di immettere le credenziali per la sottoscrizione di Azure in cui si trova l'account Azure Data Lake Store. L'output visualizzato sarà simile al seguente:
+    You will be prompted to enter the credentials for the Azure subscription under which you have your Data Lake Store account. You will see an output similar to the following:
 
-		Initializing Copy.
-		Copy Started.
-		100% data copied.
-		Finishing Copy.
-		Copy Completed. 1 file copied.
+        Initializing Copy.
+        Copy Started.
+        100% data copied.
+        Finishing Copy.
+        Copy Completed. 1 file copied.
 
-3. È inoltre possibile copiare tutti i BLOB da un contenitore all'account di Archivio Data Lake tramite il comando seguente:
+3. You can also copy all the blobs from one container to the Data Lake Store account using the following command:
 
-		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>		
+        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-	ad esempio:
+    For example:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+        AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-## Usare AdlCopy (come file autonomo) per copiare i dati da un altro account di Data Lake Store
+## <a name="use-adlcopy-(as-standalone)-to-copy-data-from-another-data-lake-store-account"></a>Use AdlCopy (as standalone) to copy data from another Data Lake Store account
 
-È anche possibile usare AdlCopy per copiare dati tra due account Data Lake Store.
+You can also use AdlCopy to copy data between two Data Lake Store accounts.
 
-1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
+1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 
-2. Eseguire il comando seguente per copiare un file specifico da un account Data Lake Store a un altro.
+2. Run the following command to copy a specific file from one Data Lake Store account to another.
 
-		AdlCopy /Source adl://<source_adls_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adls_account>.azuredatalakestore.net/<path>/
+        AdlCopy /Source adl://<source_adls_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adls_account>.azuredatalakestore.net/<path>/
 
-	ad esempio:
+    For example:
 
-		AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
+        AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
-	>[AZURE.NOTE] La sintassi precedente specifica il file da copiare in una cartella dell'account Data Lake Store di destinazione. Se il nome della cartella specificato non esiste, lo strumento AdlCopy crea una cartella.
+    >[AZURE.NOTE] The syntax above specifies the file to be copied to a folder in the destination Data Lake Store account. AdlCopy tool creates a folder if the specified folder name does not exist.
 
-	Verrà richiesto di immettere le credenziali per la sottoscrizione di Azure in cui si trova l'account Azure Data Lake Store. L'output visualizzato sarà simile al seguente:
+    You will be prompted to enter the credentials for the Azure subscription under which you have your Data Lake Store account. You will see an output similar to the following:
 
-		Initializing Copy.
-		Copy Started.|
-		100% data copied.
-		Finishing Copy.
-		Copy Completed. 1 file copied.
+        Initializing Copy.
+        Copy Started.|
+        100% data copied.
+        Finishing Copy.
+        Copy Completed. 1 file copied.
 
-3. Il comando seguente consente di copiare tutti i file da una cartella specifica dell'account Data Lake Store di origine in una cartella dell'account Data Lake Store di destinazione.
+3. The following command copies all files from a specific folder in the source Data Lake Store account to a folder in the destination Data Lake Store account.
 
-		AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
+        AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
-## Usare AdlCopy (con un account Data Lake Analytics) per copiare i dati
+## <a name="use-adlcopy-(with-data-lake-analytics-account)-to-copy-data"></a>Use AdlCopy (with Data Lake Analytics account) to copy data
 
-È anche possibile usare l'account di Analisi Data Lake per eseguire il processo AdlCopy per copiare dati da BLOB di Archiviazione di Azure ad Archivio Data Lake. In genere si sceglie questa opzione quando i dati da spostare sono nell'ordine di gigabyte e terabyte e si vuole una velocità effettiva delle prestazioni migliore e prevedibile.
+You can also use your Data Lake Analytics account to run the AdlCopy job to copy data from Azure storage blobs to Data Lake Store. You would typically use this option when the data to be moved is in the range of gigabytes and terabytes, and you want better and predictable performance throughput.
 
-Per usare l'account Data Lake Analytics con AdlCopy per eseguire la copia da un BLOB di Archiviazione di Azure, l'origine (BLOB di Archiviazione di Azure) deve essere aggiunta come origine dati per l'account Data Lake Analytics. Per istruzioni sull'aggiunta di origini dati aggiuntive all'account di Analisi Data Lake, vedere [Gestire Analisi Data Lake tramite il portale di Azure](..//data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+To use your Data Lake Analytics account with AdlCopy to copy from an Azure Storage Blob, the source (Azure Storage Blob) must be added as a data source for your Data Lake Analytics account. For instructions on adding additional data sources to your Data Lake Analytics account, see [Manage Data Lake Analytics account data sources](..//data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
->[AZURE.NOTE] Se si esegue la copia da un account Azure Data Lake Store come origine tramite un account Data Lake Analytics, non è necessario associare l'account Data Lake Store all'account Data Lake Analytics. È necessario associare l'archivio di origine con l'account Data Lake Analytics solo quando l'origine è un account di Archiviazione di Azure.
+>[AZURE.NOTE] If you are copying from an Azure Data Lake Store account as the source using a Data Lake Analytics account, you do not need to associate the Data Lake Store account with the Data Lake Analytics account. The requirement to associate the source store with the Data Lake Analytics account is only when the source is an Azure Storage account.
 
-Eseguire il comando seguente per copiare da un BLOB di Archiviazione di Azure a un account Data Lake Store tramite un account Data Lake Analytics:
+Run the following command to copy from an Azure Storage blob to a Data Lake Store account using Data Lake Analytics account:
 
-	AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
+    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
 
-ad esempio:
+For example:
 
-	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
+    AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
 
-Analogamente, eseguire il comando seguente per copiare da un BLOB di Archiviazione di Azure a un account Data Lake Store tramite un account Data Lake Analytics:
+Similarly, run the following command to copy from an Azure Storage blob to a Data Lake Store account using Data Lake Analytics account:
 
-	AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
+    AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
-## Usare AdlCopy per copiare i dati usando la corrispondenza dei modelli
+## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>Use AdlCopy to copy data using pattern matching
 
-Questa sezione descrive come usare AdlCopy per copiare i dati da un'origine (nell'esempio di seguito un BLOB di Archiviazione di Azure) a un account Data Lake Store di destinazione tramite la corrispondenza dei modelli. Ad esempio, è possibile usare la procedura seguente per copiare tutti i file con estensione csv dal BLOB di origine alla destinazione.
+In this section, you learn how to use AdlCopy to copy data from a source (in our example below we use Azure Storage Blob) to a destination Data Lake Store account using pattern matching. For example, you can use the steps below to copy all files with .csv extension from the source blob to the destination.
 
-1. Aprire un prompt dei comandi e passare alla directory in cui è installato AdlCopy, in genere `%HOMEPATH%\Documents\adlcopy`.
+1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 
-2. Eseguire il comando seguente per copiare tutti i file con estensione *.csv da un BLOB specifico del contenitore di origine a Data Lake Store:
+2. Run the following command to copy all files with *.csv extension from a specific blob from the source container to a Data Lake Store:
 
-		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
+        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-	ad esempio:
+    For example:
 
-		AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
+        AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
-	
-## Fatturazione
+    
+## <a name="billing"></a>Billing
 
-* Se si usa lo strumento AdlCopy in modalità autonoma, verranno fatturati i costi di uscita per lo spostamento dei dati, se l'account di origine di Archiviazione di Azure non si trova nella stessa area di Archivio Data Lake.
+* If you use the AdlCopy tool as standalone you will be billed for egress costs for moving data, if the source Azure Storage account is not in the same region as the Data Lake Store.
 
-* Se si usa lo strumento AdlCopy con l'account di Analisi Data Lake, verranno applicati i [Prezzi di Analisi Data Lake](https://azure.microsoft.com/pricing/details/data-lake-analytics/) standard.
+* If you use the AdlCopy tool with your Data Lake Analytics account, standard [Data Lake Analytics billing rates](https://azure.microsoft.com/pricing/details/data-lake-analytics/) will apply.
 
-## Considerazioni sull'uso di AdlCopy
+## <a name="considerations-for-using-adlcopy"></a>Considerations for using AdlCopy
 
-* AdlCopy (per la versione 1.0.5) supporta la copia dei dati da origini che collettivamente contengono migliaia di file e cartelle. Tuttavia, in caso di problemi durante la copia di un set di dati grande, è possibile distribuire file e cartelle in sottocartelle diverse e usare il percorso per tali sottocartelle come origine.
+* AdlCopy (for version 1.0.5), supports copying data from sources that collectively have more than thousands of files and folders. However, if you encounter issues copying a large dataset, you can distribute the files/folders into different sub-folders and use the path to those sub-folders as the source instead.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
-- [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

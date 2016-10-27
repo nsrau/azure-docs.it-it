@@ -1,124 +1,129 @@
 <properties
-	pageTitle="Proteggere Active Directory e DNS con Azure Site Recovery | Microsoft Azure"
-	description="Questo articolo descrive come implementare una soluzione di ripristino di emergenza per Active Directory usando Azure Site Recovery."
-	services="site-recovery"
-	documentationCenter=""
-	authors="prateek9us"
-	manager="abhiag"
-	editor=""/>
+    pageTitle="Protect Active Directory and DNS with Azure Site Recovery | Microsoft Azure"
+    description="This article describes how to implement a disaster recovery solution for Active Directory using Azure Site Recovery."
+    services="site-recovery"
+    documentationCenter=""
+    authors="prateek9us"
+    manager="abhiag"
+    editor=""/>
 
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="08/31/2016"
-	ms.author="pratshar"/>
-
-# Proteggere Active Directory e DNS con Azure Site Recovery
-
-Le applicazioni aziendali, ad esempio SharePoint, Dynamics AX e SAP, dipendono dall'infrastruttura di Active Directory e DNS per funzionare correttamente. Quando si crea una soluzione di ripristino di emergenza per le applicazioni, è importante ricordare che è necessario proteggere e ripristinare Active Directory e DNS prima degli altri componenti di un'applicazione, per assicurarsi che tutto funzioni correttamente in caso di emergenza.
-
-Site Recovery è un servizio di Azure che fornisce il ripristino di emergenza orchestrando la replica, il failover e il ripristino delle macchine virtuali. Site Recovery supporta vari scenari di replica per la protezione e il failover semplice delle macchine virtuali e delle applicazioni nei cloud pubblici, privati o di provider di servizi di hosting.
-
-Con Site Recovery è possibile creare un piano di ripristino di emergenza interamente automatizzato per Active Directory. In caso di interruzione, è possibile avviare un failover in pochi secondi da qualsiasi luogo e fare in modo che Active Directory sia operativo in pochi minuti. Se si è distribuito Active Directory per più applicazioni, ad esempio SharePoint e SAP nel sito primario, e si vuole eseguire il failover del sito completo, è possibile eseguire prima il failover di Active Directory tramite Site Recovery e quindi il failover delle altre applicazioni usando piani di ripristino specifici per ogni applicazione.
-
-In questo articolo viene spiegato come creare una soluzione di ripristino di emergenza per Active Directory, come eseguire failover pianificati, non pianificati e di test usando un piano di ripristino con un solo clic, le configurazioni supportate e i prerequisiti. È necessario conoscere Active Directory e Azure Site Recovery prima di iniziare.
-
-Sono consigliate due opzioni a seconda della complessità dell'ambiente.
-
-### Opzione 1
-
-Se si ha un numero ridotto di applicazioni e un singolo controller di dominio e si vuole eseguire il failover dell'intero sito, è consigliabile usare Site Recovery per replicare il controller di dominio nel sito secondario (indipendentemente dal fatto che si esegua il failover in Azure o in un sito secondario). La stessa macchina virtuale replicata può essere usata anche per il failover di test.
-
-### Opzione 2
-
-Se il numero di applicazioni è elevato ed esiste più di un controller di dominio nell'ambiente o se si prevede di eseguire il failover di alcune applicazioni contemporaneamente, oltre a replicare la macchina virtuale controller di dominio con Site Recovery è consigliabile anche configurare un controller di dominio aggiuntivo nel sito di destinazione (Azure o un data center secondario locale).
-
->[AZURE.NOTE] Anche se si implementerà l'opzione 2, per eseguire un failover di test, sarà tuttavia necessario replicare il controller di dominio usando Site Recovery. Per altre informazioni, leggere le [considerazioni sul failover di test](#considerations-for-test-failover).
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery"
+    ms.date="08/31/2016"
+    ms.author="pratshar"/>
 
 
-Le sezioni seguenti illustrano come abilitare la protezione per un controller di dominio in Site Recovery e come configurare un controller di dominio in Azure.
+# <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Protect Active Directory and DNS with Azure Site Recovery
+
+Enterprise applications such as SharePoint, Dynamics AX, and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you create a disaster recovery solution for applications, it's important to remember that you need to protect and recover Active Directory and DNS before the other application components, to ensure that things function correctly when disaster occurs.
+
+Site Recovery is an Azure service that provides disaster recovery by orchestrating replication, failover, and recovery of virtual machines. Site Recovery supports a number of replication scenarios to consistently protect, and seamlessly failover virtual machines and applications to private, public, or hoster clouds.
+
+Using Site Recovery, you can create a complete automated disaster recovery plan for Active Directory. When disruptions occur, you can initiate a failover within seconds from anywhere and get Active Directory up and running in a few minutes. If you've deployed Active Directory for multiple applications such as SharePoint and SAP in your primary site, and you want to fail over the complete site, you can fail over Active Directory first using Site Recovery, and then fail over the other applications using application-specific recovery plans.
+
+This article explains how to create a disaster recovery solution for Active Directory, how to perform planned, unplanned, and test failovers using a one-click recovery plan, the supported configurations, and prerequisites.  You should be familiar with Active Directory and Azure Site Recovery before you start.
+
+There are two recommended options based on the complexity of your environment.
+
+### <a name="option-1"></a>Option 1
+
+If you have a small number of applications and a single domain controller, and you want to fail over the entire site, then we recommend using Site Recovery to replicate the domain controller to  the secondary site (whether you're failing over to Azure or to a secondary site). The same replicated virtual machine can be used for test failover too.
+
+### <a name="option-2"></a>Option 2
+
+If you have a large number of applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you'll also set up an additional domain controller on the target site (Azure or a secondary on-premises datacenter).
+
+>[AZURE.NOTE] Even if you're implementing Option-2, for doing a test failover you'll still need to replicate the domain controller using Site Recovery. Read [test failover considerations](#considerations-for-test-failover) for more information.
 
 
-## Prerequisiti
-
-- Una distribuzione locale del server DNS e di Active Directory.
-- Un insieme di credenziali dei servizi Azure Site Recovery in una sottoscrizione di Microsoft Azure.
-- Se si esegue la replica in Azure, eseguire lo strumento Azure Virtual Machine Readiness Assessment nelle VM per assicurarsi che siano compatibili con le VM di Azure e i servizi di Azure Site Recovery.
+The following sections explain how to enable protection for a domain controller in Site Recovery, and how to set up a domain controller in Azure.
 
 
-## Abilitare la protezione usando Site Recovery
+## <a name="prerequisites"></a>Prerequisites
+
+- An on-premises deployment of Active Directory and DNS server.
+- An Azure Site Recovery Services vault in a Microsoft Azure subscription.
+- If you're replicating to Azure run the Azure Virtual Machine Readiness Assessment tool on VMs to ensure they're compatible with Azure VMs and Azure Site Recovery Services.
 
 
-### Proteggere la macchina virtuale
+## <a name="enable-protection-using-site-recovery"></a>Enable protection using Site Recovery
 
-Abilitare la protezione della macchina virtuale controller di dominio/DNS in Site Recovery. Configurare le impostazioni di Site Recovery in base al tipo di macchina virtuale (Hyper-V o VMware). Si consiglia una frequenza di replica coerente con l'arresto anomalo di 15 minuti.
 
-###Configurare le impostazioni di rete della macchina virtuale
+### <a name="protect-the-virtual-machine"></a>Protect the virtual machine
 
-Per la macchina virtuale controller di dominio/DNS, configurare le impostazioni di rete in Site Recovery in modo che la VM venga collegata alla rete corretta dopo il failover. Ad esempio, se si replicano VM Hyper-V in Azure, è possibile selezionare la VM nel cloud VMM o nel gruppo di protezione per configurare le impostazioni di rete, come illustrato di seguito
+Enable protection of the domain controller/DNS virtual machine in Site Recovery. Configure Site Recovery settings based on the virtual machine type (Hyper-V or VMware). We recommend a crash consistent replication frequency of 15 minutes.
 
-![Impostazioni di rete della VM](./media/site-recovery-active-directory/VM-Network-Settings.png)
+###<a name="configure-virtual-machine-network-settings"></a>Configure virtual machine network settings
 
-## Proteggere Active Directory con la replica di Active Directory
+For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example, if you're replicating Hyper-V VMs to Azure you can select the VM in the VMM cloud or in the protection group to configure the network settings as shown below
 
-### Protezione da sito a sito
+![VM Network Settings](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
-Creare un controller di dominio nel sito secondario e specificare il nome dello stesso dominio che verrà usato nel sito primario quando si alza di livello il server a un ruolo di controller di dominio. È possibile usare lo snap-in **Siti e servizi di Active Directory** per configurare le impostazioni nell'oggetto collegamento di sito a cui i siti vengono aggiunti. Configurando le impostazioni in un collegamento di sito, è possibile controllare quando viene eseguita la replica tra due o più siti e con quale frequenza. Per altri dettagli, vedere [Pianificazione della replica tra siti](https://technet.microsoft.com/library/cc731862.aspx).
+## <a name="protect-active-directory-with-active-directory-replication"></a>Protect Active Directory with Active Directory replication
 
-###Protezione da sito ad Azure
+### <a name="site-to-site-protection"></a>Site-to-site protection
 
-Seguire le istruzioni per creare un [controller di dominio in una rete virtuale di Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Quando si alza di livello il server a un ruolo di controller di dominio, specificare lo stesso nome di dominio usato nel sito primario.
+Create a domain controller on the secondary site and specify the name of the same domain that is being used on the primary site when you promote the server to a domain controller role. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. See [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx) for more details.
 
-[Riconfigurare quindi il server DNS per la rete virtuale](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network), per usare il server DNS in Azure.
+###<a name="site-to-azure-protection"></a>Site-to-Azure protection
+
+Follow the instructions to [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you  promote the server to a domain controller role specify the same domain name that's used on the primary site.
+
+Then [reconfigure the DNS server for the virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network), to use the DNS server in Azure.
 
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
-## Considerazioni sul failover di test
+## <a name="test-failover-considerations"></a>Test failover considerations
 
-Il failover di test si verifica in una rete isolata dalla rete di produzione, in modo che non si verifichi alcun impatto sui carichi di lavoro di produzione.
+Test failover occurs in a network that's isolated from production network so that there's no impact on production workloads.
 
-La maggior parte delle applicazioni richiede anche la presenza di un controller di dominio e di un server DNS per funzionare, quindi, prima del failover dell'applicazione, è necessario creare un controller di dominio nella rete isolata da usare per il failover di test. Il modo più semplice per eseguire questa operazione è abilitare la protezione nella macchina virtuale controller di dominio/DNS con Site Recovery ed eseguire un failover di test di tale macchina virtuale, prima di eseguire un failover di test del piano di ripristino per l'applicazione. Di seguito viene indicato come procedere:
+Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to enable protection on the domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
 
-1. Abilitare la protezione in Site Recovery per la macchina virtuale controller di dominio/DNS.
-2. Creare una rete isolata. Qualsiasi rete virtuale creata in Azure per impostazione predefinita è isolata dalle altre reti. È consigliabile che l'intervallo di indirizzi IP di questa rete sia lo stesso della rete di produzione. Non abilitare la connettività da sito a sito in questa rete.
-3. Specificare un indirizzo IP DNS nella rete creata, come indirizzo IP previsto per la macchina virtuale DNS. Se si esegue la replica in Azure, fornire l'indirizzo IP per la VM che verrà usata in caso di failover in base alle impostazioni **IP di destinazione** nella proprietà della VM. Se si esegue la replica in un altro sito locale e si usa DHCP, seguire le istruzioni per [configurare DNS e DHCP per il failover di test](site-recovery-failover.md#prepare-dhcp).
+1. Enable protection in Site Recovery for the domain controller/DNS virtual machine.
+2. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
+3. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, then provide the IP address for the VM that will be used on failover in **Target IP** setting in VM properties. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-failover.md#prepare-dhcp)
 
->[AZURE.NOTE] L'indirizzo IP allocato a una macchina virtuale durante un failover di test corrisponde all'indirizzo IP che otterrebbe durante un failover pianificato o non pianificato, se l'indirizzo IP è disponibile nella rete di failover di test. Se non lo è, la macchina virtuale riceve un altro indirizzo IP disponibile nella rete di failover di test.
+>[AZURE.NOTE] The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't, then the virtual machine  receives a different IP address that is available in the test failover network.
 
-4. Nella macchina virtuale controller di dominio eseguire un failover di test nella rete isolata. Per eseguire il failover di test usare il più recente punto di ripristino coerente con l'applicazione disponibile della macchina virtuale controller di dominio.
-5. Eseguire un failover di test per il piano di ripristino dell'applicazione.
-6. Dopo avere completato il test, contrassegnare il processo di failover di test della macchina virtuale controller di dominio del piano di ripristino come "Completato" nella scheda **Processi** nel portale di Site Recovery.
+4. On the domain controller virtual machine run a test failover of it in the isolated network. Use latest available application consistent recovery point of the domain controller virtual machine to do the test failover. 
+5. Run a test failover for the application recovery plan.
+6. After testing is complete, mark the test failover job of domain controller virtual machine and of the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
 
-### DNS e controller di dominio su computer diversi
+### <a name="dns-and-domain-controller-on-different-machines"></a>DNS and domain controller on different machines
 
-Se DNS non è presente nella stessa macchina virtuale del controller di dominio, è necessario creare una VM DNS per il failover di test. Se si trovano nella stessa VM, è possibile ignorare questa sezione.
+If DNS isn't on the same virtual machine as the domain controller you’ll need to create a DNS VM for the test failover. If they're on the same VM, you can skip this section.
 
-È possibile utilizzare un server DNS nuovo e creare tutte le zone necessarie. Ad esempio, se il dominio di Active Directory è contoso.com, è possibile creare una zona DNS con il nome contoso.com. Le voci corrispondenti a Active Directory devono essere aggiornate in DNS, come segue:
+You can use a fresh DNS server and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a DNS zone with the name contoso.com. The entries corresponding to Active Directory must be updated in DNS, as follows:
 
-1. Verificare che queste impostazioni siano state definite prima che vengano attivate altre macchine virtuali del piano di ripristino:
+1. Ensure these settings are in place before any other virtual machine in the recovery plan comes up:
 
-	- La zona deve avere il nome radice della foresta.
-	- La zona deve essere sottoposta a backup.
-	- La zona deve essere abilitata per aggiornamenti protetti e non protetti.
-	- Il sistema di risoluzione della macchina virtuale controller di dominio deve puntare all'indirizzo IP della macchina virtuale DNS.
+    - The zone must be named after the forest root name.
+    - The zone must be file backed.
+    - The zone must be enabled for secure and non-secure updates.
+    - The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
 
-2. Eseguire il comando seguente nella macchina virtuale controller di dominio:
+2. Run the following command on domain controller virtual machine:
 
-	`nltest /dsregdns`
+    `nltest /dsregdns`
 
-3. Aggiungere una zona nel server DNS, consentire aggiornamenti non protetti e aggiungere una voce al DNS:
+3. Add a zone on the DNS server, allow non-secure updates, and add an entry for it to DNS:
 
-	    dnscmd /zoneadd contoso.com  /Primary
-	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
-	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>
-	    dnscmd /config contoso.com /allowupdate 1
+        dnscmd /zoneadd contoso.com  /Primary
+        dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
+        dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>
+        dnscmd /config contoso.com /allowupdate 1
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per altre informazioni sulla protezione dei carichi di lavoro aziendali con Azure Site Recovery, leggere [Quali carichi di lavoro è possibile proteggere?](../site-recovery/site-recovery-workload.md).
+Read [What workloads can I protect?](../site-recovery/site-recovery-workload.md) to learn more about protecting enterprise workloads with Azure Site Recovery.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

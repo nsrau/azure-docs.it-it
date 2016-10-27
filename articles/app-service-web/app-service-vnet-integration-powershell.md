@@ -1,558 +1,559 @@
 <properties
-	pageTitle="Connettere l'app alla rete virtuale tramite PowerShell"
-	description="Istruzioni sulla connessione e l'uso di reti virtuali con PowerShell"
-	services="app-service"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
-	editor="cephalin"/>
+    pageTitle="Connect your app to your virtual network by using PowerShell"
+    description="Instructions about how to connect to and work with virtual networks by using PowerShell"
+    services="app-service"
+    documentationCenter=""
+    authors="ccompy"
+    manager="wpickett"
+    editor="cephalin"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="ccompy"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="ccompy"/>
 
-# Connettere l'app alla rete virtuale tramite PowerShell #
 
-## Overview ##
+# <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>Connect your app to your virtual network by using PowerShell #
 
-Nel servizio app di Azure è possibile connettere l'app Web, l'app per dispositivi mobili o l'app per le API a una rete virtuale (VNet) di Azure nella sottoscrizione. Questa funzionalità è detta integrazione rete virtuale. La funzionalità di integrazione rete virtuale non deve essere confusa con la funzionalità Ambiente del servizio app, che consente di eseguire un'istanza del servizio app di Azure nella rete virtuale.
+## <a name="overview"></a>Overview ##
 
-La funzionalità di integrazione rete virtuale ha un'interfaccia utente nel nuovo portale che può essere usata per l'integrazione con le reti virtuali che vengono distribuite tramite il modello di distribuzione classica o il modello di distribuzione Azure Resource Manager. Per altre informazioni sulla funzionalità, vedere [Integrare un'app in una rete virtuale di Azure](web-sites-integrate-with-vnet.md).
+In Azure App Service, you can connect your app (web, mobile, or API) to an Azure virtual network (VNet) in your subscription. This feature is called VNet Integration. The VNet Integration feature should not be confused with the App Service Environment feature, which allows you to run an instance of Azure App Service in your virtual network.
 
-Questo articolo non illustra l'uso dell'interfaccia utente, ma piuttosto come abilitare l'integrazione usando PowerShell. Poiché ogni modello di distribuzione ha comandi diversi, questo articolo contiene una sezione per ogni modello di distribuzione.
+The VNet Integration feature has a user interface (UI) in the new portal that you can use to integrate with virtual networks that are deployed by using either the classic deployment model or the Azure Resource Manager deployment model. If you want to learn more about the feature, see [Integrate your app with an Azure virtual network](web-sites-integrate-with-vnet.md).
 
-Prima di continuare con l'articolo, verificare la disponibilità di quanto segue:
+This article is not about how to use the UI but rather about how to enable integration by using PowerShell. Because the commands for each deployment model are different, this article has a section for each deployment model.  
 
-- SDK di Azure PowerShell più recente. Per installarlo, è possibile usare l'Installazione guidata piattaforma Web.
-- Un'app nel servizio app di Azure in esecuzione all'interno di uno SKU Standard o Premium.
+Before you continue with this article, ensure that you have:
 
-## Reti virtuali classiche ##
+- The latest Azure PowerShell SDK installed. You can install this with the Web Platform Installer.
+- An app in Azure App Service running in a Standard or Premium SKU.
 
-Questa sezione illustra tre attività per le reti virtuali che usano il modello di distribuzione classica:
+## <a name="classic-virtual-networks"></a>Classic virtual networks ##
 
-1. Collegare l'app a una rete virtuale preesistente dotata di gateway e configurata per la connettività da punto a sito.
-1. Aggiornare le informazioni di integrazione della rete virtuale per l'app
-1. Disconnettere l'app dalla rete virtuale.
+This section explains three tasks for virtual networks that use the classic deployment model:
 
-### Connettere un'app a una rete virtuale classica ###
+1. Connect your app to a preexisting virtual network that has a gateway and is configured for point-to-site connectivity.
+1. Update your virtual network integration information for your app.
+1. Disconnect your app from your virtual network.
 
-Per connettere un'app a una rete virtuale, seguire questa procedura:
+### <a name="connect-an-app-to-a-classic-vnet"></a>Connect an app to a classic VNet ###
 
-1. Dichiarare all'app Web l'aggiunta a una rete virtuale specifica. L'app genera un certificato che viene trasmesso alla rete virtuale per la connettività da punto a sito.
-1. Caricare il certificato dell'app Web nella rete virtuale e quindi recuperare l'URI del pacchetto VPN da punto a sito.
-1. Aggiornare la connessione alla rete virtuale dell'app Web con l'URI del pacchetto da punto a sito.
+To connect an app to a virtual network, follow these three steps:
 
-Il primo e il terzo passaggio sono completamente configurabili tramite script, mentre il secondo passaggio richiede un'unica azione manuale tramite il portale o l'accesso per eseguire azioni **PUT** o **PATCH** sull'endpoint di Azure Resource Manager della rete virtuale. Contattare il supporto di Azure per questa opzione. Prima di iniziare, assicurarsi che sia già abilitata una rete virtuale classica con connettività da punto a sito e che sia disponibile un gateway distribuito. Per creare il gateway e abilitare la connettività da punto a sito è necessario usare il portale, come descritto nell'articolo relativo alla [creazione di un gateway VPN][createvpngateway].
+1. Declare to the web app that it will be joining a particular virtual network. The app will generate a certificate that will be given to the virtual network for point-to-site connectivity.
+1. Upload the web app certificate to the virtual network, and then retrieve the point-to-site VPN package URI.
+1. Update the web app's virtual network connection with the point-to-site package URI.
 
-La rete virtuale classica deve essere nella stessa sottoscrizione del piano di servizio app che contiene l'app con cui si sta eseguendo l'integrazione.
+The first and third steps are fully scriptable, but the second step requires a one-time, manual action through the portal, or access to perform **PUT** or **PATCH** actions on the virtual network Azure Resource Manager endpoint. Contact Azure Support to have this enabled. Before you start, make sure that you have a classic virtual network that has point-to-site connectivity already enabled and a deployed gateway. To create the gateway and enable point-to-site connectivity, you need to use the portal as described at [Creating a VPN gateway][createvpngateway].
 
-##### Configurare Azure PowerShell SDK #####
+The classic virtual network needs to be in the same subscription as your App Service plan that holds the app that you are integrating with.
 
-Aprire una finestra di PowerShell e configurare l'account e la sottoscrizione di Azure con:
+##### <a name="set-up-azure-powershell-sdk"></a>Set up Azure PowerShell SDK #####
 
-	Login-AzureRmAccount
+Open a PowerShell window and set up your Azure account and subscription by using:
 
-Il comando consente di aprire un prompt per ricevere le credenziali di Azure. Dopo l'accesso, usare uno dei comandi seguenti per selezionare la sottoscrizione da usare. Assicurarsi di usare la sottoscrizione che include la rete virtuale e il piano di servizio app usati.
+    Login-AzureRmAccount
 
-	Select-AzureRmSubscription –SubscriptionName [WebAppSubscriptionName]
+That command will open a prompt to get your Azure credentials. After you sign in, use either of the following commands to select the subscription that you want to use. Make sure that you are using the subscription that your virtual network and App Service plan are in.
 
-oppure
+    Select-AzureRmSubscription –SubscriptionName [WebAppSubscriptionName]
 
-	Select-AzureRmSubscription –SubscriptionId [WebAppSubscriptionId]
+or
 
-##### Variabili usate in questo articolo #####
+    Select-AzureRmSubscription –SubscriptionId [WebAppSubscriptionId]
 
-Per semplificare i comandi, verrà impostata una variabile **$Configuration** di PowerShell con la configurazione specifica.
+##### <a name="variables-used-in-this-article"></a>Variables used in this article #####
 
-Impostare la variabile in PowerShell secondo la procedura riportata di seguito, usare i seguenti parametri:
+To simplify commands, we will set a **$Configuration** PowerShell variable with the specific configuration.
 
-	$Configuration = @{}
-	$Configuration.WebAppResourceGroup = "[Your web app resource group]"
-	$Configuration.WebAppName = "[Your web app name]"
-	$Configuration.VnetSubscriptionId = "[Your vnet subscription id]"
-	$Configuration.VnetResourceGroup = "[Your vnet resource group]"
-	$Configuration.VnetName = "[Your vnet name]"
+Set a variable as follows in PowerShell with the following parameters:
 
-La località dell'app non deve contenere spazi. Ad esempio West US, per gli Stati Uniti occidentali, sarà westus.
+    $Configuration = @{}
+    $Configuration.WebAppResourceGroup = "[Your web app resource group]"
+    $Configuration.WebAppName = "[Your web app name]"
+    $Configuration.VnetSubscriptionId = "[Your vnet subscription id]"
+    $Configuration.VnetResourceGroup = "[Your vnet resource group]"
+    $Configuration.VnetName = "[Your vnet name]"
 
-	$Configuration.WebAppLocation = "[Your web app Location]"
+The app location should be the location without any spaces. For example, West US is westus.
 
-Il prossimo elemento identifica il percorso in cui deve essere scritto il certificato. Deve essere un percorso accessibile in scrittura nel computer locale. Assicurarsi di includere .cer alla fine.
+    $Configuration.WebAppLocation = "[Your web app Location]"
 
-	$Configuration.GeneratedCertificatePath = "[C:\Path\To\Certificate.cer]"
+The next item is where the certificate should be written. It should be a writable path on your local computer. Make sure to include .cer at the end.
 
-Per verificare le impostazioni applicate, digitare **$Configuration**.
+    $Configuration.GeneratedCertificatePath = "[C:\Path\To\Certificate.cer]"
 
-	> $Configuration
+To see what you set, type **$Configuration**.
 
-	Name                           Value
-	----                           -----
-	GeneratedCertificatePath       C:\vnetcert.cer
-	VnetSubscriptionId             efc239a4-88f9-2c5e-a9a1-3034c21ad496
-	WebAppResourceGroup            vnetdemo-rg
-	VnetResourceGroup              testase1-rg
-	VnetName                       TestNetwork
-	WebAppName                     vnetintdemoapp
-	WebAppLocation                 centralus
+    > $Configuration
 
-Nella parte restante di questa sezione si presuppone che sia stata creata una variabile come descritto in precedenza.
+    Name                           Value
+    ----                           -----
+    GeneratedCertificatePath       C:\vnetcert.cer
+    VnetSubscriptionId             efc239a4-88f9-2c5e-a9a1-3034c21ad496
+    WebAppResourceGroup            vnetdemo-rg
+    VnetResourceGroup              testase1-rg
+    VnetName                       TestNetwork
+    WebAppName                     vnetintdemoapp
+    WebAppLocation                 centralus
 
-##### Dichiarare la rete virtuale all'app #####
+The rest of this section assumes that you have a variable created as just described.
 
-Usare il comando seguente per indicare all'app che verrà usata questa rete virtuale specifica. In questo modo l'app genererà i certificati necessari:
+##### <a name="declare-the-virtual-network-to-the-app"></a>Declare the virtual network to the app #####
 
-	$vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -PropertyObject @{"VnetResourceId" = "/subscriptions/$($Configuration.VnetSubscriptionId)/resourceGroups/$($Configuration.VnetResourceGroup)/providers/Microsoft.ClassicNetwork/virtualNetworks/$($Configuration.VnetName)"} -Location $Configuration.WebAppLocation -ApiVersion 2015-07-01
+Use the following command to tell the app that it will be using this particular virtual network. This will cause the app to generate necessary certificates:
 
-Se il comando ha esito positivo, **$vnet** deve contenere una variabile **Properties**. La variabile **Properties** deve contenere sia un'identificazione personale del certificato che i dati del certificato.
+    $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -PropertyObject @{"VnetResourceId" = "/subscriptions/$($Configuration.VnetSubscriptionId)/resourceGroups/$($Configuration.VnetResourceGroup)/providers/Microsoft.ClassicNetwork/virtualNetworks/$($Configuration.VnetName)"} -Location $Configuration.WebAppLocation -ApiVersion 2015-07-01
 
-##### Caricare il certificato dell'app Web nella rete virtuale #####
+If this command succeeds, **$vnet** should have a **Properties** variable in it. The **Properties** variable should contain both a certificate thumbprint and the certificate data.
 
-Per ogni combinazione di sottoscrizione e rete virtuale è necessario eseguire un unico passaggio manuale. Se, ad esempio, si connettono le app della Sottoscrizione A alla Rete virtuale A, è necessario eseguire questo passaggio solo una volta, indipendentemente dal numero di app da configurare. Se si aggiunge una nuova app a un'altra rete virtuale, sarà necessario ripetere l'operazione. Il motivo è che il set di certificati generato a livello di sottoscrizione nel servizio app di Azure viene generato una sola volta per ogni rete virtuale a cui le app si devono connettere.
+##### <a name="upload-the-web-app-certificate-to-the-virtual-network"></a>Upload the web app certificate to the virtual network #####
 
-Se è stata seguita la procedura oppure è stata eseguita l'integrazione con la stessa rete virtuale tramite il portale, i certificati sono già impostati.
+A manual, one-time step is required for each subscription and virtual network combination. That is, if you are connecting apps in Subscription A to Virtual Network A, you will need to do this step only once regardless of how many apps you configure. If you are adding a new app to another virtual network, you'll need to do this again. The reason for this is that a set of certificates is generated at a subscription level in Azure App Service, and the set is generated once for each virtual network that the apps will connect to.
 
-Il primo passaggio consiste nel generare il file con estensione .cer. Il secondo passaggio consiste nel caricare il file CER nella rete virtuale. Per generare il file. cer dalla chiamata dell'API descritta nel passaggio precedente, eseguire i comandi riportati in basso.
+The certificates will have already been set if you followed these steps or if you integrated with the same virtual network by using the portal.
 
-	$certBytes = [System.Convert]::FromBase64String($vnet.Properties.certBlob)
-	[System.IO.File]::WriteAllBytes("$($Configuration.GeneratedCertificatePath)", $certBytes)
+The first step is to generate the .cer file. The second step is to upload the .cer file to your virtual network. To generate the .cer file from the API call in the earlier step, run the following commands.
 
-Il certificato si trova nel percorso specificato da **$Configuration.GeneratedCertificatePath**.
+    $certBytes = [System.Convert]::FromBase64String($vnet.Properties.certBlob)
+    [System.IO.File]::WriteAllBytes("$($Configuration.GeneratedCertificatePath)", $certBytes)
 
-Per caricare il certificato manualmente, usare il [Portale di Azure][azureportal] e selezionare **Sfoglia > Rete virtuale (versione classica)** > **Connessioni VPN** > **Da punto a sito** > **Gestione certificati**. A questo punto, caricare il certificato.
+The certificate will be found in the location that **$Configuration.GeneratedCertificatePath** specifies.
 
-##### Ottenere il pacchetto da punto a sito #####
+To upload the certificate manually, use the [Azure portal][azureportal] and **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates**. From here, upload your certificate.
 
-Il passaggio successivo nella configurazione di una connessione di rete virtuale in un'app Web consiste nell'ottenere il pacchetto da punto a sito per fornirlo all'app Web.
+##### <a name="get-the-point-to-site-package"></a>Get the point-to-site package #####
 
-Salvare il modello seguente in un file denominato GetNetworkPackageUri.json in un percorso nel computer, ad esempio in C:\\Azure\\Templates\\GetNetworkPackageUri.json.
+The next step in setting up a virtual network connection on a web app is to get the point-to-site package and provide it to your web app.
 
-	{
-		"$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-		"contentVersion": "1.0.0.0",
-		"parameters": {
-			"certData": {
-				"type": "string"
-			},
-			"certThumbprint": {
-				"type": "string"
-			},
-			"networkName": {
-				"type": "string"
-			}
-		},
-		"variables": {
-			"legacyVnetName": "[concat('Group ', resourceGroup().name, ' ', parameters('networkName'))]"
-			},
-			"resources": [
-			],
-		"outputs" : {
-			"PackageUri" :
-			{
-			"value" : "[listPackage(resourceId('Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates', parameters('networkName'), 'primary', parameters('certThumbprint')), '2014-06-01').packageUri]", "type" : "string"
-			}
-		}
-	}
+Save the following template to a file called GetNetworkPackageUri.json somewhere on your computer, for example, C:\Azure\Templates\GetNetworkPackageUri.json.
 
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "certData": {
+                "type": "string"
+            },
+            "certThumbprint": {
+                "type": "string"
+            },
+            "networkName": {
+                "type": "string"
+            }
+        },
+        "variables": {
+            "legacyVnetName": "[concat('Group ', resourceGroup().name, ' ', parameters('networkName'))]"
+            },
+            "resources": [
+            ],
+        "outputs" : {
+            "PackageUri" :
+            {
+            "value" : "[listPackage(resourceId('Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates', parameters('networkName'), 'primary', parameters('certThumbprint')), '2014-06-01').packageUri]", "type" : "string"
+            }
+        }
+    }
 
-Impostare i parametri di input:
 
-	$parameters = @{"certData" = $vnet.Properties.certBlob ;
-	certThumbprint = $vnet.Properties.certThumbprint ;
-	"networkName" = $Configuration.VnetName }
+Set input parameters:
 
-Chiamare lo script:
+    $parameters = @{"certData" = $vnet.Properties.certBlob ;
+    certThumbprint = $vnet.Properties.certThumbprint ;
+    "networkName" = $Configuration.VnetName }
 
-	$output = New-AzureRmResourceGroupDeployment -Name unused -ResourceGroupName $Configuration.VnetResourceGroup -TemplateParameterObject $parameters -TemplateFile C:\PATH\TO\GetNetworkPackageUri.json
+Call the script:
 
+    $output = New-AzureRmResourceGroupDeployment -Name unused -ResourceGroupName $Configuration.VnetResourceGroup -TemplateParameterObject $parameters -TemplateFile C:\PATH\TO\GetNetworkPackageUri.json
 
-La variabile **$output.Outputs.packageUri** contiene ora il pacchetto URI da fornire all'app Web.
 
-##### Caricare il pacchetto da punto a sito nell'app #####
+The variable **$output.Outputs.packageUri** will now contain the package URI to be given to your web app.
 
-Il passaggio finale consiste nell'assegnazione del pacchetto all'applicazione. È sufficiente eseguire questo comando:
+##### <a name="upload-the-point-to-site-package-to-your-app"></a>Upload the point-to-site package to your app #####
 
-	$vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)/primary" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-07-01 -PropertyObject @{"VnetName" = $Configuration.VnetName ; "VpnPackageUri" = $($output.Outputs.packageUri).Value } -Location $Configuration.WebAppLocation
+The final step is to provide the app with this package. Simply run the next command:
 
-Potrebbe essere visualizzato un messaggio che richiede la conferma della sovrascrittura di una risorsa esistente. Confermare l'operazione.
+    $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)/primary" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-07-01 -PropertyObject @{"VnetName" = $Configuration.VnetName ; "VpnPackageUri" = $($output.Outputs.packageUri).Value } -Location $Configuration.WebAppLocation
 
-Se il comando ha esito positivo, l'app dovrebbe essere connessa alla rete virtuale. Verificare passando alla console dell'app e digitando quanto segue:
+If a message asks you to confirm that you are overwriting an existing resource, make sure to allow it.
 
-	SET WEBSITE_
+After this command succeeds, your app should now be connected to the virtual network. To confirm success, go to your app console, and type the following:
 
-Se è presente una variabile di ambiente denominata WEBSITE\_VNETNAME con un valore corrispondente al nome della rete virtuale di destinazione, tutte le configurazioni sono state completate.
+    SET WEBSITE_
 
-### Aggiornare le informazioni di integrazione rete virtuale classica ###
+If there is an environment variable called WEBSITE_VNETNAME that has a value that matches the name of the target virtual network, all configurations have succeeded.
 
-Per aggiornare o risincronizzare le informazioni è sufficiente ripetere i passaggi seguiti per la creazione dell'integrazione. I passaggi sono:
+### <a name="update-classic-vnet-integration-information"></a>Update classic VNet integration information ###
 
-1. Definire le informazioni di configurazione.
-1. Dichiarare la rete virtuale all'app.
-1. Ottenere il pacchetto da punto a sito.
-1. Caricare il pacchetto da punto a sito nell'app.
+To update or resync your information, simply repeat the steps that you followed when you created the integration in the first place. Those steps are:
 
-### Disconnettere l'app da una rete virtuale classica ###
+1. Define your configuration information.
+1. Declare the virtual network to the app.
+1. Get the point-to-site package.
+1. Upload the point-to-site package to your app.
 
-Per disconnettere l'app sono necessarie le informazioni di configurazione impostate durante l'integrazione della rete virtuale. Con tali informazioni, è possibile usare un unico comando per disconnettere l'app dalla rete virtuale.
+### <a name="disconnect-your-app-from-a-classic-vnet"></a>Disconnect your app from a classic VNet ###
 
-	$vnet = Remove-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-07-01
+To disconnect the app, you need the configuration information that was set during virtual network integration. Using that information, there is then one command to disconnect your app from your virtual network.
 
-## Reti virtuali di Azure Resource Manager ##
+    $vnet = Remove-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-07-01
 
-Le reti virtuali di Azure Resource Manager usano le API di Azure Resource Manager, che permettono di semplificare alcuni processi rispetto alle reti virtuali classiche. È disponibile uno script che consente completare le attività seguenti:
+## <a name="resource-manager-virtual-networks"></a>Resource Manager virtual networks ##
 
-- Creare una rete virtuale di Azure Resource Manager e integrarla con l'app.
-- Creare un gateway, configurare la connettività da punto a sito in una rete virtuale di Azure Resource Manager esistente e quindi integrarla con l'app.
-- Integrare l'app con una rete virtuale di Azure Resource Manager esistente che abbia un gateway e la connettività da punto a sito abilitata.
-- Disconnettere l'app dalla rete virtuale.
+Resource Manager virtual networks have Azure Resource Manager APIs, which simplify some processes when compared with classic virtual networks. We have a script that will help you complete the following tasks:
 
-### Script di integrazione del servizio app della rete virtuale di Azure Resource Manager ###
+- Create a Resource Manager virtual network and integrate your app with it.
+- Create a gateway, configure point-to-site connectivity in a preexisting Resource Manager virtual network, and then integrate your app with it.
+- Integrate your app with a preexisting Resource Manager virtual network that has a gateway and point-to-site connectivity enabled.
+- Disconnect your app from your virtual network.
 
-Copiare lo script seguente e salvarlo in un file. Se si preferisce non usare lo script, è comunque possibile prenderne spunto per la configurazione di una rete virtuale di Azure Resource Manager.
+### <a name="resource-manager-vnet-app-service-integration-script"></a>Resource Manager VNet App Service integration script ###
+
+Copy the following script and save it to a file. If you don’t want to use the script, feel free to learn from it to see how to set things up with a Resource Manager virtual network.
 
 
     function ReadHostWithDefault($message, $default)
     {
-    	$result = Read-Host "$message [$default]"
-    	if($result -eq "")
-	    {
-			$result = $default
-	    }
-		    return $result
-    	}
+        $result = Read-Host "$message [$default]"
+        if($result -eq "")
+        {
+            $result = $default
+        }
+            return $result
+        }
 
-	function PromptCustom($title, $optionValues, $optionDescriptions)
-	{
-	    Write-Host $title
-	    Write-Host
-	    $a = @()
-	    for($i = 0; $i -lt $optionValues.Length; $i++){
-		    Write-Host "$($i+1))" $optionDescriptions[$i]
-	    }
-	    Write-Host
+    function PromptCustom($title, $optionValues, $optionDescriptions)
+    {
+        Write-Host $title
+        Write-Host
+        $a = @()
+        for($i = 0; $i -lt $optionValues.Length; $i++){
+            Write-Host "$($i+1))" $optionDescriptions[$i]
+        }
+        Write-Host
 
-	    while($true)
-	    {
-		    Write-Host "Choose an option: "
-		    $option = Read-Host
-		    $option = $option -as [int]
+        while($true)
+        {
+            Write-Host "Choose an option: "
+            $option = Read-Host
+            $option = $option -as [int]
 
-		    if($option -ge 1 -and $option -le $optionValues.Length)
-		    {
-			    return $optionValues[$option-1]
-		    }
-	    }
+            if($option -ge 1 -and $option -le $optionValues.Length)
+            {
+                return $optionValues[$option-1]
+            }
+        }
     }
 
     function PromptYesNo($title, $message, $default = 0)
     {
-	    $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", ""
-	    $no = New-Object System.Management.Automation.Host.ChoiceDescription "&No", ""
-	    $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
-	    $result = $host.ui.PromptForChoice($title, $message, $options, $default)
-	    return $result
+        $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", ""
+        $no = New-Object System.Management.Automation.Host.ChoiceDescription "&No", ""
+        $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+        $result = $host.ui.PromptForChoice($title, $message, $options, $default)
+        return $result
     }
 
     function CreateVnet($resourceGroupName, $vnetName, $vnetAddressSpace, $vnetGatewayAddressSpace, $location)
     {
-	    Write-Host "Creating a new VNET"
-	    $gatewaySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $vnetGatewayAddressSpace
-	    New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName -Location $location -AddressPrefix $vnetAddressSpace -Subnet $gatewaySubnet
+        Write-Host "Creating a new VNET"
+        $gatewaySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $vnetGatewayAddressSpace
+        New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName -Location $location -AddressPrefix $vnetAddressSpace -Subnet $gatewaySubnet
     }
 
     function CreateVnetGateway($resourceGroupName, $vnetName, $vnetIpName, $location, $vnetIpConfigName, $vnetGatewayName, $certificateData, $vnetPointToSiteAddressSpace)
     {
-	    $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName
-	    $subnet=Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+        $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName
+        $subnet=Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 
-	    Write-Host "Creating a public IP address for this VNET"
-	    $pip = New-AzureRmPublicIpAddress -Name $vnetIpName -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
-	    $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $vnetIpConfigName -Subnet $subnet -PublicIpAddress $pip
+        Write-Host "Creating a public IP address for this VNET"
+        $pip = New-AzureRmPublicIpAddress -Name $vnetIpName -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+        $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $vnetIpConfigName -Subnet $subnet -PublicIpAddress $pip
 
-	    Write-Host "Adding a root certificate to this VNET"
-	    $root = New-AzureRmVpnClientRootCertificate -Name "AppServiceCertificate.cer" -PublicCertData $certificateData
+        Write-Host "Adding a root certificate to this VNET"
+        $root = New-AzureRmVpnClientRootCertificate -Name "AppServiceCertificate.cer" -PublicCertData $certificateData
 
-	    Write-Host "Creating Azure VNET Gateway. This may take up to an hour."
-	    New-AzureRmVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $resourceGroupName -Location $location -IpConfigurations $ipconf -GatewayType Vpn -VpnType RouteBased -EnableBgp $false -GatewaySku Basic -VpnClientAddressPool $vnetPointToSiteAddressSpace -VpnClientRootCertificates $root
+        Write-Host "Creating Azure VNET Gateway. This may take up to an hour."
+        New-AzureRmVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $resourceGroupName -Location $location -IpConfigurations $ipconf -GatewayType Vpn -VpnType RouteBased -EnableBgp $false -GatewaySku Basic -VpnClientAddressPool $vnetPointToSiteAddressSpace -VpnClientRootCertificates $root
     }
 
     function AddNewVnet($subscriptionId, $webAppResourceGroup, $webAppName)
     {
-	    Write-Host "Adding a new Vnet"
-	    Write-Host
-	    $vnetName = Read-Host "Specify a name for this Virtual Network"
+        Write-Host "Adding a new Vnet"
+        Write-Host
+        $vnetName = Read-Host "Specify a name for this Virtual Network"
 
-	    $vnetGatewayName="$($vnetName)-gateway"
-	    $vnetIpName="$($vnetName)-ip"
-	    $vnetIpConfigName="$($vnetName)-ipconf"
+        $vnetGatewayName="$($vnetName)-gateway"
+        $vnetIpName="$($vnetName)-ip"
+        $vnetIpConfigName="$($vnetName)-ipconf"
 
-	    # Virtual Network settings
-	    $vnetAddressSpace="10.0.0.0/8"
-	    $vnetGatewayAddressSpace="10.5.0.0/16"
-	    $vnetPointToSiteAddressSpace="172.16.0.0/16"
+        # Virtual Network settings
+        $vnetAddressSpace="10.0.0.0/8"
+        $vnetGatewayAddressSpace="10.5.0.0/16"
+        $vnetPointToSiteAddressSpace="172.16.0.0/16"
 
-	    $changeRequested = 0
-	    $resourceGroupName = $webAppResourceGroup
+        $changeRequested = 0
+        $resourceGroupName = $webAppResourceGroup
 
-	    while($changeRequested -eq 0)
-	    {
-		    Write-Host
-		    Write-Host "Currently, I will create a VNET with the following settings:"
-		    Write-Host
-		    Write-Host "Virtual Network Name: $vnetName"
-		    Write-Host "Resource Group Name:  $resourceGroupName"
-		    Write-Host "Gateway Name: $vnetGatewayName"
-		    Write-Host "Vnet IP name: $vnetIpName"
-		    Write-Host "Vnet IP config name:  $vnetIpConfigName"
-		    Write-Host "Address Space:$vnetAddressSpace"
-		    Write-Host "Gateway Address Space:$vnetGatewayAddressSpace"
-		    Write-Host "Point-To-Site Address Space:  $vnetPointToSiteAddressSpace"
-		    Write-Host
-		    $changeRequested = PromptYesNo "" "Do you wish to change these settings?" 1
+        while($changeRequested -eq 0)
+        {
+            Write-Host
+            Write-Host "Currently, I will create a VNET with the following settings:"
+            Write-Host
+            Write-Host "Virtual Network Name: $vnetName"
+            Write-Host "Resource Group Name:  $resourceGroupName"
+            Write-Host "Gateway Name: $vnetGatewayName"
+            Write-Host "Vnet IP name: $vnetIpName"
+            Write-Host "Vnet IP config name:  $vnetIpConfigName"
+            Write-Host "Address Space:$vnetAddressSpace"
+            Write-Host "Gateway Address Space:$vnetGatewayAddressSpace"
+            Write-Host "Point-To-Site Address Space:  $vnetPointToSiteAddressSpace"
+            Write-Host
+            $changeRequested = PromptYesNo "" "Do you wish to change these settings?" 1
 
-		    if($changeRequested -eq 0)
-		    {
-			    $vnetName = ReadHostWithDefault "Virtual Network Name" $vnetName
-			    $resourceGroupName = ReadHostWithDefault "Resource Group Name" $resourceGroupName
-			    $vnetGatewayName = ReadHostWithDefault "Vnet Gateway Name" $vnetGatewayName
-			    $vnetIpName = ReadHostWithDefault "Vnet IP name" $vnetIpName
-			    $vnetIpConfigName = ReadHostWithDefault "Vnet IP configuration name" $vnetIpConfigName
-			    $vnetAddressSpace = ReadHostWithDefault "Vnet Address Space" $vnetAddressSpace
-			    $vnetGatewayAddressSpace = ReadHostWithDefault "Vnet Gateway Address Space" $vnetGatewayAddressSpace
-			    $vnetPointToSiteAddressSpace = ReadHostWithDefault "Vnet Point-to-site Address Space" $vnetPointToSiteAddressSpace
-		    }
-	    }
+            if($changeRequested -eq 0)
+            {
+                $vnetName = ReadHostWithDefault "Virtual Network Name" $vnetName
+                $resourceGroupName = ReadHostWithDefault "Resource Group Name" $resourceGroupName
+                $vnetGatewayName = ReadHostWithDefault "Vnet Gateway Name" $vnetGatewayName
+                $vnetIpName = ReadHostWithDefault "Vnet IP name" $vnetIpName
+                $vnetIpConfigName = ReadHostWithDefault "Vnet IP configuration name" $vnetIpConfigName
+                $vnetAddressSpace = ReadHostWithDefault "Vnet Address Space" $vnetAddressSpace
+                $vnetGatewayAddressSpace = ReadHostWithDefault "Vnet Gateway Address Space" $vnetGatewayAddressSpace
+                $vnetPointToSiteAddressSpace = ReadHostWithDefault "Vnet Point-to-site Address Space" $vnetPointToSiteAddressSpace
+            }
+        }
 
-	    $ErrorActionPreference = "Stop";
+        $ErrorActionPreference = "Stop";
 
-	    # We create the virtual network and add it here. The way this works is:
-	    # 1) Add the VNET association to the App. This allows the App to generate certificates, etc. for the VNET.
-	    # 2) Create the VNET and VNET gateway, add the certificates, create the public IP, etc., required for the gateway
-	    # 3) Get the VPN package from the gateway and pass it back to the App.
+        # We create the virtual network and add it here. The way this works is:
+        # 1) Add the VNET association to the App. This allows the App to generate certificates, etc. for the VNET.
+        # 2) Create the VNET and VNET gateway, add the certificates, create the public IP, etc., required for the gateway
+        # 3) Get the VPN package from the gateway and pass it back to the App.
 
-	    $webApp = Get-AzureRmResource -ResourceName $webAppName -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01 -ResourceGroupName $webAppResourceGroup
-	    $location = $webApp.Location
+        $webApp = Get-AzureRmResource -ResourceName $webAppName -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01 -ResourceGroupName $webAppResourceGroup
+        $location = $webApp.Location
 
-	    Write-Host "Creating App association to VNET"
-	    $propertiesObject = @{
-	     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($resourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
-	    }
-	    $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnetName)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $webAppResourceGroup -Force
+        Write-Host "Creating App association to VNET"
+        $propertiesObject = @{
+         "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($resourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
+        }
+        $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnetName)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $webAppResourceGroup -Force
 
-	    CreateVnet $resourceGroupName $vnetName $vnetAddressSpace $vnetGatewayAddressSpace $location
+        CreateVnet $resourceGroupName $vnetName $vnetAddressSpace $vnetGatewayAddressSpace $location
 
-	    CreateVnetGateway $resourceGroupName $vnetName $vnetIpName $location $vnetIpConfigName $vnetGatewayName $virtualNetwork.Properties.CertBlob $vnetPointToSiteAddressSpace
+        CreateVnetGateway $resourceGroupName $vnetName $vnetIpName $location $vnetIpConfigName $vnetGatewayName $virtualNetwork.Properties.CertBlob $vnetPointToSiteAddressSpace
 
-	    Write-Host "Retrieving VPN Package and supplying to App"
-	    $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
+        Write-Host "Retrieving VPN Package and supplying to App"
+        $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
 
-	    # Put the VPN client configuration package onto the App
-	    $PropertiesObject = @{
-	    "vnetName" = $VirtualNetworkName; "vpnPackageUri" = $packageUri
-	    }
+        # Put the VPN client configuration package onto the App
+        $PropertiesObject = @{
+        "vnetName" = $VirtualNetworkName; "vpnPackageUri" = $packageUri
+        }
 
-	    New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnetName)/primary" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-08-01 -ResourceGroupName $webAppResourceGroup -Force
+        New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnetName)/primary" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-08-01 -ResourceGroupName $webAppResourceGroup -Force
 
-	    Write-Host "Finished!"
+        Write-Host "Finished!"
     }
 
     function AddExistingVnet($subscriptionId, $resourceGroupName, $webAppName)
     {
-		$ErrorActionPreference = "Stop";
+        $ErrorActionPreference = "Stop";
 
-		# At this point, the gateway should be able to be joined to an App, but may require some minor tweaking. We will declare to the App now to use this VNET
-		Write-Host "Getting App information"
-		$webApp = Get-AzureRmResource -ResourceName $webAppName -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
-		$location = $webApp.Location
+        # At this point, the gateway should be able to be joined to an App, but may require some minor tweaking. We will declare to the App now to use this VNET
+        Write-Host "Getting App information"
+        $webApp = Get-AzureRmResource -ResourceName $webAppName -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
+        $location = $webApp.Location
 
-		$webAppConfig = Get-AzureRmResource -ResourceName "$($webAppName)/web" -ResourceType "Microsoft.Web/sites/config" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
-		$currentVnet = $webAppConfig.Properties.VnetName
-		if($currentVnet -ne $null -and $currentVnet -ne "")
-		{
-			Write-Host "Currently connected to VNET $currentVnet"
-		}
+        $webAppConfig = Get-AzureRmResource -ResourceName "$($webAppName)/web" -ResourceType "Microsoft.Web/sites/config" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
+        $currentVnet = $webAppConfig.Properties.VnetName
+        if($currentVnet -ne $null -and $currentVnet -ne "")
+        {
+            Write-Host "Currently connected to VNET $currentVnet"
+        }
 
-		# Display existing vnets
-		$vnets = Get-AzureRmVirtualNetwork
-		$vnetNames = @()
-		foreach($vnet in $vnets)
-		{
-			$vnetNames += $vnet.Name
-	    }
+        # Display existing vnets
+        $vnets = Get-AzureRmVirtualNetwork
+        $vnetNames = @()
+        foreach($vnet in $vnets)
+        {
+            $vnetNames += $vnet.Name
+        }
 
-	    Write-Host
-	    $vnet = PromptCustom "Select a VNET to integrate with" $vnets $vnetNames
+        Write-Host
+        $vnet = PromptCustom "Select a VNET to integrate with" $vnets $vnetNames
 
-	    # We need to check if this VNET is able to be joined to a App, based on following criteria
-		    # If there is no gateway, we can create one.
-		    # If there is a gateway:
-			    # It must be of type Vpn
-			    # It must be of VpnType RouteBased
-			    # If it doesn't have the right certificate, we will need to add it.
-			    # If it doesn't have a point-to-site range, we will need to add it.
+        # We need to check if this VNET is able to be joined to a App, based on following criteria
+            # If there is no gateway, we can create one.
+            # If there is a gateway:
+                # It must be of type Vpn
+                # It must be of VpnType RouteBased
+                # If it doesn't have the right certificate, we will need to add it.
+                # If it doesn't have a point-to-site range, we will need to add it.
 
-	    $gatewaySubnet = $vnet.Subnets | Where-Object { $_.Name -eq "GatewaySubnet" }
+        $gatewaySubnet = $vnet.Subnets | Where-Object { $_.Name -eq "GatewaySubnet" }
 
-	    if($gatewaySubnet -eq $null -or $gatewaySubnet.IpConfigurations -eq $null -or $gatewaySubnet.IpConfigurations.Count -eq 0)
-	    {
-			$ErrorActionPreference = "Continue";
-		    # There is no gateway. We need to create one.
-		    Write-Host "This Virtual Network has no gateway. I will need to create one."
+        if($gatewaySubnet -eq $null -or $gatewaySubnet.IpConfigurations -eq $null -or $gatewaySubnet.IpConfigurations.Count -eq 0)
+        {
+            $ErrorActionPreference = "Continue";
+            # There is no gateway. We need to create one.
+            Write-Host "This Virtual Network has no gateway. I will need to create one."
 
-		    $vnetName = $vnet.Name
-		    $vnetGatewayName="$($vnetName)-gateway"
-		    $vnetIpName="$($vnetName)-ip"
-		    $vnetIpConfigName="$($vnetName)-ipconf"
+            $vnetName = $vnet.Name
+            $vnetGatewayName="$($vnetName)-gateway"
+            $vnetIpName="$($vnetName)-ip"
+            $vnetIpConfigName="$($vnetName)-ipconf"
 
-		    # Virtual Network settings
-		    $vnetAddressSpace="10.0.0.0/8"
-		    $vnetGatewayAddressSpace="10.5.0.0/16"
-		    $vnetPointToSiteAddressSpace="172.16.0.0/16"
+            # Virtual Network settings
+            $vnetAddressSpace="10.0.0.0/8"
+            $vnetGatewayAddressSpace="10.5.0.0/16"
+            $vnetPointToSiteAddressSpace="172.16.0.0/16"
 
-		    $changeRequested = 0
+            $changeRequested = 0
 
-		    Write-Host "Your VNET is in the address space $($vnet.AddressSpace.AddressPrefixes), with the following Subnets:"
-		    foreach($subnet in $vnet.Subnets)
-		    {
-			    Write-Host "$($subnet.Name): $($subnet.AddressPrefix)"
-		    }
+            Write-Host "Your VNET is in the address space $($vnet.AddressSpace.AddressPrefixes), with the following Subnets:"
+            foreach($subnet in $vnet.Subnets)
+            {
+                Write-Host "$($subnet.Name): $($subnet.AddressPrefix)"
+            }
 
-		    $vnetGatewayAddressSpace = Read-Host "Please choose a GatewaySubnet address space"
+            $vnetGatewayAddressSpace = Read-Host "Please choose a GatewaySubnet address space"
 
-		    while($changeRequested -eq 0)
-		    {
-			    Write-Host
-			    Write-Host "Currently, I will create a VNET gateway with the following settings:"
-			    Write-Host
-			    Write-Host "Virtual Network Name: $vnetName"
-			    Write-Host "Resource Group Name:  $($vnet.ResourceGroupName)"
-			    Write-Host "Gateway Name: $vnetGatewayName"
-			    Write-Host "Vnet IP name: $vnetIpName"
-			    Write-Host "Vnet IP config name:  $vnetIpConfigName"
-			    Write-Host "Address Space:$($vnet.AddressSpace.AddressPrefixes)"
-			    Write-Host "Gateway Address Space:$vnetGatewayAddressSpace"
-			    Write-Host "Point-To-Site Address Space:  $vnetPointToSiteAddressSpace"
-			    Write-Host
-			    $changeRequested = PromptYesNo "" "Do you wish to change these settings?" 1
+            while($changeRequested -eq 0)
+            {
+                Write-Host
+                Write-Host "Currently, I will create a VNET gateway with the following settings:"
+                Write-Host
+                Write-Host "Virtual Network Name: $vnetName"
+                Write-Host "Resource Group Name:  $($vnet.ResourceGroupName)"
+                Write-Host "Gateway Name: $vnetGatewayName"
+                Write-Host "Vnet IP name: $vnetIpName"
+                Write-Host "Vnet IP config name:  $vnetIpConfigName"
+                Write-Host "Address Space:$($vnet.AddressSpace.AddressPrefixes)"
+                Write-Host "Gateway Address Space:$vnetGatewayAddressSpace"
+                Write-Host "Point-To-Site Address Space:  $vnetPointToSiteAddressSpace"
+                Write-Host
+                $changeRequested = PromptYesNo "" "Do you wish to change these settings?" 1
 
-			    if($changeRequested -eq 0)
-			    {
-				    $vnetGatewayName = ReadHostWithDefault "Vnet Gateway Name" $vnetGatewayName
-				    $vnetIpName = ReadHostWithDefault "Vnet IP name" $vnetIpName
-				    $vnetIpConfigName = ReadHostWithDefault "Vnet IP configuration name" $vnetIpConfigName
-				    $vnetGatewayAddressSpace = ReadHostWithDefault "Vnet Gateway Address Space" $vnetGatewayAddressSpace
-				    $vnetPointToSiteAddressSpace = ReadHostWithDefault "Vnet Point-to-site Address Space" $vnetPointToSiteAddressSpace
-			    }
-		    }
+                if($changeRequested -eq 0)
+                {
+                    $vnetGatewayName = ReadHostWithDefault "Vnet Gateway Name" $vnetGatewayName
+                    $vnetIpName = ReadHostWithDefault "Vnet IP name" $vnetIpName
+                    $vnetIpConfigName = ReadHostWithDefault "Vnet IP configuration name" $vnetIpConfigName
+                    $vnetGatewayAddressSpace = ReadHostWithDefault "Vnet Gateway Address Space" $vnetGatewayAddressSpace
+                    $vnetPointToSiteAddressSpace = ReadHostWithDefault "Vnet Point-to-site Address Space" $vnetPointToSiteAddressSpace
+                }
+            }
 
-		    $ErrorActionPreference = "Stop";
+            $ErrorActionPreference = "Stop";
 
-		    Write-Host "Creating App association to VNET"
-		    $propertiesObject = @{
-		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
-		    }
+            Write-Host "Creating App association to VNET"
+            $propertiesObject = @{
+             "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
+            }
 
-		    $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
+            $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
 
-		    # If there is no gateway subnet, we need to create one.
-		    if($gatewaySubnet -eq $null)
-		    {
-			    $gatewaySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $vnetGatewayAddressSpace
-			    $vnet.Subnets.Add($gatewaySubnet);
-			    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-		    }
+            # If there is no gateway subnet, we need to create one.
+            if($gatewaySubnet -eq $null)
+            {
+                $gatewaySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $vnetGatewayAddressSpace
+                $vnet.Subnets.Add($gatewaySubnet);
+                Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+            }
 
-		    CreateVnetGateway $vnet.ResourceGroupName $vnetName $vnetIpName $location $vnetIpConfigName $vnetGatewayName $virtualNetwork.Properties.CertBlob $vnetPointToSiteAddressSpace
+            CreateVnetGateway $vnet.ResourceGroupName $vnetName $vnetIpName $location $vnetIpConfigName $vnetGatewayName $virtualNetwork.Properties.CertBlob $vnetPointToSiteAddressSpace
 
-		    $gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $vnet.ResourceGroupName -Name $vnetGatewayName
-	    }
-	    else
-	    {
-		    $uriParts = $gatewaySubnet.IpConfigurations[0].Id.Split('/')
-		    $gatewayResourceGroup = $uriParts[4]
-		    $gatewayName = $uriParts[8]
+            $gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $vnet.ResourceGroupName -Name $vnetGatewayName
+        }
+        else
+        {
+            $uriParts = $gatewaySubnet.IpConfigurations[0].Id.Split('/')
+            $gatewayResourceGroup = $uriParts[4]
+            $gatewayName = $uriParts[8]
 
-		    $gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $vnet.ResourceGroupName -Name $gatewayName
+            $gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $vnet.ResourceGroupName -Name $gatewayName
 
-		    # validate gateway types, etc.
-		    if($gateway.GatewayType -ne "Vpn")
-		    {
-			    Write-Error "This gateway is not of the Vpn type. It cannot be joined to an App."
-			    return
-		    }
+            # validate gateway types, etc.
+            if($gateway.GatewayType -ne "Vpn")
+            {
+                Write-Error "This gateway is not of the Vpn type. It cannot be joined to an App."
+                return
+            }
 
-		    if($gateway.VpnType -ne "RouteBased")
-		    {
-			    Write-Error "This gateways Vpn type is not RouteBased. It cannot be joined to an App."
-			    return
-		    }
+            if($gateway.VpnType -ne "RouteBased")
+            {
+                Write-Error "This gateways Vpn type is not RouteBased. It cannot be joined to an App."
+                return
+            }
 
-		    if($gateway.VpnClientConfiguration -eq $null -or $gateway.VpnClientConfiguration.VpnClientAddressPool -eq $null)
-		    {
-			    Write-Host "This gateway does not have a Point-to-site Address Range. Please specify one in CIDR notation, e.g. 10.0.0.0/8"
-			    $pointToSiteAddress = Read-Host "Point-To-Site Address Space"
-			    Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $gateway.Name -VpnClientAddressPool $pointToSiteAddress
-		    }
+            if($gateway.VpnClientConfiguration -eq $null -or $gateway.VpnClientConfiguration.VpnClientAddressPool -eq $null)
+            {
+                Write-Host "This gateway does not have a Point-to-site Address Range. Please specify one in CIDR notation, e.g. 10.0.0.0/8"
+                $pointToSiteAddress = Read-Host "Point-To-Site Address Space"
+                Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $gateway.Name -VpnClientAddressPool $pointToSiteAddress
+            }
 
-		    Write-Host "Creating App association to VNET"
-		    $propertiesObject = @{
-		     "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnet.Name)"
-		    }
+            Write-Host "Creating App association to VNET"
+            $propertiesObject = @{
+             "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnet.Name)"
+            }
 
-		    $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
+            $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
 
-		    # We need to check if the certificate here exists in the gateway.
-		    $certificates = $gateway.VpnClientConfiguration.VpnClientRootCertificates
+            # We need to check if the certificate here exists in the gateway.
+            $certificates = $gateway.VpnClientConfiguration.VpnClientRootCertificates
 
-		    $certFound = $false
-		    foreach($certificate in $certificates)
-		    {
-			    if($certificate.PublicCertData -eq $virtualNetwork.Properties.CertBlob)
-			    {
-				    $certFound = $true
-				    break
-			    }
-		    }
+            $certFound = $false
+            foreach($certificate in $certificates)
+            {
+                if($certificate.PublicCertData -eq $virtualNetwork.Properties.CertBlob)
+                {
+                    $certFound = $true
+                    break
+                }
+            }
 
-		    if(-not $certFound)
-		    {
-			    Write-Host "Adding certificate"
-			    Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName "AppServiceCertificate.cer" -PublicCertData $virtualNetwork.Properties.CertBlob -VirtualNetworkGatewayName $gateway.Name
-		    }
-	    }
+            if(-not $certFound)
+            {
+                Write-Host "Adding certificate"
+                Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName "AppServiceCertificate.cer" -PublicCertData $virtualNetwork.Properties.CertBlob -VirtualNetworkGatewayName $gateway.Name
+            }
+        }
 
-	    # Now finish joining by getting the VPN package and giving it to the App
-	    Write-Host "Retrieving VPN Package and supplying to App"
-	    $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
+        # Now finish joining by getting the VPN package and giving it to the App
+        Write-Host "Retrieving VPN Package and supplying to App"
+        $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
 
-	    # Put the VPN client configuration package onto the App
-	    $PropertiesObject = @{
-	    "vnetName" = $vnet.Name; "vpnPackageUri" = $packageUri
-	    }
+        # Put the VPN client configuration package onto the App
+        $PropertiesObject = @{
+        "vnetName" = $vnet.Name; "vpnPackageUri" = $packageUri
+        }
 
-	    New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)/primary" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
+        New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)/primary" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
 
-	    Write-Host "Finished!"
+        Write-Host "Finished!"
     }
 
     function RemoveVnet($subscriptionId, $resourceGroupName, $webAppName)
     {
-	    $webAppConfig = Get-AzureRmResource -ResourceName "$($webAppName)/web" -ResourceType "Microsoft.Web/sites/config" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
-	    $currentVnet = $webAppConfig.Properties.VnetName
-	    if($currentVnet -ne $null -and $currentVnet -ne "")
-	    {
-		    Write-Host "Currently connected to VNET $currentVnet"
+        $webAppConfig = Get-AzureRmResource -ResourceName "$($webAppName)/web" -ResourceType "Microsoft.Web/sites/config" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
+        $currentVnet = $webAppConfig.Properties.VnetName
+        if($currentVnet -ne $null -and $currentVnet -ne "")
+        {
+            Write-Host "Currently connected to VNET $currentVnet"
 
-		    Remove-AzureRmResource -ResourceName "$($webAppName)/$($currentVnet)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
-	    }
-	  	  else
-	    {
-	  	  Write-Host "Not connected to a VNET."
-	    }
+            Remove-AzureRmResource -ResourceName "$($webAppName)/$($currentVnet)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
+        }
+          else
+        {
+          Write-Host "Not connected to a VNET."
+        }
     }
 
     Write-Host "Please Login"
@@ -565,25 +566,25 @@ Copiare lo script seguente e salvarlo in un file. Se si preferisce non usare lo 
 
     if($subs.Length -eq 0)
     {
-	    Write-Error "No subscriptions bound to this account."
-	    return
+        Write-Error "No subscriptions bound to this account."
+        return
     }
 
     if($subs.Length -eq 1)
     {
-	    $subscriptionId = $subs[0].SubscriptionId
+        $subscriptionId = $subs[0].SubscriptionId
     }
     else
     {
-	    $subscriptionChoices = @()
-	    $subscriptionValues = @()
+        $subscriptionChoices = @()
+        $subscriptionValues = @()
 
-	    foreach($subscription in $subs){
-	    $subscriptionChoices += "$($subscription.SubscriptionName) ($($subscription.SubscriptionId))";
-	    $subscriptionValues += ($subscription.SubscriptionId);
-	    }
+        foreach($subscription in $subs){
+        $subscriptionChoices += "$($subscription.SubscriptionName) ($($subscription.SubscriptionId))";
+        $subscriptionValues += ($subscription.SubscriptionId);
+        }
 
-	    $subscriptionId = PromptCustom "Choose a subscription" $subscriptionValues $subscriptionChoices
+        $subscriptionId = PromptCustom "Choose a subscription" $subscriptionValues $subscriptionChoices
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
@@ -598,131 +599,128 @@ Copiare lo script seguente e salvarlo in un file. Se si preferisce non usare lo 
 
     if($option -eq 0)
     {
-		AddNewVnet $subscriptionId $resourceGroup $appName
+        AddNewVnet $subscriptionId $resourceGroup $appName
     }
     if($option -eq 1)
     {
-	    AddExistingVnet $subscriptionId $resourceGroup $appName
+        AddExistingVnet $subscriptionId $resourceGroup $appName
     }
-	if($option -eq 2)
+    if($option -eq 2)
     {
-	    RemoveVnet $subscriptionId $resourceGroup $appName
+        RemoveVnet $subscriptionId $resourceGroup $appName
     }
 
-Salvare una copia dello script. In questo articolo è denominato V2VnetAllinOne.ps1, ma è possibile usare un altro nome. Non sono presenti argomenti su questo script. È sufficiente eseguirlo. La prima azione eseguita dallo script è la richiesta di accesso. Dopo l'accesso, lo script ottiene i dettagli sull'account dell'utente e restituisce un elenco di sottoscrizioni. Senza la richiesta di credenziali, l'esecuzione dello script iniziale è simile a quanto segue:
+Save a copy of the script. In this article, it is called V2VnetAllinOne.ps1, but you can use another name. There are no arguments for this script. You simply run it. The first thing the script will do is prompt you to sign in. After you sign in, the script gets details about your account and returns a list of subscriptions. Not counting the request for your credentials, the initial script execution looks like this:
 
-	PS C:\Users\ccompy\Documents\VNET> .\V2VnetAllInOne.ps1
-	Please Login
+    PS C:\Users\ccompy\Documents\VNET> .\V2VnetAllInOne.ps1
+    Please Login
 
-	Environment           : AzureCloud
-	Account               : ccompy@microsoft.com
-	TenantId              : 722278f-fef1-499f-91ab-2323d011db47
-	SubscriptionId        : af5358e1-acac-2c90-a9eb-722190abf47a
-	CurrentStorageAccount :
+    Environment           : AzureCloud
+    Account               : ccompy@microsoft.com
+    TenantId              : 722278f-fef1-499f-91ab-2323d011db47
+    SubscriptionId        : af5358e1-acac-2c90-a9eb-722190abf47a
+    CurrentStorageAccount :
 
-	Choose a subscription
+    Choose a subscription
 
-	1) Demo Subscription (af5358e1-acac-2c90-a9eb-722190abf47a)
-	2) MS Test (a5350f55-dd5a-41ec-2ddb-ff7b911bb2ef)
-	3) Purple Demo Subscription (2d4c99a4-57f9-4d5e-a0a1-0034c52db59d)
+    1) Demo Subscription (af5358e1-acac-2c90-a9eb-722190abf47a)
+    2) MS Test (a5350f55-dd5a-41ec-2ddb-ff7b911bb2ef)
+    3) Purple Demo Subscription (2d4c99a4-57f9-4d5e-a0a1-0034c52db59d)
 
-	Choose an option:
-	3
+    Choose an option: 3
 
-	Account      : ccompy@microsoft.com
-	Environment  : AzureCloud
-	Subscription : 2d4c99a4-57f9-4d5e-a0a1-0034c52db59d
-	Tenant       : 722278f-fef1-499f-91ab-2323d011db47
+    Account      : ccompy@microsoft.com Environment  : AzureCloud Subscription : 2d4c99a4-57f9-4d5e-a0a1-0034c52db59d Tenant       : 722278f-fef1-499f-91ab-2323d011db47
 
-	Please enter the Resource Group of your App: hcdemo-rg
-	Please enter the Name of your App: v2vnetpowershell
-	What do you want to do?
+    Please enter the Resource Group of your App: hcdemo-rg Please enter the Name of your App: v2vnetpowershell What do you want to do?
 
-	1) Add a NEW Virtual Network to an App
-	2) Add an EXISTING Virtual Network to an App
-	3) Remove a Virtual Network from an App
+    1) Add a NEW Virtual Network to an App
+    2) Add an EXISTING Virtual Network to an App
+    3) Remove a Virtual Network from an App
 
-La parte restante di questa sezione illustra ognuna delle tre opzioni.
+The rest of this section explains each of those three options.
 
-### Creare una rete virtuale di Azure Resource Manager ed eseguire l'integrazione ###
+### <a name="create-a-resource-manager-vnet-and-integrate-with-it"></a>Create a Resource Manager VNet and integrate with it ###
 
-Per creare una nuova rete virtuale che usa il modello di distribuzione Azure Resource Manager e integrarla con l'app, selezionare l'opzione **1) Add a NEW Virtual Network to an App**. Verrà richiesto il nome della rete virtuale. In questo caso è stato usato il nome v2pshell, come risulta nelle impostazioni seguenti.
+To create a new virtual network that uses the Resource Manager deployment model and integrate it with your app, select **1) Add a NEW Virtual Network to an App**. This will prompt you for the name of the virtual network. In my case, as you can see in the following settings, I used the name, v2pshell.
 
-Lo script restituisce i dettagli della rete virtuale che si sta creando. Se si desidera, è possibile modificare qualsiasi valori. In questo esempio è stata creata una rete virtuale con le impostazioni seguenti:
+The script gives the details about the virtual network that's being created. If I want, I can change any of the values. In this example execution, I created a virtual network that has the following settings:
 
-	Virtual Network Name:         v2pshell
-	Resource Group Name:          hcdemo-rg
-	Gateway Name:                 v2pshell-gateway
-	Vnet IP name:                 v2pshell-ip
-	Vnet IP config name:          v2pshell-ipconf
-	Address Space:                10.0.0.0/8
-	Gateway Address Space:        10.5.0.0/16
-	Point-To-Site Address Space:  172.16.0.0/12
+    Virtual Network Name:         v2pshell
+    Resource Group Name:          hcdemo-rg
+    Gateway Name:                 v2pshell-gateway
+    Vnet IP name:                 v2pshell-ip
+    Vnet IP config name:          v2pshell-ipconf
+    Address Space:                10.0.0.0/8
+    Gateway Address Space:        10.5.0.0/16
+    Point-To-Site Address Space:  172.16.0.0/12
 
-	Do you wish to change these settings?
-	[Y] Yes  [N] No  [?] Help (default is "N"):
+    Do you wish to change these settings?
+    [Y] Yes  [N] No  [?] Help (default is "N"):
 
-Per modificare uno dei valori, digitare **Y** e apportare le modifiche. Dopo aver configurato tutte le impostazioni della rete virtuale, digitare **N** o premere INVIO quando viene richiesto di modificare le impostazioni. Da quel punto in poi, lo script indicherà alcune delle attività in esecuzione fino alla creazione del gateway di rete virtuale. Questo passaggio può richiedere fino a un'ora. In questa fase non è disponibile un indicatore di stato, ma verrà comunicata l'avvenuta creazione del gateway.
+If you want to change any of the values, type **Y** and make the changes. When you are happy with the virtual network settings, type **N** or simply press Enter when prompted about changing the settings. From there on until completion, the script will tell you some of what it' i's doing until it starts to create the virtual network gateway. That step can take up to an hour. There is no progress indicator during this phase, but the script will let you know when the gateway has been created.
 
-Al termine dell'operazione, lo script visualizza il messaggio **Finished**. A questo punto è disponibile una rete virtuale di Azure Resource Manager con il nome e le impostazioni selezionate. La nuova rete virtuale è anche integrata con l'app.
+When the script finishes, it will say **Finished**. At this point, you will have a Resource Manager virtual network that has the name and settings that you selected. This new virtual network will also be integrated with your app.
 
-### Integrare l'app con una rete di Azure Resource Manager preesistente ###
+### <a name="integrate-your-app-with-a-preexisting-resource-manager-vnet"></a>Integrate your app with a preexisting Resource Manager VNet ###
 
-Quando si esegue l'integrazione specificando una rete virtuale di Azure Resource Manager esistente priva di gateway e connettività da punto a sito, questi vengono impostati dallo script. Se la rete virtuale ha già queste impostazioni, lo script passa direttamente all'integrazione dell'app. Per avviare il processo è sufficiente selezionare l'opzione **2) Add an EXISTING Virtual Network to an App**.
+When you're integrating with a preexisting virtual network, if you provide a Resource Manager virtual network that doesn’t have a gateway or point-to-site connectivity, the script will set that up. If the VNET already has those things set up, the script goes straight to the app integration. To start this process, simply select **2) Add an EXISTING Virtual Network to an App**.
 
-Questa opzione funziona solo se la rete virtuale di Azure Resource Manager preesistente è nella stessa sottoscrizione dell'app. Dopo aver selezionato l'opzione, viene visualizzato un elenco delle reti virtuali di Azure Resource Manager.
+This option works only if you have a preexisting Resource Manager virtual network that is in the same subscription as your app. After you select the option, you will be presented with a list of your Resource Manager virtual networks.   
 
-	Select a VNET to integrate with
+    Select a VNET to integrate with
 
-	1) v2demonetwork
-	2) v2pshell
-	3) v2vnetintdemo
-	4) v2asenetwork
-	5) v2pshell2
+    1) v2demonetwork
+    2) v2pshell
+    3) v2vnetintdemo
+    4) v2asenetwork
+    5) v2pshell2
 
-	Choose an option:
-	5
+    Choose an option: 5
 
-Selezionare la rete virtuale con cui si vuole eseguire l'integrazione. Se è già disponibile un gateway con la connettività da punto a sito abilitata, lo script procede direttamente all'integrazione dell'app con la rete virtuale. Se non è disponibile un gateway, è necessario specificare la subnet del gateway. La subnet del gateway deve trovarsi nello spazio di indirizzi della rete virtuale e non può essere in un'altra subnet. Se si esegue questo passaggio con una rete virtuale priva di gateway, il risultato sarà simile al seguente:
+Simply select the virtual network that you want to integrate with. If you already have a gateway that has point-to-site connectivity enabled, the script will simply integrate your app with your virtual network. If you do not have a gateway, you will need to specify the gateway subnet. Your gateway subnet must be in your virtual network address space, and it cannot be in any other subnet. If you have a virtual network without a gateway and run this step, things look like this:
 
-	This Virtual Network has no gateway. I will need to create one.
-	Your VNET is in the address space 172.16.0.0/16, with the following Subnets:
-	default: 172.16.0.0/24
-	Please choose a GatewaySubnet address space: 172.16.1.0/26
+    This Virtual Network has no gateway. I will need to create one.
+    Your VNET is in the address space 172.16.0.0/16, with the following Subnets:
+    default: 172.16.0.0/24
+    Please choose a GatewaySubnet address space: 172.16.1.0/26
 
-In questo esempio è stato creato un gateway di rete virtuale con le impostazioni seguenti:
+In this example, I created a virtual network gateway that has the following settings:
 
-	Virtual Network Name:         v2pshell2
-	Resource Group Name:          vnetdemo-rg
-	Gateway Name:                 v2pshell2-gateway
-	Vnet IP name:                 v2pshell2-ip
-	Vnet IP config name:          v2pshell2-ipconf
-	Address Space:                172.16.0.0/16
-	Gateway Address Space:        172.16.1.0/26
-	Point-To-Site Address Space:  172.16.0.0/12
+    Virtual Network Name:         v2pshell2
+    Resource Group Name:          vnetdemo-rg
+    Gateway Name:                 v2pshell2-gateway
+    Vnet IP name:                 v2pshell2-ip
+    Vnet IP config name:          v2pshell2-ipconf
+    Address Space:                172.16.0.0/16
+    Gateway Address Space:        172.16.1.0/26
+    Point-To-Site Address Space:  172.16.0.0/12
 
-	Do you wish to change these settings?
-	[Y] Yes  [N] No  [?] Help (default is "N"):
-	Creating App association to VNET
+    Do you wish to change these settings?
+    [Y] Yes  [N] No  [?] Help (default is "N"):
+    Creating App association to VNET
 
-Le impostazioni possono essere modificate in base alle preferenze. In caso contrario, premere INVIO. Lo script creerà il gateway e collegherà l'app alla rete virtuale. Tenere presente che il tempo necessario per la creazione del gateway è un'ora. Al termine di tutte le operazioni, lo script visualizza il messaggio **Finished**.
+If you want to change any of those settings, you can do so. Otherwise, press Enter and the script will create your gateway and attach your app to your virtual network. The gateway creation time is still an hour, though, so make sure you keep that in mind. When everything is finished, the script will say **Finished**.
 
-### Disconnettere l'app da una rete virtuale di Azure Resource Manager ###
+### <a name="disconnect-your-app-from-a-resource-manager-vnet"></a>Disconnect your app from a Resource Manager VNet ###
 
-La disconnessione dell'app dalla rete virtuale non provoca l'arresto del gateway e non disabilita la connettività da punto a sito, perché potrebbero essere usati da altri processi. La rete virtuale viene disconnessa unicamente dall'app specificata e da nessun'altra app. Per eseguire questa operazione, selezionare l'opzione **3) Remove a Virtual Network from an App**. Il risultato sarà simile al seguente:
+Disconnecting your app from your virtual network does not take down the gateway or disable point-to-site connectivity. You might, after all, be using it for something else. It also does not disconnect it from any other apps other than the one you provided. To perform this action, select **3) Remove a Virtual Network from an App**. When you do so, you will see something like this:
 
-	Currently connected to VNET v2pshell
+    Currently connected to VNET v2pshell
 
-	Confirm
-	Are you sure you want to delete the following resource:
-	/subscriptions/edcc99a4-b7f9-4b5e-a9a1-3034c51db496/resourceGroups/hcdemo-rg/providers/Microsoft.Web/sites/v2vnetpowers
-	hell/virtualNetworkConnections/v2pshell
-	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+    Confirm
+    Are you sure you want to delete the following resource:
+    /subscriptions/edcc99a4-b7f9-4b5e-a9a1-3034c51db496/resourceGroups/hcdemo-rg/providers/Microsoft.Web/sites/v2vnetpowers
+    hell/virtualNetworkConnections/v2pshell
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-Anche se lo script usa il termine "delete", non elimina effettivamente la rete virtuale. Rimuove solo l'integrazione. Dopo la conferma dell'utente, il comando viene elaborato molto rapidamente e al termine restituisce **True**.
+Although the script says delete, it does not delete the virtual network. It’s just removing the integration. After you confirm that this is what you want to do, the command is processed quite quickly and tells you **True** when it is done.
 
 <!--Links-->
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

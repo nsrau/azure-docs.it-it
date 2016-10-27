@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Greenhouse | Microsoft Azure" 
-    description="Informazioni su come usare Greenhouse con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with Greenhouse | Microsoft Azure" 
+    description="Learn how to use Greenhouse with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,129 +11,135 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con Greenhouse
-  
-Questa esercitazione descrive l'integrazione di Azure e Greenhouse. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   Sottoscrizione di Azure valida
--   Sottoscrizione Greenhouse abilitata per l'accesso Single Sign-On
+#<a name="tutorial:-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Azure Active Directory integration with Greenhouse
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Greenhouse potranno accedere all'applicazione tramite il sito aziendale di Greenhouse (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
-  
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+The objective of this tutorial is to show the integration of Azure and Greenhouse.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-1.  Abilitazione dell'integrazione dell'applicazione per Greenhouse
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+-   A valid Azure subscription
+-   A Greenhouse single sign-on subscription
+  
+After completing this tutorial, the Azure AD users you have assigned to Greenhouse will be able to single sign into the application at your Greenhouse company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+  
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for Greenhouse
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-greenhouse-tutorial/IC790783.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per Greenhouse
+##<a name="enabling-the-application-integration-for-greenhouse"></a>Enabling the application integration for Greenhouse
   
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per Greenhouse.
+The objective of this section is to outline how to enable the application integration for Greenhouse.
 
-###Per abilitare l'integrazione dell'applicazione per Greenhouse, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-greenhouse,-perform-the-following-steps:"></a>To enable the application integration for Greenhouse, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-greenhouse-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-greenhouse-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-greenhouse-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-greenhouse-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-greenhouse-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-greenhouse-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-greenhouse-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **greenhouse**.
+6.  In the **search box**, type **greenhouse**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-greenhouse-tutorial/IC790784.png "Raccolta di applicazioni")
+    ![Application Gallery](./media/active-directory-saas-greenhouse-tutorial/IC790784.png "Application Gallery")
 
-7.  Nel riquadro dei risultati selezionare **Greenhouse** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **Greenhouse**, and then click **Complete** to add the application.
 
     ![Greenhouse](./media/active-directory-saas-greenhouse-tutorial/IC790785.png "Greenhouse")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Greenhouse tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
+The objective of this section is to outline how to enable users to authenticate to Greenhouse with their account in Azure AD using federation based on the SAML protocol.
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nella pagina di integrazione dell'applicazione **Greenhouse** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  In the Azure classic portal, on the **Greenhouse** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Configure single sign-on")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Greenhouse** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  On the **How would you like users to sign on to Greenhouse** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-greenhouse-tutorial/IC790787.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790787.png "Configure single sign-on")
 
-3.  Nella casella di testo **URL di accesso** della pagina **Configura URL app** digitare l'URL usando il modello "*https://company.greenhouse.io*" e quindi fare clic su **Avanti**.
+3.  On the **Configure App URL** page, in the **Sign On URL** textbox, type your URL using the following pattern "*https://company.greenhouse.io*", and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configura URL app")
+    ![Configure App URL](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configure App URL")
 
-4.  Nella pagina **Configura accesso Single Sign-On in Greenhouse** fare clic su **Download metadati** e quindi salvare il file di metadati in locale nel computer.
+4.  On the **Configure single sign-on at Greenhouse** page, click **Download metadata**, and then save metadata file locally on your computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-greenhouse-tutorial/IC790789.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790789.png "Configure single sign-on")
 
-5.  Inoltrare il file dei metadati al team di supporto di Greenhouse.
+5.  Forward that Metadata file to Greenhouse Support team.
 
-    >[AZURE.NOTE] L’accesso Single Sign-On deve essere abilitato dal team di supporto di Greenhouse.
+    >[AZURE.NOTE] Single sign-on has to be enabled by the Greenhouse support team.
 
-6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configura accesso Single Sign-On")
-##Configurazione del provisioning utente
+    ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Per consentire agli utenti di Azure AD di accedere a Greenhouse, è necessario eseguirne il provisioning in Greenhouse. Nel caso di Greenhouse, il provisioning è un'attività manuale.
+In order to enable Azure AD users to log into Greenhouse, they must be provisioned into Greenhouse.  
+In the case of Greenhouse, provisioning is a manual task.
 
-###Per eseguire il provisioning di un account utente, seguire questa procedura:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Accedere al sito aziendale di **Greenhouse** come amministratore.
+1.  Log in to your **Greenhouse** company site as an administrator.
 
-2.  Nel menu in alto fare clic su **Configure** e quindi fare clic su **Users**.
+2.  In the menu on the top, click **Configure**, and then click **Users**.
 
-    ![Utenti](./media/active-directory-saas-greenhouse-tutorial/IC790791.png "Utenti")
+    ![Users](./media/active-directory-saas-greenhouse-tutorial/IC790791.png "Users")
 
-3.  Fare clic su **Nuovi utenti**.
+3.  Click **New Users**.
 
     ![New User](./media/active-directory-saas-greenhouse-tutorial/IC790792.png "New User")
 
-4.  Nella sezione **Aggiungi nuovo utente** eseguire la procedura seguente:
+4.  In the **Add New User** section, perform the following steps:
 
     ![Add New User](./media/active-directory-saas-greenhouse-tutorial/IC790793.png "Add New User")
 
-    1.  Nella casella di testo **Inserire email utente** digitare l'indirizzo di posta elettronica di un account di Azure Active Directory valido di cui si vuole eseguire il provisioning.
-    2.  Fare clic su **Save**.
+    1.  In the **Enter user emails** textbox, type the email address of a valid Azure Active Directory account you want to provision.
+    2.  Click **Save**.
         
-		>[AZURE.NOTE] I titolari dell'account Azure Active Directory riceveranno un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
+        >[AZURE.NOTE] The Azure Active Directory account holders will receive an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Greenhouse per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] You can use any other Greenhouse user account creation tools or APIs provided by Greenhouse to provision AAD user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
   
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a Greenhouse, seguire questa procedura:
+###<a name="to-assign-users-to-greenhouse,-perform-the-following-steps:"></a>To assign users to Greenhouse, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **Greenhouse** fare clic su **Assegna utenti**.
+2.  On the **Greenhouse **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-greenhouse-tutorial/IC790794.png "Assegna utenti")
+    ![Assign users](./media/active-directory-saas-greenhouse-tutorial/IC790794.png "Assign users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-greenhouse-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-greenhouse-tutorial/IC767830.png "Yes")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

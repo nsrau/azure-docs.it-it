@@ -1,95 +1,100 @@
 <properties
-	pageTitle="Catalogo dati di Azure | Microsoft Azure"
-	description="Questo articolo illustra le scelte rapide da tastiera per Catalogo dati di Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="spelluru"
-	manager="NA"
-	editor=""
-	tags=""/>
+    pageTitle="Azure Data Catalog  | Microsoft Azure"
+    description="This article shows the Keyboard shortcuts for Azure Data Catalog."
+    services="data-catalog"
+    documentationCenter=""
+    authors="spelluru"
+    manager="NA"
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/13/2016"
-	ms.author="spelluru"/>
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/13/2016"
+    ms.author="spelluru"/>
 
-# Scelte rapide da tastiera per Catalogo dati di Azure
 
-## Tasti di scelta rapida per il tool di registrazione delle origini dati di Azure Data Catalog
+# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Keyboard shortcuts for Azure Data Catalog
 
-### Scelte rapide da tastiera generali
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Keyboard shortcuts for the Data Catalog data source registration tool
 
-|Operazione|Premere
+### <a name="general-keyboard-shortcuts"></a>General keyboard shortcuts
+
+|Operation|Press
 |---|---
-|Passare da un controllo a un altro in una pagina|TAB
-|Scegliere un'opzione|INVIO o BARRA SPAZIATRICE
-|Ingrandire la pagina.|Tasto WINDOWS+Freccia SU
-|Ripristinare o ridurre a icona la pagina. | Tasto WINDOWS+Freccia GIÙ
-|Aprire il menu della pagina.| ALT+BARRA SPAZIATRICE
+|Tab to each control on a page|Tab
+|Choose an option|Enter or Spacebar
+|Maximize page|WIN+UP
+|Restore/minimize page | WIN+DOWN
+|Open page menu| ALT+SPACEBAR
 
 
-### Pagina di autenticazione
+### <a name="authentication-page"></a>Authentication page
 
-|Operazione|Premere
+|Operation|Press
 |---|---
-|Accedere al servizio|ALT+S
+|Sign into service|ALT+S
 
-### Pagina di selezione dell'origine dati
+### <a name="data-source-selection-page"></a>Data source selection page
 
-|Operazione|Premere
+|Operation|Press
 |---|---
-|Passare alla pagina successiva (se abilitata)|ALT+N
-|Cambiare il tipo selezionato quando lo stato attivo è su un riquadro|Freccia SINISTRA, freccia SU, freccia DESTRA o freccia GIÙ
+|Go to next page (if enabled)|ALT+N
+|Change selected type when the focus is on a tile|LEFT, UP, RIGHT, or DOWN ARROW
 
-### Pagina di connessione all'origine dati
+### <a name="data-source-connection-page"></a>Data source connection page
 
-|Operazione|Premere
+|Operation|Press
 |---|---
-|Passare alla pagina precedente (se abilitata)|ALT+P
-|Scegliere il pulsante Connetti.| ALT+C
+|Go to previous page (if enabled)|ALT+P
+|Choose Connect button.| ALT+C
 
-### Pagina di contesto della connessione
+### <a name="connection-context-page"></a>Connection context page
 
-|Operazione|Premere
+|Operation|Press
 |---|---
-|Scegliere il pulsante Registra (se abilitato)| ALT+R
-|Selezionare la casella di controllo Includi anteprima (se disponibile)|ALT+P
-|Selezionare la casella di controllo Includi profilo dati (se disponibile)|ALT+D
-|Passare da un elemento all'altro dell'elenco|Freccia SU o freccia GIÙ
-| Espandere un nodo della visualizzazione albero nella gerarchia server. |Freccia DESTRA
-| Spostare gli elementi selezionati per **Oggetti disponibili** oppure **Oggetti da registrare** | BARRA SPAZIATRICE
+|Register button (if enabled)| ALT+R
+|Include Preview checkbox (if available)|ALT+P
+|Include Data Profile checkbox (if available)|ALT+D
+|Navigate to each list item|UP or DOWN ARROW
+| Server Hierarchy, expand a tree view's node |RIGHT ARROW
+| Move selected items for **Available Objects** or **Objects to be registered** | SPACEBAR
 
-### Pagina di stato della pubblicazione
+### <a name="publish-progress-page"></a>Publish progress page
 
-|Operazione|Premere
+|Operation|Press
 |---|---
-|Scegliere il pulsante Annulla.|ALT+C
-|Scegliere il pulsante Registra altri oggetti.| ALT+R
-|Scegliere il pulsante Visualizza portale. | ALT+V
+|Cancel button|ALT+C
+|Register More Objects button| ALT+R
+|View Portal button  | ALT+V
 
-### Pagina di stato della pubblicazione
+### <a name="publish-progress-page"></a>Publish progress page
 
-|Operazione|Premere
+|Operation|Press
 |---|---
-|Scegliere il pulsante Salva (se abilitato).| ALT+S
-|Scegliere il pulsante Annulla.|ALT+C
+|Save button (if enabled)| ALT+S
+|Cancel button|ALT+C
 
-## Scelte rapide da tastiera per il portale di Azure Data Catalog
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Keyboard shortcuts for the Data Catalog portal
 
-|Operazione|Premere
+|Operation|Press
 |---|---
-|Esplorare| TAB e MAIUSC+TAB
-|Fare clic su un elemento| BARRA SPAZIATRICE o INVIO
-|Drill-down in una sezione| BARRA SPAZIATRICE o INVIO
-|Uscire da una sezione| ESC
-|Aggiungere/rimuovere un asset| ALT+P
-|Selezionare un asset con stato attivo nella pagina di ricerca| BARRA SPAZIATRICE o INVIO
-|Aggiungere o rimuovere asset da una selezione multipla| CTRL+BARRA SPAZIATRICE o INVIO
-|Attiva/Disattiva il menu delle corrispondenze con i termini di ricerca| ALT+S
-|Attiva/Disattiva il menu **Apri In** | ALT + O
-|Esplorare il contenitore, se l'asset è un contenitore | ALT+L
+|Navigate| TAB and SHIFT+TAB
+|Click an item| SPACE or ENTER
+|Drill down into a section| SPACE or ENTER
+|Exit out of a section| ESC
+|Pin/unpin an asset| ALT+P
+|On the discover page, when an asset has focus, select asset| SPACE or ENTER
+|Adds/remove asset from multi-select| CTRL+SPACE or ENTER
+|Toggle the search matches menu| ALT+S
+|Toggle **Open In** menu | ALT+O
+|Explore container, if the asset is a container | ALT+L
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare una funzione dal portale di Azure | Microsoft Azure"
-   description="Illustra come creare la prima funzione di Azure, un'applicazione senza server, in meno di due minuti."
+   pageTitle="Create a function from the Azure Portal | Microsoft Azure"
+   description="Build your first Azure Function, a serverless application, in less than two minutes."
    services="functions"
    documentationCenter="na"
    authors="ggailey777"
@@ -18,66 +18,75 @@
    ms.date="09/08/2016"
    ms.author="glenga"/>
 
-#Creare una funzione dal portale di Azure
 
-##Panoramica
-Funzioni di Azure offre un'esperienza di calcolo on demand guidata dagli eventi che estende la piattaforma applicativa di Azure con funzionalità per l'implementazione di codice attivato da eventi generati in altri servizi di Azure, prodotti SaaS e sistemi locali. Con Funzioni di Azure le applicazioni possono essere ridimensionate on demand e usano un modello di pagamento in base al consumo delle risorse. Funzioni di Azure permette di creare unità di codice pianificate o attivate implementate in vari linguaggi di programmazione. Per altre informazioni su Funzioni di Azure, vedere [Panoramica di Funzioni di Azure](functions-overview.md).
+#<a name="create-a-function-from-the-azure-portal"></a>Create a function from the Azure portal
 
-Questo argomento mostra come usare il portale di Azure per creare una semplice funzione Node.js "hello world" di Azure richiamata da un trigger HTTP. Per poter creare una funzione nel portale di Azure, è prima necessario creare in modo esplicito un'app per le funzioni nel servizio app di Azure. Per fare in modo che l'app per le funzioni venga creata automaticamente, vedere l'[altra esercitazione introduttiva su Funzioni di Azure](functions-create-first-azure-function.md), che offre un'esperienza introduttiva più semplice e include un video.
+##<a name="overview"></a>Overview
+Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions enables you to create scheduled or triggered units of code implemented in various programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
 
-##Creare un'app per le funzioni
+This topic shows you how to use the Azure portal to create a simple "hello world"  Node.js Azure Function that is invoked by an HTTP-trigger. Before you can create a function in the Azure portal, you must explicitly create a function app in Azure App Service. To have the function app created for you automatically, see [the other Azure Functions quickstart tutorial](functions-create-first-azure-function.md), which is a simpler quickstart experience and includes a video.
 
-Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Seguire questa procedura per creare un'app per le funzioni nel portale di Azure.
+##<a name="create-a-function-app"></a>Create a function app
 
-Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si ha già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
+A function app hosts the execution of your functions in Azure. Follow these steps to create a function app in the Azure portal.
 
-1. Passare al [portale di Azure](https://portal.azure.com) e accedere con il proprio account Azure.
+Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 
-2. Fare clic su **+Nuovo** > **Web e dispositivi mobili** > **App per le funzioni**, selezionare la **Sottoscrizione**, immettere un **Nome dell'app** che identifica l'app per le funzioni in modo univoco e quindi specificare le impostazioni seguenti:
+1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 
-	+ **[Gruppo di risorse](../azure-portal/resource-group-portal.md/)**: selezionare **Crea nuovo** e immettere un nome per il nuovo gruppo di risorse. È anche possibile scegliere un gruppo di risorse esistente. In tal caso, tuttavia, potrebbe non essere possibile creare un piano di servizio app dinamico per l'app per le funzioni.
-	+ **[Piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**: scegliere tra *dinamico* o *classico*.
-		+ **Dinamico**: tipo di piano predefinito per Funzioni di Azure. Quando si sceglie un piano dinamico, occorre anche scegliere la **Località** e impostare l'**Allocazione memoria (MB)**. Per informazioni su come l'allocazione di memoria influisce sui costi, vedere i [prezzi di Funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/).
-		+ **Classico**: se si sceglie un piano di servizio app classico è necessario creare un **Piano di servizio app/Località** o selezionarne uno esistente. Queste impostazioni determinano [la località, le funzionalità, i costi e le risorse di calcolo](https://azure.microsoft.com/pricing/details/app-service/) associati all'app.
-	+ **Account di archiviazione**: ogni app per le funzioni richiede un account di archiviazione. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
+2. Click **+New** > **Web + Mobile** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
 
-	![Creare una nuova app per le funzioni nel portale di Azure](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
+    + **[Resource Group](../azure-portal/resource-group-portal.md/)**: Select **Create new** and enter a name for your new resource group. You can also choose an existing resource group, however you may not be able to create a dynamic App Service plan for your function app.
+    + **[App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**: Choose either *dynamic* or *classic*. 
+        + **Dynamic**: The default plan type for Azure Functions. When you choose a dynamic plan, you must also choose the **Location** and set the **Memory Allocation** (in MB). For information about how memory allocation affects costs, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). 
+        + **Classic**: A classic App Service plan requires you to create an **App Service plan/location** or select an existing one. These settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app.  
+    + **Storage account**: Each function app requires a storage account. You can either choose an existing storage account or create one. 
 
-3. Fare clic su **Crea** per effettuare il provisioning della nuova app per le funzioni e distribuirla.
+    ![Create new function app in the Azure portal](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
 
-Dopo aver effettuato il provisioning dell'app per le funzioni è possibile creare la prima funzione.
+3. Click **Create** to provision and deploy the new function app.  
 
-## Creare una funzione
+Now that the function app is provisioned, you can create your first function.
 
-Seguire questa procedura per creare una funzione dall'avvio rapido di Funzioni di Azure.
+## <a name="create-a-function"></a>Create a function
 
-1. Nella scheda **Avvio rapido** fare clic su **WebHook e API** e **JavaScript** e quindi scegliere **Crea questa funzione**. Verrà creata una nuova funzione Node.js predefinita.
+These steps create a function from the Azure Functions quickstart.
 
-	![](./media/functions-create-first-azure-function-azure-portal/function-app-quickstart-node-webhook.png)
+1. In the **Quickstart** tab, click **WebHook + API** and **JavaScript**, then click **Create a function**. A new predefined Node.js function is created. 
 
-2. (Facoltativo) A questo punto dell'avvio rapido è possibile scegliere di seguire una demo introduttiva sulle funzionalità di Funzioni di Azure nel portale. Dopo aver completato o ignorato la demo introduttiva, è possibile testare la nuova funzione usando il trigger HTTP.
+    ![](./media/functions-create-first-azure-function-azure-portal/function-app-quickstart-node-webhook.png)
 
-##Testare la funzione
+2. (Optional) At this point in the quickstart, you can choose to take a quick tour of Azure Functions features in the portal.   Once you have completed or skipped the tour, you can test your new function by using the HTTP trigger.
 
-Grazie al codice funzionale contenuto negli avvii rapidi di Funzioni di Azure, è possibile testare immediatamente la nuova funzione.
+##<a name="test-the-function"></a>Test the function
 
-1. Nella scheda **Sviluppo** esaminare la finestra **Codice** e osservare che questo codice Node.js prevede una richiesta HTTP con un valore *name* passato nel corpo del messaggio o in una stringa di query. Durante l'esecuzione della funzione, questo valore viene restituito nel messaggio di risposta.
+Since the Azure Functions quickstarts contain functional code, you can immediately test your new function.
 
-	![](./media/functions-create-first-azure-function-azure-portal/function-app-develop-tab-testing.png)
+1. In the **Develop** tab, review the **Code** window and notice that this Node.js code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message.
 
-2. Scorrere verso il basso fino alla casella di testo **Corpo della richiesta**, modificare il valore della proprietà *name* specificando un nome personalizzato e quindi fare clic su **Esegui**. L'esecuzione viene attivata da una richiesta HTTP di test, le informazioni vengono scritte nei log in streaming e in **Output** viene visualizzata la risposta "hello".
+    ![](./media/functions-create-first-azure-function-azure-portal/function-app-develop-tab-testing.png)
 
-3. Per attivare l'esecuzione della stessa funzione da un'altra finestra o scheda del browser, copiare il valore di **URL funzione** dalla scheda **Sviluppo** e incollarlo nella barra degli indirizzi di un browser, quindi aggiungere il valore della stringa di query `&name=yourname` e premere INVIO. Nei log vengono scritte le stesse informazioni e il browser visualizza la risposta "hello" come prima.
+2. Scroll down to the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
 
-##Passaggi successivi
+3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value from the **Develop** tab and paste it in a browser address bar, then append the query string value `&name=yourname` and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
 
-L'avvio rapido mostra un'esecuzione molto semplice di una funzione di base attivata da HTTP. Per altre informazioni sull'uso delle potenzialità di Funzioni di Azure nelle app, vedere gli argomenti seguenti.
+##<a name="next-steps"></a>Next steps
 
-+ [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) Contiene informazioni di riferimento per programmatori sulla codifica delle funzioni e la definizione di trigger e associazioni.
-+ [Test di Funzioni di Azure](functions-test-a-function.md) Descrive diversi strumenti e tecniche per il test delle funzioni.
-+ [Scalabilità di Funzioni di Azure](functions-scale.md) Descrive i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.
-+ [Informazioni sul servizio app di Azure](../app-service/app-service-value-prop-what-is.md) Funzioni di Azure sfrutta la piattaforma del servizio app di Azure per le funzionalità di base, ad esempio distribuzioni, variabili di ambiente e diagnostica.
+This quickstart demonstrates a very simple execution of a basic HTTP-triggered function. See these topics for more information about using the power of Azure Functions in your apps.
 
-[AZURE.INCLUDE [Nota introduttiva](../../includes/functions-get-help.md)]
++ [Azure Functions developer reference](functions-reference.md)  
+Programmer reference for coding functions and defining triggers and bindings.
++ [Testing Azure Functions](functions-test-a-function.md)  
+Describes various tools and techniques for testing your functions.
++ [How to scale Azure Functions](functions-scale.md)  
+Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan. 
++ [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
+Azure Functions uses the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
 
-<!---HONumber=AcomDC_0914_2016-->
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

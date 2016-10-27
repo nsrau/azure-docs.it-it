@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Caricare i dati in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
-    description="Informazioni su come caricare i dati in un indice in Ricerca di Azure"
+    pageTitle="Data upload in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Learn how to upload data to an index in Azure Search."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -17,32 +17,37 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-# Caricare i dati in Ricerca di Azure
+
+# <a name="upload-data-to-azure-search"></a>Upload data to Azure Search
 > [AZURE.SELECTOR]
-- [Panoramica](search-what-is-data-import.md)
+- [Overview](search-what-is-data-import.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
 
 
-## Modelli di caricamento dei dati in Ricerca di Azure
-Esistono due modi per popolare l'indice di Ricerca di Azure con i dati. La prima opzione consiste nell'effettuare manualmente il push dei dati nell'indice tramite l'[API REST](search-import-data-rest-api.md) o [.NET SDK](search-import-data-dotnet.md) di Ricerca di Azure. La seconda opzione consiste nell'[indirizzare un'origine dati supportata](search-indexer-overview.md) all'indice di Ricerca di Azure e lasciare che il servizio effettui automaticamente il pull dei dati nel servizio di ricerca.
+## <a name="data-upload-models-in-azure-search"></a>Data upload models in Azure search
+There are two ways to populate your Azure Search index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your Azure Search index and let Azure Search automatically pull your data into the search service.
 
-Questa guida include solo istruzioni sull'uso del modello push di caricamento dei dati, supportato solo nell'[API REST](search-import-data-rest-api.md) e in [.NET SDK](search-import-data-dotnet.md), ma è comunque possibile apprendere altre informazioni sul modello pull riportate di seguito.
+This guide will only cover instructions on using the push model of data upload (which is supported only in the [REST API](search-import-data-rest-api.md) and [.NET SDK](search-import-data-dotnet.md)), but you can still learn more about the pull model below.
 
-### Push dei dati in un indice
+### <a name="push-data-to-an-index"></a>Push data to an index
 
-Questo approccio si riferisce all'invio di dati a livello di codice a Ricerca di Azure per renderli disponibili per la ricerca. Per applicazioni con requisiti di latenza molto bassa, ad esempio se è necessario che le operazioni di ricerca siano sincronizzate con i database di inventario dinamici, il modello push è l'unica opzione disponibile.
+This approach refers to programmatically sending your data to Azure Search to make it available for searching. For applications having very low latency requirements (e.g. if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
 
-È possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn798930.aspx) o [.NET SDK](search-import-data-dotnet.md) per il push dei dati a un indice. Non sono attualmente supportati strumenti per il push dei dati tramite il portale.
+You can use the [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [.NET SDK](search-import-data-dotnet.md) to push data to an index. There is currently no tool support for pushing data via the portal.
 
-Questo approccio è più flessibile rispetto al modello pull, perché si possono caricare i documenti individualmente o in batch, fino a 1000 per batch o 16 MB, a seconda del limite che viene raggiunto per primo. Il modello push consente anche di caricare i documenti in Ricerca di Azure indipendentemente dalla posizione dei dati.
+This approach is more flexible than the pull model because you can upload documents individually or in batches (up to 1000 per batch or 16 MB, whichever limit comes first). The push model also allows you to upload documents to Azure Search regardless of where your data is.
 
-### Effettuare il pull dei dati in un indice
+### <a name="pull-data-into-an-index"></a>Pull data into an index
 
-Il modello pull effettua una ricerca per indicizzazione su un'origine dati supportata e carica automaticamente i dati nell'indice di Ricerca di Azure. Tramite il rilevamento di modifiche ed eliminazioni nei documenti esistenti, oltre al riconoscimento di nuovi documenti, gli indicizzatori eliminano la necessità di gestire attivamente i dati nell'indice.
+The pull model crawls a supported data source and automatically uploads the data into you Azure Search index for you. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index.
 
-In Ricerca di Azure questa funzionalità viene implementata tramite *indicizzatori*, attualmente disponibili per [Archivio BLOB (anteprima)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Database SQL di Azure e SQL Server nelle VM di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage (preview)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-La funzionalità di indicizzatore viene esposta nel [portale di Azure ](search-import-data-portal.md) e nell'[API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
+The indexer functionality is exposed in the [Azure Portal](search-import-data-portal.md) as well as in the [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Linee guida di progettazione dell’API | Microsoft Azure"
-   description="Linee guida su come creare un’API ben progettata."
+   pageTitle="API design guidance | Microsoft Azure"
+   description="Guidance upon how to create a well designed API."
    services=""
    documentationCenter="na"
    authors="dragon119"
@@ -17,38 +17,39 @@
    ms.date="07/13/2016"
    ms.author="masashin"/>
 
-# Linee guida per la progettazione di un’API
+
+# <a name="api-design-guidance"></a>API design guidance
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Panoramica
+## <a name="overview"></a>Overview
 
-Molte soluzioni moderne basate sul Web ricorrono ai servizi Web, ospitati su server Web, per fornire funzionalità per le applicazioni client remote. Le operazioni esposte da un servizio Web costituiscono un'API Web. Un'API Web progettata in modo adeguato deve supportare:
+Many modern web-based solutions make the use of web services, hosted by web servers, to provide functionality for remote client applications. The operations that a web service exposes constitute a web API. A well-designed web API should aim to support:
 
-- **Indipendenza dalla piattaforma**. Le applicazioni client devono riuscire a usare l'API fornita dal servizio Web senza richiedere in che modo i dati o le operazioni esposte dall’API vengano implementati fisicamente. A questo scopo, l’API deve rispettare gli standard comuni che consentono a un’applicazione client e a un servizio Web di concordare i formati di dati da usare e la struttura dei dati scambiati tra le applicazioni client e il servizio Web.
+- **Platform independence**. Client applications should be able to utilize the API that the web service provides without requiring how the data or operations that API exposes are physically implemented. This requires that the API abides by common standards that enable a client application and web service to agree on which data formats to use, and the structure of the data that is exchanged between client applications and the web service.
 
-- **Evoluzione del servizio**. Il servizio Web deve essere in grado di evolversi e aggiungere o rimuovere funzionalità in modo indipendente dalle applicazioni client. Le applicazioni client esistenti devono continuare a funzionare senza modifiche mentre le funzionalità fornite dal servizio Web cambiano. Tutte le funzionalità devono essere individuabili, per poter essere usate appieno dalle applicazioni client.
+- **Service evolution**. The web service should be able to evolve and add (or remove) functionality independently from client applications. Existing client applications should be able to continue to operate unmodified as the features provided by the web service change. All functionality should also be discoverable, so that client applications can fully utilize it.
 
-Lo scopo di queste linee guida è descrivere i problemi da prendere in considerazione quando si progetta un'API Web.
+The purpose of this guidance is to describe the issues that you should consider when designing a web API.
 
-## Introduzione a REST (Representational State Transfer)
+## <a name="introduction-to-representational-state-transfer-(rest)"></a>Introduction to Representational State Transfer (REST)
 
-Nella sua dissertazione del 2000, Roy Fielding ha proposto un approccio architetturale alternativo per strutturare le operazioni esposte da servizi Web, denominato REST. REST è uno stile architetturale per la creazione di sistemi distribuiti basati su ipermedia. Uno dei principali vantaggi del modello REST sta nel fatto che è basato su standard aperti e che non vincola l'implementazione del modello o le applicazioni client che vi accedono a nessuna implementazione specifica. Ad esempio, un servizio Web REST può essere implementato usando l’API Web Microsoft ASP.NET e le applicazioni client possono essere sviluppate usando qualsiasi linguaggio e set di strumenti in grado di generare richieste HTTP e analizzare le risposte HTTP.
+In his dissertation in 2000, Roy Fielding proposed an alternative architectural approach to structuring the operations exposed by web services; REST. REST is an architectural style for building distributed systems based on hypermedia. A primary advantage of the REST model is that it is based on open standards and does not bind the implementation of the model or the client applications that access it to any specific implementation. For example, a REST web service could be implemented by using the Microsoft ASP.NET Web API, and client applications could be developed by using any language and toolset that can generate HTTP requests and parse HTTP responses.
 
-> [AZURE.NOTE]In realtà REST è indipendente da qualsiasi protocollo sottostante e non è necessariamente legato a HTTP. Tuttavia, le implementazioni più comuni dei sistemi basati su REST usano HTTP come protocollo di applicazione per l'invio e la ricezione di richieste. Questo documento è incentrato sul mapping dei principi REST ai sistemi progettati per funzionare con HTTP.
+> [AZURE.NOTE] REST is actually independent of any underlying protocol and is not necessarily tied to HTTP. However, most common implementations of systems that are based on REST utilize HTTP as the application protocol for sending and receiving requests. This document focuses on mapping REST principles to systems designed to operate using HTTP.
 
-Il modello di REST utilizza uno schema di spostamento per rappresentare gli oggetti e i servizi, denominati _risorse_, in una rete. Molti sistemi che implementano REST in genere usano il protocollo HTTP per trasmettere le richieste di accesso a queste risorse. In questi sistemi, un'applicazione client invia una richiesta sotto forma di un URI che identifica una risorsa e un metodo HTTP (i più comuni sono GET, POST, PUT o DELETE) che indica l'operazione da eseguire su tale risorsa. Il corpo della richiesta HTTP contiene i dati necessari per eseguire l'operazione. Il punto importante da comprendere è che REST definisce un modello di richiesta senza stato. Le richieste HTTP devono essere indipendenti e possono verificarsi in qualsiasi ordine, per cui il tentativo di mantenere le informazioni di stato temporaneo tra due richieste non è realizzabile. L'unico punto in cui sono memorizzate le informazioni sono le risorse stesse e ogni richiesta deve essere un'operazione atomica. In effetti, un modello REST implementa una macchina a stati finiti in cui una richiesta passa una risorsa da uno stato non temporaneo ben definito a un altro.
+The REST model uses a navigational scheme to represent objects and services over a network (referred to as _resources_). Many systems that implement REST typically use the HTTP protocol to transmit requests to access these resources. In these systems, a client application submits a request in the form of a URI that identifies a resource, and an HTTP method (the most common being GET, POST, PUT, or DELETE) that indicates the operation to be performed on that resource.  The body of the HTTP request contains the data required to perform the operation. The important point to understand is that REST defines a stateless request model. HTTP requests should be independent and may occur in any order, so attempting to retain transient state information between requests is not feasible.  The only place where information is stored is in the resources themselves, and each request should be an atomic operation. Effectively, a REST model implements a finite state machine where a request transitions a resource from one well-defined non-transient state to another.
 
-> [AZURE.NOTE] La natura senza stato delle singole richieste nel modello REST consente a un sistema costituito dai seguenti principi di essere altamente scalabile. Non è necessario conservare l’affinità tra un'applicazione client che effettua una serie di richieste e i server Web specifici che gestiscono queste richieste.
+> [AZURE.NOTE] The stateless nature of individual requests in the REST model enables a system constructed by following these principles to be highly scalable. There is no need to retain any affinity between a client application making a series of requests and the specific web servers handling those requests.
 
-Un altro punto fondamentale nell'implementazione di un modello REST efficace consiste nel comprendere le relazioni tra le varie risorse a cui il modello fornisce l'accesso. Queste risorse sono in genere organizzate in raccolte e relazioni. Ad esempio, si supponga che una rapida analisi di un sistema di e-commerce mostri che le raccolte a cui le applicazioni client possono essere interessate sono due: ordini e clienti. Ogni ordine e ogni cliente deve avere la propria chiave univoca per l'identificazione. L’URI per accedere alla raccolta di ordini può essere semplice come _/orders_, e allo stesso modo, l'URI per il recupero di tutti i clienti può essere _/customers._. L’invio di una richiesta HTTP GET all’URI _/orders_ deve restituire un elenco che rappresenta tutti gli ordini nella raccolta codificati come risposta HTTP:
+Another crucial point in implementing an effective REST model is to understand the relationships between the various resources to which the model provides access. These resources are typically organized as collections and relationships. For example, suppose that a quick analysis of an ecommerce system shows that there are two collections in which client applications are likely to be interested: orders and customers. Each order and customer should have its own unique key for identification purposes. The URI to access the collection of orders could be something as simple as _/orders_, and similarly the URI for retrieving all customers could be _/customers_. Issuing an HTTP GET request to the _/orders_ URI should return a list representing all orders in the collection encoded as an HTTP response:
 
 ```HTTP
 GET http://adventure-works.com/orders HTTP/1.1
 ...
 ```
 
-Nella risposta mostrata di seguito, gli ordini sono codificati come struttura di elenchi JSON:
+The response shown below encodes the orders as a JSON list structure:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -57,7 +58,7 @@ Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
 [{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1},{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2},{"orderId":3,"orderValue":16.60,"productId":2,"quantity":4},{"orderId":4,"orderValue":25.90,"productId":3,"quantity":1},{"orderId":5,"orderValue":99.90,"productId":1,"quantity":1}]
 ```
-Per recuperare un singolo ordine è necessario specificare l'identificatore per l'ordine dalla risorsa _orders_, ad esempio _/orders/2_:
+To fetch an individual order requires specifying the identifier for the order from the _orders_ resource, such as _/orders/2_:
 
 ```HTTP
 GET http://adventure-works.com/orders/2 HTTP/1.1
@@ -72,78 +73,77 @@ Content-Length: ...
 {"orderId":2,"orderValue":10.00,"productId":4,"quantity":2}
 ```
 
-> [AZURE.NOTE] Per semplicità, questi esempi mostrano le informazioni nelle risposte restituite come dati di testo JSON. Non esiste tuttavia alcuna ragione per cui le risorse non debbano contenere qualsiasi altro tipo di dati supportato da HTTP, ad esempio informazioni binarie o crittografate. Il tipo di contenuto nella risposta HTTP deve specificare il tipo. Un modello REST può anche essere in grado di restituire gli stessi dati in formati diversi, ad esempio XML o JSON. In questo caso, il servizio Web deve essere in grado di eseguire la negoziazione del contenuto con il client che effettua la richiesta. La richiesta può includere un’intestazione _Accept_ che specifica il formato che il client vuole ricevere. Il servizio Web deve tentare di rispettare questo formato, se possibile.
+> [AZURE.NOTE] For simplicity, these examples show the information in responses being returned as JSON text data. However, there is no reason why resources should not contain any other type of data supported by HTTP, such as binary or encrypted information; the content-type in the HTTP response should specify the type. Also, a REST model may be able to return the same data in different formats, such as XML or JSON. In this case, the web service should be able to perform content negotiation with the client making the request. The request can include an _Accept_ header which specifies the preferred format that the client would like to receive and the web service should attempt to honor this format if at all possible.
 
-Si noti che la risposta da una richiesta REST standard utilizza i codici di stato HTTP standard. Ad esempio, una richiesta che restituisce dati validi deve includere il codice di risposta HTTP 200 (OK), mentre una richiesta che non riesce a trovare o eliminare una risorsa specificata deve restituire una risposta che include il codice di stato HTTP 404 (Non trovato).
+Notice that the response from a REST request makes use of the standard HTTP status codes. For example, a request that returns valid data should include the HTTP response code 200 (OK), while a request that fails to find or delete a specified resource should return a response that includes the HTTP status code 404 (Not Found).
 
-## Progettazione e struttura di un'API Web RESTful
+## <a name="design-and-structure-of-a-restful-web-api"></a>Design and structure of a RESTful web API
 
-Le chiavi per la progettazione di un'API Web efficace sono semplicità e uniformità. Un'API Web caratterizzata da questi due fattori rende più semplice creare applicazioni client che devono usare l'API.
+The keys to designing a successful web API are simplicity and consistency. A Web API that exhibits these two factors makes it easier to build client applications that need to consume the API.
 
-Un'API Web RESTful è incentrata sull’esposizione di un set di risorse connesse e sulla fornitura delle operazioni principali che consentono a un'applicazione di modificare queste risorse e di spostarsi facilmente tra loro. Per questo motivo, gli URI che costituiscono un'API Web RESTful standard devono essere orientati ai dati che questa espone e utilizzare le funzionalità fornite da HTTP per operare su questi dati. Questo approccio richiede una prospettiva diversa da quella usata in genere quando si progetta un set di classi in un'API orientata agli oggetti che tende a essere più motivata dal comportamento delle classi e degli oggetti. Inoltre, un'API Web RESTful deve essere senza stato e non deve dipendere dalle operazioni richiamate in una particolare sequenza. Le sezioni seguenti riepilogano i punti da considerare quando si progetta un'API Web RESTful.
+A RESTful web API is focused on exposing a set of connected resources, and providing the core operations that enable an application to manipulate these resources and easily navigate between them. For this reason, the URIs that constitute a typical RESTful web API should be oriented towards the data that it exposes, and use the facilities provided by HTTP to operate on this data. This approach requires a different mindset from that typically employed when designing a set of classes in an object-oriented API which tends to be more motivated by the behavior of objects and classes. Additionally, a RESTful web API should be stateless and not depend on operations being invoked in a particular sequence. The following sections summarize the points you should consider when designing a RESTful web API.
 
-### Organizzazione dell'API Web in base alle risorse
+### <a name="organizing-the-web-api-around-resources"></a>Organizing the web API around resources
 
-> [AZURE.TIP] Gli URI esposti da un servizio Web REST devono essere basati sui nomi (i dati a cui l'API Web fornisce l'accesso) e non sui verbi (le operazioni che un'applicazione può eseguire con i dati).
+> [AZURE.TIP] The URIs exposed by a REST web service should be based on nouns (the data to which the web API provides access) and not verbs (what an application can do with the data).
 
-Concentrarsi sulle entità di business esposte dall'API Web. Ad esempio, in un’API Web progettata per supportare il sistema di e-commerce descritto in precedenza, le entità primarie sono customers e orders. Processi quali l'atto di emettere un ordine possono essere eseguiti fornendo un'operazione HTTP POST che aggiunge le informazioni relative all’ordine all'elenco di ordini per il cliente. Internamente, questa operazione POST può eseguire attività quali il controllo dei livelli di scorte e la fatturazione del cliente. La risposta HTTP può indicare se l'ordine è stato inserito correttamente o meno. Si noti inoltre che non è necessario che una risorsa sia basata su un singolo elemento di dati fisici. Ad esempio, una risorsa ordine può essere implementata internamente usano le informazioni aggregate da molte righe distribuite in varie tabelle in un database relazionale, ma presentate al client come una singola entità.
+Focus on the business entities that the web API exposes. For example, in a web API designed to support the ecommerce system described earlier, the primary entities are customers and orders. Processes such as the act of placing an order can be achieved by providing an HTTP POST operation that takes the order information and adds it to the list of orders for the customer. Internally, this POST operation can perform tasks such as checking stock levels, and billing the customer. The HTTP response can indicate whether the order was placed successfully or not. Also note that a resource does not have to be based on a single physical data item. As an example, an order resource might be implemented internally by using information aggregated from many rows spread across several tables in a relational database but presented to the client as a single entity.
 
-> [AZURE.TIP] Evitare di progettare un'interfaccia REST che rispecchi o dipenda dalla struttura interna dei dati esposti. REST consiste in qualcosa di più della semplice implementazione di operazioni CRUD (Create, Retrieve, Update, Delete) in tabelle separate in un database relazionale. Lo scopo di REST è eseguire il mapping delle entità business e delle operazioni che un'applicazione può eseguire su tali entità all'implementazione fisica di queste entità, ma un client non deve essere esposto a questi dettagli fisici.
+> [AZURE.TIP] Avoid designing a REST interface that mirrors or depends on the internal structure of the data that it exposes. REST is about more than implementing simple CRUD (Create, Retrieve, Update, Delete) operations over separate tables in a relational database. The purpose of REST is to map business entities and the operations that an application can perform on these entities to the physical implementation of these entities, but a client should not be exposed to these physical details.
 
-L’esistenza di singole entità business in isolamento è rara (sebbene esistano alcuni oggetti singleton), piuttosto queste entità tendono a essere raggruppate in raccolte. Nella terminologia REST, ogni entità e ogni raccolta costituiscono una risorsa. In un’API Web RESTful, ogni raccolta ha un URI specifico all'interno del servizio Web, e l'esecuzione di una richiesta HTTP GET tramite un URI per una raccolta recupera un elenco di elementi in tale raccolta. Anche ogni singolo elemento ha un URI specifico, e un'applicazione può inviare un'altra richiesta HTTP GET con lo stesso URI per recuperare i dettagli di tale elemento. È necessario organizzare gli URI per le raccolte e gli elementi in modo gerarchico. Nel sistema di e-commerce l'URI _/customers_ indica la raccolta del cliente e _/customers/5_ recupera i dettagli per il singolo cliente con ID 5 da questa raccolta. Questo approccio consente di mantenere l'API Web intuitiva.
+Individual business entities rarely exist in isolation (although some singleton objects may exist), but instead tend to be grouped together into collections. In REST terms, each entity and each collection are resources. In a RESTful web API, each collection has its own URI within the web service, and performing an HTTP GET request over a URI for a collection retrieves a list of items in that collection. Each individual item also has its own URI, and an application can submit another HTTP GET request using that URI to retrieve the details of that item. You should organize the URIs for collections and items in a hierarchical manner. In the ecommerce system, the URI _/customers_ denotes the customer’s collection, and _/customers/5_ retrieves the details for the single customer with the ID 5 from this collection. This approach helps to keep the web API intuitive.
 
-> [AZURE.TIP] Adottare una convenzione di denominazione coerente all’interno degli URI. In generale, per gli URI che fanno riferimento alle raccolte è utile usare nomi plurali.
+> [AZURE.TIP] Adopt a consistent naming convention in URIs; in general it helps to use plural nouns for URIs that reference collections.
 
-È anche necessario prendere in considerazione le relazioni tra diversi tipi di risorse e il modo in cui esporre queste associazioni. Ad esempio, i clienti possono effettuare zero o più ordini. Un modo semplice per rappresentare questa relazione è un URI, ad esempio _/customers/5/orders_ per trovare tutti gli ordini per il cliente 5. È inoltre possibile prendere in considerazione l’idea di rappresentare l’associazione da un ordine a un cliente specifico tramite un URI come _/orders/99/customer_ per trovare il cliente dell’ordine 99. Tuttavia l’estensione eccessiva di questo modello può risultare complessa da implementare. Una soluzione migliore consiste nel fornire collegamenti esplorabili alle risorse associate, ad esempio il cliente, nel corpo del messaggio di risposta HTTP restituito quando viene eseguita una query sull'ordine. Questo meccanismo viene descritto in maggiore dettaglio nella sezione Uso dell’approccio HATEOAS per consentire lo spostamento a risorse correlate, più avanti in queste linee guida.
+You also need to consider the relationships between different types of resources and how you might expose these associations. For example, customers may place zero or more orders. A natural way to represent this relationship would be through a URI such as _/customers/5/orders_ to find all the orders for customer 5. You might also consider representing the association from an order back to a specific customer through a URI such as _/orders/99/customer_ to find the customer for order 99, but extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources, such as the customer, in the body of the HTTP response message returned when the order is queried. This mechanism is described in more detail in the section Using the HATEOAS Approach to Enable Navigation To Related Resources later in this guidance.
 
-Nei sistemi più complessi possono essere presenti molti altri tipi di entità e si può essere tentati di fornire URI che consentono a un'applicazione client di spostarsi tra diversi livelli di relazioni, ad esempio _/customers/1/orders/99/products_ per ottenere l'elenco di prodotti nell’ordine 99 eseguito dal cliente 1. Tuttavia questo livello di complessità può essere difficile da mantenere e non è flessibile se le relazioni tra le risorse cambiano in futuro. Cercare invece di mantenere gli URI relativamente semplici. Tenere presente che, una volta che un'applicazione contiene un riferimento a una risorsa, è possibile usare questo riferimento per trovare gli elementi correlati a tale risorsa. La query precedente può essere sostituita con l'URI _/customers/1/orders_ per trovare tutti gli ordini per il cliente 1 e quindi eseguire una query all'URI _/orders/99/products_ per trovare i prodotti in questo ordine (presupponendo che l’ordine 99 sia stato eseguito dal cliente 1).
+In more complex systems there may be many more types of entity, and it can be tempting to provide URIs that enable a client application to navigate through several levels of relationships, such as _/customers/1/orders/99/products_ to obtain the list of products in order 99 placed by customer 1. However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future. Rather, you should seek to keep URIs relatively simple. Bear in mind that once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource. The preceding query can be replaced with the URI _/customers/1/orders_ to find all the orders for customer 1, and then query the URI _/orders/99/products_ to find the products in this order (assuming order 99 was placed by customer 1).
 
-> [AZURE.TIP] Evitare di richiedere URI di risorse più complessi di _collection/item/collection_.
+> [AZURE.TIP] Avoid requiring resource URIs more complex than _collection/item/collection_.
 
-Un altro punto da considerare è che tutte le richieste Web impongono un carico sul server Web e che il carico aumenta in modo proporzionale alle richieste. È necessario provare a definire le risorse in modo da evitare API Web "frammentate" che espongono un numero elevato di risorse piccole. Questo tipo di API può richiedere che un'applicazione client invii più richieste per trovare tutti i dati che richiede. Può essere utile denormalizzare i dati e combinare le informazioni correlate tra loro in risorse più grandi che possono essere recuperate tramite l'esecuzione di una singola richiesta. Tuttavia, è necessario bilanciare questo approccio rispetto al sovraccarico del recupero di dati che potrebbero non essere richiesti spesso dal client. Il recupero di oggetti di grandi dimensioni può aumentare la latenza di una richiesta e comportare costi di larghezza di banda aggiuntivi a fronte di un piccolo vantaggio se i dati aggiuntivi non vengono utilizzati spesso.
+Another point to consider is that all web requests impose a load on the web server, and the greater the number of requests the bigger the load. You should attempt to define your resources to avoid “chatty” web APIs that expose a large number of small resources. Such an API may require a client application to submit multiple requests to find all the data that it requires. It may be beneficial to denormalize data and combine related information together into bigger resources that can be retrieved by issuing a single request. However, you need to balance this approach against the overhead of fetching data that might not be frequently required by the client. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs for little advantage if the additional data is not often used.
 
-Evitare di introdurre dipendenze tra l'API Web e la struttura, il tipo o il percorso delle origini dati sottostanti. Ad esempio, se i dati si trovano in un database relazionale, non è necessario che l'API Web esponga ogni tabella come raccolta di risorse. Considerare l'API Web come un'astrazione del database e, se necessario, introdurre un livello di mapping tra il database e l'API Web. In questo modo, se viene modificata la progettazione o l’implementazione del database (ad esempio, si passa da un database relazionale contenente una raccolta di tabelle normalizzate a un sistema di archiviazione NoSQL denormalizzato, come un database di documenti) le applicazioni client sono isolate da tali modifiche.
+Avoid introducing dependencies between the web API to the structure, type, or location of the underlying data sources. For example, if your data is located in a relational database, the web API does not need to expose each table as a collection of resources. Think of the web API as an abstraction of the database, and if necessary introduce a mapping layer between the database and the web API. In this way, if the design or implementation of the database changes (for example, you move from a relational database containing a collection of normalized tables to a denormalized NoSQL storage system such as a document database) client applications are insulated from these changes.
+> [AZURE.TIP] The source of the data that underpins a web API does not have to be a data store; it could be another service or line-of-business application or even a legacy application running on-premises within an organization.
 
-> [AZURE.TIP] Non è necessario che l'origine dei dati che supporta un'API Web sia un archivio dati. Potrebbe essere un altro servizio o un’applicazione line-of-business o persino un'applicazione legacy in esecuzione in locale all'interno di un’organizzazione.
+Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such _non-resource_ scenarios through HTTP GET requests that invoke a piece of functionality and return the results as an HTTP response message. A web API that implements simple calculator-style operations such as add and subtract could provide URIs that expose these operations as pseudo resources and utilize the query string to specify the parameters required. For example a GET request to the URI _/add?operand1=99&operand2=1_ could return a response message with the body containing the value 100, and GET request to the URI _/subtract?operand1=50&operand2=20_ could return a response message with the body containing the value 30. However, only use these forms of URIs sparingly.
 
-Infine, potrebbe non essere possibile eseguire il mapping di ogni operazione implementata da un'API Web a una risorsa specifica. È possibile gestire tali scenari _non di risorsa_ tramite richieste HTTP GET che richiamano una parte di funzionalità e restituiscono i risultati come messaggio di risposta HTTP. Un’API Web che implementa semplici operazioni in stile calcolatrice, ad esempio addizioni e sottrazioni, potrebbe fornire URI che espongono queste operazioni come pseudo risorse e utilizzare la stringa di query per specificare i parametri richiesti. Ad esempio, una richiesta GET all’URI _/add?operand1=99&operand2=1_ può restituire un messaggio di risposta con un valore 100 all’interno del corpo e una richiesta GET all’URI _/subtract?operand1=50&operand2=20_ può restituire un messaggio di risposta con un valore 30 all’interno del corpo. Utilizzare tuttavia questi formati di URI solo in casi limitati.
+### <a name="defining-operations-in-terms-of-http-methods"></a>Defining operations in terms of HTTP methods
 
-### Definizione delle operazioni in termini di metodi HTTP
+The HTTP protocol defines a number of methods that assign semantic meaning to a request. The common HTTP methods used by most RESTful web APIs are:
 
-Il protocollo HTTP definisce una serie di metodi che assegnano un significato semantico a una richiesta. I metodi HTTP usati dalla maggior parte delle API Web RESTful sono:
+- **GET**, to retrieve a copy of the resource at the specified URI. The body of the response message contains the details of the requested resource.
 
-- **GET**, per recuperare una copia della risorsa nell’URI specificato. Il corpo del messaggio di risposta contiene i dettagli della risorsa richiesta.
+- **POST**, to create a new resource at the specified URI. The body of the request message provides the details of the new resource. Note that POST can also be used to trigger operations that don't actually create resources.
 
-- **POST**, per creare una nuova risorsa nell’URI specificato. Il corpo del messaggio di richiesta fornisce i dettagli della nuova risorsa. Si noti che POST può anche essere usato per avviare operazioni che in realtà non creano risorse.
+- **PUT**, to replace or update the resource at the specified URI. The body of the request message specifies the resource to be modified and the values to be applied.
 
-- **PUT**, per sostituire o aggiornare la risorsa nell’URI specificato. Il corpo del messaggio di richiesta specifica la risorsa da modificare e i valori da applicare.
+- **DELETE**, to remove the resource at the specified URI.
 
-- **DELETE**, per rimuovere la risorsa nell’URI specificato.
+> [AZURE.NOTE] The HTTP protocol also defines other less commonly-used methods, such as PATCH which is used to request selective updates to a resource, HEAD which is used to request a description of a resource, OPTIONS which enables a client information to obtain information about the communication options supported by the server, and TRACE which allows a client to request information that it can use for testing and diagnostics purposes.
 
-> [AZURE.NOTE] Il protocollo HTTP definisce anche altri metodi usati meno comunemente, ad esempio PATCH che viene usato per richiedere aggiornamenti selettivi a una risorsa, HEAD che viene utilizzato per richiedere una descrizione di una risorsa, OPTIONS che consente a un client di ottenere informazioni sulle opzioni di comunicazione supportate dal server e TRACE che consente a un client di richiedere informazioni utilizzabili a scopo di test e di diagnostica.
+The effect of a specific request should depend on whether the resource to which it is applied is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example. Note that not all of these requests might be implemented; it depends on the specific scenario.
 
-L'effetto di una richiesta specifica è diverso a seconda che la risorsa a cui viene applicata sia una raccolta o un singolo elemento. La tabella seguente riepiloga le convenzioni comuni adottate dalla maggior parte delle implementazioni RESTful usando l’esempio dell’e-commerce. Si noti che potrebbe non essere possibile implementare tutte queste richieste. L’implementazione dipende dallo scenario specifico.
-
-| **Risorsa** | **POST** | **GET** | **PUT** | **DELETE** |
+| **Resource** | **POST** | **GET** | **PUT** | **DELETE** |
 |--------------|----------|---------|---------|------------|
-| /customers | Creare un nuovo cliente | Recuperare tutti i clienti | Eseguire l’aggiornamento di massa dei clienti (_se implementato_) | Rimuovere tutti i clienti |
-| /customers/1 | Errore | Recuperare i dettagli per il cliente 1 | Aggiornare i dettagli del cliente 1 se esiste, in caso contrario restituire un errore | Rimuovere il cliente 1 |
-| /customers/1/orders | Creare un nuovo ordine per il cliente 1 | Recuperare tutti gli ordini per il cliente 1 | Eseguire l’aggiornamento di massa degli ordini per il cliente 1 (_se implementato_) | Rimuovere tutti gli ordini per il cliente 1(_se implementato_) |
+| /customers | Create a new customer | Retrieve all customers | Bulk update of customers (_if implemented_) | Remove all customers |
+| /customers/1 | Error | Retrieve the details for customer 1 | Update the details of customer 1 if it exists, otherwise return an error | Remove customer 1 |
+| /customers/1/orders | Create a new order for customer 1 | Retrieve all orders for customer 1 | Bulk update of orders for customer 1 (_if implemented_) | Remove all orders for customer 1(_if implemented_) |
 
-Sebbene lo scopo delle richieste GET e DELETE sia relativamente semplice, la finalità e gli effetti delle richieste POST e PUT possono generare confusione.
+The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST and PUT requests.
 
-Una richiesta POST ha lo scopo di creare una nuova risorsa con dati forniti nel corpo della richiesta. Nel modello REST spesso le richieste POST si applicano alle risorse costituite da raccolte. La nuova risorsa viene aggiunta alla raccolta.
+A POST request should create a new resource with data provided in the body of the request. In the REST model, you frequently apply POST requests to resources that are collections; the new resource is added to the collection.
 
-> [AZURE.NOTE] È anche possibile definire richieste POST che attivano alcune funzionalità e che non necessariamente restituiscono dati. Questi tipi di richieste possono essere applicati alle raccolte. È possibile, ad esempio, usare una richiesta POST per passare una scheda attività a un servizio di elaborazione delle retribuzioni e ottenere le tasse calcolate come risposta.
+> [AZURE.NOTE] You can also define POST requests that trigger some functionality (and that don't necessarily return data), and these types of request can be applied to collections. For example you could use a POST request to pass a timesheet to a payroll processing service and get the calculated taxes back as a response.
 
-Lo scopo di una richiesta PUT è modificare una risorsa esistente. Se la risorsa specificata non esiste, la richiesta PUT può restituire un errore (in alcuni casi potrebbe effettivamente creare la risorsa). Le richieste PUT vengono applicate con maggiore frequenza a risorse costituite da singoli elementi, ad esempio un cliente o un ordine specifico, ma possono essere applicate anche alle raccolte, sebbene questo scenario sia meno frequente. Si noti che le richieste PUT sono idempotenti, mentre le richieste POST non lo sono. Se un'applicazione invia la stessa richiesta PUT più volte i risultati saranno gli stessi (la stessa risorsa verrà modificata con gli stessi valori), ma se un'applicazione ripete la stessa richiesta POST il risultato sarà la creazione di più risorse.
+A PUT request is intended to modify an existing resource. If the specified resource does not exist, the PUT request could return an error (in some cases, it might actually create the resource). PUT requests are most frequently applied to resources that are individual items (such as a specific customer or order), although they can be applied to collections, although this is less-commonly implemented. Note that PUT requests are idempotent whereas POST requests are not; if an application submits the same PUT request multiple times the results should always be the same (the same resource will be modified with the same values), but if an application repeats the same POST request the result will be the creation of multiple resources.
 
-> [AZURE.NOTE] In modo più specifico, una richiesta HTTP PUT sostituisce una risorsa esistente con la risorsa specificata nel corpo della richiesta. Se si intende modificare una selezione di proprietà in una risorsa, lasciando però invariate le altre proprietà, questa operazione deve essere implementata mediante una richiesta HTTP PATCH. Tuttavia, molte implementazioni RESTful non applicano questa regola in modo rigido e usano PUT per entrambi i casi.
+> [AZURE.NOTE] Strictly speaking, an HTTP PUT request replaces an existing resource with the resource specified in the body of the request. If the intention is to modify a selection of properties in a resource but leave other properties unchanged, then this should be implemented by using an HTTP PATCH request. However, many RESTful implementations relax this rule and use PUT for both situations.
 
-### Elaborazione di richieste HTTP
-I dati inclusi da un'applicazione client in molte richieste HTTP e i corrispondenti messaggi di risposta dal server Web possono essere presentati in diversi formati o tipi di supporti. I dati che specificano i dettagli per un cliente o un ordine, ad esempio, possono essere forniti come XML, JSON o un altro formato codificato e compresso. Un'API Web RESTful deve supportare tipi di supporti diversi, come richiesto dall'applicazione client che invia una richiesta.
+### <a name="processing-http-requests"></a>Processing HTTP requests
+The data included by a client application in many HTTP requests, and the corresponding response messages from the web server, could be presented in a variety of formats (or media types). For example, the data that specifies the details for a customer or order could be provided as XML, JSON, or some other encoded and compressed format. A RESTful web API should support different media types as requested by the client application that submits a request.
 
-Quando un'applicazione client invia una richiesta che restituisce i dati nel corpo di un messaggio, può specificare i tipi di supporti che è in grado di gestire nell'intestazione Accept della richiesta. Il codice seguente illustra una richiesta HTTP GET che recupera i dettagli del cliente 1 e richiede che il risultato sia restituito nel formato JSON (il client deve comunque esaminare il tipo di supporto dei dati nella risposta per verificare il formato dei dati restituiti):
+When a client application sends a request that returns data in the body of a message, it can specify the media types it can handle in the Accept header of the request. The following code illustrates an HTTP GET request that retrieves the details of customer 1 and requests the result to be returned as JSON (the client should still examine the media type of the data in the response to verify the format of the data returned):
 
 ```HTTP
 GET http://adventure-works.com/orders/2 HTTP/1.1
@@ -152,9 +152,9 @@ Accept: application/json
 ...
 ```
 
-Se il server Web supporta questo tipo di supporto, può rispondere con una risposta che include l'intestazione Content-Type che specifica il formato dei dati nel corpo del messaggio:
+If the web server supports this media type, it can reply with a response that includes Content-Type header that specifies the format of the data in the body of the message:
 
-> [AZURE.NOTE] Per garantire la massima interoperabilità, i tipi di supporti cui si fa riferimento nelle intestazioni Accept e Content-Type devono essere tipi MIME riconosciuti piuttosto che un tipo di supporto personalizzato.
+> [AZURE.NOTE] For maximum interoperability, the media types referenced in the Accept and Content-Type headers should be recognized MIME types rather than some custom media type.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -166,9 +166,9 @@ Content-Length: ...
 {"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 ```
 
-Se il server Web non supporta il tipo di supporto richiesto, può inviare i dati in un formato diverso. In tutti i casi è necessario specificare il tipo di supporto (ad esempio _application/json_) nell'intestazione Content-Type. È responsabilità dell'applicazione client analizzare il messaggio di risposta e interpretare in modo appropriato i risultati nel corpo del messaggio.
+If the web server does not support the requested media type, it can send the data in a different format. IN all cases it must specify the media type (such as _application/json_) in the Content-Type header. It is the responsibility of the client application to parse the response message and interpret the results in the message body appropriately.
 
-Si noti che in questo esempio, il server Web recupera correttamente i dati richiesti e indica l'esito positivo mediante il passaggio di un codice di stato 200 nell'intestazione della risposta. Se non vengono trovati dati corrispondenti, restituisce invece un codice di stato 404 (non trovato) e il corpo del messaggio di risposta può contenere informazioni aggiuntive. Il formato di queste informazioni è specificato dall'intestazione Content-Type, come illustrato nell'esempio seguente:
+Note that in this example, the web server successfully retrieves the requested data and indicates success by passing back a status code of 200 in the response header. If no matching data is found, it should instead return a status code of 404 (not found) and the body of the response message can contain additional information. The format of this information is specified by the Content-Type header, as shown in the following example:
 
 ```HTTP
 GET http://adventure-works.com/orders/222 HTTP/1.1
@@ -177,7 +177,7 @@ Accept: application/json
 ...
 ```
 
-L’ordine 222 non esiste, quindi il messaggio di risposta è simile al seguente:
+Order 222 does not exist, so the response message looks like this:
 
 ```HTTP
 HTTP/1.1 404 Not Found
@@ -189,7 +189,7 @@ Content-Length: ...
 {"message":"No such order"}
 ```
 
-Quando un'applicazione invia una richiesta HTTP PUT per aggiornare una risorsa, specifica l'URI della risorsa e fornisce i dati da modificare nel corpo del messaggio di richiesta. Deve anche specificare il formato di questi dati tramite l'intestazione Content-Type. Un formato comune usato per le informazioni basate su testo è _application/x-www-form-urlencoded_, che comprende un set di coppie nome/valore separate dal carattere &. L'esempio seguente illustra una richiesta PUT HTTP che consente di modificare le informazioni nell'ordine 1:
+When an application sends an HTTP PUT request to update a resource, it specifies the URI of the resource and provides the data to be modified in the body of the request message. It should also specify the format of this data by using the Content-Type header. A common format used for text-based information is _application/x-www-form-urlencoded_, which comprises a set of name/value pairs separated by the & character. The next example shows an HTTP PUT request that modifies the information in order 1:
 
 ```HTTP
 PUT http://adventure-works.com/orders/1 HTTP/1.1
@@ -201,7 +201,7 @@ Content-Length: ...
 ProductID=3&Quantity=5&OrderValue=250
 ```
 
-Se la modifica ha esito positivo, teoricamente la risposta dovrebbe essere un codice di stato HTTP 204, che indica che il processo è stato gestito correttamente, ma che il corpo della risposta non contiene altre informazioni. L'intestazione Location nella risposta contiene l'URI della risorsa appena aggiornata:
+If the modification is successful, it should ideally respond with an HTTP 204 status code, indicating that the process has been successfully handled, but that the response body contains no further information. The Location header in the response contains the URI of the newly updated resource:
 
 ```HTTP
 HTTP/1.1 204 No Content
@@ -211,13 +211,13 @@ Location: http://adventure-works.com/orders/1
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 ```
 
-> [AZURE.TIP] Se i dati in un messaggio di richiesta HTTP PUT includono informazioni su data e ora, verificare che il servizio Web accetti la data e l’ora formattate in base allo standard ISO 8601.
+> [AZURE.TIP] If the data in an HTTP PUT request message includes date and time information, make sure that your web service accepts dates and times formatted following the ISO 8601 standard.
 
-Se la risorsa da aggiornare non esiste, il server Web può rispondere con una risposta Non trovato, come descritto in precedenza. In alternativa, se il server crea effettivamente l'oggetto stesso può restituire i codici di stato HTTP 200 (OK) o HTTP 201 (Creato) e il corpo della risposta può contenere i dati per la nuova risorsa. Se nell’intestazione Content-Type della richiesta è specificato un formato di dati che il server Web non è in grado di gestire, risponderà con il codice di stato HTTP 415 (Tipo di supporto non utilizzabile).
+If the resource to be updated does not exist, the web server can respond with a Not Found response as described earlier. Alternatively, if the server actually creates the object itself it could return the status codes HTTP 200 (OK) or HTTP 201 (Created) and the response body could contain the data for the new resource. If the Content-Type header of the request specifies a data format that the web server cannot handle, it should respond with HTTP status code 415 (Unsupported Media Type).
 
-> [AZURE.TIP] Prendere in considerazione l’implementazione di operazioni HTTP PUT in blocco in grado di eseguire aggiornamenti in batch di più risorse in una raccolta. La richiesta PUT deve specificare l'URI della raccolta e il corpo della richiesta deve specificare i dettagli delle risorse da modificare. Questo approccio consente di ridurre la frammentarietà e migliorare le prestazioni.
+> [AZURE.TIP] Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
 
-Il formato delle richieste HTTP POST che consentono di creare nuove risorse è simile a quello delle richieste PUT. Il corpo del messaggio contiene i dettagli della nuova risorsa da aggiungere. Tuttavia, in genere l’URI specifica la raccolta a cui deve essere aggiunta la risorsa. L'esempio seguente crea un nuovo ordine che viene aggiunto alla raccolta di ordini:
+The format of an HTTP POST requests that create new resources are similar to those of PUT requests; the message body contains the details of the new resource to be added. However, the URI typically specifies the collection to which the resource should be added. The following example creates a new order and adds it to the orders collection:
 
 ```HTTP
 POST http://adventure-works.com/orders HTTP/1.1
@@ -229,7 +229,7 @@ Content-Length: ...
 productID=5&quantity=15&orderValue=400
 ```
 
-Se la richiesta ha esito positivo, il server Web deve rispondere con un codice di messaggio con codice di stato HTTP 201 (Creato). L'intestazione Location deve contenere l'URI della risorsa appena creata e il corpo della risposta deve contenere una copia della nuova risorsa; l'intestazione Content-Type specifica il formato di questi dati:
+If the request is successful, the web server should respond with a message code with HTTP status code 201 (Created). The Location header should contain the URI of the newly created resource, and the body of the response should contain a copy of the new resource; the Content-Type header specifies the format of this data:
 
 ```HTTP
 HTTP/1.1 201 Created
@@ -242,16 +242,16 @@ Content-Length: ...
 {"orderID":99,"productID":5,"quantity":15,"orderValue":400}
 ```
 
-> [AZURE.TIP] Se i dati forniti da una richiesta PUT o POST non sono validi, il server Web deve rispondere con un messaggio con codice di stato HTTP 400 (Richiesta errata). Il corpo di questo messaggio può contenere informazioni aggiuntive sul problema con la richiesta e i formati attesi oppure può contenere un collegamento a un URL in cui vengono forniti altri dettagli.
+> [AZURE.TIP] If the data provided by a PUT or POST request is invalid, the web server should respond with a message with HTTP status code 400 (Bad Request). The body of this message can contain additional information about the problem with the request and the formats expected, or it can contain a link to a URL that provides more details.
 
-Per rimuovere una risorsa, una richiesta HTTP DELETE fornisce semplicemente l'URI della risorsa da eliminare. L'esempio seguente prova a rimuovere l’ordine 99:
+To remove a resource, an HTTP DELETE request simply provides the URI of the resource to be deleted. The following example attempts to remove order 99:
 
 ```HTTP
 DELETE http://adventure-works.com/orders/99 HTTP/1.1
 ...
 ```
 
-Se l'operazione di eliminazione ha esito positivo, il server Web deve rispondere con codice di stato HTTP 204, che indica che il processo è stato gestito correttamente, ma che il corpo della risposta non contiene ulteriori informazioni. Si tratta della stessa risposta restituita da un'operazione PUT completata correttamente, ma senza un'intestazione Location, in quanto la risorsa non esiste più. È anche possibile, per una richiesta DELETE, restituire il codice di stato HTTP 200 (OK) o 202 (Accettato) se l'eliminazione viene eseguita in modo asincrono.
+If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information (this is the same response returned by a successful PUT operation, but without a Location header as the resource no longer exists.) It is also possible for a DELETE request to return HTTP status code 200 (OK) or 202 (Accepted) if the deletion is performed asynchronously.
 
 ```HTTP
 HTTP/1.1 204 No Content
@@ -259,38 +259,38 @@ HTTP/1.1 204 No Content
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 ```
 
-Se la risorsa non viene trovata, il server Web deve restituire, invece, un messaggio 404 (Non trovato).
+If the resource is not found, the web server should return a 404 (Not Found) message instead.
 
-> [AZURE.TIP] Se tutte le risorse in una raccolta devono essere eliminate, consentire di specificare una richiesta HTTP DELETE per l'URI della raccolta piuttosto che forzare un'applicazione a rimuovere ciascuna risorsa, a turno, dalla raccolta.
+> [AZURE.TIP] If all the resources in a collection need to be deleted, enable an HTTP DELETE request to be specified for the URI of the collection rather than forcing an application to remove each resource in turn from the collection.
 
-### Filtro e paginazione dei dati
+### <a name="filtering-and-paginating-data"></a>Filtering and paginating data
 
-È necessario cercare di mantenere gli URI semplici e intuitivi. L’esposizione di una raccolta di risorse tramite un unico URI aiuta a questo proposito, ma può causare il recupero di grandi quantità di dati da parte delle applicazioni quando è necessario solo un sottoinsieme di informazioni. La generazione di un grande volume di traffico influisce non solo sulle prestazioni e sulla scalabilità del server Web, ma compromette anche la velocità di risposta delle applicazioni client che richiedono i dati.
+You should endeavour to keep the URIs simple and intuitive. Exposing a collection of resources through a single URI assists in this respect, but it can lead to applications fetching large amounts of data when only a subset of the information is required. Generating a large volume of traffic impacts not only the performance and scalability of the web server but also adversely affect the responsiveness of client applications requesting the data.
 
-Ad esempio, se gli ordini contengono il prezzo pagato per l'ordine, per un'applicazione client che deve recuperare tutti gli ordini con un costo al di sopra di un valore specifico potrebbe essere necessario recuperare tutti gli ordini dall’URI_/orders_ e quindi applicare il filtro a questi ordini localmente. Ovviamente questo processo è particolarmente inefficiente, perché comporta uno spreco di potenza di elaborazione e larghezza di banda di rete nel server che ospita l'API Web.
+For example, if orders contain the price paid for the order, a client application that needs to retrieve all orders that have a cost over a specific value might need to retrieve all orders from the _/orders_ URI and then filter these orders locally. Clearly this process is highly inefficient; it wastes network bandwidth and processing power on the server hosting the web API.
 
-Una soluzione può consistere nel fornire uno schema URI, come _/orders/ordervalue\_greater\_than\_n_, in cui _n_ è il prezzo dell’ordine, sebbene per tutte le risorse, tranne un numero limitato, tale approccio non sia pratico. Inoltre, se è necessario eseguire query sugli ordini in base ad altri criteri, potrebbe essere necessario fornire un lungo elenco di URI con nomi probabilmente non intuitivi.
+One solution may be to provide a URI scheme such as _/orders/ordervalue_greater_than_n_ where _n_ is the order price, but for all but a limited number of prices such an approach is impractical. Additionally, if you need to query orders based on other criteria, you can end up being faced with providing with a long list of URIs with possibly non-intuitive names.
 
-Una strategia migliore per il filtro dei dati consiste nel fornire criteri di filtro nella stringa di query che viene passata all’API Web, ad esempio _/orders?ordervaluethreshold=n_. In questo esempio, l'operazione corrispondente nell'API Web è responsabile della gestione e dell'analisi del `ordervaluethreshold` parametro nella stringa di query e della restituzione dei risultati filtrati nella risposta HTTP.
+A better strategy to filtering data is to provide the filter criteria in the query string that is passed to the web API, such as _/orders?ordervaluethreshold=n_. In this example, the corresponding operation in the web API is responsible for parsing and handling the `ordervaluethreshold` parameter in the query string and returning the filtered results in the HTTP response.
 
-Alcune richieste HTTP GET semplici sulle risorse della raccolta potrebbero restituire un numero elevato di elementi. Per evitare la possibilità di tale inconveniente, è necessario progettare l'API Web in modo da limitare la quantità di dati restituiti da ogni singola richiesta. È possibile ottenere questo risultato mediante il supporto di stringhe di query che consentano all'utente di specificare il numero massimo di elementi da recuperare (che potrebbe essere soggetto a un limite estremo superiore per impedire attacchi di tipo Denial of Service) e un offset iniziale nella raccolta. Ad esempio, la stringa di query nell'URI _/orders?limit=25&offset=50_ deve recuperare 25 ordini a partire dal cinquantesimo ordine trovato nella raccolta degli ordini. Come accade con il filtro dei dati, l’operazione che implementa la richiesta GET nell’API Web è responsabile dell’analisi e della gestione dei parametri `limit` e `offset` nella stringa di query. Per agevolare le applicazioni client, le richieste GET che restituiscono i dati impaginati devono includere anche un tipo di metadati che indichino il numero totale delle risorse disponibili nella raccolta. È inoltre possibile prendere in considerazione altre strategie di paging intelligente. Per ulteriori informazioni, vedere l’articolo sulle [note sulla progettazione delle API e il paging intelligente](http://bizcoder.com/api-design-notes-smart-paging)
+Some simple HTTP GET requests over collection resources could potentially return a large number of items. To combat the possibility of this occurring you should design the web API to limit the amount of data returned by any single request. You can achieve this by supporting query strings that enable the user to specify the maximum number of items to be retrieved (which could itself be subject to an upperbound limit to help prevent Denial of Service attacks), and a starting offset into the collection. For example, the query string in the URI _/orders?limit=25&offset=50_ should retrieve 25 orders starting with the 50th order found in the orders collection. As with filtering data, the operation that implements the GET request in the web API is responsible for parsing and handling the `limit` and `offset` parameters in the query string. To assist client applications, GET requests that return paginated data should also include some form of metadata that indicate the total number of resources available in the collection. You might also consider other intelligent paging strategies; for more information, see [API Design Notes: Smart Paging](http://bizcoder.com/api-design-notes-smart-paging)
 
-È possibile seguire una strategia simile per l'ordinamento dei dati nel momento in cui vengono recuperati. È possibile fornire un parametro Sort che accetta un nome di campo come valore, ad esempio _/orders?sort=ProductID_. Si noti, tuttavia, che questo approccio può avere un effetto deleterio sulla memorizzazione nella cache (i parametri della stringa di query formano parte dell'identificatore di risorsa utilizzato da molte implementazioni della cache come chiave per i dati memorizzati nella cache).
+You can follow a similar strategy for sorting data as it is fetched; you could provide a sort parameter that takes a field name as the value, such as _/orders?sort=ProductID_. However, note that this approach can have a deleterious effect on caching (query string parameters form part of the resource identifier used by many cache implementations as the key to cached data).
 
-È possibile estendere questo approccio per limitare (proiettare) i campi restituiti se un singolo elemento risorsa contiene una grande quantità di dati. Ad esempio, è possibile utilizzare un parametro di stringa di query che accetta un elenco di campi delimitato da virgole, come _/orders?fields=ProductID,Quantity_.
+You can extend this approach to limit (project) the fields returned if a single resource item contains a large amount of data. For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as _/orders?fields=ProductID,Quantity_.
 
-> [AZURE.TIP] Assegnare valori predefiniti significativi a tutti i parametri facoltativi nelle stringhe di query. Ad esempio, impostare il parametro `limit` su 10 e il parametro `offset` su 0 se si implementa la paginazione, impostare il parametro Sort sulla chiave della risorsa se si implementa l’ordinamento e impostare il parametro `fields` su tutti i campi della risorsa se si supportano le proiezioni.
+> [AZURE.TIP] Give all optional parameters in query strings meaningful defaults. For example, set the `limit` parameter to 10 and the `offset` parameter to 0 if you implement pagination, set the sort parameter to the key of the resource if you implement ordering, and set the `fields` parameter to all fields in the resource if you support projections.
 
-### Gestione di risorse binarie di grandi dimensioni
+### <a name="handling-large-binary-resources"></a>Handling large binary resources
 
-Una singola risorsa può contenere campi binari di grandi dimensioni, come file o immagini. Per superare i problemi causati da connessioni non affidabili e intermittenti e per migliorare i tempi di risposta, considerare la possibilità di fornire operazioni che consentano a tali risorse di essere recuperate in blocchi dall'applicazione client. A questo scopo, l'API Web deve supportare l'intestazione Accept-Ranges per le richieste GET per le risorse di grandi dimensioni e possibilmente implementare le richieste HTTP HEAD per tali risorse. L’intestazione Accept-Ranges indica che l’operazione GET supporta risultati parziali e che un’applicazione client può inviare richieste GET che restituiscono un sottoinsieme di una risorsa specificata come intervallo di byte. Una richiesta HEAD è simile a una richiesta GET tranne per il fatto che restituisce solo un’intestazione che descrive la risorsa e un corpo del messaggio vuoto. Un'applicazione client può inviare una richiesta HEAD per determinare se recuperare una risorsa tramite richieste GET parziali. Nell'esempio seguente viene illustrata una richiesta HEAD che ottiene informazioni su un'immagine del prodotto:
+A single resource may contain large binary fields, such as files or images. To overcome the transmission problems caused by unreliable and intermittent connections and to improve response times, consider providing operations that enable such resources to be retrieved in chunks by the client application. To do this, the web API should support the Accept-Ranges header for GET requests for large resources, and ideally implement HTTP HEAD requests for these resources. The Accept-Ranges header indicates that the GET operation supports partial results, and that a client application can submit GET requests that return a subset of a resource specified as a range of bytes. A HEAD request is similar to a GET request except that it only returns a header that describes the resource and an empty message body. A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests. The following example shows a HEAD request that obtains information about a product image:
 
 ```HTTP
 HEAD http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 ...
 ```
 
-Il messaggio di risposta contiene un’intestazione che include le dimensioni della risorsa (4580 byte) e l’intestazione Accept-Ranges, in cui l’operazione GET corrispondente supporta risultati parziali:
+The response message contains a header that includes the size of the resource (4580 bytes), and the Accept-Ranges header that the corresponding GET operation supports partial results:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -301,7 +301,7 @@ Content-Length: 4580
 ...
 ```
 
-L'applicazione client può usare queste informazioni per costruire una serie di operazioni GET per recuperare l'immagine in blocchi più piccoli. La prima richiesta recupera i primi 2500 byte mediante l'intestazione Range:
+The client application can use this information to construct a series of GET operations to retrieve the image in smaller chunks. The first request fetches the first 2500 bytes by using the Range header:
 
 ```HTTP
 GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
@@ -309,7 +309,7 @@ Range: bytes=0-2499
 ...
 ```
 
-Il codice di stato HTTP 206 restituito nel messaggio di risposta indica che si tratta di una risposta parziale. L'intestazione Content-Length specifica il numero effettivo di byte restituiti nel corpo del messaggio (non le dimensioni della risorsa) e l'intestazione Content-Range indica di quale parte della risorsa si tratta (byte 0-2499 di 4580):
+The response message indicates that this is a partial response by returning HTTP status code 206. The Content-Length header specifies the actual number of bytes returned in the message body (not the size of the resource), and the Content-Range header indicates which part of the resource this is (bytes 0-2499 out of 4580):
 
 ```HTTP
 HTTP/1.1 206 Partial Content
@@ -322,7 +322,7 @@ Content-Range: bytes 0-2499/4580
 _{binary data not shown}_
 ```
 
-Una successiva richiesta dall'applicazione client può recuperare la parte restante della risorsa tramite un'intestazione Range appropriata:
+A subsequent request from the client application can retrieve the remainder of the resource by using an appropriate Range header:
 
 ```HTTP
 GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
@@ -330,7 +330,7 @@ Range: bytes=2500-
 ...
 ```
 
-Il messaggio del risultato corrispondente dovrebbe essere simile al seguente:
+The corresponding result message should look like this:
 
 ```HTTP
 HTTP/1.1 206 Partial Content
@@ -342,13 +342,13 @@ Content-Range: bytes 2500-4580/4580
 ...
 ```
 
-## Utilizzo dell'approccio HATEOAS per consentire lo spostamento a risorse correlate
+## <a name="using-the-hateoas-approach-to-enable-navigation-to-related-resources"></a>Using the HATEOAS approach to enable navigation to related resources
 
-Una delle principali motivazioni alla base dell’approccio REST è che dovrebbe essere possibile spostarsi nell'intero set di risorse senza conoscere a priori lo schema URI. Ogni richiesta HTTP GET deve restituire le informazioni necessarie a trovare le risorse correlate direttamente all'oggetto richiesto tramite collegamenti ipertestuali inclusi nella risposta e deve anche contenere informazioni che descrivono le operazioni disponibili in ciascuna di queste risorse. Tale principio è noto come HATEOAS o Hypertext as the Engine of Application State. Il sistema è in realtà una macchina a stati finiti e la risposta a ogni richiesta contiene le informazioni necessarie per passare da uno stato all’altro. Non dovrebbero essere necessarie altre informazioni.
+One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.
 
-> [AZURE.NOTE] Attualmente non esistono standard o specifiche che definiscono come modellare il principio HATEOAS. Gli esempi mostrati in questa sezione illustrano una possibile soluzione.
+> [AZURE.NOTE] Currently there are no standards or specifications that define how to model the HATEOAS principle. The examples shown in this section illustrate one possible solution.
 
-Ad esempio, per gestire la relazione tra clienti e ordini, i dati restituiti nella risposta per un ordine specifico devono contenere gli URI sotto forma di un collegamento ipertestuale che identifica il cliente che ha effettuato l'ordine e le operazioni che possono essere eseguite su tale cliente.
+As an example, to handle the relationship between customers and orders, the data returned in the response for a specific order should contain URIs in the form of a hyperlink identifying the customer that placed the order, and the operations that can be performed on that customer.
 
 ```HTTP
 GET http://adventure-works.com/orders/3 HTTP/1.1
@@ -356,7 +356,7 @@ Accept: application/json
 ...
 ```
 
-Il corpo del messaggio di risposta contiene una matrice `links` (evidenziata nell'esempio di codice) in cui sono specificati la natura della relazione (_Customer_), l'URI del cliente (\_http://adventure-works.com/customers/3_), come recuperare i dettagli di questo cliente (_GET_) e i tipi MIME supportati dal server Web per il recupero di queste informazioni (_text/xml_ e _application/json_). Si tratta di tutte le informazioni di cui necessita un'applicazione client per essere in grado di recuperare i dettagli del cliente. La matrice Links include anche collegamenti per le altre operazioni che è possibile eseguire, come PUT (per modificare il cliente, insieme al formato che il server Web prevede che il client fornisca), e DELETE.
+The body of the response message contains a `links` array (highlighted in the code example) that specifies the nature of the relationship (_Customer_), the URI of the customer (_http://adventure-works.com/customers/3_), how to retrieve the details of this customer (_GET_), and the MIME types that the web server supports for retrieving this information (_text/xml_ and _application/json_). This is all the information that a client application needs to be able to fetch the details of the customer. Additionally, the Links array also includes links for the other operations that can be performed, such as PUT (to modify the customer, together with the format that the web server expects the client to provide), and DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -368,7 +368,7 @@ Content-Length: ...
 customer","href":" http://adventure-works.com /customers/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"customer","href":" http://adventure-works.com /customers/3","action":"DELETE","types":[]}]}
 ```
 
-Per motivi di completezza, la matrice Links deve includere anche informazioni autoreferenziali riguardanti la risorsa che è stata recuperata. Questi collegamenti sono stati omessi dall'esempio precedente, ma vengono evidenziati nel codice seguente. Si noti che in questi collegamenti, la relazione _self_ è stata usata per indicare che si tratta di un riferimento alla risorsa restituita dall'operazione:
+For completeness, the Links array should also include self-referencing information pertaining to the resource that has been retrieved. These links have been omitted from the previous example, but are highlighted in the following code. Notice that in these links, the relationship _self_ has been used to indicate that this is a reference to the resource being returned by the operation:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -380,19 +380,19 @@ Content-Length: ...
 "href":" http://adventure-works.com /customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" customer" (customer links omitted)}]}
 ```
 
-Affinché l'approccio sia efficace, le applicazioni client devono essere preparate a recuperare e analizzare le informazioni aggiuntive.
+For this approach to be effective, client applications must be prepared to retrieve and parse this additional information.
 
-## Controllo delle versioni di un'API Web RESTful
+## <a name="versioning-a-restful-web-api"></a>Versioning a RESTful web API
 
-È molto improbabile che un'API Web rimanga statica in tutte le situazioni, tranne le più semplici. Man mano che i requisiti aziendali cambiano, è possibile che vengano aggiunte nuove raccolte di risorse, che le relazioni tra le risorse cambino e che la struttura dei dati nelle risorse venga modificata. Sebbene l'aggiornamento di un'API Web per gestire requisiti nuovi o diversi sia un processo relativamente semplice, è necessario considerare gli effetti delle modifiche sulle applicazioni client che utilizzano l'API Web. Il problema è che nonostante lo sviluppatore che progetta e implementa un'API Web abbia il controllo completo su tale API, non ha lo stesso livello di controllo sulle applicazioni client che possono essere compilate da organizzazioni di terze parti che operano in modalità remota. L’imperativo è consentire alle applicazioni client esistenti di continuare a funzionare senza modifiche e allo stesso tempo permettere alle nuove applicazioni client di avvalersi di nuove funzionalità e risorse.
+It is highly unlikely that in all but the simplest of situations that a web API will remain static. As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended. While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API. The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications which may be built by third party organizations operating remotely. The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.
 
-Il controllo delle versioni consente a un’API Web di indicare le funzionalità e le risorse esposte e a un’applicazione client di inviare richieste dirette a una versione specifica di una funzionalità o di una risorsa. Le sezioni seguenti descrivono diversi approcci differenti, ognuno dei quali presenta vantaggi e compromessi.
+Versioning enables a web API to indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource. The following sections describe several different approaches, each of which has its own benefits and trade-offs.
 
-### Nessun controllo delle versioni
+### <a name="no-versioning"></a>No versioning
 
-Si tratta dell'approccio più semplice e può essere accettabile per alcune API interne. Grandi cambiamenti potrebbero essere rappresentati come nuove risorse o nuovi collegamenti. L’aggiunta di contenuto alle risorse esistenti potrebbe non presentare una modifica sostanziale in quanto le applicazioni client che non prevedono di visualizzare che questo contenuto lo ignoreranno semplicemente.
+This is the simplest approach, and may be acceptable for some internal APIs. Big changes could be represented as new resources or new links.  Adding content to existing resources might not present a breaking change as client applications that are not expecting to see this content will simply ignore it.
 
-Ad esempio, una richiesta all'URI \_http://adventure-works.com/customers/3_ deve restituire i dettagli di un singolo cliente contenente i campi `id`, `name`, e `address` previsti dall'applicazione client:
+For example, a request to the URI _http://adventure-works.com/customers/3_ should return the details of a single customer containing `id`, `name`, and `address` fields expected by the client application:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -403,9 +403,9 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
-> [AZURE.NOTE] Ai fini della semplicità e della chiarezza, le risposte di esempio illustrate in questa sezione non includono collegamenti HATEOAS.
+> [AZURE.NOTE] For the purposes of simplicity and clarity, the example responses shown in this section do not include HATEOAS links.
 
-Se il campo `DateCreated` viene aggiunto allo schema della risorsa customer, la risposta sarà simile alla seguente:
+If the `DateCreated` field is added to the schema of the customer resource, then the response would look like this:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -416,13 +416,13 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
-Le applicazioni client esistenti potrebbero continuare a funzionare correttamente se riescono a ignorare i campi non riconosciuti, mentre le nuove applicazioni client possono essere progettate per gestire questo nuovo campo. Tuttavia, modifiche più radicali allo schema di risorse (ad esempio, la rimozione o la ridenominazione dei campi) o cambiamenti nelle relazioni tra le risorse possono costituire modifiche sostanziali che impediscono alle applicazioni client esistenti di funzionare correttamente. In tali situazioni è necessario considerare uno degli approcci seguenti.
+Existing client applications might continue functioning correctly if they are capable of ignoring unrecognized fields, while new client applications can be designed to handle this new field. However, if more radical changes to the schema of resources occur (such as removing or renaming fields) or the relationships between resources change then these may constitute breaking changes that prevent existing client applications from functioning correctly. In these situations you should consider one of the following approaches.
 
-### Controllo delle versioni tramite l’URI
+### <a name="uri-versioning"></a>URI versioning
 
-Ogni volta che si modifica l'API Web o che si cambia lo schema di risorse, viene aggiunto un numero di versione all'URI per ciascuna risorsa. Gli URI già esistenti continueranno a funzionare come prima, restituendo risorse conformi al relativo schema originale.
+Each time you modify the web API or change the schema of resources, you add a version number to the URI for each resource. The previously existing URIs should continue to operate as before, returning resources that conform to their original schema.
 
-Estendendo l'esempio precedente, se il campo `address` viene ristrutturato in campi secondari contenenti ogni parte dell'indirizzo (ad esempio `streetAddress`, `city`, `state` e `zipCode`), questa versione della risorsa può essere esposta tramite un URI che contiene un numero di versione, ad esempio http://adventure-works.com/v2/customers/3:
+Extending the previous example, if the `address` field is restructured into sub-fields containing each constituent part of the address (such as `streetAddress`, `city`, `state`, and `zipCode`), this version of the resource could be exposed through a URI containing a version number, such as http://adventure-works.com/v2/customers/3:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -433,21 +433,21 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
-Questo meccanismo di controllo delle versioni è molto semplice, ma dipende dal server che esegue il routing della richiesta all'endpoint appropriato. Tuttavia, può diventare scomodo man mano che l’API Web matura attraverso diverse iterazioni e il server deve supportare un numero elevato di versioni diverse. Inoltre, dal punto di vista di un purista, in tutti i casi le applicazioni client recuperano gli stessi dati (cliente 3), quindi l'URI non deve essere effettivamente diverso a seconda della versione. Questo schema complica anche l'implementazione di HATEOAS perché tutti i collegamenti dovranno includere il numero di versione nei relativi URI.
+This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint. However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions. Also, from a purist’s point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version. This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.
 
-### Controllo delle versioni tramite la stringa di query
+### <a name="query-string-versioning"></a>Query string versioning
 
-Anziché fornire più URI, è possibile specificare la versione della risorsa utilizzando un parametro all'interno della stringa di query aggiunta alla richiesta HTTP, ad esempio \_http://adventure-works.com/customers/3?version=2_. Il parametro della versione deve essere impostato su un valore predefinito significativo, ad esempio 1 se viene omesso dalle applicazioni client meno recenti.
+Rather than providing multiple URIs, you can specify the version of the resource by using a parameter within the query string appended to the HTTP request, such as _http://adventure-works.com/customers/3?version=2_. The version parameter should default to a meaningful value such as 1 if it is omitted by older client applications.
 
-Questo approccio ha il vantaggio semantico che la stessa risorsa viene sempre recuperata dallo stesso URI, ma dipende dal codice che gestisce la richiesta analizzare la stringa di query e inviare la risposta HTTP appropriata. Questo approccio presenta anche le stesse complicazioni per l'implementazione di HATEOAS del meccanismo di controllo delle versioni tramite URI.
+This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response. This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.
 
-> [AZURE.NOTE] Alcuni Web browser e proxy Web meno recenti non memorizzano nella cache le risposte per le richieste che includono una stringa di query nell'URL. Ciò può avere un impatto negativo sulle prestazioni per le applicazioni Web che utilizzano un'API Web e che vengono eseguite dall'interno di questo tipo di Web browser.
+> [AZURE.NOTE] Some older web browsers and web proxies will not cache responses for requests that include a query string in the URL. This can have an adverse impact on performance for web applications that use a web API and that run from within such a web browser.
 
-### Controllo delle versioni tramite l’intestazione
+### <a name="header-versioning"></a>Header versioning
 
-Anziché aggiungere il numero di versione come parametro di stringa di query, è possibile implementare un'intestazione personalizzata che indica la versione della risorsa. Questo approccio richiede l’aggiunta, da parte dell'applicazione client, dell'intestazione appropriata a tutte le richieste, nonostante il codice che gestisce la richiesta del client possa usare un valore predefinito (versione 1) se l'intestazione della versione viene omessa. Nell’esempio seguente viene utilizzata un’intestazione personalizzata denominata _Custom-Header_. Il valore di questa intestazione indica la versione dell'API Web.
+Rather than appending the version number as a query string parameter, you could implement a custom header that indicates the version of the resource. This approach requires that the client application adds the appropriate header to any requests, although the code handling the client request could use a default value (version 1) if the version header is omitted. The following examples utilize a custom header named _Custom-Header_. The value of this header indicates the version of web API.
 
-Versione 1:
+Version 1:
 
 ```HTTP
 GET http://adventure-works.com/customers/3 HTTP/1.1
@@ -465,7 +465,7 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
-Versione 2:
+Version 2:
 
 ```HTTP
 GET http://adventure-works.com/customers/3 HTTP/1.1
@@ -483,11 +483,11 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
-Si noti che, come con i due approcci precedenti, l’implementazione di HATEOAS richiede l’inclusione dell'intestazione personalizzata appropriata in tutti i collegamenti.
+Note that as with the previous two approaches, implementing HATEOAS requires including the appropriate custom header in any links.
 
-### Controllo delle versioni tramite il tipo di supporto
+### <a name="media-type-versioning"></a>Media type versioning
 
-Quando un'applicazione client invia una richiesta HTTP GET a un server Web, è necessario stabilire il formato del contenuto che è possibile gestire tramite un'intestazione Accept, come descritto in precedenza in queste linee guida. Spesso lo scopo dell’intestazione _Accept_ è quello di consentire all'applicazione client di specificare se il formato del corpo della risposta deve essere XML, JSON o un altro formato comune che il client può analizzare. Tuttavia, è possibile definire tipi di supporti personalizzati che includono informazioni che consentono all'applicazione client di indicare la versione di una risorsa prevista.163 Nell'esempio seguente viene illustrata una richiesta che specifica un’intestazione _Accept_ con il valore _application/vnd.adventure-works.v1+json_. L’elemento _vnd.adventure works.v1_ indica al server Web che deve restituire la versione 1 della risorsa, mentre l’elemento _json_ specifica che il formato del corpo della risposta deve essere JSON:
+When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the _Accept_ header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting. The following example shows a request that specifies an _Accept_ header with the value _application/vnd.adventure-works.v1+json_. The _vnd.adventure-works.v1_ element indicates to the web server that it should return version 1 of the resource, while the _json_ element specifies that the format of the response body should be JSON:
 
 ```HTTP
 GET http://adventure-works.com/customers/3 HTTP/1.1
@@ -496,7 +496,7 @@ Accept: application/vnd.adventure-works.v1+json
 ...
 ```
 
-Il codice che gestisce la richiesta è responsabile dell'elaborazione dell’intestazione _Accept_ rispettandola per quanto possibile (l'applicazione client può specificare più formati nell’intestazione _Accept_, e in questo caso il server Web può scegliere il formato più appropriato per il corpo della risposta). Il server Web conferma il formato dei dati nel corpo della risposta mediante l'intestazione Content-Type:
+The code handling the request is responsible for processing the _Accept_ header and honoring it as far as possible (the client application may specify multiple formats in the _Accept_ header, in which case the web server can choose the most appropriate format for the response body). The web server confirms the format of the data in the response body by using the Content-Type header:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -507,17 +507,21 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
-Se l'intestazione Accept non specifica alcun tipo di supporto noto, il server Web potrebbe generare un messaggio di risposta HTTP 406 (Pagina non valida) o restituire un messaggio con un tipo di supporto predefinito.
+If the Accept header does not specify any known media types, the web server could generate an HTTP 406 (Not Acceptable) response message or return a message with a default media type.
 
-Questo approccio è senza dubbio il meccanismo di controllo delle versioni più puro e si presta naturalmente a HATEOAS, che può includere il tipo MIME dei dati correlati nei collegamenti alle risorse.
+This approach is arguably the purest of the versioning mechanisms and lends itself naturally to HATEOAS, which can include the MIME type of related data in resource links.
 
-> [AZURE.NOTE] Quando si seleziona una strategia di controllo delle versioni, è consigliabile tenere in considerazione anche le implicazioni sulle prestazioni, soprattutto la memorizzazione nella cache sul server Web. Il controllo delle versioni tramite URI e gli schemi di controllo delle versioni tramite la stringa di query sono adatti alla cache perché la stessa combinazione URI/stringa di query fa riferimento ogni volta agli stessi dati.
+> [AZURE.NOTE] When you select a versioning strategy, you should also consider the implications on performance, especially caching on the web server. The URI versioning and Query String versioning schemes are cache-friendly inasmuch as the same URI/query string combination refers to the same data each time.
 
-> I meccanismi di controllo delle versioni tramite intestazione e tipo di supporto in genere richiedono logica aggiuntiva per esaminare i valori nell’intestazione personalizzata o nell'intestazione Accept. In un ambiente su larga scala, la presenza di molti client che usano versioni diverse di un'API Web può comportare una notevole quantità di dati duplicati in una cache lato server. Questo problema può diventare evidente se un'applicazione client comunica con un server Web tramite un proxy che implementa la memorizzazione nella cache e che inoltra una richiesta al server Web solo se attualmente non mantiene una copia dei dati richiesti nella propria cache.
+> The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.
 
-## Altre informazioni
+## <a name="more-information"></a>More information
 
-- La [guida di riferimento dettagliata relativa a RESTful ](http://restcookbook.com/) contiene un’introduzione alla creazione delle API RESTful.
-- L’[elenco di controllo delle API Web](https://mathieu.fenniak.net/the-api-checklist/) contiene un utile elenco di elementi da considerare durante la progettazione e l’implementazione di un'API Web.
+- The [RESTful Cookbook](http://restcookbook.com/) contains an introduction to building RESTful APIs.
+- The Web [API Checklist](https://mathieu.fenniak.net/the-api-checklist/) contains a useful list of items to consider when designing and implementing a Web API.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

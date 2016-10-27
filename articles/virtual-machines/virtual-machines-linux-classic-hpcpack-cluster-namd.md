@@ -1,6 +1,6 @@
 <properties
- pageTitle="NAMD con Microsoft HPC Pack su VM Linux | Microsoft Azure"
- description="Informazioni su come distribuire un cluster Microsoft HPC Pack in Azure e come eseguire una simulazione NAMD con charmrun in più nodi di calcolo Linux"
+ pageTitle="NAMD with Microsoft HPC Pack on Linux VMs | Microsoft Azure"
+ description="Deploy a Microsoft HPC Pack cluster on Azure and run a NAMD simulation with charmrun on multiple Linux compute nodes"
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
@@ -16,57 +16,58 @@
  ms.date="06/23/2016"
  ms.author="danlep"/>
 
-# Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure
 
-Questo articolo illustra come distribuire un cluster Microsoft HPC Pack su Azure con più nodi di calcolo Linux ed eseguire un processo [NAMD](http://www.ks.uiuc.edu/Research/namd/) con **charmrun** per calcolare e visualizzare la struttura di un grande sistema biomolecolare.
+# <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure
+
+This article shows you how to deploy a Microsoft HPC Pack cluster on Azure with multiple Linux compute nodes and run a [NAMD](http://www.ks.uiuc.edu/Research/namd/) job with **charmrun** to calculate and visualize the structure of a large biomolecular system.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
-NAMD (ovvero programma Nanoscale Molecular Dynamics) è un pacchetto di dinamica molecolare parallela progettato per una simulazione a prestazioni elevate di grandi sistemi biomolecolari contenenti fino a milioni di atomi, ad esempio virus, strutture di celle e proteine di grandi dimensioni. NAMD è scalabile fino a centinaia di core per simulazioni tipiche e fino a più di 500.000 core per le simulazioni più grandi.
+NAMD (for Nanoscale Molecular Dynamics program) is a parallel molecular dynamics package designed for high-performance simulation of large biomolecular systems containing up to millions of atoms, such as viruses, cell structures, and large proteins. NAMD scales to hundreds of cores for typical simulations and to more than 500,000 cores for the largest simulations.
 
-Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire svariate applicazioni HPC e parallele su larga scala, incluse le applicazioni MPI, in cluster di macchine virtuali di Microsoft Azure. Sviluppato originariamente come soluzione per i carichi di lavoro HPC di Windows, HPC Pack supporta ora le applicazioni HPC che eseguono Linux su macchine virtuali del nodo di calcolo Linux distribuite in un cluster HPC Pack. Per una panoramica, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
-
-
-## Prerequisiti
-
-* **Cluster HPC Pack con nodi di calcolo Linux**: distribuire un cluster HPC Pack con nodi di calcolo Linux in Azure usando un [modello di Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o uno [script di Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Per i prerequisiti e i passaggi di entrambe le opzioni, vedere [Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md). Se si sceglie l'opzione di distribuzione con lo script di PowerShell, vedere il file di configurazione di esempio nei file di esempio alla fine di questo articolo per distribuire un cluster HPC Pack basato su Azure costituito da un nodo head Windows Server 2012 R2 e 4 nodi di calcolo CentOS 6.6 di tipo Grande. Adattare l'esempio all'ambiente in uso.
+Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Originally developed as a solution for Windows HPC workloads, HPC Pack now supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for an introduction.
 
 
-* **Software e file per le esercitazioni NAMD**: scaricare il software NAMD per Linux dal sito [NAMD](http://www.ks.uiuc.edu/Research/namd/). È richiesta la registrazione. Questo articolo è basato su NAMD versione 2.10 e usa l'archivio [Linux-x86\_64 (Intel/AMD a 64 bit con Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), che verrà usato per eseguire NAMD in più nodi di calcolo Linux in una rete di cluster. Scaricare anche i [file per le esercitazioni NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). I download includono file con estensione tar ed è necessario uno strumento di Windows per estrarre i file nel nodo head del cluster. A tale scopo, seguire le istruzioni indicate più avanti in questo articolo.
+## <a name="prerequisites"></a>Prerequisites
 
-* **VMD** (facoltativo) - Per visualizzare i risultati del processo NAMD, scaricare e installare il programma di visualizzazione molecolare [VMD](http://www.ks.uiuc.edu/Research/vmd/) nel computer desiderato. La versione corrente è 1.9.2. Per iniziare, vedere il sito per il download di VMD.
+* **HPC Pack cluster with Linux compute nodes** - Deploy an HPC Pack cluster with Linux compute nodes on Azure using either an [Azure Resource Manager template](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) or an [Azure PowerShell script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for the prerequisites and steps for either option. If you choose the PowerShell script deployment option, see the sample configuration file in the sample files at the end of this article to deploy an Azure-based HPC Pack cluster consisting of a Windows Server 2012 R2 head node and 4 size Large CentOS 6.6 compute nodes. Adapt this as needed for your environment.
 
 
-## Configurare il trust reciproco tra i nodi di calcolo
-L'esecuzione di un processo su più nodi Linux richiede una relazione di trust tra i nodi (tramite **rsh** o **ssh**). Quando si crea il cluster HPC Pack con lo script di distribuzione IaaS di Microsoft HPC Pack, lo script configura automaticamente un trust reciproco permanente per l'account amministratore specificato. Per gli utenti non amministratori creati nel dominio del cluster è necessario configurare una relazione di trust reciproco temporanea tra i nodi in caso di allocazione di un processo e quindi eliminare la relazione dopo il completamento del processo. Per eseguire questa operazione per ogni utente, fornire una coppia di chiavi RSA al cluster usato da HPC Pack per stabilire la relazione di trust. Di seguito sono riportate le istruzioni.
+* **NAMD software and tutorial files** - Download NAMD software for Linux from the [NAMD](http://www.ks.uiuc.edu/Research/namd/) site (registration required). This article is based on NAMD version 2.10, and uses the [Linux-x86_64 (64-bit Intel/AMD with Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) archive, which you'll use to run NAMD on multiple Linux compute nodes in a cluster network. Also download the [NAMD tutorial files](http://www.ks.uiuc.edu/Training/Tutorials/#namd). The downloads are .tar files, and you will need a Windows tool to extract the files on the cluster head node. Follow the instructions later in this article to do this. 
 
-### Generare una coppia di chiavi RSA
-È possibile generare con facilità una coppia di chiavi RSA, che contiene una chiave pubblica e una chiave privata, eseguendo il comando **ssh-keygen** di Linux.
+* **VMD** (optional) - To see the results of your NAMD job, download and install the molecular visualization program [VMD](http://www.ks.uiuc.edu/Research/vmd/) on a computer of your choice. The current version is 1.9.2. See the VMD download site to get started.  
 
-1.	Accedere a un computer Linux.
 
-2.	Eseguire il comando indicato di seguito.
+## <a name="set-up-mutual-trust-between-compute-nodes"></a>Set up mutual trust between compute nodes
+Running a cross-node job on multiple Linux nodes requires the nodes to trust each other (by **rsh** or **ssh**). When you create the HPC Pack cluster with the Microsoft HPC Pack IaaS deployment script, the script automatically sets up permanent mutual trust for the administrator account you specify. For non-administrator users you create in the cluster's domain, you have to set up temporary mutual trust among the nodes when a job is allocated to them, and destroy the relationship after the job is complete. To do this for each user, provide an RSA key pair to the cluster which HPC Pack uses to establish the trust relationship. Instructions follow.
+
+### <a name="generate-an-rsa-key-pair"></a>Generate an RSA key pair
+It's easy to generate an RSA key pair, which contains a public key and a private key, by running the Linux **ssh-keygen** command.
+
+1.  Log on to a Linux computer.
+
+2.  Run the following command.
 
     ```
     ssh-keygen -t rsa
     ```
 
-    >[AZURE.NOTE] Premere **INVIO** per usare le impostazioni predefinite fino al completamento del comando. Non immettere una passphrase. Quando viene richiesta una password, è sufficiente premere **INVIO**.
+    >[AZURE.NOTE] Press **Enter** to use the default settings until the command is completed. Do not enter a passphrase here; when prompted for a password, just press **Enter**.
 
-    ![Generare una coppia di chiavi RSA][keygen]
+    ![Generate an RSA key pair][keygen]
 
-3.	Passare alla directory ~/.ssh. La chiave privata viene archiviata in id\_rsa e la chiave pubblica in id\_rsa.pub.
+3.  Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
 
-    ![Chiavi pubbliche e private][keys]
+    ![Private and public keys][keys]
 
-### Aggiungere la coppia di chiavi al cluster HPC Pack
-1.	Stabilire una connessione Desktop remoto al nodo head con l'account amministratore di HPC Pack, ovvero l'account amministratore configurato durante la distribuzione del cluster.
+### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Add the key pair to the HPC Pack cluster
+1.  Make a Remote Desktop connnection to your head node with your HPC Pack administrator account (the administrator account you set up when you deployed the cluster).
 
-2. Usare le procedure standard di Windows Server per creare un account utente di dominio nel dominio di Active Directory del cluster. Ad esempio, usare lo strumento Utenti e computer di Active Directory sul nodo head. Gli esempi in questo articolo presuppongono che venga creato un utente di dominio denominato hpclab\\hpcuser nel dominio hpclab (hpclab\\hpcuser).
+2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpcuser in the hpclab domain (hpclab\hpcuser).
 
-3. Aggiungere l'utente di dominio al cluster HPC Pack come utente del cluster. Vedere [Aggiungere o rimuovere utenti del cluster](https://technet.microsoft.com/library/ff919330.aspx).
+3. Add the domain user to the HPC Pack cluster as a cluster user. For instructions see [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx).
 
-2.	Creare un file con nome C:\\cred.xml e copiarvi i dati della chiave RSA. Un esempio è disponibile nei file di esempio alla fine dell'articolo.
+2.  Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example in the sample files at the end of this article.
 
     ```
     <ExtendedData>
@@ -75,32 +76,32 @@ L'esecuzione di un processo su più nodi Linux richiede una relazione di trust t
     </ExtendedData>
     ```
 
-3.	Aprire un prompt dei comandi e immettere il comando seguente per impostare i dati delle credenziali per l'account hpclab\\hpcuser. Usare il parametro **extendeddata** per passare il nome del file C:\\cred.xml creato per i dati della chiave.
+3.  Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of the C:\cred.xml file you created for the key data.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
     ```
 
-    Questo comando viene completato correttamente senza output. Dopo avere configurato le credenziali per gli account utente necessari per l'esecuzione dei progetti, archiviare il file cred.xml in un percorso sicuro oppure eliminarlo.
+    This command completes successfully without output. After setting the credentials for the user accounts you need to run jobs, store the cred.xml file in a secure location, or delete it.
 
-5.	Se la coppia di chiavi RSA è stata generata in uno dei nodi Linux, ricordare di eliminare le chiavi dopo averle usate. HPC Pack non configura il trust reciproco se rileva un file id\_rsa o id\_rsa.pub esistente.
+5.  If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
 
->[AZURE.IMPORTANT] Non è consigliabile eseguire un processo di Linux come amministratore del cluster in un cluster condiviso, perché un processo inviato da un amministratore viene eseguito con l'account radice nei nodi Linux. Un processo inviato da un utente non amministratore viene eseguito con un account utente Linux locale, con lo stesso nome dell'utente del processo, e HPC Pack configura il trust reciproco per questo utente Linux in tutti i nodi allocati al processo. È possibile configurare manualmente l'utente Linux nei nodi Linux prima di eseguire il processo. In alternativa, HPC Pack crea automaticamente l'utente quando viene inviato il processo. Se HPC Pack crea l'utente, HPC Pack lo eliminerà dopo il completamento del processo. Le chiavi vengono rimosse dopo il completamento del processo sui nodi, per ridurre le minacce alla sicurezza.
+>[AZURE.IMPORTANT] We don’t recommend running a Linux job as a cluster administrator on a shared cluster, because a job submitted by an administrator runs under the root account on the Linux nodes. A job submitted by a non-administrator user runs under a local Linux user account with the same name as the job user, and HPC Pack sets up mutual trust for this Linux user across all the nodes allocated to the job. You can set up the Linux user manually on the Linux nodes before running the job, or HPC Pack creates the user automatically when the job is submitted. If HPC Pack creates the user, HPC Pack deletes it after the job completes. The keys are removed after job completion on the nodes to reduce security threats.
 
-## Configurare una condivisione di file per i nodi Linux
+## <a name="set-up-a-file-share-for-linux-nodes"></a>Set up a file share for Linux nodes
 
-Configurare ora una condivisione di file SMB e montare la cartella condivisa in tutti i nodi Linux per consentire ai nodi Linux di accedere ai file NAMD con un percorso comune. Di seguito sono descritti i passaggi per montare una cartella condivisa nel nodo head, operazione consigliata per le distribuzioni, ad esempio CentOS 6.6, che attualmente non supportano il servizio File di Azure. Se i nodi Linux supportano la condivisione di file di Azure, vedere [Come usare Archiviazione file di Azure con Linux](../storage/storage-how-to-use-files-linux.md). Per altre opzioni di condivisione dei file con HPC Pack, vedere [Introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+Now set up an SMB file share, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. Following are steps to mount a shared folder on the head node, which is recommended for distributions such as CentOS 6.6 which currently don’t support the Azure File service. If your Linux nodes support an Azure File share, see [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md).  For additional file sharing options with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-1.	Creare una cartella sul nodo head e condividerla con tutti gli utenti, configurando privilegi di lettura/scrittura. In questo esempio \\\CentOS66HN\\Namd è il nome della cartella, dove CentOS66HN è il nome host del nodo head.
+1.  Create a folder on the head node, and share it to Everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
 
-2. Creare una sottocartella denominata namd2 nella cartella condivisa. Creare un'altra sottocartella denominata namdsample in namd2.
+2. Create a subfolder named namd2 in the shared folder. In namd2 create another subfolder named namdsample.
 
-3. Estrarre i file NAMD nella cartella usando una versione Windows di **tar** o un'altra utilità Windows che gestisce gli archivi con estensione tar.
-    * Estrarre l'archivio TAR NAMD in \\\CentOS66HN\\Namd\\namd2.
+3. Extract the NAMD files in the folder by using a Windows version of **tar** or another Windows utility that operates on .tar archives. 
+    * Extract the NAMD tar archive to \\\\CentOS66HN\Namd\namd2.
     
-    * Estrarre i file per le esercitazioni in \\\CentOS66HN\\Namd\\namd2\\namdsample.
+    * Extract the tutorial files under \\\\CentOS66HN\Namd\namd2\namdsample.
 
-4. Aprire una finestra di Windows PowerShell ed eseguire i comandi seguenti per montare la cartella condivisa nei nodi Linux.
+4. Open a Windows PowerShell window and run the following commands to mount the shared folder on the Linux nodes.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /namd2
@@ -108,22 +109,22 @@ Configurare ora una condivisione di file SMB e montare la cartella condivisa in 
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
-Il primo comando crea una cartella denominata /namd2 su tutti i nodi del gruppo LinuxNodes. Il secondo comando monta la cartella condivisa //CentOS66HN/Namd/namd2 nella cartella con i bit dir\_mode e file\_mode impostati su 777. I valori *username* e *password* nel comando devono corrispondere alle credenziali di un utente nel nodo head.
+The first command creates a folder named /namd2 on all nodes in the LinuxNodes group. The second command mounts the shared folder //CentOS66HN/Namd/namd2 onto the folder with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
 
->[AZURE.NOTE]Il simbolo "`" nel secondo comando è un simbolo di escape per PowerShell. "`," significa che "," (virgola) è una parte del comando.
+>[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means the “,” (comma character) is a part of the command.
 
 
-## Creare uno script Bash per eseguire un processo NAMD
+## <a name="create-a-bash-script-to-run-a-namd-job"></a>Create a Bash script to run a NAMD job
 
-Il processo NAMD richiede un file *nodelist* per consentire a **charmrun** di determinare il numero di nodi da usare quando vengono avviati i processi NAMD. Viene usato uno script Bash che genera il file nodelist ed esegue **charmrun** con il file nodelist generato. È quindi possibile inviare un processo NAMD in HPC Cluster Manager per chiamare questo script.
+Your NAMD job needs a *nodelist* file for **charmrun** to determine the number of nodes to use when starting NAMD processes. You'll use a Bash script that generates the nodelist file and runs **charmrun** with this nodelist file. You can then submit a NAMD job in HPC Cluster Manager that calls this script.
 
-Usando l'editor di testo desiderato, creare uno script Bash nella cartella /namd2 contenente i file di programma NAMD e denominarlo hpccharmrun.sh. È possibile copiare l'esempio disponibile nei file di esempio alla fine dell'articolo.
+Using a text editor of your choice, create a Bash script in the /namd2 folder containing the NAMD program files and name it hpccharmrun.sh. You can simply copy the example provided in the sample files at the end of this article. 
 
->[AZURE.TIP] Salvare lo script come file di testo con terminazioni riga Linux (solo LF, non CR LF), in modo da assicurarne l'esecuzione corretta nei nodi Linux.
+>[AZURE.TIP] Save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
-Di seguito sono descritte nel dettaglio le operazioni eseguite dallo script Bash. Nel caso di un modello di verifica, se si vuole limitarsi a eseguire un processo NAMD, salvare lo script hpccharmrun.sh nella cartella /namd2 nella condivisione file e passare a [Inviare un processo NAMD](#submit-a-namd-job).
+Following are details about what this bash script does. If you're doing a proof of concept and just want to run a NAMD job, save your hpccharmrun.sh script in the /namd2 folder on the file share and go to [Submit a NAMD job](#submit-a-namd-job).
 
-1.	Definire alcune variabili.
+1.  Define some variables.
 
     ```
     #!/bin/bash
@@ -138,68 +139,68 @@ Di seguito sono descritte nel dettaglio le operazioni eseguite dallo script Bash
     NUMPROCESS="+p"
     ```
 
-2.	Ottenere le informazioni sul nodo dalle variabili di ambiente. $NODESCORES archivia un elenco di parole suddivise da $CCP\_NODES\_CORES. $COUNT corrisponde alle dimensioni di $NODESCORES.
+2.  Get node information from the environment variables. $NODESCORES stores a list of split words from $CCP_NODES_CORES. $COUNT is the size of $NODESCORES.
     ```
     # Get node information from the environment variables
     NODESCORES=(${CCP_NODES_CORES})
     COUNT=${#NODESCORES[@]}
     ```    
     
-    Il formato della variabile $CCP\_NODES\_CORES è il seguente:
+    The format for the $CCP_NODES_CORES variable is as follows:
 
     ```
     <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
     ```
 
-    Consente di elencare il numero totale di nodi, i nomi dei nodi e il numero di core in ogni nodo allocati al processo. Ad esempio, se per l'esecuzione del processo sono necessari 10 core, il valore di $CCP\_NODES\_CORES sarà simile a:
+    This lists the total number of nodes, node names, and number of cores on each node that are allocated to the job. For example, if the job needs 10 cores to run, the value of $CCP_NODES_CORES will be similar to:
 
     ```
     3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
     ```
         
-3.	Se la variabile $CCP\_NODES\_CORES non è configurata, avviare direttamente **charmrun**. È consigliabile seguire questa procedura solo quando si esegue lo script direttamente nei nodi Linux.
+3.  If the $CCP_NODES_CORES variable is not set, just start **charmrun** directly. (This should only occur when you run this script directly on your Linux nodes.)
 
     ```
     if [ ${COUNT} -eq 0 ]
     then
-    	# CCP_NODES is_CORES is not found or is empty, so just run charmrun without nodelist arg.
-    	#echo ${CHARMRUN} $*
-    	${CHARMRUN} $*
+        # CCP_NODES is_CORES is not found or is empty, so just run charmrun without nodelist arg.
+        #echo ${CHARMRUN} $*
+        ${CHARMRUN} $*
     ```
 
-4.	In alternativa, creare un file nodelist per **charmrun**.
+4.  Or create a nodelist file for **charmrun**.
 
     ```
     else
-    	# Create the nodelist file
-    	NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
+        # Create the nodelist file
+        NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
 
-    	# Write the head line
-    	echo "group main" > ${NODELIST_PATH}
+        # Write the head line
+        echo "group main" > ${NODELIST_PATH}
 
-    	# Get every node name and number of cores and write into the nodelist file
-    	I=1
-    	while [ ${I} -lt ${COUNT} ]
-    	do
-    		echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
-    		let "I=${I}+2"
-    	done
+        # Get every node name and number of cores and write into the nodelist file
+        I=1
+        while [ ${I} -lt ${COUNT} ]
+        do
+            echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
+            let "I=${I}+2"
+        done
 ```
-5.	Eseguire **charmrun** con il file nodelist, ottenere il relativo stato restituito e quindi rimuovere il file nodelist al termine delle operazioni.
+5.  Run **charmrun** with the nodelist file, get its return status, and remove the nodelist file at the end.
 
-    ${CCP\_NUMCPUS} è un'altra variabile di ambiente configurata dal nodo head HPC Pack. Archivia il numero totale di core allocati per questo processo. Viene usata per specificare il numero di processi per charmrun.
+    ${CCP_NUMCPUS} is another environment variable set by the HPC Pack head node. It stores the number of total cores allocated to this job. We use it to specify the number of processes for charmrun.
 
     ```
-	# Run charmrun with nodelist arg
-	#echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
-	${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    # Run charmrun with nodelist arg
+    #echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
-	RTNSTS=$?
-	rm -f ${NODELIST_PATH}
+    RTNSTS=$?
+    rm -f ${NODELIST_PATH}
     fi
 
     ```
-6.	Uscire con lo stato restituito di **charmrun**.
+6.  Exit with the **charmrun** return status.
 
     ```
     exit ${RTNSTS}
@@ -207,7 +208,7 @@ Di seguito sono descritte nel dettaglio le operazioni eseguite dallo script Bash
 
 
 
-Le informazioni seguenti sono disponibili nel file nodelist, che verrà generato dallo script:
+Following is the information in the nodelist file, which the script will generate:
 
 ```
 group main
@@ -216,7 +217,7 @@ host <Name of node2> ++cpus <Cores of node2>
 …
 ```
 
-Ad esempio:
+For example:
 
 ```
 group main
@@ -225,64 +226,65 @@ host CENTOS66LN-01 ++cpus 4
 host CENTOS66LN-03 ++cpus 2
 ```
 
-## Inviare un processo NAMD
+## <a name="submit-a-namd-job"></a>Submit a NAMD job
 
-È ora possibile inviare un processo NAMD in HPC Cluster Manager.
+Now you are ready to submit a NAMD job in HPC Cluster Manager.
 
-1.	Connettersi al nodo head del cluster e avviare HPC Cluster Manager.
+1.  Connect to your cluster head node and start HPC Cluster Manager.
 
-2.  In **Resource Management** assicurarsi che lo stato dei nodi di calcolo Linux sia **Online**. Se lo stato è diverso, selezionarli e fare clic su **Bring Online**.
+2.  In **Resource Management**, ensure that the Linux compute nodes are in the **Online** state. If they are not, select them and click **Bring Online**.
 
-2.  In **Job Management** fare clic su **New Job**.
+2.  In **Job Management**, click **New Job**.
 
-3.	Immettere un nome per il processo, ad esempio *hpccharmrun*.
+3.  Enter a name for job such as *hpccharmrun*.
 
-    ![Nuovo processo HPC][namd_job]
+    ![New HPC job][namd_job]
 
-4.	Nella pagina **Job Details** in **Job Resources** selezionare **Node** come tipo di risorsa, quindi impostare il valore **Minimum** su 3. In questo esempio il processo verrà eseguito su tre nodi Linux e ogni nodo ha 4 core.
+4.  On the **Job Details** page, under **Job Resources**, select the type of resource as **Node** and set the **Minimum** to 3. In this example we'll run the job on 3 Linux nodes and each node has 4 cores.
 
-    ![Risorse del processo][job_resources]
+    ![Job resources][job_resources]
 
-5. Fare clic su **Edit Tasks** (Modifica attività) nel riquadro di spostamento sinistro e quindi fare clic su **Aggiungi** per aggiungere un'attività al processo.
+5. Click **Edit Tasks** in the left navigation, and then click **Add** to add a task to the job.    
 
 
-6. Nella pagina **Task Details and I/O Redirection** (Dettagli attività e reindirizzamento I/O) impostare i valori seguenti.
+6. On the **Task Details and I/O Redirection** page, set the following values.
 
-    * **Command line** - `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
+    * **Command line** -
+`/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
 
-        >[AZURE.TIP] La riga di comando precedente è costituita da un comando singolo senza interruzioni di riga. Il testo va a capo per essere visualizzato su più righe nella **riga di comando**.
+        >[AZURE.TIP] The preceding command line is a single command without line breaks. It will wrap to appear on several lines under **Command line**.
 
     * **Working directory** - /namd2
 
     * **Minimum** - 3
 
-    ![Dettagli dell'attività][task_details]
+    ![Task details][task_details]
 
-    >[AZURE.NOTE] È necessario configurare qui la directory di lavoro, perché **charmrun** prova a passare alla stessa directory di lavoro in ogni nodo. Se la directory di lavoro non è configurata, HPC Pack avvia il comando in una cartella con nome casuale creata in uno dei nodi Linux. Ciò provoca l'errore seguente negli altri nodi: `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` Per evitare questo errore, specificare un percorso di cartella accessibile a tutti i nodi come directory di lavoro.
+    >[AZURE.NOTE] You set the working directory here because **charmrun** tries to navigate to the same working directory on each node. If the working directory isn't set, HPC Pack starts the command in a randomly named folder created on one of the Linux nodes. This causes the following error on the other nodes: `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` To avoid this, specify a folder path which can be accessed by all nodes as the working directory.
 
-5.	Fare clic su **OK** e quindi su **Invia** per eseguire il processo.
+5.  Click **OK** and then click **Submit** to run this job.
 
-    Per impostazione predefinita, HPC Pack invia il processo usando l'account utente attualmente connesso. È possibile che una finestra di dialogo richieda l'immissione del nome utente e della password dopo la selezione di **Submit**.
+    By default, HPC Pack submits the job as your current logged-on user account. A dialog box might prompt you to enter the user name and password after you click **Submit**.
 
-    ![Credenziali del processo][creds]
+    ![Job credentials][creds]
 
-    In alcune condizioni, HPC Pack ricorda le informazioni utente inserite in precedenza e non visualizza questa finestra di dialogo. Per fare in modo che HPC Pack la mostri di nuovo, immettere le informazioni seguenti in una finestra di comando, quindi inviare il processo.
+    Under some conditions HPC Pack remembers the user information you input before and won’t show this dialog box. To make HPC Pack show it again, enter the following in a Command window and then submit the job.
 
     ```
     hpccred delcreds
     ```
 
-6.	Il completamento del processo richiede alcuni minuti.
+6.  The job takes several minutes to finish.
 
-7.	Il log del processo è disponibile in \\<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log e i file di output sono disponibili in \\<headnodeName>\\Namd\\namd2\\namdsample\\1-2-sphere.
+7.  Find the job log at \\<headnodeName>\Namd\namd2\namd2_hpccharmrun.log and the output files in \\<headnodeName>\Namd\namd2\namdsample\1-2-sphere\.
 
-8.	Facoltativamente, avviare VMD per visualizzare i risultati del processo. I passaggi per la visualizzazione dei file di output NAMD (in questo caso, una molecola proteica di ubiquitina in una sfera d'acqua) non rientrano nell'ambito di questo articolo. Per informazioni dettagliate, vedere l'[esercitazione relativa a NAMD](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf).
+8.  Optionally, start VMD to view your job results. The steps for visualizing the NAMD output files (in this case, a ubiquitin protein molecule in a water sphere) are beyond the scope of this article. See [NAMD Tutorial](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) for details.
 
-    ![Risultati del processo][vmd_view]
+    ![Job results][vmd_view]
 
-## File di esempio
+## <a name="sample-files"></a>Sample files
 
-### File di configurazione XML di esempio per la distribuzione di cluster tramite script PowerShell
+### <a name="sample-xml-configuration-file-for-cluster-deployment-by-powershell-script"></a>Sample XML configuration file for cluster deployment by PowerShell script
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -320,7 +322,7 @@ host CENTOS66LN-03 ++cpus 2
 </IaaSClusterConfig>    
 ```
 
-### File cred.xml di esempio
+### <a name="sample-cred.xml-file"></a>Sample cred.xml file
 
 ```
 <ExtendedData>
@@ -355,7 +357,7 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 </ExtendedData>
 ```
 
-### Script hpccharmrun.sh di esempio
+### <a name="sample-hpccharmrun.sh-script"></a>Sample hpccharmrun.sh script
 
 ```
 #!/bin/bash
@@ -376,30 +378,30 @@ COUNT=${#NODESCORES[@]}
 
 if [ ${COUNT} -eq 0 ]
 then
-	# If CCP_NODES_CORES is not found or is empty, just run the charmrun without nodelist arg.
-	#echo ${CHARMRUN} $*
-	${CHARMRUN} $*
+    # If CCP_NODES_CORES is not found or is empty, just run the charmrun without nodelist arg.
+    #echo ${CHARMRUN} $*
+    ${CHARMRUN} $*
 else
-	# Create the nodelist file
-	NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
+    # Create the nodelist file
+    NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
 
-	# Write the head line
-	echo "group main" > ${NODELIST_PATH}
+    # Write the head line
+    echo "group main" > ${NODELIST_PATH}
 
-	# Get every node name & cores and write into the nodelist file
-	I=1
-	while [ ${I} -lt ${COUNT} ]
-	do
-		echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
-		let "I=${I}+2"
-	done
+    # Get every node name & cores and write into the nodelist file
+    I=1
+    while [ ${I} -lt ${COUNT} ]
+    do
+        echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+    done
 
-	# Run the charmrun with nodelist arg
-	#echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
-	${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    # Run the charmrun with nodelist arg
+    #echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
-	RTNSTS=$?
-	rm -f ${NODELIST_PATH}
+    RTNSTS=$?
+    rm -f ${NODELIST_PATH}
 fi
 
 exit ${RTNSTS}
@@ -420,4 +422,8 @@ exit ${RTNSTS}
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

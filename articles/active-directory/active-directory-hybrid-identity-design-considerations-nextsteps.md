@@ -1,48 +1,53 @@
 <properties
-	pageTitle="Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Passaggi successivi | Microsoft Azure"
-	description="Riepilogo e passaggi successivi dopo la lettura della guida sulla progettazione dell'identità ibrida"
-	documentationCenter=""
-	services="active-directory"
-	authors="billmath"
-	manager="femila"
-	editor=""/>  
+    pageTitle="Azure Active Directory hybrid identity design considerations- next steps| Microsoft Azure"
+    description="A synopsis and next steps after you have read the Hybrid Identity design considerations guide"
+    documentationCenter=""
+    services="active-directory"
+    authors="billmath"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
-	ms.author="billmath"/>  
+    ms.date="08/08/2016"
+    ms.author="billmath"/>
 
-#Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Passaggi successivi
-Dopo aver definito i requisiti ed esaminato tutte le opzioni per la soluzione di gestione dei dispositivi mobili, è possibile eseguire i passaggi successivi per la distribuzione dell'infrastruttura di supporto adatta alle esigenze dell'utente e dell'organizzazione.
 
-##Soluzioni di identità ibrida
--Sfruttare i vantaggi offerti da scenari di soluzioni adatti alle proprie esigenze è un ottimo modo per verificare e pianificare i dettagli della distribuzione di un'infrastruttura di gestione dei dispositivi mobili. Le soluzioni seguenti descrivono molti dei più comuni scenari di gestione dei dispositivi mobili:
+#<a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybrid identity design considerations- next steps
+Now that you’ve completed defining your requirements and examining all the options for your mobile device management solution, you’re ready to take the next steps for deploying the supporting infrastructure that’s right for you and your organization.
 
-- La [soluzione per la gestione di dispositivi mobili e PC negli ambienti aziendali](https://technet.microsoft.com/library/dn582037.aspx) consente di gestire i dispositivi mobili estendendo l'infrastruttura di System Center 2012 Configuration Manager locale nel cloud con Microsoft Intune. Questa infrastruttura ibrida consente ai professionisti IT in ambienti di medie e grandi dimensioni di abilitare BYOD e accesso remoto riducendo la complessità amministrativa.
-- La [soluzione per la gestione di dispositivi mobili per Configuration Manager 2007](https://technet.microsoft.com/library/dn508400.aspx) consente di gestire i dispositivi mobili quando l'infrastruttura si trova su System Center Configuration Manager 2007. Questa soluzione illustra come configurare un singolo server che esegue System Center 2012 Configuration Manager, in questo modo è possibile quindi eseguire Microsoft Intune e sfruttare la capacità MDM.
-- La [soluzione per la gestione dei dispositivi mobili negli ambienti di piccole dimensioni](https://technet.microsoft.com/library/dn715906.aspx) è destinata alle piccole aziende che devono supportare MDM. Illustra come usare Microsoft Intune per estendere l'infrastruttura corrente per il supporto della gestione dei dispositivi mobili e BYOD. Questa soluzione descrive lo scenario più semplice supportato per l'uso di Microsoft Intune in una configurazione autonoma, solo cloud senza server locali.
+##<a name="hybrid-identity-solutions"></a>Hybrid identity solutions
+-Leveraging specific solution scenarios that fit your needs is a great way to review and plan for the details of deploying a mobile device management infrastructure. The following solutions outline several of the most common mobile device management scenarios:
 
-## Documentazione di identità ibrida
-I contenuti concettuali, sulla pianificazione delle procedure, sulla distribuzione e sull'amministrazione sono utili quando si implementa la soluzione di gestione dei dispositivi mobili:
+- The [manage mobile devices and PCs in enterprise environments solution](https://technet.microsoft.com/library/dn582037.aspx) helps you manage mobile devices by extending your on-premises System Center 2012 Configuration Manager infrastructure into the cloud with Microsoft Intune. This hybrid infrastructure helps IT Pros in medium and large environments enable BYOD and remote access while reducing administrative complexity.
+- The [managing mobile devices for Configuration Manager 2007 solution](https://technet.microsoft.com/library/dn508400.aspx) helps you manage mobile devices when your infrastructure rests on a System Center Configuration Manager 2007. This solution shows you how to set up a single server running System Center 2012 Configuration Manager so you can then run Microsoft Intune and take advantage of its MDM ability.
+- The [managing mobile devices in small environments solution](https://technet.microsoft.com/library/dn715906.aspx) is intended for small businesses that need to support MDM. It explains how to use Microsoft Intune to extend your current infrastructure to support mobile device management and BYOD. This solution describes the simplest scenario supported for using Microsoft Intune in a standalone, cloud-only configuration with no local servers.
 
-- Le soluzioni [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) consentono di acquisizione e consolidare le conoscenze su infrastruttura, criteri, processi e procedure consigliate in modo che il personale IT possa creare sistemi gestibili e automatizzare le operazioni.
-- [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) è un servizio di gestione di dispositivi basato sul cloud che consente di gestire computer e dispositivi mobili e proteggere le informazioni della società.
-- [MDM per Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) consente di gestire e proteggere i dispositivi mobili quando sono connessi all'organizzazione di Office 365. È possibile usare MDM per Office 365 per impostare regole di accesso e criteri di sicurezza dei dispositivi e per cancellare i dispositivi mobili, se vengono persi o rubati.
+## <a name="hybrid-identity-documentation"></a>Hybrid identity documentation
+Conceptual and procedural planning, deployment, and administration content are useful when implementing your mobile device management solution:
 
-## Risorse di identità ibrida
-Il monitoraggio frequente di queste risorse consente di ottenere informazioni sulle notizie più recenti e aggiornamenti relativi alle soluzioni di gestione dei dispositivi mobili:
+- [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) solutions can help you capture and aggregate knowledge about your infrastructure, policies, processes, and best practices so that your IT staff can build manageable systems and automate operations.
+- [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) is a cloud-based device management service that helps you to manage your computers and mobile devices and to secure your company’s information.
+- [MDM for Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) allows you to manage and secure mobile devices when they're connected to your Office 365 organization. You can use MDM for Office 365 to set device security policies and access rules, and to wipe mobile devices if they’re lost or stolen.
 
-- [Blog di Microsoft Enterprise Mobility](http://blogs.technet.com/b/enterprisemobility/)
-- [Blog di Microsoft In The Cloud](http://blogs.technet.com/b/in_the_cloud/)
-- [Blog di Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
-- [Blog di Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
-- [Blog del team di Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
+## <a name="hybrid-identity-resources"></a>Hybrid identity resources
+Monitoring the following resources often provides the latest news and updates on mobile device management solutions:
 
-## Vedere anche
-[Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
+- [Microsoft Enterprise Mobility blog](http://blogs.technet.com/b/enterprisemobility/)
+- [Microsoft In The Cloud blog](http://blogs.technet.com/b/in_the_cloud/)
+- [Microsoft Intune blog](http://blogs.technet.com/b/microsoftintune/)
+- [Microsoft System Center Configuration Manager blog](http://blogs.technet.com/b/configurationmgr/)
+- [Microsoft System Center Configuration Manager Team blog](http://blogs.technet.com/b/configmgrteam/)
 
-<!---HONumber=AcomDC_0810_2016-->
+## <a name="see-also"></a>See also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

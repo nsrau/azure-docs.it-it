@@ -1,66 +1,77 @@
 <properties
-	pageTitle="Azure AD Connect: introduzione alle impostazioni rapide | Microsoft Azure"
-	description="Informazioni su come scaricare, installare e configurare la procedura guidata per Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect: Getting Started using express settings | Microsoft Azure"
+    description="Learn how to download, install and run the setup wizard for Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/13/2016"
-	ms.author="billmath;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/13/2016"
+    ms.author="billmath"/>
 
-# Introduzione alle impostazioni rapide per Azure AD Connect
-**Impostazioni rapide** di Azure AD Connect viene usato quando è presente una topologia a singola foresta e si usa la [sincronizzazione password](../active-directory-aadconnectsync-implement-password-synchronization.md) per l'autenticazione. **Impostazioni rapide** è l'opzione predefinita e viene usata nello scenario distribuito più comune. Questa opzione richiede solo pochi clic per estendere la directory locale nel cloud.
 
-Prima di avviare l'installazione di Azure AD Connect, verificare di avere [scaricato Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) e completare i passaggi obbligatori illustrati in [Azure AD Connect: hardware e prerequisiti](../active-directory-aadconnect-prerequisites.md).
+# <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Getting started with Azure AD Connect using express settings
+Azure AD Connect **Express Settings** is used when you have a single-forest topology and [password synchronization](../active-directory-aadconnectsync-implement-password-synchronization.md) for authentication. **Express Settings** is the default option and is used for the most commonly deployed scenario. You are only a few short clicks away to extend your on-premises directory to the cloud.
 
-Se le impostazioni rapide non corrispondono alla topologia, vedere la [documentazione correlata](#related-documentation) per altri scenari.
+Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](../active-directory-aadconnect-prerequisites.md).
 
-## Installazione rapida di Azure AD Connect
-È possibile visualizzare questi passaggi in azione nella sezione [Video](#videos).
+If express settings does not match your topology, see [related documentation](#related-documentation) for other scenarios.
 
-1. Accedere come amministratore locale al server in cui si vuole installare Azure AD Connect. Questa operazione deve essere eseguita sul server da impostare come server di sincronizzazione.
-2. Trovare il file **AzureADConnect.msi** e farvi doppio clic.
-3. Nella schermata iniziale, selezionare la casella che consente di accettare le condizioni di licenza e fare clic su **Continua**.
-4. Nella schermata Impostazioni rapide fare clic su **Usa impostazioni rapide**. ![Avvio di Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
-5. Nella schermata Connessione ad Azure AD immettere il nome utente e la password di un amministratore globale per Azure AD. Fare clic su **Next**. ![Connessione ad Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)Se viene visualizzato un errore e si hanno problemi di connettività, vedere [Risolvere i problemi di connettività con Azure AD Connect](../active-directory-aadconnect-troubleshoot-connectivity.md).
-6. Nella schermata Connessione a Servizi di dominio Active Directory immettere il nome utente e la password di un account amministratore dell'organizzazione. È possibile immettere la parte relativa al dominio in formato NetBios o FQDN, ad esempio FABRIKAM\\administrator o fabrikam.com\\administrator. Fare clic su **Avanti**. ![Connessione ad AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. La pagina [**Configurazione dell'accesso ad Azure AD**](../active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) viene visualizzata solo se non è stata completata la [verifica dei domini](../active-directory-add-domain.md) nei [prerequisiti](../active-directory-aadconnect-prerequisites.md). ![Domini non verificati](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) Se viene visualizzata questa pagina, verificare ogni dominio contrassegnato come **Non aggiunto** e **Non verificato**. Assicurarsi che i domini usati siano stati verificati in Azure AD. Fare clic sul simbolo Aggiorna dopo avere verificato tutti i domini.
-8. Nella schermata Pronto per la configurazione fare clic su **Installa**.
-	- Nella pagina Pronte per la configurazione è possibile deselezionare la casella di controllo **Avviare il processo di sincronizzazione non appena viene completata la configurazione iniziale**. È necessario deselezionare questa casella di controllo per eseguire una configurazione aggiuntiva, ad esempio il [filtro](../active-directory-aadconnectsync-configure-filtering.md). Se si deseleziona questa opzione, la procedura guidata configura la sincronizzazione ma lascia disabilitata l'utilità di pianificazione, che non viene eseguita finché non la si abilita manualmente [eseguendo di nuovo l'installazione guidata](../active-directory-aadconnectsync-installation-wizard.md).
-	- Se Exchange è presente nell'istanza locale di Active Directory, è disponibile anche un'opzione per abilitare la [**distribuzione ibrida di Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Abilitare questa opzione se si prevede di avere cassette postali di Exchange contemporaneamente nel cloud e in locale. ![Pronto per la configurazione di Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
-9. Al termine dell'installazione, fare clic su **Esci**.
-10. Al termine dell'installazione, disconnettersi e accedere nuovamente prima di usare Synchronization Service Manager o Synchronization Rules Editor.
+## <a name="express-installation-of-azure-ad-connect"></a>Express installation of Azure AD Connect
+You can see these steps in action in the [videos](#videos) section.
 
-## Video
+1. Sign in as a local administrator to the server you wish to install Azure AD Connect on. You should do this on the server you wish to be the sync server.
+2. Navigate to and double-click **AzureADConnect.msi**.
+3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.  
+4. On the Express settings screen, click **Use express settings**.  
+![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
+5. On the Connect to Azure AD screen, enter the username and password of a global administrator for your Azure AD. Click **Next**.  
+![Connect to Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](../active-directory-aadconnect-troubleshoot-connectivity.md).
+6. On the Connect to AD DS screen, enter the username and password for an enterprise admin account. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\administrator or fabrikam.com\administrator. Click **Next**.  
+![Connect to AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
+7. The [**Azure AD sign-in configuration**](../active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) page only shows if you did not complete [verify your domains](../active-directory-add-domain.md) in the [prerequisites](../active-directory-aadconnect-prerequisites.md).
+![Unverified domains](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
+If you see this page, then review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains.
+8. On the Ready to configure screen, click **Install**.
+    - Optionally on the Ready to configure page, you can unselect the **Start the synchronization process as soon as configuration completes** checkbox. You should unselect this checkbox if you want to do additional configuration, such as [filtering](../active-directory-aadconnectsync-configure-filtering.md). If you unselect this option, the wizard configures sync but leaves the scheduler disabled. It does not run until you enable it manually by [rerunning the installation wizard](../active-directory-aadconnectsync-installation-wizard.md).
+    - If you have Exchange in your on-premises Active Directory, then you also have an option to enable [**Exchange Hybrid deployment**](https://technet.microsoft.com/library/jj200581.aspx). Enable this option if you plan to have Exchange mailboxes both in the cloud and on-premises at the same time.
+![Ready to configure Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
+9. When the installation completes, click **Exit**.
+10. After the installation has completed, sign off and sign in again before you use Synchronization Service Manager or Synchronization Rule Editor.
 
-Per un video sull'uso dell'installazione rapida, vedere:
+## <a name="videos"></a>Videos
+
+For a video on using the express installation, see:
 
 >[AZURE.VIDEO azure-active-directory-connect-express-settings]
 
-## Passaggi successivi
-Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e assegnare le licenze](../active-directory-aadconnect-whats-next.md).
+## <a name="next-steps"></a>Next steps
+Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](../active-directory-aadconnect-whats-next.md).
 
-Altre informazioni su queste funzionalità che sono state abilitate con l'installazione: [Aggiornamento automatico](../active-directory-aadconnect-feature-automatic-upgrade.md), [Impedire eliminazioni accidentali](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
+Learn more about these features, which were enabled with the installation: [Automatic upgrade](../active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), and [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
 
-Altre informazioni su questi argomenti comuni: [utilità di pianificazione e come attivare la sincronizzazione](../active-directory-aadconnectsync-feature-scheduler.md).
+Learn more about these common topics: [scheduler and how to trigger sync](../active-directory-aadconnectsync-feature-scheduler.md).
 
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md).
 
-## Documentazione correlata
+## <a name="related-documentation"></a>Related documentation
 
-Argomento |  
+Topic |  
 --------- | ---------
-Panoramica di Azure AD Connect | [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md)
-Eseguire l'installazione con le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-Account usati per l'installazione | [Altre informazioni sugli account e le autorizzazioni di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Azure AD Connect overview | [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md)
+Install using customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Accounts used for installation | [More about Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

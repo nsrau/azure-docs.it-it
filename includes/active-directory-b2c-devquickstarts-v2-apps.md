@@ -1,4 +1,6 @@
 > [AZURE.IMPORTANT]
-Non è possibile usare le applicazioni registrate nella scheda **Applicazioni** del [portale di gestione di Azure](https://manage.windowsazure.com/) per questa operazione.
+You cannot use applications registered in the **Applications** tab on the classic [Azure Management Portal](https://manage.windowsazure.com/) for this.
 
-<!----HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

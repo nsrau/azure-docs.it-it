@@ -1,50 +1,51 @@
 <properties
-	pageTitle="Associazioni HTTP e webhook in Funzioni di Azure | Microsoft Azure"
-	description="Informazioni su come usare trigger e associazioni HTTP e webhookin Funzioni di Azure."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server"/>
+    pageTitle="Azure Functions HTTP and webhook bindings | Microsoft Azure"
+    description="Understand how to use HTTP and webhook triggers and bindings in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande"/>
 
-# Associazioni HTTP e webhook in Funzioni di Azure
+
+# <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP and webhook bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e scrivere il codice per trigger e associazioni HTTP e webhook in Funzioni di Azure.
+This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## function.json per associazioni HTTP e webhook
+## <a name="function.json-for-http-and-webhook-bindings"></a>function.json for HTTP and webhook bindings
 
-Il file *function.json* specifica le proprietà relative alla richiesta e alla risposta.
+The *function.json* file provides properties that pertain to both the request and response.
 
-Proprietà per la richiesta HTTP:
+Properties for the HTTP request:
 
-- `name`: nome della variabile usato nel codice della funzione per l'oggetto di richiesta o per il corpo della richiesta nel caso di funzioni Node.js.
-- `type`: deve essere impostato su *httpTrigger*.
-- `direction`: deve essere impostato su *in*.
-- `webHookType`: per i trigger webhook, i valori validi sono *github*, *slack* e *genericJson*. Per un trigger HTTP diverso da un webhook, impostare questa proprietà su una stringa vuota. Per altre informazioni sui webhook, vedere la sezione [Trigger webhook](#webhook-triggers) seguente.
-- `authLevel`: non si applica a trigger webhook. Impostare su "function" per richiedere la chiave API, su "anonymous" per rimuovere il requisito della chiave API o su "admin" per richiedere la chiave API master. Per altre informazioni, vedere la sezione [Chiavi API](#apikeys) seguente.
+- `name` : Variable name used in function code for the request object (or the request body in the case of Node.js functions).
+- `type` : Must be set to *httpTrigger*.
+- `direction` : Must be set to *in*. 
+- `webHookType` : For WebHook triggers, valid values are *github*, *slack*, and *genericJson*. For an HTTP trigger that isn't a WebHook, set this property to an empty string. For more information on WebHooks, see the following [WebHook triggers](#webhook-triggers) section.
+- `authLevel` : Doesn't apply to WebHook triggers. Set to "function" to require the API key, "anonymous" to drop the API key requirement, or "admin" to require the master API key. See [API keys](#apikeys) below for more information.
 
-Proprietà per la risposta HTTP:
+Properties for the HTTP response:
 
-- `name`: nome della variabile usato nel codice della funzione per l'oggetto di risposta.
-- `type`: deve essere impostato su *http*.
-- `direction`: deve essere impostato su *out*.
+- `name` : Variable name used in function code for the response object.
+- `type` : Must be set to *http*.
+- `direction` : Must be set to *out*. 
  
-Esempio di *function.json*:
+Example *function.json*:
 
 ```json
 {
@@ -66,29 +67,29 @@ Esempio di *function.json*:
 }
 ```
 
-## Trigger webhook
+## <a name="webhook-triggers"></a>WebHook triggers
 
-Un trigger webhook è un trigger HTTP con le funzionalità seguenti progettate per i webhook:
+A WebHook trigger is an HTTP trigger that has the following features designed for WebHooks:
 
-* Per provider di webhook specifici (attualmente sono supportati GitHub e Slack), il runtime di Funzioni convalida la firma del provider.
-* Per le funzioni Node.js, il runtime di Funzioni fornisce il corpo della richiesta invece dell'oggetto richiesta. Non esiste una gestione speciale per le funzioni C#, perché l'utente controlla ciò che viene fornito specificando il tipo di parametro. Se si specifica `HttpRequestMessage`, si ottiene l'oggetto di richiesta. Se si specifica un tipo POCO, il runtime di Funzioni cerca di analizzare un oggetto JSON nel corpo della richiesta per popolare le proprietà dell'oggetto.
-* Per attivare una funzione webhook, la richiesta HTTP deve includere una chiave API. Per i trigger HTTP non webhook, questo requisito è facoltativo.
+* For specific WebHook providers (currently GitHub and Slack are supported), the Functions runtime validates the provider's signature.
+* For Node.js functions, the Functions runtime provides the request body instead of the request object. There is no special handling for C# functions, because you control what is provided by specifying the parameter type. If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries to parse a JSON object in the body of the request to populate the object properties.
+* To trigger a WebHook function the HTTP request must include an API key. For non-WebHook HTTP triggers,  this requirement is optional.
 
-Per informazioni su come configurare un webhook GitHub, vedere [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) (GitHub Developer - Creazione di webhook).
+For information about how to set up a GitHub WebHook, see [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
 
-## URL per attivare la funzione
+## <a name="url-to-trigger-the-function"></a>URL to trigger the function
 
-Per attivare una funzione, si invia una richiesta HTTP a un URL, composto dall'URL dell'app per le funzioni e dal nome della funzione:
+To trigger a function, you send an HTTP request to a URL that is a combination of the function app URL and the function name:
 
 ```
  https://{function app name}.azurewebsites.net/api/{function name} 
 ```
 
-## Chiavi API
+## <a name="api-keys"></a>API keys
 
-Per impostazione predefinita, una chiave API deve essere inclusa con una richiesta HTTP per attivare una funzione HTTP o webhook. La chiave può essere inclusa in una variabile della stringa di query denominata `code` oppure in un'intestazione HTTP `x-functions-key`. Per le funzioni non webhook, è possibile indicare che una chiave API non è obbligatoria impostando la proprietà `authLevel` su "anonymous" nel file *function.json*.
+By default, an API key must be included with an HTTP request to trigger an HTTP or WebHook function. The key can be included in a query string variable named `code`, or it can be included in an `x-functions-key` HTTP header. For non-WebHook functions, you can indicate that an API key is not required by setting the `authLevel` property to "anonymous" in the *function.json* file.
 
-È possibile trovare i valori della chiave API nella cartella *D:\\home\\data\\Functions\\secrets* nel file system dell'app per le funzioni. La chiave master e la chiave della funzione vengono impostate nel file *host.json*, come illustrato in questo esempio.
+You can find API key values in the *D:\home\data\Functions\secrets* folder in the file system of the function app.  The master key and function key are set in the *host.json* file, as shown in this example. 
 
 ```json
 {
@@ -97,9 +98,9 @@ Per impostazione predefinita, una chiave API deve essere inclusa con una richies
 }
 ```
 
-La chiave della funzione di *host.json* può essere usata per attivare qualsiasi funzione, ma non per attivare una funzione disabilitata. La chiave master può essere usata per attivare qualsiasi funzione, anche una che è stata disabilitata. È possibile configurare una funzione per richiedere la chiave master impostando la proprietà `authLevel` su "admin".
+The function key from *host.json* can be used to trigger any function but won't trigger a disabled function. The master key can be used to trigger any function and will trigger a function even if it's disabled. You can configure a function to require the master key by setting the `authLevel` property to "admin". 
 
-Se la cartella *secrets* contiene un file JSON con lo stesso nome della funzione, la proprietà `key` in tale file può essere usata anche per attivare la funzione e questa chiave funzionerà solo con la funzione a cui si riferisce. Ad esempio, la chiave API per una funzione denominata `HttpTrigger` viene specificata in *HttpTrigger.json* nella cartella *secrets*. Di seguito è fornito un esempio:
+If the *secrets* folder contains a JSON file with the same name as a function, the `key` property in that file can also be used to trigger the function, and this key will only work with the function it refers to. For example, the API key for a function named `HttpTrigger` is specified in *HttpTrigger.json* in the *secrets* folder. Here is an example:
 
 ```json
 {
@@ -107,11 +108,11 @@ Se la cartella *secrets* contiene un file JSON con lo stesso nome della funzione
 }
 ```
 
-> [AZURE.NOTE] Quando si configura un trigger webhook, non condividere la chiave master con il provider webhook. Usare una chiave che funzioni solo con la funzione che elabora il webhook. La chiave master può essere usata per attivare qualsiasi funzione, anche quelle disabilitate.
+> [AZURE.NOTE] When you're setting up a WebHook trigger, don't share the master key with the WebHook provider. Use a key that will only work with the function that processes the WebHook.  The master key can be used to trigger any function, even disabled functions.
 
-## Codice C# di esempio per una funzione trigger HTTP 
+## <a name="example-c#-code-for-an-http-trigger-function"></a>Example C# code for an HTTP trigger function 
 
-Il codice di esempio cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
+The example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```csharp
 using System.Net;
@@ -138,9 +139,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
-## Codice F# di esempio per una funzione trigger HTTP
+## <a name="example-f#-code-for-an-http-trigger-function"></a>Example F# code for an HTTP trigger function
 
-Il codice di esempio cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
+The example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```fsharp
 open System.Net
@@ -164,7 +165,7 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-Sarà necessario un file `project.json` che usa NuGet per fare riferimento agli assembly `FSharp.Interop.Dynamic` e `Dynamitey` come segue:
+You will need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
 
 ```json
 {
@@ -179,11 +180,11 @@ Sarà necessario un file `project.json` che usa NuGet per fare riferimento agli 
 }
 ```
 
-Verrà usato NuGet per recuperare le dipendenze e verrà creato un riferimento alle dipendenze nello script.
+This will use NuGet to fetch your dependencies and will reference them in your script.
 
-## Codice Node.js di esempio per una funzione trigger HTTP 
+## <a name="example-node.js-code-for-an-http-trigger-function"></a>Example Node.js code for an HTTP trigger function 
 
-Questo codice di esempio cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
+This example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```javascript
 module.exports = function(context, req) {
@@ -205,9 +206,9 @@ module.exports = function(context, req) {
 };
 ```
 
-## Codice C# di esempio per una funzione webhook di GitHub 
+## <a name="example-c#-code-for-a-github-webhook-function"></a>Example C# code for a GitHub WebHook function 
 
-Questo codice di esempio registra i commenti sui problemi di GitHub.
+This example code logs GitHub issue comments.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -230,9 +231,9 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
-## Codice F# di esempio per una funzione webhook di GitHub
+## <a name="example-f#-code-for-a-github-webhook-function"></a>Example F# code for a GitHub WebHook function
 
-Questo codice di esempio registra i commenti sui problemi di GitHub.
+This example code logs GitHub issue comments.
 
 ```fsharp
 open System.Net
@@ -255,9 +256,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     } |> Async.StartAsTask
 ```
 
-## Codice Node.js di esempio per una funzione webhook di GitHub 
+## <a name="example-node.js-code-for-a-github-webhook-function"></a>Example Node.js code for a GitHub WebHook function 
 
-Questo codice di esempio registra i commenti sui problemi di GitHub.
+This example code logs GitHub issue comments.
 
 ```javascript
 module.exports = function (context, data) {
@@ -267,8 +268,12 @@ module.exports = function (context, data) {
 };
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [Passaggi successivi](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

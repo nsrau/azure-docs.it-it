@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Envoy | Microsoft Azure" 
-    description="Informazioni su come usare Envoy con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with Envoy | Microsoft Azure" 
+    description="Learn how to use Envoy with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,128 +11,137 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con Envoy
-  
-Questa esercitazione descrive l'integrazione di Azure ed Envoy. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   Sottoscrizione di Azure valida
--   Tenant di Envoy
+#<a name="tutorial:-azure-active-directory-integration-with-envoy"></a>Tutorial: Azure Active Directory integration with Envoy
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Envoy potranno accedere all'applicazione tramite il sito aziendale di Envoy (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-  
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+The objective of this tutorial is to show the integration of Azure and Envoy.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-1.  Abilitazione dell'integrazione dell'applicazione per Envoy
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+-   A valid Azure subscription
+-   A Envoy tenant
+  
+After completing this tutorial, the Azure AD users you have assigned to Envoy will be able to single sign into the application at your Envoy company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+  
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for Envoy
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-envoy-tutorial/IC776759.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per Envoy
+##<a name="enabling-the-application-integration-for-envoy"></a>Enabling the application integration for Envoy
   
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per Envoy.
+The objective of this section is to outline how to enable the application integration for Envoy.
 
-###Per abilitare l'integrazione dell'applicazione per Envoy, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-envoy,-perform-the-following-steps:"></a>To enable the application integration for Envoy, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-envoy-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-envoy-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-envoy-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-envoy-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-envoy-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-envoy-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-envoy-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **Envoy**.
+6.  In the **search box**, type **Envoy**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-envoy-tutorial/IC776760.png "Raccolta di applicazioni")
+    ![Application gallery](./media/active-directory-saas-envoy-tutorial/IC776760.png "Application gallery")
 
-7.  Nel riquadro dei risultati selezionare **Envoy** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **Envoy**, and then click **Complete** to add the application.
 
     ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776777.png "Envoy")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Envoy tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per Envoy richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to Envoy with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Envoy requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nella pagina di integrazione dell'applicazione **Envoy** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  In the Azure classic portal, on the **Envoy** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Abilita Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776778.png "Abilitare l'autenticazione Single Sign-On")
+    ![Enable single sign-on](./media/active-directory-saas-envoy-tutorial/IC776778.png "Enable single sign-on")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Envoy** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  On the **How would you like users to sign on to Envoy** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configure single sign-on")
 
-3.  Nella casella di testo **URL accesso Envoy** della pagina **Configura URL app** digitare l'URL usando il modello seguente "*https://\<nome-tenant>.Envoy.com*" e quindi fare clic su **Avanti**.
+3.  On the **Configure App URL** page, in the **Envoy Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Envoy.com*", and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-envoy-tutorial/IC776780.png "Configura URL app")
+    ![Configure app URL](./media/active-directory-saas-envoy-tutorial/IC776780.png "Configure app URL")
 
-4.  Nella pagina **Configura accesso Single Sign-On in Envoy** fare clic su **Download certificato** per scaricare il file di certificato e quindi salvarlo localmente come **C:\\Envoy.cer**.
+4.  On the **Configure single sign-on at Envoy** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Envoy.cer**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776781.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776781.png "Configure single sign-on")
 
-5.  In un'altra finestra del Web browser accedere al sito aziendale di Envoy come amministratore.
+5.  In a different web browser window, log into your Envoy company site as an administrator.
 
-6.  Nel barra degli strumenti in alto fare clic su **Impostazioni**.
+6.  In the toolbar on the top, click **Settings**.
 
     ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776782.png "Envoy")
 
-7.  Fare clic su **Azienda**.
+7.  Click **Company**.
 
     ![Company](./media/active-directory-saas-envoy-tutorial/IC776783.png "Company")
 
-8.  Fare clic su **SAML**.
+8.  Click **SAML**.
 
     ![SAML](./media/active-directory-saas-envoy-tutorial/IC776784.png "SAML")
 
-9.  Nella sezione di configurazione **SAML Authentication** seguire questa procedura:
+9.  In the **SAML Authentication** configuration section, perform the following steps:
 
-    ![SAML Authentication](./media/active-directory-saas-envoy-tutorial/IC776785.png "SAML Authentication")
+    ![SAML authentication](./media/active-directory-saas-envoy-tutorial/IC776785.png "SAML authentication")
 
-    >[AZURE.NOTE] Il valore dell'ID della sede centrale viene generato automaticamente dall'applicazione.
+    >[AZURE.NOTE] The value for the HQ location ID is auto generated by the application.
 
-    1.  Copiare il valore di **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale**.
+    1.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Fingerprint** textbox.  
 
-        >[AZURE.TIP] Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    2.  Nella finestra di dialogo **Configure single sign-on at Envoy** (Configura accesso Single Sign-On in Envoy) del portale di Azure classico copiare il valore di **URL SSO SAML** e incollarlo nella casella di testo **Identity Provider HTTP SAML URL** (URL del provider di identità HTTP SAML).
-    3.  Fare clic su **Salva modifiche**.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Envoy** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Identity Provider HTTP SAML URL** textbox.
+    3.  Click **Save changes**.
 
-10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configura accesso Single Sign-On")
-##Configurazione del provisioning utente
+    ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Non è necessaria alcuna attività di configurazione per il provisioning degli utenti in Envoy. Quando un utente assegnato prova ad accedere a Envoy usando il pannello di accesso, Envoy verifica se l'utente esiste. Se l'account utente non è presente, Envoy lo crea automaticamente.
-##Assegnazione degli utenti
+There is no action item for you to configure user provisioning to Envoy.  
+When an assigned user tries to log into Envoy using the access panel, Envoy checks whether the user exists.  
+If there is no user account available yet, it is automatically created by Envoy.
+##<a name="assigning-users"></a>Assigning users
   
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a Envoy, seguire questa procedura:
+###<a name="to-assign-users-to-envoy,-perform-the-following-steps:"></a>To assign users to Envoy, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **Envoy** fare clic su **Assegna utenti**.
+2.  On the **Envoy **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-envoy-tutorial/IC776787.png "Assegna utenti")
+    ![Assign users](./media/active-directory-saas-envoy-tutorial/IC776787.png "Assign users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-envoy-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-envoy-tutorial/IC767830.png "Yes")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

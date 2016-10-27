@@ -1,83 +1,88 @@
 <properties
-	pageTitle="Panoramica del Estensione database | Microsoft Azure"
-	description="Informazioni su come Estensione database esegue la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Microsoft Azure."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Stretch Database overview | Microsoft Azure"
+    description="Learn how Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager=""
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/27/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="06/27/2016"
+    ms.author="douglasl"/>
 
-# Panoramica del Estensione database
 
-Estensione database esegue la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Microsoft Azure.
+# <a name="stretch-database-overview"></a>Stretch Database overview
 
-Per iniziare subito a usare l'estensione database, vedere [Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione](sql-server-stretch-database-wizard.md).
+Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
 
-## Vantaggi del Estensione database
-Il Estensione database offre i vantaggi seguenti:
+If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
 
-### Disponibilità conveniente per i dati usati raramente
-I dati transazionali usati di frequente e raramente vengono estesi dinamicamente da SQL Server a Microsoft Azure con Estensione database di SQL Server. A differenza dell'archiviazione dati non attivi, i dati sono sempre online e disponibili per le query. È possibile fornire più sequenze temporali di conservazione dei dati senza interrompere la banca dati per le tabelle di grandi dimensioni come la cronologia degli ordini dei clienti. È possibile trarre vantaggio dal costo contenuto di Azure invece di ridimensionare una costosa risorsa di archiviazione locale. Per mantenere il controllo sui costi, si sceglie il piano tariffario e si configurano le impostazioni nel portale di Azure. Passare a un piano superiore o inferiore secondo le esigenze. Per informazioni dettagliate, vedere la pagina [Prezzi di Estensione database di SQL Server](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
+## <a name="what-are-the-benefits-of-stretch-database?"></a>What are the benefits of Stretch Database?
+Stretch Database provides the following benefits:
 
-### Non richiede modifiche a query o applicazioni
-Possibilità di accedere facilmente ai dati di SQL Server indipendentemente dal fatto che siano locali o con estensione nel cloud. Si impostano i criteri che determinano dove vengono archiviati i dati e SQL Server gestisce lo spostamento dei dati in background. L'intera tabella è sempre online e disponibile per le query. Estensione database non richiede modifiche apportate alle query o alle applicazioni esistenti, il percorso dei dati è completamente trasparente per l'applicazione.
+### <a name="provides-cost\-effective-availability-for-cold-data"></a>Provides cost\-effective availability for cold data
+Stretch warm and cold transactional data dynamically from SQL Server to Microsoft Azure with SQL Server Stretch Database. Unlike typical cold data storage, your data is always online and available to query. You can provide longer data retention timelines without breaking the bank for large tables like Customer Order History. Benefit from the low cost of Azure rather than scaling expensive, on\-premises storage. You choose the pricing tier and configure settings in the Azure Portal to maintain control over costs. Scale up or down as needed. Visit [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) page for details.
 
-### Gestione semplificata dei dati locali
-Riduzione delle attività di gestione e archiviazione locale dei dati. I backup per i dati in locale vengono eseguiti più velocemente e completati entro la finestra di manutenzione. I backup per la parte cloud dei dati vengono eseguiti automaticamente. Le esigenze di archiviazione locale sono notevolmente ridotte. Archiviazione di Azure può essere dell'80% meno costosa dell'aggiunta di un'unità SSD locale.
+### <a name="doesn’t-require-changes-to-queries-or-applications"></a>Doesn’t require changes to queries or applications
+Access your SQL Server data seamlessly regardless of whether it’s on\-premises or stretched to the cloud.  You set the policy that determines where data is stored, and SQL Server handles the data movement in the background. The entire table is always online and queryable. And, Stretch Database doesn’t require any changes to existing queries or applications – the location of the data is completely transparent to the application.
 
-### Protezione dei dati anche durante la migrazione
-L'estensione delle applicazioni più importanti nel cloud viene eseguita in modo sicuro. Crittografia sempre attiva di SQL Server fornisce la crittografia per i dati in movimento. La sicurezza a livello di riga e altre funzionalità di sicurezza avanzate di SQL Server sono utilizzabili anche con Estensione database per proteggere i dati.
+### <a name="streamlines-on\-premises-data-maintenance"></a>Streamlines on\-premises data maintenance
+Reduce on\-premises maintenance and storage for your data. Backups for your on\-premises data run faster and finish within the maintenance window. Backups for the cloud portion of your data run automatically. Your on\-premises storage needs are greatly reduced. Azure storage can be 80% less expensive than adding to on\-premises SSD.
 
-## Funzionalità del Estensione database
-Dopo avere abilitato l'estensione database per un'istanza di SQL Server, un database e almeno una tabella, l'estensione database inizia automaticamente la migrazione dei dati usati raramente in Azure.
+### <a name="keeps-your-data-secure-even-during-migration"></a>Keeps your data secure even during migration
+Enjoy peace of mind as you stretch your most important applications securely to the cloud. SQL Server’s Always Encrypted provides encryption for your data in motion. Row Level Security (RLS) and other advanced SQL Server security features also work with Stretch Database to protect your data.
 
--   Se si archiviano dati inattivi in una tabella separata, è possibile eseguire la migrazione dell'intera tabella.
+## <a name="what-does-stretch-database-do?"></a>What does Stretch Database do?
+After you enable Stretch Database for a SQL Server instance, a database, and at least one table, Stretch Database silently begins to migrate your cold data to Azure.
 
--   Se la tabella contiene sia dati usati molto di frequente che dati usati raramente è possibile specificare una funzione di filtro per selezionare le righe per la migrazione.
+-   If you store cold data in a separate table, you can migrate the entire table.
 
-**Non è necessario modificare le query e le app client esistenti.** Si continuerà ad avere accesso trasparente ai dati locali e remoti, anche durante la migrazione dei dati. Esiste una piccola latenza per le query remote, ma questa latenza si verifica solo quando si esegue una query sui dati cronologici.
+-   If your table contains both hot and cold data, you can specify a filter function to select the rows to migrate.
 
-**L'estensione database assicura che nessun dato vada perso** se si verifica un errore durante la migrazione. È disponibile anche una logica di ripetizione dei tentativi per gestire i problemi di connessione che possono verificarsi durante la migrazione. Una vista a gestione dinamica fornisce lo stato della migrazione.
+**You don't have to change existing queries and client apps.** You continue to have seamless access to both local and remote data, even during data migration. There is a small amount of latency for remote queries, but you only encounter this latency when you query the cold data.
 
-**È possibile sospendere la migrazione dei dati** per risolvere i problemi nel server locale o per ottimizzare la larghezza di banda di rete disponibile.
+**Stretch Database ensures that no data is lost** if a failure occurs during migration. It also has retry logic to handle connection issues that may occur during migration. A dynamic management view provides the status of migration.
 
-![Panoramica del Estensione database][StretchOverviewImage1]
+**You can pause data migration** to troubleshoot problems on the local server or to maximize the available network bandwidth.
 
-## Esigenze soddisfatte dal Estensione database
-Se è possibile fare le seguenti affermazioni, Estensione database può soddisfare i requisiti e risolvere i problemi specifici.
+![Stretch database overview][StretchOverviewImage1]
 
-|L'utente è un decision maker.|L'utente è un amministratore di database.|
+## <a name="is-stretch-database-for-you?"></a>Is Stretch Database for you?
+If you can make the following statements, Stretch Database may help to meet your requirements and solve your problems.
+
+|If you're a decision maker|If you're a DBA|
 |------------------------------|-------------------|
-|Si devono mantenere i dati transazionali per molto tempo.|Le dimensioni delle tabelle sono fuori controllo.|
-|A volte è necessario eseguire query sui dati cronologici.|Gli utenti dicono di voler accedere ai dati cronologici, ma li usano solo raramente.|
-|Sono disponibili app, incluse app meno recenti, che non si vuole aggiornare.|È necessario continuare ad acquistare e aggiungere altro spazio di archiviazione.|
-|Si vuole trovare un modo per risparmiare sull'archiviazione.|Non è possibile eseguire il backup o ripristino di tali tabelle di grandi dimensioni entro i limiti del contratto di servizio.|
+|I have to keep transactional data for a long time.|The size of my tables is getting out of control.|
+|Sometimes I have to query the cold data.|My users say that they want access to cold data, but they only rarely use it.|
+|I have apps, including older apps, that I don’t want to update.|I have to keep buying and adding more storage.|
+|I want to find a way to save money on storage.|I can’t backup or restore such large tables within the SLA.|
 
-## Tipi di database e tabelle candidati per il Estensione database
-Estensione database è destinato a database transazionali con grandi quantità di dati cronologici, in genere archiviati in un numero limitato di tabelle. Queste tabelle possono contenere più di un miliardo di righe.
+## <a name="what-kind-of-databases-and-tables-are-candidates-for-stretch-database?"></a>What kind of databases and tables are candidates for Stretch Database?
+Stretch Database targets transactional databases with large amounts of cold data, typically stored in a small number of tables. These tables may contain more than a billion rows.
 
-Se si usa la funzionalità tabella temporale di SQL Server 2016, usare il Estensione database per eseguire la migrazione di tutta o parte della tabella della cronologia associata per un'archiviazione economica in Azure. Per altre informazioni, vedere [Manage Retention of Historical Data in System-Versioned Temporal Tables](https://msdn.microsoft.com/library/mt637341.aspx) (Gestire la conservazione dei dati cronologici nelle tabelle temporali con controllo delle versioni di sistema).
+If you use the temporal table feature of SQL Server 2016, use Stretch Database to migrate all or part of the associated history table to cost\-effective storage in Azure. For more info, see [Manage Retention of Historical Data in System-Versioned Temporal Tables](https://msdn.microsoft.com/library/mt637341.aspx).
 
-Per identificare i database e le tabelle candidati per il Estensione database, usare l'ottimizzazione guidata Estensione database di SQL Server 2016 Upgrade Advisor. Per altre informazioni, vedere [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md) (Identificare database e tabelle per l'estensione database). Per altre informazioni sui possibili problemi di blocco, vedere [Limitazioni di Estensione database](sql-server-stretch-database-limitations.md).
+Use Stretch Database Advisor, a feature of SQL Server 2016 Upgrade Advisor, to identify databases and tables for Stretch Database. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md). To learn more about potential blocking issues, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
-## Test Drive del Estensione database
-**Test Drive del Estensione database con il database di esempio AdventureWorks.** Per ottenere il database di esempio AdventureWorks, scaricare almeno il file di database e il file di script ed esempi [qui](https://www.microsoft.com/download/details.aspx?id=49502). Dopo aver ripristinato il database di esempio per un'istanza di SQL Server 2016, decomprimere il file degli esempi e aprire il file Stretch DB Samples dalla cartella Stretch DB. Eseguire gli script in questo file per controllare lo spazio usato dai dati prima e dopo aver abilitato il Estensione database per tenere traccia dell'avanzamento della migrazione dei dati e per verificare se è possibile continuare a eseguire query sui dati esistenti e inserire nuovi dati durante e dopo la migrazione dei dati.
+## <a name="test-drive-stretch-database"></a>Test drive Stretch Database
+**Test drive Stretch Database with the AdventureWorks sample database.** To get the AdventureWorks sample database, download at least the database file and the samples and scripts file from [here](https://www.microsoft.com/download/details.aspx?id=49502). After you restore the sample database to an instance of SQL Server 2016, unzip the samples file and open the Stretch DB Samples file from the Stretch DB folder. Run the scripts in this file to check the space used by your data before and after you enable Stretch Database,  to track the progress of data migration, and to confirm that you can continue to query existing data and insert new data both during and after data migration.
 
-## Passaggio successivo
-**Identificare database e tabelle candidati per il Estensione database.** Scaricare SQL Server 2016 Upgrade Advisor ed eseguire l'ottimizzazione guidata Estensione database per identificare i database e le tabelle candidati per il Estensione database. L'ottimizzazione guidata Estensione database consente anche di identificare i problemi di blocco. Per altre informazioni, vedere [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md) (Identificare database e tabelle per l'estensione database).
+## <a name="next-step"></a>Next step
+**Identify databases and tables that are candidates for Stretch Database.** Download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor to identify databases and tables that are candidates for Stretch Database. Stretch Database Advisor also identifies blocking issues. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md).
 
 <!--Image references-->
 [StretchOverviewImage1]: ./media/sql-server-stretch-database-overview/StretchDBOverview.png
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!----HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

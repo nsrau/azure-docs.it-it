@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ripristinare da un backup dell'array virtuale StorSimple"
-   description="Scoprire di più su come ripristinare un backup di StorSimple Virtual Array."
+   pageTitle="Restore from a backup of your StorSimple Virtual Array"
+   description="Learn more about how to restore a backup of your StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,124 +16,129 @@
    ms.date="06/07/2016"
    ms.author="alkohli"/>
 
-# Ripristinare da un backup dell'array virtuale StorSimple
 
-## Panoramica 
+# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Restore from a backup of your StorSimple Virtual Array
 
-Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016 o una versione successiva. Questo articolo illustra passo per passo come ripristinare da un set di backup di condivisioni o volumi sull'array virtuale StorSimple. L'articolo illustra anche come funziona il ripristino a livello di elemento su StorSimple Virtual Array configurato come file server.
+## <a name="overview"></a>Overview 
 
-
-## Ripristinare condivisioni da un set di backup
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later. This article describes step-by-step how to restore from a backup set of your shares or volumes on your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
 
 
-**Prima di tentare di ripristinare le condivisioni, assicurarsi di avere spazio sufficiente sul dispositivo per completare questa operazione.** Per ripristinare da un backup, nel [portale di Azure classico](https://manage.windowsazure.com/), eseguire i passaggi seguenti.
-
-#### Per ripristinare una condivisione
-
-1.  Passare a **Catalogo backup**. Filtrare per dispositivo e intervallo di tempo appropriati per ricercare i backup. Fare clic sull'icona del segno di spunta ![](./media/storsimple-ova-restore/image1.png) per eseguire la query.
+## <a name="restore-shares-from-a-backup-set"></a>Restore shares from a backup set
 
 
-1.  Nell'elenco dei set di backup visualizzati, fare clic su un backup specifico per selezionarlo. Espandere il backup per visualizzare le varie condivisioni riportate sotto. Fare clic sulla condivisione che si desidera ripristinare per selezionarla.
+**Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation.** To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
 
-2.  Nella parte inferiore della pagina fare clic su **Ripristina come nuovo**.
+#### <a name="to-restore-a-share"></a>To restore a share
 
-3.  Viene avviata la procedura guidata **Ripristina come nuova condivisione**. Nella pagina **Specificare nome e percorso**:
-
-
-	1.  Verificare il nome del dispositivo di origine. Deve essere il dispositivo contenente la condivisione che si desidera ripristinare. La selezione del dispositivo è disabilitata. Per selezionare un dispositivo di origine diverso, è necessario uscire dalla procedura guidata e selezionare di nuovo il set di backup.
-
-	2.  Fornire un nome per la condivisione. Il nome della condivisione deve contenere da 3 a 127 caratteri.
-
-	3.  Esaminare le dimensioni, il tipo e le autorizzazioni associate alla condivisione che si sta cercando di ripristinare. Sarà possibile modificare le proprietà di condivisione tramite Esplora risorse dopo il completamento del ripristino.
-
-	4.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-restore/image1.png).
-
-		![](./media/storsimple-ova-restore/image9.png)
-
-1.  Al completamento del processo di ripristino, verrà avviato il ripristino e un'altra notifica verrà visualizzata. Per monitorare lo stato del ripristino, fare clic su **Visualizza processo**. Viene visualizzata la pagina **Processi**.
-
-2.  È possibile monitorare lo stato del processo di ripristino. Quando il ripristino è stato completato al 100%, tornare alla pagina **Condivisioni** nel dispositivo.
-
-3.  È ora possibile visualizzare la nuova condivisione ripristinata nell'elenco delle condivisioni nel dispositivo. Notare che il ripristino riporta allo stesso tipo di condivisione. Una condivisione a livelli viene ripristinata come condivisione a livelli e una condivisione aggiunta in locale come una condivisione aggiunta in locale.
-
-La configurazione del dispositivo è ora completa e si conosce il modo in cui eseguire il backup o il ripristino di una condivisione.
+1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
 
-## Ripristinare volumi da un set di backup
+1.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various shares under it. Click and select a share that you want to restore.
+
+2.  At the bottom of the page, click **Restore as new**.
+
+3.  This will initiate the **Restore as new share** wizard. On the **Specify name and location** page:
 
 
-Per ripristinare da un backup, nel portale di Azure classico, eseguire i passaggi seguenti. L'operazione di ripristino consente di ripristinare il backup in un nuovo volume nello stesso dispositivo virtuale. Non è possibile ripristinare in un dispositivo diverso.
+    1.  Verify the source device name. This should be the device that contains the share you want to restore. The device selection is grayed out. To select a different source device, you will need to exit the wizard and reselect the backup set again.
 
-#### Per ripristinare un volume
+    2.  Provide a share name. The share name must contain 3 to 127 characters.
 
-1.  Passare a **Catalogo backup**. Filtrare per dispositivo e intervallo di tempo appropriati per ricercare i backup. Fare clic sull'icona del segno di spunta ![](./media/storsimple-ova-restore/image1.png) per eseguire la query.
+    3.  Review the size, type, and permissions associated with the share that you are trying to restore. You will be able to modify the share properties via Windows Explorer after the restore is complete.
 
-2.  Nell'elenco dei set di backup visualizzati, fare clic su un backup specifico per selezionarlo. Espandere il backup per visualizzare i diversi volumi riportati sotto. Selezionare il volume da ripristinare.
+    4.  Click the check icon ![](./media/storsimple-ova-restore/image1.png).
 
-5.  Nella parte inferiore della pagina fare clic su **Ripristina come nuovo**. Viene avviata la procedura guidata per il **ripristino come nuovo volume**.
+        ![](./media/storsimple-ova-restore/image9.png)
 
-1.  Nella pagina **Specificare nome e percorso**:
+1.  After the restore job is complete, the restore will start and you will see another notification. To monitor the progress of restore, click **View job**. This will take you to the **Jobs** page.
+
+2.  You can track the progress of the restore job. When the restore is 100% complete, navigate back to the **Shares** page on your device.
+
+3.  You can now view the new restored share in the list of shares on your device. Note that restore is done to the same type of the share. A tiered share is restored as tiered and a locally pinned share as a locally pinned share.
+
+You have now completed the device configuration and learned how to backup or restore a share. 
 
 
-	1.  Verificare il nome del dispositivo di origine. Deve essere il dispositivo contenente il volume che si desidera ripristinare. La selezione del dispositivo non è disponibile. Per selezionare un dispositivo di origine diverso, è necessario uscire dalla procedura guidata e selezionare di nuovo il set di backup.
+## <a name="restore-volumes-from-a-backup-set"></a>Restore volumes from a backup set
 
-	2.  Fornire un nome per il volume da ripristinare come nuovo volume. Il nome del volume deve contenere da 3 a 127 caratteri.
 
-	3.  Fare clic sull'icona a forma di freccia.
+To restore from a backup, in the Azure classic portal, perform the following steps. The restore operation restores the backup to a new volume on the same virtual device; you cannot restore to a different device.
 
-		![](./media/storsimple-ova-restore/image12.png)
+#### <a name="to-restore-a-volume"></a>To restore a volume
 
-1.  Nella pagina **Specificare gli host che possono usare questo volume** selezionare i record di controllo di accesso appropriati nell'elenco a discesa.
+1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
-	![](./media/storsimple-ova-restore/image13.png)
+2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. Select the volume you want to restore. 
 
-1.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-restore/image1.png). Si avvia così un processo di ripristino e viene visualizzata la notifica seguente in cui si indica che il processo è in corso.
+5.  At the bottom of the page, click **Restore as new**. The **Restore as new volume** wizard will start.
 
-2.  Al completamento del processo di ripristino, verrà avviato il ripristino e un'altra notifica verrà visualizzata. Per monitorare lo stato del ripristino, fare clic su **Visualizza processo**. Viene visualizzata la pagina **Processi**.
+1.  On the **Specify name and location** page:
 
-3.  È possibile monitorare lo stato del processo di ripristino. Tornare alla pagina **Volumi** nel dispositivo.
 
-4.  È ora possibile visualizzare il nuovo volume ripristinato nell'elenco dei volumi nel dispositivo. Si noti che il ripristino riporta allo stesso tipo di volume. Un volume a livelli viene ripristinato come volume a livelli e un volume aggiunto in locale come un volume aggiunto in locale.
+    1.  Verify the source device name. This should be the device that contains the volume that you want to restore. The device selection is unavailable. To select a different source device, you will need to exit the wizard and reselect the backup set again.
 
-5.  Quando viene visualizzato nell'elenco dei volumi online, il volume è disponibile per l'uso. Aggiornare l'elenco delle destinazioni nella finestra Proprietà iniziatore iSCSI nell'host dell'iniziatore iSCSI. Una nuova destinazione contenente il nome del volume ripristinato verrà visualizzata come "inattiva" nella colonna dello stato.
+    2.  Provide a volume name for the volume being restored as new. The volume name must contain 3 to 127 characters.
 
-6.  Selezionare la destinazione e fare clic su **Connetti**. Dopo avere connesso il dispositivo, lo stato deve essere modificato in **Connesso**.
+    3.  Click the arrow icon.
 
-7.  Nella finestra **Gestione disco**, i volumi montati verranno visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco) e fare clic su **Online**.
+        ![](./media/storsimple-ova-restore/image12.png)
 
-> [AZURE.IMPORTANT] Quando si tenta di ripristinare un volume o una condivisione da un set di backup, anche se il processo di ripristino non riesce, è comunque possibile creare nel portale un volume o una condivisione di destinazione. È importante eliminare questo volume o questa condivisione di destinazione nel portale per ridurre al minimo eventuali problemi futuri causati da questo elemento.
+1.  On the **Specify hosts that can use this volume** page, select the appropriate ACRs from the dropdown list.
 
-## Ripristino a livello di elemento (ILR)
+    ![](./media/storsimple-ova-restore/image13.png)
 
-Questa versione introduce il ripristino a livello di elemento (ILR) su un dispositivo virtuale StorSimple configurato come file server. La funzionalità consente di eseguire il ripristino granulare di file e cartelle da un backup cloud di tutte le condivisioni nel dispositivo StorSimple. Gli utenti possono recuperare i file eliminati dai backup recenti con un modello self-service.
+1.  Click the check icon ![](./media/storsimple-ova-restore/image1.png). This will initiate a restore job and you will see the following notification that the job is in progress.
 
-Ogni condivisione dispone di una cartella *.backups* contenente i backup più recenti. L'utente può passare al backup desiderato, copiare i file e le cartelle rilevanti dal backup, quindi ripristinarli. In questo modo, si eliminano le chiamate agli amministratori per il ripristino di file dai backup.
+2.  After the restore job is complete, the restore will start and you will see another notification. To monitor the progress of restore, click **View job**. This will take you to the **Jobs** page.
 
-1.  Quando si esegue un ILR, è possibile visualizzare i backup con Esplora risorse. Fare clic sulla condivisione specifica per la quale si desidera visualizzare il backup. Viene visualizzata una cartella *.backups* creata sotto la condivisione che archivia tutti i backup. Espandere la cartella *.backups* per visualizzare i backup. La cartella mostra così in dettaglio l'intera gerarchia di backup. Questa visualizzazione viene creata su richiesta e generalmente bastano pochi secondi per completarne la creazione.
+3.  You can track the progress of the restore job. Navigate back to the **Volumes** page on your device.
 
-	Le ultime 5 copie di backup vengono visualizzate in questo modo e possono essere utilizzate per eseguire un ripristino a livello di elemento. Le 5 copie di backup più recenti includono sia i backup pianificati predefiniti sia i backup manuali.
+4.  You can now view the new restored volume in the list of volumes on your device. Note that restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
 
-	
-	-   **Backup pianificati** denominati &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
+5.  Once the volume appears online on the list of volumes, the volume is available for use.  On the iSCSI initiator host, refresh the list of targets in iSCSI initiator properties window.  A new target which contains the restored volume name should appear as 'inactive' under the status column.
 
-	-   **Backup manuali** denominati Ad-hoc-YYYYMMDD-HHMMSS-UTC.
-	
-		![](./media/storsimple-ova-restore/image14.png)
+6.  Select the target and click **Connect**.   After the initiator is connected to the target, the status should change to **Connected**. 
 
-1.  Identificare il backup contenente la versione più recente del file eliminato. Anche se il nome della cartella contiene un timestamp UTC in ognuno dei casi precedenti, l'ora in cui è stata creata la cartella è l'ora effettiva del dispositivo all'avvio del backup. Usare il timestamp della cartella per individuare e identificare i backup.
+7.  In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
 
-2.  Individuare la cartella o il file che si desidera ripristinare nel backup identificato nel passaggio precedente. Notare che è possibile visualizzare solo i file o le cartelle per cui si dispone delle autorizzazioni necessarie. Se non si riesce ad accedere a determinati file o cartelle, è necessario contattare un amministratore della condivisione in grado di usare Esplora risorse per modificare le autorizzazioni di condivisione e consentire l'accesso al file o alla cartella specifici. Preferibilmente, l'amministratore della condivisione deve corrispondere a un gruppo utenti anziché a un utente singolo.
+> [AZURE.IMPORTANT] When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this target volume or share in the portal to minimize any  future issues arising from this element.
 
-3.  Copiare il file o la cartella nella condivisione appropriata nel file server StorSimple.
+## <a name="item-level-recovery-(ilr)"></a>Item-level recovery (ILR)
 
-![video\_icon](./media/storsimple-ova-restore/video_icon.png) **Video disponibile**
+This release introduces the item-level recovery (ILR) on a StorSimple virtual device configured as a file server. The feature allows you to do granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. Users can retrieve deleted files from recent backups using a self-service model.
 
-Guardare il video per scoprire come è possibile creare condivisioni, eseguire il backup di condivisioni e il ripristino dei dati in StorSimple Virtual Array.
+Every share has a *.backups* folder that contains the most recent backups. The user can navigate to the desired backup, copy relevant files and folders from the backup and restore them. This eliminates calls to administrators for restoring files from backups.
+
+1.  When performing the ILR, you can view the backups through Windows Explorer. Click the specific share that you want to look at the backup for. You will see a *.backups* folder created under the share that stores all the backups. Expand the *.backups* folder to view the backups. The folder will then show the exploded view of the entire backup hierarchy. This view is created on-demand and usually takes only a couple of seconds to create.
+
+    The last 5 backups are displayed in this way and can be used to perform an item-level recovery. The 5 recent backups include both the default scheduled and the manual backups.
+
+    
+    -   **Scheduled backups** named as &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
+
+    -   **Manual backups** named as Ad-hoc-YYYYMMDD-HHMMSS-UTC.
+    
+        ![](./media/storsimple-ova-restore/image14.png)
+
+1.  Identify the backup containing the most recent version of the deleted file. Though the folder name contains a UTC timestamp in each of the above cases, the time at which the folder was created is the actual device time when the backup started. Use the folder timestamp to locate and identify the backups.
+
+2.  Locate the folder or the file that you want to restore in the backup that you identified in the previous step. Note you can only view the files or folders that you have permissions for. If you are not able to access certain files or folders, you will need to contact a share administrator who can use Windows Explorer to edit the share permissions and give you access to the specific file or folder. It is a recommended best practice that the share administrator be a user group instead of a single user.
+
+3.  Copy the file or the folder to the appropriate share on your StorSimple file server.
+
+![video_icon](./media/storsimple-ova-restore/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
 
 > [AZURE.VIDEO use-the-storsimple-virtual-array]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

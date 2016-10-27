@@ -1,35 +1,37 @@
 <!--author=alkohli last changed: 09/02/16 -->
 
-#### Per installare gli aggiornamenti tramite il portale di Azure classico
+#### <a name="to-install-updates-via-the-azure-classic-portal"></a>To install updates via the Azure classic portal
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo in cui si desidera installare gli aggiornamenti.
+1. On the **Devices** page, select the device on which you want to install updates.
 
-2. Passare a **Dispositivi > Manutenzione > Aggiornamenti software**.
+2. Navigate to **Devices > Maintenance > Software Updates**.
 
-    ![aggiornamento dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
 
-3. Se sono disponibili aggiornamenti software, verrà visualizzato un messaggio. Per controllare la disponibilità di aggiornamenti, fare clic su **Verifica aggiornamenti** nella parte inferiore della pagina.
+3. You see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
 
-    ![aggiornamento dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
 
-4. Fare clic su **Scarica aggiornamenti** nella parte inferiore della pagina. Una finestra di dialogo comunica all'utente che l'aggiornamento è problematico. Dato che l'array virtuale StorSimple è un dispositivo a nodo singolo, si riavvierà dopo l'aggiornamento. Tutti gli IO in corso verranno interrotti. Fare clic sull'icona di segno di spunta per avviare il processo di download degli aggiornamenti disponibili.
+4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click the check icon to launch a job to download the available updates. 
 
-    ![aggiornamento dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
 
-5. L'utente riceverà una notifica al termine del download degli aggiornamenti.
+5. You are notified when the updates are downloaded. 
 
-    ![aggiornamento dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
 
-6. Nella parte inferiore della pagina fare clic su **Installa aggiornamenti** per avviare l'aggiornamento del dispositivo. Verrà visualizzata nuovamente la finestra di dialogo. Fare clic sull'icona di segno di spunta per avviare il processo di installazione degli aggiornamenti disponibili.
+6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog is presented to you again. Click the check icon to start a job to install the updates. 
 
-    ![aggiornamento dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png)
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png) 
 
-7. L'utente riceverà una notifica al termine della creazione del processo.
+7. You are notified after the job is created. 
 
-    ![aggiornamento dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
 
-8. Fare clic sul collegamento **Visualizza processo** per aprire la pagina Processi e monitorare lo stato dell'installazione. È possibile fare clic su **Dettagli** in qualsiasi momento per ottenere informazioni dettagliate sul processo di aggiornamento.
+8. Click **View Job** link to go to the Jobs page and monitor the install status. You can click **Details** at any time to get detailed information about the update job. 
 
-    ![aggiornamento dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

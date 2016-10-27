@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Esercitazione di Apache Storm: Introduzione a Storm basato su Linux in HDInsight | Microsoft Azure"
-	description="Introduzione all'analisi di Big Data mediante Apache Storm ed esempi di Storm Starter in HDInsight basato su Linux. Informazioni su come usare Storm per elaborare i dati in tempo reale."
-	keywords="apache storm,esercitazione su apache storm,analisi Big Data,storm starter"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Apache Storm tutorial: Get started with Linux-based Storm on HDInsight | Microsoft Azure"
+    description="Get started with big data analytics using Apache Storm and the Storm Starter samples on Linux-based HDInsight. Learn how to use Storm to process data real-time."
+    keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,179 +14,180 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/16/2016"
+   ms.date="10/12/2016"
    ms.author="larryfr"/>
 
 
-# Esercitazione di Apache Storm: Introduzione all'analisi di Big Data mediante esempi di Storm Starter su HDInsight
 
-Apache Storm è un sistema di calcolo in tempo reale scalabile, a tolleranza di errore e distribuito per l'elaborazione di flussi di dati. Con Storm in Azure HDInsight è possibile creare un cluster Storm basato sul cloud che esegue analisi di Big Data in tempo reale.
+# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight
 
-> [AZURE.NOTE] I passaggi descritti in questo articolo consentono di creare un cluster HDInsight basato su Linux. Per la procedura necessaria per creare un cluster Storm basato su Windows nel cluster HDInsight, vedere [Esercitazione di Apache Storm: Introduzione all'esempio Storm Starter usando l'analisi dei dati in HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
-## Prerequisiti
+> [AZURE.NOTE] The steps in this article create a Linux-based HDInsight cluster. For steps to create a Windows-based Storm on HDInsight cluster, see [Apache Storm tutorial: Get started with the Storm Starter sample using data analytics on HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+
+## <a name="prerequisites"></a>Prerequisites
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Per completare correttamente questa esercitazione di Apache Storm, è necessario quanto segue:
+You must have the following to successfully complete this Apache Storm tutorial:
 
-- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Familiarità con SSH e SCP**. Per altre informazioni sull'uso di SSH e SCP con HDInsight, vedere gli articoli seguenti:
+- **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
 
-    - **Client Linux, Unix o OS X**: vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, OS X o Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    - **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	- **Client Windows**: vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    - **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-### Requisiti di controllo di accesso
+### <a name="access-control-requirements"></a>Access control requirements
 
 [AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Creare un cluster di Storm
+## <a name="create-a-storm-cluster"></a>Create a Storm cluster
 
-In questa sezione si crea un cluster HDInsight versione 3.2 (Storm versione 0.9.3) usando un modello di Azure Resource Manager. Per informazioni sulle versioni di HDInsight e sui relativi contratti di servizio, vedere l'articolo relativo al [controllo delle versioni del componente HDInsight](hdinsight-component-versioning.md). Per altri metodi di creazione dei cluster, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In this section, you create an HDInsight version 3.2 cluster (Storm version 0.9.3) using an Azure Resource Manager template. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md). For other cluster creation methods, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure.
+1. Click the following image to open the template in the Azure portal.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Il modello è disponibile in un contenitore BLOB pubblico, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
+    The template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*. 
    
-2. Nel pannello Parametri immettere le informazioni seguenti:
+2. From the Parameters blade, enter the following:
 
-    - **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
-    - **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin.
-    - **Nome utente e password SSH**.
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+    - **Cluster login name and password**: The default login name is admin.
+    - **SSH user name and password**.
     
-    Annotare questi valori. Sarà necessario utilizzarli più avanti nell'esercitazione.
+    Please write down these values.  You will need them later in the tutorial.
 
-    > [AZURE.NOTE] Il protocollo SSH viene usato per accedere in modalità remota al cluster HDInsight tramite una riga di comando. Il nome utente e la password specificati qui sono usati per la connessione al cluster tramite SSH. Il nome utente SSH deve essere univoco, in quanto crea un account utente in tutti i nodi del cluster HDInsight. Di seguito sono riportati alcuni nomi di account riservati per l'uso da parte dei servizi nel cluster che non devono essere usati come nome utente SSH:
+    > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH. Also, the SSH user name must be unique, as it creates a user account on all the HDInsight cluster nodes. The following are some of the account names reserved for use by services on the cluster, and cannot be used as the SSH user name:
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
-	> Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
+    > For more information on using SSH with HDInsight, see one of the following articles:
 
-	> * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	> * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    > * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    > * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
     
-3\. Fare clic su **OK** per salvare i parametri.
+3.Click **OK** to save the parameters.
 
-4\. Nel pannello **Distribuzione personalizzata** fare clic su **Gruppo di risorse** nella casella di riepilogo a discesa e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
+4.From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group. The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 
-5\. Fare clic su **Note legali** e quindi su **Crea**.
+5.Click **Legal terms**, and then click **Create**.
 
-6\. Fare clic su **Crea**. Verrà visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
+6.Click **Create**. You will see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 
 
-##Eseguire un esempio Storm Starter in HDInsight
+##<a name="run-a-storm-starter-sample-on-hdinsight"></a>Run a Storm Starter sample on HDInsight
 
-Gli esempi di [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter) sono inclusi nel cluster HDInsight. Nei passaggi seguenti, verrà eseguito l'esempio WordCount.
+The [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter) examples are included on the HDInsight cluster. In the following steps, you will run the WordCount example.
 
-1. Connettersi al cluster HDInsight usando SSH:
+1. Connect to the HDInsight cluster using SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
-	Se è stata usata una password per proteggere l'account utente SSH, verrà richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` per specificare la chiave privata corrispondente. Ad esempio: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
-		
-	Per altre informazioni sull'uso di SSH con HDInsight basato su Linux, vedere gli articoli seguenti:
-	
-	* [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+        
+    If you used a password to secure your SSH user account, you will be prompted to enter it. If you used a public key, you may have to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+        
+    For more information on using SSH with Linux-based HDInsight, see the following articles:
+    
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows)
 
-2. Usare il comando seguente per avviare una topologia di esempio:
+2. Use the following command to start an example topology:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
-		
-	> [AZURE.NOTE] La parte `0.10.0.2.4.2.4-5` del nome del file può essere modificata quando HDInsight viene aggiornato con le versioni più recenti di Storm.
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology wordcount
+        
+    > [AZURE.NOTE] The `*` portion of the file name is used to match the version number, which changes as HDInsight is updated.
 
-    Verrà avviata la topologia di esempio WordCount nel cluster usando 'wordcount' come nome descrittivo. Verranno generate in modo casuale le frasi e verranno conteggiate le occorrenze di ogni parola nelle frasi.
+    This will start the example WordCount topology on the cluster, with a friendly name of 'wordcount'. It will randomly generate sentences and count the occurrence of each word in the sentences.
 
-    > [AZURE.NOTE] Durante l'invio di una topologia al cluster, è prima di tutto necessario copiare il file con estensione JAR contenente il cluster prima di usare il comando `storm`. A tale scopo, usare il comando `scp` dal client in cui è presente il file. Ad esempio: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE] When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. This can be accomplished using the `scp` command from the client where the file exists. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
-    > L'esempio WordCount e altri esempi di avvio dell'utilità storm sono già inclusi nel cluster in `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+    > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-##Monitorare la topologia
+##<a name="monitor-the-topology"></a>Monitor the topology
 
-L'interfaccia utente di Storm è inclusa nel cluster HDInsight e fornisce un'interfaccia Web da usare con le topologie in esecuzione.
+The Storm UI provides a web interface for working with running topologies, and is included on your HDInsight cluster.
 
-Usare la procedura seguente per monitorare la topologia con l'interfaccia utente Storm:
+Use the following steps to monitor the topology using the Storm UI:
 
-1. Aprire un Web browser e passare a https://CLUSTERNAME.azurehdinsight.net/stormui, dove __CLUSTERNAME__ è il nome del cluster. Verrà aperta l'interfaccia utente Storm.
+1. Open a web browser to https://CLUSTERNAME.azurehdinsight.net/stormui, where __CLUSTERNAME__ is the name of your cluster. This will open the Storm UI.
 
-	> [AZURE.NOTE] Se viene richiesto di fornire un nome utente e una password, immettere l'amministratore del cluster e la password usati durante la creazione del cluster.
+    > [AZURE.NOTE] If asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster.
 
-2. Nella sezione **Topology summary** selezionare la voce **wordcount** nella colonna **Name**. Verranno visualizzate altre informazioni sulla topologia.
+2. Under **Topology summary**, select the **wordcount** entry in the **Name** column. This will display more information about the topology.
 
-	![Storm Dashboard con informazioni sulla topologia di Storm Starter WordCount.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
+    ![Storm Dashboard with Storm Starter WordCount topology information.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
-	In questa pagina sono disponibili le informazioni seguenti:
+    This page provides the following information:
 
-	* **Topology stats**: informazioni di base sulle prestazioni della topologia, organizzate in intervalli di tempo.
+    * **Topology stats** - Basic information on the topology performance, organized into time windows.
 
-		> [AZURE.NOTE] La selezione di un intervallo di tempo specifico determina la modifica dell'intervallo di tempo relativo a informazioni visualizzate in altre sezioni della pagina.
+        > [AZURE.NOTE] Selecting a specific time window changes the time window for information displayed in other sections of the page.
 
-	* **Spouts**: informazioni di base sugli spout, incluso l'ultimo errore restituito da ciascuno di essi.
+    * **Spouts** - Basic information about spouts, including the last error returned by each spout.
 
-	* **Bolts**: informazioni di base sui bolt.
+    * **Bolts** - Basic information about bolts.
 
-	* **Topology configuration**: informazioni dettagliate sulla configurazione della topologia.
+    * **Topology configuration** - Detailed information about the topology configuration.
 
-	Questa pagina fornisce anche azioni che possono essere eseguite sulla topologia:
+    This page also provides actions that can be taken on the topology:
 
-	* **Activate**: riprende l'elaborazione di una topologia disattivata.
+    * **Activate** - Resumes processing of a deactivated topology.
 
-	* **Deactivate**: sospende una topologia in esecuzione.
+    * **Deactivate** - Pauses a running topology.
 
-	* **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster. Per altre informazioni, vedere l'articolo relativo al [parallelismo di una topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-	* **Kill**: arresta una topologia Storm dopo il timeout specificato.
+    * **Kill** - Terminates a Storm topology after the specified timeout.
 
-3. In questa pagina selezionare una voce nella sezione **Spouts** o **Bolts**. Verranno visualizzate informazioni relative al componente selezionato.
+3. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
 
-	![Storm Dashboard con informazioni sui componenti selezionati.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
+    ![Storm Dashboard with information about selected components.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
-	In questa pagina vengono visualizzate le informazioni seguenti:
+    This page displays the following information:
 
-	* **Spout/Bolt stats**: informazioni di base sulle prestazioni, organizzate in intervalli di tempo.
+    * **Spout/Bolt stats** - Basic information on the component performance, organized into time windows.
 
-		> [AZURE.NOTE] La selezione di un intervallo di tempo specifico determina la modifica dell'intervallo di tempo relativo a informazioni visualizzate in altre sezioni della pagina.
+        > [AZURE.NOTE] Selecting a specific time window changes the time window for information displayed in other sections of the page.
 
-	* **Input stats** (solo bolt): informazioni sui componenti che generano dati utilizzati dal bolt.
+    * **Input stats** (bolt only) - Information on components that produce data consumed by the bolt.
 
-	* **Output stats**: informazioni sui dati generati dal bolt.
+    * **Output stats** - Information on data emitted by this bolt.
 
-	* **Executors**: informazioni sulle istanze del componente.
+    * **Executors** - Information on instances of this component.
 
-	* **Errors**: errori generati dal componente.
+    * **Errors** - Errors produced by this component.
 
-4. Quando si visualizzano i dettagli di uno spout o di un bolt, selezionare una voce nella colonna **Port** della sezione **Executors** per visualizzare i dettagli relativi a una specifica istanza del componente.
+4. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
 
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
-		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
-		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
-		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-	Da questi dati è possibile vedere che la parola **seven** è stata rilevata 1493957 volte. In altri termini, il numero 1493957 indica le occorrenze della parola dall'avvio della topologia.
+    From this data you can see that the word **seven** has occurred 1493957 times. That is how many times it has been encountered since this topology was started.
 
-##Arrestare la topologia
+##<a name="stop-the-topology"></a>Stop the topology
 
-Tornare alla pagina **Topology summary** per la topologia relativa al conteggio parole e quindi fare clic sul pulsante **Kill** nella sezione **Topology actions**. Quando richiesto, immettere 10 per il numero di secondi di attesa prima dell'arresto della topologia. Dopo il periodo di timeout, la topologia non verrà più visualizzata nella sezione **Storm UI** del dashboard.
+Return to the **Topology summary** page for the word-count topology, and then select the **Kill** button from the **Topology actions** section. When prompted, enter 10 for the seconds to wait before stopping the topology. After the timeout period, the topology will no longer appear when you visit the **Storm UI** section of the dashboard.
 
-##Eliminazione del cluster
+##<a name="delete-the-cluster"></a>Delete the cluster
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-##<a id="next"></a>Passaggi successivi
+##<a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Next steps
 
-In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere come creare un cluster Storm in HDInsight e usare Storm Dashboard per distribuire, monitorare e gestire topologie Storm. Vedere quindi altre informazioni su come [sviluppare topologie basate su Java con Maven](hdinsight-storm-develop-java-topology.md).
+In this Apache Storm tutorial, you used the Storm Starter to learn how to create a Storm on HDInsight cluster and use the Storm Dashboard to deploy, monitor, and manage Storm topologies. Next, learn how to [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md).
 
-Se si ha già familiarità con lo sviluppo di topologie basate su Java e si vuole distribuire una topologia esistente in HDInsight, vedere [Distribuire e gestire topologie Apache Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md).
+If you're already familiar with developing Java-based topologies and want to deploy an existing topology to HDInsight, see [Deploy and manage Apache Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md).
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
@@ -196,4 +197,8 @@ Se si ha già familiarità con lo sviluppo di topologie basate su Java e si vuol
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,69 +1,71 @@
 
-1. In **Project Explorer** in Android Studio aprire il file ToDoActivity.java e aggiungere le istruzioni import seguenti.
+1. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements.
 
-		import java.util.concurrent.ExecutionException;
-		import java.util.concurrent.atomic.AtomicBoolean;
+        import java.util.concurrent.ExecutionException;
+        import java.util.concurrent.atomic.AtomicBoolean;
 
-		import android.content.Context;
-		import android.content.SharedPreferences;
-		import android.content.SharedPreferences.Editor;
+        import android.content.Context;
+        import android.content.SharedPreferences;
+        import android.content.SharedPreferences.Editor;
 
-		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
-		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
+        import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
+        import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. Aggiungere il metodo seguente alla classe **ToDoActivity**:
-	
-		private void authenticate() {
-		    // Login using the Google provider.
-		    
-			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-	
-	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-	    		@Override
-	    		public void onFailure(Throwable exc) {
-	    			createAndShowDialog((Exception) exc, "Error");
-	    		}   		
-	    		@Override
-	    		public void onSuccess(MobileServiceUser user) {
-	    			createAndShowDialog(String.format(
-	                        "You are now logged in - %1$2s",
-	                        user.getUserId()), "Success");
-	    			createTable();	
-	    		}
-	    	});   	
-		}
+2. Add the following method to the **ToDoActivity** class: 
+    
+        private void authenticate() {
+            // Login using the Google provider.
+            
+            ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+    
+            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+                @Override
+                public void onFailure(Throwable exc) {
+                    createAndShowDialog((Exception) exc, "Error");
+                }           
+                @Override
+                public void onSuccess(MobileServiceUser user) {
+                    createAndShowDialog(String.format(
+                            "You are now logged in - %1$2s",
+                            user.getUserId()), "Success");
+                    createTable();  
+                }
+            });     
+        }
 
 
-	In questo modo viene creato un nuovo metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso di Google. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato. Senza un'autenticazione positiva non è possibile procedere.
+    This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
-    > [AZURE.NOTE]Se si usa un provider di identità diverso da Google, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
+    > [AZURE.NOTE] If you are using an identity provider other than Google, change the value passed to the **login** method above to one of the following: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
 
-3. Nel metodo **onCreate** aggiungere la riga di codice seguente dopo il codice che crea l'istanza dell'oggetto `MobileServiceClient`.
+3. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
 
-		authenticate();
+        authenticate();
 
-	Questa chiamata avvia il processo di autenticazione.
+    This call starts the authentication process.
 
-4. Spostare il codice rimanente dopo `authenticate();` nel metodo **onCreate** in un nuovo metodo **createTable**, simile al seguente:
+4. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method, which looks like this:
 
-		private void createTable() {
-	
-			// Get the table instance to use.
-			mToDoTable = mClient.getTable(ToDoItem.class);
-	
-			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
-	
-			// Create an adapter to bind the items with the view.
-			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
-			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-			listViewToDo.setAdapter(mAdapter);
-	
-			// Load the items from Azure.
-			refreshItemsFromTable();
-		}
+        private void createTable() {
+    
+            // Get the table instance to use.
+            mToDoTable = mClient.getTable(ToDoItem.class);
+    
+            mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
+    
+            // Create an adapter to bind the items with the view.
+            mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+            ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+            listViewToDo.setAdapter(mAdapter);
+    
+            // Load the items from Azure.
+            refreshItemsFromTable();
+        }
 
-9. Nel menu **Run** fare clic su **Run app** per avviare l'app e accedere con il provider di identità scelto.
+9. From the **Run** menu, then click **Run app** to start the app and sign in with your chosen identity provider. 
 
-   	Dopo avere eseguito l'accesso, l'app dovrebbe funzionare senza errori e dovrebbe essere possibile eseguire query sul servizio back-end e aggiornare i dati.
+    When you are successfully logged-in, the app should run without errors, and you should be able to query the backend service and make updates to data.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

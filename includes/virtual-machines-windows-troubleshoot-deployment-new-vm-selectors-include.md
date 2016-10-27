@@ -1,3 +1,8 @@
 > [AZURE.SELECTOR]
-- [Classico](../articles/virtual-machines/virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
-- [Gestione risorse](../articles/virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)
+- [Classic](../articles/virtual-machines/virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
+- [Resource Manager](../articles/virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

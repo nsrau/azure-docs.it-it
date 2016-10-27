@@ -1,153 +1,151 @@
-<properties 
-   pageTitle="Profili nidificati di Gestione Traffico | Microsoft Azure"
-   description="Questo articolo descrive la funzionalità ";Profili nidificati"; di Gestione traffico di Azure"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
-   ms.author="sewhee" />
+<properties
+    pageTitle="Nested Traffic Manager Profiles | Microsoft Azure"
+    description="This article explains the 'Nested Profiles' feature of Azure Traffic Manager"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
-# Profili nidificati di Gestione traffico
 
-Gestione traffico include diversi metodi di routing del traffico, che consentono di controllare la modalità con cui Gestione traffico sceglie quale endpoint deve ricevere traffico da ogni utente finale. Questi metodi sono descritti in [Metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md) e consentono di soddisfare i requisiti più comuni di routing del traffico.
+# <a name="nested-traffic-manager-profiles"></a>Nested Traffic Manager profiles
 
-Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Alcune volte, tuttavia, le applicazioni più complesse richiedono un sistema di routing del traffico più sofisticato che possa essere fornito da un singolo profilo di Gestione traffico.
+Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
 
-Per supportare queste applicazioni complesse, in Gestione traffico i profili possono essere combinati o *nidificati*, consentendo di sfruttare i vantaggi dell'uso di più metodi di routing del traffico da parte di una singola applicazione. I profili nidificati consentono la creazione di schemi di routing del traffico più flessibili e potenti per supportare le esigenze di distribuzioni più grandi e complesse.
+Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
 
-I profili nidificati consentono anche di ignorare il comportamento predefinito di Gestione traffico in alcuni casi, ad esempio il routing del traffico all'interno di un'area o durante il failover quando si usa il metodo di routing del traffico Prestazioni.
+The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
 
-Nella parte restante di questa pagina viene illustrata, tramite una sequenza di esempi, la modalità d'uso dei profili nidificati di Gestione traffico in una vasta gamma di scenari. Alla fine dell'articolo sono presenti domande frequenti sui profili nidificati
+## <a name="example-1:-combining-'performance'-and-'weighted'-traffic-routing"></a>Example 1: Combining 'Performance' and 'Weighted' traffic routing
 
-## Esempio 1: Combinazione di metodi di routing del traffico "Prestazioni" e "Ponderato"
+Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
 
-Si supponga che l'applicazione venga distribuita in più aree di Azure: Stati Uniti occidentali, Europa occidentale e Asia orientale. Si userà il metodo di routing del traffico "Prestazioni" di Gestione traffico per distribuire il traffico nell'area più vicina all'utente.
+![Single Traffic Manager profile][1]
 
-![Profilo singolo di Gestione traffico][1]
+Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
 
-Si supponga ora di voler valutare un aggiornamento del servizio con un numero ridotto di utenti prima di distribuirlo in modo più ampio. A tale scopo si vuole usare il metodo di routing del traffico "Ponderato", che può indirizzare una piccola percentuale di traffico alla distribuzione di prova. Con un singolo profilo non è possibile combinare i metodi di routing del traffico "Ponderato" e "Prestazioni". Con i profili nidificati è possibile usare entrambi i metodi.
+You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two West Europe endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
 
-Per farlo, procedere nel modo seguente: si supponga di voler valutare la nuova distribuzione in Europa occidentale. Impostare la distribuzione di prova con la distribuzione di produzione esistente e creare un profilo di Gestione traffico usando solo questi due endpoint e il metodo di routing del traffico "Ponderato". Aggiungere quindi questo profilo "figlio" come endpoint al profilo "padre", che continua a usare il metodo di routing del traffico Prestazioni e contiene anche le altre distribuzioni globali come endpoint.
+The following diagram illustrates this example:
 
-Il diagramma seguente illustra questo esempio:
+![Nested Traffic Manager profiles][2]
 
-![Profili nidificati di Gestione traffico][2]
+In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
 
-In questo modo, il traffico indirizzato tramite il profilo padre verrà distribuito in più aree, come di consueto. In Europa occidentale il traffico verrà indirizzato alla produzione e alle distribuzioni di prova in base ai pesi assegnati.
+When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 
-Si noti che, quando il profilo padre usa il metodo di routing del traffico "Prestazioni", deve essere nota la posizione di ogni endpoint. Per gli endpoint nidificati, come per gli endpoint esterni, questa posizione deve essere specificata come parte della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione. Le opzioni disponibili sono le aree di Azure, ovvero le posizioni supportate dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico "Prestazioni" di Gestione traffico](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+## <a name="example-2:-endpoint-monitoring-in-nested-profiles"></a>Example 2: Endpoint monitoring in Nested Profiles
 
-## Esempio 2: Monitoraggio degli endpoint nei profili nidificati
+Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](#faq) section of this article for full details on health monitoring of nested profiles.
 
-Gestione traffico esegue continuamente il monitoraggio dell'integrità di ogni endpoint di servizio. Se un endpoint è stato identificato come danneggiato, Gestione traffico indirizzerà gli utenti ad endpoint alternativi, mantenendo in tal modo la disponibilità complessiva del servizio. Il comportamento di monitoraggio e failover degli endpoint si applica a tutti i metodi di routing del traffico. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
+Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
 
-Per i profili nidificati si applicano alcune specifiche regole di monitoraggio degli endpoint. Quando un profilo padre viene configurato con un profilo figlio come endpoint nidificato, l'elemento padre non esegue direttamente i controlli dell'integrità sull'elemento figlio. L'integrità degli endpoint del profilo figlio viene usata invece per calcolare l'integrità complessiva del profilo figlio e queste informazioni vengono propagate alla gerarchia dei profili nidificati per determinare l'integrità dell'endpoint nidificato all'interno del profilo padre. In tal modo, si determina se il profilo padre indirizzerà il traffico all'elemento figlio. I dettagli completi sull'esatta modalità di calcolo dell'integrità dell'endpoint nidificato nel profilo padre a partire dall'integrità del profilo figlio sono riportati [di seguito](#faq).
+![Nested Profile failover (default behavior)][3]
 
-Tornando all'esempio 1, si supponga che la distribuzione di produzione in Europa occidentale abbia esito negativo. Per impostazione predefinita il profilo "figlio" indirizzerà tutto il traffico alla distribuzione di prova. Se anche questa operazione ha esito negativo, il profilo padre stabilirà che, poiché tutti gli endpoint figlio sono danneggiati, il profilo figlio non deve ricevere traffico ed eseguirà un failover di tutto il traffico dell'Europa occidentale ad altre aree.
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
 
-![Failover dei profili nidificati (comportamento predefinito)][3]
+The following figure illustrates this configuration:
 
-È possibile che questa soluzione risulti soddisfacente o che non si voglia usare la distribuzione di prova come failover per tutto il traffico dell'Europa occidentale, preferendo eseguire il failover ad altre aree se la distribuzione di produzione in Europa occidentale ha esito negativo, *indipendentemente* dall'integrità della distribuzione di prova. È anche possibile l'operazione seguente: durante la configurazione del profilo figlio come endpoint nel profilo padre, è possibile specificare il parametro "MinChildEndpoints", che determina il numero minimo di endpoint che devono essere disponibili nel profilo figlio. Al di sotto di questa soglia, il cui valore predefinito è 1, il profilo padre considererà l'intero profilo figlio non disponibile e indirizzerà il traffico agli altri endpoint del profilo padre.
+![Nested Profile failover with 'MinChildEndpoints' = 2][4]
 
-Nell'esempio riportato di seguito viene illustrato quanto segue: quando MinChildEndpoints è impostato su 2, se la distribuzione in Europa occidentale ha esito negativo, il profilo padre stabilirà che il profilo figlio non deve ricevere traffico e gli utenti verranno indirizzati ad altre aree.
+>[AZURE.NOTE]
+>The 'Priority' traffic-routing method distributes all traffic to a single endpoint. Thus there is little purpose in a MinChildEndpoints setting other than '1' for a child profile.
 
-![Failover dei profili nidificati con 'MinChildEndpoints' = 2][4]
+## <a name="example-3:-prioritized-failover-regions-in-'performance'-traffic-routing"></a>Example 3: Prioritized failover regions in 'Performance' traffic routing
 
-Si noti che quando il profilo figlio usa il metodo di routing del traffico "Priorità", tutto il traffico a tale elemento figlio viene ricevuto da un singolo endpoint. In questo caso è quindi probabilmente inutile impostare MinChildEndpoints su un valore diverso da "1".
+The default behavior for the 'Performance' traffic-routing method is designed to avoid over-loading the next nearest endpoint and causing a cascading series of failures. When an endpoint fails, all traffic that would have been directed to that endpoint is evenly distributed to the other endpoints across all regions.
 
-## Esempio 3: Aree di failover con priorità con metodo di routing del traffico "Prestazioni"
+!['Performance' traffic routing with default failover][5]
 
-Quando un singolo profilo usa il metodo di routing del traffico "Prestazioni", se un endpoint (ad esempio Europa occidentale) ha esito negativo, tutto il traffico normalmente indirizzato a tale endpoint viene invece distribuito tra gli altri endpoint in tutte le aree. Si tratta del comportamento predefinito per il metodo di routing del traffico "Prestazioni", progettato per evitare il sovraccarico dell'endpoint successivo più vicino e una conseguente serie di errori a catena.
+However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
 
-![Routing del traffico "Prestazioni" con failover predefinito][5]
+!['Performance' traffic routing with preferential failover][6]
 
-Si supponga tuttavia di preferire che il failover del traffico dell'Europa occidentale venga eseguito negli Stati Uniti occidentali e che il traffico venga indirizzato altrove solo se entrambi gli endpoint non sono disponibili. A tale scopo, creare un profilo figlio che usa il metodo di routing del traffico "Priorità", come illustrato di seguito:
+Since the West Europe endpoint has higher priority than the West US endpoint, all traffic is sent to the West Europe endpoint when both endpoints are online. If West Europe fails, its traffic is directed to West US. With the nested profile, traffic is directed to East Asia only when both West Europe and West US fail.
 
-![Routing del traffico "Prestazioni" con failover preferenziale][6]
+You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
 
-Poiché l'endpoint dell'Europa occidentale ha priorità più elevata rispetto all'endpoint degli Stati Uniti occidentali, tutto il traffico verrà inviato all'endpoint dell'Europa occidentale quando entrambe le aree sono online. Se l'Europa occidentale ha esito negativo, il relativo traffico viene indirizzato agli Stati Uniti occidentali. Solo nel caso in cui anche gli Stati Uniti occidentali abbiano esito negativo, il traffico dell'Europa occidentale verrebbe indirizzato all'Asia orientale.
+## <a name="example-4:-controlling-'performance'-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
 
-È possibile ripetere questo modello per tutte le aree, sostituendo i 3 endpoint nel profilo padre con 3 profili figlio, ognuno con una sequenza di failover con priorità.
+Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
 
-## Esempio 4: Controllo del metodo di routing del traffico "Prestazioni" tra più endpoint nella stessa area
+!['Performance' traffic routing in-region traffic distribution (default behavior)][7]
 
-Si supponga che il metodo di routing del traffico "Prestazioni" venga usato in un profilo con più di un endpoint in una determinata area, ad esempio gli Stati Uniti occidentali. Per impostazione predefinita il traffico indirizzato a tale area verrà distribuito in modo uniforme tra tutti gli endpoint disponibili nell'area.
+Instead of adding multiple endpoints in West Europe, those endpoints are enclosed in a separate child profile. The child profile is added to the parent as the only endpoint in West Europe. The settings on the child profile can control the traffic distribution with West Europe by enabling priority-based or weighted traffic routing within that region.
 
-![Routing del traffico "Prestazioni" con distribuzione del traffico nell'area (comportamento predefinito)][7]
+!['Performance' traffic routing with custom in-region traffic distribution][8]
 
-Questa impostazione predefinita può essere modificata tramite i profili nidificati di Gestione traffico. Anziché aggiungere più endpoint negli Stati Uniti occidentali, gli endpoint possono essere inclusi in un profilo figlio separato e il profilo figlio può essere aggiunto all'elemento padre come unico endpoint negli Stati Uniti occidentali. Le impostazioni del profilo figlio possono quindi essere usate per controllare la distribuzione del traffico negli Stati Uniti occidentali, ad esempio abilitando il routing del traffico basato sulla priorità o sul peso all'interno di tale area.
+## <a name="example-5:-per-endpoint-monitoring-settings"></a>Example 5: Per-endpoint monitoring settings
 
-![Routing del traffico "Prestazioni" con distribuzione personalizzata del traffico nell'area][8]
+Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
 
-## Esempio 5: Impostazioni di monitoraggio per ogni endpoint
+![Traffic Manager endpoint monitoring (default behavior)][9]
 
-Si supponga di usare Gestione traffico per facilitare la migrazione di traffico tra un sito Web legacy locale e una nuova versione basata su cloud ospitata in Azure. Per il sito legacy si vuole usare la home page (percorso "/") per monitorare l'integrità del sito, ma per la nuova versione basata su cloud si vuole implementare una pagina di monitoraggio personalizzata che include controlli aggiuntivi (percorso "/monitor.aspx").
+The monitoring settings in a Traffic Manager profile apply to all endpoints within a single profile. With nested profiles, you use a different child profile per site to define different monitoring settings.
 
-![Monitoraggio degli endpoint di Gestione traffico (comportamento predefinito)][9]
+![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
-Le impostazioni di monitoraggio in un profilo di Gestione traffico si applicano a tutti gli endpoint all'interno del profilo, pertanto è necessario aver usato in precedenza lo stesso percorso in entrambi i siti. Con i profili nidificati di Gestione traffico è ora possibile usare un profilo figlio per sito per definire diverse impostazioni di monitoraggio per ogni sito:
+## <a name="faq"></a>FAQ
 
-![Monitoraggio degli endpoint di Gestione traffico con impostazioni per ogni endpoint][10]
+### <a name="how-do-i-configure-nested-profiles?"></a>How do I configure nested profiles?
 
-## Domande frequenti
+Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
 
-### Come si configurano i profili nidificati?
+### <a name="how-many-layers-of-nesting-does-traffic-manger-support?"></a>How many layers of nesting does Traffic Manger support?
 
-I profili nidificati di Gestione traffico possono essere configurati usando Azure Resource Manager (ARM), le API REST di Azure Service Management (ASM), i cmdlet di PowerShell e i comandi multipiattaforma di Azure CLI. Sono supportati anche nel portale di Azure, ma non nel portale "classico".
+You can nest profiles up to 10 levels deep. 'Loops' are not permitted.
 
-### Quanti livelli di nidificazione supporta Gestione traffico?
-È possibile nidificare i profili fino a 10 livelli. I "loop" non sono consentiti.
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles,-in-the-same-traffic-manager-profile?"></a>Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?
 
-### È possibile combinare altri tipi di endpoint con profili figlio nidificati nello stesso profilo di Gestione traffico?
+Yes. There are no restrictions on how you combine endpoints of different types within a profile.
 
-Sì. Non esistono restrizioni sulla modalità di combinazione di tipi diversi di endpoint all'interno di un profilo.
+### <a name="how-does-the-billing-model-apply-for-nested-profiles?"></a>How does the billing model apply for Nested profiles?
 
-### Come viene applicato il modello di fatturazione per i profili nidificati?
+There is no negative pricing impact of using nested profiles.
 
-L'uso di profili nidificati non ha alcun impatto negativo sui prezzi.
+Traffic Manager billing has two components: endpoint health checks and millions of DNS queries
 
-La fatturazione di Gestione traffico include due componenti: i controlli dell'integrità degli endpoint e milioni di query DNS (per informazioni dettagliate, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/traffic-manager/).) La fatturazione si applica ai profili nidificati nel modo seguente:
+- Endpoint health checks: There is no charge for a child profile when configured as an endpoint in a parent profile. Monitoring of the endpoints in the child profile are billed in the usual way.
+- DNS queries: Each query is only counted once. A query against a parent profile that returns an endpoint from a child profile is counted against the parent profile only.
 
-- Controlli dell'integrità degli endpoint: non è previsto alcun addebito per un profilo figlio configurato come endpoint in un profilo padre. Gli endpoint nel profilo figlio che eseguono il monitoraggio dei servizi sottostanti vengono fatturati nel modo consueto.
+For full details, see the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-- Query DNS: ogni query viene conteggiata una sola volta. Una query in un profilo padre che restituisce un endpoint da un profilo figlio viene fatturata solo per il profilo padre.
+### <a name="is-there-a-performance-impact-for-nested-profiles?"></a>Is there a performance impact for nested profiles?
 
-### I profili nidificati influiscono sulle prestazioni?
+No. There is no performance impact incurred when using nested profiles.
 
-No, quando si usano i profili nidificati non si verifica alcun impatto sulle prestazioni.
+The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you are using a single profile or nested profiles. There is no need to create a CNAME record for each profile in the hierarchy.
 
-I server dei nomi di Gestione traffico attraversano internamente la gerarchia dei profili durante l'elaborazione di ogni query DNS, in modo che una query DNS a un profilo padre possa ricevere una risposta DNS con un endpoint da un profilo figlio.
+### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile?"></a>How does Traffic Manager compute the health of a nested endpoint in a parent profile?
 
-Viene usato pertanto un singolo record CNAME, lo stesso di quando si usa un singolo profilo di Gestione traffico. **Non** è necessaria una sequenza di record CNAME, uno per ogni profilo nella gerarchia, pertanto non si verifica alcuna riduzione delle prestazioni.
+The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
 
-### Come viene calcolata da Gestione traffico l'integrità di un endpoint nidificato in un profilo padre, in base all'integrità del profilo figlio?
+The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
 
-Quando un profilo padre viene configurato con un profilo figlio come endpoint nidificato, l'elemento padre non esegue direttamente i controlli dell'integrità sull'elemento figlio. L'integrità degli endpoint del profilo figlio viene usata invece per calcolare l'integrità complessiva del profilo figlio e queste informazioni vengono propagate alla gerarchia dei profili nidificati per determinare l'integrità dell'endpoint nidificato all'interno del profilo padre. In tal modo, si determina se il profilo padre indirizzerà il traffico all'elemento figlio.
-
-La tabella seguente descrive il comportamento dei controlli dell'integrità di Gestione traffico per un endpoint nidificato in un profilo padre che punta a un profilo figlio.
-
-|Stato di monitoraggio del profilo figlio|Stato di monitoraggio dell'endpoint padre|Note|
+|Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
-|Disabilitato. Il profilo figlio è stato disabilitato dall'utente.|Arrestato|Lo stato dell'endpoint padre è Stopped, non Disabled. Lo stato Disabled è usato esclusivamente per indicare che l'utente ha disabilitato l'endpoint nel profilo padre.|
-|Danneggiato. Almeno uno degli endpoint del profilo figlio è nello stato Danneggiato.|Online: il numero di endpoint Online nel profilo figlio è pari almeno al valore di MinChildEndpoints. CheckingEndpoint: il numero di endpoint Online e CheckingEndpoint nel profilo figlio è pari almeno al valore di MinChildEndpoints. Danneggiato: negli altri casi.|Il traffico viene indirizzato a un endpoint con stato CheckingEndpoint. Se il valore di MinChildEndpoints è troppo elevato, l'endpoint sarà sempre danneggiato.|
-|Online. Almeno uno degli endpoint del profilo figlio è nello stato Online e nessun endpoint è nello stato Danneggiato.|Vedere sopra.||
-|CheckingEndpoints. Almeno uno degli endpoint del profilo figlio è nello stato "CheckingEndpoint" e nessun endpoint è nello stato "Online" o "Danneggiato".|Come sopra.||
-|Inattivo. Tutti gli endpoint del profilo figlio sono nello stato Disabilitato o Arrestato oppure si tratta di un profilo senza endpoint.|Arrestato||
+|Disabled. The child profile has been disabled.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
+|Degraded. At least one child profile endpoint is in a Degraded state.| Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise.|Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded.|
+|Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state.|See above.||
+|CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded'|Same as above.||
+|Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints.|Stopped||
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Altre informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md)
+Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
 
-Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-manage-profiles.md)
+Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -161,4 +159,9 @@ Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-ma
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

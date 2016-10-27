@@ -1,49 +1,51 @@
-## Creare un hub eventi
+## <a name="create-an-event-hub"></a>Create an Event Hub
 
-1. Accedere al [portale di Azure][] e fare clic su **Nuovo** nella parte superiore sinistra della schermata.
+1. Log on to the [Azure portal][], and click **New** at the top left of the screen.
 
-2. Fare clic su **Dati e analisi** e quindi su **Hub eventi**.
+2. Click **Data + Analytics**, then click **Event Hubs**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
-3. Nel pannello **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
+3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub1.png) 
+    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
-4. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario (Basic o Standard). Scegliere anche una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa.
+4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
 
-2. Fare clic su **Crea** per creare lo spazio dei nomi.
+2. Click **Create** to create the namespace.
 
-6. Nell'elenco degli spazi dei nomi di Hub eventi fare clic sullo spazio dei nomi appena creato.
+6. In the Event Hubs namespace list, click the newly-created namespace.      
 
-	![](./media/event-hubs-create-event-hub/create-event-hub2.png) 
+    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
-7. Nel pannello dello spazio dei nomi fare clic su **Hub eventi**.
+7. In the namespace blade, click **Event Hubs**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub3.png) 
+    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
-8. Nella parte superiore del pannello fare clic su **Aggiungi hub eventi**.
+8. At the top of the blade, click **Add Event Hub**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub4.png) 
+    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
-3. Digitare un nome per l'hub eventi e quindi fare clic su **Crea**.
+3. Type a name for your Event Hub, then click **Create**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
-4. Nell'elenco degli hub eventi fare clic sul nome dell'hub eventi appena creato.
+4. In the list of Event Hubs, click the newly created Event Hub name. 
 
-	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
-5. Nel pannello dello spazio dei nomi (non in quello dello specifico hub eventi) fare clic su **Criteri di accesso condiviso** e quindi su **RootManageSharedAccessKey**.
+5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
 
-5. Fare clic sul pulsante di copia per copiare la stringa di connessione **RootManageSharedAccessKey** negli Appunti. Salvare questa stringa di connessione per usarla più avanti nell'esercitazione.
+5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
 
-	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
+    ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi. 
+Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

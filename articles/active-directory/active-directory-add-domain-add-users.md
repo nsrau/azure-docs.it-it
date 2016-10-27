@@ -1,65 +1,70 @@
 <properties
-	pageTitle="Assegnare gli utenti a un dominio personalizzato in Azure Active Directory | Microsoft Azure"
-	description="Come popolare un dominio personalizzato in Azure Active Directory con gli account utente."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeffsta"
-	manager="femila"
-	editor=""/>
+    pageTitle="Assign users to a custom domain in Azure Active Directory | Microsoft Azure"
+    description="How to populate a custom domain in Azure Active Directory with user accounts."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeffsta"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="curtand;jeffsta"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand;jeffsta"/>
 
-# Assegnare utenti a un dominio personalizzato
 
-Dopo aver aggiunto il dominio personalizzato in Azure Active Directory, è necessario aggiungere gli account utente del dominio per poter iniziare l'autenticazione.
+# <a name="assign-users-to-a-custom-domain"></a>Assign users to a custom domain
 
-## Utenti sincronizzati da una directory nella rete aziendale
+After you have added your custom domain to Azure Active Directory, you must add the user accounts for this domain so that you can begin authenticating them.
 
-Se è già stata impostata una connessione tra Active Directory locale e Azure Active Directory, la sincronizzazione può popolare gli account. Per altre informazioni sulla sincronizzazione di Azure Active Directory con Active Directory locale, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+## <a name="users-synced-in-from-a-directory-on-your-corporate-network"></a>Users synced in from a directory on your corporate network
 
-## Utenti aggiunti e gestiti nel cloud
+If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-Per modificare il dominio di un account utente esistente:
+## <a name="users-added-and-managed-in-the-cloud"></a>Users added and managed in the cloud
 
-1.  Aprire il portale di Azure classico usando un account amministratore globale o amministratore utenti.
+To change the domain for an existing user account:
 
-2.  Aprire la directory.
+1.  Open the Azure classic portal using an account that is a global admin or a user admin.
 
-3.  Selezionare la scheda **Utenti**,
+2.  Open your directory.
 
-4.  Selezionare l'utente dall'elenco.
+3.  Select the **Users** tab.
 
-5.  Modificare il dominio dell'utente e quindi selezionare **Salva**.
+4.  Select the user from the list.
 
-Questa operazione può essere eseguita anche usando [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o l'[API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+5.  Change the domain for the user, and then select **Save**.
 
-## Selezionare un dominio personalizzato durante la creazione di un nuovo utente
+This can also be done using [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) or the [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
-1.  Aprire il portale di Azure classico usando un account amministratore globale o amministratore utenti.
+## <a name="select-a-custom-domain-when-creating-a-new-user"></a>Select a custom domain when creating a new user
 
-2.  Aprire la directory.
+1.  Open the Azure classic portal using an account that is a global admin or a user admin.
 
-3.  Selezionare la scheda **Utenti**,
+2.  Open your directory.
 
-4.  Sulla barra dei comandi selezionare **Aggiungi**.
+3.  Select the **Users** tab.
 
-5.  Quando si aggiunge il nome utente, scegliere il dominio personalizzato dall'elenco di domini.
+4.  In the command bar, select **Add**.
 
-6.  Selezionare **Salva**.
+5.  When you add the user name, choose the custom domain from the domain list.
 
-## Passaggi successivi
+6.  Select **Save**.
 
--   [Uso di nomi di dominio personalizzati per semplificare l'esperienza di accesso degli utenti](active-directory-add-domain.md)
+## <a name="next-steps"></a>Next steps
 
--   [Gestire i nomi di dominio personalizzati](active-directory-add-manage-domain-names.md)
+-   [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
 
--   [Informazioni sui concetti relativi alla gestione dei domini in Azure AD](active-directory-add-domain-concepts.md)
+-   [Manage custom domain names](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+-   [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

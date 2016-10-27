@@ -1,22 +1,25 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Per installare aggiornamenti rapidi regolari tramite Windows PowerShell per StorSimple
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>To install regular hotfixes via Windows PowerShell for StorSimple
 
-1. Connettersi alla console seriale del dispositivo. Per altre informazioni, vedere [Passaggio 1: Connettersi alla console seriale](storsimple-update-device.md#step1).
+1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](storsimple-update-device.md#step1).
 
-2. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Digitare la password. La password predefinita è **Password1**.
+2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
 
-3. Al prompt dei comandi digitare:
+3. At the command prompt, type:
 
     `Start-HcsHotfix`
 
        >[AZURE.IMPORTANT]
        >
-       >- Questo comando si applica solo agli aggiornamenti rapidi regolari. È possibile eseguire questo comando in un solo controller, ma verranno aggiornati entrambi i controller.
-       >- Durante il processo di aggiornamento è possibile che venga eseguito il failover di un controller. Tale failover, tuttavia, non avrà effetto sulla disponibilità o sul funzionamento del sistema.
+       >- This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
+       >- You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
 
-4. Quando richiesto, specificare il percorso della cartella condivisa di rete che contiene i file dell'aggiornamento rapido.
+4. When prompted, supply the path to the network shared folder that contains the hotfix files.
 
-5. Verrà richiesto di confermare. Digitare **Y** per procedere con l'installazione dell'aggiornamento rapido.
+5. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

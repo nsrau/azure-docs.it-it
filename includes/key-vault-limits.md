@@ -1,12 +1,15 @@
 
-| Tipo di transazioni | Transazioni max consentite entro 10 secondi, per ogni archivio per ogni area
+| Transactions Type | Max transactions allowed in 10 seconds, per vault per region
 --- | ---
-| MODULO DI PROTEZIONE HARDWARE - CREARE LA CHIAVE | 5
-| HSM - altre transazioni | 1000
-| Tasto software Crea chiave | 10
-| Tasto software altre transazioni | 1500
-| Tutti i segreti, archivio transazioni correlate | 2000
+| HSM- CREATE KEY | 5
+| HSM- other transactions | 1000
+| Soft-key CREATE KEY | 10
+| Soft-key other transactions | 1500
+| All secrets, vault related transactions | 2000
  
  
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

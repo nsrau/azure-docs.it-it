@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Note sulla versione dell'aggiornamento 0.2 di StorSimple 8000 | Microsoft Azure"
-   description="Vengono descritte le nuove funzionalità e correzioni, i problemi e le soluzioni alternative disponibili per la versione di gennaio 2015 di Microsoft Azure StorSimple. (aggiornamento 0.2)."
+   pageTitle="StorSimple 8000 Update 0.2 release notes | Microsoft Azure"
+   description="Describes the new features and fixes, open issues, and available workarounds for the January 2015 Microsoft Azure StorSimple release (Update 0.2)."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -16,66 +16,71 @@
    ms.author="v-sharos" />
 
 
-# Note sulla versione dell'aggiornamento 0.2 di StorSimple serie 8000 - Gennaio 2015
 
-## Panoramica
+# <a name="storsimple-8000-series-update-0.2-release-notes---january-2015"></a>StorSimple 8000 Series Update 0.2 release notes - January 2015
 
-Le seguenti note sulla versione identificano i problemi critici aperti per la versione di gennaio 2015 di StorSimple di Microsoft Azure. Contengono inoltre un elenco degli aggiornamenti software e firmware di StorSimple inclusi in questa versione. Si tratta della seconda versione dopo la versione di rilascio di StorSimple serie 8000 resa disponibile a livello generale a luglio 2014.
+## <a name="overview"></a>Overview
+
+The following release notes identify the critical open issues for the January 2015 release of Microsoft Azure StorSimple. They also contain a list of the StorSimple software and firmware updates included in this release. This is the second release after the StorSimple 8000 Series Release version was made generally available in July 2014.
   
-Questo aggiornamento non modifica la versione del software del dispositivo rispetto all'aggiornamento di ottobre, che continua a essere la versione 6.3.9600.17312. L'immagine utilizzata per l'immagine del dispositivo virtuale è stata modificata in questa versione. Di conseguenza, tutti i nuovi dispositivi virtuali creati dopo il 20 gennaio 2015 visualizzeranno la versione come 6.3.9600.17361.
+This update does not change the physical device software version from the October update. It continues to be version 6.3.9600.17312. The image used by the virtual device image has changed in this release. Therefore, all the new virtual devices created after 1/20/2015 will show the version as 6.3.9600.17361.  
 
-Esaminare le seguenti informazioni contenute nelle note sulla versione per l'aggiornamento di gennaio 2015.
+Please review the following information contained in the release notes for the January 2015 update.
 
 > [AZURE.IMPORTANT]  
 >
->- Questo aggiornamento non è disponibile tramite Windows Update e non può essere installato come gli altri aggiornamenti. Il dispositivo non riceverà questo aggiornamento neanche se gli aggiornamenti sono stati applicati tramite il portale di Azure classico. Questo aggiornamento verrà applicato solo ai dispositivi virtuali creati dopo il 20 gennaio 2015. 
+>- This update is not available through Windows Update and cannot be installed like other updates. Your device will not receive this update even if you have applied the updates by using the Azure classic portal. This update will only apply to virtual devices created after January 20, 2015. 
 > 
->- La versione di gennaio di StorSimple non contiene aggiornamenti per il dispositivo fisico StorSimple. Anche se è possibile applicare gli aggiornamenti di Windows disponibili al dispositivo virtuale, incluse le ultime correzioni rapide per la protezione, nella versione per il dispositivo virtuale non apparirà alcuna modifica.
+>- The January release of StorSimple does not contain any updates to the StorSimple physical device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the StorSimple physical device.
 
-## Novità nella versione di gennaio
+## <a name="what's-new-in-the-january-release"></a>What's new in the January release
 
-Questo aggiornamento contiene una correzione relativa ai volumi che passano alla modalità offline sul dispositivo virtuale (vedere [Problemi corretti in questa versione](#issues-fixed-in-the-january-release)).
+This update contains a fix related to the volumes going offline on the virtual device. (See [Issues fixed in this release](#issues-fixed-in-the-january-release).)  
 
-Questo aggiornamento non contiene nuove funzionalità.
+The update does not contain new features or functionality.  
 
-## Problemi risolti nella versione di gennaio
+## <a name="issues-fixed-in-the-january-release"></a>Issues fixed in the January release
 
-Nella tabella seguente viene descritto il problema risolto in questo aggiornamento.
+The following table describes the issue that was fixed in this update.
 
-|No.|Funzionalità|Problema|Si applica a un dispositivo fisico|Si applica a un dispositivo virtuale 
+|No.|Feature|Issue|Applies to physical device|Applies to virtual device 
 |---|-------|-----|--------------------------|-------------------------
-|1|Volumi che passano offline|Quando le latenze elevate del cloud persistono per diversi minuti, i volumi del dispositivo virtuale StorSimple passano offline negli host. Questa correzione aumenta la soglia per le latenze del cloud, riducendo così al minimo le situazioni che causano il passaggio dei volumi offline sugli host.|No|Sì  
+|1|Volumes going offline|When high cloud latencies persist for several minutes, the StorSimple virtual device volumes go offline on the hosts. This fix increases the threshold for cloud latencies, thereby minimizing the situations that would cause the volumes to go offline on hosts.|No|Yes  
 
-## Problemi noti risolti nella versione di gennaio
+## <a name="known-issues-in-the-january-release"></a>Known issues in the January release
 
-Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
+The following table provides a summary of known issues in this release.
  
-|No.|Funzionalità|Problema|Commenti/Soluzione alternativa|Si applica a un dispositivo fisico|Si applica a un dispositivo virtuale 
+|No.|Feature|Issue|Comments/workaround|Applies to physical device|Applies to virtual device 
 |---|-------|-----|-------------------|--------------------------|-------------------------
-|1|	Ripristino delle impostazioni predefinite|	In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple potrebbe bloccarsi e l’utente potrebbe visualizzare il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C mentre il cmdlet è in esecuzione.|	Non premere CTRL + C dopo l'avvio di un ripristino delle impostazioni predefinite. Se si è già in questo stato, contattare il supporto tecnico Microsoft per i passaggi successivi.|Sì|No|
-|2|Quorum disco|	In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un’assenza di quorum disco, il pool di archiviazione sarà offline e rimarrà in tale stato anche se i dischi vengono riconnessi.|Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi.|Sì |No
-|3|Errori di snapshot nel cloud|In rari casi, uno snapshot cloud potrebbe non riuscire a causa dell’errore **Raggiunto il limite massimo di backup**. Ciò si verifica se si superano i 255 cloni online sullo stesso dispositivo, dallo stesso volume originale eliminato.||Sì|Sì
-|4|ID controller non corretto|Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema.|Non è necessaria alcuna azione da parte dell’utente. Questa situazione si risolverà dopo la sostituzione del controller.|Sì|No 
-|5|	Grafici di monitoraggio del dispositivo|Nel servizio StorSimple Manager, i grafici di monitoraggio del dispositivo non funzionano quando l’autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo.|Modificare la configurazione del proxy Web per il dispositivo registrato con il servizio StorSimple Manager in modo che l'autenticazione sia impostata su NESSUNA. A tale scopo, eseguire il cmdlet Set-HcsWebProxy di Windows PowerShell per StorSimple.|Sì|Sì
-|6|	Account di archiviazione|L’utilizzo del servizio di archiviazione per eliminare l'account di archiviazione non è supportato. Tale operazione causerebbe una situazione in cui non è possibile recuperare i dati dell'utente.|| Sì |	Sì
-|7|Failover del dispositivo|	I failover multipli di un contenitore di volumi dallo stesso dispositivo di origine verso dispositivi di destinazione diversi non sono supportati.|	Il failover da un singolo dispositivo inattivo a più dispositivi causerà la perdita della proprietà dei dati dei contenitori di volumi sul primo dispositivo sottoposto a failover. Dopo un tale failover, questi contenitori di volumi appariranno o si comporteranno in maniera diversa quando vengono visualizzati nel portale di Azure classico.|Sì|No
-|8|	Installazione|Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente.||Sì|No
-|9|	Proxy Web|Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo.|Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Vedere altre informazioni su come [configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md).|Sì |No
-|10|Proxy Web|	Se si configura e si abilita il proxy Web su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo.||	Sì |No
-|11|Elevata latenza del cloud ed elevato carico di lavoro I/O|Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto".|In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere il problema.|Sì|No
+|1| Factory reset|  In some instances, when you perform a factory reset, the StorSimple device may be stuck and display this message: **Reset to factory is in progress (phase 8).** This happens if you press CTRL+C while the cmdlet is in progress.| Do not press CTRL+C after initiating a factory reset. If you are already in this state, please contact Microsoft Support for next steps.|Yes|No|
+|2|Disk quorum| In rare instances, if the majority of disks in the EBOD enclosure of an 8600 device are disconnected resulting in no disk quorum, then the storage pool will be offline. It will stay offline even if the disks are reconnected.|You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps.|Yes |No
+|3|Cloud snapshot failures|In rare instances, a cloud snapshot may fail with the error **Maximum backup limit reached**. This occurs if you exceed 255 online clones on the same device, from the same original volume which has been deleted.||Yes|Yes
+|4|Incorrect controller ID|When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID.  In rare instances, this behavior may also be seen after a system reboot.|No user action is required. This situation will resolve itself after the controller replacement is complete.|Yes|No 
+|5| Device monitoring charts|In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device.|Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE. To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet.|Yes|Yes
+|6| Storage accounts|Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved.|| Yes |  Yes
+|7|Device failover| Multiple failovers of a volume container from the same source device to different target devices is not supported.| Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal.|Yes|No
+|8| Installation|During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully.||Yes|No
+|9| Web proxy|If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device.|Make sure that the web proxy URL has HTTP as the specified protocol. See more information on how to [Configure web proxy for your device](storsimple-configure-web-proxy.md).|Yes |No
+|10|Web proxy|  If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device.|| Yes |No
+|11|High cloud latency and high I/O workload|When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error.|You will need to manually reboot the device controllers or perform a device failover to recover from this situation.|Yes|No
 
-## Aggiornamenti del dispositivo fisico nella versione di gennaio
+## <a name="physical-device-updates-in-the-january-release"></a>Physical device updates in the January release
 
-Questo aggiornamento non contiene altre modifiche per il dispositivo StorSimple.
+This update does not contain any other changes to the StorSimple device.
 
-## Aggiornamenti firmware e controller SAS (Serial Attached SCSI) presenti nella versione di gennaio
+## <a name="serial-attached-scsi-(sas)-controller-and-firmware-updates-in-the-january-release"></a>Serial-attached SCSI (SAS) controller and firmware updates in the January release
 
-Questa versione non contiene aggiornamenti per il controller SAS (Serial Attached SCSI) o il firmware. L'aggiornamento del driver era nella versione di ottobre 2014.
+This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware. The driver update was in the October, 2014 release. 
 
-## Aggiornamenti del dispositivo virtuale nella versione di gennaio
+## <a name="virtual-device-updates-in-the-january-release"></a>Virtual device updates in the January release
 
-Questa versione contiene un'immagine aggiornata per il dispositivo virtuale. Di conseguenza, tutti i dispositivi virtuali creati dopo il 20 gennaio 2015 visualizzeranno la versione del software come 6.3.9600.17361.
+This release contains an updated image for the virtual device. All the virtual devices created after January 20, 2015 will show the software version as 6.3.9600.17361.
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

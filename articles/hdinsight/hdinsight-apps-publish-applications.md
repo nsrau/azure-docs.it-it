@@ -1,104 +1,110 @@
 <properties
-   	pageTitle="Pubblicare applicazioni HDInsight | Microsoft Azure"
-   	description="Informazioni su come creare e pubblicare applicazioni HDInsight."
-   	services="hdinsight"
-   	documentationCenter=""
-   	authors="mumian"
-   	manager="jhubbard"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Publish HDInsight applications | Microsoft Azure"
+    description="Learn how to create and publish HDInsight applications."
+    services="hdinsight"
+    documentationCenter=""
+    authors="mumian"
+    manager="jhubbard"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-   	ms.service="hdinsight"
-   	ms.devlang="na"
-   	ms.topic="hero-article"
-   	ms.tgt_pltfrm="na"
-   	ms.workload="big-data"
-   	ms.date="06/29/2016"
-   	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="06/29/2016"
+    ms.author="jgao"/>
 
-# Pubblicare applicazioni HDInsight in Azure Marketplace
 
-Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente. In questo articolo si apprenderà come pubblicare un'applicazione HDInsight in Azure Marketplace. Per informazioni generali sulla pubblicazione in Azure Marketplace, vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+# <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Publish HDInsight applications into the Azure Marketplace
 
-Le applicazioni HDInsight usano il modello *Bring Your Own License (BYOL)*, in cui il provider dell'applicazione è responsabile di concedere in licenza l'applicazione agli utenti finali e agli utenti finali vengono addebitate da Azure solo le risorse create, ad esempio il cluster HDInsight e le VM o i nodi. Attualmente la fatturazione per l'applicazione in sé non viene effettuata con Azure.
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to publish an HDInsight application into the Azure Marketplace.  For general information about publishing into the Azure Marketplace, see [publish an offer to the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
-Altro articolo correlato all'applicazione HDInsight:
+HDInsight applications use the *Bring Your Own License (BYOL)* model, where application provider is responsible for licensing the application to end-users, and end-users are only charged by Azure for the resources they create, such as the HDInsight cluster and its VMs/nodes. At this time, billing for the application itself is not done through Azure.
 
-- [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md): informazioni su come installare un'applicazione HDInsight nei cluster.
-- [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come installare e testare applicazioni HDInsight personalizzate.
+Other HDInsight application related article:
+
+- [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
+- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to install and test custom HDInsight applications.
 
  
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Prima di inviare l'applicazione personalizzata al marketplace, è necessario crearla e testarla. Vedere gli articoli seguenti:
+In order to submit your custom application to the marketplace, you must have created and tested your custom application. See the following articles:
 
-- [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come installare e testare applicazioni HDInsight personalizzate.
+- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to install and test custom HDInsight applications.
 
-È anche necessario registrare l'account per sviluppatore. Vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) e [Creare un account di Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+You must also have register your developer account. See [publish an offer to the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) and [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
-## Definire l'applicazione
+## <a name="define-application"></a>Define application
 
-La pubblicazione di applicazioni in Azure Marketplace richiede due passaggi. Prima si definisce un file **createUiDef.json** per indicare i cluster con cui è compatibile l'applicazione e quindi si pubblica il modello dal portale di Azure. Il seguente è un file createUiDef.json di esempio.
+There are two steps involved for publishing applications to the Azure Marketplace.  First you define a **createUiDef.json** file to indicate which clusters your application is compatible with; and then you publish the template from the Azure portal. The following is a sample createUiDef.json file.
 
-	{
-		"handler": "Microsoft.HDInsight",
-		"version": "0.0.1-preview",
-		"clusterFilters": {
-			"types": ["Hadoop", "HBase", "Storm", "Spark"],
-			"tiers": ["Standard", "Premium"],
-			"versions": ["3.4"]
-		}
-	}
+    {
+        "handler": "Microsoft.HDInsight",
+        "version": "0.0.1-preview",
+        "clusterFilters": {
+            "types": ["Hadoop", "HBase", "Storm", "Spark"],
+            "tiers": ["Standard", "Premium"],
+            "versions": ["3.4"]
+        }
+    }
 
 
-|Campo | Descrizione | Valori possibili|
+|Field  | Description   | Possible values|
 |-------|---------------|----------------|
-|types |Tipi di cluster con cui è compatibile l'applicazione. |Hadoop, HBase, Storm, Spark (o qualsiasi combinazione di questi valori)|
-|tiers |Livelli di cluster con cui è compatibile l'applicazione. |Standard, Premium (o entrambi)|
-|versions|	Tipi di cluster HDInsight con cui è compatibile l'applicazione. |3\.4|
+|types  |The cluster types that the application is compatible with. |Hadoop, HBase, Storm, Spark, (or any combination of these)|
+|tiers  |The cluster tiers that the application is compatible with. |Standard, Premium, (or both)|
+|versions|  The HDInsight cluster types that the application is compatible with.    |3.4|
 
-## Inserire l'applicazione in un pacchetto
+## <a name="package-application"></a>Package application
 
-Creare un file ZIP contenente tutti i file necessari per installare le applicazioni HDInsight. Il file ZIP sarà necessario in [Pubblicare l'applicazione](#publish-application).
+Create a zip file that contains all required files for installing your HDInsight applications. You will need the zip file in [Publish application](#publish-application).
 
 - [createUiDefinition.json](#define-application).
-- mainTemplate.json. Vedere un esempio in [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
+- mainTemplate.json. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
-	>[AZURE.IMPORTANT] Il nome dello script di installazione dell'applicazione deve essere univoco per un determinato cluster con il formato seguente. Qualsiasi azione script di installazione e disinstallazione deve essere idempotente, ovvero gli script possono essere chiamati ripetutamente producendo lo stesso risultato.
-	
-	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
-		
-	>Si noti che il nome dello script è composto da tre parti:
-		
-	>	1. Un prefisso del nome file che includerà il nome dell'applicazione o un nome rilevante per l'applicazione.
-	>	2. Un "-" per migliorare la leggibilità.
-	>	3. Una funzione stringa univoca con il nome dell'applicazione come parametro.
+    >[AZURE.IMPORTANT] The name of the application install script names must be unique for a particular cluster with the format below. Additionally any install and uninstall script actions should be idempotent, meaning the scripts can be called repeatly while producing the same result.
+    
+    >   name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+        
+    >Note there are three parts to the script name:
+        
+    >   1. A script name prefix, which shall include either the application name or a name relevant to the application.
+    >   2. A "-" for readability.
+    >   3. A unique string function with the application name as the parameter.
 
-	>	Ad esempio, la stringa indicata sopra alla fine diventerà: hue-install-v0-4wkahss55hlas nell'elenco di azioni script persistenti. Per un payload JSON di esempio, vedere [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+    >   An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
-- Tutti gli script necessari.
+- All required scripts.
 
-> [AZURE.NOTE] I file dell'applicazione (inclusi eventuali file dell'applicazione Web) possono trovarsi in qualsiasi endpoint accessibile pubblicamente.
+> [AZURE.NOTE] The application files (including web application files if there is any) can be located on any publicly accessible endpoint.
 
-## Pubblicare l'applicazione
+## <a name="publish-application"></a>Publish application
 
-Seguire questa procedura per pubblicare un'applicazione HDInsight:
+Follow the following steps to publish an HDInsight application:
 
-1. Accedere al [portale di pubblicazione di Azure](https://publish.windowsazure.com/).
-2. Fare clic su **Modelli di soluzioni** per creare un nuovo modello di soluzione.
-3. Fare clic su **Create Dev Center account and join the Azure program** (Creare un account Dev Center e partecipare al programma di Azure) per registrare la società, se non è ancora stato fatto. Vedere [Creare un account di Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
-4. Fare clic su **Define some Topologies to get Started** (Definire alcune topologie per iniziare). Un modello di soluzione è un elemento padre per tutte le relative topologie. È possibile definire più topologie in un singolo modello di soluzione/offerta. Quando un'offerta passa alla fase di gestione temporanea, passano a tale fase anche tutte le relative topologie.
-5. Aggiungere una nuova versione
-6. Caricare il file ZIP preparato in [Inserire l'applicazione in un pacchetto](#package-application).
-7. Fare clic su **Request Certification** (Richiedi certificazione). Il team di certificazione Microsoft esaminerà i file e certificherà la topologia.
+1. Sign on to the [Azure Publishing portal](https://publish.windowsazure.com/).
+2. Click **Solution templates** to create a new solution template.
+3. Click **Create Dev Center account and join the Azure program** to register your company if you haven't done so.  See [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+4. Click **Define some Topologies to get Started**. A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. 
+5. Add a new version.
+6. Upload the zip file prepared in [Package application](#package-application).  
+7. Click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md): informazioni su come installare un'applicazione HDInsight nei cluster.
-- [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come distribuire in HDInsight un'applicazione HDInsight non pubblicata.
-- [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
-- [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informazioni su come chiamare i modelli di Azure Resource Manager per creare cluster HDInsight.
-- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Usare nodi perimetrali vuoti in HDInsight): informazioni su come usare un nodo perimetrale vuoto per l'accesso a cluster HDInsight, il test di applicazioni HDInsight e l'hosting di applicazioni HDInsight.
+- [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
+- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
+- [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
+- [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

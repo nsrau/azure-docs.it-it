@@ -1,6 +1,6 @@
 <properties
-        pageTitle="Reimpostare la password e la chiave SSH di VM Linux dall'interfaccia della riga di comando | Microsoft Azure"
-        description="Come usare l'estensione VMAccess dall'interfaccia della riga di comando di Azure per reimpostare la password o la chiave SSH di una VM Linux, correggere la configurazione SSH e verificare la coerenza dei dischi"
+        pageTitle="Reset Linux VM password and SSH key from the CLI | Microsoft Azure"
+        description="How to use the VMAccess extension from the Azure Command-Line Interface (CLI) to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency"
         services="virtual-machines-linux"
         documentationCenter=""
         authors="cynthn"
@@ -17,43 +17,44 @@
         ms.date="06/14/2016"
         ms.author="cynthn"/>
 
-# Come reimpostare la password o la chiave SSH di una VM Linux, correggere la configurazione SSH e verificare la coerenza dei dischi che utilizzano l'estensione VMAccess
+
+# <a name="how-to-reset-a-linux-vm-password-or-ssh-key,-fix-the-ssh-configuration,-and-check-disk-consistency-using-the-vmaccess-extension"></a>How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension
 
 
-Se non è possibile connettersi a una macchina virtuale Linux su Azure perché si è dimenticata la password o una chiave SSH (Secure Shell) non è valida o per un problema di configurazione di SSH, usare l'estensione VMAccessForLinux con l'interfaccia della riga di comando di Azure per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza del disco.
+If you can't connect to a Linux virtual machine on Azure because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the VMAccessForLinux extension with the Azure CLI to reset the password or SSH key, fix the SSH configuration, and check disk consistency. 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Informazioni su come [eseguire questa procedura con il modello di Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
-Con l'interfaccia della riga di comando di Azure, per accedere ai comandi si usa il comando **azure vm extension set** dell'interfaccia della riga di comando (Bash, terminale, prompt dei comandi). Per informazioni dettagliate sull'uso dell'estensione, eseguire **azure help vm extension set**.
+With the Azure CLI, you use the **azure vm extension set** command from your command-line interface (Bash, Terminal, Command prompt) to access commands. Run **azure help vm extension set** for detailed extension usage.
 
-Con l’interfaccia della riga di comando di Azure è possibile eseguire le attività seguenti:
+With the Azure CLI, you can do the following tasks:
 
-+ [Reimpostare la password](#pwresetcli)
-+ [Reimpostare la chiave SSH](#sshkeyresetcli)
-+ [Reimpostare la password e la chiave SSH](#resetbothcli)
-+ [Creare un nuovo account utente sudo](#createnewsudocli)
-+ [Reimpostare la configurazione SSH](#sshconfigresetcli)
-+ [Eliminare un utente](#deletecli)
-+ [Visualizzare lo stato dell'estensione VMAccess](#statuscli)
-+ [Verificare la coerenza dei dischi aggiunti](#checkdisk)
-+ [Ripristinare i dischi aggiunti nella VM Linux](#repairdisk)
++ [Reset the password](#pwresetcli)
++ [Reset the SSH key](#sshkeyresetcli)
++ [Reset the password and the SSH key](#resetbothcli)
++ [Create a new sudo user account](#createnewsudocli)
++ [Reset the SSH configuration](#sshconfigresetcli)
++ [Delete a user](#deletecli)
++ [Display the status of the VMAccess extension](#statuscli)
++ [Check consistency of added disks](#checkdisk)
++ [Repair added disks on your Linux VM](#repairdisk)
 
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Sarà necessario eseguire le operazioni seguenti:
+You will need to do the following:
 
-- Per usare le risorse di Azure associate all'account, è necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla sottoscrizione](../xplat-cli-connect.md).
-- Impostare la modalità corretta per il modello di distribuzione classico digitando quanto segue al prompt dei comandi:
+- You will need to [install the Azure CLI](../xplat-cli-install.md) and [connect to your subscription](../xplat-cli-connect.md) to use Azure resources associated with your account.
+- Set the correct mode for the classic deployment model by typing the following at the command prompt:
         
         azure config mode asm
         
-- Procurarsi una nuova password o un set di chiavi SSH, se si desidera reimpostare l'una o l'altro. Queste non saranno necessarie se si vuole reimpostare la configurazione di SSH.
+- Have a new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration.
 
 
-## <a name="pwresetcli"></a>Reimpostare la password
+## <a name="<a-name="pwresetcli"></a>reset-the-password"></a><a name="pwresetcli"></a>Reset the password
 
-1. Creare un file denominato PrivateConf.json con queste righe. Sostituire le parentesi e i valori & #60;segnaposto& #62; con le informazioni personalizzate.
+1. Create a file named PrivateConf.json with these lines. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
         {
         "username":"<currentusername>",
@@ -61,26 +62,26 @@ Sarà necessario eseguire le operazioni seguenti:
         "expiration":"<2016-01-01>"
         }
 
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
         azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
-## <a name="sshkeyresetcli"></a>Reimpostare la chiave SSH
+## <a name="<a-name="sshkeyresetcli"></a>reset-the-ssh-key"></a><a name="sshkeyresetcli"></a>Reset the SSH key
 
-1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire le parentesi e i valori & #60;segnaposto& #62; con le informazioni personalizzate.
+1. Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
         {
         "username":"<currentusername>",
         "ssh_key":"<contentofsshkey>"
         }
 
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
         azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="resetbothcli"></a>Reimpostare sia la password sia la chiave SSH
+## <a name="<a-name="resetbothcli"></a>reset-both-the-password-and-the-ssh-key"></a><a name="resetbothcli"></a>Reset both the password and the SSH key
 
-1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire le parentesi e i valori & #60;segnaposto& #62; con le informazioni personalizzate.
+1. Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
         {
         "username":"<currentusername>",
@@ -88,93 +89,97 @@ Sarà necessario eseguire le operazioni seguenti:
         "password":"<newpassword>"
         }
 
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
         azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="createnewsudocli"></a>Creare un nuovo account utente sudo
+## <a name="<a-name="createnewsudocli"></a>create-a-new-sudo-user-account"></a><a name="createnewsudocli"></a>Create a new sudo user account
 
-Se si dimentica il nome utente, è possibile usare VMAccess per crearne uno nuovo con privilegi sudo. In questo caso, il nome utente e la password esistenti non verranno modificati.
+If you forget your user name, you can use VMAccess to create a new one with the sudo authority. In this case, the existing user name and password will not be modified.
 
-Per creare un nuovo utente sudo con accesso tramite password, usare lo script in [Reimpostare la password](#pwresetcli) e specificare il nuovo nome utente.
+To create a new sudo user with password access, use the script in [Reset the password](#pwresetcli) and specify the new user name.
 
-Per creare un nuovo utente sudo con accesso tramite chiave SSH, usare lo script in [Reimpostare la chiave SSH](#sshkeyresetcli) e specificare il nuovo nome utente.
+To create a new sudo user with SSH key access, use the script in [Reset the SSH key](#sshkeyresetcli) and specify the new user name.
 
-È inoltre possibile usare [Reimpostare la password e la chiave SSH](#resetbothcli) per creare un nuovo utente con accesso tramite password e chiave SSH.
+You can also use [Reset the password and the SSH key](#resetbothcli) to create a new user with both password and SSH key access.
 
-## <a name="sshconfigresetcli"></a>Reimpostare la configurazione SSH
+## <a name="<a-name="sshconfigresetcli"></a>reset-the-ssh-configuration"></a><a name="sshconfigresetcli"></a>Reset the SSH configuration
 
-Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche l'accesso alla macchina virtuale. È possibile usare l'estensione VMAccess per reimpostare la configurazione allo stato predefinito. A tale scopo, è sufficiente impostare la chiave "reset\_ssh" su "True". L'estensione riavvia il server SSH, apre la porta SSH nella VM e ripristina la configurazione SSH predefinita. L'account utente (nome, password o chiavi SSH) non verrà modificato.
+If the SSH configuration is in an undesired state, you might also lose access to the VM. You can use the VMAccess extension to reset the configuration to its default state. To do so, you just need to set the “reset_ssh” key to “True”. The extension will restart the SSH server, open the SSH port on your VM, and reset the SSH configuration to default values. The user account (name, password or SSH keys) will not be changed.
 
-> [AZURE.NOTE] Il file di configurazione SSH che viene reimpostato si trova in /etc/ssh/sshd\_config.
+> [AZURE.NOTE] The SSH configuration file that gets reset is located at /etc/ssh/sshd_config.
 
-1. Creare un file denominato PrivateConf.json con questo contenuto.
+1. Create a file named PrivateConf.json with this content.
 
         {
         "reset_ssh":"True"
         }
 
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
 
         azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="deletecli"></a>Eliminare un utente
+## <a name="<a-name="deletecli"></a>delete-a-user"></a><a name="deletecli"></a>Delete a user
 
-Se si desidera eliminare un account utente senza accedere alla macchina virtuale direttamente, è possibile usare questo script.
+If you want to delete a user account without logging into to the VM directly, you can use this script.
 
-1. Creare un file denominato PrivateConf json con questo contenuto, sostituendo il nome utente da rimuovere in &#60;usernametoremove&#62;.
+1. Create a file named PrivateConf.json with this content, substituting the user name to remove for &#60;usernametoremove&#62;. 
 
         {
         "remove_user":"<usernametoremove>"
         }
 
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
 
         azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="statuscli"></a>Visualizzare lo stato dell'estensione VMAccess
+## <a name="<a-name="statuscli"></a>display-the-status-of-the-vmaccess-extension"></a><a name="statuscli"></a>Display the status of the VMAccess extension
 
-Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
+To display the status of the VMAccess extension, run this command.
 
         azure vm extension get
 
-## <a name='checkdisk'<</a>Verificare la coerenza dei dischi aggiunti
+## <a name="<a-name='checkdisk'<</a>check-consistency-of-added-disks"></a><a name='checkdisk'<</a>Check consistency of added disks
 
-Per eseguire fsck su tutti i dischi nella macchina virtuale Linux, è necessario eseguire le operazioni seguenti:
+To run fsck on all disks in your Linux virtual machine, you will need to do the following:
 
-1. Creare un file denominato PublicConf.json con questo contenuto. Il controllo del disco accetta un valore booleano che indica se controllare o meno i dischi collegati alla macchina virtuale.
+1. Create a file named PublicConf.json with this content. Check Disk takes a boolean for whether to check disks attached to your virtual machine or not. 
 
         {   
         "check_disk": "true"
         }
 
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+2. Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
         azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
 
-## <a name='repairdisk'></a>Riparare i dischi 
+## <a name="<a-name='repairdisk'></a>repair-disks"></a><a name='repairdisk'></a>Repair disks 
 
-Per ripristinare i dischi che presentano problemi di montaggio o errori di configurazione di montaggio, usare l'estensione VMAccess per reimpostare la configurazione di montaggio nella macchina virtuale Linux. Sostituendo il nome del disco in & #60; disco& #62;.
+To repair disks that are not mounting or have mount configuration errors, use the VMAccess extension to reset the mount configuration on your Linux virtual machine. Substituting the name of your disk for &#60;yourdisk&#62;.
 
-1. Creare un file denominato PublicConf.json con questo contenuto.
+1. Create a file named PublicConf.json with this content. 
 
         {
         "repair_disk":"true",
         "disk_name":"<yourdisk>"
         }
 
-2. Eseguire questo comando, sostituendo il nome della macchina virtuale in &#60;nome-vm&#62;.
+2. Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
         azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-* Se per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza dei dischi si vogliono usare cmdlet Azure PowerShell o modelli di Azure Resource Manager, vedere la [documentazione dell'estensione VMAccess in GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+* If you want to use Azure PowerShell cmdlets or Azure Resource Manager templates to reset the password or SSH key, fix the SSH configuration, and check disk consistency, see the [VMAccess extension documentation on GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 
-* Per reimpostare la password o la chiave SSH di una VM Linux distribuita con il modello di distribuzione classica è anche possibile usare il [portale di Azure](https://portal.azure.com). Non è attualmente possibile usare il portale per eseguire queste operazioni per una VM Linux distribuita con il modello di distribuzione Resource Manager.
+* You can also use the [Azure portal](https://portal.azure.com) to reset the password or SSH key of a Linux VM deployed in the classic deployment model. You can't currently use the portal do to this for a Linux VM deployed in the Resource Manager deployment model.
 
-* Per altre informazioni sull'uso di estensioni VM per macchine virtuali di Azure vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali](virtual-machines-linux-extensions-features.md).
+* See [About virtual machine extensions and features](virtual-machines-linux-extensions-features.md) for more about using VM extensions for Azure virtual machines.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

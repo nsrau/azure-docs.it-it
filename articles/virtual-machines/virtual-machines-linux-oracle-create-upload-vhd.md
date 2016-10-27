@@ -1,233 +1,238 @@
 <properties
-	pageTitle="Creazione e caricamento di un VHD Oracle Linux | Microsoft Azure"
-	description="Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure che contiene un sistema operativo Oracle Linux."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="szarkos"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management,azure-resource-manager" />
+    pageTitle="Create and upload an Oracle Linux VHD | Microsoft Azure"
+    description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="szarkos"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management,azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="szark"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="szark"/>
 
-# Preparare una macchina virtuale Oracle Linux per Azure
+
+# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Prepare an Oracle Linux virtual machine for Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Prerequisiti ##
+## <a name="prerequisites"></a>Prerequisites ##
 
-In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Oracle Linux in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
-
-
-### Note generali sull'installazione di Oracle Linux
-
-- Vedere anche [Note generali sull'installazione di Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) per altri suggerimenti sulla preparazione di Linux per Azure.
-
-- Il kernel compatibile con Red Hat di Oracle e i relativi UEK3 (Unbreakable Enterprise Kernel) sono supportati sia su Hyper-V sia su Azure. Per ottenere i migliori risultati, assicurarsi di eseguire l'aggiornamento al kernel più recente durante la preparazione del VHD Oracle Linux.
-
-- UEK2 di Oracle non è supportato su Hyper-V e Azure perché non include i driver necessari.
-
-- Il formato VHDX non è supportato in Azure, solo nei **VHD fissi**. È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet convert-vhd.
-
-- Durante l'installazione del sistema operativo Linux è consigliabile usare partizioni standard anziché LVM, che spesso è la scelta predefinita per numerose installazioni. In questo modo sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se fosse necessario collegare un disco del sistema operativo a un'altra macchina virtuale per la risoluzione dei problemi. Se si preferisce, su dischi di dati si può usare [LVM](virtual-machines-linux-configure-lvm.md) o [RAID](virtual-machines-linux-configure-raid.md).
-
-- NUMA non è supportato per VM di dimensioni maggiori a causa di un bug presente nelle versioni del kernel di Linux inferiori a 2.6.37. Questo problema incide principalmente sulle distribuzioni che utilizzano il kernel upstream Red Hat 2.6.32. L'installazione manuale dell'agente Linux di Azure (waagent) disabiliterà automaticamente NUMA nella configurazione GRUB per il kernel Linux. Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
-
-- Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap sul disco temporaneo delle risorse. Altre informazioni su questo argomento sono disponibili nei passaggi seguenti.
-
-- Tutti i dischi rigidi virtuali devono avere dimensioni multiple di 1 MB.
-
-- Verificare che il repository `Addons` sia abilitato. Modificare il file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux ) e cambiare la riga `enabled=0` in `enabled=1` in **[ol6\_addons]** o **[ol7\_addons]** in questo file.
+This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 
-## Oracle Linux 6.4+ ##
+### <a name="oracle-linux-installation-notes"></a>Oracle Linux installation notes
 
-Per l'esecuzione della macchina virtuale in Azure è necessario eseguire specifici passaggi di configurazione nel sistema operativo.
+- Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 
-1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
+- Oracle's Red Hat compatible kernel and their UEK3 (Unbreakable Enterprise Kernel) are both supported on Hyper-V and Azure. For best results, please be sure to update to the latest kernel while preparing your Oracle Linux VHD.
 
-2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
+- Oracle's UEK2 is not supported on Hyper-V and Azure as it does not include the required drivers.
 
-3. Disinstallare NetworkManager attivando il seguente comando:
+- The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-		# sudo rpm -e --nodeps NetworkManager
+- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](virtual-machines-linux-configure-lvm.md) or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
-	**Nota:** se il pacchetto non è già installato, questo comando avrà esito negativo e verrà visualizzato un messaggio di errore. Si tratta di un comportamento previsto.
+- NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37. This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel. Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel. More information about this can be found in the steps below.
 
-4.	Creare un file denominato **network** nella directory `/etc/sysconfig/` contenente il testo seguente:
+- Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 
-		NETWORKING=yes
-		HOSTNAME=localhost.localdomain
+- All of the VHDs must have sizes that are multiples of 1 MB.
 
-5.	Creare un file denominato **ifcfg-eth0** nella directory `/etc/sysconfig/network-scripts/` contenente il testo seguente:
-
-		DEVICE=eth0
-		ONBOOT=yes
-		BOOTPROTO=dhcp
-		TYPE=Ethernet
-		USERCTL=no
-		PEERDNS=yes
-		IPV6INIT=no
-
-6.	Modificare le regole udev per evitare la generazione di regole statiche per l'interfaccia Ethernet. Le regole seguenti possono provocare problemi quando si clona una macchina virtuale in Microsoft Azure o Hyper-V:
-
-		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-
-7. Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
-
-		# chkconfig network on
-
-8. Installare python-pyasn1 eseguendo il comando seguente:
-
-		# sudo yum install python-pyasn1
-
-9.	Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. A questo scopo, aprire "/boot/grub/menu.lst" in un editor di testo e verificare che il kernel predefinito includa i parametri seguenti:
-
-		console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
-
-	In questo modo si garantisce inoltre che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug. Verrà disabilitato NUMA, a causa di un bug nel kernel compatibile con Red Hat di Oracle.
-
-	Inoltre, è consigliabile *rimuovere* i parametri seguenti:
-
-		rhgb quiet crashkernel=auto
-
-	L'avvio grafico e l'avvio silenzioso non sono utili in un ambiente cloud se tutti i log devono essere inviati alla porta seriale.
-
-	L'opzione `crashkernel` può essere configurata, ma si tenga presente che questo parametro ridurrà la quantità di memoria disponibile nella macchina virtuale di almeno 128 MB, il che potrebbe causare problemi con le macchine virtuali di dimensioni inferiori.
+- Make sure that the `Addons` repository is enabled. Edit the file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux ), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
 
-10.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
+## <a name="oracle-linux-6.4+"></a>Oracle Linux 6.4+ ##
 
-11. Installare l'agente Linux di Azure eseguendo il comando seguente: La versione più recente è la 2.0.15.
+You must complete specific configuration steps in the operating system for the virtual machine to run in Azure.
 
-		# sudo yum install WALinuxAgent
+1. In the center pane of Hyper-V Manager, select the virtual machine.
 
-	Si noti che, installando il pacchetto WALinuxAgent, i pacchetti NetworkManager e NetworkManager-gnome verranno rimossi, se l'operazione non è già stata eseguita come descritto nel passaggio 2.
+2. Click **Connect** to open the window for the virtual machine.
 
-12.	Non creare l'area di swap sul disco del sistema operativo.
+3. Uninstall NetworkManager by running the following command:
 
-	L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
+        # sudo rpm -e --nodeps NetworkManager
 
-		ResourceDisk.Format=y
-		ResourceDisk.Filesystem=ext4
-		ResourceDisk.MountPoint=/mnt/resource
-		ResourceDisk.EnableSwap=y
-		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    **Note:** If the package is not already installed, this command will fail with an error message. This is expected.
 
-13.	Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
+4.  Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-14. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
+5.  Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
+
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
+
+6.  Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
+
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+
+7. Ensure the network service will start at boot time by running the following command:
+
+        # chkconfig network on
+
+8. Install python-pyasn1 by running the following command:
+
+        # sudo yum install python-pyasn1
+
+9.  Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
+
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+
+    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in Oracle's Red Hat compatible kernel.
+
+    In addition to the above, it is recommended to *remove* the following parameters:
+
+        rhgb quiet crashkernel=auto
+
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+
+    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
+
+
+10. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
+
+11. Install the Azure Linux Agent by running the following command. The latest version is 2.0.15.
+
+        # sudo yum install WALinuxAgent
+
+    Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
+
+12. Do not create swap space on the OS disk.
+
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
+14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 
 ----------
 
 
-## Oracle Linux 7.0+ ##
+## <a name="oracle-linux-7.0+"></a>Oracle Linux 7.0+ ##
 
-**Modifiche in Oracle Linux 7**
+**Changes in Oracle Linux 7**
 
-La preparazione di una macchina virtuale Oracle Linux 7 per Azure è molto simile a Oracle Linux 6, tuttavia vi sono alcune importanti differenze da notare:
+Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle Linux 6, however there are several important differences worth noting:
 
- - Sia il kernel compatibile con Red Hat di Oracle sia UEK3 di Oracle sono supportati in Azure. È consigliato il kernel UEK3.
- - Il pacchetto NetworkManager e l'agente Linux di Azure non sono più in conflitto. Questo pacchetto viene installato per impostazione predefinita ed è consigliabile non rimuoverlo.
- - GRUB2 viene ora usato come bootloader predefinito, quindi la procedura per la modifica dei parametri kernel è cambiata (vedere di seguito).
- - XFS è ora il file system predefinito. Se si vuole, è ancora possibile usare il file system ext4.
-
-
-**Procedura di configurazione**
-
-1. Nella console di gestione di Hyper-V selezionare la macchina virtuale.
-
-2. Fare clic su **Connetti** per aprire una finestra della console per la macchina virtuale.
-
-3.	Creare un file denominato **network** nella directory `/etc/sysconfig/` contenente il testo seguente:
-
-		NETWORKING=yes
-		HOSTNAME=localhost.localdomain
-
-4.	Creare un file denominato **ifcfg-eth0** nella directory `/etc/sysconfig/network-scripts/` contenente il testo seguente:
-
-		DEVICE=eth0
-		ONBOOT=yes
-		BOOTPROTO=dhcp
-		TYPE=Ethernet
-		USERCTL=no
-		PEERDNS=yes
-		IPV6INIT=no
-
-5.	Modificare le regole udev per evitare la generazione di regole statiche per l'interfaccia Ethernet. Le regole seguenti possono provocare problemi quando si clona una macchina virtuale in Microsoft Azure o Hyper-V:
-
-		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-
-6. Assicurarsi che il servizio di rete venga eseguito all'avvio eseguendo il comando seguente:
-
-		# sudo chkconfig network on
-
-7. Installare il pacchetto python-pyasn1 eseguendo il comando seguente:
-
-		# sudo yum install python-pyasn1
-
-8.	Eseguire il comando seguente per cancellare i metadati yum correnti e installare eventuali aggiornamenti:
-
-		# sudo yum clean all
-		# sudo yum -y update
-
-9.	Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. A tale scopo, aprire "/etc/default/grub" in un editor di testo e modificare il parametro `GRUB_CMDLINE_LINUX`, ad esempio:
-
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
-
-	In questo modo si garantisce inoltre che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug. Disattiva anche nuove convenzioni di denominazione OEL 7 per NIC. Inoltre, è consigliabile *rimuovere* i parametri seguenti:
-
-		rhgb quiet crashkernel=auto
-
-	L'avvio grafico e l'avvio silenzioso non sono utili in un ambiente cloud se tutti i log devono essere inviati alla porta seriale.
-
-	L'opzione `crashkernel` può essere configurata, ma si tenga presente che questo parametro ridurrà la quantità di memoria disponibile nella macchina virtuale di almeno 128 MB, il che potrebbe causare problemi con le macchine virtuali di dimensioni inferiori.
+ - Both the Red Hat compatible kernel and Oracle's UEK3 are supported in Azure.  The UEK3 kernel is recommended.
+ - The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default and we recommend that it is not removed.
+ - GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).
+ - XFS is now the default file system. The ext4 file system can still be used if desired.
 
 
-10. Dopo aver terminato di modificare "/etc/default/grub" come sopra illustrato, eseguire il comando seguente per ricompilare la configurazione GRUB:
+**Configuration steps**
 
-		# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+1. In Hyper-V Manager, select the virtual machine.
 
-11.	Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
+2. Click **Connect** to open a console window for the virtual machine.
 
-12. Installare l'agente Linux di Azure eseguendo il comando seguente:
+3.  Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
 
-		# sudo yum install WALinuxAgent
-		# sudo systemctl enable waagent
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 
-13.	Non creare l'area di swap sul disco del sistema operativo.
+4.  Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
 
-	L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
 
-		ResourceDisk.Format=y
-		ResourceDisk.Filesystem=ext4
-		ResourceDisk.MountPoint=/mnt/resource
-		ResourceDisk.EnableSwap=y
-		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+5.  Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-14.	Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+6. Ensure the network service will start at boot time by running the following command:
 
-15. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
+        # sudo chkconfig network on
+
+7. Install the python-pyasn1 package by running the following command:
+
+        # sudo yum install python-pyasn1
+
+8.  Run the following command to clear the current yum metadata and install any updates:
+
+        # sudo yum clean all
+        # sudo yum -y update
+
+9.  Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/etc/default/grub" in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
+
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+
+    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new OEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+
+        rhgb quiet crashkernel=auto
+
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
+
+    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
 
-## Passaggi successivi
-È ora possibile usare il file con estensione vhd Oracle Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+10. Once you are done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
 
-<!---HONumber=AcomDC_0831_2016-->
+        # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+11. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
+
+12. Install the Azure Linux Agent by running the following command:
+
+        # sudo yum install WALinuxAgent
+        # sudo systemctl enable waagent
+
+13. Do not create swap space on the OS disk.
+
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see the previous step), modify the following parameters in /etc/waagent.conf appropriately:
+
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
+15. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+
+
+## <a name="next-steps"></a>Next steps
+You're now ready to use your Oracle Linux .vhd to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,139 +1,147 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con InsideView | Microsoft Azure" 
-    description="Informazioni su come usare InsideView con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with InsideView | Microsoft Azure" 
+    description="Learn how to use InsideView with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-	manager="femila"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con InsideView
-  
-Questa esercitazione descrive l'integrazione di Azure e InsideView. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   Sottoscrizione di Azure valida
--   Tenant di InsideView
+#<a name="tutorial:-azure-active-directory-integration-with-insideview"></a>Tutorial: Azure Active Directory integration with InsideView
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a InsideView saranno in grado di eseguire l'accesso Single Sign-On all'applicazione tramite il sito aziendale di InsideView (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md).
-  
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+The objective of this tutorial is to show the integration of Azure and InsideView.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-1.  Abilitazione dell'integrazione dell'applicazione per InsideView
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+-   A valid Azure subscription
+-   A InsideView tenant
+  
+After completing this tutorial, the Azure AD users you have assigned to InsideView will be able to single sign into the application at your InsideView company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+  
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for InsideView
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-insideview-tutorial/IC794128.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per InsideView
+##<a name="enabling-the-application-integration-for-insideview"></a>Enabling the application integration for InsideView
   
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per InsideView.
+The objective of this section is to outline how to enable the application integration for InsideView.
 
-###Per abilitare l'integrazione dell'applicazione per InsideView, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-insideview,-perform-the-following-steps:"></a>To enable the application integration for InsideView, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-insideview-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-insideview-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-insideview-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-insideview-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-insideview-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-insideview-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-insideview-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **InsideView**.
+6.  In the **search box**, type **InsideView**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-insideview-tutorial/IC794129.png "Raccolta di applicazioni")
+    ![Application Gallery](./media/active-directory-saas-insideview-tutorial/IC794129.png "Application Gallery")
 
-7.  Nel riquadro dei risultati selezionare **InsideView** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **InsideView**, and then click **Complete** to add the application.
 
     ![InsideView](./media/active-directory-saas-insideview-tutorial/IC794130.png "InsideView")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a InsideView con il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to InsideView with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nella pagina di integrazione dell'applicazione **InsideView** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  In the Azure classic portal, on the **InsideView** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configura accesso Single Sign-On")
+    ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configure Single SignOn")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a InsideView** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  On the **How would you like users to sign on to InsideView** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-insideview-tutorial/IC794132.png "Configura accesso Single Sign-On")
+    ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794132.png "Configure Single SignOn")
 
-3.  Nella casella di testo **URL di risposta InsideView** della pagina **Configura URL app** digitare l'URL SSO di InsideView, ad esempio `https://my.insideview.com/iv/<STS Name>/login.iv`, quindi fare clic su **Avanti**.
+3.  On the **Configure App URL** page, in the **InsideView Reply URL** textbox, type your InsideView SSO URL (e.g.: `https://my.insideview.com/iv/<STS Name>/login.iv`), and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-insideview-tutorial/IC794133.png "Configura URL app")
+    ![Configure App URL](./media/active-directory-saas-insideview-tutorial/IC794133.png "Configure App URL")
 
-4.  Nella pagina **Configura accesso Single Sign-On in InsideView** fare clic su **Download certificato** e infine salvare il file di certificato nel computer.
+4.  On the **Configure single sign-on at InsideView** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-insideview-tutorial/IC794134.png "Configura accesso Single Sign-On")
+    ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794134.png "Configure Single SignOn")
 
-5.  In un'altra finestra del Web browser accedere al sito aziendale di InsideView come amministratore.
+5.  In a different web browser window, log into your InsideView company site as an administrator.
 
-6.  Nella barra degli strumenti in alto fare clic su **Admin**, **Impostazioni SingleSignOn** e quindi su **Aggiungi SAML**.
+6.  In the toolbar on the top, click **Admin**, **SingleSignOn Settings**, and then click **Add SAML**.
 
     ![SAML Single Sign On Settings](./media/active-directory-saas-insideview-tutorial/IC794135.png "SAML Single Sign On Settings")
 
-7.  Nella sezione **Aggiungi un nuovo SAML** seguire questa procedura:
+7.  In the **Add a New SAML** section, perform the following steps:
 
     ![Add a New SAML](./media/active-directory-saas-insideview-tutorial/IC794136.png "Add a New SAML")
 
-    1.  Nella casella di testo **Nome STS** digitare un nome per la configurazione.
-    2.  Nella finestra di dialogo **Configure single sign-on at InsideView** (Configura accesso Single Sign-On in InsideView) del portale di Azure classico copiare il valore di **Endpoint avviato da provider di servizi** e incollarlo nella casella di testo **SamlP/WS-Fed Unsolicated EndPoint** (Endpoint non richiesto SamlP/WS-Fed).
-    3.  Creare un file con **codifica Base 64** dal certificato scaricato.
+    1.  In the **STS Name** textbox, type a name for your configuration.
+    2.  In the Azure classic portal, on the **Configure single sign-on at InsideView** dialog page, copy the **Service Provider (SP) Initiated Endpoint** value, and then paste it into the **SamlP/WS-Fed Unsolicated EndPoint** textbox.
+    3.  Create a **base-64 encoded** file from your downloaded certificate.
         
-		>[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    4.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato STS**.
-    5.  Nella casella di testo **Crm User Id Mapping** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    6.  Nella casella di testo **Mapping dell’email Crm** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    7.  Nella casella di testo **Mapping del nome Crm** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    8.  Nella casella di testo **Mapping del cognome Crm** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    9.  Fare clic su **Save**.
+    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox
+    5.  In the **Crm User Id Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  In the **Crm Email Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  In the **Crm First Name Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    8.  In the **Crm lastName Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    9.  Click **Save**.
 
-8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configura accesso Single Sign-On")
-##Configurazione del provisioning utente
+    ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configure Single SignOn")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Per consentire agli utenti di Azure AD di accedere a InsideView, è necessario eseguirne il provisioning in InsideView. Nel caso di InsideView, il provisioning è un'attività manuale.
+In order to enable Azure AD users to log into InsideView, they must be provisioned into InsideView.  
+In the case of InsideView, provisioning is a manual task.
   
-Per creare utenti o contatti in InsideView, contattare il responsabile della soddisfazione del cliente o inviare un messaggio di posta elettronica a **support@insideview.com**.
+To get users or contacts created in InsideView, contact your customer success manager or send email to **support@insideview.com**
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da InsideView per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] You can use any other InsideView user account creation tools or APIs provided by InsideView to provision Azure AD user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
   
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a InsideView, seguire questa procedura:
+###<a name="to-assign-users-to-insideview,-perform-the-following-steps:"></a>To assign users to InsideView, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **InsideView** fare clic su **Assegna utenti**.
+2.  On the **InsideView **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-insideview-tutorial/IC794138.png "Assegna utenti")
+    ![Assign Users](./media/active-directory-saas-insideview-tutorial/IC794138.png "Assign Users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-insideview-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-insideview-tutorial/IC767830.png "Yes")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

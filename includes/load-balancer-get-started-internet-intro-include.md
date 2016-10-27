@@ -1,9 +1,12 @@
-Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
+An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
-È possibile configurare un servizio bilanciamento del carico per:
+You can configure a load balancer to:
 
-* Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali (VMs). Si fa riferimento a un servizio di bilanciamento del carico in questo scenario come [bilanciamento del carico con connessione Internet](../articles/load-balancer/load-balancer-internet-overview.md).
-* Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Si fa riferimento a un servizio di bilanciamento del carico in questo scenario come un [Bilanciamento del carico interno](../articles/load-balancer/load-balancer-internal-overview.md).
-* Inoltrare il traffico esterno a una specifica istanza di macchina virtuale
+* Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet-facing load balancer](../articles/load-balancer/load-balancer-internet-overview.md).
+* Load balance traffic between VMs in a virtual network (VNet), between VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
+* Forward external traffic to a specific VM instance.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

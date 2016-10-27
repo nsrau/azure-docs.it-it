@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Limitazione in Cluster Resource Manager di Service Fabric | Microsoft Azure"
-   description="Informazioni sulla configurazione delle limitazioni messe a disposizione da Cluster Resource Manager di Service Fabric."
+   pageTitle="Throttling in the Service Fabric cluster resource manager | Microsoft Azure"
+   description="Learn to configure the throttles provided by the Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -17,16 +17,17 @@
    ms.author="masnider"/>
 
 
-# Limitazione del comportamento di Cluster Resource Manager di Service Fabric
-Anche se Cluster Resource Manager è stato configurato correttamente, il cluster può essere interrotto. Ad esempio potrebbero verificarsi errori di nodi simultanei o dominio di errore. Che cosa accadrebbe se ciò si verificasse durante l'aggiornamento? Resource Manager tenta di correggere tutti gli elementi nel modo migliore, ma in periodi come questo è consigliabile valutare l'adozione di una protezione che consenta al cluster stesso di stabilizzarsi (rientro dei nodi, ripristino automatico dell'integrità delle condizioni di rete, distribuzione di bit corretti). Per risolvere questi tipi di situazioni, Cluster Resource Manager di Service Fabric include diverse limitazioni. Si noti che queste limitazioni sono considerate "di disturbo" e, in genere, non devono essere usate senza che venga calcolata accuratamente la quantità di lavoro parallelo che può essere eseguito effettivamente nel cluster e la frequenza con cui è necessario rispondere a questo tipo di eventi imprevisti di riconfigurazione macroscopici (meglio noti come "giornate no").
 
-In genere, è consigliabile evitare tali eventi tramite altre opzioni (ad esempio applicando aggiornamenti regolari del codice ed evitando prima di tutto di sovraccaricare il cluster) piuttosto che ricorrere alle limitazioni per impedire al cluster di utilizzare le risorse durante il tentativo di correzione automatica delle anomalie). Le limitazioni presentano i valori predefiniti che abbiamo trovato attraverso l'esperienza delle impostazioni predefinite, ma è probabilmente necessario darci un'occhiata e adeguarli al carico effettivo previsto. Sebbene non sia consigliabile imporre troppe limitazioni o carico al cluster, potrebbero esserci casi in cui (fino alla relativa correzione) è necessario adottare un paio di limitazioni, anche se ciò dovesse richiedere più tempo per la stabilizzazione del cluster.
+# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Throttling the behavior of the Service Fabric Cluster Resource Manager
+Even if you’ve configured the Cluster Resource Manager correctly, the cluster can get disrupted. For example there could be simultaneous node or fault domain failures - what would happen if that occurred during an upgrade? The Resource Manager will try its best to fix everything, but in times like this you may want to consider a backstop so that the cluster itself has a chance to stabilize (the nodes which are going to come back do, the network conditions heal themselves, corrected bits get deployed). To help with these sorts of situations, the Service Fabric Cluster Resource Manager does include several throttles. Note that these throttles are fairly disruptive and generally shouldn’t be used unless there’s been some careful math done around the amount of parallel work that can actually be done in the cluster, as well as a frequent need to respond to these sorts of (ahem) unplanned macroscopic reconfiguration events (AKA: “Very Bad Days”).
 
-##Configurazione delle limitazioni
-Le limitazioni incluse per impostazione predefinita sono:
+Generally, we recommend avoiding very bad days through other options (like regular code updates and avoiding overscheduling the cluster to begin with) rather than throttling your cluster to prevent it from using resources when it is trying to fix itself). The throttles do have default values that we've found through experience to be ok defaults, but you should probably take a look and tune them to your expected actual load. While not overly constraining or loading the cluster is a best practice you may determine that there are cases which (until you can remedy them) where you need to have a couple of throttles in place, even if it means the cluster will take longer to stabilize.
 
--	GlobalMovementThrottleThreshold: consente di controllare il numero totale di movimenti nel cluster in un determinato intervallo di tempo (definito come GlobalMovementThrottleCountingInterval, valore in secondi)
--	MovementPerPartitionThrottleThreshold: consente di controllare il numero totale di movimenti per qualsiasi partizione del servizio in un determinato intervallo di tempo (MovementPerPartitionThrottleCountingInterval, valore in secondi)
+##<a name="configuring-the-throttles"></a>Configuring the throttles
+The throttles that are included by default are:
+
+-   GlobalMovementThrottleThreshold – this controls the total number of movements in the cluster over some time (defined as the GlobalMovementThrottleCountingInterval, value in seconds)
+-   MovementPerPartitionThrottleThreshold – this controls the total number of movements for any service partition over some time (the MovementPerPartitionThrottleCountingInterval, value in seconds)
 
 ``` xml
 <Section Name="PlacementAndLoadBalancing">
@@ -37,10 +38,14 @@ Le limitazioni incluse per impostazione predefinita sono:
 </Section>
 ```
 
-Si noti che la maggior parte dei casi d'uso di queste limitazioni ha interessato clienti che già si trovavano in un ambiente con limitazione delle risorse (ad esempio, larghezza della banda di rete limitata in singoli nodi o dischi che non soddisfacevano i requisiti per le compilazioni della replica parallela su esse imposte), con conseguente insuccesso o lentezza di tali operazioni. In queste situazioni, i clienti erano certi di stare potenzialmente estendendo l'intervallo di stabilizzazione richiesto dal cluster, con la consapevolezza che avrebbero potuto finire per eseguire operazioni a un'affidabilità complessiva ridotta durante il periodo di limitazione.
+Be aware that most of the time we’ve seen customers use these throttles it has been because they were already in a resource constrained environment (such as limited network bandwidth into individual nodes or disks which weren't up to the requirements of parallel replica builds which were being placed on them) which meant that such operations wouldn’t succeed or would be slow anyway.  In these situations customers were comfortable knowing that they were potentially extending the amount of time it would take the cluster to reach a stable state, including knowing that they could end up running at lower overall reliability while they were throttled.
 
-## Passaggi successivi
-- Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
-- Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+## <a name="next-steps"></a>Next steps
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

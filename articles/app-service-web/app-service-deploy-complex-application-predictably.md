@@ -1,308 +1,313 @@
 <properties
-	pageTitle="Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure"
-	description="Informazioni su come effettuare il provisioning di un'applicazione costituita da microservizi e come distribuirla nel servizio app di Azure come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell."
-	services="app-service"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="Provision and deploy microservices predictably in Azure"
+    description="Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting."
+    services="app-service"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/06/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/06/2016"
+    ms.author="cephalin"/>
 
 
-# Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure #
 
-Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell.
+# <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provision and deploy microservices predictably in Azure #
 
-Quando si effettua il provisioning e si distribuiscono applicazioni su vasta scala costituite la microservizi altamente disaccoppiati, ripetibilità e prevedibilità sono fondamentali. Con il [servizio app di Azure](/services/app-service/) è possibile creare microservizi che includono app Web, per dispositivi mobili, per le API e per la logica. [Gestione risorse di Azure](../resource-group-overview.md) consente di gestire tutti i microservizi come unità, insieme alle dipendenze delle risorse, ad esempio le impostazioni di controllo del codice sorgente e del database. A questo punto è possibile distribuire l'applicazione usando modelli JSON e semplici script di PowerShell.
+This tutorial shows how to provision and deploy an application composed of [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](/services/app-service/) as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success. [Azure App Service](/services/app-service/) enables you to create microservices that include web apps, mobile apps, API apps, and logic apps. [Azure Resource Manager](../resource-group-overview.md) enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings. Now, you can also deploy such an application using JSON templates and simple PowerShell scripting. 
 
-## Contenuto dell'esercitazione ##
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
-In questa esercitazione si distribuirà un'applicazione che include:
+## <a name="what-you-will-do"></a>What you will do ##
 
--	Due app Web (ovvero due microservizi)
--	Un database SQL di back-end
--	Impostazioni dell'app, stringhe di connessione e controllo del codice sorgente
--	Application Insights, avvisi, impostazioni di scalabilità automatica
+In the tutorial, you will deploy an application that includes:
 
-## Strumenti da usare ##
+-   Two web apps (i.e. two microservices)
+-   A backend SQL Database
+-   App settings, connection strings, and source control
+-   Application insights, alerts, autoscaling settings
 
-In questa esercitazione si useranno gli strumenti seguenti. Non essendo una discussione completa sugli strumenti, verrà considerato solo lo scenario end-to-end, fornendo una breve introduzione per ogni strumento e dove è possibile trovare altre informazioni specifiche.
+## <a name="tools-you-will-use"></a>Tools you will use ##
 
-### Modelli di Gestione risorse di Azure (JSON) ###
+In this tutorial, you will use the following tools. Since it’s not comprehensive discussion on tools, I’m going to stick to the end-to-end scenario and just give you a brief intro to each, and where you can find more information on it. 
+
+### <a name="azure-resource-manager-templates-(json)"></a>Azure Resource Manager templates (JSON) ###
  
-Ogni volta che si crea, ad esempio, un'app Web nel servizio app di Azure, Gestione risorse di Azure usa un modello JSON per creare l'intero gruppo di risorse con le risorse del componente. Un modello complesso disponibile in [Azure Marketplace](/marketplace), come l'app [WordPress scalabile](/marketplace/partners/wordpress/scalablewordpress/), può includere il database MySQL, account di archiviazione, il piano di servizio app, la stessa app Web, regole di avviso, impostazioni dell'app, impostazioni di scalabilità automatica e altro. Tutti questi modelli sono disponibili tramite PowerShell. Per informazioni su come scaricare e usare questi modelli, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+Every time you create a web app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources. A complex template from the [Azure Marketplace](/marketplace) like the [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/) app can include the MySQL database, storage accounts, the App Service plan, the web app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell. For information on how to download and use these templates, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
+For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
 
-### Azure SDK 2.6 per Visual Studio ###
+### <a name="azure-sdk-2.6-for-visual-studio"></a>Azure SDK 2.6 for Visual Studio ###
 
-L'SDK più recente include miglioramenti a livello di supporto per i modelli di Gestione risorse di Azure nell'editor JSON. È possibile usarlo per creare rapidamente da zero un modello di gruppo di risorse o aprire un modello JSON esistente (ad esempio, un modello della raccolta scaricato) per modificarlo, popolare il file di parametri e distribuire il gruppo di risorse direttamente da una soluzione del gruppo di risorse di Azure.
+The newest SDK contains improvements to the Resource Manager template support in the JSON editor. You can use this to quickly create a resource group template from scratch or open an existing JSON template (such as a downloaded gallery template) for modification, populate the parameters file, and even deploy the resource group directly from an Azure Resource Group solution.
 
-Per altre informazioni, vedere [Azure SDK 2.6 per Visual Studio](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
+For more information, see [Azure SDK 2.6 for Visual Studio](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
 
-### Azure PowerShell 0.8.0 o versione successiva ###
+### <a name="azure-powershell-0.8.0-or-later"></a>Azure PowerShell 0.8.0 or later ###
 
-A partire dalla versione 0.8.0, l'installazione di Azure PowerShell include il modulo Gestione risorse di Azure, oltre al modulo Azure. Il nuovo modulo permette di creare script per la distribuzione di gruppi di risorse.
+Beginning in version 0.8.0, the Azure PowerShell installation includes the Azure Resource Manager module in addition to the Azure module. This new module enables you to script the deployment of resource groups.
 
-Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 
-### Esplora risorse di Azure ###
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer ###
 
-Questo [strumento in anteprima](https://resources.azure.com) permette di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e le singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove. Le informazioni immediatamente disponibili nello strumento sono molto utili per la modifica del modello, perché mostrano quali proprietà è necessario impostare per un tipo di risorsa particolare, i valori corretti e così via. È anche possibile creare un gruppo di risorse personalizzato nel [Portale di Azure](https://portal.azure.com/) e ispezionarne quindi le definizioni JSON nello strumento di esplorazione per creare un modello del gruppo di risorse.
+This [preview tool](https://resources.azure.com) enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources. In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.  The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the [Azure Portal](https://portal.azure.com/), then inspect its JSON definitions in the explorer tool to help you templatize the resource group.
 
-### Pulsante Deploy to Azure per la distribuzione in Azure ###
+### <a name="deploy-to-azure-button"></a>Deploy to Azure button ###
 
-Se si usa GitHub per il controllo del codice sorgente, è possibile inserire nel file README.MD un [pulsante Deploy to Azure](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/), che abilita un'interfaccia utente di distribuzione in Azure pronta all'uso. Mentre si può procedere in questo modo per qualsiasi app Web semplice, è possibile estendere questa opzione per abilitare la distribuzione di un intero gruppo di risorse inserendo un file azuredeploy.json nella radice del repository. Questo file JSON, che contiene il modello di gruppo di risorse, verrà usato dal pulsante Deploy to Azure per creare il gruppo di risorse. Per un esempio vedere [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), l'app di esempio che verrà usata in questa esercitazione.
+If you use GitHub for source control, you can put a [Deploy to Azure button](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) into your README.MD, which enables a turn-key deployment UI to Azure. While you can do this for any simple web app, you can extend this to enable deploying an entire resource group by putting an azuredeploy.json file in the repository root. This JSON file, which contains the resource group template, will be used by the Deploy to Azure button to create the resource group. For an example, see the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) sample, which you will use in this tutorial.
 
-## Ottenere il modello del gruppo di risorse di esempio ##
+## <a name="get-the-sample-resource-group-template"></a>Get the sample resource group template ##
 
-Ecco come scaricarlo.
+So now let’s get right to it.
 
-1. 	Passare all'esempio di servizio app [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp).
+1.  Navigate to the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service sample.
 
-2.	 Nel file readme.md fare clic su **Deploy to Azure**.
+2.   In readme.md, click **Deploy to Azure**.
  
-3.	Verrà aperto il sito [deploy-to-azure](https://deploy.azure.com) e verrà chiesto di immettere i parametri di distribuzione. Come si noterà, la maggior parte dei campi è già popolata con il nome del repository e alcune stringhe casuali. È possibile modificare tutti i campi, se lo si desidera, ma le uniche informazioni che è necessario immettere sono l'accesso amministrativo e la password di SQL Server, quindi fare clic su **Next**.
+3.  You’re taken to the [deploy-to-azure](https://deploy.azure.com) site and asked to input deployment parameters. Notice that most of the fields are populated with the repository name and some random strings for you. You can change all the fields if you want, but the only things you have to enter are the SQL Server administrative login and the password, then click **Next**.
  
-	![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
+    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 
-4.	Fare quindi clic su **Deploy** per avviare il processo di distribuzione. Dopo il completamento del processo, fare clic sul collegamento http://todoapp*XXXX*.azurewebsites.net per accedere all'applicazione distribuita.
+4.  Next, click **Deploy** to start the deployment process. Once the process runs to completion, click the http://todoapp*XXXX*.azurewebsites.net link to browse the deployed application. 
 
-	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
+    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
-	La visualizzazione dell'interfaccia utente sarà un po' lenta alla prima esplorazione, perché le app sono in fase di avvio, ma l'applicazione è di sicuro completamente funzionante.
+    The UI would be a little slow when you first browse to it because the apps are just starting up, but convince yourself that it’s a fully-functional application.
 
-5.	Tornando alla pagina di distribuzione, fare clic sul collegamento **Gestisci** per visualizzare la nuova applicazione nel portale di Azure.
+5.  Back in the Deploy page, click the **Manage** link to see the new application in the Azure Portal.
 
-6.	Nell'elenco a discesa **Informazioni di base** fare clic sul collegamento del gruppo di risorse. Notare anche che l'app Web è già connessa al repository GitHub in **Progetto esterno**.
+6.  In the **Essentials** dropdown, click the resource group link. Note also that the web app is already connected to the GitHub repository under **External Project**. 
 
-	![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
  
-7.	Nel pannello del gruppo di risorse si noterà che il gruppo include già due app Web e un database SQL.
+7.  In the resource group blade, note that there are already two web apps and one SQL Database in the resource group.
 
-	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
+    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Tutto ciò che si è appena visto in pochi minuti è un'applicazione di microservizi completamente distribuita, con tutti i componenti, le dipendenze, le impostazioni, il database e la pubblicazione continua configurati da un'orchestrazione automatizzata in Gestione risorse di Azure. Tutte le operazioni sono state eseguite da due elementi:
+Everything that you just saw in a few short minutes is a fully deployed two-microservice application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager. All this was done by two things:
 
--	Il pulsante Deploy to Azure
--	Il file azuredeploy.json nella radice del repository
+-   The Deploy to Azure button
+-   azuredeploy.json in the repo root
 
-È possibile distribuire la stessa applicazione decine, centinaia o migliaia di volte e avere ogni volta esattamente la stessa configurazione. La ripetibilità e la prevedibilità di questo approccio consentono di distribuire applicazioni su vasta scala in modo semplice e affidabile.
+You can deploy this same application tens, hundreds, or thousands of times and have the exact same configuration every time. The repeatability and the predictability of this approach enables you to deploy high-scale applications with ease and confidence.
 
-## Esaminare (o modificare) AZUREDEPLOY.JSON ##
+## <a name="examine-(or-edit)-azuredeploy.json"></a>Examine (or edit) AZUREDEPLOY.JSON ##
 
-A questo punto si esaminerà come è stato configurato il repository GitHub. Si userà l'editor JSON incluso in Azure .NET SDK, quindi se [Azure .NET SDK 2.6](/downloads/) non è già installato, installarlo ora.
+Now let’s look at how the GitHub repository was set up. You will be using the JSON editor in the Azure .NET SDK, so if you haven’t already installed [Azure .NET SDK 2.6](/downloads/), do it now.
 
-1.	Clonare il repository [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) con lo strumento git preferito. Nella schermata seguente questa operazione viene eseguita con Team Explorer in Visual Studio 2013.
+1.  Clone the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository using your favorite git tool. In the screenshot below, I’m doing this in the Team Explorer in Visual Studio 2013.
 
-	![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+    ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
 
-2.	Dalla radice del repository aprire azuredeploy.json in Visual Studio. Se il riquadro Struttura JSON non è visibile, è necessario installare Azure .NET SDK.
+2.  From the repository root, open azuredeploy.json in Visual Studio. If you don’t see the JSON Outline pane, you need to install Azure .NET SDK.
 
-	![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
+    ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
 
-Non verranno descritti tutti i dettagli del formato JSON, ma nella sezione [Altre risorse](#resources) sono disponibili collegamenti per l'apprendimento del linguaggio del modello di gruppo di risorse. In questa esercitazione verranno illustrate solo le interessanti funzionalità che possono semplificare le attività iniziali per creare un modello personalizzato per la distribuzione di app.
+I’m not going to describe every detail of the JSON format, but the [More Resources](#resources) section has links for learning the resource group template language. Here, I’m just going to show you the interesting features that can help you get started in making your own custom template for app deployment.
 
-### Parametri ###
+### <a name="parameters"></a>Parameters ###
 
-Nella sezione dei parametri è possibile osservare che la maggior parte di essi corrisponde all'input richiesto tramite il pulsante **Deploy to Azure**. Il sito aperto tramite il pulsante **Deploy to Azure** popola l'interfaccia utente di input usando i parametri definiti nel file azuredeploy.json. Questi parametri sono usati in tutte le definizioni di risorse, ad esempio nomi delle risorse, valori delle proprietà e così via.
+Take a look at the parameters section to see that most of these parameters are what the **Deploy to Azure** button prompts you to input. The site behind the **Deploy to Azure** button populates the input UI using the parameters defined in azuredeploy.json. These parameters are used throughout the resource definitions, such as resource names, property values, etc.
 
-### Risorse ###
+### <a name="resources"></a>Resources ###
 
-Come si può vedere, nel nodo delle risorse sono definite 4 risorse di primo livello, quali un'istanza di SQL Server, un piano di servizio app e due app Web.
+In the resources node, you can see that 4 top-level resources are defined, including a SQL Server instance, an App Service plan, and two web apps. 
 
-#### Piano di servizio app ####
+#### <a name="app-service-plan"></a>App Service plan ####
 
-Si inizierà con una semplice risorsa a livello di radice in JSON. In Struttura JSON fare clic sul piano di servizio app denominato **[hostingPlanName]** per evidenziare il codice JSON corrispondente.
+Let’s start with a simple root-level resource in the JSON. In the JSON Outline, click the App Service plan named **[hostingPlanName]** to highlight the corresponding JSON code. 
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
-Si noti che l'elemento `type` specifica la stringa per un piano di servizio app (che molto tempo fa era definito server farm), altri elementi e proprietà sono compilati con i parametri definiti nel file JSON e questa risorsa non include risorse annidate.
+Note that the `type` element specifies the string for an App Service plan (it was called a server farm a long, long time ago), and other elements and properties are filled in using the parameters defined in the JSON file, and this resource doesn’t have any nested resources.
 
->[AZURE.NOTE] Notare anche che il valore `apiVersion` indica ad Azure quale versione dell'API REST usare con la definizione delle risorse JSON e può influire sulla formattazione della risorsa all'interno di `{}`.
+>[AZURE.NOTE] Note also that the value of `apiVersion` tells Azure which version of the REST API to use the JSON resource definition with, and it can affect how the resource should be formatted inside the `{}`. 
 
-#### SQL Server ####
+#### <a name="sql-server"></a>SQL Server ####
 
-Fare quindi clic sulla risorsa di SQL Server denominata **SQLServer** in Struttura JSON.
+Next, click on the SQL Server resource named **SQLServer** in the JSON Outline.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
  
-Nel codice JSON evidenziato notare quando indicato di seguito:
+Note the following about the highlighted JSON code:
 
--	Per usare i parametri, assicurarsi che le risorse create siano denominate e configurate in modo coerente tra di esse.
--	La risorsa SQLServer ha due risorse annidate, ognuna con un valore diverso per `type`.
--	Le risorse annidate in `“resources”: […]`, dove sono definite le regole di database e del firewall, includono un elemento `dependsOn` che specifica l'ID risorsa della risorsa SQLServer a livello di radice. Questo elemento indica a Gestione risorse di Azure che "prima di creare questa risorsa, deve esistere già l'altra risorsa e se l'altra risorsa è definita nel modello, dev'essere creata prima quella".
+-   The use of parameters ensures that the created resources are named and configured in a way that makes them consistent with one another.
+-   The SQLServer resource has two nested resources, each has a different value for `type`.
+-   The nested resources inside `“resources”: […]`, where the database and the firewall rules are defined, have a `dependsOn` element that specifies the resource ID of the root-level SQLServer resource. This tells Azure Resource Manager, “before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first”.
 
-	>[AZURE.NOTE] Per altre informazioni sull'uso della funzione `resourceId()`, vedere [Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md).
+    >[AZURE.NOTE] For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../resource-group-template-functions.md).
 
--	L'elemento `dependsOn` indica a Gestione risorse di Azure quali risorse possono essere create in parallelo e quali devono essere create in sequenza.
+-   The effect of the `dependsOn` element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially. 
 
-#### App Web ####
+#### <a name="web-app"></a>Web app ####
 
-Si passerà ora alle app Web effettive, che sono più complesse. Fare clic sull'app Web [variables('apiSiteName')] in Struttura JSON per evidenziare il relativo codice JSON. Come si noterà, diventa tutto molto più interessante. A questo scopo, le funzionalità verranno descritte una per una:
+Now, let’s move on to the actual web apps themselves, which are more complicated. Click the [variables(‘apiSiteName’)] web app in the JSON Outline to highlight its JSON code. You’ll notice that things are getting much more interesting. For this purpose, I’ll talk about the features one by one:
 
-##### Risorsa radice #####
+##### <a name="root-resource"></a>Root resource #####
 
-L'app Web dipende da due diverse risorse. Ciò significa che Gestione risorse di Azure creerà l'app Web solo dopo la creazione del piano di servizio app e dell'istanza di SQL Server.
+The web app depends on two different resources. This means that Azure Resource Manager will create the web app only after both the App Service plan and the SQL Server instance are created.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### Impostazioni app #####
+##### <a name="app-settings"></a>App settings #####
 
-Le impostazioni dell'app vengono definite anche come risorsa annidata.
+The app settings are also defined as a nested resource.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-Nell'elemento `properties` per `config/appsettings` sono disponibili due impostazioni app nel formato `“<name>” : “<value>”`.
+In the `properties` element for `config/appsettings`, you have two app settings in the format `“<name>” : “<value>”`.
 
--	`PROJECT` è un'[impostazione KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) che indica alla distribuzione di Azure quale progetto usare in una soluzione di Visual Studio con più progetti. Più avanti verrà illustrato come configurare il controllo del codice sorgente, ma poiché il codice di ToDoApp è una soluzione di Visual Studio con più progetti, questa impostazione è necessaria.
--	`clientUrl` è semplicemente un'impostazione app usata dal codice dell'applicazione.
+-   `PROJECT` is a [KUDU setting](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) that tells Azure deployment which project to use in a multi-project Visual Studio solution. I will show you later how source control is configured, but since the ToDoApp code is in a multi-project Visual Studio solution, we need this setting.
+-   `clientUrl` is simply an app setting that the application code uses.
 
-##### Stringhe di connessione #####
+##### <a name="connection-strings"></a>Connection strings #####
 
-Le stringhe di connessione vengono definite anche come risorsa annidata.
+The connection strings are also defined as a nested resource.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-Nell'elemento `properties` per `config/connectionstrings` ogni stringa di connessione è definita anche come coppia nome/valore con il formato specifico `“<name>” : {“value”: “…”, “type”: “…”}`. Per l'elemento `type` i valori possibili sono `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
+In the `properties` element for `config/connectionstrings`, each connection string is also defined as a name:value pair, with the specific format of `“<name>” : {“value”: “…”, “type”: “…”}`. For the `type` element, possible values are `MySql`, `SQLServer`, `SQLAzure`, and `Custom`.
 
->[AZURE.TIP] Per un elenco definitivo di tipi di stringhe di connessione, eseguire il comando seguente in Azure PowerShell: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+>[AZURE.TIP] For a definitive list of the connection string types, run the following command in Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
     
-##### Controllo del codice sorgente #####
+##### <a name="source-control"></a>Source control #####
 
-Le impostazioni di controllo del codice sorgente vengono definite anche come risorsa annidata. Gestione risorse di Azure usa questa risorsa per configurare la pubblicazione continua (vedere più avanti l'avvertenza per `IsManualIntegration`) e anche per l'avvio automatico della distribuzione del codice applicazione durante l'elaborazione del file JSON.
+The source control settings are also defined as a nested resource. Azure Resource Manager uses this resource to configure continuous publishing (see caveat on `IsManualIntegration` later) and also to kick off the deployment of application code automatically during the processing of the JSON file.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
-`RepoUrl` e `branch` devono essere abbastanza intuitive e puntare al repository Git e al nome del ramo dal quale viene eseguita la pubblicazione. Anche in questo caso, sono definite dai parametri di input.
+`RepoUrl` and `branch` should be pretty intuitive and should point to the Git repository and the name of the branch to publish from. Again, these are defined by input parameters. 
 
-Si noti che nell'elemento `dependsOn`, oltre alla risorsa app Web stessa, `sourcecontrols/web` dipende anche da `config/appsettings` e `config/connectionstrings`. Il motivo è che dopo la configurazione di `sourcecontrols/web`, il processo di distribuzione di Azure tenta automaticamente di distribuire, compilare e avviare il codice dell'applicazione. L'inserimento di questa dipendenza consente di assicurare l'accesso dell'applicazione alle impostazioni delle app e alle impostazioni di connessione necessarie prima di eseguire il codice dell'applicazione.
+Note in the `dependsOn` element that, in addition to the web app resource itself, `sourcecontrols/web` also depends on `config/appsettings` and `config/connectionstrings`. This is because once `sourcecontrols/web` is configured, the Azure deployment process will automatically attempt to deploy, build, and start the application code. Therefore, inserting this dependency helps you make sure that the application has access to the required app settings and connection strings before the application code is run. 
 
->[AZURE.NOTE] Notare anche che `IsManualIntegration` è impostata su `true`. Questa proprietà è necessaria nell'esercitazione, perché non si è effettivamente il proprietario del repository GitHub e quindi non è possibile concedere ad Azure l'autorizzazione per configurare la pubblicazione continua da [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (vale a dire eseguire il push degli aggiornamenti automatici del repository ad Azure). È possibile usare il valore predefinito `false` per il repository specificato solo se le credenziali GitHub del proprietario sono già state configurate nel [portale di Azure](https://portal.azure.com/). In altre parole, se in precedenza è stato impostato il controllo del codice sorgente in GitHub o BitBucket per qualsiasi app nel [Portale di Azure](https://portal.azure.com/) usando le proprie credenziali utente, Azure memorizzerà le credenziali e le userà ogni volta che in seguito si distribuirà un'app da GitHub o BitBucket. Tuttavia, se questa operazione non è ancora stata eseguita, la distribuzione del modello JSON non riuscirà quando Gestione risorse di Azure tenta di configurare le impostazioni di controllo del codice sorgente dell'app Web, perché non può connettersi a GitHub o BitBucket con le credenziali del proprietario del repository.
+>[AZURE.NOTE] Note also that `IsManualIntegration` is set to `true`. This property is necessary in this tutorial because you do not actually own the GitHub repository, and thus cannot actually grant permission to Azure to configure continuous publishing from [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (i.e. push automatic repository updates to Azure). You can use the default value `false` for the specified repository only if you have configured the owner’s GitHub credentials in the [Azure portal](https://portal.azure.com/) before. In other words, if you have set up source control to GitHub or BitBucket for any app in the [Azure Portal](https://portal.azure.com/) previously, using your user credentials, then Azure will remember the credentials and use them whenever you deploy any app from GitHub or BitBucket in the future. However, if you haven’t done this already, deployment of the JSON template will fail when Azure Resource Manager tries to configure the web app’s source control settings because it cannot log into GitHub or BitBucket with the repository owner’s credentials.
 
-## Confrontare il modello JSON con il gruppo di risorse distribuite ##
+## <a name="compare-the-json-template-with-deployed-resource-group"></a>Compare the JSON template with deployed resource group ##
 
-Qui è possibile scorrere tutti i pannelli dell'app Web nel [portale di Azure](https://portal.azure.com/), ma esiste un altro strumento altrettanto, se non più, utile. Passare allo strumento di anteprima di [Esplora risorse di Azure](https://resources.azure.com) che fornisce una rappresentazione JSON di tutti i gruppi di risorse nelle proprie sottoscrizioni, così come esistono effettivamente nel back-end di Azure. È anche possibile vedere in che modo la gerarchia JSON del gruppo di risorse in Azure corrisponde alla gerarchia nel file modello usato per crearla.
+Here, you can go through all the web app’s blades in the [Azure Portal](https://portal.azure.com/), but there’s another tool that’s just as useful, if not more. Go to the [Azure Resource Explorer](https://resources.azure.com) preview tool, which gives you a JSON representation of all the resource groups in your subscriptions, as they actually exist in the Azure backend. You can also see how the resource group’s JSON hierarchy in Azure corresponds with the hierarchy in the template file that’s used to create it.
 
-Ad esempio, se si passa allo strumento [Esplora risorse di Azure](https://resources.azure.com) e si espandono i nodi nello strumento, si vedranno il gruppo di risorse e le risorse a livello di radice raccolte nei rispettivi tipi di risorse.
+For example, when I go to the [Azure Resource Explorer](https://resources.azure.com) tool and expand the nodes in the explorer, I can see the resource group and the root-level resources that are collected under their respective resource types.
 
 ![](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
 
-Se si esegue il drill-down fino a un'app Web, dovrebbero essere visibili i dettagli di configurazione dell'app Web analoghi alla schermata seguente:
+If you drill down to a web app, you should be able to see web app configuration details similar to the below screenshot:
 
 ![](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
 
-Anche in questo caso, le risorse annidate avranno una gerarchia molto simile a quelle nel file modello JSON e saranno visualizzate impostazioni app, stringhe di connessione e così via, adeguatamente riflesse nel riquadro JSON. L'assenza di impostazioni a questo punto può indicare un problema con il file JSON e può contribuire a risolvere i problemi del file modello JSON.
+Again, the nested resources should have a hierarchy very similar to those in your JSON template file, and you should see the app settings, connection strings, etc., properly reflected in the JSON pane. The absence of settings here may indicate an issue with your JSON file and can help you troubleshoot your JSON template file.
 
-## Distribuire manualmente il modello di gruppo di risorse ##
+## <a name="deploy-the-resource-group-template-yourself"></a>Deploy the resource group template yourself ##
 
-Il pulsante **Deploy to Azure** è molto utile, ma consente di distribuire il modello di gruppo di risorse in azuredeploy.json solo se è già stato effettuato il push di azuredeploy.json a GitHub. Azure .NET SDK fornisce anche gli strumenti per la distribuzione di qualsiasi file modello JSON direttamente dal computer locale. A questo scopo, eseguire la procedura seguente.
+The **Deploy to Azure** button is great, but it allows you to deploy the resource group template in azuredeploy.json only if you have already pushed azuredeploy.json to GitHub. The Azure .NET SDK also provides the tools for you to deploy any JSON template file directly from your local machine. To do this, follow the steps below:
 
-1.	In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
+1.  In Visual Studio, click **File** > **New** > **Project**.
 
-2.	Fare clic su **Visual C#** > **Cloud** > **Gruppo di risorse di Azure**, quindi su **OK**.
+2.  Click **Visual C#** > **Cloud** > **Azure Resource Group**, then click **OK**.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 
-3.	In **Seleziona modello di Azure** selezionare **Modello vuoto** e fare clic su **OK**.
+3.  In **Select Azure Template**, select **Blank Template** and click **OK**.
 
-4.	Trascinare azuredeploy.json nella cartella **Modello** del nuovo progetto.
+4.  Drag azuredeploy.json into the **Template** folder of your new project.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 
-5.	Da Esplora soluzioni aprire il file azuredeploy.json copiato.
+5.  From Solution Explorer, open the copied azuredeploy.json.
 
-6.	Ai fini di questa dimostrazione, si aggiungeranno al file JSON alcune risorse standard di Application Insights, facendo clic su **Aggiungi risorsa**. Se si è interessati solo alla distribuzione del file JSON, ignorare i passaggi relativi alla distribuzione.
+6.  Just for the sake of the demonstration, let’s add some standard Application Insight resources to our JSON file, by clicking **Add Resource**. If you’re just interested in deploying the JSON file, skip to the deploy steps.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 
-7.	Selezionare **Application Insights per app Web**, assicurarsi che siano selezionati un piano di servizio app esistente e un'app Web e quindi fare clic su **Aggiungi**.
+7.  Select **Application Insights for Web Apps**, then make sure an existing App Service plan and web app is selected, and then click **Add**.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
 
-	A questo punto saranno visualizzate diverse nuove risorse che, a seconda della risorsa e delle operazioni che esegue, presentano dipendenze dal piano di servizio app o dall'app Web. Queste risorse non sono abilitate dalla relativa definizione esistente, perciò si procederà alla modifica.
+    You’ll now be able to see several new resources that, depending on the resource and what it does, have dependencies on either the App Service plan or the web app. These resources are not enabled by their existing definition and you’re going to change that.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
  
-8.	In Struttura JSON fare clic su **appInsights AutoScale** per evidenziare il relativo codice JSON. Questa è l'impostazione della scalabilità per il piano di servizio app.
+8.  In the JSON Outline, click **appInsights AutoScale** to highlight its JSON code. This is the scaling setting for your App Service plan.
 
-9.	Nel codice JSON evidenziato individuare le proprietà `location` e `enabled` e impostarle come illustrato di seguito.
+9.  In the highlighted JSON code, locate the `location` and `enabled` properties and set them as shown below.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 
-10.	In Struttura JSON fare clic su **CPUHigh appInsights** per evidenziare il relativo codice JSON. Si tratta di un avviso.
+10. In the JSON Outline, click **CPUHigh appInsights** to highlight its JSON code. This is an alert.
 
-11.	Individuare le proprietà `location` e `isEnabled` e impostarle come illustrato di seguito. Eseguire la stessa operazione per gli altri tre avvisi (lampadine viola).
+11. Locate the `location` and `isEnabled` properties and set them as shown below. Do the same for the other three alerts (purple bulbs).
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
 
-12.	A questo punto si è pronti per la distribuzione. Fare quindi clic con il pulsante destro del mouse sul progetto e scegliere **Distribuisci** > **Nuova distribuzione**.
+12. You’re now ready to deploy. Right-click the project and select **Deploy** > **New Deployment**.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 
-13.	Accedere al proprio account Azure, se non si è già connessi.
+13. Log into your Azure account if you haven’t already done so.
 
-14.	Selezionare un gruppo di risorse esistente nella sottoscrizione o crearne uno nuovo, selezionare **azuredeploy.json**, quindi fare clic su **Modifica parametri**.
+14. Select an existing resource group in your subscription or create a new one, select **azuredeploy.json**, and then click **Edit Parameters**.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
 
-	A questo punto si sarà in grado di modificare tutti i parametri definiti nel file modello in una tabella. I parametri che definiscono i valori predefiniti avranno già i relativi valori predefiniti e i parametri che definiscono un elenco di valori consentiti saranno visualizzati come elenchi a discesa.
+    You’ll now be able to edit all the parameters defined in the template file in a nice table. Parameters that define defaults will already have their default values, and parameters that define a list of allowed values will be shown as dropdowns.
 
-	![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
 
-15.	Compilare tutti i parametri vuoti e usare l'[indirizzo del repository GitHub per ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) in **repoUrl**. Fare quindi clic su **Salva**.
+15. Fill in all the empty parameters, and use the [GitHub repo address for ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) in **repoUrl**. Then, click **Save**.
  
-	![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
+    ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
-	>[AZURE.NOTE] La scalabilità automatica è una funzionalità offerta nel livello **Standard** o superiore e gli avvisi a livello di piano sono funzionalità offerte nel livello **Basic** o superiore. Sarà necessario impostare il parametro **sku** su **Standard** o **Premium** per visualizzare tutte le nuove risorse di Application Insights evidenziate.
-	
-16.	Fare clic su **Distribuisci**. Se è stata selezionata l'opzione **Salva password**, la password verrà salvata nel file di parametri **come testo normale**. In caso contrario, verrà richiesto di immettere la password del database durante il processo di distribuzione.
+    >[AZURE.NOTE] Autoscaling is a feature offered in **Standard** tier or higher, and plan-level alerts are features offered in **Basic** tier or higher, you’ll need to set the **sku** parameter to **Standard** or **Premium** in order to see all your new App Insights resources light up.
+    
+16. Click **Deploy**. If you selected **Save passwords**, the password will be saved in the parameter file **in plain text**. Otherwise, you’ll be asked to input the database password during the deployment process.
 
-La procedura è terminata. A questo punto basta passare al [portale di Azure](https://portal.azure.com/) e allo strumento [Esplora risorse di Azure](https://resources.azure.com) per visualizzare i nuovi avvisi e le impostazioni di scalabilità automatica aggiunte all'applicazione JSON distribuita.
+That’s it! Now you just need to go to the [Azure Portal](https://portal.azure.com/) and the [Azure Resource Explorer](https://resources.azure.com) tool to see the new alerts and autoscale settings added to your JSON deployed application.
 
-I passaggi in questa sezione hanno eseguito principalmente le operazioni seguenti:
+Your steps in this section mainly accomplished the following:
 
-1.	Preparazione del file modello
-2.	Creazione di un file di parametri da usare con il file modello
-3.	Distribuzione del file modello con il file di parametri
+1.  Prepared the template file
+2.  Created a parameter file to go with the template file
+3.  Deployed the template file with the parameter file
 
-L'ultimo passaggio viene eseguito facilmente da un cmdlet di PowerShell. Per vedere le operazioni eseguite da Visual Studio durante la distribuzione dell'applicazione, aprire Scripts\\Deploy-AzureResourceGroup.ps1. In questo file è presente una quantità elevata di codice, ma verrà evidenziato solo tutto il codice pertinente e necessario per la distribuzione del file modello con il file di parametri.
+The last step is easily done by a PowerShell cmdlet. To see what Visual Studio did when it deployed your application, open Scripts\Deploy-AzureResourceGroup.ps1. There’s a lot of code there, but I’m just going to highlight all the pertinent code you need to deploy the template file with the parameter file.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
-L'ultimo cmdlet, `New-AzureResourceGroup`, è quello che esegue effettivamente l'azione. Tutto questo serve a dimostrare che con strumenti appropriati, distribuire l'applicazione cloud in modo prevedibile è relativamente semplice. Ogni volta che si esegue il cmdlet sullo stesso modello con lo stesso file di parametri si otterrà lo stesso risultato.
+The last cmdlet, `New-AzureResourceGroup`, is the one that actually performs the action. All this should demonstrate to you that, with the help of tooling, it is relatively straightforward to deploy your cloud application predictably. Every time you run the cmdlet on the same template with the same parameter file, you’re going to get the same result.
 
-## Riepilogo ##
+## <a name="summary"></a>Summary ##
 
-In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita della distribuzione di un'applicazione su vasta scala costituita da microservizi. In questa esercitazione è stata distribuita in Azure un'applicazione con due microservizi come singolo gruppo di risorse usando il modello di Gestione risorse di Azure. È auspicabile che si siano acquisite le conoscenze necessarie per iniziare a convertire l'applicazione in Azure in un modello, in modo da poterne effettuare il provisioning e distribuirla in modo prevedibile.
+In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale application composed of microservices. In this tutorial, you have deployed a two-microservice application to Azure as a single resource group using the Azure Resource Manager template. Hopefully, it has given you the knowledge you need in order to start converting your application in Azure into a template and can provision and deploy it predictably. 
 
-## Passaggi successivi ##
+## <a name="next-steps"></a>Next Steps ##
 
-Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione continua dell'applicazione di microservizi](app-service-agile-software-development.md) e le tecniche di distribuzione avanzata come [distribuzione flighting](app-service-web-test-in-production-controlled-test-flight.md).
+Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md) and advanced deployment techniques like [flighting deployment](app-service-web-test-in-production-controlled-test-flight.md) easily.
 
 <a name="resources"></a>
-## Altre risorse ##
+## <a name="more-resources"></a>More resources ##
 
--	[Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md)
--	[Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
--	[Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md)
--	[Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md)
--	[Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
--	[Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../resource-manager-troubleshoot-deployments-portal.md)
+-   [Azure Resource Manager Template Language](../resource-group-authoring-templates.md)
+-   [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+-   [Azure Resource Manager Template Functions](../resource-group-template-functions.md)
+-   [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
+-   [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
+-   [Troubleshooting Resource Group Deployments in Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

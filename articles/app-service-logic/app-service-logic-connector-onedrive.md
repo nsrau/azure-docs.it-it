@@ -1,29 +1,33 @@
 <properties
-	pageTitle="Uso del connettore OneDrive nelle app per la logica | Microsoft Azure App Service"
-	description="Come creare e configurare l'app per le API o il connettore OneDrive e usarlo in un'app per la logica in Azure App Service"
-	authors="msftman"
-	manager="erikre"
-	editor=""
-	services="logic-apps"
-	documentationCenter=""/>
+    pageTitle="Using the OneDrive Connector in Logic Apps | Microsoft Azure App Service"
+    description="How to create and configure the OneDrive Connector or API app and use it in a logic app in Azure App Service"
+    authors="msftman"
+    manager="erikre"
+    editor=""
+    services="logic-apps"
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/19/2016"
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="04/19/2016"
     ms.author="deonhe"/>
 
-# Il connettore OneDrive è stato migliorato 
 
-Da questa pagina è stato rimosso il contenuto destinato alle app per la logica versione 2014-12-01-preview. Questo connettore, infatti, è stato aggiornato e ora è supportato solo per la nuova versione [dello schema delle app per la logica (2015-08-01-preview)](./app-service-logic-schema-2015-08-01.md) e per le versioni successive.
+# <a name="we've-improved-the-onedrive-connector"></a>We've improved the OneDrive connector 
+
+We've removed the content (which targeted Logic apps version 2014-12-01-preview) from this page because this connector has been upgraded and is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
 
 
-## Passaggi successivi    
+## <a name="next-steps"></a>Next steps    
 
-- [Leggere ulteriori informazioni su questo nuovo connettore](../connectors/connectors-create-api-onedrive.md)
-- Vedere l'[elenco completo](../connectors/apis-list.md) di tutti i connettori che è possibile eseguire nella nuova versione dello schema delle app per la logica 2015-08-01-preview
+- [Learn more about the this new connector](../connectors/connectors-create-api-onedrive.md)
+- See [the full list](../connectors/apis-list.md) of all connectors that run on the new Logic Apps schema version 2015-08-01-preview  
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

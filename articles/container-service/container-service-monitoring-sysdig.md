@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Monitorare un cluster del servizio contenitore di Azure con Sysdig | Microsoft Azure"
-   description="Monitorare un cluster del servizio contenitore di Azure con Sysdig."
+   pageTitle="Monitor an Azure Container Service cluster with Sysdig | Microsoft Azure"
+   description="Monitor an Azure Container Service cluster with Sysdig."
    services="container-service"
    documentationCenter=""
    authors="rbitia"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Contenitori, controller di dominio/sistema operativo, Azure"/>
+   keywords="Containers, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,42 +16,46 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/08/2016"
-   ms.author="t-ribhat"/>  
+   ms.author="t-ribhat"/>
 
-# Monitorare un cluster del servizio contenitore di Azure con Sysdig
 
-In questo articolo verranno distribuiti agenti di Sysdig in tutti i nodi agente nel cluster del servizio contenitore di Azure. Per questa configurazione, è necessario un account con Sysdig.
+# <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Monitor an Azure Container Service cluster with Sysdig
 
-## Prerequisiti 
+In this article, we will deploy Sysdig agents to all the agent nodes in your Azure Container Service cluster. You need an account with Sysdig for this configuration. 
 
-[Distribuire](container-service-deployment.md) e [connettere](container-service-connect.md) un cluster configurato dal servizio contenitore di Azure. Esplorare l'[interfaccia utente](container-service-mesos-marathon-ui.md) di Marathon. Andare a [http://app.sysdigcloud.com](http://app.sysdigcloud.com) per configurare un account cloud Sysdig.
+## <a name="prerequisites"></a>Prerequisites 
 
-## Sysdig
+[Deploy](container-service-deployment.md) and [connect](container-service-connect.md) a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to [http://app.sysdigcloud.com](http://app.sysdigcloud.com) to set up a Sysdig cloud account. 
 
-Sysdig è un servizio di monitoraggio che consente di monitorare i contenitori nel cluster. Sysdig non solo consente di risolvere problemi, ma include anche le metriche di monitoraggio di base per CPU, rete, memoria e I/O. Con Sysdig è facile determinare quali contenitori sono più usati o quali usano la maggior quantità di memoria e CPU. Questa visualizzazione è disponibile nella sezione della panoramica, attualmente nella versione beta.
+## <a name="sysdig"></a>Sysdig
 
-![Interfaccia utente di Sysdig](./media/container-service-monitoring-sysdig/sysdig6.png)  
+Sysdig is a monitoring service that allows you to monitor your containers within your cluster. Sysdig is known to help with troubleshooting but it also has your basic monitoring metrics for CPU, Networking, Memory, and I/O. Sysdig makes it easy to see which containers are working the hardest or essentially using the most memory and CPU. This view is in the “Overview” section, which is currently in beta. 
 
-## Configurare una distribuzione Sysdig con Marathon
+![Sysdig UI](./media/container-service-monitoring-sysdig/sysdig6.png) 
 
-Questi passaggi illustrano come configurare e distribuire le applicazioni Sysdig nel cluster con Marathon.
+## <a name="configure-a-sysdig-deployment-with-marathon"></a>Configure a Sysdig deployment with Marathon
 
-Accedere all'interfaccia utente del controller di dominio/sistema operativo tramite [http://localhost:80/](http://localhost:80/). Dall'interfaccia utente del controller di dominio/sistema operativo passare a "Universe" ("Universo") in basso a sinistra e quindi cercare "Sysdig."
+These steps will show you how to configure and deploy Sysdig applications to your cluster with Marathon. 
 
-![Sysdig in Universe (Universo) per il controller di dominio/sistema operativo](./media/container-service-monitoring-sysdig/sysdig1.png)  
+Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to the "Universe", which is on the bottom left and then search for "Sysdig."
 
-Per completare la configurazione, è necessario un account cloud Sysdig o un account di valutazione gratuito. Una volta connessi al sito Web del cloud di Sysdig, fare clic sul nome utente. Nella pagina verrà visualizzata la chiave di accesso.
+![Sysdig in DC/OS Universe](./media/container-service-monitoring-sysdig/sysdig1.png)
 
-![Chiave API di Sysdig](./media/container-service-monitoring-sysdig/sysdig2.png)
+Now to complete the configuration you need a Sysdig cloud account or a free trial account. Once you're logged in to the Sysdig cloud website, click on your user name, and on the page you should see your "Access Key." 
 
-Immettere quindi la chiave di accesso nella configurazione di Sysdig in Universe (Universo) per il controller di dominio/sistema operativo.
+![Sysdig API key](./media/container-service-monitoring-sysdig/sysdig2.png) 
 
-![Configurazione di Sysdig in Universe (Universo) per il controller di dominio/sistema operativo](./media/container-service-monitoring-sysdig/sysdig3.png)
+Next enter your Access Key into the Sysdig configuration within the DC/OS Universe. 
 
-Impostare ora le istanze su 10000000 in modo che, quando viene aggiunto un nuovo nodo al cluster, Sysdig distribuirà automaticamente un agente nel nuovo nodo. Questa è una soluzione provvisoria per verificare che Sysdig venga distribuito in tutti i nuovi agenti del cluster.
+![Sysdig configuration in the DC/OS Universe](./media/container-service-monitoring-sysdig/sysdig3.png)
 
-![Configurazione di Sysdig nelle istanze di Universe (Universo) per il controller di dominio/sistema operativo](./media/container-service-monitoring-sysdig/sysdig4.png)  
+Now set the instances to 10000000 so whenever a new node is added to the cluster Sysdig will automatically deploy an agent to that new node. This is an interim solution to make sure Sysdig will deploy to all new agents within the cluster. 
 
-Una volta installato il pacchetto, tornare all'interfaccia utente di Sysdig per esplorare le diverse metriche di utilizzo per i contenitori nel cluster.
+![Sysdig configuration in the DC/OS Universe-instances](./media/container-service-monitoring-sysdig/sysdig4.png)
 
-<!----HONumber=AcomDC_0810_2016-->
+Once you've installed the package navigate back to the Sysdig UI and you'll be able to explore the different usage metrics for the containers within your cluster. 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

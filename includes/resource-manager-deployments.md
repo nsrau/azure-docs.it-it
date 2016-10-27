@@ -1,19 +1,22 @@
-## Distribuzioni incrementali e complete
+## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
 
-Per impostazione predefinita, Gestione risorse gestisce le distribuzioni come aggiornamenti incrementali al gruppo di risorse. Con la distribuzione incrementale, Gestione risorse:
+By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
 
-- **lascia invariate** le risorse presenti nel gruppo di risorse, ma non specificate nel modello
-- **aggiunge** le risorse specificate nel modello, ma non presenti nel gruppo di risorse
-- **non esegue nuovamente il provisioning** delle risorse presenti nel gruppo di risorse alle stesse condizioni definite nel modello
-- **effettua di nuovo il provisioning** delle risorse esistenti con impostazioni aggiornate nel modello
+- **leaves unchanged** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **re-provisions** existing resources that have updated settings in the template
 
-Con la distribuzione completa, Gestione risorse:
+With complete deployment, Resource Manager:
 
-- **elimina** le risorse presenti nel gruppo di risorse, ma non specificate nel modello
-- **aggiunge** le risorse specificate nel modello, ma non presenti nel gruppo di risorse
-- **non esegue nuovamente il provisioning** delle risorse presenti nel gruppo di risorse alle stesse condizioni definite nel modello
-- **effettua di nuovo il provisioning** delle risorse esistenti con impostazioni aggiornate nel modello
+- **deletes** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **re-provisions** existing resources that have updated settings in the template
  
-La proprietà **Mode** consente di specificare il tipo di distribuzione.
+You specify the type of deployment through the **Mode** property.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

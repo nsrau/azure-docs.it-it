@@ -1,26 +1,28 @@
 <properties
-	pageTitle="Cosa è successo al progetto Webjob (servizio connesso a Visual Studio Archiviazione di Azure)? | Microsoft Azure"
-	description="Viene descritto cosa succede in un progetto Webjob di Azure dopo la connessione a un account di archiviazione utilizzando i servizi connessi a Visual Studio "
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="What happened to my WebJob project (Visual Studio Azure Storage connected service)? | Microsoft Azure"
+    description="Describes what happened in a Azure WebJob project after connecting to a storage account using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-what-happened"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-what-happened"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# Cosa è successo al progetto Webjob (servizio connesso a Visual Studio Archiviazione di Azure)?
 
-## Aggiunta di riferimenti
+# <a name="what-happened-to-my-webjob-project-(visual-studio-azure-storage-connected-service)?"></a>What happened to my WebJob project (Visual Studio Azure Storage connected service)?
 
-Il pacchetto NuGet per l'Archiviazione di Azure è stato aggiunto o aggiornato nel progetto di Visual Studio. Il pacchetto aggiunge i riferimenti a .NET seguenti:
+## <a name="references-added"></a>References Added
+
+The Azure Storage NuGet package was added to or updated in your Visual Studio project.  
+This package adds the following .NET references:
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -31,9 +33,13 @@ Il pacchetto NuGet per l'Archiviazione di Azure è stato aggiunto o aggiornato n
 - **System.Data**
 - **System.Spatial**
 
-## Aggiunta di stringa di connessione per l'Archiviazione di Azure
-Nel file App.config del progetto gli elementi **AzureWebJobsStorage** e **AzureWebJobsDashboard** sono stati aggiornati con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
+## <a name="connection-string-for-azure-storage-added"></a>Connection string for Azure Storage added
+In the App.config file of your project, the **AzureWebJobsStorage** and **AzureWebJobsDashboard** entries were updated with the selected storage account's connection string and key.
 
-Per altre informazioni, vedere [Risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+For more information, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

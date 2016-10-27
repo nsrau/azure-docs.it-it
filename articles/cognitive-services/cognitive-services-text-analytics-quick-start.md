@@ -1,156 +1,158 @@
 <properties
-	pageTitle="Guida introduttiva: API Text Analytics di Machine Learning | Microsoft Azure"
-	description="Text Analytics di Azure Machine Learning - Guida introduttiva"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="onewth"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Quick start guide: Machine Learning Text Analytics APIs | Microsoft Azure"
+    description="Azure Machine Learning Text Analytics - Quick Start Guide"
+    services="cognitive-services"
+    documentationCenter=""
+    authors="onewth"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="cognitive-services"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="onewth"/>
+    ms.service="cognitive-services"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="onewth"/>
 
-# Introduzione alle API Text Analytics per rilevare sentimenti, frasi chiave, argomenti e lingua
+
+# <a name="getting-started-with-the-text-analytics-apis-to-detect-sentiment,-key-phrases,-topics-and-language"></a>Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
 
 <a name="HOLTop"></a>
 
-Questo documento illustra come configurare il servizio o l'applicazione per l'uso di [API Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711). È possibile usare queste API per rilevare sentimenti, frasi chiave, argomenti e lingua dal testo. [Fare clic qui per visualizzare una demo interattiva dell'esperienza.](//go.microsoft.com/fwlink/?LinkID=759712)
+This document describes how to onboard your service or application to use the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711).
+You can use these APIs to detect sentiment, key phrases, topics and language from your text. [Click here to see an interactive demo of the experience.](//go.microsoft.com/fwlink/?LinkID=759712)
 
-Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
+Please refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
-Questa guida è destinata alla versione 2 delle API. Per altre informazioni sulla versione 1 delle API, [fare riferimento a questo documento](../machine-learning/machine-learning-apps-text-analytics.md).
+This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](../machine-learning/machine-learning-apps-text-analytics.md).
 
-Al termine di questa esercitazione, si sarà in grado di rilevare a livello di codice:
+By the end of this tutorial, you will be able to programatically detect:
 
-- **Sentimento**: il testo positivo o negativo?
+- **Sentiment** - Is text positive or negative?
 
-- **Frasi chiave**: di cosa stanno discutendo le persone in singolo articolo?
+- **Key phrases** - What are people discussing in a single article?
 
-- **Argomenti**: di cosa stanno discutendo le persone in molti articoli?
+- **Topics** - What are people discussing across many articles?
 
-- **Lingue**: in quale lingua è scritto il testo?
+- **Languages** - What language is text written in?
 
-Tenere presente che con questa API viene addebitata 1 transazione per ciascun documento inviato. Quindi, ad esempio, se si richiede una valutazione per 1.000 documenti in una singola chiamata, verranno dedotte 1.000 transazioni.
+Note that this API charges 1 transaction per document submitted. As an example, if you request sentiment for 1000 documents in a single call, 1000 transactions will be deducted.
 
 
 
 <a name="Overview"></a>
-## Panoramica generale ##
+## <a name="general-overview"></a>General overview ##
 
-Questo argomento costituisce una guida dettagliata. L'obiettivo è illustrare in dettaglio i passaggi necessari per eseguire il training di un modello e indicare le risorse che consentiranno di inserirlo nell'ambiente di produzione. Questo esercizio richiederà circa 30 minuti.
+This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to put it in production. This exercise will take about 30 minutes.
 
-Per eseguire queste attività, sarà necessario un editor e chiamare gli endpoint RESTful nel linguaggio preferito.
+For these tasks, you will need an editor and call the RESTful endpoints in your language of choice.
 
-Ecco come procedere.
+Let's get started!
 
-## Attività 1: iscrizione alle API Text Analytics ####
+## <a name="task-1---signing-up-for-the-text-analytics-apis"></a>Task 1 - Signing up for the Text Analytics APIs ####
 
-In questa attività si effettuerà l'iscrizione al servizio di analisi di testo.
+In this task, you will sign up for the text analytics service.
 
-1. Passare a **Cognitive Services** nel [portale di Azure](//go.microsoft.com/fwlink/?LinkId=761108) e assicurarsi **Text Analytics** è selezionato come "tipo di API".
+1. Navigate to **Cognitive Services** in the [Azure Portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
 
-1. Selezionare un piano. È possibile selezionare il **livello gratuito per 5.000 transazioni al mese**. Essendo un piano gratuito, non verranno addebitati costi per l'uso del servizio. Sarà necessario accedere alla sottoscrizione di Azure.
+1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
 
-1. Completare gli altri campi e creare l'account.
+1. Complete the other fields and create your account.
 
-1. Dopo l'iscrizione per Text Analytics, trovare la **Chiave API**. Copiare la chiave primaria, perché sarà necessaria quando si usano i servizi API.
+1. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you will need it when using the API services.
 
 
-## Attività 2: rilevare sentimenti, frasi chiave e lingue ####
+## <a name="task-2---detect-sentiment,-key-phrases-and-languages"></a>Task 2 - Detect sentiment, key phrases and languages ####
 
-È facile rilevare sentimenti, frasi chiave e lingue presenti nel testo. A livello di codice si otterranno gli stessi risultati restituiti dall'[esperienza della demo](//go.microsoft.com/fwlink/?LinkID=759712).
+It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](//go.microsoft.com/fwlink/?LinkID=759712) returns.
 
->[AZURE.TIP] Per l'analisi dei sentimenti, è consigliabile dividere il testo in frasi. In questo modo è possibile ottenere in genere una precisione superiore nelle stime dei sentimenti.
+>[AZURE.TIP] For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
 
-Si noti che i linguaggi supportati sono i seguenti:
+Note that the supported languages are as follows:
 
-| Funzionalità | Codici lingua supportati |
+| Feature | Supported language codes |
 |:-----|:----|
-| Valutazione | `en` (inglese), `es` (spagnolo) `fr` (francese), `pt` (portoghese) |
-| Frasi chiave | `en` (inglese), `es` (spagnolo) `de` (tedesco), `ja` (giapponese) |
+| Sentiment | `en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
+| Key phrases | `en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
 
 
-1. È necessario impostare le intestazioni come indicato di seguito. Si noti che JSON è attualmente l'unico formato di input accettato per le API. XML non è supportato.
+1. You will need to set the headers to the following. Note that JSON is currently the only accepted input format for the APIs. XML is not supported.
 
-		Ocp-Apim-Subscription-Key: <your API key>
-		Content-Type: application/json
-		Accept: application/json
+        Ocp-Apim-Subscription-Key: <your API key>
+        Content-Type: application/json
+        Accept: application/json
 
-1. Formattare quindi le righe di input in JSON. Il formato è lo stesso per sentimenti, frasi chiave e lingua. Si noti che ogni ID deve essere univoco e sarà l'ID restituito dal sistema. Le dimensioni massime di un singolo documento che è possibile inviare sono pari a 10 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 1 MB. In una sola chiamata non è possibile inviare più di 1.000 documenti. Esistono limitazioni di frequenza che non consentono più di 100 chiamate al minuto: è quindi consigliabile inviare grandi quantità di documenti in un'unica chiamata. Language è un parametro facoltativo che deve essere specificato se si analizzano testi in una lingua diversa dall'inglese. Di seguito è riportato un esempio di input in cui è incluso il parametro facoltativo `language` per l'analisi di sentimenti o l'estrazione di frasi chiave:
+1. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Note that each ID should be unique and will be the ID returned by the system. The maximum size of a single document that can be submitted is 10KB, and the total maximum size of submitted input is 1MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
 
-		{
-			"documents": [
-				{
-					"language": "en",
-					"id": "1",
-					"text": "First document"
-				},
+        {
+            "documents": [
+                {
+                    "language": "en",
+                    "id": "1",
+                    "text": "First document"
+                },
                 ...
                 {
-					"language": "en",
-					"id": "100",
-					"text": "Final document"
-				}
-			]
-		}
+                    "language": "en",
+                    "id": "100",
+                    "text": "Final document"
+                }
+            ]
+        }
 
-1. Eseguire una chiamata **POST** al sistema con l'input per sentimenti, frasi chiave e lingua. Gli URL saranno simili ai seguenti:
+1. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs will look as follows:
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
-1. Questa chiamata restituirà una risposta formattata in JSON con gli ID e le proprietà rilevate. Di seguito è riportato un esempio dell'output per i sentimenti, esclusi i dettagli dell'errore. Nel caso dei sentimenti verrà restituito un punteggio compreso tra 0 e 1 per ogni documento:
+1. This call will return a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 will be returned for each document:
 
         // Sentiment response
-		{
-		  	"documents": [
-				{
-					"id": "1",
-					"score": "0.934"
-		        },
+        {
+            "documents": [
+                {
+                    "id": "1",
+                    "score": "0.934"
+                },
                 ...
                 {
-					"id": "100",
-					"score": "0.002"
-		        },
-			]
-		}
+                    "id": "100",
+                    "score": "0.002"
+                },
+            ]
+        }
 
         // Key phrases response
         {
-		  	"documents": [
-				{
-					"id": "1",
-					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
-		        },
+            "documents": [
+                {
+                    "id": "1",
+                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
+                },
                 ...
                 {
-					"id": "100",
-					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
-		        },
-			]
-		}
+                    "id": "100",
+                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
+                },
+            ]
+        }
 
         // Languages response
         {
-		  	"documents": [
-				{
-					"id": "1",
-					"detectedLanguages": [
+            "documents": [
+                {
+                    "id": "1",
+                    "detectedLanguages": [
                         {
                             "name": "English",
                             "iso6391Name": "en",
                             "score": "1"
                         }
                     ]
-		        },
+                },
                 ...
                 {
                     "id": "100",
@@ -161,140 +163,144 @@ Si noti che i linguaggi supportati sono i seguenti:
                             "score": "0.985"
                         }
                     ]
-		        }
-			]
-		}
+                }
+            ]
+        }
 
 
-## Attività 3: rilevare gli argomenti in un corpo di testo ####
+## <a name="task-3---detect-topics-in-a-corpus-of-text"></a>Task 3 - Detect topics in a corpus of text ####
 
-Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. L'API è progettata per funzionare al meglio con testi brevi in linguaggio naturale, ad esempio recensioni e commenti degli utenti.
+This is a newly released API which returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
 
-Questa API richiede un **minimo di 100 record di testo** da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record. Qualsiasi record non in lingua inglese o con meno di 3 parole sarà rimosso e quindi non verranno assegnati agli argomenti. Per il rilevamento di argomenti, le dimensioni massime di un singolo documento che è possibile inviare sono pari a 30 KB, mentre le dimensioni massime complessive dell'input inviato sono pari a 30 MB. Il limite di frequenza per il rilevamento degli argomenti è pari a 5 invii ogni 5 minuti.
+This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with less than 3 words will be discarded and therefore will not be assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30KB, and the total maximum size of submitted input is 30MB. Topic detection is rate limited to 5 submissions every 5 minutes.
 
-Sono disponibili altri due parametri di input **facoltativi** che possono contribuire a migliorare la qualità dei risultati:
+There are two additional **optional** input parameters that can help to improve the quality of results:
 
-- **Parole non significative.** Queste parole e le relative forme chiuse, ad esempio i plurali, verranno escluse dall'intera pipeline di rilevamento degli argomenti. Usare questa opzione per le parole comuni. Ad esempio, "issue", "error" e "user" possono essere scelte appropriate per reclami relativi al software da parte dei clienti. Ogni stringa deve contenere una singola parola.
-- **Frasi non significative**: le frasi verranno escluse dall'elenco di argomenti restituiti. Usare questa opzione per escludere gli argomenti generici da non visualizzare nei risultati. Ad esempio, "Microsoft" e "Azure" sono scelte appropriate per gli argomenti da escludere. Le stringhe possono contenere più parole.
+- **Stop words.**  These words and their close forms (e.g. plurals) will be excluded from the entire topic detection pipeline. Use this for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
+- **Stop phrases** - These phrases will be excluded from the list of returned topics. Use this to exclude generic topics that you don’t want to see in the results. For example, “Microsoft” and “Azure” would be appropriate choices for topics to exclude. Strings can contain multiple words.
 
-Seguire questi passaggi per rilevare gli argomenti nel testo.
+Follow these steps to detect topics in your text.
 
-1. Formattare l'input in JSON. Questa volta, è possibile definire le parole e le frasi non significative.
+1. Format the input in JSON. This time, you can define stop words and stop phrases.
 
-		{
-			"documents": [
-				{
-					"id": "1",
-					"text": "First document"
-				},
+        {
+            "documents": [
+                {
+                    "id": "1",
+                    "text": "First document"
+                },
                 ...
                 {
-					"id": "100",
-					"text": "Final document"
-				}
-			],
-			"stopWords": [
-				"issue", "error", "user"
-			],
-			"stopPhrases": [
-				"Microsoft", "Azure"
-			]
-		}
+                    "id": "100",
+                    "text": "Final document"
+                }
+            ],
+            "stopWords": [
+                "issue", "error", "user"
+            ],
+            "stopPhrases": [
+                "Microsoft", "Azure"
+            ]
+        }
 
-1. Usando le stesse intestazioni definite nel passaggio 2, eseguire una chiamata **POST** all'endpoint di argomenti:
+1. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
-1. Verrà restituita `operation-location` come intestazione nella risposta, dove il valore è l'URL per effettuare una query degli argomenti risultanti:
+1. This will return an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
 
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-1. Eseguire periodicamente una query sull'intestazione `operation-location` restituita con una richiesta **GET**. È consigliabile eseguire questa operazione una volta al minuto.
+1. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
 
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
-1. L'endpoint restituirà una risposta che include `{"status": "notstarted"}` prima dell'elaborazione, `{"status": "running"}` durante l'elaborazione e `{"status": "succeeded"}` con l'output al termine. È quindi possibile utilizzare l'output che sarà nel formato seguente. Notare che i dettagli, come il formato dell'errore e le date, sono stati esclusi da questo esempio:
+1. The endpoint will return a response including `{"status": "notstarted"}` before processing, `{"status": "running"}` while processing and `{"status": "succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
 
-		{
-			"status": "succeeded",
-			"operationProcessingResult": {
-			  	"topics": [
+        {
+            "status": "succeeded",
+            "operationProcessingResult": {
+                "topics": [
                     {
-					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
-					    "score": "5"
-					    "keyPhrase": "first topic name"
+                        "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
+                        "score": "5"
+                        "keyPhrase": "first topic name"
                     },
                     ...
                     {
-					    "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
-					    "score": "3"
-					    "keyPhrase": "final topic name"
+                        "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
+                        "score": "3"
+                        "keyPhrase": "final topic name"
                     }
                 ],
-			  	"topicAssignments": [
+                "topicAssignments": [
                     {
-					    "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
-					    "documentId": "1",
-					    "distance": "0.354"
+                        "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
+                        "documentId": "1",
+                        "distance": "0.354"
                     },
                     ...
                     {
-					    "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
-					    "documentId": "55",
-					    "distance": "0.758"
+                        "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
+                        "documentId": "55",
+                        "distance": "0.758"
                     },            
                 ]
-			}
-		}
+            }
+        }
 
-Si noti che la risposta con esito positivo per gli argomenti dall'endpoint `operations` avrà il seguente schema:
+Note that the successful response for topics from the `operations` endpoint will have the following schema:
 
-	{
-    		"topics" : [{
-        		"id" : "string",
-        		"score" : "number",
-        		"keyPhrase" : "string"
-    		}],
-    		"topicAssignments" : [{
-        		"documentId" : "string",
-        		"topicId" : "string",
-        		"distance" : "number"
-    		}],
-    		"errors" : [{
-        		"id" : "string",
-        		"message" : "string"
-    		}]
-    	}
+    {
+            "topics" : [{
+                "id" : "string",
+                "score" : "number",
+                "keyPhrase" : "string"
+            }],
+            "topicAssignments" : [{
+                "documentId" : "string",
+                "topicId" : "string",
+                "distance" : "number"
+            }],
+            "errors" : [{
+                "id" : "string",
+                "message" : "string"
+            }]
+        }
 
-Di seguito viene spiegata ogni parte della risposta:
+Explanations for each part of this response are as follows:
 
 **topics**
 
-| Chiave | Description |
+| Key | Description |
 |:-----|:----|
-| id | Identificatore univoco di ogni argomento. |
-| score | Numero di documenti assegnati all'argomento. |
-| keyPhrase | Parola o frase di riepilogo dell'argomento. |
+| id | A unique identifier for each topic. |
+| score | Count of documents assigned to topic. |
+| keyPhrase | A summarizing word or phrase for the topic. |
 
 **topicAssignments**
 
-| Chiave | Description |
+| Key | Description |
 |:-----|:----|
-| documentId | Identificatore del documento. Equivale all'ID incluso nell'input. |
-| topicId | ID argomento a cui è stato assegnato il documento. |
-| distance | Punteggio di un'associazione documento-argomento compreso tra 0 e 1. Minore è il valore della distanza, più forte è l'associazione all'argomento. |
+| documentId | Identifier for the document. Equates to the ID included in the input. |
+| topicId | The topic ID which the document has been assigned to. |
+| distance | Document-to-topic affiliation score between 0 and 1. The lower a distance score the stronger the topic affiliation is. |
 
 **errors**
 
-| Chiave | Description |
+| Key | Description |
 |:-----|:----|
-| id | Identificatore univoco del documento di input cui fa riferimento l'errore. |
-| message | Messaggio di errore. |
+| id | Input document unique identifier the error refers to. |
+| message | Error message. |
 
-## Passaggi successivi ##
+## <a name="next-steps"></a>Next steps ##
 
-Congratulazioni. L'analisi di testo sui dati è stata completata. Ora è possibile imparare a usare uno strumento come [Power BI](//powerbi.microsoft.com) per visualizzare i dati e per automatizzare l'analisi al fine di ottenere una visualizzazione in tempo reale dei dati di testo.
+Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.
 
-Per scoprire come utilizzare le funzionalità di Text Analytics, ad esempio una valutazione, come parte di un bot, vedere l'esempio [Bot emotivo](http://docs.botframework.com/it-IT/bot-intelligence/language/#example-emotional-bot) sul sito Bot Framework.
+To see how Text Analytics capabilities, such as sentiment, can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

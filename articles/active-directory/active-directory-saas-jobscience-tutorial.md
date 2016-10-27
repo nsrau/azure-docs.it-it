@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Jobscience | Microsoft Azure" 
-    description="Informazioni su come usare Jobscience con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with Jobscience | Microsoft Azure" 
+    description="Learn how to use Jobscience with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,193 +11,197 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con Jobscience
-  
-Questa esercitazione descrive l'integrazione di Azure e Jobscience.  
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   Sottoscrizione di Azure valida
--   Sottoscrizione di Jobscience abilitata per l'accesso Single Sign-On
+#<a name="tutorial:-azure-active-directory-integration-with-jobscience"></a>Tutorial: Azure Active Directory integration with Jobscience
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Jobscience potranno accedere all'applicazione tramite il sito aziendale di Jobscience (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-  
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+The objective of this tutorial is to show the integration of Azure and Jobscience.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-1.  Abilitazione dell'integrazione dell'applicazione per Jobscience
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+-   A valid Azure subscription
+-   A Jobscience Single Sign-On enabled subscription
+  
+After completing this tutorial, the Azure AD users you have assigned to Jobscience will be able to single sign into the application at your Jobscience company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+  
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for Jobscience
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-jobscience-tutorial/IC784341.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per Jobscience
+##<a name="enabling-the-application-integration-for-jobscience"></a>Enabling the application integration for Jobscience
   
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per Jobscience.
+The objective of this section is to outline how to enable the application integration for Jobscience.
 
-###Per abilitare l'integrazione dell'applicazione per Jobscience, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-jobscience,-perform-the-following-steps:"></a>To enable the application integration for Jobscience, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-jobscience-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-jobscience-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-jobscience-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-jobscience-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-jobscience-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-jobscience-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-jobscience-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **jobscience**.
+6.  In the **search box**, type **jobscience**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-jobscience-tutorial/IC784342.png "Raccolta di applicazioni")
+    ![Application Gallery](./media/active-directory-saas-jobscience-tutorial/IC784342.png "Application Gallery")
 
-7.  Nel riquadro dei risultati selezionare **Jobscience** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **Jobscience**, and then click **Complete** to add the application.
 
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Jobscience tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-La configurazione dell'accesso Single Sign-On per Jobscience richiede di recuperare un valore di identificazione personale da un certificato.  
-Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to Jobscience with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Jobscience requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Accedere al sito aziendale di Jobscience come amministratore.
+1.  Log in to your Jobscience company site as an administrator.
 
-2.  Passare a **Setup**.
+2.  Go to **Setup**.
 
-    ![Impostazione](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Impostazione")
+    ![Setup](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Setup")
 
-3.  Nella sezione **Administer** del riquadro di spostamento sinistro fare clic su **Domain Management** per espandere la sezione correlata e quindi su **My Domain** per aprire la pagina **My Domain**.
+3.  On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
     ![My Domain](./media/active-directory-saas-jobscience-tutorial/IC767825.png "My Domain")
 
-4.  Per verificare che il dominio sia stato configurato correttamente, assicurarsi che sia presente in "**Step 4 Deployed to Users**" (Passaggio 4 Distribuzione agli utenti) e quindi verificare le "**My Domain Settings**" (Impostazioni personali del dominio).
+4.  To verify that your domain has been setup correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
 
-    ![Domain Deployed to User](./media/active-directory-saas-jobscience-tutorial/IC784377.png "Domain Deployed to User")
+    ![Doman Deployed to User](./media/active-directory-saas-jobscience-tutorial/IC784377.png "Doman Deployed to User")
 
-5.  In una finestra diversa del Web browser accedere al portale di Azure classico.
+5.  In a different web browser window, log in to your Azure classic portal.
 
-6.  Nella pagina di integrazione dell'applicazione **Jobscience** fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  On the **Jobscience** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784360.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784360.png "Configure Single Sign-On")
 
-7.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Jobscience** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+7.  On the **How would you like users to sign on to Jobscience** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configure Single Sign-On")
 
-8.  Nella casella di testo **Jobscience Sign In URL** (URL accesso Jobscience) della pagina **Configura URL app** digitare l'URL usando il modello "*http://company.my.salesforce.com*" e fare clic su **Avanti**.
+8.  On the **Configure App URL** page, in the **Jobscience Sign In URL** textbox, type your URL using the following pattern "*http://company.my.salesforce.com*", and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configura URL app")
+    ![Configure App URL](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configure App URL")
 
-9.  Nella pagina **Configura accesso Single Sign-On in Jobscience** fare clic su **Download certificato** per scaricare il file di certificato e quindi salvarlo localmente nel computer.
+9.  On the **Configure single sign-on at Jobscience** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784363.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784363.png "Configure Single Sign-On")
 
-10. Nel sito della società Jobscience fare clic su **Security Controls** e quindi su **Single Sign-On Settings**.
+10. On the Jobscience company site, click **Security Controls**, and then click **Single Sign-On Settings**.
 
     ![Security Controls](./media/active-directory-saas-jobscience-tutorial/IC784364.png "Security Controls")
 
-11. Nella sezione **Single Sign-On Settings**, eseguire la procedura seguente:
+11. In the **Single Sign-On Settings** section, perform the following steps:
 
     ![Single Sign-On Settings](./media/active-directory-saas-jobscience-tutorial/IC781026.png "Single Sign-On Settings")
 
-    1.  Selezionare **Abilitato SAML**.
-    2.  Fare clic su **New**.
+    1.  Select **SAML Enabled**.
+    2.  Click **New**.
 
-12. Nella finestra di dialogo **SAML Single Sign-On Setting Edit** seguire questa procedura:
+12. On the **SAML Single Sign-On Setting Edit** dialog, perform the following steps:
 
     ![SAML Single Sign-On Setting](./media/active-directory-saas-jobscience-tutorial/IC784365.png "SAML Single Sign-On Setting")
 
-    1.  Nella casella di testo **Name** digitare un nome per la configurazione.
-    2.  Nella finestra di dialogo **Configure single sign-on at Jobscience** (Configura accesso Single Sign-On in Jobscience) del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer** (Autorità di certificazione).
-    3.  Nella casella di testo **Entity Id**, digitare **https://salesforce-jobscience.com**.
-    4.  Fare clic su **Browse** per caricare il certificato di Azure AD.
-    5.  In **SAML Identity Type** selezionare **Assertion contains the Federation ID from the User object**.
-    6.  In **SAML Identity Location** selezionare **Identity is in the NameIdentifier element of the Subject statement**.
-    7.  Nella finestra di dialogo **Configure single sign-on at Jobscience** (Configura accesso Single Sign-On in Jobscience) del portale di Azure classico copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **Identity Provider Login URL** (URL accesso provider di identità).
-    8.  Nella finestra di dialogo **Configure single sign-on at Jobscience** (Configura accesso Single Sign-On in Jobscience) del portale di Azure classico copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Identity Provider Logout URL** (URL di disconnessione provider di identità).
-    9.  Fare clic su **Save**.
+    1.  In the **Name** textbox, type a name for your configuration.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox
+    3.  In the **Entity Id** textbox, type **https://salesforce-jobscience.com**
+    4.  Click **Browse** to upload your Azure AD certificate.
+    5.  As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
+    6.  As **SAML Identity Location**, select **Identity is in the NameIdentfier element of the Subject statement**.
+    7.  In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox
+    8.  In the Azure classic portal, on the **Configure single sign-on at Jobscience** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox
+    9.  Click **Save**.
 
-13. Nella sezione **Administer** del pannello di navigazione a sinistra fare clic su **Domain Management** per espandere la sezione correlata e quindi su **My Domain** per aprire la pagina **My Domain**.
+13. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
     ![My Domain](./media/active-directory-saas-jobscience-tutorial/IC767825.png "My Domain")
 
-14. Nella sezione **Login Page Branding** della pagina **My Domain** fare clic su **Edit**.
+14. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
 
     ![Login Page Branding](./media/active-directory-saas-jobscience-tutorial/IC767826.png "Login Page Branding")
 
-15. Nella sezione **Authentication Service** della pagina **Login Page Branding** viene visualizzato il nome delle **impostazioni SAML SSO**. Selezionarlo e quindi fare clic su **Save**.
+15. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
 
     ![Login Page Branding](./media/active-directory-saas-jobscience-tutorial/IC784366.png "Login Page Branding")
 
-16. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+16. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784367.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-jobscience-tutorial/IC784367.png "Configure Single Sign-On")
   
-Per ottenere l'URL di accesso Single Sign-On avviato dal provider di servizi, fare clic su **Single Sign-On Settings** nella sezione di menu **Security Controls**.
+To get the SP initiated Single Sign on Login URL click on the **Single Sign On settings** in the **Security Controls** menu section.
 
 ![Security Controls](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Security Controls")
   
-Fare clic sul profilo SSO creato nel passaggio precedente.  
-Questa pagina mostra l'URL di accesso Single Sign-On per la società, ad esempio *https://companyname.my.salesforce.com?so=companyid*).
-##Configurazione del provisioning utente
+Click the SSO profile you have created in the step above.  
+This page shows the Single Sign on URL for your company (e.g. *https://companyname.my.salesforce.com?so=companyid*).
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Per consentire agli utenti di Azure AD di accedere a Jobscience, è necessario eseguirne il provisioning in Jobscience.  
-Nel caso di Jobscience, il provisioning è un'attività manuale.
+In order to enable Azure AD users to log into Jobscience, they must be provisioned into Jobscience.  
+In the case of Jobscience, provisioning is a manual task.
 
-###Per configurare il provisioning utente, eseguire la procedura seguente:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Accedere al sito aziendale di **Jobscience** come amministratore.
+1.  Log in to your **Jobscience** company site as administrator.
 
-2.  Passare a Setup.
+2.  Go to Setup
 
-    ![Impostazione](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Impostazione")
+    ![Setup](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Setup")
 
-3.  Passare a **Manage Users > Users**.
+3.  Go to **Manage Users \> Users**.
 
-    ![Utenti](./media/active-directory-saas-jobscience-tutorial/IC784369.png "Utenti")
+    ![Users](./media/active-directory-saas-jobscience-tutorial/IC784369.png "Users")
 
-4.  Fare clic su **Nuovo utente**.
+4.  Click **New User**.
 
     ![All Users](./media/active-directory-saas-jobscience-tutorial/IC784370.png "All Users")
 
-5.  Nella finestra di dialogo **Edit User** seguire la procedura seguente:
+5.  On the **Edit User** dialog, perform the following steps:
 
     ![User Edit](./media/active-directory-saas-jobscience-tutorial/IC784371.png "User Edit")
 
-    1.  Immettere nelle caselle di testo correlate le proprietà relative a nome, cognome, alias, indirizzo di posta elettronica, nome utente e nome alternativo dell'utente di Azure AD di cui si vuole eseguire il provisioning.
-    2.  Fare clic su **Salva**.
+    1.  Type the first name, last name, alias, email, user name and nickname properties of the Azure AD user you want to provision into the related textboxes.
+    2.  Click **Save**.
 
-    >[AZURE.NOTE] Il titolare dell'account AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account.
+    >[AZURE.NOTE] The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Jobscience per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] You can use any other Jobscience user account creation tools or APIs provided by Jobscience to provision AAD user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
   
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a Jobscience, seguire questa procedura:
+###<a name="to-assign-users-to-jobscience,-perform-the-following-steps:"></a>To assign users to Jobscience, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **Jobscience** fare clic su **Assegna utenti**.
+2.  On the **Jobscience **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Assegna utenti")
+    ![Assign Users](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Assign Users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-jobscience-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-jobscience-tutorial/IC767830.png "Yes")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panoramica su Integrità risorse di Azure | Microsoft Azure"
-   description="Panoramica su Integrità risorse di Azure"
+   pageTitle="Azure Resource health overview | Microsoft Azure"
+   description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
    authors="BernardoAMunoz"
@@ -16,95 +16,100 @@
    ms.date="06/01/2016"
    ms.author="BernardoAMunoz"/>
 
-# Panoramica su Integrità risorse di Azure
 
-Integrità risorse di Azure è un nuovo servizio che espone l'integrità delle singole risorse di Azure e offre consigli pratici per risolvere i problemi. In un ambiente cloud in cui non è possibile accedere direttamente ai server o agli elementi dell'infrastruttura, l'obiettivo di Integrità risorse è quello di ridurre il tempo speso dai clienti per risolvere i problemi, in particolare quello per determinare se la causa del problema è interna all'applicazione o dovuta a un evento nella piattaforma Azure.
+# <a name="azure-resource-health-overview"></a>Azure Resource health overview
 
-## Qual è la definizione di "risorsa" e in che modo Integrità risorse stabilisce se una risorsa è integra o meno? 
-Una risorsa è un'istanza creata dall'utente di un tipo di risorsa messo a disposizione da un servizio, ad esempio una macchina virtuale, un'app Web o un database SQL.
+Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting, in particular reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform.
 
-Integrità risorse si basa su segnali emessi dalla risorsa e/o dal servizio per determinare se una risorsa è integra o meno. È importante notare che Integrità risorse considera attualmente solo l'integrità di un tipo di risorsa specifico e non altri elementi che possono contribuire all'integrità complessiva. Quando ad esempio si segnala lo stato di una macchina virtuale, viene considerata solo la parte di calcolo dell'infrastruttura, ovvero i problemi nella rete non saranno visualizzati in Integrità risorse, a meno che non si verifichi un'interruzione di servizio dichiarata. Quest'ultimo evento sarà segnalato con il banner nella parte superiore del pannello. Altre informazioni sull'interruzione di servizio sono illustrate più avanti in questo articolo.
+## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-the-resource-is-healthy-or-not?"></a>What is considered a Resource and how does resource health decides if the resource is healthy or not? 
+A resource is a user created instance of a resource type provided by a service, for example: a virtual machine, a Web app or a SQL database. 
 
-## In che modo Integrità risorse differisce dal dashboard per l'integrità dei servizi?
+Resource health relies on signals emitted by the resource and/or the service to determine if a resource is healthy or not. It is important to notice that currently Resource health only accounts for the health of one specific resource type and does not consider other elements that may contribute to the overall health. For example, when reporting the status of a virtual machine, only the compute portion of the infrastructure is considered, i.e. issues in the network will not be shown in Resource health, unless there is a declared service outage, in which case, it will be surfaced through the banner at the top of the blade. More information about service outage is offered later in this article. 
 
-Le informazioni messe a disposizione da Integrità risorse sono più granulari di quelle messe a disposizione dal dashboard per l'integrità dei servizi. Mentre il Dashboard per l'integrità dei servizi comunica gli eventi che influiscono sulla disponibilità di un servizio in un'area, Integrità risorse espone informazioni relative a una risorsa specifica, ad esempio espone gli eventi che influiscono sulla disponibilità di una macchina virtuale, un'app web o un database SQL. Se ad esempio un nodo si riavvia in modo imprevisto, i clienti le cui macchine virtuali sono in esecuzione in tale nodo potranno sapere per quale motivo la propria macchina virtuale non è stata disponibile per un periodo di tempo.
+## <a name="how-is-resource-health-different-from-service-health-dashboard?"></a>How is Resource health different from Service Health Dashboard?
 
-## Come accedere a Integrità risorse
-Sono disponibili 2 modalità per accedere a Integrità risorse per i servizi messi a disposizione.
+The information provided by Resource health is more granular than what is provided by the Service Health Dashboard. While SHD communicates events that impact the availability of a service in a region, Resource health exposes information relevant to a specific resource, e.g. it will expose events that impact the availability of a virtual machine, a web app, or a SQL database. For example, if a node unexpectedly reboots, customers whose virtual machines were running on that node will be able to obtain the reason why their VM was unavailable for a period of time.   
 
-### Portale di Azure
-Il pannello Integrità risorsa nel portale di Azure offre informazioni dettagliate sull'integrità della risorsa e le azioni consigliate, che variano a seconda dell'integrità corrente della risorsa. Questo pannello offre un'esperienza ottimale quando si eseguono query in Integrità risorse perché facilita l'accesso ad altre risorse all'interno del portale. Come accennato in precedenza, il set di azioni consigliate nel pannello Integrità risorsa variano in base allo stato di integrità corrente:
+## <a name="how-to-access-resource-health"></a>How to access Resource health
+For the services available through Resource health, there are 2 ways to access Resource health.
 
-* Risorse integre: poiché non è stato rilevato alcun problema che possa influire sull'integrità della risorsa, le azioni sono incentrate sul processo di risoluzione dei problemi. È ad esempio possibile accedere al pannello Risoluzione dei problemi, che offre indicazioni su come risolvere i problemi più comunemente riscontrati dai clienti.
-* Risorsa non integra: per i problemi causati da Azure, nel pannello verranno visualizzate le azioni intraprese da Microsoft per recuperare la risorsa. Per i problemi causati da azioni eseguite dagli utenti, il pannello elencherà una serie di interventi che i clienti possono intraprendere per risolvere il problema e recuperare la risorsa.
+### <a name="azure-portal"></a>Azure Portal
+The Resource health blade in the Azure Portal, provides detailed information about the health of the resource as well as recommended actions that vary depending on the current health of the resource. This blade provides the best experience when querying Resource health, as it facilitates access to other resources inside the portal. As mentioned before, the set of recommended actions in the Resource health blade will vary based on the current health:
 
-Dopo aver effettuato l'accesso al portale di Azure, esistono due modi per accedere al pannello Integrità risorsa:
+* Healthy resources: Since no issue that could impact the health of the resource has been detected, the actions are focused on helping the troubleshooting process. For example, it provides direct access to the Troubleshooting blade, which offers guidance on how to solve the most common problems customers face.
+* Unhealthy resource: For problems caused by Azure, the blade will display actions Microsoft is taking (or has taken) to recover the resource. For problems caused by user initiated actions, the blade will a list of actions customers can take so address the problem and recover the resource.  
 
-###Aprire il pannello della risorsa
-Aprire il pannello per una determinata risorsa. Nel pannello Impostazioni visualizzato accanto al pannello della risorsa, fare clic su Integrità risorsa per aprire il pannello Integrità risorsa.
+Once you have logged into the Azure Portal, there are two ways to access the Resource health blade: 
 
-![Pannello Integrità risorsa](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
+###<a name="open-the-resource-blade"></a>Open the Resource blade
+Open the Resource blade for a given resource. On the Settings blade that opens next to the Resource blade, click on Resource Health to open the Resource health blade. 
 
-### Pannello Guida e supporto
-Aprire il pannello Guida e supporto facendo clic sul punto interrogativo nell'angolo superiore destro e quindi selezionando Guida e supporto.
+![Resource health blade](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
-**Dalla barra di spostamento in alto**
+### <a name="help-and-support-blade"></a>Help and Support blade
+Open the Help and Support blade by clicking on the question mark in the upper right corner then selecting Help + Support. 
 
-![Guida e supporto tecnico](./media/resource-health-overview/HelpAndSupport.png)
+**From the top navigation bar**
 
-Facendo clic sul riquadro verrà visualizzato il pannello della sottoscrizione di Integrità risorse che elenca tutte le risorse presenti nella sottoscrizione. Accanto a ogni risorsa è presente un'icona che ne indica l'integrità. Facendo clic su ogni risorsa verrà aperto il pannello Integrità risorsa.
+![Help + support](./media/resource-health-overview/HelpAndSupport.png)
 
-**Riquadro Integrità risorsa**
+Clicking the tile opens the Resource health subscription blade which will list all of the resources in your subscription. Beside each resource, there is an icon indicating its health. Clicking on each resource will open the Resource health blade.
 
-![Riquadro Integrità risorsa](./media/resource-health-overview/resourceHealthTile.png)
+**Resource health tile**
 
-## Cosa significa lo stato di integrità delle risorse?
-Esistono 4 possibili stati di integrità per la risorsa.
+![Resource health tile](./media/resource-health-overview/resourceHealthTile.png)
 
-### Disponibile
-Il servizio non ha rilevato problemi nella piattaforma che potrebbero incidere sulla disponibilità della risorsa. Questo stato è indicato da un segno di spunta verde.
+## <a name="what-does-my-resource-health-status-mean?"></a>What does my Resource health status mean?
+There are 4 different health statuses that you might see for your resource.
 
-![La risorsa è disponibile](./media/resource-health-overview/Available.png)
+### <a name="available"></a>Available
+The service has not detected any problems in the platform that could be impacting the availability of the resource. This is indicated by a green check mark icon. 
 
-### Non disponibile
+![Resource is available](./media/resource-health-overview/Available.png)
 
-In questo caso, il servizio ha rilevato un problema nella piattaforma che riduce la disponibilità della risorsa, ad esempio il nodo in cui è in esecuzione la macchina virtuale si è riavviato in modo imprevisto. Questo stato è indicato da un'icona di avviso rossa. Altre informazioni sul problema vengono visualizzate nella sezione centrale del pannello, tra cui:
+### <a name="unavailable"></a>Unavailable
 
-1.	Azioni intraprese da Microsoft per recuperare la risorsa
-2.	Sequenza temporale dettagliata del problema, incluso il tempo di risoluzione previsto
-3.	Elenco di azioni consigliate agli utenti
+In this case the service has detected an ongoing problem in the platform that is impacting the availability of this resource, for example, the node where the VM was running unexpectedly rebooted. This is indicated by a red warning icon. Additional information about the problem is provided in the middle section of the blade, including: 
 
-![La risorsa non è disponibile](./media/resource-health-overview/Unavailable.png)
+1.  What actions Microsoft is taking to recover the resource 
+2.  A detailed timeline of the problem, including the expected resolution time
+3.  A list recommended actions for users 
 
-### Non disponibile a causa di azione del cliente
-La risorsa non è disponibile a causa di una richiesta del cliente, ad esempio l'arresto di una risorsa o un riavvio. Questo stato è indicato da un'icona informativa blu.
+![Resource is unavailable](./media/resource-health-overview/Unavailable.png)
 
-![La risorsa non è disponibile a causa di un'azione avviata dall'utente](./media/resource-health-overview/userInitiated.png)
+### <a name="unavailable-–-customer-initiated"></a>Unavailable – customer initiated
+The resource is unavailable due to a customer request such as stopping a resource or requesting a restart. This is indicated by a blue informational icon. 
 
-### Sconosciuto
-Il servizio non ha ricevuto informazioni sulla risorsa per più di 5 minuti. Questo stato è indicato da un punto interrogativo grigio.
+![Resource is unavailable due to user an initiated action](./media/resource-health-overview/userInitiated.png)
 
-È importante notare che non si tratta di un'indicazione definitiva della presenza di problemi con una risorsa, quindi i clienti devono seguire queste raccomandazioni:
+### <a name="unknown"></a>Unknown
+The service has not received information about this resource for more than 5 minutes. This is indicated by a grey question mark icon. 
 
-* Se la risorsa è in esecuzione come previsto, ma l'integrità è impostata su Sconosciuta in Integrità risorsa, non sono presenti problemi ed è probabile che lo stato della risorsa torni integro dopo alcuni minuti.
-* Se sono presenti problemi di accesso alla risorsa e la sua integrità è impostata su Sconosciuta in Integrità risorsa, potrebbe essere un'indicazione iniziale di un possibile problema e sono necessarie ulteriori analisi fino a quando lo stato non verrà aggiornato in Integro o Danneggiato
+It is important to note that this is not a definitive indication that there is something wrong with a resource, so customers should follow these recommendations:
 
-![L'integrità della risorsa è sconosciuta](./media/resource-health-overview/unknown.png)
+* If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
+* If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
 
-## Eventi che hanno un impatto sui servizi
-Se la risorsa può essere interessata da un evento che ha un impatto sui servizi, verrà visualizzato un banner nella parte superiore del pannello Integrità di risorsa. Facendo clic sul banner verrà aperto il pannello Eventi di controllo con altre informazioni sull'interruzione del servizio.
+![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
-![L'integrità della risorsa può essere interessata da un evento che ha un impatto sui servizi](./media/resource-health-overview/serviceImpactingEvent.png)
+## <a name="service-impacting-events"></a>Service Impacting Events
+If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, which will display additional information about the outage.
 
-## Altre informazioni importanti su Integrità risorse
+![Resource health may be impacted by a SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 
-### Latenza dei segnali
-I segnali che indicano l'integrità della risorsa possono presentare ritardi fino a 15 minuti e ciò può causare discrepanze tra lo stato di integrità corrente della risorsa e la sua disponibilità effettiva. Si tratta di un fattore da tenere a mente per evitare di impiegare inutilmente del tempo per analizzare eventuali problemi.
+## <a name="what-else-do-i-need-to-know-about-resource-health?"></a>What else do I need to know about Resource health?
 
-### Caso speciale per SQL 
-Integrità risorsa segnala lo stato del database SQL, non di SQL Server. Anche se questo approccio offre un quadro più realistico dell'integrità, è necessario prendere in considerazione più componenti e servizi per determinare l'integrità del database. Il segnale corrente si basa sugli accessi al database e ciò significa che per i database che ricevono regolarmente accessi, incluse le richieste di esecuzione di query, l'integrità verrà visualizzata regolarmente. Se non è stato effettuato l'accesso al database per un periodo di 10 minuti o oltre, verrà impostato lo stato Sconosciuta. Ciò non significa che il database non sia disponibile, ma solo che non è stato generato alcun segnale perché non sono stati eseguiti accessi. Con la connessione al database e l'esecuzione di una query verranno inviati i segnali necessari per determinare e aggiornare lo stato di integrità del database.
+### <a name="signal-latency"></a>Signal latency
+The signals that feed Resource health, may be up to 15 min delayed, which can cause discrepancies between the current health status of the resource and its actual availability. It is important to keep this in mind as it will help eliminate unnecessary time spent investigating possible issues. 
 
-## Commenti e suggerimenti
-Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). È possibile inoltre comunicare tramite [Twitter](https://twitter.com/azuresupport) o i [forum MSDN](https://social.msdn.microsoft.com/Forums/azure).
+### <a name="special-case-for-sql"></a>Special case for SQL 
+Resource health reports the status of the SQL database, not the SQL server. While going this route provides a more realistic health picture, it requires that multiple components and services be taken into consideration to determine the health of the database. The current signal relies on logins to the database, which means that for databases that receive regular logins (which includes among other things, receiving query execution requests) the health status will be regularly displayed. If the database has not been accessed for a period of 10 minutes or more, it will be moved to the unknown state. This does not mean that the database is unavailable, just that no signal has been emitted because no logins have been performed. Connecting to the database and running a query will emit the signals needed to determine and update the health status of the database.
 
-<!---HONumber=AcomDC_0831_2016-->
+## <a name="feedback"></a>Feedback
+We are always open to feedback and suggestions! Please send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

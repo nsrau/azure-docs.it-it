@@ -1,44 +1,52 @@
 <properties
-	pageTitle="Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure"
-	description="Informazioni su come distribuire l'app nel servizio app di Azure tramite la sincronizzazione dei contenuti da una cartella nel cloud."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Sync content from a cloud folder to Azure App Service"
+    description="Learn how to deploy your app to Azure App Service via content sync from a cloud folder."
+    services="app-service"
+    documentationCenter=""
+    authors="dariagrigoriu"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/13/2016"
-	ms.author="dariagrigoriu"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/13/2016"
+    ms.author="dariagrigoriu"/>
     
-# Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
 
-Questa esercitazione spiega come effettuare una distribuzione nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) sincronizzando i contenuti dai servizi di archiviazione cloud più diffusi, come Dropbox e OneDrive.
+# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sync content from a cloud folder to Azure App Service
 
-## <a name="overview"></a>Panoramica della distribuzione per la sincronizzazione dei contenuti
+This tutorial shows you how to deploy to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by syncing your content from popular cloud storage services like Dropbox and OneDrive. 
 
-La distribuzione per la sincronizzazione dei contenuti on demand si basa sul [motore di distribuzione Kudu](https://github.com/projectkudu/kudu/wiki) integrato con il servizio app. Nel [portale di Azure](https://portal.azure.com) è possibile designare una cartella speciale nel servizio di archiviazione cloud, utilizzare il codice e il contenuto dell'applicazione disponibile in tale cartella e procedere alla sincronizzazione con il servizio app con un semplice clic del mouse. La sincronizzazione usa il processo Kudu per la compilazione e la distribuzione.
+## <a name="<a-name="overview"></a>overview-of-content-sync-deployment"></a><a name="overview"></a>Overview of content sync deployment
+
+The on-demand content sync deployment is powered by the [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki) integrated with App Service. In the [Azure Portal](https://portal.azure.com), you can designate a folder in your cloud storage, work with your app code and content in that folder, and sync to App Service with the click of a button. Content sync utilizes the Kudu process for build and deployment. 
     
-## <a name="contentsync"></a>Come abilitare la distribuzione per la sincronizzazione dei contenuti
-Per abilitare la sincronizzazione del contenuto dal [portale di Azure](https://portal.azure.com), seguire questa procedura:
+## <a name="<a-name="contentsync"></a>how-to-enable-content-sync-deployment"></a><a name="contentsync"></a>How to enable content sync deployment
+To enable content sync from the [Azure Portal](https://portal.azure.com), follow these steps:
 
-1. Nel pannello dell'app del portale di Azure fare clic su **Impostazioni** > **Origine distribuzione**. Fare clic su **Scegliere l'origine** e quindi selezionare **OneDrive** o **Dropbox** come origine per la distribuzione. 
+1. In your app's blade in the Azure Portal, click **Settings** > **Deployment Source**. Click **Choose Source**, then select **OneDrive** or **Dropbox** as the source for deployment. 
 
-    ![Sincronizzazione dei contenuti](./media/app-service-deploy-content-sync/deployment_source.png)
+    ![Content Sync](./media/app-service-deploy-content-sync/deployment_source.png)
 
-2. Completare il flusso di lavoro di autorizzazione per consentire al servizio app di accedere a un determinato percorso designato predefinito per OneDrive o Dropbox in cui verranno archiviati tutti i contenuti del servizio app. Dopo l'autorizzazione la piattaforma del servizio app consentirà di creare una cartella dei contenuti nel percorso dei contenuti designato oppure di selezionare una cartella esistente in questo stesso percorso. I percorsi dei contenuti designati negli account di archiviazione cloud usati per la sincronizzazione del servizio app sono i seguenti:
+2. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox where all of your App Service content will be stored.  
+    After authorization the App Service platform will give you the option to create a content folder under the designated content path, or to choose an existing content folder under this designated content path. The designated content paths under your cloud storage accounts used for App Service sync are the following:  
     * **OneDrive**: `Apps\Azure Web Apps` 
     * **Dropbox**: `Dropbox\Apps\Azure`
 
-3. Dopo la sincronizzazione dei contenuti iniziale, la sincronizzazione può essere avviata su richiesta dal portale di Azure. La cronologia di distribuzione è disponibile nel pannello **Distribuzioni**.
+3. After the initial content sync the content sync can be initiated on demand from the Azure portal. Deployment history is available with the **Deployments** blade.
 
-    ![Cronologia di distribuzione](./media/app-service-deploy-content-sync/onedrive_sync.png)
+    ![Deployment History](./media/app-service-deploy-content-sync/onedrive_sync.png)
  
-Altre informazioni sulla distribuzione con Dropbox sono disponibili in [Distribuzione tramite Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx).
+More information for Dropbox deployment is available under [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

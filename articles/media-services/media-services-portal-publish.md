@@ -1,98 +1,105 @@
 <properties
-	pageTitle=" Pubblicare contenuti con il portale di Azure | Microsoft Azure"
-	description="Questa esercitazione illustra i passaggi necessari per la pubblicazione di contenuti con il portale di Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="  Publish content with the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of publishing your content with the Azure portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
-# Pubblicare contenuti con il portale di Azure
+
+# <a name="publish-content-with-the-azure-portal"></a>Publish content with the Azure portal
 
 > [AZURE.SELECTOR]
-- [Portale](media-services-portal-publish.md)
+- [Portal](media-services-portal-publish.md)
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
 
-## Overview
+## <a name="overview"></a>Overview
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-Per poter fornire all'utente un URL da usare per scaricare o trasmettere in streaming i contenuti distribuiti, è prima necessario "pubblicare" la risorsa creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori:
+To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: 
 
-- Localizzatori di streaming (OnDemandOrigin) usati per lo streaming adattivo, ad esempio per riprodurre in streaming file MPEG DASH, HLS o Smooth Streaming. Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ISM.
-- Localizzatori progressivi (SAS) usati per la distribuzione di video tramite download progressivo.
+- Streaming (OnDemandOrigin) locators, used for adaptive streaming (for example, to stream MPEG DASH, HLS, or Smooth Streaming). To create a streaming locator your asset must contain an .ism file. 
+- Progressive (SAS) locators, used for delivery of video via progressive download.
 
 
-Un URL di streaming presenta il formato seguente e può essere usato per riprodurre asset Smooth Streaming.
+A streaming URL has the following format and you can use it to play Smooth Streaming assets.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Per creare un URL di streaming HLS, aggiungere (format=m3u8-aapl) all'URL.
+To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Per creare un URL di streaming MPEG DASH, aggiungere (format=mpd-time-csf) all'URL.
+To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-Un URL di firma di accesso condiviso ha il formato seguente.
+A SAS URL has the following format.
 
-	{blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{SAS signature}
 
-Per altre informazioni, vedere [Panoramica della distribuzione di contenuti](media-services-deliver-content-overview.md).
+For more information, see [Delivering content overview](media-services-deliver-content-overview.md).
 
->[AZURE.NOTE] I localizzatori creati attraverso il portale prima del mese di marzo 2015 hanno una data di scadenza di due anni.
+>[AZURE.NOTE] If you used the portal to create locators before March 2015, locators with a two year expiration date were created.  
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
-### Per usare il portale per la pubblicazione di un asset
+### <a name="to-use-the-portal-to-publish-an-asset"></a>To use the portal to publish an asset
 
-Per pubblicare un asset tramite il portale, seguire questa procedura:
+To use the portal to publish an asset, do the following:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Selezionare **Impostazioni** > **Asset**.
-1. Selezionare l'asset da pubblicare.
-1. Fare clic sul pulsante **Pubblica**.
-1. Selezionare il tipo di localizzatore.
-2. Fare clic su **Aggiungi**.
+1. Log in at the [Azure portal](https://portal.azure.com/).
+1. Select **Settings** > **Assets**.
+1. Select the asset that you want to publish.
+1. Click the **Publish** button.
+1. Select the locator type.
+2. Press **Add**.
 
-	![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-publish1.png)
+    ![Publish](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-L'URL verrà aggiunto all'elenco di **URL pubblicati**.
+The URL will be added to the list of **Published URLs**.
 
-## Riprodurre contenuti dal portale
+## <a name="play-content-from-the-portal"></a>Play content from the portal
 
-Il portale di Azure fornisce un lettore di contenuti che può essere usato per testare il proprio video.
+The Azure portal provides a content player that you can use to test your video.
 
-Fare clic sul video richiesto e quindi sul pulsante **Riproduci**.
+Click the desired video and then click the **Play** button.
 
-![Pubblicazione](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Publish](./media/media-services-portal-vod-get-started/media-services-play.png)
 
-Considerazioni applicabili:
+Some considerations apply:
 
-- Verificare che il video sia stato pubblicato.
-- Il **Lettore multimediale** esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, fare clic per copiare l'URL e usare un altro lettore, ad esempio [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
-- L'endpoint di streaming da cui si effettua lo streaming deve essere in esecuzione.
-- Per eseguire lo streaming da un endpoint di streaming è necessario aggiungere almeno un'unità di streaming. Per altre informazioni, vedere [questo](media-services-portal-scale-streaming-endpoints.md) argomento.
+- Make sure the video has been published.
+- This **Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- The streaming endpoint from which you are streaming must be running.  
+- To stream from a streaming endpoint, you should add at least one streaming unit. For more information, see [this](media-services-portal-scale-streaming-endpoints.md) topic.   
 
-##Passaggi successivi
+##<a name="next-steps"></a>Next steps
 
-Analizzare i percorsi di apprendimento di Servizi multimediali.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornire commenti e suggerimenti
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

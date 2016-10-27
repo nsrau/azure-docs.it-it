@@ -1,50 +1,50 @@
-## Progetto WebAPI
+## <a name="webapi-project"></a>WebAPI Project
 
-1. In Visual Studio aprire il progetto **AppBackend** creato nell'esercitazione sulla **creazione di notifiche per gli utenti**.
-2. In Notifications.cs sostituire l'intera classe **Notifications** con il codice seguente. Assicurarsi di sostituire i segnaposto con la stringa di connessione con accesso completo per l'hub di notifica e il nome dell'hub. È possibile ottenere questi valori dal [portale di Azure classico](http://manage.windowsazure.com). Questo modulo rappresenta ora le diverse notifiche sicure che verranno inviate. In un'implementazione completa le notifiche verranno archiviate in un database; per semplicità, in questo caso, verranno archiviate in memoria.
+1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
+2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Classic Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
 
-		public class Notification
-	    {
-	        public int Id { get; set; }
-	        public string Payload { get; set; }
-	        public bool Read { get; set; }
-	    }
+        public class Notification
+        {
+            public int Id { get; set; }
+            public string Payload { get; set; }
+            public bool Read { get; set; }
+        }
     
     
-	    public class Notifications
-	    {
-	        public static Notifications Instance = new Notifications();
-	        
-	        private List<Notification> notifications = new List<Notification>();
-	
-	        public NotificationHubClient Hub { get; set; }
-	
-	        private Notifications() {
-	            Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", 	"{hub name}");
-	        }
+        public class Notifications
+        {
+            public static Notifications Instance = new Notifications();
+            
+            private List<Notification> notifications = new List<Notification>();
+    
+            public NotificationHubClient Hub { get; set; }
+    
+            private Notifications() {
+                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
+            }
 
-	        public Notification CreateNotification(string payload)
-	        {
-	            var notification = new Notification() {
+            public Notification CreateNotification(string payload)
+            {
+                var notification = new Notification() {
                 Id = notifications.Count,
                 Payload = payload,
                 Read = false
-            	};
+                };
 
-            	notifications.Add(notification);
+                notifications.Add(notification);
 
-            	return notification;
-	        }
+                return notification;
+            }
 
-	        public Notification ReadNotification(int id)
-	        {
-	            return notifications.ElementAt(id);
-	        }
-	    }
+            public Notification ReadNotification(int id)
+            {
+                return notifications.ElementAt(id);
+            }
+        }
 
-20. In NotificationsController.cs sostituire il codice all'interno della definizione della classe **NotificationsController** con il codice seguente. Questo componente implementa un modo per il recupero della notifica da parte del dispositivo. Inoltre, ai fini di questa esercitazione, fornisce all'utente un modo per attivare un push sicuro ai propri dispositivi. Notare che a Hub di notifica verrà inviata una notifica non elaborata, che contiene l'ID della notifica senza alcun messaggio:
+20. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
 
-		public NotificationsController()
+        public NotificationsController()
         {
             Notifications.Instance.CreateNotification("This is a secure notification!");
         }
@@ -68,20 +68,22 @@
             await Notifications.Instance.Hub.SendNotificationAsync(rawNotificationToBeSent, usernameTag);
 
             // apns
-            await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{"aps": {"content-available": 1}, "secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}", usernameTag);
+            await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{\"aps\": {\"content-available\": 1}, \"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}", usernameTag);
 
             // gcm
-            await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{"data": {"secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}}", usernameTag);
+            await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{\"data\": {\"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}}", usernameTag);
 
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
 
-Notare che il metodo `Post` non invia ora una notifica di tipo avviso popup, ma una notifica non elaborata che contiene solo l'ID notifica e non contenuto sensibile. Assicurarsi inoltre di impostare come commento l'operazione send per le piattaforme per le quali non sono configurate le credenziali nell'hub di notifica, in caso contrario verranno restituiti errori.
+Note that the `Post` method now does not send a toast notification. It sends a raw notification that contains only the notification ID, and not any sensitive content. Also, make sure to comment the send operation for the platforms for which you do not have credentials configured on your notification hub, as they will result in errors.
 
-21. L'app verrà ora nuovamente distribuita in un sito Web di Azure in modo da renderla accessibile da tutti i dispositivi. Fare clic con il pulsante destro del mouse sul progetto **AppBackend** e scegliere **Pubblica**.
+21. Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
 
-24. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account di Azure e selezionare un sito Web nuovo o esistente, quindi prendere nota della proprietà **URL di destinazione** nella scheda **Connessione**. Si farà riferimento a quest'URL come *endpoint back-end* più avanti in questa esercitazione. Fare clic su **Pubblica**.
+24. Select Azure Website as your publish target. Log in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

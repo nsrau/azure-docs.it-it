@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Guida alla pianificazione e alla gestione del Centro sicurezza di Azure | Microsoft Azure"
-   description="Questo documento contiene indicazioni utili per l'adozione del Centro sicurezza di Azure e considerazioni relative alle operazioni quotidiane."
+   pageTitle="Security Center Planning and Operations Guide | Microsoft Azure"
+   description="This document helps you to plan before adopting Azure Security Center and considerations regarding daily operations."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,232 +16,237 @@
    ms.date="09/22/2016"
    ms.author="yurid"/>
 
-# Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
-Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
 
-## Guida alla pianificazione
-Questa guida illustra una serie di passaggi e attività che è possibile eseguire per ottimizzare l'uso del Centro sicurezza in base ai requisiti di sicurezza e al modello di gestione cloud dell'organizzazione. Per sfruttare tutti i vantaggi del Centro sicurezza, è importante sapere come i vari utenti o team dell'organizzazione usano il servizio per soddisfare le esigenze di gestione e sviluppo, monitoraggio, governance e risposta agli eventi imprevisti in modo sicuro. Le aree principali da considerare quando si intende usare il Centro sicurezza sono:
+# <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center planning and operations guide
+This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators whose organizations are planning to use Azure Security Center.
 
-- Ruoli di sicurezza e controlli di accesso
-- Criteri di sicurezza e raccomandazioni
-- Raccolta dati e archiviazione
-- Monitoraggio continuo della sicurezza
-- Risposta agli eventi imprevisti
+## <a name="planning-guide"></a>Planning guide
+This guide covers a set of steps and tasks that you can follow to optimize your use of Security Center based on your organization’s security requirements and cloud management model. To take full advantage of Security Center, it is important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Security Center are:
 
-Nella sezione successiva si apprenderà come pianificare ogni singola area e applicare le raccomandazioni in base alle esigenze.
+- Security Roles and Access Controls
+- Security Policies and Recommendations
+- Data Collection and Storage
+- Ongoing Security Monitoring
+- Incident Response
 
-> [AZURE.NOTE] Per un elenco delle domande comuni che possono risultare utili anche durante la fase di progettazione e di pianificazione, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
+In the next section, you will learn how to plan for each one of those areas and apply those recommendations based on your requirements.
+
+> [AZURE.NOTE] Read [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) for a list of common questions that can also be useful during the designing and planning phase.
 
 
-## Ruoli di sicurezza e controlli di accesso
-A seconda delle dimensioni e della struttura dell'organizzazione, il Centro sicurezza di Azure potrebbe essere usato da più utenti e team per l'esecuzione di diverse attività correlate alla sicurezza. Nel diagramma seguente è riportato un esempio di utenti fittizi e dei rispettivi ruoli e responsabilità in materia di sicurezza:
+## <a name="security-roles-and-access-controls"></a>Security roles and access controls
+Depending on the size and structure of your organization, multiple individuals and teams may use Security Center to perform different security-related tasks. In the following diagram you have an example of fictitious personas and their respective roles and security responsibilities:
 
-![Ruoli](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png)
+![Roles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png)
 
-Il Centro sicurezza consente a questi utenti di svolgere i relativi ruoli, ad esempio:
+Security Center enables these individuals to meet these various responsibilities. For example:
 
-**Jeff (proprietario del carico di lavoro cloud)**
+**Jeff (Cloud Workload Owner)**
 
-- Gestisce un carico di lavoro cloud e le risorse correlate.
-- È responsabile delle attività di implementazione e gestione della protezione secondo i criteri di sicurezza aziendale.
+- Manage a cloud workload and its related resources
+- Responsible for implementing and maintaining protections in accordance with company security policy
 
 **Ellen (CISO/CIO)**
 
-- È responsabile di tutti gli aspetti della sicurezza aziendale.
-- Deve conoscere i comportamenti di sicurezza aziendale per i carichi di lavoro cloud.
-- Ha l'esigenza di ricevere informazioni sui rischi e sugli attacchi principali.
+- Responsible for all aspects of security for the company
+- Wants to understand the company's security posture across cloud workloads
+- Needs to be informed of major attacks and risks
 
-**David (sicurezza IT)**
+**David (IT Security)**
 
-- Imposta i criteri di sicurezza aziendali per garantire l'applicazione della protezione appropriata.
-- Monitora la conformità ai criteri.
-- Genera report per la direzione o i revisori.
+- Sets company security policies to ensure the appropriate protections are in place
+- Monitors compliance with policies
+- Generates reports for leadership or auditors
 
-**Judy (attività di sicurezza)**
+**Judy (Security Operations)**
 
-- Monitora e risponde agli avvisi di sicurezza 24x7.
-- Si occupa dell'escalation al proprietario del carico di lavoro cloud o all'analista della sicurezza IT.
+- Monitors and responds to security alerts 24/7
+- Escalates to Cloud Workload Owner or IT Security Analyst
 
-**Sam (analista della sicurezza)**
+**Sam (Security Analyst)**
 
-- Analizza gli attacchi
-- Risolve gli avvisi o collabora con il proprietario del carico di lavoro cloud per applicare la correzione.
+- Investigate attacks
+- Remediates alerts or works with Cloud Workload Owner to apply remediation 
 
 
-Il Centro sicurezza usa il [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md), che offre [ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md) assegnabili a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. All'utente viene infatti assegnato il ruolo Proprietario, Collaboratore o Lettore per la sottoscrizione o il gruppo di risorse a cui appartiene la risorsa. Con gli utenti tipo descritti nel diagramma precedente sarebbe necessario il controllo degli accessi in base al ruolo seguente:
+Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. Using the personas explained in the previous diagram, the following RBAC would be needed:
 
-**Jeff (proprietario del carico di lavoro cloud)**
+**Jeff (Cloud Workload Owner)**
 
-- Proprietario del gruppo di risorse/Collaboratore.
+- Resource Group Owner/Collaborator
 
-**David (sicurezza IT)**
+**David (IT Security)**
 
-- Proprietario della sottoscrizione/Collaboratore.
+- Subscription Owner/Collaborator
 
-**Judy (attività di sicurezza)**
+**Judy (Security Operations)**
 
-- Lettore della sottoscrizione per visualizzare gli avvisi.
-- Proprietario della sottoscrizione/Collaboratore per ignorare gli avvisi.
+- Subscription Reader to View Alerts
+- Subscription Owner/Collaborator Required to Dismiss Alerts
 
-**Sam (analista della sicurezza)**
+**Sam (Security Analyst)**
 
-- Lettore della sottoscrizione per visualizzare gli avvisi.
-- Proprietario della sottoscrizione/Collaboratore per risolvere o ignorare gli avvisi.
-- Potrebbe essere necessario l'accesso all'archiviazione.
+- Subscription Reader to View Alerts
+- Subscription Owner/Collaborator Required to Remediate or Dismiss Alerts
+- Access to Storage May Be Required
 
-Altre informazioni importanti da considerare:
+Some other important information to consider:
 
-- Solto i ruoli Proprietario e Collaboratore della sottoscrizione possono modificare i criteri di sicurezza.
-- Solo i ruoli Proprietario e Collaboratore della sottoscrizione e del gruppo di risorse possono applicare le raccomandazioni relative alla sicurezza per una risorsa.
+- Only subscription Owners and Contributors can edit a security policy
+- Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
 
-Quando si pianifica il controllo di accesso con il Controllo degli accessi in base al ruolo per il Centro sicurezza, è necessario sapere chi userà il Centro sicurezza nell'organizzazione. Si dovrà sapere anche quali tipi di attività eseguiranno e configurare di conseguenza il Controllo degli accessi in base al ruolo.
+When planning access control using RBAC for Security Center, be sure to understand who in your organization will be using Security Center. Also, what types of tasks they will be performing and then configure RBAC accordingly.
 
-> [AZURE.NOTE] È consigliabile assegnare il ruolo con il minor numero di autorizzazioni che permetta agli utenti di completare le attività. Ad esempio, agli utenti che hanno solo necessità di visualizzare le informazioni sullo stato di sicurezza delle risorse senza intervenire, per applicare le raccomandazioni o modificare i criteri, deve essere assegnato il ruolo Lettore.
+> [AZURE.NOTE] We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
 
-## Criteri di sicurezza e raccomandazioni
-I criteri di sicurezza definiscono il set di controlli consigliati per le risorse all'interno della sottoscrizione o del gruppo di risorse specificato. Nel Centro sicurezza è possibile definire i criteri in base ai requisiti di sicurezza della società e al tipo di applicazioni o al livello di riservatezza dei dati.
+## <a name="security-policies-and-recommendations"></a>Security policies and recommendations
+A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group. In Security Center, you define policies according to your company's security requirements and the type of applications or sensitivity of the data.
 
-I criteri abilitati nel livello sottoscrizione vengono propagati automaticamente a tutti i gruppi di risorse all'interno della sottoscrizione, come illustrato nel diagramma seguente:
+Policies that are enabled in the subscription level automatically propagate to all resources groups within the subscription as shown in the following diagram:
 
-![Criteri di sicurezza](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
+![Security Policies](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
 
-Come illustrato nella figura precedente, i criteri di sicurezza per i gruppi di risorse possono essere ereditati dal livello sottoscrizione.
+As shown in the preceding figure, security policies for resource groups can be inherited from the subscription level.
 
-In alcuni scenari in cui le risorse in un gruppo di risorse richiedono un set di criteri diverso è possibile disattivare l'ereditarietà e applicare criteri personalizzati a un gruppo di risorse specifico.
+In some scenarios where you may have resources in a resource group that require a different set of policies, you can disable inheritance and apply custom policies to a specific Resource Group.
 
-Se sono necessari criteri personalizzati in gruppi di risorse specifici, occorre disabilitare l'ereditarietà nel gruppo di risorse e modificare i criteri di sicurezza. Ad esempio, se alcuni carichi di lavoro non richiedono il criterio Transparent Data Encryption di SQL, occorre disabilitarlo al livello di sottoscrizione e abilitarlo solo nei gruppi di risorse in cui è richiesto.
+If you need custom policies in specific resource groups, you should disable inheritance in the resource group and change the security policies. For example, if you have some workloads that do not require the SQL Transparent Data Encryption policy, turn off the policy at the subscription level and enable it only in the resources groups where SQL TDE is required.
 
-Quando si avvia la creazione di criteri personalizzati per diversi gruppi di risorse, è necessario pianificare la distribuzione dei criteri, tenendo presente che, in caso di conflitto tra criteri della sottoscrizione e del gruppo di risorse, i criteri del gruppo di risorse hanno la priorità.
+When you start creating custom policies for different resource groups, you should plan your policy deployment knowing that in case of a policy conflict (subscription versus resource group), the resource group policy prevails.
 
-> [AZURE.NOTE] Per esaminare i criteri modificati, è possibile usare i [log di controllo di Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2015/03/10/audit-logs-for-azure-events/). Le modifiche ai criteri vengono sempre registrate nei log di controllo di Azure.
+> [AZURE.NOTE] If you need to review which policies were changed, you can use [Azure Audit Logs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2015/03/10/audit-logs-for-azure-events/). Policy changes are always logged in Azure Audit Logs.
 
-### Suggerimenti per la sicurezza
+### <a name="security-recommendations"></a>Security recommendations
 
-Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le [raccomandazioni sulla sicurezza](security-center-recommendations.md) e determinare se sono appropriate per le varie sottoscrizioni e i vari gruppi di risorse usati. È importante sapere anche quali azioni vengono eseguite in relazione alle raccomandazioni sulla sicurezza.
+Before configuring security policies, review each of the [security recommendations](security-center-recommendations.md), and determine whether these policies are appropriate for your various subscriptions and resource groups. It is also important to understand what action is taken to address Security Recommendations.
 
-**Endpoint Protection**: se in una macchina virtuale non è abilitata una soluzione Endpoint Protection, il Centro sicurezza visualizza una raccomandazione perché venga installata. Se in locale è già stata adottata una soluzione Endpoint Protection preferita, è necessario stabilire se usare lo stesso antimalware per le macchine virtuali di Azure. Il Centro sicurezza di Azure offre diverse opzioni per Endpoint Protection. È possibile usare un antimalware Microsoft gratuito o scegliere tra un elenco di soluzioni di protezione endpoint di partner integrati. Per altre informazioni su come distribuire antimalware con il Centro sicurezza, vedere [Installare Endpoint Protection nel Centro sicurezza di Azure](security-center-install-endpoint-protection.md).
+**Endpoint Protection**: If a virtual machine does not have an endpoint protection solution enabled, Security Center recommends that you install one. If you have a preferred endpoint protection solution that you’ve already adopted on-premises, you need to decide if you use the same antimalware for your Azure VMs. Security Center provides you with several endpoint protection options.  You can use the free Microsoft Antimalware or choose among a list of endpoint protection solutions from integrated partners. For more information on how to deploy antimalware using Security Center, read [Install Endpoint Protection in Azure Security Center](security-center-install-endpoint-protection.md).
 
-**Aggiornamenti di sistema**: il Centro sicurezza identifica le macchine virtuali in cui non sono presenti aggiornamenti della sicurezza o aggiornamenti critici del sistema operativo per IaaS e Servizi cloud (PaaS). Valutare chi è responsabile dell'applicazione degli aggiornamenti necessari e le relative modalità di applicazione. Molte organizzazioni usano WSUS, Windows Update o un altro strumento.
+**System Updates**: Security Center identifies virtual machines that are missing security or critical operating system updates for IaaS and Cloud Services (PaaS). Consider who is responsible for applying updates when needed and how they are applied. Many organizations use WSUS, Windows Update, or another tool.
 
-**Configurazioni di base**: se le configurazioni del sistema operativo delle macchine virtuali non corrispondono alle baseline consigliate, viene visualizzata una raccomandazione. Esaminare il set di baseline [qui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) e valutare come vengono applicate le configurazioni del sistema operativo.
+**Baseline Configurations**: If virtual machine operating system configurations do not match the recommended baselines, a recommendation is surfaced. Review the set of baselines [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) and consider how operating system configurations are applied.
 
-**Crittografia dischi**: se sono disponibili dischi della macchina virtuale non crittografati, Centro sicurezza suggerisce di applicare Crittografia dischi di Azure. Questa funzionalità sfrutta BitLocker per Windows e DM-Crypt per Linux per la crittografia del volume per i dischi dati e del sistema operativo. La raccomandazione reindirizza l'utente a una [guida dettagliata](security-center-disk-encryption.md) con istruzioni su come eseguire tale crittografia.
+**Disk Encryption**: If you have virtual machine disks that are not encrypted, Security Center recommends you to apply Azure Disk Encryption. This feature leverages BitLocker for Windows and DM-Crypt for Linux to provide volume encryption for the OS and data disks. This recommendation redirects you to a [step by step guide](security-center-disk-encryption.md) that has the instructions on how to perform this encryption.
 
-Tenere presente che gli scenari di crittografia da risolvere sono diversi. È necessario pianificare i requisiti specifici di ognuno di questi scenari:
+Be aware that there are several encryption scenarios that you need to address. You will need to plan for the unique requirements for each of these scenarios:
 
-- Crittografia di nuove macchine virtuali di Azure da dischi rigidi virtuali crittografati con chiavi di crittografia proprie.
-- Crittografia di nuove macchine virtuali di Azure create dalla raccolta di Azure.
-- Crittografia di macchine virtuali di Azure già in esecuzione in Azure.
+- Encryption of new Azure Virtual Machines from VHDs that you have encrypted using your own encryption keys
+- Encryption of new Azure Virtual Machines that were created from the Azure Gallery
+- Encryption of Azure Virtual Machines that are already running in Azure
 
-La pianificazione dei requisiti sarà diversa per ogni scenario. Per informazioni dettagliate sui singoli scenari, vedere il white paper [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) (Crittografia dischi di Azure per macchine virtuali di Azure per Windows e Linux).
+Planning requirements will be different for each of these scenarios. Please refer to the [Azure Disk Encryption white paper](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) for details of each of these scenarios.
 
-**Web application firewall**: il Centro sicurezza identifica le macchine virtuali che eseguono applicazioni Web e visualizza una raccomandazione perché venga installato un Web application firewall (WAF). Valutare le soluzioni partner disponibili per determinare la soluzione più adatta all'organizzazione e come verrà concessa la relativa licenza. I partner potrebbero supportare modelli Bring Your Own License e/o con pagamento in base al consumo. Per altre informazioni su come distribuire un Web application firewall nelle macchine virtuali di Azure con il Centro sicurezza, vedere [Aggiungere un Web application firewall nel Centro sicurezza di Azure](security-center-add-web-application-firewall.md).
+**Web Application Firewall**: Security Center will identify virtual machines running web applications and recommend that you install a Web Application Firewall (WAF). Evaluate the available partner solutions to determine which is the best fit for your organization and determine how the solution will be licensed (partners may support Bring Your Own License and/or Pay As You Go models). For more information on how to deploy a web application firewall in your Azure VMs using Security Center, read [Add a web application firewall in Azure Security Center](security-center-add-web-application-firewall.md).
 
-**Firewall di nuova generazione**: consente di effettuare il provisioning di un'appliance virtuale di importanti fornitori, tra cui Check Point e presto Cisco e Fortinet. Estende le protezioni di rete oltre i gruppi di sicurezza di rete incorporati in Azure. Il Centro sicurezza individuerà le distribuzioni per cui è consigliabile un firewall di nuova generazione e consentirà di effettuare il provisioning di un'appliance virtuale.
+**Next Generation Firewall**: Enable you to provision a virtual appliance from leading vendors, including Check Point and soon after Cisco and Fortinet. This extends network protections beyond Network Security Groups, which are built in to Azure. Security Center will discover deployments for which a Next Generation Firewall is recommended, and enable you to provision a virtual appliance.
 
-**Rete virtuale**: il Centro sicurezza valuta l'infrastruttura e la configurazione della [rete virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) per verificare che i [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) siano applicati e configurati correttamente con regole per il traffico in ingresso. È necessario valutare quali regole del traffico definire e comunicarlo alle persone che dovranno applicare le raccomandazioni sulla sicurezza correlate.
+**Virtual Networking**: Security Center evaluates your [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) infrastructure and configuration to check that [Network Security Groups](../virtual-network/virtual-networks-nsg.md) are applied and properly configured with inbound traffic rules. You should consider what traffic rules should be defined and communicate this to the individuals who will be applying the related security recommendations.
 
-Il Centro sicurezza visualizza una raccomandazione perché vengano specificati i dettagli dei contatti di sicurezza per la sottoscrizione di Azure. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md).
+Security Center will recommend that you provide security contact details for your Azure subscription. This information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your customer data has been accessed by an unlawful or unauthorized party. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information on how to enable this recommendation.
 
-## Raccolta dati e archiviazione
+## <a name="data-collection-and-storage"></a>Data collection and storage
 
-È consigliabile abilitare la raccolta dati per ogni sottoscrizione, per assicurare che il monitoraggio della sicurezza sia disponibile per tutte le macchine virtuali nuove ed esistenti. La raccolta dati viene abilitata tramite l'agente di monitoraggio di Azure (ASMAgentLauncher.exe) e l'estensione per il monitoraggio della sicurezza di Azure (ASMMonitoringAgent.exe).
+We strongly recommend that you turn data collection on for each of your subscriptions as this will ensure that security monitoring is available for all your VMs. Data collection is enabled via the Azure Monitoring Agent (ASMAgentLauncher.exe) and the Azure Security Monitoring extension (ASMMonitoringAgent.exe).
 
-L'estensione per il monitoraggio della sicurezza di Azure esegue l'analisi delle varie configurazioni pertinenti per la sicurezza e raccoglie i log di sicurezza dalle macchine virtuali. I dati vengono inviati a un account di archiviazione specificato. Nella macchina virtuale viene installata anche l'utilità di gestione analisi (ASMSoftwareScanner.exe), da usare per l'analisi delle patch.
+The Azure Security Monitoring extension scans for various security relevant configuration and collects security logs from the virtual machine. This data is sent to a Storage account you specify. The scan manager (ASMSoftwareScanner.exe) will be also installed in the virtual machine and be used as a patch scanner.
 
-Dopo aver abilitato la raccolta dati nei criteri di sicurezza, le estensioni e l'agente di monitoraggio vengono installati automaticamente in tutte le macchine virtuali supportate, nuove ed esistenti, di cui è stato effettuato il provisioning in Azure. Il processo dell'agente non è invasivo e non influisce sulle prestazioni della macchina virtuale.
+After data collection is enabled in the security policy, the monitoring agent and extensions are installed automatically on all existing and any new supported virtual machines that are provisioned in Azure.  The agent’s process is non-invasive and doesn’t affect the VM’s performance.
 
-> [AZURE.NOTE] Per risolvere i problemi relativi all'agente di monitoraggio della sicurezza di Azure, vedere [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](security-center-troubleshooting-guide.md).
+> [AZURE.NOTE] To troubleshoot Azure Security Monitoring Agent related issues, read [Azure Security Center Troubleshooting Guide](security-center-troubleshooting-guide.md).
 
-Per disabilitare successivamente la raccolta dati, è possibile usare i criteri di sicurezza. Per eliminare gli agenti di monitoraggio distribuiti in precedenza, selezionare l'opzione di menu Elimina agenti.
+If at some point you want to disable Data Collection, you can turn it off in the security policy. To delete monitoring agents previously deployed, select the Delete Agents menu option.
 
-> [AZURE.NOTE] Per un elenco delle macchine virtuali supportate, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
+> [AZURE.NOTE] to find a list of supported VMs, read the [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md).
 
-Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, ne verrà creato uno automaticamente. È possibile scegliere la posizione di archiviazione per ogni area o archiviare tutte le informazioni in una posizione centrale. Mentre i criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, la selezione di un'area per l'account di archiviazione può avvenire solo a livello di sottoscrizione.
+For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, one will be created for you. You can choose the storage location per region or store all information in a central location. While security policies can be set at the Azure subscription level and resource group level, the region for your storage account can only be selected at the subscription level.
 
-Se si usa un account di archiviazione condiviso tra diverse risorse di Azure, vedere l'articolo [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/storage-scalability-targets.md) per altre informazioni sui limiti di dimensioni e sui vincoli. Anche la sottoscrizione prevede limiti per l'account di archiviazione. Per comprendere meglio tali limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+If you are using a storage account shared among different Azure resources, ensure that you read [Azure Storage Scalability and Performance Targets](../storage/storage-scalability-targets.md) article for more information about size limits and constraints. Your subscription also has storage account limits, review [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) to better understand these limits.
 
-> [AZURE.NOTE] I costi associati all'archiviazione non sono inclusi nel prezzo del servizio Centro sicurezza e vengono addebitati separatamente in base ai normali [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+> [AZURE.NOTE] Costs associated with this storage are not included in the price of the  Security Center service and will be charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/).
 
-Anche le considerazioni relative a prestazioni e scalabilità devono essere pianificate in base alle dimensioni dell'ambiente Azure e alle risorse che utilizzano l'account di archiviazione. Per altre informazioni, vedere [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../storage/storage-performance-checklist.md).
+Performance and scalability considerations should also be planned according to your Azure environment size and the resources that are consuming your storage account. Review [Microsoft Azure Storage Performance and Scalability Checklist](../storage/storage-performance-checklist.md) for more information.
 
-## Monitoraggio continuo della sicurezza
+## <a name="ongoing-security-monitoring"></a>Ongoing security monitoring
 
-Dopo la configurazione iniziale e l'applicazione delle raccomandazioni del Centro sicurezza, il passaggio successivo consiste nel valutare i processi operativi del Centro sicurezza.
+After initial configuration and application of Security Center recommendations, the next step is considering Security Center operational processes.
 
-Per accedere al Centro sicurezza dal portale di Azure è possibile fare clic su **Esplora** e digitare **Centro sicurezza** nel campo **Filtro**. Il contenuto visualizzato dall'utente dipende dai filtri applicati.
+To access Security Center from the Azure portal you can click **Browse** and type **Security Center** in the **Filter** field. The views that the user gets are according to these applied filters.
 
-Il Centro sicurezza non interferisce con le normali procedure operative, esegue un monitoraggio passivo delle distribuzioni e fornisce raccomandazioni in base ai criteri di sicurezza abilitati.
+Security Center will not interfere with your normal operational procedures, it will passively monitor your deployments and provide recommendations based on the security policies you enabled.
 
-Il dashboard del Centro sicurezza è suddiviso in due parti principali:
+The Security Center dashboard is divided into two major parts:
 
-- Prevenzione
-- Rilevamento
+- Prevention
+- Detection
 
-Quando si abilita per la prima volta la raccolta dati nel Centro sicurezza per l'ambiente Azure corrente, esaminare tutte le raccomandazioni nel pannello **Raccomandazioni** o nelle singole risorse (**Macchina virtuale**, **Rete**, **SQL** e **Applicazione**).
+When you first enable data collection in Security Center for your current Azure environment, make sure that you review all recommendations, which can be done in the **Recommendations** blade or per resource (**Virtual Machine**, **Networking**, **SQL** and **Application**).
 
-Dopo avere applicato tutte le raccomandazioni, la sezione **Prevenzione** sarà verde per tutte le risorse che sono state corrette. Il monitoraggio continuo a questo punto risulta più semplice perché le azioni da intraprendere dipendono unicamente dalle modifiche apportate nei riquadri Integrità sicurezza delle risorse e Raccomandazioni.
+Once you address all recommendations, the **Prevention** section should be green for all resources that were addressed. Ongoing monitoring at this point becomes easier since you will only take actions based on changes in the resource security health and recommendations tiles.
 
-La sezione **Rilevamento** è più reattiva e contiene avvisi relativi a problemi in corso o che si sono verificati in precedenza e sono stati rilevati dai controlli del Centro sicurezza e da sistemi di terze parti. Il riquadro Avvisi di sicurezza mostra grafici a barre che rappresentano il numero di avvisi di rilevamento delle minacce trovati ogni giorno e la relativa distribuzione per categorie basate sulla gravità, bassa, media o alta. Per altre informazioni sugli avvisi di sicurezza, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
+The **Detection** section is more reactive, these are alerts regarding issues that are either taking place now, or occurred in the past and were detected by Security Center controls and 3rd party systems. The Security Alerts tile will show bar graphs that represent the number of threat detection alerts that were found in each day, and their distribution among the different severity categories (low, medium, high). For more information about Security Alerts, read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-> [AZURE.NOTE] È anche possibile usare Microsoft Power BI per visualizzare i dati del Centro sicurezza. Vedere [Ottenere informazioni dettagliate sui dati del Centro sicurezza di Azure con Power BI](security-center-powerbi.md).
+> [AZURE.NOTE] You can also leverage Microsoft Power BI to visualize your Security Center data. Read [Get insights from Azure Security Center data with Power BI](security-center-powerbi.md).
 
-### Monitoraggio di risorse nuove o modificate
+### <a name="monitoring-for-new-or-changed-resources"></a>Monitoring for new or changed resources
 
-Gli ambienti Azure sono per la maggior parte dinamici, con nuove risorse che vengono attivate e disattivate a intervalli regolari, nuove configurazioni, modifiche e così via. Il Centro sicurezza contribuisce a garantire la visibilità dello stato di sicurezza delle nuove risorse.
+Most Azure environments are dynamic, with new resources being spun up and down on a regular basis, configurations or changes, etc. Security Center helps ensure that you have visibility into the security state of these new resources.
 
-Quando si aggiungono nuove risorse all'ambiente Azure, come VM o database SQL, il Centro sicurezza le individua automaticamente e iniziare a monitorarne la sicurezza. Ciò include anche i ruoli di lavoro e i ruoli Web PaaS. Se la raccolta dati è abilitata nei [criteri di sicurezza](security-center-policies.md), vengono abilitate automaticamente funzionalità di monitoraggio aggiuntive per le macchine virtuali.
+When you add new resources (VMs, SQL DBs) to your Azure Environment, Security Center will automatically discover these resources and begin to monitor their security. This also includes PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](security-center-policies.md), additional monitoring capabilities will be enabled automatically for your virtual machines.
 
-![Aree principali](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
+![Key areas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
 
-1.	Per le macchine virtuali, accedere al riquadro **Integrità sicurezza delle risorse** e fare clic su **Macchine virtuali**. Gli eventuali problemi di abilitazione della raccolta dati e le relative raccomandazioni verranno visualizzati nella sezione **Raccomandazioni sul monitoraggio**.
-2.	Per conoscere gli eventuali rischi di sicurezza identificati per la nuova risorsa, vedere **Raccomandazioni**.
-3.	Accade spesso che nelle nuove macchine virtuali aggiunte all'ambiente inizialmente sia installato solo il sistema operativo. Il proprietario della risorsa potrebbe avere bisogno di tempo per distribuire altre app per l'uso da parte delle macchine virtuali. È preferibile conoscere la finalità del carico di lavoro, ad esempio se verrà usato come server applicazioni. In base alla finalità del nuovo carico di lavoro, è possibile abilitare i **Criteri di sicurezza** appropriati, che rappresentano il terzo passaggio del flusso di lavoro.
-4.	Con l'aggiunta di nuove risorse all'ambiente Azure, potrebbero essere visualizzati nuovi avvisi nel riquadro **Avvisi di sicurezza**. Verificare sempre se sono presenti nuovi avvisi in questo riquadro e intraprendere le azioni necessarie in base alle raccomandazioni del Centro sicurezza.
+1.  For virtual machines, access the **Resource security health** tile, click **Virtual Machines**. Any issues with enabling data collection or related recommendations will be surfaced in the **Monitoring Recommendations** section.
+2.  View the **Recommendations** to see what, if any, security risks were identified for the new resource.
+3.  It is very common that when new VMs are added to your environment, only the operating system is initially installed. The resource owner might need some time to deploy other apps that will be used by these VMs.  Ideally, you should know the final intent of this workload. Is it going to be an Application Server? Based on what this new workload is going to be, you can enable the appropriate **Security Policy**, which is the third step in this workflow.
+4.  As new resources are added to your Azure environment, it is possible that new alerts appear in the **Security Alerts** tile. Always verify if there are new alerts in this tile and take actions according to Security Center recommendations.
 
-È anche possibile monitorare regolarmente lo stato delle risorse esistenti per identificare le modifiche alla configurazione che hanno creato rischi di sicurezza, deviazioni dalle baseline consigliate e avvisi di sicurezza. Avviare il dashboard del Centro sicurezza. Qui sono presenti tre aree principali da esaminare in modo continuativo.
+You will also want to regularly monitor the state of existing resources to identify configuration changes that have created security risks, drift from recommended baselines, and security alerts. Start at the Security Center dashboard. From there you have three major areas to review on a consistent basis.
 
-![Operazioni](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4.png)
+![Operations](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4.png)
 
-1.	Il pannello **Integrità sicurezza delle risorse** consente di accedere rapidamente alle risorse chiave. Usare questa opzione per monitorare Macchine virtuali, Reti, SQL e Applicazioni.
-2.	Il pannello **Raccomandazioni** consente di esaminare le raccomandazioni del Centro sicurezza. Durante il monitoraggio continuo è normale non ricevere raccomandazioni ogni giorno, perché tutte le raccomandazioni sono state applicate durante la configurazione iniziale del Centro sicurezza. Per questo motivo, in questa sezione potrebbero non essere presenti nuove informazioni ogni giorno e sarà sufficiente accedervi solo quando necessario.
-3.	Il pannello **Rilevamento** potrebbe cambiare molto di frequente o solo saltuariamente. Esaminare sempre gli avvisi di sicurezza e intraprendere le azioni necessarie in base alle raccomandazioni del Centro sicurezza.
+1.  The **Resource security health** panel provides you quick access to your key resources. Use this option to monitor your Virtual Machines, Networks, SQL and Applications.
+2.  The **Recommendations** panel enables you to review Security Center recommendations. During your ongoing monitoring you may find that you don’t have recommendations on a daily basis, which is normal since you addressed all recommendations on the initial Security Center set up. For this reason, you may not have new information in this section every day and will just need to access it as needed.
+3.  The **Detection** panel might change on either a very frequent or very infrequent basis. Always review your security alerts and take actions based on Security Center recommendations.
 
-## Risposta agli eventi imprevisti
+## <a name="incident-response"></a>Incident response
 
-Il Centro sicurezza rileva le minacce appena si verificano e avvisa l'utente. Le organizzazioni devono monitorare i nuovi avvisi di sicurezza e intraprendere le azioni necessarie per indagare più a fondo o correggere l'attacco. Per altre informazioni sul funzionamento del rilevamento delle minacce nel Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md).
+Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat detection works, read [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
 
-Per quanto offrire una guida alla creazione di un piano di risposta agli eventi imprevisti non rientri nelle finalità di questo articolo, il ciclo di vita della risposta del Centro sicurezza di Microsoft Azure nel cloud verrà usato come base per le fasi della risposta agli eventi imprevisti. Le fasi sono illustrate nel diagramma seguente:
+While this article doesn’t have the intent to assist you creating your own Incident Response plan, we are going to use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages are shown in the following diagram:
 
-![Attività sospetta](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
-> [AZURE.NOTE] Per tale scopo è possibile usare la [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guida alla gestione degli eventi imprevisti della sicurezza nei computer) del National Institute of Standards and Technology (NIST).
+> [AZURE.NOTE] You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you building your own.
 
-È possibile usare gli avvisi del Centro sicurezza durante le fasi seguenti.
+You can use Security Center Alerts during the following stages:
 
-- **Rilevamento**: identificazione di un'attività sospetta in una o più risorse.
-- **Valutazione**: esecuzione della valutazione iniziale per ottenere altre informazioni sull'attività sospetta.
-- **Diagnosi**: uso dei passaggi di correzione per completare la procedura tecnica per risolvere il problema.
+- **Detect**: identify a suspicious activity in one or more resources. 
+- **Assess**: perform the initial assessment to obtain more information about the suspicious activity.
+- **Diagnose**: use the remediation steps to conduct the technical procedure to address the issue.
 
-Ogni avviso di sicurezza fornisce informazioni che possono essere usate per comprendere meglio la natura dell'attacco e trovare soluzioni di mitigazione. Alcuni avvisi forniscono anche collegamenti ad altre informazioni o fonti di informazioni all'interno di Azure. Le informazioni fornite possono essere usate per migliorare la ricerca e iniziare la mitigazione.
+Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation.
 
-L'esempio seguente mostra un'attività RDP sospetta in azione:
+The following example shows a suspicious RDP activity taking place:
 
-![Attività sospetta](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
+![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-Questo pannello include dettagli relativi al momento in cui si è verificato l'attacco, al nome host di origine, alla macchina virtuale di destinazione e ai passaggi necessari per applicare la raccomandazione. In alcuni casi le informazioni sull'origine dell'attacco potrebbero non essere disponibili. Per altre informazioni su questo tipo di comportamento, vedere [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Informazioni sull'origine mancanti negli avvisi del Centro sicurezza di Azure).
+As you can see, this blade shows details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
 
-Nel video [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Come sfruttare il Centro sicurezza di Azure e Microsoft Operations Management Suite per la risposta a un evento imprevisto) è possibile vedere alcune demo che consentono di comprendere come usare il Centro sicurezza per ognuna di queste fasi.
+In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
 
-> [AZURE.NOTE] Vedere [Uso del Centro sicurezza di Azure per rispondere agli eventi imprevisti](security-center-incident-response.md) per altre informazioni sull'uso delle funzionalità del Centro sicurezza di Azure per rispondere agli eventi imprevisti.
+> [AZURE.NOTE] Read [Leveraging Azure Security Center for Incident Response](security-center-incident-response.md) for more information on how to use Security Center capabilities to assist you during your Incident Response process. 
 
-## Vedere anche
-In questo documento è stato descritto come pianificare l'adozione del Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+## <a name="see-also"></a>See also
+In this document, you learned how to plan for Security Center adoption. To learn more about Security Center, see the following:
 
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
-- [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

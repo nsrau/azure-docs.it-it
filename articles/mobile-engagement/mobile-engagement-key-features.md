@@ -1,138 +1,139 @@
 <properties
-	pageTitle="Funzionalità principali di Azure Mobile Engagement"
-	description="Descrive le funzionalità principali di Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="erikre" 
-	editor="" />
+    pageTitle="Azure Mobile Engagement - Key features"
+    description="Describes the key features of Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="erikre" 
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/19/2016"
+    ms.author="piyushjo" />
 
-# Funzionalità principali di Azure Mobile Engagement
 
-L'articolo fornisce una panoramica generale sulle funzionalità principali della piattaforma Mobile Engagement.
+# <a name="azure-mobile-engagement---key-features"></a>Azure Mobile Engagement - Key features
 
-## **Generale**
+This article gives a high level overview about the key features of the Mobile Engagement platform. 
 
-- **SDK per tutte le principali piattaforme** SDK disponibili per tutte le principali piattaforme: iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. Vengono forniti SDK facilmente integrabili e documentazione utile per iniziare a usare la piattaforma scelta.
+## <a name="**general**"></a>**General**
 
-- **Portale SaaS separato** Consente di contattare in modo semplice il team di marketing senza accedere dal portale di gestione di Azure.
+- **Find SDKs for all major platforms** SDKs available for all major platforms - iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. We provide easy to integrate SDKs and helpful documentation to get you started on any platform of your choice. 
 
-- **Disponibilità di API REST aperte** Per integrare e automatizzare sistemi CRM/CMS/IT, sono disponibili API REST aperte e .NET SDK per il relativo utilizzo, consentendo una semplice integrazione e automatizzazione con Mobile Engagement. Vedere [qui](mobile-engagement-api-authentication.md) per informazioni dettagliate.
+- **Separate SaaS portal** Allows easy access to the marketing team without the need to go through the Azure management portal. 
 
-- **Disponibilità del connettore Power BI** È anche possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-mobile/)
+- **Availability of open REST APIs** To integrate and automate with CRM/CMS/IT systems using open-platform APIs, we provide open REST APIs and .NET SDK to consume these APIs that can allow you to easily integrate and automate with Mobile Engagement. See [this](mobile-engagement-api-authentication.md) for details. 
 
-- **Garanzia di sicurezza e privacy** Azure Mobile Engagement fa parte della famiglia di prodotti Azure e segue tutte le procedure consigliate standard relative alla sicurezza e alla privacy previste per un servizio cloud.
+- **Power BI connector available** You can also pull out the key analytics charts into a Power BI dashboard. See this [guide](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-mobile/)
 
-## **Analisi operativa**
+- **Assurance of Security & Privacy** Azure Mobile Engagement being part of the Azure family follows all the standard best practices around security & privacy expected for a cloud service.
 
-- **Monitorare i dati in tempo reale** È possibile tenere traccia delle analisi in tempo reale utilizzando il modulo di monitoraggio che mostra dettagli tra cui sessioni, eventi, errori e arresti anomali del sistema in tempo reale. Vedere questo [articolo](mobile-engagement-concepts.md) per comprendere i concetti di base.
+## <a name="**actionable-analytics**"></a>**Actionable Analytics**
 
-	![][1]
+- **Monitor data in real time** You can track real time analytics using our Monitor module which shows details like sessions, events, errors & crashes all in real-time. Take a look at this [article](mobile-engagement-concepts.md) to get an understanding of the basic concepts. 
 
-	![][2]
+    ![][1]
 
-- **Visualizzare i dati aggregati** È anche possibile ottenere una visualizzazione più completa dei dati analitici aggregati usando il modulo Analytics che consente di filtrarli facilmente sulla base della versione dell'app e dei periodi di tempo.
+    ![][2]      
 
-	![][3]
+- **View aggregated data** You also get a richer view of your aggregated analytics data using our Analytics module which allows you to easily filter your data based on your app version and time periods.
 
-- **Acquisire informazioni dettagliate sul modello di assorbimento e sugli utenti**
+    ![][3]      
 
-	![][4]
+- **Get insights into your users and retention pattern**
 
-- **Acquisire informazioni dettagliate sulla provenienza degli utenti e sul tempo che trascorrono nella schermata**
+    ![][4]      
 
-	![][5]
-	
-	![][6]
+- **Get insights into where your users are coming from and how much time are they spending in the screen**
 
-- **Identificare le schermate visitate dagli utenti dell'applicazione e le modalità di ottimizzazione del percorso utente** Ciò consente di far individuare agli utenti schermate e funzionalità specifiche.
+    ![][5]      
+    
+    ![][6]      
 
-	![][7]
-	
-	![][8]
+- **Find out which screens are your app users visiting and how can you optimize the user path** This helps them to discover screens and features that you want them to.
 
-- **Acquisire informazioni dettagliate sugli eventi più frequenti nell'applicazione e sul processo aziendale basato su di essi**
+    ![][7]      
+    
+    ![][8]      
 
-	![][9]
+- **Get insights into which are the most frequent events in your app and get an understanding of your business process based on these events** 
 
-- **Tenere traccia di arresti anomali ed errori comuni e acquisire informazioni per il team di sviluppo**
+    ![][9]  
 
-	![][10]
-	
-	![][11]
+- **Track common errors and crashes and get insights for your developer team**
 
-- **Acquisire informazioni sui dispositivi e sulle reti utilizzati per l'accesso all'applicazione dagli utenti, per ottimizzare l'applicazione**
+    ![][10]     
+    
+    ![][11] 
 
-	![][12]
-	
-## **Notifiche push mirate e personalizzate**
+- **Understand which devices and networks are your app users accessing your app from, to optimize the app** 
 
-- **Creare un segmento basato su uno qualsiasi dei dati raccolti** A tale scopo è possibile utilizzare uno dei dati di Evento/Sessione/Attività/Processo/Arresto anomalo/Errore/Tag .
+    ![][12] 
+    
+## <a name="**targeted-&-personalized-push-notifications**"></a>**Targeted & Personalized Push Notifications**
 
-	![][13]
+- **Create a segment based on any of the collected data** You can use any of the Event/Session/Activity/Job/Crash/Error/Tags data for this.
 
-	![][14]
+    ![][13]
 
-- **Tenere traccia della cronologia dei segmenti creati giornalmente**
+    ![][14]     
 
-	![][15]
+- **Track the history of your created segments day over day**
 
-- **Inviare notifiche mirate** destinate a un segmento di uso frequente, come vecchi/nuovi utenti e così via, o a un segmento personalizzato
+    ![][15] 
 
-	![][16]
+- **Send targeted notifications** targeting commonly used like old/new users etc. or to your custom created segment
 
-- **Inviare notifiche push in-app basate su HTML formattato e notifiche out-of-app/di sistema in base al proprio scenario**
+    ![][16] 
 
-	![][17]
+- **Send both out-of-app/system & rich HTML based in-app push notifications as appropriate for your scenario**
 
-	![][18]
+    ![][17] 
 
-- **Impostare notifiche in-app mirate da visualizzare in una schermata/attività specifica nell'applicazione**
+    ![][18] 
 
-	![][19]
+- **Target in-app notifications to show up on a specific screen/activity in the app**
 
-- **Specificare "un'azione" associata alla selezione di una notifica da parte dell'utente** Potrebbe trattarsi di un'azione semplice come l'apertura di una pagina Web o lo spostamento a una schermata specifica all'interno dell'applicazione.
+    ![][19] 
 
-	![][20]
-	
-- **Inviare notifiche localizzate** per attirare l'interesse degli utenti dell'applicazione nella loro lingua d'uso.
+- **Specify an "action" when the user clicks on a notification** It could be as simple as opening up a webpage or navigating within the app to a specific screen at the click of the notification. 
 
-	![][21]
+    ![][20]
+    
+- **Send localized notifications** so that it appeals to the app users in the language they are most comfortable in. 
 
-- **Specificare un'ora di inizio e fine per le campagne**
+    ![][21] 
 
-	![][22]
+- **Specify a start and end time for your campaigns** 
 
-- **Testare facilmente le notifiche** registrando un dispositivo di test e inviando la notifica di prova solo a questo dispositivo.
+    ![][22] 
 
-	![][23]
+- **Easily test your notifications** by registering a test device and sending the test notification to only this device.
 
-- **Configurare facilmente una notifica in-app da visualizzare come rapido sondaggio**
+    ![][23] 
 
-	![][24]
-	
-- **Ottenere statistiche della campagna push** delle notifiche per valutare la relativa riuscita
+- **Easily set up an in-app notification to show up as a quick poll/survey**  
 
-	![][25]
+    ![][24]
+    
+- **Get push campaign statistics** for your notifications to give you an idea about how successful were your notifications.
 
-- **Personalizzare facilmente e dare carattere alle notifiche tramite app-info/tag ed emoji**
+    ![][25] 
 
-	![][26]
+- **Easily personalize and give character to your notifications using app-info/tags and emojis** 
 
-	![][27]
+    ![][26] 
 
-- **Impostare limiti push per impedire lo spamming degli utenti** Evitare di inviare molti push agli utenti dell'applicazione, dando l'impressione di spamming. Questa funzione è particolarmente utile perché permette di configurare dei limiti alla granularità di un segmento.
+    ![][27] 
 
-	![][28]
+- **Set Push Limits to prevent spamming users** You don’t want to send a lot of pushes to your app users and come across as spamming them. This is where our Push limits feature is useful which allows you to configure push limits at the granularity of a segment. 
+
+    ![][28]         
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-key-features/monitor1.png
@@ -164,4 +165,17 @@ L'articolo fornisce una panoramica generale sulle funzionalità principali della
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

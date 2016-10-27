@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Caricare dati da SQL Server in Azure SQL Data Warehouse (bcp) | Microsoft Azure"
-   description="Per dimensioni ridotte dei dati è possibile usare bcp per esportare i dati da SQL Server a file flat e importare i dati direttamente in Azure SQL Data Warehouse."
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (bcp) | Microsoft Azure"
+   description="For a small data size, uses bcp to export data from SQL Server to flat files and import the data directly into Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -10,54 +10,55 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
-# Caricare dati da SQL Server in Azure SQL Data Warehouse (file flat)
+
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-(flat-files)"></a>Load data from SQL Server into Azure SQL Data Warehouse (flat files)
 
 > [AZURE.SELECTOR]
 - [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 - [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 - [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
-Per set di dati di piccole dimensioni è possibile usare l'utilità della riga di comando bcp per esportare i dati da SQL Server e quindi caricarli direttamente in Azure SQL Data Warehouse.
+For small data sets, you can use the bcp command-line utility to export data from SQL Server and then load it directly to Azure SQL Data Warehouse.
 
-In questa esercitazione si userà bcp per eseguire queste operazioni:
+In this tutorial, you will use bcp to:
 
-- Esportare una tabella da SQL Server usando il comando bcp out oppure creare un semplice file di esempio.
-- Importare la tabella da un file flat in SQL Data Warehouse.
-- Creare statistiche sui dati caricati.
+- Export a table from from SQL Server by using the bcp out command (or create a simple sample file)
+- Import the table from a flat file to SQL Data Warehouse.
+- Create statistics on the loaded data.
 
 >[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
-## Prima di iniziare
+## <a name="before-you-begin"></a>Before you begin
 
-### Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
-Per eseguire questa esercitazione, è necessario:
+To step through this tutorial, you need:
 
-- Un database di SQL Data Warehouse
-- Utilità della riga di comando bcp installata
-- Utilità della riga di comando sqlcmd installata
+- A SQL Data Warehouse database
+- The bcp command-line utility installed
+- The sqlcmd command-line utility installed
 
-È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][].
+You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
 
-### Dati in formato ASCII o UTF-16
+### <a name="data-in-ascii-or-utf-16-format"></a>Data in ASCII or UTF-16 format
 
-Se si prova a eseguire questa esercitazione con dati personalizzati, è necessario che i dati usino la codifica ASCII o UTF-16, perché bcp non supporta UTF-8.
+If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
 
-PolyBase supporta UTF-8 ma non supporta ancora UTF-16. Si noti che se si vuole associare bcp con PolyBase, sarà necessario trasformare i dati in UTF-8 dopo l'esportazione da SQL Server.
+PolyBase supports UTF-8 but doesn't yet support UTF-16. Note that if you want to combine bcp with PolyBase you will need to transform the data to UTF-8 after it is exported from SQL Server. 
 
 
-## 1\. Creare una tabella di destinazione
+## <a name="1.-create-a-destination-table"></a>1. Create a destination table
 
-Definire una tabella in SQL Data Warehouse da usare come tabella di destinazione per il caricamento. Le colonne della tabella devono corrispondere ai dati in ogni riga del file di dati.
+Define a table in SQL Data Warehouse that will be the destination table for the load. The columns in the table must correspond to the data in each row of your data file.
 
-Per creare una tabella, aprire un prompt dei comandi e usare sqlcmd.exe per eseguire i comandi seguenti:
+To create a table, open a command prompt and use sqlcmd.exe to run the following command:
 
 
 ```sql
@@ -77,9 +78,9 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2\. Creare un file di dati di origine
+## <a name="2.-create-a-source-data-file"></a>2. Create a source data file
 
-Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di testo e quindi salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt. I dati hanno formato ASCII.
+Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt. This data is in ASCII format.
 
 ```
 20150301,1,3
@@ -96,7 +97,7 @@ Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di tes
 20150101,1,3
 ```
 
-(Facoltativo) Per esportare i dati personalizzati da un database di SQL Server, aprire un prompt dei comandi ed eseguire il comando seguente. Sostituire TableName, ServerName, DatabaseName, Username e Password con le informazioni personalizzate.
+(Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
 
 ```sql
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
@@ -104,20 +105,20 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 
 
-## 3\. Caricare i dati
-Per caricare i dati, aprire un prompt dei comandi ed eseguire il comando seguente, sostituendo i valori per nome server, nome database, nome utente e password con le informazioni personalizzate.
+## <a name="3.-load-the-data"></a>3. Load the data
+To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Usare questo comando per verificare che i dati siano stati caricati correttamente.
+Use this command to verify the data was loaded properly
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-I risultati dovrebbero avere l'aspetto seguente:
+The results should look like this:
 
 DateId |CalendarQuarter |FiscalQuarter
 ----------- |--------------- |-------------
@@ -134,11 +135,11 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-## 4\. Creare le statistiche
+## <a name="4.-create-statistics"></a>4. Create statistics
 
-SQL Data Warehouse non supporta ancora la creazione automatica o l'aggiornamento automatico delle statistiche. Per ottenere le prestazioni migliori per le query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo qualsiasi modifica significativa ai dati. Per una spiegazione dettagliata delle statistiche, vedere [Statistiche][].
+SQL Data Warehouse does not yet support auto-create or auto-update statistics. To get the best query performance, it's important to create statistics on all columns of all tables after the first load or after any substantial changes occur in the data. For a detailed explanation of statistics, see [Statistics][]. 
 
-Eseguire il comando seguente per creare le statistiche nella tabella appena caricata.
+Run the following command to create statistics on your newly loaded table.
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -148,19 +149,19 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## 5\. Esportare i dati da SQL Data Warehouse
-Se si vuole, è possibile esportare i dati appena caricati da SQL Data Warehouse. Il comando per l'esportazione corrisponde esattamente all'esportazione da SQL Server.
+## <a name="5.-export-data-from-sql-data-warehouse"></a>5. Export data from SQL Data Warehouse
+For fun, you can export the data that you just loaded back out of SQL Data Warehouse.  The command to export is exactly the same as exporting from SQL Server.
 
-I risultati presentano tuttavia una differenza. Poiché i dati vengono archiviati in posizioni distribuite in SQL Data Warehouse, quando si esportano i dati ogni nodo di calcolo scrive i rispettivi dati nel file di output. L'ordine dei dati nel file di output sarà probabilmente diverso dall'ordine dei dati nel file di input.
+However, there is a difference in the results. Since the data is stored in distributed locations within SQL Data Warehouse, when you export data each Compute node writes it data to the output file. The order of the data in the output file is likely to be different than the order of the data in the input file.
 
-### Esportare una tabella e confrontare i risultati esportati
+### <a name="export-a-table-and-compare-exported-results"></a>Export a table and compare exported results
 
-Per visualizzare i dati esportati, aprire un prompt dei comandi ed eseguire questo comando usando parametri personalizzati. ServerName è il nome del server SQL logico di Azure.
+To see the exported data, open a command prompt and run this command using your own parameters. ServerName is the name of your Azure logical SQL Server.
 
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-Per verificare che i dati siano stati esportati correttamente, aprire il nuovo file. I dati nel file devono corrispondere al testo seguente, ma è probabile che abbiano un ordinamento diverso:
+You can verify the data was exported correctly by opening the new file. The data in the file should match the text below, but will likely be sorted in a different order:
 
 ```
 20150301,1,3
@@ -177,27 +178,33 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 20150101,1,3
 ```
 
-### Esportare i risultati di una query
+### <a name="export-the-results-of-a-query"></a>Export the results of a query
 
-È possibile usare la funzione **queryout** di bcp per esportare i risultati di una query invece di esportare l'intera tabella.
+You can use the **queryout** function of bcp to export the results of a query instead of exporting the entire table. 
 
-## Passaggi successivi
-Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][]. Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse, vedere [Overview of tables in SQL Data Warehouse][] (Panoramica delle tabella in SQL Data Warehouse) o la sintassi di [CREATE TABLE][].
+## <a name="next-steps"></a>Next steps
+For an overview of loading, see [Load data into SQL Data Warehouse][].
+For more development tips, see [SQL Data Warehouse development overview][].
+See [Table Overview][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Caricare i dati in SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
-[Statistiche]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Area download Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,3 +1,6 @@
-Peering reti virtuale è un meccanismo che consente di connettere due reti virtuali nella stessa area tramite la rete backbone di Azure. Una volta eseguito il peering, le due reti virtuali appariranno come una singola rete virtuale per qualsiasi scopo di connettività. Se non si ha familiarità con il peering reti virtuali, vedere la panoramica del [Peering reti virtuali](../articles/virtual-network/virtual-network-peering-overview.md).
+VNet Peering is a mechanism to connect two Virtual Networks in the same region through the Azure backbone network. Once peered, the two Virtual Networks will appear like a single Virtual Network for all connectivity purposes. Read the [VNet Peering overview](../articles/virtual-network/virtual-network-peering-overview.md) if you are not familiar with VNet Peering.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

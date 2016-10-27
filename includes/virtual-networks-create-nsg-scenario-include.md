@@ -1,19 +1,22 @@
-## Scenario
+## <a name="scenario"></a>Scenario
 
-Per illustrare meglio come creare un NSG, in questo documento verrà utilizzato lo scenario seguente.
+To better illustrate how to create NSGs, this document will use the scenario below.
 
-![Scenario di una rete virtuale](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In questo scenario si creerà un NSG per ogni subnet nella rete virtuale **TestVNet**, come illustrato di seguito:
+In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
 
-- **NSG-FrontEnd**. Il front-end NSG verrà applicato per il subnet *front-end*, e contiene due regole:	
-	- **regola-rdp**. Questa regola consente il traffico RDP verso il subnet *front-end*.
-	- **regola-web**. Questa regola consente il traffico HTTP verso il subnet *front-end*.
-- **Back-end di NSG**. Il back-end NSG verrà applicato per il subnet *back-end*, e contiene due regole:	
-	- **regola sql**. Questa regola consente il traffico SQL solo dal subnet *front-end*.
-	- **regola-web**. Questa regola nega tutto il traffico associato ad internet proveniente dal subnet *back-end*.
+- **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:  
+    - **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
+    - **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
+- **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules: 
+    - **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
+    - **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
 
-La combinazione di queste regole crea uno scenario simile alla rete perimetrale, dove la subnet di back-end può solo ricevere traffico in ingresso per SQL dalla subnet front-end e non dispone dell'accesso a Internet, mentre la subnet front-end può comunicare con Internet e ricevere solo le richieste HTTP in ingresso.
+The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

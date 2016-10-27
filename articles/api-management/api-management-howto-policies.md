@@ -1,147 +1,147 @@
 <properties 
-	pageTitle="Criteri in Gestione API di Azure | Microsoft Azure" 
-	description="Informazioni su come creare, modificare e configurare criteri in Gestione API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Policies in Azure API Management | Microsoft Azure" 
+    description="Learn how to create, edit, and configure policies in API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
 
-#Criteri in Gestione API di Azure
 
-In Gestione API di Azure i criteri sono una potente funzionalità del sistema che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale in caso di richiesta o risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare la quantità di chiamate in ingresso da uno sviluppatore. Sono disponibili molti altri criteri predefiniti.
+#<a name="policies-in-azure-api-management"></a>Policies in Azure API Management
 
-Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, vedere [Informazioni di riferimento per i criteri][].
+In Azure API Management, policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
 
-I criteri vengono applicati nel gateway che si trova tra il consumer di API e l'API gestita. Il gateway riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
+See the [Policy Reference][] for a full list of policy statements and their settings.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][] e [set-variable][], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][] ed [Espressioni di criteri][].
+Policies are applied inside the gateway which sits between the API consumer and the managed API. The gateway receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
-## <a name="scopes"> </a>Come configurare criteri
-I criteri possono essere configurati a livello globale o nell'ambito di un [prodotto][], un'[API][] o un'[operazione][]. Per configurare i criteri, passare all'editor dei criteri nel portale di pubblicazione.
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][].
 
-![Manu Criteri][policies-menu]
+## <a name="<a-name="scopes">-</a>how-to-configure-policies"></a><a name="scopes"> </a>How to configure policies
+Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the publisher portal.
 
-L'editor dei criteri comprende tre sezioni principali: l'ambito criteri (in alto), la definizione criteri in cui i criteri vengono modificati (a sinistra) e l'elenco di istruzioni (a destra).
+![Policies menu][policies-menu]
 
-![Editor criteri][policies-editor]
+The policies editor consists of three main sections: the policy scope (top), the policy definition where policies are edited (left) and the statements list (right):
 
-Per iniziare a configurare i criteri, prima è necessario selezionare l'ambito in cui applicare i criteri. Nella schermata seguente è selezionato il prodotto **Starter**. Il quadratino accanto al nome del criterio indica che un criterio è già applicato a questo livello.
+![Policies editor][policies-editor]
+
+To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the **Starter** product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 
 ![Scope][policies-scope]
 
-Poiché è già stato applicato un criterio, la configurazione viene mostrata nella visualizzazione definizione.
+Since a policy has already been applied, the configuration is shown in the definition view.
 
-![Configurare][policies-configure]
+![Configure][policies-configure]
 
-Il criterio viene dapprima visualizzato come di sola lettura. Per modificare la definizione, fare clic sull'azione di **configurazione dei criteri**.
+The policy is displayed read-only at first. In order to edit the definition click the **Configure Policy** action.
 
-![Modificare][policies-edit]
+![Edit][policies-edit]
 
-La definizione criteri è un semplice documento XML che descrive una sequenza di istruzioni in ingresso e in uscita. Il codice XML può essere modificato direttamente nella finestra della definizione. Un elenco di istruzioni è disponibile a destra e le istruzioni applicabili all'ambito corrente sono abilitate ed evidenziate, come ad esempio l'istruzione **Limita frequenza chiamate** nella schermata precedente.
+The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted; as demonstrated by the **Limit Call Rate** statement in the screenshot above.
 
-Facendo clic su un'istruzione abilitata, il codice XML appropriato verrà aggiunto in corrispondenza del cursore nella visualizzazione definizione.
+Clicking an enabled statement will add the appropriate XML at the location of the cursor in the definition view. 
 
->[AZURE.NOTE] Se il criterio che si desidera aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all'**utilizzo** del criterio in [Riferimento ai criteri di Gestione API di Azure][].
+>[AZURE.NOTE] If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference][].
 
-Un elenco completo di istruzioni dei criteri e le relative impostazioni sono disponibili in [Informazioni di riferimento per i criteri][].
+A full list of policy statements and their settings are available in the [Policy Reference][].
 
-Ad esempio, per aggiungere una nuova istruzione per limitare le richieste in arrivo agli indirizzi IP specificati, posizionare il cursore nel contenuto dell'elemento XML `inbound` e fare clic sull'istruzione **Limita IP chiamanti**.
+For example, to add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the `inbound` XML element and click the **Restrict caller IPs** statement.
 
-![Criteri di restrizione][policies-restrict]
+![Restriction policies][policies-restrict]
 
-Verrà aggiunto un frammento XML all'elemento `inbound` che fornisce informazioni aggiuntive sulla configurazione dell'istruzione.
+This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
 
-	<ip-filter action="allow | forbid">
-		<address>address</address>
-		<address-range from="address" to="address"/>
-	</ip-filter>
+    <ip-filter action="allow | forbid">
+        <address>address</address>
+        <address-range from="address" to="address"/>
+    </ip-filter>
 
-Per limitare le richieste in ingresso e accettare solo quelle da un indirizzo IP 1.2.3.4, modificare il codice XML nel modo seguente:
+To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
 
-	<ip-filter action="allow">
-		<address>1.2.3.4</address>
-	</ip-filter>
+    <ip-filter action="allow">
+        <address>1.2.3.4</address>
+    </ip-filter>
 
 ![Save][policies-save]
 
-Dopo aver configurato le istruzioni per il criterio, fare clic su **Salva** per propagare immediatamente le modifiche al gateway di Gestione API.
+When complete configuring the statements for the policy, click **Save** and the changes will be propagated to the API Management gateway immediately.
 
-##<a name="sections"> </a>Informazioni sulla configurazione dei criteri
+##<a name="<a-name="sections">-</a>understanding-policy-configuration"></a><a name="sections"> </a>Understanding policy configuration
 
-Un criterio è una serie di istruzioni eseguite in un determinato ordine in relazione a una richiesta e una risposta. La configurazione è correttamente suddivisa nelle sezioni `inbound`, `backend`, `outbound`, e `on-error` come mostrato nella seguente configurazione.
+A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following configuration.
 
-	<policies>
-	  <inbound>
-	    <!-- statements to be applied to the request go here -->
-	  </inbound>
-	  <backend>
-	    <!-- statements to be applied before the request is forwarded to 
-	         the backend service go here -->
-	  </backend>
-	  <outbound>
-	    <!-- statements to be applied to the response go here -->
-	  </outbound>
-	  <on-error>
-	    <!-- statements to be applied if there is an error condition go here -->
-	  </on-error>
-	</policies> 
+    <policies>
+      <inbound>
+        <!-- statements to be applied to the request go here -->
+      </inbound>
+      <backend>
+        <!-- statements to be applied before the request is forwarded to 
+             the backend service go here -->
+      </backend>
+      <outbound>
+        <!-- statements to be applied to the response go here -->
+      </outbound>
+      <on-error>
+        <!-- statements to be applied if there is an error condition go here -->
+      </on-error>
+    </policies> 
 
-Se si verifica un errore durante l'elaborazione di una richiesta, tutti i rimanenti passaggi nelle sezioni `inbound`, `backend`, o `outbound` vengono ignorate e l'esecuzione prosegue con le istruzioni nella sezione`on-error`. Inserendo istruzioni di criteri nella sezione `on-error` è possibile rivedere l'errore utilizzando la proprietà `context.LastError`, esaminare e personalizzare la risposta di errore tramite il criterio `set-body` e configurare che cosa accade se si verifica un errore. Sono disponibili codici di errore per i passaggi incorporati e per gli errori che possono verificarsi durante l'elaborazione delle istruzioni dei criteri. Per altre informazioni, vedere [Gestione degli errori nei criteri di Gestione API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-Poiché i criteri possono essere specificati a livelli diversi (globale, di prodotto, di API e di operazione), la configurazione fornisce un modo per specificare l'ordine in cui le istruzioni della definizione del criterio vengono eseguite rispetto al criterio padre.
+Since policies can be specified at different levels (global, product, api and operation) the configuration provides a way for you to specify the order in which the policy definition's statements execute with respect to the parent policy. 
 
-Gli ambiti dei criteri vengono valutati nell'ordine seguente.
+Policy scopes are evaluated in the following order.
 
-1. Ambito globale
-2. Ambito del prodotto
-3. Ambito dell’API
-4. Ambito dell'operazione
+1. Global scope
+2. Product scope
+3. API scope
+4. Operation scope
 
-Le istruzioni all'interno di essi vengono valutate in base alla posizione dell’elemento `base`, se presente.
+The statements within them are evaluated according to the placement of the `base` element, if it is present.
 
-Ad esempio, se ci sono un criterio a livello globale e un criterio configurato per un'API, quando questa particolare API viene usata, vengono applicati entrambi i criteri. Gestione API consente l'ordinamento deterministico delle istruzioni combinate per i criteri attraverso l'elemento di base.
+For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
-	<policies>
-    	<inbound>
-        	<cross-domain />
-        	<base />
-        	<find-and-replace from="xyz" to="abc" />
-    	</inbound>
-	</policies>
+    <policies>
+        <inbound>
+            <cross-domain />
+            <base />
+            <find-and-replace from="xyz" to="abc" />
+        </inbound>
+    </policies>
 
-Nella definizione del criterio dell'esempio precedente, l'istruzione `cross-domain` verrà eseguita prima di un criterio di livello superiore che verrà a sua volta seguito dal criterio `find-and-replace`.
+In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy.
 
-Se lo stesso criterio viene visualizzato due volte nell'istruzione del criterio, viene applicato il criterio che è stato valutato più di recente. È possibile utilizzare questo per sostituire i criteri definiti a un ambito più elevato. Per visualizzare i criteri nell'ambito corrente nell'editor dei criteri, fare clic su **Ricalcolare il criterio effettivo per l'ambito selezionato**.
+If the same policy appears twice in the policy statement, the most recently evaluated policy is applied. You can use this to override policies that are defined at a higher scope. To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
-Notare che i criteri globali non hanno criteri padre e che usando in essi l'elemento `<base>` esso non produce alcun effetto.
+Note that global policy has no parent policy and using the `<base>` element in it has no effect. 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Vedere il video seguente sulle espressioni di criteri.
+Check out following video on policy expressions.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
-[Informazioni di riferimento per i criteri]: api-management-policy-reference.md
-[Riferimento ai criteri di Gestione API di Azure]: api-management-policy-reference.md
-[prodotto]: api-management-howto-add-products.md
-[API]: api-management-howto-add-products.md#add-apis
-[operazione]: api-management-howto-add-operations.md
+[Policy Reference]: api-management-policy-reference.md
+[Product]: api-management-howto-add-products.md
+[API]: api-management-howto-add-products.md#add-apis 
+[Operation]: api-management-howto-add-operations.md
 
-[Criteri avanzati]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[choose]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[set-variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Espressioni di criteri]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
@@ -151,4 +151,8 @@ Vedere il video seguente sulle espressioni di criteri.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

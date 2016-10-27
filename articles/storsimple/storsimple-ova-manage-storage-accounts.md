@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestire l'account di archiviazione StorSimple | Microsoft Azure"
-   description="Spiega come usare la pagina Configura di StorSimple Manager per aggiungere, modificare, eliminare o ruotare le chiavi di sicurezza per un account di archiviazione associato all'array virtuale StorSimple."
+   pageTitle="Manage your StorSimple storage account | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account associated with the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,95 +12,102 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/18/2016"
+   ms.date="09/29/2016"
    ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per gestire gli account di archiviazione per StorSimple Virtual Array
 
-## Panoramica
+# <a name="use-the-storsimple-manager-service-to-manage-storage-accounts-for-storsimple-virtual-array"></a>Use the StorSimple Manager service to manage storage accounts for StorSimple Virtual Array
 
-La pagina **Configura** presenta i parametri di servizio globali che possono essere creati nel servizio StorSimple Manager. Questi parametri possono essere applicati a tutti i dispositivi connessi al servizio e includono:
+## <a name="overview"></a>Overview
 
-- Account di archiviazione 
-- Record di controllo di accesso 
+The **Configure** page presents the global service parameters that can be created in the StorSimple Manager service. These parameters can be applied to all the devices connected to the service, and include:
 
-Questa esercitazione illustra come usare la pagina **Configura** per aggiungere, modificare o eliminare gli account di archiviazione per l'array virtuale StorSimple. Le informazioni contenute in questa esercitazione si applicano solo all'array virtuale StorSimple che esegue il software della versione di disponibilità generale di marzo 2016.
+- Storage accounts 
+- Access control records 
 
- ![Pagina Configura](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts for your StorSimple Virtual Array. The information in this tutorial only applies to the StorSimple Virtual Array running March 2016 GA release software.
 
-Gli account di archiviazione contengono le credenziali utilizzate dal dispositivo per accedere all'account di archiviazione con il provider di servizi cloud. Per gli account di archiviazione di Microsoft Azure, queste sono le credenziali, ad esempio il nome dell'account e la chiave di accesso primaria.
+ ![Configure page](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)  
 
-Nella pagina **Configura** tutti gli account di archiviazione creati per la sottoscrizione di fatturazione vengono visualizzati in un formato tabulare che contiene le informazioni seguenti:
+Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
-- **Nome**: il nome univoco assegnato all'account al momento della creazione.
-- **SSL abilitato**: se SSL è abilitato e la comunicazione tra dispositivo e cloud avviene tramite il canale protetto.
+On the **Configure** page, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:
 
-Le attività più comuni relative agli account di archiviazione che possono essere eseguite nella pagina **Configura** sono:
+- **Name** – The unique name assigned to the account when it was created.
+- **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
 
-- Aggiungere un account di archiviazione 
-- Modificare un account di archiviazione 
-- Eliminare un account di archiviazione 
+The most common tasks related to storage accounts that can be performed on the **Configure** page are:
+
+- Add a storage account 
+- Edit a storage account 
+- Delete a storage account 
 
 
-## Tipi di account di archiviazione
+## <a name="types-of-storage-accounts"></a>Types of storage accounts
 
-Esistono tre tipi di account di archiviazione che è possibile utilizzare con il dispositivo StorSimple.
+There are three types of storage accounts that can be used with your StorSimple device.
 
-- **Account di archiviazione generati automaticamente**: come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per altre informazioni sulla creazione di questo account di archiviazione, vedere [Creare un nuovo servizio](storsimple-ova-manage-service.md#create-a-service). 
-- **Account di archiviazione nella sottoscrizione del servizio**: sono gli account di archiviazione di Azure associati alla stessa sottoscrizione del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). 
-- **Account di archiviazione esterni alla sottoscrizione al servizio**: sono gli account di archiviazione di Azure non associati al servizio e probabilmente esistenti prima che il servizio fosse creato.
+- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Create a new service](storsimple-ova-manage-service.md#create-a-service). 
+- **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md). 
+- **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 
-## Aggiungere un account di archiviazione
+Each StorSimple Virtual Array creates a container (with a prefix hcs) in the associated storage account. This container has all the cloud data for your device. Do not delete this container by accessing it through the Azure Storage service as this action will result in data loss.
 
-È possibile aggiungere un account di archiviazione al servizio StorSimple Manager indicando un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione. È inoltre possibile scegliere di abilitare la modalità SSL (Secure Socket Layer) per creare un canale protetto per la comunicazione di rete tra il dispositivo e il cloud.
+## <a name="add-a-storage-account"></a>Add a storage account
 
-È possibile creare più account per un provider del servizio cloud specificato. Durante il salvataggio dell'account di archiviazione, il servizio tenta di comunicare con il provider di servizi cloud. Le credenziali e i dati di accesso forniti verranno autenticati in questa fase. L’account di archiviazione viene creato solo se l'autenticazione ha esito positivo. Se l'autenticazione non riesce, verrà visualizzato un messaggio di errore appropriato.
+You can add a storage account to your StorSimple Manager service configuration by providing a unique friendly name and access credentials that are linked to the storage account. You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
 
-Gli account di archiviazione di Resource Manager creati nel portale di Azure sono supportati anche con StorSimple. Gli account di archiviazione di Resource Manager non sono visualizzati nell'elenco a discesa per la selezione. Solo gli account di archiviazione creati nel portale di Azure classico vengono visualizzati. Gli account di archiviazione di Resource Manager devono essere aggiunti tramite la procedura di aggiunta di account di archiviazione descritta di seguito.
+You can create multiple accounts for a given cloud service provider. While the storage account is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied will be authenticated at this time. A storage account is created only if the authentication succeeds. If the authentication fails, then an appropriate error message will be displayed.
 
-Di seguito è riportata la procedura per aggiungere un account di archiviazione classico di Azure.
+Resource Manager storage accounts created in Azure portal are also supported with StorSimple. The Resource Manager storage accounts will not show up in the drop-down list for selection, only the storage accounts created in the Azure classic portal will be displayed. Resource Manager storage accounts will need to be added using the procedure to add a storage account as described below.
+
+The procedure for adding an Azure classic storage account is detailed below.
 
 [AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-ova-configure-new-storage-account.md)]
 
-## Modificare un account di archiviazione
+## <a name="edit-a-storage-account"></a>Edit a storage account
 
-È possibile modificare un account di archiviazione usato dal dispositivo. Se si modifica un account di archiviazione attualmente in uso, i campi disponibili per la modifica sono la chiave di accesso e la modalità SSL per l'account di archiviazione. È possibile indicare la nuova chiave di accesso alle risorse di archiviazione o modificare la selezione **Abilita modalità SSL** e salvare le impostazioni aggiornate.
+You can edit a storage account used by your device. If you edit a storage account that is currently in use, the fields available to modify are the access key and the SSL mode for the storage account. You can supply the new storage access key or modify the **Enable SSL mode** selection and save the updated settings.
 
-#### Per modificare un account di archiviazione
+#### <a name="to-edit-a-storage-account"></a>To edit a storage account
 
-1. Nella pagina di destinazione del servizio, selezionare il servizio, fare doppio clic sul nome del servizio, quindi fare clic su **Configura**.
+1. On the service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. Fare clic su **Aggiungi/modifica account di archiviazione**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. Nella finestra di dialogo **Aggiungi/modifica account di archiviazione**:
+3. In the **Add/Edit Storage Accounts** dialog box:
 
-  1. Nell'elenco a discesa di **Account di archiviazione**, scegliere un account esistente da modificare.
-  2. Se necessario, è possibile modificare la selezione **Abilita modalità SSL**.
-  3. È possibile rigenerare le chiavi di accesso dell'account di archiviazione. Per altre informazioni, vedere l'articolo [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#manage-your-storage-access-keys). Indicare la nuova chiave dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria. 
-  4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-manage-storage-accounts/checkicon.png) per salvare le impostazioni. Le impostazioni verranno aggiornate nella pagina **Configura**. 
-  5. Fare clic su **Salva** nella parte inferiore della pagina per salvare le impostazioni aggiornate. 
+  1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. 
+  2. If necessary, you can modify the **Enable SSL Mode** selection.
+  3. You can choose to regenerate your storage account access keys. For more information, see [Regenerate the storage account keys](storage-create-storage-account.md#manage-your-storage-access-keys). Supply the new storage account key. For an Azure storage account, this is the primary access key. 
+  4. Click the check icon ![check icon](./media/storsimple-ova-manage-storage-accounts/checkicon.png) to save the settings. The settings will be updated on the **Configure** page. 
+  5. At the bottom of the page, click **Save** to save the newly updated settings. 
 
-     ![Modificare un account di archiviazione](./media/storsimple-ova-manage-storage-accounts/modifyexistingstorageaccount.png)
+     ![Edit a storage account](./media/storsimple-ova-manage-storage-accounts/modifyexistingstorageaccount.png)
   
-## Eliminare un account di archiviazione
+## <a name="delete-a-storage-account"></a>Delete a storage account
 
-> [AZURE.IMPORTANT] È possibile eliminare un account di archiviazione solo se non è in uso. Se un account di archiviazione è in uso, si riceve una notifica.
+> [AZURE.IMPORTANT] You can delete a storage account only if it is not in use. If a storage account is in use, you will be notified.
 
-#### Per eliminare un account di archiviazione
+#### <a name="to-delete-a-storage-account"></a>To delete a storage account
 
-1. Nella pagina di destinazione del servizio StorSimple Manager, selezionare il servizio, fare doppio clic sul nome del servizio, quindi fare clic su **Configura**.
+1. On the StorSimple Manager service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. Nell'elenco tabulare di account di archiviazione, passare il mouse sull'account che si desidera eliminare.
+2. In the tabular list of storage accounts, hover over the account that you wish to delete.
 
-3. Un'icona di eliminazione (**x**) verrà visualizzata nella colonna all'estrema destra di tale account di archiviazione. Fare clic sull’icona **x** per eliminare le credenziali.
+3. A delete icon (**x**) will appear in the extreme right column for that storage account. Click the **x** icon to delete the credentials.
 
-4. Quando viene richiesta la conferma, fare clic su **Sì** per continuare con l'eliminazione. L’elenco tabulare verrà aggiornato per riflettere le modifiche.
+4. When prompted for confirmation, click **Yes** to continue with the deletion. The tabular listing will be updated to reflect the changes.
 
-5. Fare clic su **Salva** nella parte inferiore della pagina per salvare le impostazioni aggiornate.
+5. At the bottom of the page, click **Save** to save the newly updated settings.
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Informazioni su come [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+- Learn how to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

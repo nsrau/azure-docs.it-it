@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Problemi di riavvio o ridimensionamento della VM | Microsoft Azure"
-   description="Risolvere i problemi della distribuzione Resource Manager con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure"
+   pageTitle="VM restarting or resizing issues | Microsoft Azure"
+   description="Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure"
    services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
    authors="Deland-Han"
@@ -17,61 +17,66 @@
    ms.date="09/09/2016"
    ms.author="delhan"/>
 
-# Risolvere i problemi della distribuzione Resource Manager con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure
 
-Quando si prova ad avviare una macchina virtuale (VM) di Azure arrestata o se ne ridimensiona una esistente, l'errore comune che si verifica è un errore di allocazione. L'errore si verifica quando il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste.
+# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
+
+When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Raccogliere log di controllo
+## <a name="collect-audit-logs"></a>Collect audit logs
 
-Per avviare la risoluzione dei problemi, raccogliere i log di controllo per identificare l'errore associato al problema. I collegamenti seguenti contengono informazioni dettagliate sul processo:
+To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process:
 
-[Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
 
-[Operazioni di controllo con Gestione risorse](../resource-group-audit.md)
+[Audit operations with Resource Manager](../resource-group-audit.md)
 
-## Problema: Errore durante l'avvio di una VM arrestata
+## <a name="issue:-error-when-starting-a-stopped-vm"></a>Issue: Error when starting a stopped VM
 
-Si prova ad avviare una VM arrestata ma viene visualizzato un errore di allocazione.
+You try to start a stopped VM but get an allocation failure.
 
-### Causa
+### <a name="cause"></a>Cause
 
-La richiesta di avvio della VM arrestata deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non ha spazio disponibile per soddisfare la richiesta.
+The request to start the stopped VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not have free space available to fulfill the request.
 
-### Risoluzione
+### <a name="resolution"></a>Resolution
 
-*	Arrestare tutte le VM nel set di disponibilità e quindi riavviare ogni VM.
+*   Stop all the VMs in the availability set, and then restart each VM.
 
-  1. Fare clic su **Gruppi di risorse** > _gruppo di risorse personale_ > **Risorse** > _set di disponibilità personale_ > **Macchine virtuali** > _macchina virtuale personale_ > **Arresta**.
+  1. Click **Resource groups** > _your resource group_ > **Resources** > _your availability set_ > **Virtual Machines** > _your virtual machine_ > **Stop**.
 
-  2. Dopo l'arresto di tutte le VM, selezionare le VM arrestate e fare clic su Avvia.
+  2. After all the VMs stop, select each of the stopped VMs and click Start.
 
-*	Ripetere la richiesta di riavvio in un secondo momento.
+*   Retry the restart request at a later time.
 
-## Problema: Errore durante il ridimensionamento di una VM esistente
+## <a name="issue:-error-when-resizing-an-existing-vm"></a>Issue: Error when resizing an existing VM
 
-Si prova a ridimensionare una VM esistente ma viene visualizzato un errore di allocazione.
+You try to resize an existing VM but get an allocation failure.
 
-### Causa
+### <a name="cause"></a>Cause
 
-La richiesta di ridimensionamento della VM deve essere eseguita nel cluster originale che ospita il servizio cloud. Tuttavia, il cluster non supporta le dimensioni della VM richieste.
+The request to resize the VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not support the requested VM size.
 
-### Risoluzione
+### <a name="resolution"></a>Resolution
 
-* Ripetere la richiesta usando una VM di dimensioni inferiori.
+* Retry the request using a smaller VM size.
 
-* Se le dimensioni della VM richieste non possono essere modificate:
+* If the size of the requested VM cannot be changed：
 
-  1. Arrestare tutte le VM nel set di disponibilità.
+  1. Stop all the VMs in the availability set.
 
-    * Fare clic su **Gruppi di risorse** > _gruppo di risorse personale_ > **Risorse** > _set di disponibilità personale_ > **Macchine virtuali** > _macchina virtuale personale_ > **Arresta**.
+    * Click **Resource groups** > _your resource group_ > **Resources** > _your availability set_ > **Virtual Machines** > _your virtual machine_ > **Stop**.
 
-  2. Dopo l'arresto di tutte le VM, ridimensionare la VM desiderata impostando una dimensione maggiore.
-  3. Selezionare la VM ridimensionata e fare clic su **Avvia**, quindi avviare ognuna delle VM arrestate.
+  2. After all the VMs stop, resize the desired VM to a larger size.
+  3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Se si verificano problemi durante la creazione di una nuova VM Windows in Azure, vedere [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

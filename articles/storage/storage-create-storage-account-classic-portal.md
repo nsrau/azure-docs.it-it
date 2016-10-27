@@ -1,180 +1,185 @@
 <properties
-	pageTitle="Come creare, gestire o eliminare un account di archiviazione nel portale di Azure classico | Microsoft Azure"
-	description="Creare un nuovo account di archiviazione, gestire le chiavi di accesso dell'account o eliminare un account di archiviazione nel portale di Azure. Informazioni sugli account di archiviazione Standard e Premium."
-	services="storage"
-	documentationCenter=""
-	authors="robinsh"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="How to create, manage, or delete a storage account in the Azure Classic Portal | Microsoft Azure"
+    description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
+    services="storage"
+    documentationCenter=""
+    authors="robinsh"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/26/2016"
-	ms.author="micurd;robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/26/2016"
+    ms.author="robinsh"/>
 
 
-# Informazioni sugli account di archiviazione di Azure
+
+# <a name="about-azure-storage-accounts"></a>About Azure storage accounts
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## Overview
+## <a name="overview"></a>Overview
 
-Un account di archiviazione di Azure consente di accedere ai servizi BLOB, di accodamento, tabelle e file nel servizio di archiviazione di Azure. L'account di archiviazione offre uno spazio dei nomi univoco per gli oggetti dati dell'archiviazione di Azure. Per impostazione predefinita, i dati nel proprio account sono accessibili solo all'utente, ovvero al proprietario dell'account.
+An Azure storage account gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. Your storage account provides the unique namespace for your Azure Storage data objects. By default, the data in your account is available only to you, the account owner.
 
-Sono disponibili due tipi di account di archiviazione:
+There are two types of storage accounts:
 
-- Un account di archiviazione standard include l'archiviazione BLOB, tabelle, di accodamento e file.
-- Un account di archiviazione Premium attualmente supporta solo dischi di macchine virtuali di Azure. Per una panoramica approfondita del servizio di archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
+- A standard storage account includes Blob, Table, Queue, and File storage.
+- A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) for an in-depth overview of Premium Storage.
 
-## Fatturazione dell'account di archiviazione
+## <a name="storage-account-billing"></a>Storage account billing
 
-L'importo fatturato per l'uso di Archiviazione di Azure dipende dall'account di archiviazione. I costi di archiviazione sono determinati da quattro fattori: capacità di archiviazione, schema di replica, transazioni di archiviazione e uscita dei dati.
+You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress.
 
-- La capacità di archiviazione si riferisce alla quantità di unità di servizio dell'account di archiviazione in uso per l'archiviazione dei dati. Il costo dell'archiviazione dei dati è determinato dalla quantità di dati archiviata e dalla modalità di replica dei dati.
-- La replica determina quante copie dei dati vengono gestite in una sola volta e in quali posizioni.
-- Le transazioni si riferiscono a tutte le operazioni di lettura e scrittura in Archiviazione di Azure.
-- L'uscita dati fa riferimento ai dati trasferiti all'esterno di un'area di Azure. Quando un'applicazione non in esecuzione nella stessa area geografica accede ai dati nell'account di archiviazione, indipendentemente dal fatto che l'applicazione sia un servizio cloud o un altro tipo di applicazione, verrà addebitato il trasferimento dei dati in uscita. Per i servizi di Azure è possibile raggruppare dati e servizi nello stesso data center per ridurre o evitare del tutto gli addebiti per il trasferimento dei dati in uscita.
+- Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.
+- Replication determines how many copies of your data are maintained at once, and in what locations.
+- Transactions refer to all read and write operations to Azure Storage.
+- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)  
 
-Nella pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage) sono disponibili informazioni dettagliate sui prezzi per la capacità, la replica e le transazioni relative all'archiviazione. Nella pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/) sono disponibili informazioni dettagliate sui prezzi per il trasferimento dei dati in uscita.
+The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page provides detailed pricing information for data egress.
 
-Per informazioni sugli obiettivi di capacità e prestazioni dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
+For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
 
-> [AZURE.NOTE] Quando si crea una macchina virtuale di Azure, un account di archiviazione viene creato automaticamente nel percorso di distribuzione se non si ha già un account di archiviazione in tale percorso. Non è quindi necessario attenersi alla procedura riportata sotto per creare un account di archiviazione per i dischi della macchina virtuale. Il nome dell'account di archiviazione sarà basato sul nome della macchina virtuale. Per altri dettagli, vedere la [documentazione relativa alle macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
+> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
 
-## Creare un account di archiviazione
+## <a name="create-a-storage-account"></a>Create a storage account
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com).
 
-2. Fare clic su **Nuovo** sulla barra delle applicazioni nella parte inferiore della pagina. Scegliere **Servizi dati** | **Archiviazione** e quindi fare clic su **Creazione rapida**.
+2. Click **New** in the taskbar at the bottom of the page. Choose **Data Services** | **Storage**, and then click **Quick Create**.
 
-	![NewStorageAccount](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
+    ![NewStorageAccount](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
 
-3. In **URL** immettere un nome per l'account di archiviazione.
+3. In **URL**, enter a name for your storage account.
 
-	> [AZURE.NOTE] I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
-	>  
-	> Nome dell'account di archiviazione deve essere univoco all'interno di Azure. Il portale di Azure classico indica se il nome di account di archiviazione selezionato è già in uso.
+    > [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+    >  
+    > Your storage account name must be unique within Azure. The Azure Classic Portal will indicate if the storage account name you select is already taken.
 
-	Per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure, vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) più avanti.
+    See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
 
-4. In **Località/gruppo di affinità** selezionare una località per l'account di archiviazione vicina all'utente o ai clienti. Se i dati di un account di archiviazione saranno accessibili da un altro servizio di Azure, come una macchina virtuale o un servizio cloud di Azure, potrebbe essere necessario selezionare un gruppo di affinità nell'elenco per raggruppare l'account di archiviazione nello stesso data center con altri servizi di Azure usati per migliorare le prestazioni e ridurre i costi.
+4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs.
 
-	Si noti che è necessario selezionare un gruppo di affinità al momento della creazione dell'account di archiviazione. Non è possibile spostare un account esistente in un gruppo di affinità. Per informazioni dettagliate sui gruppi di affinità, vedere [Condivisione del percorso del servizio con un gruppo di affinità](#service-co-location-with-an-affinity-group) più avanti.
+    Note that you must select an affinity group when your storage account is created. You cannot move an existing account to an affinity group. For more information on affinity groups, see [Service co-location with an affinity group](#service-co-location-with-an-affinity-group) below.
 
-	>[AZURE.IMPORTANT] Per determinare i percorsi disponibili per la sottoscrizione, è possibile chiamare l'operazione descritta in [Elencare tutti i provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx). Per elencare i provider da PowerShell, richiamare [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). Da .NET usare il metodo [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) della classe ProviderOperationsExtensions.
-	>
-	>Per altre informazioni sui servizi disponibili in aree specifiche, vedere anche [Aree di Azure](https://azure.microsoft.com/regions/#services).
+    >[AZURE.IMPORTANT] To determine which locations are available for your subscription, you can call the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. To list providers from PowerShell, call [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). From .NET, use the [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) method of the ProviderOperationsExtensions class.
+    >
+    >Additionally, see [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
 
 
-5. Se si hanno più sottoscrizioni Azure, viene visualizzato il campo **Sottoscrizione**. In **Sottoscrizione** immettere la sottoscrizione di Azure con cui usare l'account di archiviazione.
+5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.
 
-6. In **Replica** selezionare il livello di replica desiderato per l'account di archiviazione. L'opzione di replica consigliata è la replica con ridondanza geografica, che garantisce il livello di durabilità massimo per i dati. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is geo-redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 
-6. Fare clic su **Create Storage Account**.
+6. Click **Create Storage Account**.
 
-	Potrebbero essere necessari alcuni minuti per creare l'account di archiviazione. Per verificare lo stato, è possibile monitorare le notifiche nella parte inferiore del portale di Azure classico. Il nuovo account di archiviazione creato presenta lo stato **Online** ed è pronto per essere utilizzato.
+    It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the Azure Classic Portal. After the storage account has been created, your new storage account has **Online** status and is ready for use.
 
 ![StoragePage](./media/storage-create-storage-account-classic-portal/Storage_StoragePage.png)
 
 
-### Endpoint dell'account di archiviazione
+### <a name="storage-account-endpoints"></a>Storage account endpoints
 
-Ogni oggetto archiviato in Archiviazione di Azure ha un indirizzo URL univoco. Il nome dell'account di archiviazione costituisce il sottodominio dell'indirizzo. La combinazione di sottodominio e nome di dominio, specifico di ogni servizio, costituisce un *endpoint* per l'account di archiviazione.
+Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
 
-Ad esempio, se l'account di archiviazione si chiama *mystorageaccount*, gli endpoint predefiniti per l'account di archiviazione sono:
+For example, if your storage account is named *mystorageaccount*, then the default endpoints for your storage account are:
 
-- Servizio BLOB: http://*mystorageaccount*.blob.core.windows.net
+- Blob service: http://*mystorageaccount*.blob.core.windows.net
 
-- Servizio tabelle: http://*mystorageaccount*.table.core.windows.net
+- Table service: http://*mystorageaccount*.table.core.windows.net
 
-- Servizio di accodamento: http://*mystorageaccount*.queue.core.windows.net
+- Queue service: http://*mystorageaccount*.queue.core.windows.net
 
-- Servizio file: http://*mystorageaccount*.file.core.windows.net
+- File service: http://*mystorageaccount*.file.core.windows.net
 
-È possibile visualizzare gli endpoint per l'account di archiviazione nel dashboard di archiviazione nel [portale di Azure classico](https://manage.windowsazure.com) una volta creato l'account.
+You can see the endpoints for your storage account on the storage dashboard in the [Azure Classic Portal](https://manage.windowsazure.com) once the account has been created.
 
-L'URL per accedere a un oggetto in un account di archiviazione viene formato aggiungendo la posizione dell'oggetto nell'account di archiviazione all'endpoint. Ad esempio, il formato di un indirizzo BLOB è simile al seguente: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-È anche possibile configurare un nome di dominio personalizzato da usare con l'account di archiviazione. Per altri dettagli, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](storage-custom-domain-name.md).
+You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for your blob storage endpoint](storage-custom-domain-name.md) for details.
 
-### Condivisione del percorso del servizio con un gruppo di affinità
+### <a name="service-co-location-with-an-affinity-group"></a>Service co-location with an affinity group
 
-Un *gruppo di affinità* è un raggruppamento geografico dei servizi e delle VM di Azure con l'account di archiviazione di Azure. che consente di migliorare le prestazioni del servizio individuando i carichi di lavoro del computer nello stesso data center o in prossimità dei destinatari. Non sono inoltre addebitate spese per l'uscita in caso di accesso ai dati di un account di archiviazione da parte di un altro servizio appartenente allo stesso gruppo di affinità.
+An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
 
-> [AZURE.NOTE]  Per creare un set di affinità, aprire l'area <b>Impostazioni</b> del [portale di Azure classico](https://manage.windowsazure.com), fare clic su <b>Gruppi di affinità</b> e quindi sul pulsante <b>Aggiungi un gruppo di affinità</b> o <b>Aggiungi</b>. È anche possibile creare e gestire gruppi di affinità mediante l'API di gestione del servizio Azure. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operazioni sui gruppi di affinità</a>.
+> [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the [Azure Classic Portal](https://manage.windowsazure.com), click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups by using the Azure Service Management API. See <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operations on affinity groups</a> for more information.
 
-## Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione
+## <a name="view,-copy,-and-regenerate-storage-access-keys"></a>View, copy, and regenerate storage access keys
 
-Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
+When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
-> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Vedere [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Uso di firme di accesso condiviso) per altre informazioni.
+> [AZURE.NOTE] We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
 
-Nel [portale di Azure classico](https://manage.windowsazure.com) passare a **Gestisci chiavi** nel dashboard o alla pagina **Archiviazione** per visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione usate per accedere ai servizi BLOB, tabelle e di accodamento.
+In the [Azure Classic Portal](https://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services.
 
-### Copia di una chiave di accesso alle risorse di archiviazione  
+### <a name="copy-a-storage-access-key"></a>Copy a storage access key  
 
-È possibile utilizzare **Manage Keys** per copiare una chiave di accesso alle risorse di archiviazione da utilizzare in una stringa di connessione. La stringa di connessione richiede il nome dell'account di archiviazione e una chiave da usare nell'autenticazione. Per informazioni su come configurare le stringhe di connessione per accedere ai servizi di archiviazione di Azure, vedere [Configurare le stringhe di connessione di archiviazione di Azure](storage-configure-connection-string.md).
+You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md).
 
-1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Archiviazione** e quindi sul nome dell'account di archiviazione per aprire il dashboard.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 
-2. Fare clic su **Manage Keys**.
+2. Click **Manage Keys**.
 
- 	**Verrà aperto **Manage Access Keys.
+    **Manage Access Keys** opens.
 
-	![ManageKeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
+    ![Managekeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
 
 
-3. Per copiare una chiave di accesso alle risorse di archiviazione, selezionare il testo della chiave. Fare quindi clic con il pulsante destro del mouse e scegliere **Copy**.
+3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
 
-### Rigenerazione delle chiavi di accesso alle risorse di archiviazione
-Si consiglia di modificare periodicamente le chiavi di accesso all'account di archiviazione per mantenere le connessioni dell'archiviazione sicure. Vengono assegnate due chiavi di accesso in modo da mantenere le connessioni all'account di archiviazione mediante una chiave di accesso mentre si rigenera l'altra.
+### <a name="regenerate-storage-access-keys"></a>Regenerate storage access keys
+We recommend that you change the access keys to your storage account periodically to help keep your storage connections secure. Two access keys are assigned so that you can maintain connections to the storage account by using one access key while you regenerate the other access key.
 
-> [AZURE.WARNING] La rigenerazione delle chiavi di accesso può influire sui servizi in Azure e sulle applicazioni che dipendono dall'account di archiviazione. È necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account di archiviazione per l'uso della nuova chiave.
+> [AZURE.WARNING] Regenerating your access keys can affect services in Azure as well as your own applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
 
-**Servizi multimediali**: se si dispone di servizi multimediali dipendenti dall'account di archiviazione, è necessario risincronizzare le chiavi di accesso con il proprio servizio multimediale dopo la rigenerazione delle chiavi.
+**Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
 
-**Applicazioni**: se sono presenti applicazioni Web o servizi cloud che usano l'account di archiviazione, le connessioni andranno perse se si rigenerano le chiavi, a meno che non venga eseguito il rollover delle chiavi.
+**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. 
 
-**Strumenti di esplorazione di archiviazione**: se si usano [strumenti di esplorazione di archiviazione](storage-explorers.md), sarà probabilmente necessario aggiornare la chiave di archiviazione usata da tali applicazioni.
+**Storage Explorers** - If you are using any [storage explorer applications](storage-explorers.md), you will probably need to update the storage key used by those applications.
 
-Di seguito è riportato il processo per la rotazione delle chiavi di accesso alle risorse di archiviazione:
+Here is the process for rotating your storage access keys:
 
-1. Aggiornare le stringhe di connessione nel codice dell'applicazione in modo che facciano riferimento alla chiave di accesso secondaria dell'account di archiviazione.
+1. Update the connection strings in your application code to reference the secondary access key of the storage account.
 
-2. Rigenerare la chiave di accesso primaria per l'account di archiviazione. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Gestisci chiavi** nel dashboard o nella pagina **Configura**. Fare clic su **Rigenera** sotto la chiave di accesso primaria e quindi fare clic su **Sì** per confermare che si vuole generare una nuova chiave.
+2. Regenerate the primary access key for your storage account. In the [Azure Classic Portal](https://manage.windowsazure.com), from the dashboard or the **Configure** page, click **Manage Keys**. Click **Regenerate** under the primary access key, and then click **Yes** to confirm that you want to generate a new key.
 
-3. Aggiornare le stringhe di connessione nel codice in modo che facciano riferimento alla nuova chiave di accesso primaria.
+3. Update the connection strings in your code to reference the new primary access key.
 
-4. Rigenerare la chiave di accesso secondaria.
+4. Regenerate the secondary access key.
 
-## Eliminare un account di archiviazione
+## <a name="delete-a-storage-account"></a>Delete a storage account
 
-Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete** nel dashboard o nella pagina **Configure**. **Delete** elimina l'intero account di archiviazione, inclusi tutti i BLOB, le tabelle e le code nell'account.
+To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account.
 
-> [AZURE.WARNING] Non è possibile ripristinare un account di archiviazione eliminato, né recuperare gli elementi che conteneva prima dell'eliminazione. Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Lo stesso vale per tutte le risorse nell'account: dopo aver eliminato un BLOB, una tabella, una coda o un file, non è più possibile recuperarlo.
+> [AZURE.WARNING] It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
 >
-> Se l'account di archiviazione contiene file VHD per una macchina virtuale di Azure, è necessario eliminare eventuali immagini e dischi che usano tali file VHD prima di poter eliminare l'account di archiviazione. Arrestare innanzitutto la macchina virtuale se è in esecuzione e quindi eliminarlo. Per eliminare i dischi, passare alla scheda **Disks** ed eliminare eventuali dischi. Per eliminare le immagini, passare alla scheda **Immagini** ed eliminare eventuali immagini archiviate nell'account.
+> If your storage account contains VHD files for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the **Disks** tab and delete any disks there. To delete images, navigate to the **Images** tab and delete any images that are stored in the account.
 
-1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Archiviazione**.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com), click **Storage**.
 
-2. Fare clic ovunque nella voce dell'account di archiviazione tranne che sul nome e quindi fare clic su **Delete**.
+2. Click anywhere in the storage account entry except the name, and then click **Delete**.
 
-	 -Oppure-
+     -Or-
 
-	Fare clic sul nome dell'account di archiviazione per aprire il dashboard e quindi fare clic su **Delete**.
+    Click the name of the storage account to open the dashboard, and then click **Delete**.
 
-3. Fare clic su **Sì** per confermare l'eliminazione dell'account di archiviazione.
+3. Click **Yes** to confirm that you want to delete the storage account.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Per altre informazioni su Archiviazione di Azure, vedere la [documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/).
-- [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
+- To learn more about Azure Storage, see the [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/).
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

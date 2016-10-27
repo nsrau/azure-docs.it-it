@@ -1,180 +1,181 @@
 <properties
-	pageTitle="Eventi estesi nel database SQL | Microsoft Azure"
-	description="Vengono descritti gli eventi estesi (XEvent) in Azure SQL Database e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jhubbard"
-	editor=""
-	tags=""/>
+    pageTitle="Extended events in SQL Database | Microsoft Azure"
+    description="Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jhubbard"
+    editor=""
+    tags=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="genemi"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/23/2016"
+    ms.author="genemi"/>
 
 
-# Eventi estesi nel database SQL
+
+# <a name="extended-events-in-sql-database"></a>Extended events in SQL Database
 
 [AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-In questo argomento viene illustrato come l'implementazione di eventi estesi nel database SQL di Azure è leggermente diversa rispetto agli eventi estesi in Microsoft SQL Server.
+This topic explains how the implementation of extended events in Azure SQL Database is slightly different compared to extended events in Microsoft SQL Server.
 
 
-- SQL Database V12 ha acquisito la funzionalità degli eventi estesi nella seconda metà del calendario 2015.
-- SQL Server ha gli eventi estesi dal 2008.
-- Il set di funzionalità degli eventi estesi nel database SQL è un subset affidabile delle funzionalità in SQL Server.
+- SQL Database V12 gained the extended events feature in the second half of calendar 2015.
+- SQL Server has had extended events since 2008.
+- The feature set of extended events on SQL Database is a robust subset of the features on SQL Server.
 
 
-*XEvent* è un nome alternativo informale utilizzato talvolta per "eventi estesi" in blog e altri percorsi informali.
+*XEvents* is an informal nickname that is sometimes used for 'extended events' in blogs and other informal locations.
 
 
-> [AZURE.NOTE] A partire da ottobre 2015, viene attivata la funzionalità della sessione eventi estesi in Azure SQL Database a livello di anteprima. La data di disponibilità generale (GA) non è ancora stabilita.
+> [AZURE.NOTE] As of October 2015, the extended event session feature is activated in Azure SQL Database at the Preview level. The General Availability (GA) date is not yet set.
 >
-> La pagina degli [aggiornamenti dei servizi](https://azure.microsoft.com/updates/?service=sql-database) di Azure contiene post quando vengono fatti annunci GA.
+> The Azure [Service Updates](https://azure.microsoft.com/updates/?service=sql-database) page has posts when GA announcements are made.
 
 
-Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Microsoft SQL Server, vedere l'articolo:
+Additional information about extended events, for Azure SQL Database and Microsoft SQL Server, is available at:
 
-- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx) (Avvio rapido: eventi estesi in SQL Server)
-- [Eventi estesi](http://msdn.microsoft.com/library/bb630282.aspx)
-
-
-## Prerequisiti
+- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
+- [Extended Events](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
-In questo argomento si presuppone che si dispone già di una conoscenza di:
+## <a name="prerequisites"></a>Prerequisites
 
 
-- [Servizio Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+This topic assumes you already have some knowledge of:
 
 
-- [Eventi estesi](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
- - La maggior parte della nostra documentazione sugli eventi estesi si applica sia a SQL Server che al database SQL.
+- [Azure SQL Database service](https://azure.microsoft.com/services/sql-database/).
 
 
-Un’esposizione precedente a quanto riportato di seguito è utile quando si sceglie il file evento come [destinazione](#AzureXEventsTargets):
+- [Extended events](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
+ - The bulk of our documentation about extended events applies to both SQL Server and SQL Database.
 
 
-- [Servizio di Archiviazione di Azure](https://azure.microsoft.com/services/storage/)
+Prior exposure to the following items is helpful when choosing the Event File as the [target](#AzureXEventsTargets):
+
+
+- [Azure Storage service](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
- - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md): fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
+ - [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
 
 
-## Esempi di codice
+## <a name="code-samples"></a>Code samples
 
 
-Gli argomenti correlati forniscono due esempi di codice:
+Related topics provide two code samples:
 
 
-- [Codice di destinazione del buffer circolare per eventi estesi nel database SQL](sql-database-xevent-code-ring-buffer.md)
- - Breve script Transact-SQL semplice.
- - Nell'argomento dell'esempio di codice si evidenzia che, una volta completata la destinazione del buffer circolare, è necessario rilasciarne le risorse tramite l'esecuzione di un'istruzione `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Successivamente è possibile aggiungere un'altra istanza del buffer circolare da `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+- [Ring Buffer target code for extended events in SQL Database](sql-database-xevent-code-ring-buffer.md)
+ - Short simple Transact-SQL script.
+ - We emphasize in the code sample topic that, when you are done with a Ring Buffer target, you should release its resources by executing an alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` statement. Later you can add another instance of Ring Buffer by `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
-- [Codice di destinazione del file evento per eventi estesi nel database SQL](sql-database-xevent-code-event-file.md)
- - Fase 1 è PowerShell per creare un contenitore di Archiviazione di Azure.
- - Fase 2 è Transact-SQL che utilizza il contenitore di Archiviazione di Azure.
+- [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
+ - Phase 1 is PowerShell to create an Azure Storage container.
+ - Phase 2 is Transact-SQL that uses the Azure Storage container.
 
 
-## Differenze di Transact-SQL
+## <a name="transact-sql-differences"></a>Transact-SQL differences
 
 
-- Quando si esegue il comando [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) su SQL Server, si utilizza la clausola **ON SERVER**. Ma nel database SQL si utilizza invece la clausola **ON DATABASE**.
+- When you execute the [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) command on SQL Server, you use the **ON SERVER** clause. But on SQL Database you use the **ON DATABASE** clause instead.
 
 
-- La clausola **ON DATABASE** riguarda anche i comandi Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) e [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
+- The **ON DATABASE** clause also applies to the [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) and [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL commands.
 
 
-- Una procedura consigliata consiste nell'includere l'opzione della sessione eventi di **STARTUP\_STATE = ON** nelle istruzioni **CREATE EVENT SESSION** o **ALTER EVENT SESSION**.
- - Il valore **= ON** supporta un riavvio automatico dopo una riconfigurazione del database logico a causa di un failover.
+- A best practice is to include the event session option of **STARTUP_STATE = ON** in your **CREATE EVENT SESSION**  or **ALTER EVENT SESSION** statements.
+ - The **= ON** value supports an automatic restart after a reconfiguration of the logical database due to a failover.
 
 
-## Nuove viste del catalogo
+## <a name="new-catalog-views"></a>New catalog views
 
 
-La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](http://msdn.microsoft.com/library/ms174365.aspx). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
+The extended events feature is supported by several [catalog views](http://msdn.microsoft.com/library/ms174365.aspx). Catalog views tell you about *metadata or definitions* of user-created event sessions in the current database. The views do not return information about instances of active event sessions.
 
 
-| Nome della<br/>vista del catalogo | Descrizione |
+| Name of<br/>catalog view | Description |
 | :-- | :-- |
-| **sys.database\_event\_session\_actions** | Restituisce una riga per ogni azione su ogni evento di una sessione di eventi. |
-| **sys.database\_event\_session\_events** | Restituisce una riga per ogni evento in una sessione di eventi. |
-| **sys.database\_event\_session\_fields** | Restituisce una riga per ogni colonna personalizzabile impostata in modo esplicito su eventi e destinazioni. |
-| **sys.database\_event\_session\_targets** | Restituisce una riga per ogni destinazione di evento per una sessione di eventi. |
-| **sys.database\_event\_sessions** | Restituisce una riga per ogni sessione di eventi nel database SQL del database. |
+| **sys.database_event_session_actions** | Returns a row for each action on each event of an event session. |
+| **sys.database_event_session_events** | Returns a row for each event in an event session. |
+| **sys.database_event_session_fields** | Returns a row for each customize-able column that was explicitly set on events and targets. |
+| **sys.database_event_session_targets** | Returns a row for each event target for an event session. |
+| **sys.database_event_sessions** | Returns a row for each event session in the SQL Database database. |
 
 
-In Microsoft SQL Server, le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_*. Il modello di nome è simile a **sys.server\_event\_%**.
+In Microsoft SQL Server, similar catalog views have names that include *.server\_* instead of *.database\_*. The name pattern is like **sys.server_event_%**.
 
 
-## [DMV](http://msdn.microsoft.com/library/ms188754.aspx) (nuove viste a gestione dinamica)
+## <a name="new-dynamic-management-views-[(dmvs)](http://msdn.microsoft.com/library/ms188754.aspx)"></a>New dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx)
 
 
-Il database SQL di Azure include [viste a gestione dinamica (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive*.
+Azure SQL Database has [dynamic management views (DMVs)](http://msdn.microsoft.com/library/bb677293.aspx) that support extended events. DMVs tell you about *active* event sessions.
 
 
-| Nome della DMV | Description |
+| Name of DMV | Description |
 | :-- | :-- |
-| **sys.dm\_xe\_database\_session\_event\_actions** | Restituisce informazioni sulle azioni della sessione di eventi. |
-| **sys.dm\_xe\_database\_session\_events** | Restituisce informazioni sugli eventi della sessione. |
-| **sys.dm\_xe\_database\_session\_object\_columns** | Mostra i valori di configurazione per gli oggetti associati a una sessione. |
-| **sys.dm\_xe\_database\_session\_targets** | Restituisce informazioni sulle destinazioni della sessione. |
-| **sys.dm\_xe\_database\_sessions** | Restituisce una riga per ogni sessione di eventi con ambito nel database corrente. |
+| **sys.dm_xe_database_session_event_actions** | Returns information about event session actions. |
+| **sys.dm_xe_database_session_events** | Returns information about session events. |
+| **sys.dm_xe_database_session_object_columns** | Shows the configuration values for objects that are bound to a session. |
+| **sys.dm_xe_database_session_targets** | Returns information about session targets. |
+| **sys.dm_xe_database_sessions** | Returns a row for each event session that is scoped to the current database. |
 
 
-In Microsoft SQL Server, le viste del catalogo simili sono denominate senza la parte del nome *\_database*, ad esempio:
+In Microsoft SQL Server, similar catalog views are named without the *\_database* portion of the name, such as:
 
 
-- **sys.dm\_xe\_sessions**, instead of name<br/>**sys.dm\_xe\_database\_sessions**.
+- **sys.dm_xe_sessions**, instead of name<br/>**sys.dm_xe_database_sessions**.
 
 
-### DMV comuni a entrambi
+### <a name="dmvs-common-to-both"></a>DMVs common to both
 
 
-Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Server e Azure SQL Database:
+For extended events there are additional DMVs that are common to both Azure SQL Database and Microsoft SQL Server:
 
 
-- **sys.dm\_xe\_map\_values**
-- **sys.dm\_xe\_object\_columns**
-- **sys.dm\_xe\_objects**
-- **sys.dm\_xe\_packages**
+- **sys.dm_xe_map_values**
+- **sys.dm_xe_object_columns**
+- **sys.dm_xe_objects**
+- **sys.dm_xe_packages**
 
 
 
  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
-## Trovare gli eventi estesi, le azioni e le destinazioni disponibili
+## <a name="find-the-available-extended-events,-actions,-and-targets"></a>Find the available extended events, actions, and targets
 
 
-È possibile eseguire un semplice **SELECT** di SQL per ottenere un elenco di eventi, azioni e destinazioni disponibili.
+You can run a simple SQL **SELECT** to obtain a list of the available events, actions, and target.
 
 
 ```
 SELECT
-		o.object_type,
-		p.name         AS [package_name],
-		o.name         AS [db_object_name],
-		o.description  AS [db_obj_description]
-	FROM
-		           sys.dm_xe_objects  AS o
-		INNER JOIN sys.dm_xe_packages AS p  ON p.guid = o.package_guid
-	WHERE
-		o.object_type in
-			(
-			'action',  'event',  'target'
-			)
-	ORDER BY
-		o.object_type,
-		p.name,
-		o.name;
+        o.object_type,
+        p.name         AS [package_name],
+        o.name         AS [db_object_name],
+        o.description  AS [db_obj_description]
+    FROM
+                   sys.dm_xe_objects  AS o
+        INNER JOIN sys.dm_xe_packages AS p  ON p.guid = o.package_guid
+    WHERE
+        o.object_type in
+            (
+            'action',  'event',  'target'
+            )
+    ORDER BY
+        o.object_type,
+        p.name,
+        o.name;
 ```
 
 
@@ -183,90 +184,90 @@ SELECT
 
 &nbsp;
 
-## Destinazioni per le sessioni di eventi del database SQL
+## <a name="targets-for-your-sql-database-event-sessions"></a>Targets for your SQL Database event sessions
 
 
-Di seguito si trovano le destinazioni che possono acquisire i risultati dalle sessioni di eventi nel database SQL:
+Here are targets that can capture results from your event sessions on SQL Database:
 
 
-- [Destinazione buffer circolare](http://msdn.microsoft.com/library/ff878182.aspx): contiene per un tempo breve i dati degli eventi nella memoria.
-- [Destinazione contatore eventi](http://msdn.microsoft.com/library/ff878025.aspx): conta tutti gli eventi che si verificano durante una sessione di eventi estesi.
-- [Destinazione file evento](http://msdn.microsoft.com/library/ff878115.aspx): scrive buffer completi in un contenitore di Archiviazione di Azure.
+- [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx) - Briefly holds event data in memory.
+- [Event Counter target](http://msdn.microsoft.com/library/ff878025.aspx) - Counts all events that occur during an extended events session.
+- [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) - Writes complete buffers to an Azure Storage container.
 
 
-L’API [Tracciamento eventi per Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) non è disponibile per gli eventi estesi nel database SQL.
+The [Event Tracing for Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API is not available for extended events on SQL Database.
 
 
-## Restrizioni
+## <a name="restrictions"></a>Restrictions
 
 
-Esistono un paio di differenze relative alla sicurezza adatte all'ambiente cloud del database SQL:
+There are a couple of security-related differences befitting the cloud environment of SQL Database:
 
 
-- Gli eventi estesi si basano sul modello di isolamento single-tenant. Una sessione di eventi in un database non può accedere a dati o eventi da un altro database.
+- Extended events are founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
 
-- Non è possibile eseguire un’istruzione **CREATE EVENT SESSION** dell'istruzione del database **master**.
-
-
-## Modello di autorizzazione
+- You cannot issue a **CREATE EVENT SESSION** statement in the context of the **master** database.
 
 
-È necessario disporre dell’autorizzazione **Controllo** nel database per emettere un’istruzione **CREATE EVENT SESSION**. Il proprietario del database (dbo) dispone dell’autorizzazione **controllo**.
+## <a name="permission-model"></a>Permission model
 
 
-### Autorizzazioni del contenitore di archiviazione
+You must have **Control** permission on the database to issue a **CREATE EVENT SESSION** statement. The database owner (dbo) has **Control** permission.
 
 
-Il token della firma di accesso condiviso generato per il contenitore di Archiviazione di Azure deve specificare **rwl** per le autorizzazioni. Questo valore **rwl** fornisce le autorizzazioni seguenti:
+### <a name="storage-container-authorizations"></a>Storage container authorizations
 
 
-- Lettura
-- Scrittura
-- Elenco
+The SAS token you generate for your Azure Storage container must specify **rwl** for the permissions. The **rwl** value provides the following permissions:
 
 
-## Considerazioni sulle prestazioni
+- Read
+- Write
+- List
 
 
-Esistono scenari in cui un uso intensivo di eventi estesi può accumulare più memoria attiva di quanto è adatto per l'intero sistema. Pertanto il sistema di Azure SQL Database imposta e regola in modo dinamico i limiti sulla quantità di memoria attiva che può essere accumulata da una sessione di eventi. Molti fattori vengono utilizzati nel calcolo dinamico.
+## <a name="performance-considerations"></a>Performance considerations
 
 
-Se si riceve un messaggio di errore che indica che è stato applicato un massimo di memoria, alcune azioni correttive da eseguire sono:
+There are scenarios where intensive use of extended events can accumulate more active memory than is healthy for the overall system. Therefore the Azure SQL Database system dynamically sets and adjusts limits on the amount of active memory that can be accumulated by an event session. Many factors go into the dynamic calculation.
 
 
-- Eseguire meno sessioni di eventi simultanee.
+If you receive an error message that says a memory maximum was enforced, some corrective actions you can take are:
 
 
-- Tramite le istruzioni **CREATE** e **ALTER** per le sessioni di eventi, ridurre la quantità di memoria specificata nella clausola **MAX\_MEMORY**.
+- Run fewer concurrent event sessions.
 
 
-### Latenza di rete
+- Through your **CREATE** and **ALTER** statements for event sessions, reduce the amount of memory you specify on the **MAX\_MEMORY** clause.
 
 
-La destinazione del **file evento** potrebbe subire una latenza di rete o errori durante il mantenimento dei dati nei BLOB di archiviazione di Azure . Altri eventi nel database SQL potrebbero subire un ritardo mentre rimangono in attesa del completamento della comunicazione di rete. Questo ritardo può rallentare il carico di lavoro.
-
-- Per ridurre questo rischio delle prestazioni, evitare di impostare l’opzione **EVENT\_RETENTION\_MODE** in **NO\_EVENT\_LOSS** nelle definizioni della sessione di eventi.
+### <a name="network-latency"></a>Network latency
 
 
-## Collegamenti correlati
+The **Event File** target might experience network latency or failures while persisting data to Azure Storage blobs. Other events in SQL Database might be delayed while they wait for the network communication to complete. This delay can slow your workload.
+
+- To mitigate this performance risk, avoid setting the **EVENT_RETENTION_MODE** option to **NO_EVENT_LOSS** in your event session definitions.
 
 
-- [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md)
-- [Cmdlet di Archiviazione di Azure](http://msdn.microsoft.com/library/dn806401.aspx)
+## <a name="related-links"></a>Related links
 
 
-- [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md): fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
-- [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
+- [Azure Storage Cmdlets](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [CREARE CREDENZIALI (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
-- [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 
 
-Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai collegamenti seguenti. È comunque necessario controllare regolarmente qualsiasi esempio per verificare se è destinato a Microsoft SQL Server o al database SQL di Azure. È quindi possibile decidere se sono necessarie alcune modifiche per eseguire l'esempio.
+- [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+
+
+Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
 
 
 <!--
@@ -276,4 +277,8 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

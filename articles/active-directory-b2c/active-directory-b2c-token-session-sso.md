@@ -1,86 +1,91 @@
 <properties
-	pageTitle="Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On | Microsoft Azure"
-	description="Configurazione di token, sessione e accesso Single Sign-On in Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Token, session and single sign-on configuration | Microsoft Azure"
+    description="Token, session and single sign-on configuration in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On
 
-Questa funzionalità offre un controllo dettagliato, in base ai [singoli criteri](active-directory-b2c-reference-policies.md), per gli elementi seguenti:
+# <a name="azure-active-directory-b2c:-token,-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Token, session and single sign-on configuration
+
+This feature gives you fine-grained control, on a [per-policy basis](active-directory-b2c-reference-policies.md), of:
  
-1. Durate dei token di sicurezza emessi da Azure Active Directory (Azure AD) B2C.
-2. Durate delle sessioni delle applicazioni Web gestite da Azure AD B2C.
-3. Comportamento dell'accesso Single Sign-On (SSO) in più app e criteri nel tenant di B2C.
+1. Lifetimes of security tokens emitted by Azure Active Directory (Azure AD) B2C.
+2. Lifetimes of web application sessions managed by Azure AD B2C.
+3. Single sign-on (SSO) behavior across multiple apps and policies in your B2C tenant.
 
-È possibile usare questa funzionalità nel tenant di B2C come indicato di seguito:
+You can use this feature in your B2C tenant as follows:
 
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
-2. Fare clic su **Criteri di accesso**. *Nota: è possibile usare questa funzionalità su qualsiasi tipo di criterio, non solo per i **Criteri di accesso***.
-3. Fare clic su un criterio per aprirlo. Ad esempio, fare clic su **B2C\_1\_SiIn**.
-4. Fare clic su **Modifica** nella parte superiore del pannello.
-5. Fare clic su **Configurazione di token, sessione e accesso Single Sign-On**.
-6. Apportare le modifiche necessarie. Per informazioni sulle proprietà disponibili, vedere le sezioni successive.
-7. Fare clic su **OK**.
-8. Fare clic su **Salva** nella parte superiore del pannello.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+2. Click **Sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-in policies***.
+3. Open a policy by clicking it. For example, click on **B2C_1_SiIn**.
+4. Click **Edit** at the top of the blade.
+5. Click **Token, session & single sign-on config**.
+6. Make your desired changes. Learn about available properties in subsequent sections.
+7. Click **OK**.
+8. Click **Save** on the top of the blade.
 
-![Schermata della configurazione di token, sessione e accesso Single Sign-On](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
+![Screenshot of token, session and single sign-on config](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
 
-## Configurazione delle durate dei token
+## <a name="token-lifetimes-configuration"></a>Token lifetimes configuration
 
-Azure AD B2C supporta il [protocollo di autorizzazione OAuth 2.0](active-directory-b2c-reference-protocols.md) per abilitare l'accesso sicuro alle risorse protette. Per implementare questo supporto, Azure AD B2C emette diversi [token di sicurezza](active-directory-b2c-reference-tokens.md). Queste sono le proprietà che è possibile usare per gestire le durate dei token di sicurezza emessi da Azure AD B2C:
+Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md) for enabling secure access to protected resources. To implement this support, Azure AD B2C emits various [security tokens](active-directory-b2c-reference-tokens.md). These are the properties you can use to manage lifetimes of security tokens emitted by Azure AD B2C:
 
-- **Durate dei token di accesso e ID (minuti)**: durata del token di connessione OAuth 2.0 usato per ottenere l'accesso a una risorsa protetta. Azure AD B2C emette attualmente solo token ID. Questo valore verrà applicato anche ai token di accesso, quando verrà aggiunto il supporto per questo tipo di token.
-   - Impostazione predefinita: 60 minuti.
-   - Valore minimo (inclusivo): 5 minuti.
-   - Valore massimo (inclusivo): 1440 minuti.
-- **Durata del token di aggiornamento (giorni)**: periodo di tempo massimo prima che sia possibile usare un token di aggiornamento per acquisire un nuovo token di accesso o ID e, facoltativamente, un nuovo token di aggiornamento, se all'applicazione è stato concesso l'ambito `offline_access`.
-   - Impostazione predefinita: 14 giorni.
-   - Valore minimo (inclusivo): 1 giorno.
-   - Valore massimo (inclusivo): 90 giorni.
-- **Durata della finestra temporale scorrevole del token di aggiornamento (giorni)**: allo scadere di questo periodo, l'utente dovrà ripetere l'autenticazione, indipendentemente dal periodo di validità del token di accesso più recente acquisito dall'applicazione. Questo valore può essere specificato solo se l'opzione è impostata su **Con vincoli**. Deve essere superiore o uguale al valore **Durata del token di aggiornamento (giorni)**. Se l'opzione è impostata su **Senza vincoli**, non sarà possibile specificare un valore specifico.
-   - Impostazione predefinita: 90 giorni.
-   - Valore minimo (inclusivo): 1 giorno.
-   - Valore massimo (inclusivo): 365 giorni.
+- **Access & ID token lifetimes (minutes)**: The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. Azure AD B2C issues only ID tokens at this time. This value would apply to access tokens as well, when we add support for them.
+   - Default = 60 minutes.
+   - Minimum (inclusive) = 5 minutes.
+   - Maximum (inclusive) = 1440 minutes.
+- **Refresh token lifetime (days)**: The maximum time period before which a refresh token can be used to acquire a new access or ID token (and optionally, a new refresh token, if your application had been granted the `offline_access` scope).
+   - Default = 14 days.
+   - Minimum (inclusive) = 1 day.
+   - Maximum (inclusive) = 90 days.
+- **Refresh token sliding window lifetime (days)**: After this time period elapses the user is forced to re-authenticate, irrespective of the validity period of the most recent refresh token acquired by the application. It can only be provided if the switch is set to **Bounded**. It needs to be greater than or equal to the **Refresh token lifetime (days)** value. If the switch is set to **Unbounded**, you cannot provide a specific value.
+   - Default = 90 days.
+   - Minimum (inclusive) = 1 day.
+   - Maximum (inclusive) = 365 days.
 
-Ecco un paio di casi di utilizzo in cui è possibile abilitare l'uso di queste proprietà:
+These are a couple of use cases that you can enable using these properties:
 
-- Consentire a un utente di mantenere la connessione a un dispositivo mobile per un periodo illimitato, purché l'utente sia continuamente attivo sull'applicazione. È possibile ottenere questo risultato impostando l'opzione **Durata della finestra temporale scorrevole del token di aggiornamento (giorni)** su **Senza vincoli** nei criteri di accesso.
-- Soddisfare i requisiti di sicurezza e conformità del settore, impostando durate appropriate per i token di accesso.
+- Allow a user to stay signed into a mobile application indefinitely, as long as he or she is continually active on the application. You can do this by setting the **Refresh token sliding window lifetime (days)** switch to **Unbounded** in your sign-in policy.
+- Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
 
-## Configurazione della sessione
+## <a name="session-configuration"></a>Session configuration
 
-Azure AD B2C supporta il [protocollo di autenticazione OpenID Connect](active-directory-b2c-reference-oidc.md) per abilitare l'accesso sicuro alle applicazioni Web. Ecco le proprietà che è possibile usare per gestire le sessioni delle applicazioni Web:
+Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. These are the properties you can use to manage web application sessions:
 
-- **Durata della sessione dell'app Web (minuti)**: durata del cookie della sessione di Azure AD B2C archiviato nel browser dell'utente dopo un'autenticazione corretta.
-   - Impostazione predefinita: 1440 minuti.
-   - Valore minimo (inclusivo): 15 minuti.
-   - Valore massimo (inclusivo): 1440 minuti.
-- **Timeout della sessione dell'app Web**: se questa opzione è impostata su **Assoluto**, l'utente dovrà ripetere l'autenticazione dopo la scadenza del periodo di tempo specificato da **Durata della sessione dell'app Web (minuti)**. Se l'opzione è impostata su **Continuo** (impostazione predefinita), l'utente rimane connesso, purché sia continuamente attivo nell'applicazione Web.
+- **Web app session lifetime (minutes)**: The lifetime of Azure AD B2C's session cookie stored on the user's browser upon successful authentication.
+   - Default = 1440 minutes.
+   - Minimum (inclusive) = 15 minutes.
+   - Maximum (inclusive) = 1440 minutes.
+- **Web app session timeout**: If this switch is set to **Absolute**, the user is forced to re-authenticate after the time period specified by **Web app session lifetime (minutes)** elapses. If this switch is set to **Rolling** (the default setting), the user remains signed in as long as the user is continually active in your web application.
 
-Ecco un paio di casi di utilizzo in cui è possibile abilitare l'uso di queste proprietà:
+These are a couple of use cases that you can enable using these properties:
 
-- Soddisfare i requisiti di sicurezza e conformità del settore, impostando durate appropriate per la sessione dell'applicazione Web.
-- Imporre la ripetizione dell'autenticazione dopo un periodo di tempo specifico durante l'interazione di un utente con una parte a sicurezza elevata dell'applicazione Web.
+- Meet your industry's security and compliance requirements by setting the appropriate web application session lifetimes.
+- Force re-authentication after a set time period during a user's interaction with a high-security part of your web application. 
 
-## Configurazione dell'accesso Single Sign-On
+## <a name="single-sign-on-(sso)-configuration"></a>Single sign-on (SSO) configuration
 
-Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le interazioni degli utenti tra di essi usando la proprietà **Configurazione Single Sign-on**. È possibile impostare la proprietà su uno dei valori seguenti:
+If you have multiple applications and policies in your B2C tenant, you can manage user interactions across them using the **Single sign-on configuration** property. You can set the property to one of the following settings:
 
-- **Tenant**: impostazione predefinita. L'uso di questa impostazione consente a più applicazioni e criteri del tenant di B2C di condividere la stessa sessione utente. Ad esempio, quando un utente accede a un'applicazione, Contoso Shopping, può accedere contemporaneamente anche a un'altra applicazione, Contoso Pharmacy, senza alcun problema.
-- **Applicazione**: consente di mantenere una sessione utente esclusivamente per un'applicazione, indipendentemente dalle altre applicazioni. Ad esempio, un utente può accedere a Contoso Pharmacy, usando le stesse credenziali, anche se ha già eseguito l'accesso a Contoso Shopping, un'altra applicazione nello stesso tenant di B2C.
-- **Criterio**: consente di mantenere una sessione utente esclusivamente per un criterio, indipendentemente dalle applicazioni che lo usano. Ad esempio, se un utente ha già effettuato l'accesso e completato un passaggio di Multi Factor Authentication, otterrà l'accesso a parti a sicurezza più elevata di più applicazioni, purché la sessione associata al criterio non scada.
-- **Disabilitato**: impone all'utente di eseguire il percorso utente completo a ogni esecuzione del criterio. Ad esempio, ciò consente a più utenti di accedere all'applicazione, in uno scenario di desktop condiviso, anche se un singolo utente rimane connesso per l'intero periodo di tempo.
+- **Tenant**: This is the default setting. Using this setting allows multiple applications and policies in your B2C tenant to share the same user session. For example, once a user signs into an application, Contoso Shopping, he or she can also seamlessly sign into another one, Contoso Pharmacy, upon accessing it.
+- **Application**: This allows you to maintain a user session exclusively for an application, independent of other applications. For example, if you want the user to sign in to Contoso Pharmacy (with the same credentials), even if he or she is already signed into Contoso Shopping, another application on the same B2C tenant. 
+- **Policy**: This allows you to maintain a user session exclusively for a policy, independent of the applications using it. For example, if the user has already signed in and completed a multi factor authentication (MFA) step, he or she can be given access to higher-security parts of multiple applications as long as the session tied to the policy doesn't expire.
+- **Disabled**: This forces the user to run through the entire user journey on every execution of the policy. For example, this will allow multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

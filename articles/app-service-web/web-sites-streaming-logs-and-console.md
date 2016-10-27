@@ -1,36 +1,37 @@
 <properties 
-	pageTitle="Log di streaming e console" 
-	description="Informazioni su console e log in streaming" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
-	documentationCenter=""/>
+    pageTitle="Streaming logs and console" 
+    description="Streaming logs and console overview" 
+    authors="btardif" 
+    manager="wpickett" 
+    editor="" 
+    services="app-service\web" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/26/2016" 
-	ms.author="byvinyal"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="10/12/2016" 
+    ms.author="byvinyal"/>
 
-#Log di streaming e console
 
-### Log in streaming ###
+# <a name="streaming-logs-and-the-console"></a>Streaming Logs and the Console
 
-Il portale di Microsoft Azure offre un visualizzatore log di streaming integrato che consente di visualizzare gli eventi di traccia dalle app del servizio app in tempo reale.
+## <a name="streaming-logs"></a>Streaming Logs
 
-L'impostazione di questa funzionalità richiede alcuni semplici passaggi:
+The **Azure portal** provides an integrated streaming log viewer that lets you view tracing events from your **App Service** apps in real time.  
 
-- Scrittura delle tracce nel codice
-- Abilitazione della diagnostica applicazioni dal portale di Azure
-- Selezione della parte relativa ai log di streaming nel pannello dell'app Web
+Setting up this feature requires a few simple steps:
 
-### Come scrivere le tracce nel codice ###
+- Write traces in your code
+- Enable Application **Diagnostic Logs** for your app
+- View the stream from the built-in **Streaming Logs** UI in the **Azure portal**.
 
-La scrittura delle tracce nel codice è facile. In C# è sufficiente scrivere il codice seguente:
+### <a name="how-to-write-traces-in-your-code"></a>How to write traces in your code ###
+
+Writing traces in your code is easy.  In C# it's as easy as writing the following code:
 
 `````````````````````````
 Trace.TraceInformation("My trace statement");
@@ -44,31 +45,31 @@ Trace.TraceWarning("My warning statement");
 Trace.TraceError("My error statement");
 `````````````````````````
 
-La classe Trace risiede nello spazio dei nomi System.Diagnostics.
+The Trace class lives in the System.Diagnostics namespace.
 
-In una app node.js è possibile scrivere il codice seguente per ottenere lo stesso risultato:
+In a node.js app you can write this code to achieve the same result:
 
 `````````````````````````
 console.log("My trace statement").
 `````````````````````````
 
-### Come abilitare e visualizzare i log in streaming ###
-![][BrowseSitesScreenshot] La diagnostica viene abilitata a livello di singola app Web. Dall'interno del [portale](https://portal.azure.com) andare al sito per il quale si vuole abilitare questa funzionalità.
+### <a name="how-to-enable-and-view-the-streaming-logs"></a>How to enable and view the streaming logs
+![][BrowseSitesScreenshot] Diagnostics are enabled on a per app basis. Start by browsing to the site you would like to enable this feature on.  
   
-![][DiagnosticsLogs]Quindi fare clic su **(1) Impostazioni** > **(2) Log di diagnostica** e **(3) attivare** **Registrazione applicazioni (file system)** o **Registrazione applicazioni (BLOB)**. L'opzione **Livello** consente di modificare il livello di gravità delle tracce da acquisire. Impostare il livello su **Verbose** se si sta solo acquisendo familiarità con la funzionalità, poiché questa impostazione garantirà la registrazione di tutte le istruzioni di traccia.
+![][DiagnosticsLogs] From settings menu, scroll down to the **Monitoring** section and click on **(1) Diagnostic Logs**. Then **(2) enable** **Application Logging (Filesystem)** or **Application Logging (blob)** The **Level** option lets you change the severity level of traces to capture. If you're just trying to get familiar with the feature, set the level to **Verbose** to ensure all of your trace statements are collected.
 
-Fare clic su **SAVE** nella parte superiore del blade per visualizzare i log.
+Click **SAVE** at the top of the blade and you're ready to view logs.
 
-**NOTA:**Più è alto il **livello di gravità** più risorse si consumano per effettuare il log e più tracce si ottengono. Assicurarsi che questo sia impostato sul livello appropriato quando si utilizza questa funzionalità per un traffico elevato / sito di produzione.
+>[AZURE.NOTE] The higher the **severity level** the more resources are consumed to log and the more traces are produced. Make sure **severity level** is configured to the correct verbosity for a production or high traffic site. 
 
-![][StreamingLogsScreenshot] Per visualizzare i log di streaming all'interno del portale fare clic su **(1) Strumenti** > **(2) Flusso di registrazione**. Se l'app sta scrivendo attivamente istruzioni di traccia, saranno visibili nella finestra risultante **(3)** in tempo quasi reale.
+![][StreamingLogsScreenshot] To view the **streaming logs** from within the Azure portal, click on **(1) Log Stream** also in the **Monitoring** section of the settings menu. If your app is actively writing trace statements, then you should see them in the **(2) streaming logs UI** in near real time.
 
-## Console ##
-Il portale di Azure fornisce accesso all'ambiente delle app Web mediante console. È possibile esplorare il file system dell'app Web ed eseguire script Powershell/cmd. Quando si eseguono i comandi della console, si opera con le stesse autorizzazioni impostate per il codice dell'app Web in esecuzione. Non si sarà in grado di accedere a directory protette né di eseguire script che richiedono autorizzazioni elevate.
+## <a name="console"></a>Console
+The **Azure portal** provides console access to your app. You can explore your app's file system and run powershell/cmd scripts. You are bound by the same permissions set as your running app code when executing console commands. Access to protected directories or running scripts that require elevated permissions is blocked.  
 
-![][ConsoleScreenshot] Per accedere alla console, passare a un'app Web come descritto nella sezione precedente. Fare clic su **(1) Strumenti**>**(2) Console ** e la console **(3)** verrà aperta.
+![][ConsoleScreenshot] From settings menu, scroll down to **Development Tools** section and click on **(1) Console** and the **(2) console** UI opens to the right.
 
-Per acquisire familiarità con la console, provare ad eseguire semplici comandi come i seguenti:
+To get familiar with the **console**, try basic commands like:
 
 `````````````````````````
 dir
@@ -84,4 +85,8 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

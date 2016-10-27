@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestire i record di controllo di accesso per l'array virtuale StorSimple | Microsoft Azure"
-   description="In questo articolo viene descritto come gestire i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nell'array virtuale StorSimple."
+   pageTitle="Manage access control records for the StorSimple Virtual Array | Microsoft Azure"
+   description="Describes how to manage access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,103 +15,108 @@
    ms.date="05/03/2016"
    ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per gestire i record di controllo di accesso per l'array virtuale StorSimple 
 
-## Panoramica
+# <a name="use-the-storsimple-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to manage access control records for the StorSimple Virtual Array 
 
-I record di controllo di accesso (ACR) consentono di specificare quali host possono connettersi a un volume nell'array virtuale StorSimple (noto anche come dispositivo virtuale locale StorSimple). I record di controllo di accesso vengono impostati su un volume specifico e contengono i nomi completi iSCSI (IQN) degli host. Quando un host prova a connettersi a un volume, il dispositivo verifica il record di controllo di accesso associato a tale volume per il nome qualificato iSCSI e, se esiste una corrispondenza, viene stabilita la connessione. Nella sezione relativa ai **record di controllo di accesso** della pagina **Configura** vengono visualizzati tutti i record di controllo di accesso insieme ai corrispondenti nomi qualificati iSCSI degli host.
+## <a name="overview"></a>Overview
 
-In questa esercitazione vengono illustrate le seguenti attività comuni correlate ai record di controllo di accesso:
+Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple Virtual Array (also known as the StorSimple on-premises virtual device). ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name, and if there is a match, then the connection is established. The **access control records** section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
 
-- Ottenere il nome qualificato iSCSI
-- Aggiungere un record di controllo di accesso 
-- Modificare un record di controllo di accesso 
-- Eliminare un record di controllo di accesso 
+This tutorial explains the following common ACR-related tasks:
+
+- Get the IQN
+- Add an access control record 
+- Edit an access control record 
+- Delete an access control record 
 
 > [AZURE.IMPORTANT] 
 > 
-> - Quando si assegna un record di controllo di accesso a un volume, fare attenzione che nel volume non abbiano effettuato l'accesso più di un host non cluster perché ciò potrebbe danneggiare il volume. 
-> - Quando si elimina un record di controllo di accesso da un volume, assicurarsi che l'host corrispondente non acceda al volume perché l'eliminazione potrebbe comportare un'interruzione di lettura/scrittura.
+> - When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume. 
+> - When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
 
-## Ottenere il nome qualificato iSCSI
+## <a name="get-the-iqn"></a>Get the IQN
 
-Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI di un host di Windows che esegue Windows Server 2012.
+Perform the following steps to get the IQN of a Windows host that is running Windows Server 2012.
 
 [AZURE.INCLUDE [storsimple-get-iqn](../../includes/storsimple-get-iqn.md)]
 
-## Aggiungere un record di controllo di accesso
+## <a name="add-an-acr"></a>Add an ACR
 
-Si utilizza la pagina **Configurazione** del servizio StorSimple Manager per aggiungere record di controllo di accesso. In genere, un record di controllo di accesso verrà associato a un volume.
+You use the StorSimple Manager service **Configuration** page to add ACRs. Typically, you will associate one ACR with one volume.
 
-Per informazioni sull'associazione di un record di controllo di accesso con un volume, vedere [Aggiungere un volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
+For information about associating an ACR with a volume, go to [add a volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
 >[AZURE.IMPORTANT] 
 > 
->Quando si assegna un record di controllo di accesso a un volume, fare attenzione che nel volume non abbiano effettuato l'accesso più di un host non cluster perché ciò potrebbe danneggiare il volume.
+>When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume.
  
-Attenersi alla seguente procedura per aggiungere un record di controllo di accesso.
+Perform the following steps to add an ACR.
 
-#### Per aggiungere un record di controllo di accesso
+#### <a name="to-add-an-acr"></a>To add an ACR
 
-1. Nella pagina di destinazione del servizio selezionare il servizio, fare doppio clic sul nome del servizio e quindi fare clic sulla scheda **Configurazione**.
+1. On the service landing page, select your service, double-click the service name, and then click the **Configuration** tab.
 
-    ![scheda Configurazione](./media/storsimple-ova-manage-acrs/acr1.png)
+    ![configuration tab](./media/storsimple-ova-manage-acrs/acr1.png)
 
-2. Nell'elenco tabulare in **Record di controllo di accesso**, fornire un **nome** per il record di controllo di accesso.
+2. In the tabular listing under **Access control records**, supply a **Name** for your ACR.
 
-3. In **Nome iniziatore iSCSI** fornire il nome qualificato iSCSI dell'host di Windows.
+3. Under **iSCSI Initiator Name**, provide the IQN name of your Windows host. 
 
-4. Fare clic su **Salva** nella parte inferiore della pagina per salvare il record di controllo di accesso appena creato. Viene visualizzato il messaggio di conferma seguente:
+4. Click **Save** at the bottom of the page to save the newly created ACR. You will see the following confirmation message.
 
-    ![messaggio di conferma](./media/storsimple-ova-manage-acrs/acr2.png)
+    ![confirmation message](./media/storsimple-ova-manage-acrs/acr2.png)
 
-5. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-manage-acrs/check-icon.png). L'elenco tabulare verrà aggiornato per riflettere questa aggiunta.
+5. Click the check icon ![check icon](./media/storsimple-ova-manage-acrs/check-icon.png). The tabular listing will be updated to reflect this addition.
 
-## Modificare un record di controllo di accesso
+## <a name="edit-an-acr"></a>Edit an ACR
 
-Per modificare record di controllo di accesso, usare la pagina **Configurazione** nel portale di Azure classico.
+You use the **Configuration** page in the Azure classic portal to edit ACRs. 
 
-> [AZURE.NOTE] È possibile modificare solo i record di controllo di accesso che non sono attualmente in uso. Per modificare un record di controllo di accesso associato a un volume attualmente in uso, è innanzitutto necessario rendere il volume offline.
+> [AZURE.NOTE] You should modify only those ACRs that are currently not in use. To edit an ACR associated with a volume that is currently in use, you should first take the volume offline.
 
-Seguire questa procedura per modificare un record di controllo di accesso.
+Perform the following steps to edit an ACR.
 
-#### Per modificare un record di controllo di accesso
+#### <a name="to-edit-an-acr"></a>To edit an ACR
 
-1. Nella pagina di destinazione del servizio selezionare il servizio, fare doppio clic sul nome del servizio e quindi fare clic sulla scheda **Configurazione**.
+1. On the service landing page, select your service, double-click the service name, and then click the **Configuration** tab.
 
-2. Nell'elenco tabulare dei record di controllo di accesso, passare il mouse sul record di controllo di accesso che si desidera modificare.
+2. In the tabular listing of the access control records, hover over the ACR that you wish to modify.
 
-3. Fornire un nuovo nome e/o l'IQN del record di controllo di accesso.
+3. Supply a new name and/or IQN for the ACR.
 
-4. Fare clic su **Salva** nella parte inferiore della pagina per salvare il record di controllo di accesso modificato. Verrà visualizzato un messaggio di conferma.
+4. Click **Save** at the bottom of the page to save the modified ACR. You will see a confirmation message. 
 
-5. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-manage-acrs/check-icon.png). L'elenco tabulare verrà aggiornato per riflettere questa modifica.
+5. Click the check icon ![check icon](./media/storsimple-ova-manage-acrs/check-icon.png). The tabular listing will be updated to reflect this change.
 
-## Eliminare un record di controllo di accesso
+## <a name="delete-an-access-control-record"></a>Delete an access control record
 
-Per eliminare record di controllo di accesso, usare la pagina **Configurazione** nel portale di Azure classico.
+You use the **Configuration** page in the Azure classic portal to delete ACRs. 
 
 > [AZURE.NOTE] 
 > 
-> - È possibile eliminare solo i record di controllo di accesso che non sono attualmente in uso. Per eliminare un record di controllo di accesso associato a un volume attualmente in uso, è innanzitutto necessario rendere il volume offline.
-> - Quando si elimina un record di controllo di accesso da un volume, assicurarsi che l'host corrispondente non acceda al volume perché l'eliminazione potrebbe comportare un'interruzione di lettura/scrittura.
+> - You should delete only those ACRs that are currently not in use. To delete an ACR associated with a volume that is currently in use, you should first take the volume offline.
+> - When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
 
-Attenersi alla procedura seguente per eliminare un record di controllo di accesso.
+Perform the following steps to delete an access control record.
 
-#### Per eliminare un record di controllo di accesso
+#### <a name="to-delete-an-access-control-record"></a>To delete an access control record
 
-1. Nella pagina di destinazione del servizio selezionare il servizio, fare doppio clic sul nome del servizio e quindi fare clic sulla scheda **Configurazione**.
+1. On the service landing page, select your service, double-click the service name, and then click the **Configuration** tab.
 
-2. Nell'elenco tabulare dei record di controllo di accesso, passare il mouse sul record di controllo di accesso che si desidera eliminare.
+2. In the tabular listing of the access control records (ACRs), hover over the ACR that you wish to delete.
 
-3. Nella colonna all'estrema destra del record di controllo di accesso selezionato, verrà visualizzata un'icona di eliminazione (**x**). Fare clic sull'icona **x** per eliminare il record di controllo di accesso. Viene visualizzato il messaggio di conferma seguente:
+3. A delete icon (**x**) will appear in the extreme right column for the ACR that you select. Click the **x** icon to delete the ACR. You will see the following confirmation message.
 
-    ![messaggio di conferma](./media/storsimple-ova-manage-acrs/acr3.png)
+    ![confirmation message](./media/storsimple-ova-manage-acrs/acr3.png)
 
-5. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-manage-acrs/check-icon.png). L'elenco tabulare verrà aggiornato per riflettere l'eliminazione.
+5. Click the check icon ![check icon](./media/storsimple-ova-manage-acrs/check-icon.png). The tabular listing will be updated to reflect the deletion.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Altre informazioni sull'[aggiunta di volumi e la configurazione di record di controllo di accesso](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
+- Learn more about [adding volumes and configuring ACRs](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,142 +1,147 @@
 <properties
-	pageTitle="Correggere gli errori ";502 - Gateway non valido"; e ";503 - Servizio non disponibile";| Microsoft Azure"
-	description="Risoluzione degli errori ";502 - Gateway non valido"; e ";503 - Servizio non disponibile"; nelle app Web ospitate in un servizio App di Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
-	tags="top-support-issue"
-	keywords="502 - Gateway non valido, 503 - Servizio non disponibile, errore 503, errore 502"/>
+    pageTitle="Fix 502 bad gateway, 503 service unavailable errors | Microsoft Azure"
+    description="Troubleshoot 502 bad gateway and 503 service unavailable errors in your web app hosted in Azure App Service."
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""
+    tags="top-support-issue"
+    keywords="502 bad gateway, 503 service unavailable, error 503, error 502"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2016"
+    ms.author="cephalin"/>
 
-# Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nelle App Web di Azure
 
-Gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" sono comuni nelle applicazioni Web ospitate in un [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Questo articolo fornisce informazioni utili per la risoluzione di questi errori.
+# <a name="troubleshoot-http-errors-of-"502-bad-gateway"-and-"503-service-unavailable"-in-your-azure-web-apps"></a>Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito di supporto per Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
+"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This article helps you troubleshoot these errors.
 
-## Sintomo
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
-Quando si passa all'app Web, viene restituito un errore HTTP "502 - Gateway non valido" o HTTP "503 - Servizio non disponibile".
+## <a name="symptom"></a>Symptom
 
-## Causa
+When you browse to the web app, it returns a HTTP "502 Bad Gateway" error or a HTTP "503 Service Unavailable" error.
 
-Spesso la causa dell'errore deriva da problemi a livello dell'applicazione, ad esempio:
+## <a name="cause"></a>Cause
 
--	le richieste impiegano troppo tempo
--	utilizzo elevato di memoria/CPU da parte dell'applicazione
--	arresto anomalo dell'applicazione a causa di un'eccezione.
+This problem is often caused by application level issues, such as:
 
-## Passaggi per la risoluzione degli errori "503 - Servizio non disponibile" e "502 - Gateway non valido"
+-   requests taking a long time
+-   application using high memory/CPU
+-   application crashing due to an exception.
 
-La risoluzione dei problemi prevede tre attività distinte, in ordine sequenziale:
+## <a name="troubleshooting-steps-to-solve-"502-bad-gateway"-and-"503-service-unavailable"-errors"></a>Troubleshooting steps to solve "502 bad gateway" and "503 service unavailable" errors
 
-1.	[Osservare e monitorare il comportamento dell'applicazione](#observe)
-2.	[Raccogliere i dati](#collect)
-3.	[Attenuare il problema](#mitigate)
+Troubleshooting can be divided into three distinct tasks, in sequential order:
 
-In [app Web del servizio app](/services/app-service/web/) vengono presentate diverse opzioni per ogni passaggio.
+1.  [Observe and monitor application behavior](#observe)
+2.  [Collect data](#collect)
+3.  [Mitigate the issue](#mitigate)
+
+[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
 
 <a name="observe" />
-### 1\. Osservare e monitorare il comportamento dell'applicazione
+### <a name="1.-observe-and-monitor-application-behavior"></a>1. Observe and monitor application behavior
 
-####	Tenere traccia dell'integrità del servizio
+####    <a name="track-service-health"></a>Track Service health
 
-Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell'integrità del servizio](../azure-portal/insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../azure-portal/insights-service-health.md).
 
-####	Monitorare l'app Web
+####    <a name="monitor-your-web-app"></a>Monitor your web app
 
-Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pannello dell'app Web fare clic sul riquadro **Richieste ed errori**. Il pannello **Metrica** mostra le metriche che si possono aggiungere.
+This option enables you to find out if your application is having any issues. In your web app’s blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
 
-Le metriche più comunemente monitorate per le app Web sono
+Some of the metrics that you might want to monitor for your web app are
 
--	Working set della memoria medio
--	Tempo medio di risposta
--	Tempo CPU
--	Working set della memoria
--	Richieste
+-   Average memory working set
+-   Average response time
+-   CPU time
+-   Memory working set
+-   Requests
 
-![monitorare le app Web per risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile"](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![monitor web app towards solving HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-Per altre informazioni, vedere:
+For more information, see:
 
--	[Eseguire il monitoraggio delle app Web nel servizio app di Azure](web-sites-monitor.md)
--	[Ricevere notifiche di avviso](../azure-portal/insights-receive-alert-notifications.md)
+-   [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
+-   [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
-### 2\. Raccogliere i dati
+### <a name="2.-collect-data"></a>2. Collect data
 
-####	Usare il portale di supporto del servizio app di Azure
+####    <a name="use-the-azure-app-service-support-portal"></a>Use the Azure App Service Support Portal
 
-Il servizio app Web consente di risolvere i problemi relativi all'app Web grazie ai dati disponibili nei log HTTP, nei log eventi, nei dump dei processi e così via. È possibile accedere a tutte queste informazioni tramite il portale di supporto disponibile all'indirizzo **http://&lt;your nome app>.scm.azurewebsites.net/Support**
+Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.azurewebsites.net/Support**
 
-Il portale di supporto del servizio app di Azure contiene tre schede separate per supportare i tre passaggi di uno scenario di risoluzione dei problemi comune:
+The Azure App Service Support portal provides you with three separate tabs to support the three steps of a common troubleshooting scenario:
 
-1.	Osservare il comportamento corrente
-2.	Eseguire l'analisi tramite la raccolta di informazioni di diagnostica e l'esecuzione di analizzatori predefiniti
-3.	Attenuare il problema
+1.  Observe current behavior
+2.  Analyze by collecting diagnostics information and running the built-in analyzers
+3.  Mitigate
 
-Se si riscontra il problema in questo preciso istante, fare clic su **Analizza** > **Diagnostica** > **Esegui diagnosi adesso** per creare una sessione di diagnostica in cui verranno raccolti log HTTP, log del visualizzatore eventi, dump della memoria, log degli errori PHP e report sui processi PHP.
+If the issue is happening right now, click **Analyze** > **Diagnostics** > **Diagnose Now** to create a diagnostic session for you, which will collect HTTP logs, event viewer logs, memory dumps, PHP error logs and PHP process report.
 
-Una volta raccolti i dati, verrà eseguita l'analisi dei dati e verrà generato un report HTML.
+Once the data is collected, it will also run an analysis on the data and provide you with an HTML report.
 
-Per impostazione predefinita, i dati verranno archiviati nella cartella D:\\home\\data\\DaaS, da cui sarà possibile scaricarli.
+In case you want to download the data, by default, it would be stored in the D:\home\data\DaaS folder.
 
-Per altre informazioni sul portale di supporto del servizio app di Azure, vedere il post di blog relativo ai [nuovi aggiornamenti all'estensione del sito di supporto per Siti Web di Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+For more information on the Azure App Service Support portal, see [New Updates to Support Site Extension for Azure Websites](/blog/new-updates-to-support-site-extension-for-azure-websites).
 
-####	Usare la console di debug Kudu
+####    <a name="use-the-kudu-debug-console"></a>Use the Kudu Debug Console
 
-Il servizio App Web include una console di debug che è possibile usare per il debug, l'esplorazione e il caricamento di file, nonché endpoint JSON per ottenere informazioni sull'ambiente in uso. Questa console è chiamata _console Kudu_ o _dashboard SCM_ dell'app Web.
+Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This is called the _Kudu Console_ or the _SCM Dashboard_ for your web app.
 
-È possibile accedere a questo dashboard selezionando il collegamento **https://&lt;Your nome app>.scm.azurewebsites.net/**.
+You can access this dashboard by going to the link **https://&lt;Your app name>.scm.azurewebsites.net/**.
 
-Elementi forniti dalla console Kudu:
+Some of the things that Kudu provides are:
 
--	impostazioni di ambiente per l'applicazione
--	log in streaming
--	dump di diagnostica
--	console di debug in cui è possibile eseguire cmdlet di PowerShell e comandi DOS di base.
+-   environment settings for your application
+-   log stream
+-   diagnostic dump
+-   debug console in which you can run Powershell cmdlets and basic DOS commands.
 
 
-Inoltre, nel caso in cui l'applicazione generi eccezioni first-chance, è possibile usare Kudu e l'utilità della riga di comando Procdump dello strumento SysInternals per creare dump della memoria. I dump della memoria sono snapshot del processo e semplificano la risoluzione di problemi più complessi riscontrati nell'app Web.
+Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
 
-Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti online di Siti Web di Azure che è opportuno conoscere](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+For more information on features available in Kudu, see [Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
-### 3\. Attenuare il problema
+### <a name="3.-mitigate-the-issue"></a>3. Mitigate the issue
 
-####	Ridimensionare l'app Web
+####    <a name="scale-the-web-app"></a>Scale the web app
 
-Nel servizio app di Azure, per ottimizzare le prestazioni e la velocità effettiva è possibile modificare il piano in cui è in esecuzione l'applicazione. Ridimensionare un'app Web di Azure implica due azioni correlate: passare a un piano tariffario superiore e configurare determinate impostazioni una volta adottato il nuovo piano.
+In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
-Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app Web nel servizio app di Azure](web-sites-scale.md).
+For more information on scaling, see [Scale a web app in Azure App Service](web-sites-scale.md).
 
-È anche possibile scegliere di eseguire l'applicazione in più di un'istanza. In questo modo, non solo si ottiene una maggiore capacità di elaborazione, ma si può usufruire della tolleranza di errore. Se il processo si arresta in un'istanza, l'altra istanza continuerà a gestire le richieste.
+Additionally, you can choose to run your application on more than one instance . This not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance will still continue serving requests.
 
-È possibile impostare il ridimensionamento manuale o automatico.
+You can set the scaling to be Manual or Automatic.
 
-####	Usare la funzionalità AutoHeal
+####    <a name="use-autoheal"></a>Use AutoHeal
 
-La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app Web direttamente dall'interno del portale di Azure, la funzionalità AutoHeal eseguirà questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app Web. Si noti che queste impostazioni funzionano allo stesso modo anche per le applicazioni non .NET.
+AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
-Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](/blog/auto-healing-windows-azure-web-sites/).
+For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
 
 
-####	Riavviare l'app Web
+####    <a name="restart-the-web-app"></a>Restart the web app
 
-Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/) sono disponibili le opzioni per arrestare o riavviare l'app.
+This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
 
- ![riavviare l'app per risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
+ ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+You can also manage your web app using Azure Powershell. For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

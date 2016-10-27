@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare un peering reti virtuali usando i cmdlet di PowerShell | Microsoft Azure"
-   description="Informazioni su come creare una rete virtuale con il portale di Azure in Resource Manager."
+   pageTitle="Create VNet Peering using Powershell cmdlets | Microsoft Azure"
+   description="Learn how to create a virtual network using the Azure portal in Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="NarayanAnnamalai"
@@ -17,7 +17,8 @@
    ms.date="09/14/2016"
    ms.author="narayanannamalai; annahar"/>
 
-# Creare un peering reti virtuali usando i cmdlet di PowerShell
+
+# <a name="create-vnet-peering-using-powershell-cmdlets"></a>Create VNet Peering using Powershell cmdlets
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
@@ -25,153 +26,153 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-basic-include](../../includes/virtual-networks-create-vnetpeering-scenario-basic-include.md)]
 
-Per creare un peering reti virtuali con PowerShell, seguire questa procedura:
+To create a VNet peering by using PowerShell, please follow the steps below:
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-> [AZURE.NOTE] Il cmdlet di PowerShell per la gestione di un peering reti virtuali viene fornito con [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+> [AZURE.NOTE] PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
-2. Leggere gli oggetti di rete virtuale:
+2. Read virtual network objects:
 
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
 
-3. Per stabilire un peering reti virtuali, è necessario creare due collegamenti, uno per ogni direzione. Nel passaggio seguente si creerà un collegamento per il peering reti virtuali prima da VNet1 a VNet2:
+3. To establish VNet peering, you need to create two links,  one for each direction. The following step will create a VNet peering link for VNet1 to VNet2 first:
 
         Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id
 
-    Ecco l'output:
+    Output shows:
 
-        Name			: LinkToVNet2
+        Name            : LinkToVNet2
         Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
-        Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName	: vnet101
-        VirtualNetworkName	: vnet1
-        PeeringState		: Initiated
-        ProvisioningState	: Succeeded
-        RemoteVirtualNetwork	: {
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName   : vnet101
+        VirtualNetworkName  : vnet1
+        PeeringState        : Initiated
+        ProvisioningState   : Succeeded
+        RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
-        AllowVirtualNetworkAccess	: True
-        AllowForwardedTraffic	: False
-        AllowGatewayTransit	: False
-        UseRemoteGateways	: False
-        RemoteGateways		: null
+        AllowVirtualNetworkAccess   : True
+        AllowForwardedTraffic   : False
+        AllowGatewayTransit : False
+        UseRemoteGateways   : False
+        RemoteGateways      : null
         RemoteVirtualNetworkAddressSpace : null
 
-4. In questo passaggio si creerà un collegamento per il peering reti virtuali da VNet2 a VNet1:
+4. This step will create a VNet peering link for VNet2 to VNet1:
 
         Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id
 
-    Ecco l'output:
+    Output shows:
 
-        Name			: LinkToVNet1
-        Id				: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
-        Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName	: vnet101
-        VirtualNetworkName	: vnet2
-        PeeringState		: Connected
-        ProvisioningState	: Succeeded
-        RemoteVirtualNetwork	: {
+        Name            : LinkToVNet1
+        Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName   : vnet101
+        VirtualNetworkName  : vnet2
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
+        RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
-        AllowVirtualNetworkAccess	: True
-        AllowForwardedTraffic	: False
-        AllowGatewayTransit	: False
-        UseRemoteGateways	: False
-        RemoteGateways		: null
+        AllowVirtualNetworkAccess   : True
+        AllowForwardedTraffic   : False
+        AllowGatewayTransit : False
+        UseRemoteGateways   : False
+        RemoteGateways      : null
         RemoteVirtualNetworkAddressSpace : null
 
-5. Dopo aver creato il collegamento per il peering reti virtuali, è possibile visualizzare lo stato del collegamento come segue:
+5. Once the VNet peering link is created, you can see the link state below:
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name linktovnet2
 
-    Ecco l'output:
+    Output shows:
 
-		Name			: LinkToVNet2
-		Id				: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
-		Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-		ResourceGroupName	: vnet101
-		VirtualNetworkName	: vnet1
-		PeeringState		: Connected
-		ProvisioningState	: Succeeded
-		RemoteVirtualNetwork	: {
-		                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
-		                                }
-		AllowVirtualNetworkAccess	: True
-		AllowForwardedTraffic            : False
-		AllowGatewayTransit              : False
-		UseRemoteGateways                : False
-		RemoteGateways                   : null
-		RemoteVirtualNetworkAddressSpace : null
+        Name            : LinkToVNet2
+        Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName   : vnet101
+        VirtualNetworkName  : vnet1
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
+        RemoteVirtualNetwork    : {
+                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
+                                        }
+        AllowVirtualNetworkAccess   : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
 
-	Esistono alcune proprietà configurabili per il peering reti virtuali:
+    There are a few configurable properties for VNet peering:
 
-	|Opzione|Descrizione|Default|
-	|:-----|:----------|:------|
-	|AllowVirtualNetworkAccess|Indica se lo spazio indirizzi della rete virtuale peer deve essere incluso come parte del tag Virtual\_network.|Sì|
-	|AllowForwardedTraffic|Consente di accettare o eliminare il traffico che non ha origine dalla rete virtuale con peering.|No|
-	|AllowGatewayTransit|Consente alla rete virtuale peer di usare il gateway di rete virtuale.|No|
-	|UseRemoteGateways|Consente di usare il gateway di rete virtuale del peer. Per la rete virtuale peer deve essere configurato un gateway ed essere selezionata l'opzione AllowGatewayTransit. Non è possibile usare questa opzione se si ha un gateway configurato.|No|
+  	|Option|Description|Default|
+  	|:-----|:----------|:------|
+  	|AllowVirtualNetworkAccess|Whether address space of Peer VNet to be included as part of the Virtual_network Tag|Yes|
+  	|AllowForwardedTraffic|Allows traffic not originated from peered VNet is accepted or dropped|No|
+  	|AllowGatewayTransit|Allows the peer VNet to use your VNet gateway|No|
+  	|UseRemoteGateways|Use your peer’s VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit selected. You cannot use this option if you have a gateway configured|No|
 
-	Ogni collegamento nel peering reti virtuali include un set delle proprietà precedenti. Ad esempio, è possibile impostare AllowVirtualNetworkAccess su True per il collegamento per il peering reti virtuali da VNet1 a VNet2 e su False per il collegamento per il peering reti virtuali nella direzione opposta.
+    Each link in VNet peering has the set of properties above. For example, you can set AllowVirtualNetworkAccess to True for VNet peering link VNet1 to VNet2 and set it to False for the VNet peering link in the other direction.
 
         $LinktoVNet2 = Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name LinkToVNet2
         $LinktoVNet2.AllowForwardedTraffic = $true
         Set-AzureRmVirtualNetworkPeering -VirtualNetworkPeering $LinktoVNet2
 
-    È possibile eseguire Get-AzureRmVirtualNetworkPeering per controllare il valore della proprietà dopo la modifica. Dall'output è possibile vedere che AllowForwardedTraffic viene impostato su True dopo l'esecuzione del cmdlet precedente.
+    You can run Get-AzureRmVirtualNetworkPeering to double check the property value after the change.  From the output, you can see AllowForwardedTraffic changes set to True after running the above cmdlets.
 
-        Name			: LinkToVNet2
-        Id			: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
-        Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName	: vnet101
-        VirtualNetworkName	: vnet1
-        PeeringState		: Connected
-        ProvisioningState	: Succeeded
-        RemoteVirtualNetwork	: {
+        Name            : LinkToVNet2
+        Id          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName   : vnet101
+        VirtualNetworkName  : vnet1
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
+        RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
-        AllowVirtualNetworkAccess	: True
-        AllowForwardedTraffic		: True
-        AllowGatewayTransit		: False
-        UseRemoteGateways		: False
-        RemoteGateways		: null
+        AllowVirtualNetworkAccess   : True
+        AllowForwardedTraffic       : True
+        AllowGatewayTransit     : False
+        UseRemoteGateways       : False
+        RemoteGateways      : null
         RemoteVirtualNetworkAddressSpace : null
 
-	Dopo aver stabilito il peering in questo scenario, sarà possibile avviare le connessioni da qualsiasi macchina virtuale a qualsiasi macchina virtuale di entrambe le reti virtuali. Per impostazione predefinita, AllowVirtualNetworkAccess è impostato su True e il peering reti virtuali effettuerà il provisioning degli ACL appropriati per consentire la comunicazione tra le reti virtuali. È comunque possibile applicare le regole del gruppo di sicurezza di rete per bloccare la connettività tra subnet o macchine virtuali specifiche per ottenere il controllo granulare dell'accesso tra due reti virtuali. Per altre informazioni sulla creazione di regole del gruppo di sicurezza di rete, vedere questo [articolo](virtual-networks-create-nsg-arm-ps.md).
+    After peering is established in this scenario, you should be able to initiate the connections from any virtual machine to any virtual machine of both VNets. By default, AllowVirtualNetworkAccess is True and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two virtual networks.  For more information about creating NSG rules, please refer to this [article](virtual-networks-create-nsg-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-Per creare un peering reti virtuali tra sottoscrizioni con PowerShell, seguire questa procedura:
+To create VNet peering across subscriptions using PowerShell, please follow the steps below:
 
-1. Accedere ad Azure con l'account utente A con privilegi per la sottoscrizione A ed eseguire il cmdlet seguente:
+1. Sign in to Azure with privileged User-A's account for Subscription-A and run the following cmdlet:
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
 
-    Questo non è un requisito, perché il peering può essere stabilito anche se gli utenti generano singolarmente richieste di peering per le rispettive reti virtuali, purché le richieste corrispondano. L'aggiunta di utenti con privilegi dell'altra rete virtuale come utente nella rete virtuale locale facilita la configurazione.
+    This is not a requirement, peering can be established even if users individually raise peering requests for their respective Vnets as long as the requests match. Adding a privileged user of the other VNet as a user in the local VNet makes it easier to do the setup.
 
-2. Accedere ad Azure con l'account utente B con privilegi per la sottoscrizione B ed eseguire il cmdlet seguente:
+2. Sign in to Azure with privileged User-B's account for Subscription-B and run the following cmdlet:
 
         New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet3
 
-3. Nella sessione di accesso dell'utente A eseguire quindi il cmdlet seguente:
+3. In User-A’s login session, run the cmdlet below:
 
         $vnet3 = Get-AzureRmVirtualNetwork -ResourceGroupName hr-vnets -Name vnet3
 
         Add-AzureRmVirtualNetworkPeering -name LinkToVNet5 -VirtualNetwork $vnet3 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-B-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet5" -BlockVirtualNetworkAccess
 
-4. Nella sessione di accesso dell'utente B eseguire quindi il cmdlet seguente:
+4. In User-B’s login session, run the cmdlet below:
 
         $vnet5 = Get-AzureRmVirtualNetwork -ResourceGroupName vendor-vnets -Name vnet5
 
         Add-AzureRmVirtualNetworkPeering -name LinkToVNet3 -VirtualNetwork $vnet5 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-A-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet3" -BlockVirtualNetworkAccess
 
-5. Dopo avere stabilito il peering, tutte le macchine virtuali in VNet3 potranno comunicare con tutte le macchine virtuali in VNet5.
+5. After peering is established, any virtual machine in VNet3 should be able to communicate with any virtual machine in VNet5.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. In questo scenario è possibile eseguire i cmdlet di PowerShell seguenti per stabilire il peering reti virtuali. È necessario impostare la proprietà AllowForwardedTraffic su True e collegare VNET1 a HubVnet, che consente il traffico in ingresso dall'esterno dello spazio indirizzi della rete virtuale con peering.
+1. In this scenario, you can run the PowerShell cmdlets below to establish the VNet peering.  You need to set the AllowForwardedTraffic property to True and link VNET1 to HubVnet, which allows the inbound traffic from outside of the peering VNet address space.
 
         $hubVNet = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name HubVNet
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
@@ -180,7 +181,7 @@ Per creare un peering reti virtuali tra sottoscrizioni con PowerShell, seguire q
 
         Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vnet1.id
 
-2. Dopo aver stabilito il peering, è possibile vedere questo [articolo](virtual-network-create-udr-arm-ps.md) e creare route definite dall'utente per reindirizzare il traffico di VNet1 attraverso un'appliance virtuale per usarne le funzionalità. Quando si specifica l'indirizzo dell'hop successivo nella route, è possibile impostarlo sull'indirizzo IP dell'appliance virtuale nella rete virtuale peer HubVNet. Di seguito è riportato un esempio:
+2. After peering is established, you can refer to this [article](virtual-network-create-udr-arm-ps.md) and define a user-defined route (UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the next hop address in the route, you can set it to the IP address of the virtual appliance in the peer VNet HubVNet. Below is a sample:
 
         $route = New-AzureRmRouteConfig -Name TestNVA -AddressPrefix 10.3.0.0/16 -NextHopType VirtualAppliance -NextHopIpAddress 192.0.1.5
 
@@ -194,19 +195,19 @@ Per creare un peering reti virtuali tra sottoscrizioni con PowerShell, seguire q
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-Per creare un peering reti virtuali tra una rete virtuale classica e una rete virtuale di Azure Resource Manager in PowerShell, seguire questa procedura:
+To create a VNet peering between a classic Virtual network and a Azure resource manager virtual network in PowerShell, follow the steps below:
 
-1. Leggere l'oggetto rete virtuale per **VNET1**, la rete virtuale di Azure Resource Manager, come segue: $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
+1. Read virtual network object for **VNET1**, the Azure Resource Manager virtual network as follows:      $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
 
-2. Per stabilire il peering reti virtuali in questo scenario, è necessario un solo collegamento, per la precisione uno da **VNET1** a **VNET2**. Per questo passaggio, è necessario conoscere l'ID risorsa della rete virtuale classica. Il formato dell'ID gruppo di risorse è il seguente: /subscriptions/IDSottoscrizione/resourceGroups/NomeGruppoDiRisorse/providers/Microsoft.ClassicNetwork/virtualNetworks/NomeReteVirtuale
+2. To establish VNet peering in this scenario, only one link is needed, specifically a link from **VNET1** to **VNET2**. This step requires knowing your classic VNet's resource ID. The resource group ID format looks like: /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName
 
-    Assicurarsi di sostituire IDSottoscrizione, NomeGruppoDiRisorse e NomeReteVirtuale con i nomi appropriati.
+    Be sure to replace SubscriptionID, ResourceGroupName and VirtualNetworkName with the appropriate names.
 
-    Ad esempio:
+    This can be accomplished by the following:
 
         Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
 
-3. Dopo aver creato il collegamento per il peering reti virtuali, è possibile visualizzare lo stato del collegamento come illustrato nell'output seguente:
+3. Once the VNet peering link is created, you can see the link state as shown in the output below:
 
         Name                             : LinkToVNet2
         Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2
@@ -225,9 +226,9 @@ Per creare un peering reti virtuali tra una rete virtuale classica e una rete vi
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
 
-## Rimuovere il peering reti virtuali
+## <a name="remove-vnet-peering"></a>Remove VNet Peering
 
-1.	Per rimuovere il peering reti virtuali, è necessario eseguire il cmdlet seguente:
+1.  In order to remove the VNet peering, you need run the following cmdlet:
 
         Remove-AzureRmVirtualNetworkPeering  
 
@@ -236,6 +237,10 @@ Per creare un peering reti virtuali tra una rete virtuale classica e una rete vi
         Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
         Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
 
-2. Dopo la rimozione di un collegamento in un peering reti virtuali, lo stato del collegamento peer sarà Disconnesso. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà Avviato. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
+2. Once you remove one link in a VNET peering, the  peer link state will go to disconnected. In this state, you cannot re-create the link until the peer link state changes to Initiated. We recommend you remove both links before you re-create the VNet peering.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

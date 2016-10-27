@@ -1,116 +1,123 @@
 <properties
-	pageTitle="Creare un nuovo pool di database elastici con il portale di Azure | Microsoft Azure"
-	description="Come aggiungere un pool di database elastici scalabile alla configurazione del database SQL per semplificare l'amministrazione e la condivisione delle risorse tra più database."
-	keywords="database scalabile,configurazione del database"
-	services="sql-database"
-	documentationCenter=""
-	authors="ninarn"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Create a new elastic pool with the Azure portal | Microsoft Azure"
+    description="How to add a scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
+    keywords="scalable database,database configuration"
+    services="sql-database"
+    documentationCenter=""
+    authors="ninarn"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="07/20/2016"
-	ms.author="ninarn"
-	ms.workload="data-management"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="07/20/2016"
+    ms.author="ninarn"
+    ms.workload="data-management"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Creare un nuovo pool di database elastici con il portale di Azure
+
+# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Create a new elastic database pool with the Azure portal
 
 > [AZURE.SELECTOR]
-- [Portale di Azure](sql-database-elastic-pool-create-portal.md)
+- [Azure portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
-Questo articolo illustra come creare un [pool di database elastici](sql-database-elastic-pool.md) scalabile con il [portale di Azure](https://portal.azure.com/). Esistono due modi per creare un pool. È possibile farlo da zero se si conosce la configurazione del pool da usare oppure iniziare con una raccomandazione fornita dal servizio. Il database SQL integra informazioni in base alle quali viene suggerita una configurazione del pool nel caso risulti più conveniente secondo i dati di telemetria relativi all'utilizzo precedente dei database.
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.com/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends a pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
-È possibile aggiungere più pool a un server, ma non aggiungere database da diversi server nello stesso pool. Per creare un pool, è necessario almeno un database in un server V12. Se non ne è disponibile uno, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md). È possibile creare un pool con un solo database, ma i pool sono convenienti solo con più database. Vedere [Considerazioni su prezzi e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
+You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] I pool elastici sono disponibili a livello generale in tutte le aree di Azure tranne India occidentale, dove sono attualmente in anteprima. I pool elastici verranno resi disponibili a livello generale in quest'area non appena possibile.
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible. 
 
-## Passaggio 1: Creare un nuovo pool
+## <a name="step-1:-create-a-new-pool"></a>Step 1: Create a new pool
 
-Questo articolo illustra come creare un nuovo pool da un pannello **server** esistente nel portale, ovvero il modo più semplice per trasferire i database esistenti in un pool.
+This article shows how to create a new pool from an existing **server** blade in the portal, which is the easiest way to move existing databases into a pool. 
 
-> [AZURE.NOTE] Indipendentemente dal fatto che sia già presente un server o meno, è anche possibile creare un nuovo pool dal pannello **Pool elastici SQL**. Sotto l'elenco sul lato sinistro del portale, fare clic su **Esplora** **>** **Pool elastici SQL**. Facendo clic su **+Aggiungi** nel pannello **Pool elastici SQL** sarà disponibile la procedura per creare un nuovo server durante il flusso di lavoro di provisioning del pool.
+> [AZURE.NOTE] Whether you already have a server or not, you can also create a new pool from the **SQL elastic pools** blade (below the list on the left side of the portal, click **Browse** **>** **SQL elastic pools**). Clicking **+Add** on the **SQL elastic pools** blade provides steps to create a new server during the pool provisioning workflow.
 
-1. Nel [portale di Azure](http://portal.azure.com/), sotto l'elenco sul lato sinistro, fare clic su **Esplora** **>** **SQL Server** e quindi fare clic sul server che contiene i database da aggiungere a un pool.
-2. Fare clic su **Nuovo pool**.
+1. In the [Azure portal](http://portal.azure.com/) below the list on the left side, click **Browse** **>** **SQL servers**, and then click the server that contains the databases you want to add to a pool.
+2. Click **New pool**.
 
-    ![Aggiungere un pool a un server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
+    ![Add pool to a server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
 
-    **-OPPURE-**
+    **-OR-**
 
-    Potrebbe essere visualizzato un messaggio che informa che sono disponibili pool di database elastici consigliati per il server (solo V12). Fare clic sul messaggio per visualizzare i pool consigliati in base ai dati di telemetria cronologici relativi all'utilizzo del database e quindi fare clic sul livello per visualizzare altri dettagli e personalizzare il pool. Per informazioni su come vengono create le raccomandazioni, vedere [Informazioni sulle raccomandazioni per i pool](#understand-pool-recommendations) più avanti in questo argomento.
+    You may see a message saying there are recommended elastic database pools for the server (V12 only). Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
 
-    ![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
+    ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-    Verrà visualizzato il pannello **Pool di database elastici** dove verrà configurato il pool. Se si è fatto clic su **Nuovo pool** nel passaggio precedente, il portale sceglierà un **pool Standard** in **Piano tariffario** e un **nome** univoco e una configurazione predefinita per il pool. Se si sceglie un pool consigliato, la configurazione e il piano del pool consigliati predefiniti sono già impostati, ma è comunque possibile modificarli.
+    The **Elastic database pool** blade appears, which is where you'll set up your pool. If you clicked **New pool** in the previous step, the portal chooses a **Standard pool** under **Pricing tier**, a unique **Name** for the pool, and a default configuration for the pool. If you chose a recommended pool, the recommended tier and configuration of the pool are already chosen, but you can still change them.
 
-    ![Configurare un pool elastico](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
+    ![Configure elastic pool](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
-3. Specificare un nome per il pool elastico o lasciare il valore predefinito.
+3. Specify a name for the elastic pool, or leave it as the default.
 
-## Passaggio 2: Scegliere un piano tariffario
+## <a name="step-2:-choose-a-pricing-tier"></a>Step 2: Choose a pricing tier
 
-Il piano tariffario del pool determina le funzionalità disponibili per i database elastici nel pool e il numero massimo di eDTU (MAX eDTU) e la memoria (GB) disponibili per ciascun database. Per altre informazioni, vedere Livelli di servizio.
+The pool's pricing tier determines the features available to the elastic databases in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see Service Tiers.
 
-Per modificare il piano tariffario per il pool, fare clic su **Piano tariffario**, scegliere il piano e quindi fare clic su **Seleziona**.
+To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier your want, and then click **Select**.
 
-> [AZURE.IMPORTANT] Dopo aver scelto il piano tariffario e aver eseguito il commit delle modifiche facendo clic su **OK** nell'ultimo passaggio, non sarà più possibile modificare il piano tariffario del pool. Per modificare il livello di prezzo per un pool di database elastici esistente creare un nuovo pool elastico nel livello di prezzo desiderato e migrare i database elastici in questo nuovo pool.
+> [AZURE.IMPORTANT] After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool create a new elastic pool in the desired pricing tier and migrate the elastic databases to this new pool.
 
-![Selezione di un livello di prezzo](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
+![Select a pricing tier](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-## Passaggio 3: Configurare il pool
+## <a name="step-3:-configure-the-pool"></a>Step 3: Configure the pool
 
-Dopo avere impostato il piano tariffario, fare clic su Configura pool dove è possibile aggiungere i database, impostare le eDTU e lo spazio di archiviazione (in GB) del pool, nonché il numero minimo e massimo di eDTU per i database elastici nel pool.
+After setting the pricing tier, click Configure pool where you add databases, set pool eDTUs and storage (pool GBs), and where you set the min and max eDTUs for the elastic databases in the pool.
 
-1. Fare clic su **Configura pool**.
-2. Selezionare i database da aggiungere al pool. Questo passaggio è facoltativo durante la creazione del pool. È possibile aggiungere i database dopo aver creato il pool. Per aggiungere i database, fare clic su **Aggiungi database**, selezionare i database da aggiungere e quindi fare clic sul pulsante **Seleziona**.
+1. Click **Configure pool**
+2. Select the databases you want to add to the pool. This step is optional while creating the pool. Databases can be added after the pool has been created.
+    To add databases, click **Add database**, click the databases that you want to add, and then click the **Select** button.
 
-    ![Aggiungere database](./media/sql-database-elastic-pool-create-portal/add-databases.png)
+    ![Add databases](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
-    Se i dati di telemetria cronologici relativi all'utilizzo disponibili per i database correnti sono sufficienti, il grafico **Utilizzo di eDTU e GB** e il grafico a barre **Utilizzo di eDTU effettivo** vengono aggiornati per semplificare le decisioni relative alla configurazione. Il servizio potrebbe anche visualizzare un messaggio di raccomandazione per facilitare la scelta delle dimensioni corrette per il pool. Vedere la sezione [Indicazioni dinamiche](#dynamic-recommendations).
+    If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Usare i controlli nella pagina **Configura pool** per esaminare le impostazioni e configurare il pool. Vedere la sezione relativa ai [limiti dei pool elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) per altri dettagli sui limiti per ogni livello di servizio e le [considerazioni su prezzo e prestazioni per i pool di database elastici](sql-database-elastic-pool-guidance.md) per istruzioni dettagliate sul corretto ridimensionamento di un pool. Per altre informazioni sulle impostazioni del pool, vedere la sezione relativa alle [proprietà dei pool di database elastici](sql-database-elastic-pool.md#elastic-database-pool-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) for more detail about limits for each service tier, and see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic database pool properties](sql-database-elastic-pool.md#elastic-database-pool-properties).
 
-	![Configurare un pool elastico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
+    ![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
-4. Dopo aver modificato le impostazioni, fare clic su **Seleziona** nel pannello **Configura pool**.
-5. Fare clic su **OK** per creare il pool.
+4. Click **Select** in the **Configure Pool** blade after changing settings.
+5. Click **OK** to create the pool.
 
 
-## Informazioni sulle raccomandazioni per i pool
+## <a name="understand-pool-recommendations"></a>Understand pool recommendations
 
-Il servizio di database SQL valuta la cronologia di utilizzo e suggerisce uno o più pool quando questo approccio è più conveniente rispetto all'uso di singoli database. Ogni raccomandazione viene configurata con un subset univoco di database del server che meglio si adatta al pool.
+The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
 
-![pool consigliato](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
+![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
-La raccomandazione per il pool include:
+The pool recommendation comprises:
 
-- Piano tariffario per il pool (Basic, Standard o Premium).
-- **eDTU POOL** appropriato, detto anche eDTU max per pool.
-- **MAX eDTU** e **Min eDTU** per ogni database.
-- Elenco di database consigliati per il pool.
+- A pricing tier for the pool (Basic, Standard, or Premium)
+- Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
+- The **eDTU MAX** and **eDTU Min** per database
+- The list of recommended databases for the pool
 
-Il servizio prende in considerazione la telemetria degli ultimi 30 giorni per la raccomandazione dei pool. Affinché un database possa essere considerato un candidato per un pool di database elastici, deve esistere per almeno 7 giorni. I database che sono già in un pool di database elastici non vengono considerati come candidati dai consigli relativi ai pool di database elastici.
+The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic database pool it must exist for at least 7 days. Databases that are already in an elastic database pool are not considered as candidates for elastic database pool recommendations.
 
-Il servizio valuta le risorse necessarie e la convenienza dello spostamento di singoli database in ogni livello di servizio nei pool dello stesso livello. Ad esempio, vengono valutati tutti i database Standard in un server per l’utilizzo in un pool elastico Standard. Ciò significa che il servizio non effettua consigli relativi a livelli diversi, ad esempio lo spostamento di un database Standard in un pool Premium.
+The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 
-### Indicazioni dinamiche
+### <a name="dynamic-recommendations"></a>Dynamic recommendations
 
-Dopo aver aggiunto i database al pool, le indicazioni verranno dinamicamente generate in base all'utilizzo storico dei database selezionati. Queste indicazioni saranno visualizzate nel grafico relativo all'uso di eDTU e GB, oltre che come banner nella parte superiore del pannello **Configura pool**. Queste indicazioni sono concepite per facilitare la creazione di un pool ottimizzato per database specifici.
+After adding databases to the pool, recommendations will be dynamically generated based on the historical usage of the databases you have selected. These recommendations will be shown in the eDTU and GB usage chart as well as in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating a pool optimized for your specific databases.
 
-![indicazioni dinamiche](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
+![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Additional resources
 
-- [Gestire un pool di database elastici SQL con il portale](sql-database-elastic-pool-manage-portal.md)
-- [Gestire un pool di database elastici SQL con PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [Gestire un pool di database elastici SQL con C#](sql-database-elastic-pool-manage-csharp.md)
-- [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
+- [Manage a SQL Database elastic pool with the portal](sql-database-elastic-pool-manage-portal.md)
+- [Manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [Manage a SQL Database elastic pool with C#](sql-database-elastic-pool-manage-csharp.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md) 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

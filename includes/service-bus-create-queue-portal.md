@@ -1,22 +1,22 @@
-Verificare che sia già stato creato uno spazio dei nomi del bus di servizio, come illustrato [qui][namespace-how-to].
+Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
-1. Accedere al [portale di Azure][azure-portal].
+1. Log on to the [Azure portal][azure-portal].
 
-2. Nel pannello di navigazione sinistro del portale fare clic su **Bus di servizio**.
+2. In the left navigation pane of the portal, click **Service Bus**.
 
-3. Selezionare lo spazio dei nomi in cui si vuole creare la coda. In questo caso è **nstest1**.
+3. Select the namespace that you would like to create the queue in. In this case, it is **nstest1**.
 
-    ![Creare una coda][createqueue1]
+    ![Create a queue][createqueue1]
 
-4. Nel pannello **Spazio dei nomi del bus di servizio**, selezionare **Code** e quindi fare clic su **Aggiungi coda**.
+4. In the **Service Bus namespace** blade, select **Queues**, then click **Add queue**.
 
-    ![Selezionare Code][createqueue2]
+    ![Select Queues][createqueue2]
 
-5. Immettere un nome in **Nome coda** e lasciare invariati gli altri valori.
+5. Enter the **Queue Name** and leave the other values with their defaults.
 
-    ![Selezionare Nuovo][createqueue3]
+    ![Select New][createqueue3]
 
-7. Fare clic su **Crea** nella parte inferiore del pannello.
+7. At the bottom of the blade, click **Create**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
@@ -25,4 +25,6 @@ Verificare che sia già stato creato uno spazio dei nomi del bus di servizio, co
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

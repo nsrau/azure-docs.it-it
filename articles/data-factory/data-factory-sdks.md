@@ -1,33 +1,39 @@
 <properties 
-	pageTitle="Guida di riferimento per gli sviluppatori di Data factory di Azure" 
-	description="Informazioni sui vari modi per creare, monitorare e gestire data factory di Azure"
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Azure Data Factory Developer Reference" 
+    description="Learn about different ways to create, monitor, and manage Azure data factories"
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/06/2016" 
+    ms.author="spelluru"/>
 
-# Guida di riferimento per gli sviluppatori di Data factory di Azure
 
-È possibile creare, monitorare e gestire le factory con il portale di Azure, Azure PowerShell, la libreria di classi .NET o con API REST.
+# <a name="azure-data-factory-developer-reference"></a>Azure Data Factory Developer Reference
 
-Metodo | Percorso della risorsa | Riferimenti per gli sviluppatori
+You can create, monitor, and manage the factories using either Azure portal, Azure PowerShell, .NET Class Library, or REST API.
+
+Method | Resource Location | Developer References
 ---------------------------------------------------- | ------------------------------ | -----------
-Portale di Azure | [https://portal.azure.com/](https://portal.azure.com) | [Introduzione ad Azure Data Factory (portale di Azure)](data-factory-build-your-first-pipeline-using-editor.md)
-Azure PowerShell | Scaricare l'ultima versione di [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) | [Informazioni di riferimento sui cmdlet](https://msdn.microsoft.com/library/dn820234.aspx) 
-Libreria di classi .NET | .NET SDK di Azure Data Factory consente di creare, monitorare e gestire le data factory di Azure e di estenderle con un'attività .NET. Per iniziare, vedere gli articoli [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md) e [Creazione, monitoraggio e gestione di data factory di Azure mediante Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md).<br/><br/><b>Download della versione più recente di NuGet</b><br/>È possibile scaricare la versione più recente del pacchetto NuGet della libreria di gestione di Azure Data Factory dalla pagina: [https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/)<br/><br/>**Uso della console di Gestione pacchetti di Visual Studio**<br/>È possibile eseguire il comando seguente nella console di Gestione pacchetti di Visual Studio per scaricare la versione più recente della libreria di gestione di Azure Data Factory<br/><br/>Install-Package Microsoft.Azure.Management.DataFactories | [Informazioni di riferimento su .NET SDK](https://msdn.microsoft.com/library/mt415893.aspx)
-API REST | È possibile usare l'API REST di Data factory per creare, monitorare e gestire data factory di Azure. | [Informazioni di riferimento sulle API REST](https://msdn.microsoft.com/library/dn906738.aspx)
+Azure portal  | [https://portal.azure.com/](https://portal.azure.com) | [Get started with Azure Data Factory (Azure portal)](data-factory-build-your-first-pipeline-using-editor.md)
+Azure PowerShell | Download the latest [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) | [Cmdlet reference](https://msdn.microsoft.com/library/dn820234.aspx) 
+.NET Class Library | The Azure Data Factory .NET SDK enables you to create, monitor, and manage Azure data factories and extend Data Factory using a .NET activity. See [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md) and [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md) articles to help you get started.<br/><br/><b>Downloading the latest Nuget</b><br/>You can download the latest Azure Data Factory Management Library Nuget package from: [https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/)<br/><br/>**Using Package Manager Console in Visual Studio**<br/>You can run the following command in Visual Studio’s Package Manager Console to get the latest Azure Data Factory Management Library<br/><br/>Install-Package Microsoft.Azure.Management.DataFactories | [.NET SDK Reference](https://msdn.microsoft.com/library/mt415893.aspx)
+REST API | You can use the Data Factory REST API to create, monitor, and manage Azure data factories. | [REST API Reference](https://msdn.microsoft.com/library/dn906738.aspx)
 
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

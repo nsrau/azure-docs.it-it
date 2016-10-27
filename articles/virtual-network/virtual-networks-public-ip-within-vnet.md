@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Come usare gli indirizzi IP pubblici in una rete virtuale"
-   description="Informazioni su come configurare una rete virtuale per l'uso di indirizzi IP pubblici"
+   pageTitle="How to use public IP addresses in a virtual network"
+   description="Learn how to configure a virtual network to use public IP addresses"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -15,36 +15,40 @@
    ms.date="04/27/2016"
    ms.author="jdial" />
 
-# Spazio degli indirizzi IP pubblico in una rete virtuale (VNet)
 
-Le reti virtuali possono contenere spazi di indirizzi IP (blocchi di indirizzi RFC 1918) sia pubblici che privati. Quando si aggiunge un intervallo di indirizzi IP pubblici, tale intervallo verrà considerato come parte dello spazio degli indirizzi IP privato della rete virtuale raggiungibile solo all'interno della rete virtuale, delle reti virtuali interconnesse e dal percorso locale.
+# <a name="public-ip-address-space-in-a-virtual-network-(vnet)"></a>Public IP address space in a Virtual Network (VNet)
 
-La figura seguente mostra una rete virtuale che include spazi degli indirizzi IP pubblici e privati.
+Virtual networks (VNets) can contain both public and private (RFC 1918 address blocks) IP address spaces. When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.
 
-![IP pubblico dal punto di vista concettuale](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
+The picture below shows a VNet that includes public and private IP adress spaces.
 
-## Come è possibile aggiungere un intervallo di indirizzi IP pubblici?
+![Public IP Conceptual](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
 
-È possibile aggiungere un intervallo di indirizzi IP pubblici nello stesso modo in cui si aggiunge un intervallo di indirizzi IP privati, usando un file *netcfg* o aggiungendo la configurazione nel [portale di Azure](http://portal.azure.com). Un intervallo di indirizzi IP pubblici può essere aggiunto durante la creazione della rete virtuale o in un secondo momento. L'esempio seguente illustra uno spazio degli indirizzi IP sia pubblico che privato configurato nella stessa rete virtuale.
+## <a name="how-do-i-add-a-public-ip-address-range?"></a>How do I add a public IP address range?
 
-![Indirizzo IP pubblico nel portale](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
+You add a public IP address range the same way you would add a private IP address range; by either using a *netcfg* file, or by adding the configuration in the [Azure portal](http://portal.azure.com). You can add a public IP address range when you create your VNet, or you can go back and add it afterward. The example below shows both public and private IP address spaces configured in the same VNet.
 
-## Esistono delle limitazioni?
+![Public IP Address in Portal](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
 
-Esistono alcuni intervalli di indirizzi IP che non sono consentiti:
+## <a name="are-there-any-limitations?"></a>Are there any limitations?
 
-- 224\.0.0.0/4 (multicast)
+There are a few IP address ranges that are not allowed:
 
-- 255\.255.255.255/32 (broadcast)
+- 224.0.0.0/4 (Multicast)
 
-- 127\.0.0.0/8 (loopback)
+- 255.255.255.255/32 (Broadcast)
 
-- 169\.254.0.0/16 (locale rispetto al collegamento)
+- 127.0.0.0/8 (loopback)
 
-- 168\.63.129.16/32 (DNS interno)
+- 169.254.0.0/16 (link-local)
 
-## Passaggi successivi
+- 168.63.129.16/32 (Internal DNS)
 
-[Gestire server DNS usati da una rete virtuale](virtual-networks-manage-dns-in-vnet.md)
+## <a name="next-steps"></a>Next Steps
 
-<!---HONumber=AcomDC_0810_2016-->
+[How to manage DNS servers used by a VNet](virtual-networks-manage-dns-in-vnet.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

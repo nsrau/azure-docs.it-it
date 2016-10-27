@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Novità di Azure Data Catalog | Microsoft Azure"
-   description="Questo articolo fornisce una panoramica delle nuove funzionalità aggiunte ad Azure Data Catalog."
+   pageTitle="What's New in Azure Data Catalog | Microsoft Azure"
+   description="This article provides an overview of new capabilities added to Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
    manager="NA"
    editor=""
-   tags=""/> 
+   tags=""/>
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
@@ -14,281 +14,286 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="09/21/2016"
-   ms.author="maroche"/> 
+   ms.author="maroche"/>
 
-# Novità di Azure Data Catalog
 
-Gli aggiornamenti su **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
+# <a name="what's-new-in-azure-data-catalog"></a>What's new in Azure Data Catalog
 
+Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the Azure Data Catalog service.
 
 
-## Novità della versione della settimana del 16 settembre 2016
 
-Nella settimana del 16 settembre 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-september-16,-2016-release"></a>What's new for the week of September 16, 2016 release
 
-- Supporto per origini dati IBM DB2. Gli utenti possono ora registrare e individuare database, tabelle e viste DB2.
-- Supporto per origini dati Azure DocumentDB. Gli utenti possono ora registrare e individuare database e raccolte DocumentDB.
-- Supporto per la personalizzazione del nome del catalogo nel portale di Data Catalog. Gli amministratori del catalogo possono ora specificare il testo che verrà visualizzato nel titolo del portale, ad esempio il nome dell'organizzazione.
+As of the week of September 16, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 26 agosto 2016
+- Support for IBM DB2 data sources. Users can now register and discover DB2 databases, tables, and views.
+- Support for Azure DocumentDB data sources. Users can now register and discover DocumentDB databases and collections.
+- Support for customizing the catalog name in the Data Catalog portal. Catalog administrators can now provide text that will be displayed in the portal title, such as the organization name.
 
-Nella settimana del 26 agosto 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-august-26,-2016-release"></a>What's new for the week of August 26, 2016 release
 
-- Miglioramenti nella registrazione di origini dati SQL Server Master Data Services (MDS). Gli utenti possono ora includere anteprime e profili dati durante la registrazione di entità MDS con il tool di registrazione delle origini dati di Data Catalog.
-- Supporto di ricerche salvate aziendali definite dall'amministratore. Al momento del salvataggio di una ricerca nel portale di Data Catalog, gli amministratori del catalogo dati possono ora scegliere di salvare le ricerche per uso personale o per tutti gli utenti del catalogo. Le ricerche salvate aziendali vengono condivise con tutti gli utenti del catalogo e possono offrire punti di partenza standardizzati per l'individuazione delle origini dati.
+As of the week of August 26, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 5 agosto 2016
+- Enhancements for registration of SQL Server Master Data Services (MDS) data sources. Users can now include previews and data profiles when registering MDS entities using the Data Catalog data source registration tool.
+- Support for admin-defined organizational saved searches. When saving a search in the Data Catalog portal, Data Catalog administrators can now choose to save searches for personal use or for all catalog users. Organizational saved searches are shared with all catalog users, and can provide standardized starting points for data source discovery.
 
-Nella settimana del 5 agosto 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-august-5,-2016-release"></a>What's new for the week of August 5, 2016 release
 
-- Aggiornamenti alla visualizzazione delle proprietà nel portale di Data Catalog. Tutte le proprietà degli asset di dati vengono ora visualizzate e gestite in un singolo riquadro ridimensionabile, in modo da garantire maggiore coerenza e individuabilità.
+As of the week of August 5, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 29 luglio 2016
+- Updates to the properties view in the Data Catalog portal. All data asset properties are now displayed and managed in a single, resizable pane to provide a more consistent and discoverable experience.
 
-Nella settimana del 29 luglio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-july-29,-2016-release"></a>What's new for the week of July 29, 2016 release
 
-- Supporto per origini dati SQL Server Master Data Services (MDS). Gli utenti possono ora registrare e individuare modelli ed entità MDS.
+As of the week of July 29, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 22 luglio 2016
+- Support for SQL Server Master Data Services (MDS) data sources. Users can now register and discover MDS models and entities.
 
-Nella settimana del 22 luglio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-july-22,-2016-release"></a>What's new for the week of July 22, 2016 release
 
-- Supporto per le stored procedure di SQL Server. Gli utenti possono ora registrare e individuare oggetti stored procedure in origini dati SQL Server.
-- Supporto di lingue aggiuntive nel portale e nel tool di registrazione delle origini dati di Azure Data Catalog, per un totale di 18 lingue supportate. L'esperienza utente di Azure Data Catalog sarà localizzata in base alle preferenze della lingua configurate in Windows o nel browser Web dell'utente.
+As of the week of July 22, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana dell'8 luglio 2016
+- Support for SQL Server stored procedures. Users can now register and discover stored procedure objects in SQL Server data sources.
+- Support for additional languages in the Azure Data Catalog portal and the data source registration tool, for a total of 18 supported languages. The Azure Data Catalog user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
 
-Nella settimana dell'8 luglio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-july-8,-2016-release"></a>What's new for the week of July 8, 2016 release
 
-- Aggiornamenti e perfezionamento della home page del portale di Data Catalog, che includono miglioramenti delle prestazioni e un'esperienza utente semplificata.
+As of the week of July 8, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 24 giugno 2016
+- Updates and refinement for the Data Catalog portal home page, including performance improvements and a streamlined user experience.
 
-Nella settimana del 24 giugno 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-june-24,-2016-release"></a>What's new for the week of June 24, 2016 release
 
-- Supporto del ridimensionamento delle colonne nella visualizzazione elenco quando si individuano asset di dati nel portale di Data Catalog. Gli utenti possono ora ridimensionare singole colonne per leggere più facilmente i metadati più estesi degli asset, come tag e descrizioni.
-- Aggiunta di Power Query per Excel al menu "Apri in" nel portale di Data Catalog. Gli utenti possono ora aprire le origini dati supportate in Excel 2016, Excel 2010 ed Excel 2013 con il componente aggiuntivo [Power Query per Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605) installato.
+As of the week of June 24, 2016, the following capabilities have been added to Azure Data Catalog:
 
+- Support for resizing columns in the list view when discovering data assets in the Data Catalog portal. Users can now resize individual columns to more easily read lengthy asset metadata such as tags and descriptions.
+- Power Query for Excel has been added to the "Open in" menu in the Data Catalog portal. Users can now open supported data sources in Excel 2016 or in Excel 2010 and Excel 2013 with the [Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605) add-in installed.
 
-## Novità della versione della settimana del 17 giugno 2016
 
-Nella settimana del 17 giugno 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-june-17,-2016-release"></a>What's new for the week of June 17, 2016 release
 
-- Supporto per origini dati Archiviazione tabelle di Azure. Gli utenti possono ora registrare e individuare oggetti tabella in origini dati Archiviazione tabelle di Azure.
+As of the week of June 17, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 20 maggio 2016
+- Support for Azure Table Storage data sources. Users can now register and discover Table objects in Azure Storage data sources.
 
-Nella settimana del 20 maggio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-may-20,-2016-release"></a>What's new for the week of May 20, 2016 release
 
-- Miglioramenti del glossario aziendale di Data Catalog, per consentire agli utenti di aggiornare più termini del glossario con una singola operazione. Gli utenti possono selezionare più termini per modificare i campi seguenti:
-    - Termine padre: l'utente può selezionare un nuovo termine padre e tutti i termini selezionati verranno aggiornati diventando figli del termine padre scelto. Se i termini selezionati hanno lo stesso padre, tale padre verrà visualizzato nella casella di testo. In caso contrario, il campo Termine padre sarà vuoto.
-    - Tag e stakeholder: gli utenti possono aggiungere e rimuovere tag e stakeholder per più termini del glossario nello stesso modo in cui si assegnano tag a più asset di dati.
+As of the week of May 20, 2016, the following capabilities have been added to Azure Data Catalog:
 
-Per altre informazioni sul glossario aziendale, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md).
+- Enhancements to the Data Catalog Business Glossary that allows users to update multiple glossary terms in a single operation. Users can select multiple terms to edit the following fields:
+    - Parent Term: The user can select a new parent term, and all selected terms will be updated to be children of the selected parent term. If the selected terms all have the same parent, then that parent is shown in the textbox, otherwise the parent term field will be blank.   
+    - Tags and Stakeholders: Users can add and remove tags and stakeholders for multiple glossary terms using the same experience as tagging multiple data assets.
 
-## Novità della versione della settimana del 6 maggio 2016
+For more information on the business glossary, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
 
-Nella settimana del 6 maggio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-may-6,-2016-release"></a>What's new for the week of May 6, 2016 release
 
-- Un glossario aziendale che consente agli amministratori di catalogo di definire termini aziendali e gerarchie per creare un vocabolario aziendale comune. Gli utenti possono assegnare tag ad asset di dati registrati usando termini di glossario, individuando e comprendendo così, in modo più semplice, il contenuto del catalogo. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md).
+As of the week of May 6, 2016, the following capabilities have been added to Azure Data Catalog:
 
-> [AZURE.NOTE] Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita non prevede l'assegnazione di tag regolamentata né un glossario aziendale tra le funzionalità.
+- A Business Glossary that allows catalog administrators to define business terms and hierarchies to create a common business vocabulary. Users can tag registered data assets with glossary terms to make it easier to discover and understand the contents of the catalog. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
 
+> [AZURE.NOTE] The business glossary is available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
 
-## Novità della versione della settimana del 11 marzo 2016
 
-Nella settimana del 11 marzo 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-march-11,-2016-release"></a>What's new for the week of March 11, 2016 release
 
-- Un endpoint API REST consolidato per l'accesso a livello di programmazione alle funzionalità di ricerca e alle funzionalità di gestione degli asset del servizio Azure Data Catalog. L'endpoint API di ricerca e l'endpoint API di catalogo esistenti verranno dichiarati obsoleti e interrotti il 21 marzo 2016. Non sono state apportate modifiche alla semantica dell'API. Verrà modificato solo l'URI degli endpoint. Per altre informazioni, vedere le [informazioni di riferimento sull'API REST di Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267595.aspx). Per esempi di API, vedere gli [esempi per sviluppatori di Azure Data Catalog](data-catalog-samples.md).
+As of the week of March 11, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 19 febbraio 2016
+- A consolidated REST API endpoint for programmatically accessing the search capabilities and catalog asset management capabilities of the Azure Data Catalog service. The existing search API endpoint and catalog API endpoint are being deprecated and will be discontinued on March 21, 2016. There are no changes to the semantics of the API; only the endpoint URI is changing. For additional information, see the [Azure Data Catalog REST API Reference](https://msdn.microsoft.com/library/azure/mt267595.aspx). For API samples, see [Azure Data Catalog developer samples](data-catalog-samples.md).
 
-Nella settimana del 19 febbraio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-february-19,-2016-release"></a>What's new for the week of February 19, 2016 release
 
-- Una nuova esperienza di selezione dell'origine dati riprogettata nel tool di registrazione delle origini dati di Azure Data Catalog. Il tool di registrazione delle origini dati è stato aggiornato perché gli utenti, in modo più semplice, possano eseguire operazioni di individuazione e selezione dalle origini dati supportate da Azure Data Catalog.
-- Il portale e il tool di registrazione delle origini dati di Azure Data Catalog supportano ora altre dieci lingue. Oltre all'inglese, l'esperienza di Azure Data Catalog è ora disponibile in tedesco, spagnolo, francese, italiano, giapponese, coreano, portoghese brasiliano, russo, cinese semplificato e cinese tradizionale. L'esperienza utente di Azure Data Catalog sarà localizzata in base alle preferenze della lingua configurate in Windows o nel browser Web dell'utente.
-- Supporto della replica geografica dei dati di Azure Data Catalog per la continuità aziendale e il ripristino di emergenza. Tutto il contenuto di Azure Data Catalog, compresi i metadati delle origini dati e le annotazioni di crowdsourcing, vengono ora replicati tra due aree di Azure senza costi aggiuntivi per i clienti. Le aree di Azure sono pre-abbinate, ad almeno 500 miglia di distanza, e seguono il mapping come descritto in [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
+As of the week of February 19, 2016, the following capabilities have been added to Azure Data Catalog:
 
+- A newly redesigned data source selection experience in the Azure Data Catalog data source registration tool. The data source registration tool has been updated to make it easier for users to locate and select from the data sources supported by Azure Data Catalog.
+- Support for ten additional languages in the Azure Data Catalog portal and the data source registration tool. In addition to English, the Azure Data Catalog experience is now available in German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Russian, Simplified Chinese, and Traditional Chinese. The Azure Data Catalog user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
+- Support for geo-replication of Azure Data Catalog data for business continuity and disaster recovery. All Azure Data Catalog contents, including data source metadata and crowdsourced annotations, are now replicated between two Azure regions at no additional cost to customers. The Azure regions are pre-paired, at least 500 miles apart, and follow the mapping as described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
-## Novità della versione della settimana del 5 febbraio 2016
 
-Nella settimana del 5 febbraio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-february-5,-2016-release"></a>What's new for the week of February 5, 2016 release
 
-- Supporto della modifica della sottoscrizione di Azure usata da Azure Data Catalog. Gli amministratori di Azure Data Catalog possono usare la pagina Impostazioni del portale di Azure Data Catalog per selezionare un'altra sottoscrizione di Azure ai fini della fatturazione.
+As of the week of February 5, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 29 gennaio 2016
+- Support for changing the Azure subscription used by Azure Data Catalog. Azure Data Catalog administrators can use the Settings page in the Azure Data Catalog portal to select a different Azure subscription for billing purposes.
 
-Nella settimana del 29 gennaio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-january-29,-2016-release"></a>What's new for the week of January 29, 2016 release
 
-- Supporto per la registrazione manuale di tipi di origini dati aggiuntive. Gli utenti possono ora usare "Crea voce manuale" nel portale di Azure Data Catalog oppure usare l'API REST di Azure Data Catalog per registrare le origini dati seguenti:
-   + OData: funzione, set di entità e contenitore di entità
-   + HTTP: file, endpoint, report e sito
-   + File system: file
-   + SharePoint: elenco
-   + FTP: file e directory
-   + Salesforce.com: oggetto
-   + DB2: tabella, vista e database
-   + PostgreSQL: tabella, vista e database
-- Supporto per "Apri in SQL Server Data Tools" per le origini dati SQL Server, inclusi il database SQL di Azure e Azure SQL Data Warehouse.
+As of the week of January 29, 2016, the following capabilities have been added to Azure Data Catalog:
 
-> [AZURE.NOTE] "Apri in SQL Server Data Tools" richiede l'installazione di Visual Studio 2013 con Update 4 e degli strumenti di SQL Server. Per installare la versione più recente di SQL Server Data Tools, vedere [Scaricare SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+- Support for manually registering additional data sources. Users can now use "Create Manual Entry" in the Azure Data Catalog portal, or use the Azure Data Catalog REST API to register the following data sources:
+   + OData - Function, Entity Set, and Entity Container
+   + HTTP - File, Endpoint, Report, and Site
+   + File System - File
+   + SharePoint - List
+   + FTP - File and Directory
+   + Salesforce.com - Object
+   + DB2 - Table, View, and Database
+   + PostgreSQL - Table, View, and Database
+- Support for "Open in SQL Server Data Tools" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) data sources.  
 
-## Novità della versione della settimana del 22 gennaio 2016
+> [AZURE.NOTE] "Open in SQL Server Data Tools" requires Visual Studio 2013 with Update 4 and SQL Server Tooling to be installed. To install the latest version of SQL Server Data Tools, visit [Download SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
-Nella settimana del 22 gennaio 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-january-22,-2016-release"></a>What's new for the week of January 22, 2016 release
 
-- Supporto per la registrazione e l'individuazione di viste e pacchetti SAP HANA. Gli utenti possono registrare le origini dati SAP HANA usando il tool di registrazione delle origini dati di Azure Data Catalog e possono annotare e individuare le origini dati SAP HANA registrate tramite il portale di Azure Data Catalog.
+As of the week of January 22, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana dell'8 gennaio 2016
+- Support for registering and discovering SAP HANA views and packages. Users can register SAP HANA data sources using the Azure Data Catalog data source registration tool, and can annotate and discover registered SAP HANA data sources using the Azure Data Catalog portal.
 
-Nella settimana dell'8 gennaio 2016, sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-january-8,-2016-release"></a>What's new for the week of January 8, 2016 release
 
-- Possibilità di aggiungere e rimuovere asset di dati nel portale di Azure Data Catalog. Gli utenti possono scegliere di bloccare gli asset di dati per semplificarne la riscoperta e il riuso.
-- Nuova home page riprogettata nel portale di Azure Data Catalog. La nuova home page include approfondimenti sulle attività del momento degli utenti, tra cui gli asset pubblicati di recente, gli asset bloccati e le ricerche salvate, oltre ad approfondimenti sulle attività nel catalogo in generale.
-- Supporto per impostazioni utente persistenti nel portale di Azure Data Catalog. Le impostazioni di esperienza utente, tra cui la visualizzazione griglia o riquadro, il numero di risultati per pagina, l'attivazione o la disattivazione di evidenziazione dei risultati, sono persistenti tra le sessioni utente.
-- Azure Data Catalog è ora disponibile in due nuove aree di Azure. I clienti possono eseguire il provisioning di Azure Data Catalog in Europa settentrionale e Asia sud-orientale, oltre a Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale e Australia orientale. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
+As of the week of January 8, 2016, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 18 dicembre 2015
+- The ability to pin and unpin data assets in the Azure Data Catalog portal. Users can choose to pin data assets to make them easier to re-discover and re-use.
+- A newly redesigned home page in the Azure Data Catalog portal. The new home page includes insight into the current users activity - including recently published assets, pinned assets, and saved searches - as well as insight into the activity in the Catalog as a whole.
+- Support for persistent user settings in the Azure Data Catalog portal. User experience settings - including grid or tile view, the number of results per page, and hit highlighting on or off - are persisted between user sessions.
+- Azure Data Catalog is now available in two new Azure regions. Customers can provision the Azure Data Catalog in the North Europe and Southeast Asia regions, in addition to East US, West US, West Europe, and Australia East. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
 
-Nella settimana del 18 dicembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-december-18,-2015-release"></a>What's new for the week of December 18, 2015 release
 
-- Supporto per profili dati per le origini dati di SQL Data Warehouse di Azure. Durante la registrazione di tabelle e viste di SQL Data Warehouse di Azure, gli utenti possono scegliere di includere metriche dei profili dati con i metadati estratti dall'origine dati.
-- Supporto per la registrazione e l'individuazione degli oggetti e dei database MySQL. Gli utenti possono registrare le origini dati MySQL tramite il tool di registrazione delle origini dati di Azure Data Catalog e possono annotare e individuare le origini dati MySQL registrate usando il portale di Azure Data Catalog.
+As of the week of December 18, 2015, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 4 dicembre 2015
+- Support for data profiles for Azure SQL Data Warehouse data sources. When registering Azure SQL Data Warehouse tables and views, users can choose to include data profile metrics with the metadata extracted from the data source.
+- Support for registering and discovering MySQL objects and databases. Users can register MySQL data sources using the Azure Data Catalog data source registration tool, and can annotate and discover registered MySQL data sources using the Azure Data Catalog portal.
 
-Nella settimana del 4 dicembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-december-4,-2015-release"></a>What's new for the week of December 4, 2015 release
 
-- Supporto per l'autenticazione SPNEGO e Windows per le origini dati di Teradata. Durante la registrazione di tabelle e viste Teradata, gli utenti possono scegliere di connettersi a Teradata mediante autenticazione SPNEGO e Windows, nonché LDAP e TD2.
-- Supporto per le origini dati di Archivio Azure Data Lake. Gli utenti possono ora registrarsi e individuare le origini dati di Archivio Azure Data Lake tramite Azure Data Catalog.
-- Supporto per specificare manualmente le impostazioni di proxy di rete nello strumento di registrazione delle origini dati di Azure Data Catalog. Gli utenti possono selezionare "Modificare le impostazioni di proxy" nella pagina di benvenuto dello strumento e possono specificare l'indirizzo proxy e la porta che verranno usati dallo strumento.
+As of the week of December 4, 2015, the following capabilities have been added to Azure Data Catalog:
 
+- Support for SPNEGO and Windows authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using SPNEGO and Windows as well as LDAP and TD2 authentication.
+- Support for Azure Data Lake Store data sources. Users can now register and discover Azure Data Lake Store data sources using Azure Data Catalog.
+- Support for manually specifying network proxy settings in the Azure Data Catalog data source registration tool. Users can select "Modify proxy settings" from the tool's welcome page, and can specify the proxy address and port to be used by the tool.
 
-## Novità della versione della settimana del 20 novembre 2015
 
-Nella settimana del 20 novembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-november-20,-2015-release"></a>What's new for the week of November 20, 2015 release
 
-- Possibilità di visualizzare e copiare le stringhe di connessione dall'interno del portale di Azure Data Catalog per origini dati SQL Server, incluso database SQL di Azure, e origini dati Oracle. Gli utenti possono fare clic sul collegamento "Visualizza stringhe di connessione" nelle informazioni di connessione per una tabella di SQL Server o Oracle, vista o database, per visualizzare le stringhe di connessione usate per la connessione all'origine dati. Le stringhe di connessione ADO.NET, ODBC, OLEDB e JDBC sono disponibili per le origini dati di SQL Server. Le stringhe di connessione ODBC e OLEDB vengono fornite per le origini dati di Oracle.
-- Supporto per includere i profili dati durante la registrazione delle tabelle Teradata e visualizzazioni.
-- Supporto per "Apri in Power BI Desktop" per le origini di SQL Server (inclusi i database SQL di Azure e SQL Data Warehouse di Azure), SQL Server Analysis Services. Archiviazione di Azure e HDFS.
+As of the week of November 20, 2015, the following capabilities have been added to Azure Data Catalog:
 
-> [AZURE.NOTE] "Apri in Power BI Desktop" richiede che sia installata una versione corrente dell'applicazione Desktop di Power BI. Se si verificano problemi o errori durante l'uso di questa funzionalità, assicurarsi di aver scaricato la versione più recente di Power BI Desktop da [PowerBI.com](https://powerbi.com).
+- The ability to view and copy connection strings from within the Azure Data Catalog portal for SQL Server (including Azure SQL Database) and Oracle data sources. Users can click on the "View Connection Strings" link in the connection information for a SQL Server or Oracle table, view, or database, to see the connection strings used to connect to the data source. ADO.NET, ODBC, OLEDB and JDBC connection strings are provided for SQL Server data sources. ODBC and OLEDB connection strings are provided for Oracle data sources.
+- Support for including data profiles when registering Teradata tables and views.
+- Support for "Open in Power BI Desktop" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage, and HDFS sources.  
 
-## Novità della versione della settimana del 13 novembre 2015
+> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
 
-Nella settimana del 13 novembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-november-13,-2015-release"></a>What's new for the week of November 13, 2015 release
 
-- Supporto per l'autenticazione LDAP per le origini dati di Teradata. Durante la registrazione delle tabelle e visualizzazioni Teradata, gli utenti possono scegliere di connettersi a Teradata mediante autenticazione LDAP e TD2.
-- Supporto per "Apri in Excel" per le origini dati di Teradata.
-- Supporto per termini di ricerca recenti nel portale di Azure Data Catalog. Durante la ricerca nel portale, gli utenti possono selezionare termini di ricerca usati di recente per accelerare l'esperienza di individuazione.
+As of the week of November 13, 2015, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 6 novembre 2015
+- Support for LDAP authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using LDAP as well as TD2 authentication.
+- Support for "Open in Excel" for Teradata data sources.
+- Support for recent search terms in the Azure Data Catalog portal. When searching in the portal, users can select from recently used search terms to accelerate the discovery experience.
 
-Nella settimana del 6 novembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+## <a name="what's-new-for-the-week-of-november-6,-2015-release"></a>What's new for the week of November 6, 2015 release
 
-- Supporto per l’anteprima per le origini dati Teradata. Durante la registrazione delle tabelle e viste Teradata, gli utenti possono scegliere di includere record snapshot con i metadati estratti dall'origine dati.
-- Supporto per "Apri in Excel" per le origini dati di SQL Data Warehouse di Azure.
-- Supporto per la definizione e la modifica di schemi a livello di colonna per gli asset di dati registrati manualmente. Dopo aver creato manualmente un asset di dati tramite il portale di Azure Data Catalog, gli utenti possono aggiungere definizioni di colonna nelle proprietà dell'asset di dati.
-- Supporto per query di possesso durante la ricerca in Azure Data Catalog, per abilitare l'individuazione di asset di dati registrati che possiedono metadati specifici. La sintassi di query di Azure Data Catalog ora include:
+As of the week of November 6, 2015, the following capabilities have been added to Azure Data Catalog:
 
-| Sintassi delle query | Scopo |
+- Support for preview for Teradata data sources. When registering Teradata tables and views, users can choose to include snapshot records with the metadata extracted from the data source.
+- Support for "Open in Excel" for Azure SQL Data Warehouse data sources.
+- Support for defining and editing column-level schemas for manually registered data assets. After manually creating a data asset using the Azure Data Catalog portal, users can add column definitions in the data asset properties.
+- Support for "has" queries when searching Azure Data Catalog, to enable the discovery of registered data assets that possess specific metadata. Azure Data Catalog query syntax now includes:
+
+| Query syntax            | Purpose |
 |-------------------------|---------|
-| has:previews | Trova gli asset di dati che includono un'anteprima |
-| has:documentation | Trova gli asset di dati per i quali è stata fornita la documentazione |
-| has:tableDataProfiles | Trova gli asset di dati con informazioni sul profilo dei dati a livello di tabella |
-| has:columnsDataProfiles | Trova gli asset di dati con informazioni sul profilo dei dati a livello di colonna |
+| has:previews             | Finds data assets that include a preview  |
+| has:documentation       | Finds data assets for which documentation has been provided |
+| has:tableDataProfiles   | Finds data assets with table-level data profile information |
+| has:columnsDataProfiles | Finds data assets with column-level data profile information |
 
 
-## Novità della versione della settimana del 30 ottobre 2015
+## <a name="what's-new-for-the-week-of-october-30,-2015-release"></a>What's new for the week of October 30, 2015 release
 
-Nella settimana del 30 ottobre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+As of the week of October 30, 2015, the following capabilities have been added to Azure Data Catalog:
 
-- Supporto per la crittografia locale delle anteprime e dei profili dati per le origini dati registrate. Azure Data Catalog esegue in modo trasparente la crittografia dei record di anteprima e delle origini dei profili dati registrati con il servizio, senza che gli amministratori del catalogo debbano eseguire alcuna operazione di gestione.
+- Support for encryption at rest of data previews and data profiles for registered data sources. Azure Data Catalog will transparently encrypt any preview records and data profiles data sources registered with the service, without any need for key management by Catalog administrators.
 
-## Novità della versione della settimana del 23 ottobre 2015
+## <a name="what's-new-for-the-week-of-october-23,-2015-release"></a>What's new for the week of October 23, 2015 release
 
-Nella settimana del 23 ottobre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+As of the week of October 23, 2015, the following capabilities have been added to Azure Data Catalog:
 
-- Supporto per origini dati Teradata. Gli utenti possono ora registrarsi e individuare tabelle e viste Teradata.
+- Support for Teradata data sources. Users can now register and discover Teradata tables and views.
 
-> [AZURE.NOTE] Per la versione corrente è supportata solo l'autenticazione Teradata TD2. Nelle versioni future saranno supportati meccanismi di autenticazione aggiuntivi.
+> [AZURE.NOTE] For the current release, only Teradata TD2 authentication is supported. Additional authentication mechanisms will be supported in future releases.
 
-## Novità della versione della settimana del 16 ottobre 2015
+## <a name="what's-new-for-the-week-of-october-16,-2015-release"></a>What's new for the week of October 16, 2015 release
 
-Nella settimana del 16 ottobre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+As of the week of October 16, 2015, the following capabilities have been added to Azure Data Catalog:
 
-- Supporto per le origini dati Hive locali. Gli utenti possono ora registrarsi e individuare tabelle Hive per Apache Hive di Hadoop in origini dati locali.
-- Supporto per ricerche salvate nel portale di Azure Data Catalog. Gli utenti possono salvare termini di ricerca e selezioni di filtri per ripetere facilmente ricerche precedenti e definire viste di contenuti del catalogo particolarmente utili. Possono anche contrassegnare una ricerca salvata come ricerca predefinita. Quando un utente fa clic sull'icona di ricerca a forma di lente di ingrandimento nella home page del portale di Azure Data Catalog o dalla pagina introduttiva, viene visualizzata direttamente la ricerca salvata contrassegnata come predefinita.
-
-
-## Novità della versione della settimana del 9 ottobre 2015
-
-Nella settimana del 9 ottobre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
-
-- Supporto per la documentazione in formato RTF per asset e contenitori di dati registrati nel portale di Azure Data Catalog. Gli utenti ora possono fornire la documentazione per asset di dati, ad esempio tabelle, viste e report, e per i contenitori, ad esempio database e modelli, per gli scenari in cui tag e descrizioni non sono sufficienti.
-
-## Novità della versione della settimana del 2 ottobre 2015
-
-Nella settimana del 2 ottobre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
-
-- Supporto per la registrazione manuale di tipi di origini dati conosciuti. Gli utenti possono immettere manualmente informazioni sulle origini dati tramite il portale di Azure Data Catalog per tutti i tipi di origini dati supportati da Azure Data Catalog.
-- Supporto per l'autorizzazione di gruppi di sicurezza di Azure Active Directory. Gli amministratori di Data Catalog possono concedere l'accesso al catalogo a gruppi di sicurezza e account utente, rendendo più semplice la gestione dell'accesso ad Azure Data Catalog.
-- Supporto per l'apertura di origini dati Hive in Excel dal portale di Azure Data Catalog.
-
-> [AZURE.NOTE] Per usare la funzionalità "Apri in Excel" per le origini dati Hive, è necessario installare il driver ODBC per Hive.
-
-## Novità della versione della settimana del 25 settembre 2015
-
-Nella settimana del 25 settembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
-
-- Supporto per includere i profili dati durante la registrazione delle origini dati Hive.
-- Supporto per l'individuazione a livello di programmazione dell'API di Azure Data Catalog, per rendere più semplice l'integrazione delle applicazioni con Azure Data Catalog.
-
-## Novità della versione della settimana del 18 settembre 2015
-
-Nella settimana del 18 settembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
-
-- Una nuova esperienza introduttiva per l'individuazione di origini dati nel portale di Azure Data Catalog. Quando gli utenti accedono alla pagina di individuazione del portale di Azure Data Catalog senza immettere un termine di ricerca, viene visualizzata una panoramica del contenuto del catalogo, inclusi i tag usati più di frequente, nonché gli esperti, i tipi di origini dati e i tipi di oggetti.
-- Supporto per la registrazione e l'individuazione degli oggetti e dei database di Azure SQL Data Warehouse. Per altre informazioni su Azure SQL Data Warehouse, vedere [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-- Supporto per la registrazione e l'individuazione di modelli di SQL Server Analysis Services e di server SQL Server Reporting Services come contenitori. Quando si registrano oggetti SSAS e SSRS, Azure Data Catalog crea una voce per il modello SSAS e il server SSRS, nonché per i report e altri oggetti. I contenitori possono essere individuati e annotati mediante il portale di Azure Data Catalog. Gli utenti possono inoltre eseguire ricerche e applicare filtri nel contenuto di un modello o di un server oltre a eseguire ricerche e applicare filtri nel contenuto del catalogo.
-
-> [AZURE.NOTE] Gli oggetti SSAS e SSRS che sono stati registrati prima della versione del 18 settembre devono essere registrati di nuovo usando lo strumento di registrazione dell'origine dati prima di aggiungere la voce del modello o del server nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di Azure Data Catalog.
-
-## Novità della versione della settimana dell'11 settembre 2015
-
-Nella settimana del 11 settembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
-
-- Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server e possono usare l'autenticazione di base e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione HDInsight](../hdinsight/hdinsight-use-hive.md).
-- Supporto per la registrazione e l'individuazione dei database Oracle e dei cluster HDFS come contenitori. Quando si registrano tabelle e viste Oracle o HDFS, Azure Data Catalog crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di Azure Data Catalog. Gli utenti possono inoltre cercare e filtrare il contenuto di un database o cluster, oltre a cercare e filtrare il contenuto del catalogo.
+- Support for on-premises Hive data sources. Users can now register and discover Hive tables for Apache Hive in Hadoop on-premises data sources.
+- Support for saved searches in the Azure Data Catalog portal. Users can save search terms and filter selections to easily repeat previous searches and define useful views of the Catalog's contents. User can also mark a saved search as their default search. When a user clicks the "magnifying glass" search icon from the Azure Data Catalog portal home page or from the "getting started" page, the user will be taken directly to the saved search flagged as default.
 
 
-> [AZURE.NOTE] Le tabelle, le visualizzazioni e i file HDFS di Oracle che sono stati registrati prima della versione dell'11 settembre devono essere registrate di nuovo usando lo strumento di registrazione di origine dati prima di aggiungere la voce del database o cluster nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di Azure Data Catalog.
+## <a name="what's-new-for-the-week-of-october-9,-2015-release"></a>What's new for the week of October 9, 2015 release
 
-## Novità della versione della settimana del 4 settembre 2015
+As of the week of October 9, 2015, the following capabilities have been added to Azure Data Catalog:
 
-Nella settimana del 4 settembre 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+- Support for rich text documentation for registered data assets and containers in the Azure Data Catalog portal. Users can now provide documentation for data assets such as tables, views, and reports, and for containers such as databases and models, for scenarios where tags and descriptions are not sufficient.
 
-- Supporto per la registrazione manuale di tipi di origini dati sconosciute. Gli utenti possono immettere manualmente informazioni sull'origine dati tramite il portale di Azure Data Catalog in modo che sia possibile annotare e individuare le origini dati non esplicitamente supportate dal tool di registrazione delle origini dati.
-- Supporto per la registrazione e l'individuazione dei database di SQL Server come contenitori. Quando si registrano tabelle e viste SQL Server, Azure Data Catalog crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di Azure Data Catalog. Gli utenti possono inoltre cercare e filtrare il contenuto di un database oltre a cercare e filtrare il contenuto del catalogo.
+## <a name="what's-new-for-the-week-of-october-2,-2015-release"></a>What's new for the week of October 2, 2015 release
 
-> [AZURE.NOTE] Le tabelle di SQL Server e le viste che sono state registrate prima della versione del 4 settembre devono essere registrate usando lo strumento di registrazione di origine dati prima di aggiungere la voce del database nel catalogo. La nuova registrazione di un'origine dati non influisce sulle annotazioni aggiunte dagli utenti nel portale di Azure Data Catalog.
+As of the week of October 2, 2015, the following capabilities have been added to Azure Data Catalog:
 
-## Novità della versione della settimana del 28 agosto 2015
+- Support for manually registering known data source types. Users can manually enter data source information using the Azure Data Catalog portal for all data source types supported by Azure Data Catalog.
+- Support for authorizing Azure Active Directory security groups. Catalog administrators can enable catalog access to security groups as well as to user accounts, making it easier to manage access to Azure Data Catalog.
+- Support for opening Hive data sources in Excel from the Azure Data Catalog portal.
 
-Nella settimana del 28 agosto 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+> [AZURE.NOTE] To use the "Open in Excel" feature for Hive data sources, users must have installed the ODBC driver for Hive.
 
-- Supporto per l'analisi dei dati di origini dati di SQL Server e Oracle. Quando si registrano le viste e le tabelle di SQL Server e Oracle, gli utenti possono scegliere di includere informazioni sul profilo dati per gli oggetti da registrare. Il profilo dati include le statistiche a livello di oggetto e di colonna.
-- Supporto per le origini dati HDFS Hadoop. Gli utenti possono ora registrarsi e individuare directory e file HDFS.
+## <a name="what's-new-for-the-week-of-september-25,-2015-release"></a>What's new for the week of September 25, 2015 release
 
-## Novità della versione della settimana del 21 agosto 2015
+As of the week of September 25, 2015, the following capabilities have been added to Azure Data Catalog:
 
-Nella settimana del 21 agosto 2015 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+- Support for including data profiles when registering Hive data sources.
+- Support for programmatically discovering the Catalog API, making it easier for applications to integrate with Azure Data Catalog.
 
-- Supporto per fornire informazioni sulla richiesta di accesso per le origini dati registrate. Per qualsiasi asset di dati registrato, gli utenti possono ora fornire istruzioni per richiedere l'accesso, inclusi URL o collegamenti di posta elettronica, per una facile integrazione con i processi e gli strumenti esistenti.
-- Descrizioni comandi per i tag e gli esperti, per semplificare l'individuazione dei metadati forniti dagli utenti per gli asset di dati registrati.
-- Nuovo menu e pulsante "User" nella barra di spostamento superiore. Questo menu consente di vedere l'account usato per accedere ad Azure Data Catalog ed eventualmente disconnettersi. Questo menu visualizza anche il nome del catalogo, utile per gli sviluppatori che usano l'API REST di Azure Data Catalog.
-- Solo edizione Standard: nell'aggiunta di proprietari ad asset di dati, Azure Data Catalog ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
-- Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
+## <a name="what's-new-for-the-week-of-september-18,-2015-release"></a>What's new for the week of September 18, 2015 release
 
-<!---HONumber=AcomDC_0921_2016-->
+As of the week of September 18, 2015, the following capabilities have been added to Azure Data Catalog:
+
+- A new "getting started" data source discovery experience in the Azure Data Catalog portal. When users enter the "discover" page of the  Azure Data Catalog portal without entering a search term, they will be presented with an overview of the catalog contents including the most frequently used tags, as well as experts, data source types and object types.
+- Support for registering and discovering Azure SQL Data Warehouse objects and databases. For additional information on Azure SQL Data Warehouse, see [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+- Support for registering and discovering SQL Server Analysis Services models and SQL Server Reporting Services servers as containers. When registering SSAS and SSRS objects, Azure Data Catalog will create an entry for the SSAS model and SSRS server as well as for the reports and other objects. The containers can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a model or server in addition to searching and filtering the contents of the catalog.
+
+> [AZURE.NOTE] SSAS and SSRS objects that have been registered prior to the September 18 release must be re-registered using the data source registration tool before the model or server entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
+
+## <a name="what's-new-for-the-week-of-september-11,-2015-release"></a>What's new for the week of September 11, 2015 release
+
+As of the week of September 11, 2015, the following capabilities have been added to Azure Data Catalog:
+
+- Support for registering and discovering SQL Server Analysis Services objects via HTTP/HTTPS. Users can now connect to SSAS servers using a URL (such as https://servername/olap/msmdpump.dll) rather than a server name, and can use Basic authentication and Anonymous connections in addition to Windows authentication. For additional information on HTTP/HTTPS connections to SSAS, see [Configure HTTP Access to Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+- Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight/hdinsight-use-hive.md).
+- Support for registering and discovering Oracle databases and HDFS clusters as containers. When registering Oracle tables and views or HDFS , Azure Data Catalog will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a database or cluster in addition to searching and filtering the contents of the catalog.
+
+
+> [AZURE.NOTE] Oracle tables and views and HDFS files and directories that have been registered prior to the September 11 release must be re-registered using the data source registration tool before the database or cluster entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
+
+## <a name="what's-new-for-the-week-of-september-4,-2015-release"></a>What's new for the week of September 4, 2015 release
+
+As of the week of September 4, 2015, the following capabilities have been added to Azure Data Catalog:
+
+- Support for manually registering unknown data source types. Users can manually enter data source information using the Azure Data Catalog portal, so that data sources not explicitly supported by the data source registration tool can be annotated and discovered.
+- Support for registering and discovering SQL Server databases as containers. When registering SQL Server tables and views, Azure Data Catalog will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a database in addition to searching and filtering the contents of the catalog.
+
+> [AZURE.NOTE] SQL Server tables and views that have been registered prior to the September 4 release must be re-registered using the data source registration tool before the database entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
+
+## <a name="what's-new-for-the-week-of-august-28,-2015-release"></a>What's new for the week of August 28, 2015 release
+
+As of the week of August 28, 2015, the following capabilities have been added to Azure Data Catalog:
+
+- Support for data profiling of SQL Server and Oracle data sources. When registering SQL Server and Oracle tables and views, users can choose to include data profile information for the objects being registered. The data profile includes object-level and column-level statistics.
+- Support for Hadoop HDFS data sources. Users can now register and discover HDFS files and directories.
+
+## <a name="what's-new-for-the-week-of-august-21,-2015-release"></a>What's new for the week of August 21, 2015 release
+
+As of the week of August 21, 2015, the following capabilities have been added to Azure Data Catalog:
+
+- Support for providing access request information for registered data sources. For any registered data asset, users can now provide instructions for requesting access, including email links or URLs, to easily integrate with existing tools and processes.
+- Tool tips for tags and experts, to make it easier to discover what users have provided what metadata for registered data assets.
+- We’ve added a new “User” button and menu to our top navigation bar. This menu lets the user see the account used to log on to Azure Data Catalog, and to sign out if desired. This menu also displays the catalog name, which is valuable to developers using the Azure Data Catalog REST API.
+- Standard Edition Only: When adding owners to data assets, Azure Data Catalog now supports both user accounts and security groups as owners. To add a security group as an owner for selected data assets, you can enter either the group’s display name or the group’s UPN email address, if it has one.
+- Support for Azure Blob Storage data sources. Users can now register and discover Azure Storage blobs and directories.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

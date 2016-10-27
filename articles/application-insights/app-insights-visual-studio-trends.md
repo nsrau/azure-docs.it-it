@@ -1,103 +1,108 @@
 <properties 
-	pageTitle="Analisi delle tendenze in Visual Studio | Microsoft Azure" 
-	description="Analizzare, visualizzare ed esaminare le tendenze nei dati di telemetria di Application Insights in Visual Studio." 
-	services="application-insights" 
+    pageTitle="Analyzing Trends in Visual Studio | Microsoft Azure" 
+    description="Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio." 
+    services="application-insights" 
     documentationCenter=".net"
-	authors="numberbycolors" 
-	manager="douge"/>  
+    authors="numberbycolors" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/08/2016" 
-	ms.author="daviste"/>  
-	
-# Analisi delle tendenze in Visual Studio
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="10/25/2016" 
+    ms.author="daviste"/>
+    
 
-Lo strumento Tendenze di Application Insights visualizza la variazione nel tempo degli eventi di telemetria importanti dell'applicazione, consentendo di identificare rapidamente problemi e anomalie. Collegando l'utente a informazioni di diagnostica più dettagliate, Tendenze consente di migliorare le prestazioni dell'app, ricostruire le cause delle eccezioni e individuare informazioni utili dagli eventi personalizzati.
+# <a name="analyzing-trends-in-visual-studio"></a>Analyzing Trends in Visual Studio
 
-![Finestra Tendenze di esempio](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
+The Application Insights Trends tool visualizes how your application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
 
-> [AZURE.NOTE] Tendenze di Application Insights è disponibile in Visual Studio 2015 Update 3 e versioni successive o con l'[estensione Strumenti di analisi per sviluppatori](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) versione 5.209 e successive.
+![Example Trends window](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
 
-## Aprire Tendenze di Application Insights
+> [AZURE.NOTE] Application Insights Trends is available in Visual Studio 2015 Update 3 and later, or with the [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) version 5.209 and later.
 
-Aprire la finestra Tendenze di Application Insights in uno dei modi seguenti:
+## <a name="open-application-insights-trends"></a>Open Application Insights Trends
 
-* Dal pulsante della barra degli strumenti di Application Insights scegliere **Esplora tendenze di telemetria**
-* Dal menu di scelta rapida del progetto scegliere **Application Insights > Esplora tendenze di telemetria**
-* Sulla barra dei menu di Visual Studio scegliere **Visualizza > Altre finestre > Tendenze di Application Insights**.
+To open the Application Insights Trends window:
 
-Potrebbe essere visualizzata la richiesta di selezionare una risorsa. Fare clic su **Seleziona una risorsa**, accedere con una sottoscrizione di Azure e quindi scegliere nell'elenco una risorsa di Application Insights di cui si vogliono analizzare le tendenze di telemetria.
+* From the Application Insights toolbar button, choose **Explore Telemetry Trends**, or
+* From the project context menu, choose **Application Insights > Explore Telemetry Trends**, or
+* From the Visual Studio menu bar, choose **View > Other Windows > Application Insights Trends**.
 
-## Scegliere un'analisi delle tendenze
+You may see a prompt to select a resource. Click **Select a resource**, sign in with an Azure subscription, then choose an Application Insights resource from the list for which you'd like to analyze telemetry trends.
 
-![Menu dei tipi comuni di analisi delle tendenze](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)  
+## <a name="choose-a-trend-analysis"></a>Choose a trend analysis
 
-Per iniziare, scegliere una di cinque analisi comuni delle tendenze, ognuna delle quali analizza i dati delle ultime 24 ore.
+![Menu of common types of trend analysis](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
 
-* **Analisi dei problemi di prestazioni relativi alle richieste server**: richieste effettuate al servizio, raggruppate in base ai tempi di risposta
-* **Analisi degli errori nelle richieste server**: richieste effettuate al servizio, raggruppate in base al codice di risposta HTTP
-* **Esame delle eccezioni presenti nell'applicazione**: eccezioni provenienti dal servizio, raggruppate in base al tipo di eccezione
-* **Verifica delle prestazioni delle dipendenze dell'applicazione**: servizi chiamati dal servizio, raggruppati in base ai tempi di risposta
-* **Esame degli eventi personalizzati**: eventi personalizzati configurati per il servizio, raggruppati in base al tipo di evento
+Get started by choosing from one of five common trend analyses, each analyzing data from the last 24 hours:
 
-Queste analisi predefinite sono accessibili successivamente dal pulsante **Visualizza tipi comuni di analisi dei dati di telemetria** nell'angolo superiore sinistro della finestra Tendenze.
+* **Investigate performance issues with your server requests** - Requests made to your service, grouped by response times
+* **Analyze errors in your server requests** - Requests made to your service, grouped by HTTP response code
+* **Examine the exceptions in your application** - Exceptions from your service, grouped by exception type
+* **Check the performance of your application's dependencies** - Services called by your service, grouped by response times
+* **Inspect your custom events** - Custom events you've set up for your service, grouped by event type.
 
-## Visualizzare le tendenze nell'applicazione
+These pre-built analyses are available later from the **View common types of telemetry analysis** button in the upper-left corner of the Trends window.
 
-Tendenze di Application Insights crea una visualizzazione basata su serie temporale dei dati di telemetria dell'app. Ogni visualizzazione basata su serie temporale contiene un tipo di dati di telemetria, raggruppati in base a una proprietà di tali dati, in un determinato intervallo di tempo. È ad esempio possibile visualizzare le richieste server, raggruppate per paese di provenienza, nelle ultime 24 ore. In questo esempio, ogni bolla nella visualizzazione rappresenterà un conteggio delle richieste server di un determinato paese/area geografica durante un'ora.
+## <a name="visualize-trends-in-your-application"></a>Visualize trends in your application
 
-Usare i controlli nella parte superiore della finestra per modificare i tipi di dati di telemetria visualizzati. Prima di tutto, scegliere i tipi di dati di telemetria a cui si è interessati.
+Application Insights Trends creates a time series visualization from your app's telemetry. Each time series visualization displays one type of telemetry, grouped by one property of that telemetry, over some time range. For example, you might want to view server requests, grouped by the country from which they originated, over the last 24 hours. In this example, each bubble on the visualization would represent a count of the server requests for some country/region during one hour.
 
-* **Tipo di telemetria**: richieste server, eccezioni, dipendenze o eventi personalizzati
-* **Intervallo di tempo**: qualsiasi intervallo dagli ultimi 30 minuti agli ultimi 3 giorni
-* **Raggruppa per**: tipo di eccezione, ID problema, paese/area geografica e altro ancora
+Use the controls at the top of the window to adjust what types of telemetry you view. First, choose the telemetry types in which you're interested:
 
-Fare quindi clic su **Analizza telemetria** per eseguire la query.
+* **Telemetry Type** - Server requests, exceptions, depdendencies, or custom events
+* **Time Range** - Anywhere from the last 30 minutes to the last 3 days
+* **Group By** - Exception type, problem ID, country/region, and more.
 
-Per esplorare le bolle nella visualizzazione:
+Then, click **Analyze Telemetry** to run the query.
 
-* Fare clic per selezionare una bolla. In questo modo vengono aggiornati i filtri nella parte inferiore della finestra in modo da riepilogare solo gli eventi che si sono verificati durante uno specifico periodo di tempo.
-* Fare doppio clic su una bolla per passare allo strumento Ricerca e visualizzare tutti i singoli eventi di telemetria che si sono verificati durante tale periodo di tempo.
-* Fare clic tenendo premuto CTRL su una bolla per deselezionarla nella visualizzazione.
+To navigate between bubbles in the visualization:
 
-> [AZURE.TIP] Gli strumenti Analisi e Ricerca interagiscono per consentire all'utente di individuare le cause dei problemi nel servizio tra migliaia di eventi di telemetria. Se in un pomeriggio i clienti notano che l'app ha una velocità di risposta inferiore, ad esempio, iniziare con Analisi. Analizzare le richieste effettuate al servizio nelle ultime ore, raggruppate in base al tempo di risposta, e osservare se sono presenti gruppi insolitamente consistenti di richieste lente. Fare quindi clic sulla bolla per passare allo strumento Ricerca, filtrato in base a tali eventi di richiesta. Da Ricerca è possibile esaminare il contenuto di tali richieste e passare al codice coinvolto per risolvere il problema.
+* Click to select a bubble, which updates the filters at the bottom of the window, summarizing just the events that occurred during a specific time period
+* Double-click a bubble to navigate to the Search tool and see all of the individual telemetry events that occured during that time period
+* Ctrl-click a bubble to de-select it in the visualization.
 
-## Filtro
+> [AZURE.TIP] The Trends and Search tools work together to help you pinpoint the causes of issues in your service among thousands of telemetry events. For example, if one afternoon your customers notice your app is being less responsive, start with Trends. Analyze requests made to your service over the past several hours, grouped by response time. See if there's an unusually large cluster of slow requests. Then double click that bubble to go to the Search tool, filtered to those request events. From Search, you can explore the contents of those requests and navigate to the code involved to resolve the issue.
 
-I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio Tipo di eccezione, i filtri nelle altre dimensioni rimangono selezionabili anche se visualizzati in grigio. Per annullare l'applicazione di un filtro, fare clic di nuovo su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
+## <a name="filter"></a>Filter
 
-![Filtri delle tendenze](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
+Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that may be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, like Exception Type, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again. Ctrl-click to select multiple filters in the same dimension.
 
-Per applicare più filtri:
+![Trend filters](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
 
-1. Applicare il primo filtro.
-2. Fare clic sul pulsante **Apply selected filters and query again** (Applica filtri selezionati e ripeti query) accanto al nome della dimensione del primo filtro. Verrà così eseguita di nuovo la query sui dati di telemetria solo per gli eventi corrispondenti al primo filtro.
-3. Applicare un secondo filtro.
-4. Ripetere il processo per trovare tendenze in specifici sottoinsiemi dei dati di telemetria, ad esempio nelle richieste server denominate "GET Home/Index" _e_ provenienti dalla Germania _e_ che hanno ricevuto un codice di risposta 500.
+What if you want to apply multiple filters? 
 
-Per annullare l'applicazione di uno di questi filtri, fare clic sul pulsante **Remove selected filters and query again** (Rimuovi filtri selezionati e ripeti query) della dimensione.
+1. Apply the first filter. 
+2. Click the **Apply selected filters and query again** button by the name of the dimension of your first filter. This will re-query your telemetry for only events that match the first filter. 
+3. Apply a second filter. 
+4. Repeat the process to find trends in specific subsets of your telemetry. For example, server requests named "GET Home/Index" _and_ that came from Germany _and_ that received a 500 response code. 
 
-![Filtri multipli](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)  
+To un-apply one of these filters, click the **Remove selected filters and query again** button for the dimension.
 
-## Trovare le anomalie
+![Multiple filters](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
-Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano anomalie rispetto ad altre bolle nella stessa serie temporale. Nell'elenco a discesa Tipo di visualizzazione scegliere **Conteggi nell'intervallo di tempo (evidenziazione delle anomalie)** o **Percentuali nell'intervallo di tempo (evidenziazione delle anomalie)**. Le bolle di colore rosso sono anomale. Si definiscono anomalie le bolle con conteggi/percentuali che superano di 2,1 volte la deviazione standard dei conteggi o delle percentuali negli ultimi due intervalli di tempo (48 ore se si visualizzano le ultime 24 ore e così via).
+## <a name="find-anomalies"></a>Find anomalies
 
-![I punti colorati indicano anomalie](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)  
+The Trends tool can highlight bubbles of events that are anomalous compared to other bubbles in the same time series. In the View Type dropdown, choose **Counts in time bucket (highlight anomalies)** or **Percentages in time bucket (highlight anomalies)**. Red bubbles are anomalous. Anomalies are defined as bubbles with counts/percentages exceeding 2.1 times the standard deviation of the counts/percentages that occured in the past two time periods (48 hours if you're viewing the last 24 hours, etc.).
 
-> [AZURE.TIP] L'evidenziazione delle anomalie è particolarmente utile per trovare in una serie temporale di piccole bolle outlier che potrebbero altrimenti sembrare di dimensioni simili.
+![Colored dots indicate anomalies](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
 
-## <a name="next"></a>Passaggi successivi
+> [AZURE.TIP] Highlighting anomalies is especially helpful for finding outliers in time series of small bubbles that may otherwise look similarly sized.  
+
+## <a name="<a-name="next"></a>next-steps"></a><a name="next"></a>Next steps
 
 ||
 |---|---
-|**[Uso di Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-visual-studio-trends/34.png)  
-|**[Altri dati di telemetria da Application Insights](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. | ![Visual Studio](./media/app-insights-visual-studio-trends/64.png)
-|**[Navigazione e dashboard nel portale Application Insights](app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-visual-studio-trends/62.png)  
+|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio-trends/34.png)
+|**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-visual-studio-trends/64.png)
+|**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio-trends/62.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

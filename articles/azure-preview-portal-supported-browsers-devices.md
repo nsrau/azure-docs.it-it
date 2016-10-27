@@ -1,35 +1,40 @@
 <properties
-	pageTitle="Browser e dispositivi supportati"
-	description="Descrive i browser e i dispositivi con cui funziona il Portale di Azure." 
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	writer="flanakin"
-	manager="lwelicki"
-	editor=""/>
+    pageTitle="Supported browsers and devices"
+    description="Describes the browsers and devices on which the Azure portal will work." 
+    services=""
+    documentationCenter=""
+    authors="flanakin"
+    writer="flanakin"
+    manager="lwelicki"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="micflan"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/23/2015"
+    ms.author="micflan"/>
 
-#Browser e dispositivi supportati
-Il portale di Microsoft Azure viene eseguito in tutti i moderni browser e dispositivi tablet e desktop.
 
-### Dispositivi supportati
-Il portale viene eseguito correttamente nei moderni PC, Mac e tablet. I telefoni cellulari non sono al momento supportati.
+#<a name="supported-browsers-and-devices"></a>Supported browsers and devices
+The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
 
-### Browser supportati
-Sono supportate le versioni più recenti dei browser seguenti:
+### <a name="supported-devices"></a>Supported devices
+The portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
 
-- Edge (versione più recente)
+### <a name="supported-browsers"></a>Supported browsers
+The latest versions of the following browsers are supported:
+
+- Edge (latest)
 - Internet Explorer 11
-- Safari (versione più recente, solo Mac)
-- Chrome (versione più recente)
-- Firefox (versione più recente)
+- Safari (latest, Mac only)
+- Chrome (latest)
+- Firefox (latest)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

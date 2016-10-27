@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con BambooHR | Microsoft Azure" 
-    description="Informazioni su come usare BambooHR con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Bamboo HR | Microsoft Azure" 
+    description="Learn how to use Bamboo HR with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,146 +11,151 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con BambooHR
 
-Questa esercitazione descrive l'integrazione di Azure e BambooHR.  
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+#<a name="tutorial:-azure-active-directory-integration-with-bamboo-hr"></a>Tutorial: Azure Active Directory Integration with Bamboo HR
 
--   Sottoscrizione di Azure valida
--   Sottoscrizione di BambooHR abilitata per l'accesso Single Sign-On
+The objective of this tutorial is to show the integration of Azure and BambooHR.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a BambooHR potranno accedere all'applicazione tramite il sito aziendale di BambooHR (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+-   A valid Azure subscription
+-   A BambooHR single sign-on enabled subscription
 
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+After completing this tutorial, the Azure AD users you have assigned to BambooHR will be able to single sign into the application at your BambooHR company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Abilitazione dell'integrazione dell'applicazione per BambooHR
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for BambooHR
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per BambooHR
+##<a name="enabling-the-application-integration-for-bamboohr"></a>Enabling the application integration for BambooHR
 
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per BambooHR.
+The objective of this section is to outline how to enable the application integration for BambooHR.
 
-###Per abilitare l'integrazione dell'applicazione per BambooHR, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-bamboohr,-perform-the-following-steps:"></a>To enable the application integration for BambooHR, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-bamboo-hr-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-bamboo-hr-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-bamboo-hr-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-bamboo-hr-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-bamboo-hr-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-bamboo-hr-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-bamboo-hr-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **BambooHR**.
+6.  In the **search box**, type **BambooHR**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-bamboo-hr-tutorial/IC796686.png "Raccolta di applicazioni")
+    ![Application gallery](./media/active-directory-saas-bamboo-hr-tutorial/IC796686.png "Application gallery")
 
-7.  Nel riquadro dei risultati selezionare **BambooHR** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **BambooHR**, and then click **Complete** to add the application.
 
     ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a BambooHR tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64.  
-Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to BambooHR with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nella pagina di integrazione dell'applicazione **BambooHR** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  In the Azure classic portal, on the **BambooHR** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Scenario](./media/active-directory-saas-bamboo-hr-tutorial/IC796685.png "Scenario")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a BambooHR** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  On the **How would you like users to sign on to BambooHR** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796688.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-bamboo-hr-tutorial/IC796688.png "Configure single sign-on")
 
-3.  Nella pagina **Configura URL app** nella casella di testo **BambooHR Sign On URL** (URL di accesso a BambooHR), digitare l'URL usato dagli utenti per accedere all'applicazione BambooHR (ad esempio: https://company.bamboohr.com) e fare clic su **Avanti**.
+3.  On the **Configure App URL** page, in the **BambooHR Sign On URL** textbox, type your URL used by your users to sign on to your BambooHR application (e.g.: https://company.bamboohr.com), and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-bamboo-hr-tutorial/IC796689.png "Configura URL app")
+    ![Configure app URL](./media/active-directory-saas-bamboo-hr-tutorial/IC796689.png "Configure app URL")
 
-4.  Nella pagina **Configura accesso Single Sign-On in BambooHR** fare clic su **Download certificato** e quindi salvare il file di certificato nel computer.
+4.  On the **Configure single sign-on at BambooHR** page, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796690.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-bamboo-hr-tutorial/IC796690.png "Configure single sign-on")
 
-5.  In un'altra finestra del Web browser accedere al sito aziendale di BambooHR come amministratore.
+5.  In a different web browser window, log into your BambooHR company site as an administrator.
 
-6.  Nella pagina iniziale seguire questa procedura:
+6.  On the homepage, perform the following steps:
 
     ![Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796691.png "Single Sign-On")
 
-    1.  Fare clic su **App**.
-    2.  Scegliere **Single Sign-On** dal menu delle app a sinistra.
-    3.  Fare clic su **SAML Single Sign-On**.
+    1.  Click **Apps**.
+    2.  In the apps menu on the left, click **Single Sign-On**.
+    3.  Click **SAML Single Sign-On**.
 
-7.  Nella sezione **SAML Single Sign-On** seguire questa procedura:
+7.  In the **SAML Single Sign-On** section, perform the following steps:
 
-    ![Single Sign-On SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Single Sign-On SAML")
+    ![SAML Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
 
-    1.  Nella finestra di dialogo **Configure single sign-on at BambooHR** (Configura accesso Single Sign-On in BambooHR) del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **SSO Login URL** (URL di accesso SSO).
-    2.  Creare un file con **codifica Base 64** dal certificato scaricato.
+    1.  In the Azure classic portal, on the **Configure single sign-on at BambooHR** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **SSO Login URL ** textbox.
+    2.  Create a **base-64 encoded** file from your downloaded certificate.  
 
-        >[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    3.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**
-    4.  Fare clic su **Salva**.
+    3.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
+    4.  Click **Save**.
 
-8.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+8.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configura accesso Single Sign-On")
-##Configurazione del provisioning utente
+    ![Configure single sign-on](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Per consentire agli utenti di Azure AD di accedere a BambooHR, è necessario eseguirne il provisioning in BambooHR.  
-Nel caso di BambooHR, il provisioning è un'attività manuale.
+In order to enable Azure AD users to log into BambooHR, they must be provisioned into BambooHR.  
+In the case of BambooHR, provisioning is a manual task.
 
-###Per eseguire il provisioning di un account utente, seguire questa procedura:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Accedere al sito aziendale di **BambooHR** come amministratore.
+1.  Log in to your **BambooHR** site as administrator.
 
-2.  Nel barra degli strumenti in alto fare clic su **Impostazioni**.
+2.  In the toolbar on the top, click **Settings**.
 
-    ![Impostazione](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Impostazione")
+    ![Setting](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Setting")
 
-3.  Fare clic su **Informazioni generali**.
+3.  Click **Overview**.
 
-4.  Nel riquadro di spostamento sinistro passare a **Sicurezza > Utenti**.
+4.  In the left navigation pane, go to **Security \> Users**.
 
-5.  Nelle caselle di testo corrispondenti digitare il nome utente, la password e l'indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
+5.  Type the user name, password and email address of a valid AAD account you want to provision into the related textboxes.
 
-6.  Fare clic su **Salva**.
+6.  Click **Save**.
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da BambooHR per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] You can use any other BambooHR user account creation tools or APIs provided by BambooHR to provision AAD user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
 
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a BambooHR, seguire questa procedura:
+###<a name="to-assign-users-to-bamboohr,-perform-the-following-steps:"></a>To assign users to BambooHR, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **BambooHR** fare clic su **Assegna utenti**.
+2.  On the **BambooHR **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Assegna utenti")
+    ![Assign users](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Assign users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Yes")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

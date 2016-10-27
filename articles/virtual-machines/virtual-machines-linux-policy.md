@@ -1,42 +1,43 @@
 <properties
-	pageTitle="Applicare criteri a macchine virtuali di Azure Resource Manager | Microsoft Azure"
-	description="Come applicare criteri a una macchina virtuale Linux di Azure Resource Manager"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Apply policies to Azure Resource Manager Virtual Machines | Microsoft Azure"
+    description="How to apply a policy to an Azure Resource Manager Linux Virtual Machine"
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="singhkays"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/13/2016"
-	ms.author="singhkay"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="04/13/2016"
+    ms.author="singhkay"/>
 
-# Applicare criteri a macchine virtuali di Azure Resource Manager
 
-Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo descrive come usare criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
+# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Apply policies to Azure Resource Manager Virtual Machines
 
-Per eseguire questa operazione, seguire questa procedura:
+By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.
 
-1. Informazioni di base sui criteri di Azure Resource Manager
-2. Definire criteri per la macchina virtuale
-3. Creare i criteri
-4. Applicare i criteri
+The outline for the steps to accomplish this is as below
 
-## Informazioni di base sui criteri di Azure Resource Manager
+1. Azure Resource Manager Policy 101
+2. Define a policy for your Virtual Machine
+3. Create the policy
+4. Apply the policy
 
-Come introduzione ai criteri di Azure Resource Manager è consigliabile leggere l'articolo riportato di seguito prima di continuare la procedura descritta in questo articolo. L'articolo riportato di seguito descrive la definizione di base e la struttura dei criteri e la modalità di valutazione dei criteri stessi. L'articolo fornisce anche alcuni esempi di definizioni di criteri.
+## <a name="azure-resource-manager-policy-101"></a>Azure Resource Manager Policy 101
 
-* [Usare i criteri per gestire le risorse e controllare l'accesso](../resource-manager-policy.md)
+For getting started with Azure Resource Manager policies, we recommend reading the article below and then continuing with the steps in this article. The article below describes the basic definition and structure of a policy, how policies get evaluated and gives various examples of policy definitions.
 
-## Definire criteri per la macchina virtuale
+* [Use Policy to manage resources and control access](../resource-manager-policy.md)
 
-Uno scenario comune per un'azienda potrebbe essere la possibilità per gli utenti di creare macchine virtuali solo da sistemi operativi specifici di cui sia stata testata la compatibilità con un'applicazione line-of-business. Usando criteri di Azure Resource Manager è possibile eseguire questa attività in pochi passaggi. Questo criterio di esempio consente di creare solo macchine virtuali Ubuntu 14.04.2-LTS. La definizione del criterio ha l'aspetto seguente
+## <a name="define-a-policy-for-your-virtual-machine"></a>Define a policy for your Virtual Machine
+
+One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps. In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Machines to be created. The policy definition looks like below
 
 ```
 "if": {
@@ -70,7 +71,7 @@ Uno scenario comune per un'azienda potrebbe essere la possibilità per gli utent
 }
 ```
 
-Il criterio precedente può essere facilmente modificato per uno scenario in cui per una distribuzione di macchine virtuali si vuole consentire l'uso di qualsiasi immagine Ubuntu LTS. È sufficiente la seguente modifica
+The above policy can easily be modified to a scenario where you might want to allow any Ubuntu LTS image to be used for a Virtual Machine deployment with the below change
 
 ```
 {
@@ -79,31 +80,35 @@ Il criterio precedente può essere facilmente modificato per uno scenario in cui
 }
 ```
 
-#### Campi delle proprietà di una macchina virtuale
+#### <a name="virtual-machine-property-fields"></a>Virtual Machine Property Fields
 
-La tabella seguente descrive le proprietà delle macchine virtuali che possono essere usate come campi all'interno di una definizione di criteri. Per altre informazioni sui campi dei criteri, vedere l'articolo seguente:
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see the article below:
 
-* [Campi e origini](../resource-manager-policy.md#fields-and-sources)
+* [Fields and Sources](../resource-manager-policy.md#fields-and-sources)
 
 
-| Nome campo | Descrizione |
+| Field Name     | Description                                        |
 |----------------|----------------------------------------------------|
-| imagePublisher | Specifica l'editore dell'immagine |
-| imageOffer | Specifica l'offerta per l'editore dell'immagine prescelto |
-| imageSku | Specifica lo SKU per l'offerta prescelta |
-| imageVersion | Specifica la versione di immagine per lo SKU prescelto |
+| imagePublisher | Specifies the publisher of the image               |
+| imageOffer     | Specifies the offer for the chosen image publisher |
+| imageSku       | Specifies the SKU for the chosen offer             |
+| imageVersion   | Specifies the image version for the chosen SKU     |
 
-## Creare i criteri
+## <a name="create-the-policy"></a>Create the Policy
 
-Un criterio può essere creato facilmente usando l'API REST direttamente o i cmdlet di PowerShell. Per creare i criteri, vedere l'articolo seguente:
+A policy can easily be created using the REST API directly or the PowerShell cmdlets. For creating the policy, see the article below:
 
-* [Creazione dei criteri](../resource-manager-policy.md#creating-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#creating-a-policy)
 
 
-## Applicare i criteri
+## <a name="apply-the-policy"></a>Apply the Policy
 
-Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambito può essere una sottoscrizione, un gruppo di risorse o persino una risorsa. Per applicare i criteri, vedere l'articolo seguente:
+After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. For applying the policy, see the article below:
 
-* [Creazione dei criteri](../resource-manager-policy.md#applying-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

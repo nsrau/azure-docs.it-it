@@ -1,137 +1,138 @@
 <properties
-	pageTitle="Associare le sottoscrizioni di Azure ad Azure Active Directory | Microsoft Azure"
-	description="Accesso a Microsoft Azure e problemi correlati, come la relazione tra una sottoscrizione di Azure e Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="How Azure subscriptions are associated with Azure Active Directory | Microsoft Azure"
+    description="Signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="curtand"/>
 
-# Associare le sottoscrizioni di Azure ad Azure Active Directory
 
-Questo argomento contiene informazioni sull'accesso a Microsoft Azure e sui problemi correlati, come la relazione tra una sottoscrizione di Azure e Azure Active Directory (Azure AD).
+# <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>How Azure subscriptions are associated with Azure Active Directory
 
-## Account che si possono usare per l'accesso
-In questa sezione verranno descritti gli account che si possono usare per eseguire l'accesso. Sono disponibili due tipi di account: l'account Microsoft (precedentemente noto come Microsoft Live ID) e l'account aziendale o dell'istituto di istruzione, che è un account archiviato in Azure AD.
+This topic covers information about signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory (Azure AD).
 
- Account Microsoft | Account Azure AD
-	------------- | -------------
-Sistema di identità utente gestito da Microsoft | Sistema di identità aziendale gestito da Microsoft
-Autenticazione ai servizi orientati agli utenti privati, ad esempio Hotmail ed MSN | Autenticazione ai servizi orientati agli utenti aziendali, ad esempio Office 365
-Gli utenti privati creano i propri account Microsoft, ad esempio quando creano un nuovo indirizzo di posta elettronica | Le aziende e le organizzazioni creano e gestiscono i propri account aziendali o dell'istituto di istruzione
-Le identità vengono create e archiviate nel sistema di account Microsoft | Le identità vengono create tramite Azure o un altro servizio, ad esempio Office 365, e vengono archiviate in un'istanza di Azure AD assegnata all'organizzazione
+## <a name="accounts-that-you-can-use-to-sign-in"></a>Accounts that you can use to sign in
+Let’s start with the accounts that you can use to sign in. There are two types: a Microsoft account (formerly known as Microsoft Live ID) and a work or school account, which is an account stored in Azure AD.
 
-Sebbene in origine l'accesso ad Azure fosse consentito solo agli utenti con account Microsoft, ora è invece consentito l'accesso agli utenti di *entrambi* i sistemi. A questo scopo, tutte le proprietà di Azure devono considerare Azure AD come attendibile per l'autenticazione, Azure AD deve autenticare gli utenti aziendali e creare una relazione federativa in cui Azure AD considera attendibile il sistema di identità utente degli account Microsoft per autenticare gli utenti privati. Di conseguenza, Azure AD è ora in grado di autenticare gli account Microsoft "guest" e gli account Azure AD "nativi".
+ Microsoft account  | Azure AD account
+    ------------- | -------------
+The consumer identity system run by Microsoft | The business identity system run by Microsoft
+Authentication to services that are consumer-oriented, such as Hotmail and MSN | Authentication to services that are business-oriented, such as Office 365
+Consumers create their own Microsoft accounts, such when they sign up for email | Companies and organizations create and manage their own work or school accounts
+Identities are created and stored in the Microsoft account system | Identities are created by using Azure or another service such as Office 365, and they are stored in an Azure AD instance assigned to the organization
 
-Ad esempio, un utente con un account Microsoft accede al portale di Azure classico.
+Although Azure originally allowed access only by Microsoft account users, it now allows access by users from *both* systems. This was done by having all the Azure properties trust Azure AD for authentication, having Azure AD authenticate organizational users, and by creating a federation relationship where Azure AD trusts the Microsoft account consumer identity system to authenticate consumer users. As a result, Azure AD is able to authenticate “guest” Microsoft accounts as well as “native” Azure AD accounts.
+
+For example, here a user with a Microsoft account signs in to the Azure classic portal.
 
 > [AZURE.NOTE]
-Per accedere al portale di Azure classico, msmith@hotmail.com deve avere una sottoscrizione di Azure. L'account deve essere un amministratore del servizio o un coamministratore della sottoscrizione.
+> To sign in to the Azure classic portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
 
 ![][1]
 
-Poiché questo indirizzo Hotmail è un account per utenti privati, l'accesso viene autenticato dal sistema di identità utente degli account Microsoft. Il sistema di identità di Azure AD considera attendibile l'autenticazione eseguita tramite il sistema di account Microsoft e rilascia un token per accedere ai servizi di Azure.
+Because this Hotmail address is a consumer account, the sign in is authenticated by the Microsoft account consumer identity system. The Azure AD identity system trusts the authentication done by the Microsoft account system and will issue a token to access Azure services.
 
-## Relazione tra una sottoscrizione di Azure e Azure AD
+## <a name="how-an-azure-subscription-is-related-to-azure-ad"></a>How an Azure subscription is related to Azure AD
 
-Ogni sottoscrizione di Azure ha una relazione di trust con un'istanza di Azure AD. Ciò significa che considera attendibile quella directory per l'autenticazione di utenti, servizi e dispositivi. Più sottoscrizioni possono considerare attendibile la stessa directory, ma una sottoscrizione considera attendibile una sola directory. La directory considerata attendibile dalla sottoscrizione può essere visualizzata nella scheda Impostazioni. È possibile [modificare le impostazioni della sottoscrizione](active-directory-understanding-resource-access.md) per cambiare la directory attendibile.
+Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. You can see which directory is trusted by your subscription under the Settings tab. You can [edit the subscription settings](active-directory-understanding-resource-access.md) to change which directory it trusts.
 
-Questa relazione di trust tra la sottoscrizione e la directory è diversa dalla relazione tra la sottoscrizione e tutte le altre risorse in Azure, ad esempio siti Web, database e così via, le quali sono da considerarsi più come risorse figlio di una sottoscrizione. Se la sottoscrizione scade, non sarà più possibile accedere a tutte queste altre risorse associate alla sottoscrizione anche se la directory rimane in Azure, quindi sarà possibile associarvi un'altra sottoscrizione e continuare a gestire gli utenti della directory.
+This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users.
 
-Analogamente, l'estensione Azure AD disponibile nella sottoscrizione non funziona come le altre estensioni nel portale di Azure classico. L'ambito delle altre estensioni nel portale di Azure classico è limitato alla sottoscrizione di Azure. Quanto visualizzato nell'estensione Azure AD non varia a seconda della sottoscrizione: vengono visualizzate solo le directory in base all'utente che ha eseguito l'accesso.
+Similarly, the Azure AD extension you see in your subscription doesn’t work like the other extensions in the Azure classic portal. Other extensions in the Azure classic portal are scoped to the Azure subscription. What you see in the Azure AD extension does not vary based on subscription – it shows only directories based on the signed-in user.
 
-Tutti gli utenti dispongono di una singola home directory che li autentica, ma poi possono essere utenti guest in altre directory. Nell'estensione Azure AD verranno visualizzate tutte le directory di cui è membro il proprio account utente. Le directory di cui l'account non è membro non saranno visualizzate. Una directory può rilasciare token per gli account aziendali o dell'istituto di istruzione in Azure AD o per gli utenti con account Microsoft, perché Azure AD è federato con il sistema di account Microsoft.
+All users have a single home directory which authenticates them, but they can also be guests in other directories. In the Azure AD extension, you will see every directory your user account is a member of. Any directory that your account is not a member of will not appear. A directory can issue tokens for work or school accounts in Azure AD or for Microsoft account users (because Azure AD is federated with the Microsoft account system).
 
-Questo diagramma illustra la sottoscrizione per Michael Smith dopo che ha eseguito l'accesso usando un account aziendale di Contoso.
+This diagram shows a subscription for Michael Smith after he signed up by using a work account for Contoso.
 
 ![][2]
 
-## Come gestire una sottoscrizione e una directory
-Le risorse associate a una sottoscrizione di Azure vengono gestite dai ruoli amministrativi della sottoscrizione stessa. Questi ruoli e le procedure consigliate per la gestione della sottoscrizione sono descritti in [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md).
+## <a name="how-to-manage-a-subscription-and-a-directory"></a>How to manage a subscription and a directory
+The administrative roles for an Azure subscription manage resources tied to the Azure subscription. These roles and the best practices for managing your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
-Per impostazione predefinita, al momento dell'iscrizione all'utente viene assegnato il ruolo di amministratore del servizio. Se altri utenti devono accedere ai servizi con la stessa sottoscrizione, è possibile aggiungerli come coamministratori. L'amministratore del servizio e i coamministratori possono essere account Microsoft oppure account aziendali o dell'istituto di istruzione della directory a cui è associata la sottoscrizione di Azure.
+By default, you are assigned the Service Administrator role when you sign up. If others need to sign in and access services using the same subscription, you can add them as co-administrators. The Service Administrator and co-administrators can be either Microsoft accounts or work or school accounts from the directory that the Azure subscription is associated with.
 
-In Azure AD è invece disponibile un set di ruoli amministrativi diverso per gestire la directory e le funzionalità relative alle identità. Ad esempio, l'amministratore globale di una directory può aggiungere utenti e gruppi alla directory o richiedere l'autenticazione a più fattori per gli utenti. All'utente che crea una directory viene assegnato il ruolo di amministratore globale, che, a sua volta, potrà assegnare ruoli di amministratore ad altri utenti.
+Azure AD has a different set of administrative roles to manage the directory and identity-related features. For example, the global administrator of a directory can add users and groups to the directory, or require multifactor authentication for users. A user who creates a directory is assigned to the global administrator role and they can assign administrator roles to other users.
 
-Come per gli amministratori della sottoscrizione, i ruoli amministrativi di Azure AD possono essere account Microsoft oppure account aziendali o dell'istituto di istruzione. I ruoli amministrativi di Azure AD vengono anche usati da altri servizi, ad esempio Office 365 e Microsoft Intune. Per altre informazioni, vedere [Assegnazione dei ruoli di amministratore](active-directory-assign-admin-roles.md).
+As with subscription administrators, the Azure AD administrative roles can be either Microsoft accounts or work or school accounts. Azure AD administrative roles are also used by other services such as Office 365 and Microsoft Intune. For more information, see [Assigning administrator roles](active-directory-assign-admin-roles.md).
 
-Il punto importante da tenere presente è che gli amministratori della sottoscrizione di Azure e gli amministratori della directory di AD sono due concetti distinti. Gli amministratori della sottoscrizione di Azure possono gestire le risorse in Azure e visualizzare l'estensione Azure Active Directory nel portale di Azure classico, perché il portale di Azure classico è una risorsa di Azure. Gli amministratori della directory possono gestire le proprietà nella directory.
+But the important point here is that Azure subscription admins and Azure AD directory admins are two separate concepts. Azure subscription admins can manage resources in Azure and can view the Active Directory extension in the Azure classic portal (because the Azure classic portal is an Azure resource). Directory admins can manage properties in the directory.
 
-Una persona può rivestire entrambi i ruoli, ma non è obbligatorio. A un utente può essere assegnato il ruolo di amministratore globale della directory ma non quello di amministratore del servizio o di coamministratore di una sottoscrizione di Azure. Se non è un amministratore della sottoscrizione, tale utente non potrà accedere al portale di Azure classico. L'utente potrebbe però svolgere attività di amministrazione della directory usando altri strumenti, ad esempio Azure AD PowerShell o l'interfaccia di amministrazione di Office 365.
+A person can be in both roles but this isn’t required. A user can be assigned to the directory global administrator role but not be assigned as Service administrator or co-administrator of an Azure subscription. Without being an administrator of the subscription, this user cannot sign in to the Azure classic portal. But the user could perform directory administration tasks using other tools such as Azure AD PowerShell or Office 365 Admin Center.
 
-## Perché non è possibile gestire la directory con l'account utente corrente?
+## <a name="why-can't-i-manage-the-directory-with-my-current-user-account?"></a>Why can't I manage the directory with my current user account?
 
-È possibile che un utente provi ad accedere al portale di Azure classico con un account aziendale o dell'istituto di istruzione prima di iscriversi per ottenere una sottoscrizione di Azure. In questo caso, all'utente verrà visualizzato un messaggio che indica che non sono presenti sottoscrizioni per l'account. Nel messaggio sarà incluso un collegamento per creare una sottoscrizione di valutazione gratuita.
+Sometimes a user may try to sign in to the Azure classic portal using a work or school account prior to signing up for an Azure subscription. In this case, the user will receive a message that there is no subscription for that account. The message will include a link to start a free trial subscription.
 
-Al termine della procedura di iscrizione, l'utente visualizzerà la directory dell'organizzazione nel portale di Azure classico, ma non potrà gestirla, ovvero non potrà aggiungere utenti o modificare proprietà degli eventuali utenti esistenti, perché l'utente non è un amministratore globale della directory. La sottoscrizione consente all'utente di usare il portale di Azure classico e visualizzare l'estensione Azure Active Directory, ma per gestire la directory sono necessarie le autorizzazioni aggiuntive di un amministratore globale.
+After signing up for the free trial, the user will see the directory for the organization in the Azure classic portal but be unable to manage it (that is, be unable to add users, or edit any existing user properties) because the user is not a directory global administrator. The subscription allows the user to use the Azure classic portal and see the Azure Active Directory extension, but the additional permissions of a global administrator are needed to manage the directory.
 
-## Uso dell'account aziendale o dell'istituto di istruzione per gestire una sottoscrizione di Azure creata con un account Microsoft
+## <a name="using-your-work-or-school-account-to-manage-an-azure-subscription-that-was-created-by-using-a-microsoft-account"></a>Using your work or school account to manage an Azure subscription that was created by using a Microsoft account
 
-Per questo scenario è consigliabile [iscriversi ad Azure come organizzazione](sign-up-organization.md) e usare un account aziendale o dell'istituto di istruzione per gestire le risorse in Azure, in quanto questi account possono essere gestiti in modo centralizzato dall'organizzazione che li ha rilasciati, dispongono di un maggior numero di funzionalità rispetto agli account Microsoft e vengono direttamente autenticati da Azure AD. Lo stesso account consente di accedere ad altri Microsoft Online Services offerti ad aziende e organizzazioni, ad esempio Office 365 o Microsoft Intune. Se si dispone già di un account per accedere a queste altre proprietà, è probabile che lo stesso account verrà usato con Azure. Si avrà già anche un'istanza di Active Directory che supporta le proprietà che dovranno essere considerate attendibili dalla sottoscrizione di Azure.
+As a best practice, you should [sign up for Azure as an organization](sign-up-organization.md) and use a work or school account to manage resources in Azure. Work or school accounts are preferred because they can be centrally managed by the organization that issued them, they have more features than Microsoft accounts, and they are directly authenticated by Azure AD. The same account provides access to other Microsoft online services that are offered to businesses and organizations, such as Office 365 or Microsoft Intune. If you already have an account that you use with those other properties, you likely want to use that same account with Azure. You will also already have an Active Directory instance backing those properties that you will want your Azure subscription to trust.
 
-Rispetto agli account Microsoft, gli account aziendali o dell'istituto di istruzione offrono un maggior numero di opzioni di gestione. Ad esempio, un amministratore può reimpostare la password di un account aziendale o dell'istituto di istruzione o richiedere l'autenticazione a più fattori per l'account.
+Work or school accounts can also be managed in more ways than a Microsoft account. For example, an administrator can reset the password of an a work or school account, or require multifactor authentication for it.
 
-In alcuni casi, può essere opportuno che un utente dell'organizzazione possa gestire le risorse associate a una sottoscrizione di Azure per un account personale Microsoft. Per altre informazioni sulla transizione per consentire ad account diversi di gestire sottoscrizioni o directory, vedere [Gestire la directory per la sottoscrizione Office 365 in Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
+In some cases, you may want a user from your organization to be able to manage resources that are associated with an Azure subscription for a consumer Microsoft account. For more information about how to transition to have different accounts manage subscriptions or directories, see [Manage the directory for your Office 365 subscription in Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 
-## Come eseguire l'accesso se l'indirizzo di posta aziendale è stato usato per creare un account Microsoft
+## <a name="signing-in-when-you-used-your-work-email-for-your-microsoft-account"></a>Signing in when you used your work email for your Microsoft account
 
-Se in passato è stato creato un account utente Microsoft usando l'indirizzo di posta elettronica aziendale come identificatore utente, verrà visualizzata una pagina in cui viene richiesto di selezionare il nome utente dal sistema di account di Microsoft Azure o dal sistema di account Microsoft.
+If at some point of time in the past you created a consumer Microsoft account using your work email as a user identifier, you may see a page asking you to select from either the Microsoft Azure Account system or the Microsoft Account system.
 
 ![][3]
 
-Sono presenti account utente con lo stesso nome, uno in Azure AD e l'altro nel sistema di account utente Microsoft. Selezionare l'account associato alla sottoscrizione di Azure che si vuole usare. Se viene visualizzato un errore che indica che non esiste una sottoscrizione per l'utente, è probabile che sia stata scelta l'opzione sbagliata. Disconnettersi e riprovare. Per altre informazioni sugli errori che possono impedire l'accesso, vedere [Troubleshooting "We were unable to find any subscriptions associated with your account" errors in management portal](https://social.msdn.microsoft.com/Forums/it-IT/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement) (Risoluzione degli errori "Non è possibile trovare sottoscrizioni associate all'account" nel portale di gestione).
+You have user accounts with the same name, one in Azure AD and the other in the consumer Microsoft account system. You should pick the account that is associated with the Azure subscription you want to use. If you get an error saying a subscription does not exist for this user, you likely just chose the wrong option. Sign out and try again. For more information about errors that can prevent sign in, see [Troubleshooting "We were unable to find any subscriptions associated with your account" errors](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
-## Gestire la directory per la sottoscrizione di Office 365 in Azure
+## <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Manage the directory for your Office 365 subscription in Azure
 
-Si supponga di aver effettuato l'iscrizione a Office 365 prima dell'iscrizione ad Azure e di voler gestire la directory per la sottoscrizione di Office 365 nel portale di Azure classico. Esistono due modi per farlo, a seconda che si sia effettuata l'iscrizione ad Azure o meno.
+Let's say you signed up for Office 365 before you sign up for Azure. Now you want to manage the directory for the Office 365 subscription in the Azure classic portal. There are two ways to do this, depending on whether you have signed up for Azure or you have not.
 
-### Se non si ha una sottoscrizione di Azure
+### <a name="i-do-not-have-a-subscription-for-azure"></a>I do not have a subscription for Azure
 
-In questo caso, sarà sufficiente [iscriversi ad Azure](sign-up-organization.md) usando lo stesso account aziendale o dell'istituto di istruzione che si usa per accedere a Office 365. Le informazioni pertinenti dell'account Office 365 verranno precompilate nel modulo di iscrizione per Azure. All'account verrà assegnato il ruolo di amministratore del servizio della sottoscrizione.
+In this case, just [sign up for Azure](sign-up-organization.md) using the same work or school account that you use to sign in to Office 365. Relevant information from the Office 365 account will be prepopulated in the Azure sign-up form. Your account will be assigned to the Service Administrator role of the subscription.  
 
-### Se si ha una sottoscrizione di Azure con un account Microsoft
+### <a name="i-do-have-a-subscription-for-azure-using-my-microsoft-account"></a>I do have a subscription for Azure using my Microsoft account
 
-Se per l'iscrizione a Office 365 è stato usato un account aziendale o dell'istituto di istruzione e successivamente l'iscrizione ad Azure è stata effettuata con un account Microsoft, ora sono presenti due directory: una per l'account aziendale o dell'istituto di istruzione e una directory predefinita che è stata creata al momento dell'iscrizione ad Azure.
+If you signed up for Office 365 using a work or school account and then signed up for Azure using a Microsoft account, then you have two directories: one for your work or school and a Default directory that was created when you signed up for Azure.
 
-Per gestire entrambe le directory nel portale di Azure classico, procedere come indicato di seguito.
+To manage both of the directories in the Azure classic portal, complete these steps.
 
 > [AZURE.NOTE]
-Per completare questa procedura, è necessario eseguire l'accesso con un account Microsoft. Se l'utente ha eseguito l'accesso con un account aziendale o dell'istituto di istruzione, l'opzione **Utilizza directory esistente** non è disponibile, in quanto gli account aziendali o dell'istituto di istruzione possono essere autenticati solo dalla relativa home directory, ovvero la directory in cui tale account è archiviato e che è di proprietà dell'azienda o dell'istituto di istruzione.
+> These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
 
-1. Accedere al portale di Azure classico mediante il proprio account Microsoft.
+1. Sign in to the Azure classic portal using your Microsoft account.
 
-2. Fare clic su **Nuovo** > **Servizi app** > **Active Directory** > **Directory** > **Creazione personalizzata**.
+2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
 
-3. Fare clic su **Utilizza directory esistente**, selezionare **È possibile uscire ora** e quindi fare clic sul segno di spunta per completare l'azione.
+3. Click **Use existing directory** and check **I am ready to be signed out now** and click the check mark to complete the action.
 
-4. Accedere al portale di Azure classico usando un account con diritti di amministrazione globali per la directory aziendale o dell'istituto di istruzione.
+4. Sign in to the Azure classic portal using an account that has global admin rights for the work or school directory.
 
-5. Quando viene visualizzare la richiesta **Usare la directory Contoso con Azure?**, fare clic su **continua**.
+5. When prompted to **Use the Contoso directory with Azure?**, and click **continue**.
 
-6. Fare clic su **Esci ora**.
+6. Click **Sign out now**.
 
-7. Accedere nuovamente al portale di Azure classico mediante il proprio account Microsoft. Entrambe le directory verranno visualizzate nell'estensione Active Directory.
+7. Sign back in to the Azure classic portal using your Microsoft account. Both directories will appear in the Active Directory extension.
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next Steps
 
-- Per altre informazioni su come cambiare gli amministratori per una sottoscrizione di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing-add-change-azure-subscription-administrator.md).
+- To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
 
-- Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](active-directory-understanding-resource-access.md).
+- To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 
-- Per altre informazioni su come assegnare i ruoli in Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md).
+- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 
-- [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
+- [Sign up for Azure as an organization](sign-up-organization.md)
 
 
 <!--Image references-->
@@ -139,4 +140,8 @@ Per completare questa procedura, è necessario eseguire l'accesso con un account
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,187 +1,198 @@
-<properties 
-	pageTitle="SDK e API di DocumentDB Node.js | Microsoft Azure" 
-	description="Tutte le informazioni sull'SDK e sull'API di Node.js, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB Node.js SDK." 
-	services="documentdb" 
-	documentationCenter="nodejs" 
-	authors="rnagpal" 
-	manager="jhubbard" 
-	editor="cgronlun"/>  
+<properties
+    pageTitle="DocumentDB Node.js API & SDK | Microsoft Azure"
+    description="Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK."
+    services="documentdb"
+    documentationCenter="nodejs"
+    authors="rnagpal"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="rnagpal"/>  
+<tags
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="nodejs"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="rnagpal"/>
 
-# SDK e API di DocumentDB
+
+# <a name="documentdb-apis-and-sdks"></a>DocumentDB APIs and SDKs
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-sdk-dotnet.md)
-- [Node.JS](documentdb-sdk-node.md)
+- [Node.js](documentdb-sdk-node.md)
 - [Java](documentdb-sdk-java.md)
 - [Python](documentdb-sdk-python.md)
 - [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
 - [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##SDK e API di DocumentDB Node.js
+##<a name="documentdb-node.js-api-and-sdk"></a>DocumentDB Node.js API and SDK
 
-<table>  
-<tr><td>**Scaricare l'SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-<tr><td>**Documentazione sull'API**</td><td>[Node.js API reference documentation (Documentazione di riferimento per l'API Node.js)](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
-<tr><td>**Istruzioni per l'installazione dell'SDK**</td><td>[Installation instructions (Istruzioni di installazione)](http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Contribuire all'SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Esempi**</td><td>[Node.js code samples (Codici di esempio di Node.js)](documentdb-nodejs-samples.md)</td></tr>
-<tr><td>**Esercitazione introduttiva**</td><td>[Introduzione a Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
-<tr><td>**Esercitazione sull'app Web**</td><td>[Compilare un'applicazione Web Node.js con DocumentDB](documentdb-nodejs-application.md)</td></tr>
-<tr><td>**Piattaforma attualmente supportata**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+<table>
+<tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**API documentation**</td><td>[Node.js API reference documentation](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**SDK installation instructions**</td><td>[Installation instructions](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Samples**</td><td>[Node.js code samples](documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using DocumentDB](documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Current supported platform**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
-##Note sulla versione
+##<a name="release-notes"></a>Release notes
 
-###<a name="1.9.0"/>1.9.0</a>
+###<a name="<a-name="1.10.0"/>1.10.0</a>"></a><a name="1.10.0"/>1.10.0</a>
 
-- Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, DocumentDB esegue nove tentativi per ogni richiesta quando viene rilevato il codice di errore 429, rispettando il tempo di RetryAfter nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Ora, DocumentDB attende al massimo 30 secondi per ciascuna richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
+- Added support for cross partition parallel queries.
+- Added support for TOP/ORDER BY queries for partitioned collections.
 
-- DocumentDB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il conteggio dei tentativi di limitazione di ripetere conteggio e il tempo cumulativo di attesa della richiesta tra i tentativi.
+###<a name="<a-name="1.9.0"/>1.9.0</a>"></a><a name="1.9.0"/>1.9.0</a>
 
-- La classe RetryOptions è stata aggiunta, esponendo la proprietà RetryOptions nella classe ConnectionPolicy che può essere utilizzata per eseguire l'override di alcune opzioni di ripetizione dei tentativi predefinite.
+- Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
 
-###<a name="1.8.0"/>1.8.0</a>
+- DocumentDB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
 
- - Aggiunta del supporto per gli account di database con più aree.
+- The RetryOptions class was added, exposing the RetryOptions property on the ConnectionPolicy class that can be used to override some of the default retry options.
 
-###<a name="1.7.0"/>1.7.0</a>
+###<a name="<a-name="1.8.0"/>1.8.0</a>"></a><a name="1.8.0"/>1.8.0</a>
 
-- Aggiunta del supporto per la funzionalità di durata (TTL) relativa ai documenti.
+ - Added the support for multi-region database accounts.
 
-###<a name="1.6.0"/>1.6.0</a>
+###<a name="<a-name="1.7.0"/>1.7.0</a>"></a><a name="1.7.0"/>1.7.0</a>
 
-- Implementazione delle [raccolte partizionate](documentdb-partition-data.md) e dei [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md).
+- Added the support for Time To Live(TTL) feature for documents.
 
-###<a name="1.5.6"/>1.5.6</a>
+###<a name="<a-name="1.6.0"/>1.6.0</a>"></a><a name="1.6.0"/>1.6.0</a>
 
-- Correzione del bug RangePartitionResolver.resolveForRead, relativo alla mancata restituzione di collegamenti a causa di un concatenamento non valido dei risultati.
+- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md).
 
-###<a name="1.5.5"/>1.5.5</a>
+###<a name="<a-name="1.5.6"/>1.5.6</a>"></a><a name="1.5.6"/>1.5.6</a>
 
-- Corretto hashParitionResolver resolveForRead(): quando la mancata indicazione di una chiave di partizione generava un'eccezione, invece di restituire un elenco di tutti i collegamenti registrati.
+- Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
 
-###<a name="1.5.4"/>1.5.4</a>
+###<a name="<a-name="1.5.5"/>1.5.5</a>"></a><a name="1.5.5"/>1.5.5</a>
 
-- Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di DocumentDB. Usare un agente dedicato per tutte le richieste della libreria.
+- Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
 
-###<a name="1.5.3"/>1.5.3</a>
+###<a name="<a-name="1.5.4"/>1.5.4</a>"></a><a name="1.5.4"/>1.5.4</a>
 
-- Correzione del problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81): gestione corretta dei trattini negli ID dei file multimediali.
+- Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for DocumentDB purposes. Use a dedicated agent for all of the lib’s requests.
 
-###<a name="1.5.2"/>1.5.2</a>
+###<a name="<a-name="1.5.3"/>1.5.3</a>"></a><a name="1.5.3"/>1.5.3</a>
 
-- Correzione del problema [n. 95](https://github.com/Azure/azure-documentdb-node/issues/95): avviso di perdita del listener EventEmitter.
+- Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.
 
-###<a name="1.5.1"/>1.5.1</a>
+###<a name="<a-name="1.5.2"/>1.5.2</a>"></a><a name="1.5.2"/>1.5.2</a>
 
-- Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
+- Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning.
 
-### <a name="1.5.0"/>1.5.0</a>
+###<a name="<a-name="1.5.1"/>1.5.1</a>"></a><a name="1.5.1"/>1.5.1</a>
 
-- Implementazione del supporto per il partizionamento orizzontale mediante l'aggiunta di resolver della partizione a intervalli e hash.
+- Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case sensitive systems.
 
-### <a name="1.4.0"/>1.4.0</a>
+### <a name="<a-name="1.5.0"/>1.5.0</a>"></a><a name="1.5.0"/>1.5.0</a>
 
-- Implementazione di Upsert. Nuovi metodi upsertXXX in documentClient.
+- Implement sharding support by adding hash & range partition resolvers.
 
-### <a name="1.3.0"/>1.3.0</a>
+### <a name="<a-name="1.4.0"/>1.4.0</a>"></a><a name="1.4.0"/>1.4.0</a>
 
-- Saltata per riallineare il numero di versione con altri SDK.
+- Implement Upsert. New upsertXXX methods on documentClient.
 
-### <a name="1.2.2"/>1.2.2</a>
+### <a name="<a-name="1.3.0"/>1.3.0</a>"></a><a name="1.3.0"/>1.3.0</a>
 
-- Divisione del wrapper Q promise per il nuovo repository
-- Aggiornamento del file del pacchetto del Registro di sistema npm
+- Skipped to bring version numbers in alignment with other SDKs.
 
-### <a name="1.2.1"/>1.2.1</a>
+### <a name="<a-name="1.2.2"/>1.2.2</a>"></a><a name="1.2.2"/>1.2.2</a>
 
-- Implementazione del routing basato su ID
-- Correzione del problema [n. 49](https://github.com/Azure/azure-documentdb-node/issues/49): conflitto tra la proprietà current e il metodo current().
+- Split Q promises wrapper to new repository.
+- Update to package file for npm registry.
 
-### <a name="1.2.0"/>1.2.0</a>
+### <a name="<a-name="1.2.1"/>1.2.1</a>"></a><a name="1.2.1"/>1.2.1</a>
 
-- Aggiunta del supporto per l'indice GeoSpatial
-- Convalida la proprietà id per tutte le risorse. Gli ID per le risorse non possono contenere i caratteri ?, /, #, &#47;&#47; o terminare con uno spazio.
-- Aggiunge la nuova intestazione "stato di trasformazione dell'indice" a ResourceResponse.
+- Implements ID Based Routing.
+- Fixes Issue [#49](https://github.com/Azure/azure-documentdb-node/issues/49) - current property conflicts with method current().
 
-### <a name="1.1.0"/>1.1.0</a>
+### <a name="<a-name="1.2.0"/>1.2.0</a>"></a><a name="1.2.0"/>1.2.0</a>
 
-- Implementazione del criterio di indicizzazione V2.
+- Added support for GeoSpatial index.
+- Validates id property for all resources. Ids for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
+- Adds new header "index transformation progress" to ResourceResponse.
 
-### <a name="1.0.3"/>1.0.3</a>
+### <a name="<a-name="1.1.0"/>1.1.0</a>"></a><a name="1.1.0"/>1.1.0</a>
 
-- Problema [n. 40](https://github.com/Azure/azure-documentdb-node/issues/40): implementazione delle configurazioni eslint e grunt nell'SDK core e promise.
+- Implements V2 indexing policy.
 
-### <a name="1.0.2"/>1.0.2</a>
+### <a name="<a-name="1.0.3"/>1.0.3</a>"></a><a name="1.0.3"/>1.0.3</a>
 
-- Problema [#45](https://github.com/Azure/azure-documentdb-node/issues/45): il wrapper promise non include l'intestazione con errore
+- Issue [#40] (https://github.com/Azure/azure-documentdb-node/issues/40) - Implemented eslint and grunt configurations in the core and promise SDK.
 
-### <a name="1.0.1"/>1.0.1</a>
+### <a name="<a-name="1.0.2"/>1.0.2</a>"></a><a name="1.0.2"/>1.0.2</a>
 
-- Implementazione della possibilità di eseguire query per i conflitti aggiungendo readConflicts, readConflictAsync e queryConflicts
-- Aggiornamento della documentazione relativa alle API
-- Problema [n. 41](https://github.com/Azure/azure-documentdb-node/issues/41): errore client.createDocumentAsync.
+- Issue [#45](https://github.com/Azure/azure-documentdb-node/issues/45) - Promises wrapper does not include header with error.
 
-### <a name="1.0.0"/>1.0.0</a>
+### <a name="<a-name="1.0.1"/>1.0.1</a>"></a><a name="1.0.1"/>1.0.1</a>
 
-- SDK con disponibilità generale.
+- Implemented ability to query for conflicts by adding readConflicts, readConflictAsync, and queryConflicts.
+- Updated API documentation.
+- Issue [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync error.
 
-## Date di rilascio e di ritiro
-Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
+### <a name="<a-name="1.0.0"/>1.0.0</a>"></a><a name="1.0.0"/>1.0.0</a>
 
-Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
+- GA SDK.
 
-Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata dal servizio.
+## <a name="release-&-retirement-dates"></a>Release & Retirement Dates
+Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+
+New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
+
+Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 > [AZURE.WARNING]
-Tutte le versioni dell'SDK per Node.js di Azure DocumentDB precedenti alla versione **1.0.0** verranno ritirate il **29 febbraio 2016**.
+All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **February 29, 2016**.
 
 <br/>
 
-| Versione | Data di rilascio | Data di ritiro 
-| ---	  | ---	         | ---
-| [1\.9.0](#1.9.0) | 07 luglio 2016 |--- 
-| [1\.8.0](#1.8.0) | 14 giugno 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 aprile 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |--- 
-| [1\.5.6](#1.5.6) | 08 marzo 2016 |--- 
-| [1\.5.5](#1.5.5) | 02 febbraio 2016 |--- 
-| [1\.5.4](#1.5.4) | 01 febbraio 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 gennaio 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 gennaio 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 gennaio 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 dicembre 2015 |--- 
-| [1\.4.0](#1.4.0) | 06 ottobre 2015 |--- 
-| [1\.3.0](#1.3.0) | 06 ottobre 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 settembre 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 agosto 2015 |--- 
-| [1\.2.0](#1.2.0) | 05 agosto 2015 |--- 
-| [1\.1.0](#1.1.0) | 09 luglio 2015 |--- 
-| [1\.0.3](#1.0.3) | 04 giugno 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 maggio 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 maggio 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 aprile 2015 |--- 
-| 0.9.4 - versione non definitiva | 06 aprile 2015 | 29 febbraio 2016 
-| 0.9.3 - versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016 
-| 0.9.2 - versione non definitiva | 18 dicembre 2014 | 29 febbraio 2016 
-| 0.9.1 - versione non definitiva | 22 agosto 2014 | 29 febbraio 2016 
-| 0.9.0 - versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
+| Version | Release Date | Retirement Date
+| ---     | ---          | ---
+| [1.10.0](#1.10.0) | October 03, 2016 |---
+| [1.9.0](#1.9.0) | July 07, 2016 |---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
+| [1.7.0](#1.7.0) | April 26, 2016 |---
+| [1.6.0](#1.6.0) | March 29, 2016 |---
+| [1.5.6](#1.5.6) | March 08, 2016 |---
+| [1.5.5](#1.5.5) | February 02, 2016 |---
+| [1.5.4](#1.5.4) | February 01, 2016 |---
+| [1.5.2](#1.5.2) | January 26, 2016 |---
+| [1.5.2](#1.5.2) | January 22, 2016 |---
+| [1.5.1](#1.5.1) | January 4, 2016 |---
+| [1.5.0](#1.5.0) | December 31, 2015 |---
+| [1.4.0](#1.4.0) | October 06, 2015 |---
+| [1.3.0](#1.3.0) | October 06, 2015 |---
+| [1.2.2](#1.2.2) | September 10, 2015 |---
+| [1.2.1](#1.2.1) | August 15, 2015 |---
+| [1.2.0](#1.2.0) | August 05, 2015 |---
+| [1.1.0](#1.1.0) | July 09, 2015 |---
+| [1.0.3](#1.0.3) | June 04, 2015 |---
+| [1.0.2](#1.0.2) | May 23, 2015 |---
+| [1.0.1](#1.0.1) | May 15, 2015 |---
+| [1.0.0](#1.0.0) | April 08, 2015 |---
+| 0.9.4-prerelease | April 06, 2015 | February 29, 2016
+| 0.9.3-prerelease | January 14, 2015 | February 29, 2016
+| 0.9.2-prerelease | December 18, 2014 | February 29, 2016
+| 0.9.1-prerelease | August 22, 2014 | February 29, 2016
+| 0.9.0-prerelease | August 21, 2014 | February 29, 2016
 
 
-## Domande frequenti
+## <a name="faq"></a>FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## Vedere anche
+## <a name="see-also"></a>See also
 
-Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

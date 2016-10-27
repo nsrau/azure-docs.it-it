@@ -1,9 +1,9 @@
 <properties
-  pageTitle="Controllo delle versioni SDK del client e del server in App per dispositivi mobili e Servizi mobili | Servizio app di Azure"
-  description="Elenco degli SDK del client e compatibilità con versioni SDK del server per Servizi mobili e App per dispositivi mobili di Azure"
+  pageTitle="Client and server SDK versioning in Mobile Apps and Mobile Services | Azure App Service"
+  description="List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna"
+  authors="adrianhall"
   manager="erikre"
   editor=""/>
 
@@ -13,24 +13,26 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="08/22/2016"
-  ms.author="donnam"/>
+  ms.date="10/01/2016"
+  ms.author="adrianha"/>
 
-# Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 
-La versione più recente di Servizi mobili di Azure è la funzionalità **App per dispositivi mobili** del Servizio app di Azure.
+# <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Client and server versioning in Mobile Apps and Mobile Services
 
-Gli SDK del client e del server di App per dispositivi mobili in origine si basano su quelle in Servizi mobili, ma *non* sono compatibili tra loro. Ovvero, è necessario utilizzare un SDK del client di *App per dispositivi mobili* con un SDK del server di *App per dispositivi mobili* e lo stesso vale per *Servizi mobili*. Questo contratto viene applicato tramite un valore di intestazione speciale utilizzato dagli SDK del client e del server, `ZUMO-API-VERSION`.
+The latest version of Azure Mobile Services is the **Mobile Apps** feature of Azure App Service.
 
-Nota: ogni volta che in questo documento si fa riferimento a un back-end di *Servizi mobili*, esso non deve necessariamente essere ospitato su Servizi mobili. È ora possibile eseguire la migrazione di un servizio mobile per l'esecuzione nel Servizio app senza apportare modifiche al codice, ma il servizio continuerà a utilizzare le versioni SDK di *Servizi mobili*.
+The Mobile Apps client and server SDKs are originally based on those in Mobile Services, but they are *not* compatible with each other.
+That is, you must use a *Mobile Apps* client SDK with a *Mobile Apps* server SDK and similarly for *Mobile Services*. This contract is enforced through a special header value used by the client and server SDKs, `ZUMO-API-VERSION`.
 
-Per ulteriori informazioni sulla migrazione al servizio app senza apportare modifiche al codice, vedere l'articolo [Eseguire la migrazione di un servizio mobile al servizio app di Azure].
+Note: whenever this document refers to a *Mobile Services* backend, it does not necessarily need to be hosted on Mobile Services. It is now possible to migrate a mobile service to run on App Service without any code changes, but the service would still be using *Mobile Services*  SDK versions.
 
-## Specifica di intestazione
+To learn more about migrating to App Service without any code changes, see the article [Migrate a Mobile Service to Azure App Service].
 
-La chiave `ZUMO-API-VERSION` può essere specificata nell'intestazione HTTP o nella stringa di query. Il valore è una stringa di versione nel formato **x.y.z**.
+## <a name="header-specification"></a>Header specification
 
-ad esempio:
+The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the query string. The value is a version string in the form **x.y.z**.
+
+For example:
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -38,104 +40,109 @@ HEADERS: ZUMO-API-VERSION: 2.0.0
 
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
-## Esclusione del controllo della versione
+## <a name="opting-out-of-version-checking"></a>Opting out of version checking
 
-È possibile rifiutare il controllo della versione impostando un valore **true** per l'impostazione dell’app **MS\_SkipVersionCheck**. Specificarlo nel file web.config o nella sezione Impostazioni applicazione del portale di Azure.
+You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure portal.
 
-> [AZURE.NOTE] Esistono una serie di modifiche di comportamento tra Servizi mobili e App per dispositivi mobili, in particolare per quanto riguarda la sincronizzazione offline, l’autenticazione e le notifiche push. È consigliabile rifiutare esplicitamente solo il controllo della versione dopo aver completato un test per assicurarsi che queste modifiche del comportamento non interferiscano con le funzionalità dell'applicazione.
+> [AZURE.NOTE] There are a number of behavior changes between Mobile Services and Mobile Apps, particularly in the areas of offline sync, authentication, and push notifications. You should only opt out of version checking after complete testing to ensure that these behavioral changes do not break your app's functionality.
 
-## Riepilogo della compatibilità per tutte le versioni
+## <a name="summary-of-compatibility-for-all-versions"></a>Summary of compatibility for all versions
 
-Il grafico seguente illustra la compatibilità tra tutti i tipi di client e server. Un back-end viene classificato come **Servizi** mobili o **App** per dispositivi mobili in base all'SDK del server usato.
+The chart below shows the compatibility between all client and server types. A backend is classified as either Mobile **Services** or Mobile **Apps** based on the server SDK that it uses.
 
-| | Node.js o .NET di **Servizi mobili** | Node.js o .NET di **App per dispositivi mobili** |
+|                           | **Mobile Services** Node.js or .NET | **Mobile Apps** Node.js or .NET |
 | ----------                | -----------------------             |   ----------------              |
-| [Client di Servizi mobili] | OK | Errore* |
-| [Client di App per dispositivi mobili] | Errore* | OK |
+| [Mobile Services clients] | Ok                                  | Error\*                         |
+| [Mobile Apps clients]     | Error\*                             | Ok                              |
 
-*Può essere controllato specificando **MS\_SkipVersionCheck**.
+\*This can be controlled by specifying **MS_SkipVersionCheck**.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="1.0.0"></a>Client e server di Servizi mobili
+## <a name="<a-name="1.0.0"></a>mobile-services-client-and-server"></a><a name="1.0.0"></a>Mobile Services client and server
 
-Gli SDK del client nella tabella seguente sono compatibili con **Servizi mobili**.
+The client SDKs in the table below are compatible with **Mobile Services**.
 
-Nota: gli SDK del client di Servizi mobili *non* invia un valore di intestazione per `ZUMO-API-VERSION`. Se il servizio riceve questo valore di intestazione o di stringa di query, verrà restituito un errore, a meno che non lo si abbia rifiutato in modo esplicito come descritto sopra.
+Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSION`. If the service receives this header or query string value, an error will be returned, unless you have explicitly opted out as described above.
 
-### <a name="MobileServicesClients"></a>SDK del client di *Servizi* mobili
+### <a name="<a-name="mobileservicesclients"></a>-mobile-*services*-client-sdks"></a><a name="MobileServicesClients"></a> Mobile *Services* client SDKs
 
-| Piattaforma client | Versione | Valore dell'intestazione della versione |
+| Client platform                   | Version                                                                   | Version header value |
 | -------------------               | ------------------------                                                  | -------------------  |
-| Client gestito (Windows, Xamarin) | [1\.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | n/d |
-| iOS | [2\.2.2](http://aka.ms/gc6fex) | n/d |
-| Android | [2\.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) | n/d |
-| HTML | [1\.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | n/d |
+| Managed client (Windows, Xamarin) | [1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | n/a                  |
+| iOS                               | [2.2.2](http://aka.ms/gc6fex)                                             | n/a                  |
+| Android                           | [2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126)                   | n/a                  |
+| HTML                              | [1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | n/a     |
 
-### SDK del server di *Servizi* mobili
+### <a name="mobile-*services*-server-sdks"></a>Mobile *Services* server SDKs
 
-| Piattaforma server | Versione | Intestazione della versione accettata |
+| Server platform  | Version                                                                                                        | Accepted version header |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nessuna intestazione di versione** |
-| Node.js | (Presto disponibile) | **Nessuna intestazione di versione** |
+| .NET             | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **No version header ** |
+| Node.js          | (coming soon)                        | **No version header** |
 
 <!-- TODO: add Node npm version -->
 
-### Comportamento dei back-end di Servizi mobili
+### <a name="behavior-of-mobile-services-backends"></a>Behavior of Mobile Services backends
 
-| ZUMO-API-VERSION | Valore di MS\_SkipVersionCheck | Response |
+| ZUMO-API-VERSION | Value of MS_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
-| Non specificato | Qualsiasi | 200 - OK |
-| Qualsiasi valore | True | 200 - OK |
-| Qualsiasi valore | False/Non specificato | 400 - Richiesta non valida |
+| Not specified    | Any                          | 200 - OK |
+| Any value        | True                         | 200 - OK |
+| Any value        | False/Not Specified          | 400 - Bad Request |
 
-## <a name="2.0.0"></a>Client e server di App per dispositivi mobili di Azure
+## <a name="<a-name="2.0.0"></a>azure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Azure Mobile Apps client and server
 
-### <a name="MobileAppsClients"></a>SDK del client di *App* per dispositivi mobili
+### <a name="<a-name="mobileappsclients"></a>-mobile-*apps*-client-sdks"></a><a name="MobileAppsClients"></a> Mobile *Apps* client SDKs
 
-Il controllo della versione è stata introdotta a partire dalle seguenti versioni dell’SDK del client per **App per dispositivi mobili di Azure**:
+Version checking was introduced starting with the following versions of the client SDK for **Azure Mobile Apps**:
 
-| Piattaforma client | Versione | Valore dell'intestazione della versione |
+| Client platform                   | Version                   | Version header value |
 | -------------------               | ------------------------  | -----------------    |
-| Client gestito (Windows, Xamarin) | [2\.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2\.0.0 |
-| iOS | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
-| Android | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3\.0.0 |
+| Managed client (Windows, Xamarin) | [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2.0.0 |
+| iOS                               | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2.0.0  |
+| Android                           | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3.0.0 |
 
 <!-- TODO: add HTML version when released -->
 
-### SDK del server di *App* per dispositivi mobili
+### <a name="mobile-*apps*-server-sdks"></a>Mobile *Apps* server SDKs
 
-Il controllo della versione è incluso nelle seguenti versioni dell’SDK del server:
+Version checking is included in following server SDK versions:
 
-| Piattaforma server | SDK | Intestazione della versione accettata |
+| Server platform  | SDK                                                                                                        | Accepted version header |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
-| Node.js | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
+| .NET             | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
+| Node.js          | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
 
-### Comportamento dei back-end di app per dispositivi mobili
+### <a name="behavior-of-mobile-apps-backends"></a>Behavior of Mobile Apps backends
 
-| ZUMO-API-VERSION | Valore di MS\_SkipVersionCheck | Response |
+| ZUMO-API-VERSION | Value of MS_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
-| x.y.z o Null | True | 200 - OK |
-| Null | False/Non specificato | 400 - Richiesta non valida |
-| 1\.x.y | False/Non specificato | 400 - Richiesta non valida |
-| 2\.0.0-2.x.y | False/Non specificato | 200 - OK |
-| 3\.0.0-3.x.y | False/Non specificato | 400 - Richiesta non valida |
+| x.y.z or Null    | True                         | 200 - OK |
+| Null             | False/Not Specified          | 400 - Bad Request |
+| 1.x.y            | False/Not Specified          | 400 - Bad Request |
+| 2.0.0-2.x.y      | False/Not Specified          | 200 - OK |
+| 3.0.0-3.x.y      | False/Not Specified          | 400 - Bad Request |
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next Steps
 
-- [Eseguire la migrazione di un Servizio mobile al Servizio app di Azure]
+- [Migrate a Mobile Service to Azure App Service]
 
 
-[Client di Servizi mobili]: #MobileServicesClients
-[Client di App per dispositivi mobili]: #MobileAppsClients
+[Mobile Services clients]: #MobileServicesClients
+[Mobile Apps clients]: #MobileAppsClients
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate a Mobile Service to Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

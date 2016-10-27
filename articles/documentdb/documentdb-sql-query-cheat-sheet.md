@@ -1,46 +1,50 @@
 <properties 
-	pageTitle="Foglio informativo in formato PDF di SQL per DocumentDB | Microsoft Azure" 
-	description="Un foglio informativo con estensione pdf sulle query SQL stampabile che consente di usare la sintassi in stile SQL di DocumentDB per eseguire query in documenti JSON nel database NoSQL - Riferimento rapido di SQL" 
-	keywords="foglio informativo SQL, pdf foglio informativo sql , foglio informativo query sql"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="DocumentDB SQL cheat sheet PDF | Microsoft Azure" 
+    description="Printable SQL cheat sheet PDF that helps you use DocumentDB's SQL syntax to query JSON documents in its NoSQL database - SQL quick reference" 
+    keywords="sql cheat sheet, sql cheat sheet pdf, sql query cheat sheet"
+    services="documentdb" 
+    documentationCenter="" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2016" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/29/2016" 
+    ms.author="mimig"/>
 
-# Foglio informativo PDF sulle query SQL di DocumentDB
 
-Il **Foglio informativo sulle query SQL di DocumentDB** consente di scrivere rapidamente query per i dati di DocumentDB tramite la visualizzazione di query del database, parole chiave, funzioni integrate e operatori comuni in un foglio di riferimento PDF facile stampare.
+# <a name="documentdb-sql-query-cheat-sheet-pdf"></a>DocumentDB SQL query cheat sheet PDF
 
-DocumentDB supporta l'esecuzione di query relazionali, gerarchiche e spaziali dei documenti JSON utilizzando [SQL](documentdb-sql-query.md) senza specificare uno schema o indici secondari. Oltre alle parole chiave e agli operatori standard ANSI SQL, DocumentDB supporta funzioni definite dall'utente (UDF) di JavaScript, operatori JavaScript e una vasta gamma di funzioni predefinite.
+The **DocumentDB SQL Query Cheat Sheet** helps you quickly write queries for DocumentDB data by displaying common  database queries, keywords, built-in functions, and operators in an easy to print PDF reference sheet. 
 
-## Scaricare il foglio informativo PDF sulle query SQL di DocumentDB
+DocumentDB supports relational, hierarchical,  and spatial querying of JSON documents using [SQL](documentdb-sql-query.md) without specifying a schema or secondary indexes. In addition to the standard ANSI-SQL keywords and operators, DocumentDB supports JavaScript user defined functions (UDFs), JavaScript operators, and a multitude of built-in functions.
 
-È possibile scrivere le query più velocemente scaricando il foglio informativo sulle query SQL e utilizzandolo come riferimento rapido. Il foglio informativo SQL in formato PDF mostra query SQL comuni utilizzate per recuperare dati da due documenti JSON di esempio. Per mantenerlo a portata di mano, è possibile stampare il foglio informativo sulle query SQL su un solo lato su pagina di dimensione Lettera (8,5 x 11 pollici).
+## <a name="download-the-documentdb-sql-query-cheat-sheet-pdf"></a>Download the DocumentDB SQL query cheat sheet PDF
 
-**Scaricare qui il foglio informativo SQL: [foglio informativo SQL di Microsoft Azure DocumentDB](http://go.microsoft.com/fwlink/?LinkId=623215)**
+Write your queries faster by downloading the SQL query cheat sheet and using it as a quick reference. The SQL cheat sheet PDF shows common queries used to retrieve data from two example JSON documents. To keep it nearby, you can print the single-sided SQL query cheat sheet in page letter size (8.5 x 11 in.).
 
-![Foglio informativo sulle query SQL di DocumentDB: un riferimento rapido PDF per la sintassi SQL supportata da DocumentDB - foglio informativo SQL, foglio informativo SQL PDF, riferimento rapido SQL][cheat-sheet]
+**Download the SQL cheat sheet here: [Microsoft Azure DocumentDB SQL cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215)**
+
+![DocumentDB SQL query cheat sheet: A quick reference PDF to the SQL syntax supported by DocumentDB - SQL cheat sheet, SQL cheat sheet PDF, SQL quick reference][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
 
 
-## Ulteriore assistenza nella scrittura di query SQL
+## <a name="more-help-with-writing-sql-queries"></a>More help with writing SQL queries
 
-- Per un esplorare le opzioni delle query disponibili in DocumentDB, vedere [Query di DocumentDB](documentdb-sql-query.md).
-- Per la documentazione di riferimento correlata, vedere [Linguaggio delle query SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+- For a walk through of the query options available in DocumentDB, see [Query DocumentDB](documentdb-sql-query.md).
+- For the related reference documentation, see [DocumentDB SQL Query Language](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-## Note sulla versione
+## <a name="release-notes"></a>Release notes
 
-Aggiornata il 29/7/2016 per includere TOP.
+Updated on 7/29/2016 to include TOP.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,20 +1,23 @@
-È necessario creare un endpoint con carico bilanciato per ogni macchina virtuale che ospita una replica di Azure. Se si dispongono di repliche in più aree, ogni replica per tale area deve essere nello stesso servizio cloud nella stessa rete virtuale. Le repliche di creazione del gruppo di disponibilità che si estendono su più aree di Azure richiedono la configurazione di più reti virtuali. Per ulteriori informazioni sulla configurazione della connettività tra reti virtuali, vedere[configurare connettività tra reti virtuali](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-1. Nel portale di Azure, passare a ogni macchina virtuale che ospita una replica e visualizzare i dettagli.
+1. In the Azure portal, navigate to each VM hosting a replica and view the details.
 
-1. Scegliere la scheda **Endpoint**per ognuna delle macchine virtuali.
+1. Click the **Endpoints** tab for each of the VMs.
 
-1. Verificare che **Nome**e**Porta pubblica** dell’endpoint del listener che si desidera utilizzare non siano già in uso. Nell'esempio seguente, il nome è "MyEndpoint" e la porta è "1433".
+1. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is “MyEndpoint” and the port is “1433”.
 
-1. Nel client locale, scaricare e installare[l'ultimo modulo PowerShell](https://azure.microsoft.com/downloads/).
+1. On your local client, download and install [the latest PowerShell module](https://azure.microsoft.com/downloads/).
 
-1. Avviare **Azure PowerShell**. Viene aperta una nuova sessione di PowerShell con i moduli amministrativi di Azure caricati.
+1. Launch **Azure PowerShell**. A new PowerShell session is opened with the Azure administrative modules loaded.
 
-1. Eseguire**Get-AzurePublishSettingsFile**. Questo cmdlet conduce a un browser per scaricare un file di impostazioni di pubblicazione in una directory locale. Se richiesto, immettere le credenziali di accesso per la sottoscrizione di Azure.
+1. Run **Get-AzurePublishSettingsFile**. This cmdlet directs you to a browser to download a publish settings file to a local directory. You may be prompted for your log-in credentials for your Azure subscription.
 
-1. Eseguire il comando**Import-AzurePublishSettingsFile** con il percorso del file di impostazioni di pubblicazione che si è scaricato:
+1. Run the **Import-AzurePublishSettingsFile** command with the path of the publish settings file that you downloaded:
 
-		Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
-	Una volta importato il file di impostazioni di pubblicazione, è possibile gestire la sottoscrizione di Azure nella sessione di PowerShell.
-<!----HONumber=AcomDC_0128_2016-->
+    Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
+
+<!--HONumber=Oct16_HO2-->
+
+

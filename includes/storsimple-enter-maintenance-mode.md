@@ -1,17 +1,20 @@
 <!--author=SharS last changed: 12/01/15-->
 
-#### Per attivare la modalità di manutenzione
+#### <a name="to-enter-maintenance-mode"></a>To enter Maintenance mode
 
-1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
+1. In the serial console menu, choose option 1, **Log in with full access**.
 
-2. Digitare la password. La password predefinita è **Password1**.
+2. Type the password. The default password is **Password1**.
 
-3. Al prompt dei comandi digitare
+3. At the command prompt, type
 
      `Enter-HcsMaintenanceMode`
 
-4. Verrà visualizzato un messaggio di avviso indicante che la modalità di manutenzione interromperà tutte le richieste I/O e la connessione al portale di Azure classico e verrà richiesto di confermare che si desidera procedere. Digitare **Y** per attivare la modalità di manutenzione.
+4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
 
-    Entrambi i controller verranno riavviati. Una volta completato il riavvio, verrà visualizzato un altro messaggio che indica che il dispositivo è in modalità di manutenzione.
+    Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Maintenance mode.
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

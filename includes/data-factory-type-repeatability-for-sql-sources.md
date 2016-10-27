@@ -1,72 +1,75 @@
-## Ripetibilità durante la copia
+## <a name="repeatability-during-copy"></a>Repeatability during Copy
 
-Quando si copiano dati in un database di SQL Server/SQL di Azure da altri archivi dati, è necessario definire criteri di ripetibilità per evitare risultati imprevisti.
+When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
 
-Quando si copiano dati in un database SQL Server/SQL di Azure, per impostazione predefinita l'attività di copia ACCODA il set di dati alla tabella di sink predefinita. Ad esempio, quando si copiano dati da un'origine file con estensione csv (valori delimitati da virgole) composta da due record in un database di SQL Server/SQL di Azure, la tabella assume l'aspetto seguente:
-	
-	ID	Product		Quantity	ModifiedDate
-	...	...			...			...
-	6	Flat Washer	3			2015-05-01 00:00:00
-	7 	Down Tube	2			2015-05-01 00:00:00
+When copying data to Azure SQL/SQL Server Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:
+    
+    ID  Product     Quantity    ModifiedDate
+    ... ...         ...         ...
+    6   Flat Washer 3           2015-05-01 00:00:00
+    7   Down Tube   2           2015-05-01 00:00:00
 
-Si supponga di aver trovato degli errori nel file di origine e di aver aggiornato la quantità di Down Tube da 2 a 4 nel file di origine. Se si esegue nuovamente la sezione di dati per quel periodo, saranno disponibili due nuovi record accodati al database di SQL Server/SQL di Azure. L'esempio seguente presuppone che in nessuna delle colonne della tabella sia presente il vincolo di chiave primaria.
-	
-	ID	Product		Quantity	ModifiedDate
-	...	...			...			...
-	6	Flat Washer	3			2015-05-01 00:00:00
-	7 	Down Tube	2			2015-05-01 00:00:00
-	6	Flat Washer	3			2015-05-01 00:00:00
-	7 	Down Tube	4			2015-05-01 00:00:00
+Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file. If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL/SQL Server Database. The below assumes none of the columns in the table have the primary key constraint.
+    
+    ID  Product     Quantity    ModifiedDate
+    ... ...         ...         ...
+    6   Flat Washer 3           2015-05-01 00:00:00
+    7   Down Tube   2           2015-05-01 00:00:00
+    6   Flat Washer 3           2015-05-01 00:00:00
+    7   Down Tube   4           2015-05-01 00:00:00
 
-Per evitare questa situazione, è necessario specificare la semantica UPSERT usando uno dei due meccanismi illustrati di seguito.
+To avoid this, you will need to specify UPSERT semantics by leveraging one of the below 2 mechanisms stated below.
 
-> [AZURE.NOTE] In base ai criteri di ripetizione dei tentativi specificati, è possibile ripetere automaticamente l'esecuzione di una sezione anche in Data Factory di Azure.
+> [AZURE.NOTE] A slice can be re-run automatically in Azure Data Factory as per the retry policy specified.
 
-### Meccanismo 1
+### <a name="mechanism-1"></a>Mechanism 1
 
-È possibile usare la proprietà **sqlWriterCleanupScript** per eseguire un'azione di pulizia prima dell'esecuzione di una sezione.
+You can leverage **sqlWriterCleanupScript** property to first perform cleanup action when a slice is run. 
 
-	"sink":  
-	{ 
-	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate >= \\'{0:yyyy-MM-dd HH:mm}\\' AND ModifiedDate < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-	}
+    "sink":  
+    { 
+      "type": "SqlSink", 
+      "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate >= \\'{0:yyyy-MM-dd HH:mm}\\' AND ModifiedDate < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+    }
 
-In questo caso, durante la copia di una sezione viene prima eseguito uno script di pulizia che elimina i dati dalla tabella SQL corrispondente alla sezione. L'attività di copia inserirà i dati nella tabella SQL in un momento successivo.
+The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice. The activity will subsequently insert the data into the SQL Table. 
 
-Se la sezione viene eseguita nuovamente, la quantità risulterà aggiornata come desiderato.
-	
-	ID	Product		Quantity	ModifiedDate
-	...	...			...			...
-	6	Flat Washer	3			2015-05-01 00:00:00
-	7 	Down Tube	4			2015-05-01 00:00:00
+If the slice is now re-run, then you will find the quantity is updated as desired.
+    
+    ID  Product     Quantity    ModifiedDate
+    ... ...         ...         ...
+    6   Flat Washer 3           2015-05-01 00:00:00
+    7   Down Tube   4           2015-05-01 00:00:00
 
-Si supponga, ad esempio, che il record Flat Washer venga rimosso dal file con estensione csv originale. Se la sezione viene eseguita nuovamente, si ottiene il risultato seguente:
-	
-	ID	Product		Quantity	ModifiedDate
-	...	...			...			...
-	7 	Down Tube	4			2015-05-01 00:00:00
+Suppose the Flat Washer record is removed from the original csv. Then re-running the slice would produce the following result: 
+    
+    ID  Product     Quantity    ModifiedDate
+    ... ...         ...         ...
+    7   Down Tube   4           2015-05-01 00:00:00
 
-Nessuna nuova operazione è stata eseguita. L'attività di copia ha eseguito lo script di pulizia per eliminare i dati corrispondenti alla sezione. Quindi, ha letto l'input dal CSV (che conteneva solo 1 record) e lo ha inserito nella tabella.
+Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table. 
 
-### Meccanismo 2
-> [AZURE.IMPORTANT] Attualmente sliceIdentifierColumnName non è supportato per SQL Data Warehouse di Azure.
+### <a name="mechanism-2"></a>Mechanism 2
+> [AZURE.IMPORTANT] sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. 
 
-Un altro meccanismo per ottenere la ripetibilità prevede la disponibilità di una colonna dedicata (**sliceIdentifierColumnName**) nella tabella di destinazione. Questa colonna viene usata da Data factory di Azure per garantire che l'origine e la destinazione rimangano sincronizzate. Questo approccio può essere usato solo quando è disponibile una certa flessibilità nella modifica o nella definizione dello schema della tabella SQL di destinazione.
+Another mechanism to achieve repeatability is by having a dedicated column (**sliceIdentifierColumnName**) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
 
-La colonna viene usata da Data factory di Azure per scopi di ripetibilità e nel corso del processo Data factory di Azure non apporterà alcuna modifica allo schema della tabella. Per applicare questo approccio, è possibile seguire questa procedura:
+This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table. Way to use this approach:
 
-1.	Definire una colonna di tipo binario (32) nella tabella SQL di destinazione, in cui non sia presente alcun vincolo. Ai fini di questo esempio, la colonna viene denominata "ColumnForADFuseOnly".
-2.	Usarla nell'attività di copia come segue:
+1.  Define a column of type binary (32) in the destination SQL Table. There should be no constraints on this column. Let's name this column as ‘ColumnForADFuseOnly’ for this example.
+2.  Use it in the copy activity as follows:
 
-		"sink":  
-		{ 
-		  "type": "SqlSink", 
-		  "sliceIdentifierColumnName": "ColumnForADFuseOnly"
-		}
+        "sink":  
+        { 
+          "type": "SqlSink", 
+          "sliceIdentifierColumnName": "ColumnForADFuseOnly"
+        }
 
-Data factory di Azure popolerà la colonna in modo che l'origine e la destinazione risultino sincronizzate. L'utente non potrà usare i valori della colonna al di fuori di questo contesto.
+Azure Data Factory will populate this column as per its need to ensure the source and destination stay synchronized. The values of this column should not be used outside of this context by the user. 
 
-Analogamente al meccanismo 1, l'attività di copia pulisce prima i dati della sezione specificata dalla tabella SQL di destinazione, quindi esegue normalmente l'attività di copia per inserire i dati dall'origine alla destinazione della sezione.
+Similar to mechanism 1, Copy Activity will automatically first clean up the data for the given slice from the destination SQL Table and then run the copy activity normally to insert the data from source to destination for that slice. 
 
-<!---HONumber=AcomDC_0330_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

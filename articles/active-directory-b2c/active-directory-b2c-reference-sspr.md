@@ -1,44 +1,49 @@
 <properties
-	pageTitle="Azure Active Directory B2C: reimpostazione password self-service | Microsoft Azure"
-	description="Un argomento che dimostra come configurare la reimpostazione della password self-service per gli utenti in Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C: Self-service password reset | Microsoft Azure"
+    description="A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
 
-# Azure Active Directory B2C: configurare la reimpostazione password self-service per gli utenti
 
-La funzione di reimpostazione password self-service consente agli utenti che hanno effettuato la registrazione agli account locali di reimpostare le password in modo indipendente. Questo riduce notevolmente il carico per lo staff di supporto, soprattutto se l'applicazione dispone di milioni di clienti che la utilizzano regolarmente. Attualmente, è supportato solo l’utilizzo di un indirizzo di posta elettronica verificato come metodo di ripristino. Verranno aggiunti metodi di ripristino aggiuntivi (numero di telefono verificato, domande di sicurezza e così via) in futuro.
+# <a name="azure-active-directory-b2c:-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Set up self-service password reset for your consumers
 
-> [AZURE.NOTE]
-Questo articolo si applica alla reimpostazione delle password self-service nel contesto di un criterio di accesso. Se è necessario richiamare dall'app criteri di reimpostazione delle password completamente personalizzabili, vedere [questo articolo](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
-
-Per impostazione predefinita, la directory non avrà la reimpostazione password self-service attivata. Usare i passaggi seguenti per attivarla:
-
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto d'istruzione o dello stesso account Microsoft usato per la creazione della directory.
-2. Passare all'estensione Active Directory sulla barra di spostamento sul lato sinistro.
-3. Trovare la directory nella scheda **Directory** e selezionarla.
-4. Fare clic sulla scheda **Configure**.
-5. Scorrere verso il basso fino alla sezione **Criteri di reimpostazione password utente** e impostare l'opzione **Utenti abilitati per la reimpostazione della password** su **SÌ**. Si noti che l'opzione **Indirizzo di posta elettronica alternativo** è selezionata. Non modificarla.
-
-    ![Reimpostazione della password self-service](./media/active-directory-b2c-reference-sspr/sspr.png)
-
-6. Fare clic su **Save** nella parte inferiore della pagina. L'operazione è completata.
-
-Per eseguire il test, usare la funzionalità "Esegui adesso" in ogni criterio di accesso che include gli account locali come provider di identità. Nella pagina di accesso dell'account locale in cui si immettono l'indirizzo di posta elettronica e la password o il nome utente e la password, fare clic su **Problemi di accesso all'account?** per verificare l'esperienza dell'utente.
+With the self-service password reset feature, your consumers (who have signed up for local accounts) can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of consumers using it on a regular basis. Currently, we only support using a verified email address as a recovery method. We will add additional recovery methods (verified phone number, security questions, etc.) in the future.
 
 > [AZURE.NOTE]
-Le pagine di reimpostazione della password self-service possono essere personalizzate con la [funzionalità di aggiunta di informazioni distintive dell'azienda](../active-directory/active-directory-add-company-branding.md).
+This article applies to self-service password reset used in the context of a sign-in policy. If you need fully customizable password reset policies invoked from your app, see [this article](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 
-<!---HONumber=AcomDC_0727_2016-->
+By default, your directory will not have self-service password reset turned on. Use the following steps to turn it on:
+
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
+2. Navigate to the Active Directory extension on the navigation bar on the left side.
+3. Find your directory under the **Directory** tab and click it.
+4. Click the **Configure** tab.
+5. Scroll down to the **User password reset policy** section and toggle the **Users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as it is.
+
+    ![Self-service password reset](./media/active-directory-b2c-reference-sspr/sspr.png)
+
+6. Click **Save** at the bottom of the page. You're done!
+
+To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the consumer experience.
+
+> [AZURE.NOTE]
+The self-service password reset pages can be customized by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

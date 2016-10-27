@@ -1,138 +1,139 @@
 <properties 
-	pageTitle="Come usare le proprietà nei criteri di Gestione API di Azure" 
-	description="Informazioni su come usare le proprietà nei criteri di Gestione API di Azure" 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to use properties in Azure API Management policies" 
+    description="Learn how to use properties in Azure API Management policies." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>  
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
 
-# Come usare le proprietà nei criteri di Gestione API di Azure
 
-I criteri di Gestione API sono una potente funzionalità del sistema che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Per creare istruzioni dei criteri è possibile usare valori di testo, espressioni di criteri e proprietà.
+# <a name="how-to-use-properties-in-azure-api-management-policies"></a>How to use properties in Azure API Management policies
 
-Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di coppie chiave/valore globali per l'istanza stessa. Queste proprietà possono essere usate per gestire i valori stringa costanti all'interno dell'intera configurazione e di tutti i criteri delle API. Ogni proprietà ha gli attributi seguenti.
+API Management policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and properties. 
+
+Each API Management service instance has a properties collection of key/value pairs that are global to the service instance. These properties can be used to manage constant string values across all API configuration and policies. Each property has the following attributes.
 
 
-| Attributo | Tipo | Descrizione |
+| Attribute | Type            | Description                                                                                             |
 |-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Name | stringa | Nome della proprietà. Può contenere solo lettere, cifre, punti, trattini e caratteri di sottolineatura. |
-| Valore | stringa | Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
-| Segreto | boolean | Determina se il valore è un segreto e se deve essere crittografato. |
-| Tag | matrice di valori string | Facoltativi. Quando specificati possono essere usati per filtrare l'elenco delle proprietà. |
+| Name      | string          | The name of the property. It may contain only letters, digits, period, dash, and underscore characters. |
+| Value     | string          | The value of the property. It may not be empty or consist only of whitespace.                           |
+| Secret    | boolean         | Determines whether the value is a secret and should be encrypted or not.                                |
+| Tags      | array of string | Optional tags that when provided can be used to filter the property list.                               |
 
-Le proprietà vengono configurate nel portale di pubblicazione nella scheda **Properties**. Nell'esempio seguente, sono configurate tre proprietà.
+Properties are configured in the publisher portal on the **Properties** tab. In the following example, three properties are configured.
 
-![Proprietà][api-management-properties]
+![Properties][api-management-properties]
 
-I valori delle proprietà possono contenere stringhe letterali ed [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx). Nella tabella seguente sono mostrate le tre proprietà di esempio precedenti e i relativi attributi. Il valore di `ExpressionProperty` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. La proprietà `ContosoHeaderValue` è contrassegnata come un segreto, quindi il valore corrispondente non viene visualizzato.
+Property values can contain literal strings and [policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx). The following table shows the previous three sample properties and their attributes. The value of `ExpressionProperty` is a policy expression that returns a string containing the current date and time. The property `ContosoHeaderValue` is marked as a secret, so its value is not displayed.
 
-| Name | Valore | Segreto | Tag |
+| Name               | Value                      | Secret | Tags    |
 |--------------------|----------------------------|--------|---------|
-| ContosoHeader | TrackingId | False | Contoso |
-| ContosoHeaderValue | •••••••••••••••••••••• | True | Contoso |
-| ExpressionProperty | @(DateTime.Now.ToString()) | False | |
+| ContosoHeader      | TrackingId                 | False  | Contoso |
+| ContosoHeaderValue | ••••••••••••••••••••••     | True   | Contoso |
+| ExpressionProperty | @(DateTime.Now.ToString()) | False  |         |
 
-## Per usare una proprietà
+## <a name="to-use-a-property"></a>To use a property
 
-Per usare una proprietà di un criterio, inserire il nome della proprietà all'interno di parentesi graffe doppie, ad esempio `{{ContosoHeader}}`, come illustrato nell'esempio seguente.
+To use a property in a policy, place the property name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example.
 
-	<set-header name="{{ContosoHeader}}" exists-action="override">
+    <set-header name="{{ContosoHeader}}" exists-action="override">
       <value>{{ContosoHeaderValue}}</value>
     </set-header>
 
-In questo esempio, la proprietà `ContosoHeader` viene usata come nome di un'intestazione in un criterio `set-header` e la proprietà `ContosoHeaderValue` viene usata come valore di tale intestazione. Quando questo criterio viene valutato durante una richiesta o una risposta al gateway di Gestione API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` vengono sostituiti dai valori delle rispettive proprietà.
+In this example, `ContosoHeader` is used as the name of a header in a `set-header` policy, and `ContosoHeaderValue` is used as the value of that header. When this policy is evaluated during a request or response to the API Management gateway, `{{ContosoHeader}}` and `{{ContosoHeaderValue}}` are replaced with their respective property values.
 
-Le proprietà possono essere usate come valori completi di attributo o di elemento, come illustrato nell'esempio precedente, ma possono anche essere inserite all'interno di un'espressione di testo o combinate con una parte di un'espressione di testo, come illustrato nell'esempio seguente: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Properties can be used as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expression as shown in the following example: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
-Le proprietà possono anche contenere espressioni di criteri. Nell'esempio seguente viene usata la proprietà `ExpressionProperty`.
+Properties can also contain policy expressions. In the following example, the `ExpressionProperty` is used.
 
-	<set-header name="CustomHeader" exists-action="override">
-		<value>{{ExpressionProperty}}</value>
-	</set-header>
+    <set-header name="CustomHeader" exists-action="override">
+        <value>{{ExpressionProperty}}</value>
+    </set-header>
 
-Quando questo criterio viene valutato, `{{ExpressionProperty}}` viene sostituito dal valore corrispondente: `@(DateTime.Now.ToString())`. Poiché il valore è un'espressione di criteri, l'espressione viene valutata e il criterio passa alla fase di esecuzione.
+When this policy is evaluated, `{{ExpressionProperty}}` is replaced with its value: `@(DateTime.Now.ToString())`. Since the value is a policy expression, the expression is evaluated and the policy proceeds with its execution.
 
-È possibile eseguire un test nel portale per sviluppatori chiamando un'operazione il cui ambito contiene un criterio con proprietà. Nell'esempio seguente viene chiamata un'operazione che contiene i due criteri di esempio precedenti `set-header` con proprietà. Si noti che la risposta contiene due intestazioni personalizzate configurate tramite criteri con proprietà.
+You can test this out in the developer portal by calling an operation that has a policy with properties in scope. In the following example, an operation is called with the two previous example `set-header` policies with properties. Note that the response contains two custom headers that were configured using policies with properties.
 
-![Portale per sviluppatori][api-management-send-results]
+![Developer portal][api-management-send-results]
 
-Se si osserva la [traccia di Controllo API](api-management-howto-api-inspector.md) relativa a una chiamata che include i due criteri con proprietà degli esempi precedenti, è possibile vedere i due criteri `set-header` con i valori delle proprietà inseriti, nonché la valutazione delle espressioni dei criteri per la proprietà che contiene l'espressione.
+If you look at the [API Inspector trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with properties, you can see the two `set-header` policies with the property values inserted as well as the policy expression evaluation for the property that contained the policy expression.
 
-![Traccia di Controllo API][api-management-api-inspector-trace]
+![API Inspector trace][api-management-api-inspector-trace]
 
-Si noti che mentre i valori delle proprietà possono contenere espressioni di criteri, i valori delle proprietà non possono contenere altre proprietà. Se il testo che contiene un riferimento a una proprietà viene usato come valore di una proprietà, ad esempio `Property value text {{MyProperty}}`, tale riferimento alla proprietà non viene sostituito e viene incluso come parte del valore della proprietà.
+Note that while property values can contain policy expressions, property values can't contain other properties. If text containing a property reference is used for a property value, such as `Property value text {{MyProperty}}`, that property reference won't be replaced and will be included as part of the property value.
 
-## Per creare una proprietà
+## <a name="to-create-a-property"></a>To create a property
 
-Per creare una proprietà, fare clic su **Add property** sulla scheda **Properties**.
+To create a property, click **Add property** on the **Properties** tab.
 
-![Aggiungi proprietà][api-management-properties-add-property-menu]
+![Add property][api-management-properties-add-property-menu]
 
-**Name** e **Value** sono valori obbligatori. Se il valore della proprietà è un segreto, selezionare la casella di controllo **This is a secret**. Immettere uno o più tag facoltativi per organizzare le proprietà, quindi fare clic su **Save**.
+**Name** and **Value** are required values. If this property value is a secret, check the **This is a secret** checkbox. Enter one or more optional tags to help with organizing your properties, and click **Save**.
 
-![Aggiungi proprietà][api-management-properties-add-property]
+![Add property][api-management-properties-add-property]
 
-Quando si salva una nuova proprietà, la casella di testo di **ricerca di proprietà** viene popolata con il nome della nuova proprietà e la nuova proprietà viene visualizzata. Per visualizzare tutte le proprietà, cancellare il contenuto della casella di testo di **ricerca di proprietà** e premere INVIO.
+When a new property is saved, the **Search property** textbox is populated with the name of the new property and the new property is displayed. To display all properties, clear the **Search property** textbox and press enter.
 
-![Proprietà][api-management-properties-property-saved]
+![Properties][api-management-properties-property-saved]
 
-Per informazioni sulla creazione di una proprietà tramite l'API REST, vedere la [pagina relativa alla creazione di una proprietà tramite l'API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
+For information on creating a property using the REST API, see [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
-## Per modificare una proprietà
+## <a name="to-edit-a-property"></a>To edit a property
 
-Per modificare una proprietà, fare clic su **Edit** accanto alla proprietà da modificare.
+To edit a property, click **Edit** beside the property to edit.
 
-![Modifica proprietà][api-management-properties-edit]
+![Edit property][api-management-properties-edit]
 
-Apportare le modifiche desiderate e fare clic su **Save**. Se si modifica il nome della proprietà, tutti i criteri che fanno riferimento a tale proprietà vengono aggiornati automaticamente con il nuovo nome.
+Make any desired changes, and click **Save**. If you change the property name, any policies that reference that property are automatically updated to use the new name.
 
-![Modifica proprietà][api-management-properties-edit-property]
+![Edit property][api-management-properties-edit-property]
 
-Per informazioni sulla modifica di una proprietà tramite l'API REST, vedere la [pagina relativa alla modifica di una proprietà tramite l'API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+For information on editing a property using the REST API, see [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
-## Per eliminare una proprietà
+## <a name="to-delete-a-property"></a>To delete a property
 
-Per eliminare una proprietà, fare clic su **Delete** accanto alla proprietà da eliminare.
+To delete a property, click **Delete** beside the property to delete.
 
-![Elimina proprietà][api-management-properties-delete]
+![Delete property][api-management-properties-delete]
 
-Fare clic su **Sì, elimina** per confermare.
+Click **Yes, delete it** to confirm.
 
-![Conferma dell'eliminazione][api-management-delete-confirm]
+![Confirm delete][api-management-delete-confirm]
 
->[AZURE.IMPORTANT] Se all'interno di almeno un criterio si fa riferimento alla proprietà, sarà possibile eliminare quest'ultima solo dopo averla rimossa da tutti i criteri che la usano.
+>[AZURE.IMPORTANT] If the property is referenced by any policies, you will be unable to successfully delete it until you remove the property from all policies that use it.
 
-Per informazioni sull'eliminazione di una proprietà tramite l'API REST, vedere la [pagina relativa all'eliminazione di una proprietà tramite l'API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+For information on deleting a property using the REST API, see [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
-## Per cercare e filtrare proprietà
+## <a name="to-search-and-filter-properties"></a>To search and filter properties
 
-La scheda **Properties** include funzionalità di ricerca e filtro che consentono di gestire le proprietà. Per filtrare l'elenco delle proprietà in base al nome di queste, immettere un termine di ricerca nella casella di testo di **ricerca di proprietà**. Per visualizzare tutte le proprietà, cancellare il contenuto della casella di testo di **ricerca di proprietà** e premere INVIO.
+The **Properties** tab includes searching and filtering capabilities to help you manage your properties. To filter the property list by property name, enter a search term in the **Search property** textbox. To display all properties, clear the **Search property** textbox and press enter.
 
 ![Search][api-management-properties-search]
 
-Per filtrare l'elenco delle proprietà in base al valore dei tag, immettere uno o più tag nella casella di testo di **filtro in base ai tag**. Per visualizzare tutte le proprietà, cancellare il contenuto della casella di testo di **filtro in base ai tag** e premere INVIO.
+To filter the property list by tag values, enter one or more tags into the **Filter by tags** textbox. To display all properties, clear the **Filter by tags** textbox and press enter.
 
-![Filtro][api-management-properties-filter]
+![Filter][api-management-properties-filter]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
--	Ulteriori informazioni sull'uso dei criteri
-	-	[Criteri in Gestione API](api-management-howto-policies.md)
-	-	[Riferimento ai criteri](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-	-	[Espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+-   Learn more about working with policies
+    -   [Policies in API Management](api-management-howto-policies.md)
+    -   [Policy reference](https://msdn.microsoft.com/library/azure/dn894081.aspx)
+    -   [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## Guardare un video introduttivo
+## <a name="watch-a-video-overview"></a>Watch a video overview
 
 > [AZURE.VIDEO use-properties-in-policies]
 
@@ -149,4 +150,9 @@ Per filtrare l'elenco delle proprietà in base al valore dei tag, immettere uno 
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,40 +1,64 @@
 <properties
-	pageTitle="Come scaricare la fattura e i dati di utilizzo giornalieri di Azure | Microsoft Azure"
-	description="Descrive come scaricare la fatturazione e dati di utilizzo giornalieri di Azure"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="mbaldwin"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="How to download your Azure billing invoice and daily usage data | Microsoft Azure"
+    description="Describes how to download your Azure billing invoice and daily usage data"
+    services=""
+    documentationCenter=""
+    authors="genlin"
+    manager="mbaldwin"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="genli"/>
 
-# Come scaricare la fattura e i dati di utilizzo giornalieri di Azure
 
-> [AZURE.NOTE] Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+# <a name="how-to-download-your-azure-billing-invoice-and-daily-usage-data"></a>How to download your Azure billing invoice and daily usage data
 
-In qualità di amministratore account Azure, è possibile visualizzare la fattura corrente nel Centro account di Azure e scaricare i resoconti degli ultimi sei periodi di fatturazione. Ecco come:
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come amministratore account. Nel [portale di Azure](https://portal.azure.com) è possibile accedere al Centro account selezionando **Sottoscrizione** > *nome della sottoscrizione* > **Gestisci**.
+As the Azure account administrator, you can view the billing invoice and the daily usage data at the [Azure portal](https://portal.azure.com) or the [Azure Account Center](https://account.windowsazure.com/subscriptions). Here’s how:
 
-	> [AZURE.NOTE] Le autorizzazioni per accedere al Centro account sono concesse solo all'amministratore account. Per altre informazioni su come individuare l'amministratore account della sottoscrizione, vedere [Domande frequenti](billing-subscription-transfer.md#faq).
+## <a name="azure-portal"></a>Azure portal
 
-2. Selezionare la sottoscrizione per cui si desiderano le informazioni delle fatture e degli utilizzi.
-3. Selezionare **CRONOLOGIA DI FATTURAZIONE**.</br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
-4. Vengono elencati i resoconti per gli ultimi sei periodi di fatturazione più il periodo corrente non ancora fatturato.</br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
-5. Selezionare **Visualizza estratto conto corrente** per visualizzare una stima degli addebiti fino al momento in cui è stata generata la stima. Queste informazioni vengono aggiornate solo una volta al giorno e potrebbero non includere tutti gli utilizzi effettuati alla data corrente. È possibile che la fattura mensile non corrisponda a questa stima.</br>![billingsum2](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)</br>![billingsum3](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)</br>
-6. Selezionare **Scarica fattura** per visualizzare una copia dell’ultimo conto. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
-7. Selezionare **Scarica utilizzo** per scaricare i dati di utilizzo giornalieri come file CSV.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator.
 
-> [AZURE.NOTE] Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+    >[AZURE.NOTE] Only the  account administrator has permission to access the billing data. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0824_2016-->
+2. On the Hub menu, select **Billing**. On the **Billing** blade, you can find some useful information such as next billing date.
+
+    ![billing button](./media/billing-download-azure-invoice-daily-usage-date/billing1.png)
+3. In the **Subscription costs** section, select the subscription that you want to view.
+
+    ![billing button](./media/billing-download-azure-invoice-daily-usage-date/billing2.png)
+4. Click **Billing & usage**.
+
+    ![billing and usage](./media/billing-download-azure-invoice-daily-usage-date/billing3.png)
+
+5. On the **Billing history** blade, click **Download Invoice** to view a copy of your bill. Click a billing period to view the daily usage data.
+
+    ![billing details](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
+
+## <a name="azure-account-center"></a>Azure Account Center
+
+1. Sign into the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the account administrator.
+2. Select the subscription for which you want the invoice and usage information.
+3. Select **BILLING HISTORY**. </br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
+4. You can see your statements for the last six billing periods and the current unbilled period. </br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
+5. Select **View Current Statement** to see an estimate of your charges at the time the estimate was generated. This information is only updated daily and may not include all your usage. Your monthly bill may differ from this estimate.</br>![billingsum2](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)</br>![billingsum3](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)</br>
+6. Select **Download Invoice** to see a copy of your last bill. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
+7. Select **Download Usage** to download the daily usage data as a CSV file.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Adattatore StorSimple per SharePoint | Microsoft Azure"
-   description="Viene descritto come installare e configurare o rimuovere l'adattatore StorSimple per SharePoint in una server farm di SharePoint."
+   pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
+   description="Describes how to install and configure or remove the StorSimple Adapter for SharePoint in a SharePoint server farm."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,157 +15,158 @@
    ms.date="07/11/2016"
    ms.author="v-sharos" />
 
-# Installare e configurare l’adattatore StorSimple per SharePoint
 
-## Overview
+# <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Install and configure the StorSimple Adapter for SharePoint
 
-L'adattatore StorSimple per SharePoint è un componente che consente di fornire a Microsoft Azure StorSimple archiviazione flessibile e protezione dei dati per server farm di SharePoint. È possibile utilizzare l'adattatore per spostare il contenuto di oggetti BLOB (Binary Large Object) dai database del contenuto di SQL Server al dispositivo di archiviazione cloud ibrida StorSimple di Microsoft Azure.
+## <a name="overview"></a>Overview
 
-L'adattatore StorSimple per SharePoint funziona come provider di archiviazione BLOB remoti (RBS) e utilizza la funzionalità di archiviazione BLOB remoti di SQL Server per archiviare il contenuto di SharePoint non strutturato (sotto forma di BLOB) in un file server supportato da un dispositivo StorSimple.
+The StorSimple Adapter for SharePoint is a component that lets you provide Microsoft Azure StorSimple flexible storage and data protection to SharePoint server farms. You can use the adapter to move Binary Large Object (BLOB) content from the SQL Server content databases to the Microsoft Azure StorSimple hybrid cloud storage device.
 
->[AZURE.NOTE] L'adattatore StorSimple per SharePoint supporta Archiviazione BLOB remoti di SharePoint Server 2010 (RBS). Non supporta Archiviazione BLOB esterni di SharePoint Server 2010 (EBS).
+The StorSimple Adapter for SharePoint functions as a Remote BLOB Storage (RBS) provider and uses the SQL Server Remote BLOB Storage feature to store unstructured SharePoint content (in the form of BLOBs) on a file server that is backed by a StorSimple device.
 
-- Per scaricare l'adattatore StorSimple per SharePoint, visitare la pagina dell’[adattatore StorSimple per SharePoint][1] nell’Area download di Microsoft.
+>[AZURE.NOTE] The StorSimple Adapter for SharePoint supports SharePoint Server 2010 Remote BLOB Storage (RBS). It does not support SharePoint Server 2010 External BLOB Storage (EBS).
 
-- Per informazioni sulla pianificazione per RBS e le limitazioni di RBS, vedere [Deciding to use RBS in SharePoint 2013][2] o [Pianificare Archiviazione BLOB remoti (SharePoint Foundation 2010)][3].
+- To download the StorSimple Adapter for SharePoint, go to [StorSimple Adapter for SharePoint][1] in the Microsoft Download Center.
 
-Nella parte rimanente di questa panoramica vengono descritti brevemente il ruolo dell'adattatore StorSimple per SharePoint e i limiti di capacità e prestazioni di SharePoint che è necessario conoscere prima di installare e configurare l'adattatore. Dopo avere esaminato le informazioni, andare a [Installazione dell'adattatore StorSimple per SharePoint](#storsimple-adapter-for-sharepoint-installation) per iniziare a configurare l'adattatore.
+- For information about planning for RBS and RBS limitations, go to [Deciding to use RBS in SharePoint 2013][2] or [Plan for RBS (SharePoint Server 2010)][3].
 
-### Vantaggi dell’adattatore StorSimple per SharePoint
+The rest of this overview briefly describes the role of the StorSimple Adapter for SharePoint and the SharePoint capacity and performance limits that you should be aware of before you install and configure the adapter. After you review this information, go to [StorSimple Adapter for SharePoint installation](#storsimple-adapter-for-sharepoint-installation) to begin setting up the adapter.
 
-In un sito di SharePoint, il contenuto viene archiviato come dati BLOB non strutturati in uno o più database del contenuto. Per impostazione predefinita, questi database sono ospitati in computer che esegue SQL Server e si trovano in server farm di SharePoint. Le dimensioni dei BLOB possono aumentare rapidamente, consumando ingenti quantità di spazio di archiviazione locale. Per questo motivo, è utile trovare un’altra soluzione di archiviazione meno costosa. SQL Server fornisce una tecnologia denominata Archiviazione Blob remoti (RBS) che consente di archiviare il contenuto BLOB nel file system, all'esterno del database di SQL Server. Con RBS i BLOB possono risiedere nel file system del computer che esegue SQL Server oppure essere archiviati nel file system di un altro computer server.
+### <a name="storsimple-adapter-for-sharepoint-benefits"></a>StorSimple Adapter for SharePoint benefits
 
-RBS richiede l'utilizzo di un provider RBS, ad esempio l'adattatore StorSimple per SharePoint, per abilitare RBS in SharePoint. L'adattatore StorSimple per SharePoint funziona con RBS, consentendo di spostare i BLOB in un server supportato dal sistema di Microsoft Azure StorSimple. Microsoft Azure StorSimple archivia quindi i dati BLOB localmente o nel cloud, in base all'utilizzo. I BLOB molto attivi (in genere denominati livello 1 o hot data) risiedono nel computer locale. I dati meno attivi e i dati di archiviazione si trovano nel cloud. Dopo aver abilitato RBS su un database del contenuto, qualsiasi nuovo contenuto BLOB creato in SharePoint verrà archiviato nel dispositivo StorSimple e non nel database del contenuto.
+In a SharePoint site, content is stored as unstructured BLOB data in one or more content databases. By default, these databases are hosted on computers that are running SQL Server and are located in the SharePoint server farm. BLOBs can rapidly increase in size, consuming large amounts of on-premises storage. For this reason, you might want to find another, less-expensive storage solution. SQL Server provides a technology called Remote Blob Storage (RBS) that lets you store BLOB content in the file system, outside the SQL Server database. With RBS, BLOBs can reside in the file system on the computer that is running SQL Server, or they can be stored in the file system on another server computer.
 
-L’implementazione di RBS in Microsoft Azure StorSimple offre i vantaggi seguenti:
+RBS requires that you use an RBS provider, such as the StorSimple Adapter for SharePoint, to enable RBS in SharePoint. The StorSimple Adapter for SharePoint works with RBS, letting you move BLOBs to a server backed up by the Microsoft Azure StorSimple system. Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage. BLOBs that are very active (typically referred to as Tier 1 or hot data) reside locally. Less active data and archival data reside in the cloud. After you enable RBS on a content database, any new BLOB content created in SharePoint is stored on the StorSimple device and not in the content database.
 
-- Spostando il contenuto BLOB in un server separato, è possibile ridurre il carico di query su SQL Server, migliorando la velocità di risposta di SQL Server.
+The Microsoft Azure StorSimple implementation of RBS provides the following benefits:
 
-- StorSimple di Azure utilizza deduplicazione e compressione per ridurre la dimensione dei dati,
+- By moving BLOB content to a separate server, you can reduce the query load on SQL Server, which can improve SQL Server responsiveness. 
 
-- nonché protezione dei dati sotto forma di snapshot locali e su cloud. Inoltre, se si colloca il database stesso nel dispositivo StorSimple, è possibile eseguire il backup del database del contenuto e dei BLOB insieme, in un modo coerente con l’arresto anomalo. Lo spostamento del database del contenuto nel dispositivo è supportato solo per il dispositivo StorSimple serie 8000, e non per le serie 5000 e 7000.
+- Azure StorSimple uses deduplication and compression to reduce data size.
 
-- StorSimple di Azure include funzionalità di ripristino di emergenza tra cui il failover, il ripristino di file e volumi (inclusi i test di ripristino) e un ripristino rapido dei dati.
+- Azure StorSimple provides data protection in the form of local and cloud snapshots. Also, if you place the database itself on the StorSimple device, you can back up the content database and BLOBs together in a crash consistent way. (Moving the content database to the device is only supported for the StorSimple 8000 series device. This feature is not supported for the 5000 or 7000 series.)
 
-- È possibile utilizzare software di ripristino di dati, ad esempio Kroll Ontrack PowerControls, con gli snapshot di StorSimple dei dati BLOB per eseguire il ripristino a livello di elemento di contenuto di SharePoint. Questo software di ripristino dati costituisce un acquisto separato.
+- Azure StorSimple includes disaster recovery features including failover, file and volume recovery (including test recovery), and rapid restoration of data.
 
-- L'adattatore StorSimple per SharePoint viene inserito nel portale di amministrazione centrale di SharePoint, consentendo di gestire l'intera soluzione SharePoint da una posizione centrale.
+- You can use data recovery software, such as Kroll Ontrack PowerControls, with StorSimple snapshots of BLOB data to perform item-level recovery of SharePoint content. (This data recovery software is a separate purchase.)
 
-Spostando il contenuto BLOB nel file system è possibile ottenere altri vantaggi e risparmi sui costi. Ad esempio, tramite RBS si può diminuire la costosa archiviazione di livello 1 necessaria e, poiché riduce il database del contenuto, RBS consente di ridurre il numero di database richiesti nella server farm di SharePoint. Altri fattori quali i limiti di dimensioni del database e la quantità di contenuto non RBS possono, tuttavia, influire sui requisiti di archiviazione. Per ulteriori informazioni sui costi e sui vantaggi dell'utilizzo di RBS, vedere [Pianificare RBS (SharePoint Foundation 2010)][4] e [Deciding to use RBS in SharePoint 2013][5].
+- The StorSimple Adapter for SharePoint plugs into the SharePoint Central Administration portal, allowing you to manage your entire SharePoint solution from a central location.
 
-### Limiti di capacità e prestazioni
+Moving BLOB content to the file system can provide other cost savings and benefits. For example, using RBS can reduce the need for expensive Tier 1 storage and, because it shrinks the content database, RBS can reduce the number of databases required in the SharePoint server farm. However, other factors, such as database size limits and the amount of non-RBS content, can also affect storage requirements. For more information about the costs and benefits of using RBS, see [Plan for RBS (SharePoint Foundation 2010)][4] and [Deciding to use RBS in SharePoint 2013][5].
 
-Prima di prendere in considerazione l'uso di RBS nella soluzione SharePoint, è necessario valutare i limiti di capacità e prestazioni testate di SharePoint Server 2010 e SharePoint Server 2013 e come tali limiti sono correlati a prestazioni accettabili. Per ulteriori informazioni, vedere [Limiti del software e limiti per SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
+### <a name="capacity-and-performance-limits"></a>Capacity and performance limits
 
-Prima di configurare RBS, effettuare le operazioni seguenti:
+Before you consider using RBS in your SharePoint solution, you should be aware of the tested performance and capacity limits of SharePoint Server 2010 and SharePoint Server 2013, and how these limits relate to acceptable performance. For more information, see [Software Boundaries and Limits for SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
-- Assicurarsi che la dimensione totale del contenuto (le dimensioni di un database del contenuto più la dimensione di eventuali BLOB esternalizzati) non superi il limite delle dimensioni RBS supportato da SharePoint. Questo limite è pari a 200 GB.
+Review the following before you configure RBS:
 
-    **Per misurare le dimensioni di BLOB e database del contenuto**
+- Make sure that the total size of the content (the size of a content database plus the size of any associated externalized BLOBs) does not exceed the RBS size limit supported by SharePoint. This limit is 200 GB. 
 
-     1. Eseguire questa query sul front-end Web di Amministrazione centrale. Avviare la shell di gestione di SharePoint e quindi immettere il seguente comando di Windows PowerShell per ottenere le dimensioni dei database del contenuto:
+    **To measure content database and BLOB size**
+
+     1. Run this query on the Central Administration WFE. Start the SharePoint Management Shell, and then enter the following Windows PowerShell command to get the size of the content databases:
 
         `Get-SPContentDatabase | Select-Object -ExpandProperty DiskSizeRequired`
 
-         Questo passaggio consente di ottenere la dimensione del database del contenuto sul disco.
+         This step gets the size of the content database on the disk.
 
-     2. Eseguire una delle query SQL seguenti in SQL Management Studio sul server SQL in ogni database del contenuto e aggiungere il risultato al numero ottenuto nel passaggio 1.
+     2. Run one of the following SQL queries in SQL Management Studio on the SQL server box on each content database, and add the result to the number obtained in step 1.
 
-        Nei database del contenuto di SharePoint 2013, immettere:
+        On SharePoint 2013 content databases, enter:
 
         `SELECT SUM([Size]) FROM [ContentDatabaseName].[dbo].[DocStreams] WHERE [Content] IS NULL`
 
-        Nei database del contenuto di SharePoint 2010, immettere:
+        On SharePoint 2010 content databases, enter:
 
         `SELECT SUM([Size]) FROM [ContentDatabaseName].[dbo].[AllDocs] WHERE [Content] IS NULL`
 
-        Questo passaggio consente di ottenere le dimensioni dei BLOB che sono stati esternalizzati.
+        This step gets the size of the BLOBs that have been externalized.
 
-- È consigliabile archiviare localmente tutto il contenuto di BLOB e di database sul dispositivo StorSimple. Il dispositivo StorSimple è un cluster a due nodi per la disponibilità elevata. Collocare i database del contenuto e i BLOB nel dispositivo StorSimple per garantire un'elevata disponibilità.
+- We recommend that you store all BLOB and database content locally on the StorSimple device. The StorSimple device is a two-node cluster for high availability. Placing the content databases and BLOBs on the StorSimple device provides high availability.
 
-    Utilizzare le tradizionali procedure consigliate per la migrazione di SQL Server per spostare il database del contenuto nel dispositivo StorSimple. Spostare il database solo dopo che tutto il contenuto BLOB dal database è stato spostato nella condivisione di file tramite RBS. Se si sceglie di spostare il database del contenuto nel dispositivo StorSimple, è consigliabile configurare l'archiviazione del database del contenuto sul dispositivo come volume principale.
+    Use traditional SQL Server migration best practices to move the content database to the StorSimple device. Move the database only after all BLOB content from the database has been moved to the file share via RBS. If you choose to move the content database to the StorSimple device, we recommend that you configure the content database storage on the device as a primary volume.
 
-- In Microsoft Azure StorSimple, se si utilizzano i volumi a livelli, non è possibile garantire che il contenuto archiviato localmente nel dispositivo StoreSimple non verrà suddiviso in livelli nell’archiviazione cloud di Microsoft Azure. Di conseguenza, si consiglia di utilizzare i volumi StorSimple aggiunti in locale in combinazione con RBS di SharePoint, affinché tutto il contenuto BLOB rimanga in locale sul dispositivo StorSimple, senza essere spostato in Microsoft Azure.
+- In Microsoft Azure StorSimple, if using tiered volumes, there is no way to guarantee that content stored locally on the StorSimple device will not be tiered to Microsoft Azure cloud storage. Hence, we recommend using StorSimple locally pinned volumes in conjunction with SharePoint RBS. This will ensure that all BLOB content remains locally on the StorSimple device, and is not moved to Microsoft Azure.
 
-- Se non si archiviano i database del contenuto nel dispositivo StorSimple, utilizzare le tradizionali procedure consigliate per la disponibilità elevata di SQL Server che supportano RBS. Il clustering di SQL Server supporta RBS, mentre il mirroring di SQL Server no.
+- If you do not store the content databases on the StorSimple device, use traditional SQL Server high availability best practices that support RBS. SQL Server clustering supports RBS, while SQL Server mirroring does not. 
 
->[AZURE.WARNING] Se RBS non è abilitato, non è consigliabile spostare il database del contenuto nel dispositivo StorSimple. Si tratta di una configurazione non testata.
+>[AZURE.WARNING] If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device. This is an untested configuration.
  
-## Installazione dell’adattatore StorSimple per SharePoint
+## <a name="storsimple-adapter-for-sharepoint-installation"></a>StorSimple Adapter for SharePoint installation
 
-Prima di installare l'adattatore StorSimple per SharePoint, è necessario configurare il dispositivo StorSimple e verificare che la server farm di SharePoint e la creazione di istanze di SQL Server soddisfino tutti i prerequisiti. In questa esercitazione vengono descritti i requisiti di configurazione, nonché le procedure per installare e aggiornare l’adattatore StorSimple per SharePoint.
+Before you can install the StorSimple Adapter for SharePoint, you must configure the StorSimple device and make sure that the SharePoint server farm and SQL Server instantiation meet all prerequisites. This tutorial describes configuration requirements, as well as procedures for installing and upgrading the StorSimple Adapter for SharePoint. 
 
-## Configurazione dei prerequisiti
+## <a name="configure-prerequisites"></a>Configure prerequisites
 
-Prima di installare l'adattatore StorSimple per SharePoint, è necessario verificare che il dispositivo StorSimple, la server farm di SharePoint e la creazione di istanze di SQL Server soddisfino i prerequisiti seguenti.
+Before you can install the StorSimple Adapter for SharePoint, make sure that the StorSimple device, SharePoint server farm, and SQL Server instantiation meet the following prerequisites.
 
-### Requisiti di sistema
+### <a name="system-requirements"></a>System requirements
 
-L'adattatore StorSimple per SharePoint funziona con hardware e software seguenti:
+The StorSimple Adapter for SharePoint works with the following hardware and software:
 
-- Sistema operativo a supportato: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2.
+- Supported operating system – Windows Server 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 
 
-- Versioni supportate di SharePoint: SharePoint Server 2010 o SharePoint Server 2013
+- Supported SharePoint versions – SharePoint Server 2010 or SharePoint Server 2013
 
-- Versioni supportate di SQL Server: SQL Server 2008 Enterprise Edition, SQL Server 2008 R2 Enterprise Edition o SQL Server 2012 Enterprise Edition
+- Supported SQL Server versions – SQL Server 2008 Enterprise Edition, SQL Server 2008 R2 Enterprise Edition, or SQL Server 2012 Enterprise Edition
 
-- Dispositivi StorSimple supportati: StorSimple serie 8000, StorSimple serie 7000 o StorSimple serie 5000.
+- Supported StorSimple devices – StorSimple 8000 series, StorSimple 7000 series, or StorSimple 5000 series.
 
-### Prerequisiti di configurazione del dispositivo StorSimple
+### <a name="storsimple-device-configuration-prerequisites"></a>StorSimple device configuration prerequisites
 
-Il dispositivo StorSimple è un dispositivo a blocchi e pertanto richiede un file server in cui possano essere ospitati i dati. È consigliabile utilizzare un server separato anziché un server esistente dalla farm di SharePoint. Questo file server deve risiedere nella stessa rete locale (LAN) del computer SQL Server che ospita i database del contenuto.
+The StorSimple device is a block device and as such requires a file server on which the data can be hosted. We recommend that you use a separate server rather than an existing server from the SharePoint farm. This file server must be on the same local area network (LAN) as the SQL Server computer that hosts the content databases. 
 
 >[AZURE.TIP] 
 >
->- Se si configura la farm di SharePoint per la disponibilità elevata, è necessario distribuire anche il file server per la disponibilità elevata.
+>- If you configure your SharePoint farm for high availability, you should deploy the file server for high availability also.
 >
->- Se non si archivia il database del contenuto nel dispositivo StorSimple, utilizzare le tradizionali procedure consigliate per la disponibilità elevata che supportano RBS. Il clustering di SQL Server supporta RBS, mentre il mirroring di SQL Server no.
+>- If you do not store the content database on the StorSimple device, use traditional high availability best practices that support RBS. SQL Server clustering supports RBS, while SQL Server mirroring does not. 
 
-Assicurarsi che il dispositivo StorSimple sia configurato correttamente e che volumi appropriati per supportare la distribuzione di SharePoint siano configurati e accessibili dal computer SQL Server. Andare a [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md) se non è stato ancora distribuito e configurato il dispositivo StorSimple. Prendere nota dell'indirizzo IP del dispositivo StorSimple perché sarà necessario durante l'installazione dell’adattatore StorSimple per SharePoint.
+Make sure that your StorSimple device is configured correctly, and that appropriate volumes to support your SharePoint deployment are configured and accessible from your SQL Server computer. Go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md) if you have not yet deployed and configured your StorSimple device. Note the IP address of the StorSimple device; you will need it during StorSimple Adapter for SharePoint installation. 
 
-Inoltre, assicurarsi che il volume da utilizzare per l'esternalizzazione dei BLOB soddisfi i requisiti seguenti:
+In addition, make sure that the volume to be used for BLOB externalization meets the following requirements:
 
-- Il volume deve essere formattato con una dimensione di unità di allocazione di 64 KB.
+- The volume must be formatted with a 64 KB allocation unit size.
 
-- Il front-end web (WFE) e i server applicazioni devono essere in grado di accedere al volume tramite un percorso UNC (Universal Naming Convention).
+- Your web front end (WFE) and application servers must be able to access the volume via a Universal Naming Convention (UNC) path. 
 
-- Per scrivere sul volume, è necessario configurare la server farm di SharePoint.
+- The SharePoint server farm must be configured to write to the volume.
 
->[AZURE.NOTE] Dopo l'installazione e configurazione dell'adattatore, tutta l’esternalizzazione dei BLOB deve passare attraverso il dispositivo StorSimple (il dispositivo presenterà i volumi a SQL Server e gestirà i livelli di archiviazione). Non è possibile utilizzare altre destinazioni per l'esternalizzazione dei BLOB.
+>[AZURE.NOTE] After you install and configure the adapter, all BLOB externalization must go through the StorSimple device (the device will present the volumes to SQL Server and manage the storage tiers). You cannot use any other targets for BLOB externalization.
  
-Se si prevede di utilizzare Gestione snapshot StorSimple per acquisire snapshot dei dati di BLOB e database, assicurarsi di installare Gestione snapshot StorSimple nel server di database in modo da poter utilizzare il servizio writer SQL per implementare il servizio Copia Shadow del volume (VSS) di Windows.
+If you plan to use StorSimple Snapshot Manager to take snapshots of the BLOB and database data, be sure to install StorSimple Snapshot Manager on the database server so that it can use the SQL Writer Service to implement the Windows Volume Shadow Copy Service (VSS). 
 
->[AZURE.IMPORTANT] Gestione snapshot StorSimple non supporta SharePoint VSS Writer e non può eseguire snapshot dei dati di SharePoint coerenti con l’applicazione. In uno scenario di SharePoint, Gestione snapshot StorSimple fornisce soltanto backup coerenti con l'arresto anomalo del sistema.
+>[AZURE.IMPORTANT] StorSimple Snapshot Manager does not support the SharePoint VSS Writer and cannot take application-consistent snapshots of SharePoint data. In a SharePoint scenario, StorSimple Snapshot Manager provides only crash-consistent backups. 
  
-## Prerequisiti di configurazione di SharePoint
+## <a name="sharepoint-farm-configuration-prerequisites"></a>SharePoint farm configuration prerequisites
 
-Assicurarsi che la server farm di SharePoint sia configurata correttamente, come indicato di seguito:
+Make sure that your SharePoint server farm is correctly configured, as follows:
 
-- Verificare che la server farm di SharePoint sia in uno stato integro e verificare quanto segue:
+- Verify that your SharePoint server farm is in a healthy state, and check the following: 
 
-- Tutti i server applicazioni e WFE di SharePoint registrati nella farm devono essere in esecuzione e poter ricevere il ping dal server in cui verrà installato l'adattatore StorSimple per SharePoint.
+- All SharePoint WFE and application servers registered in the farm are running and can be pinged from the server on which you will be installing the StorSimple Adapter for SharePoint.
 
-- Il servizio Timer di SharePoint (SPTimerV3 o SPTimerV4) deve essere in esecuzione in ogni server WFE e server applicazioni.
+- The SharePoint Timer service (SPTimerV3 or SPTimerV4) is running on each WFE server and application server.
 
-- Il servizio Timer di SharePoint e il pool di applicazioni IIS in cui è in esecuzione il sito Amministrazione centrale SharePoint devono disporre di privilegi amministrativi.
+- Both the SharePoint Timer service and the IIS application pool under which the SharePoint Central Administration site is running have administrative privileges. 
 
-- Verificare che Internet Explorer Enhanced Security Context (IE ESC) sia disabilitato. Attenersi alla procedura seguente per disabilitare IE ESC:
+- Make sure that Internet Explorer Enhanced Security Context (IE ESC) is disabled. Follow these steps to disable IE ESC:
 
-    1. Chiudere tutte le istanze di Internet Explorer.
+    1. Close all instances of Internet Explorer.
 
-    2. Avviare Server Manager.
+    2. Start the Server Manager.
 
-    3. Nel riquadro sinistro fare clic su **Server locale**.
+    3. In the left pane, click **Local Server**.
 
-    4. Nel riquadro destro, accanto a **Configurazione sicurezza avanzata IE**, fare clic su **Attivo**.
+    4. On the right pane, next to **IE Enhanced Security Configuration**, click **On**.
 
-    5. In **Amministratori** fare clic su **Disattivo**.
+    5. Under **Administrators**, click **Off**.
 
-    6. Fare clic su **OK**.
+    6. Click **OK**.
 
-## Prerequisiti di archiviazione BLOB remoti (RBS)
+## <a name="remote-blob-storage-(rbs)-prerequisites"></a>Remote BLOB Storage (RBS) prerequisites
 
-Verificare che sia in uso una versione supportata di SQL Server. Le seguenti versioni sono supportate e in grado di usare RBS:
+Make sure that you are using a supported version of SQL Server. Only the following versions are supported and able to use RBS:
 
 - SQL Server 2008 Enterprise Edition
 
@@ -173,132 +174,132 @@ Verificare che sia in uso una versione supportata di SQL Server. Le seguenti ver
 
 - SQL Server 2012 Enterprise Edition
 
-È possibile esternalizzare i BLOB soltanto sui volumi che il dispositivo StorSimple presenta a SQL Server. Non sono supportate altre destinazioni per l'esternalizzazione dei BLOB.
+BLOBs can be externalized on only those volumes that the StorSimple device presents to SQL Server. No other targets for BLOB externalization are supported.
 
-Dopo aver completato tutti i passaggi di configurazione prerequisiti, passare a [Installare l'adattatore StorSimple per SharePoint](#install-the-storsimple-adapter-for-sharepoint).
+When you have completed all prerequisite configuration steps, go to [Install the StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint).
 
-## Installare l’adattatore StorSimple per SharePoint
+## <a name="install-the-storsimple-adapter-for-sharepoint"></a>Install the StorSimple Adapter for SharePoint
 
-Utilizzare la procedura seguente per installare l'adattatore StorSimple per SharePoint. Se si reinstalla il software, vedere [Aggiornare o reinstallare l'adattatore StorSimple per SharePoint](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint). Il tempo necessario per l'installazione dipende dal numero totale di database di SharePoint nella server farm di SharePoint.
+Use the following steps to install the StorSimple Adapter for SharePoint. If you are reinstalling the software, see [Upgrade or reinstall the StorSimple Adapter for SharePoint](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint). The time required for the installation depends on the total number of SharePoint databases in your SharePoint server farm.
 
 [AZURE.INCLUDE [storsimple-install-sharepoint-adapter](../../includes/storsimple-install-sharepoint-adapter.md)]
 
 
-## Configurare SSL
+## <a name="configure-rbs"></a>Configure RBS
 
-Dopo aver installato l'adattatore StorSimple per SharePoint, configurare RBS come descritto nella procedura seguente.
+After you install the StorSimple Adapter for SharePoint, configure RBS as described in the following procedure.
 
->[AZURE.TIP] L'adattatore StorSimple per SharePoint viene inserito nella pagina Amministrazione centrale SharePoint, consentendo di abilitare o disabilitare RBS in ogni database del contenuto nella farm di SharePoint. Tuttavia, l’abilitazione o la disabilitazione di RBS sul database del contenuto comporta una reimpostazione di IIS che, a seconda della configurazione della farm, può interrompere momentaneamente la disponibilità del front-end Web (WFE) di SharePoint. Fattori quali l'utilizzo di un servizio di bilanciamento del carico di front-end, il carico di lavoro server corrente e così via, possono limitare o evitare l'interruzione. Per proteggere gli utenti da un'interruzione, si consiglia di abilitare o disabilitare RBS solo durante un periodo di manutenzione pianificata.
+>[AZURE.TIP] The StorSimple Adapter for SharePoint plugs into the SharePoint Central Administration page, allowing RBS to be enabled or disabled on each content database in the SharePoint farm. However, enabling or disabling RBS on the content database causes an IIS reset, which, depending on your farm configuration, can momentarily disrupt the availability of the SharePoint web front end (WFE). (Factors such as the use of a front-end load balancer, the current server workload, and so on, can limit or eliminate this disruption.) To protect users from a disruption, we recommend that you enable or disable RBS only during a planned maintenance window.
 
 [AZURE.INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
  
 
-## Configurare Garbage Collection
+## <a name="configure-garbage-collection"></a>Configure garbage collection
 
-Quando gli oggetti vengono eliminati da un sito di SharePoint, non vengono eliminati automaticamente dal volume dell'archivio RBS. Al contrario, un programma di manutenzione in background asincrono elimina i BLOB orfani dall'archivio di file. Gli amministratori di sistema possono pianificare di eseguire periodicamente il processo oppure avviarlo quando necessario.
+When objects are deleted from a SharePoint site, they are not automatically deleted from the RBS store volume. Instead, an asynchronous, background maintenance program deletes orphaned BLOBs from the file store. System administrators can schedule this process to run periodically or they can start it whenever necessary.
 
-Questo programma di manutenzione (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) viene installato automaticamente su tutti i server WFE e server applicazioni di SharePoint quando si abilita RBS. Il programma viene installato nel percorso seguente: *unità di avvio*:\\Programmi\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+This maintenance program (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) is automatically installed on all SharePoint WFE servers and application servers when you enable RBS. The program is installed in the following location: *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
 
-Per informazioni sulla configurazione e l'utilizzo del programma di manutenzione, vedere [Manutenzione di RBS in SharePoint Server 2013][8].
+For information about configuring and using the maintenance program, see [Maintain RBS in SharePoint Server 2013][8].
 
->[AZURE.IMPORTANT] Il programma di manutenzione RBS è ad elevato consumo delle risorse. È consigliabile pianificarne l'esecuzione solo durante i periodi di minore attività della farm di SharePoint.
+>[AZURE.IMPORTANT] The RBS maintainer program is resource intensive. You should schedule it to run only during periods of light activity on the SharePoint farm.
 
-### Eliminare BLOB orfani immediatamente
+### <a name="delete-orphaned-blobs-immediately"></a>Delete orphaned BLOBs immediately
 
-Se è necessario eliminare immediatamente BLOB orfani, è possibile utilizzare le istruzioni seguenti. Si noti che queste istruzioni sono un esempio di come questa operazione può essere eseguita in un ambiente SharePoint 2013 con i componenti seguenti:
+If you need to delete orphaned BLOBs immediately, you can use the following instructions. Note that these instructions are an example of how this can be done in a SharePoint 2013 environment with the following components:
 
-- Il nome di database del contenuto è WSS\_Content.
-- Il nome di SQL Server è SHRPT13 SQL12\\SHRPT13.
-- Il nome dell'applicazione Web è SharePoint – 80.
+- The content database name is WSS_Content.
+- The SQL Server name is SHRPT13-SQL12\SHRPT13.
+- The web application name is SharePoint – 80.
 
 [AZURE.INCLUDE [storsimple-sharepoint-adapter-garbage-collection](../../includes/storsimple-sharepoint-adapter-garbage-collection.md)]
 
 
-## Aggiornare o reinstallare l’adattatore StorSimple per SharePoint
+## <a name="upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint"></a>Upgrade or reinstall the StorSimple Adapter for SharePoint
 
-Utilizzare la procedura seguente per eseguire l'aggiornamento del server SharePoint e quindi reinstallare l'adattatore StorSimple per SharePoint o per aggiornare o reinstallare semplicemente l'adattatore in una server farm di SharePoint esistente.
+Use the following procedure to upgrade SharePoint server and then reinstall StorSimple Adapter for SharePoint or to simply upgrade or reinstall the adapter in an existing SharePoint server farm. 
 
->[AZURE.IMPORTANT] Esaminare le informazioni seguenti prima di tentare di aggiornare il software di SharePoint e/o aggiornare o reinstallare l'adattatore StorSimple per SharePoint:
+>[AZURE.IMPORTANT] Review the following information before you attempt to upgrade your SharePoint software and/or upgrade or reinstall the StorSimple Adapter for SharePoint:
 >
->- Tutti i file precedentemente spostati in una risorsa di archiviazione esterna tramite RBS non saranno disponibili fino al termine della reinstallazione e fino a quando la funzionalità RBS non viene riabilitata. Per limitare l'impatto sugli utenti, eseguire l'aggiornamento o la reinstallazione in un periodo di manutenzione pianificata.
+>- Any files that were previously moved to external storage via RBS will not be available until the reinstallation is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
 >
->- Il tempo necessario per l'installazione/aggiornamento dipende dal numero totale di database di SharePoint nella server farm di SharePoint.
+>- The time required for the upgrade/reinstallation can vary, depending on the total number of SharePoint databases in the SharePoint server farm.
 >
->- Al termine dell'aggiornamento/reinstallazione, è necessario abilitare RBS per i database del contenuto. Per altre informazioni, vedere [Configurare RBS](#configure-rbs).
+>- After the upgrade/reinstallation is complete, you need to enable RBS for the content databases. See [Configure RBS](#configure-rbs) for more information.
 >
->- Se si configura RBS per una farm di SharePoint che dispone di un numero molto elevato di database (più di 200), la pagina **Amministrazione centrale SharePoint** potrebbe scadere. In questo caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
+>- If you are configuring RBS for a SharePoint farm that has a very large number of databases (greater than 200), the **SharePoint Central Administration** page might time out. If that occurs, refresh the page. This does not affect the configuration process.
 
 [AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
  
-## Rimozione dell’adattatore StorSimple per SharePoint
+## <a name="storsimple-adapter-for-sharepoint-removal"></a>StorSimple Adapter for SharePoint removal
 
-Le procedure seguenti descrivono come spostare nuovamente i BLOB nei database del contenuto di SQL Server e quindi disinstallare l'adattatore StorSimple per SharePoint.
+The following procedures describe how to move the BLOBs back to the SQL Server content databases and then uninstall the StorSimple Adapter for SharePoint. 
 
->[AZURE.IMPORTANT] È necessario spostare nuovamente i BLOB nei database del contenuto prima di disinstallare il software dell'adattatore.
+>[AZURE.IMPORTANT] You have to move the BLOBs back to the content databases before you uninstall the adapter software. 
 
-### Prima di iniziare 
+### <a name="before-you-begin"></a>Before you begin 
 
-Prima di spostare i dati nei database del contenuto di SQL Server e iniziare il processo di rimozione dell’adattatore, raccogliere le informazioni seguenti:
+Collect the following information before you move the data back to the SQL Server content databases and begin the adapter removal process:
 
-- I nomi di tutti i database per cui è abilitato RBS
-- Il percorso UNC dell'archivio BLOB configurato
+- The names of all the databases for which RBS is enabled
+- The UNC path of the configured BLOB store
 
-### Spostare i BLOB nei database del contenuto
+### <a name="move-the-blobs-back-to-the-content-databases"></a>Move the BLOBs back to the content databases
 
-Prima di disinstallare l'adattatore StorSimple per il software di SharePoint, è necessario eseguire la migrazione di tutti i BLOB che sono stati esternalizzati ai database del contenuto di SQL Server. Se si tenta di disinstallare l'adattatore StorSimple per SharePoint prima di spostare nuovamente tutti i BLOB nei database del contenuto, verrà visualizzato il seguente messaggio di avviso.
+Before you uninstall the StorSimple Adapter for SharePoint software, you must migrate all of the BLOBs that were externalized back to the SQL Server content databases. If you attempt to uninstall the StorSimple Adapter for SharePoint before you move all the BLOBs back to the content databases, you will see the following warning message.
 
-![Messaggio di avviso](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+![Warning message](./media/storsimple-adapter-for-sharepoint/sasp1.png)
  
-####Per spostare nuovamente i BLOB nei database del contenuto 
+####<a name="to-move-the-blobs-back-to-the-content-databases"></a>To move the BLOBs back to the content databases 
 
-1. Scaricare ciascun oggetto esternalizzato.
+1. Download each of the externalized objects.
 
-2. Aprire la pagina **Amministrazione centrale SharePoint** e passare a**Impostazioni di sistema**.
+2. Open the **SharePoint Central Administration** page, and browse to **System Settings**. 
 
-3. Nella sezione**Azure StorSimple**fare clic su**Configura l'adattatore StorSimple**.
+3. Under **Azure StorSimple**, click **Configure StorSimple Adapter**.
 
-4. Nella pagina **Configura l'adattatore StorSimple** fare clic sul pulsante **Disattiva** sotto ciascuno dei database di contenuto che si desidera rimuovere dall'archiviazione BLOB esterna.
+4. On the **Configure StorSimple Adapter** page, click the **Disable** button below each of the content databases that you want to remove from external BLOB storage. 
 
-5. Eliminare gli oggetti da SharePoint e caricarli nuovamente.
+5. Delete the objects from SharePoint, and then upload them again.
 
-In alternativa, è possibile utilizzare il cmdlet di Microsoft PowerShell ` RBS Migrate()` incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Alternatively, you can use the Microsoft` RBS Migrate()` PowerShell cmdlet included with SharePoint. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
-Dopo aver spostato nuovamente i BLOB nel database di contenuto, andare al passaggio successivo: [Disinstallare l'adattatore](#uninstall-the-adapter).
+After you move the BLOBs back to the content database, go to the next step: [Uninstall the adapter](#uninstall-the-adapter).
 
-### Disinstallare l'adattatore
+### <a name="uninstall-the-adapter"></a>Uninstall the adapter
 
-Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, utilizzare una delle seguenti opzioni per disinstallare l'adattatore StorSimple per SharePoint.
+After you move the BLOBs back to the SQL Server content databases, use one of the following options to uninstall the StorSimple Adapter for SharePoint.
 
-#### Per utilizzare il programma di installazione per disinstallare l'adattatore 
+#### <a name="to-use-the-installation-program-to-uninstall-the-adapter"></a>To use the installation program to uninstall the adapter 
 
-1. Utilizzare un account con privilegi di amministratore per l'accesso al server front-end Web (WFE).
-2. Fare doppio clic sull'adattatore StorSimple per il programma di istallazione di SharePoint. Verrà avviata l'installazione guidata.
+1. Use an account with administrator privileges to log on to the web front-end (WFE) server.
+2. Double-click the StorSimple Adapter for SharePoint installer. The Setup Wizard starts.
 
-    ![Installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![Setup wizard](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
-3. Fare clic su **Avanti**. Verrà visualizzata la pagina seguente.
+3. Click **Next**. The following page appears.
 
-    ![Pagina di rimozione dell’istallazione guidata](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![Setup wizard remove page](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
-4. Fare clic su **Rimuovi** per selezionare il processo di rimozione. Verrà visualizzata la pagina seguente.
+4. Click **Remove** to select the removal process. The following page appears.
 
-    ![Pagina di conferma dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![Setup wizard confirmation page](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
-5. Fare clic su **Rimuovi** per confermare la rimozione. Verrà visualizzata la seguente pagina di avanzamento.
+5. Click **Remove** to confirm the removal. The following progress page appears.
 
-    ![Pagina di stato di avanzamento dell'installazione guidata](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![Setup wizard progress page](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
-6. Una volta completata la rimozione, viene visualizzata la pagina di fine. Fare clic su**Fine**per chiudere l'installazione guidata.
+6. When the removal is complete, the finish page appears. Click **Finish** to close the Setup Wizard.
 
-#### Per utilizzare il Pannello di controllo per disinstallare l'adattatore 
+#### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>To use the Control Panel to uninstall the adapter 
 
-1. Aprire il Pannello di controllo, quindi fare clic su **Programmi e funzionalità**.
+1. Open the Control Panel, and then click **Programs and Features**.
 
-2. Selezionare l’**Adattatore StorSimple per SharePoint**, quindi fare clic su **Disinstalla**.
+2. Select **StorSimple Adapter for SharePoint**, and then click **Uninstall**. 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-[Ulteriori informazioni su StorSimple](storsimple-overview.md).
+[Learn more about StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
@@ -306,6 +307,10 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/it-IT/library/ff943565.aspx
+[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

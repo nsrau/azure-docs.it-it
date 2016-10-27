@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configurare MPIO per il dispositivo StorSimple | Microsoft Azure"
-   description="Descrive come configurare Multipath I/O per il dispositivo StorSimple connesso a un host che esegue Windows Server 2012 R2"
+   pageTitle="Configure MPIO for your StorSimple device | Microsoft Azure"
+   description="Describes how to configure Multipath I/O (MPIO) for your StorSimple device connected to a host running Windows Server 2012 R2."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,162 +15,175 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# Configurare Multipath I/O per il dispositivo StorSimple
 
-Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni SAN a elevata disponibilità e con tolleranza d’errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per ulteriori informazioni, vedere [Panoramica di Multipath I/O](https://technet.microsoft.com/library/cc725907.aspx "Panoramica e funzionalità di MPIO").
+# <a name="configure-multipath-i/o-for-your-storsimple-device"></a>Configure Multipath I/O for your StorSimple device
 
-Per la disponibilità elevata della soluzione StorSimple, è necessario configurare MPIO nel dispositivo StorSimple. Quando MPIO è installato nei server host che eseguono Windows Server 2012 R2, i server possono dunque tollerare un errore di collegamento, di rete o di interfaccia.
+Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant SAN configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by re-balancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").  
 
-MPIO è una funzionalità facoltativa in Windows Server, e non è installata per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager. In questo argomento vengono descritti i passaggi da seguire per installare e utilizzare la funzionalità MPIO in un host che esegue Windows Server 2012 R2 e connesso a un dispositivo fisico StorSimple.
+For the high-availability of your StorSimple solution, MPIO should be configured on your StorSimple device. When MPIO is installed on your host servers running Windows Server 2012 R2, the servers can then tolerate a link, network, or interface failure. 
 
->[AZURE.NOTE] **Questa procedura è valida solo per StorSimple serie 8000. La funzionalità MPIO non è attualmente supportata in un dispositivo virtuale StorSimple.**
+MPIO is an optional feature on Windows Server and is not installed by default. It should be installed as a feature through Server Manager. This topic describes the steps you should follow to install and use the MPIO feature on a host running Windows Server 2012 R2 and connected to a StorSimple physical device.
 
-È necessario attenersi alla seguente procedura per configurare MPIO nel dispositivo StorSimple:
+>[AZURE.NOTE] **This procedure is applicable for StorSimple 8000 series only. MPIO is currently not supported on a StorSimple virtual device.**
 
-- Passaggio 1: Installare MPIO nell'host Windows Server
+You will need to follow these steps to configure MPIO on your StorSimple device:
 
-- Passaggio 2: Configurare MPIO per volumi StorSimple
+- Step 1: Install MPIO on the Windows Server host
 
-- Passaggio 3: Montare i volumi StorSimple nell'host
+- Step 2: Configure MPIO for StorSimple volumes
 
-- Passaggio 4: Configurare MPIO per la disponibilità elevata e il bilanciamento del carico
+- Step 3: Mount StorSimple volumes on the host
 
-Ognuno dei passaggi precedenti viene illustrato nelle sezioni seguenti.
+- Step 4: Configure MPIO for high availability and load balancing
 
-## Passaggio 1: Installare MPIO nell'host Windows Server
+Each of the above steps is discussed in the following sections.
 
-Per installare questa funzionalità nell'host Windows Server, completare la procedura seguente.
+## <a name="step-1:-install-mpio-on-the-windows-server-host"></a>Step 1: Install MPIO on the Windows Server host
 
-#### Per installare MPIO nell'host
+To install this feature on your Windows Server host, complete the following procedure.
 
-1. Aprire Server Manager nell'host Windows Server. Per impostazione predefinita, quando un membro del gruppo Administrators accede a un computer che esegue Windows Server 2012 R2 o Windows Server 2012 viene avviato Server Manager. Se Server Manager non è già aperto, fare clic su **Start > Server Manager**. ![Server Manager](./media/storsimple-configure-mpio-windows-server/IC740997.png)
-2. Fare clic su **Server Manager > Dashboard > Aggiungi ruoli e funzionalità**. Verrà avviata la procedura guidata **Aggiungi ruoli e funzionalità**. ![Aggiunta guidata ruoli e funzionalità 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
-3. Nella procedura guidata **Aggiungi ruoli e funzionalità**, effettuare le seguenti operazioni:
+#### <a name="to-install-mpio-on-the-host"></a>To install MPIO on the host
 
-	- Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
-	- Nella pagina **Seleziona tipo di installazione**, accettare l’impostazione predefinita di **Installazione basata su ruoli o basata su funzionalità**. Fare clic su **Avanti**. ![Aggiunta guidata ruoli e funzionalità 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-	- Nella pagina **Selezione server di destinazione**, scegliere **Selezionare un server dal pool di server**. Il server host deve essere rilevato automaticamente. Fare clic su **Avanti**.
-	- Nella pagina **Selezione ruoli server**, fare clic su **Avanti**.
-	- Nella pagina **Selezione funzionalità**, selezionare **Multipath I/O** e fare clic su **Avanti**. ![Aggiunta guidata ruoli e funzionalità 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-	- Nella pagina **Conferma selezioni per l’installazione**, confermare la selezione, quindi selezionare **Riavvia automaticamente il server di destinazione se necessario**, come mostrato di seguito. Fare clic su **Installa**. ![Aggiunta guidata ruoli e funzionalità 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
-	- Al termine dell'installazione si riceverà una notifica. Fare clic su **Chiudi** per chiudere la procedura guidata. ![Aggiunta guidata ruoli e funzionalità 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
+1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If the Server Manager is not already open, click **Start > Server Manager**.
+![Server Manager](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+2. Click **Server Manager > Dashboard > Add roles and features**. This starts the **Add Roles and Features** wizard.
+![Add Roles And Features Wizard 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
+3. In the **Add Roles and Features** wizard, do the following:
 
-## Passaggio 2: Configurare MPIO per volumi StorSimple
+    - On the **Before you begin** page, click **Next**.
+    - On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.![Add Roles And Features Wizard 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
+    - On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
+    - On the **Select server roles** page, click **Next**.
+    - On the **Select features** page, select **Multipath I/O**, and click **Next**.![Add Roles And Features Wizard 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
+    - On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.![Add Roles And Features Wizard 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
+    - You will be notified when the installation is complete. Click **Close** to close the wizard.![Add Roles And Features Wizard 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
-Per identificare i volumi StorSimple, è necessario configurare MPIO. Per configurare MPIO in modo che riconosca i volumi StorSimple, effettuare le seguenti operazioni.
+## <a name="step-2:-configure-mpio-for-storsimple-volumes"></a>Step 2: Configure MPIO for StorSimple volumes
 
-#### Per configurare MPIO per i volumi StorSimple
+MPIO needs to be configured to identify StorSimple volumes. To configure MPIO to recognize StorSimple volumes, perform the following steps.
 
-1. Aprire la **configurazione MPIO**. Fare clic su **Server Manager > Dashboard > Strumenti > MPIO**.
+#### <a name="to-configure-mpio-for-storsimple-volumes"></a>To configure MPIO for StorSimple volumes
 
-2. Nella finestra di dialogo **Proprietà MPIO**, selezionare la scheda **Individua percorsi multipli**.
+1. Open the **MPIO configuration**. Click **Server Manager > Dashboard > Tools > MPIO**.
 
-3. Selezionare **Aggiungi supporto per dispositivi iSCSI**, quindi fare clic su **Aggiungi**. ![Proprietà MPIO Individua percorsi multipli](./media/storsimple-configure-mpio-windows-server/IC741003.png)
+2. In the **MPIO Properties** dialog box, select the **Discover Multi-Paths** tab.
 
-4. Riavviare il server quando richiesto.
-5. Nella finestra di dialogo **Proprietà MPIO**, fare clic sulla scheda **Dispositivi MPIO**. Fare clic su **Aggiungi**. </br>![Proprietà MPIO Dispositivi MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. Nella finestra di dialogo **Aggiungi supporto MPIO**, in **ID hardware dispositivo**, immettere il numero di serie del dispositivo. Per ottenere il numero di serie del dispositivo, accedere al servizio StorSimple Manager e navigare fino a **Dispositivi > Dashboard**. Il numero di serie del dispositivo è visualizzato nel riquadro destro **Riepilogo rapido** del dashboard dispositivo. </br>![Aggiungi supporto MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
-7. Riavviare il server quando richiesto.
+3. Select **Add support for iSCSI devices**, and then click **Add**.  
+![MPIO Properties Discover Multi Paths](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 
-## Passaggio 3: Montare i volumi StorSimple nell'host
+4. Reboot the server when prompted.
+5. In the **MPIO Properties** dialog box, click the **MPIO Devices** tab. Click **Add**.
+    </br>![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+6. In the **Add MPIO Support** dialog box, under **Device Hardware ID**, enter your device serial number.You can get the device serial number by accessing your StorSimple Manager service and navigating to **Devices > Dashboard**. The device serial number is displayed in the right **Quick Glance** pane of the device dashboard.
+    </br>![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
+7. Reboot the server when prompted.
 
-Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositivo StorSimple possono essere montati ed è quindi possibile sfruttare MPIO per garantire la ridondanza. Per montare un volume, attenersi alla seguente procedura.
+## <a name="step-3:-mount-storsimple-volumes-on-the-host"></a>Step 3: Mount StorSimple volumes on the host
 
-#### Per montare i volumi nell'host
+After MPIO is configured on Windows Server, volume(s) created on the StorSimple device can be mounted and can then take advantage of MPIO for redundancy. To mount a volume, perform the following steps.
 
-1. Aprire la finestra **Proprietà iniziatore iSCSI** sull'host Windows Server. Fare clic su **Server Manager > Dashboard > Strumenti > Iniziatore iSCSI**.
-2. Nella finestra di dialogo **Proprietà iniziatore iSCSI** fare clic sulla scheda Individuazione, quindi fare clic su **Individua portale destinazione**.
-3. Nella finestra di dialogo **Individua portale destinazione**, effettuare le operazioni seguenti:
-	
-	- Immettere l'indirizzo IP della porta DATA del dispositivo StorSimple (ad esempio, immettere DATA 0).
-	- Fare clic su **OK** per tornare alla finestra di dialogo **Proprietà iniziatore iSCSI**.
+#### <a name="to-mount-volumes-on-the-host"></a>To mount volumes on the host
 
-	>[AZURE.IMPORTANT] **Se si utilizza una rete privata per le connessioni iSCSI, immettere l'indirizzo IP della porta DATA connessa alla rete privata.**
+1. Open the **iSCSI Initiator Properties** window on the Windows Server host. Click **Server Manager > Dashboard > Tools > iSCSI Initiator**.
+2. In the **iSCSI Initiator Properties** dialog box, click the Discovery tab, and then click **Discover Target Portal**.
+3. In the **Discover Target Portal** dialog box, do the following:
+    
+    - Enter the IP address of the DATA port of your StorSimple device (for example, enter DATA 0).
+    - Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
-4. Ripetere i passaggi 2-3 per una seconda interfaccia di rete (ad esempio, DATA 1) sul dispositivo. Tenere presente che queste interfacce devono essere abilitate per iSCSI. Per ulteriori informazioni, andare a [Modificare le interfacce di rete](storsimple-modify-device-config.md#modify-network-interfaces).
-5. Selezionare la scheda **Destinazioni** nella finestra di dialogo **Proprietà iniziatore iSCSI**. Dovrebbe essere visualizzato l'IQN destinazione del dispositivo StorSimple in **Destinazioni individuate**. ![Scheda destinazioni proprietà iniziatore iSCSI](./media/storsimple-configure-mpio-windows-server/IC741007.png)
-6. Fare clic su **Connetti** per stabilire una sessione iSCSI con il dispositivo StorSimple. Verrà visualizzata una finestra di dialogo **Connessione alla destinazione**.
+    >[AZURE.IMPORTANT] **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
 
-7. Nella finestra di dialogo **Connessione alla destinazione**, selezionare la casella di controllo **Consenti percorsi multipli**. Fare clic su **Advanced**.
+4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, see [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces).
+5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
+ ![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
+6. Click **Connect** to establish an iSCSI session with your StorSimple device. A **Connect to Target** dialog box will appear.
 
-8. Nella finestra di dialogo **Impostazioni avanzate**, effettuare le seguenti operazioni:
-	- 	 Nell’elenco a discesa **Scheda locale**, selezionare **Iniziatore iSCSI Microsoft**.
-	- 	 Nell'elenco a discesa **IP iniziatore**, selezionare l’indirizzo IP dell'host.
-	- 	 Nell’elenco a discesa **IP portale di destinazione**, selezionare l’IP dell’interfaccia dispositivo.
-	- 	 Fare clic su **OK** per tornare alla finestra di dialogo **Proprietà iniziatore iSCSI**.
+7. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
 
-9. Fare clic su **Proprietà**. Nella finestra di dialogo **Proprietà**, fare clic su **Aggiungi sessione**.
-10. Nella finestra di dialogo **Connessione alla destinazione**, selezionare la casella di controllo **Consenti percorsi multipli**. Fare clic su **Advanced**.
-11. Nella finestra di dialogo **Impostazioni avanzate**:
-	-  Nell’elenco a discesa **Scheda locale**, selezionare Iniziatore iSCSI Microsoft.
-	-  Nell’elenco a discesa **IP iniziatore**, selezionare l’indirizzo IP corrispondente all'host. In questo caso, si sta eseguendo la connessione di due interfacce di rete sul dispositivo a una singola interfaccia di rete sull'host. Pertanto, questa interfaccia è identica a quella fornita per la prima sessione.
-	-  Nell’elenco a discesa **IP portale di destinazione**, selezionare l’indirizzo IP per la seconda interfaccia di dati abilitata sul dispositivo.
-	-  Fare clic su **OK** per tornare alla finestra di dialogo Proprietà iniziatore iSCSI. È stata aggiunta una seconda sessione alla destinazione.
+8. In the **Advanced Settings** dialog box, do the following:                                       
+    -    On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    -    On the **Initiator IP** drop-down list, select the IP address of the host.
+    -    On the **Target Portal** IP drop-down list, select the IP of device interface.
+    -    Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
-12. Aprire **Gestione computer** passando a **Server Manager > Dashboard > Gestione computer**. Nel riquadro sinistro, fare clic su **Archiviazione > Gestione disco**. I volumi creati nel dispositivo StorSimple che sono visibili a questo host verranno visualizzati in **Gestione disco** come nuovi dischi.
+9. Click **Properties**. In the **Properties** dialog box, click **Add Session**.
+10. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
+11. In the **Advanced Settings** dialog box:                                        
+    -  On the **Local adapter** drop-down list, select Microsoft iSCSI Initiator.
+    -  On the **Initiator IP** drop-down list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the device to a single network interface on the host. Therefore, this interface is the same as that provided for the first session.
+    -  On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
+    -  Click **OK** to return to the iSCSI Initiator Properties dialog box. You have added a second session to the target.
 
-13. Inizializzare il disco e creare un nuovo volume. Durante il processo di formattazione, selezionare una dimensione blocco di 64 KB. ![Gestione disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
-14. In **Gestione disco**, fare clic con il pulsante destro del mouse su **Disco** e selezionare **Proprietà**.
-15. Nella finestra di dialogo **Multi-Path Disk Device Properties** di StorSimple Model ####, fare clic sulla scheda **MPIO**. ![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+12. Open **Computer Management** by navigating to **Server Manager > Dashboard > Computer Management**. In the left pane, click **Storage > Disk Management**. The volume(s) created on the StorSimple device that are visible to this host will appear under **Disk Management** as new disk(s).
 
-16. Nella sezione **Nome DSM**, fare clic su **Dettagli** e verificare che i parametri impostati siano quelli predefiniti. I parametri predefiniti sono:
+13. Initialize the disk and create a new volume. During the format process, select a block size of 64 KB.
+![Disk Management](./media/storsimple-configure-mpio-windows-server/IC741008.png)
+14. Under **Disk Management**, right-click the **Disk** and select **Properties**.
+15. In the StorSimple Model #### **Multi-Path Disk Device Properties** dialog box, click the **MPIO** tab.
+![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
-	- Periodo di verifica percorso = 30
-	- Numero di tentativi = 3
-	- Periodo di rimozione PDO = 20
-	- Intervallo tentativi = 1
-	- Verifica percorso attivata = deselezionata.
+16. In the **DSM Name** section, click **Details** and verify that the parameters are set to the default parameters. The default parameters are:
+
+    - Path Verify Period = 30
+    - Retry Count = 3
+    - PDO Remove Period = 20
+    - Retry Interval = 1
+    - Path Verify Enabled = Unchecked.
 
 
->[AZURE.NOTE] **Non modificare i parametri predefiniti.**
+>[AZURE.NOTE] **Do not modify the default parameters.**
 
-## Passaggio 4: Configurare MPIO per la disponibilità elevata e il bilanciamento del carico
+## <a name="step-4:-configure-mpio-for-high-availability-and-load-balancing"></a>Step 4: Configure MPIO for high availability and load balancing
 
-Per la disponibilità elevata e il bilanciamento del carico basato su percorsi multipli, è necessario aggiungere manualmente più sessioni per dichiarare i diversi percorsi disponibili. Ad esempio, se l'host dispone di due interfacce connesse alla rete SAN e il dispositivo dispone di due interfacce connesse alla rete SAN, è necessario configurare quattro sessioni con permutazioni percorso corrette (se ciascuna interfaccia DATA e ciascuna interfaccia host si trova in una subnet IP diversa e non è instradabile saranno necessarie solo due sessioni).
+For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to SAN and the device has two interfaces connected to SAN, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
 
->[AZURE.IMPORTANT] **È consigliabile non combinare interfacce di rete da 1 GbE e da 10 GbE. Se si utilizzano due interfacce di rete, devono essere di tipo identico.**
+>[AZURE.IMPORTANT] **We recommend that you do not mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
 
-Nella procedura seguente viene descritto come aggiungere le sessioni quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete.
+The following procedure describes how to add sessions when a StorSimple device with two network interfaces is connected to a host with two network interfaces.
 
-### Per configurare MPIO per la disponibilità elevata e il bilanciamento del carico
+### <a name="to-configure-mpio-for-high-availability-and-load-balancing"></a>To configure MPIO for high availability and load balancing
 
-1. Eseguire un rilevamento della destinazione: nella finestra di dialogo **Proprietà iniziatore iSCSI**, nella scheda **Individuazione**, fare clic su **Individua portale**.
-2. Nella finestra di dialogo **Connessione alla destinazione**, immettere l’indirizzo IP di una delle interfacce di rete del dispositivo.
-3. Fare clic su **OK** per tornare alla finestra di dialogo **Proprietà iniziatore iSCSI**.
+1. Perform a discovery of the target: in the **iSCSI Initiator Properties** dialog box, on the **Discovery** tab, click **Discover Portal**.
+2. In the **Connect to Target** dialog box, enter the IP address of one of the device network interfaces.
+3. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
-4. Nella finestra di dialogo **Proprietà iniziatore iSCSI**, selezionare la scheda **Destinazioni**, evidenziare la destinazione scoperta, quindi fare clic su **Connetti**. Viene visualizzata la finestra di dialogo **Connessione alla destinazione**.
+4. In the **iSCSI Initiator Properties** dialog box, select the **Targets** tab, highlight the discovered target, and then click **Connect**. The **Connect to Target** dialog box appears.
 
-5. Nella finestra di dialogo **Connessione alla destinazione**:
-	
-	- Lasciare l’impostazione di destinazione selezionata predefinita **Aggiungi connessione all’elenco Destinazioni preferite**. In questo modo il dispositivo tenta automaticamente di riavviare la connessione ogni volta che il computer viene riavviato.
-	- Selezionare la casella di controllo **Consenti percorsi multipli**.
-	- Fare clic su **Advanced**.
+5. In the **Connect to Target** dialog box:
+    
+    - Leave the default selected target setting for **Add this connection** to the list of favorite targets. This will make the device automatically attempt to restart the connection every time this computer restarts.
+    - Select the **Enable multi-path** check box.
+    - Click **Advanced**.
 
-6. Nella finestra di dialogo **Impostazioni avanzate**:
-	- Nell’elenco a discesa **Scheda locale**, selezionare **Iniziatore iSCSI Microsoft**.
-	- Nell'elenco a discesa **IP iniziatore**, selezionare l’indirizzo IP dell'host.
-	- Nell’elenco a discesa **IP portale di destinazione**, selezionare l’indirizzo IP dell’interfaccia di dati abilitata sul dispositivo.
-	- Fare clic su **OK** per tornare alla finestra di dialogo Proprietà iniziatore iSCSI.
+6. In the **Advanced Settings** dialog box:
+    - On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    - On the **Initiator IP** drop-down list, select the IP address of the host.
+    - On the **Target Portal IP** drop-down list, select the IP address of the data interface enabled on the device.
+    - Click **OK** to return to the iSCSI Initiator Properties dialog box.
 
-7. Fare clic su **Proprietà** e nella finestra di dialogo **Proprietà**, fare clic su **Aggiungi sessione**.
+7. Click **Properties**, and in the **Properties** dialog box, click **Add Session**.
 
-8. Nella finestra di dialogo **Connessione alla destinazione**, selezionare la casella di controllo **Consenti percorsi multipli**, quindi fare clic su **Avanzate**.
+8. In the **Connect to Target** dialog box, select the **Enable multi-path** check box, and then click **Advanced**.
 
-9. Nella finestra di dialogo **Impostazioni avanzate**:
-	1. Nell’elenco a discesa **Scheda locale**, selezionare **Iniziatore iSCSI Microsoft**.
-	2. Nell’elenco a discesa **IP iniziatore**, selezionare l’indirizzo IP corrispondente alla seconda interfaccia dell'host.
-	3. Nell’elenco a discesa **IP portale di destinazione**, selezionare l’indirizzo IP per la seconda interfaccia di dati abilitata sul dispositivo.
-	4. Fare clic su **OK** per tornare alla finestra di dialogo **Proprietà iniziatore iSCSI**. È stata aggiunta ora una seconda sessione alla destinazione.
+9. In the **Advanced Settings** dialog box:
+    1. On the **Local adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    2. On the **Initiator IP** drop-down list, select the IP address corresponding to the second interface on the host.
+    3. On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
+    4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box. You have now added a second session to the target.
 
-10. Ripetere i passaggi da 8 a 10 per aggiungere altre sessioni (percorsi) alla destinazione. Con due interfacce nell'host e due sul dispositivo, è possibile aggiungere un totale di quattro sessioni.
+10. Repeat Steps 8-10 to add additional sessions (paths) to the target. With two interfaces on the host and two on the device, you can add a total of four sessions.
 
-11. Dopo aver aggiunto le sessioni (percorsi) desiderate, nella finestra di dialogo **Proprietà iniziatore iSCSI**, selezionare la destinazione e fare clic su **Proprietà**. Nella scheda Sessioni della finestra di dialogo **Proprietà**, notare i quatto identificatori di sessione che corrispondono alle possibili permutazioni di percorso. Per annullare una sessione, selezionare la casella di controllo accanto a un identificatore di sessione, quindi fare clic su **Disconnetti**.
+11. After adding the desired sessions (paths), in the **iSCSI Initiator Properties** dialog box, select the target and click **Properties**. On the Sessions tab of the **Properties** dialog box, note the four session identifiers that correspond to the possible path permutations. To cancel a session, select the check box next to a session identifier, and then click **Disconnect**.
 
-12. Per visualizzare i dispositivi presentati all'interno delle sessioni, selezionare la scheda **Dispositivi**. Per configurare il criterio MPIO per un dispositivo selezionato, fare clic su **MPIO**. Verrà visualizzata la finestra di dialogo **Dettagli dispositivo**. Nella scheda **MPIO**, è possibile selezionare le impostazioni **Criterio di bilanciamento del carico** appropriate. È inoltre possibile visualizzare il tipo di percorso **Attivo** o **Standby**.
+12. To view devices presented within sessions, select the **Devices** tab. To configure the MPIO policy for a selected device, click **MPIO**. The **Device Details** dialog box will appear. On the **MPIO** tab, you can select the appropriate **Load Balance Policy** settings. You can also view the **Active** or **Standby** path type.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Ulteriori informazioni in [Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple](storsimple-modify-device-config.md).
+Learn more about [using the StorSimple Manager service to modify your StorSimple device configuration](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

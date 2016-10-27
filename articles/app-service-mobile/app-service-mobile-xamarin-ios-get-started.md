@@ -1,94 +1,94 @@
 <properties
-	pageTitle="Introduzione alle app per dispositivi mobili di Azure App Service per app Xamarin.iOS | Microsoft Azure"
-	description="Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili per lo sviluppo per Xamarin iOS."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="adrianhall"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with Azure App Service Mobile Apps for Xamarin.iOS apps | Microsoft Azure"
+    description="Follow this tutorial to get started with using Mobile Apps for Xamarin.iOS development."
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="na"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+    ms.service="app-service-mobile"
+    ms.workload="na"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
 
-#Creare un'app per Xamarin.iOS
+
+#<a name="create-a-xamarin.ios-app"></a>Create a Xamarin.iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Overview
+##<a name="overview"></a>Overview
 
-Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili Xamarin.iOS mediante un back-end per app per dispositivi mobili di Azure. Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Xamarin.iOS _Todo list_ che archivia i dati delle app in Azure.
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS mobile app by using an Azure mobile app backend.  You create both a new mobile app backend and a simple _Todo list_ Xamarin.iOS app that stores app data in Azure.
 
-Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni Xamarin.iOS relative all'uso della funzionalità di Azure App Service relativa alle app per dispositivi mobili.
+Completing this tutorial is a prerequisite for all other Xamarin.iOS tutorials about using the Mobile Apps feature in Azure App Service.
 
-##Prerequisiti
+##<a name="prerequisites"></a>Prerequisites
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+To complete this tutorial, you need the following prerequisites:
 
-* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio con Xamarin. Per istruzioni, vedere [Configurazione e installazione](https://msdn.microsoft.com/library/mt613162.aspx) per Visual Studio e Xamarin.
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 
-* Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* A Mac with Xcode v7.0 or later and Xamarin Studio Community installed. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
->[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina in cui è possibile [provare il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile). You can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
 
-## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
+## <a name="create-an-azure-mobile-app-backend"></a>Create an Azure Mobile App backend
 
-Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla procedura seguente.
+Follow these steps to create a Mobile App backend.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Configurare il progetto server
+## <a name="configure-the-server-project"></a>Configure the server project
 
-È stato eseguito il provisioning di un back-end dell'app per dispositivi mobili di Azure che può essere usato dalle applicazioni client per dispositivi mobili. Successivamente, scaricare un progetto server per un semplice back-end "todo list" e pubblicarlo in Azure.
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, download a server project for a simple "todo list" backend and publish it to Azure.
 
-Seguire questa procedura per configurare il progetto server per l'uso del back-end .NET o Node.js.
+Follow the following steps to configure the server project to use either the Node.js or .NET backend.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Scaricare ed eseguire l'app per Xamarin.iOS
+## <a name="download-and-run-the-xamarin.ios-app"></a>Download and run the Xamarin.iOS app
 
-1. Aprire il [portale di Azure] in una finestra del browser.
+1. Open the [Azure portal] in a browser window.
 
-2. Nel pannello delle impostazioni dell'app per dispositivi mobili fare clic su **Introduzione** > **Xamarin.iOS**. Al passaggio 3 fare clic su **Crea una nuova app**, se l'opzione non è già selezionata. Fare quindi clic sul pulsante **Download**.
+2. On the settings blade for your Mobile App, click **Get Started** > **Xamarin.iOS**. Under step 3, click **Create a new app** if it's not already selected.  Next click the **Download** button.
 
-  	Verrà scaricato un progetto che contiene un'applicazione client connessa all'app per dispositivi mobili. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
+    A client application that connects to your mobile backend is downloaded. Save the compressed project file to your local computer, and make a note of where you save it.
 
-3. Estrarre il progetto scaricato e aprirlo in Xamarin Studio (o in Visual Studio).
+3. Extract the project that you downloaded, and then open it in Xamarin Studio (or Visual Studio).
 
-	![][9]
+    ![][9]
 
-	![][8]
+    ![][8]
 
-4. Premere F5 per compilare il progetto e avviare l'app nell'emulatore iPhone.
+4. Press the F5 key to build the project and start the app in the iPhone emulator.
 
-5. Nell'app digitare un testo significativo, ad esempio _Learn Xamarin_, e quindi fare clic sul pulsante **+**.
+5. In the app, type meaningful text, such as _Learn Xamarin_, and then click the **+** button.
 
-	![][10]
+    ![][10]
 
-	Verrà inviata una richiesta POST al nuovo back-end dell'app per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end per app mobili e i dati vengono visualizzati nell'elenco.
+    Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data is displayed in the list.
 
->[AZURE.NOTE]È possibile esaminare il codice che accede al back-end dell'app per dispositivi mobili per eseguire una query e inserire i dati nel file C# QSTodoService.cs.
+>[AZURE.NOTE]You can review the code that accesses your mobile app backend to query and insert data in the QSTodoService.cs C# file.
 
-##Passaggi successivi
+##<a name="next-steps"></a>Next steps
 
-* [Aggiungere l'autenticazione all'app per Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
-
-* [Aggiungere notifiche push all'app](app-service-mobile-xamarin-ios-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Add Offline Sync to your app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Add authentication to your app ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-ios-get-started-push.md)
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
-[Getting started with mobile app backends]: #getting-started
-[Create a new mobile app backend]: #create-new-service
-[Next Steps]: #next-steps
-
-
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
@@ -97,6 +97,10 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

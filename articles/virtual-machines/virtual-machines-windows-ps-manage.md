@@ -1,42 +1,43 @@
 <properties
-	pageTitle="Gestire VM con Resource Manager e PowerShell | Microsoft Azure"
-	description="Gestire macchine virtuali con Azure Resource Manager e PowerShell."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Manage VMs using Resource Manager and PowerShell | Microsoft Azure"
+    description="Manage virtual machines using Azure Resource Manager and PowerShell."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="na"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Gestire macchine virtuali di Azure con Resource Manager di Azure e PowerShell
 
-## Installare Azure PowerShell
+# <a name="manage-azure-virtual-machines-using-resource-manager-and-powershell"></a>Manage Azure Virtual Machines using Resource Manager and PowerShell
+
+## <a name="install-azure-powershell"></a>Install Azure PowerShell
  
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione da usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
-## Impostare variabili
+## <a name="set-variables"></a>Set variables
 
-Tutti i comandi nell'articolo richiedono il nome del gruppo di risorse in cui si trova la macchina virtuale e il nome della macchina virtuale da gestire. Sostituire il valore di **$rgName** con il nome del gruppo di risorse che contiene la macchina virtuale. Sostituire il valore di **$vmName** con il nome della VM. Creare le variabili.
+All the commands in the article require the name of the resource group where the virtual machine is located and the name of the virtual machine to manage. Replace the value of **$rgName** with the name of the resource group that contains the virtual machine. Replace the value of **$vmName** with the name of the VM. Create the variables.
 
     $rgName = "resource-group-name"
     $vmName = "VM-name"
 
-## Visualizzare informazioni relative a una macchina virtuale
+## <a name="display-information-about-a-virtual-machine"></a>Display information about a virtual machine
 
-Ottenere le informazioni relative alla macchina virtuale.
+Get the virtual machine information.
   
     Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-Verrà visualizzata una schermata simile alla seguente:
+It returns something like this example:
 
     ResourceGroupName        : rg1
     Id                       : /subscriptions/{subscription-id}/resourceGroups/
@@ -104,103 +105,105 @@ Verrà visualizzata una schermata simile alla seguente:
     NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/
                                 rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
-## Avviare una macchina virtuale
+## <a name="stop-a-virtual-machine"></a>Stop a virtual machine
 
-Avviare la macchina virtuale.
-
-    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-
-Dopo qualche minuto viene visualizzata una schermata simile alla seguente:
-
-    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-    ---------  -------------------  ----------  ------------
-                              True          OK  OK
-
-## Arrestare una macchina virtuale
-
-Arrestare la macchina virtuale.
+Stop the running virtual machine.
 
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-Verrà richiesta una conferma:
+You're asked for confirmation:
 
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
         
-Immettere **Y** per arrestare la macchina virtuale.
+Enter **Y** to stop the virtual machine.
 
-Dopo qualche minuto viene visualizzata una schermata simile alla seguente:
+After a few minutes, it returns something like this example:
 
-    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-    ---------  -------------------  ----------  ------------
-                              True          OK  OK
+    StatusCode : Succeeded
+    StartTime  : 9/13/2016 12:11:57 PM
+    EndTime    : 9/13/2016 12:14:40 PM
 
-## Riavviare una macchina virtuale
+## <a name="start-a-virtual-machine"></a>Start a virtual machine
 
-Riavviare la macchina virtuale.
+Start the virtual machine if it's stopped.
+
+    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+
+After a few minutes, it returns something like this example:
+
+    StatusCode : Succeeded
+    StartTime  : 9/13/2016 12:32:55 PM
+    EndTime    : 9/13/2016 12:35:09 PM
+
+If you want to restart a virtual machine that is already running, use **Restart-AzureRmVM** described next.
+
+## <a name="restart-a-virtual-machine"></a>Restart a virtual machine
+
+Restart the running virtual machine.
 
     Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-Verrà visualizzata una schermata simile alla seguente:
+It returns something like this example:
 
-    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-    ---------  -------------------  ----------  ------------
-                              True          OK  OK
+    StatusCode : Succeeded
+    StartTime  : 9/13/2016 12:54:40 PM
+    EndTime    : 9/13/2016 12:55:54 PM
 
-## Eliminare una macchina virtuale
+## <a name="delete-a-virtual-machine"></a>Delete a virtual machine
 
-Eliminare la macchina virtuale.
+Delete the virtual machine.  
 
     Remove-AzureRmVM -ResourceGroupName $rgName –Name $vmName
 
-> [AZURE.NOTE] È possibile utilizzare il parametro **-Force** per ignorare la richiesta di conferma.
+> [AZURE.NOTE] You can use the **-Force** parameter to skip the confirmation prompt.
 
-Se non si usa il parametro -Force, verrà richiesta una conferma:
+If you didn't use the -Force parameter, you're asked for confirmation:
 
     Virtual machine removal operation
     This cmdlet will remove the specified virtual machine. Do you want to continue?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-Verrà visualizzata una schermata simile alla seguente:
+It returns something like this example:
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-## Ridimensionare una macchina virtuale
+## <a name="update-a-virtual-machine"></a>Update a virtual machine
 
-Questo esempio illustra come aggiornare le dimensioni della macchina virtuale.
+This example shows how to update the size of the virtual machine.
         
     $vmSize = "Standard_A1"
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     $vm.HardwareProfile.vmSize = $vmSize
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
     
-Verrà visualizzata una schermata simile alla seguente:
+It returns something like this example:
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
                               
-Per un elenco di dimensioni disponibili per una macchina virtuale, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-windows-sizes.md).
+See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
 
-## Aggiungere un disco dati a una macchina virtuale
+## <a name="add-a-data-disk-to-a-virtual-machine"></a>Add a data disk to a virtual machine
 
-Questo esempio illustra come aggiungere un disco dati a una macchina virtuale esistente.
+This example shows how to add a data disk to an existing virtual machine.
 
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 
-Il disco aggiunto non viene inizializzato. Per inizializzare il disco, è possibile accedere al disco e usare Gestione disco. Se è stata eseguita l'installazione di WinRM e di un certificato durante la creazione del disco, è possibile usare PowerShell remoto per inizializzare il disco. È anche possibile usare un'estensione di script personalizzata:
+The disk that you add is not initialized. To initialize the disk, you can log in to it and use disk management. If you installed WinRM and a certificate on it when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
 
     $location = "location-name"
     $scriptName = "script-name"
     $fileName = "script-file-name"
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 
-Il file di script può contenere codice analogo al seguente per inizializzare i dischi:
+The script file can contain something like this code to initialize the disks:
 
     $disks = Get-Disk |   Where partitionstyle -eq 'raw' | sort number
 
@@ -218,8 +221,12 @@ Il file di script può contenere codice analogo al seguente per inizializzare i 
         $count++
     }
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next Steps
 
-Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md)
+If there were issues with a deployment, you might look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,67 +1,73 @@
 <properties writer="cynthn" editor="tysonn" manager="timlt" />
 
-1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).  
 
-2. Fare clic su **Nuovo** nella barra dei comandi nella parte inferiore della finestra.
+1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
 
-3. Fare clic su **Calcolo**, quindi su **Macchina virtuale** e infine su **Da raccolta**.
+2. On the command bar at the bottom of the window, click **New**.
 
-	![Creare una nuova macchina virtuale][Image1]
+3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
 
-4. Nel gruppo **SUSE** selezionare un'immagine di macchina virtuale OpenSUSE e quindi fare clic sulla freccia per continuare.
+    ![Create a New Virtual Machine][Image1]
 
-5. Nella prima pagina di **configurazione della macchina virtuale**:
+4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
 
-	- Specificare un **Nome macchina virtuale**, ad esempio "testlinuxvm". Il nome deve contenere un numero di caratteri compreso tra 3 e 15, può essere composto solo da lettere, numeri e trattini e deve iniziare con una lettera e terminare con una lettera o con un numero.
+5. On the first **Virtual machine configuration** page:
 
-	- Verificare il valore di **Livello** e selezionare una **Dimensione**. Il livello determina le dimensioni che è possibile scegliere. La dimensione influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines-linux-sizes.md).
-	- Digitare un **nuovo nome utente** o accettare quello predefinito **azureuser**. Questo nome viene aggiunto al file dell'elenco Sudoers.
-	- Definire il tipo di **Autenticazione** da usare. Per linee guida generali relative alle password, vedere [Password complesse](http://msdn.microsoft.com/library/ms161962.aspx).
+    - Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
 
-6. Nella pagina di **configurazione della macchina virtuale** successiva:
+    - Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-linux-sizes.md).
+    - Type a **New User Name**, or accept the default, **azureuser**. This name is added to the Sudoers list file.
+    - Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
 
-	- Usare l'impostazione predefinita **Crea un nuovo servizio cloud**.
-	- Nella casella **Nome DNS** digitare un nome DNS univoco da usare come parte dell'indirizzo, ad esempio "testlinuxvm".
-	- Nella casella **Regione/Gruppo di affinità/Rete virtuale** selezionare l'area in cui verrà ospitata l'immagine virtuale.
-	- In **Endpoint** mantenere l'endpoint SSH. A questo punto, è possibile aggiungere altri endpoint oppure aggiungerli, modificarli o eliminarli dopo aver creato la macchina virtuale.
+6. On the next **Virtual machine configuration** page:
 
-	>[AZURE.NOTE] Se si desidera che una macchina virtuale usi una rete virtuale, è **necessario** specificare la rete quando si crea la macchina. Non è possibile aggiungere una macchina virtuale a una rete virtuale dopo averla creata. Per altre informazioni, vedere [Panoramica di Rete virtuale](virtual-networks-overview.md).
+    - Use the default **Create a new cloud service**.
+    - In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".
+    - In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
+    - Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
 
-7.	Nell'ultima pagina di **configurazione della macchina virtuale** mantenere le impostazioni predefinite e quindi fare clic sul segno di spunta per terminare.
+    >[AZURE.NOTE] If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't add a virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview](virtual-networks-overview.md).
 
-Nel portale la nuova macchina virtuale viene elencata in **Macchine virtuali**. Se lo stato indica l'esecuzione del **provisioning**, è in corso la configurazione della macchina virtuale. Quando lo stato indica che la macchina virtuale è **in esecuzione**, è possibile passare al passaggio successivo.
+7.  On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.
 
-##Connettersi alla macchina virtuale
+The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being set up. When the status is reported as **Running**, you can move on to the next step.
 
-Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sistema operativo del computer da cui si esegue la connessione:
+##<a name="connect-to-the-virtual-machine"></a>Connect to the Virtual Machine
 
-- Da un computer che esegue Linux, usare SSH. Al prompt dei comandi digitare:
+You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:
 
-	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
+- From a computer running Linux, use SSH. At the command prompt, type:
 
-	Digitare la password dell'utente.
+    `$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 
-- Da un computer che esegue Windows, usare PuTTY. Se non è installato, scaricarlo dalla [pagina di download di PuTTY][PuTTYDownload].
+    Type the user's password.
 
-	Salvare il file **putty.exe** in una directory del computer. Aprire un prompt dei comandi, passare a questa cartella ed eseguire **putty.exe**.
+- From a computer running Windows, use PuTTY. If you don't have it installed, download it from the [PuTTY Download Page][PuTTYDownload].
 
-	Digitare il nome host, ad esempio "testlinuxvm.cloudapp.net", quindi digitare "22" nella casella **Port**.
+    Save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and run **putty.exe**.
 
-	![Schermata di PuTTY][Image6]
+    Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.
 
-##Aggiornare la macchina virtuale (facoltativo)
+    ![PuTTY Screen][Image6]  
 
-1. Dopo la connessione alla macchina virtuale, è possibile installare aggiornamenti di sistema e patch. Per eseguire l'aggiornamento, digitare:
+##<a name="update-the-virtual-machine-(optional)"></a>Update the Virtual Machine (optional)
 
-	`$ sudo zypper update`
+1. After you're connected to the virtual machine, you can optionally install system updates and patches. To run the update, type:
 
-2. Selezionare **Software**, quindi **Online Update** per visualizzare l'elenco degli aggiornamenti disponibili. Selezionare **Accept** per avviare l'installazione e applicare tutte le nuove patch, ad eccezione di quelle facoltative, attualmente disponibili per il sistema.
+    `$ sudo zypper update`
 
-3. Al termine dell'installazione fare clic su **Finish**. Il sistema è aggiornato.
+2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
+
+3. After installation is done, select **Finish**.  Your system is now up to date.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 
 [Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
+
+
+
+<!--HONumber=Oct16_HO2-->
+
 

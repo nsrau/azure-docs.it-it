@@ -1,71 +1,74 @@
-Alcuni pacchetti potrebbero non essere installati tramite pip se eseguiti su Azure. Il motivo può essere semplicemente dovuto al fatto che il pacchetto non è disponibile nell'indice del pacchetto Python. Potrebbe essere necessario un compilatore (se non è disponibile alcun compilatore nel computer che esegue il sito Web di Azure).
+Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
 
-In questa sezione vengono esaminati alcuni metodi utili per risolvere questo problema.
+In this section, we'll look at ways to deal with this issue.
 
-### Richiedere i file wheel
+### <a name="request-wheels"></a>Request wheels
 
-Se per l'installazione del pacchetto è necessario un compilatore, provare a contattare il proprietario del pacchetto per richiedere che vengano resi disponibili i file wheel per il pacchetto.
+If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
 
-Grazie alla recente disponibilità del compilatore [Microsoft Visual C++ per Python 2.7][], è ora più facile compilare pacchetti che includono codice nativo per Python 2.7.
+With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][], it is now easier to build packages that have native code for Python 2.7.
 
-### Creare i file wheel (richiede Windows)
+### <a name="build-wheels-(requires-windows)"></a>Build wheels (requires Windows)
 
-quando si usa questa opzione, assicurarsi di compilare il pacchetto usando un ambiente Python corrispondente alla combinazione di piattaforma/architettura/versione usata nel sito Web di Azure (Windows/32 bit/2.7 o 3.4).
+Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
-Se il pacchetto non viene installato perché richiede un compilatore, è possibile installare il compilatore nel computer locale e creare un file wheel per il pacchetto, da includere quindi nel repository.
+If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
 
-se non si ha accesso a un computer Windows, vedere [Creare una macchina virtuale che esegue Windows][] per informazioni su come creare una macchina virtuale in Azure. È possibile usare la macchina virtuale per creare i file wheel, aggiungerli al repository e quindi eliminare la macchina virtuale se lo si desidera.
+Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
 
-Per Python 2.7, è possibile installare il compilatore [Microsoft Visual C++ per Python 2.7][].
+For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][].
 
-Per Python 3.4, è possibile installare il compilatore [Microsoft Visual C++ 2010 Express][].
+For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][].
 
-Per creare i file wheel, sarà necessario il pacchetto wheel:
+To build wheels, you'll need the wheel package:
 
     env\scripts\pip install wheel
 
-Usare `pip wheel` per compilare una dipendenza:
+You'll use `pip wheel` to compile a dependency:
 
     env\scripts\pip wheel azure==0.8.4
 
-Verrà creato un file con estensione whl nella cartella \\wheelhouse. Aggiungere la cartella \\wheelhouse e i file wheel nel repository.
+This creates a .whl file in the \wheelhouse folder.  Add the \wheelhouse folder and wheel files to your repository.
 
-Modificare requirements.txt per aggiungere l'opzione `--find-links` nella parte superiore. In questo modo, si indica a pip di cercare una corrispondenza esatta nella cartella locale prima di passare all'indice del pacchetto Python.
+Edit your requirements.txt to add the `--find-links` option at the top. This tells pip to look for an exact match in the local folder before going to the python package index.
 
     --find-links wheelhouse
     azure==0.8.4
 
-Per includere tutte le dipendenze nella cartella \\wheelhouse senza usare del tutto l'indice del pacchetto Python, è possibile forzare pip in modo che ignori l'indice del pacchetto aggiungendo `--no-index` nella parte superiore di requirements.txt.
+If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding `--no-index` to the top of your requirements.txt.
 
     --no-index
 
-### Personalizzare l'installazione
+### <a name="customize-installation"></a>Customize installation
 
-È possibile personalizzare lo script di distribuzione in modo da installare un pacchetto nell'ambiente virtuale usando un programma di installazione alternativo, come easy\\_install. Per un esempio impostato come commento, vedere deploy.cmd. Assicurarsi che questi pacchetti non siano elencati in requirements.txt, in modo da impedirne l'installazione da parte di pip.
+You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
 
-Aggiungere questa riga allo script di distribuzione:
+Add this to the deployment script:
 
     env\scripts\easy_install somepackage
 
-Potrebbe anche essere possibile usare easy\\_install per eseguire l'installazione da un programma di installazione EXE (alcuni sono compatibili con il formato ZIP e quindi sono supportati da easy\\_install). Aggiungere il programma di installazione nel repository e richiamare easy\\_install passando il percorso del file eseguibile.
+You may also be able to use easy\_install to install from an exe installer (some are zip compatible, so easy\_install supports them).  Add the installer to your repository, and invoke easy\_install by passing the path to the executable.
 
-Aggiungere questa riga allo script di distribuzione:
+Add this to the deployment script:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### Includere l'ambiente virtuale nel repository (richiede Windows)
+### <a name="include-the-virtual-environment-in-the-repository-(requires-windows)"></a>Include the virtual environment in the repository (requires Windows)
 
-quando si usa questa opzione, assicurarsi di usare un ambiente virtuale corrispondente alla combinazione di piattaforma/architettura/versione usata nel sito Web di Azure (Windows/32 bit/2.7 o 3.4).
+Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
-Se si include l'ambiente virtuale nel repository, è possibile impedire allo script di distribuzione di eseguire la gestione dell'ambiente virtuale in Azure creando un file vuoto:
+If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
 
     .skipPythonDeployment
 
-È preferibile eliminare l'ambiente virtuale nel sito, per evitare la presenza di file rimasti in seguito alla gestione automatica dell'ambiente virtuale.
+We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
 
 
-[Creare una macchina virtuale che esegue Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Microsoft Visual C++ per Python 2.7]: http://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

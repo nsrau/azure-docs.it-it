@@ -1,9 +1,12 @@
-I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gruppi di risorse di Azure.
+The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
 
-Risorsa|Limite predefinito
+Resource|Default Limit
 ---|---
-Operazioni di gestione account di archiviazione (lettura)|800 per 5 minuti
-Operazioni di gestione account di archiviazione (scrittura)|200 all'ora
-Operazioni di gestione account di archiviazione (elenco)|100 per 5 minuti
+Storage account management operations (read)|800 per 5 minutes
+Storage account management operations (write)|200 per hour
+Storage account management operations (list)|100 per 5 minutes
 
-<!---HONumber=Nov15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

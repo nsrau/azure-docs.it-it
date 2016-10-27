@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panoramica del controllo di accesso in Data Lake Store | Microsoft Azure"
-   description="Informazioni sul controllo di accesso in Azure Data Lake Store"
+   pageTitle="Overview of Access Control in Data Lake Store | Microsoft Azure"
+   description="Understand how access control in Azure Data Lake Store"
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
@@ -16,294 +16,304 @@
    ms.date="09/06/2016"
    ms.author="nitinme"/>
 
-# Controllo di accesso in Azure Data Lake Store
 
-Data Lake Store implementa un modello di controllo di accesso derivante da HDFS e, di conseguenza, dal modello di controllo di accesso POSIX. Questo articolo offre un riepilogo delle nozioni di base del modello di controllo di accesso per Data Lake Store. Per altre informazioni sul modello di controllo di accesso HDFS, vedere [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Guida alle autorizzazioni HDFS).
+# <a name="access-control-in-azure-data-lake-store"></a>Access control in Azure Data Lake Store
 
-## Elenchi di controllo di accesso per file e cartelle
+Data Lake Store implements an access control model that derives from HDFS, and in turn, from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Store. To learn more about the HDFS access control model see [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
-Esistono due tipologie di elenchi di controllo di accesso (ACL): **ACL di accesso** e **ACL predefiniti**.
+## <a name="access-control-lists-on-files-and-folders"></a>Access control lists on files and folders
 
-* **ACL di accesso**: questi elenchi controllano l'accesso a un oggetto. Sia i file che le cartelle hanno ACL di accesso.
+There are two kinds of Acess control lists (ACLs) -  **Access ACLs** and **Default ACLs**.
 
-* **ACL predefiniti**: "modello" di ACL associato a una cartella che determina gli ACL di accesso per tutti gli elementi figlio creati in tale cartella. I file non hanno ACL predefiniti.
+* **Access ACLs** – These control access to an object. Files and Folders both have Access ACLs.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
+* **Default ACLs** – A "template" of ACLs associated with a folder that determine the Access ACLs for any child items created under that folder. Files do not have Default ACLs.
 
-Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
+Both Access ACLs and Default ACLs have the same structure.
 
->[AZURE.NOTE] La modifica dell'ACL predefinito per un elemento padre non influisce sull'ACL di accesso o sull'ACL predefinito degli elementi figlio già esistenti.
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
-## Utenti e identità
+>[AZURE.NOTE] Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
 
-Ogni file e cartella ha autorizzazioni distinte per le entità seguenti:
+## <a name="users-and-identities"></a>Users and identities
 
-* Utente proprietario del file
-* Gruppo proprietario
-* Utenti non anonimi
-* Gruppi con nome
-* Tutti gli altri utenti
+Every file and folder has distinct permissions for these identities:
 
-Le identità degli utenti e dei gruppi sono identità di Azure Active Directory (AAD). Di conseguenza, se non diversamente specificato, un "utente" nel contesto di Data Lake Store potrebbe corrispondere a un utente o a un gruppo di sicurezza di AAD.
+* The owning user of the file
+* The owning group
+* Named users
+* Named groups
+* All other users
 
-## Autorizzazioni
+The identities of users and groups are Azure Active Directory (AAD) identities so unless otherwise noted a "user", in the context of Data Lake Store, could either mean an AAD user or an AAD security group.
 
-Le autorizzazioni per un oggetto del file system sono **Lettura**, **Scrittura** ed **Esecuzione** e possono essere usate per file e cartelle come illustrato nella tabella seguente.
+## <a name="permissions"></a>Permissions
 
-| | File | Cartella |
+The permissions on a filesystem object are **Read**, **Write**, and **Execute** and they can be used on files and folders as shown in the table below.
+
+|            |    File     |   Folder |
 |------------|-------------|----------|
-| **Lettura (R)** | È possibile leggere il contenuto di un file | Per elencare il contenuto della cartella sono necessarie le autorizzazioni **Lettura** ed **Esecuzione**.|
-| **Scrittura (W)** | È possibile scrivere o aggiungere in un file | Per creare elementi figlio in una cartella sono necessarie autorizzazioni **Scrittura + Esecuzione** |
-| **Esecuzione (X)** | Nessun valore nel contesto di Data Lake Store | È necessaria per attraversare gli elementi figlio di una cartella |
+| **Read (R)** | Can read the contents of a file | Requires **Read** and **Execute** to list the contents of the folder.|
+| **Write (W)** | Can write or append to a file | Requires **Write & Execute** to create child items in a folder. |
+| **Execute (X)** | Does not mean anything in the context of Data Lake Store | Required to traverse the child items of a folder. |
 
-### Forme brevi per le autorizzazioni
+### <a name="short-forms-for-permissions"></a>Short forms for permissions
 
-La forma **RWX** viene usata per indicare **Lettura + Scrittura + Esecuzione**. Esiste una forma numerica concentrata in cui **Lettura=4**, **Scrittura=2** ed **Esecuzione=1** e la somma rappresenta le autorizzazioni. Di seguito sono riportati alcuni esempi.
+**RWX**is used to indicate **Read + Write + Execute**. A more condensed numeric form exists in which **Read=4**, **Write=2**, and **Execute=1** and their sum represents the permissions. Below are some examples.
 
-| Forma numerica | Forma breve | Significato |
+| Numeric form | Short form |      What it means     |
 |--------------|------------|------------------------|
-| 7 | RWX | Lettura + Scrittura + Esecuzione |
-| 5 | R-X | Lettura + Esecuzione |
-| 4 | R-- | Lettura |
-| 0 | --- | Nessuna autorizzazione |
+| 7            | RWX        | Read + Write + Execute |
+| 5            | R-X        | Read + Execute         |
+| 4            | R--        | Read                   |
+| 0            | ---        | No permissions         |
 
 
-### Non ereditarietà delle autorizzazioni
+### <a name="permissions-do-not-inherit"></a>Permissions do not inherit
 
-Nel modello di tipo POSIX usato da Data Lake Store, le autorizzazioni per un elemento vengono archiviate nell'elemento stesso. In altri termini, le autorizzazioni per un elemento non sono ereditabili dagli elementi padre.
+In the POSIX-style model used by Data Lake Store, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items.
 
-## Scenari comuni correlati alle autorizzazioni
+## <a name="common-scenarios-related-to-permissions"></a>Common scenarios related to permissions
 
-Di seguito sono riportati alcuni scenari comuni che consentono di comprendere quali autorizzazioni sono necessarie per eseguire determinate operazioni su un account Data Lake Store.
+Here are some common scenarios to understand what permissions are needed to perform certain operations on a Data Lake Store account.
 
-### Autorizzazioni necessarie per la lettura di un file
+### <a name="permissions-needed-to-read-a-file"></a>Permissions needed to read a file
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
-* Per il file da leggere, il chiamante deve avere autorizzazioni **Lettura**
-* Per tutte le cartelle della struttura di cartelle contenenti il file, il chiamante deve avere autorizzazioni **Esecuzione**
+* For the file to be read - the caller needs **Read** permissions
+* For all the folders in the folder structure that contain the file - the caller needs **Execute** permissions
 
-### Autorizzazioni necessarie per l'aggiunta a un file
+### <a name="permissions-needed-to-append-to-a-file"></a>Permissions needed to append to a file
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
-* Per il file a cui si intende eseguire l'aggiunta, il chiamante deve avere autorizzazioni **Scrittura**
-* Per tutte le cartelle contenenti il file, il chiamante deve avere autorizzazioni **Esecuzione**
+* For the file to be appended to - the caller needs **Write** permissions
+* For all the folders that contain the file - the caller needs **Execute** permissions
 
-### Autorizzazioni necessarie per l'eliminazione di un file
+### <a name="permissions-needed-to-delete-a-file"></a>Permissions needed to delete a file
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
-* Per la cartella padre, il chiamante deve avere autorizzazioni **Scrittura + Esecuzione**
-* Per tutte le altre cartelle nel percorso del file, il chiamante deve avere autorizzazioni **Esecuzione**
+* For the parent folder - the caller needs **Write + Execute** permissions
+* For all the other folders in the file’s path - the caller needs **Execute** permissions
 
->[AZURE.NOTE] Se vengono soddisfatte le due condizioni precedenti, non sono necessarie autorizzazioni di scrittura per il file per eliminarlo.
+>[AZURE.NOTE] Write permissions on the file is not required to delete the file as long as the above two conditions are true.
 
-### Autorizzazioni necessarie per l'enumerazione di una cartella
+### <a name="permissions-needed-to-enumerate-a-folder"></a>Permissions needed to enumerate a folder
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
-* Per la cartella di cui si intende eseguire l'enumerazione, il chiamante deve avere autorizzazioni **Lettura + Esecuzione**
-* Per tutte le cartelle predecessore, il chiamante deve avere autorizzazioni **Esecuzione**
+* For the folder to enumerate - the caller needs **Read + Execute** permissions
+* For all the ancestor folders - the caller needs **Execute** permissions
 
-## Visualizzazione delle autorizzazioni nel portale di Azure
+## <a name="viewing-permissions-in-the-azure-portal"></a>Viewing permissions in the Azure portal
 
-Nel pannello **Esplora dati** dell'account Data Lake Store fare clic su **Accesso** per visualizzare gli ACL per un file o una cartella. Nella schermata seguente fare clic su Accesso per visualizzare gli ACL per la cartella **catalog** dell'account **mydatastore**.
+From the Data Lake Store account's **Data Explorer** blade, click **Access** to see the ACLs for a file or a folder. In the screenshot below, click Access to see the ACLs for the **catalog** folder under the **mydatastore** account.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Successivamente, nel pannello **Accesso** fare clic su **Visualizzazione semplice** per passare alla visualizzazione semplificata.
+After that, from the **Access** blade, click **Simple View** to see the simpler view.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Fare clic su **Visualizzazione avanzata** per passare alla visualizzazione più avanzata.
+Click **Advanced View** to see the more advanced view.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
-## Superuser
+## <a name="the-super-user"></a>The super user
 
-Un superuser ha diritti superiori rispetto a qualsiasi altro utente di Data Lake Store. Un superuser:
+A super user has the most rights of all the users in the Data Lake Store. A super user:
 
-* Ha autorizzazioni RWX per **tutti** i file e le cartelle.
-* Può modificare le autorizzazioni per qualsiasi file o cartella.
-* Può modificare l'utente o il gruppo proprietario di qualsiasi file o cartella.
+* has RWX Permissions to **all** file and folders
+* can change the permissions on any file or folder.
+* can change the owning user or owning group of any file or folder.
 
-In Azure, un account Data Lake Store include diversi ruoli di Azure:
+In Azure, a Data Lake Store account has several Azure roles:
 
-* Proprietari
-* Collaboratori
-* Lettori
-* e così via.
+* Owners
+* Contributors
+* Readers
+* Etc.
 
-Tutti i membri del ruolo **Proprietari** per un account Data Lake Store sono automaticamente superuser per tale account. Per altre informazioni sul controllo degli accessi in base al ruolo in Azure, vedere [questo articolo](../active-directory/role-based-access-control-configure.md).
+Everyone in the **Owners** role for a Data Lake Store account is automatically a super-user for that account. To learn more about Azure Role Based Access Control (RBAC) see [Role-based access control](../active-directory/role-based-access-control-configure.md).
 
-## Utente proprietario
+## <a name="the-owning-user"></a>The owning user
 
-L'utente che ha creato l'elemento ne è automaticamente l'utente proprietario. Un utente proprietario può:
+The user who created the item is automatically the owning user of the item. An owning user can:
 
-* Modificare le autorizzazioni di un file di sua proprietà.
-* Modificare il gruppo proprietario di un file di sua proprietà, a condizione che l'utente proprietario sia anche membro del gruppo di destinazione.
+* Change the permissions of a file that is owned
+* Change the owning group of a file that is owned, as long as the owning user is also a member of the target group.
 
->[AZURE.NOTE] L'utente proprietario **non può** modificare l'utente proprietario di un altro file. Solo i superuser possono modificare l'utente proprietario di un file o una cartella.
+>[AZURE.NOTE] The owning user **can not** change the owning user of another owned file. Only super-users can change the owning user of a file or folder.
 
-## Gruppo proprietario
+## <a name="the-owning-group"></a>The owning group
 
-Negli ACL POSIX, ogni utente è associato a un "gruppo primario". L'utente "alice" ad esempio, può appartenere al gruppo "finanza". Alice può appartenere a più gruppi, ma uno solo è sempre designato come suo gruppo primario. In POSIX, quando Alice crea un file, come gruppo proprietario del file viene impostato il gruppo primario di Alice, in questo caso "finanza".
+In the POSIX ACLs, every user is associated with a "primary group". For example, user "alice" may belong to the "finance" group. Alice may belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance".
  
-Quando viene creato un nuovo elemento del file system, Data Lake Store assegna un valore al gruppo proprietario.
+When a new filesystem item is created, Data Lake Store assigns a value to the owning group. 
 
-* **Caso 1** - Cartella radice "/": questa cartella viene creata al momento della creazione di un account Data Lake Store. In questo caso, il gruppo proprietario viene impostato sull'utente che ha creato l'account.
-* **Caso 2** - Tutti gli altri casi: quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla cartella padre.
+* **Case 1** - The root folder "/". This folder is created when a Data Lake Store account is created. In this case the owning group is set to the user who created the account.
+* **Case 2** (every other case) - When a new item is created, the owning group is copied from the parent folder.
 
-Il gruppo proprietario può essere modificato da:
-* Qualsiasi superuser
-* Utente proprietario, se è anche membro del gruppo di destinazione
+The owning group can be changed by:
+* Any super-users
+* The owning user, if the owning user is also a member of the target group.
 
-## Algoritmo di controllo dell'accesso
+## <a name="access-check-algorithm"></a>Access check algorithm
 
-La figura seguente rappresenta l'algoritmo di controllo dell'accesso per gli account Data Lake Store.
+The following illustration represents the access check algorithm for Data Lake Store accounts.
 
-![Algoritmo per gli ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
+![Data Lake Store ACLs algorithm](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
 
 
-## Proprietà mask e "autorizzazioni valide"
+## <a name="the-mask-and-"effective-permissions""></a>The mask and "effective permissions"
 
-La proprietà **mask** è un valore RWX usato per limitare l'accesso per **utenti non anonimi**, **gruppo proprietario** e **gruppi con nome** durante l'esecuzione dell'algoritmo di controllo dell'accesso. Di seguito sono descritti i concetti chiave relativi a mask.
+The **mask** is an RWX value that is used to limit access for **named users**, the **owning group**, and **named groups** when performing the Access Check algorithm. Here are the key concepts for the mask. 
 
-* La proprietà mask crea "autorizzazioni valide", ovvero modifica le autorizzazioni al momento del controllo dell'accesso.
-* La proprietà mask può essere modificata direttamente dal proprietario del file e da qualsiasi superuser.
-* La proprietà mask può rimuovere autorizzazioni per creare l'autorizzazione valida. La proprietà mask **non può** aggiungere autorizzazioni all'autorizzazione valida.
+* The mask creates "effective permissions", that is, it modifies the permissions at the time of Access Check.
+* The mask can be directly edited by file owner and any super-users.
+* The mask has the ability to remove permissions to create the effective permission. The mask **can not** add permissions to the effective permission. 
 
-Verranno ora esaminati alcuni esempi. Di seguito, la proprietà mask è impostata su **RWX** e non rimuove quindi alcuna autorizzazione. Si noti che le autorizzazioni valide per l'utente non anonimo, il gruppo proprietario e il gruppo con nome non vengono modificate durante il controllo dell'accesso.
+Let us look at some examples. Below, the mask is set to **RWX**, which means that the mask does not remove any permissions. Notice that the effective permissions for named user, owning group, and named group are not altered during the access check.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
 
-Nell'esempio seguente, la proprietà mask è impostata su **R-X**. Di conseguenza, al momento del controllo dell'accesso **disattiva l'autorizzazione di scrittura** per l'**utente non anonimo**, il **gruppo proprietario** e il **gruppo con nome**.
+In the example below, the mask is set to **R-X**. So, it **turns off the Write permission** for **named user**, **owning group**, and **named group** at the time of access check.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
 
-Per riferimento, di seguito è illustrata la visualizzazione nel portale di Azure della proprietà mask per un file o una cartella.
+For reference, here is where the mask for a file or folder appears in the Azure Portal.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
->[AZURE.NOTE] Per un nuovo account Data Lake Store, l'impostazione predefinita di mask per l'ACL di accesso e l'ACL predefinito della cartella radice ("/") è RWX.
+>[AZURE.NOTE] For a new Data Lake Store account, the mask for the Access ACL and Default ACL of the root folder ("/") are defaulted to RWX.
 
-## Autorizzazioni per nuovi file e cartelle
+## <a name="permissions-on-new-files-and-folders"></a>Permissions on new files and folders
 
-Quando si crea un nuovo file o una nuova cartella in una cartella esistente, l'ACL predefinito per la cartella padre determina quanto segue:
+When a new file or folder is created under an existing folder, the Default ACL on the parent folder determines:
 
-* ACL predefinito e ACL di accesso di una cartella figlio
-* ACL di accesso di un file figlio (i file non hanno un ACL predefinito)
+* A child folder’s Default ACL and Access ACL
+* A child file's Access ACL (files do not have a Default ACL)
 
-### ACL di accesso di una cartella o un file figlio
+### <a name="a-child-file-or-folder's-access-acl"></a>A child file or folder's Access ACL
 
-Quando si crea una cartella o un file figlio, l'ACL predefinito dell'elemento padre viene copiato come ACL di accesso della cartella o del file figlio. Se **altri** utenti hanno autorizzazioni RWX nell'ACL predefinito dell'elemento padre, vengono completamente rimosse dall'ACL di accesso dell'elemento figlio.
+When a child file or folder is created, the parent's Default ACL is copied as the child file or folder's Access ACL. Also, if **other** user has RWX permissions in the parent's default ACL, it is completely removed from the child item's Access ACL.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
 
-Nella maggior parte degli scenari, le informazioni sopra riportate costituiscono tutto quanto è necessario sapere in merito al modo in cui viene determinato l'ACL di accesso di un elemento figlio. Se si ha familiarità con i sistemi POSIX e si vuole comprendere in modo approfondito come viene ottenuta questa trasformazione, vedere la sezione [Ruolo di umask nella creazione dell'ACL di accesso per nuovi file e cartelle](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) più avanti in questo articolo.
+In most scenarios, the above information is all you should need to know about how a child item’s Access ACL is determined. However, if you are familiar with POSIX systems and want to understand in-depth how this transformation is achieved, see the section [Umask’s role in creating the Access ACL for new files and folders](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) later in this article.
  
 
-### ACL predefinito di una cartella figlio
+### <a name="a-child-folder's-default-acl"></a>A child folder's Default ACL
 
-Quando viene creata una cartella figlio in una cartella padre, l'ACL predefinito della cartella padre viene copiato, così com'è, nell'ACL predefinito della cartella figlio.
+When a child folder is created under a parent folder, the parent folder's Default ACL is copied over, as it is, to the child folder's Default ACL.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
-## Argomenti avanzati per informazioni dettagliate sugli ACL in Data Lake Store
+## <a name="advanced-topics-for-understanding-acls-in-data-lake-store"></a>Advanced topics for understanding ACLs in Data Lake Store
 
-Di seguito sono riportati alcuni argomenti avanzati che consentono di ottenere informazioni dettagliate su come vengono determinati gli ACL per i file e le cartelle di Data Lake Store.
+Following are a couple of advanced topics to help you understand how ACLs are determined for Data Lake Store files or folders.
 
-### Ruolo di umask nella creazione dell'ACL di accesso per nuovi file e cartelle
+### <a name="umask’s-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Umask’s role in creating the Access ACL for new files and folders
 
-In un sistema compatibile con POSIX, il concetto generale è che la proprietà umask è un valore a 9 bit relativo alla cartella padre usato per trasformare l'autorizzazione per l'**utente proprietario**, il **gruppo proprietario** e gli **altri** utenti nell'ACL di accesso di una nuova cartella o un nuovo file figlio. I bit di umask identificano i bit da disattivare nell'ACL di accesso dell'elemento figlio. La proprietà umask viene così usata per impedire in modo selettivo la propagazione delle autorizzazioni per l'utente proprietario, il gruppo proprietario e gli altri utenti.
+In a POSIX-compliant system, the general concept is that umask is a 9-bit value on the parent folder used to transform the permission for **owning user**, **owning group**, and **other** on a new child file or folder's Access ACL. The bits of a umask identify which bits to turn off in the child item’s Access ACL. Thus it is used to selectively prevent the propagation of permissions for owning user, owning group, and other.
   
-In un sistema HDFS, umask è in genere un'opzione di configurazione a livello di sito controllata dagli amministratori. Data Lake Store usa una proprietà **umask a livello di account** non modificabile. La tabella seguente descrive la proprietà umask di Data Lake Store.
+In an HDFS system, the umask is typically a site-wide configuration option that is controlled by administrators. Data Lake Store uses an **account-wide umask** that cannot be changed. The following table shows Data Lake Store's umask.
 
-| Gruppo utenti | Impostazione | Effetto sull'ACL di accesso di un nuovo elemento figlio |
+| User group  | Setting | Effect on new child item's Access ACL |
 |------------ |---------|---------------------------------------|
-| Utente proprietario | --- | Nessun effetto |
-| Gruppo proprietario| --- | Nessun effetto |
-| Altri | RWX | Rimozione Lettura + Scrittura + Esecuzione |
+| Owning user | ---     | No effect                             |
+| Owning group| ---     | No effect                             |
+| Other       | RWX     | Remove Read + Write + Execute         | 
 
-La figura seguente illustra il funzionamento di questa proprietà umask. L'effetto in definitiva è la rimozione dell'autorizzazione **Lettura + Scrittura + Esecuzione** per gli **altri** utenti. Dato che in umask non sono specificati bit per l'**utente proprietario** e il **gruppo proprietario**, tali autorizzazioni non vengono trasformate.
+The following illustration shows this umask in action. The net effect is to remove **Read + Write + Execute** for **other** user. Since the umask did not specify bits for **owning user** and **owning group**, those permissions are not transformed.
 
-![ACL in Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-umask.png) 
 
-### Sticky bit
+### <a name="the-sticky-bit"></a>The sticky bit
 
-Lo sticky bit è una funzionalità più avanzata di un file system POSIX. Nel contesto di Data Lake Store, è improbabile che lo sticky bit sia necessario.
+The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Store, it is unlikely that the sticky bit will be needed.
 
-La tabella seguente descrive il funzionamento dello sticky bit in Data Lake Store.
+The table below shows how the sticky bit works in Data Lake Store.
 
-| Gruppo utenti | File | Cartella |
+| User group         | File    | Folder |
 |--------------------|---------|-------------------------|
-| Sticky bit **OFF** | Nessun effetto | Nessun effetto |
-| Sticky bit **ON** | Nessun effetto | Impedisce a chiunque tranne i **superuser** e l'**utente proprietario** di un elemento figlio di eliminare o rinominare l'elemento figlio. |
+| Sticky bit **OFF** | No effect   | No effect           |
+| Sticky bit **ON**  | No effect   | Prevents anyone except **super-users** and the **owning user** of a child item from deleting or renaming that child item.               |
 
-Lo sticky bit non viene visualizzato nel portale di Azure.
+The sticky bit is not shown in the Azure Portal.
 
-## Domande comuni sugli ACL in Data Lake Store
+## <a name="common-questions-for-acls-in-data-lake-store"></a>Common questions for ACLs in Data Lake Store
 
-Di seguito sono riportate alcune domande comuni frequentemente poste in merito agli ACL in Data Lake Store.
+Here are some questions that come up often with respect to ACLs in Data Lake Store.
 
-### È necessario abilitare il supporto per gli ACL?
+### <a name="do-i-have-to-enable-support-for-acls?"></a>Do I have to enable support for ACLs?
 
-No. Il controllo di accesso tramite ACL è sempre attivo per un account Data Lake Store.
+No. Access control via ACLs is always on for a Data Lake Store account.
 
-### Quali autorizzazioni sono necessarie per eliminare in modo ricorsivo una cartella e il relativo contenuto?
+### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents?"></a>What permissions are required to recursively delete a folder and its contents?
 
-* Sono necessarie autorizzazioni **Scrittura + Esecuzione** nella cartella padre.
-* Sono necessarie autorizzazioni **Lettura + Scrittura + Esecuzione** nella cartella da eliminare e in ogni cartella all'interno di essa.
->[AZURE.NOTE] Per eliminare i file nelle cartelle non sono necessarie autorizzazioni di scrittura per tali file. La cartella radice "/" non può **mai** essere eliminata.
+* The parent folder must have **Write + Execute**.
+* The folder to be deleted, and every folder within it, requires **Read + Write + Execute**.
+>[AZURE.NOTE] Deleting the files in folders does not requires Write on those files. Also, the Root folder "/" can **never** be deleted.
 
-### Quale utente viene impostato come proprietario di un file o una cartella?
+### <a name="who-is-set-as-the-owner-of-a-file-or-folder?"></a>Who is set as the owner of a file or folder?
 
-Il creatore di un file o una cartella ne diventa il proprietario.
+The creator of a file or folder becomes the owner.
 
-### Quale gruppo viene impostato come proprietario di un file o una cartella al momento della creazione?
+### <a name="who-is-set-as-the-owning-group-of-a-file-or-folder-at-creation?"></a>Who is set as the owning group of a file or folder at creation?
 
-L'impostazione viene copiata dal gruppo proprietario della cartella padre in cui si crea il nuovo file o la nuova cartella.
+It is copied from the owning group of the parent folder under which the new file or folder is created.
 
-### Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, che cosa occorre fare?
+### <a name="i-am-the-owning-user-of-a-file-but-i-don’t-have-the-rwx-permissions-i-need.-what-do-i-do?"></a>I am the owning user of a file but I don’t have the RWX permissions I need. What do I do?
 
-L'utente proprietario può semplicemente modificare le autorizzazioni del file in modo da assegnarsi tutte le autorizzazioni RWX necessarie.
+The owning user can simply change the permissions of the file to give themselves any RWX permissions they need.
 
-### Data Lake Store supporta l'ereditarietà degli ACL?
+### <a name="does-data-lake-store-support-inheritance-of-acls?"></a>Does Data Lake Store support inheritance of ACLs?
 
 No.
 
-### Qual è la differenza tra mask e umask?
+### <a name="what-is-the-difference-between-mask-and-umask?"></a>What is the difference between mask and umask?
 
 | mask | umask|
 |------|------|
-| La proprietà **mask** è disponibile per ogni file e cartella. | **umask** è una proprietà dell'account Data Lake Store. Di conseguenza, in Data Lake Store esiste un unico valore umask. |
-| La proprietà mask per un file o una cartella può essere modificata dall'utente proprietario, dal gruppo proprietario di un file o da un superuser. | La proprietà umask non può essere modificata da alcun utente, inclusi i superuser. È un valore costante non modificabile.|
-| La proprietà mask viene usata durante l'algoritmo di controllo dell'accesso in fase di esecuzione per determinare se un utente ha il diritto di eseguire un'operazione su un file o una cartella. Il ruolo di mask è creare "autorizzazioni valide" al momento del controllo dell'accesso. | La proprietà umask non viene usata durante il controllo dell'accesso. Viene usata per determinare l'ACL di accesso dei nuovi elementi figlio di una cartella. |
-| La proprietà mask è un valore RWX a 3 bit applicato a un utente non anonimo, a un gruppo con nome e all'utente proprietario al momento del controllo dell'accesso.| La proprietà umask è un valore a 9 bit applicato all'utente proprietario, al gruppo proprietario e agli altri utenti di un nuovo elemento figlio.| 
+| The **mask** property is available on every file and folder. | The **umask** is a property of the Data Lake Store account. So, there is only a single umask in the Data Lake Store.    |
+| The mask property on a file or folder can be altered by the owning user or owning group of a file or a super-user. | The umask property cannot be modified by any user, even a super user. It is an unchangeable, constant value.|
+| The mask property is used to during the Access Check algorithm at runtime to determine whether a user has the right to perform on operation on a file or folder. The role of the mask is to create "effective permissions" at the time of access check. | The umask is not used during Access Check at all. The umask is used to determine the Access ACL of new child items of a folder. |
+| The mask is a 3-bit RWX value that applies to named user, named group, and owning user at the time of access check.| The umask is a 9 bit value that applies to the owning user, owning group, and other of a new child.| 
 
-### Dove è possibile reperire altre informazioni sul modello di controllo di accesso POSIX?
+### <a name="where-can-i-learn-more-about-posix-access-control-model?"></a>Where can I learn more about POSIX access control model?
 
-* [http://www.vanemery.com/Linux/ACL/POSIX\_ACL\_on\_Linux.html](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
+* [http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
 
-* [HDFS Permission Guide (Guida alle autorizzazioni HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [HDFS Permission Guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) 
 
-* [Domande frequenti su POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html)
 
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
 
 * [POSIX 1003.1e 1997](http://users.suse.com/~agruen/acl/posix/Posix_1003.1e-990310.pdf)
 
-* [ACL POSIX in Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
+* [POSIX ACL on Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
 
-* [ACL: Using Access Control Lists on Linux (ACL: uso di elenchi di controllo di accesso in Linux)](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## Vedere anche
+## <a name="see-also"></a>See also
 
-* [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
+* [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 
-* [Introduzione all’analisi dei dati di Data Lake di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Get Started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

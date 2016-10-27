@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Loop, ambiti e scomposizione batch delle app per la logica | Microsoft Azure"
-   description="Concetti di loop, ambito e scomposizione batch delle app per la logica"
+   pageTitle="Logic Apps Loops, Scopes, and Debatching | Microsoft Azure"
+   description="Logic App loop, scope, and debatching concepts"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,15 +16,16 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-# Cicli, ambiti e debatching delle app per la logica
-  
->[AZURE.NOTE] Questa versione dell'articolo si applica allo schema 2016-04-01-preview e versioni successive delle app per la logica. I concetti sono simili per gli schemi precedenti, ma gli ambiti sono disponibili solo per questo schema e le versioni successive.
-  
-## Cicli ForEach e matrici
-  
-App per la logica consente di eseguire un ciclo su un set di dati e di eseguire un'azione per ogni elemento. Per queste operazioni viene usata l'azione `foreach`. Nella finestra di progettazione è possibile specificare l'aggiunta di un loop ForEach. Dopo aver selezionato la matrice su cui si vuole eseguire un'iterazione, è possibile iniziare ad aggiungere azioni. Attualmente è possibile eseguire solo un'azione per ogni loop ForEach, ma questa limitazione verrà rimossa nelle prossime settimane. All'interno del loop è possibile iniziare a specificare cosa deve avvenire in corrispondenza di ogni valore della matrice.
 
-Se si usa la visualizzazione del codice, è possibile specificare un loop ForEach come nell'illustrazione che segue. In questo esempio di loop ForEach viene inviato un messaggio di posta elettronica per ogni indirizzo di posta elettronica che contiene "microsoft.com":
+# <a name="logic-apps-loops,-scopes,-and-debatching"></a>Logic Apps Loops, Scopes, and Debatching
+  
+>[AZURE.NOTE] This version of the article applies to Logic Apps 2016-04-01-preview schema and later.  Concepts are similar for older schemas, but scopes are only available for this schema and later.
+  
+## <a name="foreach-loop-and-arrays"></a>ForEach Loop and Arrays
+  
+Logic Apps allows you to loop over a set of data and perform an action for each item.  This is possible via the `foreach` action.  In the designer, you can specify to add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  Currently you are limited to only one action per foreach loop, but this restriction will be lifted in the coming weeks.  Once within the loop you can begin to specify what should occur at each value of the array.
+
+If using code-view, you can specify a for each loop like below.  This is an example of a for each loop that sends an email for each email address that contains 'microsoft.com':
 
 ```
 {
@@ -62,17 +63,17 @@ Se si usa la visualizzazione del codice, è possibile specificare un loop ForEac
 }
 ```
   
-  Un'azione `foreach` è in grado di eseguire l'iterazione su matrici con fino a 5.000 righe. Ogni iterazione può essere eseguita in parallelo, quindi può essere necessario aggiungere messaggi a una coda se è richiesto il controllo di flusso.
+  A `foreach` action can iterate over arrays up to 5,000 rows.  Each iteration can execute in parallel, so it may be necessary to add messages to a queue if flow control is needed.
   
-## Ciclo until
+## <a name="until-loop"></a>Until Loop
   
-  È possibile eseguire un'azione o una serie di azioni finché non viene soddisfatta una condizione. Lo scenario più comune è quello in cui si chiama un endpoint fino a ottenere la risposta desiderata. Nella finestra di progettazione è possibile specificare l'aggiunta di un loop Until. Dopo avere aggiunto le azioni nel loop, è possibile impostare la condizione di uscita, nonché i limiti del loop. Si verifica un ritardo di 1 minuto tra i cicli del loop.
+  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.  There is a 1 minute delay between loop cycles.
   
-  Se si usa la visualizzazione del codice, è possibile specificare un loop Until come nell'illustrazione che segue. Questo è un esempio di chiamata a un endpoint HTTP finché nel corpo della risposta è presente il valore "Completed". Ciò avviene in presenza di una di queste condizioni:
+  If using code-view, you can specify an until loop like below.  This is an example of calling an HTTP endpoint until the response body has the value 'Completed'.  It will complete when either 
   
-  * Lo stato della risposta HTTP è "Completed"
-  * Sono stati fatti tentativi per 1 ora
-  * Il ciclo è stato eseguito 100 volte
+  * HTTP Response has status of 'Completed'
+  * It has tried for 1 hour
+  * It has looped 100 times
   
   ```
   {
@@ -98,11 +99,11 @@ Se si usa la visualizzazione del codice, è possibile specificare un loop ForEac
   }
   ```
   
-## SplitOn e scomposizione batch
+## <a name="spliton-and-debatching"></a>SplitOn and Debatching
 
-In alcuni casi un trigger può ricevere una matrice di elementi che si preferisce separare per avviare un flusso di lavoro per ogni elemento. Questa operazione può essere eseguita con il comando `spliton`. Per impostazione predefinita, se lo swagger del trigger specifica un payload che è una matrice, viene aggiunto `spliton` e viene avviata un'esecuzione per ogni elemento. SplitOn può essere aggiunto solo a un trigger. L'operazione può essere configurata manualmente o sottoposta a override nella visualizzazione del codice di definizione. Attualmente SplitOn è in grado di suddividere matrici con al massimo 5.000 elementi. Non è possibile usare `spliton` e implementare anche il modello di risposta sincrona. Qualsiasi flusso di lavoro chiamato che ha un'azione `response` oltre a `spliton` verrà eseguito in modo asincrono e invierà immediatamente una risposta `202 Accepted`.
+Sometimes a trigger may recieve an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added and start a run per item.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view.  Currently SplitOn can debatch arrays up to 5,000 items.  You cannot have a `spliton` and also implement the syncronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` will run asyncronously and send an immediate `202 Accepted` response.  
 
-SplitOn può essere specificato nella visualizzazione del codice, come nell'esempio seguente. In questo caso viene ricevuta una matrice di elementi e la scomposizione dei batch avviene su ogni riga.
+SplitOn can be specified in code-view as the following example.  This recieves an array of items and debatches on each row.
 
 ```
 {
@@ -112,7 +113,7 @@ SplitOn può essere specificato nella visualizzazione del codice, come nell'esem
             "url": "http://getNewCustomers",
         },
         "recurrence": {
-            "frequencey": "Second",
+            "frequency": "Second",
             "interval": 15
         },
         "spliton": "@triggerBody()['rows']"
@@ -120,9 +121,9 @@ SplitOn può essere specificato nella visualizzazione del codice, come nell'esem
 }
 ```
 
-## Ambiti
+## <a name="scopes"></a>Scopes
 
-È possibile raggruppare una serie di azioni tra loro usando un ambito. Ciò è particolarmente utile per implementare la gestione delle eccezioni. Nella finestra di progettazione è possibile aggiungere un nuovo ambito e iniziare ad aggiungere tutte le azioni all'interno di esso. È possibile definire gli ambiti nella visualizzazione del codice come nell'esempio che segue:
+It is possible to group a series of actions together using a scope.  This is particularly useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
 
 
 ```
@@ -141,4 +142,8 @@ SplitOn può essere specificato nella visualizzazione del codice, come nell'esem
 }
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

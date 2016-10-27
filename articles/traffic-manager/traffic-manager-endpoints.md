@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestione endpoint in Gestione traffico di Azure | Microsoft Azure"
-   description="Questo articolo aiuterà ad aggiungere, rimuovere, abilitare e disabilitare gli endpoint da Gestione traffico di Azure."
+   pageTitle="Manage endpoints in Azure Traffic Manager | Microsoft Azure"
+   description="This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
    authors="sdwheeler"
@@ -15,64 +15,64 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
-# Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
-La funzionalità App Web nell’Azure App Service offre già funzionalità di routing del traffico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico di Azure consente di specificare il routing del traffico failover e round robin per i siti Web e i servizi cloud che si trovano in data center diversi. Il primo passaggio necessario a fornire tale funzionalità consiste nell'aggiungere l'endpoint del servizio cloud o del sito Web a Gestione traffico.
+# <a name="add,-disable,-enable-or-delete-endpoints"></a>Add, disable, enable or delete endpoints
 
->[AZURE.NOTE] Non è possibile aggiungere i percorsi esterni o i profili di Gestione traffico come endpoint tramite il portale di Azure classico. È necessario usare l'API REST [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) oppure [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774) di Windows PowerShell.
+The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
 
-È anche possibile disabilitare singoli endpoint che appartengono a un profilo di Gestione traffico. Gli endpoint includono servizi cloud e siti Web. Quando si disabilita un endpoint questo continua a far parte del profilo, sebbene quest'ultimo si comporti come se non fosse incluso. Questa azione è particolarmente utile per rimuovere temporaneamente un endpoint che si trova in modalità di manutenzione o è in corso di ridistribuzione. Quando l'endpoint è di nuovo attivo e in esecuzione, è possibile abilitarlo.
+>[AZURE.NOTE] You cannot add external locations or Traffic Manager profiles as endpoints using the Azure classic portal. You must use the REST API [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772) or Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
 
->[AZURE.NOTE] La disabilitazione di un endpoint non ha nulla a che vedere con il relativo stato di distribuzione in Azure. Un endpoint integro rimane attivo e in grado di ricevere traffico anche se è disabilitato in Gestione traffico. La disabilitazione di un endpoint in un profilo non influisce sul relativo stato in un altro profilo.
+You can also disable individual endpoints that are part of a Traffic Manager profile. Endpoints include both cloud services and websites. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled.
 
-## Per aggiungere un servizio cloud o un endpoint del sito Web
+>[AZURE.NOTE] Disabling an endpoint has nothing to do with its deployment state in Azure. A healthy endpoint will remain up and able to receive traffic even when disabled in Traffic Manager. Additionally, disabling an endpoint in one profile does not affect its status in another profile.
 
-
-1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
-2. Nella parte superiore della pagina fare clic su **Endpoint** per visualizzare gli endpoint che fanno già parte della configurazione.
-3. Nella parte inferiore della pagina fare clic su **Aggiungi** per accedere alla pagina **Aggiungi endpoint del servizio**. Per impostazione predefinita, in **Endpoint di servizio** sono elencati i servizi cloud.
-4. Per i servizi cloud, selezionare nell'elenco quelli che si desidera abilitare come endpoint per il profilo specificato. Se si cancella il nome del servizio cloud, questo viene rimosso dall'elenco degli endpoint.
-5. Per i siti Web fare clic sull'elenco a discesa **Tipo di servizio** e selezionare **app Web**.
-6. Selezionare i siti Web nell'elenco e aggiungerli come endpoint per il profilo. Se si cancella il nome del sito Web, questo viene rimosso dall'elenco degli endpoint. È possibile selezionare solo un sito Web per ogni data center (noto anche come area) di Azure. Se si seleziona un sito Web in un data center che ospita più siti Web, una volta selezionato il primo, non è più possibile selezionare gli altri siti Web dello stesso data center. Vengono elencati solo i siti Web standard.
-7. Dopo aver selezionato gli endpoint per questo profilo, fare clic sul segno di spunta in basso a destra per salvare le modifiche.
-
->[AZURE.NOTE] Se si usa il metodo di routing del traffico *Failover*, dopo aver aggiunto o rimosso un endpoint, assicurarsi di regolare l'elenco di priorità del failover nella pagina di configurazione per riflettere l'ordine di failover desiderato per la configurazione. Per ulteriori informazioni, vedere [Configurare il routing del traffico failover](traffic-manager-configure-failover-routing-method.md).
-
-## Per disabilitare un endpoint
-
-1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
-2. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoints** nella parte superiore della pagina.
-3. Fare clic sull'endpoint da disabilitare, quindi fare clic su **Disabilita** nella parte inferiore della pagina.
-4. Il traffico indirizzato all'endpoint verrà arrestato in base alla durata (TTL) del DNS configurato per il nome di dominio di Gestione traffico. È possibile modificare la durata (TTL) dalla pagina di configurazione del profilo di Gestione traffico.
-
-## Per abilitare un endpoint
-
-1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
-2. Per visualizzare gli endpoint inclusi nella configurazione, fare clic su **Endpoints** nella parte superiore della pagina.
-3. Fare clic sull'endpoint da abilitare, quindi fare clic su **Abilita** nella parte inferiore della pagina.
-4. Il traffico indirizzato al servizio ospitato riprenderà di nuovo secondo il profilo.
-
-## Per eliminare un servizio cloud o un endpoint del sito Web
+## <a name="to-add-a-cloud-service-or-website-endpoint"></a>To add a cloud service or website endpoint
 
 
-1. Nel riquadro di Gestione traffico nel portale di Azure classico trovare il profilo di Gestione traffico che contiene le impostazioni degli endpoint da modificare, quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
-2. Nella parte superiore della pagina fare clic su **Endpoint** per visualizzare gli endpoint che fanno già parte della configurazione.
-3. Nella pagina Endpoint fare clic sul nome dell'endpoint che si desidera eliminare dal profilo.
-4. Nella parte inferiore della pagina fare clic su **Elimina**.
+1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
+3. At the bottom of the page, click **Add** to access the **Add Service Endpoints** page. By default, the page lists the cloud services under **Service Endpoints**.
+4. For cloud services, select the cloud services in the list to enable them as endpoints for this profile. Clearing the cloud service name removes it from the list of endpoints.
+5. For websites, click the **Service Type** drop-down list, and then select **Web app**.
+6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. Note that you can only select a single website per Azure datacenter (also known as a region). If you select a website in a datacenter that hosts multiple websites, when you select the first website, the others in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
+7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
 
->[AZURE.NOTE] Non è possibile eliminare i percorsi esterni o i profili di Gestione traffico come endpoint tramite il portale di Azure classico. È necessario usare Windows PowerShell. Per altre informazioni, vedere [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
+>[AZURE.NOTE] If you are using the *Failover* traffic routing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).
 
-## Passaggi successivi
+## <a name="to-disable-an-endpoint"></a>To disable an endpoint
+
+1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
+3. Click the endpoint that you want to disable, and then click **Disable** at the bottom of the page.
+4. Traffic will stop flowing to the endpoint based on the DNS Time-to-Live (TTL) configured for the Traffic Manager domain name. You can change the TTL from the Configuration page of the Traffic Manager profile.
+
+## <a name="to-enable-an-endpoint"></a>To enable an endpoint
+
+1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
+3. Click the endpoint that you want to enable, and then click **Enable** at the bottom of the page.
+4. Traffic will start flowing to the service again as dictated by the profile.
+
+## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>To delete a cloud service or website endpoint
 
 
-[Configurare metodo di routing failover](traffic-manager-configure-failover-routing-method.md)
+1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
+3. On the Endpoints page, click the name of the endpoint that you want to delete from the profile.
+4. At the bottom of the page, click **Delete**.
 
-[Configurare il metodo di routing Round Robin](traffic-manager-configure-round-robin-routing-method.md)
+>[AZURE.NOTE] You cannot delete external locations or Traffic Manager profiles as endpoints using the Azure classic portal. You must use Windows PowerShell. For more information, see [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
-[Configurare un metodo di routing del traffico delle prestazioni](traffic-manager-configure-performance-routing-method.md)
+## <a name="next-steps"></a>Next steps
 
-[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
+- [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
+- [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+- [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+- [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+- [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

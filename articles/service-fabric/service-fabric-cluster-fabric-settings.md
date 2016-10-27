@@ -1,12 +1,12 @@
 
 <properties
-   pageTitle="Personalizzare le impostazioni del cluster di Service Fabric e dei criteri di aggiornamento dell'infrastruttura | Microsoft Azure"
-   description="Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare."
+   pageTitle="Customize Service Fabric cluster settings and Fabric Upgrade policy | Microsoft Azure"
+   description="This article describes the fabric settings and the fabric upgrade policies that you can customize."
    services="service-fabric"
    documentationCenter=".net"
    authors="chackdan"
    manager="timlt"
-   editor=""/> 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -15,61 +15,69 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/20/2016"
-   ms.author="chackdan"/> 
-
-# Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
-
-Questo documento illustra come personalizzare le varie impostazioni dell'infrastruttura e i criteri di aggiornamento della stessa per il cluster di Service Fabric. È possibile personalizzarli nel portale o mediante di modello di Resource Manager.
-
-## Impostazioni di infrastruttura che è possibile personalizzare
+   ms.author="chackdan"/>
 
 
-Di seguito sono riportate le impostazioni di infrastruttura che è possibile personalizzare.
+# <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Customize Service Fabric cluster settings and Fabric Upgrade policy
 
-### Nome della sezione: Security
+This document tells you how to customize the various fabric settings and the fabric upgrade policy for your service fabric cluster. You can customize them on the portal or using a Resource Manager template.
 
-|**Parametro**|**Valori consentiti**|**Indicazioni o breve descrizione**|
+## <a name="fabric-settings-that-you-can-customize"></a>Fabric settings that you can customize
+
+
+Here are the Fabric settings that you can customize:
+
+### <a name="section-name:-security"></a>Section Name: Security
+
+|**Parameter**|**Allowed Values**|**Guidance or short Description**|
 |-----------------------|--------------------------|--------------------------|
-|ClusterProtectionLevel|Nessuno o EncryptAndSign| Nessuno (predefinito) per i cluster non protetti, EncryptAndSign per i cluster protetti. |
+|ClusterProtectionLevel|None or EncryptAndSign| None (default) for unsecured clusters, EncryptAndSign for secure clusters. |
 
-### Nome della sezione: Hosting
+### <a name="section-name:-hosting"></a>Section Name: Hosting
 
-|**Parametro**|**Valori consentiti**|**Indicazioni o breve descrizione**|
+|**Parameter**|**Allowed Values**|**Guidance or short Description**|
 |-----------------------|--------------------------|--------------------------|
-|ServiceTypeRegistrationTimeout|Tempo in secondi, il valore predefinito è 300| Tempo massimo consentito per la registrazione di ServiceType nell'infrastruttura|
-|ServiceTypeDisableFailureThreshold|Numero intero, il valore predefinito è 1| Si tratta della soglia per il conteggio degli errori superata la quale a FailoverManager (FM) viene notificato di disabilitare il tipo di servizio sul nodo e di provare il posizionamento su un altro nodo.|
-|ActivationRetryBackoffInterval|Tempo in secondi, il valore predefinito è 5|Intervallo di backoff per ogni errore di attivazione; in caso di errore di attivazione continua, il sistema ritenta l'attivazione fino al massimo valore definito in MaxActivationFailureCount. L'intervallo tra tentativi è il prodotto dell'errore di attivazione continua e dell'intervallo di backoff di attivazione.|
-|ActivationMaxRetryInterval|Tempo in secondi, il valore predefinito è 300| In ogni caso di errore di attivazione continua, il sistema ritenta l'attivazione fino al massimo valore definito in ActivationMaxFailureCount. ActivationMaxRetryInterval specifica l'intervallo di tempo di attesa prima di un nuovo tentativo dopo ogni errore di attivazione |
-|ActivationMaxFailureCount|Numero intero, il valore predefinito è 10| Numero di volte che il sistema ritenta l'attivazione non riuscita prima di rinunciare |
+|ServiceTypeRegistrationTimeout|Time in Seconds, default is 300| Maximum time allowed for the ServiceType to be  registered with fabric|
+|ServiceTypeDisableFailureThreshold|Whole number, default is 1| This is the threshold for the failure count after which FailoverManager (FM) is notified to disable the service type on that node and try a different node for placement.|
+|ActivationRetryBackoffInterval|Time in Seconds, default is 5|Backoff interval on every activation failure; On every continuous activation failure, the system retries the activation for up to the MaxActivationFailureCount. The retry interval on every try is a product of continuous activation failure and the activation back-off interval.|
+|ActivationMaxRetryInterval|Time in seconds, default is 300| On every continuous activation failure, the system retries the activation for up to ActivationMaxFailureCount. ActivationMaxRetryInterval specifies Wait time interval before retry after every activation failure |
+|ActivationMaxFailureCount|Whole number, default is 10| Number of times system retries failed activation before giving up |
 
-### Nome della sezione: FailoverManager
+### <a name="section-name:-failovermanager"></a>Section Name: FailoverManager
 
-|**Parametro**|**Valori consentiti**|**Indicazioni o breve descrizione**|
+|**Parameter**|**Allowed Values**|**Guidance or short Description**|
 |-----------------------|--------------------------|--------------------------|
-|PeriodicLoadPersistInterval|Tempo in secondi, il valore predefinito è 10| Determina la frequenza con cui FM controlla i nuovi report di carico|
+|PeriodicLoadPersistInterval|Time in seconds, default is 10| This determines how often the FM check for new load reports|
 
-### Nome della sezione: Federation
+### <a name="section-name:-federation"></a>Section Name: Federation
 
-|**Parametro**|**Valori consentiti**|**Indicazioni o breve descrizione**|
+|**Parameter**|**Allowed Values**|**Guidance or short Description**|
 |-----------------------|--------------------------|--------------------------|
-|LeaseDuration|Tempo in secondi, il valore predefinito è 30|Durata di un lease tra un nodo e gli elementi adiacenti.|
-|LeaseDurationAcrossFaultDomain|Tempo in secondi, il valore predefinito è 30|Durata di un lease tra un nodo e gli elementi adiacenti nei domini di errore.|
+|LeaseDuration|Time in seconds, default is 30|Duration that a lease lasts between a node and its neighbors.|
+|LeaseDurationAcrossFaultDomain|Time in seconds, default is 30|Duration that a lease lasts between a node and its neighbors across fault domains.|
 
-### Nome della sezione: ClusterManager
+### <a name="section-name:-clustermanager"></a>Section Name: ClusterManager
 
-|**Parametro**|**Valori consentiti**|**Indicazioni o breve descrizione**|
+|**Parameter**|**Allowed Values**|**Guidance or short Description**|
 |-----------------------|--------------------------|--------------------------|
-|UpgradeStatusPollInterval|Tempo in secondi, il valore predefinito è 60|Frequenza di polling sullo stato di aggiornamento dell'applicazione. Questo valore determina la frequenza di aggiornamento di qualsiasi chiamata GetApplicationUpgradeProgress|
-|UpgradeHealthCheckInterval|Tempo in secondi, il valore predefinito è 60|Frequenza dei controlli sullo stato di integrità durante gli aggiornamenti di un'applicazione monitorata|
-|FabricUpgradeStatusPollInterval|Tempo in secondi, il valore predefinito è 60|Frequenza di polling dello stato di aggiornamento dell'infrastruttura. Questo valore determina la frequenza di aggiornamento di qualsiasi chiamata GetFabricUpgradeProgress |
-|FabricUpgradeHealthCheckInterval|Tempo in secondi, il valore predefinito è 60|Frequenza dei controlli sullo stato di integrità durante un aggiornamento di un'infrastruttura monitorata|
+|UpgradeStatusPollInterval|Time in seconds, default is 60|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call|
+|UpgradeHealthCheckInterval|Time in seconds, default is 60|The frequency of health status checks during a monitored application upgrades|
+|FabricUpgradeStatusPollInterval|Time in seconds, default is 60|The frequency of polling for Fabric upgrade status. This value determines the rate of update for any GetFabricUpgradeProgress call |
+|FabricUpgradeHealthCheckInterval|Time in seconds, default is 60|The frequency of health status check during a  monitored Fabric upgrade|
 
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:
+Read these articles for more information on cluster management:
 
-[Aggiunta, rollover e rimozione di certificati dal cluster di Azure ](service-fabric-cluster-security-update-certs-azure.md)
+[Add, Roll over, remove certificates from your Azure cluster ](service-fabric-cluster-security-update-certs-azure.md) 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

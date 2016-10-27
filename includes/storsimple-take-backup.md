@@ -1,32 +1,34 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Per eseguire un backup
+### <a name="to-take-a-backup"></a>To take a backup
 
-1. Nella pagina **Guida introduttiva** del dispositivo, fare clic su **Aggiungi criterio di backup**. L’operazione consentirà di avviare la procedura guidata per aggiungere un criterio di backup. 
+1. On the device **Quick Start** page, click **Add a backup policy**. This will start the Add Backup Policy wizard. 
 
-2. Nella pagina **Definisci criterio di backup**:
-  1. Fornire un nome per il criterio di backup, che contenga tra i 3 e i 150 caratteri.
-  2. Selezionare i volumi su cui eseguire il backup. Se si seleziona più di un volume, questi volumi verranno raggruppati per creare un backup crash-consistent.
-  3. Fare clic sull’icona a forma di freccia ![icona a forma di freccia](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
+2. On the **Define your backup policy** page:
+  1. Supply a name that contains between 3 and 150 characters for your backup policy.
+  2. Select the volumes to be backed up. If you select more than one volume, these volumes will be grouped together to create a crash-consistent backup.
+  3. Click the arrow icon ![arrow-icon](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
   
-    ![Aggiungi criterio di backup](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
+    ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
 
-3. Nella pagina **Definisci pianificazione**:
-  1. Selezionare il tipo di backup dall’elenco a discesa. Per ripristini più rapidi, selezionare **Snapshot locale**. Per la resilienza dei dati, selezionare **Snapshot cloud**.
-  2. Specificare la frequenza di backup in minuti, ore, giorni o settimane.
-  3. Selezionare un periodo di conservazione. Le scelte di conservazione dipendono dalla frequenza di backup. Ad esempio, per un criterio giornaliero, la conservazione può essere specificata in settimane, mentre la conservazione per un criterio mensile è specificata in mesi.
-  4. Selezionare la data e l’ora di inizio per il criterio di backup.
-  5. Selezionare la casella di controllo **Abilita** per abilitare il criterio di backup. 
-  6. Fare clic sull’icona del segno del spunta ![icona del segno di spunta](./media/storsimple-take-backup/HCS_CheckIcon-include.png) per salvare il criterio.
+3. On the **Define a schedule** page:
+  1. Select the type of backup from the drop-down list. For faster restores, select **Local Snapshot**. For data resiliency, select **Cloud Snapshot**.
+  2. Specify the backup frequency in minutes, hours, days, or weeks.
+  3. Select a retention time. The retention choices depend on the backup frequency. For example, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+  4. Select the starting time and date for the backup policy.
+  5. Select the **Enable** check box to enable the backup policy. 
+  6. Click the check icon ![check-icon](./media/storsimple-take-backup/HCS_CheckIcon-include.png) to save the policy.
 
-    ![Aggiungi criterio di backup](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
+    ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
  
-     A questo punto è disponibile un criterio di backup che creerà backup pianificati dei dati del volume.
+     You now have a backup policy that will create scheduled backups of your volume data.
 
-La configurazione del dispositivo è stata completata.
+You have completed the device configuration. 
 
-![Video disponibile](./media/storsimple-take-backup/Video_icon.png) **Video disponibile**
+![Video available](./media/storsimple-take-backup/Video_icon.png) **Video available**
 
-Per guardare un video che illustra come eseguire un backup StorSimple, fare clic [qui](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+To watch a video that demonstrates how to take a StorSimple backup, click [here](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

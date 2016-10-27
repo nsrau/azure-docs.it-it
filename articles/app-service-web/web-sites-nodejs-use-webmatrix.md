@@ -1,110 +1,111 @@
 <properties 
-	pageTitle="Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix" 
-	description="Un'esercitazione in cui viene illustrato come utilizzare WebMatrix per sviluppare un'applicazione Node. js e distribuirla in Azure applicazione servizio Web Apps." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Build and deploy a Node.js web app to Azure using WebMatrix" 
+    description="A tutorial that teaches you how to use WebMatrix to develop a Node.js application and deploy it to Azure App Service Web Apps." 
+    services="app-service\web" 
+    documentationCenter="nodejs" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="08/11/2016"
+    ms.author="robmcm"/>
 
 
-# Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix
 
-Questa esercitazione illustra come utilizzare WebMatrix per sviluppare un Node nodejs.org e come distribuirla in App Web di [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) WebMatrix è uno strumento di sviluppo Web gratuito di Microsoft che include tutto quanto necessario per lo sviluppo di siti Web o app Web. In WebMatrix sono incluse numerose funzionalità che semplificano l'utilizzo di Node.js, ad esempio completamento del codice, modelli precompilati e supporto dell'editor per Jade, LESS e CoffeScript. Altre informazioni su [WebMatrix](https://www.microsoft.com/web/webmatrix/).
+# <a name="build-and-deploy-a-node.js-web-app-to-azure-using-webmatrix"></a>Build and deploy a Node.js web app to Azure using WebMatrix
 
-Dopo avere completato questa guida, si disporrà di un sito Web Node.js in esecuzione in Azure.
+This tutorial shows you how to use WebMatrix to develop a Node.js application and deploy it to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. WebMatrix is a free web development tool from Microsoft that includes everything you need for website or web app development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix](https://www.microsoft.com/web/webmatrix/).
+
+Upon completing this guide, you will have a Node.js web app running in Azure App Service.
  
-Di seguito è riportata una schermata dell'applicazione completata:
+A screenshot of the completed application is below:
 
-![Sito Web node di Azure][webmatrix-node-completed]
+![Azure node Web site][webmatrix-node-completed]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-## Accesso ad Azure
+## <a name="sign-into-azure"></a>Sign into Azure
 
-Seguire le istruzioni per creare un'app Web in Azure.
+Follow these steps to create a web app in Azure App Service.
 
-1. Avvio di WebMatrix
-2. Se è la prima volta che si utilizza WebMatrix, verrà richiesto di effettuare l'accesso ad Azure. In caso contrario, è possibile fare clic sul pulsante **Sign In** e scegliere **Add Account**. Scegliere **Sign in** utilizzando il proprio account Microsoft.
+1. Launch WebMatrix
+2. If this is the first time you've used WebMatrix, you will be prompted to sign into Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Select to **Sign in** using your Microsoft Account.
 
-	![Aggiunta di un account][addaccount]
+    ![Add Account][addaccount]
 
-3. Se è stata effettuata l'iscrizione per un account Azure, è possibile accedere con il proprio account Microsoft:
+3. If you have signed up for an Azure account, you may log in using your Microsoft Account:
 
-	![Accesso ad Azure][signin]
+    ![Sign into Azure][signin]  
 
 
-## Creazione di un sito utilizzando un modello predefinito per Azure
+## <a name="create-a-site-using-a-built-in-template-for-azure"></a>Create a site using a built in template for Azure
 
-1. Nella schermata Start fare clic sul pulsante **New** e scegliere **Template Gallery** per creare un nuovo sito dalla raccolta modelli:
+1. On the start screen, click the **New** button, and choose **Template Gallery** to create a new site from the Template Gallery:
 
-	![Nuovo sito dalla raccolta modelli][sitefromtemplate]
+    ![New site from Template Gallery][sitefromtemplate]
 
-2. Nella finestra di dialogo **Site from Template** selezionare **Node** e quindi **Express Site**. Infine, fare clic su **Next**. Se non sono presenti tutti i prerequisiti necessari per il modello **Express Site**, verrà richiesto di installarli.
+2. In the **Site from Template** dialog, select **Node** and then select **Express Site**. Finally, click **Next**. If you are missing any prerequisites for the **Express Site** template, you will be prompted to install them.
 
-	![selezione modello express][webmatrix-templates]
+    ![select express template][webmatrix-templates]
 
-3. Se è stato effettuato l'accesso ad Azure, a questo punto è possibile creare un sito Web di Azure per il sito locale. Scegliere un nome univoco e selezionare il data center in cui si desidera venga creata l'istanza di servizio app per app Web:
+3. If you are signed into Azure, you now have the option to create an App Service web app for your local site.  Choose a unique name, and select the datacenter where you would like your App Service web app to be created: 
 
-	![Creazione del sito in Azure][nodesitefromtemplateazure]
-	
-4. Dopo la creazione del sito locale e la creazione dell'applicazione web servizio App, viene visualizzato l'IDE di WebMatrix.
+    ![Create site on Azure][nodesitefromtemplateazure]
+    
+4. After WebMatrix finishes building the local site and creating the App Service web app, the WebMatrix IDE is displayed.
 
-	![IDE WebMatrix][webmatrix-ide]
+    ![webmatrix ide][webmatrix-ide]
 
-##Pubblicazione dell'applicazione in Azure
+##<a name="publish-your-application-to-azure"></a>Publish your application to Azure
 
-1. In WebMatrix fare clic su **Publish** sulla barra multifunzione **Home** per visualizzare la finestra di dialogo **Publish Preview** relativa al sito Web.
+1. In WebMatrix, click **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the site.
 
-	![Anteprima della pubblicazione][webmatrix-node-publishpreview]
+    ![publish preview][webmatrix-node-publishpreview]
 
-2. Fare clic su **Continue**. Quando la pubblicazione viene completata, nella parte inferiore dell'IDE WebMatrix viene visualizzato l'URL del sito Web in Azure.
+2. Click **Continue**. When publishing is complete, the URL for the App Service web app is displayed at the bottom of the WebMatrix IDE
 
-	![Pubblicazione completata][webmatrix-publish-complete]
+    ![publish complete][webmatrix-publish-complete]
 
-3. Fare clic sul collegamento per aprire l'applicazione web servizio App nel browser.
+3. Click the link to open the App Service web app in your browser.
 
-	![Sito Web Express][webmatrix-node-express-site]
+    ![Express web app][webmatrix-node-express-site]
 
-##Modifica e ripubblicazione dell'applicazione
+##<a name="modify-and-republish-your-application"></a>Modify and republish your application
 
-Modificare e ripubblicare l'applicazione è facile. Ora, si procederà all'aggiunta di una semplice modifica all'intestazione nel file **index.jade** e si ripubblicherà l'applicazione.
+You can easily modify and republish your application. Here, you will make a simple change to the heading in in the **index.jade** file, and republish the application.
 
-1. In WebMatrix selezionare **Files**, quindi espandere la cartella **views**. Fare doppio clic sul file **index.jade** per aprirlo.
+1. In WebMatrix, select **Files**, and then expand the **views** folder. Open the **index.jade** file by double-clicking it.
 
-	![Visualizzazione del file index.jage in WebMatrix][webmatrix-modify-index]
+    ![webmatrix viewing index.jade][webmatrix-modify-index]
 
-2. Sostituire la riga del paragrafo con la riga seguente:
+2. Change the paragraph line to the following:
 
-		p Welcome to #{title} with WebMatrix on Azure!
+        p Welcome to #{title} with WebMatrix on Azure!
 
-3. Salvare le modifiche e quindi fare clic sull'icona di pubblicazione. Infine, fare clic su **Continue** nella finestra di dialogo**Publish Preview** e attendere che l'aggiornamento venga pubblicato.
+3. Save your changes, and then click the publish icon. Finally, click **Continue** in the **Publish Preview** dialog and wait for the update to be published.
 
-	![Anteprima della pubblicazione][webmatrix-republish]
+    ![publish preview][webmatrix-republish]
 
-4. Dopo che la pubblicazione è completata, utilizzare il collegamento restituito al termine del processo di pubblicazione per visualizzare il sito aggiornato.
+4. When publishing has completed, use the link returned when the publish process is complete to see the updated App Service web app.
 
-	![Sito Web node di Azure][webmatrix-node-completed]
+    ![Azure node web app][webmatrix-node-completed]
 
-##Passaggi successivi
+##<a name="next-steps"></a>Next steps
 
-Per informazioni sulle versioni di Node.js fornite con Azure e su come specificare la versione da utilizzare con l'applicazione, vedere [Specifica di una versione di Node.js in un'applicazione Azure](../nodejs-specify-node-version-azure-apps.md).
+To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](../nodejs-specify-node-version-azure-apps.md).
 
-Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, vedere [Come eseguire il debug di un'applicazione Node.js in Siti Web di Azure](web-sites-nodejs-debug.md) per informazioni su come diagnosticare l'errore.
+If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
 
-## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
+## <a name="what's-changed"></a>What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
 [WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
@@ -125,4 +126,7 @@ Se si verificano problemi con l'applicazione dopo la distribuzione in Azure, ved
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

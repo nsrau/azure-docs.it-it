@@ -9,15 +9,16 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
    ms.author="amsriva"/>
 
-# Abilitazione di criteri SSL ed SSL end-to-end nel gateway applicazione
 
-## Overview
+# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Abilitazione di criteri SSL ed SSL end-to-end nel gateway applicazione
+
+## <a name="overview"></a>Panoramica
 
 Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. In questo modo, i server Web non devono gestire il costoso carico di crittografia/decrittografia. Tuttavia, per alcuni clienti le comunicazioni non crittografate verso i server back-end non rappresentano un'opzione accettabile. Questo potrebbe dipendere da requisiti di sicurezza/conformità o da un'applicazione in grado di accettare solo connessioni protette. Per queste applicazioni, il gateway applicazione supporta ora la crittografia SSL end-to-end.
 
@@ -27,22 +28,26 @@ Se configurato con la modalità di comunicazione SSL end-to-end, il gateway appl
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-In questo esempio, le richieste di https://contoso.com possono essere indirizzate a ContosoServerPool su HTTP e https://fabrikam.com verrà indirizzato a FabrikamServerPool su HTTPS tramite SSL end-to-end.
+In questo esempio, le richieste di https://contoso.com possono essere instradate a ContosoServerPool su HTTP e https://fabrikam.com verrà indirizzato a FabrikamServerPool su HTTPS tramite SSL end-to-end.
 
-## SSL end-to-end e aggiunta dei certificati all'elenco dei consentiti
+## <a name="end-to-end-ssl-and-white-listing-of-certificates"></a>SSL end-to-end e aggiunta dei certificati all'elenco dei consentiti
 
 Il gateway applicazione comunica solo con istanze di back-end note, che hanno inserito i relativi certificati nell'elenco dei consentiti del gateway applicazione. Per abilitare l'aggiunta dei certificati all'elenco dei consentiti, è necessario caricare la chiave pubblica dei certificati del server back-end nel gateway applicazione. Saranno consentite solo connessioni a back-end noti o aggiunti all'elenco dei consentiti. Le altre connessioni generano un errore del gateway. I certificati autofirmati vengono usati a scopo di test e non sono consigliati per i carichi di lavoro. Prima dell'uso, anche questi certificati devono essere aggiunti all'elenco dei consentiti nel gateway applicazione, come descritto in precedenza.
 
-## Criteri SSL del gateway applicazione
+## <a name="application-gateway-ssl-policy"></a>Criteri SSL del gateway applicazione
 
 Il gateway applicazione supporta anche criteri di negoziazione SSL configurabili dell'utente, che consentono ai clienti di avere un controllo più granulare sulle connessioni SSL nel gateway applicazione.
 
 1. SSL 2.0 e 3.0 sono disabilitati per tutti i gateway applicazione. Non sono configurabili in nessun modo.
-2. La definizione dei criteri SSL consente all'utente di scegliere se disabilitare i 3 protocolli seguenti: TLSv1_0, TLSv1_1 e TLSv1\_2.
-3. Se non è definito alcun criterio SSL, vengono disabilitati tutti e tre (TLSv1_0, TLSv1_1, TLSv1\_2).
+2. La definizione dei criteri SSL consente all'utente di scegliere se disabilitare i 3 protocolli seguenti: TLSv1_0, TLSv1_1 e TLSv1_2.
+3. Se non è definito alcun criterio SSL, sono abilitati tutti e tre (TLSv1_0, TLSv1_1 e TLSv1_2).
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver appreso i concetti di SSL end-to end e i criteri SSL, passare all'articolo che spiega come [abilitare SSL end-to-end nel gateway applicazione](application-gateway-end-to-end-ssl-powershell.md) per creare un gateway applicazione che consenta di inviare traffico al back-end in formato crittografato.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

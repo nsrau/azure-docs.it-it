@@ -1,11 +1,14 @@
-Risorsa|Limite predefinito|Limite massimo
+Resource|Default Limit|Maximum Limit
 ---|---|---
-Risorse per [gruppo di risorse](../articles/resource-group-overview.md#resource-groups) (per tipo di risorsa)|800|800
-Distribuzioni per gruppo di risorse|800|800
-Risorse per distribuzione|800|800
-Blocchi di gestione (per ambito univoco)|20|20
-Numero di tag (per risorsa o gruppo di risorse)|15|15
-Lunghezza della chiave dei tag|512|512
-Lunghezza del valore dei tag|256|256
+Resources per [resource group](../articles/resource-group-overview.md#resource-groups) (per resource type)|800|800
+Deployments per resource group|800|800
+Resources per deployment|800|800
+Management Locks (per unique scope)|20|20
+Number of Tags (per resource or resource group)|15|15
+Tag key length|512|512
+Tag value length|256|256
 
-<!---HONumber=AcomDC_0211_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

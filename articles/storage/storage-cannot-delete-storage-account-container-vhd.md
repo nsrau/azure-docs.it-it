@@ -1,111 +1,116 @@
 <properties
-	pageTitle="Risoluzione dei problemi di eliminazione di account di Archiviazione di Azure, contenitori o VHD | Microsoft Azure"
-	description="Risoluzione dei problemi di eliminazione di account di Archiviazione di Azure, contenitori o VHD "
-	services="storage"
-	documentationCenter=""
-	authors="genlin"
-	manager="felixwu"
-	editor="tysonn"
-	tags="storage"/> 
+    pageTitle="Troubleshoot deleting Azure storage accounts, containers, or VHDs| Microsoft Azure"
+    description="Troubleshoot deleting Azure storage accounts, containers, or VHDs"
+    services="storage"
+    documentationCenter=""
+    authors="genlin"
+    manager="felixwu"
+    editor="tysonn"
+    tags="storage"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="minet;genli;robinsh"/>
-
-# Risoluzione dei problemi di eliminazione di account di Archiviazione di Azure, contenitori o VHD
-
-## Riepilogo
-Durante il tentativo di eliminazione di account di Archiviazione di Azure, contenitori o VHD nel [Portale di Azure](https://portal.azure.com/) o nel [Portale di Azure classico](https://manage.windowsazure.com/) è possibile ricevere errori. I problemi possono essere causati dalle circostanze seguenti:
-
--	Quando si elimina una VM, il disco e il VHD non vengono automaticamente eliminati. Questo potrebbe essere il motivo dell'errore di eliminazione dell'account di archiviazione. Il disco non viene eliminato perché sia possibile utilizzarlo per montare un’altra VM.
-
--	Sul disco o sul BLOB associato al disco è ancora attivo un lease.
-
-Se l'articolo non tratta il problema riguardante Azure, visitare i forum di Azure su [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). In questi forum o in @AzureSupport su Twitter, è possibile pubblicare il problema. È anche possibile inviare una richiesta di supporto Azure selezionando **Ottenere supporto** nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
-
-## Risoluzione
-Per risolvere i problemi più comuni, provare una delle procedure seguenti:
-
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/).
-2. Selezionare **MACCHINA VIRTUALE** > **DISCHI**.
-
-	![Immagine di dischi all'interno di macchine virtuali nel Portale di Azure classico.](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
-
-3. Individuare i dischi associati all'account di archiviazione, al contenitore o al VHD che si vuole eliminare. Controllando la posizione del disco, è possibile trovare l'account di archiviazione, il contenitore e il VHD associati.
-
-	![Immagine che mostra le informazioni sulla posizione per i dischi nel Portale di Azure classico](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
-
-4. Verificare che nel campo **Collegato a** non siano specificate VM e quindi eliminare i dischi.
-
- 	> [AZURE.NOTE] Se un disco è collegato a una VM, non sarà possibile eliminarlo. I dischi vengono scollegati da una VM eliminata in modo asincrono. Dopo l'eliminazione della VM la cancellazione di questo campo potrebbe richiedere alcuni minuti.
-
-5. Selezionare **MACCHINA VIRTUALE** > **IMMAGINI** e quindi eliminare le immagini associate all'account di archiviazione, al contenitore o al VHD.
-
-	Provare quindi di nuovo a eliminare l'account di archiviazione, il contenitore o il VHD.
-
-> [AZURE.WARNING] Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Non è possibile ripristinare un account di archiviazione eliminato, né recuperare gli elementi che conteneva prima dell'eliminazione. Lo stesso vale per tutte le risorse nell'account: dopo aver eliminato un VHD, un BLOB, una tabella, una coda o un file, non è più possibile recuperarlo. Assicurarsi che la risorsa non sia in uso.
-
-## Problemi comuni
-
-La sezione seguente elenca alcuni errori comuni che potrebbero essere visualizzati quando si tenta di eliminare gli account di Archiviazione di Azure, contenitori o VHD.
-
-### Scenario 1: Impossibile eliminare un account di archiviazione
-
-Quando si passa all'account di archiviazione nel [Portale di Azure](https://portal.azure.com/) o nel [Portale di Azure classico](https://manage.windowsazure.com/) e si seleziona **Elimina**, potrebbe essere visualizzato il messaggio di errore seguente:
-
-**Nel Portale di Azure**:
-
-*Non è stato possibile eliminare l'account di archiviazione <nome-account-archiviazione-vm>. Impossibile eliminare l'account di archiviazione <nome-account-archiviazione-vm>: "<nome-account-archiviazione-vm> presenta alcune immagini e/o dischi attivi. Assicurarsi di rimuovere tali immagini e/o dischi prima di eliminare l'account di archiviazione.*
-
-**Nel Portale di Azure classico**:
-
-*L'account di archiviazione<nome-account-archiviazione-vm> presenta alcune immagini e/o dischi attivi, ad esempio xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Assicurarsi di rimuovere tali immagini e/o dischi prima di eliminare l'account di archiviazione.*
-
-Potrebbe inoltre essere visualizzato questo errore:
-
-**Nel Portale di Azure**:
-
-*L'account di archiviazione <nome-account-archiviazione-vm> presenta 1 contenitore con un'immagine attiva e/o elementi di disco. Assicurarsi che gli elementi locali siano rimossi dall'archivio immagini prima di eliminare l'account di archiviazione*.
-
-**Nel Portale di Azure classico**:
-
-*Invio non riuscito L'account di archiviazione <nome-account-archiviazione-vm> presenta 1 contenitore con un'immagine attiva e/o elementi di disco. Assicurarsi che gli elementi locali siano rimossi dall'archivio immagini prima di eliminare l'account di archiviazione. Quando si tenta di eliminare un account di archiviazione con dischi associati ancora attivi, viene visualizzato un messaggio in cui si chiede di eliminare i dischi attivi*.
-
-### Scenario 2. Impossibile eliminare un contenitore
-
-Quando si tenta di eliminare il contenitore di archiviazione, potrebbe essere visualizzato l'errore seguente:
-
-*Non è stato possibile eliminare il contenitore di archiviazione <nome contenitore>. Errore: sul contenitore è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta*.
-
-### Scenario 3. Impossibile eliminare un VHD
-
-Dopo l'eliminazione di una VM, se si tenta di eliminare i BLOB relativi ai VHD associati, potrebbe essere visualizzato il messaggio seguente:
-
-*Non è stato possibile eliminare il BLOB ''percorso/XXXXXX-XXXXXX-os-1447379084699.vhd''. Errore: sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.*
-
-## Informazioni sullo stato Arrestato (deallocato)
-
-Le VM create nel modello di distribuzione classico che sono state mantenute avranno lo stato **Arrestato (deallocato)** nel [Portale di Azure](https://portal.azure.com/) o nel [Portale di Azure classico](https://manage.windowsazure.com/).
-
-**Portale di Azure classico**:
-
-![Stato Arrestato (deallocato) per VM nel Portale di Azure.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo2.png)
+    ms.service="storage"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/20/2016"
+    ms.author="minet;genli;robinsh"/>
 
 
-**Portale di Azure**:
+# <a name="troubleshoot-deleting-azure-storage-accounts,-containers,-or-vhds"></a>Troubleshoot deleting Azure storage accounts, containers, or VHDs
 
-![Stato Arrestato (deallocato) per VM nel Portale di Azure classico.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
+## <a name="summary"></a>Summary
+You might receive errors when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/). The issues can be caused by the following circumstances:
 
-Lo stato "Arrestato (deallocato)" rilascia le risorse del computer, ad esempio CPU, memoria e rete. I dischi, tuttavia, vengono mantenuti, in modo che l'utente possa rapidamente ricreare la VM se necessario. Questi dischi vengono creati all'interno di VHD, che sono supportati da Archiviazione di Azure. L'account di archiviazione possiede questi VHD e i dischi hanno un lease su di essi.
+-   When you delete a VM, the disk and VHD are not automatically deleted. That might be the reason for failure on storage account deletion. We don’t delete the disk so that you can use the disk to mount another VM.
 
-## Passaggi successivi
+-   There is still a lease on a disk or the blob that's associated with the disk.
 
-- [Eliminare un account di archiviazione](storage-create-storage-account.md#delete-a-storage-account)
-- [Procedura: Interrompere il lease bloccato di archiviazione BLOB in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
 
-<!---HONumber=AcomDC_0921_2016-->
+## <a name="resolution"></a>Resolution
+To resolve the most common issues, try the following method:
+
+1. Switch to the [Azure classic portal](https://manage.windowsazure.com/).
+2. Select **VIRTUAL MACHINE** > **DISKS**.
+
+    ![Image of disks on virtual machines on Azure classic portal.](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
+
+3. Locate the disks that are associated with the storage account, container, or VHD that you want to delete. When you check the location of the disk, you will find the associated storage account, container, or VHD.
+
+    ![Image that shows location information for disks on Azure classic portal](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
+
+4. Confirm that no VM is listed on the **Attached to** field of the disks, and then delete the disks.
+
+    > [AZURE.NOTE] If a disk is attached to a VM, you will not be able to delete it. Disks are detached from a deleted VM asynchronously. It might take a few minutes after the VM is deleted for this field to clear up.
+
+5. Select **VIRTUAL MACHINE** > **IMAGES**, and then delete the images that are associated with the storage account, container, or VHD.
+
+    After that, try to delete the storage account, container, or VHD again.
+
+> [AZURE.WARNING] Be sure to back up anything you want to save before you delete the account. It is not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. This also holds true for any resources in the account: once you delete a VHD, blob, table, queue, or file, it is permanently deleted. Ensure that the resource is not in use.
+
+## <a name="common-issues"></a>Common issues
+
+The following section lists common errors that you might receive when you try to delete the Azure storage accounts, containers, or VHDs.
+
+### <a name="scenario-1:-unable-to-delete-a-storage-account"></a>Scenario 1: Unable to delete a storage account
+
+When you navigate to the storage account in the [Azure portal](https://portal.azure.com/) or [Azure classic portal](https://manage.windowsazure.com/) and select **Delete**, you might see the following error message:
+
+**On the Azure portal**:
+
+*Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.*
+
+**On the Azure classic portal**:
+
+*Storage account <vm-storage-account-name> has some active image(s) and/or disk(s), e.g. xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Ensure these image(s) and/or disk(s) are removed before deleting this storage account.*
+
+You might also see this error:
+
+**On the Azure portal**:
+
+*Storage account <vm-storage-account-name> has 1 container(s) which have an active image and/or disk artifacts. Ensure those artifacts are removed from the image repository before deleting this storage account*.
+
+**On the Azure classic portal**:
+
+*Submit Failed Storage account <vm-storage-account-name> has 1 container(s) which have an active image and/or disk artifacts. Ensure those artifacts are removed from the image repository before deleting this storage account. When you attempt to delete a storage account and there are still active disks associated with it, you will see a message telling you there are active disks that need to be deleted*.
+
+### <a name="scenario-2:-unable-to-delete-a-container"></a>Scenario 2: Unable to delete a container
+
+When you try to delete the storage container, you might see the following error:
+
+*Failed to delete storage container <container name>. Error: 'There is currently a lease on the container and no lease ID was specified in the request*.
+
+### <a name="scenario-3:-unable-to-delete-a-vhd"></a>Scenario 3: Unable to delete a VHD
+
+After you delete a VM and then try to delete the blobs for the associated VHDs, you might receive the following message:
+
+*Failed to delete blob 'path/XXXXXX-XXXXXX-os-1447379084699.vhd'. Error: 'There is currently a lease on the blob and no lease ID was specified in the request.*
+
+## <a name="about-the-stopped-(deallocated)-status"></a>About the Stopped (deallocated) status
+
+VMs that were created in the classic deployment model and that have been retained will have the **Stopped (deallocated)** status on either the [Azure portal](https://portal.azure.com/) or [Azure classic portal](https://manage.windowsazure.com/).
+
+**Azure classic portal**:
+
+![Stopped (Deallocated) status for VMs on Azure portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo2.png)
+
+
+**Azure portal**:
+
+![Stopped (deallocated) status for VMs on Azure classic portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
+
+A “Stopped (deallocated)” status releases the computer resources, such as the CPU, memory, and network. The disks, however, are still retained so that the user can quickly re-create the VM if required. These disks are created on top of VHDs, which are backed by Azure storage. The storage account has these VHDs, and the disks have leases on those VHDs.
+
+## <a name="next-steps"></a>Next steps
+
+- [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
+- [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

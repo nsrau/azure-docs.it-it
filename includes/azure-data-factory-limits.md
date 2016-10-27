@@ -1,4 +1,4 @@
-Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ogni altro carico di lavoro. Molti dei limiti possono essere facilmente aumentati per la sottoscrizione fino al limite massimo contattando il supporto tecnico.
+Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefiniti in modo che le sottoscrizioni dei clienti siano protette da ogni altro carico di lavoro. Molti dei limiti possono essere facilmente aumentati per la sottoscrizione fino al limite massimo contattando il supporto tecnico. 
 
 **Risorsa** | **Limite predefinito** | **Limite massimo**
 -------- | ------------- | -------------
@@ -25,8 +25,13 @@ Intervallo tra tentativi | 1 secondo | 1 secondo
 Valore di timeout del tentativo | 1 secondo | 1 secondo
 
 
-### Limiti di chiamata del servizio Web
+### <a name="web-service-call-limits"></a>Limiti di chiamata del servizio Web
 
-Azure Resource Manager presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](../azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di [limiti API di gestione risorse di Azure](../azure-subscription-service-limits.md#resource-group-limits). 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

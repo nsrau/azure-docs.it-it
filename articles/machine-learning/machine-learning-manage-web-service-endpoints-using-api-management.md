@@ -1,241 +1,242 @@
 <properties
-	pageTitle="Informazioni su come gestire i servizi Web di AzureML con Gestione API | Microsoft Azure"
-	description="Guida che mostra come gestire i servizi Web di AzureML con Gestione API."
-	keywords="apprendimento automatico, gestione api"
-	services="machine-learning"
-	documentationCenter=""
-	authors="roalexan"
-	manager="jhubbard"
-	editor=""/> 
+    pageTitle="Learn how to manage AzureML web services using API Management | Microsoft Azure"
+    description="A guide showing how to manage AzureML web services using API Management."
+    keywords="machine learning,api management"
+    services="machine-learning"
+    documentationCenter=""
+    authors="roalexan"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="roalexan" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="roalexan" />
 
 
-# Informazioni su come gestire i servizi Web di AzureML con Gestione API
 
-##Overview
+# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Learn how to manage AzureML web services using API Management
 
-Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di AzureML.
+##<a name="overview"></a>Overview
 
-##Cos'è Gestione API di Azure?
+This guide shows you how to quickly get started using API Management to manage your AzureML web services.
 
-Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/). Per una guida introduttiva a Gestione API di Azure, fare clic [qui](../api-management/api-management-get-started.md). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
+##<a name="what-is-azure-api-management?"></a>What is Azure API Management?
 
-##Informazioni su AzureML
+Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. Click [here](https://azure.microsoft.com/services/api-management/) for details on Azure API Management. Click [here](../api-management/api-management-get-started.md) for a guide on how to get started with Azure API Management. This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
 
-AzureML è un servizio di Azure basato su Machine Learning che consente di compilare, distribuire e condividere facilmente soluzioni di analisi avanzate. Per informazioni dettagliate su AzureML, fare clic [qui](https://azure.microsoft.com/services/machine-learning/).
+##<a name="what-is-azureml?"></a>What is AzureML?
 
-##Prerequisiti
+AzureML is an Azure service for machine learning that enables you to easily build, deploy, and share advanced analytics solutions. Click [here](https://azure.microsoft.com/services/machine-learning/) for details on AzureML.
 
-Per completare questa guida, è necessario:
+##<a name="prerequisites"></a>Prerequisites
 
-* Un account Azure. Se non si dispone di un account Azure, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
-* Un account AzureML. Se non si dispone di un account AzureML, fare clic [qui](https://studio.azureml.net/) per informazioni dettagliate su come creare un account di prova gratuito.
-* L'area di lavoro, il servizio e l'api\_key per un esperimento di AzureML distribuito come servizio web. Per informazioni dettagliate su come creare un esperimento di AzureML, fare clic [qui](machine-learning-create-experiment.md). Per informazioni dettagliate su come distribuire un esperimento di AzureML come servizio Web, fare clic [qui](machine-learning-publish-a-machine-learning-web-service.md). In alternativa, l'Appendice A contiene le istruzioni per creare e testare un semplice esperimento di AzureML e distribuirlo come servizio Web.
+To complete this guide, you need:
 
-##Creare un'istanza di Gestione API
+* An Azure account. If you don’t have an Azure account, click [here](https://azure.microsoft.com/pricing/free-trial/) for details on how to create a free trial account.
+* An AzureML account. If you don’t have an AzureML account, click [here](https://studio.azureml.net/) for details on how to create a free trial account.
+* The workspace, service, and api_key for an AzureML experiment deployed as a web service. Click [here](machine-learning-create-experiment.md) for details on how to create an AzureML experiment. Click [here](machine-learning-publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
 
-Di seguito sono riportati i passaggi per gestire il servizio Web di AzureML con Gestione API. Creare innanzitutto un'istanza del servizio. Accedere al [portale classico](https://manage.windowsazure.com/) e fare clic su **Nuovo** > **Servizi app** > **Gestione API** > **Crea**.
+##<a name="create-an-api-management-instance"></a>Create an API Management instance
+
+Below are the steps for using API Management to manage your AzureML web service. First create a service instance. Log in to the [Classic Portal](https://manage.windowsazure.com/) and click **New** > **App Services** > **API Management** > **Create**.
 
 ![create-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
-Specificare un **URL** univoco. Questa guida usa **demoazureml**: sarà necessario sceglierne uno diverso. Scegliere **Sottoscrizione** e **Area** per l'istanza del servizio. Una volta effettuate le selezioni, fare clic sul pulsante Avanti.
+Specify a unique **URL**. This guide uses **demoazureml** – you will need to choose something different. Choose the desired **Subscription** and **Region** for your service instance. After making your selections, click the next button.
 
 ![create-service-1](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-service-1.png)
 
-Specificare un valore per **Nome organizzazione**. Questa guida usa **demoazureml**: sarà necessario sceglierne uno diverso. Immettere l'indirizzo di posta elettronica nel campo **Indirizzo di posta elettronica dell'amministratore**. Questo indirizzo di posta elettronica viene usato per le notifiche inviate dal sistema Gestione API.
+Specify a value for the **Organization Name**. This guide uses **demoazureml** – you will need to choose something different. Enter your email address in the **administrator e-mail** field. This email address is used for notifications from the API Management system.
 
 ![create-service-2](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-service-2.png)
 
-Selezionare la casella di controllo per creare l'istanza del servizio. *La creazione di un nuovo servizio richiede fino a trenta minuti*.
+Click the check box to create your service instance. *It takes up to thirty minutes for a new service to be created*.
 
-##Creare l'API
+##<a name="create-the-api"></a>Create the API
 
-Dopo aver creato l'istanza del servizio, l'operazione successiva consiste nel creare l'API. Un'API rappresenta un set di operazioni che possono essere richiamate da un'applicazione client. Le operazioni API vengono trasmesse tramite proxy ai servizi Web esistenti. Questa guida crea le API che usano un proxy per i servizi Web RRS e BES di AzureML esistenti.
+Once the service instance is created, the next step is to create the API. An API consists of a set of operations that can be invoked from a client application. API operations are proxied to existing web services. This guide creates APIs that proxy to the existing AzureML RRS and BES web services.
 
-Le API vengono create e configurate dal portale di pubblicazione delle API, accessibile dal portale di Azure classico. Per raggiungere il portale di pubblicazione, selezionare l'istanza del servizio.
+APIs are created and configured from the API publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, select your service instance.
 
 ![select-service-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-service-instance.png)
 
-Fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API.
+Click **Manage** in the Azure Classic Portal for your API Management service.
 
 ![manage-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/manage-service.png)
 
-Fare clic su **API** dal menu **Gestione API** sulla sinistra, quindi scegliere **Aggiungi API**.
+Click **APIs** from the **API Management** menu on the left, and then click **Add API**.
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Digitare **AzureML Demo API** in **Nome API Web**. Digitare **https://ussouthcentral.services.azureml.net** in **URL servizio Web**. Digitare **azureml-demo** in **Web API URL suffix** (Suffisso URL API Web). Selezionare **HTTPS** come schema dell'**URL API Web**. Selezionare **Starter** in **Prodotti**. Al termine, fare clic su **Salva** per creare l'API.
+Type **AzureML Demo API** as the **Web API name**. Type **https://ussouthcentral.services.azureml.net** as the **Web service URL**. Type **azureml-demo** as the **Web API URL suffix**. Check **HTTPS** as the **Web API URL** scheme. Select **Starter** as **Products**. When finished, click **Save** to create the API.
 
-![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png) 
+![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
-##Aggiungere le operazioni
+##<a name="add-the-operations"></a>Add the operations
 
-Fare clic su **Aggiungi operazione** per aggiungere operazioni a questa API.
+Click **Add operation** to add operations to this API.
 
 ![add-operation](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-operation.png)
 
-Verrà visualizzata la finestra **Nuova operazione** in cui la scheda **Firma** è visualizzata per impostazione predefinita.
+The **New operation** window will be displayed and the **Signature** tab will be selected by default.
 
-##Aggiungere un'operazione RRS
+##<a name="add-rrs-operation"></a>Add RRS Operation
 
-Creare innanzitutto un'operazione per il servizio RRS di AzureML. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/execute?api-version={versioneapi}&details={dettagli}** in **Modello di URL**. Digitare **RRS Execute** in **Nome visualizzato**.
+First create an operation for the AzureML RRS service. Select **POST** as the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}** as the **URL template**. Type **RRS Execute** as the **Display name**.
 
 ![add-rrs-operation-signature](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
 
 ![add-rrs-operation-response](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
-##Aggiungere operazioni BES
+##<a name="add-bes-operations"></a>Add BES Operations
 
-Non sono incluse schermate per le operazioni di BES perché sono molto simili a quelle per l'aggiunta dell'operazione RRS.
+Screenshots are not included for the BES operations as they are very similar to those for adding the RRS operation.
 
-###Inviare (ma non avviare) un processo di esecuzione in batch
+###<a name="submit-(but-not-start)-a-batch-execution-job"></a>Submit (but not start) a Batch Execution job
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Submit** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Click **add operation** to add the AzureML BES operation to the API. Select **POST** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}** for the **URL template**. Type **BES Submit** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
 
-###Avviare un processo di esecuzione in batch
+###<a name="start-a-batch-execution-job"></a>Start a Batch Execution job
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di AzureML all'API. Selezionare **POST** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}/start?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Start** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Click **add operation** to add the AzureML BES operation to the API. Select **POST** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}** for the **URL template**. Type **BES Start** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
 
-###Ottenere lo stato o il risultato di un processo di esecuzione del Batch
+###<a name="get-the-status-or-result-of-a-batch-execution-job"></a>Get the status or result of a Batch Execution job
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **GET** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Status** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Click **add operation** to add the AzureML BES operation to the API. Select **GET** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}** for the **URL template**. Type **BES Status** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
 
-###Eliminare un processo di esecuzione in batch
+###<a name="delete-a-batch-execution-job"></a>Delete a Batch Execution job
 
-Fare clic su **aggiungi operazione** per aggiungere l'operazione BES di Azure ML all'API. Selezionare **DELETE** in **Verbo HTTP**. Digitare **/workspaces/{area di lavoro}/services/{servizio}/jobs/{jobid}?api-version={versioneapi}** in **Modello di URL**. Digitare **BES Delete** in **Nome visualizzato**. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**. Fare clic su **Salva** per salvare questa operazione.
+Click **add operation** to add the AzureML BES operation to the API. Select **DELETE** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}** for the **URL template**. Type **BES Delete** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
 
-##Chiamare un'operazione dal portale per sviluppatori
+##<a name="call-an-operation-from-the-developer-portal"></a>Call an operation from the Developer Portal
 
-È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità. In questo passaggio della guida si chiamerà il metodo **RRS Execute** aggiunto all'**AzureML Demo API**. Fare clic su **Portale per sviluppatori** nel menu in alto a destra del portale classico.
+Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this guide step you will call the **RRS Execute** method that was added to the **AzureML Demo API**. Click **Developer portal** from the menu at the top right of the Classic Portal.
 
 ![developer-portal](./media/machine-learning-manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-Fare clic su **API** nel menu superiore e quindi su **AzureML Demo API** per visualizzare le operazioni disponibili.
+Click **APIs** from the top menu, and then click **AzureML Demo API** to see the operations available.
 
 ![demoazureml-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-Selezionare **RRS Execute** come operazione. Fare clic su **Prova**.
+Select **RRS Execute** for the operation. Click **Try It**.
 
 ![try-it](./media/machine-learning-manage-web-service-endpoints-using-api-management/try-it.png)
 
-Per i parametri della richiesta, digitare l'**area di lavoro**, il **servizio**, **2.0** per la **versione API** e **true** per i **dettagli**. È possibile trovare l'**area di lavoro** e il **servizio** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
+For Request parameters, type your **workspace**,  **service**, **2.0** for the **apiversion**, and  **true** for the **details**. You can find your **workspace** and **service** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
 
-Per le intestazioni della richiesta, fare clic su **Aggiungi intestazione** e digitare **Content-Type** e **application/json**, quindi fare clic su **Aggiungi intestazione** e digitare **Authorization** e **Bearer <YOUR AZUREML SERVICE API-KEY>**. È possibile trovare la **chiave API** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
+For Request headers, click **Add header** and type **Content-Type** and **application/json**, then click **Add header** and type **Authorization** and **Bearer <YOUR AZUREML SERVICE API-KEY>**. You can find your **api key** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
 
-Digitare **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}** come corpo della richiesta.
+Type **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}** for the request body.
 
-![azureml-demo-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/azureml-demo-api.png) 
+![azureml-demo-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
-Fare clic su **Send**.
+Click **Send**.
 
-![send](./media/machine-learning-manage-web-service-endpoints-using-api-management/send.png) 
+![send](./media/machine-learning-manage-web-service-endpoints-using-api-management/send.png)
 
-Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
+After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**.
 
-![response-status](./media/machine-learning-manage-web-service-endpoints-using-api-management/response-status.png) 
+![response-status](./media/machine-learning-manage-web-service-endpoints-using-api-management/response-status.png)
 
-##Appendice A - Creazione e test di un semplice servizio Web di AzureML
+##<a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Appendix A - Creating and testing a simple AzureML web service
 
-###Creazione di un esperimento
+###<a name="creating-the-experiment"></a>Creating the experiment
 
-Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. ad esempio:
+Below are the steps for creating a simple AzureML experiment and deploying it as a web service. The web service takes as input a column of arbitrary text and returns a set of features represented as integers. For example:
 
-Text | Testo con hash
+Text | Hashed Text
 --- | ---
 This is a good day | 1 1 2 2 0 2 0 1
 
-Per prima cosa, usando il browser preferito, andare a [https://studio.azureml.net/](https://studio.azureml.net/) e immettere le credenziali di accesso. Quindi creare un nuovo esperimento vuoto.
+First, using a browser of your choice, navigate to: [https://studio.azureml.net/](https://studio.azureml.net/) and enter your credentials to log in. Next, create a new blank experiment.
 
-![search-experiment-templates](./media/machine-learning-manage-web-service-endpoints-using-api-management/search-experiment-templates.png) 
+![search-experiment-templates](./media/machine-learning-manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
-Rinominarlo **SimpleFeatureHashingExperiment**. Espandere **Saved Datasets** e trascinare **Book Reviews from Amazon** sull'esperimento.
+Rename it to **SimpleFeatureHashingExperiment**. Expand **Saved Datasets** and drag **Book Reviews from Amazon** onto your experiment.
 
-![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png) 
+![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Espandere **Trasformazioni di dati** e **Manipulation** (Manipolazione) e trascinare **Select Columns in Dataset** (Seleziona colonne in set di dati) sull'esperimento. Connettere **Book Reviews from Amazon** (Recensioni sul libro da Amazon) a **Select Columns in Dataset** (Seleziona colonne in set di dati).
+Expand **Data Transformation** and **Manipulation** and drag **Select Columns in Dataset** onto your experiment. Connect **Book Reviews from Amazon** to **Select Columns in Dataset**.
 
-![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png) 
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Fare clic su **Select Columns in Dataset** (Seleziona colonne in set di dati), quindi fare clic su **Launch column selector** (Avvia selettore di colonna) e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
+Click **Select Columns in Dataset** and then click **Launch column selector** and select **Col2**. Click the checkmark to apply these changes.
 
-![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png) 
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Espandere **Text Analytics** e trascinare **Feature Hashing** sull'esperimento. Connettere **Select Columns in Dataset** (Seleziona colonne in set di dati) a **Feature Hashing**.
+Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Select Columns in Dataset** to **Feature Hashing**.
 
-![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png) 
+![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
-Digitare **3** come **Hashing bitsize**. Verranno create 8 (23) colonne.
+Type **3** for the **Hashing bitsize**. This will create 8 (23) columns.
 
-![hashing-bitsize](./media/machine-learning-manage-web-service-endpoints-using-api-management/hashing-bitsize.png) 
+![hashing-bitsize](./media/machine-learning-manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
 
-A questo punto, è possibile fare clic su **Run** per testare l'esperimento.
+At this point, you may want to click **Run** to test the experiment.
 
-![run](./media/machine-learning-manage-web-service-endpoints-using-api-management/run.png) 
+![run](./media/machine-learning-manage-web-service-endpoints-using-api-management/run.png)
 
-###Creare un servizio Web
+###<a name="create-a-web-service"></a>Create a web service
 
-Ora creare un servizio Web. Espandere **Web Service** e trascinare **Input** sull'esperimento. Connettere **Input** a **Feature Hashing**. Trascinare anche **output** sull'esperimento. Connettere **Output** a **Feature Hashing**.
+Now create a web service. Expand **Web Service** and drag **Input** onto your experiment. Connect **Input** to **Feature Hashing**. Also drag **output** onto your experiment. Connect **Output** to **Feature Hashing**.
 
-![output-to-feature-hashing](./media/machine-learning-manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png) 
+![output-to-feature-hashing](./media/machine-learning-manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
-Fare cli su **Publish web service**.
+Click **Publish web service**.
 
-![publish-web-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/publish-web-service.png) 
+![publish-web-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
-Fare clic su **Yes** per pubblicare l'esperimento.
+Click **Yes** to publish the experiment.
 
-![yes-to-publish](./media/machine-learning-manage-web-service-endpoints-using-api-management/yes-to-publish.png) 
+![yes-to-publish](./media/machine-learning-manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
-###Testare il servizio Web
+###<a name="test-the-web-service"></a>Test the web service
 
-Un servizio Web di AzureML è costituito dagli endpoint RSS (servizio di richiesta/risposta) e BES (servizio di esecuzione batch). RSS è per l'esecuzione sincrona. BES è per l'esecuzione di processi asincrona. Per testare il servizio Web con la seguente origine Python di esempio, potrebbe essere necessario scaricare e installare Azure SDK per Python (vedere: [Come installare Python](../python-how-to-install.md)).
+An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](../python-how-to-install.md)).
 
-Per la seguente origine di esempio, saranno necessari anche l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento. È possibile trovare l'area di lavoro e il servizio facendo clic su **Request/Response** o su **Batch Execution** per l'esperimento nel dashboard del servizio Web.
+You will also need the **workspace**, **service**, and **api_key** of your experiment for the sample source below. You can find the workspace and service by clicking either **Request/Response** or **Batch Execution** for your experiment in the web service dashboard.
 
-![find-workspace-and-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png) 
+![find-workspace-and-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
-È possibile trovare la **chiave API** facendo clic sull'esperimento nel dashboard del servizio Web.
+You can find the **api_key** by clicking your experiment in the web service dashboard.
 
-![find-api-key](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png) 
+![find-api-key](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png)
 
-####Testare l'endpoint RRS
+####<a name="test-rrs-endpoint"></a>Test RRS endpoint
 
-#####Pulsante Test
+#####<a name="test-button"></a>Test button
 
-Un modo semplice per testare l'endpoint RRS consiste nel fare clic su **Test** nel dashboard del servizio.
+An easy way to test the RRS endpoint is to click **Test** on the web service dashboard.
 
-![test](./media/machine-learning-manage-web-service-endpoints-using-api-management/test.png) 
+![test](./media/machine-learning-manage-web-service-endpoints-using-api-management/test.png)
 
-Digitare **This is a good day** in **col2**. Fare clic sul segno di spunta.
+Type **This is a good day** for **col2**. Click the checkmark.
 
-![enter-data](./media/machine-learning-manage-web-service-endpoints-using-api-management/enter-data.png) 
+![enter-data](./media/machine-learning-manage-web-service-endpoints-using-api-management/enter-data.png)
 
-Verrà visualizzato qualcosa di simile a quanto segue
+You will see something like
 
-![sample-output](./media/machine-learning-manage-web-service-endpoints-using-api-management/sample-output.png) 
+![sample-output](./media/machine-learning-manage-web-service-endpoints-using-api-management/sample-output.png)
 
-#####Codice di esempio
+#####<a name="sample-code"></a>Sample Code
 
-È possibile testare RRS anche dal codice client. Se si fa clic su **Request/response** sul dashboard e si scorre fino in fondo, si vedrà il codice di esempio per C#, Python e R. Si vedrà anche la sintassi della richiesta RRS, incluso l'URI della richiesta, le intestazioni e il corpo.
+Another way to test your RRS is from your client code. If you click **Request/response** on the dashboard and scroll to the bottom, you will see sample code for C#, Python, and R. You will also see the syntax of the RRS request, including the request URI, headers, and body.
 
-Questa guida mostra un esempio di Python funzionante. Sarà necessario modificarlo con l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento.
+This guide shows a working Python example. You will need to modify it with the **workspace**, **service**, and **api_key** of your experiment.
 
-	import urllib2
-	import json
-	workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
-	service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
-	api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
-	data = {
+    import urllib2
+    import json
+    workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
+    service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
+    api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
+    data = {
     "Inputs": {
         "input1": {
             "ColumnNames": ["Col2"],
@@ -243,145 +244,149 @@ Questa guida mostra un esempio di Python funzionante. Sarà necessario modificar
         },
     },
     "GlobalParameters": { }
-	}
-	url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace + "/services/" + service + "/execute?api-version=2.0&details=true"
-	headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
-	body = str.encode(json.dumps(data))
-	try:
-    	req = urllib2.Request(url, body, headers)
-    	response = urllib2.urlopen(req)
-    	result = response.read()
-    	print "result:" + result
-			except urllib2.HTTPError, error:
-    	print("The request failed with status code: " + str(error.code))
-    	print(error.info())
-    	print(json.loads(error.read()))
+    }
+    url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace + "/services/" + service + "/execute?api-version=2.0&details=true"
+    headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+    body = str.encode(json.dumps(data))
+    try:
+        req = urllib2.Request(url, body, headers)
+        response = urllib2.urlopen(req)
+        result = response.read()
+        print "result:" + result
+            except urllib2.HTTPError, error:
+        print("The request failed with status code: " + str(error.code))
+        print(error.info())
+        print(json.loads(error.read()))
 
-####Testare l'endpoint BES
-Fare clic su **Batch execution** sul dashboard e scorrere fino in fondo. Si vedrà il codice di esempio per C#, Python e R. Si vedrà anche la sintassi delle richieste BES per inviare un processo, avviare un processo, ottenere lo stato o i risultati di un processo ed eliminare un processo.
+####<a name="test-bes-endpoint"></a>Test BES endpoint
+Click **Batch execution** on the dashboard and scroll to the bottom. You will see sample code for C#, Python, and R. You will also see the syntax of the BES requests to submit a job, start a job, get the status or results of a job, and delete a job.
 
-Questa guida mostra un esempio di Python funzionante. È necessario modificarlo con l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento. Inoltre è necessario modificare il **nome account di archiviazione**, la **chiave dell'account di archiviazione** e il **nome del contenitore di archiviazione**. Infine sarà necessario modificare il percorso del **file di input** e il percorso del **file di output**.
+This guide shows a working Python example. You need to modify it with the **workspace**, **service**, and **api_key** of your experiment. Additionally, you need to modify the **storage account name**, **storage account key**, and **storage container name**. Lastly, you will need to modify the location of the **input file** and the location of the **output file**.
 
-	import urllib2
-	import json
-	import time
-	from azure.storage import *
-	workspace = "<REPLACE WITH YOUR WORKSPACE ID>"
-	service = "<REPLACE WITH YOUR SERVICE ID>"
-	api_key = "<REPLACE WITH THE API KEY FOR YOUR WEB SERVICE>"
-	storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
-	storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
-	storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
-	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
-	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
-	input_blob_name = "mydatablob.csv"
-	output_blob_name = "myresultsblob.csv"
-	def printHttpError(httpError):
-	print("The request failed with status code: " + str(httpError.code))
-	print(httpError.info())
-	print(json.loads(httpError.read()))
-	return
-	def saveBlobToFile(blobUrl, resultsLabel):
-	print("Reading the result from " + blobUrl)
-	try:
-		response = urllib2.urlopen(blobUrl)
-	except urllib2.HTTPError, error:
-		printHttpError(error)
-		return
-	with open(output_file, "w+") as f:
-		f.write(response.read())
-	print(resultsLabel + " have been written to the file " + output_file)
-	return
-	def processResults(result):
-	first = True
-	results = result["Results"]
-	for outputName in results:
-		result_blob_location = results[outputName]
-		sas_token = result_blob_location["SasBlobToken"]
-		base_url = result_blob_location["BaseLocation"]
-		relative_url = result_blob_location["RelativeLocation"]
-		print("The results for " + outputName + " are available at the following Azure Storage location:")
-		print("BaseLocation: " + base_url)
-		print("RelativeLocation: " + relative_url)
-		print("SasBlobToken: " + sas_token)
-		if (first):
-			first = False
-			url3 = base_url + relative_url + sas_token
-			saveBlobToFile(url3, "The results for " + outputName)
-	return
+    import urllib2
+    import json
+    import time
+    from azure.storage import *
+    workspace = "<REPLACE WITH YOUR WORKSPACE ID>"
+    service = "<REPLACE WITH YOUR SERVICE ID>"
+    api_key = "<REPLACE WITH THE API KEY FOR YOUR WEB SERVICE>"
+    storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
+    storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
+    storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
+    input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
+    output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
+    input_blob_name = "mydatablob.csv"
+    output_blob_name = "myresultsblob.csv"
+    def printHttpError(httpError):
+    print("The request failed with status code: " + str(httpError.code))
+    print(httpError.info())
+    print(json.loads(httpError.read()))
+    return
+    def saveBlobToFile(blobUrl, resultsLabel):
+    print("Reading the result from " + blobUrl)
+    try:
+        response = urllib2.urlopen(blobUrl)
+    except urllib2.HTTPError, error:
+        printHttpError(error)
+        return
+    with open(output_file, "w+") as f:
+        f.write(response.read())
+    print(resultsLabel + " have been written to the file " + output_file)
+    return
+    def processResults(result):
+    first = True
+    results = result["Results"]
+    for outputName in results:
+        result_blob_location = results[outputName]
+        sas_token = result_blob_location["SasBlobToken"]
+        base_url = result_blob_location["BaseLocation"]
+        relative_url = result_blob_location["RelativeLocation"]
+        print("The results for " + outputName + " are available at the following Azure Storage location:")
+        print("BaseLocation: " + base_url)
+        print("RelativeLocation: " + relative_url)
+        print("SasBlobToken: " + sas_token)
+        if (first):
+            first = False
+            url3 = base_url + relative_url + sas_token
+            saveBlobToFile(url3, "The results for " + outputName)
+    return
 
-	def invokeBatchExecutionService():
-	url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace +"/services/" + service +"/jobs"
-	blob_service = BlobService(account_name=storage_account_name, account_key=storage_account_key)
-	print("Uploading the input to blob storage...")
-	data_to_upload = open(input_file, "r").read()
-	blob_service.put_blob(storage_container_name, input_blob_name, data_to_upload, x_ms_blob_type="BlockBlob")
-	print "Uploaded the input to blob storage"
-	input_blob_path = "/" + storage_container_name + "/" + input_blob_name
-	connection_string = "DefaultEndpointsProtocol=https;AccountName=" + storage_account_name + ";AccountKey=" + storage_account_key
-	payload =  {
-		"Input": {
-			"ConnectionString": connection_string,
-			"RelativeLocation": input_blob_path
-		},
-		"Outputs": {
-			"output1": { "ConnectionString": connection_string, "RelativeLocation": "/" + storage_container_name + "/" + output_blob_name },
-		},
-		"GlobalParameters": {
-		}
-	}
-		body = str.encode(json.dumps(payload))
-	headers = { "Content-Type":"application/json", "Authorization":("Bearer " + api_key)}
-	print("Submitting the job...")
-	# submit the job
-	req = urllib2.Request(url + "?api-version=2.0", body, headers)
-	try:
-		response = urllib2.urlopen(req)
-	except urllib2.HTTPError, error:
-		printHttpError(error)
-		return
-	result = response.read()
-	job_id = result[1:-1] # remove the enclosing double-quotes
-	print("Job ID: " + job_id)
-	# start the job
-	print("Starting the job...")
-	req = urllib2.Request(url + "/" + job_id + "/start?api-version=2.0", "", headers)
-	try:
-		response = urllib2.urlopen(req)
-	except urllib2.HTTPError, error:
-		printHttpError(error)
-		return
-	url2 = url + "/" + job_id + "?api-version=2.0"
+    def invokeBatchExecutionService():
+    url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace +"/services/" + service +"/jobs"
+    blob_service = BlobService(account_name=storage_account_name, account_key=storage_account_key)
+    print("Uploading the input to blob storage...")
+    data_to_upload = open(input_file, "r").read()
+    blob_service.put_blob(storage_container_name, input_blob_name, data_to_upload, x_ms_blob_type="BlockBlob")
+    print "Uploaded the input to blob storage"
+    input_blob_path = "/" + storage_container_name + "/" + input_blob_name
+    connection_string = "DefaultEndpointsProtocol=https;AccountName=" + storage_account_name + ";AccountKey=" + storage_account_key
+    payload =  {
+        "Input": {
+            "ConnectionString": connection_string,
+            "RelativeLocation": input_blob_path
+        },
+        "Outputs": {
+            "output1": { "ConnectionString": connection_string, "RelativeLocation": "/" + storage_container_name + "/" + output_blob_name },
+        },
+        "GlobalParameters": {
+        }
+    }
+        body = str.encode(json.dumps(payload))
+    headers = { "Content-Type":"application/json", "Authorization":("Bearer " + api_key)}
+    print("Submitting the job...")
+    # submit the job
+    req = urllib2.Request(url + "?api-version=2.0", body, headers)
+    try:
+        response = urllib2.urlopen(req)
+    except urllib2.HTTPError, error:
+        printHttpError(error)
+        return
+    result = response.read()
+    job_id = result[1:-1] # remove the enclosing double-quotes
+    print("Job ID: " + job_id)
+    # start the job
+    print("Starting the job...")
+    req = urllib2.Request(url + "/" + job_id + "/start?api-version=2.0", "", headers)
+    try:
+        response = urllib2.urlopen(req)
+    except urllib2.HTTPError, error:
+        printHttpError(error)
+        return
+    url2 = url + "/" + job_id + "?api-version=2.0"
 
-	while True:
-		print("Checking the job status...")
-		# If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
-		req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
-		try:
-			response = urllib2.urlopen(req)
-		except urllib2.HTTPError, error:
-			printHttpError(error)
-			return
-		result = json.loads(response.read())
-		status = result["StatusCode"]
-		print "status:" + status
-		if (status == 0 or status == "NotStarted"):
-			print("Job " + job_id + " not yet started...")
-		elif (status == 1 or status == "Running"):
-			print("Job " + job_id + " running...")
-		elif (status == 2 or status == "Failed"):
-			print("Job " + job_id + " failed!")
-			print("Error details: " + result["Details"])
-			break
-		elif (status == 3 or status == "Cancelled"):
-			print("Job " + job_id + " cancelled!")
-			break
-		elif (status == 4 or status == "Finished"):
-			print("Job " + job_id + " finished!")
-			processResults(result)
-			break
-		time.sleep(1) # wait one second
-	return
-	invokeBatchExecutionService()
+    while True:
+        print("Checking the job status...")
+        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
+        try:
+            response = urllib2.urlopen(req)
+        except urllib2.HTTPError, error:
+            printHttpError(error)
+            return
+        result = json.loads(response.read())
+        status = result["StatusCode"]
+        print "status:" + status
+        if (status == 0 or status == "NotStarted"):
+            print("Job " + job_id + " not yet started...")
+        elif (status == 1 or status == "Running"):
+            print("Job " + job_id + " running...")
+        elif (status == 2 or status == "Failed"):
+            print("Job " + job_id + " failed!")
+            print("Error details: " + result["Details"])
+            break
+        elif (status == 3 or status == "Cancelled"):
+            print("Job " + job_id + " cancelled!")
+            break
+        elif (status == 4 or status == "Finished"):
+            print("Job " + job_id + " finished!")
+            processResults(result)
+            break
+        time.sleep(1) # wait one second
+    return
+    invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

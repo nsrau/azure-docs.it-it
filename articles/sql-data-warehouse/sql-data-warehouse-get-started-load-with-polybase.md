@@ -13,15 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="cakarst;barbkess;sonyama"/>
 
 
-# Caricare dati con PolyBase in SQL Data Warehouse
+
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Caricare dati con PolyBase in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 Questa esercitazione illustra come caricare dati in SQL Data Warehouse mediante AzCopy e PolyBase. Al termine, si sarà in grado di:
@@ -32,26 +34,26 @@ Questa esercitazione illustra come caricare dati in SQL Data Warehouse mediante 
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questa esercitazione, sono necessari:
 
 - Un database di SQL Data Warehouse.
 - Un account di archiviazione di Azure di tipo Archiviazione con ridondanza locale Standard (Standard-LRS), Archiviazione con ridondanza geografica Standard (Standard-GRS) o Archiviazione con ridondanza geografica e accesso in lettura Standard (Standard-RAGRS).
-- Utilità da riga di comando di AzCopy. Scaricare e installare la [versione più recente di AzCopy][], installata insieme agli Strumenti di archiviazione di Microsoft Azure.
+- Utilità da riga di comando di AzCopy. Scaricare e installare la [versione più recente di AzCopy][] , installata insieme agli Strumenti di archiviazione di Microsoft Azure.
 
     ![Strumenti di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Passaggio 1: Aggiungere dati di esempio all'archivio BLOB di Azure
+## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Passaggio 1: Aggiungere dati di esempio all'archivio BLOB di Azure
 
 Per caricare dati, è necessario inserire dati di esempio in un archivio BLOB di Azure. In questo passaggio un BLOB di Archiviazione di Azure viene popolato con dati di esempio. In seguito verrà usato PolyBase per caricare i dati esempio nel database di SQL Data Warehouse.
 
-### A. Preparare un file di testo di esempio
+### <a name="a.-prepare-a-sample-text-file"></a>A. Preparare un file di testo di esempio
 
 Per preparare un file di testo di esempio:
 
-1. Aprire il Blocco note e copiare le righe di dati seguenti in un nuovo file. Salvare il file nella directory temporanea locale come %temp%\\DimDate2.txt.
+1. Aprire il Blocco note e copiare le righe di dati seguenti in un nuovo file. Salvare il file nella directory temporanea locale come %temp%\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -68,11 +70,11 @@ Per preparare un file di testo di esempio:
 20150101,1,3
 ```
 
-### B. Individuare l'endpoint di servizio BLOB
+### <a name="b.-find-your-blob-service-endpoint"></a>B. Individuare l'endpoint di servizio BLOB
 
 Per individuare l'endpoint di servizio BLOB:
 
-1. Dal portale di Azure selezionare **Sfoglia** > **Account di archiviazione**.
+1. Nel portale di Azure selezionare **Esplora** > **Account di archiviazione**.
 2. Fare clic sull'account di archiviazione da usare.
 3. Nel pannello Account di archiviazione fare clic su BLOB.
 
@@ -82,18 +84,18 @@ Per individuare l'endpoint di servizio BLOB:
 
     ![Endpoint di servizio BLOB](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Individuare la chiave di archiviazione di Azure
+### <a name="c.-find-your-azure-storage-key"></a>C. Individuare la chiave di archiviazione di Azure
 
 Per individuare la chiave di archiviazione di Azure:
 
-1. Dal portale di Azure selezionare **Sfoglia** > **Account di archiviazione**.
+1. Nel portale di Azure selezionare **Esplora** > **Account di archiviazione**.
 2. Fare clic sull'account di archiviazione da usare.
 3. Selezionare **Tutte le impostazioni** > **Chiavi di accesso**.
 4. Fare clic sulla casella Copia per copiare una delle chiavi di accesso negli Appunti.
 
     ![Copia della chiave di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Copiare il file di esempio nell'archivio BLOB di Azure
+### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Copiare il file di esempio nell'archivio BLOB di Azure
 
 Per copiare i dati nell'archivio BLOB di Azure:
 
@@ -103,7 +105,7 @@ Per copiare i dati nell'archivio BLOB di Azure:
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Eseguire il comando seguente per caricare il file. Specificare l'URL dell'endpoint di servizio BLOB per <blob service endpoint URL> e la chiave dell'account di archiviazione di Azure per <azure\_storage\_account\_key>.
+1. Eseguire il comando seguente per caricare il file. Specificare l'URL dell'endpoint di servizio BLOB per <blob service endpoint URL> e la chiave dell'account di archiviazione di Azure per <azure_storage_account_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
@@ -111,7 +113,7 @@ Per copiare i dati nell'archivio BLOB di Azure:
 
 Vedere anche [Introduzione all'utilità della riga di comando AzCopy][].
 
-### E. Esplorare il contenitore di archiviazione BLOB
+### <a name="e.-explore-your-blob-storage-container"></a>E. Esplorare il contenitore di archiviazione BLOB
 
 Per visualizzare il file caricato nell'archivio BLOB:
 
@@ -124,7 +126,7 @@ Per visualizzare il file caricato nell'archivio BLOB:
     ![Visualizzazione del BLOB di archiviazione di Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Passaggio 2: Creare una tabella esterna per i dati di esempio
+## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Passaggio 2: Creare una tabella esterna per i dati di esempio
 
 In questa sezione viene creata una tabella esterna che definisce i dati di esempio.
 
@@ -214,12 +216,12 @@ In Esplora oggetti di SQL Server in Visual Studio è possibile visualizzare il f
 
 ![Visualizzazione della tabella esterna](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Passaggio 3: Caricare i dati in SQL Data Warehouse
+## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Passaggio 3: Caricare i dati in SQL Data Warehouse
 
 Dopo la creazione della tabella esterna, è possibile caricare i dati in una nuova tabella o inserirli in una tabella esistente.
 
-- Per caricare i dati in una nuova tabella, eseguire l'istruzione [CREATE TABLE AS SELECT (Transact-SQL)][]. La nuova tabella includerà le colonne indicate nella query. I tipi di dati della colonna corrisponderanno ai tipi di dati nella definizione della tabella esterna.
-- Per caricare i dati in una tabella esistente, usare l'istruzione [INSERT...SELECT (Transact-SQL)][].
+- Per caricare i dati in una nuova tabella, eseguire l'istruzione [CREATE TABLE AS SELECT (Transact-SQL)][] . La nuova tabella includerà le colonne indicate nella query. I tipi di dati della colonna corrisponderanno ai tipi di dati nella definizione della tabella esterna.
+- Per caricare i dati in una tabella esistente, usare l'istruzione [INSERT...SELECT (Transact-SQL)][] .
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -234,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Passaggio 4: Creare statistiche sui dati appena caricati
+## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Passaggio 4: Creare statistiche sui dati appena caricati
 
 SQL Data Warehouse non crea automaticamente o aggiorna automaticamente le statistiche. Per ottenere prestazioni elevate per le query, è quindi importante creare statistiche su ogni colonna di ogni tabella dopo il primo carico. È anche importante aggiornare le statistiche dopo modifiche sostanziali dei dati.
 
@@ -246,43 +248,47 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Per altre informazioni, vedere [Statistiche][].
+Per altre informazioni, vedere [Statistiche][].  
 
 
-## Passaggi successivi
-Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][].
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBase, vedere la [guida su PolyBase][] .
 
 <!--Image references-->
 
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Esercitazione su PolyBase in SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Caricare dati con bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistiche]: ./sql-data-warehouse-tables-statistics.md
 [guida su PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
 [Introduzione all'utilità della riga di comando AzCopy]: ../storage/storage-use-azcopy.md
 [versione più recente di AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
-[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
+[Origine e sink supportati]: https://msdn.microsoft.com/library/dn894007.aspx
+[Attività di copia]: https://msdn.microsoft.com/library/dn835035.aspx
+[Adattatore di destinazione SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
-[Create External Data Source (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[Create External File Format (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026.aspx
-[Create External Table (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[INSERT...SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/ms174335.aspx
-[Create Master Key (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
-[Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
-<!----HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

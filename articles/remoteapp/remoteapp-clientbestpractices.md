@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Procedure consigliate per i client di Azure RemoteApp | Microsoft Azure"
-    description="Informazioni sulle procedure consigliate per l'uso dei client RemoteApp"
+    pageTitle="Best practices for Azure RemoteApp clients | Microsoft Azure"
+    description="Learn about best practices for using the RemoteApp clients"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,15 +18,20 @@
 
 
 
-# Procedure consigliate per i client RemoteApp di Azure
+
+# <a name="best-practices-for-azure-remoteapp-clients"></a>Best practices for Azure RemoteApp clients
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Le informazioni seguenti possono essere utili per l'uso dei client Azure RemoteApp:
+The following information can help you use Azure RemoteApp clients:
 
-- Usare sempre il client più recente. In questo modo si assicura che la versione del client in uso disponga delle correzioni di bug, dei miglioramenti e delle funzionalità più recenti. Può essere necessario registrarsi nel relativo store per ricevere gli aggiornamenti automatici per il client.
+- Always use the latest client. This ensures that the client version you are running has the latest bug fixes, improvements and features. You might need to sign up to automatically receive updates for the client in the appropriate Store.
 
-- RemoteApp esegue automaticamente la disconnessione dopo un determinato periodo di inattività. Per evitare perdite di dati, è consigliabile chiudere le applicazioni dopo aver terminato di usare il servizio.
+- RemoteApp will automatically log you off if you are inactive for a certain period of time. In order to prevent data loss, we recommend closing your applications when you finish using the service.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

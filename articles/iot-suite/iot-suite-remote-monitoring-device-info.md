@@ -1,6 +1,6 @@
 <properties
- pageTitle="Metadati di informazioni sul dispositivo nella soluzione per il monitoraggio remoto | Microsoft Azure"
- description="Descrizione della soluzione preconfigurata per il monitoraggio remoto di Azure IoT e relativa architettura."
+ pageTitle="Device information metadata in the remote monitoring solution | Microsoft Azure"
+ description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,24 +17,25 @@
  ms.date="09/12/2016"
  ms.author="dobett"/>
 
-# Metadati di informazioni sul dispositivo nella soluzione preconfigurata per il monitoraggio remoto
 
-La soluzione preconfigurata per il monitoraggio remoto di Azure IoT Suite dimostra un approccio per la gestione dei metadati del dispositivo. Questo articolo delinea l'approccio adottato da questa soluzione per illustrare:
+# <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Device information metadata in the remote monitoring preconfigured solution
 
-- Quali metadati del dispositivo vengono archiviati dalla soluzione.
-- Come la soluzione gestisce i metadati del dispositivo.
+The Azure IoT Suite remote monitoring preconfigured solution demonstrates an approach for managing device metadata. This article outlines the approach this solution takes to enable you to understand:
 
-## Context
+- What device metadata the solution stores.
+- How the solution manages the device metadata.
 
-La soluzione preconfigurata per il monitoraggio remoto usa l'[hub IoT Azure][lnk-iot-hub] per consentire ai dispositivi di inviare dati al cloud. L'hub IoT include un [registro delle identità dei dispositivi][lnk-identity-registry] per controllare l'accesso all'hub IoT. Il registro delle identità dei dispositivi dell'hub IoT è separato dal *registro dei dispositivi* specifico della soluzione per il monitoraggio remoto che archivia i metadati di informazioni sul dispositivo. La soluzione per il monitoraggio remoto usa un database [DocumentDB][lnk-docdb] per implementare il registro dei dispositivi per l'archiviazione dei metadati di informazioni sul dispositivo. L'[architettura di riferimento di Microsoft Azure IoT][lnk-ref-arch] descrive il ruolo del registro dei dispositivi in una tipica soluzione IoT.
+## <a name="context"></a>Context
 
-> [AZURE.NOTE] La soluzione preconfigurata per il monitoraggio remoto mantiene il registro delle identità dei dispositivi sincronizzato con il registro dei dispositivi. Entrambi usano lo stesso ID dispositivo per identificare in modo univoco ogni dispositivo connesso all'hub IoT.
+The remote monitoring preconfigured solution uses [Azure IoT Hub][lnk-iot-hub] to enable your devices to send data to the cloud. IoT Hub includes a [device identity registry][lnk-identity-registry] to control access to IoT Hub. The IoT Hub device identity registry is separate from the remote monitoring solution-specific *device registry* that stores device information metadata. The remote monitoring solution uses a [DocumentDB][lnk-docdb] database to implement its device registry for storing device information metadata. The [Microsoft Azure IoT Reference Architecture][lnk-ref-arch] describes the role of the device registry in a typical IoT solution.
 
-L'[anteprima di Gestione dei dispositivi dell'hub IoT][lnk-dm-preview] aggiunge all'hub IoT funzionalità simili a quelle per la gestione delle informazioni sul dispositivo descritta in questo articolo. Attualmente, la soluzione per il monitoraggio remoto usa solo le funzionalità disponibili a livello generale nell'hub IoT.
+> [AZURE.NOTE] The remote monitoring preconfigured solution keeps the device identity registry in sync with the device registry. Both use the same device id to uniquely identify each device connected to your IoT hub.
 
-## Metadati di informazioni sul dispositivo
+The [IoT Hub device management preview][lnk-dm-preview] adds features to IoT Hub that are similar to the device information management features described in this article. Currently, the remote monitoring solution only uses generally available (GA) features in IoT Hub.
 
-Un documento JSON di metadati di informazioni sul dispositivo archiviato nel database DocumentDB del registro dei dispositivi ha la struttura seguente:
+## <a name="device-information-metadata"></a>Device information metadata
+
+A device information metadata JSON document stored in the device registry DocumentDB database has the following structure:
 
 ```
 {
@@ -55,53 +56,53 @@ Un documento JSON di metadati di informazioni sul dispositivo archiviato nel dat
 }
 ```
 
-- **DeviceProperties**: è il dispositivo stesso che scrive queste proprietà ed è l'autorità per i dati. Altre proprietà del dispositivo di esempio includono il produttore, il numero di modello e il numero di serie.
-- **DeviceID**: ID dispositivo univoco. Questo valore è lo stesso nel registro delle identità dei dispositivi dell'hub IoT.
-- **HubEnabledState**: stato del dispositivo nell'hub IoT. Questo valore è inizialmente impostato su **null** fino alla prima connessione del dispositivo. Nel portale della soluzione un valore **null** è rappresentato come dispositivo "registrato ma non presente".
-- **CreatedTime**: data e ora di creazione del dispositivo.
-- **DeviceState**: stato segnalato dal dispositivo.
-- **UpdatedTime**: data e ora dell'ultimo aggiornamento dei dispositivo nel portale della soluzione.
-- **SystemProperties**: il portale della soluzione scrive le proprietà di sistema di cui il dispositivo non è a conoscenza. Una proprietà di sistema di esempio è **ICCID** se la soluzione viene autorizzata e connessa a un servizio che gestisce dispositivi abilitati per la SIM.
-- **Commands**: un elenco dei comandi supportati dal dispositivo. Il dispositivo fornisce queste informazioni alla soluzione.
-- **CommandHistory**: un elenco dei comandi inviati dalla soluzione per il monitoraggio remoto al dispositivo e lo stato di tali comandi.
-- **IsSimulatedDevice**: un flag che identifica un dispositivo come simulato.
-- **id**: l'identificatore DocumentDB univoco per questo documento sul dispositivo.
+- **DeviceProperties**: The device itself writes these properties and the device is the authority for this data. Other example device properties include manufacturer, model number, and serial number. 
+- **DeviceID**: The unique device id. This value is the same in the IoT Hub device identity registry.
+- **HubEnabledState**: The status of the device in IoT Hub. This value is initially set to **null** until the device first connects. In the solution portal, a **null** value is represented as the device being "registered but not present."
+- **CreatedTime**: The time the device was created.
+- **DeviceState**: The state reported by the device.
+- **UpdatedTime**: The time the device was last updated through the solution portal.
+- **SystemProperties**: The solution portal writes the system properties and the device has no knowledge of these properties. An example system property is the **ICCID** if the solution is authorized with and connected to a service managing SIM-enabled devices.
+- **Commands**: A list of the commands the device supports. The device supplies this information to the solution.
+- **CommandHistory**: A list of the commands sent by the remote monitoring solution to the device and the status of those commands.
+- **IsSimulatedDevice**: A flag that identifies a device as a simulated device.
+- **id**: The unique DocumentDB identifier for this device document.
 
-> [AZURE.NOTE] Le informazioni sul dispositivo possono includere anche metadati per descrivere la telemetria inviata dal dispositivo all'hub IoT. La soluzione per il monitoraggio remoto usa questi metadati di telemetria per personalizzare la visualizzazione della [telemetria dinamica][lnk-dynamic-telemetry] nel dashboard.
+> [AZURE.NOTE] Device information can also include metadata to describe the telemetry the device sends to IoT Hub. The remote monitoring solution uses this telemetry metadata to customize how the dashboard displays [dynamic telemetry][lnk-dynamic-telemetry].
 
-## Ciclo di vita
+## <a name="lifecycle"></a>Lifecycle
 
-Quando si crea per la prima volta un dispositivo nel portale della soluzione, la soluzione crea una voce nel registro dei dispositivi come illustrato in precedenza. La maggior parte delle informazioni viene inizialmente rimossa e **HubEnabledState** viene impostato su **null**. A questo punto la soluzione crea anche una voce per il dispositivo nel registro delle identità dei dispositivi che genera le chiavi usate dal dispositivo per l'autenticazione con l'hub IoT.
+When you first create a device in the solution portal, the solution creates an entry in its device registry as shown previously. Much of the information is initially stubbed out and the **HubEnabledState** is set to **null**. At this point, the solution also creates an entry for the device in the device identity registry, which generates the keys the device uses to authenticate with IoT Hub.
 
-Quando un dispositivo si connette per la prima volta alla soluzione, invia un messaggio informativo sul dispositivo che include le proprietà del dispositivo, ad esempio il produttore del dispositivo, il numero di modello e il numero di serie. Un messaggio informativo sul dispositivo include anche un elenco dei comandi supportati dal dispositivo, incluse le informazioni sui parametri dei comandi. Quando la soluzione riceve il messaggio, aggiorna i metadati di informazioni sul dispositivo nel registro dei dispositivi.
+When a device first connects to the solution, it sends a device information message. This device information message includes device properties such as the device manufacturer, model number, and serial number. A device information message also includes a list of the commands the device supports including information about any command parameters. When the solution receives this message, it updates the device information metadata in the device registry.
 
-### Visualizzare e modificare informazioni sul dispositivo nel portale della soluzione
+### <a name="view-and-edit-device-information-in-the-solution-portal"></a>View and edit device information in the solution portal
 
-L'elenco di dispositivi nel portale della soluzione visualizza le proprietà del dispositivo seguenti come colonne: **Stato**, **ID dispositivo**, **Produttore**, **Numero modello**, **Numero di serie**, **Firmware**, **Piattaforma**, **Processore** e **RAM installata**. Le proprietà **Latitudine** e **Longitudine** del dispositivo determinano la posizione nella mappa di Bing nel dashboard.
+The device list in the solution portal displays the following device properties as columns: **Status**, **DeviceId**, **Manufacturer**, **Model Number**, **Serial Number**, **Firmware**, **Platform**, **Processor**, and **Installed RAM**. The device properties **Latitude** and **Longitude** drive the location in the Bing Map on the dashboard. 
 
-![Elenco dei dispositivi][img-device-list]
+![Device list][img-device-list]
 
-Se si fa clic su **Modifica** nel riquadro **Dettagli dispositivo** nel portale della soluzione, è possibile modificare tutte queste proprietà. Modificando queste proprietà, viene aggiornato il record per il dispositivo nel database di DocumentDB. Tuttavia, se un dispositivo invia un messaggio informativo sul dispositivo aggiornato, sovrascrive eventuali modifiche apportate nel portale della soluzione. Non è possibile modificare le proprietà **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState** e **UpdatedTime** nel portale della soluzione perché solo il dispositivo ha autorità su queste proprietà.
+If you click **Edit** in the **Device Details** pane in the solution portal, you can edit all these properties. Editing these properties updates the record for the device in the DocumentDB database. However, if a device sends an updated device info message, it overwrites any changes made in the solution portal. You cannot edit the **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState**, and **UpdatedTime** properties in the solution portal because only the device has authority over these properties.
 
-![Modifica del dispositivo][img-device-edit]
+![Device edit][img-device-edit]
 
-È possibile usare il portale della soluzione per rimuovere un dispositivo dalla soluzione. Quando si rimuove un dispositivo, la soluzione rimuove i metadati di informazioni sul dispositivo dal registro dei dispositivi della soluzione e rimuove la voce del dispositivo nel registro delle identità dei dispositivi dell'hub IoT. Prima di poter rimuovere un dispositivo, è necessario disabilitarlo.
+You can use the solution portal to remove a device from your solution. When you remove a device, the solution removes the device information metadata from the solution device registry and removes the device entry in the IoT Hub device identity registry. Before you can remove a device, you must disable it.
 
-![Rimozione del dispositivo][img-device-remove]
+![Device remove][img-device-remove]
 
-## Elaborazione dei messaggi informativi sul dispositivo
+## <a name="device-information-message-processing"></a>Device information message processing
 
-I messaggi informativi sul dispositivo inviati da un dispositivo sono diversi dai messaggi di telemetria. I messaggi informativi sul dispositivo includono informazioni come le proprietà del dispositivo, i comandi a cui un dispositivo può rispondere e l'eventuale cronologia dei comandi. L'hub IoT non conosce i metadati contenuti in un messaggio informativo sul dispositivo ed elabora il messaggio come qualsiasi altro messaggio inviato dal dispositivo al cloud. Nella soluzione per il monitoraggio remoto, un processo di [Analisi di flusso di Azure][lnk-stream-analytics] legge il messaggio dall'hub IoT. Il processo di analisi di flusso **DeviceInfo** filtra i messaggi contenenti **"ObjectType": "DeviceInfo"** e li inoltra all'istanza dell'host **EventProcessorHost** in esecuzione in un processo Web. La logica nell'istanza di **EventProcessorHost** usa l'ID dispositivo per trovare il record di DocumentDB per il dispositivo specifico e aggiorna il record. Il record del registro dei dispositivi ora include informazioni come le proprietà del dispositivo, i comandi e la cronologia dei comandi.
+Device information messages sent by a device are distinct from telemetry messages. Device information messages include information such as device properties, the commands a device can respond to, and any command history. IoT Hub itself has no knowledge of the metadata contained in a device information message and processes the message in the same way it processes any device-to-cloud message. In the remote monitoring solution, an [Azure Stream Analytics][lnk-stream-analytics] (ASA) job reads the messages from IoT Hub. The **DeviceInfo** stream analytics job filters for messages that contain **"ObjectType": "DeviceInfo"** and forwards them to the **EventProcessorHost** host instance that runs in a web job. Logic in the **EventProcessorHost** instance uses the device id to find the DocumentDB record for the specific device and update the record. The device registry record now includes information such as device properties, commands, and command history.
 
-> [AZURE.NOTE] Un messaggio informativo sul dispositivo è un messaggio standard inviato dal dispositivo al cloud. La soluzione distingue i messaggi informativi sul dispositivo dai messaggi di telemetria usando le query di Analisi di flusso di Azure.
+> [AZURE.NOTE] A device information message is a standard device-to-cloud message. The solution distinguishes between device information messages and telemetry messages by using ASA queries.
 
-## Record di informazioni sul dispositivo di esempio
+## <a name="example-device-information-records"></a>Example device information records
 
-La soluzione preconfigurata per il monitoraggio remoto usa due tipi di record di informazioni sul dispositivo: record per i dispositivi simulati distribuiti con la soluzione e record per i dispositivi personalizzati connessi alla soluzione.
+The remote monitoring preconfigured solution uses two types of device information records: records for the simulated devices deployed with the solution and records for the custom devices you connect to the solution.
 
-### Dispositivo simulato
+### <a name="simulated-device"></a>Simulated device
 
-L'esempio seguente illustra il record di informazioni sul dispositivo JSON per un dispositivo simulato. Questo record ha un valore impostato per **UpdatedTime** che indica che il dispositivo ha inviato un messaggio **DeviceInfo** all'hub IoT. Il record include alcune comuni proprietà del dispositivo, definisce i sei comandi supportati dai dispositivi simulati e ha il flag **IsSimulatedDevice** impostato su **1**.
+The following example shows the JSON device information record for a simulated device. This record has a value set for **UpdatedTime**, which indicates the device has sent a **DeviceInfo** message to IoT Hub. The record includes some common device properties, defines the six commands the simulated devices support, and has the **IsSimulatedDevice** flag set to **1**.
 
 ```
 {
@@ -181,9 +182,9 @@ L'esempio seguente illustra il record di informazioni sul dispositivo JSON per u
 }
 ```
 
-### Dispositivo personalizzato
+### <a name="custom-device"></a>Custom device
 
-L'esempio seguente illustra il record di informazioni sul dispositivo JSON per un dispositivo personalizzato e ha il flag **IsSimulatedDevice** impostato su **0**. È possibile notare che questo dispositivo personalizzato supporta due comandi e che il portale della soluzione ha inviato un comando **SetTemperature** al dispositivo:
+The following example shows the JSON device information record for a custom device and has the **IsSimulatedDevice** flag set to **0**. You can see that this custom device supports two commands and that the solution portal has sent a **SetTemperature** command to the device:
 
 ```
 {
@@ -244,7 +245,7 @@ L'esempio seguente illustra il record di informazioni sul dispositivo JSON per u
 }
 ```
 
-Il codice seguente illustra il messaggio **DeviceInfo** JSON inviato dal dispositivo per aggiornare i metadati di informazioni sul dispositivo:
+The following shows the JSON **DeviceInfo** message the device sent to update the device information metadata:
 
 ```
 { "ObjectType":"DeviceInfo",
@@ -258,13 +259,13 @@ Il codice seguente illustra il messaggio **DeviceInfo** JSON inviato dal disposi
 }
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Dopo aver illustrato come personalizzare le soluzioni preconfigurate, è possibile esplorare alcune altre funzionalità e soluzioni preconfigurate di Suite IoT:
+Now you've finished learning how you can customize the preconfigured solutions, you can explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-- [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
-- [Domande frequenti su IoT Suite][lnk-faq]
-- [Sicurezza della soluzione IoT sin dall'inizio][lnk-security-groundup]
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [Frequently asked questions for IoT Suite][lnk-faq]
+- [IoT security from the ground up][lnk-security-groundup]
 
 
 
@@ -274,7 +275,7 @@ Dopo aver illustrato come personalizzare le soluzioni preconfigurate, è possibi
 [img-device-remove]: media/iot-suite-remote-monitoring-device-info/image3.png
 
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -285,4 +286,8 @@ Dopo aver illustrato come personalizzare le soluzioni preconfigurate, è possibi
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

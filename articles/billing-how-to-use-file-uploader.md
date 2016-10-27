@@ -1,67 +1,72 @@
 <properties
-	pageTitle="Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure | Microsoft Azure"
-	description="Descrive le linee guida per l'uso dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="mbaldwin"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="Microsoft Azure new support request File Upload utility guidelines | Microsoft Azure"
+    description="Describes the guidelines when using Microsoft Azure new support request File Upload utility"
+    services=""
+    documentationCenter=""
+    authors="genlin"
+    manager="mbaldwin"
+    editor=""
+    tags="billing"
+    />
 
 <tags
   ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2016"
-	ms.author="genli"/>
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2016"
+    ms.author="genli"/>
 
-# Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure
 
-Quando si [crea una nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support), l'utilità Caricamento file permette di caricare facilmente i file di diagnostica o qualsiasi altro file ritenuto rilevante per l'evento imprevisto.
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure new support request File Upload utility guidelines
 
->[AZURE.NOTE] Per proteggere la privacy degli utenti, si consiglia di non includere informazioni personali nel caricamento.
+When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the File Upload utility can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
-Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
+>[AZURE.NOTE] To protect your privacy, do not include any personal information in your upload.
 
-- Tutti i file devono avere un'estensione di file, ad esempio docx o xlsx. Per un elenco delle estensioni di file consentite, vedere la tabella seguente.
-- Il nome del file non deve superare i 110 caratteri.
-- Non è possibile caricare più di un file.
-- Le dimensioni del file non devono superare i 4 MB.
+Follow these guidelines when you use the File Upload utility:
 
-## Tabella delle estensioni dei nomi di file consentite
+- All files must have a file name extension, such as .docx or .xlsx. See the table for the list of allowed file name extensions.
+- The file name must be no longer than 110 characters.
+- You can’t upload more than one file.
+- Files can’t be larger than 4 MB.
 
-| 0-9, A-C | D-G | H-M | N-P | R-T | U-W | X-Z |
+## <a name="table-of-the-allowed-file-name-extensions"></a>Table of the allowed file name extensions
+
+| 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
-| 7z | dat | hwl | odx | rar | tdb | xlam |
-| a | db | ics | oft | rdl | tdf | xlr |
-| abc | DMP | ini | old | rdlc | text | xls |
-| adm | do\_ | java | one | re\_ | thmx | xlsb |
-| aspx | doc | jpg | osd | reg | tif | xlsm |
-| ATF | docm | LDF | OUT | remove | trc | xlsx |
-| b | docx | letterhead | p1 | ren | TTD | xlt |
-| ba\_ | dotm | lnk | pcap | rename | tx\_ | xltx |
-| bak | dotx | lo\_ | pdb | rft | txt | xml |
-| bat | dtsx | log | pdf | rpt | uccapilog | xmla |
-| blg | eds | lpk | piz | rte | uccplog | xps |
-| CA\_ | emf | manifest | pmls | rtf | udcx | xsd |
-| CAB | eml | master | png | run | vb\_ | xsn |
-| cap | emz | mdmp | potx | saz | vbs\_ | xxx |
-| catx | err | mof | ppt | sql | vcf | z\_ |
-| CFG | etl | mp3 | pptm | sqlplan | vsd | z01 |
-| compressed | evt | mpg | pptx | stp | wdb | z02 |
-| Config | evtx | ms\_ | prn | svclog | wks | zi |
-| cpk | EX | msg | psf | | wma | zi\_ |
-| cpp | ex\_ | msi | pst | | wmv | zip |
-| cs | ex0 | mso | pub | | wmz | zip\_ |
-| CSV | FRD | msu | | | wps | zipp |
-| cvr | gif | nfo | | | wpt | zipped |
-| | guid | | | | wsdl | zippy |
-| | gz | | | | wsp | zipx |
-| | | | | | wtl | zit |
-| | | | | | | zix |
-| | | | | | | zzz |
+| .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |
+| .a          | .db   | .ics        | .oft  | .rdl     | .tdf       | .xlr    |
+| .abc        | .DMP  | .ini        | .old  | .rdlc    | .text      | .xls    |
+| .adm        | .do_  | .java       | .one  | .re_     | .thmx      | .xlsb   |
+| .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | .xlsm   |
+| .ATF        | .docm | .LDF        | .OUT  | .remove  | .trc       | .xlsx   |
+| .b          | .docx | .letterhead | .p1   | .ren     | .TTD       | .xlt    |
+| .ba_        | .dotm | .lnk        | .pcap | .rename  | .tx_       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .rft     | .txt       | .xml    |
+| .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
+| .blg        | .eds  | .lpk        | .piz  | .rte     | .uccplog   | .xps    |
+| .CA_        | .emf  | .manifest   | .pmls | .rtf     | .udcx      | .xsd    |
+| .CAB        | .eml  | .master     | .png  | .run     | .vb_       | .xsn    |
+| .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
+| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
+| .CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
+| .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
+| .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
+| .cpk        | .EX   | .msg        | .psf  |          | .wma       | .zi_    |
+| .cpp        | .ex_  | .msi        | .pst  |          | .wmv       | .zip    |
+| .cs         | .ex0  | .mso        | .pub  |          | .wmz       | .zip_   |
+| .CSV        | .FRD  | .msu        |       |          | .wps       | .zipp   |
+| .cvr        | .gif  | .nfo        |       |          | .wpt       | .zipped |
+|             | .guid |             |       |          | .wsdl      | .zippy  |
+|             | .gz   |             |       |          | .wsp       | .zipx   |
+|             |       |             |       |          | .wtl       | .zit    |
+|             |       |             |       |          |            | .zix    |
+|             |       |             |       |          |            | .zzz    |
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

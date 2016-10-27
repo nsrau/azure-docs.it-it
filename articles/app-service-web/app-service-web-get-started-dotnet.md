@@ -1,140 +1,138 @@
-<properties
-	pageTitle="Distribuire la prima app Web .NET in Azure in cinque minuti | Microsoft Azure"
-	description="Informazioni su come eseguire facilmente app Web nel servizio app mediante la distribuzione di un'app di esempio. È possibile eseguire rapidamente vere e proprie attività di sviluppo con risultati immediati."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
+<properties 
+    pageTitle="Deploy your first .NET web app to Azure in five minutes | Microsoft Azure" 
+    description="Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately." 
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""
 />
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/16/2016"
-	ms.author="cephalin"
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/16/2016" 
+    ms.author="cephalin"
 />
+    
 
-# Distribuire la prima app Web .NET in Azure in cinque minuti
+# <a name="deploy-your-first-.net-web-app-to-azure-in-five-minutes"></a>Deploy your first .NET web app to Azure in five minutes
 
-Questa esercitazione illustra come distribuire una semplice app Web .NET nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
-Il servizio app consente di creare app Web, [back-end di app per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/)
-e [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md).
+This tutorial helps you deploy a simple .NET web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/), and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-Si apprenderà come:
+You will: 
 
-- Creare un'app Web nel servizio app di Azure.
-- Distribuire codice ASP.NET di esempio.
-- Osservare il codice in esecuzione nell'ambiente di produzione.
-- Aggiornare l'app Web nello stesso modo in cui si effettua il [push dei commit Git](https://git-scm.com/docs/git-push).
+- Create a web app in Azure App Service.
+- Deploy sample ASP.NET code.
+- See your code running live in production.
+- Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- [Installare Git](http://www.git-scm.com/downloads). Verificare l'esito positivo dell'installazione eseguendo `git --version` da un nuovo prompt dei comandi di Windows,
-una finestra di PowerShell, una shell di Linux o un terminale OS X.
-- Ottenere un account Microsoft Azure. Se non si ha un account, è possibile
-[iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) oppure
-[attivare i vantaggi della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal.
+- Get a Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] È possibile [provare il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) senza avere un account Azure. Creare un'app iniziale e provarla per un'ora, senza impegno e senza dover usare la carta di credito.
+>[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with it for up to an hour--no credit card required, no commitments.
 
 <a name="create"></a>
-## Creare un'app Web
+## <a name="create-a-web-app"></a>Create a web app
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account Azure.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-2. Nel menu a sinistra fare clic su **Nuovo** > **Web e dispositivi mobili** > **App Web**.
+2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
-3. Nel pannello di creazione dell'app usare le impostazioni seguenti per la nuova app:
+3. In the app creation blade, use the following settings for your new app:
 
-    - **Nome dell'app**: digitare un nome univoco.
-    - **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
-    - **Piano di servizio app/Località**: fare clic per configurare e quindi scegliere **Crea nuovo** per impostare il nome, la località e
-    il piano tariffario del piano di servizio app. È possibile usare il piano tariffario **Gratuito**.
+    - **App name**: Type a unique name.
+    - **Resource group**: Select **Create new** and give the resource group a name.
+    - **App Service plan/Location**: Click it to configure, then click **Create New** to set the name, location, and pricing tier of the App Service plan. Feel free to use the **Free** pricing tier.
 
-    Al termine, il pannello di creazione dell'app dovrebbe avere un aspetto simile al seguente:
+    When you're done, your app creation blade should look like this:
 
     ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
-3. Fare clic su **Crea** nella parte inferiore della schermata. È possibile fare clic sull'icona delle **notifiche** in alto per visualizzare lo stato di avanzamento.
+3. Click **Create** at the bottom. You can click the **Notification** icon at the top to see the progress.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
-4. Al termine della distribuzione dovrebbe essere visualizzato il messaggio di notifica seguente. Fare clic sul messaggio per aprire il pannello della distribuzione.
+4. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
-5. Nel pannello **La distribuzione è riuscita** fare clic sul collegamento **Risorsa** per aprire il pannello della nuova app Web.
+5. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Distribuire codice nell'app Web
+## <a name="deploy-code-to-your-web-app"></a>Deploy code to your web app
 
-Verrà ora illustrato come distribuire codice in Azure con Git.
+Now, let's deploy some code to Azure using Git.
 
-5. Nel pannello dell'app Web scorrere verso il basso fino alla voce **Opzioni di distribuzione** oppure cercarla e quindi fare clic su di essa.
+5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
-6. Fare clic su **Scegliere l'origine** > **Repository Git locale** > **OK**.
+6. Click **Choose Source** > **Local Git Repository** > **OK**.
 
-7. Tornare al pannello dell'app Web e fare clic su **Credenziali per la distribuzione**.
+7. Back in the web app blade, click **Deployment credentials**.
 
-8. Impostare le credenziali per la distribuzione e fare clic su **Salva**.
+8. Set your deployment credentials and click **Save**.
 
-7. Tornare al pannello dell'app Web e scorrere verso il basso fino alla voce **Proprietà** oppure cercarla e quindi fare clic su di essa. Fare clic sul pulsante **Copia** accanto a **URL GIT**.
+7. Back in the web app blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
-    A questo punto è possibile distribuire il codice con Git.
+    You're now ready to deploy your code with Git.
 
-1. Nel terminale della riga di comando passare a una directory di lavoro (`CD`) e clonare l'app di esempio come segue:
+1. In your command-line terminal, change to a working directory (`CD`) and clone the sample app like this:
 
         git clone https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git
 
-    ![Clonare il codice dell'app di esempio per la prima app Web in Azure](./media/app-service-web-get-started-languages/dotnet-git-clone.png)
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/dotnet-git-clone.png)
 
-2. Passare al repository dell'app di esempio. Ad esempio:
+2. Change to the repository of your sample app. For example, 
 
         cd app-service-web-dotnet-get-started
 
-3. Configurare l'URL GIT copiato dal portale in uno dei passaggi precedenti come Git remoto per l'app Azure.
+3. Configure the Git remote for your Azure app its Git URL, which you copied from the Portal a few steps ago.
 
         git remote add azure <giturlfromportal>
 
-4. Distribuire il codice di esempio nell'app Azure nello stesso modo in cui si effettua il push di qualsiasi codice con Git:
+4. Deploy your sample code to your Azure app like you would push any code with Git:
 
         git push azure master
 
-    ![Effettuare il push di codice nella prima app Web in Azure](./media/app-service-web-get-started-languages/dotnet-git-push.png)
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/dotnet-git-push.png)    
 
-    `git push` non solo inserisce il codice in Azure, ma ripristina anche i pacchetti necessari e compila i file binari ASP.NET.
+    `git push` not only puts code in Azure, but also restores the required packages and builds the ASP.NET binaries. 
 
-La procedura è terminata. A questo punto il codice è in esecuzione in Azure. Nel browser passare a http://*&lt;appname>*.azurewebsites.net per verificarne il funzionamento.
+That's it! Your code is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
 
-## Eseguire aggiornamenti dell'app
+## <a name="make-updates-to-your-app"></a>Make updates to your app
 
-Ora è possibile usare Git per effettuare in qualsiasi momento il push dalla radice del progetto (repository) per eseguire un aggiornamento del sito live. La procedura è simile a quella usata per la prima distribuzione del codice. Quando si vuole effettuare il push di una nuova modifica testata in locale, ad esempio, è sufficiente eseguire i comandi seguenti dalla radice del progetto (repository):
+You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project (repository) root:
 
     git add .
     git commit -m "<your_message>"
     git push azure master
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per informazioni su come creare, sviluppare e distribuire app Web .NET in Azure direttamente in Visual Studio, vedere
-[Distribuire un'app Web ASP.NET nel servizio app di Azure con Visual Studio](web-sites-dotnet-get-started.md).
+Find out how to create, develop, and deploy .NET web apps to Azure directly in Visual Studio at [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](web-sites-dotnet-get-started.md).
 
-In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
+Or, do more with your first web app. For example:
 
-- Provare [altri modi per distribuire il codice in Azure](../app-service-web/web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare
-**GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
-- Ottimizzare l'app Azure: autenticare gli utenti, ridimensionare l'app in base alla richiesta e configurare alcuni avvisi sulle prestazioni, tutto con pochi clic. Vedere
-[Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
+- Try out [other ways to deploy your code to Azure](../app-service-web/web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select **GitHub** instead of **Local Git Repository** in **Deployment options**.
+- Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See [Add functionality to your first web app](app-service-web-get-started-2.md).
 
-<!----HONumber=AcomDC_0920_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

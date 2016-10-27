@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Creare un'immagine di Azure RemoteApp basata su una macchina virtuale di Azure | Microsoft Azure"
-    description="Informazioni su come creare un'immagine per Azure RemoteApp iniziando con una macchina virtuale di Azure."
+    pageTitle="Create an Azure RemoteApp image based on an Azure VM | Microsoft Azure"
+    description="Learn how to create an image for Azure RemoteApp by starting with an Azure virtual machine."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -17,48 +17,53 @@
 
 
 
-# Creare un'immagine di Azure RemoteApp basata su una macchina virtuale di Azure
+
+# <a name="create-a-azure-remoteapp-image-based-on-an-azure-virtual-machine"></a>Create a Azure RemoteApp image based on an Azure virtual machine
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-È possibile creare immagini di Azure RemoteApp (che contengono le app condivise nella raccolta) da una macchina virtuale di Azure. Inoltre, è possibile scegliere di utilizzare un’immagine della macchina virtuale che è stata aggiunta alla raccolta immagini della VM di Azure che soddisfa tutti i requisiti per le immagini di Azure RemoteApp: se si desidera, l'immagine della macchina virtuale può essere usata come punto di partenza per la propria macchina virtuale. È sufficiente cercare l'immagine "Host sessione Desktop remoto di Windows Server" nella libreria.
+You can create Azure RemoteApp images (which hold the apps you share in your collection) from an Azure virtual machine. You could also choose to use a virtual machine image we added to the Azure VM image gallery that meets all the Azure RemoteApp image requirements - you can use that VM image as a starting point for your own VM, if you want. Just look for the "Windows Server Remote Desktop Session Host" image in the library.
 
-Sono necessari due passaggi per creare la propria immagine in base a una VM di Azure: la creazione dell'immagine e il caricamento dalla raccolta di macchine virtuali di Azure ad Azure RemoteApp.
+There are two steps to create your own image based on an Azure VM - create the image and then upload it from the Azure VM library to Azure RemoteApp.
 
-## Creare un'immagine personalizzata basata su una macchina virtuale di Azure
+## <a name="create-a-custom-image-based-on-an-azure-vm"></a>Create a custom image based on an Azure VM
 
-Usare questi passaggi per creare un'immagine basata su una macchina virtuale di Azure.
+Use these steps to create an image based on an Azure VM.
 
-1. Creare una macchina virtuale di Azure. È possibile utilizzare l’immagine "Windows Server Host sessione Desktop remoto" o "Windows Server Host sessione Desktop remoto con Microsoft Office 365 ProPlus" dalla raccolta immagini della macchina virtuale di Azure. Questa immagine soddisfa tutti i requisiti dell'immagine modello di Azure RemoteApp.
+1. Create an Azure virtual machine. You can use the “Windows Server Remote Desktop Session Host” or the "Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus" image from the Azure virtual machine image gallery. This image meets all the Azure RemoteApp template image requirements.
 
-	Per i dettagli, vedere [Creare una macchina virtuale che esegue Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+    For details, see [Create a VM running Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-2. Connettersi alla macchina virtuale e installare e configurare le app da condividere mediante RemoteApp. Assicurarsi di eseguire tutte le configurazioni aggiuntive di Windows richieste dalle app.
+2. Connect to the VM and install and configure the apps that you want to share through RemoteApp. Make sure to perform any additional Windows configurations required by your apps.
 
-	Per informazioni dettagliate, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md).
+    For details, see [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md).
 
-3. Se si usa una delle immagini Host sessione Desktop remoto di Windows Server, viene fornito uno script di valutazione che assicura che la macchina virtuale soddisfi i prerequisiti di RemoteApp. Per eseguire lo script, fare doppio clic su **ValidateRemoteAppImage** nel desktop. Assicurarsi di risolvere tutti gli errori rilevati dallo script prima di procedere al passaggio successivo.
+3. If you are using one of the Windows Server Remote Desktop Session Host images, there is an included validation script that will ensure your VM meets the RemoteApp pre-reqs. To run script, double-click **ValidateRemoteAppImage** on the desktop. Ensure that all errors reported by the script are fixed before proceeding to the next step.
 
-4. Generalizzare l'immagine con SYSPREP e acquisirla. Per istruzioni, vedere [Come acquisire una macchina virtuale Windows da usare come modello](../virtual-machines/virtual-machines-windows-classic-capture-image.md).
+4. SYSPREP generalize and capture the image. See [How to Capture a Windows Virtual Machine to Use as a Template](../virtual-machines/virtual-machines-windows-classic-capture-image.md) for instructions.
 
 
 
-## Importare l'immagine nella raccolta immagini di Azure RemoteApp
+## <a name="import-the-image-into-the-azure-remoteapp-image-library"></a>Import the image into the Azure RemoteApp image library
 
-Usare questi passaggi per importare la nuova immagine Azure RemoteApp:
+Use these steps to import the new image into Azure RemoteApp:
 
-1. Nella scheda **Immagini modello**:
-	- Se non sono disponibili immagini, fare clic su **Caricare o importare un'immagine modello**.
-	- Se è presente almeno un'immagine, fare clic su **+** per aggiungere una nuova immagine.
+1. In the **Template Images** tab:
+    - If you have no existing images, click **Upload or Import a Template Image**.
+    - If you have at least one image already, click **+** to add a new image.
 
-2. Selezionare **Importare un'immagine dalla raccolta di macchine virtuali** e fare clic su **Avanti**.
+2. Select **Import an image from your Virtual Machines** library, and then click **Next**.
 
-3. Nella pagina successiva, selezionare l'immagine personalizzata dall'elenco e confermare che sono stati seguiti i passaggi elencati durante la creazione dell'immagine. Fare clic su **Next**.
-4. Immettere un nome per la nuova immagine di RemoteApp e scegliere il percorso, quindi fare clic sul segno di spunta per avviare il processo di importazione.
+3. On the next page, select your custom image from the list and confirm that you followed the steps listed when you created your image. Click **Next**.
+4. Enter a name for the new RemoteApp image and pick the location, then click the checkmark to start the import process.
 
-> [AZURE.NOTE] È possibile importare le immagini da qualsiasi percorso di Azure supportato dalle macchine virtuali di Azure in qualsiasi percorso di Azure supportato da Azure RemoteApp. A seconda dei percorsi, l'importazione può richiedere fino a 25 minuti.
+> [AZURE.NOTE] You can import images from any Azure location supported by Azure Virtual Machines to any Azure location supported by Azure RemoteApp. Depending on the locations the import can take up to 25 minutes.
 
-Ora è possibile creare la nuova raccolta, [cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md), in base alle proprie esigenze.
+Now you are ready to create your new collection, either a [cloud](remoteapp-create-cloud-deployment.md) collection or [hybrid](remoteapp-create-hybrid-deployment.md), depending on your needs.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,7 +1,11 @@
-| | **Distribuzione classica** | **Distribuzione di Gestione risorse** |
-|----------------------------------------|--------------|------------------------|
-| **Portale classico** | [Articolo](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Non supportato |
-| **Portale di Azure** | Supportato | Non supportato |
-| **PowerShell** | Supportato | [Articolo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+|**Modello/metodo di distribuzione**|**Portale di Azure**| **Portale classico** | **PowerShell**|
+|-------------------------------------|-----------------|---------------------|---------------|
+|**Classico** |  [Articolo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)| [Articolo](../articles/vpn-gateway/point-to-site-create.md)  | Supportato |
+|**Gestione risorse** |Non supportato| Non supportato   | [Articolo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)  |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

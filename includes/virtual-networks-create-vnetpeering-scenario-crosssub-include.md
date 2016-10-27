@@ -1,11 +1,14 @@
-## Peering tra sottoscrizioni
+## <a name="peering-across-subscriptions"></a>Peering across subscriptions
 
-In questo scenario si creerà un peering tra due reti virtuali appartenenti a sottoscrizioni diverse.
+In this scenario you will create a peering between two VNets belonging to different subscriptions.
 
-![Scenario tra sottoscrizioni](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
+![cross sub scenario](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-Il peering reti virtuali si basa sul controllo degli accessi in base al ruolo per l'autorizzazione. Per lo scenario tra sottoscrizioni , prima è necessario concedere un'autorizzazione sufficiente agli utenti che creeranno il collegamento per il peering:
+VNet peering relies on Role based access control (RBAC) for authorization. For cross-subscriptions scenario, you first need to grant sufficient permission to users who will create the peering link:
 
-> [AZURE.NOTE] Se lo stesso utente ha il privilegio per entrambe le sottoscrizioni, è possibile saltare i passaggi da 1 a 4 seguenti.
+> [AZURE.NOTE] If the same user has the privilege over both subscriptions, then you can skip step1-4 below.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

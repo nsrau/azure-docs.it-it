@@ -1,64 +1,67 @@
 
-# Azure e Internet delle cose
+# <a name="azure-and-internet-of-things"></a>Azure and Internet of Things
 
-Microsoft Azure e Internet delle cose (IoT) Questo articolo illustra un'architettura della soluzione IoT che descrive le caratteristiche comuni di una soluzione IoT che può essere distribuita tramite i servizi Azure. Le soluzioni IoT richiedono una comunicazione bidirezionale sicura tra dispositivi, possibilmente nell'ordine dei milioni, e un back-end della soluzione. Un back-end della soluzione può ad esempio usare l'analisi predittiva e automatizzata per individuare informazioni dettagliate dal flusso di eventi da dispositivo a cloud.
+Welcome to Microsoft Azure and the Internet of Things (IoT). This article introduces an IoT solution architecture that describes the common characteristics of an IoT solution you might deploy using Azure services. IoT solutions require secure, bidirectional communication between devices, possibly numbering in the millions, and a solution back end. For example, a solution back end might use automated, predictive analytics to uncover insights from your device-to-cloud event stream.
 
-Azure IoT Hub è un componente essenziale quando si implementa questa architettura della soluzione IoT usando i servizi Azure. IoT Suite mette a disposizione implementazioni complete ed end-to-end di questa architettura per scenari IoT specifici. ad esempio:
+Azure IoT Hub is a key building block when you implement this IoT solution architecture using Azure services. IoT Suite provides complete, end-to-end, implementations of this architecture for specific IoT scenarios. For example: 
 
-- La soluzione di *monitoraggio remoto* consente di monitorare lo stato dei dispositivi, ad esempio i distributori automatici.
-- La soluzione di *manutenzione predittiva* consente di prevedere le esigenze di manutenzione di dispositivi come le pompe nelle stazioni di pompaggio remote e di evitare tempi di inattività non pianificati.
+- The *remote monitoring* solution enables you to monitor the status of devices such as vending machines. 
+- The *predictive maintenance* solution helps you to anticipate maintenance needs of devices such as pumps in remote pumping stations and to avoid unscheduled downtime.
 
-## Architettura della soluzione IoT
+## <a name="iot-solution-architecture"></a>IoT solution architecture
 
-Il diagramma seguente mostra una tipica architettura di soluzione IoT. Il diagramma non include i nomi di alcun servizio di Azure specifico, ma descrive gli elementi chiave di un'architettura di soluzione IoT generica. In questa architettura, i dispositivi IoT raccolgono i dati che inviano a un gateway nel cloud. Il gateway nel cloud rende disponibili i dati per l'elaborazione da altri servizi back-end da cui i dati vengono recapitati ad altre applicazioni line-of-business o agli operatori umani tramite un dashboard o un altro dispositivo di presentazione.
+The following diagram shows a typical IoT solution architecture. The diagram does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. In this architecture, IoT devices collect data that they send to a cloud gateway. The cloud gateway makes the data available for processing by other back-end services from where data is delivered to other line-of-business applications or to human operators through a dashboard or other presentation device.
 
-![Architettura della soluzione IoT][img-solution-architecture]
+![IoT solution architecture][img-solution-architecture]
 
-> [AZURE.NOTE] Per un'analisi approfondita dell'architettura IoT, vedere l'[architettura di riferimento di Microsoft Azure IoT][lnk-refarch].
+> [AZURE.NOTE] For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
 
-### Connettività dei dispositivi
+### <a name="device-connectivity"></a>Device connectivity
 
-In questa architettura della soluzione IoT i dispositivi inviano i dati telemetrici, come le letture dei sensori di una stazione di pompaggio, a un endpoint cloud per l'archiviazione e l'elaborazione. In uno scenario di manutenzione predittiva, il back-end potrebbe usare il flusso di dati dei sensori per determinare quando una determinata pompa richiede manutenzione. I dispositivi possono anche ricevere e rispondere a comandi da cloud a dispositivo leggendo i messaggi da un endpoint cloud. Ad esempio, nello scenario della manutenzione predittiva il back-end della soluzione potrebbe inviare comandi ad altre pompe della stazione di pompaggio per avviare il reinstradamento dei flussi appena prima che inizi l'intervento di manutenzione, in modo che il tecnico della manutenzione possa iniziare subito il lavoro al suo arrivo.
+In this IoT solution architecture, devices send telemetry, such as sensor readings from a pumping station, to a cloud endpoint for storage and processing. In a predictive maintenance scenario, the back end might use the stream of sensor data to determine when a specific pump requires maintenance. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, in the predictive maintenance scenario the solution back end might send commands to other pumps in the pumping station to begin rerouting flows just before maintenance is due to start to make sure the maintenance engineer can get started when she arrives.
 
-Una delle maggiori difficoltà con i progetti IoT è quella di connettere in modo affidabile e sicuro i dispositivi al back-end della soluzione. I dispositivi IoT presentano caratteristiche diverse da quelle di altri client, ad esempio browser e app per dispositivi mobili. Dispositivi IoT:
+One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
 
-- Sono spesso sistemi incorporati senza operatore umano.
-- Possono essere distribuiti in località remote, dove l'accesso fisico è costoso.
-- Possono essere raggiungibili solo tramite il back-end della soluzione. Non esiste un altro modo per interagire con il dispositivo.
-- Possono avere risorse di alimentazione e di elaborazione limitate.
-- Possono disporre di una connettività di rete intermittente, lenta o costosa.
-- Possono richiedere protocolli di applicazioni proprietari, personalizzati o specifici del settore.
-- Possono essere create utilizzando un'ampia gamma di piattaforme hardware e software molto comuni.
+- Are often embedded systems with no human operator.
+- Can be deployed in remote locations, where physical access is expensive.
+- May only be reachable through the solution back end. There is no other way to interact with the device.
+- May have limited power and processing resources.
+- May have intermittent, slow, or expensive network connectivity.
+- May need to use proprietary, custom, or industry-specific application protocols.
+- Can be created using a large set of popular hardware and software platforms.
 
-Oltre ai requisiti precedenti, le soluzioni IoT devono offrire scalabilità, sicurezza e affidabilità. L’implementazione del set di requisiti di connettività con tecnologie tradizionali come i contenitori Web e i broker di messaggistica è un'attività lunga e complessa. Hub IoT di Azure e gli SDK per dispositivi IoT rendono più semplice l'implementazione di soluzioni che soddisfano tali requisiti.
+In addition to the requirements above, any IoT solution must also deliver scale, security, and reliability. The resulting set of connectivity requirements is hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers. Azure IoT Hub and the IoT Device SDKs make it easier to implement solutions that meet these requirements.
 
-Un dispositivo può comunicare direttamente con un endpoint del gateway nel cloud oppure, se il dispositivo non può usare nessuno dei protocolli di comunicazione supportato dal gateway nel cloud, può connettersi tramite un gateway intermedio. Il [gateway del protocollo dell'hub IoT][lnk-protocol-gateway] può ad esempio convertire i protocolli se i dispositivi non possono usare nessuno dei protocolli supportati dall'hub IoT.
+A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway. For example, the [IoT Hub protocol gateway][lnk-protocol-gateway] can perform protocol translation if devices cannot use any of the protocols that IoT Hub supports.
 
-### e analisi dei dati
+### <a name="data-processing-and-analytics"></a>Data processing and analytics
 
-Nel cloud è soprattutto nel back-end della soluzione IoT che viene eseguita l'elaborazione dei dati, ad esempio il filtro e l'aggregazione dei dati di telemetria e il routing ad altri servizi. Il back-end della soluzione IoT:
+In the cloud, an IoT solution back end is where most of the data processing occurs, such as filtering and aggregating telemetry and routing it to other services. The IoT solution back end:
 
-- Riceve i dati di telemetria a livello di scalabilità dai dispositivi e determina come elaborare e archiviare quei dati.
-- Può consentire di inviare comandi dal cloud al dispositivo specifico.
-- Fornisce funzionalità di registrazione del dispositivo che consentono di effettuare il provisioning dei dispositivi e controllare quali dispositivi possono connettersi all'infrastruttura.
-- Consente di tenere traccia dello stato dei dispositivi e di monitorarne le attività.
+- Receives telemetry at scale from your devices and determines how to process and store that data. 
+- May enable you to send commands from the cloud to specific device.
+- Provides device registration capabilities that enable you to provision devices and to control which devices are permitted to connect to your infrastructure.
+- Enables you to track the state of your devices and monitor their activities.
 
-Nello scenario di manutenzione predittiva, il back-end della soluzione archivia i dati di telemetria cronologici. Il back-end può usare questi dati per identificare modelli che indicano che è necessario eseguire la manutenzione su una pompa specifica.
+In the predictive maintenance scenario, the solution back end stores historical telemetry data. The back end can use this data to use to identify patterns that indicate maintenance is due on a specific pump.
 
-Le soluzioni IoT possono includere cicli di feedback automatici. Un modulo di analisi nel back-end può ad esempio stabilire dai dati di telemetria che la temperatura di un dispositivo specifico ha superato i normali livelli operativi. La soluzione può quindi inviare un comando al dispositivo per l'esecuzione di un'azione correttiva.
+IoT solutions can include automatic feedback loops. For example, an analytics module in the back end can identify from telemetry that the temperature of a specific device is above normal operating levels. The solution can then send a command to the device, instructing it to take corrective action.
 
-### Connettività aziendale e di presentazione
+### <a name="presentation-and-business-connectivity"></a>Presentation and business connectivity
 
-Il livello di connettività aziendale e di presentazione consente agli utenti finali di interagire con la soluzione IoT e i dispositivi. Consente anche agli utenti di visualizzare e analizzare i dati raccolti dai dispositivi. Queste visualizzazioni possono assumere la forma di dashboard o report di BI che possono mostrare sia i dati cronologici sia i dati quasi in tempo reale. Ad esempio, un operatore può controllare lo stato di determinate stazioni di pompaggio e vedere gli avvisi generati dal sistema. Questo livello consente inoltre l'integrazione della soluzione back-end IoT con le applicazioni line-of-business esistenti che possono legarsi ai processi o ai flussi di lavoro aziendali. La soluzione di manutenzione predittiva, ad esempio, può essere integrata con un sistema di pianificazione che prenota un tecnico per visitare una stazione di pompaggio quando la soluzione identifica una pompa che richiede manutenzione.
+The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that can display both historical data or near real-time data. For example, an operator can check on the status of particular pumping station and see any alerts raised by the system. This layer also allows integration of the IoT solution back end with existing line-of-business applications to tie into enterprise business processes or workflows. For example, the predictive maintenance solution can integrate with a scheduling system that books an engineer to visit a pumping station when the solution identifies a pump in need of maintenance.
 
-![Dashboard della soluzione IoT][img-dashboard]
+![IoT solution dashboard][img-dashboard]
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
-[lnk-protocol-gateway]: ../articles/iot-hub/iot-hub-protocol-gateway.md
+[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_1005_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

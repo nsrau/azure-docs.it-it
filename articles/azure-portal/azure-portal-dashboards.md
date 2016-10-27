@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Dashboard del portale di Azure | Microsoft Azure"
-   description="Questo articolo illustra come creare e modificare i dashboard nel portale di Azure."
+   pageTitle="Azure portal dashboards | Microsoft Azure"
+   description="This article explains how to create and edit dashboards in the Azure portal."
    services="azure-portal"
    documentationCenter=""
    authors="sewatson"
@@ -16,90 +16,94 @@
    ms.date="09/06/2016"
    ms.author="sewatson"/>
 
-# Creazione e condivisione di dashboard nel portale di Azure
 
-È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure. Questo post illustra le nozioni di base della creazione, della modifica, della pubblicazione e della gestione dell'accesso dei dashboard.
+# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Creating and sharing dashboards in the Azure portal
 
-## Personalizzazione di dashboard anziché pannelli
+You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This post goes through the basics of creating/editing, publishing, and managing access to dashboards.
 
-Dall'introduzione dei dashboard, avvenuta alcuni mesi fa, si è verificata una costante riduzione delle personalizzazioni dei pannelli, mentre le personalizzazioni dei dashboard sono in rapido aumento. Questa netta tendenza di utilizzo dimostra che gli utenti preferiscono personalizzare i dashboard piuttosto che i pannelli. Per supportare tale tendenza, Microsoft rimuoverà la possibilità di personalizzare i pannelli e si concentrerà sul miglioramento delle funzionalità dei dashboard. Se è stato personalizzato un pannello, tale personalizzazione verrà presto rimossa. Per mantenerla, aggiungere i riquadri personalizzati a un dashboard. È sufficiente fare clic con il pulsante destro del mouse sul riquadro e scegliere **Aggiungi al dashboard** come illustrato nell'immagine seguente.
+## <a name="customizing-dashboards-versus-blades"></a>Customizing dashboards versus blades
 
-![Salvare un riquadro personalizzato](./media/azure-portal-dashboards/save-customization.png)
+Since launching dashboards a few months ago, there has been a steady decline in blade customizations and a rapid increase in dashboard customizations. This strong usage trend shows that you prefer customizing dashboards over blades. To support that trend, we will remove the ability to customize blades and dedicate our efforts to enhancing dashboard functionality. If you customized a blade, your customization will soon be removed. To preserve that customization, pin the customized tiles to a dashboard. Simply right-click the tile and select **Pin to dashboard** as shown in the following image.
 
-## Creare un dashboard
+![save customized tile](./media/azure-portal-dashboards/save-customization.png)
 
-Per creare un dashboard, selezionare il pulsante **Nuovo dashboard** accanto al nome del dashboard corrente.
+## <a name="create-a-dashboard"></a>Create a dashboard
 
-![Creare un dashboard](./media/azure-portal-dashboards/new-dashboard.png)
+To create a dashboard, select the **New dashboard** button next to the current dashboard's name.  
 
-Questa azione crea un nuovo dashboard privato vuoto e attiva la modalità di personalizzazione, in cui è possibile assegnare un nome al dashboard e aggiungere o ridisporre i riquadri. In questa modalità, nell'area del menu di navigazione a sinistra viene visualizzata la raccolta di riquadri comprimibile. La raccolta di riquadri consente di trovare i riquadri per le risorse di Azure in vari modi: è possibile eseguire la ricerca per [gruppo di risorse](../resource-group-overview.md#resource-groups), per tipo di risorsa, per [tag](../resource-group-using-tags.md) oppure in base al nome della risorsa.
+![create dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
-![Personalizzare il dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
+This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../resource-group-overview.md#resource-groups), by resource type, by [tag](../resource-group-using-tags.md), or by searching for your resource by name.  
 
-Per aggiungere i riquadri, trascinarli nel punto desiderato della superficie del dashboard.
+![customize dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
-Per i riquadri non associati a una particolare risorsa è disponibile una nuova categoria denominata **Generale**. In questo esempio viene aggiunto il riquadro Markdown, che viene usato per aggiungere contenuto personalizzato al dashboard. Il riquadro supporta testo normale, la [sintassi markdown](https://daringfireball.net/projects/markdown/syntax) e un set limitato di HTML. Per motivi di sicurezza, non è possibile eseguire operazioni come inserire tag `<script>` o usare determinati elementi di stile CSS che potrebbero interferire con il portale.
+Add tiles by dragging and dropping them onto the dashboard surface wherever you want.
 
-![Aggiungere Markdown](./media/azure-portal-dashboards/add-markdown.png)
+There's a new category called **General** for tiles that are not associated with a particular resource.  In this example, we pin the Markdown tile.  You use this tile to add custom content to your dashboard.  The tile supports plain text, [Markdown syntax](https://daringfireball.net/projects/markdown/syntax), and a limited set of HTML.  (For safety, you can't do things like inject `<script>` tags or use certain styling element of CSS that might interfere with the portal.) 
 
-## Modificare un dashboard
+![add markdown](./media/azure-portal-dashboards/add-markdown.png)
 
-Dopo aver creato il dashboard, è possibile aggiungere riquadri dalla raccolta di riquadri oppure la rappresentazione in forma di riquadro dei pannelli. Verrà ora aggiunta la rappresentazione del gruppo di risorse. È possibile eseguire l'aggiunta cercando l'elemento oppure dal pannello dei gruppi di risorse. Con entrambi gli approcci si ottiene l'aggiunta della rappresentazione in forma di riquadro del gruppo di risorse.
+## <a name="edit-a-dashboard"></a>Edit a dashboard
 
-![Aggiungere al dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
+After creating your dashboard, you can pin tiles from the tile gallery or the tile representation of blades. Let's pin the representation of our resource group. You can either pin when browsing the item, or from the resource group blade. Both approaches result in pinning the tile representation of the resource group.
 
-Al termine dell'aggiunta, l'elemento viene visualizzato nel dashboard.
+![pin to dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
-![Visualizzare il dashboard](./media/azure-portal-dashboards/view-dashboard.png)
+After pinning the item, it appears on your dashboard.
 
-Dopo aver aggiunto un riquadro Markdown e un gruppo di risorse al dashboard, è possibile ridimensionare e ridisporre i riquadri in un layout idoneo.
+![view dashboard](./media/azure-portal-dashboards/view-dashboard.png)
 
-Passando il puntatore e selezionando "…" o facendo clic con il pulsante destro del mouse su un riquadro è possibile visualizzare tutti i relativi comandi contestuali. Per impostazione predefinita, sono disponibili due voci:
+Now that we have a Markdown tile and a resource group pinned to the dashboard, we can resize and rearrange the tiles into a suitable layout.
 
-1. **Rimuovi dal dashboard** consente di rimuovere il riquadro dal dashboard
-2.	**Personalizza** consente di passare alla modalità di personalizzazione
+By hovering and selecting "…" or right-clicking on a tile you can see all the contextual commands for that tile. By default, there are two items:
 
-![Personalizzare un riquadro](./media/azure-portal-dashboards/customize-tile.png)
+1. **Unpin from dashboard** – removes the tile from the dashboard
+2.  **Customize** – enters customize mode
 
-Selezionando Personalizza è possibile ridimensionare e riordinare i riquadri. Per ridimensionare un riquadro, selezionare le nuove dimensioni nel menu contestuale come illustrato nell'immagine seguente.
+![customize tile](./media/azure-portal-dashboards/customize-tile.png)
 
-![Ridimensionare il riquadro](./media/azure-portal-dashboards/resize-tile.png)
+By selecting customize, you can resize and reorder tiles. To resize a tile, select the new size from the contextual menu, as shown in the following image.
 
-In alternativa, se il riquadro supporta qualsiasi dimensione è possibile trascinare l'angolo inferiore destro fino a ottenere le dimensioni desiderate.
+![resize tile](./media/azure-portal-dashboards/resize-tile.png)
 
-![Ridimensionare il riquadro](./media/azure-portal-dashboards/resize-corner.png)
+Or, if the tile supports any size, you can drag the bottom right-hand corner to the desired size.
 
-Dopo aver ridimensionato i riquadri, visualizzare il dashboard.
+![resize tile](./media/azure-portal-dashboards/resize-corner.png)
 
-![Visualizzare il riquadro](./media/azure-portal-dashboards/view-tile.png)
+After resizing tiles, view the dashboard.
 
-Al termine della personalizzazione di un dashboard, per uscire dalla modalità di personalizzazione è sufficiente selezionare **Fine personalizzazione** oppure fare clic con il pulsante destro del mouse e scegliere **Fine personalizzazione** dal menu contestuale.
+![view tile](./media/azure-portal-dashboards/view-tile.png)
 
-## Pubblicare un dashboard e gestire il controllo di accesso
+Once you are finished customizing a dashboard, simply select the **Done customizing** to exit customize mode or right-click and select **Done customizing** from the context menu.
 
-Quando si crea un dashboard, per impostazione predefinita il dashboard è privato e può quindi essere visualizzato solo dall'utente da cui è stato creato. Per renderlo visibile ad altri utenti, usare il pulsante **Condividi** visualizzato insieme agli altri comandi relativi ai dashboard.
+## <a name="publish-a-dashboard-and-manage-access-control"></a>Publish a dashboard and manage access control
 
-![Condividere il dashboard](./media/azure-portal-dashboards/share-dashboard.png)
+When you create a dashboard, it is private by default, which means you are the only person who can see it.  To make it visible to others, use the **Share** button that appears alongside the other dashboard commands.
 
-Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubblicare il dashboard. Per facilitare l'integrazione dei dashboard nell'ecosistema, i dashboard condivisi sono stati implementati come risorse di Azure. Non è quindi possibile eseguire la condivisione digitando un indirizzo di posta elettronica. L'accesso alle informazioni visualizzate nella maggior parte dei riquadri del portale è regolato dal [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md). Dal punto di vista del controllo di accesso, i dashboard condivisi non sono diversi da una macchina virtuale o da un account di archiviazione.
+![share dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-Si supponga di avere una sottoscrizione di Azure e che ai membri del team siano stati assegnati i ruoli di **proprietario**, **collaboratore** o **lettore** della sottoscrizione. Gli utenti con il ruolo di proprietario o collaboratore possono elencare, visualizzare, creare, modificare o eliminare dashboard nella sottoscrizione. Gli utenti con il ruolo di lettore possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli. Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard condiviso, ma non pubblicarle nel server. Possono tuttavia creare una copia privata del dashboard per uso personale. Come sempre, i singoli riquadri del dashboard applicano proprie regole di controllo di accesso in base alle risorse corrispondenti.
+You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md ). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
 
-Per praticità, l'esperienza di pubblicazione del portale propone un modello che prevede l'inserimento dei dashboard in un gruppo di risorse denominato **dashboards** (dashboard).
+Let's say you have an Azure subscription and members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within that subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a shared dashboard, but are not able to publish those changes back to the server.  However, they can make a private copy of the dashboard for their own use.  As always, individual tiles on the dashboard enforce their own access control rules based on the resources they correspond to.  
 
-![Pubblicare il dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
+For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  
 
-È anche possibile scegliere di pubblicare un dashboard in uno specifico gruppo di risorse. Il controllo di accesso del dashboard corrisponderà al controllo di accesso del gruppo di risorse. Gli utenti che possono gestire le risorse nel gruppo di risorse avranno accesso anche ai dashboard.
+![publish dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
 
-![Pubblicare il dashboard in un gruppo di risorse](./media/azure-portal-dashboards/publish-to-resource-group.png)
+You can also choose to publish a dashboard to a particular resource group.  The access control for that dashboard matches the access control for the resource group.  Users that can manage the resources in that resource group also have access to the dashboards.
 
-Al termine della pubblicazione del dashboard, il riquadro **Condivisione e controllo di accesso** verrà aggiornato e visualizzerà informazioni sulla pubblicazione del dashboard e un collegamento per gestire l'accesso degli utenti. Il collegamento consente di aprire il pannello relativo al controllo degli accessi in base al ruolo standard che viene usato per gestire l'accesso per qualsiasi risorsa di Azure. È possibile tornare a questa visualizzazione in qualsiasi momento selezionando **Condividi**.
+![publish dashboard to resource group](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-![Gestire il controllo di accesso](./media/azure-portal-dashboards/manage-access.png)
+After your dashboard is published, the **Sharing + access** control pane will refresh and show you information about the published dashboard, including a link to manage user access to the dashboard.  This link launches the standard Role Based Access Control blade used to manage access for any Azure resource.  You can always get back to this view by selecting **Share**.
 
-## Passaggi successivi
+![manage access control](./media/azure-portal-dashboards/manage-access.png)
 
-- Per gestire le risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
-- Per distribuire le risorse, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../resource-group-template-deploy-portal.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0907_2016-->
+- To manage resources, see [Manage Azure resources through portal](resource-group-portal.md).
+- To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

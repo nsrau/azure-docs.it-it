@@ -1,50 +1,55 @@
 <properties
-	pageTitle="Eliminare un utente da una directory in anteprima di Azure Active Directory | Microsoft Azure"
-	description="Descrive come eliminare un utente e tutte le informazioni da Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Delete a user from a directory in Azure Active Directory preview | Microsoft Azure"
+    description="Explains how to delete a user and all of its information from Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
-
-# Eliminare un utente da una directory in anteprima di Azure Active Directory
-
-Questo articolo illustra come eliminare un utente da una directory in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti in Azure Active Directory](active-directory-users-create-azure-portal.md).
-
-## Eliminare un utente
-
-1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-
-2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
-
-    ![Apertura di Gestione utenti](./media/active-directory-users-delete-user-azure-portal/create-users-user-management.png)
-
-3.  Nel pannello **Utenti e gruppi** selezionare **Utenti**.
-
-    ![Apertura del pannello Utenti](./media/active-directory-users-delete-user-azure-portal/create-users-open-users-blade.png)
-
-4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco.
-
-5. Nel pannello per l'utente selezionato, selezionare **Panoramica**, quindi nella barra dei comandi selezionare **Elimina**.
-
-    ![Selezione del comando Elimina](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="curtand"/>
 
 
-## Passaggi successivi
+# <a name="delete-a-user-from-a-directory-in-azure-active-directory-preview"></a>Delete a user from a directory in Azure Active Directory preview
 
-- [Aggiungere un utente](active-directory-users-create-azure-portal.md)
-- [Reimpostare la password di un utente nel nuovo portale di Azure](active-directory-users-reset-password-azure-portal.md)
-- [Assegnare un utente a un ruolo in Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Modificare le informazioni di lavoro di un utente](active-directory-users-work-info-azure-portal.md)
-- [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
+This article explains how to delete a user from a directory in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+## <a name="delete-a-user"></a>Delete a user
+
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+
+    ![Opening user management](./media/active-directory-users-delete-user-azure-portal/create-users-user-management.png)
+
+3.  On the **Users and groups** blade, select **Users**.
+
+    ![Opening the Users blade](./media/active-directory-users-delete-user-azure-portal/create-users-open-users-blade.png)
+
+4. On the **Users and groups - Users** blade, select a user from the list.
+
+5. On the blade for the selected user, select **Overview**, and then in the command bar, select **Delete**.
+
+    ![Selecting the Delete command](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
+
+
+## <a name="what's-next"></a>What's next
+
+- [Add a user](active-directory-users-create-azure-portal.md)
+- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
+- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
+- [Manage user profiles](active-directory-users-profile-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,70 +1,75 @@
 <properties
-	pageTitle="Limitare l'accesso al contenuto della rete CDN di Azure in base al paese | Microsoft Azure"
-	description="Informazioni su come limitare l'accesso al contenuto della rete CDN di Azure con la funzionalità Filtro paese."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Restrict access to your Azure CDN content by country | Microsoft Azure"
+    description="Learn how to restrict access to your Azure CDN content using the Country Filtering feature."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-#Limitare l'accesso al contenuto in base al paese
+
+#<a name="restrict-access-to-your-content-by-country"></a>Restrict access to your content by country
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Quando un utente richiede il contenuto, per impostazione predefinita il contenuto viene servito indipendentemente dalla località dell'utente che effettua la richiesta. In alcuni casi, è possibile limitare l'accesso al contenuto in base al paese. In questo argomento viene illustrato come utilizzare la funzionalità **filtro di paese** per configurare il servizio per consentire o bloccare l'accesso in base al paese.
+When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country.
 
->[AZURE.NOTE] Una volta impostata la configurazione, verrà applicata a tutti gli endpoint della **rete CDN di Azure fornita da Verizon** nel profilo CDN di Azure.
+>[AZURE.NOTE] Once the configuration is set up, it will apply to all **Azure CDN from Verizon** endpoints in this Azure CDN profile.
 
-Per informazioni su considerazioni relative alla configurazione di questo tipo di restrizioni, vedere la sezione [Considerazioni](cdn-restrict-access-by-country.md#considerations) alla fine dell'argomento.
+For information about considerations that apply to configuring this type of restriction, see the [Considerations](cdn-restrict-access-by-country.md#considerations) section at the end of the topic.  
 
-![Filtro di paese](./media/cdn-filtering/cdn-country-filtering.png)
-
-
-##Passaggio 1: definire il percorso di directory
-
-Quando si configura un filtro di paese, è necessario specificare il percorso relativo della posizione a cui gli utenti potranno o meno accedere. È possibile applicare il filtro di paese per tutti i file con "/" o le cartelle selezionate specificando i percorsi di directory.
-
-Esempio di filtro di percorso di directory:
-
-	/                                 
-	/Photos/
-	/Photos/Strasbourg
-
-##Passaggio 2: definire l'azione Blocca o Consenti
-
-**Blocca**: agli utenti dei paesi specificati verrà negato l'accesso alle risorse richieste da quel percorso ricorsivo. Se non sono state definite altre opzioni di filtro di paese per tale percorso, tutti gli altri utenti saranno autorizzati ad accedere.
-
-**Consenti**: solo agli utenti dei paesi specificati verrà autorizzato l'accesso alle risorse richieste da quel percorso ricorsivo.
-
-##Passaggio 3: definire i paesi
-
-Selezionare i paesi che si desidera bloccare o consentire per il percorso. Per altre informazioni, vedere [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx) (Indicativi paese della rete CDN di Azure fornita da Verizon).
-
-Per esempio, la regola di blocco /Photos/Strasbourg/ filtrerà i file tra cui:
-
-	http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
-	http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
+![Country filtering](./media/cdn-filtering/cdn-country-filtering.png)
 
 
-##Codici paese
+##<a name="step-1:-define-the-directory-path"></a>Step 1: Define the directory path
 
-La funzionalità di **filtro di paese** utilizza i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta. Gli indicativi paese sono disponibili nella pagina [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx) (Indicativi paese della rete CDN di Azure fornita da Verizon). Se si specifica "UE" (Europa) o "PA" (Asia/Pacifico), un sottoinsieme di indirizzi IP che provengono da paesi in quelle aree geografiche verrà bloccato o consentito.
+When configuring a country filter, you must specify the relative path to the location to which users will be allowed or denied access. You can apply country filtering for all your files with "/" or selected folders by specifying directory paths.
+
+Example directory path filter:
+
+    /                                 
+    /Photos/
+    /Photos/Strasbourg
+
+##<a name="step-2:-define-the-action:-block-or-allow"></a>Step 2: Define the action: block or allow
+
+**Block:** Users from the specified countries will be denied access to assets requested from that recursive path. If no other country filtering options have been configured for that location, then all other users will be allowed access.
+
+**Allow:** Only users from the specified countries will be allowed access to assets requested from that recursive path.
+
+##<a name="step-3:-define-the-countries"></a>Step 3: Define the countries
+
+Select the countries that you want to block or allow for the path. For more information, see [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx).
+
+For example, the rule of blocking /Photos/Strasbourg/ will filter files including:
+
+    http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
+    http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
 
 
-##<a id="considerations"></a>Considerazioni
+##<a name="country-codes"></a>Country codes
 
-- Per rendere effettive le modifiche alla configurazione del filtro paese possono essere necessari anche 90 minuti.
-- Questa funzionalità non supporta i caratteri jolly (ad esempio, ‘*’).
-- La configurazione del filtro di paese associata al percorso relativo viene applicata in modo ricorsivo a tale percorso.
-- Può essere applicata solo una regola allo stesso percorso relativo (non è possibile creare più filtri di paese che puntano allo stesso percorso relativo). Tuttavia, una cartella potrebbe avere più filtri di paese. Ciò è dovuto alla natura ricorsiva dei filtri di paese. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata a un filtro di paese diverso.
+The **Country Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. You will find the country codes in [Azure CDN from Verizon Country Codes](https://msdn.microsoft.com/library/mt761717.aspx). If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+##<a name="<a-id="considerations"></a>considerations"></a><a id="considerations"></a>Considerations
+
+- It may take up to 90 minutes for changes to your country filtering configuration to take effect.
+- This feature does not support wildcard characters (for example, ‘*’).
+- The country filtering configuration associated with the relative path will be applied recursively to that path.
+- Only one rule can be applied to the same relative path (you cannot create multiple country filters that point to the same relative path. However, a folder may have multiple country filters. This is due to the recursive nature of country filters. In other words, a subfolder of a previously configured folder can be assigned a different country filter.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

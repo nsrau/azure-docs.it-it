@@ -1,9 +1,12 @@
-#### Per arrestare un dispositivo virtuale
+#### <a name="to-shut-down-a-virtual-device"></a>To shut down a virtual device
 
-1. Accedere al portale di gestione.
+1. Sign in to the Management Portal.
 
-2. Fare clic su **Macchine virtuali**, quindi selezionare il dispositivo virtuale.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-3. Fare clic su **Arresta**.
+3. Click **Shutdown**.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visualizzare le operazioni di distribuzione con l'API REST | Microsoft Azure"
-   description="Questo articolo descrive come usare l'API REST di Azure Resource Manager per rilevare i problemi relativi alla distribuzione di Resource Manager."
+   pageTitle="View deployment operations with REST API | Microsoft Azure"
+   description="Describes how to use the Azure Resource Manager REST API to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,23 +17,24 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Visualizzare le operazioni di distribuzione con l'API REST di Azure Resource Manager
+
+# <a name="view-deployment-operations-with-azure-resource-manager-rest-api"></a>View deployment operations with Azure Resource Manager REST API
 
 > [AZURE.SELECTOR]
-- [Portale](resource-manager-troubleshoot-deployments-portal.md)
+- [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
-- [API REST](resource-manager-troubleshoot-deployments-rest.md)
+- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
+- [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Se si è verificato un errore durante la distribuzione delle risorse in Azure, è opportuno visualizzare i dettagli delle operazioni di distribuzione eseguite. L'API REST fornisce operazioni che consentono di trovare gli errori e determinare le possibili soluzioni.
+If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. The REST API provides operations that enable you to find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-È possibile evitare alcuni errori convalidando il modello e l'infrastruttura prima della distribuzione. Durante la distribuzione è inoltre possibile registrare ulteriori informazioni su richieste e risposte potenzialmente utili per la risoluzione di eventuali problemi successivi. Per ulteriori informazioni sulla convalida e su come registrare informazioni di richiesta e risposta, vedere come [distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy-rest.md).
+You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-rest.md).
 
-## Eseguire la risoluzione dei problemi con l'API REST
+## <a name="troubleshoot-with-rest-api"></a>Troubleshoot with REST API
 
-1. Distribuire le risorse eseguendo la [creazione di un modello di distribuzione](https://msdn.microsoft.com/library/azure/dn790564.aspx). Per mantenere informazioni che potrebbero essere utili per il debug, impostare la proprietà **debugSetting** nella richiesta JSON su **requestContent** e/o **responseContent**. 
+1. Deploy your resources with the [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) operation. To retain information that may be helpful for debugging, set the **debugSetting** property in JSON request to **requestContent** and/or **responseContent**. 
 
         PUT https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
           <common headers>
@@ -54,13 +55,13 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
             }
           }
 
-    Per impostazione predefinita, il valore **debugSetting** è impostato su **none**. Quando si specifica il valore **debugSetting**, è necessario valutare con attenzione il tipo di informazioni passate durante la distribuzione. La registrazione di informazioni sulla richiesta o sulla risposta può esporre dati riservati, che vengono recuperati tramite le operazioni di distribuzione.
+    By default, the **debugSetting** value is set to **none**. When specifying the **debugSetting** value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations. 
 
-2. Ottenere informazioni su una distribuzione con l'operazione [Ottenere informazioni su una distribuzione modello](https://msdn.microsoft.com/library/azure/dn790565.aspx).
+2. Get information about a deployment with the [Get information about a template deployment](https://msdn.microsoft.com/library/azure/dn790565.aspx) operation.
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 
-    Nella risposta si notino in particolare gli elementi **provisioningState**, **correlationId** ed **error**. Il valore **correlationId** viene usato per tenere traccia degli eventi correlati e può essere utile quando si interagisce con il supporto tecnico per risolvere un problema.
+    In the response, note in particular the **provisioningState** , **correlationId** and **error** elements. The **correlationId** is used to track related events, and can be helpful when working with technical support to troubleshoot an issue.
     
         { 
           ...
@@ -70,16 +71,16 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
             ...
             "error":{
               "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
-              "details":[{"code":"Conflict","message":"{\r\n  "error": {\r\n    "message": "Conflict",\r\n    "code": "Conflict"\r\n  }\r\n}"}]
+              "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
             }  
           }
         }
 
-3. Ottenere informazioni sulle operazioni di distribuzione con l'operazione [Elencare tutte le operazioni di distribuzione modello](https://msdn.microsoft.com/library/azure/dn790518.aspx).
+3. Get information about deployment operations with the [List all template deployment operations](https://msdn.microsoft.com/library/azure/dn790518.aspx) operation. 
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 
-    La risposta includerà la richiesta e/o le informazioni sulla risposta in base a quanto specificato nella proprietà **debugSetting** durante la distribuzione.
+    The response will include request and/or response information based on what you specified in the **debugSetting** property during deployment.
     
         {
           ...
@@ -104,15 +105,19 @@ Se si è verificato un errore durante la distribuzione delle risorse in Azure, �
           }
         }
 
-4. Ottenere eventi dai log di controllo per la distribuzione con l'operazione [Elencare gli eventi di gestione in una sottoscrizione](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+4. Get events from the audit logs for the deployment with the [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx) operation.
 
         GET https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version={api-version}&$filter={filter-expression}&$select={comma-separated-property-names}
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Per informazioni sull'uso dei log di controllo per monitorare altri tipi di azioni vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-- Per convalidare la distribuzione prima di eseguirla vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

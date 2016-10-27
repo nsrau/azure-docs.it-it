@@ -1,6 +1,6 @@
 <properties
- pageTitle="Proteggere Internet of Things fin dall'inizio | Microsoft Azure"
- description="In questo articolo vengono descritte le funzionalità di protezione integrate in Azure IoT Suite di Microsoft"
+ pageTitle="Securing your Internet of Things from the ground up | Microsoft Azure"
+ description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,26 +17,31 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
+
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per altre informazioni sulla protezione della soluzione IoT, vedere:
+To learn more about securing your IoT solution, see:
 
-- [Procedure consigliate per la sicurezza IoT][lnk-security-best-practices]
-- [Architettura della sicurezza IoT][lnk-security-architecture]
-- [Proteggere la distribuzione di IoT][lnk-security-deployment]
+- [IoT Security Best Practices][lnk-security-best-practices]
+- [IoT Security Architecture][lnk-security-architecture]
+- [Secure your IoT deployment][lnk-security-deployment]
 
 [lnk-security-best-practices]: iot-security-best-practices.md
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-- [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
-- [Domande frequenti su IoT Suite][lnk-faq]
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [Frequently asked questions for IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

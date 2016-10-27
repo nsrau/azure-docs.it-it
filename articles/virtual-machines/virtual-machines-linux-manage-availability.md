@@ -1,34 +1,39 @@
 <properties
-	pageTitle="Gestire la disponibilità delle macchine virtuali Linux | Microsoft Azure"
-	description="Informazioni su come usare più macchine virtuali per garantire alta disponibilità per un'applicazione Linux in Azure."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Manage the availability of Linux VMs | Microsoft Azure"
+    description="Learn how to use multiple virtual machines to ensure high availability for your Linux application in Azure"
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/25/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/25/2016"
+    ms.author="cynthn"/>
 
-# Gestione della disponibilità delle macchine virtuali
 
-Informazioni su come configurare e gestire più macchine virtuali per garantire disponibilità elevata per un'applicazione Linux in Azure. È anche possibile [gestire la disponibilità delle macchine virtuali Windows](virtual-machines-windows-manage-availability.md).
+# <a name="manage-the-availability-of-virtual-machines"></a>Manage the availability of virtual machines
+
+Learn ways to set up and manage multiple virtual machines to ensure high availability for your Linux application in Azure. You can also [manage the availability of Windows virtual machines](virtual-machines-windows-manage-availability.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Per istruzioni sulla creazione di un set di disponibilità tramite l'interfaccia della riga di comando nel modello di distribuzione di Resource Manager, vedere [azure availset - Comandi per gestire i set di disponibilità](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
+For instructions on creating an availability set using CLI in the Resource Manager deployment model, see [azure availset: commands to manage your availability sets](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Bilanciamento del traffico di Azure per macchine virtuali](virtual-machines-linux-load-balance.md).
+To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](virtual-machines-linux-load-balance.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

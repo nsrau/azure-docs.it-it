@@ -1,175 +1,180 @@
 <properties
-	pageTitle="Gestire un database SQL di Azure tramite il portale di Azure | Microsoft Azure"
-	description="Informazioni su come usare il portale di Azure per gestire un database relazionale nel cloud tramite il portale di Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/> 
+    pageTitle="Manage Azure SQL Database using the Azure Portal | Microsoft Azure"
+    description="Learn how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal."
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.date="09/19/2016"
-	ms.author="sstein"/> 
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.date="09/19/2016"
+    ms.author="sstein"/>
 
 
-# Gestione dei database SQL di Azure tramite il portale di Azure
+
+# <a name="managing-azure-sql-databases-using-the-azure-portal"></a>Managing Azure SQL Databases using the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Portale di Azure](sql-database-manage-portal.md)
+- [Azure portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-command-line-tools.md)
+- [PowerShell](sql-database-manage-powershell.md)
 
-Il [portale di Azure](https://portal.azure.com/) consente di creare, monitorare e gestire server e database SQL di Azure. Questo articolo offre una descrizione rapida e collegamenti per i dettagli delle attività più comuni.
+The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
 
-## Visualizzare database, server e pool SQL di Azure
+## <a name="view-your-azure-sql-databases,-servers,-and-pools"></a>View your Azure SQL databases, servers, and pools
 
-Per visualizzare i servizi di database SQL disponibili, fare clic su **More Services** (Altri servizi) e digitare **SQL** nella casella di ricerca:
+To view the available SQL Database services, click **More services**, and type **SQL** in the search box:
 
-![Database SQL](./media/sql-database-manage-portal/sql-services.png) 
+![SQL Database](./media/sql-database-manage-portal/sql-services.png)
 
 
-## Come si creano o visualizzano i database SQL di Azure?
+## <a name="how-do-i-create-or-view-azure-sql-databases?"></a>How do I create or view Azure SQL databases?
 
-Per aprire il pannello **Database SQL**, fare clic su **Database SQL** e quindi sul database da usare oppure fare clic su **+Aggiungi** per creare un database SQL. Per informazioni dettagliate, vedere [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md).
+To open the **SQL databases** blade, click **SQL databases**, and then click the database you want to work with, or click **+Add** to create a SQL database. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
 
 
-![Database SQL](./media/sql-database-manage-portal/sql-databases.png) 
+![SQL databases](./media/sql-database-manage-portal/sql-databases.png)
 
 
-## Come si creano o visualizzano i server SQL di Azure?
+## <a name="how-do-i-create-or-view-azure-sql-servers?"></a>How do I create or view Azure SQL servers?
 
-Per aprire il pannello **SQL Server**, fare clic su **SQL Server** e quindi sul server da usare oppure fare clic su **+Aggiungi** per creare un server SQL. Per informazioni dettagliate, vedere [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md).
+To open the **SQL servers** blade, click **SQL servers**, and then click the server you want to work with, or click **+Add** to create a SQL server. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
 
-![Server di SQL](./media/sql-database-manage-portal/sql-servers.png) 
+![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
 
 
-## Come si creano o visualizzano i pool elastici SQL di Azure?
+## <a name="how-do-i-create-or-view-sql-elastic-pools?"></a>How do I create or view SQL elastic pools?
 
-Per aprire il pannello **Pool elastici SQL**, fare clic su **Pool elastici SQL** e quindi sul pool da usare oppure fare clic su **+Aggiungi** per creare un pool. Per informazioni dettagliate, vedere [Creare un nuovo pool di database elastici con il portale di Azure](sql-database-elastic-pool-create-portal.md).
+To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic database pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
 
-![Pool elastici SQL](./media/sql-database-manage-portal/elastic-pools.png) 
+![SQL elastic pools](./media/sql-database-manage-portal/elastic-pools.png)
 
 
 
-## Come si aggiornano o visualizzano le impostazioni del database SQL?
+## <a name="how-do-i-update-or-view-sql-database-settings?"></a>How do I update or view SQL database settings?
 
-Per visualizzare o aggiornare le impostazioni del database, fare clic sull'impostazione desiderata nel pannello Database SQL:
+To view or update your database settings, click the desired setting on the SQL database blade:
 
 
-![Impostazioni del database SQL](./media/sql-database-manage-portal/settings.png) 
+![SQL database settings](./media/sql-database-manage-portal/settings.png)
 
 
-## Come si trova il nome completo di un server di database SQL?
+## <a name="how-do-i-find-a-sql-databases-fully-qualified-server-name?"></a>How do I find a SQL databases fully qualified server name?
 
-Per trovare il nome del server di database, fare clic su **Panoramica** nel pannello **Database SQL** per visualizzare il nome del server:
+To view your databases server name, click **Overview** on the **SQL database** blade and note the server name:
 
 
-![Impostazioni del database SQL](./media/sql-database-manage-portal/server-name.png) 
+![SQL database settings](./media/sql-database-manage-portal/server-name.png)
 
 
-## Come è possibile gestire le regole del firewall per controllare l'accesso a server e database SQL?
+## <a name="how-do-i-manage-firewall-rules-to-control-access-to-my-sql-server-and-database?"></a>How do I manage firewall rules to control access to my SQL server and database?
 
-Per visualizzare, creare o aggiornare le regole del firewall, fare clic su **Imposta firewall server** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md).
+To view, create, or update firewall rules, click **Set server firewall** on the **SQL database** blade. For details, see [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md).
 
 
-![Regole del firewall](./media/sql-database-manage-portal/sql-database-firewall.png) 
+![firewall rules](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
-## Come è possibile modificare il livello di servizio o il livello di prestazioni del database SQL?
+## <a name="how-do-i-change-my-sql-database-service-tier-or-performance-level?"></a>How do I change my SQL database service tier or performance level?
 
 
-Per aggiornare il livello di servizio o il livello di prestazioni di un database SQL, fare clic su **Piano tariffario (piano DTU)** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Modificare il livello di servizio e il livello di prestazioni (piano tariffario) di un database SQL](sql-database-scale-up.md).
+To update the service tier or performance level of a SQL database, click **Pricing tier (scale DTUs)** on the **SQL database** blade. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
 
 
-![Piani tariffari](./media/sql-database-manage-portal/pricing-tier.png) 
+![pricing tiers](./media/sql-database-manage-portal/pricing-tier.png)
 
 
-## Come si configurano il controllo e il rilevamento delle minacce per un database SQL?
+## <a name="how-do-i-configure-auditing-and-threat-detection-for-a-sql-database?"></a>How do I configure auditing and threat detection for a SQL database?
 
-Per configurare il controllo e il rilevamento delle minacce per un database SQL, fare clic su **Controllo e rilevamento minacce** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Introduzione al controllo del database SQL](sql-database-auditing-get-started.md) e [Introduzione al rilevamento delle minacce nel database SQL](sql-database-threat-detection-get-started.md).
+To configure auditing and threat detection for a SQL database, click **Auditing and Threat detection** on the **SQL database** blade. For details, see [Get started with SQL database auditing](sql-database-auditing-get-started.md), and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
 
 
-## Come si configura la maschera dati dinamica di un database SQL?
+## <a name="how-do-i-configure-dynamic-data-masking-for-a-sql-database?"></a>How do I configure dynamic data masking for a SQL database?
 
-Per configurare la maschera dati dinamici per un database SQL, fare clic su **Maschera dati dinamica** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Introduzione alla maschera dati dinamica del database SQL (portale di Azure)](sql-database-dynamic-data-masking-get-started.md).
+To configure dynamic data masking for a SQL database, click **Dynamic data masking** on the **SQL database** blade. For details, see [Get started with SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md).
 
 
-## Come si configura Transparent Data Encryption (TDE) per un database SQL?
+## <a name="how-do-i-configure-transparent-data-encryption-(tde)-for-a-sql-database?"></a>How do I configure transparent data encryption (TDE) for a SQL database?
 
-Per configurare Transparent Data Encryption per un database SQL, fare clic su **Transparent Data Encryption** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Abilitare TDE in un database con il portale](https://msdn.microsoft.com/library/dn948096#Anchor_1).
+To configure transparent data encryption for a SQL database, click **Transparent data encryption** on the **SQL database** blade. For details, see [Enable TDE on a database using the portal](https://msdn.microsoft.com/library/dn948096#Anchor_1).
 
-## Come si visualizzano o modificano le dimensioni massime di un database SQL?
+## <a name="how-do-i-view-or-change-the-max-size-of-a-sql-database?"></a>How do I view or change the max size of a SQL database?
 
-Per visualizzare o modificare le dimensioni di un database SQL, fare clic su **Dimensioni database** nel pannello **Database SQL**. Aggiornare le dimensioni massime di un database modificando il livello di servizio o il livello di prestazioni. Per informazioni dettagliate, vedere [Modificare il livello di servizio e il livello di prestazioni (piano tariffario) di un database SQL](sql-database-scale-up.md).
+To view or change the size a SQL database, click **Database size** on the **SQL database** blade. Update the max size of a database by changing the service tier or performance level. For details, see [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md).
 
-## Come è possibile monitorare e migliorare le prestazioni di un database SQL?
+## <a name="how-do-i-monitor-and-improve-the-performance-of-a-sql-database?"></a>How do I monitor and improve the performance of a SQL database?
 
-Per monitorare e migliorare le prestazioni di un database SQL, fare clic su **Informazioni generali sulle prestazioni** nel pannello **Database SQL**. Per altre informazioni, vedere [Informazioni dettagliate sulle prestazioni del database SQL](sql-database-performance.md).
+To monitor and improve performance characteristics of a SQL database, click **Performance overview** on the **SQL database** blade. For details, see [SQL Database Performance Insight](sql-database-performance.md).
 
 
-## Come si configura la replica geografica?
+## <a name="how-do-i-configure-geo-replication?"></a>How do I configure Geo-Replication?
 
-Per configurare la replica geografica per un database SQL, fare clic su **Replica geografica** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Configurare la replica geografica per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-portal.md).
+To set up Geo-Replication for a SQL database, click **Geo-Replication** on the **SQL database** blade. For details, see [Configure Geo-Replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
 
 
-## Come si esegue il failover a un database SQL con replica geografica?
+## <a name="how-do-i-failover-to-a-geo-replicated-sql-database?"></a>How do I failover to a geo-replicated SQL database?
 
-Per eseguire il failover a un database secondario con replica geografica, fare clic su **Replica geografica** nel pannello **Database SQL**, quindi fare clic su **Failover**. Per informazioni dettagliate, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-failover-portal.md).
+To failover to a geo-replicated secondary, click **Geo-Replication** on the **SQL database** blade, then click **Failover**. For details, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-failover-portal.md).
 
 
-## Come si copia un database SQL?
+## <a name="how-do-i-copy-a-sql-database?"></a>How do I copy a SQL database?
 
-Per copiare un database SQL, fare clic su **Copia** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Copiare un database SQL di Azure tramite il portale di Azure](sql-database-copy-portal.md).
+To copy a SQL database, click **Copy** on the **SQL database** blade. For details, see [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md).
 
 
-![Impostazioni del database SQL](./media/sql-database-manage-portal/sql-database-copy.png) 
+![SQL database settings](./media/sql-database-manage-portal/sql-database-copy.png)
 
-## Come si archivia un database SQL di Azure in un file BACPAC?
+## <a name="how-do-i-archive-an-azure-sql-database-to-a-bacpac-file?"></a>How do I archive an Azure SQL database to a BACPAC file?
 
-Per creare un file BACPAC di un database SQL, fare clic su **Esporta** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Archiviare un database SQL di Azure in un file BACPAC tramite il portale di Azure](sql-database-export.md).
+To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure portal](sql-database-export.md).
 
 
-![Esportazione di un database SQL](./media/sql-database-manage-portal/sql-database-export.png) 
+![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
-## Come si ripristina un database SQL a un momento precedente?
+## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time?"></a>How do I restore a SQL database to a previous point in time?
 
-Per ripristinare un database SQL, fare clic su **Ripristina** nel pannello **Database SQL**. Per informazioni dettagliate, vedere [Ripristinare un database SQL di Azure a un momento precedente con il portale di Azure](sql-database-point-in-time-restore-portal.md).
+To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
 
 
-![Impostazioni del database SQL](./media/sql-database-manage-portal/sql-database-restore.png) 
+![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
-## Come si crea un database SQL di Azure da un file BACPAC?
+## <a name="how-do-i-create-an-azure-sql-database-from-a-bacpac-file?"></a>How do I create an Azure SQL database from a BACPAC file?
 
-Per creare un database SQL da un file BACPAC, fare clic su **Importa database** nel pannello **SQL Server**. Per informazioni dettagliate, vedere [Importare un file BACPAC per creare un nuovo database SQL di Azure](sql-database-import.md).
+To create a SQL database from a BACPAC file, click **Import database** on the **SQL server** blade. For details, see [Import a BACPAC file to create an Azure SQL database](sql-database-import.md).
 
 
-![Server SQL](./media/sql-database-manage-portal/server-commands.png) 
+![SQL server](./media/sql-database-manage-portal/server-commands.png)
 
 
-## Come si ripristina un database SQL eliminato?
+## <a name="how-do-i-restore-a-deleted-sql-database?"></a>How do I restore a deleted SQL database?
 
-Per ripristinare un database SQL eliminato, fare clic su **Database eliminati** nel pannello **SQL server**. Si tratta del server SQL contenente il database che è stato eliminato. Per informazioni dettagliate, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md).
+To restore a deleted SQL database, click **Deleted databases** on the **SQL server** blade (the SQL server that contained the database that was deleted). For details, see [Restore a deleted Azure SQL database using the Azure portal](sql-database-restore-deleted-database-portal.md).
 
-## Come si elimina un database SQL?
+## <a name="how-do-i-delete-a-sql-database?"></a>How do I delete a SQL database?
 
-Per eliminare un database SQL, fare clic su **Elimina** nel pannello **Database SQL**.
+To delete a SQL database, click **Delete** on the **SQL database** blade. 
 
-![Impostazioni del database SQL](./media/sql-database-manage-portal/sql-database-delete.png) 
+![SQL database settings](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Additional resources
 
-- [Database SQL](sql-database-technical-overview.md)
-- [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md)
+- [SQL Database](sql-database-technical-overview.md)
+- [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

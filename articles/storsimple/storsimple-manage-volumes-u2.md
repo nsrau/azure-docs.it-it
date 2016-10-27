@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Gestire i volumi StorSimple (aggiornamento 2) | Microsoft Azure"
-   description="Viene illustrato come aggiungere, modificare, monitorare ed eliminare i volumi StorSimple e come portarli offline, se necessario."
+   pageTitle="Manage your StorSimple volumes (U2) | Microsoft Azure"
+   description="Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
-   editor="" /> 
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -13,290 +13,295 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/21/2016"
-   ms.author="alkohli" /> 
+   ms.author="alkohli" />
 
-# Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
+
+# <a name="use-the-storsimple-manager-service-to-manage-volumes-(update-2)"></a>Use the StorSimple Manager service to manage volumes (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## Overview
+## <a name="overview"></a>Overview
 
-Questa esercitazione illustra come usare il servizio StorSimple Manager per creare e gestire i volumi nel dispositivo StorSimple e nel dispositivo virtuale StorSimple con l'aggiornamento 2 installato.
+This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device with Update 2 installed.
 
-Il servizio StorSimple Manager è un'estensione del portale di Azure classico che permette di gestire la soluzione StorSimple da un'unica interfaccia Web. Oltre che per la gestione dei volumi, è possibile usare il servizio StorSimple Manager per creare e gestire servizi StorSimple, visualizzare e gestire dispositivi, visualizzare avvisi, visualizzare e gestire i criteri di backup e il catalogo di backup.
+The StorSimple Manager service is an extension in the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
 
-## Tipi di volume
+## <a name="volume-types"></a>Volume types
 
-I volumi di StorSimple possono essere:
+StorSimple volumes can be:
 
-- **Volumi aggiunti in locale**: i dati in questi volumi rimangono sempre nel dispositivo StorSimple locale.
-- **Volumi a livelli**: i dati in questi volumi essere distribuiti nel cloud.
+- **Locally pinned volumes**: Data in these volumes remains on the local StorSimple device at all times.
+- **Tiered volumes**: Data in these volumes can spill to the cloud.
 
-Un volume di archivio è un tipo di volume a livelli. La maggiore dimensione del blocco di deduplicazione usata per i volumi di archivio consente al dispositivo di trasferire nel cloud segmenti di dati più grandi.
+An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud. 
 
-Se necessario, è possibile passare da un tipo di volume locale a uno a livelli o viceversa. Per altre informazioni, vedere [Modificare il tipo di volume](#change-the-volume-type).
+If necessary, you can change the volume type from local to tiered or from tiered to local. For more information, go to [Change the volume type](#change-the-volume-type).
 
-### Volumi aggiunti in locale
+### <a name="locally-pinned-volumes"></a>Locally pinned volumes
 
-I volumi aggiunti in locale sono volumi con provisioning completo che non dispongono i dati su livelli nel cloud, assicurando così garanzie locali per i dati primari, indipendentemente dalla connettività cloud. I dati nei volumi aggiunti in locale non vengono deduplicati e compressi, mentre gli snapshot dei volumi aggiunti in locale vengono deduplicati.
+Locally pinned volumes are fully provisioned volumes that do not tier data to the cloud, thereby ensuring local guarantees for primary data, independent of cloud connectivity. Data on locally pinned volumes is not deduplicated and compressed; however, snapshots of locally pinned volumes are deduplicated. 
 
-Poiché viene effettuato il provisioning completo dei volumi aggiunti in locale, è necessario avere spazio sufficiente nel dispositivo quando li si crea. È possibile effettuare il provisioning dei volumi aggiunti in locale fino a una dimensione massima di 8 TB nel dispositivo StorSimple 8100 e di 20 TB nel dispositivo 8600. StorSimple riserva lo spazio locale restante nel dispositivo a snapshot, metadati ed elaborazione dati. È possibile aumentare la dimensione di un volume aggiunto in locale fino alla massima quantità di spazio disponibile, ma non è possibile ridurre la dimensione di un volume una volta creato.
+Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 8 TB on the StorSimple 8100 device and 20 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
 
-Quando si crea un volume aggiunto in locale, viene ridotto lo spazio disponibile per la creazione di volumi a livelli. È anche vero il contrario: se esistono già volumi a livelli, lo spazio disponibile per la creazione di volumi aggiunti in locale sarà inferiore ai limiti massimi definiti prima. Per altre informazioni sui volumi locali, vedere le [domande frequenti sui volumi aggiunti in locale](storsimple-local-volume-faq.md).
+When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-local-volume-faq.md).   
 
-### Volumi a livelli
+### <a name="tiered-volumes"></a>Tiered volumes
 
-I volumi a livelli sono volumi con thin provisioning in cui i dati a cui si accede più spesso rimangono in locale nel dispositivo, mentre quelli usati meno spesso vengono automaticamente disposti su livelli nel cloud. Il thin provisioning è una tecnologia di virtualizzazione in cui le risorse di archiviazione disponibili risultano maggiori delle risorse fisiche. Anziché riservare in anticipo spazio di archiviazione sufficiente, StorSimple usa il thin provisioning per allocare esattamente la quantità di spazio necessaria per soddisfare i requisiti correnti. La natura elastica dell'archiviazione cloud facilita questo approccio, consentendo a StorSimple di aumentare o diminuire lo spazio cloud in base alle variazioni nella domanda.
+Tiered volumes are thinly provisioned volumes in which the frequently accessed data stays local on the device and less frequently used data is automatically tiered to the cloud. Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because StorSimple can increase or decrease cloud storage to meet changing demands.
 
-Se si usa il volume a livelli per i dati di archiviazione, selezionando la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** si porta a 512 KB la dimensione del blocco di deduplicazione per il volume. Se non si seleziona questa opzione, il volume a livelli corrispondente utilizzerà una dimensione del blocco di 64 KB. Una dimensione maggiore del blocco di deduplicazione consente al dispositivo di accelerare il trasferimento dei dati di archivio di grandi dimensioni nel cloud.
+If you are using the tiered volume for archival data, selecting the **Use this volume for less frequently accessed archival data** check box changes the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
 
->[AZURE.NOTE] I volumi di archivio creati con una versione precedente all'aggiornamento 2 di StorSimple verranno importati a livelli con la casella di controllo dell'archivio selezionata.
+>[AZURE.NOTE] Archival volumes created with a pre-Update 2 version of StorSimple will be imported as tiered with the archival check box selected.
 
-### Capacità con provisioning
+### <a name="provisioned-capacity"></a>Provisioned capacity
 
-Fare riferimento alla tabella seguente per conoscere la capacità massima di cui viene effettuato il provisioning per ogni tipo di dispositivo e di volume. Si noti che i volumi aggiunti in locale non sono disponibili in un dispositivo virtuale.
+Refer to the following table for maximum provisioned capacity for each device and volume type. (Note that locally pinned volumes are not available on a virtual device.)
 
-| | Dimensione massima volume a livelli | Dimensione massima volume aggiunto in locale |
+|             | Maximum tiered volume size | Maximum locally pinned volume size |
 |-------------|----------------------------|------------------------------------|
-| **Dispositivi fisici** | | |
-| 8100 | 64 TB | 8 TB |
-| 8600 | 64 TB | 20 TB |
-| **Dispositivi virtuali** | | |
-| 8010 | 30 TB | N/D |
-| 8020 | 64 TB | N/D |
+| **Physical devices** |       |       |
+| 8100                 | 64 TB | 8 TB |
+| 8600                 | 64 TB | 20 TB |
+| **Virtual devices**  |       |       |
+| 8010                | 30 TB | N/A   |
+| 8020               | 64 TB | N/A   |
 
-## La pagina Volumi
+## <a name="the-volumes-page"></a>The Volumes page
 
-La pagina **Volumi** consente di gestire i volumi di archiviazione forniti nel dispositivo StorSimple di Microsoft Azure per gli iniziatori (server). La pagina riporta l'elenco dei volumi nel dispositivo StorSimple.
+The **Volumes** page allows you to manage the storage volumes that are provisioned on the Microsoft Azure StorSimple device for your initiators (servers). It displays the list of volumes on your StorSimple device.
 
- ![Pagina dei volumi](./media/storsimple-manage-volumes-u2/VolumePage.png)
+ ![Volumes page](./media/storsimple-manage-volumes-u2/VolumePage.png)
 
-Un volume è costituito da una serie di attributi:
+A volume consists of a series of attributes:
 
-- **Nome volume**: un nome descrittivo che deve essere univoco e consente di identificare il volume. Questo nome viene utilizzato anche nei rapporti di monitoraggio quando di applica un filtro su un volume specifico.
+- **Volume Name** – A descriptive name that must be unique and helps identify the volume. This name is also used in monitoring reports when you filter on a specific volume.
 
-- **Stato**: online oppure offline. Se un volume è offiline, non è visibile agli iniziatori (server) a cui è consentito l'accesso per utilizzare il volume.
+- **Status** – Can be online or offline. If a volume if offline, it is not visible to initiators (servers) that are allowed access to use the volume.
 
-- **Capacità**: specifica la quantità totale di dati che può essere archiviata dall'iniziatore (server). Dei volumi aggiunti in locale viene effettuato il provisioning completo. Tali volumi sono nel dispositivo StorSimple. Dei volumi a livelli Viene effettuato il thin provisioning e i dati vengono deduplicati. Con i volumi con thin provisioning, il dispositivo non prealloca la capacità di archiviazione fisica internamente o nel cloud in base alle capacità del volume configurato. La capacità del volume viene allocata e utilizzata su richiesta.
+- **Capacity** – specifies the total amount of data that can be stored by the initiator (server). Locally-pinned volumes are fully provisioned and reside on the StorSimple device. Tiered volumes are thinly provisioned and the data is deduplicated. With thinly provisioned volumes, your device doesn’t pre-allocate physical storage capacity internally or on the cloud according to configured volume capacity. The volume capacity is allocated and consumed on demand.
 
-- **Tipo**: indica se il volume è **A livelli** (impostazione predefinita) o **Volume aggiunto**.
+- **Type** – Indicates whether the volume is **Tiered** (the default) or **Locally pinned**.
 
-- **Backup**: indica se esistono criteri di backup predefiniti per il volume.
+- **Backup** – Indicates whether a default backup policy exists for the volume.
 
-- **Accesso**: specifica gli iniziatori (server) a cui è consentito l'accesso a questo volume. Agli iniziatori che non sono membri del record di controllo di accesso (ACR) associato al volume non verrà visualizzato il volume.
+- **Access** – Specifies the initiators (servers) that are allowed access to this volume. Initiators that are not members of access control record (ACR) that is associated with the volume will not see the volume.
 
-- **Monitoraggio**: specifica se un volume viene monitorato. Un volume avrà il monitoraggio abilitato per impostazione predefinita quando viene creato. Il monitoraggio sarà però disabilitato per un clone del volume. Per abilitare il monitoraggio per un volume, seguire le istruzioni riportate in [Monitorare un volume](#monitor-a-volume).
+- **Monitoring** – Specifies whether or not a volume is being monitored. A volume will have monitoring enabled by default when it is created. Monitoring will, however, be disabled for a volume clone. To enable monitoring for a volume, follow the instructions in [Monitor a volume](#monitor-a-volume). 
 
-Usare le istruzioni di questa esercitazione per eseguire le attività seguenti:
+Use the instructions in this tutorial to perform the following tasks:
 
-- Aggiungere un volume
-- Modificare un volume
-- Modificare il tipo di volume
-- Eliminare un volume
-- Portare un volume offline
-- Monitorare a volume
+- Add a volume 
+- Modify a volume 
+- Change the volume type
+- Delete a volume 
+- Take a volume offline 
+- Monitor a volume 
 
-## Aggiungere un volume
+## <a name="add-a-volume"></a>Add a volume
 
-Il [volume è stato creato](storsimple-deployment-walkthrough-u2.md#step-6-create-a-volume) durante la distribuzione della soluzione StorSimple. L’aggiunta di un volume è una procedura simile.
+You [created a volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
 
-#### Per aggiungere un volume
+#### <a name="to-add-a-volume"></a>To add a volume
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo, fare doppio clic su esso e quindi sulla scheda **Contenitori di volumi**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Selezionare un contenitore di volumi nell'elenco e fare doppio clic su di esso per accedere ai volumi associati al contenitore.
+2. Select a volume container from the list and double-click it to access the volumes associated with the container.
 
-3. Fare clic su **Add** nella parte inferiore della pagina. Verrà avviata la procedura guidata Aggiungi volume.
+3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
 
-     ![Aggiungi procedura guidata del volume Impostazioni di base](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
+     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
-4. Nella procedura guidata Aggiungi un volume, in **Impostazioni di base**, procedere come segue:
+4. In the Add a volume wizard, under **Basic Settings**, do the following:
 
-  1. Digitare un **Nome** per il volume.
-  2. Selezionare un **Tipo di utilizzo** nell'elenco a discesa. Per i carichi di lavoro per cui è necessario che i dati siano sempre disponibili nel dispositivo, selezionare **Volume aggiunto**. Per tutti gli altri tipi di dati, selezionare **A livelli**. **A livelli** è l'impostazione predefinita.
-  3. Se nel passaggio 2 è stato selezionato **A livelli**, è possibile selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** per configurare un volume di archivio.
-  4. Immettere la **Capacità provisioning** per il volume in GB o TB. Vedere [Capacità con provisioning](#provisioned-capacity) per conoscere le dimensioni massime per ogni tipo di dispositivo e di volume. Esaminare la **Capacità disponibile** per determinare quanto spazio di archiviazione sia attualmente disponibile nel dispositivo.
+  1. Supply a **Name** for your volume.
+  2. Select a **Usage Type** from the drop-down list. For workloads that require data to be available locally on the device at all times, select **Locally Pinned**. For all other types of data, select **Tiered**. (**Tiered** is the default.)
+  3. If you selected **Tiered** in step 2, you can select the **Use this volume for less frequently accessed archival data** check box to configure an archival volume.
+  4. Enter the **Provisioned Capacity** for your volume in GB or TB. See [Provisioned capacity](#provisioned-capacity) for maximum sizes for each device and volume type. Look at the **Available Capacity** to determine how much storage is actually available on your device.
 
-5. Fare clic sull'icona a forma di freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Se si sta configurando un volume aggiunto in locale, verrà visualizzato il messaggio seguente.
+5. Click the arrow icon![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). If you are configuring a locally pinned volume, you will see the following message.
 
-    ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+    ![Change Volume type message](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
    
-5. Fare di nuovo clic sull'icona a forma di freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per passare alla pagina **Impostazioni aggiuntive**.
+5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)again to go to the **Additional Settings** page.
 
-    ![Aggiungi procedura guidata del volume Impostazioni aggiuntive](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
+    ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
 
-6. Nella finestra di dialogo **Impostazioni aggiuntive**, aggiungere un nuovo record di controllo di accesso (ACR):
+6. Under **Additional Settings**, add a new access control record (ACR):
   
-  1. Selezionare un record di controllo di accesso (ACR) dall'elenco a discesa. In alternativa, è possibile aggiungere un nuovo ACR. Gli ACR determinano quali host possono accedere ai volumi creando una corrispondenza tra il nome qualificato ISCSI dell'host e quello elencato nel record. Se non si specifica un ACR, verrà visualizzato il messaggio seguente.
+  1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record. If you do not specify an ACR, you will see the following message.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
 
-  2. È consigliabile selezionare la casella di controllo **Abilita un criterio di backup predefinito per questo volume**.
-  3. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) per creare il volume con le impostazioni specificate.
+  2. We recommend that you select the **Enable a default backup for this volume** checkbox.
+  3. Click the check icon ![Check icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) to create the volume with the specified settings.
 
-Il volume è pronto per l'utilizzo.
+Your new volume is now ready to use.
 
->[AZURE.NOTE] Se si crea un volume aggiunto in locale e quindi se ne crea un altro subito dopo, i processi di creazione dei volumi vengono eseguiti in sequenza. Il primo processo di creazione del volume deve terminare prima che possa iniziare quello successivo.
+>[AZURE.NOTE] If you create a locally pinned volume and then create another locally pinned volume immediately afterwards, the volume creation jobs run sequentially. The first volume creation job must finish before the next volume creation job can begin.
 
-## Modificare un volume
+## <a name="modify-a-volume"></a>Modify a volume
 
-Modificare un volume quando occorre espanderlo o modificare gli host che vi accedono.
+Modify a volume when you need to expand it or change the hosts that access the volume.
 
 > [AZURE.IMPORTANT] 
 >
-> - Se si modifica la dimensione del volume nel dispositivo, è necessario modificare anche le esigenze di dimensioni del volume sull’host.
-> - Le procedure host-side descritte di seguito sono per Windows Server 2012 (2012R2). Procedure per Linux o altri sistemi operativi host saranno diverse. Quando si modifica il volume di un host che esegue un altro sistema operativo, fare riferimento alle istruzioni del sistema operativo dell’host.
+> - If you modify the volume size on the device, the volume size needs to be changed on the host as well. 
+> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
 
-#### Per modificare un volume
+#### <a name="to-modify-a-volume"></a>To modify a volume
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo, fare doppio clic su esso e quindi sulla scheda **Contenitori di volumi**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Selezionare un contenitore di volumi nell'elenco e fare doppio clic su di esso per visualizzare i volumi associati al contenitore.
+2. Select a volume container from the list and double-click it to view the volumes associated with the container.
 
-3. Selezionare un volume e nella parte inferiore della pagina fare clic su **Modifica**. Verrà avviata la procedura guidata per la modifica del volume.
+3. Select a volume, and at the bottom of the page, click **Modify**. The Modify volume wizard starts.
 
-4. Nella procedura guidata Aggiungi volume, in **Impostazioni di base**, procedere come segue:
+4. In the Modify volume wizard, under **Basic Settings**, you can do the following:
 
-  - Modificare il **Nome**.
-  - Convertire il **Tipo di utilizzo** da aggiunto in locale a quello a livelli o viceversa. Per altre informazioni, vedere [Modificare il tipo di volume](#change-the-volume-type).
-  - Aumentare la **Capacità fornita**. La **Capacità fornita** può essere solo aumentata. Non è possibile ridurre un volume dopo averlo creato.
+  - Edit the **Name**.
+  - Convert the **Usage Type** from locally pinned to tiered or from tiered to locally pinned (see [Change the volume type](#change-the-volume-type) for more information).
+  - Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
 
-5. In **Impostazioni aggiuntive** è possibile modificare l'ACR, purché il volume sia offline. Se il volume è online, sarà necessario portarlo prima offline. Fare riferimento ai passaggi riportati in [Portare un volume offline](#take-a-volume-offline) prima di modificare gli ACR.
+5. Under **Additional Settings**, you can modify the ACR, provided that the volume is offline. If the volume is online, you will need to take it offline first. Refer to the steps in [Take a volume offline](#take-a-volume-offline) prior to modifying the ACR.
 
-    > [AZURE.NOTE] Non è possibile modificare l’opzione **Abilita backup predefinito** per il volume.
+    > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
 
-6. Salvare le modifiche scegliendo l'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Il portale di Azure classico mostrerà un messaggio di volume dell’aggiornamento. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
+6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). The Azure classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
+7. If you are expanding a volume, complete the following steps on your Windows host computer:
 
-   1. Andare a **Gestione Computer** ->**Gestione disco**.
-   2. Fare doppio clic con il pulsante destro del mouse su **Gestione disco** e selezionare **Ripeti analisi dischi**.
-   3. Nell'elenco dei dischi, selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi selezionare **Estendi Volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
-   4. Completare la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
+   1. Go to **Computer Management** ->**Disk Management**.
+   2. Right-click **Disk Management** and select **Rescan Disks**.
+   3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
+   4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
 
-    >[AZURE.NOTE] Se si espande un volume aggiunto in locale e quindi se ne espande un altro subito dopo, i processi di espansione dei volumi vengono eseguiti in sequenza. Il primo processo di espansione del volume deve terminare prima che possa iniziare quello successivo.
+    >[AZURE.NOTE] If you expand a locally pinned volume and then expand another locally pinned volume immediately afterwards, the volume expansion jobs run sequentially. The first volume expansion job must finish before the next volume expansion job can begin.
 
-![Video disponibile](./media/storsimple-manage-volumes-u2/Video_icon.png) **Video disponibile**
+![Video available](./media/storsimple-manage-volumes-u2/Video_icon.png) **Video available**
 
-Per guardare un video che illustra come espandere un volume, fare clic [qui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
+To watch a video that demonstrates how to expand a volume, click [here](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
-## Modificare il tipo di volume
+## <a name="change-the-volume-type"></a>Change the volume type
 
-È possibile passare da un tipo di volume a livelli a uno aggiunto in locale o viceversa. Questa conversione non deve tuttavia essere eseguita con frequenza. Di seguito sono elencati alcuni motivi per convertire un volume a livelli in uno aggiunto in locale:
+You can change the volume type from tiered to locally pinned or from locally pinned to tiered. However, this conversion should not be a frequent occurrence. Some reasons for converting a volume from tiered to locally pinned are:
 
-- Garanzie locali relative alla disponibilità e alle prestazioni dei dati
-- Eliminazione di latenze cloud e di problemi di connettività cloud
+- Local guarantees regarding data availability and performance
+- Elimination of cloud latencies and cloud connectivity issues.
 
-Si tratta in genere di piccoli volumi esistenti a cui è necessario accedere spesso. Quando un volume aggiunto in locale viene creato, ne viene effettuato il provisioning completo. Se si sta convertendo un volume a livelli in un volume aggiunto in locale, StorSimple verifica che lo spazio sul dispositivo sia sufficiente prima di avviare la conversione. Se lo spazio non è sufficiente, verrà visualizzato un errore e l'operazione verrà annullata.
+Typically, these are small existing volumes that you want to access frequently. A locally pinned volume is fully provisioned when it is created. If you are converting a tiered volume to a locally pinned volume, StorSimple verifies that you have sufficient space on your device before it starts the conversion. If you have insufficient space, you will receive an error and the operation will be canceled. 
 
-> [AZURE.NOTE] Prima di iniziare una conversione da un volume a livelli a uno aggiunto in locale, considerare i requisiti di spazio degli altri carichi di lavoro.
+> [AZURE.NOTE] Before you begin a conversion from tiered to locally pinned, make sure that you consider the space requirements of your other workloads. 
 
-È possibile, ad esempio, passare da un volume aggiunto in locale a un volume a livelli se è necessario spazio aggiuntivo per il provisioning di altri volumi. Quando si converte il volume aggiunto in locale in uno a livelli, la capacità disponibile nel dispositivo aumenta della dimensione della capacità rilasciata. Se problemi di connettività impediscono la conversione di un volume dal tipo locale al tipo a livelli, il volume locale presenterà le proprietà di un volume a livelli fino al completamento della conversione. Infatti è possibile che alcuni dati siano stati distribuiti nel cloud. Questi dati trasferiti continueranno a occupare lo spazio locale nel dispositivo, che non può essere liberato fino al riavvio e al completamento dell'operazione.
+You might want to change a locally pinned volume to a tiered volume if you need additional space to provision other volumes. When you convert the locally pinned volume to tiered, the available capacity on the device increases by the size of the released capacity. If connectivity issues prevent the conversion of a volume from the local type to the tiered type, the local volume will exhibit properties of a tiered volume until the conversion is completed. This is because some data might have spilled to the cloud. This spilled data will continue to occupy local space on the device that cannot be freed until the operation is restarted and completed.
 
->[AZURE.NOTE] La conversione di un volume può richiedere tempo e non è possibile annullarla una volta avviata. Il volume rimane online durante la conversione ed è possibile eseguire i backup, ma non è possibile espandere o ripristinare il volume mentre la conversione è in corso.
+>[AZURE.NOTE] Converting a volume can take some time and you cannot cancel a conversion after it starts. The volume remains online during the conversion, and you can take backups, but you cannot expand or restore the volume while the conversion is taking place.  
 
-La conversione da un volume a livelli a un volume aggiunto in locale può influire negativamente sulle prestazioni dei dispositivi. Inoltre, i seguenti fattori possono aumentare il tempo necessario per la conversione:
+Conversion from a tiered to a locally pinned volume can adversely affect device performance. Additionally, the following factors might increase the time it takes to complete the conversion:
 
-- Larghezza di banda insufficiente.
+- There is insufficient bandwidth.
 
-- Nessun backup corrente disponibile.
+- There is no current backup.
 
-Per ridurre al minimo gli effetti di questi fattori:
+To minimize the effects that these factors may have:
 
-- Rivedere i criteri di limitazione della larghezza di banda e verificare che sia disponibile una larghezza di banda dedicata di 40 Mbps.
-- Pianificare la conversione in orari di scarso traffico.
-- Acquisire uno snapshot cloud prima di iniziare la conversione.
+- Review your bandwidth throttling policies and make sure that a dedicated 40 Mbps bandwidth is available.
+- Schedule the conversion for off-peak hours.
+- Take a cloud snapshot before you start the conversion.
 
-Se si desidera convertire più volumi che supportano diversi carichi di lavoro, è necessario specificare le priorità della conversione in modo che i volumi a priorità più elevata vengano convertiti per primi. Ad esempio, è necessario convertire i volumi che ospitano macchine virtuali o con carichi di lavoro SQL prima dei volumi con carichi di lavoro di condivisione file.
+If you are converting multiple volumes (supporting different workloads), then you should prioritize the volume conversion so that higher priority volumes are converted first. For example, you should convert volumes that host virtual machines (VMs) or volumes with SQL workloads before you convert volumes with file share workloads.
 
-#### Per modificare il tipo di volume
+#### <a name="to-change-the-volume-type"></a>To change the volume type
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo, fare doppio clic su esso e quindi sulla scheda **Contenitori di volumi**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Selezionare un contenitore di volumi nell'elenco e fare doppio clic su di esso per visualizzare i volumi associati al contenitore.
+2. Select a volume container from the list and double-click it to view the volumes associated with the container.
 
-3. Selezionare un volume e nella parte inferiore della pagina fare clic su **Modifica**. Verrà avviata la procedura guidata per la modifica del volume.
+3. Select a volume, and at the bottom of the page, click **Modify**. The Modify volume wizard starts.
 
-4. Nella pagina **Impostazioni di base** modificare il tipo di utilizzo selezionando il nuovo tipo nell'elenco a discesa **Tipo di utilizzo**.
+4. On the **Basic Settings** page, change the usage type by selecting the new type from the **Usage Type** drop-down list.
 
-    - Se si imposta il tipo su **Volume aggiunto**, StorSimple verificherà se la capacità è sufficiente.
-    - Se si imposta il tipo su **A livelli** e questo volume verrà usato per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**.
+    - If you are changing the type to **Locally pinned**, StorSimple will check to see if there is sufficient capacity.
+    - If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
 
-        ![Casella di controllo per l'archivio](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
+        ![Archive checkbox](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Fare clic sull'icona freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per passare alla pagina **Impostazioni aggiuntive**. Se si sta configurando un volume aggiunto in locale, verrà visualizzato il messaggio seguente.
+5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) to go to the **Additional Settings** page. If you are configuring a locally pinned volume, the following message appears.
 
-    ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
+    ![Change Volume type message](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
-6. Fare di nuovo clic sull'icona a freccia ![Icona freccia](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) per continuare.
+6. Click the arrow icon ![arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) again to continue.
 
-7. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) per avviare il processo di conversione. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
+7. Click the check icon ![Check icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) to start the conversion process. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-## Portare un volume offline
+## <a name="take-a-volume-offline"></a>Take a volume offline
 
-Potrebbe essere necessario portare un volume offline per modificarlo o eliminarlo. Quando un volume è offline, non è disponibile per l'accesso in lettura/scrittura. È necessario portare offline il volume nell'host e sul dispositivo.
+You may need to take a volume offline when you are planning to modify it or delete it. When a volume is offline, it is not available for read-write access. You will need to take the volume offline on the host as well as on the device. 
 
-#### Per portare un volume offline
+#### <a name="to-take-a-volume-offline"></a>To take a volume offline
 
-1. Assicurarsi che il volume in questione non sia in uso prima di portarlo offline.
+1. Make sure that the volume in question is not in use before taking it offline.
 
-2. Portare offline il volume prima nell'host. Ciò consente di eliminare qualsiasi potenziale rischio di danneggiamento dei dati nel volume. Per i passaggi specifici, vedere le istruzioni per il sistema operativo dell’host.
+2. Take the volume offline on the host first. This eliminates any potential risk of data corruption on the volume. For specific steps, refer to the instructions for your host operating system.
 
-3. Quando l'host è offline, portare il volume nel dispositivo offline eseguendo i passaggi seguenti:
+3. After the host is offline, take the volume on the device offline by performing the following steps:
 
-  1. Nella pagina **Dispositivi**, selezionare il dispositivo, fare doppio clic su esso e quindi sulla scheda **Contenitori di volumi**. Nella scheda **Contenitori di volumi** vengono elencati in formato tabulare tutti i contenitori di volumi associati al dispositivo.
-  2. Selezionare un contenitore di volumi e fare clic per visualizzare l'elenco di tutti i volumi all'interno del contenitore.
-  3. Selezionare un volume e fare clic su **Offline**.
-  4. Alla richiesta di conferma fare clic su **Sì**. Il volume sarà offline.
+  1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab. The **Volume Containers** tab lists in a tabular format all the volume containers that are associated with the device.
+  2. Select a volume container and click it to display the list of all the volumes within the container.
+  3. Select a volume and click **Take offline**.
+  4. When prompted for confirmation, click **Yes**. The volume should now be offline.
 
-    Quando un volume è offline, l’opzione **Porta online** diventa disponibile.
+    After a volume is offline, the **Bring Online** option becomes available.
 
-> [AZURE.NOTE] Il comando **Porta offline** invia al dispositivo una richiesta di portare il volume offline. Se gli host stanno ancora utilizzando il volume, le connessioni saranno interrotte ma il volume sarà portato offline.
+> [AZURE.NOTE] The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail. 
 
-## Eliminare un volume
+## <a name="delete-a-volume"></a>Delete a volume
 
-> [AZURE.IMPORTANT] È possibile eliminare un volume solo se è offline.
+> [AZURE.IMPORTANT] You can delete a volume only if it is offline.
 
-Completare la procedura seguente per eliminare un volume.
+Complete the following steps to delete a volume.
 
-#### Per eliminare un volume
+#### <a name="to-delete-a-volume"></a>To delete a volume
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo, fare doppio clic su esso e quindi sulla scheda **Contenitori di volumi**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Selezionare il contenitore di volumi contenente il volume che si desidera eliminare. Fare clic sul contenitore di volumi per accedere alla pagina **Volumi**.
+2. Select the volume container that has the volume you want to delete. Click the volume container to access the **Volumes** page.
 
-3. Tutti i volumi associati a questo contenitore vengono visualizzati in formato tabulare. Verificare lo stato del volume che si desidera eliminare. Se il volume che si desidera eliminare non è offline, portarlo innanzitutto offline seguendo i passaggi indicati in [Portare un volume offline](#take-a-volume-offline).
+3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#take-a-volume-offline).
 
-4. Quando il volume è offline, fare clic su **Elimina** in fondo alla pagina.
+4. After the volume is offline, click **Delete** at the bottom of the page.
 
-5. Alla richiesta di conferma fare clic su **Sì**. Il volume verrà eliminato e nella pagina **Volumi** sarà visualizzato l’elenco aggiornato di volumi presenti nel contenitore.
+5. When prompted for confirmation, click **Yes**. The volume will now be deleted and the **Volumes** page will show the updated list of volumes within the container.
 
-    >[AZURE.NOTE] Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio StorSimple Manager aggiorna periodicamente lo spazio locale disponibile. È consigliabile attendere alcuni minuti prima di creare il nuovo volume.<br> Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
+    >[AZURE.NOTE] If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available periodically. We suggest you wait for a few minutes before you try to create the new volume.<br> Additionally, if you delete a locally pinned volume and then delete another locally pinned volume immediately afterwards, the volume deletion jobs run sequentially. The first volume deletion job must finish before the next volume deletion job can begin.
  
-## Monitorare a volume
+## <a name="monitor-a-volume"></a>Monitor a volume
 
-Il monitoraggio del volume consente di raccogliere le statistiche correlate all’I/O per un volume. Il monitoraggio è abilitato per impostazione predefinita per i primi 32 volumi creati dall'utente. Il monitoraggio di ulteriori volumi è disabilitato per impostazione predefinita. Il monitoraggio di volumi clonati è disabilitato per impostazione predefinita.
+Volume monitoring allows you to collect I/O-related statistics for a volume. Monitoring is enabled by default for the first 32 volumes that you create. Monitoring of additional volumes is disabled by default. Monitoring of cloned volumes is also disabled by default.
 
-Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi seguenti.
+Perform the following steps to enable or disable monitoring for a volume.
 
-#### Per abilitare o disabilitare il monitoraggio del volume
+#### <a name="to-enable-or-disable-volume-monitoring"></a>To enable or disable volume monitoring
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo, fare doppio clic su esso e quindi sulla scheda **Contenitori di volumi**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Selezionare il contenitore del volume in cui risiede il volume, quindi fare clic sul contenitore del volume per accedere alla pagina **Volumi**.
+2. Select the volume container in which the volume resides, and then click the volume container to access the **Volumes** page.
 
-3. Tutti i volumi associati a questo contenitore vengono elencati in formato tabulare. Fare clic e selezionare il volume o un clone del volume.
+3. All the volumes associated with this container are listed in the tabular display. Click and select the volume or volume clone.
 
-4. Nella parte inferiore della pagina fare clic su **Modifica**.
+4. At the bottom of the page, click **Modify**.
 
-5. Nella procedura guidata Modifica volume in **Impostazioni di base**, selezionare **Abilita** o **Disabilita** dall’elenco a discesa **Monitoraggio**.
+5. In the Modify Volume wizard, under **Basic Settings**, select **Enable** or **Disable** from the **Monitoring** drop-down list.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Informazioni su come [clonare un volume StorSimple](storsimple-clone-volume.md)
+- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
 
-- Informazioni su come [usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

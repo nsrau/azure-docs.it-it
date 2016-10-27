@@ -1,3 +1,7 @@
-> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. È possibile <a href="http://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/" target="_blank">attivare i benefici della sottoscrizione MSDN</a> o <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">iscriversi per una versione di valutazione gratuita</a>.
+> [AZURE.NOTE]
+> To complete this tutorial, you need an Azure account. You can <a href="http://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/" target="_blank">activate your MSDN subscriber benefits</a> or <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">sign up for a free trial</a>.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

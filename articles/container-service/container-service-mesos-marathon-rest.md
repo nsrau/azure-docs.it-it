@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Gestione di contenitori del servizio contenitore di Azure tramite l'API REST | Microsoft Azure"
-   description="Distribuire contenitori in un cluster Mesos del servizio contenitore di Azure usando l'API REST di Marathon."
+   pageTitle="Azure Container Service container management through the REST API | Microsoft Azure"
+   description="Deploy containers to an Azure Container Service Mesos cluster by using the Marathon REST API."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Contenitori, Micro-servizi, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,28 +16,29 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/13/2016"
-   ms.author="nepeters"/>
+   ms.author="timlt"/>
 
-# Gestione di contenitori tramite l'API REST
 
-DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo.
+# <a name="container-management-through-the-rest-api"></a>Container management through the REST API
 
-Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come creare e ridimensionare la distribuzione di contenitori con Marathon. Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio contenitore di Azure. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
+DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-- [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md)
-- [Connettersi a un cluster del servizio contenitore di Azure](container-service-connect.md)
+Although frameworks are available for many popular workloads, this document describes how you can create and scale container deployments by using Marathon. Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-Dopo essersi connessi al cluster del servizio contenitore di Azure, è possibile accedere a DC/OS e alle API REST correlate tramite http://localhost:local-port. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, l'endpoint Marathon è disponibile in `http://localhost/marathon/v2/`. Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+- [Deploying an Azure Container Service cluster](container-service-deployment.md)
+- [Connecting to an Azure Container Service cluster](container-service-connect.md)
 
-## Raccogliere informazioni da DC/OS e Marathon
+After you are connected to the Azure Container Service cluster, you can access the DC/OS and related REST APIs through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`. For more information on the various APIs, see the Mesosphere documentation for the [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the [Chronos API](https://mesos.github.io/chronos/docs/api.html), and the Apache documentation for the [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
-Prima di distribuire contenitori nel cluster DC/OS, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato corrente degli agenti di DC/OS. A tale scopo, eseguire una query sull'endpoint `master/slaves` dell'API REST di DC/OS. Se la query riesce, verrà visualizzato un elenco di agenti di DC/OS e diverse proprietà per ognuno.
+## <a name="gather-information-from-dc/os-and-marathon"></a>Gather information from DC/OS and Marathon
+
+Before you deploy containers to the DC/OS cluster, gather some information about the DC/OS cluster, such as the names and current status of the DC/OS agents. To do so, query the `master/slaves` endpoint of the DC/OS REST API. If everything goes well, you will see a list of DC/OS agents and several properties for each.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-A questo punto, usare l'endpoint `/apps` di DC/OS per cercare le distribuzioni correnti dell'applicazione nel cluster DC/OS. Se si tratta di un nuovo cluster, verrà visualizzata una matrice vuota di app.
+Now, use the Marathon `/apps` endpoint to check for current application deployments to the DC/OS cluster. If this is a new cluster, you will see an empty array for apps.
 
 ```
 curl localhost/marathon/v2/apps
@@ -45,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Distribuire un contenitore Docker formattato
+## <a name="deploy-a-docker-formatted-container"></a>Deploy a Docker-formatted container
 
-I contenitori Docker formattati vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore Nginx associando la porta 80 dell'agente di DC/OS alla porta 80 del contenitore. Si noti anche che la proprietà 'acceptedResourceRoles' è impostata su 'slave\_public'. Il contenitore verrà distribuito a un agente nel set di scalabilità dell'agente pubblico.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the ‘acceptedResourceRoles’ property is set to ‘slave_public’. This will deploy the container to an agent in the public-facing agent scale set.
 
 ```json
 {
@@ -71,57 +72,57 @@ I contenitori Docker formattati vengono distribuiti tramite Marathon usando un f
 }
 ```
 
-Per distribuire un contenitore Docker formattato, creare un file JSON o usare l'esempio fornito nella [demo del servizio contenitore di Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Archiviarlo in un percorso accessibile. Successivamente, eseguire il comando riportato di seguito per distribuire il contenitore. Specificare il nome del file JSON.
+In order to deploy a Docker-formatted container, create your own JSON file, or use the sample provided at [Azure Container Service demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Store it in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file.
 
 ```
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
-L'output sarà simile al seguente:
+The output will be similar to the following:
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Se ora si esegue una query per cercare applicazioni in Marathon, la nuova applicazione verrà visualizzata nell'output.
+Now, if you query Marathon for applications, this new application will show in the output.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Ridimensionare i contenitori
+## <a name="scale-your-containers"></a>Scale your containers
 
-L'API Marathon può anche essere usata per aumentare o ridurre il numero di istanze delle distribuzioni di applicazioni. Nell'esempio precedente è stata distribuita un'istanza di un'applicazione. Il numero di istanze dell'applicazione viene ora aumentato a tre. A tale scopo, creare un file JSON usando il testo JSON seguente e archiviarlo in un percorso accessibile.
+You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file by using the following JSON text, and store it in an accessible location.
 
 ```json
 { "instances": 3 }
 ```
 
-Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
+Run the following command to scale out the application.
 
->[AZURE.NOTE] L'URI sarà http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/marathon/v2/apps/nginx.
+>[AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Infine, eseguire una query per le istanze dell'applicazione nell'endpoint Marathon. Ora sono presenti tre applicazioni del contenitore nginx.
+Finally, query the Marathon endpoint for applications. You will see that there are now three of the Nginx containers.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Usare PowerShell per questo esercizio: Interazione dell'API REST di Marathon con PowerShell
+## <a name="use-powershell-for-this-exercise:-marathon-rest-api-interaction-with-powershell"></a>Use PowerShell for this exercise: Marathon REST API interaction with PowerShell
 
-È possibile eseguire queste stesse azioni usando i comandi di PowerShell in un sistema Windows.
+You can perform these same actions by using PowerShell commands on a Windows system.
 
-Per raccogliere informazioni sul cluster DC/OS, ad esempio il nome e lo stato dell'agente, eseguire il comando seguente.
+To gather information about the DC/OS cluster, such as agent names and agent status, run the following command.
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-I contenitori Docker formattati vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore Nginx associando la porta 80 dell'agente di DC/OS alla porta 80 del contenitore.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container.
 
 ```json
 {
@@ -142,29 +143,33 @@ I contenitori Docker formattati vengono distribuiti tramite Marathon usando un f
 }
 ```
 
-Creare un file JSON o usare l'esempio fornito nella [demo del servizio contenitore di Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Archiviarlo in un percorso accessibile. Successivamente, eseguire il comando riportato di seguito per distribuire il contenitore. Specificare il nome del file JSON.
+Create your own JSON file, or use the sample provided at [Azure Container Service demo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Store it in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file.
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-L'API Marathon può anche essere usata per aumentare o ridurre il numero di istanze delle distribuzioni di applicazioni. Nell'esempio precedente è stata distribuita un'istanza di un'applicazione. Il numero di istanze dell'applicazione viene ora aumentato a tre. A tale scopo, creare un file JSON usando il testo JSON seguente e archiviarlo in un percorso accessibile.
+You can also use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file by using the following JSON text, and store it in an accessible location.
 
 ```json
 { "instances": 3 }
 ```
 
-Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
+Run the following command to scale out the application.
 
-> [AZURE.NOTE] L'URI sarà http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/marathon/v2/apps/nginx.
+> [AZURE.NOTE] The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- [Altre informazioni sugli endpoint HTTP Mesos](http://mesos.apache.org/documentation/latest/endpoints/).
-- [Altre informazioni sull'API REST di Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
+- [Read more about the Mesos HTTP endpoints]( http://mesos.apache.org/documentation/latest/endpoints/).
+- [Read more about the Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

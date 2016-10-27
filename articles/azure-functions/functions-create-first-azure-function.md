@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare la prima funzione di Azure | Microsoft Azure"
-   description="È possibile creare la prima funzione di Azure, un'applicazione senza server, in meno di due minuti."
+   pageTitle="Create your first Azure Function | Microsoft Azure"
+   description="Build your first Azure Function, a serverless application, in less than two minutes."
    services="functions"
    documentationCenter="na"
    authors="ggailey777"
@@ -18,56 +18,65 @@
    ms.date="09/08/2016"
    ms.author="glenga"/>
 
-#Creare la prima funzione di Azure
 
-##Overview
-Funzioni di Azure offre un'esperienza di calcolo on demand guidata dagli eventi che estende la piattaforma applicativa di Azure con funzionalità per l'implementazione di codice attivato da eventi generati in altri servizi di Azure, prodotti SaaS e sistemi locali. Con Funzioni di Azure le applicazioni possono essere ridimensionate on demand e usano un modello di pagamento in base al consumo delle risorse. Funzioni di Azure permette di creare unità pianificate o attivate del codice implementate in un'ampia gamma di linguaggi di programmazione. Per altre informazioni su Funzioni di Azure, vedere [Panoramica di Funzioni di Azure](functions-overview.md).
+#<a name="create-your-first-azure-function"></a>Create your first Azure Function
 
-Questo argomento illustra come usare l'avvio rapido di Funzioni di Azure nel portale per creare una semplice funzione Node.js "hello world" richiamata da un trigger HTTP. È anche possibile guardare un breve video per scoprire come eseguire questi passaggi nel portale.
+##<a name="overview"></a>Overview
+Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
 
-## Video
+This topic shows you how to use the Azure Functions quickstart in the portal to create a simple "hello world"  Node.js function that is invoked by an HTTP-trigger. You can also watch a short video to see how these steps are performed in the portal.
 
-Il video seguente mostra come eseguire i passaggi di base di questa esercitazione.
+## <a name="watch-the-video"></a>Watch the video
+
+The following video show how to perform the basic steps in this tutorial. 
 
 [AZURE.VIDEO create-your-first-azure-function-simple]
 
-##Creare una funzione dall'avvio rapido
+##<a name="create-a-function-from-the-quickstart"></a>Create a function from the quickstart
 
-Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Seguire questi passaggi per creare una nuova app per le funzioni, nonché la nuova funzione. La nuova app per le funzioni viene creata con una configurazione predefinita. Per un esempio di come creare in modo esplicito l'app per le funzioni, vedere [l'altra esercitazione di avvio rapido di Funzioni di Azure](functions-create-first-azure-function-azure-portal.md).
+A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](functions-create-first-azure-function-azure-portal.md).
 
-Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si possiede già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
+Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 
-1. Passare al [portale di Funzioni di Azure](https://functions.azure.com/signin) e accedere con l'account Azure.
+1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
 
-2. In **Nome** digitare un nome univoco per la nuova app per le funzioni o accettare quello generato automaticamente, selezionare la voce preferita in **Area** e quindi fare clic su **Crea + attività iniziali**.
+2. Type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
 
-3. Nella scheda **Avvio rapido** fare clic su **WebHook e API** e **JavaScript** e quindi scegliere **Crea questa funzione**. Verrà creata una nuova funzione Node.js predefinita.
+3. In the **Quickstart** tab, click **WebHook + API** and **JavaScript**, then click **Create a function**. A new predefined Node.js function is created. 
 
-	![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-4. (Facoltativo) A questo punto dell'avvio rapido è possibile scegliere di seguire una demo introduttiva sulle funzionalità di Funzioni di Azure nel portale. Dopo aver completato o ignorato la demo introduttiva, è possibile testare la nuova funzione usando il trigger HTTP.
+4. (Optional) At this point in the quickstart, you can choose to take a quick tour of Azure Functions features in the portal.   Once you have completed or skipped the tour, you can test your new function by using the HTTP trigger.
 
-##Testare la funzione
+##<a name="test-the-function"></a>Test the function
 
-Grazie al codice funzionale contenuto negli avvii rapidi di Funzioni di Azure, è possibile testare immediatamente la nuova funzione.
+Since the Azure Functions quickstarts contain functional code, you can immediately test your new function.
 
-1. Nella scheda **Sviluppo** esaminare la finestra **Codice** e osservare che questo codice Node.js prevede una richiesta HTTP con un valore *name* passato nel corpo del messaggio o in una stringa di query. Durante l'esecuzione della funzione, questo valore viene restituito nel messaggio di risposta.
+1. In the **Develop** tab, review the **Code** window and notice that this Node.js code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message.
 
-	![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Scorrere verso il basso fino alla casella di testo **Corpo della richiesta**, modificare il valore della proprietà *name* specificando un nome personalizzato e quindi fare clic su **Esegui**. Si noterà che l'esecuzione viene attivata da una richiesta HTTP di test, le informazioni vengono scritte nei log in streaming e in **Output** viene visualizzata la risposta "hello".
+2. Scroll down to the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You will see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
 
-3. Per attivare l'esecuzione della stessa funzione da un'altra finestra o scheda del browser, copiare il valore di **URL funzione** dalla scheda **Sviluppo** e incollarlo nella barra degli indirizzi di un browser, quindi aggiungere il valore della stringa di query `&name=yourname` e premere INVIO. Nei log vengono scritte le stesse informazioni e il browser visualizza la risposta "hello" come prima.
+3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value from the **Develop** tab and paste it in a browser address bar, then append the query string value `&name=yourname` and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
 
-##Passaggi successivi
+##<a name="next-steps"></a>Next steps
 
-L'avvio rapido mostra un'esecuzione molto semplice di una funzione di base attivata da HTTP. Per altre informazioni su come sfruttare tutte le potenzialità di Funzioni di Azure nelle proprie app, vedere gli argomenti seguenti.
+This quickstart demonstrates a very simple execution of a basic HTTP-triggered function. See these topics for more information about leveraging the power of Azure Functions in your apps.
 
-+ [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md) Informazioni di riferimento per programmatori per la codifica di funzioni e la definizione di trigger e associazioni.
-+ [Test di Funzioni di Azure](functions-test-a-function.md) Descrive diversi strumenti e tecniche per il test delle funzioni.
-+ [Scalabilità di Funzioni di Azure](functions-scale.md) Descrive i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di servizio dinamico, e come scegliere quello più appropriato.
-+ [Che cos'è Servizio app di Azure?](../app-service/app-service-value-prop-what-is.md) Funzioni di Azure sfrutta la piattaforma Servizio app di Azure per funzionalità di base come distribuzioni, variabili di ambiente e diagnostica.
++ [Azure Functions developer reference](functions-reference.md)  
+Programmer reference for coding functions and defining triggers and bindings.
++ [Testing Azure Functions](functions-test-a-function.md)  
+Describes various tools and techniques for testing your functions.
++ [How to scale Azure Functions](functions-scale.md)  
+Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan. 
++ [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
+Azure Functions leverages the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
 
-[AZURE.INCLUDE [Nota introduttiva](../../includes/functions-get-help.md)]
+[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

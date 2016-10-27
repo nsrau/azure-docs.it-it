@@ -1,13 +1,15 @@
-## Gateway VPN 
-Una risorsa del gateway VPN consente di creare una connessione sicura tra i data center locali e Azure. Una risorsa del gateway VPN può essere configurata in tre modi diversi:
+## <a name="vpn-gateway"></a>VPN Gateway 
+A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure. A VPN gateway resource can be configured in three different ways:
  
-- **Da punto a sito**: per accedere in modo sicuro alle risorse di Azure ospitate in una rete virtuale usando un client VPN da qualsiasi computer. 
-- **Connessione multisito**: per connettersi in modo sicuro dai data center locali alle risorse in esecuzione in una rete virtuale. 
-- **Connessione tra reti virtuali**: per stabilire una connessione sicura tra le reti virtuali di Azure nella stessa area o in aree diverse per compilare i carichi di lavoro con ridondanza geografica.
+- **Point to Site** – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer. 
+- **Multi-site connection** – you can securely connect from your on-premises data centers to resources running in a VNET. 
+- **VNET to VNET** – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.
 
-Le proprietà principali di un gateway VPN includono:
+Key properties of a VPN gateway include:
  
-- **Tipo di gateway**: gateway indirizzato in modo dinamico o statico. 
-- **Prefisso del pool di indirizzi del client VPN**: indirizzi IP da assegnare ai client che si connettono in una configurazione da punto a sito.
+- **Gateway type** - dynamically routed or a static routed gateway. 
+- **VPN Client Address Pool Prefix** – IP addresses to be assigned to clients connecting in a point to site configuration.
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

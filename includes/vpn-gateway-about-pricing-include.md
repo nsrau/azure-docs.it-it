@@ -1,11 +1,13 @@
-Si pagano due cose: i costi di calcolo orari per il gateway di rete virtuale e il trasferimento dei dati in uscita dal gateway di rete virtuale. Le informazioni sui prezzi sono disponibili nella pagina [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway).
+You pay for two things: the hourly compute costs for the virtual network gateway, and the egress data transfer from the virtual network gateway. Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway) page.
 
-**Costi di calcolo per il gateway di rete virtuale**<br>Ogni gateway di rete virtuale ha un costo di calcolo orario. Il prezzo dipende dallo SKU del gateway specificato quando si crea un gateway di rete virtuale. Il costo è relativo al gateway in sé e va aggiunto al trasferimento dei dati che passano dal gateway.
+**Virtual network gateway compute costs**<br>Each virtual network gateway has an hourly compute cost. The price is based on the gateway SKU that you specify when you create a virtual network gateway. The cost is for the gateway itself and is in addition to the data transfer that flows through the gateway.
 
-**Costi per il trasferimento dei dati**<br>I costi per il trasferimento dei dati vengono calcolati in base al traffico in uscita dal gateway di rete virtuale di origine.
+**Data transfer costs**<br>Data transfer costs are calculated based on egress traffic from the source virtual network gateway.
 
-- Se si invia il traffico al dispositivo VPN locale, i costi verranno addebitati insieme alla tariffa per il trasferimento dei dati in uscita da Internet.
-- Se si invia il traffico tra reti virtuali in aree diverse, i prezzi dipendono dall'area.
-- Se si invia il traffico solo tra reti virtuali nella stessa area, non sono previsti costi per i dati. Il traffico tra reti virtuali nella stessa area è gratuito.
+- If you are sending traffic to your on-premises VPN device, it will be charged with the Internet egress data transfer rate.
+- If you are sending traffic between virtual networks in different regions, the pricing is based the region.
+- If you are sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,82 +1,88 @@
 <properties
-	pageTitle="Uso del connettore File nelle app per la logica | Servizio app di Microsoft Azure"
-	description="Come creare e configurare l'app per le API o il connettore File e usarlo in un'app per la logica nel servizio app di Azure"
-	authors="rajeshramabathiran"
-	manager="erikre"
-	editor=""
-	services="logic-apps"
-	documentationCenter=""/>
+    pageTitle="Using the File connector in Logic apps | Microsoft Azure App Service"
+    description="How to create and configure the file connector or API app and use it in a Logic app in Azure App Service"
+    authors="rajeshramabathiran"
+    manager="erikre"
+    editor=""
+    services="logic-apps"
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="rajram"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="rajram"/>
 
-# Iniziare a usare il connettore File e aggiungerlo all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
-Connettersi a un file system per caricare, scaricare ed eseguire altre operazioni sui file in un computer host. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati. È possibile aggiungere il connettore File al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
+# <a name="get-started-with-the-file-connector-and-add-it-to-your-logic-app"></a>Get started with the file connector and add it to your Logic app
+>[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
 
-Il connettore File usa Gestione connessione ibrida per la connettività ibrida al file system host.
+Connect to a file system to upload, download, and more to your files on a host machine. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data. You can add the file connector to your business workflow and process data as part of this workflow within a Logic app. 
 
-## Creazione di un connettore File per l'app per la logica ##
-Per usare il connettore File, è prima di tutto necessario creare un'istanza dell'app per le API del connettore File. Attenersi alla procedura riportata di seguito:
+The file connector uses the Hybrid Connection Manager for hybrid connectivity to the host file system.
 
-1.	Aprire Azure Marketplace con l'opzione + NUOVO nella parte sinistra nel portale di Azure.
-2.	Cercare "file connector" (connettore file).
-3.	Selezionare **File Connector (preview)** (Connettore file - anteprima) nei risultati della ricerca.
-4.	Selezionare il pulsante **Crea**.
-5.	Configurare il connettore file come segue: ![][1]
+## <a name="creating-a-file-connector-for-your-logic-app"></a>Creating a file connector for your Logic app ##
+To use the file connector, you need to first create an instance of the file connector API app. This can be done as follows:
 
-	- **Name** (Nome): specificare un nome per il connettore file.
-	- **Impostazioni pacchetto**
-		- **Root Folder**: specificare il percorso della cartella radice nel computer host. Ad esempio, D:\\FileConnectorTest
-		- **Service Bus Connection String**: specificare una stringa di connessione del bus di servizio. Assicurarsi che lo spazio dei nomi del bus di servizio sia del tipo Standard e NON Basic per consentire l'uso degli inoltri del bus di servizio. L'inoltro del bus di servizio viene usato per la connessione a Gestione connessione ibrida.
-	- **Piano di servizio app**: selezionare o creare un piano di servizio app
-	- **Pricing tier**: scegliere un livello di prezzo per il connettore
-	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
-	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
+1.  Open the Azure Marketplace using the + NEW option on the left side of the Azure Portal.
+2.  Search for “file connector”.
+3.  Select **File Connector (preview)** from the search results.
+4.  Select the **Create** button
+5.  Configure the file connector as follows:  
+![][1]
 
-4. Fare clic su Create. Verrà creato un nuovo connettore File.
+    - **Name** - give a name for your file connector
+    - **Package Settings**
+        - **Root Folder** - Specify the root folder path on your host machine. Eg. D:\FileConnectorTest
+        - **Service Bus Connection String** - Provide a Service Bus Connection String. Make sure that the service bus namespace is of type Standard and NOT Basic to allow for use of Service Bus Relays.  Service Bus Relay is used to connect to the Hybrid Connection Manager.
+    - **App Service plan** - select or create a App Service plan
+    - **Pricing tier** - choose a pricing tier for the connector
+    - **Resource group** - select or create a resource group where the connector should reside
+    - **Subscription** - choose a subscription you want this connector to be created in
+    - **Location** - choose the geographic location where you would like the connector to be deployed
 
-## Configurare Gestione connessione ibrida ##
-Una volta creata l'istanza dell'app per le API, individuare il relativo dashboard. Questa operazione può essere eseguita facendo clic su Esplora > App per le API > selezionare la propria app per le API del connettore File. Viene visualizzato lo strumento Gestione connessione ibrida da configurare. Per altre informazioni su come configurare e risolvere i problemi relativi a Gestione connessione ibrida, vedere l'articolo relativo all'[uso di Gestione connessione ibrida].
+4. Click on Create. A new file connector will be created
 
-## Uso del connettore File nell'app per la logica ##
-Dopo aver creato l'app per le API, è possibile usare il connettore File come azione per l'app per la logica. A questo scopo, è necessario:
+## <a name="configure-hybrid-connection-manager"></a>Configure Hybrid Connection Manager ##
+Once the API App instance is created, browse to its dashboard.  This can be done by clicking on Browse > API Apps > select your file connector API App.  From here the Hybrid Connection Manager needs to be configured.
+For more information on configuring and trouble shooting the Hybrid Connection Manager see [Using the Hybrid Connection Manager].
 
-1.	Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore File. Seguire le istruzioni per [creare una nuova app per la logica].
+## <a name="using-the-file-connector-in-your-logic-app"></a>Using the file connector in your Logic app ##
+Once your API app is created, you can now use the file connector as an action for your Logic app. To do this, you need to:
 
-2.	Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
+1.  Create a new Logic app and choose the same resource group which has the file connector. Follow instructions to [Create a new Logic app].
 
-3.	Il connettore File viene visualizzato nella sezione relativa alle app per le API nel gruppo di risorse nella raccolta a destra.
+2.  Open “Triggers and Actions” within the created Logic app to open the Logic apps Designer and configure your flow.
 
-4.	È possibile trascinare l'app per le API del connettore file nell'editor facendo clic su "File Connector" (Connettore file). Il connettore file espone un trigger e 4 azioni: ![][5]
+3.  The file connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
 
-6.	Ciascuna azione espone determinate proprietà. L'immagine seguente illustra le proprietà del trigger e dell'azione Get File (Ottieni file): ![][6]
+4.  You can drop the file connector API app into the editor by clicking on the “file connector”. file connector exposes one trigger and 4 Actions:  
+![][5]
 
-7. Una volta completata la configurazione, è possibile usare il trigger e l'azione nel flusso. È possibile configurare anche altre azioni nello stesso modo.
+6.  Each one of these exposes certain properties. The image below lists the properties for the trigger and Get file Action:  
+![][6]
 
-> [AZURE.NOTE] Una volta letto dalla cartella, il trigger del file eliminerà il file.
+7. Once these are configured, the Trigger and Action can be used in your flow. Similarly, other actions can be configured as well.
 
-## API REST del connettore File ##
-Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Esplora-> App per le API->File Connector. Fare ora clic su API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore: ![][7]
+> [AZURE.NOTE] The file trigger will delete the file after it is successfully read from the folder.
 
-Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definizione delle API del connettore file].
+## <a name="file-connector-rest-apis"></a>File connector REST APIs ##
+To use the connector outside of a Logic app, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->file connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector:  
+![][7]
 
-## Altri vantaggi del connettore
-Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
+Details of the APIs can be found at [file connector API definition].
 
->[AZURE.NOTE] Per iniziare a usare le app per la logica di Azure prima di iscriversi per ottenere un account Azure, passare alla pagina [Crea un'app del Servizio app di Azure](https://tryappservice.azure.com/?appservice=logic), in cui è possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+## <a name="do-more-with-your-connector"></a>Do more with your connector
+Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
 
-Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE] If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and connector](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -85,8 +91,12 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [7]: ./media/app-service-logic-connector-file/img7.PNG
 
 <!-- Links -->
-[creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
-[definizione delle API del connettore file]: https://msdn.microsoft.com/library/dn936296.aspx
-[uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
+[Create a new Logic app]: app-service-logic-create-a-logic-app.md
+[File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
+[Using the Hybrid Connection Manager]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

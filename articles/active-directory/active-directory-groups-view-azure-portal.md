@@ -1,49 +1,54 @@
 <properties
-	pageTitle="Visualizzare tutti i gruppi esistenti in anteprima di Azure Active Directory | Microsoft Azure"
-	description="Come visualizzare i gruppi già creati in anteprima di Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="View all existing groups in Azure Active Directory preview | Microsoft Azure"
+    description="How to view the groups that have already been created in Azure Active Directory preview."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="curtand"/>
 
 
-# Visualizzare tutti i gruppi esistenti in anteprima di Azure Active Directory
 
-Questo articolo illustra come visualizzare tutti i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Una delle funzionalità di Gestione utenti di Azure Active Directory (Azure AD) è la possibilità di creare gruppi di utenti popolabili con gli utenti. I gruppi vengono usati per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti contemporaneamente.
+# <a name="view-all-existing-groups-in-azure-active-directory-preview"></a>View all existing groups in Azure Active Directory preview
 
-## Come è possibile visualizzare tutti i gruppi?
+This article explains how to view all groups in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) One of the features of Azure Active Directory (Azure AD) user management is the ability to create groups that you can populate with your users. You use a group to perform management tasks such as assigning licenses or permissions to a number of users at once.
 
-1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
+## <a name="how-do-i-see-all-the-groups?"></a>How do I see all the groups?
 
-2.  Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-    ![Apertura di Gestione utenti](./media/active-directory-groups-view-azure-portal/search-user-management.png)
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-3.  Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
+    ![Opening user management](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 
-    ![Apertura del pannello Gruppi](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
+3.  On the **Users and groups** blade, select **All groups**.
 
-4. Nel pannello **Utenti e gruppi - Tutti i gruppi** è possibile aggiungere o rimuovere colonne visualizzate, filtrare l'elenco per cercare un gruppo o apportare modifiche ai gruppi per cui si dispone di autorizzazioni sufficienti per la modifica.
+    ![Opening the groups blade](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 
-## Informazioni aggiuntive
+4. On the **Users and groups - All groups** blade, you can add or remove display columns, filter the list to search for a group, or make changes to groups that you have sufficient permissions to change.
 
-Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
+## <a name="additional-information"></a>Additional information
 
-* [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
-* [Creare un nuovo gruppo e aggiunta di membri](active-directory-groups-create-azure-portal.md)
-* [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
-* [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
-* [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
-* [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
+These articles provide additional information on Azure Active Directory.
 
-<!---HONumber=AcomDC_0914_2016-->
+* [See existing groups](active-directory-groups-view-azure-portal.md)
+* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
+* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
+* [Manage members of a group](active-directory-groups-members-azure-portal.md)
+* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

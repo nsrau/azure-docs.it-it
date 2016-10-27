@@ -1,6 +1,6 @@
 <properties
-pageTitle="Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure"
-description="Scoprire come indicizzare i dati archiviati nelle tabelle di Azure con Ricerca di Azure"
+pageTitle="Indexing Azure Table Storage with Azure Search"
+description="Learn how to index data stored in Azure Tables with Azure Search"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -15,113 +15,117 @@ ms.tgt_pltfrm="na"
 ms.date="08/16/2016"
 ms.author="eugenesh" />
 
-# Indicizzazione in Archiviazione tabelle di Azure con Ricerca di Azure
 
-In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare i dati archiviati in Archiviazione tabelle di Azure. Con il nuovo indicizzatore di tabelle di Ricerca di Azure, questo processo diventa rapido e facile.
+# <a name="indexing-azure-table-storage-with-azure-search"></a>Indexing Azure Table Storage with Azure Search
 
-> [AZURE.IMPORTANT] Questa funzionalità è attualmente in anteprima. È disponibile solo nell'API REST usando la versione **2015-02-28-Preview** e nella versione 2.0-preview di .NET SDK. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+This article shows how to use Azure Search to index data stored in Azure Table Storage. The new Azure Search table indexer makes this process quick and seamless. 
 
-## Configurazione dell'indicizzazione delle tabelle di Azure
+> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview** and in version 2.0-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
-Per installare e configurare un indicizzatore di tabelle di Azure, è possibile usare l'API REST di Ricerca di Azure per creare e gestire **indicizzatori** e **origini dati** come descritto in [Operazioni dell'indicizzatore](https://msdn.microsoft.com/library/azure/dn946891.aspx). È possibile anche usare la [versione 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) di .NET SDK. In futuro, il supporto per l'indicizzazione di tabelle sarà aggiunto al portale di Azure.
+## <a name="setting-up-azure-table-indexing"></a>Setting up Azure table indexing
 
-Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono a Ricerca di Azure di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate).
+To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) of the .NET SDK. In the future, support for table indexing will be added to the Azure Portal.
 
-Un indicizzatore legge i dati da un'origine dati e li carica in un indice di ricerca di destinazione.
+A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows).
 
-Per configurare l'indicizzazione delle tabelle:
+An indexer reads data from a data source and loads it into a target search index.
 
-1. Creare un'origine dati
-	- Impostare il parametro `type` su `azuretable`
-	- Passare la stringa di connessione dell'account di archiviazione come parametro `credentials.connectionString`
-	- Specificare il nome della tabella usando il parametro `container.name`
-	- Specificare facoltativamente una query usando il parametro `container.query`. Se possibile, usare un filtro sul parametro PartitionKey per ottimizzare le prestazioni. Qualsiasi altra query comporterà un'analisi completa della tabella e il conseguente peggioramento delle prestazioni per tabelle di grandi dimensioni.
-2. Creare un indice di ricerca con lo schema corrispondente alle colonne della tabella che si desidera indicizzare.
-3. Creare l'indicizzatore connettendo l'origine dati all'indice di ricerca.
+To set up table indexing:
 
-### Creare un'origine dati
+1. Create a data source
+    - Set the `type` parameter to `azuretable`
+    - Pass in your storage account connection string as the `credentials.connectionString` parameter
+    - Specify the table name using the `container.name` parameter
+    - Optionally, specify a query using the `container.query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables.
+2. Create a search index with the schema that corresponds to the columns in the table that you want to index. 
+3. Create the indexer by connecting your data source to the search index.
 
-	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
+### <a name="create-data-source"></a>Create data source
 
-	{
-	    "name" : "table-datasource",
-	    "type" : "azuretable",
-	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
-	}   
+    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](search-api-indexers-2015-02-28-preview.md#create-data-source).
+    {
+        "name" : "table-datasource",
+        "type" : "azuretable",
+        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
+    }   
 
-### Creare un indice 
+For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
-	Content-Type: application/json
-	api-key: [admin key]
+### <a name="create-index"></a>Create index 
 
-	{
-  		"name" : "my-target-index",
-  		"fields": [
-    		{ "name": "key", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-  		]
-	}
+    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    Content-Type: application/json
+    api-key: [admin key]
 
-Per altre informazioni sull'API di creazione di un indice, vedere [Creare l'indice](https://msdn.microsoft.com/library/dn798941.aspx).
+    {
+        "name" : "my-target-index",
+        "fields": [
+            { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+        ]
+    }
 
-### Creare un indicizzatore 
+For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
 
-Infine creare l'indicizzatore che fa riferimento all'origine dati e all'indice di destinazione. Ad esempio:
+### <a name="create-indexer"></a>Create indexer 
 
-	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
+Finally, create the indexer that references the data source and the target index. For example:
 
-	{
-	  "name" : "table-indexer",
-	  "dataSourceName" : "table-datasource",
-	  "targetIndexName" : "my-target-index",
-	  "schedule" : { "interval" : "PT2H" }
-	}
+    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](search-api-indexers-2015-02-28-preview.md#create-indexer).
+    {
+      "name" : "table-indexer",
+      "dataSourceName" : "table-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" }
+    }
 
-Questo è tutto il necessario per un'indicizzazione perfetta.
+For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-## Gestione di nomi campo diversi
+That's all there is to it - happy indexing!
 
-I nomi campo nell'indice esistente saranno spesso diversi dai nomi proprietà nella tabella. È possibile usare i **mapping dei campi** per eseguire il mapping dei nomi di proprietà forniti dalla tabella ai nomi di campo nell'indice di ricerca. Per altre informazioni sui mapping dei campi, vedere [I mapping dei campi dell'indicizzatore di Ricerca di Azure colmano le differenze tra le origini dati e gli indici di ricerca](search-indexer-field-mappings.md).
+## <a name="dealing-with-different-field-names"></a>Dealing with different field names
 
-## Gestione delle chiavi del documento
+Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between data sources and search indexes](search-indexer-field-mappings.md).
 
-In Ricerca di Azure la chiave del documento identifica un documento in modo univoco. Ogni indice di ricerca deve avere esclusivamente un campo chiave di tipo `Edm.String`. Il campo chiave è necessario per ogni documento da aggiungere all'indice ed è l'unico campo obbligatorio.
+## <a name="handling-document-keys"></a>Handling document keys
 
-La chiave delle righe è composta. Ricerca di Azure genera pertanto un campo sintetico denominato `Key`, vale a dire una concatenazione di valori di chiave di partizione e chiave di riga. Ad esempio, se il parametro PartitionKey di una riga è `PK1` e il parametro RowKey è `RK1`, il valore del campo `Key` sarà `PK1RK1`.
+In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type `Edm.String`. The key field is required for each document that is being added to the index (in fact, it is the only required field).
 
-> [AZURE.NOTE] Il valore `Key` può contenere caratteri non validi nelle chiavi del documento, ad esempio i trattini. È possibile risolvere i problemi legati ai caratteri non validi usando la [funzione del mapping dei campi](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. In questo caso, ricordarsi di usare la codifica Base64 sicura per gli URL quando si passano le chiavi dei documenti nelle chiamate API, ad esempio in una ricerca.
+Since table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then `Key` field's value will be `PK1RK1`. 
 
-## Indicizzazione incrementale e rilevamento delle eliminazioni
+> [AZURE.NOTE] The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also use URL-safe Base64 encoding when passing document keys in API calls such as Lookup.
+
+## <a name="incremental-indexing-and-deletion-detection"></a>Incremental indexing and deletion detection
  
-Quando un indicizzatore di tabelle viene configurato per l'esecuzione in base a una pianificazione, vengono indicizzate nuovamente solo le righe nuove o aggiornate, come definito dal valore `Timestamp` di una riga. Non è necessario specificare un criterio di rilevamento delle modifiche perché l'indicizzazione incrementale viene abilitata automaticamente.
+When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row’s `Timestamp` value. You don’t have to specify a change detection policy – incremental indexing is enabled for you automatically. 
 
-Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigliabile usare una strategia di eliminazione temporanea, anziché eliminare una riga, quindi aggiungere una proprietà per indicare che sono stati eliminati e configurare un criterio di rilevamento dell'eliminazione temporanea nell'origine dati. Il criterio illustrato sotto, ad esempio, indica che una riga sarà eliminata se contiene una proprietà `IsDeleted` con il valore `"true"`:
+To indicate that certain documents must be removed from the index, you can use a soft delete strategy – instead of deleting a row, add a property to indicate that it is deleted, and set up a soft deletion detection policy on the datasource. For example, the policy shown below will consider that a row is deleted if it has a property `IsDeleted` with the value `"true"`: 
 
-	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
-	
-	{
-	    "name" : "my-table-datasource",
-	    "type" : "azuretable",
-	    "credentials" : { "connectionString" : "<your storage connection string>" },
-	    "container" : { "name" : "table name", "query" : "query" },
-	    "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
-	}   
+    PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    
+    {
+        "name" : "my-table-datasource",
+        "type" : "azuretable",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "table name", "query" : "query" },
+        "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
+    }   
 
 
-## Come contribuire al miglioramento di Ricerca di Azure
+## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
 
-Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

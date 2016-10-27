@@ -1,23 +1,25 @@
-## Uso del portale di Azure
+## <a name="using-azure-portal"></a>Using Azure portal
 
-1. Selezionare la VM di cui si desidera eseguire di nuovo la distribuzione, quindi fare clic sul pulsante "Ridistribuisci" nel pannello "Impostazioni". Scorrere fino alla sezione **Supporto e risoluzione dei problemi** che contiene il pulsante "Ridistribuisci", come nell'esempio seguente:
+1. Select the VM you wish to redeploy, and click the 'Redeploy' button in the 'Settings' blade. Scroll down to see the **Support and Troubleshooting** section that contains the 'Redeploy' button as in the following example:
 
-	![Pannello VM di Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png) 
+    ![Azure VM blade](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 
-2. Fare clic sul pulsante "Ridistribuisci" per confermare l'operazione:
+2. To confirm the operation, click the 'Redeploy' button:
 
-	![Pannello Ridistribuire una VM](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png) 
+    ![Redeploy a VM blade](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
 
-3. Lo **stato** della VM passa ad *Aggiornamento in corso* mentre la VM si prepara per la ridistribuzione, come nell'esempio seguente:
+3. The **Status** of the VM changes to *Updating* as the VM prepares to redeploy, as in the following example:
 
-	![Aggiornamento di una VM](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png) 
+    ![VM updating](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 
-4. Lo **stato** passa poi ad *Avvio in corso* mentre la VM si avvia su un nuovo host Azure, come nell'esempio seguente:
+4. The **Status** then changes to *Starting* as the VM boots up on a new Azure host, as in the following example:
 
-	![Avvio di una VM](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png) 
+    ![VM starting](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 
-5. Al termine del processo di avvio della VM, lo **stato** torna a *In esecuzione*, a indicare che la VM è stata ridistribuita:
+5. After the VM finishes the boot process, the **Status** then returns to *Running*, indicating the VM has been successfully redeployed:
 
-	![Esecuzione di una VM](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png) 
+    ![VM running](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usare i cmdlet PowerShell con Azure RemoteApp | Microsoft Azure"
-   description="Informazioni su come usare i cmdlet Windows PowerShell in Azure RemoteApp."
+   pageTitle="Use PowerShell cmdlets with Azure RemoteApp | Microsoft Azure"
+   description="Learn how to use Windows PowerShell cmdlets in Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -18,56 +18,57 @@
 
 
 
-# Usare i cmdlet Windows PowerShell con Azure RemoteApp
+
+# <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Use Windows PowerShell cmdlets with Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
- È possibile usare i cmdlet Azure RemoteApp PowerShell per amministrare e gestire le raccolte. Per iniziare, usare le informazioni seguenti.
+ You can use the Azure RemoteApp PowerShell cmdlets to administer and maintain your collections. Use the following information to get started.
 
-## Ottenere i cmdlet 
+## <a name="get-the-cmdlets"></a>Get the cmdlets 
 -------------
-Prima di tutto scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175). I cmdlet di RemoteApp sono inclusi.
+First download the Azure Powershell cmdlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp cmdlets are included in it. 
 
-Vedere la [guida dei cmdlet di Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
+Check out the [Azure RemoteApp cmdlet help](https://msdn.microsoft.com/library/mt428031.aspx).
 
-## Configurare i cmdlet di Azure per usare la sottoscrizione
+## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configure Azure cmdlets to use your subscription
 ------------------
-Seguire [questa guida](../powershell-install-configure.md) per poter usare i cmdlet con la sottoscrizione di Azure.
+Follow [this guide](../powershell-install-configure.md) so you can use the cmdlets against your Azure subscription.
 
-Per iniziare rapidamente è possibile eseguire questi passaggi:
+You can use these steps to get started quickly:
 
-1.	Scaricare e installare i [cmdlet di Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
-2.	Avviare Microsoft Azure PowerShell.
-3.	Eseguire **Add-AzureAccount** per l'autenticazione alla sottoscrizione di Azure. Quando richiesto, immettere il nome utente e la password usati per accedere al portale di Azure.
-4.	Eseguire **Get-AzureSubscription** per elencare le sottoscrizioni associate all'account utente.
-5.	Eseguire **Select-AzureSubscription** e specificare il nome o l'ID della sottoscrizione da usare nella console di PowerShell.
+1.  Download and install the [Azure PowerShell cmdlets](http://go.microsoft.com/?linkid=9811175).
+2.  Launch Microsoft Azure PowerShell.
+3.  Run **Add-AzureAccount** to authenticate to your Azure subscription. When prompted, enter the same user name and password that you use to sign in to Azure portal.  
+4.  Run **Get-AzureSubscription** to list the subscriptions associated with your user account. 
+5.  Run **Select-AzureSubscription** and specify the subscription name or ID to use in the PowerShell console.
 
-La console di Azure PowerShell è configurata e pronta per l'uso. Tenere presente che sarà necessario ripetere i passaggi da 2 a 5 ogni volta che si avvia la console di Azure PowerShell.
+Congratulations, your Azure PowerShell console is configured and ready to use. Be aware that you'll need to repeate steps 2 through 5 each time you start the the Azure PowerShell console.  
 
-## Creare una raccolta nel cloud
+## <a name="create-a-cloud-collection"></a>Create a cloud collection
 --------------------
-È semplice, basta eseguire il comando seguente:
+It's simple, run the following command:
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-Il comando precedente pubblica automaticamente le applicazioni di Microsoft Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio e Word).
+The above command automatically publishes Microsoft Office 365 applications (Excel, OneNote, Outlook, PowerPoint, Visio and Word).
 
-Per completare la creazione della raccolta possono essere necessari anche più di 30 minuti. Questo comando restituisce quindi un ID di traccia che è possibile usare come indicato di seguito:
+Collection creation can take 30 minutes or longer to complete. Therefore, this command returns a tracking ID that you can use as follows:
 
 
     Get-AzureRemoteAppOperationResult -TrackingId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-Dopo aver completato la creazione della raccolta, è possibile aggiungervi utenti con il comando seguente:
+After the collection is done, you can add users to the collection with the following command:
 
     Add-AzureRemoteAppUser -CollectionName RAppO365Col1 -Type microsoftAccount -UserUpn someone@domain.com
 
-L'operazione è così completata. L'utente dovrebbe essere in grado di connettersi all'applicazione tramite il client Azure RemoteApp disponibile [qui](https://www.remoteapp.windowsazure.com/).
+And you're done! That user should be able to connect to the application using the Azure RemoteApp client found [here](https://www.remoteapp.windowsazure.com/).
 
-## Cmdlet disponibili
-Sono disponibili molti altri comandi, la cui documentazione sarà disponibile a breve:
+## <a name="available-cmdlets"></a>Available cmdlets
+There are lots of other commands that we have, the documentation for them will be coming shortly:
 
-Cmdlet della raccolta RemoteApp di base:
+Basic RemoteApp Collection  cmdlets: 
 
 - New-AzureRemoteAppCollection
 - Get-AzureRemoteAppCollection
@@ -89,7 +90,7 @@ Cmdlet della raccolta RemoteApp di base:
 - Get-AzureRemoteAppCollectionUsageSummary
 - Get-AzureRemoteAppPlan
 
-Cmdlet della rete virtuale RemoteApp:
+RemoteApp virtual network cmdlets:
 
 - New-AzureRemoteAppVNet
 - Get-AzureRemoteAppVNet
@@ -99,14 +100,14 @@ Cmdlet della rete virtuale RemoteApp:
 - Get-- AzureRemoteAppVpnDeviceConfigScript
 - Reset-AzureRemoteAppVpnSharedKey
 
-Cmdlet dell'immagine modello RemoteApp:
+RemoteApp template image cmdlets:
 
 - New-AzureRemoteAppTemplateImage
 - Get-AzureRemoteAppTemplateImage
 - Rename-AzureRemoteAppTemplateImage
 - Remove-AzureRemoteAppTemplateImage
 
-Altri cmdlet di RemoteApp:
+Other RemoteApp cmdlets:
 
 - Get-AzureRemoteAppLocation
 - Get-AzureRemoteAppWorkspace
@@ -114,4 +115,8 @@ Altri cmdlet di RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con EmpCenter | Microsoft Azure" 
-    description="Informazioni su come usare EmpCenter con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with EmpCenter | Microsoft Azure" 
+    description="Learn how to use EmpCenter with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,108 +14,115 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con EmpCenter
-  
-Questa esercitazione descrive l'integrazione di Azure e EmpCenter. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   Sottoscrizione di Azure valida
--   Sottoscrizione di EmpCenter abilitata per l'accesso Single Sign-On
+#<a name="tutorial:-azure-active-directory-integration-with-empcenter"></a>Tutorial: Azure Active Directory integration with EmpCenter
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a EmpCenter potranno accedere all'applicazione tramite il sito aziendale di EmpCenter (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-  
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+The objective of this tutorial is to show the integration of Azure and EmpCenter.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-1.  Abilitazione dell'integrazione dell'applicazione per EmpCenter
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+-   A valid Azure subscription
+-   An EmpCenter single sign-on enabled subscription
+  
+After completing this tutorial, the Azure AD users you have assigned to EmpCenter will be able to single sign into the application at your EmpCenter company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+  
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for EmpCenter
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-empcenter-tutorial/IC802916.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per EmpCenter
+##<a name="enabling-the-application-integration-for-empcenter"></a>Enabling the application integration for EmpCenter
   
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per EmpCenter.
+The objective of this section is to outline how to enable the application integration for EmpCenter.
 
-###Per abilitare l'integrazione dell'applicazione per EmpCenter, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-empcenter,-perform-the-following-steps:"></a>To enable the application integration for EmpCenter, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-empcenter-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-empcenter-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-empcenter-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **EmpCenter**.
+6.  In the **search box**, type **EmpCenter**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-empcenter-tutorial/IC802917.png "Raccolta di applicazioni")
+    ![Application Gallery](./media/active-directory-saas-empcenter-tutorial/IC802917.png "Application Gallery")
 
-7.  Nel riquadro dei risultati selezionare **EmpCenter** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **EmpCenter**, and then click **Complete** to add the application.
 
     ![EmpCentral](./media/active-directory-saas-empcenter-tutorial/IC802918.png "EmpCentral")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a EmpCenter tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
+The objective of this section is to outline how to enable users to authenticate to EmpCenter with their account in Azure AD using federation based on the SAML protocol.
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nella pagina di integrazione dell'applicazione **EmpCenter** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  In the Azure classic portal, on the **EmpCenter** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Configure Single Sign-On")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a EmpCenter** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  On the **How would you like users to sign on to EmpCenter** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Configure Single Sign-On")
 
-3.  Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+3.  On the **Configure App Settings** page, perform the following steps:
 
-    ![Configurare le impostazioni dell'app](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurare le impostazioni dell'app")
+    ![Configure App Settings](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configure App Settings")
 
-    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione EmpCenter, ad esempio: *https://partner-authenticati.empcenter.com/workforce/SSO.do*.
-    2.  Fare clic su **Avanti**
+    1.  In the **Sign On URL** textbox, type the URL used by your users to sign-on to your EmpCenter application (e.g.: *https://partner-authenticati.empcenter.com/workforce/SSO.do*).
+    2.  Click **Next**
 
-4.  Nella pagina **Configura accesso Single Sign-On in EmpCenter** fare clic su **Download metadati** e quindi salvare il file di metadati nel computer.
+4.  On the **Configure single sign-on at EmpCenter** page, to download your metadata, click **Download metadata**, and then save the metadata file on your computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802922.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802922.png "Configure Single Sign-On")
 
-5.  Inviare il file di metadati scaricato al team di supporto di EmpCenter.
+5.  Send the downloaded metadata file to your EmpCenter support team.
 
-    >[AZURE.NOTE] La configurazione effettiva dell'accesso Single Sign-On deve essere eseguita dal team di supporto di EmpCenter. Una volta completata l'abilitazione dell'accesso Single Sign-On per la sottoscrizione, si riceverà una notifica.
+    >[AZURE.NOTE] Your EmpCenter support team has to do the actual SSO configuration.
+You will get a notification when SSO has been enabled for your subscription.
 
-6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configura accesso Single Sign-On")
-##Configurazione del provisioning utente
+    ![Configure Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Per consentire agli utenti di Azure AD di accedere a EmpCenter, è necessario eseguirne il provisioning in EmpCenter. Nel caso di EmpCenter, gli account utente devono essere creati dal team di supporto di EmpCenter.
+In order to enable Azure AD users to log into EmpCenter, they must be provisioned into EmpCenter.  
+In the case of EmpCenter, the user accounts need to be created by your EmpCenter support team.
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da EmpCenter per eseguire il provisioning degli account utente di Azure Active Directory.
+>[AZURE.NOTE] You can use any other EmpCenter user account creation tools or APIs provided by EmpCenter to provision Azure Active Directory user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
   
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a EmpCenter, seguire questa procedura:
+###<a name="to-assign-users-to-empcenter,-perform-the-following-steps:"></a>To assign users to EmpCenter, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **EmpCenter** fare clic su **Assegna utenti**.
+2.  On the **EmpCenter **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Assegna utenti")
+    ![Assign Users](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Assign Users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-empcenter-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-empcenter-tutorial/IC767830.png "Yes")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

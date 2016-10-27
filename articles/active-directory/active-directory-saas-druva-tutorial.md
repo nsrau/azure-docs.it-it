@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Druva | Microsoft Azure" 
-    description="Informazioni su come usare Druva con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration integration with Druva | Microsoft Azure" 
+    description="Learn how to use Druva with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,174 +11,184 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con Druva
 
-Questa esercitazione descrive l'integrazione di Azure e Druva. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+#<a name="tutorial:-azure-active-directory-integration-integration-with-druva"></a>Tutorial: Azure Active Directory integration integration with Druva
 
--   Sottoscrizione di Azure valida
--   Sottoscrizione di Druva abilitata per l'accesso Single Sign-On
+The objective of this tutorial is to show the integration of Azure and Druva.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Druva potranno accedere all'applicazione tramite il sito aziendale di Druva (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+-   A valid Azure subscription
+-   A Druva single sign-on enabled subscription
 
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+After completing this tutorial, the Azure AD users you have assigned to Druva will be able to single sign into the application at your Druva company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Abilitazione dell'integrazione dell'applicazione per Druva
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for Druva
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-druva-tutorial/IC795084.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per Druva
+##<a name="enabling-the-application-integration-for-druva"></a>Enabling the application integration for Druva
 
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per Druva.
+The objective of this section is to outline how to enable the application integration for Druva.
 
-###Per abilitare l'integrazione dell'applicazione per Druva, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-druva,-perform-the-following-steps:"></a>To enable the application integration for Druva, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-druva-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-druva-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-druva-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-druva-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-druva-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-druva-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-druva-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **Druva**.
+6.  In the **search box**, type **Druva**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-druva-tutorial/IC795085.png "Raccolta di applicazioni")
+    ![Application Gallery](./media/active-directory-saas-druva-tutorial/IC795085.png "Application Gallery")
 
-7.  Nel riquadro dei risultati selezionare **Druva** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **Druva**, and then click **Complete** to add the application.
 
     ![Druva](./media/active-directory-saas-druva-tutorial/IC795086.png "Druva")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Druva tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Per eseguire questa procedura, è necessario creare un certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Druva with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-L'applicazione Druva prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli **attributi del token SAML**. La schermata seguente illustra un esempio relativo a questa operazione.
+Your Druva application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+The following screenshot shows an example for this.
 
-![Attributi token SAML](./media/active-directory-saas-druva-tutorial/IC795087.png "Attributi token SAML")
+![SAML Token Attributes](./media/active-directory-saas-druva-tutorial/IC795087.png "SAML Token Attributes")
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nella pagina di integrazione dell'applicazione **Druva** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  In the Azure classic portal, on the **Druva** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795027.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795027.png "Configure Single Sign-On")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Druva** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  On the **How would you like users to sign on to Druva** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795088.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795088.png "Configure Single Sign-On")
 
-3.  Nella casella di testo **Druva Sign On URL** (URL di accesso Druva) della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Druva, ad esempio "*https://cloud.druva.com/home/*”, e quindi fare clic su **Avanti**.
+3.  On the **Configure App URL** page, in the **Druva Sign On URL** textbox, type the URL used by your users to sign on to your Druva application (e.g.: "*https://cloud.druva.com/home/*”), and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-druva-tutorial/IC795089.png "Configura URL app")
+    ![Configure App URL](./media/active-directory-saas-druva-tutorial/IC795089.png "Configure App URL")
 
-4.  Nella pagina **Configura accesso Single Sign-On in Druva** fare clic su **Download certificato** per scaricare il file di certificato e quindi salvarlo localmente nel computer.
+4.  On the **Configure single sign-on at Druva** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795090.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795090.png "Configure Single Sign-On")
 
-5.  In un'altra finestra del Web browser accedere al sito aziendale di Druva come amministratore.
+5.  In a different web browser window, log into your Druva company site as an administrator.
 
-6.  Passare a **Manage > Settings**.
+6.  Go to **Manage \> Settings**.
 
-    ![Impostazioni](./media/active-directory-saas-druva-tutorial/IC795091.png "Impostazioni")
+    ![Settings](./media/active-directory-saas-druva-tutorial/IC795091.png "Settings")
 
-7.  Nella finestra di dialogo Single Sign-On Settings seguire questa procedura:
+7.  On the Single Sign-On Settings dialog, perform the following steps:
 
-    ![Single Sign-On Settings](./media/active-directory-saas-druva-tutorial/IC795092.png "Single Sign-On Settings")
+    ![Singl Sign-On Settings](./media/active-directory-saas-druva-tutorial/IC795092.png "Singl Sign-On Settings")
 
-    1.  Nella finestra di dialogo **Configure single sign-on at Druva** (Configura accesso Single Sign-On in Druva) del portale di Azure classico copiare il valore di **URL accesso remoto** e quindi incollarlo nella casella di testo **ID Provider Login URL** (URL di accesso provider di identità).
-    2.  Nella finestra di dialogo **Configure single sign-on at Druva** (Configura accesso Single Sign-On in Druva) del portale di Azure classico copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **ID Provider Logout URL** (URL di disconnessione provider di identità).
-    3.  Creare un file con **codifica Base 64** dal certificato scaricato.
+    1.  In the Azure classic portal, on the **Configure single sign-on at Druva** dialog page, copy the **Remote Login URL** value, and then paste it into the **ID Provider Login URL** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Druva** dialog page, copy the **Remote Logout URL** value, and then paste it into the **ID Provider Logout URL** textbox.
+    3.  Create a **base-64 encoded** file from your downloaded certificate.  
 
-        >[AZURE.TIP] Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    4.  Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **ID Provider Certificate**
-    5.  Per aprire la pagina **Settings** fare clic su **Save**.
+    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
+    5.  To open the **Settings** page, click **Save**.
 
-8.  Nella pagina **Settings** fare clic su **Generate SSO Token**.
+8.  On the **Settings** page, click **Generate SSO Token**.
 
-    ![Impostazioni](./media/active-directory-saas-druva-tutorial/IC795093.png "Impostazioni")
+    ![Settings](./media/active-directory-saas-druva-tutorial/IC795093.png "Settings")
 
-9.  Nella finestra di dialogo **Single Sign-on Authentication Token** eseguire la procedura seguente:
+9.  On the **Single Sign-on Authentication Token** dialog, perform the following steps:
 
     ![SSO Token](./media/active-directory-saas-druva-tutorial/IC795094.png "SSO Token")
 
-    1.  Fare clic su **Copy**.
-    2.  Fare clic su **Close**.
+    1.  Click **Copy**.
+    2.  Click **Close**.
 
-10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795095.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795095.png "Configure Single Sign-On")
 
-11. Nel menu in alto fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
+11. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![Attributi](./media/active-directory-saas-druva-tutorial/IC795096.png "Attributi")
+    ![Attributes](./media/active-directory-saas-druva-tutorial/IC795096.png "Attributes")
 
-12. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
+12. To add the required attribute mappings, perform the following steps:
 
-	|Nome attributo|Valore attributo|
-    |---|---|
-    |insync\_auth\_token|<*valore negli Appunti*>|
+  	|Attribute Name|Attribute Value|
+  	|---|---|
+  	|insync\_auth\_token|<*clipboard value*>|
 
-    1.  Per ogni riga di dati nella tabella precedente, fare clic su **aggiungi attributo utente**.
-    2.  Nella casella di testo **Nome attributo**, digitare il nome dell'attributo indicato per quella riga.
-    3.  Nella casella di testo **Valore attributo**, digitare il valore dell'attributo indicato per la riga.
-    4.  Fare clic su **Complete**.
+    1.  For each data row in the table above, click **add user attribute**.
+    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+    3.  In the **Attribute Value** textbox, type the attribute value shown for that row.
+    4.  Click **Complete**.
 
-13. Fare clic su **Applica modifiche**.
-##Configurazione del provisioning utente
+13. Click **Apply Changes**.
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Per consentire agli utenti di Azure AD di accedere a Druva, è necessario eseguirne il provisioning in Druva. Nel caso di Druva, il provisioning è un'attività manuale.
+In order to enable Azure AD users to log into Druva, they must be provisioned into Druva.  
+In the case of Druva, provisioning is a manual task.
 
-###Per configurare il provisioning utente, eseguire la procedura seguente:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Accedere al sito aziendale di **Druva** come amministratore.
+1.  Log in to your **Druva** company site as administrator.
 
-2.  Passare a **Manage > Users**.
+2.  Go to **Manage \> Users**.
 
     ![Manage Users](./media/active-directory-saas-druva-tutorial/IC795097.png "Manage Users")
 
-3.  Fare clic su **Create New**.
+3.  Click **Create New**.
 
     ![Manage Users](./media/active-directory-saas-druva-tutorial/IC795098.png "Manage Users")
 
-4.  Nella finestra di dialogo Create New User seguire questa procedura:
+4.  On the Create New User dialog, perform the following steps:
 
-    ![Create New User](./media/active-directory-saas-druva-tutorial/IC795099.png "Create New User")
+    ![Create NewUser](./media/active-directory-saas-druva-tutorial/IC795099.png "Create NewUser")
 
-    1.  Digitare l'indirizzo di posta elettronica e il nome di un account utente Azure Active Directory valido di cui si vuole effettuare il provisioning nelle caselle di testo corrispondenti.
-    2.  Fare clic su **Create User**.
+    1.  Type the email address and the name of a valid Azure Active Directory user account you want to provision into the related textboxes.
+    2.  Click **Create User**.
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Druva per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] You can use any other Druva user account creation tools or APIs provided by Druva to provision AAD user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
 
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a Druva, seguire questa procedura:
+###<a name="to-assign-users-to-druva,-perform-the-following-steps:"></a>To assign users to Druva, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **Druva** fare clic su **Assegna utenti**.
+2.  On the **Druva **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-druva-tutorial/IC795100.png "Assegna utenti")
+    ![Assign Users](./media/active-directory-saas-druva-tutorial/IC795100.png "Assign Users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-druva-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-druva-tutorial/IC767830.png "Yes")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,31 +1,34 @@
-## Definizione di un criterio di backup
+## <a name="defining-a-backup-policy"></a>Defining a backup policy
 
-Un criterio di backup definisce una matrice relativa a quando sono stati acquisiti gli snapshot dei dati e per quanto tempo tali snapshot vengono conservati. Quando si definisce un criterio per il backup di una VM è possibile attivare un processo di backup *una volta al giorno*. Quando si crea un nuovo criterio, viene applicato all'insieme di credenziali. L'interfaccia del criterio di backup è simile alla seguente:
+A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
 
-![Criterio di backup](./media/backup-create-policy-for-vms/backup-policy.png)
+![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
 
-Per creare un criterio:
+To create a policy:
 
-1. Immettere un nome in **Nome criterio**.
+1. Enter a name for the **Policy name**.
 
-2. Gli snapshot dei dati possono essere acquisiti a intervalli giornalieri o settimanali. Usare il menu a discesa **Frequenza di backup** per scegliere se acquisire gli snapshot dei dati ogni giorno o ogni settimana.
+2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
 
-    - Se si sceglie un intervallo giornaliero, usare il controllo evidenziato per selezionare l'ora del giorno per lo snapshot. Per modificare l'ora, deselezionarla e selezionare quella nuova.
+    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
 
-    ![Criterio di backup giornaliero](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - Se si sceglie un intervallo settimanale, usare i controlli evidenziati per selezionare uno o più giorni della settimana e l'ora del giorno in cui acquisire lo snapshot. Nel menu dei giorni selezionare uno o più giorni. Nel menu delle ore selezionare un'ora. Per modificare l'ora, deselezionare quella selezionata e selezionare quella nuova.
+    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
 
-    ![Criterio di backup settimanale](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. Per impostazione predefinita, tutte le opzioni di **Intervallo conservazione** sono selezionate. Deselezionare i limiti dell'intervallo di conservazione che non si vuole usare. Specificare quindi uno o più intervalli da usare.
+3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
 
-    Gli intervalli di conservazione mensili e annuali consentono di specificare gli snapshot basati su un incremento settimanale o giornaliero.
+    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
-    >[AZURE.NOTE] Quando si protegge una VM, una volta al giorno viene eseguito un processo di backup. L'ora in cui il backup viene eseguito è la stessa per ogni intervallo di conservazione.
+    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
 
-4. Dopo avere impostato tutte le opzioni per il criterio, nella parte superiore del pannello fare clic su **Salva**.
+4. After setting all options for the policy, at the top of the blade click **Save**.
 
-    Il nuovo criterio verrà immediatamente applicato all'insieme di credenziali.
+    The new policy is immediately applied to the vault.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

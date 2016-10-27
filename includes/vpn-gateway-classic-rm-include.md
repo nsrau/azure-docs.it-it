@@ -1,3 +1,6 @@
-Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Azure Resource manager e classica. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. È necessario conoscere il modello in cui si intende lavorare. Non tutte le funzionalità di rete sono ancora supportate per entrambi i modelli. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../articles/resource-manager-deployment-model.md).
+It's important to know that Azure currently works with two deployment models: Resource Manager and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. You'll need to know which model that you want to work in. Not all networking features are supported yet for both models. For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../articles/resource-manager-deployment-model.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

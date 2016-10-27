@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Indicazioni sulla rete per la distribuzione di contenuti (CDN) | Microsoft Azure"
-   description="Indicazioni sulla rete per la distribuzione di contenuti (CDN) per fornire contenuto a larghezza di banda elevata ospitato in Azure."
+   pageTitle="Content Delivery Network (CDN) guidance | Microsoft Azure"
+   description="Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure."
    services="cdn"
    documentationCenter="na"
    authors="dragon119"
@@ -14,226 +14,227 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/17/2016"
+   ms.date="09/30/2016"
    ms.author="masashin"/>
 
-# Indicazioni sulla rete per la distribuzione di contenuti (CDN)
+
+# <a name="content-delivery-network-(cdn)-guidance"></a>Content Delivery Network (CDN) guidance
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Panoramica
-La Rete di distribuzione dei contenuti di Microsoft Azure (CDN) offre agli sviluppatori una soluzione globale per distribuire contenuti a larghezza di banda elevata ospitati in Azure o in altre posizioni. Con la rete CDN è possibile memorizzare nella cache gli oggetti disponibili pubblicamente caricati dall'archivio BLOB di Azure un'applicazione Web, una macchina virtuale, una cartella dell'applicazione o altre posizioni HTTP/HTTPS. La cache della rete CDN può essere mantenuta in posizioni strategiche per fornire la larghezza di banda massima per la distribuzione di contenuto agli utenti. In genere, la rete CDN viene usata per recapitare contenuto statico come immagini, fogli di stile, documenti, file script sul lato client e pagine HTML.
+## <a name="overview"></a>Overview
+The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using the CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location. The CDN cache can be held at strategic locations to provide maximum bandwidth for delivering content to users. The CDN is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
 
-È anche possibile usare la rete CDN come una cache per la distribuzione di contenuto dinamico, ad esempio un report PDF o un grafico sulla base di input specificati. Se gli stessi valori di input sono forniti da utenti diversi, il risultato sarà lo stesso.
+You can also use the CDN as a cache for serving dynamic content, such as a PDF report or graph based on specified inputs; if the same input values are provided by different users the result should be the same.
 
-I principali vantaggi dell'uso della rete CDN sono una latenza più bassa e la distribuzione più rapida di contenuto agli utenti, indipendentemente dalla loro posizione geografica in relazione al data center in cui è ospitata l'applicazione.
+The major advantages of using the CDN are lower latency and faster delivery of content to users irrespective of their geographical location in relation to the datacenter where the application is hosted.  
 
-![Diagramma della rete CDN](./media/best-practices-cdn/CDN.png)
+![CDN diagram](./media/best-practices-cdn/CDN.png)
 
-L'uso della rete CDN sarà utile anche per ridurre il carico sull'applicazione, perché diminuisce l'elaborazione richiesta per accedere al contenuto e distribuirlo. La riduzione del carico può contribuire a migliorare le prestazioni e la scalabilità dell'applicazione, nonché a diminuire i costi di hosting riducendo le risorse di elaborazione necessarie per ottenere un livello specifico di prestazioni e disponibilità.
+Using the CDN should also help to reduce the load on on application because it is relieved of the processing required to access and deliver the content. This reduction in load can help to increase the performance and scalability of the application, as well as minimizing hosting costs by reducing the processing resources required to achieve a specific level of performance and availability.
 
-## Come e perché si usa la rete CDN
+## <a name="how-and-why-a-cdn-is-used"></a>How and why a CDN is used
 
-Ecco alcuni usi tipici della rete CDN:
+Typical uses for a CDN include:  
 
-+ Distribuzione di risorse statiche per applicazioni client, spesso da un sito Web. Può trattarsi di immagini, fogli di stile, documenti, file, script sul lato client, pagine HTML, frammenti HTML o qualsiasi altro contenuto che il server non debba modificare per ogni richiesta. L'applicazione può creare gli elementi al runtime e renderli disponibili per la rete CDN (ad esempio, creando un elenco di titoli di notizie correnti), ma esegue queste operazioni per ogni richiesta.
++ Delivering static resources for client applications, often from a website. These resources can be images, style sheets, documents, files, client-side scripts, HTML pages, HTML fragments, or any other content that the server does not need to modify for each request. The application can create items at runtime and make them available to the CDN (for example, by creating a list of current news headlines), but it does not do so for each request.
 
-+ Distribuzione di contenuto statico e condiviso pubblico a dispositivi quali telefoni cellulari e tablet PC. L'applicazione stessa è un servizio Web che offre un'API ai client in esecuzione sui vari dispositivi. La rete CDN può anche recapitare set di dati statici, tramite il servizio Web, che i client useranno, ad esempio, per generare la propria interfaccia utente. Ad esempio, la rete CDN può essere usata per distribuire documenti JSON o XML.
++ Delivering public static and shared content to devices such as mobile phones and tablet computers. The application itself is a web service that offers an API to clients running on the various devices. The CDN can also deliver static datasets (via the web service) for the clients to use, perhaps to generate the client UI. For example, the CDN could be used to distribute JSON or XML documents.
 
-+ Distribuzione di interi siti Web costituiti da solo contenuto pubblico statico ai client, senza richiedere risorse di calcolo dedicate.
++ Serving entire websites that consist of only public static content to clients, without requiring any dedicated compute resources.
 
-+ File video in streaming al client on demand. I video traggono vantaggio dalla latenza bassa e dalla connettività affidabile disponibili nei centri dati di tutto il mondo che offrono connessioni di rete CDN.
++ Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections.
 
-+ Miglioramento generale dell'esperienza per gli utenti, specialmente quelli che si trovano lontano dal data center che ospita l'applicazione, che altrimenti risentirebbero di una latenza più elevata. Gran parte della dimensione totale del contenuto in un'applicazione Web è spesso statica e l’utilizzo della rete CDN consente di mantenere le prestazioni e l’esperienza complessiva dell’utente eliminando la necessità di distribuire l'applicazione in più centri dati.
++ Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple data centers.
 
-+ Gestione del carico crescente sulle applicazioni che supportano soluzioni IoT (Internet of Things). L'enorme numero di dispositivi e appliance interessati può facilmente sovraccaricare un'applicazione se fosse necessario elaborare i messaggi trasmessi e gestire direttamente la distribuzione degli aggiornamenti firmware a ogni dispositivo.
++ Handling the growing load on applications that support IoT (Internet of Things) solutions. The huge numbers of such devices and appliances involved could easily overwhelm an application if it was required to process broadcast messages and manage firmware update distribution directly to each device.
 
-+ Gestione dei picchi e della crescita della domanda senza richiedere il ridimensionamento dell'applicazione, evitando il conseguente aumento dei costi di esecuzione. Ad esempio, quando viene rilasciato un aggiornamento del sistema operativo per un dispositivo hardware, come un modello specifico di router, o per un dispositivo di consumo come una smart TV, si verifica un grande picco nella domanda a causa del download eseguito da milioni di utenti e dispositivi in un breve periodo.
++ Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increased running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
 
-L'elenco seguente include esempi di tempi per il primo byte (TTFB), da diverse aree geografiche. Il ruolo Web di destinazione viene distribuito in Azure West US. Esiste una stretta correlazione tra un boost maggiore dovuto alla rete CDN e la vicinanza a un nodo della rete CDN. Per un elenco completo delle posizioni dei nodi della rete CDN, vedere [Posizione dei nodi nella rete per la distribuzione di contenuti (CDN) di Azure](./cdn/cdn-pop-locations.md/).
+The following list shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A complete list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](./cdn/cdn-pop-locations.md).
 
 
-|| Tempi (ms) per il primo byte (origine) | Tempi (ms) per il primo byte (CDN) |% miglioramento tempi CDN|
+|| Time (ms) to First Byte (Origin) | Time (ms) to First (CDN) |%CDN time improvement|
 |-------------|------------------------|--------------------|------------------|
-|*San José, CA| 47\.5 | 46\.5 | 2% |
-|**Dulles, VA| 109 | 40\.5 | 169% |
+|\*San Jose, CA|  47.5                  | 46.5               |         2 %  |
+|\*\*Dulles, VA|     109   |     40.5   |       169% |
 |Buenos Aires, AR| 210 | 151 | 39%|
-|*Londra, UK| 195 | 44 | 343%|
-|Shanghai, CN| 242 | 206 | 17% |
-|*Singapore | 214 | 74 | 189% |
-|*Tokyo, JP | 163 | 48 | 204% |
-|Seoul, KR| 190 | 190 | 0% |
+|\*London, UK| 195   | 44 | 343%|
+|Shanghai, CN| 242  | 206    | 17%   |
+|\*Singapore | 214    | 74       | 189 %  |
+|\*Tokyo, JP  |  163 |    48    |     204 %   |
+|Seoul, KR|  190      |    190    |     0%   |
 
 
-* Ha un nodo di rete CDN di Azure nella stessa città.  
-\*\* Ha un nodo di rete CDN di Azure in una città adiacente.
+\* Has an Azure CDN node in the same city.  
+\*\* Has an Azure CDN node in a neighboring city.  
 
-## Sfide  
+## <a name="challenges"></a>Challenges  
 
-Esistono varie problematiche da considerare quando si intende utilizzare la rete CDN:
+There are several challenges to take into account when planning to use the CDN:  
 
-+ **Distribuzione**. È necessario decidere l'origine da cui la rete CDN recupererà il contenuto e se è necessario distribuire il contenuto in più di un sistema di archiviazione, ad esempio nella rete CDN e in una posizione alternativa.
++ **Deployment**. You must decide the origin from which the CDN will fetch the content, and whether you need to deploy the content in more than one storage system (such as in the CDN and an alternative location).
 
-  Il meccanismo di distribuzione delle applicazioni deve tener conto del processo per la distribuzione di contenuto statico e risorse, nonché dei file dell'applicazione, ad esempio le pagine ASPX. Ad esempio, potrebbe essere necessario implementare un passaggio separato per caricare il contenuto nell'archivio BLOB di Azure.
+  Your application deployment mechanism must take into account the process for deploying static content and resources as well as deploying the application files, such as ASPX pages. For example, you may need to implement a separate step to load content into Azure blob storage.
 
-+ **Controllo delle versioni e controllo della cache**. È necessario stabilire come aggiornare il contenuto statico e distribuire nuove versioni. Il contenuto della rete CDN può essere [eliminato](./cdn/cdn-purge-endpoint.md) tramite il portale di Azure quando sono disponibili nuove versioni degli asset. Questo è un problema simile alla gestione della cache sul lato client, come quello che si verifica in un Web browser.
++ **Versioning and cache-control**. You must consider how you will update static content and deploy new versions. The CDN content may be [purged](./cdn/cdn-purge-endpoint.md) using the Azure Portal when new versions of your assets are available. This is a similar challenge to managing client side caching, such as that which occurs in a web browser.
 
-+ **Test**. Può essere difficile eseguire il test locale delle impostazioni della rete CDN durante lo sviluppo e la verifica di un'applicazione in locale o in un ambiente di staging.
++ **Testing**. It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in a staging environment.
 
-+ **Ottimizzazione motore di ricerca (SEO)**. Il contenuto, come immagini e documenti, viene fornito da un dominio diverso quando si usa la rete CDN e questo approccio può avere un impatto su SEO per tale contenuto.
++ **Search engine optimisation (SEO)**. Content such as images and documents are served from a different domain when you use the CDN. This can have an effect on SEO for this content.
 
-+ **Sicurezza del contenuto**. Molti servizi CDN come la rete CDN di Azure non offrono attualmente alcun tipo di controllo di accesso al contenuto.
++ **Content security**. Many CDN services such as Azure CDN do not currently offer any type of access control for the content.
 
-+ **Sicurezza del client**. I client possono connettersi da un ambiente che non consente l'accesso alle risorse nella rete CDN. Potrebbe trattarsi di un ambiente con limitazioni di sicurezza che limita l'accesso solo a una serie di origini note oppure di un ambiente che impedisce il caricamento delle risorse da una posizione diversa dall'origine della pagina. Per gestire questi casi è necessaria un'implementazione del fallback.
++ **Client security**. Clients might connect from an environment that does not allow access to resources on the CDN. This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin. A fallback implementation is required to handle these cases.
 
-+ **Resilienza**. La rete CDN è un singolo punto di guasto potenziale per un'applicazione. Presenta un contratto di servizio della disponibilità inferiore all’archiviazione BLOB (che può essere utilizzata per distribuire contenuto direttamente), per cui potrebbe essere necessario implementare un meccanismo di fallback per il contenuto critico.
++ **Resilience**. The CDN is a potential single point of failure for an application. It has a lower availability SLA than blob storage (which can be used to deliver content directly) so you may need to consider implementing a fallback mechanism for critical content.
 
-  È possibile monitorare la disponibilità del contenuto della rete CDN, la larghezza di banda, i dati trasferiti, gli accessi, la percentuale di riscontri nella cache e la metrica della cache dal portale di Azure in [tempo reale](./cdn/cdn-real-time-stats.md) e [aggregare i report](./cdn/cdn-analyze-usage-patterns.md).
+  You can monitor your CDN content availability, bandwidth, data transferred, hits, cache hit ratio and cache metrics from the Azure Portal in [real-time](./cdn/cdn-real-time-stats.md) and [aggregate reports](./cdn/cdn-analyze-usage-patterns.md).
 
-Scenari in cui la rete CDN può essere meno utile sono:
+Scenarios where CDN may be less useful include:  
 
-+ Se il contenuto ha una bassa percentuale di riscontri, è possibile che l'accesso avvenga solo poche volte durante la sua validità, in base dall'impostazione della durata (TTL). La prima volta che si scarica un elemento avviene l'addebito di due transazioni, dall'origine alla rete CDN e quindi dalla rete CDN al cliente.
++ If the content has a low hit rate it might be accessed only few times while it is valid (determined by its time-to-live setting). The first time an item is downloaded you incur two transaction charges from the origin to the CDN, and then from the CDN to the customer.
 
-+ Se i dati sono privati, ad esempio per aziende di grandi dimensioni o ecosistemi di supply chain.
-
-
-## Linee guida generali e procedure consigliate
-
-L’utilizzo della rete CDN è un ottimo modo per ridurre al minimo il carico sull'applicazione e ottimizzare disponibilità e prestazioni. È necessario valutare l'adozione di questa strategia per tutto il contenuto appropriato e le risorse usate dall'applicazione. Quando si progetta la strategia per l'uso della rete CDN, considerare i punti nelle sezioni seguenti:
++ If the data is private, such as for large enterprises or supply chain ecosystems.
 
 
-### Origine
+## <a name="general-guidelines-and-good-practices"></a>General guidelines and good practices
 
-La distribuzione del contenuto attraverso la rete CDN richiede semplicemente di specificare un endpoint HTTP e/o HTTPS che il servizio della rete CDN userà per accedere al contenuto e memorizzarlo nella cache.
+Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. You should consider adopting this strategy for all of the appropriate content and resources you application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
 
-L'endpoint può specificare un contenitore di archiviazione BLOB di Azure che include il contenuto statico da recapitare attraverso la rete CDN. Il contenitore deve essere contrassegnato come pubblico. Solo i BLOB di un contenitore pubblico con accesso in lettura saranno disponibili tramite la rete CDN.
 
-L'endpoint può specificare una cartella denominata **cdn** nella radice di uno dei livelli di calcolo dell'applicazione (ad esempio un ruolo Web o una macchina virtuale). I risultati dalle richieste di risorse, tra cui le risorse dinamiche, ad esempio le pagine ASPX, verranno memorizzati nella cache nella rete CDN. Il periodo minimo di memorizzazione nella cache è 300 secondi. Un periodo più breve impedirà la distribuzione del contenuto nella rete CDN. Per altre informazioni, vedere la sezione [Controllo cache](#cache-control).
+### <a name="origin"></a>Origin
 
-Se si usa App Web di Azure, l'endpoint viene impostato sulla cartella radice del sito selezionando il sito quando si crea l'istanza di rete CDN. Tutto il contenuto per il sito sarà disponibile tramite la rete CDN.
+Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS endpoint that the CDN service will use to access and cache the content.
 
-Nella maggior parte dei casi, puntando l'endpoint della rete CDN a una cartella in uno dei livelli di calcolo dell'applicazione si ottiene flessibilità e controllo maggiori. Ad esempio, se semplifica la gestione dei requisiti di routing attuali e futuri e la generazione dinamica di contenuto statico, ad esempio delle anteprime delle immagini.
+The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access will be available through the CDN.
 
-È possibile usare [stringhe di query](./cdn/cdn-query-string) per differenziare gli oggetti nella cache quando il contenuto viene fornito da origini dinamiche, come le pagine ASPX. Tuttavia, questo comportamento può essere disabilitato da un'impostazione nel portale di Azure quando si specifica l'endpoint della rete CDN. Durante la distribuzione di contenuti dall'archiviazione BLOB, le stringhe di query vengono trattate come valori letterali stringa in modo che due elementi che hanno lo stesso nome ma stringhe di query diverse verranno archiviati come elementi separati sulla rete CDN.
+The endpoint can specify a folder named **cdn** in the root of one of application’s compute layers (such as a web role or a virtual machine). The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN. The minimum cache period is 300 seconds. Any shorter period will prevent the content from being deployed to the CDN (see the heading *Cache control* below for more information).
 
-È possibile usare la riscrittura URL per le risorse, ad esempio script e altro contenuto, per evitare di spostare i file nella cartella di origine della rete CDN.
+If you are using Azure Web Apps, the endpoint is set to the root folder of the site by selecting the site when creating the CDN instance. All of the content for the site will be available through the CDN.
 
-Quando si utilizza il BLOB di archiviazione di Azure per memorizzare il contenuto per la rete CDN, l'URL delle risorse nei BLOB riconosce la differenza tra maiuscole e minuscole per il nome del contenitore e del BLOB.
+In most cases, pointing your CDN endpoint at a folder within one of the compute layers of your application will offer more flexibility and control. For instance, it makes it easier to manage current and future routing requirements, and dynamically generate static content such as image thumbnails.
 
-Quando si usano origini personalizzate o App Web di Azure, è necessario specificare il percorso dell'istanza della rete CDN nei collegamenti alle risorse. Ad esempio, di seguito è specificato un file di immagine nella cartella **Images** del sito che verrà distribuito tramite la rete CDN:
+You can use [query strings](./cdn/cdn-query-string.md) to differentiate objects in the cache when content is delivered from dynamic sources, such as ASPX pages. However, this behavior can be disabled by a setting in the Azure Portal when you specify the CDN endpoint. When delivering content from blob storage, query strings are treated as string literals so two items that have the same name but different query strings will be stored as separate items on the CDN.
+
+You can utilize URL rewriting for resources, such as scripts and other content, to avoid moving your files to the CDN origin folder.
+
+When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case sensitive for the container and blob name.
+
+When using custom origins or Azure Web Apps, you specify the path to the CDN instance in the links to resources. For example, the following specifies an image file in the **Images** folder of the site that will be delivered through the CDN:
 
 ```XML
 <img src="http://[your-cdn-endpoint].azureedge.net/Images/image.jpg" />
 ```
 
-### Distribuzione
+### <a name="deployment"></a>Deployment
 
-È possibile che debba essere effettuato il provisioning e sia necessario distribuire il contenuto indipendentemente dall'applicazione se non viene incluso nel processo o nel pacchetto di distribuzione dell'applicazione. Si consideri come tale eventualità influirà sull’approccio del controllo delle versioni utilizzato per gestire i componenti dell'applicazione e il contenuto stativo della risorsa.
+Static content may need to be provisioned and deployed independently from the application if you do not include it in the application deployment package or process. Consider how this will affect the versioning approach you use to manage both the application components and the static resource content.
 
-Valutare la modalità di gestione dell’aggregazione in bundle (combinazione di diversi file in un solo file) e minimizzazione (rimozione di caratteri non necessari, ad esempio spazi, caratteri di nuova riga, commenti e così via) per i file CSS e script. Queste tecniche sono comunemente usate per ridurre i tempi di caricamento per i client e sono compatibili con la distribuzione del contenuto tramite la rete CDN. Per ulteriori informazioni, vedere [Creazione di bundle e minimizzazione](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification).
+Consider how bundling (combining several files into one file) and minification (removing unnecessary characters such as white space, new line characters, comments, and other characters) for script and CSS files will be handled. These are commonly used techniques that can reduce load times for clients, and are compatible with delivering content through the CDN. For more information, see [Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification).
 
-Se è necessario distribuire il contenuto in un'altra posizione, è necessario un passaggio aggiuntivo nel processo di distribuzione. Se l'applicazione aggiorna il contenuto per la rete CDN, ad esempio a intervalli regolari o in risposta a un evento, è necessario archiviare il contenuto aggiornato in tutti i percorsi aggiuntivi, nonché l'endpoint per la rete CDN.
+If you need to deploy the content to an additional location, this will be an extra step in the deployment process. If the application updates the content for the CDN, perhaps at regular intervals or in response to an event, it must store the updated content in any additional locations as well as the endpoint for the CDN.
 
-Non è possibile configurare un endpoint della rete CDN per un'applicazione nell'emulatore di Azure locale in Visual Studio. Questa operazione influirà su unit test, test funzionali e test pre-distribuzione finali. È necessario consentirla implementando un meccanismo alternativo. Ad esempio, è possibile pre-distribuire il contenuto nella rete CDN usando un'applicazione o un'utilità personalizzata ed eseguire i test durante il periodo in cui è memorizzato nella cache. In alternativa, usare direttive di compilazione o costanti globali per controllare l'origine da cui l'applicazione carica le risorse. Ad esempio, durante l'esecuzione in modalità di debug potrebbe caricare risorse quali i bundle di script lato client e altri contenuti da una cartella locale e utilizzare la rete CDN durante l'esecuzione in modalità di rilascio.
+You cannot set up a CDN endpoint for an application in the local Azure emulator in Visual Studio. This restriction will affect unit testing, functional testing, and final pre-deployment testing. You must allow for this by implementing an alternative mechanism. For example, you could pre-deploy the content to the CDN using a custom application or utility, and perform testing during the period in which it is cached. Alternatively, use compile directives or global constants to control from where the application loads the resources. For example, when running in debug mode it could load resources such as client-side script bundles and other content from a local folder, and use the CDN when running in release mode.
 
-Determinare quale approccio di compressione dovrà supportare la rete CDN:
+Consider which compression approach you want your CDN to support:
 
-+ È possibile [abilitare la compressione](./cdn/cdn-improve-performance) nel server di origine, nel qual caso la rete CDN supporterà la compressione per impostazione predefinita e distribuirà file compressi ai client, in un formato come ZIP o GZIP. Quando si usa una cartella dell'applicazione come endpoint della rete CDN, il server può comprimere il contenuto automaticamente come quando viene distribuito direttamente a un Web browser o a un altro tipo di client. Il formato dipende dal valore dell'intestazione **Accept-Encoding** nella richiesta inviata dal client. In Azure il meccanismo predefinito prevede la compressione automatica del contenuto quando l'utilizzo della CPU è inferiore al 50%. Se si usa un servizio cloud per ospitare l'applicazione, la modifica delle impostazioni può richiedere l'uso di un'attività di avvio per attivare la compressione dell'output dinamico in IIS. Per al,altre informazioni, vedere il blog relativo all'[abilitazione della compressione GZIP con la rete CDN di Microsoft Azure tramite un ruolo Web](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx).
++ You can [enable compression](./cdn/cdn-improve-performance.md) on your origin server, in which case the CDN will support compression by default and deliver compressed content to clients in a format such as zip or gzip. When using an application folder as the CDN endpoint, the server may compress some content automatically in the same way as when delivering it directly to a web browser or other type of client. The format depends on the value of the **Accept-Encoding** header in the request sent by the client. In Azure the default mechanism is to automatically compress content when CPU utilization is below 50%. If you are using a cloud service to host the application, changing the settings may require using a startup task to turn on compression of dynamic output in IIS. See [Enabling gzip compression with Microsoft Azure CDN through a Web Role](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx) for more information.
 
-+ È possibile abilitare la compressione direttamente sui server edge CDN, nel qual caso la rete CDN comprimerà i file e li fornirà agli utenti finali. Per altre informazioni, vedere [Compressione nella rete CDN di Azure](./cdn/cdn-improve-performance.md/).
++ You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users. For more information, see [Azure CDN Compression](./cdn/cdn-improve-performance.md).
 
-### Routing e controllo delle versioni
+### <a name="routing-and-versioning"></a>Routing and versioning
 
-Potrebbe essere necessario usare istanze diverse della rete CDN in momenti diversi. Ad esempio, quando si distribuisce una nuova versione dell'applicazione, è consigliabile usare una nuova rete CDN e quella precedente, mantenendo il contenuto in un formato meno recente, per le versioni precedenti. Se si utilizza l'archiviazione BLOB di Azure come origine di contenuto, è sufficiente creare un account di archiviazione separato o un contenitore separato e puntare l'endpoint della rete CDN ad esso. Se si utilizza la cartella radice *cdn* all'interno dell'applicazione principale come endpoint della rete CDN è possibile utilizzare tecniche di riscrittura degli URL per indirizzare le richieste a una cartella diversa.
+You may need to use different CDN instances at various times. For example, when you deploy a new version of the application you may want to use a new CDN and retain the old CDN (holding content in an older format) for previous versions. If you use Azure blob storage as the content origin, you can simply create a separate storage account or a separate container and point the CDN endpoint to it. If you use the *cdn* root folder within the application as the CDN endpoint you can use URL rewriting techniques to direct requests to a different folder.
 
-Non usare la stringa di query per indicare le diverse versioni dell'applicazione nei collegamenti alle risorse sulla rete CDN, perché quando si recupera il contenuto dall'archivio BLOB di Azure la stringa di query fa parte del nome della risorsa, ovvero il nome del BLOB. Questo approccio può anche influire sul modo in cui il client memorizza le risorse nella cache.
+Do not use the query string to denote different versions of the application in links to resources on the CDN because, when retrieving content from Azure blob storage, the query string is part of the resource name (the blob name). This approach can also affect how the client caches resources.
 
-La distribuzione di nuove versioni di contenuto statico quando si aggiorna un'applicazione può essere problematica se le risorse precedenti vengono memorizzate nella cache nella rete CDN. Per altre informazioni, vedere la sezione [Controllo cache](#cache-control").
+Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN. For more information, see the section [cache control](#cache-control").
 
-È consigliabile limitare l'accesso al contenuto della rete CDN in base al paese. La rete CDN di Azure consente di filtrare le richieste in base al paese di origine e limitare il contenuto recapitato. Per altre informazioni, vedere [Limitare l'accesso al contenuto in base al paese](./cdn/cdn-restrict-access-by-country/).
+Consider restricting the CDN content access by country. Azure CDN allows you to filter requests based on the country of origin and restrict the content delivered. For more information, see [Restrict access to your content by country](./cdn/cdn-restrict-access-by-country.md).
 
-###Controllo cache
+###<a name="cache-control"></a>Cache control
 
-Considerare come gestire la memorizzazione nella cache all'interno del sistema. Ad esempio, quando si usa una cartella come origine della rete CDN, è possibile specificare la possibilità di memorizzazione nella cache delle pagine che generano il contenuto e la scadenza del contenuto per tutte le risorse in una cartella specifica. È inoltre possibile specificare le proprietà della cache per la rete CDN e per il client utilizzando le intestazioni HTTP standard. Anche se occorre gestire la memorizzazione nella cache sul server e sul client, l’utilizzo della rete CDN contribuisce a rendere gli utenti più consapevoli della modalità e dell’ubicazione in cui il contenuto viene memorizzato nella cache.
+Consider how to manage caching within the system. For example, when using a folder as the CDN origin you can specify the cacheability of pages that generate the content, and the content expiry time for all the resources in a specific folder. You can also specify cache properties for the CDN, and for the client using standard HTTP headers. Although you should already be managing caching on the server and client, using the CDN will help to make you more aware of how your content is cached, and where.
 
-Per impedire che gli oggetti siano disponibili nella rete CDN, è possibile eliminarli dall'origine, ovvero contenitore BLOB o cartella radice *cdn* dell'applicazione, rimuovere o eliminare l'endpoint della rete CDN o, nel caso dell'archivio BLOB, rendere privato il contenitore o il BLOB. Gli elementi saranno tuttavia rimossi dalla rete CDN solo alla scadenza della durata (TTL). Se non viene specificato alcun periodo di scadenza della cache, ad esempio quando il contenuto viene caricato dall'archivio BLOB, il periodo di memorizzazione massimo nella rete CDN è di 7 giorni. È anche possibile [Ripulire un endpoint della rete CDN di Azure](./cdn/cdn-purge-endpoint.md) manualmente.
+To prevent objects from being available on the CDN you can delete them from the origin (blob container or application *cdn* root folder), remove or delete the CDN endpoint, or, in the case of blob storage, make the container or blob private. However, items will be removed from the CDN only when their time-to-live expires. If no cache expiry period is specified (such as when content is loaded from blob storage), it will be cached on the CDN for up to 7 days.  You can also manually [purge a CDN endpoint](./cdn/cdn-purge-endpoint.md).
 
-In un'applicazione Web è possibile impostare la memorizzazione nella cache e la scadenza per tutto il contenuto usando l'elemento *clientCache* nella sezione *system.webServer/staticContent* di un file web.config. Tenere presente che quando si inserisce un file web.config in una cartella, verrà applicato ai file contenuti nella cartella e in tutte le sottocartelle.
+In a web application, you can set the caching and expiry for all content by using the *clientCache* element in the *system.webServer/staticContent* section of the web.config file. Remember that when you place a web.config file in a folder it affects the files in that folder and all subfolders.
 
-Se si crea il contenuto per la rete CDN in modo dinamico, ad esempio nel codice dell'applicazione, assicurarsi di specificare la proprietà *Cache.SetExpires* in ogni pagina. La rete CDN non memorizza nella cache l'output di pagine che usano l'impostazione predefinita di memorizzazione nella cache, ovvero *pubblica*. Impostare il periodo di scadenza della cache su un valore appropriato per garantire che il contenuto non venga eliminato e ricaricato dall'applicazione a intervalli molto brevi.
+If you create the content for the CDN dynamically (in your application code for example), ensure that you specify the *Cache.SetExpires* property on each page. The CDN will not cache the output from pages that use the default cacheability setting of *public*.  Set the cache expiry period to a suitable value to ensure that the content is not discarded and reloaded from the application at very short intervals.  
 
-### Sicurezza
+### <a name="security"></a>Security
 
-La rete CDN può distribuire il contenuto tramite HTTPS (SSL) usando il certificato fornito dalla rete CDN, ma sarà disponibile anche tramite HTTP. Non è possibile bloccare l'accesso HTTP agli elementi nella rete CDN. Potrebbe essere necessario utilizzare HTTPS per richiedere contenuto statico visualizzato nelle pagine caricate tramite HTTPS (ad esempio un carrello acquisti) per evitare avvisi del browser circa contenuto misto.
+The CDN can deliver content over HTTPS (SSL) using the certificate provided by the CDN, but it will also be available over HTTP as well. You cannot block HTTP access to items in the CDN. You may need to use HTTPS to request static content that is displayed in pages loaded through HTTPS (such as a shopping cart) to avoid browser warnings about mixed content.
 
-La rete CDN di Azure non fornisce funzionalità per il controllo di accesso per proteggere l'accesso al contenuto. Non è possibile utilizzare le firme di accesso condiviso (SAS) con la rete CDN.
+The Azure CDN does not provide any facilities for access control to secure access to  content. You cannot use Shared Access Signatures (SAS) with the CDN.
 
-Se di distribuiscono script lato client utilizzando la rete CDN, si potrebbero verificare problemi se tali script utilizzano una chiamata *XMLHttpRequest* per effettuare richieste HTTP per altre risorse, ad esempio dati, immagini o caratteri in un dominio diverso. Molti browser impediscono la condivisione di risorse tra origini (CORS), a meno che il server Web non è configurato per impostare le intestazioni di risposta appropriate. È possibile configurare la rete CDN per il supporto di CORS:
+If you deliver client-side scripts using the CDN, you may encounter issues if these scripts use an *XMLHttpRequest* call to make HTTP requests for other resources such as data, images, or fonts in a different domain. Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers. You can configure the CDN to support CORS:
 
-+ Se l'origine da cui si distribuisce il contenuto è l'archivio BLOB di Azure, è possibile aggiungere *CorsRule* alle proprietà del servizio. La regola può specificare le origini consentite per le richieste CORS, i metodi consentiti, ad esempio GET, e la durata massima in secondi per la regola (il periodo entro cui il client deve richiedere le risorse collegate dopo il caricamento del contenuto originale). Per altre informazioni, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per i servizi di archiviazione Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
++ If the origin from which you are delivering content is Azure blob storage, you can add a *CorsRule* to the service properties. The rule can specify the allowed origins for CORS requests, the allowed methods such as GET, and the maximum age in seconds for the rule (the period within which the client must request the linked resources after loading the original content). For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
-+ Se l'origine da cui si distribuisce il contenuto è una cartella all'interno dell'applicazione, ad esempio la cartella radice *cdn*, è possibile configurare le regole in uscita nel file di configurazione dell'applicazione per impostare un’intestazione *Access-Control-Allow-Origin* in tutte le risposte. Per ulteriori informazioni sull'utilizzo delle regole di riscrittura, vedere [Modulo di riscrittura URL](http://www.iis.net/learn/extensions/url-rewrite-module). Si noti che questa tecnica non è consentita quando si utilizza Siti Web di Azure.
++ If the origin from which you are delivering content is a folder within the application, such as the *cdn* root folder, you can configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module). Note that this technique is not possible when using Azure Web Sites.
 
-### Domini personalizzati
+### <a name="custom-domains"></a>Custom domains
 
-La rete CDN di Azure consente di specificare un [nome di dominio personalizzato](./cdn/cdn-map-content-to-custom-domain.md) e usarlo per accedere alle risorse tramite la rete CDN. È inoltre possibile impostare un nome di sottodominio personalizzato utilizzando un record *CNAME* nel sistema DNS. L’utilizzo di questo approccio fornisce un ulteriore livello di astrazione e controllo.
+The Azure CDN allows you to specify a [custom domain name](./cdn/cdn-map-content-to-custom-domain.md) nd use it to access resources through the CDN. You can also set up a custom subdomain name using a *CNAME* record in your DNS. Using this approach can provide an additional layer of abstraction and control.
 
-Se si usa un *CNAME*, non è possibile usare anche SSL, perché la rete CDN usa il proprio certificato SSL singolo, che non corrisponderà ai nomi di dominio o sottodominio personalizzati.
+If you use a *CNAME*, you cannot use SSL because the CDN uses its own single SSL certificate, and this certificate will not match your custom domain/subdomain names.
 
-### Fallback della rete CDN
+### <a name="cdn-fallback"></a>CDN fallback
 
-È necessario considerare come l'applicazione gestirà un errore o l'indisponibilità temporanea della rete CDN. Le applicazioni client potrebbero riuscire a usare copie delle risorse memorizzate nella cache locale del client durante le richieste precedenti oppure è possibile includere codice che rilevi gli errori e richieda invece risorse dall'origine, ovvero la cartella dell'applicazione o il contenitore BLOB di Azure che contiene le risorse, se la rete CDN non è disponibile.
+You should consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
 
-### Ottimizzazione motore di ricerca
+### <a name="search-engine-optimisation"></a>Search engine optimisation
 
-Se SEO è un fattore importante nell'applicazione, eseguire queste attività:
+If SEO is an important consideration in your application, perform the following tasks:
 
-+ Includere un'intestazione canonica *Rel* in ogni pagina o risorsa.
++ Include a *Rel* canonical header in each page or resource.
 
-+ Utilizzare un recird di sottodominio *CNAME* per accedere alle risorse utilizzando questo nome.
++ Use a *CNAME* subdomain record and access the resources using this name.
 
-+ Valutare l'impatto dell’eventuale mancata corrispondenza tra paese/regione dell'indirizzo IP della rete CDN e quello dell'applicazione stessa.
++ Consider the impact of the fact that the IP address of the CDN may be a country or region that differs from that of the application itself.
 
-+ Quando si utilizza l'archiviazione BLOB di Azure come origine, è necessario mantenere per le risorse nella rete CDN la stessa struttura di file delle cartelle delle applicazioni.
-
-
-### Monitoraggio e registrazione
-
-Includere la rete CDN come parte della strategia di monitoraggio dell'applicazione per rilevare e misurare gli errori o le occorrenze di latenza estesa. Il monitoraggio è disponibile in Gestione profili della rete CDN che si trova nel sito del portale di Azure.
-
-Abilitare la registrazione per la rete CDN e monitorare il log come parte delle operazioni quotidiane.
-
-Prendere in considerazione l'analisi del traffico della rete CDN per i modelli di utilizzo. Il portale di Azure fornisce strumenti che consentono di monitorare:
-+ Larghezza di banda
-+ Dati trasferiti
-+ Riscontri (codici di stato)
-+ Stato della cache
-+ Percentuale di riscontri nella cache
-+ Percentuale di richieste IPV4/IPV6.
-
-Per altre informazioni, vedere [Analizzare i modelli di utilizzo della rete CDN](./cdn/cdn-analyze-usage-patterns.md/).
-
-### Implicazioni relative ai costi
-
-Vengono addebitati i trasferimenti di dati in uscita dalla rete CDN. Inoltre, se si usa l'archiviazione BLOB per ospitare gli asset, vengono addebitate le transazioni di archiviazione quando la rete CDN carica i dati dall'applicazione. Impostare periodi di scadenza della cache realistici per il contenuto in modo da garantire l’aggiornamento, ma non troppo brevi da causare il ricaricamento ripetuto del contenuto dall'applicazione o dall’archiviazione BLOB nella rete CDN.
-
-Gli elementi che vengono scaricati raramente comporteranno addebiti di due transazioni senza fornire una riduzione significativa del carico del server.
-
-### Creazione di bundle e minimizzazione
-
-Usare la creazione di bundle e la minimizzazione per ridurre le dimensioni delle risorse, ad esempio il codice JavaScript e le pagine HTML archiviati nella rete CDN. Questa strategia può contribuire a ridurre i tempi di download di questi elementi nel client.
-
-La creazione di bundle e la minimizzazione possono essere gestite da ASP.NET. In un progetto MVC, i bundle vengono definiti in *BundleConfig.cs*. Viene creato un riferimento al bundle di script minimizzato chiamando il metodo *Script.Render*, in genere nel codice nella classe di visualizzazione. Questo riferimento contiene una stringa di query che include un hash basato sul contenuto del bundle. Se il contenuto del bundle cambia, verrà modificato anche il valore hash generato.
-
-Per impostazione predefinita, le istanze della rete CDN di Azure hanno l’impostazione dello *stato di stringa query* disabilitata. Affinché i bundle di script aggiornati siano gestiti correttamente dalla rete CDN, è necessario abilitare l’impostazione dello *stato di stringa query* per l'istanza di rete CDN. Per rendere effettiva l'impostazione, potrebbe essere necessaria più di un'ora.
++ When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.
 
 
-## Codice di esempio
-In questa sezione sono riportati alcuni esempi di codice e tecniche per l'utilizzo della rete CDN.
+### <a name="monitoring-and-logging"></a>Monitoring and logging
+
+Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site
+
+Enable logging for the CDN and monitor this log as part of your daily operations.
+
+Consider analyzing the CDN traffic for usage patterns. The Azure portal provides tools that enable you to monitor:
++ Bandwidth,
++ Data Transferred,
++ Hits (status codes),
++ Cache Status,
++ Cache HIT Ratio, and
++ Ratio of IPV4/IPV6 requests.
+
+For more information, see [Analyze CDN usage patterns](./cdn/cdn-analyze-usage-patterns.md).
+
+### <a name="cost-implications"></a>Cost implications
+
+You are charged for outbound data transfers from the CDN.  Additionally, if you're using blob storage to host your assets, you are charged for storage transactions when the CDN loads data from your application. You should set realistic cache expiry periods for content to ensure freshness, but not so short as to cause repeated reloading of content from the application or blob storage to the CDN.
+
+Items that are rarely downloaded will incur the two transaction charges without providing any significant reduction in server load.
+
+### <a name="bundling-and-minification"></a>Bundling and minification
+
+Use bundling and minification to reduce the size of resources such as JavaScript code and HTML pages stored in the CDN. This strategy can help to reduce the time taken to download these items to the client.
+
+Bundling and minification can be handled by ASP.NET. In an MVC project, you define your bundles in *BundleConfig.cs*. A reference to the minified script bundle is created by calling the *Script.Render* method, typically in code in the view class. This reference contains a query string that includes a hash, which is based on the content of the bundle. If the bundle contents change, the generated hash will also change.  
+
+By default, Azure CDN instances have the *Query String Status* setting disabled. In order for updated script bundles to be handled properly by the CDN, you must enable the *Query String Status* setting for the CDN instance. Note that it may take an hour or more before the setting takes effect.
 
 
-### Riscrittura URL
-Il seguente estratto dal file Web.config nella radice di un'applicazione ospitata da Servizi cloud dimostra come eseguire la [riscrittura dell'URL](https://technet.microsoft.com/library/ee215194.aspx) quando si usa la rete CDN. Le richieste di contenuto da memorizzare nella cache provenienti dalla rete CDN vengono reindirizzate a cartelle specifiche nella radice dell'applicazione in base al tipo di risorsa, ad esempio script e immagini.
+## <a name="example-code"></a>Example code
+This section contains some examples of code and techniques for working with the CDN.  
+
+
+### <a name="url-rewriting"></a>URL rewriting
+The following excerpt from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
 
 
 ```XML
@@ -267,21 +268,25 @@ Il seguente estratto dal file Web.config nella radice di un'applicazione ospitat
 </system.webServer>
 ```
 
-Queste regole di riscrittura eseguono i reindirizzamenti seguenti:
+These rewrite rules perform the following redirections:
 
-+ La prima regola consente di incorporare una versione nel nome del file di una risorsa, ma viene ignorata. Ad esempio, *Filename\_v123.jpg *viene riscritto come *Filename.jpg*.
++ The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg *is rewritten as *Filename.jpg*.
 
-+ Le quattro regole successive illustrano come reindirizzare le richieste se non si vogliono archiviare le risorse in una cartella denominata *cdn** nella radice del ruolo Web. Le regole mappano gli URL *cdn/Images*, *cdn/Content*, *cdn/Scripts* e *cdn/bundles* alle rispettive cartelle radice nel ruolo Web.
++ The next four rules show how to redirect requests if you do not want to store the resources in a folder named *cdn** in the root of the web role. The rules map the *cdn/Images*, *cdn/Content*, *cdn/Scripts*, and *cdn/bundles* URLs to their respective root folders in the web role.
 
-L'uso della riscrittura di URL richiede di apportare alcune modifiche alla creazione di bundle delle risorse.
+Note that using URL rewriting requires you to make some changes to the bundling of resources.   
 
-## Altre informazioni
+## <a name="more-information"></a>More information
 
 
-+ [Rete CDN di Azure](https://azure.microsoft.com/services/cdn/)
-+ [Documentazione sulla rete per la distribuzione di contenuti (CDN) di Azure](https://azure.microsoft.com/documentation/services/cdn/)
-+ [Rendere disponibile il contenuto dalla rete CDN di Azure nell'applicazione Web](./cdn/cdn-serve-content-from-cdn-in-your-web-application/)
-+ [Integrare un servizio cloud con la rete CDN di Azure](./cdn/cdn-cloud-service-with-cdn.md/)
-+ [Procedure consigliate per la rete per la distribuzione di contenuti di Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Azure CDN](https://azure.microsoft.com/services/cdn/)
++ [Azure Content Delievery Network (CDN) Documentation](https://azure.microsoft.com/documentation/services/cdn/)
++ [Using Azure CDN](./cdn/cdn-create-new-endpoint.md)
++ [Integrate a cloud service with Azure CDN](./cdn/cdn-cloud-service-with-cdn.md)
++ [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

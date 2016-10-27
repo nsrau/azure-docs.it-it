@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panoramica della configurazione di ReliableDictionaryActorStateProvider per Reliable Actors di Service Fabric di Azure | Microsoft Azure"
-   description="Informazioni sulla configurazione di attori con stato di tipo ReliableDictionaryActorStateProvider in Service Fabric di Azure."
+   pageTitle="Overview of the Azure Service Fabric Reliable Actors ReliableDictionaryActorStateProvider configuration | Microsoft Azure"
+   description="Learn about configuring Azure Service Fabric stateful actors of type ReliableDictionaryActorStateProvider."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -16,32 +16,33 @@
    ms.date="07/18/2016"
    ms.author="sumukhs"/>
 
-# Configurare ReliableDictionaryActorStateProvider di Reliable Actors
-È possibile modificare la configurazione predefinita di ReliableDictionaryActorStateProvider cambiando il file settings.xml generato nella radice del pacchetto di Visual Studio all'interno della cartella Config per l'attore specificato.
 
-Il runtime di Service Fabric di Azure cerca i nomi di sezione predefiniti nel file settings.xml e utilizza i valori di configurazione durante la creazione dei componenti di runtime sottostanti.
+# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuring Reliable Actors--ReliableDictionaryActorStateProvider
+You can modify the default configuration of ReliableDictionaryActorStateProvider by changing the settings.xml file generated in the Visual Studio package root under the Config folder for the specified actor.
 
->[AZURE.NOTE] **Non** eliminare o modificare i nomi di sezione delle configurazioni seguenti nel file settings.xml generato nella soluzione Visual Studio.
+The Azure Service Fabric runtime looks for predefined section names in the settings.xml file and consumes the configuration values while creating the underlying runtime components.
 
-Sono disponibili anche impostazioni globali che influiscono sulla configurazione di ReliableDictionaryActorStateProvider.
+>[AZURE.NOTE] Do **not** delete or modify the section names of the following configurations in the settings.xml file that is generated in the Visual Studio solution.
 
-## Configurazione globale
+There are also global settings that affect the configuration of ReliableDictionaryActorStateProvider.
 
-La configurazione globale viene specificata nella sezione KtlLogger del manifesto del cluster. Consente di configurare il percorso di log condiviso e la dimensione oltre i limiti di memoria globali utilizzati dal logger. Si noti che le modifiche apportate al manifesto del cluster influiscono su tutti i servizi che usano ReliableDictionaryActorStateProvider e i servizi affidabili con stato.
+## <a name="global-configuration"></a>Global Configuration
 
-Il manifesto del cluster è un unico file XML che contiene le impostazioni e le configurazioni applicabili a tutti i nodi e ai servizi del cluster. Il file tipicamente si chiama ClusterManifest.xml. È possibile visualizzare il manifesto del cluster utilizzando il comando Powershell Get-ServiceFabricClusterManifest.
+The global configuration is specified in the cluster manifest for the cluster under the KtlLogger section. It allows configuration of the shared log location and size plus the global memory limits used by the logger. Note that changes in the cluster manifest affect all services that use ReliableDictionaryActorStateProvider and reliable stateful services.
 
-### Nomi delle configurazioni
+The cluster manifest is a single XML file that holds settings and configurations that apply to all nodes and services in the cluster. The file is typically called ClusterManifest.xml. You can see the cluster manifest for your cluster using the Get-ServiceFabricClusterManifest powershell command.
 
-|Nome|Unità|Valore predefinito|Osservazioni|
+### <a name="configuration-names"></a>Configuration names
+
+|Name|Unit|Default value|Remarks|
 |----|----|-------------|-------|
-|WriteBufferMemoryPoolMinimumInKB|Kilobyte|8388608|Numero minimo di KB da allocare in modalità kernel per il pool di memoria del buffer di scrittura del logger. Questo pool di memoria viene utilizzato per il caching delle informazioni sullo stato prima della scrittura su disco.|
-|WriteBufferMemoryPoolMaximumInKB|Kilobyte|Nessun limite|Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger.|
-|SharedLogId|GUID|""|Specifica un GUID univoco per individuare il file di log condiviso predefinito usato da tutti i servizi Reliable Services su tutti i nodi del cluster che non specificano il parametro SharedLogId nella configurazione specifica del servizio. Se viene specificato lo SharedLogId, deve anche essere specificato lo SharedLogPath.|
-|SharedLogPath|Nome di percorso completo|""|Specifica il percorso completo in cui il file di log condiviso viene utilizzato da tutti i servizi Reliable Services su tutti i nodi del cluster che non specificano lo SharedLogPath nella configurazione specifica del servizio. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId.|
-|SharedLogSizeInMB|Megabyte|8192|Specifica il numero di MB di spazio su disco da allocare in modo statico per il log condiviso. Il valore deve essere maggiore di 2048.|
+|WriteBufferMemoryPoolMinimumInKB|Kilobytes|8388608|Minimum number of KB to allocate in kernel mode for the logger write buffer memory pool. This memory pool is used for caching state information before writing to disk.|
+|WriteBufferMemoryPoolMaximumInKB|Kilobytes|No Limit|Maximum size to which the logger write buffer memory pool can grow.|
+|SharedLogId|GUID|""|Specifies a unique GUID to use for identifying the default shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogId in their service specific configuration. If SharedLogId is specified, then SharedLogPath must also be specified.|
+|SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogPath in their service specific configuration. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
+|SharedLogSizeInMB|Megabytes|8192|Specifies the number of MB of disk space to statically allocate for the shared log. The value must be 2048 or larger.|
 
-### Sezione manifesto del cluster di esempio
+### <a name="sample-cluster-manifest-section"></a>Sample cluster manifest section
 ```xml
    <Section Name="KtlLogger">
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
@@ -52,42 +53,44 @@ Il manifesto del cluster è un unico file XML che contiene le impostazioni e le 
    </Section>
 ```
 
-### Osservazioni
-Il logger dispone di un pool di memoria globale allocato dalla memoria non di paging del kernel disponibile per tutti i servizi Reliable Services su un nodo per il caching dei dati sullo stato prima che siano scritti sul log dedicato associato alla replica del servizio Reliable Services. La dimensione del pool è controllata dalle impostazioni WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB specifica la dimensione iniziale del pool di memoria e la dimensione minima alla quale è possibile ridurre la memoria. WriteBufferMemoryPoolMaximumInKB è la dimensione massima che può raggiungere il pool di memoria. Ogni replica del servizio Reliable Services aperta può aumentare la dimensione del pool di memoria di una quantità determinata dal sistema, fino a WriteBufferMemoryPoolMaximumInKB. Qualora la domanda per la memoria sia superiore alla disponibilità del pool di memoria, le richieste per la memoria sono ritardate finché la memoria non è disponibile. Pertanto se il pool di memoria del buffer di scrittura è troppo piccolo per una configurazione specifica, le prestazioni potrebbero risentirne.
+### <a name="remarks"></a>Remarks
+The logger has a global pool of memory allocated from non paged kernel memory that is available to all reliable services on a node for caching state data before being written to the dedicated log associated with the reliable service replica. The pool size is controlled by the WriteBufferMemoryPoolMinimumInKB and WriteBufferMemoryPoolMaximumInKB settings. WriteBufferMemoryPoolMinimumInKB specifies both the initial size of this memory pool and the lowest size to which the memory pool may shrink. WriteBufferMemoryPoolMaximumInKB is the highest size to which the memory pool may grow. Each reliable service replica that is opened may increase the size of the memory pool by a system determined amount up to WriteBufferMemoryPoolMaximumInKB. If there is more demand for memory from the memory pool than is available, requests for memory will be delayed until memory is available. Therefore if the write buffer memory pool is too small for a particular configuration then performance may suffer.
 
-Le impostazioni SharedLogId e SharedLogPath vengono sempre utilizzate per definire GUID e percorso del log condiviso predefinito per tutti i nodi del cluster. Il log condiviso predefinito viene utilizzato per tutti i servizi Reliable Services che non specificano le impostazioni nel file settings.xml per il servizio specifico. Per ottenere le migliori prestazioni, i file di log condivisi devono essere memorizzati su dischi riservati esclusivamente al file di log condiviso, in modo da ridurre le situazioni di contesa della testina.
+The SharedLogId and SharedLogPath settings are always used together to define the GUID and location for the default shared log for all nodes in the cluster. The default shared log is used for all reliable services that do not specify the settings in the settings.xml for the specific service. For best performance, shared log files should be placed on disks that are used solely for the shared log file to reduce contention.
 
-SharedLogSizeInMB specifica la quantità di spazio su disco da preallocare per il log condiviso predefinito su tutti i nodi. Le impostazioni SharedLogId e SharedLogPath non devono essere specificate per specificare SharedLogSizeInMB.
+SharedLogSizeInMB specifies the amount of disk space to preallocate for the default shared log on all nodes.  SharedLogId and SharedLogPath do not need to be specified in order for SharedLogSizeInMB to be specified.
 
-## Configurazione della sicurezza del replicatore
-Le configurazioni della sicurezza del replicatore consentono di proteggere il canale di comunicazione usato durante la replica. Questo significa che i servizi non possono visualizzare l'uno il traffico di replica dell'altro, garantendo la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
+## <a name="replicator-security-configuration"></a>Replicator security configuration
+Replicator security configurations are used to secure the communication channel that is used during replication. This means that services cannot see each other's replication traffic, ensuring the data that is made highly available is also secure.
+By default, an empty security configuration section prevents replication security.
 
-### Nome della sezione
-&lt;NomeAttore&gt;ServiceReplicatorSecurityConfig
+### <a name="section-name"></a>Section name
+&lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## Configurazione del replicatore
-Le configurazioni del replicatore vengono usate per configurare il replicatore responsabile di garantire l'elevata affidabilità dello stato del provider di stato degli attori replicando e rendendo permanente tale stato in locale. La configurazione predefinita viene generata dal modello di Visual Studio e dovrebbe essere sufficiente. Questa sezione descrive le configurazioni aggiuntive che sono disponibili per ottimizzare il replicatore.
+## <a name="replicator-configuration"></a>Replicator configuration
+Replicator configurations are used to configure the replicator that is responsible for making the Actor State Provider state highly reliable by replicating and persisting the state locally.
+The default configuration is generated by the Visual Studio template and should suffice. This section talks about additional configurations that are available to tune the replicator.
 
-### Nome della sezione
-&lt;NomeAttore&gt;ServiceReplicatorConfig
+### <a name="section-name"></a>Section name
+&lt;ActorName&gt;ServiceReplicatorConfig
 
-### Nomi delle configurazioni
+### <a name="configuration-names"></a>Configuration names
 
-|Nome|Unità|Valore predefinito|Osservazioni|
+|Name|Unit|Default value|Remarks|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Secondi|0,015|Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica.||
-|ReplicatorEndpoint|N/D|Nessun valore predefinito: parametro obbligatorio|Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Questo dovrebbe fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per altre informazioni sulla definizione delle risorse dell'endpoint nel manifesto del servizio, vedere [Risorse del manifesto del servizio](service-fabric-service-manifest-resources.md). |
-|MaxReplicationMessageSize|Byte|50 MB|Dimensione massima dei dati di replica che è possibile trasmettere in un singolo messaggio.|
-|MaxPrimaryReplicationQueueSize|Numero di operazioni|8192|Numero massimo di operazioni nella coda principale. Un'operazione viene liberata quando il replicatore principale riceve un acknowledgement da tutti i replicatori secondari. Questo valore deve essere maggiore di 64 ed essere una potenza di 2.|
-|MaxSecondaryReplicationQueueSize|Numero di operazioni|16384|Numero massimo di operazioni nella coda secondaria. Un'operazione viene liberata quando il relativo stato viene reso altamente disponibile tramite persistenza. Questo valore deve essere maggiore di 64 ed essere una potenza di 2.|
-|CheckpointThresholdInMB|MB|200|Quantità di spazio del file di log dopo il quale viene eseguito un checkpoint dello stato.|
-|MaxRecordSizeInKB|KB|1024|La dimensione massima dei record che il replicatore può scrivere nel log. Questo valore deve essere un multiplo di 4 ed essere maggiore di 16.|
-|OptimizeLogForLowerDiskUsage|Boolean|true|Se il valore è true, il log viene configurato in modo che il file di log dedicato della replica venga creato mediante un file NTFS sparse. Questo riduce l'utilizzo effettivo di spazio su disco per il file. Quando il valore è false, il file viene creato con allocazioni predefinite che assicurano le migliori prestazioni in scrittura.|
-|SharedLogId|guid|""|Specifica un GUID da usare per l'identificazione del file di log condiviso usato con la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogId, lo deve essere anche SharedLogPath.|
-|SharedLogPath|Nome di percorso completo|""|Specifica il percorso completo in cui verrà creato il file di log condiviso per la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se SharedLogPath è stato specificato, lo deve essere anche SharedLogId.|
+|BatchAcknowledgementInterval|Seconds|0.015|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.||
+|ReplicatorEndpoint|N/A|No default--required parameter|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP resource endpoint in the service manifest. Refer to [Service manifest resources](service-fabric-service-manifest-resources.md) to read more about defining endpoint resources in service manifest. |
+|MaxReplicationMessageSize|Bytes|50 MB|Maximum size of replication data that can be transmitted in a single message.|
+|MaxPrimaryReplicationQueueSize|Number of operations|8192|Maximum number of operations in the primary queue. An operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators. This value must be greater than 64 and a power of 2.|
+|MaxSecondaryReplicationQueueSize|Number of operations|16384|Maximum number of operations in the secondary queue. An operation is freed up after making its state highly available through persistence. This value must be greater than 64 and a power of 2.|
+|CheckpointThresholdInMB|MB|200|Amount of log file space after which the state is checkpointed.|
+|MaxRecordSizeInKB|KB|1024|Largest record size that the replicator may write in the log. This value must be a multiple of 4 and greater than 16.|
+|OptimizeLogForLowerDiskUsage|Boolean|true|When true, the log is configured so that the replica's dedicated log file is created by using an NTFS sparse file. This lowers the actual disk space usage for the file. When false, the file is created with fixed allocations, which provide the best write performance.|
+|SharedLogId|guid|""|Specifies a unique guid to use for identifying the shared log file used with this replica. Typically, services should not use this setting. However, if SharedLogId is specified, then SharedLogPath must also be specified.|
+|SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
 
 
-## Esempio file di configurazione
+## <a name="sample-configuration-file"></a>Sample configuration file
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -109,15 +112,20 @@ Le configurazioni del replicatore vengono usate per configurare il replicatore r
 </Settings>
 ```
 
-## Osservazioni
-Il parametro BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement. Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
+## <a name="remarks"></a>Remarks
+The BatchAcknowledgementInterval parameter controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
+The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
 
-Il parametro CheckpointThresholdInMB controlla la quantità di spazio su disco che il replicatore può usare per archiviare le informazioni sullo stato nel file di log dedicato della replica. Aumentandone il valore rispetto al valore predefinito potrebbe causare tempi di riconfigurazione più rapidi quando una nuova replica viene aggiunta al set. Questo a causa del trasferimento di stato parziale che viene eseguito in seguito alla disponibilità di una maggiore cronologia di operazioni nel log e che può aumentare il tempo di ripristino di una replica dopo un arresto anomalo.
+The CheckpointThresholdInMB parameter controls the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Increasing this to a higher value than the default could result in faster reconfiguration times when a new replica is added to the set. This is due to the partial state transfer that takes place due to the availability of more history of operations in the log. This can potentially increase the recovery time of a replica after a crash.
 
-Se si imposta OptimizeForLowerDiskUsage su true, lo spazio del file di log viene sottoposto a over-provisioning per consentire alle repliche attive di archiviare nei propri file di log una maggiore quantità di informazioni sullo stato, lasciando alle repliche inattive una minore quantità di spazio su disco. In questo modo, è possibile ospitare più repliche in un nodo. Se si imposta OptimizeForLowerDiskUsage su false, le informazioni sullo stato vengono scritte nei file di log più rapidamente.
+If you set OptimizeForLowerDiskUsage to true, log file space will be over-provisioned so that active replicas can store more state information in their log files, while inactive replicas will use less disk space. This makes it possible to host more replicas on a node. If you set OptimizeForLowerDiskUsage to false, the state information is written to the log files more quickly.
 
-L'impostazione MaxRecordSizeInKB definisce la dimensione massima dei record che il replicatore può scrivere nel file di log. Nella maggior parte dei casi, la dimensione predefinita del record, 1024 KB, è ottimale. Tuttavia, se il servizio richiede che nelle informazioni sullo stato vengano inclusi elementi dati di dimensioni maggiori, è possibile che sia necessario aumentare questo valore. La riduzione delle dimensioni di MaxRecordSizeInKB a meno di 1024 KB è relativamente vantaggiosa perché i record di dimensioni minori usano soltanto lo spazio necessario. È probabile che questo valore debba essere modificato solo in rari casi.
+The MaxRecordSizeInKB setting defines the maximum size of a record that can be written by the replicator into the log file. In most cases, the default 1024-KB record size is optimal. However, if the service is causing larger data items to be part of the state information, then this value might need to be increased. There is little benefit in making MaxRecordSizeInKB smaller than 1024, as smaller records use only the space needed for the smaller record. We expect that this value would need to be changed only in rare cases.
 
-Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file per ridurre le situazioni di contesa della testina. È probabile che questi valori debbano essere modificati solo in rari casi.
+The SharedLogId and SharedLogPath settings are always used together to make a service use a separate shared log from the default shared log for the node. For best efficiency, as many services as possible should specify the same shared log. Shared log files should be placed on disks that are used solely for the shared log file, to reduce head movement contention. We expect that these values would need to be changed only in rare cases.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

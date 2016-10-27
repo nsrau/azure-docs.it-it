@@ -1,76 +1,77 @@
 <properties
-	pageTitle="Come configurare connessioni VPN in Gestione API di Azure"
-	description="Informazioni su come configurare una connessione VPN in Gestione API di Azure e usarla per accedere ai servizi Web."
-	services="api-management"
-	documentationCenter=""
-	authors="antonba"
-	manager="erikre"
-	editor=""/> 
+    pageTitle="How to setup VPN connections in Azure API Management"
+    description="Learn how to setup a VPN connection in Azure API Management and access web services through it."
+    services="api-management"
+    documentationCenter=""
+    authors="antonba"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="antonba"/> 
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/25/2016"
+    ms.author="antonba"/>
 
-# Come configurare connessioni VPN in Gestione API di Azure
 
-Il supporto VPN di Gestione API consente di connettere il gateway di Gestione API a una rete virtuale di Azure (classica). Questo consente ai clienti di Gestione API di connettersi in modo sicuro ai servizi Web back-end locali o altrimenti non accessibili per la rete Internet pubblica.
+# <a name="how-to-setup-vpn-connections-in-azure-api-management"></a>How to setup VPN connections in Azure API Management
 
->[AZURE.NOTE] Gestione API di Azure funziona con reti virtuali classiche. Per informazioni sulla creazione di una rete virtuale classica, vedere [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Per informazioni sulla connessione di reti virtuali classiche a reti virtuali di ARM, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+API Management's VPN support allows you to connect your API Management gateway to an Azure Virtual Network (classic). This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
 
-## <a name="enable-vpn"> </a>Abilitare connessioni VPN
+>[AZURE.NOTE] Azure API Management works with classic VNETs. For information on creating a classic VNET, see [Create a virtual network (classic) by using the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). For information on connecting classic VNETs to ARM VNETS, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
->La connettività VPN è disponibile solo nel livello **Premium** e **Developer**. Per passare a questo livello, aprire il servizio Gestione API nel [portale di Azure classico][] e quindi aprire la scheda **Ridimensiona**. Nella sezione **Generale** selezionare il livello Premium e fare clic su Salva.
+## <a name="<a-name="enable-vpn">-</a>enable-vpn-connections"></a><a name="enable-vpn"> </a>Enable VPN connections
 
-Per abilitare la connettività VPN, aprire il servizio Gestione API nel [portale di Azure classico][] e passare alla scheda **Configura**.
+>VPN connectivity is only available in the **Premium** and **Developer** tiers. To switch to it, open your API Management service in the [Azure Classic Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
 
-Nella sezione VPN impostare **Connessione VPN** su **Attivata**.
+To enable VPN connectivity, open your API Management service in the [Azure Classic Portal][] and switch to the **Configure** tab. 
 
-![Scheda Configura dell'istanza di Gestione API][api-management-setup-vpn-configure]
+Under the VPN section, switch **VPN connection** to **On**.
 
-Verrà ora visualizzato un elenco di tutte le aree in cui viene eseguito il provisioning del servizio Gestione API.
+![Configure tab of API Management instance][api-management-setup-vpn-configure]
 
-Selezionare un VPN e una subnet per ogni area. L'elenco di VPN viene popolato in base alle reti virtuali disponibili nella sottoscrizione di Azure, impostate nell'area che si sta configurando.
+You will now see a list of all regions where your API Management service is provisioned.
 
-![Selezionare una VPN][api-management-setup-vpn-select]
+Select a VPN and subnet for every region. The list of VPNs is populated based on the virtual networks available in your Azure subscription that are setup in the region you are configuring.
 
-Fare clic su **Salva** nella parte inferiore della schermata. Durante l'aggiornamento non sarà possibile eseguire altre operazioni nel servizio Gestione API dal portale di Azure classico. Il gateway del servizio rimarrà disponibile e le chiamate di runtime non dovrebbero essere interessate.
+![Select VPN][api-management-setup-vpn-select]
 
-Si noti che l'indirizzo VIP del gateway cambierà ogni volta che la VPN verrà abilitata o disabilitata.
+Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure Classic Portal while it is updating. The service gateway will remain available and runtime calls should not be affected.
 
-## <a name="connect-vpn"> </a>Connettersi a un servizio Web dietro la VPN
+Note that the VIP address of the gateway will change each time VPN is enabled or disabled.
 
-Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servizi Web all'interno della rete virtuale non è diverso dall'accesso a servizi pubblici. Basterà digitare l'indirizzo locale o il nome host (se è stato configurato un server DNS per la rete virtuale di Azure) del servizio Web nel campo **URL del servizio Web** quando si crea una nuova API o se ne modifica una esistente.
+## <a name="<a-name="connect-vpn">-</a>connect-to-a-web-service-behind-vpn"></a><a name="connect-vpn"> </a>Connect to a web service behind VPN
 
-![Aggiungere un'API dalla VPN][api-management-setup-vpn-add-api]
+After your API Management service is connected to the VPN, accessing web services within the virtual network is no different than accessing public services. Just type in the local address or the host name (if a DNS server was configured for the Azure Virtual Network) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
 
-## Porte necessarie per il supporto VPN di Gestione API
+![Add API from VPN][api-management-setup-vpn-add-api]
 
-Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, vengono usate le porte indicate nella tabella seguente. Se le porte sono bloccate, il servizio potrebbe non funzionare correttamente. Il blocco di una o più di queste porte è il problema di configurazione più comune nell'uso di Gestione API in una rete virtuale.
+## <a name="required-ports-for-api-management-vpn-support"></a>Required ports for API Management VPN support
 
-| Porte | Direzione | Protocollo di trasporto | Scopo | Origine/Destinazione |
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the service may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
+
+| Port(s)                      | Direction        | Transport Protocol | Purpose                                                          | Source / Destination              |
 |------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
-| 80, 443 | In ingresso | TCP | Comunicazione tra client e Gestione API | INTERNET / VIRTUAL\_NETWORK |
-| 80,443 | In uscita | TCP | Dipendenza di Gestione API in archiviazione di Azure e bus di servizio di Azure | VIRTUAL\_NETWORK / INTERNET |
-| 1433 | In uscita | TCP | Dipendenze di Gestione API in SQL | VIRTUAL\_NETWORK / INTERNET |
-| 9350, 9351, 9352, 9353, 9354 | In uscita | TCP | Dipendenze di Gestione API nel bus di servizio | VIRTUAL\_NETWORK / INTERNET |
-| 5671 | In uscita | AMQP | Dipendenza di Gestione API per il criterio Registra a Hub eventi | VIRTUAL\_NETWORK / INTERNET |
-| 6381, 6382, 6383 | In ingresso/In uscita | UDP | Dipendenze di Gestione API nella cache Redis | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
-| 445 | In uscita | TCP | Dipendenza di Gestione API nella condivisione file di Azure per GIT | VIRTUAL\_NETWORK / INTERNET |
+| 80, 443                      | Inbound          | TCP                | Client communication to API Management                           | INTERNET / VIRTUAL_NETWORK        |
+| 80,443                       | Outbound         | TCP                | API Management Dependency on Azure Storage and Azure Service Bus | VIRTUAL_NETWORK / INTERNET        |
+| 1433                         | Outbound         | TCP                | API Management dependencies on SQL                               | VIRTUAL_NETWORK / INTERNET        |
+| 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus                       | VIRTUAL_NETWORK / INTERNET        |
+| 5671                         | Outbound         | AMQP               | API Management dependency for Log to event Hub policy            | VIRTUAL_NETWORK / INTERNET        |
+| 6381, 6382, 6383             | Inbound/Outbound | UDP                | API Management dependencies on Redis Cache                       | VIRTUAL_NETWORK / VIRTUAL_NETWORK |
+| 445                          | Outbound         | TCP                | API Management Dependency on Azure File Share for GIT            | VIRTUAL_NETWORK / INTERNET        |
 
-## <a name="custom-dns"> </a>Configurazione del server DNS personalizzato
+## <a name="<a-name="custom-dns">-</a>custom-dns-server-setup"></a><a name="custom-dns"> </a>Custom DNS server setup
 
-Gestione API dipende da diversi servizi di Azure. Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale in cui viene usato un server DNS personalizzato, è necessario che l'istanza possa risolvere i nomi host dei servizi di Azure. Vedere [queste](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) informazioni aggiuntive sulla configurazione del DNS personalizzato.
+API Management depends on a number of Azure services. When an API Management service instance is hosted in a VNET where a custom DNS server is used, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup.  
 
-## <a name="related-content"> </a>Contenuti correlati
+## <a name="<a-name="related-content">-</a>related-content"></a><a name="related-content"> </a>Related content
 
 
-* [Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico][]
-* [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure][]
+* [Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal][]
+* [How to use the API Inspector to trace calls in Azure API Management][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -80,9 +81,13 @@ Gestione API dipende da diversi servizi di Azure. Quando un'istanza del servizio
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[portale di Azure classico]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
-[Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
-[Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
+[Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
+[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

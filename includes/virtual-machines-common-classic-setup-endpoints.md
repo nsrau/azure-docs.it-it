@@ -1,63 +1,71 @@
 
-Ogni endpoint ha una *porta pubblica* e una *porta privata*.
+Each endpoint has a *public port* and a *private port*:
 
-- La porta pubblica viene usata dal servizio di bilanciamento del carico di Azure per restare in attesa di traffico in ingresso sulla macchina virtuale da Internet.
-- La porta privata viene usata dalla macchina virtuale per restare in attesa di traffico in ingresso, in genere destinato a un'applicazione o a un servizio in esecuzione nella macchina virtuale.
+- The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
+- The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
 
-I valori predefiniti per il protocollo IP e le porte TCP o UDP per i protocolli di rete noti vengono forniti quando si creano endpoint con il portale di Azure classico. Per gli endpoint personalizzati, è necessario specificare il protocollo IP corretto (TCP o UDP) e le porte pubbliche e private. Per distribuire il traffico in ingresso in modo casuale tra più macchine virtuali, è necessario creare un set con carico bilanciato costituito da più endpoint.
+Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure classic portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
 
-Dopo aver creato un endpoint, è possibile usare un elenco di controllo di accesso (ACL) per definire regole che autorizzano o rifiutano il traffico in ingresso alla porta pubblica dell'endpoint in base al relativo indirizzo IP di origine. Tuttavia, se la macchina virtuale è in una rete virtuale di Azure, è consigliabile usare invece i gruppi di sicurezza di rete. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
+After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
 
-> [AZURE.NOTE]La configurazione del firewall per le macchine virtuali di Azure viene eseguita automaticamente per le porte associate agli endpoint di connettività remota configurati automaticamente da Azure. Per le porte specificate per tutti gli altri endpoint, non viene effettuata alcuna configurazione automatica del firewall della macchina virtuale. Quando si crea un endpoint per la macchina virtuale, è necessario assicurarsi che il firewall della macchina virtuale consenta anche il traffico per il protocollo e la porta privata corrispondente alla configurazione dell'endpoint. Per configurare il firewall, vedere la documentazione o la Guida in linea per il sistema operativo in esecuzione sulla macchina virtuale.
+> [AZURE.NOTE]Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
 
-## Creare un endpoint
+## <a name="create-an-endpoint"></a>Create an endpoint
 
-1.	Accedere al [portale di Azure classico](http://manage.windowsazure.com), se questa operazione non è già stata eseguita.
-2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
-3.	Fare clic su **Endpoint**. Nella pagina **Endpoint** sono elencati tutti gli endpoint correnti per la macchina virtuale. Questo esempio è relativo a una VM Windows. Una macchina virtuale Linux mostrerà per impostazione predefinita un endpoint per SSH.
+1.  If you haven't already done so, sign in to the [Azure classic portal](http://manage.windowsazure.com).
+2.  Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
+3.  Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
 
-	![Endpoint](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
+    ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
-4.	Nella barra delle applicazioni, fare clic su **Aggiungi**.
-5.	Nel **Aggiungi un endpoint a una macchina virtuale**, selezionare il tipo di endpoint.
+4.  In the taskbar, click **Add**.
+5.  On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
 
-	- Se si crea un nuovo endpoint che non fa parte di un set con carico bilanciato o corrisponde al primo endpoint in un nuovo set con carico bilanciato, scegliere **Aggiungi un endpoint autonomo** e quindi fare clic sulla freccia sinistra.
-	- In alternativa, scegliere **Aggiungi un endpoint a un set con carico bilanciato esistente**, selezionare il nome del set con carico bilanciato e quindi fare clic sulla freccia sinistra. Nella pagina **Specificare i dettagli dell'endpoint** digitare un nome per l'endpoint e quindi fare clic sul segno di spunta per creare l'endpoint.
+    - If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
+    - Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
 
-6.	Nella pagina **Specificare i dettagli dell'endpoint** digitare un nome per l'endpoint in **Nome**. È anche possibile scegliere un nome di protocollo di rete nell'elenco, che compilerà i valori iniziali per il **Protocollo**, la **Porta pubblica** e la **Porta privata**.
-7.	Per un endpoint personalizzato in **Protocollo**, scegliere **TCP** o **UDP**.
-8.	Per le porte personalizzate, in **Porta pubblica** digitare il numero di porta per il traffico in ingresso da Internet. In **Porta privata**, digitare il numero di porta su cui la macchina virtuale è in attesa. Questi numeri di porta possono essere diversi. Assicurarsi che il firewall nella macchina virtuale sia stato configurato per consentire il traffico corrispondente al protocollo (nel passaggio 7) e la porta privata.
-9.	Se questo endpoint sarà il primo in un set con carico bilanciato, fare clic su **Crea un set con carico bilanciato**, quindi fare clic sulla freccia a destra. Nella pagina **Configura il set con carico bilanciato** specificare un nome di set con carico bilanciato, un protocollo e una porta probe, l'intervallo probe e il numero di probe inviati. Il bilanciamento del carico di Azure invia probe alle macchine virtuali in un set con carico bilanciato per monitorarne la disponibilità. Il bilanciamento del carico di Azure non inoltra il traffico alle macchine virtuali che non rispondono al probe. Fare clic sulla freccia destra.
-10.	Fare clic sul segno di spunta per creare l'endpoint.
+6.  On the **Specify the details of the endpoint** page, type a name for the endpoint in **Name**. You can also choose a network protocol name from the list, which will fill in initial values for the **Protocol**, **Public Port**, and **Private Port**.
+7.  For a customized endpoint, in **Protocol**, choose either **TCP** or **UDP**.
+8.  For customized ports, in **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.
+9.  If this endpoint will be the first one in a load-balanced set, click **Create a load-balanced set**, and then click the right arrow. On the **Configure the load-balanced set** page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent. The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability. The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe. Click the right arrow.
+10. Click the check mark to create the endpoint.
 
-Il nuovo endpoint verrà elencato nella pagina **Endpoint**.
+The new endpoint will be listed on the **Endpoints** page.
 
-![Creazione dell'endpoint completata](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
+![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
  
 
-## Gestire l'elenco di controllo di accesso su un endpoint
+## <a name="manage-the-acl-on-an-endpoint"></a>Manage the ACL on an endpoint
 
-Per definire il set di computer che può inviare il traffico, l'elenco di controllo di accesso in un endpoint può limitare il traffico in base all'indirizzo IP di origine. Per aggiungere, modificare o rimuovere un elenco di controllo di accesso su un endpoint, attenersi alla procedura seguente.
+To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
 
-> [AZURE.NOTE] se l'endpoint fa parte di un set con carico bilanciato, qualsiasi modifica apportata all'elenco di controllo di accesso su un endpoint verrà applicata a tutti gli endpoint del set.
+> [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
 
-Se la macchina virtuale si trova in una rete virtuale di Azure, è consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso. Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
+If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
 
-1.	Accedere al portale di Azure classico, se questa operazione non è già stata eseguita.
-2.	Fare clic su **Macchine virtuali** e quindi scegliere il nome della macchina virtuale da configurare.
-3.	Fare clic su **Endpoint**. Selezionare l'endpoint appropriato nell'elenco.
+1.  If you haven't already done so, sign in to the Azure classic portal.
+2.  Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
+3.  Click **Endpoints**. From the list, select the appropriate endpoint.
 
-    ![Elenco di controllo di accesso](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
-5.	Nella barra delle applicazioni fare clic su **Gestisci ACL** per aprire la finestra di dialogo che consente di **specificare i dettagli di ACL**.
+5.  In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
 
-    ![Immissione dei dettagli sull'elenco di controllo di accesso](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
+    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 
-6.	Usare le righe nell'elenco per aggiungere, eliminare o modificare le regole per un elenco di controllo di accesso e modificarne l'ordine. Il valore **Subnet remota** è un intervallo di indirizzi IP per il traffico in ingresso da Internet usato dal servizio di bilanciamento del carico di Azure per autorizzare o rifiutare il traffico in base all'indirizzo IP di origine. Assicurarsi di specificare l'intervallo di indirizzi IP nel formato CIDR, noto anche come formato di prefisso di indirizzo. Un esempio è 131.107.0.0/16.
+6.  Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
 
-È possibile usare regole per consentire solo il traffico da computer specifici corrispondenti ai computer su Internet oppure rifiutare il traffico da intervalli di indirizzi specifici e noti.
+You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
 
-Le regole sono valutate nell'ordine, dalla prima fino all'ultima. Questo significa che le regole devono essere ordinate dalla meno restrittiva alla più restrittiva. Per alcuni esempi e altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](../articles/virtual-network/virtual-networks-acl.md).
+The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../articles/virtual-network/virtual-networks-acl.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

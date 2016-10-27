@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usare Pig di Hadoop con .NET in HDInsight | Microsoft Azure"
-   description="Informazioni su come usare .NET SDK per Hadoop per inviare processi Pig a Hadoop in HDInsight."
+   pageTitle="Use Hadoop Pig with .NET in HDInsight | Microsoft Azure"
+   description="Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight."
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
@@ -17,59 +17,60 @@
    ms.date="09/06/2016"
    ms.author="larryfr"/>
 
-#Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
+
+#<a name="run-pig-jobs-using-the-.net-sdk-for-hadoop-in-hdinsight"></a>Run Pig jobs using the .NET SDK for Hadoop in HDInsight
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Questo documento fornisce un esempio d'uso di .NET SDK per Hadoop per inviare i processi Pig a un cluster Hadoop in HDInsight.
+This document provides an example of using the .NET SDK for Hadoop to submit Pig jobs to a Hadoop on HDInsight cluster.
 
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. Pig consente di creare operazioni MapReduce modellando una serie di trasformazioni di dati. In questo articolo si apprenderà come usare un'applicazione di base C# per inviare un processo Pig a un cluster HDInsight.
+The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET. Pig allows you to create MapReduce operations by modeling a series of data transformations. You will learn how to use a basic C# application to submit a Pig job to an HDInsight cluster.
 
 [AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
 
-* [Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
+* [Run Pig jobs using the .NET SDK for Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
+To complete the steps in this article, you will need the following.
 
-* Un cluster Azure HDInsight (Hadoop in HDInsight) basato su Windows o su Linux.
-* Visual Studio 2012, 2013 o 2015.
+* An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
+* Visual Studio 2012 or 2013 or 2015.
 
-## Creazione dell'applicazione
+## <a name="create-the-application"></a>Create the application
 
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET.
+The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
 
-1. Aprire Visual Studio 2012 o 2013.
-2. Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
-3. Nella finestra di dialogo Nuovo progetto digitare o selezionare i seguenti valori:
+1. Open Visual Studio 2012 or 2013
+2. From the **File** menu, select **New** and then select **Project**.
+3. For the new project, type or select the following values.
 
-	<table>
-	<tr>
-	<th>Proprietà</th>
-	<th>Valore</th>
-	</tr>
-	<tr>
-	<th>Categoria</th>
-	<th>Templates/Visual C#/Windows</th>
-	</tr>
-	<tr>
-	<th>Modello</th>
-	<th>Applicazione console</th>
-	</tr>
-	<tr>
-	<th>Nome</th>
-	<th>SubmitPigJob</th>
-	</tr>
-	</table>
-4. Fare clic su **OK** per creare il progetto.
-5. Selezionare **Gestione pacchetti libreria** o **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi scegliere **Console di Gestione pacchetti**.
-6. Usare il seguente comando nella console per installare i pacchetti di .NET SDK.
+    <table>
+    <tr>
+    <th>Property</th>
+    <th>Value</th>
+    </tr>
+    <tr>
+    <th>Category</th>
+    <th>Templates/Visual C#/Windows</th>
+    </tr>
+    <tr>
+    <th>Template</th>
+    <th>Console Application</th>
+    </tr>
+    <tr>
+    <th>Name</th>
+    <th>SubmitPigJob</th>
+    </tr>
+    </table>
+4. Click **OK** to create the project.
+5. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
+6. Run the following command in the console to install the .NET SDK packages.
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-7. In Esplora soluzioni fare doppio clic su **Program.cs** per aprirlo. Replace Sostituire il codice esistente con il seguente.
+7. From Solution Explorer, double-click **Program.cs** to open it. Replace the existing code with the following.
 
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -123,24 +124,27 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
         }
 
 
-7. Premere **F5** per avviare l'applicazione.
-8. Premere **INVIO** per uscire dall'applicazione.
+7. Press **F5** to start the application.
+8. Press **ENTER** to exit the application.
 
-## Riepilogo
+## <a name="summary"></a>Summary
 
-Come si può notare, .NET SDK per Hadoop consente di creare applicazioni .NET che inviano processi Pig a un cluster HDInsight e di monitorare lo stato del processo.
+As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, and monitor the job status.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Per informazioni generali su Pig in HDInsight.
+For general information on Pig in HDInsight.
 
-* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
+For information on other ways you can work with Hadoop on HDInsight.
 
-* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-[portale di anteprima]: https://portal.azure.com/
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md) [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Come aggiornare un servizio cloud | Microsoft Azure"
-description="Informazioni su come aggiornare i servizi cloud in Azure. Informazioni su come viene eseguito un aggiornamento in un servizio cloud per assicurare la disponibilità."
+pageTitle="How to update a cloud service | Microsoft Azure"
+description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
 services="cloud-services"
 documentationCenter=""
 authors="Thraka"
@@ -15,176 +15,183 @@ ms.topic="article"
 ms.date="08/10/2016"
 ms.author="adegeo"/>
 
-# Come aggiornare un servizio cloud
 
-## Overview
-In generale, l'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo guest, è un processo in tre passaggi. Prima devono essere caricati i file binari e di configurazione per la nuova versione del nuovo servizio cloud o del sistema operativo. Quindi Azure riserva le risorse di calcolo e di rete per il servizio cloud in base ai requisiti della nuova versione del servizio cloud. Infine Azure esegue un aggiornamento in sequenza per aggiornare in modo incrementale il tenant alla nuova versione o al nuovo sistema operativo guest, mantenendo nello stesso tempo la disponibilità. Questo articolo illustra i dettagli dell'ultimo passaggio, l'aggiornamento in sequenza.
+# <a name="how-to-update-a-cloud-service"></a>How to update a cloud service
 
-## Aggiornare un servizio di Azure
+## <a name="overview"></a>Overview
+At 10,000 feet, updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
 
-Azure organizza le istanze del ruolo in raggruppamenti logici chiamati domini di aggiornamento. I domini di aggiornamento sono set logici di istanze del ruolo aggiornate come gruppo. Azure aggiorna un servizio cloud un dominio di aggiornamento alla volta, per consentire alle istanze negli altri domini di aggiornamento di continuare a gestire il traffico.
+## <a name="update-an-azure-service"></a>Update an Azure Service
 
-Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [WebRole Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) o [WorkerRole Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+Azure organizes your role instances into logical groupings called upgrade domains (UD). Upgrade domains (UD) are logical sets of role instances that are updated as a group.  Azure updates a cloud service one UD at a time, which allows instances in other UDs to continue serving traffic.
 
-Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](#howanupgradeproceeds).
+The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [WebRole Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) or [WorkerRole Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
 
-> [AZURE.NOTE] Anche se i termini inglesi **update** e **upgrade** hanno un significato leggermente diverso nel contesto di Azure, sono stati entrambi tradotti con il termine italiano "aggiornamento" in relazione ai processi e alle descrizioni delle funzionalità di questo documento.
+When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](#howanupgradeproceeds) later in this article.
 
-Il servizio deve definire almeno due istanze di un ruolo per aggiornarlo sul posto senza tempi di inattività. Se il servizio è costituito da una sola istanza di un ruolo, il servizio non sarà disponibile fino al termine dell'aggiornamento sul posto.
+> [AZURE.NOTE] While the terms **update** and **upgrade** have slightly different meaning in the context Azure, they can be used interchangeably for the processes and descriptions of the features in this document.
 
-Questo argomento contiene le informazioni seguenti sugli aggiornamenti di Azure:
+Your service must define at least two instances of a role for that role to be updated in-place without downtime. If the service consists of only one instance of one role, your service will be unavailable until the in-place update has finished.
 
--   [Modifiche consentite al servizio durante un aggiornamento](#AllowedChanges)
--   [Come avviene un aggiornamento](#howanupgradeproceeds)
--   [Ripristino dello stato precedente di un aggiornamento](#RollbackofanUpdate)
--   [Avvio di più operazioni di mutazione durante una distribuzione](#multiplemutatingoperations)
--   [Distribuzione di ruoli nei domini di aggiornamento](#distributiondfroles)
+This topic covers the following information about Azure updates:
+
+-   [Allowed service changes during an update](#AllowedChanges)
+-   [How an upgrade proceeds](#howanupgradeproceeds)
+-   [Rollback of an update](#RollbackofanUpdate)
+-   [Initiating multiple mutating operations on an ongoing deployment](#multiplemutatingoperations)
+-   [Distribution of roles across upgrade domains](#distributiondfroles)
 
 <a name="AllowedChanges"></a>
-## Modifiche consentite al servizio durante un aggiornamento
-La tabella seguente mostra le modifiche consentite a un servizio durante un aggiornamento:
+## <a name="allowed-service-changes-during-an-update"></a>Allowed service changes during an update
+The following table shows the allowed changes to a service during an update:
 
-|Modifiche consentite a hosting, servizi e ruoli|Aggiornamento sul posto|Gestione temporanea (scambio indirizzi VIP)|Eliminazione e ridistribuzione|
+|Changes permitted to hosting, services, and roles|In-place update|Staged (VIP swap)|Delete and re-deploy|
 |---|---|---|---|
-|Versione del sistema operativo|Sì|Sì|Sì
-|Livello di attendibilità .NET|Sì|Sì|Sì|
-|Dimensioni macchina virtuale<sup>1</sup>|Sì<sup>2</sup>|Sì|Sì|
-|Impostazioni di archiviazione locali|Solo aumento<sup>2</sup>|Sì|Sì|
-|Aggiungere o rimuovere ruoli in un servizio|Sì|Sì|Sì|
-|Numero di istanze di un particolare ruolo|Sì|Sì|Sì|
-|Numero o tipo di endpoint per un servizio|Sì<sup>2</sup>|No|Sì|
-|Nomi e i valori delle impostazioni di configurazione|Sì|Sì|Sì|
-|Valori (ma non nomi) delle impostazioni di configurazione|Sì|Sì|Sì|
-|Aggiungere nuovi certificati|Sì|Sì|Sì|
-|Modificare i certificati esistenti|Sì|Sì|Sì|
-|Distribuire nuovo codice|Sì|Sì|Sì|
-<sup>1</sup>Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
+|Operating system version|Yes|Yes|Yes
+|.NET trust level|Yes|Yes|Yes|
+|Virtual machine size<sup>1</sup>|Yes<sup>2</sup>|Yes|Yes|
+|Local storage settings|Increase only<sup>2</sup>|Yes|Yes|
+|Add or remove roles in a service|Yes|Yes|Yes|
+|Number of instances of a particular role|Yes|Yes|Yes|
+|Number or type of endpoints for a service|Yes<sup>2</sup>|No|Yes|
+|Names and values of configuration settings|Yes|Yes|Yes|
+|Values (but not names) of configuration settings|Yes|Yes|Yes|
+|Add new certificates|Yes|Yes|Yes|
+|Change existing certificates|Yes|Yes|Yes|
+|Deploy new code|Yes|Yes|Yes|
+<sup>1</sup>Size change limited to the subset of sizes available for the cloud service.
 
-<sup>2</sup>Richiede Azure SDK 1.5 o versioni successive.
+<sup>2</sup>Requires Azure SDK 1.5 or later versions.
 
-> [AZURE.WARNING] La modifica della dimensione di una macchina virtuale eliminerà i dati locali.
+> [AZURE.WARNING] Changing the virtual machine size will destroy local data.
 
 
-Gli elementi seguenti non sono supportati durante un aggiornamento:
+The following items are not supported during an update:
 
--   Modifica del nome di un ruolo. Rimuovere e quindi aggiungere il ruolo con il nuovo nome.
--   Modifica del conteggio dei domini di aggiornamento.
--   Riduzione della dimensione delle risorse locali.
+-   Changing the name of a role. Remove and then add the role with the new name.
+-   Changing of the Upgrade Domain count.
+-   Decreasing the size of the local resources.
 
-Se intende eseguire altri aggiornamenti alla definizione del servizio, ad esempio la riduzione della dimensione di una risorsa locale, è necessario eseguire invece un aggiornamento dello scambio di indirizzi VIP. Per altre informazioni, vedere [Scambiare la distribuzione](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/library/azure/ee460814.aspx).
 
 <a name="howanupgradeproceeds"></a>
-## Come avviene un aggiornamento
-È possibile decidere se aggiornare tutti i ruoli del servizio oppure uno solo. In entrambi i casi, tutte le istanze di ogni ruolo che verrà aggiornato e appartiene al primo dominio di aggiornamento verranno arrestate, aggiornate e riportate online. Quando sono di nuovo online, vengono arrestate, aggiornate e riportate online le istanze nel secondo dominio di aggiornamento. Un servizio cloud non può avere più di un aggiornamento attivo per volta. L'aggiornamento viene sempre eseguito usando la versione più recente del servizio cloud.
+## <a name="how-an-upgrade-proceeds"></a>How an upgrade proceeds
+You can decide whether you want to update all of the roles in your service or a single role in the service. In either case, all instances of each role that is being upgraded and belong to the first upgrade domain are stopped, upgraded, and brought back online. Once they are back online, the instances in the second upgrade domain are stopped, upgraded, and brought back online. A cloud service can have at most one upgrade active at a time. The upgrade is always performed against the latest version of the cloud service.
 
-Il diagramma seguente illustra come avviene l'aggiornamento se si aggiornano tutti i ruoli nel servizio:
+The following diagram illustrates how the upgrade proceeds if you are upgrading all of the roles in the service:
 
-![Aggiornare il servizio](media/cloud-services-update-azure-service/IC345879.png "Aggiornare il servizio")
+![Upgrade service](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
 
-Il diagramma successivo illustra come avviene l'aggiornamento se si aggiorna un solo ruolo:
+This next diagram illustrates how the update proceeds if you are upgrading only a single role:
 
-![Aggiornare il ruolo](media/cloud-services-update-azure-service/IC345880.png "Aggiornare il ruolo")
+![Upgrade role](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
 
-> [AZURE.NOTE] Quando si aggiorna un servizio da una sola istanza a più istanze, il servizio sarà inattivo durante l'esecuzione dell'aggiornamento a causa della modalità di aggiornamento dei servizi in Azure. Il contratto di servizio che garantisce la disponibilità del servizio si applica solo ai servizi distribuiti con più di una istanza. L'elenco seguente descrive come ogni scenario di aggiornamento di un servizio di Azure influisce sui dati di ogni unità:
+> [AZURE.NOTE] When upgrading a service from a single instance to multiple instances your service will be brought down while the upgrade is performed due to the way Azure upgrades services. The service level agreement guaranteeing service availability only applies to services that are deployed with more than one instance. The following list describes how the data on each drive is affected by each Azure service upgrade scenario:
 >
->Riavvio VM:
+>VM Reboot:
 >
--   C: mantenuta
--   D: mantenuta
--   E: mantenuta
+-   C: Preserved
+-   D: Preserved
+-   E: Preserved
 >
->Riavvio del portale:
+>Portal Reboot:
 >
--   C: mantenuta
--   D: mantenuta
--   E: eliminata
+-   C: Preserved
+-   D: Preserved
+-   E: Destroyed
 >
->Ricreazione dell'immagine del portale:
+>Portal Reimage:
 >
--   C: mantenuta
--   D: eliminata
--   E: eliminata
+-   C: Preserved
+-   D: Destroyed
+-   E: Destroyed
 
->Aggiornamento sul posto:
+>In-Place Upgrade:
 >
--   C: mantenuta
--   D: mantenuta
--   E: eliminata
+-   C: Preserved
+-   D: Preserved
+-   E: Destroyed
 >
->Migrazione di un nodo:
+>Node migration:
 >
--   C: eliminata
--   D: eliminata
--   E: eliminata
+-   C: Destroyed
+-   D: Destroyed
+-   E: Destroyed
 
->Si noti che nell'elenco precedente l'unità E: rappresenta l'unità radice del ruolo e non dovrebbe essere hardcoded. Per rappresentare l'unità, usare invece la variabile di ambiente %RoleRoot%.
+>Note that, in the above list, the E: drive represents the role’s root drive, and should not be hard-coded. Instead, use the %RoleRoot% environment variable to represent the drive.
 
->Per ridurre al minimo il tempo di inattività durante l'aggiornamento di un servizio a istanza singola, distribuire un nuovo servizio a più istanze nel server di staging ed eseguire uno scambio di indirizzi VIP.
+>To minimize the downtime when upgrading a single-instance service, deploy a new multi-instance service to the staging server and perform a VIP swap.
 
-Durante un aggiornamento automatico, il controller di infrastruttura di Azure valuta periodicamente l'integrità del servizio cloud per determinare quando è sicuro passare al dominio di aggiornamento successivo. Questa valutazione dell'integrità viene eseguita per ogni singolo ruolo e considera solo le istanze nella versione più recente (ad esempio, le istanze dei domini di aggiornamento già analizzati). Verifica che un numero minimo di istanze del ruolo, per ogni ruolo, abbia raggiunto uno stato finale soddisfacente.
+During an automatic update, the Azure Fabric Controller periodically evaluates the health of the cloud service to determine when it’s safe to walk the next UD. This health evaluation is performed on a per-role basis and considers only instances in the latest version (i.e. instances from UDs that have already been walked). It verifies that a minimum number of role instances, for each role, have achieved a satisfactory terminal state.
 
-### Timeout dell'avvio dell’istanza del ruolo
-Il controller di infrastruttura attende 30 minuti affinché ogni istanza del ruolo raggiunga uno stato avviato. Se la durata del timeout scade, il controller di infrastruttura prosegue all'istanza del ruolo successivo.
+### <a name="role-instance-start-timeout"></a>Role Instance Start Timeout
+The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance.
 
 <a name="RollbackofanUpdate"></a>
-## Ripristino dello stato precedente di un aggiornamento
-Azure offre flessibilità nella gestione dei servizi durante un aggiornamento perché consente di avviare altre operazioni su un servizio, dopo che la richiesta di aggiornamento iniziale è stata accettata dal controller di infrastruttura di Azure. Un ripristino dello stato precedente può essere eseguito solo quando una modifica della configurazione o un aggiornamento è nello stato **in corso** durante la distribuzione. Un aggiornamento viene considerato in corso finché almeno un'istanza del servizio non è ancora stata aggiornata alla nuova versione. Per verificare se un ripristino dello stato precedente è consentito, controllare che il valore del flag RollbackAllowed, restituito dalle operazioni [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), sia impostato su true.
+## <a name="rollback-of-an-update"></a>Rollback of an update
+Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
 
-> [AZURE.NOTE] Chiamare ripristino dello stato precedente è utile solo per un aggiornamento **sul posto** perché gli aggiornamenti con scambio di indirizzo VIP comportano la sostituzione di un'intera istanza in esecuzione del servizio con un'altra.
+> [AZURE.NOTE] It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
 
-Il ripristino dello stato precedente di un aggiornamento in corso ha gli effetti seguenti sulla distribuzione:
+Rollback of an in-progress update has the following effects on the deployment:
 
--   Le istanze del ruolo che non erano ancora state aggiornate alla nuova versione non vengono aggiornate, perché tali istanze stanno già eseguendo la versione di destinazione del servizio.
--   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (\*.cspkg) o al file di configurazione del service (\*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
+-   Any role instances which had not yet been updated or upgraded to the new version are not updated or upgraded, because those instances are already running the target version of the service.
+-   Any role instances which had already been updated or upgraded to the new version of the service package (\*.cspkg) file or the service configuration (\*.cscfg) file (or both files) are reverted to the pre-upgrade version of these files.
 
-Questa funzionalità viene fornita dalle funzioni seguenti:
+This functionally is provided by the following features:
 
--   L'operazione [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx), che può essere chiamata per un aggiornamento della configurazione (attivato chiamando [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx)) o per un aggiornamento (attivato chiamando [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx)) purché ci sia almeno un'istanza nel servizio non ancora aggiornata alla nuova versione.
--   L'elemento Locked e l'elemento RollbackAllowed, restituiti come parte del corpo della risposta delle operazioni [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx):
-    1.  L'elemento Locked consente di rilevare quando un'operazione di mutazione può essere richiamata in una determinata distribuzione.
-    2.  L'elemento RollbackAllowed consente di rilevare quando l'operazione [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) può essere chiamata in una determinata distribuzione.
+-   The [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation, which can be called on a configuration update (triggered by calling [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx)) or an upgrade (triggered by calling [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx)) as long as there is at least one instance in the service which has not yet been updated to the new version.
+-   The Locked element and the RollbackAllowed element, which are returned as part of the response body of the [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations:
+    1.  The Locked element allows you to detect when a mutating operation can be invoked on a given deployment.
+    2.  The RollbackAllowed element allows you to detect when the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation can be called on a given deployment.
 
-    Per eseguire un ripristino dello stato precedente, non è necessario controllare entrambi gli elementi Locked e RollbackAllowed. È sufficiente verificare che RollbackAllowed sia impostato su true. Questi elementi vengono restituiti solo se questi metodi vengono richiamati usando l'intestazione della richiesta impostata su "x-ms-version: 2011-10-01" o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+    In order to perform a rollback, you do not have to check both the Locked and the RollbackAllowed elements. It suffices to confirm that RollbackAllowed is set to true. These elements are only returned if these methods are invoked by using the request header set to “x-ms-version: 2011-10-01” or a later version. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
-In alcune situazioni un ripristino dello stato precedente di un aggiornamento non è supportato, come nei casi seguenti:
+There are some situations where a rollback of an update or upgrade is not supported, these are as follows:
 
--   Riduzione nelle risorse locali: se l'aggiornamento aumenta le risorse locali per un ruolo, la piattaforma Azure non consente il ripristino dello stato precedente.
--   Limitazioni della quota: se l'aggiornamento ha comportato un'operazione di riduzione, è possibile che la quota di calcolo non sia più sufficiente per completare l'operazione di ripristino dello stato precedente. A ogni sottoscrizione di Azure è associata una quota che specifica il numero massimo di memorie centrali che possono essere utilizzate da tutti i servizi ospitati appartenenti a tale sottoscrizione. Se l'esecuzione di un ripristino dello stato precedente di un determinato aggiornamento farà superare la quota prevista per la sottoscrizione, il ripristino dello stato precedente non verrà abilitato.
--   Race condition: se l'aggiornamento iniziale è stato completato, un ripristino dello stato precedente non è possibile.
+-   Reduction in local resources - If the update increases the local resources for a role the Azure platform does not allow rolling back. 
+-   Quota limitations - If the update was a scale down operation you may no longer have sufficient compute quota to complete the rollback operation. Each Azure subscription has a quota associated with it that specifies the maximum number of cores which can be consumed by all hosted services that belong to that subscription. If performing a rollback of a given update would put your subscription over quota then that a rollback will not be enabled.
+-   Race condition - If the initial update has completed, a rollback is not possible.
 
-Il ripristino dello stato precedente di un aggiornamento può essere utile, ad esempio, se si usa l'operazione [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in modalità manuale per controllare la frequenza con cui un aggiornamento sul posto principale del servizio ospitato di Azure viene distribuito.
+An example of when the rollback of an update might be useful is if you are using the [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) operation in manual mode to control the rate at which a major in-place upgrade to your Azure hosted service is rolled out.
 
-Durante la distribuzione dell'aggiornamento chiamare [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in modalità manuale e iniziare ad analizzare i domini di aggiornamento. Se a un certo punto, durante il monitoraggio dell'aggiornamento, si nota che alcune istanze del ruolo nei primi domini di aggiornamento esaminati non rispondono più, chiamare l'operazione [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) nella distribuzione, che lascerà invariate le istanze non ancora aggiornate e ripristinerà il Service Pack e la configurazione precedenti delle istanze aggiornate.
+During the rollout of the upgrade you call [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in manual mode and begin to walk upgrade domains. If at some point, as you monitor the upgrade, you note some role instances in the first upgrade domains that you examine have become unresponsive, you can call the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation on the deployment, which will leave untouched the instances which had not yet been upgraded and rollback instances which had been upgraded to the previous service package and configuration.
 
 <a name="multiplemutatingoperations"></a>
-## Avvio di più operazioni di mutazione durante una distribuzione
-In alcuni casi potrebbe essere necessario avviare più operazioni di mutazione simultanee in una distribuzione in corso. Ad esempio, eseguendo l'aggiornamento di un servizio, mentre l'aggiornamento viene distribuito nel servizio, potrebbe essere necessario apportare alcune modifiche, come il ripristino dello stato precedente dell'aggiornamento, l'applicazione di un aggiornamento diverso o anche l'eliminazione della distribuzione. Questa necessità, ad esempio, potrebbe presentarsi se l'aggiornamento di un servizio contiene un codice con errori che fa arrestare più volte in modo anomalo un'istanza del ruolo aggiornata. In questo caso, il controller di infrastruttura di Azure non potrà far proseguire l'applicazione di tale aggiornamento perché il numero di istanze integre nel dominio aggiornato non è sufficiente. Questa condizione viene chiamata *distribuzione bloccata*. Per sbloccare la distribuzione, ripristinare lo stato precedente dell'aggiornamento o applicare un nuovo aggiornamento sopra quello non riuscito.
+## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Initiating multiple mutating operations on an ongoing deployment
+In some cases you may want to initiate multiple simultaneous mutating operations on an ongoing deployment. For example, you may perform a service update and, while that update is being rolled out across your service, you want to make some change, e.g. to roll the update back, apply a different update, or even delete the deployment. A case in which this might be necessary is if a service upgrade contains buggy code which causes an upgraded role instance to repeatedly crash. In this case, the Azure Fabric Controller will not be able to make progress in applying that upgrade because an insufficient number of instances in the upgraded domain are healthy. This state is referred to as a *stuck deployment*. You can unstick the deployment by rolling back the update or applying a fresh update over top of the failing one.
 
-Dopo che il controller di infrastruttura di Azure ha ricevuto la richiesta iniziale di aggiornare il servizio, è possibile avviare le operazioni di mutazione successive, vale a dire che non è necessario attendere il completamento dell'operazione iniziale prima di poter avviare un'altra operazione di mutazione.
+Once the initial request to update or upgrade the service has been received by the Azure Fabric Controller, you can start subsequent mutating operations. That is, you do not have to wait for the initial operation to complete before you can start another mutating operation.
 
-L'avvio di una seconda operazione di aggiornamento mentre il primo aggiornamento è in corso sarà simile all'operazione di ripristino dello stato precedente. Se il secondo aggiornamento è in modalità automatica, il primo dominio di aggiornamento verrà aggiornato immediatamente e le istanze di più domini di aggiornamento potrebbero passare offline nello stesso momento.
+Initiating a second update operation while the first update is ongoing will perform similar to the rollback operation. If the second update is in automatic mode, the first upgrade domain will be upgraded immediately, possibly leading to instances from multiple upgrade domains being offline at the same point in time.
 
-Le operazioni di mutazione sono le seguenti: [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Update Deployment Status](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Delete Deployment](https://msdn.microsoft.com/library/azure/ee460815.aspx) e [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+The mutating operations are as follows: [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Update Deployment Status](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Delete Deployment](https://msdn.microsoft.com/library/azure/ee460815.aspx), and [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx).
 
-Due operazioni, [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), restituiscono il flag Locked che può essere esaminato per determinare se un'operazione di mutazione può essere richiamata in una determinata distribuzione.
+Two operations, [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), return the Locked flag which can be examined to determine whether a mutating operation can be invoked on a given deployment.
 
-Per chiamare la versione di questi metodi che restituisce il flag Locked, è necessario impostare l'intestazione della richiesta su "x-ms-version: 2011-10-01" o versione successiva. Per altre informazioni sul controllo delle versioni delle intestazioni, vedere [Controllo delle versioni di gestione del servizio](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+In order to call the version of these methods which returns the Locked flag, you must set request header to “x-ms-version: 2011-10-01” or a later. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 <a name="distributiondfroles"></a>
-## Distribuzione di ruoli nei domini di aggiornamento
-Azure distribuisce in tutti i domini di aggiornamento lo stesso numero di istanze di un ruolo, che è possibile configurare come parte del file di definizione del servizio (.csdef). Il numero massimo di domini di aggiornamento è 20 e quello predefinito è 5. Per altre informazioni su come modificare il file csdef, vedere [Schema di definizione del servizio di Azure (file .csdef)](cloud-services-model-and-package.md#csdef).
+## <a name="distribution-of-roles-across-upgrade-domains"></a>Distribution of roles across upgrade domains
+Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](cloud-services-model-and-package.md#csdef).
 
-Se, ad esempio, il ruolo ha dieci istanze, per impostazione predefinita, ogni dominio di aggiornamento contiene due istanze. Se il ruolo ha 14 istanze, quattro domini di aggiornamento contengono tre istanze e un quinto dominio ne contiene due.
+For example, if your role has ten instances, by default each upgrade domain contains two instances. If your role has 14 instances, then four of the upgrade domains contain three instances, and a fifth domain contains two.
 
-I domini di aggiornamento vengono identificati con un indice in base zero: il primo dominio di aggiornamento ha ID 0, il secondo dominio di aggiornamento ha ID 1 e così via.
+Upgrade domains are identified with a zero-based index: the first upgrade domain has an ID of 0, and the second upgrade domain has an ID of 1, and so on.
 
-Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in un servizio quando il servizio definisce due domini di aggiornamento. Il servizio esegue otto istanze del ruolo Web e nove istanze del ruolo di lavoro.
+The following diagram illustrates how a service than contains two roles are distributed when the service defines two upgrade domains. The service is running eight instances of the web role and nine instances of the worker role.
 
-![Distribuzione di domini di aggiornamento](media/cloud-services-update-azure-service/IC345533.png "Distribuzione di domini di aggiornamento")
+![Distribution of Upgrade Domains](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
 
-> [AZURE.NOTE] Si noti che Azure controlla come le istanze vengono allocate nei domini di aggiornamento. Non è possibile specificare quali istanze vengono allocate in ogni dominio.
+> [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
 
-## Passaggi successivi
-[Come gestire i servizi cloud](cloud-services-how-to-manage.md) [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md) [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
+## <a name="next-steps"></a>Next steps
+[How to Manage Cloud Services](cloud-services-how-to-manage.md)  
+[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
+[How to Configure Cloud Services](cloud-services-how-to-configure.md)  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

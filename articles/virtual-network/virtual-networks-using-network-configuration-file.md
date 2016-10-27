@@ -1,51 +1,55 @@
 <properties 
-	pageTitle="Configurare una rete virtuale usando un file di configurazione di rete" 
-	description="Istruzioni per esportare e importare un file di configurazione di rete nel portale di gestione di Azure per creare o modificare reti virtuali. " 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="jimdial" 
-	manager="carmonm" 
-	editor="tysonn"/>
+    pageTitle="Configure a virtual network using a network configuration file" 
+    description="Instructions to export and import a network configuration file to the Azure Management Portal in order to create or modify virtual networks. " 
+    services="virtual-network" 
+    documentationCenter="" 
+    authors="jimdial" 
+    manager="carmonm" 
+    editor="tysonn"/>
 
 <tags
-	ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services" 
-	ms.date="03/15/2016"
-	ms.author="jdial"/>  
-
-# Configurare una rete virtuale usando un file di configurazione di rete
-
-È possibile configurare una rete virtuale (VNet) tramite il portale di gestione di Azure o utilizzando un file di configurazione di rete.
-
-## Creazione e modifica di un file di configurazione di rete 
-Il modo più semplice per creare un file di configurazione di rete consiste nell'esportare le impostazioni di rete da una configurazione di rete virtuale esistente, quindi modificare il file in modo da contenere le impostazioni che si vogliono configurare per le reti virtuali.
-
-Per modificare il file di configurazione di rete, è sufficiente aprire il file, apportare le modifiche appropriate e salvarlo. È possibile usare qualsiasi editor *xml* per apportare modifiche al file di configurazione di rete.
-
-È consigliabile attenersi alle istruzioni per le [impostazioni dello schema del file di configurazione](https://msdn.microsoft.com/library/azure/jj157100.aspx).
-
-Azure considera una subnet con un elemento distribuito come **in uso**. Quando una subnet è in uso, non può essere modificata. Prima di apportare modifiche, spostare qualsiasi elemento distribuito alla subnet in una subnet diversa che non è sottoposta a modifiche. Vedere [Spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet](virtual-networks-move-vm-role-to-subnet.md).
-
-## Esportare e importare impostazioni di rete virtuale nel portale di gestione  
-È possibile importare ed esportare le impostazioni di configurazione di rete contenute nel file di configurazione di rete usando PowerShell o il portale di gestione. Le istruzioni riportate di seguito consentono di eseguire l'esportazione e l'importazione tramite il portale di gestione.
-
-### Per esportare le impostazioni di rete
-Quando si esporta, tutte le impostazioni per le reti virtuali nella sottoscrizione verranno scritte in un file XML.
-
-1. Accedere al **portale di gestione**.
-2. Nel portale di gestione, nella parte inferiore della pagina **Reti** fare clic su **Esporta**.
-3. Nella finestra **Esporta configurazione di rete**, verificare di aver selezionato la sottoscrizione per la quale si vogliono esportare le impostazioni di rete. Quindi, fare clic sul segno di spunta in basso a destra.
-4. Quando richiesto, salvare il file *NetworkConfig.xml*nel percorso desiderato.
+    ms.service="virtual-network"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services" 
+    ms.date="03/15/2016"
+    ms.author="jdial"/>
 
 
-### Per importare le impostazioni di rete
+# <a name="configure-a-virtual-network-using-a-network-configuration-file"></a>Configure a virtual network using a network configuration file
 
-1. Nel **Portale di gestione**, nel riquadro di spostamento in basso a sinistra, fare clic su **Nuovo**.
-2. Fare clic su **Servizi di rete** -> **Rete virtuale** -> **Importa configurazione**.
-3. Nella pagina **Importa file di configurazione della rete** passare al file di configurazione della rete, quindi fare clic su **Avanti**.
-4. Nella pagina** Compilazione della rete** verranno visualizzate le informazioni sulla schermata che mostra quali sezioni della configurazione di rete verranno modificate o create. Se le modifiche sembrano corrette, fare clic sul segno di spunta per continuare con l'aggiornamento o la creazione della rete virtuale.
+You can configure a virtual network (VNet) by using the Azure Management portal, or by using a network configuration file.
 
-<!---HONumber=AcomDC_0810_2016-->
+## <a name="creating-and-modifying-a-network-configuration-file"></a>Creating and modifying a network configuration file 
+The easiest way to author a network configuration file is to export the network settings from an existing virtual network configuration, then modify the file to contain the settings that you want to configure for your virtual networks.
+
+To edit the network configuration file, you can simply open the file, make the appropriate changes, then save the file. You can use any *xml* editor to make changes to the network configuration file. 
+
+You should closely follow the guidance for [network configuration file schema settings](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+
+Azure considers a subnet that has something deployed to it as **in use**. When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](virtual-networks-move-vm-role-to-subnet.md).
+
+## <a name="export-and-import-virtual-network-settings-using-the-management-portal"></a>Export and import virtual network settings using the Management Portal  
+You can import and export network configuration settings contained in your network configuration file by using PowerShell or the Management Portal. The instructions below will help you export and import using the Management Portal. 
+
+### <a name="to-export-your-network-settings"></a>To export your network settings
+When you export, all of the settings for the virtual networks in your subscription will be written to an .xml file. 
+
+1. Log into the **Management Portal**.
+2. In the Management Portal, on the bottom of the **networks** page, click **Export**. 
+3. On the **Export network configuration** window, verify that you have selected the subscription for which you want to export your network settings. Then, click the checkmark on the lower right. 
+4. When you are prompted, save the *NetworkConfig.xml* file to the location of your choice.
+
+
+### <a name="to-import-your-network-settings"></a>To import your network settings
+
+1. In the **Management Portal**, in the navigation pane on the bottom left, click **New**.
+2. Click **Network Services** -> **Virtual Network** -> **Import Configuration**.
+3. On the **Import the network configuration file** page, browse to your network configuration file, and then click the **next** arrow.
+4. On the **Building your network** page, you'll see information on the screen showing which sections of your network configuration will be changed or created. If the changes look correct to you, click the checkmark to proceed to update or create your virtual network. 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

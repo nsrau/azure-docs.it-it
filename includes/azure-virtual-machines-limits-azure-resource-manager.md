@@ -1,8 +1,11 @@
-Risorsa|Limite predefinito
+Resource|Default Limit
 ---|---
-Macchine virtuali per set di disponibilità | 100 
-Certificati per sottoscrizione|Illimitato<sup>1</sup>
+Virtual machines per availability set | 100 
+Certificates per subscription|Unlimited<sup>1</sup>
 
-<sup>1</sup>Con Gestione risorse di Azure, i certificati sono archiviati nell'insieme di credenziali chiave di Azure. Sebbene il numero di certificati sia illimitato per una sottoscrizione, esiste comunque un limite di 1 MB di certificati per distribuzione (singola macchina virtuale o set di disponibilità).
+<sup>1</sup>With Azure Resource Manager, certificates are stored in the Azure Key Vault. Although the number of certificates is unlimited for a subscription, there is still a 1 MB limit of certificates per deployment (which consists of either a single VM or an availability set).
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

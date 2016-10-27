@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Gestire server DNS usati da una rete virtuale"
-   description="Informazioni su come aggiungere e rimuovere server DNS in una rete virtuale"
+   pageTitle="Manage DNS servers used by a virtual network (VNet)"
+   description="Learn how to add and remove DNS servers in a virtual network (vnet)"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
-   editor="tysonn" />  
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,48 +13,53 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="jdial" />  
+   ms.author="jdial" />
 
-# Gestire server DNS usati da una rete virtuale
 
-È possibile gestire l'elenco dei server DNS usati in una rete virtuale nel portale di gestione o nel file di configurazione di rete. È possibile aggiungere fino a 12 server DNS per ogni rete virtuale. Quando si specificano i server DNS, è importante verificare che siano elencati nell'ordine corretto per l'ambiente. Gli elenchi dei server DNS non supportano il round robin. Vengono usati nell'ordine in cui sono specificati. Se è possibile raggiungere il primo server DNS nell'elenco, il client userà tale server DNS indipendentemente dal fatto che funzioni correttamente o meno. Per modificare l'ordine dei server DNS per una rete virtuale, rimuovere i server DNS dall'elenco e aggiungerli nuovamente nell'ordine desiderato.
+# <a name="manage-dns-servers-used-by-a-virtual-network-(vnet)"></a>Manage DNS servers used by a virtual network (VNet)
 
->[AZURE.WARNING] Dopo aver aggiornato l'elenco di server DNS, è necessario riavviare le macchine virtuali presenti nella rete virtuale affinché possano acquisire le nuove impostazioni dei server DNS. Le macchine virtuali continueranno a usare la configurazione corrente fino a quando non vengono riavviate.
+You can manage the list of DNS servers used in a VNet in the Management Portal, or in the network configuration file. You can add up to 12 DNS servers for each VNet. When specifying DNS servers, it's important to verify that you list your DNS servers in the correct order for your environment. DNS server lists do not work round-robin. They are used in the order that they are specified. If the first DNS server on the list is able to be reached, the client will use that DNS server regardless of whether the DNS server is functioning properly or not. To change the DNS server order for your virtual network, remove the DNS servers from the list and add them back in the order that you want.
 
-## Modificare un elenco di server DNS per una rete virtuale tramite il portale di gestione
+>[AZURE.WARNING] After the DNS list has been updated, you must restart the virtual machines located in your virtual network so that they pick up the new DNS server settings. Virtual machines will continue to use their current configuration until they are restarted.
 
-1. Accedere al **portale di gestione**.
+## <a name="edit-a-dns-server-list-for-a-virtual-network-using-the-management-portal"></a>Edit a DNS server list for a virtual network using the Management Portal
 
-1. Nel pannello di navigazione fare clic su **Reti** e quindi sul nome della macchina virtuale nella colonna **Nome**.
+1. Log on to the **Management Portal**.
 
-1. Fare clic su **Configura**.
+1. In the navigation pane, click **Networks**, and then click the name of your virtual network in the **Name** column.
 
-1. In **Server DNS** è possibile configurare quanto segue:
+1. Click **Configure**.
 
-	- **Per registrare (aggiungere) un nuovo server DNS**: digitare semplicemente il nome e l'indirizzo IP nelle caselle. In questo modo viene aggiunto un server DNS all'elenco dei server DNS della rete virtuale e tale server viene registrato in Azure.
+1. In **DNS Servers**, you can configure the following:
 
-	- **Per aggiungere un server DNS precedentemente registrato**: se è stato già registrato un server DNS in Azure, è possibile selezionarlo dall'elenco prepopolato.
+    - **To register (add) a new DNS server –** Simply type the name and IP address in the boxes. This adds a DNS server to your virtual network DNS Servers list and also registers the DNS server with Azure.
 
-	- **Per rimuovere un server DNS dalla rete virtuale**: fare clic sulla X accanto al server da rimuovere. Si noti che in questo modo il server viene rimosso solo dall'elenco di questa rete virtuale. Il server DNS resta registrato in Azure in modo che venga usato dalle altre reti virtuali. Per eliminare un server DNS dalla sottoscrizione, passare alla pagina **Reti ->Server DNS**.
+    - **To add a DNS server that was previously registered –** If you already registered a DNS server with Azure, you can select it from the pre-populated list.
 
-	- **Per riordinare i server DNS**: rimuovere tutti i server DNS elencati e quindi aggiungerli di nuovo nell'ordine desiderato. Tenere presente che non si tratta di un elenco DNS round robin.
+    - **To remove a DNS server from your virtual network –** Click the X next to the server you want to remove. Note that this only removes the server from this virtual network list. The DNS server remains registered in Azure for your other virtual networks to use. To delete a DNS server from your subscription, go to the **Networks ->DNS Servers** page.
 
-	- **Per rinominare un server DNS**: evidenziare il server DNS nell'elenco e quindi digitare il nuovo nome. In questo modo verrà registrato un nuovo server DNS in Azure e tale server verrà aggiunto all'elenco di server DNS della rete virtuale. Il server DNS precedente e il relativo indirizzo IP continueranno a essere registrati in Azure. È possibile eliminarlo nella pagina **Server DNS** se non viene usato per altre reti virtuali.
+    - **To re-order DNS servers –** Remove all of the DNS servers that are listed, and then add them back in in the order that you want. Remember that this is not a round-robin DNS list.
 
-1. Fare clic su **Salva** nella parte inferiore della pagina per salvare la nuova configurazione di server DNS.
+    - **To rename a DNS server –** Highlight the DNS server in the list, then type the new name. This will register a new DNS server in Azure, as well as add it to the DNS Servers list for your virtual network. The old DNS server and its IP address will remain registered with Azure. You can delete it on the **DNS Servers** page if you are not using it for any other virtual networks.
 
-1. Riavviare le macchine virtuali contenute nella rete virtuale in modo che possano acquisire le nuove impostazioni DNS.
+1. Click **Save** at the bottom of the page to save your new DNS servers configuration.
 
-## Modificare un elenco di server DNS tramite un file di configurazione di rete
+1. Restart the virtual machines located in the virtual network to allow them to acquire the new DNS settings.
 
-Per modificare un elenco di server DNS usando un file di configurazione di rete, è necessario prima esportare le impostazioni di configurazione dal portale di gestione. Modificare quindi il file di configurazione di rete e reimportarlo infine tramite il portale di gestione. Segue un elenco di carattere generale dei passaggi per il completamento del processo.
+## <a name="edit-a-dns-server-list-using-a-network-configuration-file"></a>Edit a DNS server list using a network configuration file
 
-1. Esportare le impostazioni della rete virtuale in un file di configurazione di rete. Per altre informazioni e per i passaggi per l'esportazione delle impostazioni della configurazione di rete, vedere [Esportare le impostazioni della rete virtuale in un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
+To edit a DNS server list by using a network configuration file, you'll first export your configuration settings from the Management Portal. You'll then edit the network configuration file and import it back through the Management Portal. Below is a high-level list of steps to complete this process.
 
-1. Specificare le informazioni del server DNS per la rete virtuale. Per altre informazioni su come specificare un server DNS, vedere [Specifica delle impostazioni DNS in un file di configurazione della rete virtuale](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Per altre informazioni sui file di configurazione di rete, vedere [Schema di configurazione della rete virtuale di Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) e [Configurare una rete virtuale utilizzando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
+1. Export your virtual network settings to a network configuration file. For more information and steps to export your network configuration settings, see [Export Virtual Network Settings to a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-1. Importare il file di configurazione di rete. Per altre informazioni e per i passaggi relativi all'importazione del file di configurazione di rete, vedere [Importare un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
+1. Specify the DNS server information for your virtual network. For more information about specifying a DNS server, see [Specifying a DNS Server in a Virtual Network Configuration File](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). For additional information about network configuration files, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) and [Configure a Virtual Network Using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-1. Riavviare le macchine virtuali contenute nella rete virtuale in modo che possano acquisire le nuove impostazioni DNS.
+1. Import the network configuration file. For more information and steps to import your network configuration file, see [Import a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+1. Restart the virtual machines located in the virtual network to allow them to acquire the new DNS settings.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

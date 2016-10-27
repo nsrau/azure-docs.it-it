@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Visualizzare e gestire i processi dell'array virtuale StorSimple | Microsoft Azure"
-   description="Descrive la pagina Processi del servizio StorSimple Manager e illustra come utilizzarla per tenere traccia dei processi recenti e correnti dell'array virtuale StorSimple."
+   pageTitle="View and manage StorSimple Virtual Array jobs | Microsoft Azure"
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,61 +15,66 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per visualizzare i processi per l'array virtuale StorSimple
 
-## Panoramica
+# <a name="use-the-storsimple-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
 
-La pagina **Processi** fornisce un unico portale centralizzato per la visualizzazione e la gestione dei processi avviati su array virtuali (noti anche come dispositivi virtuali locali) connessi al servizio StorSimple Manager. È possibile visualizzare i processi in esecuzione, completati e non riusciti per più dispositivi virtuali. I risultati vengono presentati in un formato tabulare.
+## <a name="overview"></a>Overview
 
-![Pagina dei processi](./media/storsimple-ova-manage-jobs/ovajobs1.png)
+The **Jobs** page provides a single central portal for viewing and managing jobs that are started on Virtual Arrays (also known as on-premises virtual devices) that are connected to your StorSimple Manager service. You can view running, completed, and failed jobs for multiple virtual devices. Results are presented in a tabular format. 
 
-È possibile trovare rapidamente i processi desiderati filtrando i campi, ad esempio:
+![Jobs page](./media/storsimple-ova-manage-jobs/ovajobs1.png)
 
-- **Stato**: è possibile cercare tutti i processi in esecuzione, completati o non riusciti.
-- **Da e a**: i processi possono essere filtrati in base all'intervallo di data e ora.
-- **Tipo**: il tipo di processo può essere tutto, backup, ripristino, failover, download aggiornamenti o installazione aggiornamenti.
-- **Dispositivi**: i processi vengono avviati in un dispositivo specifico connesso al servizio. I processi filtrati vengono quindi elaborati in base ai seguenti attributi:
+You can quickly find the jobs you are interested in by filtering on fields such as:
 
-    - **Tipo**: il tipo di processo può essere tutto, backup, ripristino, failover, download aggiornamenti o installazione aggiornamenti.
+- **Status** – You can search for all, running, completed, or failed jobs.
+- **From and To** – Jobs can be filtered based on the date and time range.
+- **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
+- **Devices** – Jobs are initiated on a specific device connected to your service. The filtered jobs are then tabulated on the basis of the following attributes:
 
-    - **Stato**: lo stato può essere tutto, in esecuzione, completato o non riuscito.
+    - **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
 
-    - **Entità**: i processi possono essere associati a un volume, una condivisione o un dispositivo.
+    - **Status** – Jobs can be all, running, completed, or failed.
 
-    - **Dispositivo**: il nome del dispositivo su cui è stato avviato il processo.
+    - **Entity** – The jobs can be associated with a volume, share, or device. 
 
-    - **Avviato alle**: l'ora di inizio del processo.
+    - **Device** – The name of the device on which the job was started.
 
-    - **Stato di avanzamento**: la percentuale di completamento di un processo in esecuzione. Per un processo completato deve sempre essere 100%.
+    - **Started on** – The time when the job was started.
 
-L'elenco dei processi viene aggiornato ogni 30 secondi.
+    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
 
-## Visualizza i dettagli dei processi
+The list of jobs is refreshed every 30 seconds.
 
-Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo.
+## <a name="view-job-details"></a>View job details
 
-#### Per visualizzare i dettagli dei processi
+Perform the following steps to view the details of any job.
 
-1. Nella pagina**Processi**, visualizzare i processi desiderati eseguendo una query con filtri appropriati. È possibile cercare processi completati o in esecuzione.
+#### <a name="to-view-job-details"></a>To view job details
 
-2. Selezionare un processo nell'elenco tabulare dei processi.
+1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed or running jobs.
 
-3. Nella parte inferiore della pagina, fare clic su **Dettagli**.
+2. Select a job from the tabular list of jobs.
 
-4. Nella finestra di dialogo **Dettagli** è possibile visualizzare statistiche temporali, sullo stato e sui dettagli. La figura seguente mostra un esempio della finestra di dialogo relativa ai **dettagli del processo di backup**:
+3. At the bottom of the page, click **Details**.
+
+4. In the **Details** dialog box, you can view status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
  
-    ![Pagina dettagli del processo](./media/storsimple-ova-manage-jobs/ovajobs2.png)
+    ![Job details page](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
-#### Errori di processo quando la macchina virtuale viene sospesa nell'hypervisor
+#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Job failures when the virtual machine is paused in the hypervisor
 
-Se un processo è in corso nell'array virtuale StorSimple e il dispositivo (macchina virtuale con provisioning in hypervisor) viene sospeso per più di 15 minuti, il processo ha esito negativo. Ciò è dovuto al fatto che l'ora dell'array virtuale StorSimple non è più sincronizzata con l'ora di Microsoft Azure. Nella schermata seguente è illustrato un esempio di errore di un processo di ripristino.
+When a job is in progress on your StorSimple Virtual Array and the device (virtual machine provisioned in hypervisor) is paused for greater than 15 minutes, the job will fail. This is due to your StorSimple Virtual Array time being out of sync with the Microsoft Azure time. An example for a restore job failure is shown in the following screenshot.
 
-![Il processo di ripristino non è riuscito.](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+![Restore job failure](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
 
-Questi errori possono verificarsi con processi di backup, ripristino, aggiornamento e failover. Se il provisioning della macchina virtuale viene eseguito in Hyper-V, l'ora della macchina virtuale alla fine si sincronizzerà con l'hypervisor. Quando ciò accade, è possibile riavviare il processo.
+These failures will apply to backup, restore, update, and failover jobs. If your virtual machine is provisioned in Hyper-V, the machine will eventually synchronize time with your hypervisor. Once that happens, you can restart your job. 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-[Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+[Learn how to use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

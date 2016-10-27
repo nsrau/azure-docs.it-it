@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con ClickTime | Microsoft Azure" 
-    description="Informazioni su come usare ClickTime con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with ClickTime | Microsoft Azure" 
+    description="Learn how to use ClickTime with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"
     documentationCenter="na" 
@@ -14,210 +14,212 @@
     ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con ClickTime
 
-Questa esercitazione descrive come integrare ClickTime con Azure Active Directory (Azure AD).
+#<a name="tutorial:-azure-active-directory-integration-with-clicktime"></a>Tutorial: Azure Active Directory integration with ClickTime
 
-L'integrazione di ClickTime con Azure AD offre i vantaggi seguenti:
+In this tutorial, you learn how to integrate ClickTime with Azure Active Directory (Azure AD).
 
-- È possibile controllare in Azure AD chi può accedere a ClickTime
-- È possibile abilitare gli utenti per l'accesso automatico a ClickTime (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
+Integrating ClickTime with Azure AD provides you with the following benefits:
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to ClickTime
+- You can enable your users to automatically get signed-on to ClickTime (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Prerequisiti
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Per configurare l'integrazione di Azure AD con ClickTime, sono necessari gli elementi seguenti:
+## <a name="prerequisites"></a>Prerequisites
 
-- Sottoscrizione di Azure AD.
-- Sottoscrizione di ClickTime abilitata per l'accesso Single Sign-On
+To configure Azure AD integration with ClickTime, you need the following items:
 
-
-> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+- An Azure AD subscription
+- A ClickTime single-sign on enabled subscription
 
 
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+To test the steps in this tutorial, you should follow these recommendations:
 
-Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-1. Aggiunta di ClickTime dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-##Aggiunta di ClickTime dalla raccolta
+## <a name="scenario-description"></a>Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment.
 
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per ClickTime.
+The scenario outlined in this tutorial consists of two main building blocks:
 
-###Per abilitare l'integrazione dell'applicazione per ClickTime, seguire questa procedura:
+1. Adding ClickTime from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+##<a name="adding-clicktime-from-the-gallery"></a>Adding ClickTime from the gallery
+
+The objective of this section is to outline how to enable the application integration for ClickTime.
+
+###<a name="to-enable-the-application-integration-for-clicktime,-perform-the-following-steps:"></a>To enable the application integration for ClickTime, perform the following steps:
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-clicktime-tutorial/tic700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-clicktime-tutorial/tic700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-clicktime-tutorial/tic700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-clicktime-tutorial/tic749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-clicktime-tutorial/tic749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-clicktime-tutorial/tic749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-clicktime-tutorial/tic749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **ClickTime**.
+6.  In the **search box**, type **ClickTime**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-clicktime-tutorial/tic777275.png "Raccolta di applicazioni")
+    ![Application gallery](./media/active-directory-saas-clicktime-tutorial/tic777275.png "Application gallery")
 
-7.  Nel riquadro dei risultati selezionare **ClickTime** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **ClickTime**, and then click **Complete** to add the application.
 
     ![ClickTime](./media/active-directory-saas-clicktime-tutorial/tic777276.png "ClickTime")
 
-##  Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ClickTime in base a un utente test di nome "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with ClickTime based on a test user called "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di ClickTime che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ClickTime.
+For single sign-on to work, Azure AD needs to know what the counterpart user in ClickTime is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in ClickTime needs to be established.
 
-La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in ClickTime.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ClickTime.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ClickTime, è necessario completare i blocchi predefiniti seguenti:
+To configure and test Azure AD single sign-on with ClickTime, you need to complete the following building blocks:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di ClickTime](#creating-a-clicktime-test-user)**: per avere una controparte di Britta Simon in ClickTime collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
-
-
-### Configurazione dell'accesso Single Sign-On di Azure AD
-
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a ClickTime tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a ClickTime test user](#creating-a-clicktime-test-user)** - to have a counterpart of Britta Simon in ClickTime that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 
->[AZURE.IMPORTANT] Per poter configurare l'accesso Single Sign-On nel tenant di ClickTime, è necessario contattare prima di tutto il supporto tecnico ClickTime per abilitare questa funzionalità.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
 
-**Per configurare Single Sign-On di Azure AD con ClickTime, seguire questa procedura:**
+The objective of this section is to outline how to enable users to authenticate to ClickTime with their account in Azure AD using federation based on the SAML protocol.  
 
-1.  Nella pagina di integrazione dell'applicazione **ClickTime** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
-    ![Attiva Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Attiva Single Sign-On")
+>[AZURE.IMPORTANT] In order to be able to configure single sign-on on your ClickTime tenant, you need to contact first the ClickTime technical support to get this feature enabled.
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a ClickTime** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+**To configure Azure AD single sign-on with ClickTime, perform the following steps:**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Configura accesso Single Sign-On")
+1.  In the Azure classic portal, on the **ClickTime** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+    ![Enable single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Enable single sign-on")
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tic777286.png)
+2.  On the **How would you like users to sign on to ClickTime** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: **https://app.clicktime.com/sp/**
-	
-	b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: **https://app.clicktime.com/Login/**
+    ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Configure single sign-on")
 
-	c. Fare clic su **Avanti**
+3. On the **Configure App Settings** dialog page, perform the following steps:
 
-4.  Nella pagina **Configura accesso Single Sign-On in ClickTime** fare clic su **Download certificato** per scaricare il file di certificato e quindi salvarlo nel computer.
+    ![Configure Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tic777286.png) 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tic777279.png "Configura accesso Single Sign-On")
+    a. In the **IdentifierL** textbox, type the URL using the following pattern: **https://app.clicktime.com/sp/**
+    
+    b. In the **Reply URL** textbox, type the URL using the following pattern: **https://app.clicktime.com/Login/**
 
-4.  In un'altra finestra del Web browser accedere al sito aziendale di ClickTime come amministratore.
+    c. click **Next**
 
-5.  Nella barra degli strumenti in alto fare clic su **Preferenze** e quindi su **Impostazioni di sicurezza**.
+4.  On the **Configure single sign-on at ClickTime** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-6.  Nella sezione di configurazione **Preferenza Single Sign-On** seguire questa procedura:
+    ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777279.png "Configure single sign-on")
+
+4.  In a different web browser window, log into your ClickTime company site as an administrator.
+
+5.  In the toolbar on the top, click **Preferences**, and then click **Security Settings**.
+
+6.  In the **Single Sign-On Preferences** configuration section, perform the following steps:
 
     ![Security Settings](./media/active-directory-saas-clicktime-tutorial/tic777280.png "Security Settings")
 
-    a. Selezionare **Allow** sign-in using Single Sign-On (SSO) **Azure AD** (Consenti l'accesso Single Sign-On (SSO) con Azure AD).
+    a.  Select **Allow** sign-in using Single Sign-On (SSO) with **Azure AD**.
     
-    b. Nella finestra di dialogo **Configura accesso Single Sign-On in ClickTime** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Identity Provider Endpoint** (Endpoint del provider di identità).
+    b.  In the Azure classic portal, on the **Configure single sign-on at ClickTime** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity Provider Endpoint** textbox.
 
-    c. Aprire il certificato con codifica Base 64 nel **Blocco note**, copiarne il contenuto e quindi incollarlo nella casella di testo **X.509 Certificate**.
+    c.  Open the base-64 encoded certificate in **Notepad**, copy the content, and then paste it into the **X.509 Certificate** textbox.
     
-    d. Fare clic su **Save**.
+    d.  Click **Save**.
 
-7.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+7.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tic777281.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-clicktime-tutorial/tic777281.png "Configure single sign-on")
 
-##Configurazione del provisioning utente
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Per consentire agli utenti di Azure AD di accedere a ClickTime, è necessario eseguirne il provisioning in ClickTime. Nel caso di ClickTime, il provisioning è un'attività manuale.
+In order to enable Azure AD users to log into ClickTime, they must be provisioned into ClickTime.  
+In the case of ClickTime, provisioning is a manual task.
 
-###Per eseguire il provisioning di un account utente, eseguire la procedura seguente:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Accedere al tenant **ClickTime**.
+1.  Log in to your **ClickTime** tenant.
 
-2.  Nel barra degli strumenti in alto fare clic su **Azienda** e quindi su **Persone**.
+2.  In the toolbar on the top, click **Company**, and then click **People**.
 
-    ![People](./media/active-directory-saas-clicktime-tutorial/tic777282.png "Persone")
+    ![People](./media/active-directory-saas-clicktime-tutorial/tic777282.png "People")
 
-3.  Fare clic su **Aggiungi persona**.
+3.  Click **Add Person**.
 
     ![Add Person](./media/active-directory-saas-clicktime-tutorial/tic777283.png "Add Person")
 
-4.  Nella sezione New Person seguire questa procedura:
+4.  In the New Person section, perform the following steps:
 
-    ![Persone](./media/active-directory-saas-clicktime-tutorial/tic777284.png "Persone")
+    ![People](./media/active-directory-saas-clicktime-tutorial/tic777284.png "People")
 
-    a. Nella casella di testo **indirizzo email** digitare l'indirizzo di posta elettronica dell'account Azure AD.
+    a.  In the **email address** textbox, type the email address of your Azure AD account.
     
-    b. Nella casella di testo **full name** digitare il nome dell'account Azure AD.
+    b.  In the **full name** textbox, type the name of your Azure AD account.  
 
-    >[AZURE.NOTE] È anche possibile impostare altre proprietà dell'oggetto new person.
+    >[AZURE.NOTE] If you want to, you can set additional properties of the new person object.
 
-    c. Fare clic su **Save**.
+    c.  Click **Save**.
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ClickTime per effettuare il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] You can use any other ClickTime user account creation tools or APIs provided by ClickTime to provision Azure AD user accounts.
 
-### Assegnazione dell'utente test di Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole così accesso a ClickTime.
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to ClickTime.
 
-![Assegna utente][200]
+![Assign User][200]
 
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-**Per assegnare Britta Simon a ClickTime, seguire questa procedura:**
+**To assign Britta Simon to ClickTime, perform the following steps**
 
-1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
-	![Assegna utente][201]
+    ![Assign User][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **ClickTime**.
+2. In the applications list, select **ClickTime**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tutorial_clicktime_50.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-clicktime-tutorial/tutorial_clicktime_50.png) 
 
-3. Scegliere **Utenti** dal menu in alto.
+3. In the menu on the top, click **Users**.
 
-	![Assegna utente][203]
+    ![Assign User][203]
 
-4. Nell'elenco di utenti selezionare **Britta Simon**.
+4. In the Users list, select **Britta Simon**.
 
-5. Fare clic su **Assegna** sulla barra degli strumenti in basso.
+5. In the toolbar on the bottom, click **Assign**.
 
-	![Assegna utente][205]
+    ![Assign User][205]
 
-## Test dell'accesso Single Sign-On
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+## <a name="testing-single-sign-on"></a>Testing single sign-on
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Quando si fa clic sul riquadro ClickTime nel pannello di accesso, si accederà automaticamente all'applicazione ClickTime.
+When you click the ClickTime tile in the Access Panel, you should get automatically signed-on to your ClickTime application.
 
 
-## Risorse aggiuntive
+## <a name="additional-resources"></a>Additional resources
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -227,4 +229,7 @@ Quando si fa clic sul riquadro ClickTime nel pannello di accesso, si accederà a
 [203]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_203.png
 [205]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

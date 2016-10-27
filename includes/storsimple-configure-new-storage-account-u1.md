@@ -1,50 +1,53 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Per aggiungere un account di archiviazione nell’aggiornamento 1.0 della serie 8000 di StorSimple
+#### <a name="to-add-a-storage-account-in-storsimple-8000-series-update-1.0"></a>To add a storage account in StorSimple 8000 Series Update 1.0
 
-1. Nella pagina di destinazione del servizio StorSimple Manager, selezionare il servizio e fare doppio clic su di esso. Verrà visualizzata la pagina **Avvio rapido**. Selezionare la pagina **Configura**.
+1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
 
-2. Fare clic su **Aggiungi/modifica account di archiviazione**.
+2. Click **Add/edit storage account**.
 
-3. Nella finestra di dialogo **Aggiungi/modifica account di archiviazione** fare clic su **Aggiungi nuovo**.
+3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
 
-4. Nel campo **Provider** selezionare il provider del servizio cloud appropriato. I provider supportati sono Azure, Amazon S3, Amazon S3 con RRS, HP e OpenStack. Specificare le credenziali e il percorso associati all'account di archiviazione dei provider del servizio cloud. I campi visualizzati per le credenziali saranno diversi a seconda del provider del servizio cloud specificato.
-  - Se è stato selezionato Azure come provider del servizio cloud, fornire **Nome** e **Chiave di accesso** primaria per l'account di archiviazione di Microsoft Azure. Per un account di Azure, il percorso verrà inserito automaticamente.
+4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
+  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - Se è stato selezionato Amazon S3 o Amazon S3 con RRS, specificare un **nome account di archiviazione** descrittivo, una **chiave di accesso** e una **chiave segreta**. Per Amazon S3 e Amazon S3 con RRS, sono supportati i seguenti percorsi:
+ - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
 
-		- US Standard
-		- US West (Oregon)
-		- US West (Northern California)
-		- EU (Ireland)
-		- Asia Pacific (Singapore)
-		- Asia Pacific (Sydney)
-		- Asia Pacific (Tokyo)
-		- South America (Sao Paulo)
+        - US Standard
+        - US West (Oregon)
+        - US West (Northern California)
+        - EU (Ireland)
+        - Asia Pacific (Singapore)
+        - Asia Pacific (Sydney)
+        - Asia Pacific (Tokyo)
+        - South America (Sao Paulo)
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
-	  		
- - Se è stato selezionato HP come provider del servizio cloud, fornire un **nome account di archiviazione** descrittivo, un **ID tenant**, un **nome utente** e una **password**. Per HP, sono supportati i percorsi seguenti:
+            
+ - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
 
-		- US East
-		- US West
-	  
+        - US East
+        - US West
+      
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
-	  		
- - Se è stato selezionato **Openstack** come provider del servizio cloud, fornire un **nome host**, una **chiave di accesso** e una **chiave segreta**.
+            
+ - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
 
-        > [AZURE.NOTE] Per tutti i provider di servizi cloud, ad eccezione di Azure, è consentito l'uso di un nome descrittivo. È possibile usare nomi descrittivi e creare più di un account di archiviazione con lo stesso set di credenziali.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Selezionare **Abilita modalità SSL** per creare un canale sicuro per la comunicazione di rete tra il dispositivo e il cloud. Deselezionare la casella di controllo **Abilita modalità SSL** solo se si opera all'interno di un cloud privato.
+5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
 
-      >[AZURE.NOTE]Se si usa HP come provider, SSL viene sempre abilitato.
-  		
-6. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Quando la creazione dell’account di archiviazione sarà completata si riceverà una notifica.
+      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
+        
+6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
 
-7. L'account di archiviazione appena creato verrà visualizzato nella pagina **Configura** in **Account di archiviazione**. Fare clic su **Salva** per salvare il nuovo account di archiviazione. Fare clic su **OK** quando viene richiesto di confermare.
+7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
 
-<!-----HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

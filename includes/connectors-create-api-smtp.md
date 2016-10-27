@@ -1,16 +1,20 @@
-### Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
-- Un account [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  
+- A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account  
 
 
-Prima di poter usare l'account SMTP in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account SMTP. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.  
+Before you can use your SMTP account in a logic app, you must authorize the logic app to connect to your SMTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
 
-Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account SMTP:  
-1. Per creare una connessione a SMTP, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *SMTP* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
+Here are the steps to authorize your logic app to connect to your SMTP account:  
+1. To create a connection to SMTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SMTP* in the search box. Select the trigger or action you'll like to use:  
 ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. Se non sono mai state create connessioni a SMTP prima d'ora, verrà chiesto di fornire le relative credenziali. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account SMTP:  
+2. If you haven't created any connections to SMTP before, you'll get prompted to provide your SMTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SMTP account's data:  
 ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:  
-![](./media/connectors-create-api-smtp/smtp-3.png)  
+3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
+ ![](./media/connectors-create-api-smtp/smtp-3.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

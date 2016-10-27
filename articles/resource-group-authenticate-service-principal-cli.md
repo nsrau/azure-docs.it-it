@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare un'entità servizio con l'interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Descrive come usare l'interfaccia della riga di comando di Azure per creare un'applicazione Active Directory e un'entità servizio e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con una password o un certificato."
+   pageTitle="Create service principal with Azure CLI | Microsoft Azure"
+   description="Describes how to use Azure CLI to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,70 +13,70 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="09/07/2016"
+   ms.date="09/30/2016"
    ms.author="tomfitz"/>
 
-# Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse
+
+# <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>Use Azure CLI to create a service principal to access resources
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
-- [Interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md)
-- [Portale](resource-group-create-service-principal-portal.md)
+- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [Portal](resource-group-create-service-principal-portal.md)
 
 
-Quando si ha un'applicazione o uno script che deve accedere alle risorse, è molto probabile che non si voglia eseguire il processo con le proprie credenziali. È possibile che si vogliano usare autorizzazioni diverse per l'applicazione e che si preferisca che l'applicazione non continui a usare le credenziali in caso di cambiamento delle responsabilità dell'utente. Si crea quindi un'identità per l'applicazione che include credenziali di autenticazione e assegnazioni di ruolo. Ogni volta che viene eseguita, l'app eseguirà l'autenticazione con tali credenziali. Questo argomento illustra come usare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](xplat-cli-install.md) per configurare un'applicazione per l'esecuzione con credenziali e identità proprie.
+When you have an application or script that needs to access resources, you most likely do not want to run this process under your own credentials. You may have different permissions that you want for the application, and you do not want the application to continue using your credentials if your responsibilities change. Instead, you create an identity for the application that includes authentication credentials and role assignments. Every time the app runs, it authenticates itself with these credentials. This topic shows you how to use [Azure CLI for Mac, Linux and Windows](xplat-cli-install.md) to set up an application to run under its own credentials and identity.
 
-Con l'interfaccia della riga di comando di Azure, per l'autenticazione di un'applicazione AD sono disponibili due opzioni:
+With Azure CLI, you have two options for authenticating your AD application:
 
  - password
- - certificato
+ - certificate
 
-Questo argomento illustra come usare entrambe le opzioni nell'interfaccia della riga di comando di Azure. Se si intende accedere ad Azure da un framework di programmazione, ad esempio Python, Ruby o Node.js, l'autenticazione della password può essere la soluzione ottimale. Prima di decidere se usare una password o un certificato, vedere la sezione [Applicazioni di esempio](#sample-applications) per esempi di autenticazione nei diversi framework.
+This topic shows how to use both options in Azure CLI. If you intend to log in to Azure from a programming framework (such Python, Ruby, or Node.js), password authentication might be your best option. Before deciding whether to use a password or certificate, see the [Sample applications](#sample-applications) section for examples of authenticating in the different frameworks.
 
-## Concetti relativi ad Active Directory
+## <a name="active-directory-concepts"></a>Active Directory concepts
 
-In questo articolo vengono creati due oggetti: l'applicazione Active Directory (AD) e l'entità servizio. L'applicazione AD è la rappresentazione globale dell'applicazione e contiene le credenziali, ovvero un ID applicazione e una password o un certificato. L'entità servizio è la rappresentazione locale dell'applicazione in un'istanza di Active Directory e contiene l'assegnazione di ruolo. Questo argomento è incentrato su un'applicazione con un tenant singolo in cui è previsto che l'applicazione venga eseguita all'interno del sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione. In un'applicazione con un tenant singolo vengono usate un'app AD e un'entità servizio.
+In this article, you create two objects - the Active Directory (AD) application and the service principal. The AD application is the global representation of your application. It contains the credentials (an application id and either a password or certificate). The service principal is the local representation of your application in an Active Directory. It contains the role assignment. This topic focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization. In a single-tenant application, you have one AD app and one service principal.
 
-Ci si potrebbe chiedere perché siano necessari entrambi gli oggetti. Questo approccio risulta più opportuno quando si considerano le applicazioni multi-tenant. Le applicazioni multi-tenant vengono in genere usate per applicazioni SaaS (Software-as-a-Service), che prevedono l'esecuzione dell'applicazione in molte sottoscrizioni diverse. Per le applicazioni multi-tenant vengono usate un'app AD e più entità servizio (una in ogni istanza di Active Directory che concede l'accesso all'app). Per configurare un'applicazione multi-tenant, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
+You may be wondering - why do I need both objects? This approach makes more sense when you consider multi-tenant applications. You typically use multi-tenant applications for software-as-a-service (SaaS) applications, where your application runs in many different subscriptions. For multi-tenant applications, you have one AD app and multiple service principals (one in each Active Directory that grants access to the app). To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 
-## Autorizzazioni necessarie
+## <a name="required-permissions"></a>Required permissions
 
-Per completare questo argomento è necessario avere autorizzazioni sufficienti sia nell'istanza di Azure Active Directory che nella sottoscrizione di Azure. In particolare, è necessario poter creare un'app in Active Directory e assegnare l'entità servizio a un ruolo.
+To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Active Directory, and assign the service principal to a role. 
 
-In Active Directory, l'account deve avere un ruolo di amministratore (ad esempio **Amministratore globale** o **Amministratore utenti**). Se l'account è assegnato al ruolo **Utente**, è necessario che le autorizzazioni vengano elevate da un amministratore.
+In your Active Directory, your account must be an administrator (such as **Global Admin** or **User Admin**). If your account is assigned to the **User** role, you need to have an administrator elevate your permissions.
 
-Nella sottoscrizione, l'account deve avere l'accesso `Microsoft.Authorization/*/Write`, che viene concesso tramite il ruolo [Proprietario](./active-directory/role-based-access-built-in-roles.md#owner) o [Amministratore Accesso utenti](./active-directory/role-based-access-built-in-roles.md#user-access-administrator). Se l'account è assegnato al ruolo **Collaboratore**, quando si prova ad assegnare l'entità servizio a un ruolo viene visualizzato un errore. Anche in questo caso, l'amministratore della sottoscrizione deve concedere diritti di accesso sufficienti.
+In your subscription, your account must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you receive an error when attempting to assign the service principal to a role. Again, your subscription administrator must grant you sufficient access.
 
-Passare ora alla sezione relativa all'autenticazione della [password](#create-service-principal-with-password) o del [certificato](#create-service-principal-with-certificate).
+Now, proceed to a section for either [password](#create-service-principal-with-password) or [certificate](#create-service-principal-with-certificate) authentication.
 
-## Creare un'entità servizio con password
+## <a name="create-service-principal-with-password"></a>Create service principal with password
 
-In questa sezione vengono eseguiti i passaggi per:
+In this section, you perform the steps to create the AD application with a password, and assign the Reader role to the service principal.
 
-- Creare l'applicazione AD con una password e l'entità servizio
-- Assegnare il ruolo Lettore all'entità servizio
+Let's go through these steps.
 
-Per eseguire rapidamente i passaggi, usare i comandi seguenti.
+1. Sign in to your account.
 
-    azure ad sp create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
-    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
-
-Verranno ora esaminati più attentamente questi passaggi per comprendere meglio il processo.
-
-1. Accedere al proprio account.
-
-        azure config mode arm
         azure login
 
-1. Creare un'entità servizio per l'applicazione. Specificare il nome visualizzato, l'URI di una pagina che descrive l'applicazione, gli URI che identificano l'applicazione e la password per l'identità dell'applicazione. Questo comando crea l'applicazione AD e l'entità servizio.
+1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-        azure ad sp create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {your-password}
-        
-     Per le applicazioni con un tenant singolo, gli URI non vengono convalidati.
+     - To create the AD application and service principal in one step, provide the name of the app and a password, as shown in the following command:
      
-     Se l'account non ha le [autorizzazioni necessarie](#required-permissions) in Active Directory, viene visualizzato un messaggio di errore che indica che l'autenticazione non è stata autorizzata o non è stata trovata alcuna sottoscrizione nel contesto.
+            azure ad sp create -n exampleapp -p {your-password}     
+     
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and a password, as shown in the following command:
+     
+            azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
+
+         The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
+     
+            azure ad sp create -a <AppId>
+     
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     Viene restituita la nuova entità servizio. Quando si concedono autorizzazioni, è necessario l'Id oggetto. Il nome dell'entità servizio è necessario per eseguire l'accesso.
+     For both options, the new service principal is returned. The **Object Id** is needed when granting permissions. The guid listed with the **Service Principal Names** is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the **Client ID**. 
     
         info:    Executing command ad sp create
         + Creating application exampleapp
@@ -88,23 +88,23 @@ Verranno ora esaminati più attentamente questi passaggi per comprendere meglio 
         data:                             https://www.contoso.org/example
         info:    ad sp create command OK
 
-2. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo **Lettore**, concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md). Per il parametro **ServicePrincipalName**, specificare il valore **ObjectId** usato quando è stata creata l'applicazione.
+2. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ObjectId** that you used when creating the application. 
 
         azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
 
-     Se l'account non ha autorizzazioni sufficienti per assegnare un ruolo, verrà visualizzato un messaggio di errore. Il messaggio segnala che l'account **non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' sull'ambito '/subscriptions/{guid}'**.
+     If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
-L'operazione è terminata. L'applicazione AD e l''entità servizio sono così configurate. La sezione successiva illustra come accedere con le credenziali tramite l'interfaccia della riga di comando di Azure. Se si vogliono usare le credenziali nell'applicazione di codice, non è necessario continuare con questo argomento. È possibile passare ad [Applicazioni di esempio](#sample-applications) per esempi di accesso con l'ID applicazione e la password.
+That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through Azure CLI. If you want to use the credential in your code application, you do not need to continue with this topic. You can jump to the [Sample applications](#sample-applications) for examples of logging in with your application id and password. 
 
-### Fornire le credenziali tramite l'interfaccia della riga di comando di Azure
+### <a name="provide-credentials-through-azure-cli"></a>Provide credentials through Azure CLI
 
-A questo punto è necessario accedere come applicazione per eseguire operazioni.
+Now, you need to log in as the application to perform operations.
 
-1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
+1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
 
         azure account show
 
-     Che restituisce:
+     Which returns:
 
         info:    Executing command account show
         data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
@@ -114,55 +114,81 @@ A questo punto è necessario accedere come applicazione per eseguire operazioni.
         data:    Is Default                  : true
         ...
 
-     Se è necessario ottenere l'ID tenant di un'altra sottoscrizione, usare il comando seguente:
+     If you need to get the tenant id of another subscription, use the following command:
 
         azure account show -s {subscription-id}
 
-3. Accedere come entità servizio.
+2. If you need to retrieve the client id to use for logging in, use:
 
-        azure login -u https://www.contoso.org/example --service-principal --tenant {tenant-id}
+        azure ad sp show -c exampleapp --json
 
-    Verrà richiesto di specificare la password. Fornire la password specificata durante la creazione dell'applicazione Active Directory.
+     The value to use for logging in is the guid listed in the service principal names.
+
+        [
+          {
+            "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "7132aca4-1bdb-4238-ad81-996ff91d8db4"
+            ]
+          }
+        ]
+
+3. Log in as the service principal.
+
+        azure login -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
+
+    You are prompted for the password. Provide the password you specified when creating the AD application.
 
         info:    Executing command login
         Password: ********
 
-A questo punto è stata eseguita l'autenticazione come entità servizio per l'entità servizio creata.
+You are now authenticated as the service principal for the service principal that you created.
 
-## Creare un'entità servizio con certificato
+## <a name="create-service-principal-with-certificate"></a>Create service principal with certificate
 
-In questa sezione vengono eseguiti i passaggi per:
+In this section, you perform the steps to:
 
-- Creare un certificato autofirmato
-- Creare l'applicazione AD con il certificato e l'entità servizio
-- Assegnare il ruolo Lettore all'entità servizio
+- create a self-signed certificate
+- create the AD application with the certificate, and the service principal
+- assign the Reader role to the service principal
 
-Per completare i passaggi è necessario aver installato [OpenSSL](http://www.openssl.org/).
+To complete these steps, you must have [OpenSSL](http://www.openssl.org/) installed.
 
-1. Creare un certificato autofirmato.
+1. Create a self-signed certificate.
 
         openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
 
-2. Combinare le chiavi pubblica e privata.
+2. Combine the public and private keys.
 
         cat privkey.pem cert.pem > examplecert.pem
 
-3. Aprire il file **examplecert.pem** e cercare la lunga sequenza di caratteri tra **-----BEGIN CERTIFICATE-----** ed **-----END CERTIFICATE-----**. Copiare i dati del certificato. Questi dati verranno passati come parametri durante la creazione dell'entità servizio.
+3. Open the **examplecert.pem** file and look for the long sequence of characters between **-----BEGIN CERTIFICATE-----** and **-----END CERTIFICATE-----**. Copy the certificate data. You pass this data as a parameter when creating the service principal.
 
-1. Accedere al proprio account.
+1. Sign in to your account.
 
-        azure config mode arm
         azure login
 
-1. Creare un'entità servizio per l'applicazione. Specificare il nome visualizzato, l'URI di una pagina che descrive l'applicazione, gli URI che identificano l'applicazione e i dati del certificato copiati. Questo comando crea l'applicazione AD e l'entità servizio.
+1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-        azure ad sp create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
-        
-     Per le applicazioni con un tenant singolo, gli URI non vengono convalidati.
+     - To create the AD application and service principal in one step, provide the name of the app and the certificate data, as shown in the following command:
      
-     Se l'account non ha le [autorizzazioni necessarie](#required-permissions) in Active Directory, viene visualizzato un messaggio di errore che indica che l'autenticazione non è stata autorizzata o non è stata trovata alcuna sottoscrizione nel contesto.
+            azure ad sp create -n exampleapp --cert-value <certificate data>
+     
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and the certificate data, as shown in the following command:
+     
+            azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value <certificate data>
+
+         The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
+     
+            azure ad sp create -a <AppId>
+  
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     Viene restituita la nuova entità servizio. Quando si concedono autorizzazioni, è necessario l'Id oggetto.
+     For both options, the new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the **Service Principal Names** is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the **Client ID**. 
     
         info:    Executing command ad sp create
         - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
@@ -173,21 +199,21 @@ Per completare i passaggi è necessario aver installato [OpenSSL](http://www.ope
         data:                      https://www.contoso.org/example
         info:    ad sp create command OK
         
-2. Concedere le autorizzazioni dell'entità servizio nella sottoscrizione. In questo esempio viene aggiunta l'entità servizio al ruolo **Lettore**, concedendo così l'autorizzazione per la lettura di tutte le risorse nella sottoscrizione. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](./active-directory/role-based-access-built-in-roles.md). Per il parametro **ServicePrincipalName**, specificare il valore **ObjectId** usato quando è stata creata l'applicazione.
+2. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ObjectId** that you used when creating the application. 
 
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
 
-     Se l'account non ha autorizzazioni sufficienti per assegnare un ruolo, verrà visualizzato un messaggio di errore. Il messaggio segnala che l'account **non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' sull'ambito '/subscriptions/{guid}'**.
+     If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
-### Fornire il certificato tramite uno script dell'interfaccia della riga di comando di Azure automatizzato
+### <a name="provide-certificate-through-automated-azure-cli-script"></a>Provide certificate through automated Azure CLI script
 
-A questo punto è necessario accedere come applicazione per eseguire operazioni.
+Now, you need to log in as the application to perform operations.
 
-1. Ogni volta che si accede come un'entità servizio, è necessario fornire l'ID tenant della directory per l'app AD. Un tenant è un'istanza di Active Directory. Per recuperare l'ID tenant per la sottoscrizione attualmente autenticata, usare il comando seguente:
+1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
 
         azure account show
 
-     Che restituisce:
+     Which returns:
 
         info:    Executing command account show
         data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
@@ -197,57 +223,80 @@ A questo punto è necessario accedere come applicazione per eseguire operazioni.
         data:    Is Default                  : true
         ...
 
-     Se è necessario ottenere l'ID tenant di un'altra sottoscrizione, usare il comando seguente:
+     If you need to get the tenant id of another subscription, use the following command:
 
         azure account show -s {subscription-id}
 
-1. Per recuperare l'identificazione personale del certificato e rimuovere i caratteri non necessari, usare:
+1. To retrieve the certificate thumbprint and remove unneeded characters, use:
 
         openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
     
-     Viene restituito un valore di identificazione personale simile a:
+     Which returns a thumbprint value similar to:
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-1. Accedere come entità servizio.
+2. If you need to retrieve the client id to use for logging in, use:
 
-        azure login --service-principal --tenant {tenant-id} -u https://www.contoso.org/example --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+        azure ad sp show -c exampleapp
 
-A questo punto è stata eseguita l'autenticazione come entità servizio per l'applicazione di Active Directory creata.
+     The value to use for logging in is the guid listed in the service principal names.
 
-## Applicazioni di esempio
+        [
+          {
+            "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "4fd39843-c338-417d-b549-a545f584a745",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "4fd39843-c338-417d-b549-a545f584a745"
+            ]
+          }
+        ]
 
-Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come entità servizio.
+1. Log in as the service principal.
+
+        azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+
+You are now authenticated as the service principal for the Active Directory application that you created.
+
+## <a name="sample-applications"></a>Sample applications
+
+The following sample applications show how to log in as the service principal.
 
 **.NET**
 
-- [Deploy an SSH Enabled VM with a Template with .NET (Distribuire una macchina virtuale abilitata per SSH con un modello con .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Manage Azure resources and resource groups with .NET (Gestire risorse e gruppi di risorse di Azure con .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
 **Java**
 
-- [Getting Started with Resources - Deploy Using ARM Template - in Java (Introduzione alle risorse: distribuzione tramite il modello di Azure Resource Manager in Java)](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Getting Started with Resources - Manage Resource Group - in Java (Introduzione alle risorse: gestire un gruppo di risorse in Java)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+- [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
 
 **Python**
 
-- [Deploy an SSH Enabled VM with a Template in Python (Distribuire una macchina virtuale abilitata per SSH con un modello in Python)](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Managing Azure Resource and Resource Groups with Python (Gestione di risorse e gruppi di risorse di Azure con Python)](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 
-**Node.JS**
+**Node.js**
 
-- [Deploy an SSH Enabled VM with a Template in Node.js (Distribuire una macchina virtuale abilitata per SSH con un modello in Node.js)](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Manage Azure resources and resource groups with Node.js (Gestire risorse e gruppi di risorse di Azure con Node.js)](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 
 **Ruby**
 
-- [Deploy an SSH Enabled VM with a Template in Ruby (Distribuire una macchina virtuale abilitata per SSH con un modello in Ruby)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-- [Managing Azure Resource and Resource Groups with Ruby (Gestione di risorse e gruppi di risorse di Azure con Ruby)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next Steps
   
-- Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
-- Per altre informazioni sull'uso dei certificati e dell'interfaccia della riga di comando di Azure, vedere [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Autenticazione basata su certificati con le entità servizio di Azure dalla riga di comando di Linux).
+- For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
+- To get more information about using certificates and Azure CLI, see [Certificate-based authentication with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

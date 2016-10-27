@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestire la potenza di calcolo in Azure SQL Data Warehouse (portale di Azure) | Microsoft Azure"
-   description="Attività del portale di Azure per la gestione della potenza di calcolo. Ridimensionare le risorse di calcolo cambiando il numero di DWU. In alternativa, sospendere e riprendere le risorse di calcolo per ridurre i costi."
+   pageTitle="Manage compute power in Azure SQL Data Warehouse (Azure portal) | Microsoft Azure"
+   description="Azure portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,90 +16,92 @@
    ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
-# Gestire la potenza di calcolo in Azure SQL Data Warehouse (portale di Azure)
+
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-(azure-portal)"></a>Manage compute power in Azure SQL Data Warehouse (Azure portal)
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-data-warehouse-manage-compute-overview.md)
-- [Portale](sql-data-warehouse-manage-compute-portal.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
+- [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-Ridimensionare le prestazioni tramite la scalabilità orizzontale delle risorse di calcolo e della memoria per soddisfare le diverse esigenze del carico di lavoro. Risparmiare sui costi ridimensionando le risorse durante le ore non di punta o sospendendo completamente il calcolo.
+Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
 
-Questa raccolta di attività usa il portale di Azure per:
+This collection of tasks uses the Azure portal to:
 
-- Ridimensionare le risorse di calcolo
-- Sospendere le risorse di calcolo
-- Riavviare le risorse di calcolo
+- Scale compute
+- Pause compute
+- Resume compute
 
-Per altre informazioni, vedere [Panoramica sulla gestione del calcolo][].
+For more information, see [Manage compute overview][].
 
-<a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
+<a name="scale-performance-bk"></a>
+<a name="scale-compute-bk"></a>
 
-## Ridimensionare la potenza di calcolo
+## <a name="scale-compute-power"></a>Scale compute power
 
-[AZURE.INCLUDE [Descrizione della scalatura di DWU di SQL Data Warehouse](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Per modificare le risorse di calcolo:
+To change compute resources:
 
-1. Aprire il [portale di Azure][], aprire il database e fare clic su **Ridimensiona**.
+1. Open the [Azure portal][], open your database, and click **Scale**.
 
-    ![Fare clici su Ridimensiona][1]
+    ![Click Scale][1]
 
-1. Nel pannello Scala, spostare il dispositivo di scorrimento a sinistra o a destra per modificare l'impostazione delle DWU.
+1. In the Scale blade, move the slider left or right to change the DWU setting.
 
-    ![Spostare il dispositivo di scorrimento][2]
+    ![Move Slider][2]
 
-1. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+1. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
-    ![Fare clic su Salva.][3]
+    ![Click Save][3]
 
 <a name="pause-compute-bk"></a>
 
-## Sospendere le risorse di calcolo
+## <a name="pause-compute"></a>Pause compute
 
-[AZURE.INCLUDE [Descrizione della sospensione di SQL Data Warehouse](../../includes/sql-data-warehouse-pause-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Per sospende un database:
+To pause a database:
 
-1. Aprire il [portale di Azure][] e aprire il database. Si noti che lo stato è **Online**.
+1. Open the [Azure portal][] and open your database. Notice that the Status is **Online**. 
 
-    ![Stato online][6]
+    ![Online status][6]
 
-1. Per sospendere il calcolo e le risorse di memoria, fare clic su **Sospendi**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+1. To suspend compute and memory resources, click **Pause**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
-    ![Conferma sospensione][7]
+    ![Confirm pause][7]
 
-1. Durante l'avvio di SQL Data Warehouse lo stato del database è **Sospensione in corso**.
-2. Quando lo stato diventa **Sospeso**, l'operazione di sospensione è completa e le DWU non vengono più addebitate.
+1. While SQL Data Warehouse is starting the database, the status is **Pausing**.
+2. When the status is **Paused**, the pause operation is done and you are no longer being charged for DWUs.
 
-    ![Stato di sospensione][4]
+    ![Pause status][4]
 
 <a name="resume-compute-bk"></a>
 
-## Riavviare le risorse di calcolo
+## <a name="resume-compute"></a>Resume compute
 
-[AZURE.INCLUDE [Descrizione della riattivazione di SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)] Per riattivare un database:
+[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)] To resume a database:
 
-1. Aprire il [portale di Azure][] e quindi il database. Si noti che lo stato è **Sospeso**.
+1. Open the [Azure portal][] and open your database. Notice that the Status is **Paused**. 
 
-    ![Database in pausa][4]
+    ![Pause database][4]
 
-1. Per riattivare il database fare clic su **Avvia**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+1. To resume the database click **Start**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
-    ![Conferma riattivazione][5]
+    ![Confirm resume][5]
 
-1. Durante l'avvio di SQL Data Warehouse lo stato del database è "Sospensione in corso".
-2. Quando lo stato diventa **Online** il database è pronto.
+1. While SQL Data Warehouse is starting the database, the status is "Resuming".
+2. When the status is **online**, the database is ready.
 
-    ![Stato online][6]
+    ![Online status][6]
 
 <a name="next-steps-bk"></a>
 
-## Passaggi successivi
-Per altre informazioni, vedere [Panoramica della gestione][].
+## <a name="next-steps"></a>Next steps
+For more information, see [Management overview][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -111,14 +113,18 @@ Per altre informazioni, vedere [Panoramica della gestione][].
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Panoramica della gestione]: ./sql-data-warehouse-overview-manage.md
-[Panoramica sulla gestione del calcolo]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[portale di Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

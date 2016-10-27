@@ -1,29 +1,35 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### Per modificare un contenitore di volumi
+#### <a name="to-modify-a-volume-container"></a>To modify a volume container
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo facendo doppio clic, quindi selezionare la scheda **Contenitori di volumi**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
 
-2. Nella tabella in cui sono elencati i contenitori di volumi, selezionare l'impostazione che si desidera modificare, quindi fare clic su **Modifica**.
+2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
 
-3. Nella finestra di dialogo **Modifica contenitore di volumi**, effettuare le seguenti operazioni:
+3. In the **Modify Volume container** dialog box, do the following:
 
-    1. Modificare il nome del contenitore del volume e modificare l'impostazione di larghezza di banda associata. 
+    1. Change the name of the volume container and modify the associated bandwidth setting. 
 
-        ![Modificare il contenitore di volumi con il modello di larghezza di banda 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+        ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
-    2. Non è possibile modificare la chiave di crittografia e l'account di archiviazione dopo averli specificati. Se è stato specificato **Seleziona un modello di larghezza di banda**, fare clic sulla freccia per passare alla pagina successiva.
+    2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
 
-4. Nella pagina successiva di **Modifica contenitore di volumi**:
+4. In the next page of the **Modify Volume Container** dialog box:
 
-    1. Dall'elenco a discesa, selezionare un modello di larghezza di banda disponibile.
+    1. From the drop-down list, choose an existing bandwidth template.
 
-    2. Fare riferimento alle impostazioni di pianificazione per il modello di larghezza di banda specificato.
+    2. Review the schedule settings for the specified bandwidth template.
 
-        ![Modificare il contenitore di volumi con il modello di larghezza di banda 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+        ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
 
-    3. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) per salvare le impostazioni aggiornate. La pagina **Contenitori di volumi** verrà aggiornata per includere le modifiche apportate.
+    3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

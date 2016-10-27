@@ -1,36 +1,39 @@
-#### Per creare un nuovo servizio
+#### <a name="to-create-a-new-service"></a>To create a new service
 
-1.  Usare le credenziali dell'account Microsoft e accedere al portale di Azure classico all'URL seguente: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Se si esegue la distribuzione del dispositivo nel portale per enti pubblici, accedere a: [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
+1.  Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). If deploying the device in Government portal, log in at:  [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
 
-2.  Nel portale, fare clic su **Nuovo > Servizi dati > StorSimple Manager > Creazione rapida**.
+2.  In the portal, click **New > Data Services > StorSimple Manager > Quick Create**.
 
-3.  Nel modulo visualizzato, procedere come segue:
+3.  In the form that is displayed, do the following:
 
-	1.  Fornire un **Nome** univoco per il servizio. Si tratta di un nome descrittivo che può essere utilizzato per identificare il servizio. Il nome può contenere da 2 a 50 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.
+    1.  Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
 
-	2.  Per il servizio di gestione di un dispositivo virtuale StorSimple, dall'elenco a discesa **Tipo dei dispositivi gestiti**, scegliere **Serie di dispositivi virtuali**.
+    2.  For a service to manage a StorSimple virtual device, from the drop down list for **Managed devices type**, choose **Virtual device series**.
 
-	3.  Fornire una **Località** per il servizio. Per Località si intende l'area geografica in cui si desidera distribuire il dispositivo.
+    3.  Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device.
 
-	 -   Se si dispone di altri carichi di lavoro in Azure che si intende distribuire con il dispositivo StorSimple, si consiglia l'uso di quel data center.
+     -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
 
-   	 -   StorSimple Manager e Archiviazione di Azure possono trovarsi in due posizioni distinte. In tal caso, è necessario creare il servizio StorSimple Manager e l'account di archiviazione di Azure separatamente. Per creare un account di archiviazione di Azure, passare al servizio di archiviazione di Azure nel portale e seguire la procedura descritta in [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo aver creato questo account, aggiungerlo al servizio StorSimple Manager seguendo la procedura descritta in [Configurare un nuovo account di archiviazione per il servizio](#optional-step-configure-a-new-storage-account-for-the-service).
-   	 
-   	 -   Se si esegue la distribuzione del dispositivo virtuale nel portale per enti pubblici, il servizio StorSimple Manager è disponibile nelle località statunitensi dell'Iowa e della Virginia.
-   	 
-   	 	
-	1.  Scegliere una **Sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
+     -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service).
+     
+     -   If deploying the virtual device in the Government Portal, the StorSimple Manager service is available in US Iowa and US Virginia locations.
+     
+        
+    1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
 
-	1.  Selezionare **Crea un nuovo account di archiviazione di Azure** per creare automaticamente un account di archiviazione con il servizio. Questo account di archiviazione avrà un nome speciale, ad esempio "storsimplebwv8c6dcnf". Se è necessario che i dati siano in una posizione diversa, deselezionare questa casella di controllo.
+    1.  Select **Create a new Azure storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf". If you need your data in a different location, clear this check box.
 
-	1.  Fare clic su **Crea StorSimple Manager** per creare il servizio.
+    1.  Click **Create StorSimple Manager** to create the service.
 
-		![](./media/storsimple-ova-create-new-service/image1m-include.png)
+        ![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
-	Si verrà indirizzati alla pagina di destinazione del **Servizio**. La creazione del servizio richiederà alcuni minuti. Dopo aver creato correttamente il servizio, si riceverà la relativa notifica.
+    You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately.
 
-	![](./media/storsimple-ova-create-new-service/image2-include.png)
+    ![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-	Lo stato del servizio verrà modificato in **Attivo**.
+    The status of the service will change to **Active**.
 
-<!---HONumber=AcomDC_0316_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

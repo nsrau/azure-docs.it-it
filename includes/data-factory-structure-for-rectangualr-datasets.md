@@ -1,16 +1,16 @@
-## Definizione della struttura per i set di dati rettangolari
-La sezione della struttura nei set di dati JSON è una sezione **facoltativa** per le tabelle rettangolari (con righe e colonne) e contiene una raccolta di colonne per la tabella. Usare la sezione della struttura per offrire informazioni sul tipo per le conversioni di tipi o per eseguire il mapping di colonne. Le sezioni seguenti descrivono queste funzionalità in modo più dettagliato.
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Specifying structure definition for rectangular datasets
+The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
 
-Ogni colonna contiene le proprietà seguenti:
+Each column contains the following properties:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Property | Description | Required |
 | -------- | ----------- | -------- |
-| name | Nome della colonna. | Sì |
-| type | Tipo di dati della colonna. Vedere la sezione sulle conversioni del tipo di seguito per altre informazioni su quando specificare le informazioni sul tipo | No |
-| culture | Cultura basata su .NET da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. Il valore predefinito è "it-IT". | No |
-| format | Stringa di formato da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. | No |
+| name | Name of the column. | Yes |
+| type | Data type of the column. See type conversions section below for more details regarding when should you specify type information | No |
+| culture | .NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”.  | No |
+| format | Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. | No |
 
-L'esempio seguente mostra la sezione di struttura JSON per una tabella con tre colonne: userid, name e lastlogindate.
+The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
 
     "structure": 
     [
@@ -19,32 +19,36 @@ L'esempio seguente mostra la sezione di struttura JSON per una tabella con tre c
         { "name": "lastlogindate"}
     ],
 
-Attenersi alle linee guida seguenti per decidere quando includere informazioni su "structure" e cosa includere nella sezione **structure**.
+Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 
-- **Per le origini dati strutturate** che contengono schemi di dati e informazioni sul tipo, oltre ai dati stessi (origini come SQL Server, Oracle, tabelle di Azure e così via), è necessario specificare la sezione "structure" solo se si desidera eseguire il mapping di colonne di origine specifiche a colonne specifiche nel sink e i relativi nomi non corrispondono (vedere i dettagli nella sezione sul mapping di colonne di seguito).
+- **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
 
-	Come indicato in precedenza, le informazioni sul tipo sono facoltative nella sezione "structure". Per le origini strutturate, le informazioni sul tipo sono già disponibili come parte della definizione del set di dati nell'archivio dati, pertanto non è necessario includere le informazioni sul tipo quando si include la sezione "structure".
-- **Per gli schemi delle origini dati di lettura, in particolare BLOB di Azure,** è possibile scegliere di archiviare i dati senza memorizzare insieme ai dati informazioni sullo schema o sul tipo. Per questi tipi di origini dati è necessario includere la sezione "structure" nei 2 casi seguenti:
-	- Si desidera eseguire il mapping di colonne.
-	- Quando il set di dati è un'origine in un'attività di copia, è possibile specificare informazioni sul tipo in "structure", che verranno usate da Data factory per la conversione a tipi nativi per il sink. Vedere l'articolo sullo [spostamento di dati da e verso BLOB di Azure](../articles/data-factory/data-factory-azure-blob-connector.md) per altre informazioni.
+    As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
+- **For schema on read data sources (specifically Azure blob)**  you can choose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
+    - You want to do column mapping.
+    - When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md) article for more information.
 
-### Tipi supportati basati su .NET 
-Data factory supporta i valori di tipo basati su .NET conformi a CLS per specificare informazioni sul tipo nella sezione "structure" per lo schema su origini dati di lettura come BLOB di Azure.
+### <a name="supported-.net-based-types"></a>Supported .NET-based types 
+Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
 
 - Int16
-- Int32
+- Int32 
 - Int64
 - Single
 - Double
 - Decimal
-- Byte
+- Byte[]
 - Bool
-- String
+- String 
 - Guid
 - Datetime
 - Datetimeoffset
-- TimeSpan
+- Timespan 
 
-Per Datetime e Datetimeoffset è anche possibile specificare la stringa "culture" e "format" per facilitare l'analisi della stringa Datetime personalizzata. Vedere l'esempio seguente di conversione del tipo.
+For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

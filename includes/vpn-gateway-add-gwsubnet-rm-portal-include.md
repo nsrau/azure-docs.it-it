@@ -1,15 +1,19 @@
-1. Nel portale passare alla rete virtuale a cui si vuole connettere un gateway.
+1. In the portal, navigate to the virtual network to which you want to connect a gateway.
 
-2. Nella sezione **Impostazioni** del pannello della rete virtuale fare clic su **Subnet** per espandere il pannello Subnet.
+2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
 
-3. Nel pannello **Subnet** fare clic su **+Subnet del gateway** nella parte superiore. Verrà aperto il pannello **Aggiungi subnet**.
+3. On the **Subnets** blade, click **+Gateway subnet** at the top. This will open the **Add subnet** blade. 
 
-	![Aggiungere la subnet del gateway](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Aggiungere la subnet del gateway")
+    ![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Add the gateway subnet")
 
-4. Il **Nome** per la subnet verrà compilato automaticamente con il valore 'GatewaySubnet'. Questo valore è obbligatorio per consentire ad Azure di riconoscere la subnet come subnet del gateway. Modificare i valori di **Intervallo di indirizzi** compilati automaticamente in modo che corrispondano ai requisiti di configurazione.
+4. The **Name** for your subnet will automatically be filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the auto-filled **Address range** values to match your configuration requirements.
 
-	![Aggiunta della subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Aggiunta della subnet")
+    ![Adding the subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 
-6. Fare clic su **OK** nella parte inferiore del pannello per creare la subnet.
+6. Click **OK** at the bottom of the blade to create the subnet.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

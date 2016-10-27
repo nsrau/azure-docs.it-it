@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Risolvere i problemi dei ruoli che non vengono avviati | Microsoft Azure"
-   description="Informazioni su alcuni motivi comuni del mancato avvio di un ruolo del servizio cloud. Include anche soluzioni per questi problemi."
+   pageTitle="Troubleshoot roles that fail to start | Microsoft Azure"
+   description="Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided."
    services="cloud-services"
    documentationCenter=""
    authors="simonxjx"
@@ -16,151 +16,156 @@
    ms.date="09/02/2016"
    ms.author="v-six" />
 
-# Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 
-Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
+# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Troubleshoot Cloud Service roles that fail to start
+
+Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## File DLL o dipendenze mancanti
+## <a name="missing-dlls-or-dependencies"></a>Missing DLLs or dependencies
 
-I problemi dovuti a ruoli che non rispondono e ruoli che passano in ciclo tra gli stati **Inizializzazione**, **Occupato** e **Arresto** possono essere provocati da file DLL o assembly mancanti.
+Unresponsive roles and roles that are cycling between **Initializing**, **Busy**, and **Stopping** states can be caused by missing DLLs or assemblies.
 
-I sintomi di file DLL o assembly mancati includono i seguenti:
+Symptoms of missing DLLs or assemblies can be:
 
-- L'istanza del ruolo passa in ciclo tra gli stati **Inizializzazione**, **Occupato** e **Arresto**.
-- L'istanza del ruolo è passata allo stato **Pronto**, ma, se si passa all'applicazione Web, la pagina non viene visualizzata.
+- Your role instance is cycling through **Initializing**, **Busy**, and **Stopping** states.
+- Your role instance has moved to **Ready** but if you navigate to your web application, the page does not appear.
 
-Sono disponibili diversi metodi consigliati per esaminare questi problemi.
+There are several recommended methods for investigating these issues.
 
-## Diagnosticare i problemi di DLL mancanti in un ruolo Web
+## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>Diagnose missing DLL issues in a web role
 
-Quando si passa a un sito Web distribuito in un ruolo Web e il browser visualizza un errore server simile al seguente, è possibile che indichi una DLL mancante.
+When you navigate to a website that is deployed in a web role, and the browser displays a server error similar to the following, it may indicate that a DLL is missing.
 
-![Errore del server nell'applicazione '/'.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+![Server Error in '/' Application.](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
-## Diagnosticare i problemi disabilitando gli errori personalizzati
+## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Diagnose issues by turning off custom errors
 
-Per visualizzare informazioni sugli errori più completi, configurare il file web.config per il ruolo Web per poter disattivare la modalità di errore personalizzata e ridistribuire il servizio.
+More complete error information can be viewed by configuring the web.config for the web role to set the custom error mode to Off and redeploying the service.
 
-Per visualizzare errori più completi senza usare Desktop remoto:
+To view more complete errors without using Remote Desktop:
 
-1. Aprire la soluzione in Microsoft Visual Studio.
+1. Open the solution in Microsoft Visual Studio.
 
-2. In **Esplora soluzioni** individuare il file web.config e aprirlo.
+2. In the **Solution Explorer**, locate the web.config file and open it.
 
-3. Nel file web.config individuare la sezione system.web e aggiungere la riga seguente:
+3. In the web.config file, locate the system.web section and add the following line:
 
     ```xml
     <customErrors mode="Off" />
     ```
 
-4. Salvare il file.
+4. Save the file.
 
-5. Ricreare il pacchetto e ridistribuire il servizio.
+5. Repackage and redeploy the service.
 
-Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di errore con il nome dell'assembly o della DLL mancante.
+Once the service is redeployed, you will see an error message with the name of the missing assembly or DLL.
 
-## Diagnosticare i problemi visualizzando l'errore in remoto
+## <a name="diagnose-issues-by-viewing-the-error-remotely"></a>Diagnose issues by viewing the error remotely
 
-È possibile usare Desktop remoto per accedere al ruolo e visualizzare informazioni sugli errori più complete in remoto. Seguire questa procedura per visualizzare gli errori usando Desktop remoto:
+You can use Remote Desktop to access the role and view more complete error information remotely. Use the following steps to view the errors by using Remote Desktop:
 
-1. Verificare che sia installato Azure SDK 1.3 o versione successiva.
+1. Ensure that Azure SDK 1.3 or later is installed.
 
-2. Durante la distribuzione della soluzione con Visual Studio, scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Utilizzo di Desktop remoto con i ruoli Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. During the deployment of the solution by using Visual Studio, choose to “Configure Remote Desktop connections…”. For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](../vs-azure-tools-remote-desktop-roles.md).
 
-3. Quando lo stato dell'istanza è **Pronto**, nel portale di Microsoft Azure classico fare clic su una delle istanze del ruolo.
+3. In the Microsoft Azure classic portal, once the instance shows a status of **Ready**, click one of the role instances.
 
-4. Fare clic sull'icona **Connetti** nell'area **Accesso remoto** della barra multifunzione.
+4. Click the **Connect** icon in the **Remote Access** area of the ribbon.
 
-5. Accedere alla macchina virtuale usando le credenziali specificate durante la configurazione di Desktop remoto.
+5. Sign in to the virtual machine by using the credentials that were specified during the Remote Desktop configuration.
 
-6. Aprire una finestra di comando.
+6. Open a command window.
 
-7. Digitare `IPconfig`.
+7. Type `IPconfig`.
 
-8. Annotare il valore dell'indirizzo IPV4.
+8. Note the IPV4 Address value.
 
-9. Aprire Internet Explorer.
+9. Open Internet Explorer.
 
-10. Digitare l'indirizzo e il nome dell'applicazione Web, ad esempio `http://<IPV4 Address>/default.aspx`.
+10. Type the address and the name of the web application. For example, `http://<IPV4 Address>/default.aspx`.
 
-Se si passa al sito Web, ora verranno restituiti messaggi di errore più espliciti:
+Navigating to the website will now return more explicit error messages:
 
-* Errore del server nell'applicazione '/'.
+* Server Error in '/' Application.
 
-* Descrizione: Eccezione non gestita durante l'esecuzione della richiesta Web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
+* Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
 
-* Dettagli dell'eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
+* Exception Details: System.IO.FIleNotFoundException: Could not load file or assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ or one of its dependencies. The system cannot find the file specified.
 
-Ad esempio:
+For example:
 
-![Errore esplicito del server nell'applicazione '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
+![Explicit Server Error in '/' Application](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
-## Diagnosticare i problemi usando l'emulatore di calcolo
+## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnose issues by using the compute emulator
 
-È possibile usare l'emulatore di calcolo di Microsoft Azure per diagnosticare e risolvere i problemi relativi a dipendenze mancanti e gli errori del file web.config.
+You can use the Microsoft Azure compute emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
 
-Per ottenere risultati ottimali con questo metodo di diagnosi, è consigliabile usare un computer o una macchina virtuale in cui è presente un'installazione pulita di Windows. Per simulare in modo ottimale l'ambiente Azure, usare Windows Server 2008 R2 x64.
+For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. To best simulate the Azure environment, use Windows Server 2008 R2 x64.
 
-1. Installare la versione autonoma di [Azure SDK](https://azure.microsoft.com/downloads/).
+1. Install the standalone version of the [Azure SDK](https://azure.microsoft.com/downloads/).
 
-2. Nel computer di sviluppo compilare il progetto di servizio cloud.
+2. On the development machine, build the cloud service project.
 
-3. In Esplora risorse passare alla cartella bin\\debug del progetto di servizio cloud.
+3. In Windows Explorer, navigate to the bin\debug folder of the cloud service project.
 
-4. Copiare la cartella con estensione csx e il file con estensione cscfg nel computer usato per eseguire il debug dei problemi.
+4. Copy the .csx folder and .cscfg file to the computer that you are using to debug the issues.
 
-5. Nel computer pulito aprire una finestra del prompt dei comandi di Azure SDK e digitare `csrun.exe /devstore:start`.
+5. On the clean machine, open an Azure SDK Command Prompt window and type `csrun.exe /devstore:start`.
 
-6. Al prompt dei comandi digitare `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
+6. At the command prompt, type `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
 
-7. All'avvio del ruolo, verranno visualizzate informazioni dettagliate sull'errore in Internet Explorer. È anche possibile usare gli strumenti di risoluzione dei problemi standard di Windows per diagnosticare ulteriormente il problema.
+7. When the role starts, you will see detailed error information in Internet Explorer. You can also use standard Windows troubleshooting tools to further diagnose the problem.
 
-## Diagnosticare i problemi usando IntelliTrace
+## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnose issues by using IntelliTrace
 
-Per i ruoli di lavoro e i ruoli Web che utilizzano .NET Framework 4, è possibile utilizzare [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), disponibile in [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
+For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), which is available in [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
 
-Seguire questa procedura per distribuire il servizio con IntelliTrace abilitato:
+Follow these steps to deploy the service with IntelliTrace enabled:
 
-1. Verificare che sia installato Azure SDK 1.3 o versione successiva.
+1. Confirm that Azure SDK 1.3 or later is installed.
 
-2. Distribuire la soluzione usando Visual Studio. Durante la distribuzione selezionare la casella di controllo **Abilita IntelliTrace per ruoli .NET 4**.
+2. Deploy the solution by using Visual Studio. During deployment, check the **Enable IntelliTrace for .NET 4 roles** check box.
 
-3. Dopo l'avvio dell'istanza, aprire **Esplora server**.
+3. Once the instance starts, open the **Server Explorer**.
 
-4. Espandere il nodo **Azure\\Servizi cloud** e individuare la distribuzione.
+4. Expand the **Azure\\Cloud Services** node and locate the deployment.
 
-5. Espandere la distribuzione finché non vengono visualizzate le istanze del ruolo. Fare clic con il pulsante destro del mouse su una delle istanze.
+5. Expand the deployment until you see the role instances. Right-click on one of the instances.
 
-6. Scegliere **Visualizza log IntelliTrace**. Verrà visualizzato il **Riepilogo IntelliTrace**.
+6. Choose **View IntelliTrace logs**. The **IntelliTrace Summary** will open.
 
-7. Individuare la sezione delle eccezioni del riepilogo. Se sono presenti eccezioni, la sezione sarà denominata **Dati eccezione**.
+7. Locate the exceptions section of the summary. If there are exceptions, the section will be labeled **Exception Data**.
 
-8. Espandere **Dati eccezione**e cercare errori **System.IO.FileNotFoundException** analoghi al seguente:
+8. Expand the **Exception Data** and look for **System.IO.FileNotFoundException** errors similar to the following:
 
-![Dati eccezione, assembly o file mancante](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
+![Exception data, missing file, or assembly](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
-## Risolvere DLL e assembly mancanti
+## <a name="address-missing-dlls-and-assemblies"></a>Address missing DLLs and assemblies
 
-Per risolvere errori di assembly e DLL mancanti, seguire questa procedura:
+To address missing DLL and assembly errors, follow these steps:
 
-1. Aprire la soluzione in Visual Studio.
+1. Open the solution in Visual Studio.
 
-2. In **Esplora soluzioni** aprire la cartella **Riferimenti**.
+2. In **Solution Explorer**, open the **References** folder.
 
-3. Fare clic sull'assembly specificato nell'errore.
+3. Click the assembly identified in the error.
 
-4. Nel riquadro **Proprietà** individuare la proprietà **Copia localmente** e impostare il valore su **True**.
+4. In the **Properties** pane, locate **Copy Local property** and set the value to **True**.
 
-5. Ridistribuire il servizio cloud.
+5. Redeploy the cloud service.
 
-Dopo avere verificato che tutti gli errori sono stati corretti, è possibile distribuire il servizio senza selezionare la casella di controllo **Abilita IntelliTrace per ruoli .NET 4**.
+Once you have verified that all errors have been corrected, you can deploy the service without checking the **Enable IntelliTrace for .NET 4 roles** check box.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
+View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
 
-Per informazioni su come risolvere i problemi dei ruoli del servizio cloud utilizzando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

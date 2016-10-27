@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Informazioni sul ridimensionamento di una rete virtuale in Azure RemoteApp | Microsoft Azure"
-    description="Informazioni sui requisiti relativi agli indirizzi IP per Azure RemoteApp in esecuzione con una rete virtuale"
+    pageTitle="Sizing information for a VNET in Azure RemoteApp | Microsoft Azure"
+    description="Learn about the IP address requirements for Azure RemoteApp running with a VNET"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,18 +18,23 @@
 
 
 
-# Informazioni sul ridimensionamento di una rete virtuale in Azure RemoteApp
+
+# <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Sizing information for a VNET in Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Quando si usa Azure RemoteApp con una rete virtuale (VNET), RemoteApp usa gli indirizzi IP all'interno della subnet. In base alla scala del servizio RemoteApp, è necessario assicurarsi che la subnet abbia indirizzi IP sufficienti per le macchine virtuali RemoteApp. Queste indicazioni di ridimensionamento non sono complete se si osserva in che modo RemoteApp esegue dinamicamente lo spin-up e lo spin-down delle macchine virtuali all'interno di una raccolta, tuttavia consentono di stimare l'intervallo di subnet. Ciò è particolarmente importante perché, quando si include un servizio RemoteApp in una rete virtuale, non è possibile aumentare le dimensioni della subnet senza rimuovere RemoteApp.
+When you use Azure RemoteApp with a virtual network (VNET), RemoteApp uses IP addresses within the subnet. Based on the scale of your RemoteApp service, you need to ensure that your subnet has enough IP addresses available for RemoteApp virtual machines. While this sizing guidance isn’t perfect given how RemoteApp dynamically spins up and spins down virtual machines within a collection, it will help you estimate your subnet range. This is especially important as, once a RemoteApp service is placed in a VNET, you cannot increase the subnet size without removing RemoteApp.
 
-Per ogni raccolta RemoteApp da eseguire alla capacità massima devono essere disponibili 100 indirizzi IP. Ad esempio, se si ha una raccolta RemoteApp nel piano Standard e si vuole avere un numero massimo di 500 utenti, sono necessari 100 indirizzi IP per la raccolta. Analogamente, in un piano Basic con 800 utenti sono necessari 100 indirizzi IP per una raccolta RemoteApp. Se si prevede un numero minore di utenti (inferiore al numero massimo), è possibile ridurre gli indirizzi IP per ogni raccolta. Il requisito minimo per le dimensioni della subnet è di 30 indirizzi IP (/27).
+For each RemoteApp collection that you want to run at maximum capacity, you should have 100 IP addresses available. For example, if you have one RemoteApp collection in the Standard plan and you want to have the maximum 500 users, you should have 100 IP addresses for that collection. Similarly, you need 100 IP addresses for a RemoteApp collection in the Basic plan that has 800 users. If you plan to have fewer users (less than the maximum), you can reduce the IP addresses needed per collection. The minimum subnet size requirement is 30 IP addresses (/27).
 
-Consultare le informazioni seguenti per assicurarsi che la rete virtuale sia configurata e funzioni correttamente:
+Check out the following information to make sure your VNET is configured and working propertly:
 
-- [Come eseguire la migrazione da una rete virtuale personale a una rete virtuale di Azure](remoteapp-migratevnet.md)
-- [Convalidare la rete virtuale di Azure da usare con Azure RemoteApp](remoteapp-vnet.md)
+- [Migrate from a personal VNET to an Azure VNET](remoteapp-migratevnet.md)
+- [Validate the Azure VNET to use with Azure RemoteApp](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

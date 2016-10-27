@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Gestire set di record e record DNS con il portale di Azure | Microsoft Azure"
-   description="Gestione dei set di record e dei record DNS quando si ospita il dominio in DNS di Azure."
+   pageTitle="Manage DNS record sets and records using the Azure portal | Microsoft Azure"
+   description="Managing DNS record sets and records when hosting your domain on Azure DNS."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,123 +15,128 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
-# Gestire record e set di record DNS con il portale di Azure
+
+# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Manage DNS records and record sets by using the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Portale di Azure](dns-operations-recordsets-portal.md)
-- [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
+- [Azure Portal](dns-operations-recordsets-portal.md)
+- [Azure CLI](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
 
-Questo articolo descrive come gestire i set di record e i record per la zona DNS usando il portale di Azure.
+This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
 
-È importante comprendere la differenza tra i set di record DNS e i singoli record DNS. Un set di record è una raccolta di record con lo stesso nome e lo stesso tipo in una zona. Per altre informazioni vedere [Creare set di record e record DNS mediante il portale di Azure](dns-getstarted-create-recordset-portal.md).
+It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
-## Creare un nuovo set di record e record
+## <a name="create-a-new-record-set-and-record"></a>Create a new record set and record
 
-Per creare un set di record nel portale di Azure, vedere [Creare record e set di record DNS mediante il portale di Azure](dns-getstarted-create-recordset-portal.md).
-
-
-## Visualizzare un set di record
-
-1. Nel portale di Azure passare al pannello **Zona DNS**.
-
-2. Cercare e selezionare il set di record. Vengono aperte le proprietà del set di record.
-
-	![Ricerca di un set di record](./media/dns-operations-recordsets-portal/searchset500.png)
+To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
 
-## Aggiungere un nuovo record a un set di record
+## <a name="view-a-record-set"></a>View a record set
 
-È possibile aggiungere fino a 20 record a qualsiasi set di record. Un set di record non può contenere due record identici. È possibile creare set di record vuoti, con zero record, che non vengono però visualizzati nei server dei nomi DNS di Azure. I set di record di tipo CNAME possono contenere al massimo un record.
+1. In the Azure portal, go to the **DNS zone** blade.
 
+2. Search for the record set and select it. This opens the record set properties.
 
-1. Dal pannello **Proprietà del set di record** per la zona DNS, fare clic sul set di record al quale aggiungere un record.
-
-	![Selezionare un set di record](./media/dns-operations-recordsets-portal/selectset500.png)
-
-2. Specificare le proprietà del record compilando i campi.
-
-	![Aggiungere un record](./media/dns-operations-recordsets-portal/addrecord500.png)
-
-2. Fare clic su **Salva** nella parte superiore del pannello per salvare le impostazioni. Chiudere il pannello.
-
-3. Nell'angolo viene visualizzato il processo di salvataggio del record.
-
-	![Salvataggio del set di record](./media/dns-operations-recordsets-portal/saving150.png)
-
-Dopo aver salvato il record, i valori nel pannello **Zona DNS** rifletteranno il nuovo record.
+    ![Search for a record set](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## Aggiornare un record
+## <a name="add-a-new-record-to-a-record-set"></a>Add a new record to a record set
 
-Quando si aggiorna un record in un set di record esistente, i campi che è possibile aggiornare dipendono dal tipo di record in uso.
-
-1. Cercare il record nel pannello **Proprietà del set di record** per il set di record.
-
-2. Modificare il record. Quando si modifica un record, è possibile cambiare le impostazioni disponibili per il record. Nell'esempio seguente è stato fatto clic sul campo **Indirizzo IP**, quindi l'indirizzo IP viene modificato.
-
-	![Modificare un record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
-
-3. Fare clic su **Salva** nella parte superiore del pannello per salvare le impostazioni. Nell'angolo superiore destro viene visualizzata la notifica che indica che il record è stato salvato.
-
-	![Set di record salvato](./media/dns-operations-recordsets-portal/saved150.png)
+You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
 
 
-Dopo aver salvato il record, i valori per il set di record nel pannello **Zona DNS** rifletteranno il record aggiornato.
+1. On the **Record set properties** blade for your DNS zone, click the record set that you want to add a record to.
+
+    ![Select a record set](./media/dns-operations-recordsets-portal/selectset500.png)
+
+2. Specify the record set properties by filling in the fields.
+
+    ![Add a record](./media/dns-operations-recordsets-portal/addrecord500.png)
+
+2. Click **Save** at the top of the blade to save your settings. Then close the blade.
+
+3. In the corner, you will see that the record is saving.
+
+    ![Saving record set](./media/dns-operations-recordsets-portal/saving150.png)
+
+After the record has been saved, the values on the **DNS zone** blade will reflect the new record.
 
 
-## Rimuovere un record da un set di record
+## <a name="update-a-record"></a>Update a record
 
-È possibile usare il portale di Azure per rimuovere i record da un set di record. Si noti che la rimozione dell'ultimo record da un set di record non elimina il set di record.
+When you update a record in an existing record set, the fields you can update depend on the type of record you're working with.
 
-1. Cercare il record nel pannello **Proprietà del set di record** per il set di record.
+1. On the **Record set properties** blade for your record set, search for the record.
 
-2. Fare clic sul record da rimuovere. Selezionare **Rimuovi**.
+2. Modify the record. When you modify a record, you can change the available settings for the record. In the following example, the **IP address** field is selected, and the IP address is in the process of being modified.
 
-	![Rimuovere un record](./media/dns-operations-recordsets-portal/removerecord500.png)
+    ![Modify a record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Fare clic su **Salva** nella parte superiore del pannello per salvare le impostazioni.
+3. Click **Save** at the top of the blade to save your settings. In the upper right corner, you'll see the notification that the record has been saved.
 
-3. Dopo aver rimosso il record, i valori per il set di record nel pannello **Zona DNS** rifletteranno la rimozione.
-
-
-## <a name="delete"></a>Eliminare un set di record
-
-1. Nel pannello **Proprietà del set di record** per il set di record, fare clic su **Elimina**.
-
-	![Eliminare un set di record](./media/dns-operations-recordsets-portal/deleterecordset500.png)
-
-2. Viene visualizzato un messaggio in cui viene chiesto se eliminare il set di record.
-
-3. Verificare che il nome corrisponda al set di record da eliminare, quindi fare clic su **Sì**.
-
-4. Nel pannello **Zona DNS** è possibile verificare che il set di record non sia più visibile.
+    ![Saved record set](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-## Usare record NS e SOA
+After the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
 
-I record NS e SOA creati automaticamente vengono gestiti in modo diverso rispetto ad altri tipi di record.
 
-### Modificare i record SOA
+## <a name="remove-a-record-from-a-record-set"></a>Remove a record from a record set
 
-Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = "@"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
+You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set.
 
-### Modificare i record NS al vertice della zona
+1. On the **Record set properties** blade for your record set, search for the record.
 
-Non è possibile aggiungere, rimuovere o modificare i record nel set di record NS creato automaticamente al vertice della zona (name = "@"). L'unica modifica consentita consiste nel modificare la durata (TTL) del set di record.
+2. Click the record that you want to remove. Then select **Remove**.
 
-### Eliminare set di record SOA o NS
+    ![Remove a record](./media/dns-operations-recordsets-portal/removerecord500.png)
 
-Non è possibile eliminare i set di record SOA ed NS al vertice della zona (name = "@") che vengono creati automaticamente quando viene creata la zona. Vengono eliminate automaticamente quando si elimina la zona.
+3. Click **Save** at the top of the blade to save your settings.
 
-## Passaggi successivi
+3. After the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
 
--   Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
--   Per altre informazioni sull'automazione di DNS, vedere [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md).
--   Per altre informazioni sui record DNS inversi, vedere [Come gestire i record DNS inversi per i servizi tramite PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="<a-name="delete"></a>delete-a-record-set"></a><a name="delete"></a>Delete a record set
+
+1. On the **Record set properties** blade for your record set, click **Delete**.
+
+    ![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+
+2. A message appears asking if you want to delete the record set.
+
+3. Verify that the name matches the record set that you want to delete, and then click **Yes**.
+
+4. On the **DNS zone** blade, verify that the record set is no longer visible.
+
+
+## <a name="work-with-ns-and-soa-records"></a>Work with NS and SOA records
+
+NS and SOA records that are automatically created are managed differently from other record types.
+
+### <a name="modify-soa-records"></a>Modify SOA records
+
+You cannot add or remove records from the automatically created SOA record set at the zone apex (name = "@"). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
+
+### <a name="modify-ns-records-at-the-zone-apex"></a>Modify NS records at the zone apex
+
+You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
+
+### <a name="delete-soa-or-ns-record-sets"></a>Delete SOA or NS record sets
+
+You cannot delete the SOA and NS record sets at the zone apex (name = "@") that are created automatically when the zone is created. They are deleted automatically when you delete the zone.
+
+## <a name="next-steps"></a>Next steps
+
+-   For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
+-   For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+-   For more information about reverse DNS records, see [How to manage reverse DNS records for your services using PowerShell](dns-reverse-dns-record-operations-ps.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,40 +1,41 @@
 <properties 
-	pageTitle="Selezione dei nomi utente per Linux | Microsoft Azure" 
-	description="Informazioni su come selezionare i nomi utente per una macchina virtuale Linux in Azure." 
-	services="virtual-machines-linux" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor=""
-	tags="azure-service-management,azure-resource-manager" />
+    pageTitle="Selecting User Names for Linux | Microsoft Azure" 
+    description="Learn how to select user names for a Linux virtual machine in Azure." 
+    services="virtual-machines-linux" 
+    documentationCenter="" 
+    authors="szarkos" 
+    manager="timlt" 
+    editor=""
+    tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines-linux" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2016" 
-	ms.author="szark"/>
+    ms.service="virtual-machines-linux" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="vm-linux" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/17/2016" 
+    ms.author="szark"/>
 
 
 
-#Selezione dei nomi utente per Linux su Azure#
+
+#<a name="selecting-user-names-for-linux-on-azure#"></a>Selecting User Names for Linux on Azure#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Durante il provisioning di una macchina virtuale Linux in Azure è necessario specificare il nome di un utente non radice, che in un secondo momento è possibile utilizzare per accedere alla macchina virtuale. È possibile scegliere il nome del nuovo utente o se il provisioning avviene tramite il portale di Azure classico è possibile accettare il nome predefinito "azureuser".
+When you provision a Linux virtual machine on Azure you must specify the name of a non-root user that you can later use to log into the VM. You may choose the name of the new user, or if provisioning via the Azure classic portal you can accept the default name "azureuser".
 
-Nella maggior parte dei casi questo nuovo utente non esiste nell'immagine di base e viene creato durante il processo di provisioning. Se l'utente esiste nell'immagine della VM di base, l'agente Linux di Azure configura la password (e/o la chiave SSH) per tale utente in base alle informazioni specificate durante la creazione della VM.
+In most cases this user won't exist on the base image and will be created during the provisioning process. If the user exists on the base VM image, then the Azure Linux agent simply configures the password and/or SSH key for that user based on the information you specified when creating the VM.
 
-**Tuttavia**, Linux definisce un set di nomi utente che non devono essere usati. Se si prova a eseguire il provisioning di una macchia virtuale Linux usando un utente di sistema esistente, definito come utente con un valore UID compreso tra 0 e 99, il processo avrà **esito negativo**. Un esempio tipico è rappresentato dall'utente `root`, il cui valore UID è 0.
+**However**, Linux defines a set of user names that should not be used. The provisioning process will **fail** if you try to provision a Linux VM using an existing system user, which is defined as a user with UID 0-99. A typical example is the `root` user, which has UID 0.
 
- - Vedere anche: [Base standard di Linux - Intervalli ID utente](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+ - See also: [Linux Standard Base - User ID Ranges](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-L'elenco seguente include utenti di sistema predefiniti comuni per CentOS e Ubuntu che non devono essere usati quando si effettua il provisioning di una macchina virtuale Linux in Azure. Questo elenco è solo un esempio. Vedere la documentazione specifica della distribuzione per assicurarsi che il nome utente scelto non sia in conflitto con un utente di sistema esistente.
+The following is a list of common built-in system users for CentOS and Ubuntu that you should avoid using when provisioning a Linux virtual machine on Azure. This list is just an example, please refer to the documentation for your distribution to ensure that the username you choose does not conflict with an existing system user.
 
 
-## CentOS
+## <a name="centos"></a>CentOS
 - abrt
 - adm
 - audio
@@ -91,7 +92,7 @@ L'elenco seguente include utenti di sistema predefiniti comuni per CentOS e Ubun
 - wheel
 
 
-## Ubuntu
+## <a name="ubuntu"></a>Ubuntu
 - adm
 - admin
 - audio
@@ -148,4 +149,7 @@ L'elenco seguente include utenti di sistema predefiniti comuni per CentOS e Ubun
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

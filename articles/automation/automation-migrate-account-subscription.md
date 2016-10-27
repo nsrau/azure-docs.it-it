@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Eseguire la migrazione delle risorse e dell’account di Automazione | Microsoft Azure"
-   description="L’articolo illustra come spostare un account di Automazione in Automazione di Azure e le risorse associate da una sottoscrizione all’altra."
+   pageTitle="Migrate Automation Account and Resources | Microsoft Azure"
+   description="This article describes how to move an Automation Account in Azure Automation and associated resources from one subscription to another."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
@@ -15,52 +15,57 @@
    ms.date="07/07/2016"
    ms.author="magoedte" />
 
-# Eseguire la migrazione delle risorse e dell’account di Automazione
 
-Per migrare facilmente gli account di Automazione e le risorse associate (ad esempio asset, runbook, moduli, ecc.) creati nel Portale di Azure da un gruppo di risorse a un altro o da una sottoscrizione a un’altra, è possibile utilizzare la funzione[Sposta risorse](../resource-group-move-resources.md) disponibile nel Portale di Azure. Tuttavia, prima di procedere, è necessario rivedere il [Controllo prima di spostare le risorse](../resource-group-move-resources.md#Checklist-before-moving-resources) e, in più, l'elenco seguente specifico per Automazione.
+# <a name="migrate-automation-account-and-resources"></a>Migrate Automation Account and resources
 
-1.  Il gruppo di risorse/sottoscrizioni di destinazione deve essere nella stessa area di origine. Pertanto, gli account di Automazione non possono essere spostati tra le aree.
-2.  Durante lo spostamento di risorse (ad es. runbook, processi, ecc.), sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
-3.  I runbook o le variabili che fanno riferimento a un ID sottoscrizione o risorsa dalla sottoscrizione esistente devono essere aggiornati al termine della migrazione.
+For Automation accounts and its associated resources (i.e. assets, runbooks, modules, etc.) that you have created in the Azure portal and want to migrate from one resource group to another or from one subscription to another, you can accomplish this easily with the [move resources](../resource-group-move-resources.md) feature available in the Azure portal. However, before proceeding with this action, you should first review the following [checklist before moving resources](../resource-group-move-resources.md#Checklist-before-moving-resources) and additionally, the list below specific to Automation.   
+
+1.  The destination subscription/resource group must be in same region as the source.  Meaning, Automation accounts cannot be moved across regions.
+2.  When moving resources (e.g. runbooks, jobs, etc.), both the source group and the target group are locked for the duration of the operation. Write and delete operations are blocked on the groups until the move completes.  
+3.  Any runbooks or variables which reference a resource or subscription ID from the existing subscription will need to be updated after migration is completed.   
 
 
->[AZURE.NOTE] Questa funzionalità non supporta lo spostamento delle risorse di automazione classica.
+>[AZURE.NOTE] This feature does not support moving Classic automation resources.
 
-## Per spostare l'account di automazione tramite il portale
+## <a name="to-move-the-automation-account-using-the-portal"></a>To move the Automation Account using the portal
 
-1. Dall'account di Automazione fare clic su **Sposta** nella parte superiore del pannello.<br> ![Opzione Sposta](media/automation-migrate-account-subscription/automation-menu-move.png)<br>
-2. Nel pannello **Sposta risorse**, sono presenti le risorse relative all'account di Automazione e ai gruppi di risorse. Selezionare la **sottoscrizione** e il **gruppo di risorse** dagli elenchi a discesa, oppure selezionare l'opzione **Creare un nuovo gruppo di risorse** e immettere il nome del nuovo gruppo di risorse nell’apposito campo.
-3. Esaminare e selezionare la casella di controllo per confermare di *comprendere che gli strumenti e gli script dovranno essere aggiornati per poter utilizzare nuovi ID risorsa dopo lo spostamento delle risorse*, quindi fare clic su **OK**.<br> ![Pannello Sposta risorse](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>
+1. From your Automation account, click **Move** at the top of the blade.<br> ![Move option](media/automation-migrate-account-subscription/automation-menu-move.png)<br> 
+2. On the **Move resources** blade, note that it presents resources related to both your Automation account and your resource group(s).  Select the **subscription** and **resource group** from the drop-down lists, or select the option **create a new resource group** and enter a new resource group name in the field provided.  
+3. Review and select the checkbox to acknowledge you *understand tools and scripts will need to be updated to use new resource IDs after resources have been moved* and then click **OK**.<br> ![Move Resources Blade](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
 
-Il completamento di questa operazione può richiedere alcuni minuti. In **Notifiche** verrà visualizzato lo stato di ciascuna operazione eseguita: convalida, migrazione e completa.
+This action will take several minutes to complete.  In **Notifications**, you will be presented with a status of each action that takes place - validation, migration, and then finally when it is completed.     
 
-## Per spostare l'account di Automazione tramite PowerShell
+## <a name="to-move-the-automation-account-using-powershell"></a>To move the Automation Account using PowerShell
 
-Per spostare le risorse di Automazione esistenti in un altro gruppo di risorse o in una sottoscrizione, utilizzare il cmdlet **Get-AzureRmResource** per ottenere l'account di Automazione specifico e il cmdlet **Move-AzureRmResource** per eseguire lo spostamento.
+To move existing Automation resources to another resource group or subscription, use the  **Get-AzureRmResource** cmdlet to get the specific Automation account and then **Move-AzureRmResource** cmdlet to perform the move.
 
-Nel primo esempio viene illustrato come spostare un account di Automazione in un nuovo gruppo di risorse.
+The first example shows how to move an Automation account to a new resource group.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup"
    ``` 
 
-Dopo aver eseguito l'esempio di codice riportato sopra, viene chiesto di confermare l’operazione. Una volta fatto clic su **Sì** e dopo aver consentito allo script di continuare, l’utente non riceverà altre notifiche mentre è in corso la migrazione.
+After you execute the above code example, you will be prompted to verify you want to perform this action.  Once you click **Yes** and allow the script to proceed, you will not receive any notifications while it's performing the migration.  
 
-Per eseguire lo spostamento in una nuova sottoscrizione, includere un valore per il parametro *DestinationSubscriptionId*.
+To move to a new subscription, include a value for the *DestinationSubscriptionId* parameter.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup" -DestinationSubscriptionId "SubscriptionId"
    ``` 
 
-Come per l’esempio precedente, viene chiesto di confermare l’operazione di spostamento.
+As with the previous example, you will be prompted to confirm the move.  
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Per ulteriori informazioni sullo spostamento delle risorse in un nuovo gruppo di risorse o sottoscrizione, vedere [Spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../resource-group-move-resources.md)
-- Per altre informazioni sul controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](../automation/automation-role-based-access-control.md).
-- Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](../powershell-azure-resource-manager.md)
-- Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](../azure-portal/resource-group-portal.md).
+- For more information about moving resources to new resource group or subscription, see [Move  resources to new resource group or subscription](../resource-group-move-resources.md)
+- For more information about Role-based Access Control in Azure Automation, refer to [Role-based access control in Azure Automation](../automation/automation-role-based-access-control.md).
+- To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](../powershell-azure-resource-manager.md)
+- To learn about portal features for managing your subscription, see [Using the Azure Portal to manage resources](../azure-portal/resource-group-portal.md). 
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

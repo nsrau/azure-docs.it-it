@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Non archiviare mai dati sensibili in immagini personalizzate per Azure RemoteApp | Microsoft Azure"
-    description="Informazioni sulle linee guida per l'archiviazione dei dati in immagini personalizzate in Azure RemoteApp"
+    pageTitle="Never store sensitive data on custom images for Azure RemoteApp | Microsoft Azure"
+    description="Learn about the guidelines for storing data in custom images in Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -17,32 +17,39 @@
     ms.author="elizapo" />
 
 
-# Non archiviare mai dati sensibili in immagini personalizzate
+
+# <a name="never-store-sensitive-data-on-custom-images"></a>Never store sensitive data on custom images
 
 > [AZURE.IMPORTANT]
-Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l'[annuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Quando si ospita un'applicazione personalizzata in Azure RemoteApp, il primo passaggio consiste nella creazione di un'immagine personalizzata. L'immagine personalizzata viene usata per creare istanze di VM che forniscono le app agli utenti. L'immagine personalizzata deve contenere SOLTANTO applicazioni e mai dati sensibili che possano essere persi, ad esempio database SQL, file personali o file di dati speciali come i file aziendali QuickBooks. Tutti i dati riservati devono essere esterni ad Azure RemoteApp e trovarsi in un file server, in un'altra VM di Azure o in SQL Azure. L'immagine deve ospitare soltanto l'applicazione che si collega all'origine dati e visualizza i dati. Per altre informazioni vedere [Requisiti per le immagini di Azure RemoteApp](remoteapp-imagereqs.md).
+When you host your own application in Azure RemoteApp, the first step is to create a custom image. We use that custom image to create VM instances that serve your apps to your users. The custom image should contain ONLY applications and never sensitive data that can be lost, such as SQL databases, personnel files, or special data files like QuickBooks company files. All sensitive data should reside external to Azure RemoteApp on a file server, another Azure VM, or in SQL Azure. The image should just host the application that connects to the data source and presents the data. Review [Requirements for Azure RemoteApp images](remoteapp-imagereqs.md) for more information. 
 
-Per comprendere il motivo per cui non si devono archiviare dati sensibili, è necessario comprendere il funzionamento di Azure RemoteApp. Quando si crea o si aggiorna una raccolta, sullo sfondo vengono creati più cloni o copie dell'immagine. Tutte le istanze di VM sono repliche esatte dell'immagine personalizzata. Quando gli utenti avviano le applicazioni, si collegano a una di queste istanze di VM. Non è però garantita la stessa istanza e l'istanza non è importante perché non è permanente. Le istanze di VM che ospitano le applicazioni non sono permanenti e possono essere eliminate o distrutte, ad esempio durante l'aggiornamento della raccolta.
+To understand why you should not store sensitive data, you need to understand how Azure RemoteApp works. When a collection is created or updated, behind the scenes multiple clones or copies of the image are created. All these VM instances are exact replicas of the custom image; when users launch applications they are connected to one of these VM instances. But the same instance is not guaranteed and should not matter because they are non-persistent. The VM instances hosting the applications are non-persistent and can be destroyed or deleted based, for example, during collection update. 
 
-Quando viene eseguito il provisioning della raccolta e gli utenti si collegano alle VM, i dati utente sono permanenti e protetti perché vengono salvati in una memoria separata all'interno di un disco rigido virtuale definito [disco profili utente](remoteapp-upd.md), ovvero il profilo utente in c:\\users<userprofile>. Quando si avvia un'applicazione, il disco profili utente viene montato e gestito come un profilo utente locale dal sistema operativo. Altre informazioni su come [Azure RemoteApp salva dati e impostazioni](remoteapp-upd.md).
+Once the collection is provisioned and users start connecting to the VMs, user data is persistent and protected because it is saved on separate storage within a VHD that we call a [user profile disk (UPD)](remoteapp-upd.md), which is the user profile in c:\users\<userprofile>. When an application starts, the UPD is mounted and treated just like a local user profile by the operating system. Read more about how [Azure RemoteApp saves user data and settings](remoteapp-upd.md).
 
-Dati di esempio che non devono trovarsi nell'immagine:
+Example data that should not reside in the image:
 
-- Dati condivisi per l'accesso degli utenti
-- SQL DB o QuickBooks DB
-- Tutti i dati in D:\\
+- Shared data for users to access
+- SQL DB or QuickBooks DB
+- Any data in D:\
 
-Dati di esempio che possono trovarsi nel profilo predefinito da copiare nel disco profili utente di ogni utente:
+Example data that can reside in the default profile to be copied into every users’ UPD:
 
-- File di configurazione di ogni utente
-- Script che gli utenti devono mantenere nel loro disco profili utente
+- Configuration files per user
+- Scripts that users would need preserved in their UPD
 
-Punti principali:
+Key points:
 
-- Quando si crea un'immagine personalizzata, non archiviare mai nell'immagine dati sensibili che possano andare perduti.
-- I dati sensibili devono sempre trovarsi in un file server separato, in una VM di Azure separata o nel cloud e devono essere sempre esterni alle istanze della VM che ospita le applicazioni all'interno di Azure RemoteApp.
-- I dati utente vengono salvati e mantenuti nel disco profili utente.
+- Never store sensitive data that can be lost on the image when creating a custom image.
+- Sensitive data should always reside on a separate file server, separate Azure VM, on the cloud, and always external to the VM instances hosting your applications within Azure RemoteApp. 
+- User data is saved and persists in the user profile disk (UPD)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

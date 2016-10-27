@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Che cos'è Azure Data Catalog? | Microsoft Azure"
-   description="Questo articolo offre una panoramica di Microsoft Azure Data Catalog, incluse le funzionalità e i problemi per cui è stato progettato. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di registrare le origini dati, di individuarle, di ottenere informazioni su di esse e di utilizzarle."
+   pageTitle="What is Azure Data Catalog? | Microsoft Azure"
+   description="This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,62 +16,67 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
-# Che cos'è il Catalogo dei dati di Azure?
 
-Azure Data Catalog è un servizio cloud completamente gestito che consente agli utenti di trovare le origini dati necessarie e ottenere informazioni su di esse e alle organizzazioni di ottenere il massimo dagli investimenti esistenti. Data Catalog offre funzionalità che consentono a tutti gli utenti, ad esempio analisti, data scientist e sviluppatori, di trovare le origini dati, ottenere informazioni su di esse e di utilizzarle. Data Catalog include un modello di crowdsourcing di metadati e annotazioni e consente a tutti gli utenti di contribuire con le proprie conoscenze per creare una community e una cultura di dati.
+# <a name="what-is-azure-data-catalog?"></a>What is Azure Data Catalog?
 
-## Difficoltà di individuazione per i consumer di dati
+Azure Data Catalog is a fully managed cloud service that enables users to discover the data sources they need, and to understand the data sources they find, while helping organizations get more value from their existing investments. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to discover, understand, and consume data sources. Data Catalog includes a crowdsourcing model of metadata and annotations, and allows all users to contribute their knowledge to build a community and culture of data.
 
-Tradizionalmente, individuazione di origini dati aziendali è stato un processo organico basato su conoscenze specifiche. Questo presenta numerose sfide per le aziende che desiderano ottenere il massimo dalle loro risorse di informazioni.
+## <a name="discovery-challenges-for-data-consumers"></a>Discovery challenges for data consumers
 
--	Gli utenti non sono consapevoli che origini dati esistano, a meno che essi entrare in contatto con come parte di un altro processo. non esiste alcuna posizione centrale in cui origini dati vengono registrate.
--	A meno che un utente conosca il percorso di un'origine dati, è impossibile connettersi ai dati usando un'applicazione client. Le esperienze di utilizzo dei dati richiedono agli utenti di individuare la stringa di connessione o il percorso.
--	A meno che un utente conosca il percorso della documentazione dell'origine dati, egli non può comprendere gli usi previsti per i dati. La documentazione e le origini dati si trovano in posizioni diverse e vengono utilizzate tramite esperienze diverse.
--	Se un utente ha delle domande su un asset di informazioni, deve individuare l'esperto o il team responsabile dei dati e coinvolgere tali esperti offline. Non è disponibile alcuna connessione esplicita tra i dati e gli esperti sul relativo uso.
--  A meno che un utente sia in grado di comprendere il processo per richiedere l'accesso all'origine dati, l’individuazione dell'origine dati e della relativa documentazione non gli consente comunque di accedere ai dati necessari.
+Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. This presents numerous challenges for companies wanting to get the most value from their information assets.
 
-## Difficoltà di individuazione per i produttori di dati
+-   Users are not aware that data sources exist unless they come into contact with it as part of another process; there is no central location where data sources are registered.
+-   Unless a user knows the location of a data source, he cannot connect to the data using a client application; data consumption experiences require users to know the connection string or path.
+-   Unless a user knows the location of a data source's documentation, he cannot understand the intended uses of the data; data sources and documentation live in different places and are consumed through different experiences.
+-   If a user has questions about an information asset, he must locate the expert or team responsible for the data and engage those experts offline; there is no explicit connection between data and those with expert perspectives on its use.
+-  Unless a user understands the process for requesting access to the data source, discovering the data source and its documentation still does not enable him to access the data he requires.
 
-Mentre i consumer di dati si trovano ad affrontare queste difficoltà, gli utenti responsabili della produzione e gestione delle risorse di informazioni affrontano difficoltà proprie.
+## <a name="discovery-challenges-for-data-producers"></a>Discovery challenges for data producers
 
--	L'annotazione di origini dati con metadati descrittivi è spesso un lavoro perso; le applicazioni client in genere ignorano descrizioni archiviate nell'origine dati.
--	La creazione di documentazione per le origini dati è spesso un lavoro perso; sincronizzazione documentazione con l'origine dati è una responsabilità in corso e gli utenti non dispongono di attendibilità nella documentazione come viene spesso considerata viene aggiornato.
-- La limitazione dell'accesso all'origine dati e la sicurezza che i fruitori di dati siano in grado di richiedere l'accesso costituisce una sfida costante.
+While data consumers face these challenges, users responsible for producing and maintaining information assets face challenges of their own.
 
-La procedura di creazione e gestione della documentazione relativa a un'origine dati è lunga e complessa. La sfida di rendere disponibile tale documentazione a tutti coloro che usano l'origine dati spesso lo è ancora di più.
+-   Annotating data sources with descriptive metadata is often a lost effort; client applications typically ignore descriptions stored in the data source.
+-   Creating documentation for data sources is often a lost effort; keeping documentation in sync with the data source is an ongoing responsibility, and users lack trust in documentation as it is often perceived as being out of date.
+- Restricting access to the data source, and ensuring that data consumers know how to request access is an ongoing challenge.
 
-Queste sfide presentano un ostacolo significativo per le aziende che desiderano incoraggiare e promuovere l'uso e la comprensione dei dati aziendali.
+Creating and maintaining documentation for a data source is complex and time-consuming. The challenge of making that documentation readily available to everyone who uses the data source is often even more so.
 
-## Il contributo di Azure Data Catalog
+When combined, these challenges present a significant barrier for companies who want to encourage and promote the use and understanding of enterprise data.
 
-Data Catalog è progettato per risolvere questi problemi e consentire alle aziende di ottenere il massimo dai propri asset di informazioni esistenti. Data Catalog rende le origini dati facilmente individuabili e comprensibili per gli utenti che necessitano dei dati gestiti.
+## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog can help
 
-Data Catalog fornisce un servizio basato sul cloud in cui le origini dati possono essere registrate. I dati rimangono nella posizione esistente, ma una copia dei metadati viene aggiunta a Data Catalog insieme a un riferimento al percorso dell'origine dati. Questi metadati sono indicizzati anche per rendere facilmente individuabile ogni singola origine dati tramite ricerca e per renderla comprensibile agli utenti che la trovano.
+Data Catalog is designed to address these problems and to enable enterprises to get the most value from their existing information assets. Data Catalog helps by making data sources easily discoverable, and understandable by the users who need the data they manage.
 
-Una volta registrata un'origine dati, i metadati possono essere arricchiti, dall'utente che ha eseguito la registrazione o da altri utenti nell'organizzazione. Tutti gli utenti possono annotare un'origine dati, fornendo descrizioni, tag o altri metadati, come ad esempio la documentazione e i processi per richiedere l’accesso all’origine dati. Questi metadati descrittivi integrano i metadati strutturali, ad esempio i nomi delle colonne e tipi di dati, registrati dall'origine dati.
+Data Catalog provides a cloud-based service into which data source can be registered. The data remains in in its existing location, but a copy of the metadata is added to Data Catalog, along with a reference to the data source location. This metadata is also indexed to make each data source easily discoverable via search, and understandable to users who discover it.
 
-Individuazione e informazioni sulle origini dati e il relativo utilizzo è lo scopo principale di registrazione delle origini. Quando gli utenti aziendali devono usare dati per le proprie attività (business intelligence, sviluppo di applicazioni, analisi scientifica dei dati o qualsiasi altra attività in cui sono richiesti dati corretti) possono usare Data Catalog per trovare rapidamente dati che soddisfino le proprie esigenze, comprenderli e valutare la loro idoneità allo scopo e usarli aprendo l'origine dati in uno strumento di propria scelta. Allo stesso tempo, Data Catalog consente agli utenti di contribuire al catalogo, assegnando tag, documentando e annotando le origini dati che sono già state registrate e registrando nuove origini dati che possono essere individuate, comprese e utilizzate dalla community di utenti del catalogo.
+Once a data source has been registered, its metadata can then be enriched, either by the user who performed the registration, or by other users in the enterprise. Any user can annotate a data source by providing descriptions, tags, or other metadata, such as documentation and processes for requesting data source access. This descriptive metadata supplements the structural metadata (such as column names and data types) registered from the data source.
 
-![Funzionalità di Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
+Discovering and understanding data sources and their use is the primary purpose of registering the sources. When enterprise users need data for their efforts (which could be business intelligence, application development, data science, or any other task where the right data is required) they can use the Data Catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for purpose, and consume that data by opening the data source in their tool of choice. At the same time, Data Catalog allows users to contribute to the catalog, by tagging, documenting, and annotating data sources that have already been registered, and by registering new data sources which can then be discovered, understood, and consumed by the community of catalog users.
 
-## Introduzione a Data Catalog
+![Data Catalog Capabilities](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-Per un'introduzione a Data Catalog, visitare il sito[www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+## <a name="get-started-with-data-catalog"></a>Get started with Data Catalog
 
-Una guida introduttiva è disponibile [qui](data-catalog-get-started.md).
+To get started with Data Catalog today, visit [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
-## Altre informazioni su Data Catalog
+A getting started guide is available [here](data-catalog-get-started.md).
 
-Per altre informazioni sulle funzionalità di Data Catalog, vedere:
+## <a name="learn-more-about-data-catalog"></a>Learn more about Data Catalog
 
-* [Come registrare le origini dati](data-catalog-how-to-register.md)
-* [Come individuare le origini dati](data-catalog-how-to-discover.md)
-* [Come annotare le origini dati](data-catalog-how-to-annotate.md)
-* [Come documentare le origini dati](data-catalog-how-to-documentation.md)
-* [Come connettersi a origini dati](data-catalog-how-to-connect.md)
-* [Come usare Big Data](data-catalog-how-to-big-data.md)
-* [Come gestire gli asset di dati](data-catalog-how-to-manage.md)
-* [Come configurare il glossario aziendale](data-catalog-how-to-business-glossary.md)
-* [Domande frequenti](data-catalog-frequently-asked-questions.md)
+To learn more about the capabilities of Data Catalog, see:
 
-<!----HONumber=AcomDC_0921_2016-->
+* [How to register data sources](data-catalog-how-to-register.md)
+* [How to discover data sources](data-catalog-how-to-discover.md)
+* [How to annotate data sources](data-catalog-how-to-annotate.md)
+* [How to document data sources](data-catalog-how-to-documentation.md)
+* [How to connect to data sources](data-catalog-how-to-connect.md)
+* [How to work with big data](data-catalog-how-to-big-data.md)
+* [How to manage data assets](data-catalog-how-to-manage.md)
+* [How to set up the Business Glossary](data-catalog-how-to-business-glossary.md)
+* [Frequently Asked Questions](data-catalog-frequently-asked-questions.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

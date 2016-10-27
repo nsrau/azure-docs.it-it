@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Informazioni generali sulla sicurezza di Archiviazione di Azure | Microsoft Azure"
-   description=" Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti. Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Archiviazione di Azure. "
+   pageTitle="Azure Storage Security Overview | Microsoft Azure"
+   description=" Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. This article provides an overview of the core Azure security features that can be used with Azure Storage. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor="TomSh"/> 
+   editor="TomSh"/>
 
 <tags
    ms.service="security"
@@ -14,91 +14,96 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/16/2016"
-   ms.author="terrylan"/> 
+   ms.author="terrylan"/>
 
-# Panoramica sulla sicurezza di Archiviazione di Azure
 
-Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti. Archiviazione di Azure offre un set completo di funzionalità di sicurezza:
+# <a name="azure-storage-security-overview"></a>Azure storage security overview
 
-- L'account di archiviazione può essere protetto con il controllo degli accessi in base al ruolo e Azure Active Directory.
-- È possibile proteggere i dati in transito tra un'applicazione e Azure usando la crittografia lato client, HTTPS o SMB 3.0.
-- I dati possono essere impostati per la crittografia automatica quando vengono scritti in Archiviazione di Azure con Crittografia del servizio di archiviazione di Azure.
-- I dischi di dati e del sistema operativo usati dalle macchine virtuali possono essere impostati per la crittografia con Crittografia dischi di Azure.
-- È possibile concedere l'accesso delegato agli oggetti dati in Archiviazione di Azure usando le firme di accesso condiviso.
-- Il metodo di autenticazione usato da un utente quando accede alla risorsa di archiviazione può essere monitorato con Analisi archiviazione.
+Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. Azure Storage provides a comprehensive set of security capabilities:
 
-Per un'analisi più approfondita della sicurezza in Archiviazione di Azure, vedere la [Guida alla sicurezza di Archiviazione di Azure](../storage/storage-security-guide.md). Questa guida offre approfondimenti sulle funzionalità di sicurezza di Archiviazione di Azure, ad esempio chiavi dell'account di archiviazione, crittografia dei dati in transito e inattivi e Analisi archiviazione.
+- The storage account can be secured using Role-Based Access Control and Azure Active Directory.
+- Data can be secured in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0.
+- Data can be set to be automatically encrypted when written to Azure Storage using Storage Service Encryption.
+- OS and Data disks used by virtual machines can be set to be encrypted using Azure Disk Encryption.
+- Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
+- The authentication method used by someone when they access storage can be tracked using Storage analytics.
 
-Questo articolo offre informazioni generali sulle funzionalità di sicurezza di Azure che possono essere usate con Archiviazione di Azure. Per altre informazioni sono disponibili collegamenti ad articoli di approfondimento su ogni funzionalità.
+For a more detailed look at security in Azure Storage, see the [Azure Storage security guide](../storage/storage-security-guide.md). This guide provides a deep dive into the security features of Azure Storage such as storage account keys, data encryption in transit and at rest, and storage analytics.
 
-Qui di seguito sono elencati gli argomenti trattati in questo articolo:
+This article provides an overview of Azure security features that can be used with Azure Storage. Links are provided to articles that give details of each feature so you can learn more.
 
-- Controllo degli accessi in base al ruolo
-- Accesso delegato agli oggetti di archiviazione
-- Crittografia in transito
-- Crittografia di dati inattivi/Crittografia del servizio di archiviazione
+Here are the core features to be covered in this article:
+
+- Role-Based Access Control
+- Delegated access to storage objects
+- Encryption in transit
+- Encryption at rest/Storage Service Encryption
 - Azure Disk Encryption
-- Insieme di credenziali chiave Azure
+- Azure Key Vault
 
-## Controllo degli accessi in base al ruolo
+## <a name="role-based-access-control-(rbac)"></a>Role-Based Access Control (RBAC)
 
-È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti.
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
 
-Altre informazioni:
+Learn more:
 
-- [Controllo degli accessi in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+- [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
 
-## Accesso delegato agli oggetti di archiviazione
+## <a name="delegated-access-to-storage-objects"></a>Delegated access to storage objects
 
-Una firma di accesso condiviso (SAS) fornisce accesso delegato alle risorse nell'account di archiviazione. Questa firma di accesso condiviso significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma al costruttore o al metodo appropriato.
+A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.
 
-Altre informazioni:
+Learn more:
 
-- [Informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md)
-- [Creare e usare una firma di accesso condiviso con l'archiviazione BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md)
+- [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md)
+- [Create and use a SAS with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md)
 
-## Crittografia in transito
-La crittografia in transito è un meccanismo di protezione dei dati durante la trasmissione tra le reti. Con Archiviazione di Azure è possibile proteggere i dati con:
+## <a name="encryption-in-transit"></a>Encryption in transit
+Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage you can secure data using:
 
-- [Crittografia a livello di trasporto](../storage/storage-security-guide.md#encryption-in-transit), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
-- [Crittografia di rete](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.
-- [Crittografia lato client](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
+- [Transport-level encryption](../storage/storage-security-guide.md#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
+- [Wire encryption](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File Shares.
+- [Client-side encryption](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
-Altre informazioni sulla crittografia lato client:
+Learn more about client-side encryption:
 
-- [Crittografia lato client per Archiviazione di Microsoft Azure](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-- [Serie di controlli della sicurezza del cloud: crittografia dei dati in transito](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+- [Client-Side Encryption for Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
+- [Cloud security controls series: Encrypting Data in Transit](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
-## Crittografia di dati inattivi
+## <a name="encryption-at-rest"></a>Encryption at rest
 
-Per molte organizzazioni, [la crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
+For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
 
-- [Crittografia del servizio di archiviazione](../storage/storage-security-guide.md#encryption-at-rest) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
-- La [crittografia lato client](../storage/storage-security-guide.md#client-side-encryption) offre anche la funzionalità di crittografia dei dati inattivi.
-- [Crittografia dischi di Azure](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
+- [Storage Service Encryption](../storage/storage-security-guide.md#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
+- [Client-side Encryption](../storage/storage-security-guide.md#client-side-encryption) also provides the feature of encryption at rest.
+- [Azure Disk Encryption](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
 
-Altre informazioni su Crittografia del servizio di archiviazione:
+Learn more about Storage Service Encryption:
 
-- [Crittografia del servizio di archiviazione di Azure](https://azure.microsoft.com/services/storage/) è disponibile per l'[l'archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Per informazioni su altri tipi di archiviazione di Azure, vedere [File](https://azure.microsoft.com/services/storage/files/), [Disco (Archiviazione Premium)](https://azure.microsoft.com/services/storage/premium-storage/), [Tabella](https://azure.microsoft.com/services/storage/tables/) e [Coda](https://azure.microsoft.com/services/storage/queues/).
-- [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/storage-service-encryption.md)
+- [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [File](https://azure.microsoft.com/services/storage/files/), [Disk (Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [Table](https://azure.microsoft.com/services/storage/tables/), and [Queue](https://azure.microsoft.com/services/storage/queues/).
+- [Azure Storage Service Encryption for Data at Rest](../storage/storage-service-encryption.md)
 
-## Azure Disk Encryption
+## <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Crittografia dischi di Azure per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/).
+Azure Disk Encryption for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-Crittografia dischi per le macchine virtuali funziona con sistemi operativi sia Linux, sia Windows. Usa l'insieme di credenziali delle chiavi per proteggere, gestire e controllare l'uso delle chiavi di crittografia dei dischi. Tutti i dati nei dischi delle macchine virtuali vengono crittografati mentre sono inattivi, usando una tecnologia di crittografia standard del settore negli account di archiviazione di Azure. La soluzione Crittografia dischi per Windows è basata sulla [Crittografia unità BitLocker di Microsoft](https://technet.microsoft.com/library/cc732774.aspx) e la soluzione Linux è basata su [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+Disk Encryption for VMs works for Linux and Windows operating systems. It also uses Key Vault to help you safeguard, manage, and audit use of your disk encryption keys. All the data in your VM disks is encrypted at rest by using industry-standard encryption technology in your Azure Storage accounts. The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Altre informazioni:
+Learn more:
 
-- [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+- [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## Insieme di credenziali chiave Azure
+## <a name="azure-key-vault"></a>Azure Key Vault
 
-Crittografia dischi di Azure usa [Insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/) per facilitare il controllo e la gestione delle chiavi di crittografia dei dischi e dei segreti nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando al tempo stesso che tutti i dati nei dischi delle macchine virtuali siano crittografati quando inattivi in Archiviazione di Azure. È opportuno usare l'insieme di credenziali delle chiavi per controllare le chiavi e l'utilizzo di criteri.
+Azure Disk Encryption uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to help you control and manage disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure Storage. You should use Key Vault to audit keys and policy usage.
 
-Altre informazioni:
+Learn more:
 
-- [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/key-vault-whatis.md)
-- [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md)
+- [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
+- [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

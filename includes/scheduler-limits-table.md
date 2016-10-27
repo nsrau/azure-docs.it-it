@@ -1,19 +1,22 @@
-Nella tabella seguente viene descritto ciascuno dei principali quote, limiti, impostazioni predefinite e limitazioni nell'utilità di pianificazione di Azure.
+The following table describes each of the major quotas, limits, defaults, and throttles in Azure Scheduler.
 
-|Risorsa|Descrizione del limite|
+|Resource|Limit Description|
 |---|---|
-|**Dimensioni del processo**|La dimensione massima del processo è di 16K. Se un'operazione PUT o PATCH determina un processo di dimensioni maggiori rispetto a questi limiti, viene restituito un codice di stato 400 di richiesta non valida.|
-|**Dimensioni dell’URL della richiesta**|La dimensione massima dell’URL della richiesta è 2.048 caratteri.|
-|**Dimensioni aggregate dell'intestazione**|Le dimensioni aggregate massime dell'intestazione sono di 4.096 caratteri.|
-|**Numero di intestazioni**|Il numero massimo di intestazioni è di 50 intestazioni.|
-|**Dimensioni del corpo**|La dimensione massima del corpo è di 8.192 caratteri.|
-|**Intervallo di ricorrenza**|L’intervallo massimo delle ricorrenze è di 18 mesi.|
-|**Tempo dall’ora di inizio**|Il massimo "tempo dall'ora di inizio" è di 18 mesi.|
-|**Cronologia processi**|Le dimensioni massime dei corpi delle risposte archiviati nella cronologia processi è di 2.048 byte.|
-|**Frequenza**|Il valore predefinito per la frequenza massima è di 1 ora per le raccolte di processi gratuite e di 1 minuto nelle raccolte di processi standard. La frequenza massima è configurabile in una raccolta di processi per essere inferiore a quella massima. Tutti i processi nella raccolta sono limitati al valore impostato nella raccolta stessa. Se si tenta di creare un processo con una frequenza maggiore rispetto alla frequenza massima nella raccolta la richiesta avrà esito negativo con codice di stato 409 Conflitto.|
-|**Processi**|Il valore predefinito per la quota massima di processi è di 5 processi per le raccolte di processi gratuite e di 50 processi nelle raccolte di processi standard. Il numero massimo di processi è configurabile nelle raccolte di processi. Tutti i processi nella raccolta sono limitati al valore impostato nella raccolta stessa. Se si tenta di creare più processi rispetto alla quota massima, la richiesta ha esito negativo e restituisce un codice di stato 409 conflitto.|
-|**Periodo di memorizzazione della cronologia dei processi**|La cronologia dei processi viene mantenuta per un massimo di 2 mesi o fino alle ultime 1000 esecuzioni.|
-|**Memorizzazione di processi completati e con errori**|I processi completati e con errori vengono conservati per 60 giorni.|
-|**Timeout**|Esiste un timeout delle richieste statico (non configurabile) di 30 secondi per le azioni HTTP. Per le operazioni dai tempi di esecuzione più lunghi, seguire i protocolli HTTP asincroni, ad esempio, restituendo immediatamente un 202, ma continuando a lavorare in background.|
+|**Job size**|The maximum job size is 16K. If a PUT or a PATCH results in a job larger than these limits, a 400 Bad Request status code is returned.|
+|**Request URL size**|Maximum size of the request URL is 2048 chars.|
+|**Aggregate header size**|Maximum aggregate header size is 4096 chars.|
+|**Header count**|Maximum header count is 50 headers.|
+|**Body size**|Maximum body size is 8192 chars.|
+|**Recurrence span**|Maximum recurrence span is 18 months.|
+|**Time to start time**|Maximum “time to start time” is 18 months.|
+|**Job history**|Maximum response body stored in job history is 2048 bytes.|
+|**Frequency**|The default max frequency quota is 1 hour in a free job collection and 1 minute in a standard job collection. The max frequency is configurable on a job collection to be lower than the maximum. All jobs in the job collection are limited the value set on the job collection. If you attempt to create a job with a higher frequency than the maximum frequency on the job collection then request will fail with a 409 Conflict status code.|
+|**Jobs**|The default max jobs quota is 5 jobs in a free job collection and 50 jobs in a standard job collection. The maximum number of jobs is configurable on a job collection. All jobs in the job collection are limited the value set on the job collection. If you attempt to create more jobs than the maximum jobs quota, then the request fails with a 409 Conflict status code.|
+|**Job history retention**|Job history is retained for up to 2 months or up to the last 1000 executions.|
+|**Completed and faulted job retention**|Completed and faulted jobs are retained for 60 days.|
+|**Timeout**|There’s a static (not configurable) request timeout of 60 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background.|
 
-<!---HONumber=AcomDC_0316_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

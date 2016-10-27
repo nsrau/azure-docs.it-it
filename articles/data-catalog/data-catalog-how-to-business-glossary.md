@@ -1,91 +1,96 @@
 <properties
-	pageTitle="Come configurare il glossario aziendale per l'assegnazione di tag regolamentata | Microsoft Azure"
-	description="Articolo sulle procedure che illustra il glossario aziendale in Azure Data Catalog per definire e usare un vocabolario aziendale comune in base al quale assegnare tag ad asset di dati registrati."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/> 
+    pageTitle="How to set up the Business Glossary for governed tagging | Microsoft Azure"
+    description="How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets."
+    services="data-catalog"
+    documentationCenter=""
+    authors="steelanddata"
+    manager="NA"
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/21/2016"
-	ms.author="maroche"/> 
-
-# Come configurare il glossario aziendale per l'assegnazione di tag regolamentata
-
-## Introduzione
-
-Azure Data Catalog offre funzionalità per l'individuazione delle origini dati che consentono agli utenti di trovare e comprendere facilmente le origini dati necessarie per eseguire analisi e prendere decisioni. Le funzionalità di individuazione fanno veramente la differenza quando gli utenti hanno la possibilità di trovare e comprendere la più ampia gamma di origini dati disponibili.
-
-L'assegnazione di tag è una delle funzionalità di Data Catalog che aiuta a capire i dati relativi agli asset. Questa funzionalità consente agli utenti di associare parole chiave a un asset o una colonna semplificando così l'individuazione dell'asset tramite ricerca o navigazione. Consente anche di comprendere più facilmente il contesto e lo scopo dell'asset.
-
-L'assegnazione di tag può, tuttavia, causare a volte problemi. Alcuni dei problemi causati dall'assegnazione di tag sono illustrati di seguito:
-
-1.	Uso di abbreviazioni su alcuni asset e testo espanso su altre in fase di assegnazione di tag. Questa incoerenza impedisce l'individuazione di asset nonostante l'obiettivo fosse di contrassegnare gli asset usando lo stesso tag.
-2.	Tag con significati differenti in contesti diversi. Ad esempio, un tag denominato "Ricavi" su un set di dati del cliente potrebbe significare ricavi del cliente, ma lo stesso tag su un set di dati di vendite trimestrali potrebbe invece significare ricavi trimestrali dell'azienda.
-
-Per affrontare queste e altre problematiche simili, Data Catalog include un glossario aziendale.
-
-Il glossario aziendale di Data Catalog dati consente alle organizzazioni di spiegare i termini aziendali principali e includere le relative definizioni per creare un vocabolario aziendale comune. In questo modo si garantisce coerenza nell'uso dei dati all'interno dell'organizzazione. Dopo aver definito i termini nel glossario aziendale, è possibile assegnarli ad asset di dati nel catalogo usando lo stesso sistema dell'assegnazione di tag, abilitando in questo modo l'_assegnazione di tag regolamentata_.
-
-> [AZURE.NOTE] Le funzionalità descritte in questo articolo sono disponibili solo nell'edizione Standard di Azure Data Catalog. L'edizione gratuita non prevede l'assegnazione di tag regolamentata né un glossario aziendale tra le funzionalità.
-
-## Disponibilità e privilegi del glossario
-
-*Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario.*
-
-È possibile accedere al glossario aziendale dall'opzione Glossario nel menu di navigazione del portale di Data Catalog.
-
-![Accesso al glossario aziendale](./media/data-catalog-how-to-business-glossary/01-portal-menu.png) 
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/21/2016"
+    ms.author="maroche"/>
 
 
-Gli amministratori del catalogo dati e i membri del ruolo Amministratori del glossario possono creare, modificare ed eliminare i termini del glossario aziendale. Tutti gli utenti di Data Catalog possono visualizzare le definizioni dei termini e possono assegnare agli asset tag usando i termini del glossario.
+# <a name="how-to-set-up-the-business-glossary-for-governed-tagging"></a>How to set up the Business Glossary for Governed Tagging
 
-![Aggiunta di un nuovo termine di glossario](./media/data-catalog-how-to-business-glossary/02-new-term.png) 
+## <a name="introduction"></a>Introduction
+
+Azure Data Catalog provides capabilities for data source discovery, enabling users to easily discover and understand the data sources they need to perform analysis and make decisions. These discovery capabilities make the biggest impact when users can find and understand the broadest range of available data sources.
+
+One Data Catalog feature that promotes greater understanding of assets data is tagging. Tagging allows users to associate keywords with an asset or a column, which in turn makes it easier to discover the asset via searching or browsing, and allows users to more easily understand the context and intent of the asset.
+
+However, tagging can sometimes cause problems of its own. Some examples of problems that can be introduced by tagging are:
+
+1.  Users using abbreviations on some assets and expanded text on others while tagging. This inconsistency hinders the discovery of assets even though the intent was to tag the assets with the same tag.
+2.  Tags which mean different things in different contexts. For example, a tag called "Revenue" on a customer data set might mean revenue by customer, but the same tag on a quarterly sales dataset could mean quarterly revenue for the company.  
+
+To help address these and other similar challenges, Data Catalog includes a Business Glossary.
+
+The Data Catalog Business Glossary allows organizations to document key business terms and their definitions to create a common business vocabulary. This governance enables consistency in data usage across the organization. Once terms are defined in the business glossary, they can be assigned to data assets in the catalog, using the same approach as tagging, thereby enabling _governed tagging_.
+
+> [AZURE.NOTE] The functionality described in this article are available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
+
+## <a name="glossary-availability-and-privileges"></a>Glossary availability and privileges
+
+/*The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*/
+
+The business glossary can be accessed via the "Glossary" option in the Data Catalog portal's navigation menu.  
+
+![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 
-## Creazione dei termini di glossario
+Data Catalog administrators and members of the Glossary Administrators role can create, edit and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions, and can tag assets with glossary terms.
 
-Facendo clic sul pulsante Nuovo termine, gli amministratori del catalogo dati e gli amministratori del glossario possono creare nuovi termini di glossario con i campi seguenti:
-
-* Una definizione aziendale del termine
-* Una descrizione che acquisisce l'uso previsto o le regole business per l'asset e/o la colonna
-* Un elenco delle parti interessate che conoscono meglio il termine
-* Il termine padre, che definisce la gerarchia in cui è organizzato il termine
+![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 
-## Gerarchie dei termini di glossario
+## <a name="creating-glossary-terms"></a>Creating glossary terms
 
-Il glossario aziendale di Data Catalog offre la possibilità di descrivere il vocabolario aziendale sotto forma di gerarchia di termini. In questo modo le organizzazioni possono creare una classificazione di termini che rappresenta meglio la propria tassonomia aziendale.
+Data Catalog administrators and Glossary administrators can create new glossary terms by clicking on the New Term’ button to create glossary terms with the following fields:
 
-Il nome di un termine deve essere univoco a un determinato livello della gerarchia. Non sono consentiti nomi duplicati. Non esiste alcun limite al numero di livelli in una gerarchia. Una gerarchia risulta tuttavia di più facile comprensione se è costituita da non oltre tre livelli.
+* A business definition for the term
+* A description which captures the intended use or business rules for the asset/column
+* A list of stakeholders who know the most about the term
+* The parent term, which defines the hierarchy in which the term is organized
 
-L'uso delle gerarchie nel glossario aziendale è facoltativo. Se non viene specificato il campo del termine padre, viene creato un elenco semplice, vale a dire senza gerarchia, di termini di glossario.
 
-## Assegnazione di tag agli asset con termini di glossario
+## <a name="glossary-term-hierarchies"></a>Glossary term hierarchies
 
-Dopo aver definito i termini di glossario, è possibile assegnare tag agli asset per ottimizzare la ricerca nel glossario ogni volta in cui l'utente digita il tag. Il portale di Data Catalog visualizza un elenco di termini di glossario che corrispondono alla ricerca dell'utente. Se l'utente seleziona un termine di glossario dall'elenco, questo viene aggiunto all'asset come tag. In questo caso si parla di tag di glossario. L'utente può anche scegliere di creare un nuovo tag digitando un termine che non è incluso nel glossario. In questo caso si parla di tag utente.
+The Data Catalog business glossary provides the ability to describe your business vocabulary as a hierarchy of terms. This allows organizations to create a classification of terms which better represents their business taxonomy.
 
-![Assegnazione di tag ad asset di dati con un tag utente o due tag di glossario](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png) 
+The name of a term must be unique at a given level of hierarchy - duplicate names are not allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
 
-> [AZURE.NOTE] I tag utente sono l'unico tipo di tag supportato nell'edizione gratuita di Data Catalog.
+The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms will create a flat (non-hierarchical) list of terms in the glossary.  
 
-### Comportamento al passaggio del mouse sui tag
-Nel portale di Data Catalog i due tipi di tag sono visivamente distinti e il comportamento al passaggio del mouse su questi tag è diverso. Quando il mouse viene spostato su un tag utente, è possibile visualizzare il testo del tag e l'utente o gli utenti che lo hanno aggiunto. Quando il mouse viene spostato su un tag di glossario, vengono visualizzati anche la definizione del termine di glossario e un collegamento per aprire il glossario aziendale e visualizzare la definizione completa del termine.
+## <a name="tagging-assets-with-glossary-terms"></a>Tagging assets with glossary terms
 
-### Filtri di ricerca per i tag
-È possibile cercare sia che i tag di glossario che i tag utente. I tag possono essere applicati come filtri in una ricerca.
+Once glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as the user types their tag. The Data Catalog portal displays a list of matching glossary terms for the user to choose from. If the user selects a glossary term from the list it is added to the asset as a tag (a.k.a. glossary tag). The user can also choose to create a new tag by typing a term which is not in the glossary (a.k.a. user tag).
 
-## Riepilogo
-Il glossario aziendale di Azure Data Catalog e la relativa assegnazione di tag regolamentata consentono di identificare, gestire e individuare asset di dati in modo coerente. Grazie al glossario aziendale è possibile promuovere l'apprendimento del vocabolario aziendale tra gli utenti di un'organizzazione e supportare metadati significativi da acquisire, semplificando in questo modo l'individuazione e la comprensione di asset.
+![Data asset tagged with one user tag and two glossary tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
-## Vedere anche
+> [AZURE.NOTE] User Tags are the only type of tag supported in the Free Edition of Data Catalog.
 
-- [Documentazione relativa all'API REST per operazioni che riguardano il glossario aziendale](https://msdn.microsoft.com/library/mt708855.aspx)
+### <a name="hover-behavior-on-tags"></a>Hover behavior on tags
+In the Data Catalog portal the two types of tags are visually distinct, with different hover behaviors. When the user hovers over a user tag they can see the tag text and the user or users who have added the tag. When the user hovers over a glossary tag, they also see the definition of the glossary term and a link to open the business glossary to view the full definition of the term.
 
-<!---HONumber=AcomDC_0921_2016-->
+### <a name="search-filters-for-tags"></a>Search filters for tags
+Both glossary tags and user tags are searchable, and can be applied as filters in a search.
+
+## <a name="summary"></a>Summary
+The business glossary in Azure Data Catalog, and the governed tagging it enables, allow data assets to be identified, managed, and discovered in a consistent manner. The business glossary can promote learning of the business vocabulary amongst users of an organization and supports meaningful meta-data to be captured, making asset discovery and understanding a breeze.
+
+## <a name="see-also"></a>See Also
+
+- [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

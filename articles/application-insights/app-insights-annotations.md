@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Annotazioni sulla versione per Application Insights | Microsoft Azure"
-    description="Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights."
+    pageTitle="Release annotations for Application Insights | Microsoft Azure"
+    description="Add deployment or build markers to your metrics explorer charts in Application Insights."
     services="application-insights"
     documentationCenter=".net"
     authors="alancameronwills"
@@ -12,70 +12,71 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="06/28/2016"
+    ms.date="06/28/2016"
     ms.author="awills"/>
 
-# Annotazioni sulla versione in Application Insights
 
-Le annotazioni sulla versione nei grafici di [Esplora metriche](app-insights-metrics-explorer.md) indicano dove è stata distribuita una nuova build e consentono di verificare facilmente se le modifiche hanno avuto effetto sulle prestazioni dell'applicazione. Possono essere create automaticamente dal [sistema di compilazione di Visual Studio Team Services](https://www.visualstudio.com/it-IT/get-started/build/build-your-app-vs) ed è anche possibile [crearle da PowerShell](#create-annotations-from-powershell).
+# <a name="release-annotations-in-application-insights"></a>Release annotations in Application Insights
 
-![Esempi di annotazioni con correlazione visibile con il tempo di risposta del server](./media/app-insights-annotations/00.png)
+Release annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
 
-Le annotazioni sulla versione sono una funzionalità della build basata sul cloud e del servizio versione di Visual Studio Team Services.
+![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
 
-## Installare l'estensione Annotazioni (una volta)
+Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services. 
 
-Per creare le annotazioni sulla versione, sarà necessario installare una delle numerose estensioni di Team Service disponibili in Visual Studio Marketplace.
+## <a name="install-the-annotations-extension-(one-time)"></a>Install the Annotations extension (one time)
 
-1. Accedere al progetto in [Visual Studio Team Services](https://www.visualstudio.com/it-IT/get-started/setup/sign-up-for-visual-studio-online).
-2. Aprire Visual Studio Marketplace, [individuare l'estensione delle annotazioni sulla versione](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) e aggiungerla all'account di Team Services.
+To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
 
-![Nell'angolo in alto a destra della pagina Web di Team Services aprire il marketplace. Scegliere Visual Studio Team Services, quindi nella sezione relativa a compilazione e rilascio scegliere Altre informazioni.](./media/app-insights-annotations/10.png)
+1. Sign in to your [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
+2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Team Services account.
 
-È necessario eseguire questa operazione una sola volta per l'account di Visual Studio Team Services. Le annotazioni sulla versione ora possono essere configurate per qualsiasi progetto nell'account.
+![At top right of Team Services web page, open Marketplace. Select Visual Team Services and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
 
-## Ottenere una chiave API da Application Insights.
+You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
 
-Questa operazione è necessaria per ogni modello di versione per cui si vogliono creare annotazioni sulla versione.
+## <a name="get-an-api-key-from-application-insights"></a>Get an API key from Application Insights
 
-
-1. Accedere al [portale di Microsoft Azure](https://portal.azure.com) e aprire la risorsa di Application Insights che monitora l'applicazione o [crearne una nuova](app-insights-overview.md), se necessario.
-2. Aprire **Accesso all'API** e creare una copia dell'**ID di Application Insights**.
-
-    ![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Settings. Aprire API Access. Copiare l'ID applicazione](./media/app-insights-annotations/20.png)
-
-2. In una finestra del browser separata, aprire (o creare) il modello di versione che gestisce le distribuzioni da Visual Studio Team Services.
-
-    Aggiungere un'attività e scegliere l'attività di annotazione sulla versione di Application Insights dal menu.
-
-    Incollare l'**ID di Application Insights** copiato dal pannello di accesso all'API.
-
-    ![In Visual Studio Team Services, aprire Release, selezionare una versione di rilascio e scegliere Edit. Fare clic su Add Task e scegliere l'annotazione sulla versione di Application Insights. Incollare l'Id di Application Insights.](./media/app-insights-annotations/30.png)
-
-3. Impostare il campo **Chiave API** su una variabile `$(ApiKey)`.
-
-4. Nel Pannello di accesso all'API, creare una nuova chiave API e richiedere una copia.
-
-    ![Nel Pannello di accesso all'API nella finestra di Azure, fare clic su Crea chiave API. Inserire un commento, controllare le annotazioni di scrittura e fare clic su Genera chiave. Copiare la nuova chiave.](./media/app-insights-annotations/40.png)
-
-4. Aprire la scheda Configurazione del modello di versione.
-
-    Creare una definizione di variabile per `ApiKey`.
-
-    Incollare la chiave API per la definizione della variabile della chiave API.
-
-    ![Nella finestra Servizi per i team, selezionare la scheda Configurazione e fare clic su Aggiungi variabile. Impostare il nome della chiave API e incollare la chiave appena generata nel Valore.](./media/app-insights-annotations/50.png)
+You need to do this for each release template that you want to create release annotations.
 
 
-5. Infine fare clic su **Salva** per salvare la definizione della versione.
+1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
+2. Open **API Access**, and take a copy of **Application Insights Id**.
 
-## Creare annotazioni da PowerShell
+    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/app-insights-annotations/20.png)
 
-È anche possibile creare le annotazioni da qualsiasi processo desiderato, senza usare VS Team System.
+2. In a separate browser window, open (or create) the release template that manages your deployments from Visual Studio Team Services. 
 
-Ottenere lo [script di Powershell da GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+    Add a task, and select the Application Insights Release Annotation task from the menu.
 
-Usarlo nel modo seguente:
+    Paste the **Application Id** that you copied from the API Access blade.
+
+    ![In Visual Studio Team Services, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
+
+3. Set the **APIKey** field to a variable `$(ApiKey)`.
+
+4. Back in the API Access blade, create a new API Key and take a copy of it.
+
+    ![In the API Access blade in the Azure window, click Create API Key. Provide a comment, check Write annotations, and click Generate Key. Copy the new key.](./media/app-insights-annotations/40.png)
+
+4. Open the Configuration tab of the release template.
+
+    Create a variable definition for `ApiKey`.
+
+    Paste your API key to the ApiKey variable definition.
+
+    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated.](./media/app-insights-annotations/50.png)
+
+
+5. Finally, **Save** the release definition.
+
+## <a name="create-annotations-from-powershell"></a>Create annotations from PowerShell
+
+You can also create annotations from any process you like (without using VS Team System). 
+
+Get the [Powershell script from GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+
+Use it like this:
 
     .\CreateReleaseAnnotation.ps1 `
       -applicationId "<applicationId>" `
@@ -85,15 +86,19 @@ Usarlo nel modo seguente:
           "ReleaseDescription"="a description";
           "TriggerBy"="My Name" }
 
-Ottenere `applicationId` e `apiKey` dalla risorsa di Application Insights: aprire le impostazioni, accedere all'API e copiare l'ID applicazione. Fare clic su Crea chiave API e copiare la chiave.
+Get the `applicationId` and an `apiKey` from your Application Insights resource: Open Settings, API Access, and copy the Application ID. Then click Create API Key and copy the key. 
 
-## Annotazioni sulle versioni
+## <a name="release-annotations"></a>Release annotations
 
-Ora, quando si usa il modello di versione per distribuire una nuova versione, verrà inviata un'annotazione ad Application Insights. Le annotazioni verranno visualizzate nei grafici di Esplora metriche.
+Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
 
-Fare clic su un marcatore di annotazione per visualizzare i dettagli sulla versione, tra cui richiedente, ramo di controllo del codice sorgente, definizione della versione, ambiente e così via.
+Click on any annotation marker to open details about the release, including requestor, source control branch, release definition, environment, and more.
 
 
-![Fare clic su un marcatore di annotazione della versione.](./media/app-insights-annotations/60.png)
+![Click any release annotation marker.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

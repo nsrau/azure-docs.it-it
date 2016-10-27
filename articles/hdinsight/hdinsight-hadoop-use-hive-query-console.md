@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Usare Hive di Hadoop in Query Console in HDInsight | Microsoft Azure"
-   description="Informazioni su come usare Query Console basata sul Web per eseguire query Hive in un cluster Hadoop di HDInsight dal browser."
+   pageTitle="Use Hadoop Hive on the Query Console in HDInsight | Microsoft Azure"
+   description="Learn how to use the web-based Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/> 
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -15,35 +15,36 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="09/20/2016"
-   ms.author="larryfr"/> 
+   ms.author="larryfr"/>
 
-# Eseguire query Hive usando Query Console
+
+# <a name="run-hive-queries-using-the-query-console"></a>Run Hive queries using the Query Console
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-In questo articolo si apprenderà come usare Query Console per eseguire query Hive in un cluster HDInsight Hadoop dal browser.
+In this article, you will learn how to use the HDInsight Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
 
-> [AZURE.IMPORTANT] Query Console di HDInsight è disponibile solo nei cluster HDInsight basati su Windows. Se si utilizza un cluster HDInsight basato su Linux, vedere [Eseguire query Hive usando Query Console](hdinsight-hadoop-use-hive-ambari-view.md).
-
-
-##<a id="prereq"></a>Prerequisiti
-
-Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
-
-* Un cluster HDInsight Hadoop basato su Windows
-
-* Un Web browser moderno
-
-##<a id="run"></a> Eseguire query Hive usando Query Console
-
-1. Aprire un Web browser e passare a __https://CLUSTERNAME.azurehdinsight.net__, dove __CLUSTERNAME\_\_ è il nome del cluster HDInsight. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
+> [AZURE.IMPORTANT] The HDInsight Query Console is only available on Windows-based HDInsight clusters. If you are using a Linux-based HDInsight cluster, see [Run Hive queries using the Hive View](hdinsight-hadoop-use-hive-ambari-view.md).
 
 
-2. Nei collegamenti nella parte superiore della pagina fare clic su **Hive Editor**. Verrà visualizzato un modulo che può essere usato per immettere le istruzioni HiveQL che si desidera eseguire nel cluster HDInsight.
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisites
 
-	![L'editor Hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
+To complete the steps in this article, you will need the following.
 
-	Sostituire il testo `Select * from hivesampletable` con le seguenti istruzioni HiveQL:
+* A Windows-based HDInsight Hadoop cluster
+
+* A modern web browser
+
+##<a name="<a-id="run"></a>-run-hive-queries-using-the-query-console"></a><a id="run"></a> Run Hive queries using the Query Console
+
+1. Open a web browser and navigate to __https://CLUSTERNAME.azurehdinsight.net__, where __CLUSTERNAME__ is the name of your HDInsight cluster. If prompted, enter the user name and password that you used when you created the cluster.
+
+
+2. From the links at the top of the page, select **Hive Editor**. This displays a form that can be used to enter the HiveQL statements that you want to run in the HDInsight cluster.
+
+    ![the hive editor](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
+
+    Replace the text `Select * from hivesampletable` with the following HiveQL statements:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -52,48 +53,48 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Di seguito sono elencate le istruzioni che eseguono queste azioni:
+    These statements perform the following actions:
 
-    * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
-    * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
+    * **DROP TABLE**: Deletes the table and the data file if the table already exists.
+    * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables store only the table definition in Hive; the data is left in the original location.
 
-    > [AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti.
+    > [AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
     >
-    > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
+    > Dropping an external table does **not** delete the data, only the table definition.
 
-    * **ROW FORMAT**: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
-    * **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
-    * **SELECT**: seleziona un numero di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. Dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
-    * **INPUT\_\_FILE\_\_NAME come '%.log'** -indica ad Hive che si dovrebbero restituire solo i dati da file che terminano con. log. Questo limita la ricerca al file sample. log che contiene i dati, ed evita la restituzione di dati da altri file di dati di esempio che non corrispondono allo schema che è stato definito.
+    * **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
+    * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the example/data directory) and that it is stored as text
+    * **SELECT**: Select a count of all rows where column **t4** contain the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
+    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
 
-2. Fare clic su **Submit**. L'opzione **Job Session** nella parte inferiore della pagina dovrebbe visualizzare i dettagli del processo.
+2. Click **Submit**. The **Job Session** at the bottom of the page should display details for the job.
 
-3. Quando il campo **Status** viene impostato su **Completed**, fare clic su **View Details** per il processo. Nella pagina dei dettagli il campo **Job Output** contiene `[ERROR]	3`. È possibile usare il pulsante **Download** al di sotto di questo campo per scaricare un file contenente l'output del processo.
+3. When the **Status** field changes to **Completed**, select **View Details** for the job. On the details page, the **Job Output** contains `[ERROR]   3`. You can use the **Download** button under this field to download a file that contains the output of the job.
 
 
-##<a id="summary"></a>Riepilogo
+##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Summary
 
-Come è possibile notare, Query Console fornisce un modo semplice per eseguire query Hive in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
+As you can see, the Query Console provides an easy way to run Hive queries in an HDInsight cluster, monitor the job status, and retrieve the output.
 
-Per altre informazioni sull'uso Query Console di Hive per eseguire processi Hive, fare clic su **Getting Started** nella parte superiore di Query Console, quindi usare gli esempi. Ogni esempio illustra il processo di utilizzo di Hive per l'analisi dei dati, fornendo anche spiegazioni sulle istruzioni HiveQL usate nell'esempio.
+To learn more about using Hive Query Console to run Hive jobs, select **Getting Started** at the top of the Query Console, then use the samples that are provided. Each sample walks through the process of using Hive to analyze data, including explanations about the HiveQL statements used in the sample.
 
-##<a id="nextsteps"></a>Passaggi successivi
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Next steps
 
-Per informazioni generali su Hive in HDInsight:
+For general information about Hive in HDInsight:
 
-* [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
+For information about other ways you can work with Hadoop on HDInsight:
 
-* [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug:
+If you are using Tez with Hive, see the following documents for debugging information:
 
-* [Usare l'interfaccia utente di Tez in HDInsight basato su Windows](hdinsight-debug-tez-ui.md)
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
 
-* [Usare la vista Ambari Tez in HDInsight basato su Linux](hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -128,4 +129,8 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

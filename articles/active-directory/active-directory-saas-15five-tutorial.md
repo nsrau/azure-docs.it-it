@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con 15Five | Microsoft Azure" 
-    description="Informazioni su come usare 15Five con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with 15Five | Microsoft Azure" 
+    description="Learn how to use 15Five with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,127 +11,133 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con 15Five
 
-Questa esercitazione descrive l'integrazione di Azure e 15Five. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+#<a name="tutorial:-azure-active-directory-integration-with-15five"></a>Tutorial: Azure Active Directory integration with 15Five
 
--   Sottoscrizione di Azure valida
--   Sottoscrizione di 15Five abilitata per l'accesso Single Sign-On
+The objective of this tutorial is to show the integration of Azure and 15Five. The scenario outlined in this tutorial assumes that you already have the following items:
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a 15Five potranno accedere all'applicazione tramite il sito aziendale di 15Five (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
+-   A valid Azure subscription
+-   A 15Five single sign-on enabled subscription
 
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+After completing this tutorial, the Azure AD users you have assigned to 15Five will be able to single sign into the application at your 15Five company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Abilitazione dell'integrazione dell'applicazione per 15Five
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for 15Five
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-15five-tutorial/IC784667.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per 15Five
+##<a name="enabling-the-application-integration-for-15five"></a>Enabling the application integration for 15Five
 
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per 15Five.
+The objective of this section is to outline how to enable the application integration for 15Five.
 
-###Per abilitare l'integrazione dell'applicazione per 15Five, seguire questa procedura:
+###<a name="to-enable-the-application-integration-for-15five,-perform-the-following-steps:"></a>To enable the application integration for 15Five, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-15five-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-15five-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-15five-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-15five-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-15five-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-15five-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-15five-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **15Five**.
+6.  In the **search box**, type **15Five**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-15five-tutorial/IC784668.png "Raccolta di applicazioni")
+    ![Application Gallery](./media/active-directory-saas-15five-tutorial/IC784668.png "Application Gallery")
 
-7.  Nel riquadro dei risultati selezionare **15Five** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **15Five**, and then click **Complete** to add the application.
 
     ![15Five](./media/active-directory-saas-15five-tutorial/IC784669.png "15Five")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a 15Five tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
+The objective of this section is to outline how to enable users to authenticate to 15Five with their account in Azure AD using federation based on the SAML protocol.
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nella pagina di integrazione dell'applicazione **15Five** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  In the Azure classic portal, on the **15Five** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-15five-tutorial/IC784670.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784670.png "Configure single sign-on")
 
-2.  Nella pagina **Stabilire come si desidera che gli utenti accedano a 15Five** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+2.  On the **How would you like users to sign on to 15Five** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-15five-tutorial/IC784671.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784671.png "Configure single sign-on")
 
-3.  Nella pagina **Configura URL app**, nella casella di testo **15Five Sign In URL** (URL di accesso a 15Five) digitare l'URL usando il modello "*https://company.15Five.com*" e fare clic su **Avanti**.
+3.  On the **Configure App URL** page, in the **15Five Sign In URL** textbox, type your URL using the following pattern "*https://company.15Five.com*", and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-15five-tutorial/IC784672.png "Configura URL app")
+    ![Configure App URL](./media/active-directory-saas-15five-tutorial/IC784672.png "Configure App URL")
 
-4.  Nella pagina **Configura accesso Single Sign-On in 15Five** fare clic su **Scarica metadati** e quindi inoltrare il file di metadati al team di supporto di 15Five.
+4.  On the **Configure single sign-on at 15Five** page, click **Download metadata**, and then forward the metadata file to the 15Five support team.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-15five-tutorial/IC784673.png "Configura accesso Single Sign-On")
+    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784673.png "Configure single sign-on")
 
-    >[AZURE.NOTE] L'accesso Single Sign-On deve essere abilitato dal team di supporto di 15Five.
+    >[AZURE.NOTE] Single sign-on needs to be enabled by the 15Five support team.
 
-5.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+5.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-15five-tutorial/IC784674.png "Configura accesso Single Sign-On")
-##Configurazione del provisioning utente
+    ![Configure single sign-on](./media/active-directory-saas-15five-tutorial/IC784674.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Per consentire agli utenti di Azure AD di accedere a 15Five, è necessario eseguirne il provisioning in 15Five. Nel caso di 15Five, il provisioning è un'attività manuale.
+In order to enable Azure AD users to log into 15Five, they must be provisioned into 15Five.  
+In the case of 15Five, provisioning is a manual task.
 
-###Per configurare il provisioning utente, eseguire la procedura seguente:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Accedere al sito aziendale di **15Five** come amministratore.
+1.  Log in to your **15Five** company site as administrator.
 
-2.  Passare a **Gestisci azienda**.
+2.  Go to **Manage Company**.
 
     ![Manage Company](./media/active-directory-saas-15five-tutorial/IC784675.png "Manage Company")
 
-3.  Passare a **Persone > Aggiungi persone**.
+3.  Go to **People \> Add People**.
 
     ![People](./media/active-directory-saas-15five-tutorial/IC784676.png "People")
 
-4.  Nella sezione Add New Person seguire questa procedura:
+4.  In the Add New Person section, perform the following steps:
 
     ![Add New Person](./media/active-directory-saas-15five-tutorial/IC784677.png "Add New Person")
 
-    1.  Digitare il **Nome**, **Cognome**, **Titolo**, **Indirizzo email** di un account utente Azure Active Directory valido di cui si vuole eseguire il provisioning.
-    2.  Fare clic su **Done**.
+    1.  Type the **First Name**, **Last Name**, **Title**, **Email address** of a valid Azure Active Directory account you want to provision into the related textboxes.
+    2.  Click **Done**.
 
-    >[AZURE.NOTE] Il titolare dell'account Azure AD riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
+    >[AZURE.NOTE] The Azure AD account holder will receive an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da 15Five per eseguire il provisioning degli account utente di Azure AD.
+>[AZURE.NOTE] You can use any other 15Five user account creation tools or APIs provided by 15Five to provision AAD user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
 
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a 15Five, seguire questa procedura:
+###<a name="to-assign-users-to-15five,-perform-the-following-steps:"></a>To assign users to 15Five, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **15Five** fare clic su **Assegna utenti**.
+2.  On the **15Five **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-15five-tutorial/IC784678.png "Assegna utenti")
+    ![Assign users](./media/active-directory-saas-15five-tutorial/IC784678.png "Assign users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-15five-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-15five-tutorial/IC767830.png "Yes")
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

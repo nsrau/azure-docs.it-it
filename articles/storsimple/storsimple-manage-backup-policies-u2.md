@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestire i criteri di backup di StorSimple | Microsoft Azure"
-   description="Viene illustrato come è possibile utilizzare il servizio StorSimple Manager per creare e gestire backup manuali, pianificazioni di backup e conservazione dei backup."
+   pageTitle="Manage your StorSimple backup policies | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager service to create and manage manual backups, backup schedules, and backup retention."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,85 +15,90 @@
    ms.date="05/10/2016"
    ms.author="v-sharos"/>
 
-# Per gestire i criteri di backup è possibile usare il servizio StorSimple Manager (aggiornamento 2)
+
+# <a name="use-the-storsimple-manager-service-to-manage-backup-policies-(update-2)"></a>Use the StorSimple Manager service to manage backup policies (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
-## Panoramica
+## <a name="overview"></a>Overview
 
-In questa esercitazione viene illustrato come utilizzare il servizio StorSimple Manager **criteri di Backup** pagina per controllare i processi di backup e memorizzazione dei backup per i volumi StorSimple. Viene inoltre descritto come eseguire un backup manuale.
+This tutorial explains how to use the StorSimple Manager service **Backup Policies** page to control backup processes and backup retention for your StorSimple volumes. It also describes how to complete a manual backup.
 
-Quando si esegue il backup di un volume, è possibile scegliere di creare uno snapshot locale o uno snapshot nel cloud. Se si esegue il backup di un volume aggiunto in locale, è consigliabile specificare uno snapshot nel cloud. Se si crea un numero elevato di snapshot locali di un volume aggiunto in locale e tali snapshot sono associati a un set di dati che dispone di molte varianze, si determinerà una situazione favorevole all'esaurimento rapido dello spazio locale. Se si sceglie di creare snapshot locali, è consigliabile creare meno snapshot giornalieri per eseguire il backup dello stato più recente, conservarli per un giorno e quindi eliminarli.
+When you back up a volume, you can choose to create a local snapshot or a cloud snapshot. If you are backing up a locally pinned volume, we recommend that you specify a cloud snapshot. Taking a large number of local snapshots of a locally pinned volume coupled with a data set that has a lot of churn will result in a situation in which you could rapidly run out of local space. If you choose to take local snapshots, we recommend that you take fewer daily snapshots to back up the most recent state, retain them for a day, and then delete them.
 
-Quando si crea uno snapshot nel cloud di un volume aggiunto in locale, copiare solo i dati modificati nel cloud, in cui è deduplicato e compresso.
+When you take a cloud snapshot of a locally pinned volume, you copy only the changed data to the cloud, where it is deduplicated and compressed. 
 
-## La pagina Criteri di Backup
+## <a name="the-backup-policies-page"></a>The Backup Policies page
 
-Il **criteri di Backup** pagina consente di gestire i criteri di backup e pianificare locale e gli snapshot cloud. (Criteri di backup vengono utilizzati per configurare pianificazioni di backup e memorizzazione dei backup per un insieme di volumi). I criteri di backup consentono di creare uno snapshot di più volumi contemporaneamente. Questo significa che i backup creati con un criterio di backup saranno copie coerenti con l'arresto anomalo. La pagina **Criteri di backup**elenca i criteri di backup, i relativi tipi, i volumi associati, il numero di backup conservati e l'opzione per abilitare questi criteri.
+The **Backup Policies** page allows you to manage backup policies and schedule local and cloud snapshots. (Backup policies are used to configure backup schedules and backup retention for a collection of volumes.) Backup policies enable you to take a snapshot of multiple volumes simultaneously. This means that the backups created by a backup policy will be crash-consistent copies. The **Backup Policies** page lists the backup policies, their types, the associated volumes, the number of backups retained, and the option to enable these policies.
 
-Il **criteri di Backup** pagina consente inoltre di filtrare i criteri di backup esistenti da una o più dei seguenti campi:
+The **Backup Policies** page also allows you to filter the existing backup policies by one or more of the following fields:
 
-- **Nome criterio** : il nome associato al criterio. I diversi tipi di criteri includono:
+- **Policy name** – The name associated with the policy. The different types of policies include:
 
-   - Criteri pianificati, vengono creati esplicitamente dall'utente.
-   - Criteri automatici, che vengono creati quando il backup predefinito per questa opzione è stato abilitato al momento della creazione del volume. Questi criteri sono denominati *VolumeName*\_Default dove nome *VolumeName* si riferisce al nome del volume StorSimple configurato dall'utente nel portale di Azure classico. I criteri automatici generare gli snapshot cloud giornalieri a partire da 22:30 ora del dispositivo.
-   - Criteri importati, che sono stati originariamente creati in Gestione Snapshot StorSimple. Hanno un tag che descrive l'host di gestione Snapshot StorSimple che i criteri sono stati importati da.
+   - Scheduled policies, which are explicitly created by the user.
+   - Automatic policies, which are created when the default backup for this volume option was enabled at the time of volume creation. These policies are named as *VolumeName*_Default where *VolumeName* refers to the name of the StorSimple volume configured by the user in the Azure classic portal. The automatic policies result in daily cloud snapshots beginning at 22:30 device time.
+   - Imported policies, which were originally created in the StorSimple Snapshot Manager. These have a tag that describes the StorSimple Snapshot Manager host that the policies were imported from.
 
-- **Volumi** – i volumi associati al criterio. Tutti i volumi associati a un criterio di backup vengono raggruppati quando vengono creati i backup.
+- **Volumes** – The volumes associated with the policy. All the volumes associated with a backup policy are grouped together when backups are created.
 
-- **Ultimo backup completato** : la data e l'ora dell'ultimo backup riuscito è stato creato con questo criterio.
+- **Last successful backup** – The date and time of the last successful backup that was taken with this policy.
 
-- **Backup successivo** : data e ora del successivo backup pianificato verrà avviato da questo criterio.
+- **Next backup** – The date and time of the next scheduled backup that will be initiated by this policy.
 
-- **Pianificazioni** – il numero di pianificazioni associate al criterio di backup.
+- **Schedules** – The number of schedules associated with the backup policy.
 
-Le operazioni utilizzate di frequente che è possibile eseguire da questa pagina sono:
+The frequently used operations that you can perform from this page are:
 
-- Aggiungere un criterio di backup 
-- Aggiungere o modificare una pianificazione 
-- Eliminare un criterio di backup 
-- Creazione di un backup manuale 
-- Creare un criterio di backup personalizzato con più volumi e pianificazioni 
+- Add a backup policy 
+- Add or modify a schedule 
+- Delete a backup policy 
+- Take a manual backup 
+- Create a custom backup policy with multiple volumes and schedules 
 
-## Aggiungere un criterio di backup
+## <a name="add-a-backup-policy"></a>Add a backup policy
 
-Aggiungere un criterio di backup per la pianificazione automatica dei backup. Eseguire i passaggi seguenti nel portale di Azure classico per aggiungere un criterio di backup per il dispositivo StorSimple. Dopo aver aggiunto i criteri, è possibile definire una pianificazione (vedere [Aggiungere o modificare una pianificazione](#add-or-modify-a-schedule)).
+Add a backup policy to automatically schedule your backups. Perform the following steps in the Azure classic portal to add a backup policy for your StorSimple device. After you add the policy, you can define a schedule (see [Add or modify a schedule](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy-u2](../../includes/storsimple-add-backup-policy-u2.md)]
 
-![Video disponibile](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Video disponibile**
+![Video available](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Video available**
 
-Per guardare un video che illustra come creare un criterio di backup cloud o locale, fare clic [qui](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
-
-
-## Aggiungere o modificare una pianificazione
-
-È possibile aggiungere o modificare una pianificazione che è collegata a un criterio di backup nel dispositivo StorSimple. Eseguire i passaggi seguenti nel portale di Azure classico per aggiungere o modificare un backup pianificato.
-
-[AZURE.INCLUDE [storsimple-aggiungere-modifica-backup-pianificazione](../../includes/storsimple-add-modify-backup-schedule-u2.md)]
-
-## Eliminare un criterio di backup
-
-Eseguire i passaggi seguenti nel portale di Azure classico per eliminare un criterio di backup nel dispositivo StorSimple.
-
-[AZURE.INCLUDE [eliminazione di storsimple-criteri di backup](../../includes/storsimple-delete-backup-policy.md)]
+To watch a video that demonstrates how to create a local or cloud backup policy, click [here](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
-## Creazione di un backup manuale
+## <a name="add-or-modify-a-schedule"></a>Add or modify a schedule
 
-Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup manuale su richiesta per un singolo volume.
+You can add or modify a schedule that is attached to an existing backup policy on your StorSimple device. Perform the following steps in the Azure classic portal to add or modify a schedule.
+
+[AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../../includes/storsimple-add-modify-backup-schedule-u2.md)]
+
+## <a name="delete-a-backup-policy"></a>Delete a backup policy
+
+Perform the following steps in the Azure classic portal to delete a backup policy on your StorSimple device.
+
+[AZURE.INCLUDE [storsimple-delete-backup-policy](../../includes/storsimple-delete-backup-policy.md)]
+
+
+## <a name="take-a-manual-backup"></a>Take a manual backup
+
+Perform the following steps in the Azure classic portal to create an on-demand (manual) backup for a single volume.
 
 [AZURE.INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
-## Creare un criterio di backup personalizzato con più volumi e pianificazioni
+## <a name="create-a-custom-backup-policy-with-multiple-volumes-and-schedules"></a>Create a custom backup policy with multiple volumes and schedules
 
-Eseguire i passaggi seguenti nel portale di Azure classico per creare un criterio di backup personalizzato che dispone di più volumi e pianificazioni.
+Perform the following steps in the Azure classic portal to create a custom backup policy that has multiple volumes and schedules.
 
-[AZURE.INCLUDE [storsimple-crea-custom--criteri di backup](../../includes/storsimple-create-custom-backup-policy-u2.md)]
+[AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy-u2.md)]
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

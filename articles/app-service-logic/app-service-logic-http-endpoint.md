@@ -1,6 +1,6 @@
 <properties
-   pageTitle="App per la logica come endpoint che è possibile chiamare"
-   description="Come creare e configurare gli endpoint del trigger e usarli in un'app per la logica nel servizio app di Azure"
+   pageTitle="Logic apps as callable endpoints"
+   description="How to create and configure trigger endpoints and use them in a Logic app in Azure App Service"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -14,51 +14,52 @@
    ms.tgt_pltfrm="na"
    ms.workload="integration"
    ms.date="08/10/2016"
-   ms.author="jehollan"/>  
+   ms.author="jehollan"/>
 
 
-# App per la logica come endpoint che è possibile chiamare
 
-Le app per la logica possono esporre un endpoint HTTP sincrono come trigger. È anche possibile usare il modello di endpoint che è possibile chiamare per richiamare app per la logica come un flusso di lavoro nidificato tramite l'azione "workflow" in un'app per la logica.
+# <a name="logic-apps-as-callable-endpoints"></a>Logic apps as callable endpoints
 
-Sono disponibili tre tipi di trigger in grado di ricevere richieste:
+Logic Apps natively can expose a synchronous HTTP endpoint as a trigger.  You can also use the pattern of callable endpoints to invoke Logic Apps as a nested workflow through the "workflow" action in a Logic App.
 
-* Richiesta
+There are 3 types of triggers that can receive requests:
+
+* Request
 * ApiConnectionWebhook
 * HttpWebhook
 
-Per il resto dell'articolo verrà usata la **request** come esempio, ma tutti i principi si applicano in modo identico agli altri 2 tipi di trigger.
+For the remainder of the article, we will use **request** as the example, but all of the principles apply identically to the other 2 types of triggers.
 
-## Aggiunta di un trigger alla definizione
-Il primo passaggio consiste nell'aggiungere un trigger per la definizione dell'app per la logica che possa ricevere le richieste in ingresso. È possibile eseguire la ricerca nella finestra di progettazione della "richiesta HTTP" per aggiungere la scheda di attivazione. È possibile definire uno schema JSON per il corpo della richiesta e consentire alla finestra di progettazione di generare i token per l'analisi e il passaggio dei dati dal trigger manual al flusso di lavoro. È consigliabile usare uno strumento come [jsonschema.net](http://jsonschema.net) per generare uno schema JSON da un payload del corpo di esempio.
+## <a name="adding-a-trigger-to-your-definition"></a>Adding a trigger to your definition
+The first step is to add a trigger to your Logic app definition that can receive incoming requests.  You can search in the designer for "HTTP Request" to add the trigger card. You can define a request body JSON Schema and the designer will generate tokens to help you parse and pass data from the manual trigger through the workflow.  I recommend using a tool like [jsonschema.net](http://jsonschema.net) to generate a JSON schema from a sample body payload.
 
-![Scheda del trigger di richiesta][2]  
+![Request Trigger Card][2]
 
-Dopo aver salvato la definizione dell'app per la logica, verrà generato un URL di callback simile al seguente:
+After you save your Logic App definition, a callback URL will be generated similar to this one:
  
 ``` text
 https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
 ```
 
-Questo URL contiene una chiave di firma di accesso condiviso nei parametri di query usati per l'autenticazione.
+This URL contains a SAS key in the query parameters used for authentication.
 
-È inoltre possibile ottenere questo endpoint nel portale di Azure:
+You can also get this endpoint in the Azure portal:
 
-![][1]  
+![][1]
 
-Oppure chiamando:
+Or, by calling:
 
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
 
-## Chiamata dell'endpoint del trigger dell'app per la logica
+## <a name="calling-the-logic-app-trigger's-endpoint"></a>Calling the Logic app trigger's endpoint
 
-Dopo aver creato l'endpoint del trigger, è possibile attivarlo tramite un `POST` nell'URL completo. Nel corpo è possibile includere intestazioni aggiuntive e qualsiasi altro contenuto.
+Once you have created the endpoint for your trigger, you can trigger it via a `POST` to the full URL. You can include additional headers, and any content in the body.
 
-Se content-type è `application/json`, si potrà fare riferimento alle proprietà all'interno della richiesta. Altrimenti si dovrà considerare come una singola unità binaria che può essere passata ad altre API, ma alla quale non si può fare riferimento all'interno del flusso di lavoro senza convertire il contenuto. Ad esempio, se si passa il contenuto `application/xml` è possibile usare `@xpath()` per eseguire un'estrazione xpath o `@json()` per convertire XML in JSON. [Qui sono disponibili](app-service-logic-content-type.md) informazioni aggiuntive sull'uso dei tipi di contenuto.
+If the content-type is `application/json` then you will be able to reference properties from inside the request. Otherwise, it will be treated as a single binary unit that can be passed to other APIs but cannot be referenced inside the workflow without converting the content.  For example, if you pass `application/xml` content you could use `@xpath()` to do an xpath extraction, or `@json()` to convert from XML to JSON.  More information on working with content types [can be found here](app-service-logic-content-type.md)
 
-È possibile anche specificare uno schema JSON nella definizione. Questo consente alla finestra di progettazione di generare i token che sarà possibile passare alla procedura. Il codice seguente, ad esempio, rende disponibili i token `title` e `name` nella finestra di progettazione:
+In addition, you can specify a JSON schema in the definition. This causes the designer to generate tokens that you can then pass into steps.  For example the following will make a `title` and `name` token available in the designer:
 
 ```
 {
@@ -78,9 +79,9 @@ Se content-type è `application/json`, si potrà fare riferimento alle propriet�
 }
 ```
 
-## Riferimento al contenuto della richiesta in ingresso
+## <a name="referencing-the-content-of-the-incoming-request"></a>Referencing the content of the incoming request
 
-La funzione `@triggerOutputs()` eseguirà l'output del contenuto della richiesta in ingresso. Ad esempio, sarà simile a quanto segue:
+The `@triggerOutputs()` function will output the contents of the incoming request. For example, it would look like:
 
 ```
 {
@@ -93,13 +94,13 @@ La funzione `@triggerOutputs()` eseguirà l'output del contenuto della richiesta
 }
 ```
 
-È possibile usare il collegamento `@triggerBody()` per accedere in modo specifico alla proprietà `body`.
+You can use the `@triggerBody()` shortcut to access the `body` property specifically. 
 
-## Risposta alla richiesta
+## <a name="responding-to-the-request"></a>Responding to the request
 
-Per alcune richieste che avviano un'app per la logica, è possibile rispondere inviando contenuto al chiamante. È disponibile un nuovo tipo di azione, **response**, che può essere usato per costruire il codice di stato, il corpo e le intestazioni della risposta. Si noti che se non è presente **response**, l'endpoint dell'app per la logica risponderà *immediatamente* con **202 - Accettato**.
+For some requests that start a Logic app, you may want to respond with some content to the caller. There is a new action type called **response** that can be used to construct the status code, body and headers for your response. Note that if no **response** shape is present, the Logic app endpoint will *immediately* respond with **202 Accepted**.
 
-![Azione di risposta HTTP][3]  
+![HTTP Response Action][3]
 
 ``` json
 "Response": {
@@ -118,41 +119,45 @@ Per alcune richieste che avviano un'app per la logica, è possibile rispondere i
         }
 ```
 
-Le risposte includono gli elementi seguenti:
+Responses have the following:
 
-| Proprietà | Descrizione |
+| Property | Description |
 | -------- | ----------- |
-| statusCode | Codice di stato HTTP per rispondere alla richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. | 
-| body | Oggetto body che può essere una stringa, un oggetto JSON o anche contenuto binario a cui si fa riferimento da un passaggio precedente. | 
-| headers | Nella risposta è possibile includere un numero illimitato di intestazioni. | 
+| statusCode | The HTTP status code to respond to the incoming request. It can be any valid status code that starts with 2xx, 4xx, or 5xx. 3xx status codes are not permitted. | 
+| body | A body object that can be a string, a JSON object, or even binary content referenced from a previous step. | 
+| headers | You can define any number of headers to be included in the response | 
 
-Tutti i passaggi nell'app per la logica necessari per la risposta devono essere completati entro *60 secondi* affinché la richiesta originale riceva la risposta **a meno che il flusso di lavoro non venga richiamato come un'app per la logica nidificata**. Se entro 60 secondi non si ottiene alcuna azione di risposta, si verificherà il timeout della richiesta in ingresso, che riceverà una risposta HTTP **408 Client timeout** (408 Timeout del client). Per le app per la logica nidificate, l'app per la logica padre rimarrà in attesa di una risposta fino al completamento, indipendentemente dalla quantità di tempo impiegato.
+All of the steps in the Logic app that are required for the response must complete within *60 seconds* for the original request to receive the response **unless the workflow is being called as a nested Logic App**. If no response action is reached within 60 seconds then the incoming request will time out and receive a **408 Client timeout** HTTP response.  For nested Logic Apps, the parent Logic App will continue to wait for a response until completed, regardless of the amount of time it takes.
 
-## Configurazione dell'endpoint avanzata
+## <a name="advanced-endpoint-configuration"></a>Advanced endpoint configuration
 
-Le app per la logica dispongono di supporto integrato per l'endpoint di accesso diretto e usano sempre il metodo `POST` per avviare l'esecuzione. L'app per le API **Listener HTTP** prima supportava anche la modifica dei segmenti dell'URL e il metodo HTTP. È anche possibile configurare maggiore sicurezza o un altro dominio personalizzato aggiungendolo all'host dell'app per le API, ovvero l'app Web che ha ospitato l'app per le API.
+Logic apps have built in support for the direct access endpoint and always use the `POST` method to start a run of the Logic app. The **HTTP Listener** API app previously also supported changing the URL segments and the HTTP method. You could even set up additional security or a custom domain by adding it to the API app host (the Web app that hosted the API app). 
 
-Questa funzionalità è disponibile tramite **Gestione API**:
-* [Modificare il metodo della richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
-* [Modificare i segmenti dell'URL della richiesta](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
-* Configurare i domini di Gestione API nella scheda **Configura** del portale di Azure classico
-* Impostare i criteri per verificare l'autenticazione di base (**collegamento necessario**)
+This functionality is available through **API management**:
+* [Change the method of the request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
+* [Change the URL segments of the request](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
+* Set up your API management domains on the **Configure** tab in the classic Azure portal
+* Set up policy to check for Basic authentication (**link needed**)
 
-## Riepilogo della migrazione da 2014-12-01-preview
+## <a name="summary-of-migration-from-2014-12-01-preview"></a>Summary of migration from 2014-12-01-preview
 
-| 2014-12-01-preview | 2016-06-01 |
+|  2014-12-01-preview | 2016-06-01 |
 |---------------------|--------------------|
-| Fare clic sull'app per le API **Listener HTTP** | Fare clic sul **trigger manual**. Non è necessaria un'app per le API. |
-| Impostazione di Listener HTTP "*Send response automatically *" (Invia risposta automaticamente) | Includere o meno un'azione **response** nella definizione del flusso di lavoro |
-| Configurare l'autenticazione di base o OAuth | tramite Gestione API |
-| Configurare il metodo HTTP | tramite Gestione API |
-| Configurare il percorso relativo | tramite Gestione API |
-| Fare riferimento all'oggetto body in ingresso tramite `@triggerOutputs().body.Content` | Riferimento tramite `@triggerOutputs().body` |
-| Azione **Send HTTP response** (Invia risposta HTTP) nel Listener HTTP | Fare clic su **Respond to HTTP request** (Rispondi alla richiesta HTTP). Non è necessaria un'app per le API.
+| Click on **HTTP Listener** API app | Click on **Manual trigger** (no API app required) |
+| HTTP Listener setting "*Sends response automatically*" | Either include a **response** action or not in the workflow definition |
+| Configure basic or OAuth authentication | via API management |
+| Configure HTTP method | via API management |
+| Configure relative path | via API management |
+| Reference the incoming body via  `@triggerOutputs().body.Content` | Reference via `@triggerOutputs().body` |
+| **Send HTTP response** action on the HTTP Listener | Click on **Respond to HTTP request** (no API app required)
 
 
 [1]: ./media/app-service-logic-http-endpoint/manualtriggerurl.png
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestione delle risorse di Azure con Cloud Explorer | Microsoft Azure"
-   description="Informazioni su come usare Cloud Explorer per esplorare e gestire le risorse di Azure in Visual Studio."
+   pageTitle="Managing Azure resources with Cloud Explorer | Microsoft Azure"
+   description="Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,84 +15,90 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Gestione delle risorse di Azure con Cloud Explorer
 
-##Overview
+# <a name="managing-azure-resources-with-cloud-explorer"></a>Managing Azure resources with Cloud Explorer
 
-Cloud Explorer è stato progettato per consentire di esplorare e gestire in modo più semplice e rapido le risorse di Azure nell'IDE di Visual Studio. È ad esempio possibile usarlo per aprire un'app Web nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) o in un browser oppure per collegare un debugger. È anche possibile visualizzare le proprietà di un contenitore BLOB e aprirlo nell'editor dei contenitori BLOB.
+##<a name="overview"></a>Overview
 
-Cloud Explorer è basato sullo stack di Azure Resource Manager, proprio come il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Riconosce risorse quali i gruppi di risorse di Azure e servizi di Azure quali le app per la logica e le app per le API. Supporta infine il [controllo degli accessi in base al ruolo](./active-directory/role-based-access-control-configure.md). Per visualizzare le risorse di Azure che sono state aggiunte o modificate, fare clic su **Refresh** sulla barra degli strumenti di Cloud Explorer.
+Cloud Explorer is designed to let you more easily and quickly browse and manage your Azure resources within the Visual Studio IDE. You can, for example, use it to open a Web app in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or in a browser, or attach a debugger to it, or you can view the properties of a blob container and open it in the Blob Container Editor.
 
-Cloud Explorer viene installato come parte di Visual Studio Tools per Azure SDK 2.7.
+Cloud Explorer is built on the Azure resource manager stack, just like the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). It understands resources such as Azure resource groups and Azure services such as Logic apps and API apps, and it supports [role-based access control](./active-directory/role-based-access-control-configure.md) (RBAC). To see Azure resources that have been added or changed, choose the **Refresh** button on the Cloud Explorer toolbar.
 
-## Prerequisiti
+Cloud Explorer is installed as part of the Visual Studio Tools for Azure SDK 2.7. 
+
+## <a name="prerequisites"></a>Prerequisites
 
 - Visual Studio 2015 RTM.
 
-- Visual Studio Tools per Azure SDK.
-- Per visualizzare le risorse di Azure in Cloud Explorer, è necessario avere un account di Azure e avere effettuato l'accesso. Se non si dispone di un account, è possibile crearne uno in un paio di minuti. Se è disponibile un abbonamento MSDN, vedere la pagina relativa ai [benefici di Azure per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). In caso contrario, vedere [creare un account di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- The Visual Studio Tools for Azure SDK. 
+- You must also have an Azure account and be logged into it to view Azure resources in Cloud Explorer. If you don't have one, you can create an account in just a couple of minutes. If you have an MSDN subscription, see [Azure Benefit for MSDN Subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, see [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
 
-- Se Cloud Explorer non è visibile, è possibile visualizzarlo scegliendo **Visualizzazione**, **Altre finestre,** **Cloud Explorer** sulla barra dei menu.
+- If Cloud Explorer isn't visible, you can view it by choosing **View**, **Other Windows,** **Cloud Explorer** on the menu bar.
 
-## Gestire gli account e le sottoscrizioni di Azure
+## <a name="manage-azure-accounts-and-subscriptions"></a>Manage Azure accounts and subscriptions
 
-Per visualizzare le risorse di Azure in Cloud Explorer, è necessario accedere a un account Azure con una o più sottoscrizioni attive. Se sono disponibili più account Azure, è possibile aggiungerli in Cloud Explorer e scegliere le sottoscrizioni da includere nella visualizzazione delle risorse in Cloud Explorer.
+To see your Azure resources in Cloud Explorer, you need to log in to an Azure account with one or more active subscriptions. If you have more than one Azure account, you can add them in Cloud Explorer and then choose the subscriptions you want to include in the Cloud Explorer resource view.
 
-Se si usa Azure per la prima volta o non sono stati aggiunti gli account necessari a Visual Studio, sarà necessario aggiungerli.
+If you haven't used Azure before, or you haven't added the necessary accounts to Visual Studio, you'll be prompted to do so.
 
-## Per aggiungere account Azure a Cloud Explorer
+## <a name="to-add-azure-accounts-to-cloud-explorer"></a>To add Azure accounts to Cloud Explorer
 
-1. Fare clic sull'icona Settings sulla barra degli strumenti di Cloud Explorer.
+1. Choose the Settings icon on the Cloud Explorer toolbar.
 
-1. Selezionare il collegamento **Add an account**. Accedere all'account Azure di cui si vogliono esplorare le risorse. L'account appena aggiunto dovrebbe essere selezionato nell'elenco a discesa di selezione dell'account. Le sottoscrizioni associate a un account vengono visualizzate sotto la voce relativa all'account.
+1. Choose the **Add an account** link. Log into the Azure account whose resources you want to browse. The account you just added should be selected in the account picker dropdown list. The subscriptions for that account appear under the account entry.
 
-    ![Aggiunta di sottoscrizioni di Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819514.png)
+    ![Adding Azure subscriptions](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819514.png)
 
-    ![Selezione di sottoscrizioni di Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819515.png)
+    ![Choosing Azure subscriptions](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819515.png)
 
-1. Selezionare le caselle di controllo relative alle sottoscrizioni di account da esplorare, quindi fare clic su **Applica**.
+1. Select the check boxes for the account subscriptions you want to browse and then choose the **Apply** button.
 
-    Le risorse di Azure per le sottoscrizioni selezionate verranno visualizzate in Cloud Explorer.
+    The Azure resources for the selected subscriptions appear in Cloud Explorer.
 
-## Per rimuovere un account Azure
+## <a name="to-remove-an-azure-account"></a>To remove an Azure account
 
-1. Scegliere **File**, **Impostazioni dell'Account** sulla barra dei menu.
+1. Choose **File**, **Account Settings** on the menu bar.
 
-1. Nella sezione **Tutti gli account** della finestra di dialogo **Impostazioni dell'Account**, scegliere il comando **Rimuovere** accanto all'account che si desidera rimuovere. Si noti che questo comando rimuove l'account solo da Visual Studio. Non influisce sull'account di Azure stesso.
+1. In the **All Accounts** section of the **Account Settings** dialog box, choose the **Remove** command next to the account you want to remove. Note that this command only removes the account from Visual Studio–it doesn't affect the Azure account itself.
 
-## Visualizzare i tipi o i gruppi di risorse
+## <a name="view-resource-types-or-groups"></a>View resource types or groups
 
-Per visualizzare le risorse di Azure, è possibile scegliere la visualizzazione **Tipi di risorsa** o **Gruppi di risorse**.
+To view your Azure resources, you can choose either **Resource Types** or **Resource Groups** view.
 
-![Elenco a discesa della visualizzazione delle risorse](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819516.png)
+![Resource view dropdown](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819516.png)
 
-- La visualizzazione **Tipi di risorsa**, che è anche la visualizzazione comune usata nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), mostra le risorse di Azure classificate in base al tipo, ad esempio app Web, account di archiviazione e macchine virtuali. È simile alla visualizzazione delle risorse di Azure in Esplora server.
+- **Resource Types** view, which is also the common view used on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), shows your Azure resources categorized by their type, such as web apps, storage accounts and virtual machines. This is similar to how Azure resources appear in Server Explorer.
 
-- La visualizzazione Gruppi di risorse classifica le risorse di Azure in base al gruppo di risorse di Azure a cui sono associate.
+- Resource Groups view categorizes Azure resources by the Azure resource group they're associated with.
 
  
-	Un gruppo di risorse è un bundle di risorse di Azure, in genere usate da un'applicazione specifica. Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Gestione risorse di Microsoft Azure](./resource-group-overview.md).
+    A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](./resource-group-overview.md).
 
-## Visualizzare ed esplorare le risorse
+## <a name="view-and-navigate-resources"></a>View and navigate resources
 
-Per passare a una risorsa di Azure e visualizzare le informazioni corrispondenti in Cloud Explorer, espandere il tipo o il gruppo di risorse associato dell'elemento, quindi selezionare la risorsa. Quando si seleziona una risorsa, le informazioni corrispondenti vengono visualizzate nelle due schede nella parte inferiore di Cloud Explorer.
+To navigate to an Azure resource and view its information in Cloud Explorer, expand the item's type or associated resource group and then choose the resource. When you choose a resource, information appears in the two tabs at the bottom of Cloud Explorer.
 
-![Selezione di una visualizzazione delle risorse](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819517.png)
+![Choose a resource view](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819517.png)
 
-- La scheda **Azioni** mostra le azioni da intraprendere in Cloud per la risorsa selezionata. È anche possibile visualizzare le azioni disponibili nel menu di scelta rapida della risorsa.
+- The **Actions** tab shows the actions you can take in Cloud Explorer for the selected resource. You can also see available actions on the shortcut menu of the resource.
 
-- La scheda **Properties** mostra le proprietà della risorsa, ad esempio il tipo, le impostazioni locali e il gruppo di risorse a cui è associata.
+- The **Properties** tab shows the properties of the resource, such as its type, locale and resource group it's associated with.
 
-L'azione **Open in portal** è disponibile per ogni risorsa. Quando si sceglie questa azione, Cloud Explorer mostra la risorsa selezionata nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Questa funzionalità è particolarmente utile per l'esplorazione di risorse con molti livelli di nidificazione.
+Every resource has the action **Open in portal**. When you choose this action, Cloud Explorer displays the selected resource in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). This feature is particularly handy for navigating to deeply-nested resources.
 
-È possibile che vengano visualizzate azioni aggiuntive e altri valori di proprietà, in base alla risorsa di Azure. Ad esempio, per le app Web e le app per la logica sono disponibili anche le azioni **Open in browser** e **Attach debugger**, oltre a **Open in portal**. Quando si sceglie un BLOB, una coda o una tabella dell'account di archiviazione, vengono visualizzate le azioni per l'apertura di editor. Per le app Azure sono disponibili le proprietà relative a **URL** e **stato**, mentre per le risorse di archiviazione sono disponibili le proprietà relative alle chiavi e alle stringhe di connessione.
+Additional actions and property values may also appear based on the Azure resource. For example, web apps and logic apps also have the actions **Open in browser** and **Attach debugger** in addition to **Open in portal**. Actions to open editors appear when you choose a storage account blob, queue, or table. Azure apps have **URL** and **Status** properties, while storage resources have key and connection string properties.
 
-## Cercare risorse
+## <a name="search-resources"></a>Search resources
 
-Per trovare risorse con un nome specifico nelle sottoscrizioni dell'account Azure, immettere il nome nella casella di ricerca di Cloud Explorer.
+To locate resources with a specific name in your Azure account subscriptions, enter the name in the Search box in Cloud Explorer.
 
-![Ricerca di risorse in Cloud Explorer](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC820394.png)
+![Finding resources in Cloud Explorer](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC820394.png)
 
-Quando si immettono caratteri nella casella Search, nell'albero delle risorse vengono visualizzate solo le risorse corrispondenti ai caratteri immessi.
+As you enter characters in the Search box, only resources that match those characters appear in the resource tree.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

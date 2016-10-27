@@ -1,43 +1,48 @@
 <!--author=SharS last changed: 9/15/15-->
 
-#### Per creare un criterio di backup personalizzato
+#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
 
-1. Nella pagina **Dispositivi**, fare clic su **Criteri di backup**, quindi selezionare **Aggiungi**.
+1. On the **Devices** page, click **Backup Policies** and then click **Add**.
 
-2. Nella finestra di dialogo **Aggiungi un criterio di backup** visualizzata in **Definire criteri di backup**:
+2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
 
-    1. Specificare un nome per il criterio di backup.
+    1. Specify a backup policy name.
 
-    2. Selezionare i volumi da aggiungere a tale criterio. È possibile aggiungere più volumi, selezionandoli dall'elenco a discesa.
+    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting them from the drop-down list.
 
-    3. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
+    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
 
-     Al termine della creazione del criterio, si riceve una notifica. Inoltre, la pagina relativa ai criteri di backup verrà aggiornata in modo che includa il criterio appena creato.
+     You will be notified after the policy is created successfully. The backup policies page will also be updated to show the newly created policy.
 
-4. Fare clic sul nome di un criterio (prima colonna) per visualizzare dettagli approfonditi sul nuovo criterio.
+4. Click the policy name (first column) to drill down into details of the policy you just created.
 
-5. Fare clic su **gestisci pianificazioni**.
+5. Click **manage schedules**.
 
-6. Nella finestra di dialogo **Gestisci pianificazioni**:
+6. In the **Manage Schedules** dialog box:
 
-    1. Selezionare **Crea nuovo** per aggiungere un'altra pianificazione.
+    1. Select **Create new** to add another schedule.
 
-    2. Dall'elenco a discesa, scegliere il tipo di backup come snapshot **locale** o **cloud**.
+    2. From the drop-down list, choose the backup type as **local** or **cloud** snapshot.
 
-    3. Specificare la frequenza di backup in minuti, ore, giorni o settimane.
+    3. Specify the backup frequency in minutes, hours, days, or weeks.
 
-    4. Selezionare un periodo di conservazione. Le scelte di conservazione dipendono dalla frequenza di backup.
+    4. Select a retention. The retention choices depend on the backup frequency.
  
-    5. Selezionare la data e l'ora di inizio per il criterio.
+    5. Select the starting time and date for the policy.
 
-    6. Selezionare la casella di controllo che consente di abilitare il criterio.
+    6. Select the check box to enable the policy.
 
-7. Per terminare l'operazione, fare clic sull'icona ![icona del segno di spunta](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
+7. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to finish.
 
-8. A questo punto, si torna alla schermata sui dettagli del criterio. Fare clic su **Salva** per salvare le modifiche apportate ai criteri. Quando il criterio viene salvato, l'utente riceve una notifica.
+8. You will return to the policy details. Click **Save** to save the changes you made to this policy. You will be notified when the policy has been saved.
 
-9. Tornare alla pagina **Criteri di Backup**. La tabella in cui sono elencati i criteri di backup verrà aggiornata in modo da includere il criterio modificato.
+9. Navigate back to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the modified policy.
 
-    ![Criterio di backup personalizzato](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
+    ![Custom backup policy](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
+
+
+
+
+<!--HONumber=Oct16_HO2-->
 
 

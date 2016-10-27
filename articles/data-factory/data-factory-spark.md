@@ -1,50 +1,55 @@
 <properties 
-	pageTitle="Chiamare i programmi Spark da Azure Data Factory" 
-	description="È possibile chiamare i programmi Spark da una data factory di Azure usando l'attività MapReduce." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Invoke Spark programs from Azure Data Factory" 
+    description="Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="spelluru"/>
 
-# Chiamare i programmi Spark da Data Factory
-## Introduzione
-È possibile usare l'attività MapReduce in una pipeline di Data Factory per eseguire programmi Spark nel cluster HDInsight Spark. Prima di leggere questo articolo, vedere l'articolo relativo all'[attività MapReduce](data-factory-map-reduce.md) per informazioni dettagliate sull'uso dell'attività.
 
-## Esempio di Spark in GitHub
-L'[esempio Spark - Data Factory in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) spiega come usare l'attività MapReduce per chiamare un programma Spark. Il programma Spark si limita a copiare i dati da un contenitore BLOB di Azure a un altro.
+# <a name="invoke-spark-programs-from-data-factory"></a>Invoke Spark Programs from Data Factory
+## <a name="introduction"></a>Introduction
+You can use the MapReduce Activity in a Data Factory pipeline to run Spark programs on your HDInsight Spark cluster. See [MapReduce Activity](data-factory-map-reduce.md) article for detailed information on using the activity before reading this article. 
 
-## Entità di Data factory
-La cartella **Spark-ADF/src/ADFJsons** contiene i file per le entità di Data Factory, ad esempio servizi collegati, set di dati e pipeline.
+## <a name="spark-sample-on-github"></a>Spark sample on GitHub
+The [Spark - Data Factory sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. 
 
-Esistono due **servizi collegati** in questo esempio: Archiviazione di Azure e Azure HDInsight. Specificare il nome di archiviazione di Azure e i valori chiave in **StorageLinkedService.json** e URI del cluster, nome utente e password in **HDInsightLinkedService.json**.
+## <a name="data-factory-entities"></a>Data Factory entities
+The **Spark-ADF/src/ADFJsons** folder contains files for Data Factory entities (linked services, datasets, pipeline).  
 
-Esistono due **set di dati** in questo esempio: **input.json** e **output.json**. Questi file si trovano nella cartella dei **set di dati**. I file rappresentano i set di dati di input e output per l'attività MapReduce.
+There are two **linked services** in this sample: Azure Storage and Azure HDInsight. Specify your Azure storage name and key values in **StorageLinkedService.json** and clusterUri, userName, and password in **HDInsightLinkedService.json**.
 
-Le pipeline di esempio sono disponibili nella cartella **ADFJsons/Pipeline**. Esaminare una pipeline per comprendere come richiamare un programma Spark usando l'attività MapReduce.
+There are two **datasets** in this sample: **input.json** and **output.json**. These files are located in the **Datasets** folder.  These files represent input and output datasets for the MapReduce activity
 
-L'attività MapReduce è configurata per chiamare **com.adf.sparklauncher.jar** nel contenitore **adflibs** dell'archiviazione di Azure (specificato in StorageLinkedService.json). Il codice sorgente per questo programma si trova nella cartella Spark-ADF/src/main/java/com/adf/ ed esegue processi Spark e chiamate a spark-submit.
+You find sample pipelines in the **ADFJsons/Pipeline** folder. Review a pipeline to understand how to invoke a Spark program by using the MapReduce activity. 
+
+The MapReduce activity is configured to invoke **com.adf.sparklauncher.jar** in the **adflibs** container in your Azure storage (specified in the StorageLinkedService.json). The source code for this program is in Spark-ADF/src/main/java/com/adf/ folder and it calls spark-submit and run Spark jobs. 
 
 > [AZURE.IMPORTANT] 
-Leggere con attenzione il file [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) per informazioni aggiuntive e più recenti prima di usare l'esempio.
+> Read through [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) for the latest and additional information before using the sample. 
 >  
-> Usare il proprio cluster HDInsight Spark con questo approccio per chiamare i programmi Spark usando l'attività MapReduce. L'uso di un cluster HDInsight su richiesta non è supportato.
+> Use your own HDInsight Spark cluster with this approach to invoke Spark programs using the MapReduce activity. Using an on-demand HDInsight cluster is not supported.   
 
 
-## Vedere anche
-- [Attività Hive](data-factory-hive-activity.md)
-- [Attività di Pig](data-factory-pig-activity.md)
-- [Attività MapReduce](data-factory-map-reduce.md)
-- [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-- [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+## <a name="see-also"></a>See Also
+- [Hive Activity](data-factory-hive-activity.md)
+- [Pig Activity](data-factory-pig-activity.md)
+- [MapReduce Activity](data-factory-map-reduce.md)
+- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

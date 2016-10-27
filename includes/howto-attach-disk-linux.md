@@ -1,16 +1,16 @@
 
-Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
+For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
-## Collegare un disco vuoto
+## <a name="attach-an-empty-disk"></a>Attach an empty disk
 
-1.  Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
+1.  Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
-2.  Immettere `azure vm disk attach-new` per creare e collegare un nuovo disco, come illustrato di seguito. Sostituire _TestVM_ con il nome della macchina virtuale Linux e specificare le dimensioni del disco in GB, di 100 GB in questo esempio:
+2.  Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following. Replace _TestVM_ with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is 100GB in this example:
 
         azure vm disk attach-new TestVM 100
 
-3.	Una volta creato e collegato, il disco dati verrà elencato nell'output di `azure vm disk list <virtual-machine-name>` come illustrato di seguito:
+3.  After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following:
 
         $ azure vm disk list TestVM
         info:    Executing command vm disk list
@@ -24,63 +24,68 @@ Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e
         info:    vm disk list command OK
 
 <a id="attachexisting"></a>
-## Collegare un disco esistente
+## <a name="attach-an-existing-disk"></a>Attach an existing disk
 
-Per collegare un disco esistente, è necessario che in un account di archiviazione sia disponibile un file con estensione vhd.
+Attaching an existing disk requires that you have a .vhd available in a storage account.
 
-1. 	Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
+1.  Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
-2.	Controllare se il disco rigido virtuale che si desidera collegare è già caricato nella sottoscrizione di Azure:
+2.  Check if the VHD you want to attach is already uploaded to your Azure subscription:
 
         $azure vm disk list
-    	info:    Executing command vm disk list
-    	+ Fetching disk images
-    	data:    Name                                          OS
-    	data:    --------------------------------------------  -----
-    	data:    myTestVhd                                     Linux
-    	data:    TestVM-ubuntuVMasm-0-201508060029150744  Linux
-    	data:    TestVM-ubuntuVMasm-0-201508060040530369
-    	info:    vm disk list command OK
+        info:    Executing command vm disk list
+        + Fetching disk images
+        data:    Name                                          OS
+        data:    --------------------------------------------  -----
+        data:    myTestVhd                                     Linux
+        data:    TestVM-ubuntuVMasm-0-201508060029150744  Linux
+        data:    TestVM-ubuntuVMasm-0-201508060040530369
+        info:    vm disk list command OK
 
-3.  Se non si trova il disco che si desidera utilizzare, è possibile caricare un disco rigido virtuale locale alla sottoscrizione utilizzando`azure vm disk create`o`azure vm disk upload`. Un esempio di `disk create` verrebbe visualizzato come di seguito:
+3.  If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following:
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
-		info:    Executing command vm disk create
-		+ Retrieving storage accounts
-		info:    VHD size : 10 GB
-		info:    Uploading 10485760.5 KB
-		Requested:100.0% Completed:100.0% Running:   0 Time:   25s Speed:    82 KB/s
-		info:    Finishing computing MD5 hash, 16% is complete.
-		info:    https://mystorageaccount.blob.core.windows.net/disks/test.VHD was
-		uploaded successfully
-		info:    vm disk create command OK
+        info:    Executing command vm disk create
+        + Retrieving storage accounts
+        info:    VHD size : 10 GB
+        info:    Uploading 10485760.5 KB
+        Requested:100.0% Completed:100.0% Running:   0 Time:   25s Speed:    82 KB/s
+        info:    Finishing computing MD5 hash, 16% is complete.
+        info:    https://mystorageaccount.blob.core.windows.net/disks/test.VHD was
+        uploaded successfully
+        info:    vm disk create command OK
 
-	È inoltre possibile usare `azure vm disk upload` per caricare un disco rigido virtuale in un account di archiviazione specifico. Ulteriori informazioni sui comandi per la gestione dei dischi dati della macchina virtuale di Azure[qui](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+    You may also use `azure vm disk upload` to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
-4.  Collegare adesso il disco rigido virtuale alla macchina virtuale:
+4.  Now you attach the desired VHD to your virtual machine:
 
-		$azure vm disk attach TestVM myTestVhd
-		info:    Executing command vm disk attach
-		+ Getting virtual machines
-		+ Adding Data-Disk
-		info:    vm disk attach command OK
+        $azure vm disk attach TestVM myTestVhd
+        info:    Executing command vm disk attach
+        + Getting virtual machines
+        + Adding Data-Disk
+        info:    vm disk attach command OK
 
-	Assicurarsi di sostituire _TestVM_ con il nome della macchina virtuale e _myTestVhd_ con il disco rigido virtuale desiderato.
+    Make sure to replace _TestVM_ with the name of your virtual machine, and _myTestVhd_ with your desired VHD.
 
-5.	È possibile verificare che il disco sia collegato alla macchina virtuale con `azure vm disk list <virtual-machine-name>`:
+5.  You can verify the disk is attached to the virtual machine with `azure vm disk list <virtual-machine-name>`:
 
-		$azure vm disk list TestVM
-		info:    Executing command vm disk list
-		+ Fetching disk images
-		+ Getting virtual machines
-		+ Getting VM disks
-		data:    Lun  Size(GB)  Blob-Name                         OS
-		data:    ---  --------  --------------------------------  -----
-		data:         30        TestVM-2645b8030676c8f8.vhd  Linux
-		data:    1    10        test.VHD
-		data:    0    100        TestVM-76f7ee1ef0f6dddc.vhd
-		info:    vm disk list command OK
+        $azure vm disk list TestVM
+        info:    Executing command vm disk list
+        + Fetching disk images
+        + Getting virtual machines
+        + Getting VM disks
+        data:    Lun  Size(GB)  Blob-Name                         OS
+        data:    ---  --------  --------------------------------  -----
+        data:         30        TestVM-2645b8030676c8f8.vhd  Linux
+        data:    1    10        test.VHD
+        data:    0    100        TestVM-76f7ee1ef0f6dddc.vhd
+        info:    vm disk list command OK
 
 
 > [AZURE.NOTE]
-Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione (vedere i passaggi riportati di seguito per altre informazioni su come svolgere questa operazione).
+> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the steps below for more information on how to do this).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

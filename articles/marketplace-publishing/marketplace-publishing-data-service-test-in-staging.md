@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Test dell'offerta del servizio dati per il Marketplace | Microsoft Azure"
-   description="Informazioni su come testare l'offerta del servizio dati per Azure Marketplace."
+   pageTitle="Testing your Data Service offer for the Marketplace | Microsoft Azure"
+   description="Understand how to test your Data Service offer for the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,77 +16,82 @@
    ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
-# Test dell'offerta del servizio dati in gestione temporanea
 
->[AZURE.IMPORTANT] **In questo momento non stiamo più caricando nuovi editori di servizi dati. I nuovi servizi dati non saranno approvati per l'elencazione.** Se si dispone di un'applicazione aziendale SaaS che si vuole pubblicare in AppSource, è possibile trovare altre informazioni [qui](https://appsource.microsoft.com/partners). Se si dispone di un'applicazione IaaS o di un servizio per gli sviluppatori che si desidera pubblicare in Azure Marketplace, è possibile trovare altre informazioni [qui](https://azure.microsoft.com/marketplace/programs/certified/).
+# <a name="testing-your-data-service-offer-in-staging"></a>Testing your Data Service offer in Staging
 
-Dopo aver completato i primi due passaggi della [creazione di un account per il Dashboard venditori](marketplace-publishing-accounts-creation-registration.md) e della [creazione dell'offerta del servizio dati nel portale di pubblicazione](marketplace-publishing-data-service-creation.md), si è pronti per rendere disponibile l'offerta in Azure Marketplace. Questo argomento illustra il primo passaggio intermedio denominato "Gestione temporanea"
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
 
-Per gestione temporanea si intende la distribuzione dell'offerta in un ambiente "sandbox" privato, in cui è possibile testarne e verificarne le funzionalità prima di eseguirne il push in produzione. L'offerta verrà visualizzata nella gestione temporanea esattamente come verrebbe mostrata a un cliente che l'ha distribuita.
+After completing the first two steps of [Creating your Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md) and [Creating your Data Service Offer in Publishing Portal](marketplace-publishing-data-service-creation.md) you’re ready for making your offer available in the Azure Marketplace. This topic will walk you through the first, intermediate, step called “Staging”
 
-## Passaggio 1. Push dell'offerta nella gestione temporanea
-Il push dell'offerta nella gestione temporanea consente di testare l'offerta prima che diventi disponibile ai sottoscrittori futuri. È possibile visualizzare come l'offerta verrà visualizzata e funzionerà per coloro che effettuano la sottoscrizione ai dati.
+Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer will appear in staging just as it would to a customer who has deployed it.
 
-  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)
+## <a name="step-1.-pushing-your-offer-to-staging"></a>Step 1. Pushing your offer to staging
+Pushing your offer to staging allows you to test the offer before it becomes available to future subscribers.  You can see how your offer will appear and function for those subscribing to your data.  
 
-1.	Accedere al [portale di pubblicazione](https://publish.windowsazure.com)
-2.	Selezionare **Servizi dati** nella finestra di navigazione a sinistra
-3.	Selezionare l'offerta di cui si desidera effettuare il push in gestione temporanea. Verrà visualizzata la schermata precedente.
-4.	Fare clic sul pulsante **Push gestione temporanea**.
-5.	Se sono presenti problemi con l'offerta che devono essere risolti prima del push nella gestione temporanea, verrà visualizzato un elenco. Correggere questi elementi facendo clic su ogni elemento nell'elenco. Quando tutte le correzioni sono state apportate, fare clic nuovamente sul pulsante **Push gestione temporanea**.
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)
 
-Se non sono presenti problemi con l'offerta, si noterà la finestra popup di seguito.
+1.  Login into the [Publishing Portal](https://publish.windowsazure.com)
+2.  Select **Data Services** in the left navigation window
+3.  Select your offer you want to push to staging. You will see the above screen.
+4.  Click **Push To Staging** button.  
+5.  If there are issues with the offer that needed to be completed prior to pushing to staging, you will see a list displayed.  Correct these items by clicking on each item in the list. When all corrections made, click **Push to Staging** button again.
 
-Se non si prevede/non si è stati approvati per la presentazione dell'offerta nel portale di Azure (attualmente dispone di capacità limitate), chiudere semplicemente la finestra popup.
+If there are no issues with your offer you will see the popup window below.  
 
-Per testare il servizio dati nel portale di Azure (oltre al portale di DataMarket), è necessario un ID di sottoscrizione di Azure con cui eseguire il test. Questo ID di sottoscrizione identificherà l'account consentito per testare l'offerta.
+If you’re not planning/not approved to surface your offer in Azure Portal (currently has limited capacity), then just close the pop-up window.
 
-Tagliare e incollare l'ID di sottoscrizione e fare clic sul segno di spunta per continuare.
+To test your Data Service in Azure Portal (in addition to the DataMarket portal), you will need an Azure Subscription ID to test with.  This Subscription ID will identify the account that will be allowed to test your offer.  
 
-  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
+Cut and paste your Subscription ID and click the checkmark to continue.
 
-> [AZURE.NOTE] Questi ID di sottoscrizione di Azure sono necessari per il testing e la gestione temporanea nel [portale di gestione di Azure](https://manage.windowsazure.com). Non sono necessari per eseguire il test in Azure Marketplace.
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
-La schermata successiva visualizzata mostra che la pubblicazione ha luogo visualizzando l'icona "In corso" evidenziata in giallo di seguito. Il push in gestione temporanea richiede tra 10 e 15 minuti. Se richiede più tempo, prima di aggiornare il browser (premere F5 in Internet Explorer). In rari casi in cui l'offerta è ancora in fase di push in gestione temporanea dopo un'ora, fare clic sul collegamento dei contatti per comunicarci che è presente un problema.
+> [AZURE.NOTE] These Azure subscriptions IDs are only required for testing and staging in the [Azure Management Portal](https://manage.windowsazure.com). They are not required to test in Azure Marketplace.
 
-  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-1.3.png)
+The next screen that appears shows that publishing is taking place by displaying the “In progress” icon highlighted yellow below. Pushing to staging takes between 10 to 15 minutes.  If it takes longer, first refresh your browser (press F5 in IE).  In the rare cases where your offer is still pushing to staging after an hour, click the contact us link to let us know that there is an issue.
 
-Quando il push in gestione temporanea viene completato, l'icona "In corso" smette di muoversi e lo stato viene aggiornato in "Gestione temporanea". È ora possibile testare l'offerta.
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.3.png)
 
-## Passaggio 2. Testare l'offerta in gestione temporanea in DataMarket
+When the Push to Staging completes the “In progress” icon will stop moving and the status will be updated to “Staged”.  You are now ready to test your offer.  
 
-Fare clic sul collegamento che segue il testo **"Visualizza l’offerta di servizio in..."** per visualizzare la schermata che il sottoscrittore potrà vedere quando l'offerta passerà alla produzione e verrà visualizzata nel DataMarket.
+## <a name="step-2.-test-your-staged-offer-in-datamarket"></a>Step 2. Test your staged offer in DataMarket
 
-  ![disegno](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
+Click the link following the text **“See Your service offer at…”** to display the screen that the subscriber will see when your offer goes to production and will appear in DataMarket.
 
-Testare o verificare ognuno dei 12 elementi contrassegnati in precedenza affinché tutti i logo, prezzi/transazioni, testi, immagini, documentazione e collegamenti siano corretti e funzionino in modo appropriato. Questo è il momento opportuno per assicurarsi che i valori di test specificati durante la creazione dell'offerta siano stati sostituiti con valori effettivi.
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
-1. Logo offerta
-2. Nome offerta
-3. Nome server di pubblicazione/collegamento al sito Web della società
-4. Categorie di ricerca per l'offerta
-5. Collegamento di supporto dell'offerta per agevolare i sottoscrittori
-6. Descrizione contestuale dell'offerta
-7. Piano dell’offerta che descrive i dettagli di fatturazione
-8. Collegamento al codice di implementazione
-9. Immagini di esempio che illustrano l'utilizzo dei dati dell’offerta
-10. Metadati di input/output per ogni servizio all'interno dell'offerta
-11. Condizioni di utilizzo dell'offerta
-12. Anteprima dei dati dell'offerta
+Test or verify each of the 12 items marked above to ensure all logos, prices/transactions, text, images, documentation, and links are correct and working properly.  This is a good time to ensure any test values you entered when creating your offer have been replaced with actual values.
 
-
-Infine, controllare che il servizio funzioni nel Datamarket facendo clic sul collegamento "ESPLORA QUESTO SET DI DATI". Verrà aperta una nuova finestra dello strumento chiamiamo "Service Explorer", in modo che sia possibile visualizzare in anteprima i risultati di una query sul servizio. In questa finestra, è possibile immettere i parametri necessari e vedere i risultati visualizzati da una query sul servizio. Inoltre, viene visualizzato l'URL per la Query.
-
-> [AZURE.NOTE] Assicurarsi di esaminare la descrizione testuale del servizio visualizzato nella parte superiore. Se l'offerta è costituita da più di un servizio, fare clic sulle schede nella parte inferiore per passare al servizio successivo da esaminare e testare.
+1. Offer logo
+2. Offer name
+3. Publisher name/link to your company's website
+4. Search categories for your offer
+5. Your offer's support link to assist subscribers
+6. Contextual description for your offer
+7. Offer plan depicting billing details
+8. Link to implementation code
+9. Sample images that illustrate use of offer data
+10. Input/Output metadata for each service within the offer
+11. Offer's Terms of Use
+12. Preview of the offer's data
 
 
+Finally, check the service will work through the Datamarket by clicking the link “EXPLORE THIS DATASET”.  A new window will open in the tool we call “Service Explorer” so you can preview the results of a query against your service.  In this window, you can enter the parameters needed and see the results displayed from a query against your service.   Also, displayed is the URL for your Query.  
 
-## Passaggio successivo
-Se si riscontrano problemi e serve assistenza per risolverli, contattare il [Supporto di pubblicazione di Azure](http://go.microsoft.com/fwlink/?LinkId=272975).
+> [AZURE.NOTE] Be sure to review the textual description of the service displayed at the top.  And if your offer consists of more than one service call, click the tabs at the bottom to switch to the next service to review and test.
 
-Se si è soddisfatti e pronti per la pubblicazione dell'offerta, leggere la documentazione [Richiedere l’approvazione per il push in produzione](marketplace-publishing-push-to-production.md).
 
-## Vedere anche
-- [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+## <a name="next-step"></a>Next step
+If you are having issues and need help resolving them please contact [Azure Publisher Support]( http://go.microsoft.com/fwlink/?LinkId=272975).
+
+If you are satisfied and ready to publish your offer please read the [Request Approval to Push To Production](marketplace-publishing-push-to-production.md) documentation.
+
+## <a name="see-also"></a>See Also
+- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

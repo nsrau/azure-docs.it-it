@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare un'app per la logica EAI con VETR nelle app per la logica nel servizio app di Azure | Microsoft Azure"
-   description="Funzioni Validate, Encode e Transform dei Servizi XML BizTalk."
+   pageTitle="Create EAI Logic App using VETR in logic apps in Azure App Service | Microsoft Azure"
+   description="Validate, Encode and Transform features of BizTalk XML services"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
@@ -17,99 +17,104 @@
    ms.author="rajram"/>
 
 
-# Creare un'app per la logica EAI con VETR
+
+# <a name="create-eai-logic-app-using-vetr"></a>Create EAI Logic App Using VETR
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
-Nella maggior parte degli scenari di integrazione di applicazioni aziendali (EAI, Enterprise Application Integration) si esegue una mediazione dei dati tra un'origine e una destinazione. Tali scenari spesso hanno un set di requisiti comune:
+Most Enterprise Application Integration (EAI) scenarios mediate data between a source and a destination. Such scenarios often have a common set of requirements:
 
-- Assicurarsi che i dati provenienti da sistemi differenti siano nel formato corretto.
-- Eseguire una ricerca sui dati in entrata per prendere decisioni.
-- Convertire i dati da un formato a un altro. Ad esempio, convertire i dati da un formato dati del sistema CRM a un formato dati del sistema ERP.
-- Instradare i dati all'applicazione o al sistema desiderati.
+- Ensure that data from different systems are correctly formatted.
+- Perform “look-up” on incoming data to make decisions.
+- Convert data from one format to another. For example, convert data from a CRM system's data format to an ERP system's data format.
+- Route data to desired application or system.
 
-Questo articolo illustra un modello comune di integrazione: "messaggio unidirezionale mediazione" o VETR (Validate, Enrich, Transform, Route). Il modello VETR esegue la mediazione dei dati tra un'entità di origine e un'entità di destinazione, solitamente origini di dati.
+This article shows you a common integration pattern: "one-way message mediation" or VETR (Validate, Enrich, Transform, Route). The VETR pattern mediates data between a source entity and a destination entity. Usually the source and destination are data sources.
 
-Si prenda in considerazione un sito Web che accetta ordini: gli utenti pubblicano ordini nel sistema usando il protocollo HTTP. Dietro le quinte, il sistema convalida la correttezza dei dati in entrata, li normalizza e li mantiene in una coda del bus di servizio per elaborarli ulteriormente. Il sistema preleva gli ordini dalla coda, prevedendone un particolare formato. In tal modo, il flusso end-to-end è il seguente:
+Consider a website that accepts orders. Users post orders to the system using HTTP. Behind the scenes, the system validates the incoming data for correctness, normalizes it, and persists it in a Service Bus queue for further processing. The system takes orders off the queue, expecting it in a particular format. Thus, the end-to-end flow is:
 
-**HTTP** → **Convalida** → **Trasformazione** → **Bus di servizio**
+**HTTP** → **Validate** → **Transform** → **Service Bus**
 
-![Flusso di base VETR][1]
+![Basic VETR Flow][1]
 
-Le seguenti app per le API di BizTalk aiutano a creare questo modello:
+The following BizTalk API Apps help build this pattern:
 
-* **HTTP Trigger**: origine di attivazione dell'evento messaggio
-* **Convalida**: convalida la correttezza dei dati in entrata
-* **Trasforma**: trasforma i dati dal formato in entrata al formato richiesto dal sistema di downstream
-* **Service Bus Connector**: entità di destinazione a cui vengono inviati i dati
-
-
-## Creazione del modello VETR Basic
-### Nozioni di base
-
-Nel portale di Azure selezionare **+Nuovo**, selezionare **Web e dispositivi mobili** e quindi selezionare **App per la logica**. Scegliere un nome, un percorso, una sottoscrizione, un gruppo di risorse e una posizione validi. I gruppi di risorse fungono da contenitori per le app. Tutte le risorse per l'app sono dirette allo stesso gruppo di risorse.
-
-Vengono quindi aggiunti trigger e azioni.
+* **HTTP Trigger** - Source to trigger message event
+* **Validate** - Validates correctness of incoming data
+* **Transform** - Transforms data from incoming format to format required by downstream system
+* **Service Bus Connector** - Destination entity where data is sent
 
 
-## Aggiungere trigger HTTP
-1. In **Modelli di app per la logica** selezionare **Crea da zero**.
-1. Selezionare **Listener HTTP** dalla raccolta per creare un nuovo listener. Denominarlo **HTTP1**.
-2. Impostare l'opzione **Inviare risposta automaticamente?** su false. Configurare l'azione di attivazione impostando _Metodo HTTP_ su _POST_ e impostando _URL relativo_ su _/OneWayPipeline_: ![Trigger HTTP][2]
-3. Selezionare il segno di spunta verde per completare il trigger.
+## <a name="constructing-the-basic-vetr-pattern"></a>Constructing the basic VETR pattern
+### <a name="the-basics"></a>The basics
 
-## Aggiungere un'azione di convalida
+In the Azure portal, select **+New**, select **Web + Mobile**, and then select **Logic App**. Choose a name, location, subscription, resource group, and location that works. Resource groups act as containers for your apps; all of the resources for your app go to the same resource group.
 
-A questo punto, è possibile aggiungere azioni che verranno eseguite ogni volta che si riceve una chiamata sull'endpoint HTTP.
+Next, let's add triggers and actions.
 
-1. Aggiungere **BizTalk XML Validator** dalla raccolta e denominarlo _(Validate1)_ per creare un'istanza.
-2. Configurare uno schema XSD per convalidare i messaggi XML in entrata. Selezionare l'azione _Validate_ e quindi selezionare _triggers(‘httplistener’).outputs.Content_ come valore per il parametro _inputXml_.
 
-A questo punto, l'azione di convalida è la prima azione dopo il listener HTTP.
+## <a name="add-http-trigger"></a>Add HTTP Trigger
+1. In **Logic App Templates**, select **Create from Scratch**.
+1. Select **HTTP Listener** from the gallery to create a new listener. Call it **HTTP1**.
+2. Set the **Send response automatically?** setting to false. Configure the trigger action by setting _HTTP Method_ to _POST_ and setting _Relative URL_ to _/OneWayPipeline_:  
+    ![HTTP Trigger][2]
+3. Select the green checkmark to complete the trigger.
+
+## <a name="add-validate-action"></a>Add Validate Action
+
+Now, let’s enter actions that run whenever the trigger fires — that is, whenever a call is received on the HTTP endpoint.
+
+1. Add **BizTalk XML Validator** from the gallery and name it _(Validate1)_ to create an instance.
+2. Configure an XSD schema to validate the incoming XML messages. Select the _Validate_ action and select _triggers(‘httplistener’).outputs.Content_ as the value for the _inputXml_ parameter.
+
+Now, the validate action is the first action after the HTTP listener: 
 
 ![BizTalk XML Validator][3]
 
-In maniera analoga, si aggiungeranno le restanti azioni.
+Similarly, let's add the rest of the actions. 
 
-## Aggiungere un'azione di trasformazione
-È ora possibile configurare le trasformazioni per normalizzare i dati in entrata.
+## <a name="add-transform-action"></a>Add Transform action
+Let's configure transforms to normalize the incoming data.
 
-1. Aggiungere **Servizio BizTalk Transform** dalla raccolta.
-2. Per configurare una trasformazione in modo da trasformare i messaggi XML in entrata, selezionare l'azione **Transform** come azione da eseguire quando si chiama questa API. Selezionare ```triggers(‘httplistener’).outputs.Content``` come valore per _inputXml_. *Map* è un parametro facoltativo perché i dati in entrata vengono confrontati con tutte le trasformazioni configurate e solo quelli che corrispondono allo schema vengono applicati.
-3. Infine, l'azione Transform viene eseguita solo se l'azione Validate ha esito positivo. Per configurare questa condizione, selezionare l'icona a forma di ingranaggio in alto a destra e selezionare _Aggiungere una condizione da soddisfare_. Impostare la condizione su ```equals(actions('xmlvalidator').status,'Succeeded')```:
+1. Add **BizTalk Transform Service** from the gallery.
+2. To configure a transform to transform the incoming XML messages, select the **Transform** action as the action to carry out when this API is called. Select ```triggers(‘httplistener’).outputs.Content``` as the value for _inputXml_. *Map* is an optional parameter since the incoming data is matched with all configured transforms, and only those that match the schema are applied.
+3. Lastly, the Transform runs only if Validate succeeds. To configure this condition, select the gear icon on the top right, and select _Add a condition to be met_. Set the condition to ```equals(actions('xmlvalidator').status,'Succeeded')```:  
 
-![Trasformazioni di BizTalk][4]
-
-
-## Aggiungere il connettore del bus di servizio
-A questo punto, è possibile aggiungere la destinazione in cui scrivere i dati, ovvero una coda del bus di servizio.
-
-1. Aggiungere un **Service Bus Connector** dalla raccolta. Impostare **Nome** su _Servicebus1_, impostare **Stringa di connessione** sulla stringa di connessione all'istanza del bus di servizio, impostare **Nome entità** su _Coda_ e ignorare **Nome sottoscrizione**.
-2. Selezionare l'azione **Invia messaggio** e impostare il campo **Messaggio** per l'azione su _actions('transformservice').outputs.OutputXml_.
-3. Impostare il campo **Tipo contenuto** su *application/xml*:
-
-![Bus di servizio][5]
+![BizTalk Transforms][4]
 
 
-## Inviare una risposta HTTP
-Dopo aver terminato l'elaborazione pipeline, verrà reinviata una risposta HTTP per entrambi i risultati, con i seguenti passaggi:
+## <a name="add-service-bus-connector"></a>Add Service Bus Connector
+Next, let's add the destination — a Service Bus Queue — to write data to.
 
-1. Aggiungere un **Listener HTTP** dalla raccolta e selezionare l'azione **Invia risposta HTTP**.
-2. Impostare **ID risposta** su *Invia messaggio*.
-2. Impostare **Contenuto della risposta** su *Elaborazione pipeline completata*.
-3. Impostare **Codice di stato della risposta** su *200* per indicare HTTP 200 OK.
-4. Selezionare il menu a discesa nella parte superiore destra e selezionare **Aggiungere una condizione da soddisfare**. Impostare la condizione sull'espressione seguente: ```@equals(actions('azureservicebusconnector').status,'Succeeded')``` <br/>
-5. Ripetere i passaggi anche per inviare una risposta HTTP in caso di errore. Modificare **Condizione** impostando l'espressione seguente: ```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
-6. Selezionare **OK** quindi **Crea**.
+1. Add a **Service Bus Connector** from the gallery. Set the **Name** to _Servicebus1_, set **Connection String** to the connection string to your service bus instance, set **Entity Name** to _Queue_, and skip **Subscription name**.
+2. Select the **Send Message** action and set the **Content** field for the action to _actions('transformservice').outputs.OutputXml_.
+3. Set the **Content Type** field to *application/xml*:  
+
+![Service Bus][5]
 
 
+## <a name="send-http-response"></a>Send HTTP Response
+Once pipeline processing is done, send back an HTTP response for both success and failure with the following steps:
 
-## Completamento
-Ogni volta che qualcuno invia un messaggio all'endpoint HTTP attiva l'app ed esegue le azioni appena create. Per gestire eventuali app per la logica create, selezionare **Sfoglia** nel portale di Azure e selezionare **App per la logica**. Selezionare l'app per visualizzare altre informazioni.
+1. Add an **HTTP Listener** from the gallery and select the **Send HTTP Response** action.
+2. Set **Response ID** to Send *Message*.
+2. Set **Response Content** to *Pipeline processing completed*.
+3. **Response Status Code** to *200* to indicate HTTP 200 OK.
+4. Select the drop down menu on the top right, and select **Add a condition to be met**.  Set the condition to the following expression:  
+    ```@equals(actions('azureservicebusconnector').status,'Succeeded')```  <br/>
+5. Repeat these steps to send an HTTP response on failure as well. Change **Condition** to the following expression:  
+```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
+6. Select **OK** then **Create**.
 
-Alcuni argomenti utili:
 
-[Gestire e monitorare le app per le API e i connettori](app-service-logic-monitor-your-connectors.md) <br/> [Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)
+
+## <a name="completion"></a>Completion
+Every time someone sends a message to the HTTP endpoint, it triggers the app and executes the actions you just created. To manage any such logic apps you create, select **Browse** in the Azure Portal, and select **Logic Apps**. Select your app to see more information.
+
+Some helpful topics:
+
+[Manage and Monitor your API Apps and Connectors](app-service-logic-monitor-your-connectors.md)  <br/>
+[Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -118,4 +123,8 @@ Alcuni argomenti utili:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

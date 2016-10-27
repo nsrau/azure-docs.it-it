@@ -1,213 +1,214 @@
 <properties 
-	pageTitle="Creare un'app Web Hello World per Azure in Eclipse" 
-	description="Questa esercitazione descrive come usare il toolkit di Azure per Eclipse per creare un'app Web Hello World per Azure." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Create a Hello World Web App for Azure in Eclipse" 
+    description="This tutorial shows you how to use the Azure Toolkit for Eclipse to create a Hello World Web App for Azure." 
+    services="app-service\web" 
+    documentationCenter="java" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="08/11/2016" 
+    ms.author="robmcm"/>
 
-# Creare un'app Web Hello World per Azure in Eclipse
 
-Questa esercitazione descrive come creare e distribuire un'applicazione Hello World di base in Azure come app Web usando [Azure Toolkit per Eclipse]. Per semplicità è riportato un esempio JSP di base, ma è possibile adottare una procedura molto simile anche per un servlet Java, per quanto riguarda la distribuzione di Azure.
+# <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Create a Hello World Web App for Azure in Eclipse
 
-Al termine di questa esercitazione, l'applicazione visualizzata in un browser Web avrà un aspetto simile al seguente:
+This tutorial shows how to create and deploy a basic Hello World application to Azure as a Web App by using the [Azure Toolkit for Eclipse]. A basic JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
+
+When you have completed this tutorial, your application will look similar to the following illustration when you view it in a web browser:
 
 ![][01]
  
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Java Developer Kit (JDK) versione 1.7 o successiva.
-* IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
-* Distribuzione di un server Web basato su Java o un server applicazioni, ad esempio Apache Tomcat o Jetty.
-* Sottoscrizione di Azure, che può essere acquistata all'indirizzo <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
-* Azure Toolkit per Eclipse. Per altre informazioni, vedere [Installazione di Azure Toolkit per Eclipse].
+* A Java Developer Kit (JDK), v 1.7 or later.
+* Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
+* A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
+* An Azure subscription, which can be acquired from <https://azure.microsoft.com/en-us/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
+* The Azure Toolkit for Eclipse. For more information, see [Installing the Azure Toolkit for Eclipse].
 
-## Per creare un'applicazione Hello World
+## <a name="to-create-a-hello-world-application"></a>To Create a Hello World Application
 
-Creare innanzitutto un progetto Java.
+First, we'll start off with creating a Java project.
 
-1. Avviare Eclipse e nel menu fare clic su **File**, **New** e quindi su **Dynamic Web Project**. Se **Dynamic Web Project** non è elencato tra i progetti disponibili dopo aver fatto clic su **File**, **New**, fare clic su **File**, **New**, **Project**, espandere **Web**, fare clic su **Dynamic Web Project** e quindi su **Next**.
+1. Start Eclipse, and at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File** and **New**, then do the following: click **File**, click **New**, click **Project...**, expand **Web**, click **Dynamic Web Project**, and click **Next**.)
 
-1. Ai fini di questa esercitazione, denominare il progetto **MyHelloWorld**. L'aspetto della schermata sarà simile al seguente:
+1. For purposes of this tutorial, name the project **MyHelloWorld**. Your screen will appear similar to the following:
 
     ![][02]
 
-1. Fare clic su **Finish**.
+1. Click **Finish**.
 
-1. Nella visualizzazione Project Explorer di Eclipse espandere **MyHelloWorld**. Fare clic con il pulsante destro del mouse su **WebContent**, scegliere **New** e quindi fare clic su **JSP File**.
+1. Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
 
-1. Nella finestra di dialogo **New JSP File** assegnare al file il nome **index.jsp**. Mantenere il nome **MyHelloWorld/WebContent** per la cartella padre.
+1. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **MyHelloWorld/WebContent**.
 
-1. Per le finalità di questa esercitazione, nella finestra di dialogo **Select JSP Template** (Seleziona modello JSP) selezionare **New JSP File (html)** (Nuovo file JSP - html) e quindi fare clic su **Finish** (Fine).
+1. In the **Select JSP Template** dialog box, for purposes of this tutorial select **New JSP File (html)**, and then click **Finish**.
 
-1. Quando in Eclipse viene aperto il file index.jsp, aggiungere testo in modo da visualizzare dinamicamente **Hello World!** nell'elemento `<body>` esistente. Il contenuto `<body>` aggiornato deve avere un aspetto simile all'esempio seguente:
+1. When your index.jsp file opens in Eclipse, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should resemble the following example:
 
-    `<body><b><% out.println("Hello World!"); %></b></body>`
+    `<body><b><% out.println("Hello World!"); %></b></body>` 
 
-1. Salvare index.jsp.
+1. Save index.jsp.
 
-## Per distribuire l'applicazione in un contenitore di app Web di Azure
+## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>To Deploy your Application to an Azure Web App Container
 
-Esistono diversi modi con cui è possibile distribuire un'applicazione Web Java in Azure. Questa esercitazione descrive uno dei modi più semplici: l'applicazione viene distribuita in un contenitore di app Web di Azure senza richiedere tipi di progetto specifici o strumenti aggiuntivi. JDK e il software del contenitore Web vengono forniti automaticamente da Azure senza la necessità di eseguire alcun caricamento. È sufficiente disporre dell'app Web Java. Di conseguenza, il processo di pubblicazione per l'applicazione richiederà alcuni secondi, non minuti.
+There are several ways by which you can deploy a Java web application to Azure. This tutorial describes one of the simplest: your application will be deployed to an Azure Web App Container - no special project type nor additional tools are needed. The JDK and the web container software will be provided for you by Azure, so there is no need to upload your own; all you need is your Java Web App. As a result, the publishing process for your application will take seconds, not minutes.
 
-1. In Project Explorer (Esplora progetti) di Eclipse fare clic con il pulsante destro del mouse su **MyHelloWorld**.
+1. In Eclipse's Project Explorer, right-click **MyHelloWorld**.
 
-1. Dal menu di scelta rapida selezionare **Azure**, quindi fare clic su **Publish as Azure Web App** (Pubblica come app Web di Azure).
+1. In the context menu, select **Azure**, then click **Publish as Azure Web App...**
 
     ![][03]
    
-    In alternativa, mentre in Project Explorer (Esplora progetti) è selezionato il progetto di applicazione Web, è possibile fare clic sul pulsante a discesa **Publish** (Pubblica) nella barra degli strumenti e selezionare **Publish as Azure Web App** (Pubblica come app Web di Azure) da qui:
+    Alternatively, while your web application project is selected in the Project Explorer, you can click the **Publish** dropdown button on the toolbar and select **Publish as Azure Web App** from there:
    
     ![][14]
    
-1. Se non si è già eseguito l'accesso ad Azure da Eclipse, verrà richiesto di accedere all'account Azure:
+1. If you have not already signed into Azure from Eclipse, you will be prompted to sign into your Azure account:
 
     ![][04]
    
-    Nota: se si hanno più account Azure, durante il processo di accesso alcune richieste, all'apparenza identiche, possono essere visualizzate più volte, ognuna per un account diverso. In questo caso, continuare a seguire le istruzioni di accesso.
-1. Dopo aver eseguito l'accesso all'account Azure, nella finestra di dialogo **Manage Subscriptions** (Gestisci sottoscrizioni) viene visualizzato un elenco delle sottoscrizioni associate alle credenziali usate. Se sono elencate più sottoscrizioni e se ne vogliono usare solo alcune, è possibile deselezionare le sottoscrizioni che non si intende usare. Dopo aver selezionato le sottoscrizioni, fare clic su **Close** (Chiudi).
+    Note: If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue following the sign in instructions.
+1. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the ones you do want to use. When you have selected your subscriptions, click **Close**.
 
     ![][05]
    
-1. Nella finestra di dialogo **Deploy to Azure Web App Container** (Distribuisci in un contenitore app Web di Azure) sono visualizzati tutti i contenitori di app Web creati in precedenza. Se non è stato creato alcun contenitore, l'elenco appare vuoto.
+1. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.
 
     ![][06]
    
-1. Se non è stato creato alcun contenitore di app Web di Azure in precedenza o se si desidera pubblicare l'applicazione in un nuovo contenitore, attenersi alla procedura seguente. In caso contrario, selezionare un contenitore di app Web esistente e andare al passaggio 7.
+1. If you have not created an Azure Web App Container before, or if you would like to publish your application to a new container, use the following steps. Otherwise, select an existing Web App Container and skip to step 7 below.
 
-    1. Fare clic su **Nuovo**.
+    1. Click **New...**
 
-    1. Verrà visualizzata la finestra di dialogo **New Web App Container** (Nuovo contenitore app Web):
+    1. The **New Web App Container** dialog box will be displayed:
 
         ![][07]
 
-    1. In **DNS Label** (Etichetta DNS) specificare un'etichetta per il contenitore di app Web. Questa sarà l'etichetta DNS foglia dell'URL dell'host per l'applicazione Web in Azure. Nota: il nome deve essere disponibile e conforme ai requisiti di denominazione delle app Web di Azure.
+    1. Enter a **DNS Label** for your Web App Container; this will form the leaf DNS label of the host URL for your web application in Azure. Note: The name must be available and conform to Azure Web App naming requirements.
 
-    1. Nel menu a discesa **Contenitore Web** selezionare il software appropriato per l'applicazione.
+    1. In the **Web Container** drop-down menu, select the appropriate software for your application.
 
-        Attualmente è possibile scegliere fra Tomcat 8, Tomcat 7 o Jetty 9. Una distribuzione recente del software selezionato verrà fornita da Azure e sarà eseguita in una distribuzione recente di JDK 8 creata da Oracle e fornita da Azure.
+        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
-    1. Nel menu a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione che si vuole usare per la distribuzione.
+    1. In the **Subscription** drop-down menu, select the subscription you want to use for this deployment.
 
-    1. Nel menu a discesa **Gruppo di risorse** selezionare il gruppo di risorse a cui si vuole associare l'app Web.
+    1. In the **Resource Group** drop-down menu, select the Resource Group with which you want to associate your Web App.
 
-        Nota: i gruppi di risorse di Azure consentono di raggruppare le risorse correlate in modo che, ad esempio, possano essere eliminate insieme.
+        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
-        È possibile selezionare un gruppo di risorse esistente, se presente, e andare al passaggio g seguente o usare questa procedura per creare un nuovo gruppo di risorse:
+        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
-        * Fare clic su **Nuovo**.
+        * Click **New...**
 
-        * Verrà visualizzata la finestra di dialogo **Nuovo gruppo di risorse**:
+        * The **New Resource Group** dialog box will be displayed:
 
             ![][08]
 
-        * Nella casella di testo **Nome** specificare un nome per il nuovo gruppo di risorse.
+        * In the the **Name** textbox, specify a name for your new Resource Group.
 
-        * Nel menu a discesa **Area** selezionare il percorso del data center di Azure appropriato per il gruppo di risorse.
+        * In the the **Region** drop-down menu, select the appropriate Azure data center location for your Resource Group.
 
-        * Fare clic su **OK**.
+        * Click **OK**.
 
-    1. Il menu a discesa **Piano di servizio app** elenca i piani di servizio app associati al gruppo di risorse selezionato.
+    1. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected.
 
-        Nota: un piano di servizio app specifica informazioni quali il percorso dell'app Web, il piano tariffario e le dimensioni dell'istanza di calcolo. È possibile usare un singolo piano di servizio app per più app Web. Per questo motivo viene gestito separatamente da una distribuzione di app Web specifica.
+        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
-        È possibile selezionare un piano di servizio app esistente, se presente, e andare al passaggio h seguente o usare questa procedura per creare un nuovo piano di servizio app:
+        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
-        * Fare clic su **Nuovo**.
+        * Click **New...**
 
-        * Verrà visualizzata la finestra di dialogo **Nuovo piano di servizio app**:
+        * The **New App Service Plan** dialog box will be displayed:
 
             ![][09]
 
-        * Nella casella di testo **Nome** specificare un nome per il nuovo piano di servizio app.
+        * In the the **Name** textbox, specify a name for your new App Service Plan.
 
-        * Nel menu a discesa **Località** selezionare la località del data center di Azure appropriata per il piano.
+        * In the the **Location** drop-down menu, select the appropriate Azure data center location for the plan.
 
-        * Nel menu a discesa **Piano tariffario** selezionare la tariffa appropriata per il piano. Ai fini del test è possibile scegliere **Gratuito**.
+        * In the the **Pricing Tier** drop-down menu, select the appropriate pricing for the plan. For testing purposes you can choose **Free**.
 
-        * Nel menu a discesa **Dimensioni istanza** selezionare le dimensioni dell'istanza appropriate per il piano. Ai fini del test è possibile scegliere **Piccolo**.
+        * In the the **Instance Size** drop-down menu, select the appropriate instance size for the plan. For testing purposes you can choose **Small**.
 
-    1. Dopo aver completato tutti i passaggi precedenti, la finestra di dialogo New Web App Container dovrebbe essere simile alla seguente:
+    1. Once you have completed all of the above steps, the New Web App Container dialog box should resemble the following illustration:
 
         ![][10]
 
-    1. Fare clic su **OK** per completare la creazione del nuovo contenitore di app Web.
+    1. Click **OK** to complete the creation of your new Web App container.
 
-        Attendere alcuni secondi che venga aggiornato l'elenco dei contenitori di app Web. Il contenitore di app Web appena creato risulterà selezionato nell'elenco.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
-1. A questo punto si è pronti completare la distribuzione iniziale dell'app Web in Azure:
+1. You are now ready to complete the initial deployment of your Web App to Azure:
 
     ![][11]
 
-    Fare clic su **OK** per distribuire l'applicazione Java nel contenitore di app Web selezionato.
+    Click **OK** to deploy your Java application to the selected Web App container.
 
-    Nota: per impostazione predefinita, l'applicazione verrà distribuita come sottodirectory del server applicazioni. Se si vuole distribuire l'applicazione come applicazione radice, selezionare la casella di controllo **Deploy to root** (Distribuisci a radice) prima di fare clic su **OK**.
+    Note: By default, your application will be deployed as a subdirectory of the application server. If you want it to be deployed as the root application, check the **Deploy to root** checkbox before clicking **OK**.
 
-1. Verrà quindi aperta la visualizzazione **Azure Activity Log** (Log attività di Azure) in cui è indicato lo stato della distribuzione dell'app Web.
+1. Next, you should see the **Azure Activity Log** view, which will indicate the deployment status of your Web App.
 
     ![][12]
 
-    Il processo di distribuzione dell'app Web in Azure dovrebbe richiedere solo alcuni secondi. Quando l'applicazione è pronta, viene visualizzato un collegamento denominato **Published** (Pubblicata) nella colonna **Status** (Stato). Quando si fa clic sul collegamento, viene visualizzata la home page dell'app Web distribuita.
+    The process of deploying your Web App to Azure should take only a few seconds to complete. When your application ready, you will see a link named **Published** in the **Status** column. When you click the link, it will take you to your deployed Web App's home page.
 
-## Aggiornamento dell'app Web
+## <a name="updating-your-web-app"></a>Updating your Web App
 
-L'aggiornamento di un'app Web di Azure in esecuzione è un processo semplice e rapido. Sono disponibili due opzioni per l'aggiornamento:
+Updating an existing running Azure Web App is a quick and easy process, and you have two options for updating:
 
-* È possibile aggiornare la distribuzione di un'app Web Java esistente.
-* È possibile pubblicare un'applicazione Java aggiuntiva nello stesso contenitore di app Web.
+* You can update the deployment of an existing Java Web App.
+* You can publish an additional Java application to the same Web App Container.
 
-In entrambi i casi, il processo è identico e richiede solo pochi secondi:
+In either case, the process is identical and takes only a few seconds:
 
-1. In Project Explorer in Eclipse, fare clic con il pulsante destro del mouse sull'applicazione Java che si desidera aggiornare o aggiungere a un contenitore di app Web esistente.
+1. In the Eclipse project explorer, right-click the Java application you want to update or add to an existing Web App Container.
 
-2. Dal menu di scelta rapida visualizzato selezionare **Azure**, quindi **Publish as Azure Web App** (Pubblica come app Web di Azure).
+2. When the context menu appears, select **Azure** and then **Publish as Azure Web App...**
 
-3. Poiché è già stato effettuato l'accesso in precedenza, verrà visualizzato un elenco dei contenitori di app Web esistenti. Selezionare il contenitore in cui si vuole pubblicare o ripubblicare l'applicazione Java e fare clic su **OK**.
+3. Since you have already logged in previously, you will see a list of your existing Web App containers. Select the one you want to publish or re-publish your Java application to and click **OK**.
 
-Pochi secondi dopo, nella visualizzazione **Azure Activity Log** (Log attività di Azure) la distribuzione aggiornata apparirà come **Published** (Pubblicata) e sarà possibile verificare l'applicazione aggiornata in un Web browser.
+A few seconds later, the **Azure Activity Log** view will show your updated deployment as **Published** and you will be able to verify your updated application in a web browser.
 
-## Arresto di un'app Web esistente
+## <a name="stopping-an-existing-web-app"></a>Stopping an Existing Web App
 
-Per arrestare un contenitore di app Web di Azure esistente, incluse tutte le applicazioni Java in esso distribuite, è possibile usare la visualizzazione **Azure Explorer**.
+To stop an existing Azure Web App container, (including all the deployed Java applications in it), you can use the **Azure Explorer** view.
 
-Se la visualizzazione **Azure Explorer** non è già aperta, aprirla facendo clic sul menu **Window** (Finestra) in Eclipse, quindi su **Show View** (Mostra visualizzazione), **Other** (Altro), **Azure** e infine su **Azure Explorer**. Se non è già stato eseguito l'accesso in precedenza, verrà richiesto di accedere.
+If the **Azure Explorer** view is not already open, you can open it by clicking then **Window** menu in Eclipse, then click **Show View**, then **Other...**, then **Azure**, and then click **Azure Explorer**. If you have not previously logged in, it will prompt you to do so.
 
-Quando viene aperta la visualizzazione **Azure Explorer**, seguire questa procedura per arrestare l'app Web:
+When the **Azure Explorer** view is displayed, use follow these steps to stop your Web App: 
 
-1. Espandere il nodo **Azure**.
+1. Expand the **Azure** node.
 
-1. Espandere il nodo **Web Apps** (App Web).
+1. Expand the **Web Apps** node. 
 
-1. Fare clic con il pulsante destro del mouse sull'app Web desiderata.
+1. Right-click the desired Web App.
 
-1. Quando viene visualizzato il menu di scelta rapida, fare clic su **Stop** (Arresta).
+1. When the context menu appears, click **Stop**.
 
     ![][13]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next Steps
 
-Per ulteriori informazioni, vedere i collegamenti seguenti:
+For more information, see the following links:
 
-* [Centro per sviluppatori Java](/develop/java/).
-* [Panoramica delle app Web](app-service-web-overview.md)
+* [Java Developer Center](/develop/java/).
+* [Web Apps Overview](app-service-web-overview.md)
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
-[Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Installazione di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -226,4 +227,7 @@ Per ulteriori informazioni, vedere i collegamenti seguenti:
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 [14]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

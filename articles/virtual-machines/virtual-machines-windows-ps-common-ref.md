@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Comandi di PowerShell comuni per le macchine virtuali | Microsoft Azure"
-   description="Comandi di PowerShell comuni utili per iniziare a creare e gestire le macchine virtuali in Azure su Windows"
+   pageTitle="Common PowerShell commands for VMs | Microsoft Azure"
+   description="Common PowerShell commands to get you started creating and managing your VMs in Azure on Windows"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="davidmu1" 
@@ -14,44 +14,60 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="09/27/2016"
    ms.author="davidmu" />
 
-# Comandi di PowerShell comuni per la creazione e la gestione di macchine virtuali
 
-Questo articolo illustra alcuni comandi di Azure PowerShell che è possibile usare per creare e gestire macchine virtuali nella sottoscrizione di Azure. Per una guida più dettagliata con parametri e opzioni della riga di comando specifici, è possibile usare **Get-Help** come *comando*.
+# <a name="common-powershell-commands-for-creating-and-managing-vms"></a>Common PowerShell commands for creating and managing VMs
 
-## Creare risorse con Azure Powershell
+This article covers some of the Azure PowerShell commands that you can use to create and manage virtual machines in your Azure subscription.  For more detailed help with specific command-line switches and options, you can use **Get-Help** *command*.
 
-Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione che si vuole usare e accedere all'account Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
-Attività | Comando
+## <a name="create-a-vm"></a>Create a VM
+
+Task | Command
 -------------- | -------------------------
-Creare una configurazione di macchina virtuale | $vm = [New-AzureRmVMConfig](https://msdn.microsoft.com/library/mt603727.aspx) -VMName "nome\_vm" -VMSize "dimensioni\_vm"<BR></BR><BR></BR>La configurazione della macchina virtuale viene usata per definire o aggiornare le impostazioni per la VM. La configurazione viene inizializzata con il nome della macchina virtuale e le rispettive [dimensioni](virtual-machines-windows-sizes.md).
-Aggiungere le impostazioni di configurazione | $vm = [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) -VM $vm -Windows -ComputerName "nome\_computer" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>Le impostazioni del sistema operativo, incluse le [credenziali](https://technet.microsoft.com/library/hh849815.aspx), vengono aggiunte all'oggetto di configurazione creato in precedenza con New-AzureRmVMConfig.
-Aggiungere un'interfaccia di rete | $vm = [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) -VM $vm -Id $nic.Id<BR></BR><BR></BR>Una macchina virtuale deve avere un'[interfaccia di rete](virtual-machines-windows-ps-create.md) per le comunicazioni in una rete virtuale. È anche possibile usare [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) per recuperare un oggetto di interfaccia di rete esistente.
-Specificare un'immagine della piattaforma | $vm = [Set-AzureRmVMSourceImage](https://msdn.microsoft.com/library/mt619344.aspx) -VM $vm -PublisherName "nome\_publisher" -Offer "offerta\_publisher" -Skus "sku\_prodotto" -Version "più\_recente"<BR></BR><BR></BR>Le [informazioni sull'immagine](virtual-machines-windows-cli-ps-findimage.md) vengono aggiunte all'oggetto di configurazione creato in precedenza con New-AzureRmVMConfig. L'oggetto restituito da questo comando viene usato solo quando si configura il disco del sistema operativo in modo che usi un'immagine della piattaforma.
-Configurare il disco del sistema operativo in modo che usi un'immagine della piattaforma | $vm = [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) -VM $vm -Name "nome\_disco" -VhdUri "http://mystore1.blob.core.windows.net/vhds/disk\_name.vhd" -CreateOption FromImage<BR></BR><BR></BR>Il nome del disco del sistema operativo e la posizione in cui sarà inserito nella [risorsa di archiviazione](../storage/storage-powershell-guide-full.md) vengono aggiunti all'oggetto di configurazione creato in precedenza.
-Configurare il disco del sistema operativo in modo che usi un'immagine generalizzata | $vm = Set-AzureRmVMOSDisk -VM $vm -Name "nome\_disco" -SourceImageUri "https://mystore1.blob.core.windows.net/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd" -VhdUri "https://mystore1.blob.core.windows.net/vhds/disk\_name.vhd" -CreateOption FromImage -Windows<BR></BR><BR></BR>Il nome del disco del sistema operativo, la posizione dell'immagine di origine e la posizione in cui verrà inserito il disco nella [risorsa di archiviazione](../storage/storage-powershell-guide-full.md) vengono aggiunti all'oggetto di configurazione creato in precedenza.
-Configurare il disco del sistema operativo in modo che usi un'immagine specializzata | $vm = Set-AzureRmVMOSDisk -VM $vm -Name "nome\_del\_disco" -VhdUri "http://mystore1.blob.core.windows.net/vhds/" -CreateOption Attach -Windows
-Creare una macchina virtuale | [New-AzureRmVM]() -ResourceGroupName "nome\_gruppo\_di\_risorse" -Location "nome\_posizione" -VM $vm<BR></BR><BR></BR>Tutte le risorse vengono create in un [gruppo di risorse](../powershell-azure-resource-manager.md). La macchina virtuale deve essere creata nella stessa [posizione](https://msdn.microsoft.com/library/azure/dn495177.aspx) del gruppo di risorse. Prima di eseguire questo comando, eseguire New-AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Add-AzureRmVMNetworkInterface e Set-AzureRmVMOSDisk.
-Elencare le macchine virtuali in una sottoscrizione| [Get-AzureRmVM](https://msdn.microsoft.com/library/mt603718.aspx)
-Elencare le macchine virtuali in un gruppo di risorse | Get-AzureRmVM -ResourceGroupName "nome\_gruppo\_di\_risorse"<BR></BR><BR></BR>Per ottenere un elenco di gruppi di risorse disponibili nella sottoscrizione, usare [Get-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt679016.aspx).
-Visualizzare informazioni su una macchina virtuale | Get-AzureRmVM -ResourceGroupName "nome\_gruppo\_di\_risorse" -Name "nome\_vm"
-Avviare una macchina virtuale | [Start-AzureRmVM](https://msdn.microsoft.com/library/mt603453.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -Name "nome\_vm"
-Arrestare una macchina virtuale | [Stop-AzureRmVM](https://msdn.microsoft.com/library/mt603483.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -Name "nome\_vm"
-Riavviare una macchina virtuale in esecuzione | [Restart-AzureRmVM](https://msdn.microsoft.com/library/mt603775.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -Name "nome\_vm"
-Eliminare una macchina virtuale | [Remove-AzureRmVM](https://msdn.microsoft.com/library/mt603641.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -Name "nome\_vm"
-Generalizzare una macchina virtuale | [Set-AzureRmVm](https://msdn.microsoft.com/library/mt603688.aspx) -ResourceGroupName YourResourceGroup -Name "nome\_vm" -Generalized<BR></BR><BR></BR>È necessario eseguire questo comando prima di eseguire Save-AzureRmVMImage.
-Acquisire una macchina virtuale | [Save-AzureRmVMImage](https://msdn.microsoft.com/library/mt619423.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -VMName "nome\_vm" -DestinationContainerName "contenitore\_immagine" -VHDNamePrefix "prefisso\_nome\_immagine" -Path "C:\\percorsofile\\nomefile.json"<BR></BR><BR></BR>Una macchina virtuale deve essere [arrestata e generalizzata](virtual-machines-windows-capture-image.md) per potere essere usata per creare un'immagine. Prima di eseguire questo comando, eseguire Set-AzureRmVm.
-Aggiornare una macchina virtuale | [Update-AzureRmVM](https://msdn.microsoft.com/library/mt603662.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -VM $vm<BR></BR><BR></BR>Ottenere la configurazione della macchina virtuale usando Get-AzureRmVM, cambiare le impostazioni di configurazione nell'oggetto VM e quindi eseguire questo comando.
-Aggiungere un disco dati a una macchina virtuale | [Add-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603673.aspx) -VM $vm -Name "nome\_disco" -VhdUri "https://mystore1.blob.core.windows.net/vhds/nome\_disco.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>Usare Get-AzureRmVM per ottenere l'oggetto VM. Specificare il numero LUN e le dimensioni del disco. Eseguire Update-AzureRmVM per applicare le modifiche della configurazione alla macchina virtuale. Il disco aggiunto non viene inizializzato. A questo scopo, vedere [Gestire macchine virtuali di Azure con Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
-Rimuovere un disco dati da una macchina virtuale | [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx) -VM $vm -Name "nome\_disco"<BR></BR><BR></BR>Usare Get-AzureRmVM per ottenere l'oggetto VM. Eseguire Update-AzureRmVM per applicare le modifiche della configurazione alla macchina virtuale.
-Aggiungere un'estensione a una macchina virtuale | [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -Location "posizione\_azure" -VMName "nome\_vm" -Name "nome\_estensione" -Publisher "nome\_publisher" -Type "tipo\_estensione" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Eseguire questo comando con le [informazioni di configurazione ](virtual-machines-windows-extensions-configuration-samples.md) appropriate per l'estensione da installare.
-Rimuovere un'estensione di macchina virtuale | [Remove-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603782.aspx) -ResourceGroupName "nome\_gruppo\_di\_risorse" -Name "nome\_estensione" -VMName "nome\_vm"
+Create a VM configuration | $vm = [New-AzureRmVMConfig](https://msdn.microsoft.com/library/mt603727.aspx) -VMName "vm_name" -VMSize "vm_size"<BR></BR><BR></BR>The VM configuration is used to define or update settings for the VM. The configuration is initialized with the name of the VM and its [size](virtual-machines-windows-sizes.md).
+Add configuration settings | $vm = [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) -VM $vm -Windows -ComputerName "computer_name" -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>Operating system settings including [credentials](https://technet.microsoft.com/library/hh849815.aspx) are added to the configuration object that you previously created using New-AzureRmVMConfig.
+Add a network interface | $vm = [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) -VM $vm -Id $nic.Id<BR></BR><BR></BR>A VM must have a [network interface](virtual-machines-windows-ps-create.md) to communicate in a virtual network. You can also use [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) to retrieve an existing network interface object.
+Specify a platform image | $vm = [Set-AzureRmVMSourceImage](https://msdn.microsoft.com/library/mt619344.aspx) -VM $vm -PublisherName "publisher_name" -Offer "publisher_offer" -Skus "product_sku" -Version "latest"<BR></BR><BR></BR>[Image information](virtual-machines-windows-cli-ps-findimage.md) is added to the configuration object that you previously created using New-AzureRmVMConfig. The object returned from this command is only used when you set the OS disk to use a platform image.
+Set OS disk to use a platform image | $vm = [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) -VM $vm -Name "disk_name" -VhdUri "http://mystore1.blob.core.windows.net/vhds/disk_name.vhd" -CreateOption FromImage<BR></BR><BR></BR>The name of the operating system disk and its location in [storage](../storage/storage-powershell-guide-full.md) is added to the configuration object that you previously created.
+Set OS disk to use a generalized image | $vm = Set-AzureRmVMOSDisk -VM $vm -Name "disk_name" -SourceImageUri "https://mystore1.blob.core.windows.net/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd" -VhdUri "https://mystore1.blob.core.windows.net/vhds/disk_name.vhd" -CreateOption FromImage -Windows<BR></BR><BR></BR>The name of the operating system disk, the location of the source image, and the disk's location in [storage](../storage/storage-powershell-guide-full.md) is added to the configuration object.
+Set OS disk to use a specialized image | $vm = Set-AzureRmVMOSDisk -VM $vm -Name "name_of_disk" -VhdUri "http://mystore1.blob.core.windows.net/vhds/" -CreateOption Attach -Windows
+Create a VM | [New-AzureRmVM]() -ResourceGroupName "resource_group_name" -Location "location_name" -VM $vm<BR></BR><BR></BR>All resources are created in a [resource group](../powershell-azure-resource-manager.md). The VM must be created in the same [location](https://msdn.microsoft.com/library/azure/dn495177.aspx) as the resource group. Before you run this command, run New-AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Add-AzureRmVMNetworkInterface, and Set-AzureRmVMOSDisk.
 
-## Passaggi successivi
+## <a name="get-information-about-vms"></a>Get information about VMs
 
-- Per informazioni sulle procedure di base per creare una macchina virtuale, vedere [Creare una VM Windows con Resource Manager e PowerShell](virtual-machines-windows-ps-create.md).
+Task | Command
+-------------- | -------------------------
+List VMs in a subscription| [Get-AzureRmVM](https://msdn.microsoft.com/library/mt603718.aspx)
+List VMs in a resource group | Get-AzureRmVM -ResourceGroupName "resource_group_name"<BR></BR><BR></BR>To get a list of resource groups in your subscription, use [Get-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt679016.aspx).
+Get information about a VM | Get-AzureRmVM -ResourceGroupName "resource_group_name" -Name "vm_name"
 
-<!---HONumber=AcomDC_0629_2016-->
+## <a name="manage-vms"></a>Manage VMs
+
+Task | Command
+-------------- | -------------------------
+Start a VM | [Start-AzureRmVM](https://msdn.microsoft.com/library/mt603453.aspx) -ResourceGroupName "resource_group_name" -Name "vm_name"
+Stop a VM | [Stop-AzureRmVM](https://msdn.microsoft.com/library/mt603483.aspx) -ResourceGroupName "resource_group_name" -Name "vm_name"
+Restart a running VM | [Restart-AzureRmVM](https://msdn.microsoft.com/library/mt603775.aspx) -ResourceGroupName "resource_group_name" -Name "vm_name"
+Delete a VM | [Remove-AzureRmVM](https://msdn.microsoft.com/library/mt603641.aspx) -ResourceGroupName "resource_group_name" -Name "vm_name"
+Generalize a VM | [Set-AzureRmVm](https://msdn.microsoft.com/library/mt603688.aspx) -ResourceGroupName YourResourceGroup -Name "vm_name" -Generalized<BR></BR><BR></BR>Run this command before you run Save-AzureRmVMImage.
+Capture a VM | [Save-AzureRmVMImage](https://msdn.microsoft.com/library/mt619423.aspx) -ResourceGroupName "resource_group_name" -VMName "vm_name" -DestinationContainerName "image_container" -VHDNamePrefix "image_name_prefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>A virtual machine must be [shut down and generalized](virtual-machines-windows-generalize-vhd.md) to be used to create an image. Before you run this command, run Set-AzureRmVm.
+Update a VM | [Update-AzureRmVM](https://msdn.microsoft.com/library/mt603662.aspx) -ResourceGroupName "resource_group_name" -VM $vm<BR></BR><BR></BR>Get the current VM configuration using Get-AzureRmVM, change configuration settings on the VM object, and then run this command.
+Add a data disk to a VM | [Add-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603673.aspx) -VM $vm -Name "disk_name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/disk_name.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>Use Get-AzureRmVM to get the VM object. Specify the LUN number and the size of the disk. Run Update-AzureRmVM to apply the configuration changes to the VM. The disk that you add is not initialized. For information about initializing disks as they are added, see [Manage Azure Virtual Machines using Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+Remove a data disk from a VM | [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx) -VM $vm -Name "disk_name"<BR></BR><BR></BR>Use Get-AzureRmVM to get the VM object. Run Update-AzureRmVM to apply the configuration changes to the VM.
+Add an extension to a VM | [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) -ResourceGroupName "resource_group_name" -Location "azure_location" -VMName "vm_name" -Name "extension_name" -Publisher "publisher_name" -Type "extension_type" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Run this command with the appropriate [configuration information](virtual-machines-windows-extensions-configuration-samples.md) for the extension that you want to install.
+Remove a VM extension | [Remove-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603782.aspx) -ResourceGroupName "resource_group_name" -Name "extension_name" -VMName "vm_name"
+
+## <a name="next-steps"></a>Next steps
+
+- See the basic steps for creating a virtual machine in [Create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md).
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

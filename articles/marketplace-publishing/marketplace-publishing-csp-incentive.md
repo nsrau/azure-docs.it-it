@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Come visualizzare e modificare il Cloud Solution Provider ";Incentivi rivenditore"; | Microsoft Azure"
-   description="Informazioni su come visualizzare e modificare la selezione per il CSP ";Incentivi rivenditore";."
+   pageTitle="How to view and change the Cloud Solution Provider's Reseller Incentive | Microsoft Azure"
+   description="How to view and change your selection for CSP Reseller Incentive"
    services="marketplace-publishing"
    documentationCenter="na"
    authors="DavidBosland"
@@ -16,35 +16,40 @@
    ms.date="02/10/2016"
    ms.author="DavidBosland"/>
 
-# Visualizzare e modificare il Cloud Solution Provider "Incentivi rivenditore" in Azure Marketplace
 
-Il 15 marzo 2016 i Cloud Solution Provider (CSP) "Incentivi rivenditore" saranno disponibili per gli editori di Marketplace. L'impostazione predefinita per questo valore di incentivo è **Sì**. L'editore può decidere di rifiutare esplicitamente il programma di incentivi. Questo articolo illustra come modificare l'impostazione nel profilo di pubblicazione e quindi come rifiutarla esplicitamente.
+# <a name="view-and-change-your-cloud-solution-provider-"reseller-incentive"-in-the-azure-marketplace"></a>View and change your Cloud Solution Provider "Reseller Incentive" in the Azure Marketplace
 
-Per visualizzare o modificare lo stato di "Incentivi rivenditore", seguire questa procedura:
+On March 15, 2016 we'll make the Cloud Solution Providers (CSPs) “Reseller Incentive” available to Marketplace publishers.  The default setting for this incentive value is **Yes**.  As a publisher you can decide to opt-out of the incentive program.  This article shows how to change the setting in your publisher profile so you can opt-out.
 
-1.	Accedere con [l'account di pubblicazione di Microsoft Azure](https://publish.windowsazure.com/workspace)
+To view or change your “Reseller Incentive” status, follow these steps:
 
-    ![Schermata di destinazione del profilo][1]
+1.  Log in to your [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)
 
-2.	Fare clic su **Editori**
+    ![Profile landing screen][1]
 
-    ![Schermata di destinazione del profilo - Collegamento Editori][2]
+2.  Click **Publishers**
 
-3.	Si notino le informazioni relative ai CSP nel profilo. È disponibile un'**opzione per abilitare** "Incentivi rivenditore". Il valore predefinito è "Sì".
+    ![Profile landing screen - publishers link][2]
 
-    ![Profilo - Editori][3]
+3.  Notice the information in your profile about CSPs.  There is a **switch to say yes or no** to the "Reseller Incentive" - the default status is “Yes.”
 
-4.	Per modificare lo stato di "Incentivi rivenditore", accedere al profilo di pubblicazione quindi selezionare e salvare l'opzione desiderata:
+    ![Profile - Publishers][3]
 
-  - Selezionare **Sì** per scegliere di fornire lo sconto del 20% ai CSP rivenditori di applicazioni e servizi elencati in Azure Marketplace. In alternativa, selezionare **No** per rifiutare esplicitamente il programma di incentivi. In entrambi i casi, i proventi dell'editore sono identici.
+4.  To change your "Reseller Incentive" status access your Publisher Profile then select and save your choice:
 
-  - Dopo aver effettuato una selezione fare clic su **Salva** nell'angolo in alto a destra.
+  - Select **Yes** to choose to provide the 20 percent discount to the CSPs who are reselling the applications and services you have listed in the Azure Marketplace.  Or select **No** to opt out of this incentive program.  In either case the publisher receives the same payout.
 
-    ![Profilo - Editori - caselle di modifica][4]
+  - After you make a selection make sure you click **Save** in the upper right hand corner.
+
+    ![Profile - Publishers - change boxes][4]
 
 [1]: ./media/marketplace-publishing-csp-incentive/profile-stock.png
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
 
-<!---HONumber=AcomDC_0218_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

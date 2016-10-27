@@ -1,52 +1,58 @@
-<properties 
-   pageTitle="Configurare un metodo di routing del traffico delle prestazioni | Microsoft Azure"
-   description="Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico"
+<properties
+   pageTitle="Configure Performance traffic routing method | Microsoft Azure"
+   description="This article will help you configure performance traffic routing method in Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
    authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="10/18/2016"
    ms.author="sewhee" />
 
-# Configurare un metodo di routing del traffico delle prestazioni
+<!-- repub for nofollow -->
 
-Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) che si trovano in diversi data center (noti anche come aree) in tutto il mondo, è possibile indirizzare il traffico in ingresso proveniente dal client che effettua la richiesta all'endpoint con latenza più bassa. In genere, il data center con latenza più bassa corrisponde a quello più vicino in termini di distanza geografica. Il metodo di routing del traffico basato sulle prestazioni consente di distribuire il carico in base alla latenza più bassa, ma non può tenere conto delle modifiche in tempo reale della configurazione della rete o del carico. Per altre informazioni sui diversi metodi di routing del traffico forniti da Gestione traffico di Azure, vedere [Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md).
+# <a name="configure-performance-traffic-routing-method"></a>Configure Performance traffic routing method
 
-## Eseguire il routing del traffico in base alla latenza più bassa in un set di endpoint:
+In order to route traffic for cloud services and websites (endpoints) that are located in different datacenters across the globe (also known as regions), you can direct incoming traffic to the endpoint with the lowest latency from the requesting client. Typically, the datacenter with the lowest latency corresponds to the closest in geographic distance. The Performance traffic routing method will allow you to distribute based on lowest latency, but cannot take into account real-time changes in network configuration or load. For more information on the different traffic routing methods that Azure Traffic Manager provides, see [About Traffic Manager traffic routing Methods](traffic-manager-routing-methods.md).
 
-1. Nel riquadro sinistro del portale di Azure classico fare clic sull'icona **Gestione traffico** per aprire il relativo riquadro. Se non è ancora stato creato il profilo di Gestione traffico, vedere [Gestire i profili di Gestione traffico](traffic-manager-manage-profiles.md) per i passaggi necessari per la creazione di un profilo di base di Gestione traffico.
-2. Nel riquadro di Gestione traffico del portale di Azure classico individuare il profilo di Gestione traffico in cui sono contenute le impostazioni da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
-3. Nella parte superiore della pagina del profilo fare clic su **Endpoint** e verificare che siano presenti gli endpoint servizio che si desidera includere nella configurazione. Per i passaggi necessari per aggiungere o rimuovere endpoint dal profilo, vedere [Gestire gli endpoint in Gestione traffico](traffic-manager-endpoints.md).
-4. Nella parte superiore della pagina del profilo fare clic su **Configura** per aprire la pagina di configurazione.
-5. Per **Impostazioni del metodo di routing del traffico**, verificare che il metodo di bilanciamento del carico sia **Prestazioni*. In caso contrario, fare clic su **Prestazioni** nell'elenco a discesa.
-6. Verificare che le **Impostazioni di monitoraggio** siano configurate correttamente. Tramite il monitoraggio viene assicurato il mancato invio di traffico agli endpoint offline. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Si noti che la barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita). Per altre informazioni sul monitoraggio, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-7. Dopo aver completato le modifiche di configurazione, fare clic su **Salva** nella parte inferiore della pagina.
-8. Verificare le modifiche apportate alla configurazione. Per altre informazioni, vedere [Test delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md).
-9. Dopo avere impostato e verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico. Per altre informazioni, vedere [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md).
+## <a name="route-traffic-based-on-lowest-latency-across-a-set-of-endpoints:"></a>Route traffic based on lowest latency across a set of endpoints:
 
-## Passaggi successivi
+1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md) for the steps to create a basic Traffic Manager profile.
+2. In the Azure classic portal, on the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+3. On the page for your profile, click **Endpoints** at the top of the page and verify that the service endpoints that you want to include in your configuration are present. For steps to add or remove endpoints from your profile, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
+4. On the page for your profile, click **Configure** at the top to open the configuration page.
+5. For **traffic routing method settings**, verify that the traffic routing method is **Performance*. If it’s not, click **Performance** in the dropdown list.
+6. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. In order to monitor endpoints, you must specify a path and filename. Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default). For more information about monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md).
+7. After you complete your configuration changes, click **Save** at the bottom of the page.
+8. Test the changes in your configuration. For more information, see [Testing Traffic Manager Settings](traffic-manager-testing-settings.md).
+9. Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](traffic-manager-point-internet-domain.md).
+
+## <a name="next-steps"></a>Next steps
 
 
-[Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md)
+[Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
 
-[Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
+[Traffic Manager routing methods](traffic-manager-routing-methods.md)
 
-[Configurare metodo di routing failover](traffic-manager-configure-failover-routing-method.md)
+[Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
 
-[Configurare il metodo di routing Round Robin](traffic-manager-configure-round-robin-routing-method.md)
+[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
 
-[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
+[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 
-[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
+[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
-[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
- 
+[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

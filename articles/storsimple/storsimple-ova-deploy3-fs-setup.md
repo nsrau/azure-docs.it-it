@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Distribuire StorSimple Virtual Array 3: configurare il dispositivo virtuale come file server"
-   description="Questa terza esercitazione sulla distribuzione di StorSimple Virtual Array illustra come configurare un dispositivo virtuale come file server."
+   pageTitle="Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server"
+   description="This third tutorial in StorSimple Virtual Array deployment instructs you to set up a virtual device as file server."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,220 +16,225 @@
    ms.date="05/26/2016"
    ms.author="alkohli"/>
 
-# Distribuire StorSimple Virtual Array: configurare come file server
+
+# <a name="deploy-storsimple-virtual-array---set-up-as-file-server"></a>Deploy StorSimple Virtual Array - Set up as file server
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
-## Introduzione 
+## <a name="introduction"></a>Introduction 
 
-Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016. Questo articolo illustra come eseguire l'installazione iniziale, registrare il file server StorSimple, completare l'installazione del dispositivo, quindi creare condivisioni SMB a cui connettersi. Questo è l'ultimo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
-Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti.
-
-
-## Prerequisiti di installazione
-
-Prima di configurare e installare il dispositivo virtuale StorSimple, si deve:
-
--   Eseguire il provisioning di un dispositivo virtuale e connettersi come illustrato nell'articolo relativo al [provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o al [provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
-
--   Avere ottenuto la chiave di registrazione del servizio dal servizio StorSimple Manager creato per gestire i dispositivi virtuali StorSimple. Per altre informazioni, vedere [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per StorSimple Virtual Array.
-
--   Se questo è il secondo dispositivo virtuale o l'ulteriore dispositivo registrato con un servizio StorSimple Manager esistente, è necessario disporre della chiave DEK del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere come [ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) per StorSimple Virtual Array.
-
-## Installazione passo per passo
-
-Seguire passo per passo le istruzioni riportate sotto per installare e configurare il dispositivo virtuale StorSimple.
-
-## Passaggio 1: Completare l'installazione dell'interfaccia utente Web locale e registrare il dispositivo 
+The setup and configuration process can take around 10 minutes to complete.
 
 
-#### Per completare l'installazione e registrare il dispositivo
+## <a name="setup-prerequisites"></a>Setup prerequisites
 
-1.  Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare:	
+Before you configure and set up your StorSimple virtual device, make sure that:
+
+-   You have provisioned a virtual device and connected to it as detailed in the [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+
+-   You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
+
+-   If this is the second or subsequent virtual device that you are registering with an existing StorSimple Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your StorSimple Virtual Array.
+
+## <a name="step-by-step-setup"></a>Step-by-step setup
+
+Use the following step-by-step instructions to set up and configure your StorSimple virtual device.
+
+## <a name="step-1:-complete-the-local-web-ui-setup-and-register-your-device"></a>Step 1: Complete the local web UI setup and register your device 
+
+
+#### <a name="to-complete-the-setup-and-register-the-device"></a>To complete the setup and register the device
+
+1.  Open a browser window and connect to the local web UI.Type: 
 
     `https://<ip-address of network interface>`
 
-	Usare l'URL di connessione indicata nel passaggio precedente. Viene visualizzato un errore in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. Fare clic su **Passa a questa pagina Web**.
+    Use the connection URL noted in the previous step. You will see an error indicating that there is a problem with the website’s security certificate. Click **Continue to this webpage**.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo all'[esecuzione del provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o all'[esecuzione del provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Sign in to the web UI of your virtual device as **StorSimpleAdmin**. Enter the device administrator password that you changed in Step 3: Start the virtual device in [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or in [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
-1.  Si passa così alla pagina **Home**. Questa pagina illustra le varie impostazioni necessarie per configurare e registrare il dispositivo virtuale con il servizio StorSimple Manager. Notare che le **Impostazioni di rete**, le **Impostazioni proxy Web** e le **Impostazioni ora** sono facoltative. Le uniche impostazioni obbligatorie sono le **Impostazioni del dispositivo** e le **Impostazioni cloud**.
+1.  You will be taken to the **Home** page. This page describes the various settings required to configure and register the virtual device with the StorSimple Manager service. Note that the **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
 
-1.  Nella pagina delle **Impostazioni di rete** in **Interfacce di rete** DATA 0 viene configurato automaticamente per l'utente. Ogni interfaccia di rete è impostata come predefinita per ottenere l'indirizzo IP automaticamente (DHCP). Di conseguenza, un indirizzo IP, una subnet e un gateway vengono assegnati automaticamente (sia per IPv4 che per IPv6).
+1.  In the **Network settings** page under **Network interfaces**, DATA 0 will be automatically configured for you. Each network interface is set by default to get IP address automatically (DHCP). Hence, an IP address, subnet, and gateway will be automatically assigned (for both IPv4 and IPv6).
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	Se si aggiunge più di un'interfaccia di rete durante il provisioning del dispositivo, è possibile configurarle tutte qui. Si noti che è possibile configurare l'interfaccia di rete come solo IPv4 o come IPv4 e IPv6. Le configurazioni solo IPv6 non sono supportate.
+    If you added more than one network interface during the provisioning of the device, you can configure them here. Note you can configure your network interface as IPv4 only or as both IPv4 and IPv6. IPv6 only configurations are not supported.
 
-1.  I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome quando configurato come file server. Nella pagina **Impostazioni di rete** in **Server DNS**:
+1.  DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name when configured as a file server. In the **Network settings** page under the **DNS servers**:
 
-    1.  Un server DNS primario e secondario viene configurato automaticamente. Se si sceglie di configurare gli indirizzi IP statici, è possibile specificare i server DNS. Per una disponibilità elevata, si consiglia di configurare un server DNS primario e uno secondario.
+    1.  A primary and secondary DNS server will be automatically configured. If you choose to configure static IP addresses, you can specify DNS servers. For high availability, we recommend that you configure a primary and a secondary DNS server.
 
-    2.  Fare clic su **Apply**. Si applicano e convalidano così le impostazioni di rete.
+    2.  Click **Apply**. This will apply and validate the network settings.
 
-2.  Nella pagina **Impostazioni del dispositivo**:
+2.  In the **Device settings** page:
 
-    1.  Assegnare un **Nome** univoco al dispositivo. Questo nome può avere da 1 a 15 caratteri e contenere lettere, numeri e trattini.
+    1.  Assign a unique **Name** to your device. This name can be 1-15 characters and can contain letter, numbers and hyphens.
 
-    2.  Fare clic sull'icona **File server** ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) per il **Tipo** di dispositivo che si sta creando. Un file server consente la creazione di cartelle condivise.
+    2.  Click the **File server** icon ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) for the **Type** of device that you are creating. A file server will allow you to create shared folders.
 
-    3.  Il dispositivo è un file server, quindi è necessario aggiungerlo a un dominio. Immettere un **Nome di dominio**.
+    3.  As your device is a file server, you will need to join the device to a domain. Enter a **Domain name**.
 
-	1.  Fare clic su **Apply**.
+    1.  Click **Apply**.
 
-2.  Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
+2.  A dialog box will appear. Enter your domain credentials in the specified format. Click the check icon. The domain credentials will be verified. You will see an error message if the credentials are incorrect.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image7.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image7.png)
 
-1.  Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
+1.  Click **Apply**. This will apply and validate the device settings.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
 
-	> [AZURE.NOTE]
-	> 
-	> Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory e che ad esso non siano applicati o ereditati oggetti Criteri di gruppo (GPO). Tramite Criteri di gruppo è possibile installare applicazioni quali software antivirus in StorSimple Virtual Array. L'installazione di software aggiuntivo non è supportata e può causare il danneggiamento dei dati.
+    > [AZURE.NOTE]
+    > 
+    > Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it or inherited. Group policy may install applications such as anti-virus software on the StorSimple Virtual Array. Installing additional software is not supported and could lead to data corruption. 
 
-1.  Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
+1.  (Optionally) configure your web proxy server. Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
 
-	Nella pagina **Proxy Web**:
+    In the **Web proxy** page:
 
-	1.  Fornire l'**URL proxy Web** in questo formato: *http://&lt;host-IP address or FDQN&gt;:Port number*. Notare che gli URL HTTPS non sono supportati.
+    1.  Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FDQN&gt;:Port number*. Note that HTTPS URLs are not supported.
 
-	2.  Specificare **Autenticazione** come **Basic** o **Nessuna**.
+    2.  Specify **Authentication** as **Basic** or **None**.
 
-	3.  Se si usa l'autenticazione, è necessario anche fornire **Nome utente** e **Password**.
+    3.  If using authentication, you will also need to provide a **Username** and **Password**.
 
-	4.  Fare clic su **Apply**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
+    4.  Click **Apply**. This will validate and apply the configured web proxy settings.
 
-1.  Configurare le impostazioni ora per il dispositivo, ad esempio il fuso orario e i server NTP primari e secondari (facoltativo). I server NTP sono obbligatori in quanto il dispositivo deve sincronizzare l'ora e consentire l'autenticazione con i provider del servizio cloud.
+1.  (Optionally) configure the time settings for your device, such as time zone and the primary and secondary NTP servers. NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
 
-	Nella pagina **Impostazioni ora**:
+    In the **Time settings** page:
 
-	1.  Nell'elenco a discesa, selezionare il **Fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
+    1.  From the dropdown list, select the **Time zone** based on the geographic location in which the device is being deployed. The default time zone for your device is PST. Your device will use this time zone for all scheduled operations.
 
-	2.  Specificare un **Primary NTP server** (Server NTP primario) per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
+    2.  Specify a **Primary NTP server** for your device or accept the default value of time.windows.com. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet.
 
-	3.  Facoltativamente, specificare un **Secondary NTP server** (Server NTP secondario) per il dispositivo.
+    3.  Optionally specify a **Secondary NTP server** for your device.
 
-	4.  Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
+    4.  Click **Apply**. This will validate and apply the configured time settings.
 
-1.  Configurare le impostazioni del cloud per il dispositivo. In questo passaggio, viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio StorSimple Manager.
+1.  Configure the cloud settings for your device. In this step, you will complete the local device configuration and then register the device with your StorSimple Manager service.
 
-    1.  Immettere la **Chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
+    1.  Enter the **Service registration key** that you got in [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
 
-    2.  Se questo è il primo dispositivo che si registra con questo servizio, ignorare questo passaggio e andare al passaggio successivo. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **Chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2.  Skip this step if this is your first device registering with this service and go to the next step. If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
 
-    3.  Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
+    3.  Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
 
-		![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
-	
+        ![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
+    
 
-1.  Tornare al portale di Azure classico. Nella pagina **Dispositivi**, verificare che il dispositivo sia connesso correttamente al servizio controllando lo stato. Lo stato del dispositivo deve essere **Attivo**.
+1.  Return to the Azure classic portal. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
 
 ![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
 
-## Passaggio 2: Completare l'installazione del dispositivo richiesta
+## <a name="step-2:-complete-the-required-device-setup"></a>Step 2: Complete the required device setup
 
-Per completare la configurazione dispositivo del dispositivo StorSimple, è necessario:
+To complete the device configuration of your StorSimple device, you need to:
 
--   Selezionare un account di archiviazione da associare al dispositivo.
+-   Select a storage account to associate with your device.
 
--   Scegliere le impostazioni di crittografia per i dati inviati al cloud.
+-   Choose encryption settings for the data that is sent to cloud.
 
-Eseguire la procedura seguente nel [portale di Azure classico](https://manage.windowsazure.com/) per completare l'installazione richiesta del dispositivo.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to complete the required device setup.
 
-#### Per completare l'installazione minima del dispositivo
+#### <a name="to-complete-the-minimum-device-setup"></a>To complete the minimum device setup
 
-1.  Nella pagina **Dispositivi**, selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Attivo**. Fare clic sulla freccia in base al nome del dispositivo, quindi fare clic su **Avvio rapido**.
+1.  From the **Devices** page, select the device you just created. This device would show up as **Active**. Click the arrow against the device name and then click **Quick Start**.
 
-2.  Fare clic su **installazione dispositivo completata** per avviare la configurazione guidata del dispositivo.
+2.  Click **complete device setup** to start the Configure device wizard.
 
-3.  Nella configurazione guidata del dispositivo, nella pagina **Impostazioni di base** eseguire le seguenti operazioni:
+3.  In the Configure device wizard on the **Basic Settings** page, do the following:
 
-	1.  Specificare un account di archiviazione da usare con il dispositivo. È possibile selezionare un account di archiviazione esistente in questa sottoscrizione nell'elenco a discesa o specificare **Aggiungi elementi** per scegliere un account da una sottoscrizione diversa.
+    1.  Specify a storage account to be used with your device. You can select an existing storage account in this subscription from the dropdown list or specify **Add more** to choose an account from a different subscription.
 
-	2.  Definire le impostazioni di crittografia per tutti i dati inattivi (crittografia AES) da inviare al cloud. Per crittografare i dati, selezionare la casella combinata per **abilitare la chiave di crittografia per l'archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia.
+    2.  Define the encryption settings for all the data-at-rest (AES encryption) that will be sent to the cloud. To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it. A 256-bit AES key will be used with the user-defined key for encryption.
 
-	3.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
+    3.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
 
-		![](./media/storsimple-ova-deploy3-fs-setup/image16.png)
+        ![](./media/storsimple-ova-deploy3-fs-setup/image16.png)
 
-Le impostazioni vengono così aggiornate. Se le impostazioni sono state aggiornate correttamente, il pulsante di installazione completa del dispositivo viene disabilitato. Si ritornerà alla pagina **Avvio rapido** del dispositivo.
+The settings will now be updated. After settings are updated successfully, the complete device setup button will be grayed out. You will return to the device **Quick Start** page.
 
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
 > [AZURE.NOTE]                                                              
 >
-> È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento effettuando l’accesso alla pagina **Configura**.
+> You can modify all the other device settings at any time by accessing the **Configure** page.
 
-## Passaggio 3: Aggiungere una condivisione
+## <a name="step-3:-add-a-share"></a>Step 3: Add a share
 
-Eseguire la procedura seguente nel [portale di Azure classico](https://manage.windowsazure.com/) per creare una condivisione.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to create a share.
 
-#### Per creare una condivisione
+#### <a name="to-create-a-share"></a>To create a share
 
-1.  Nella pagina **Avvio rapido** del dispositivo, fare clic su **Aggiungi una condivisione**. Si avvia così la procedura guidata per l'aggiunta della condivisione.
+1.  On the device **Quick Start** page, click **Add a share**. This starts the Add a share wizard.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
-1.  Nella pagina**Impostazioni di base**, eseguire le operazioni seguenti:
+1.  On the **Basic Settings** page, do the following:
 
-    1.  Specificare un nome univoco per la condivisione. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
+    1.  Specify a unique name for your share. The name must be a string that contains 3 to 127 characters.
 
-    2.  (Facoltativo) Fornire una descrizione per la condivisione. La descrizione consente di identificare i proprietari della condivisione.
+    2.  (Optional) Provide a description for the share. The description will help identify the share owners.
 
-    3.  Selezionare un tipo di utilizzo per la condivisione. Il tipo di utilizzo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale**. Per tutti gli altri dati, selezionare una **Condivisione a livelli**.
+    3.  Select a usage type for the share. The usage type can be **Tiered** or **Locally pinned**, with tiered being the default. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** share. For all other data, select a **Tiered** share.
 
-	Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
+    A locally pinned share is thickly provisioned and ensures that the primary data on the share stays local to the device and does not spill to the cloud. A tiered share on the other hand is thinly provisioned. When you create a tiered share, 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For instance, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share.
 
-1.  Specificare la capacità sottoposta a provisioning per la condivisione. Notare che la capacità specificata deve essere inferiore rispetto alla capacità disponibile. Se si usa una condivisione a livelli, le dimensioni della condivisione devono essere comprese tra 500 GB e 20 TB. Per una condivisione aggiunta in locale, specificare una dimensione di condivisione tra 50 GB e 2 TB. Usare la capacità disponibile come guida per il provisioning di una condivisione. Se la capacità locale disponibile è di 0 GB, non è consentito eseguire il provisioning delle condivisioni locali o a livelli.
+1.  Specify the provisioned capacity for your share. Note that the specified capacity should be smaller than the available capacity. If using a tiered share, the share size should be between 500 GB and 20 TB. For a locally pinned share, specify a share size between 50 GB and 2 TB. Use the available capacity as a guide to provision a share. If the available local capacity is 0 GB, then you will not be allowed to provision local or tiered shares.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
 
-1.  Fare clic sull'icona freccia ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) per passare alla pagina successiva.
+1.  Click the arrow icon ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) to go to the next page.
 
-1.  Nella pagina **Impostazioni aggiuntive**, assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato *<john@contoso.com>*. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificare le autorizzazioni con Esplora risorse.
+1.  In the **Additional Settings** page, assign the permissions to the user or the group that will be accessing this share. Specify the name of the user or the user group in *<john@contoso.com>* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use Windows Explorer to modify these permissions.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
 
-1.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-deploy3-fs-setup/image21.png). Viene creata una condivisione con le impostazioni specificate. Per impostazione predefinita, il monitoraggio e il backup vengono abilitati per la condivisione.
+1.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image21.png). A share will be created with the specified settings. By default, monitoring and backup will be enabled for the share.
 
-## Passaggio 4: Connettersi alla condivisione
+## <a name="step-4:-connect-to-the-share"></a>Step 4: Connect to the share
 
-A questo punto, è necessario connettersi alla condivisione o alle condivisioni create nel passaggio precedente. Eseguire questi passaggi nell'host di Windows Server.
+You will now need to connect to the share(s) that you created in the previous step. Perform these steps on your Windows Server host.
 
-#### Per connettersi alla condivisione
+#### <a name="to-connect-to-the-share"></a>To connect to the share
 
-1.  Premere ![](./media/storsimple-ova-deploy3-fs-setup/image22.png)+R. Nella finestra Esegui, specificare *\<file server name>* come percorso, sostituendo il *nome del file server* con il nome del dispositivo che è stato assegnato al file server. Fare clic su **OK**.
+1.  Press ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. In the Run window, specify the *\\<file server name>* as the path, replacing *file server name* with the device name that you assigned to your file server. Click **OK**.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
-2.  Si apre così Esplora risorse. Ora devono essere visualizzate le condivisioni create come cartelle. Selezionare e fare doppio clic su una condivisione (cartella) per visualizzarne il contenuto.
+2.  This will open up Explorer. You should now be able to see the shares that you created as folders. Select and double-click a share (folder) to view the content.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image24.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image24.png)
 
-3.  È ora possibile aggiungere file a queste condivisioni ed eseguire un backup.
+3.  You can now add files to these shares and take a backup.
 
-![icona video](./media/storsimple-ova-deploy3-fs-setup/video_icon.png) **Video disponibile**
+![video icon](./media/storsimple-ova-deploy3-fs-setup/video_icon.png) **Video available**
 
-Guardare il video per scoprire in che modo configurare e registrare StorSimple Virtual Array come file server.
+Watch the video to see how you can configure and register a StorSimple Virtual Array as a file server.
 
 > [AZURE.VIDEO configure-a-storsimple-virtual-array]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

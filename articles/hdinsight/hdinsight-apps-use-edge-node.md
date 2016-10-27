@@ -1,157 +1,163 @@
 <properties
-	pageTitle="Usare nodi perimetrali vuoti in HDInsight | Microsoft Azure"
-	description="Come aggiungere un nodo perimetrale vuoto al cluster HDInsight che può essere usato come un client e per testare oppure ospitare le applicazioni HDInsight."
-	services="hdinsight"
-	editor="cgronlun"
-	manager="jhubbard"
-	authors="mumian"
-	tags="azure-portal"
-	documentationCenter=""/>
+    pageTitle="Use empty edge nodes in HDInsight | Microsoft Azure"
+    description="How to add an ampty edge node to HDInsight cluster that can be used as a client, and to test/host your HDInsight applications."
+    services="hdinsight"
+    editor="cgronlun"
+    manager="jhubbard"
+    authors="mumian"
+    tags="azure-portal"
+    documentationCenter=""/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/14/2016"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/14/2016"
+    ms.author="jgao"/>
 
-# Usare nodi perimetrali vuoti in HDInsight
 
-Informazioni su come aggiungere un nodo perimetrale vuoto a un cluster HDInsight basato su Linux. Un nodo perimetrale vuoto è una macchina virtuale Linux con gli stessi strumenti client installati e configurati nei nodi head, ma senza servizi Hadoop in esecuzione. Il nodo perimetrale può essere usato per accedere al cluster e per testare e ospitare le applicazioni client.
+# <a name="use-empty-edge-nodes-in-hdinsight"></a>Use empty edge nodes in HDInsight
 
-È possibile aggiungere un nodo perimetrale vuoto a un cluster HDInsight esistente o a un nuovo cluster quando lo si crea. L'aggiunta di un nodo perimetrale vuoto si esegue usando un modello di Azure Resource Manager. L'esempio seguente illustra come eseguire questa operazione tramite un modello:
+Learn how to add an empty edge node to a Linux-based HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no hadoop services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
+
+You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster. Adding an empty edge node is done using Azure Resource Manager template.  The following sample demonstrates how it is done using a template:
 
     "resources": [
-		{
-			"name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
-			"type": "Microsoft.HDInsight/clusters/applications",
-			"apiVersion": "[variables('clusterApiVersion')]",
-			"properties": {
-				"marketPlaceIdentifier": "EmptyNode",
-				"computeProfile": {
-					"roles": [{
-						"name": "edgenode",
-						"targetInstanceCount": 1,
-						"hardwareProfile": {
-							"vmSize": "[parameters('edgeNodeSize')]"
-						}
-					}]
-				},
-				"installScriptActions": [{
-					"name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
-					"uri": "https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh",
-					"roles": ["edgenode"]
-				}],
-				"uninstallScriptActions": [],
-				"httpsEndpoints": [],
-				"applicationType": "CustomApplication"
-			}
-		}
-	],
+        {
+            "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
+            "type": "Microsoft.HDInsight/clusters/applications",
+            "apiVersion": "[variables('clusterApiVersion')]",
+            "properties": {
+                "marketPlaceIdentifier": "EmptyNode",
+                "computeProfile": {
+                    "roles": [{
+                        "name": "edgenode",
+                        "targetInstanceCount": 1,
+                        "hardwareProfile": {
+                            "vmSize": "[parameters('edgeNodeSize')]"
+                        }
+                    }]
+                },
+                "installScriptActions": [{
+                    "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
+                    "uri": "https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh",
+                    "roles": ["edgenode"]
+                }],
+                "uninstallScriptActions": [],
+                "httpsEndpoints": [],
+                "applicationType": "CustomApplication"
+            }
+        }
+    ],
 
-Come illustrato nell'esempio, è possibile chiamare un'[azione script](hdinsight-hadoop-customize-cluster-linux.md) per eseguire una configurazione aggiuntiva, ad esempio l'installazione di [Apache Hue](hdinsight-hadoop-hue-linux.md) nel nodo perimetrale.
+As shown in the sample, you can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration, such as installing [Apache Hue](hdinsight-hadoop-hue-linux.md) in the edge node.
 
-Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo stesso tramite SSH ed eseguire gli strumenti client per accedere al cluster Hadoop in HDInsight.
+After you have created an edge node, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight.
 
-## Aggiungere un nodo perimetrale a un cluster esistente
+## <a name="add-an-edge-node-to-an-existing-cluster"></a>Add an edge node to an existing cluster
 
-In questa sezione si userà un modello di Resource Manager per aggiungere un nodo perimetrale a un cluster HDInsight esistente. Il modello di Resource Manager è disponibile in [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). Il modello di Resource Manager chiama uno script di azione script disponibile in https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione. Viene usato per illustrare la chiamata all'azione script da un modello di Resource Manager.
+In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). The Resource Manager template calls a script action script located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling script action from a Resource Manager template.
 
-**Per aggiungere un nodo perimetrale a un cluster esistente**
+**To add an empty edge node to an existing cluster**
 
-1. Creare un cluster HDInsight, se non ne è ancora disponibile uno. Vedere [Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-2. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Azure Resource Manager nel portale di Azure.
+1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FEmptyNode%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-3. Configurare le proprietà seguenti:
+3. Configure the following properties:
 
-	- CLUSTERNAME: immettere il nome di un cluster HDInsight esistente.
-	- EDGENODESIZE: selezionare una delle dimensioni di macchina virtuale.
-	- EDGENODEPREFIX: il valore predefinito è **new**. Se si usa il valore predefinito, il nome del nodo perimetrale sarà **new-edgenode**. È possibile personalizzare il prefisso nel portale. Si può anche personalizzare il nome completo nel modello.
+    - CLUSTERNAME: Enter the name of an existing HDInsight cluster.
+    - EDGENODESIZE: Select one of the VM sizes.
+    - EDGENODEPREFIX: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
 
-4. Fare clic su **OK** per salvare le modifiche.
-5. In **Gruppo di risorse** selezionare un gruppo di risorse.
-6. Fare clic su **Rivedere le note legali** e quindi fare clic su **Acquista**.
-7. Selezionare **Aggiungi al dashboard** e quindi fare clic su **Crea**.
+4. Click **OK** to save the changes.
+5. In **Resource group**, select a Resource Group.
+6. Click **Review legal terms**, and then click **Purchase**.
+7. Select **Pin to dashboard**, and then click **Create**.
 
-## Aggiungere un nodo perimetrale durante la creazione di un cluster
+## <a name="add-an-edge-node-when-creating-a-cluster"></a>Add an edge node when creating a cluster
 
-In questa sezione si userà un modello di Resource Manager per creare un cluster HDInsight con un nodo perimetrale. Il modello di Resource Manager è disponibile in un [contenitore di archiviazione BLOB](http://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json) pubblico. Il modello di Resource Manager chiama uno script di azione script disponibile in https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. Lo script non esegue alcuna azione. Viene usato per illustrare la chiamata all'azione script da un modello di Resource Manager.
+In this section, you use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in a public [Azure Blob storage container](http://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json). The Resource Manager template calls a script action script located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling script action from a Resource Manager template.
 
-**Per aggiungere un nodo perimetrale a un cluster esistente**
+**To add an empty edge node to an existing cluster**
 
-1. Creare un cluster HDInsight, se non ne è ancora disponibile uno. Vedere [Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-2. Fare clic sull'immagine seguente per accedere ad Azure e aprire il modello di Azure Resource Manager nel portale di Azure.
+1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-3. Configurare le proprietà seguenti:
-		
-	- CLUSTERNAME: immettere un nome per il nuovo cluster da creare.
-	- CLUSTERLOGINUSERNAME: immettere il nome utente HTTP di Hadoop. Il nome predefinito è **admin**.
-	- CLUSTERLOGINUSERNAME: immettere la password utente HTTP di Hadoop.
-	- SSHUSERNAME: immettere il nome utente SSH. Il nome predefinito è **sshuser**.
-	- SSHPASSWORD: immettere la password utente SSH.
-	- LOCATION: immettere il percorso del nome del gruppo di risorse, del cluster e dell'account di archiviazione predefinito.
-	- CLUSTERTYPE: il valore predefinito è **hadoop**.
-	- CLUSTERWORKERNODECOUNT: il valore predefinito è 2.
-	- EDGENODESIZE: selezionare una delle dimensioni di macchina virtuale.
-	- EDGENODEPREFIX: il valore predefinito è **new**. Se si usa il valore predefinito, il nome del nodo perimetrale sarà **new-edgenode**. È possibile personalizzare il prefisso nel portale. Si può anche personalizzare il nome completo nel modello.
+3. Configure the following properties:
+        
+    - CLUSTERNAME: Enter a name for the new cluster to create.
+    - CLUSTERLOGINUSERNAME: Enter the Hadoop HTTP user name.  The default name is **admin**.
+    - CLUSTERLOGINPASSWORD: Enter the Hadoop HTTP user password.
+    - SSHUSERNAME: Enter the SSH user name. The default name is **sshuser**.
+    - SSHPASSWORD: Enter the SSH user password.
+    - LOCATION: Enter the location of the Resource Group name, the cluster, and the default storage account.
+    - CLUSTERTYPE: The default value is **hadoop**.
+    - CLUSTERWORKERNODECOUNT: The default value is 2.
+    - EDGENODESIZE: Select one of the VM sizes.
+    - EDGENODEPREFIX: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
-4. Fare clic su **OK** per salvare le modifiche.
-5. In **Gruppo di risorse** immettere un nome per il nuovo gruppo di risorse.
-6. Fare clic su **Rivedere le note legali** e quindi fare clic su **Acquista**.
-7. Selezionare **Aggiungi al dashboard** e quindi fare clic su **Crea**.
+4. Click **OK** to save the changes.
+5. In **Resource group**, enter a new Resource Group name.
+6. Click **Review legal terms**, and then click **Purchase**.
+7. Select **Pin to dashboard**, and then click **Create**. 
 
 
-## Accedere a un nodo perimetrale
+## <a name="access-an-edge-node"></a>Access an edge node
 
-L'endpoint ssh del nodo perimetrale è <NomeNodoPerimetrale>.<NomeCluster>-ssh.azurehdinsight.net:22. Ad esempio, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+The edge node ssh endpoint is <EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22.  For example, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
 
-Il nodo perimetrale viene visualizzato come un'applicazione nel portale di Azure. Il portale fornisce le informazioni per accedere al nodo perimetrale con SSH.
+The edge node appears as an application on the Azure portal.  The portal gives you the information to access the edge node using SSH.
 
-**Per verificare l'endpoint SSH del nodo perimetrale**
+**To verify the edge node SSH endpoint**
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Aprire il cluster HDInsight con un nodo perimetrale.
-3. Fare clic su **Applicazioni** nel pannello del cluster. Verrà visualizzato il nodo perimetrale. Il nome predefinito è **new-edgenode**.
-4. Fare clic sul nodo perimetrale. Verrà visualizzato l'endpoint SSH.
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Open the HDInsight cluster with an edge node.
+3. Click **Applications** from the cluster blade. You shall see the edge node.  The default name is **new-edgenode**.
+4. Click the edge node. You shall see the SSH endpoint.
 
-**Usare Hive nel nodo perimetrale**
+**To use Hive on the edge node**
 
-5. Usare SSH per connettersi al nodo perimetrale. Vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md) e [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
-6. Dopo essersi connessi al nodo perimetrale tramite SSH, usare il comando seguente per aprire la console di Hive:
+5. Use SSH to connect to the edge node.  See [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+6. After you have connected to the edge node using SSH, use the following command to open the Hive console:
 
-		hive
-7. Eseguire il comando seguente per visualizzare le tabelle Hive nel cluster:
+        hive
+7. Run the following command to show Hive tables in the cluster:
 
-		show tables;
+        show tables;
 
-## Eliminare un nodo perimetrale
+## <a name="delete-an-edge-node"></a>Delete an edge node
 
-È possibile eliminare un nodo perimetrale dal portale di Azure.
+You can delete an edge node from the Azure portal.
 
-**Per accedere a un nodo perimetrale**
+**To access an edge node**
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Aprire il cluster HDInsight con un nodo perimetrale.
-3. Fare clic su **Applicazioni** nel pannello del cluster. Verrà visualizzato un elenco di nodi perimetrali.
-4. Fare clic con il pulsante destro del mouse sul nodo perimetrale che si vuole eliminare e quindi scegliere **Elimina**.
-5. Fare clic su **Sì** per confermare.
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Open the HDInsight cluster with an edge node.
+3. Click **Applications** from the cluster blade. You shall see a list of edge nodes.  
+4. Right-click the edge node you want to delete, and then click **Delete**.
+5. Click **Yes** to confirm.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-In questo articolo si è appreso come aggiungere un nodo perimetrale e come accedervi. Per altre informazioni, vedere gli articoli seguenti:
+In this article, you have learned how to add an edge node and how to access the edge node. To learn more, see the following articles:
 
-- [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md): informazioni su come installare un'applicazione HDInsight nei cluster.
-- [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md): informazioni su come distribuire in HDInsight un'applicazione HDInsight non pubblicata.
-- [Pubblicare applicazioni HDInsight](hdinsight-apps-publish-applications.md): informazioni su come pubblicare applicazioni HDInsight personalizzate in Azure Marketplace.
-- [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: Installare un'applicazione HDInsight): informazioni su come definire le applicazioni HDInsight.
-- [Personalizzare cluster HDInsight basati su Linux tramite Azioni script](hdinsight-hadoop-customize-cluster-linux.md): informazioni su come usare Azioni script per installare applicazioni aggiuntive.
-- [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informazioni su come chiamare i modelli di Azure Resource Manager per creare cluster HDInsight.
+- [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
+- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an unpublished HDInsight application to HDInsight.
+- [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
+- [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
+- [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
+- [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

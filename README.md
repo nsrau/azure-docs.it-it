@@ -1,102 +1,126 @@
-# Guida per i collaboratori alla documentazione tecnica di Azure
+# <a name="azure-technical-documentation-contributor-guide"></a>Azure Technical Documentation Contributor Guide
 
-Questo è il repository GitHub in cui è disponibile l'origine della documentazione tecnica pubblicata nel Centro documentazione di Azure all'indirizzo [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation).
+You've found the GitHub repository that houses the source for the technical documentation that is published to the Azure Documentation Center at [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation).
 
-Questo repository include anche informazioni aggiuntive per chi volesse fornire il proprio contributo al miglioramento della documentazione tecnica. Per un elenco degli articoli della Guida per i collaboratori, vedere [l'indice](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
+This repository also contains guidance to help you contribute to our technical documentation.  For a list of the articles in the contributors' guide, see [the index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
 
-## Contribuire alla documentazione di Azure
+## <a name="contribute-to-azure-documentation"></a>Contribute to Azure documentation
 
-Grazie per l'interesse dimostrato nei confronti della documentazione di Azure.
+Thank you for your interest in Azure documentation!
 
-* [Come fornire il proprio contributo](#ways-to-contribute)
-* [Informazioni sui contributi al contenuto di Azure](#about-your-contributions-to-azure-content)
-* [Organizzazione del repository](#repository-organization)
-* [Usare GitHub, Git e questo repository](#use-github-git-and-this-repository)
-* [Come usare markdown per formattare l'argomento](#how-to-use-markdown-to-format-your-topic)
-* [Altre risorse](#Altre risorse)
-* [Indice di tutti gli articoli della Guida per i collaboratori](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) (viene aperta una nuova pagina)
+* [Ways to contribute](#ways-to-contribute)
+* [Code of conduct](#code-of-conduct)
+* [About your contributions to Azure content](#about-your-contributions-to-azure-content)
+* [Repository organization](#repository-organization)
+* [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
+* [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
+* [Feedback, comments, and support](./contributor-guide/feedback-and-comments.md)
+* [More resources](#more-resources)
+* [Index of all contributors' guide articles](./contributor-guide/contributor-guide-index.md) (opens new page)
 
-## Come fornire il proprio contributo
+## <a name="ways-to-contribute"></a>Ways to contribute 
 
-È possibile contribuire facilmente agli articoli tecnici nell'interfaccia utente di GitHub. Trovare l'articolo in questo repository oppure all'indirizzo [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) e fare clic sul collegamento presente nell'articolo che rimanda all'origine GitHub dell'articolo desiderato.
+You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
 
-##Informazioni sui contributi al contenuto di Azure
+* Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Submit Disqus comments at the bottom of articles.
+* You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article.
+* If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands.
 
-###Correzioni secondarie
+##<a name="code-of-conduct"></a>Code of conduct
 
-Le correzioni secondarie o i chiarimenti inviati per la documentazione e gli esempi di codice in questo repository sono coperti dalle [Condizioni per l'utilizzo del sito Web di Azure](http://azure.microsoft.com/support/legal/website-terms-of-use/).
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+##<a name="about-your-contributions-to-azure-content"></a>About your contributions to Azure content
+
+###<a name="minor-corrections"></a>Minor corrections
+
+Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 
-###Invii di dimensioni maggiori
+###<a name="larger-submissions"></a>Larger submissions
 
-Se si invia una richiesta pull con modifiche nuove o significative alla documentazione e agli esempi di codice, verrà visualizzato un commento in GitHub con la richiesta di inviare un contratto di licenza online per i contributi, se si fa parte di uno di questi gruppi:
+If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are in one of these groups:
 
-* Membri del gruppo Microsoft Open Technologies.
-* Collaboratori che non lavorano per Microsoft.
+* Members of the Microsoft Open Technologies group.
+* Contributors who don't work for Microsoft.
 
-Prima che la richiesta pull venga accettata, è necessario completare il modulo online.
+We need you to complete the online form before we can accept your pull request.
 
-Informazioni dettagliate sono disponibili all'indirizzo [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla).
+Full details are available at [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
 
-## Organizzazione del repository
+## <a name="repository-organization"></a>Repository organization
 
-Il contenuto del repository azure-content è organizzato in modo analogo alla documentazione disponibile in [Azure.Microsoft.com](http://azure.microsoft.com). Questo repository contiene due cartelle radice:
+The content in the azure-content repository follows the organization of documentation on [Azure.Microsoft.com](http://azure.microsoft.com). This repository contains two root folders:
 
-### \articles
+### <a name="\articles"></a>\articles
 
-La cartella *\articles* contiene gli articoli della documentazione formattati come file markdown con estensione *MD*.
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension.
 
-Gli articoli nella directory radice sono pubblicati in Azure.Microsoft.com nel percorso *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+Articles in the root directory are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **Nomi file degli articoli:** vedere le [informazioni aggiuntive sulla denominazione dei file](https://github.com/Azure/azure-content/blob/master/contributor-guide/file-names-and-locations.md).
+* **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md).
 
-Gli articoli nella relativa cartella del servizio sono pubblicati in Azure.Microsoft.com nel percorso 
-*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
+Articles within their own service folder are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
 
-* **Sottocartelle di contenuto multimediale:** la cartella *\articles* contiene la cartella *\media* per i file multimediali degli articoli nella directory radice, che include le sottocartelle con le immagini per ogni articolo. Le cartelle del servizio contengono una cartella di file multimediali separata per gli articoli all'interno di ogni cartella del servizio. Le cartelle di immagini degli articoli sono denominate esattamente come il file dell'articolo, tranne l'estensione di file *MD*.
+* **Media subfolders:** The *\articles* folder contains the *\media* folder for root directory article media files, inside which are subfolders with the images for each article.  The service folders contain a separate media folder for the articles within each service folder. The article image folders are named identically to the article file, minus the *.md* file extension.
 
-### \includes
+### <a name="\includes"></a>\includes
 
-È possibile creare sezioni di contenuto riutilizzabile da includere in uno o più articoli. Vedere la sezione relativa alle [estensioni personalizzate usate nel contenuto tecnico](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
+You can create reusable content sections to be included in one or more articles. See [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md).
 
-### \markdown templates
+### <a name="\markdown-templates"></a>\markdown templates
 
-Questa cartella contiene il modello markdown standard con la formattazione markdown di base necessaria per un articolo.
+This folder contains our standard markdown template with the basic markdown formatting you need for an article.
 
-### \contributor-guide
+### <a name="\contributor-guide"></a>\contributor-guide
 
-Questa cartella contiene gli articoli che fanno parte della Guida per i collaboratori.
+This folder contains articles that are part of our contributors' guide.  
 
-## Usare GitHub, Git e questo repository
+## <a name="use-github,-git,-and-this-repository"></a>Use GitHub, Git, and this repository
 
-Per informazioni su come fornire il proprio contributo, usare l'interfaccia utente di GitHub per contribuire con piccole modifiche e creare un fork del repository e clonarlo per i contributi più significativi, vedere l'articolo che illustra come [installare e configurare gli strumenti per la creazione in GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md).
+For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md).
 
-Se si installa GitBash e si sceglie di lavorare in locale, la procedura per creare un nuovo ramo di lavoro locale, apportare modifiche e rinviare le modifiche al ramo principale è descritta nell'articolo relativo ai [comandi Git per la creazione di un nuovo articolo o l'aggiornamento di un articolo esistente](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md)
+If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md)
 
-### Rami
+### <a name="branches"></a>Branches
 
-È consigliabile creare rami di lavoro locali destinati a un ambito di modifica specifico. Ogni ramo deve essere limitato a un singolo concetto o articolo, sia per ottimizzare il flusso di lavoro che per ridurre la possibilità di conflitti di unione. L'ambito delle attività seguenti è appropriato per un nuovo ramo:
+We recommend that you create local working branches that target a specific scope of change. Each branch should be limited to a single concept/article both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
-* Nuovo articolo e immagini associate.
-* Modifiche di ortografia e grammatica in un articolo.
-* Applicazione di una singola modifica di formattazione per un ampio set di articoli, ad esempio un nuovo piè di pagina con il copyright.
+* A new article (and associated images)
+* Spelling and grammar edits on an article.
+* Applying a single formatting change across a large set of articles (e.g. new copyright footer).
 
-## Come usare markdown per formattare l'argomento
+## <a name="how-to-use-markdown-to-format-your-topic"></a>How to use markdown to format your topic
 
-Tutti gli articoli in questo repository usano GitHub Flavored Markdown (GFM). Ecco un elenco di risorse.
+All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
 
-- [Nozioni di base su markdown](https://help.github.com/articles/markdown-basics/)
+- [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
-- [Foglio informativo stampabile relativo a markdown](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- Per un elenco di editor di markdown, vedere l'[argomento su strumenti e installazione](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+- For our list of markdown editors, see the [tools and setup topic](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
-## Metadati dell'articolo
+## <a name="article-metadata"></a>Article metadata
 
-I metadati dell'articolo abilitano determinate funzionalità nel sito Web azure.microsoft.com, ad esempio attribuzione dell'autore e del collaboratore, percorsi, descrizioni di articoli e ottimizzazioni motore di ricerca, nonché segnalazione degli usi da parte di Microsoft per valutare le prestazioni del contenuto. I metadati sono quindi importanti. [Ecco le informazioni aggiuntive per verificare che i metadati siano configurati correttamente](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
+Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](./contributor-guide/article-metadata.md).
 
-## Altre risorse
+### <a name="labels"></a>Labels
 
-Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collaboratori](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
+Automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:
 
-<!---HONumber=AcomDC_0307_2016-->
+* Contribution License Agreement related
+    * cla-not-required: The change is relatively minor and does not require that you sign a CLA.
+    * cla-required: The scope of the change is relatively large and requires that you sign a CLA.
+    * cla-signed: The contributor signed the CLA, so the pull request can now move forward for review.
+* Pillar labels: Labels such as PnP, Modern Apps, and TDC help categorize the pull requests by the internal organization that needs to review the pull request.
+* Change sent to author: The author has been notified of the pending pull request.
+
+## <a name="more-resources"></a>More resources
+
+See the [index of our contributor's guide](./contributor-guide/contributor-guide-index.md) for all our guidance topics.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

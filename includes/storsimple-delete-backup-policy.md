@@ -1,15 +1,21 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### Per eliminare un criterio di backup per StorSimple
+#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
 
-1. Nella pagina **Guida introduttiva** del dispositivo, fare clic sulla scheda **Criteri di backup**. Verrà visualizzata la pagina **Criteri di backup**.
+1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
 
-2. Selezionare il criterio facendo clic in un punto qualsiasi nella riga corrispondente, eccetto per la prima colonna, quindi fare clic su **Elimina** nella parte inferiore della pagina.
+2. Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.
 
-3. Verrà richiesto di confermare. Tenere presente che l'eliminazione di un criterio di backup comporta l'eliminazione di tutti i backup associati. Fare clic su **Sì** per eliminare.
+3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
 
-La pagina **Criteri di backup** verrà aggiornata in modo da includere il nuovo elenco di criteri.
+The **Backup Policies** page will be updated to display the new list of policies.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

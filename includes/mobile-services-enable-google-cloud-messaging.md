@@ -1,31 +1,35 @@
 
-1. Passare a [Google Cloud Console](https://console.developers.google.com/project) ed eseguire l'accesso con le credenziali dell'account Google. 
+1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project), sign in with your Google account credentials. 
  
-2. Fare clic su **Crea progetto**, digitare un nome di progetto e quindi fare clic su **Crea**. Se necessario, eseguire la verifica SMS, quindi fare nuovamente clic su **Crea**.
+2. Click **Create Project**, type a project name, then click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
 
-   	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)
+    ![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 
-	 Digitare il nome desiderato in **Nome progetto** e fare clic su **Crea progetto**.
+     Type in your new **Project name** and click **Create project**.
 
-3. Fare clic sul pulsante **Utilities and More** e quindi su **Project Information**. Prendere nota del valore di **Project Number**. Sarà necessario impostare questo valore come variabile `SenderId` nell'app client.
+3. Click the **Utilities and More** button and then click **Project Information**. Make a note of the **Project Number**. You will need to set this value as the `SenderId` variable in the client app.
 
-   	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
+    ![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
 
-4. Nel dashboard del progetto fare clic su **Google Cloud Messaging** (Messaggistica cloud di Google) in **Mobile APIs** (API per dispositivi mobili), quindi nella pagina successiva fare clic su **Enable API** (Abilita API) e accettare le condizioni del servizio.
+4. In the project dashboard, under **Mobile APIs**, click **Google Cloud Messaging**, then on the next page click **Enable API** and accept the terms of service. 
 
-	![Abilitare GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+    ![Enabling GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-	![Abilitare GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png)
+    ![Enabling GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
-5. Nel dashboard del progetto fare clic su **Credentials** (Credenziali) > **Create Credential** (Crea credenziale) > **API Key** (Chiave API).
+5. In the project dashboard, Click **Credentials** > **Create Credential** > **API Key**. 
 
-   	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
+    ![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 
-6. In **Crea una nuova chiave** fare clic su **Chiave server**, digitare un nome per la chiave e quindi fare clic su **Crea**.
+6. In **Create a new key**, click **Server key**, type a name for your key, then click **Create**.
 
-7. Prendere nota del valore di **API KEY**.
+7. Make a note of the **API KEY** value.
 
-	Questo valore della chiave dell'API verrà usato successivamente per abilitare Azure per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app.
+    You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

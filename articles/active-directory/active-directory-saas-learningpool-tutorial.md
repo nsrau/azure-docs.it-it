@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Learningpool | Microsoft Azure" 
-    description="Informazioni su come utilizzare Learningpool con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Tutorial: Azure Active Directory integration with Learningpool | Microsoft Azure" 
+    description="Learn how to use Learningpool with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,140 +11,147 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Esercitazione: Integrazione di Azure Active Directory con Learningpool
-  
-In questa esercitazione viene illustrata l'integrazione di Azure e Learningpool. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
--   Sottoscrizione di Azure valida
--   Sottoscrizione di Learningpool abilitata per l'accesso Single Sign-On
+#<a name="tutorial:-azure-active-directory-integration-with-learningpool"></a>Tutorial: Azure Active Directory integration with Learningpool
   
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Learningpool saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Learningpool (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
-  
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+The objective of this tutorial is to show the integration of Azure and Learningpool.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-1.  Abilitazione dell'integrazione dell'applicazione per Learningpool
-2.  Configurazione dell'accesso Single Sign-On
-3.  Configurazione del provisioning utente
-4.  Assegnazione degli utenti
+-   A valid Azure subscription
+-   A Learningpool single sign-on enabled subscription
+  
+After completing this tutorial, the Azure AD users you have assigned to Learningpool will be able to single sign into the application at your Learningpool company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+  
+The scenario outlined in this tutorial consists of the following building blocks:
+
+1.  Enabling the application integration for Learningpool
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-learningpool-tutorial/IC791166.png "Scenario")
-##Abilitazione dell'integrazione dell'applicazione per Learningpool
+##<a name="enabling-the-application-integration-for-learningpool"></a>Enabling the application integration for Learningpool
   
-In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Learningpool.
+The objective of this section is to outline how to enable the application integration for Learningpool.
 
-###Per abilitare l'integrazione dell'applicazione per Learningpool, eseguire la procedura seguente:
+###<a name="to-enable-the-application-integration-for-learningpool,-perform-the-following-steps:"></a>To enable the application integration for Learningpool, perform the following steps:
 
-1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-learningpool-tutorial/IC700993.png "Active Directory")
 
-2.  Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Applicazioni](./media/active-directory-saas-learningpool-tutorial/IC700994.png "Applicazioni")
+    ![Applications](./media/active-directory-saas-learningpool-tutorial/IC700994.png "Applications")
 
-4.  Fare clic su **Add** nella parte inferiore della pagina.
+4.  Click **Add** at the bottom of the page.
 
-    ![Aggiunta di un'applicazione](./media/active-directory-saas-learningpool-tutorial/IC749321.png "Aggiunta di un'applicazione")
+    ![Add application](./media/active-directory-saas-learningpool-tutorial/IC749321.png "Add application")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-learningpool-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+    ![Add an application from gallerry](./media/active-directory-saas-learningpool-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Nella **casella di ricerca** digitare **Learningpool**.
+6.  In the **search box**, type **Learningpool**.
 
-    ![Raccolta di applicazioni](./media/active-directory-saas-learningpool-tutorial/IC795073.png "Raccolta di applicazioni")
+    ![Application Gallery](./media/active-directory-saas-learningpool-tutorial/IC795073.png "Application Gallery")
 
-7.  Nel riquadro dei risultati selezionare **Learningpool**, quindi fare clic su **Completa** per aggiungere l'applicazione.
+7.  In the results pane, select **Learningpool**, and then click **Complete** to add the application.
 
     ![Learningpool](./media/active-directory-saas-learningpool-tutorial/IC809577.png "Learningpool")
-##Configurazione dell'accesso Single Sign-On
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Learningpool tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.
+The objective of this section is to outline how to enable users to authenticate to Learningpool with their account in Azure AD using federation based on the SAML protocol.
   
-L'applicazione Learningpool prevede le asserzioni SAML in un formato specifico. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli **attributi del token saml**. La schermata seguente mostra un esempio relativo a questa operazione.
+Your Learningpool application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+The following screenshot shows an example for this.
 
-![Attributi di token SAML](./media/active-directory-saas-learningpool-tutorial/IC795074.png "Attributi di token SAML")
+![SAML Token Attributes](./media/active-directory-saas-learningpool-tutorial/IC795074.png "SAML Token Attributes")
 
-###Per configurare l'accesso Single Sign-On, seguire questa procedura:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  Nel menu visualizzato nella parte superiore della pagina di integrazione dell'applicazione **Learningpool** del portale di Azure classico fare clic su **Attributi** per aprire la finestra di dialogo **Attributi token SAML**.
+1.  In the Azure classic portal, on the **Learningpool** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![Attributi](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Attributi")
+    ![Attributes](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Attributes")
 
-2.  Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
+2.  To add the required attribute mappings, perform the following steps:
 
-    ###
+    ###  
 
-    |Nome attributo |Valore attributo |
-	|------------------------------|---------------------------|
+  	|Attribute Name                |Attribute Value            |
+  	|------------------------------|---------------------------|
 
      urn:oid:1.2.840.113556.1.4.221 | User.userprincipalname
-	|-------------------------------|--------------------------|  
-	 urn:oid:2.5.4.42|User.givenname   
-    |urn:oid:0.9.2342.19200300.100.1.3|User.mail
-    |urn:oid:2.5.4.4|User.surname
+  	|-------------------------------|--------------------------|  
+     urn:oid:2.5.4.42|User.givenname   
+  	|urn:oid:0.9.2342.19200300.100.1.3|User.mail
+  	|urn:oid:2.5.4.4|User.surname
 
-    1.  Per ogni riga di dati nella tabella precedente, fare clic su **aggiungi attributo utente**.
-    2.  Nella casella di testo **Nome attributo**, digitare il nome dell'attributo indicato per quella riga.
-    3.  Nell’elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
-    4.  Fare clic su **Complete**.
+    1.  For each data row in the table above, click **add user attribute**.
+    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+    3.  From the **Attribute Value** list, select the attribute value shown for that row.
+    4.  Click **Complete**.
 
-3.  Fare clic su **Applica modifiche**.
+3.  Click **Apply Changes**.
 
-4.  Nel browser fare clic su **Indietro** per aprire nuovamente la finestra di dialogo **Avvio rapido**.
+4.  In your browser, click **Back** to open the **Quick Start** dialog again.
 
-5.  Fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Configura accesso Single Sign-On")
+    ![Configure Singel Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Configure Singel Sign-On")
 
-6.  Nella pagina **Stabilire come si desidera che gli utenti accedano a Learningpool** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
+6.  On the **How would you like users to sign on to Learningpool** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configure Single Sign-On")
 
-7.  Nella casella di testo **Learningpool Sign On URL** (URL di accesso Learningpool) della pagina **Configura URL app** digitare l'URL usato dagli utenti per accedere all'applicazione Learningpool, ad esempio https://parliament.preview.learningpool.com/auth/shibboleth/index.php, e quindi fare clic su **Avanti**.
+7.  On the **Configure App URL** page, in the **Learningpool Sign On URL** textbox, type the URL used by your users to sign on to your Learningpool application ( e.g.: https://parliament.preview.learningpool.com/auth/shibboleth/index.php), and then click **Next**.
 
-    ![Configura URL app](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configura URL app")
+    ![Configure App URL](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configure App URL")
 
-8.  Nella pagina **Configura accesso Single Sign-On in Learningpool** fare clic su **Scarica metadati** per scaricare i metadati, quindi salvare il file di certificato localmente nel computer.
+8.  On the **Configure single sign-on at Learningpool** page, to download your metadata, click **Download metadata**, and then save the certificate file locally on your computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Configura accesso Single Sign-On")
+    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Configure Single Sign-On")
 
-9.  Inoltrare il file dei metadati al team di supporto di Learningpool.
+9.  Forward that Metadata file to your Learningpool Support team.
 
-    >[AZURE.NOTE]L’accesso Single Sign-On deve essere abilitato dal team di supporto di Learningpool.
+    >[AZURE.NOTE]Single sign-on has to be enabled by the Learningpool support team.
 
-10. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configura accesso Single Sign-On")
-##Configurazione del provisioning utente
+    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Per consentire agli utenti di Azure AD di accedere a Learningpool, è necessario eseguirne il provisioning in Learningpool.
+In order to enable Azure AD users to log into Learningpool, they must be provisioned into Learningpool.
   
-Non è richiesta alcuna operazione per configurare il provisioning degli utenti in Learningpool. Gli utenti dovranno essere creati dal team di supporto di Learningpool.
+There is no action item for you to configure user provisioning to Learningpool.  
+Users need to be created by your Learningpool support team.
 
->[AZURE.NOTE]È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Learningpool o le API fornite da Learningpool per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE]You can use any other Learningpool user account creation tools or APIs provided by Learningpool to provision AAD user accounts.
 
-##Assegnazione degli utenti
+##<a name="assigning-users"></a>Assigning users
   
-Per testare la configurazione, è necessario concedere l'accesso all’applicazione agli utenti di Azure AD a cui si desidera consentirne l’uso, assegnando tali utenti all'applicazione.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Per assegnare gli utenti a Learningpool eseguire la procedura seguente:
+###<a name="to-assign-users-to-learningpool,-perform-the-following-steps:"></a>To assign users to Learningpool, perform the following steps:
 
-1.  Nel portale di Azure classico creare un account di test.
+1.  In the Azure classic portal, create a test account.
 
-2.  Nella pagina di integrazione dell'applicazione **Learningpool** fare clic su **Assegna utenti**.
+2.  On the **Learningpool **application integration page, click **Assign users**.
 
-    ![Assegna utenti](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Assegna utenti")
+    ![Assign Users](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Assign Users")
 
-3.  Selezionare l'utente test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sì](./media/active-directory-saas-learningpool-tutorial/IC767830.png "Sì")
+    ![Yes](./media/active-directory-saas-learningpool-tutorial/IC767830.png "Yes")
   
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

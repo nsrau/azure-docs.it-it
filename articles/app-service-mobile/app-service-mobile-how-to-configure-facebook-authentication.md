@@ -1,68 +1,69 @@
 <properties
-	pageTitle="Come configurare l'autenticazione Facebook per un'applicazione dei servizi app"
-	description="Informazioni su come configurare l'autenticazione Facebook per un'applicazione dei servizi app."
-	services="app-service"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="erikre"
-	editor=""/>
+    pageTitle="How to configure Facebook authentication for your App Services application"
+    description="Learn how to configure Facebook authentication for your App Services application."
+    services="app-service"
+    documentationCenter=""
+    authors="mattchenderson"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="mahender"/>
 
-# Come configurare un'applicazione del servizio App per usare l'account di accesso di Facebook
+
+# <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>How to configure your App Service application to use Facebook login
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Questo argomento descrive come configurare il servizio app di Azure per usare Facebook come provider di autenticazione.
+This topic shows you how to configure Azure App Service to use Facebook as an authentication provider.
 
-Per completare la procedura descritta in questo argomento, è necessario disporre di un account di Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account di Facebook, visitare il sito [facebook.com].
+To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 
-## <a name="register"> </a>Registrare l'applicazione con Facebook
+## <a name="<a-name="register">-</a>register-your-application-with-facebook"></a><a name="register"> </a>Register your application with Facebook
 
-1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l'**URL**. Verrà usato per configurare l'app Facebook.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
 
-2. In un'altra finestra del browser passare al sito Web [Facebook Developers] e accedere con le credenziali dell'account Facebook.
+2. In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
 
-3. (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **App** > **Registrarsi come uno Sviluppatore**, quindi accettare le condizioni e seguire la procedura di registrazione.
+3. (Optional) If you have not already registered, click **Apps** > **Register as a Developer**, then accept the policy and follow the registration steps.
 
-4. Fare clic su **My Apps** > **Add a New App** > **Website** > **Skip and Create App ID**.
+4. Click **My Apps** > **Add a New App** > **Website** > **Skip and Create App ID**. 
 
-5. In **Display Name** (Nome visualizzato) digitare un nome univoco per l'app, digitare un indirizzo in **Contact Email** (Indirizzo di posta elettronica di contatto), scegliere una categoria per l'app in **Category** (Categoria), quindi fare clic su **Create App ID** (Crea ID app) e completare il controllo di sicurezza. Si passerà al dashboard dello sviluppatore per la nuova app di Facebook.
+5. In **Display Name**, type a unique name for your app, type your **Contact Email**, choose a **Category** for your app, then click **Create App ID** and complete the security check. This takes you to the developer dashboard for your new Facebook app.
 
-6. In "Facebook Login" (Accesso a Facebook) fare clic su **Get Started** (Informazioni di base). Aggiungere l'URI di **Redirect URI** (URI di reindirizzamento) dell'applicazione in **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth validi) e quindi fare clic su **Save Changes** (Salva modifiche).
+6. Under "Facebook Login," click **Get Started**. Add your application's **Redirect URI** to **Valid OAuth redirect URIs**, then click **Save Changes**. 
 
-	> [AZURE.NOTE] L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso _/.auth/login/facebook/callback_. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Assicurarsi che sia in uso lo schema HTTPS.
+    > [AZURE.NOTE] Your redirect URI is the URL of your application appended with the path, _/.auth/login/facebook/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Make sure that you are using the HTTPS scheme.
 
-6. Nel riquadro di spostamento a sinistra fare clic su **Settings** (Impostazioni). Nel campo **App Secret** fare clic su **Show**, fornire la password se richiesto, quindi prendere nota dei valori di **App ID** e **App Secret**. Verranno usati più avanti per configurare l'applicazione in Azure.
+6. In the left-hand navigation, click **Settings**. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. You use these later to configure your application in Azure.
 
-	> [AZURE.IMPORTANT] Il segreto dell'app è una credenziale di sicurezza importante. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
+    > [AZURE.IMPORTANT] The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
-7. L'account di Facebook usato per registrare l'applicazione sarà un account di amministratore dell'app. A questo punto, solo gli amministratori potranno effettuare l'accesso a questa applicazione. Per eseguire l'autenticazione di altri account di Facebook, fare clic su **App Review** (Controllo app) e abilitare l'opzione **Make <nome-app> public** (Rendi pubblica) e consentire così l'accesso pubblico generale con l'autenticazione di Facebook.
+7. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **App Review** and enable **Make <your-app-name> public** to enable general public access using Facebook authentication.
 
-## <a name="secrets"> </a>Aggiungere le informazioni di Facebook all'applicazione
+## <a name="<a-name="secrets">-</a>add-facebook-information-to-your-application"></a><a name="secrets"> </a>Add Facebook information to your application
 
-1. Nel [portale di Azure], passare all'applicazione. Fare clic su **Impostazioni** > **Autenticazione/Autorizzazione**, quindi assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
+1. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
 
-2. Fare clic su **Facebook**, incollare nell’ID dell’app e nel segreto dell’app i valori ottenuti in precedenza, e abilitare facoltativamente tutti gli ambiti richiesti dall'applicazione, poi fare clic su **OK**.
+2. Click **Facebook**, paste in the App ID and App Secret values which you obtained previously, optionally enable any scopes needed by your application, then click **OK**.
 
     ![][0]
 
-	Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
-3. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Facebook, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Facebook**. Per poter utilizzare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate a Facebook per l'autenticazione.
+3. (Optional) To restrict access to your site to only users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Facebook for authentication.
 
-4. Al termine della configurazione dell'autenticazione, fare clic su **Salva**.
+4. When done configuring authentication, click **Save**.
 
-È ora possibile usare un account di Facebook per l'autenticazione nell'app.
+You are now ready to use Facebook for authentication in your app.
 
-## <a name="related-content"> </a>Contenuti correlati
+## <a name="<a-name="related-content">-</a>related-content"></a><a name="related-content"> </a>Related Content
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -72,7 +73,11 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /it-IT/develop/mobile/tutorials/get-started-with-users-dotnet/
-[portale di Azure]: https://portal.azure.com/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Azure portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Comunicazione per i ruoli in servizi Cloud | Microsoft Azure" 
-description="Le istanze del ruolo in servizi Cloud possono avere endpoint (http, https, tcp, udp) definiti appositamente che comunicano con l'esterno oppure tra le altre istanze del ruolo." 
+pageTitle="Communication for Roles in Cloud Services | Microsoft Azure" 
+description="Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -15,17 +15,18 @@ ms.topic="article"
 ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
-# Abilitare la comunicazione delle istanze del ruolo in azure
 
-I ruoli del servizio cloud comunicano tramite connessioni interne ed esterne. Le connessioni esterne vengono chiamate **endpoint di input** mentre le connessioni interne vengono chiamate **endpoint interni**. In questo argomento viene descritto come modificare la [definizione del servizio](cloud-services-model-and-package.md#csdef) per creare gli endpoint.
+# <a name="enable-communication-for-role-instances-in-azure"></a>Enable communication for role instances in azure
+
+Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
 
 
-## Endpoint di input
-L'endpoint di input viene utilizzato quando si desidera esporre una porta all'esterno. Specificare il tipo di protocollo e porta dell'endpoint che vengono poi applicati per le porte interne ed esterne per l'endpoint. Se si desidera, è possibile specificare una porta interna diversa per l'endpoint con l’attributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
+## <a name="input-endpoint"></a>Input endpoint
+The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) attribute.
 
-L'endpoint di input può utilizzare i seguenti protocolli: **http, https, tcp, udp**.
+The input endpoint can use the following protocols: **http, https, tcp, udp**.
 
-Per creare un endpoint di input, aggiungere elemento figlio **InputEndpoint** all’elemento **Endpoints** del ruolo di lavoro o del ruolo web.
+To create an input endpoint, add the **InputEndpoint** child element to the **Endpoints** element of either a web or worker role.
 
 ```xml
 <Endpoints>
@@ -33,12 +34,12 @@ Per creare un endpoint di input, aggiungere elemento figlio **InputEndpoint** al
 </Endpoints> 
 ```
 
-## Endpoint di input dell'istanza
-Gli endpoint di input dell'istanza sono simili agli endpoint di input ma consentono di eseguire il mapping di specifiche porte pubbliche per ogni singola istanza del ruolo mediante il port forwarding nel servizio di bilanciamento del carico. È possibile specificare una singola porta pubblica o un intervallo di porte.
+## <a name="instance-input-endpoint"></a>Instance input endpoint
+Instance input endpoints are similar to input endpoints but allows you map specific public-facing ports for each individual role instance by using port forwarding on the load balancer. You can specify a single public-facing port, or a range of ports.
 
-L'endpoint di input dell’istanza può utilizzare solo i protocolli **tcp** o **udp**.
+The instance input endpoint can only use **tcp** or **udp** as the protocol.
 
-Per creare un endpoint di input dell’istanza, aggiungere l’elemento figlio **InstanceInputEndpoint** all’elemento **Endpoints** del ruolo di lavoro o del ruolo web.
+To create an instance input endpoint, add the **InstanceInputEndpoint** child element to the **Endpoints** element of either a web or worker role.
 
 ```xml
 <Endpoints>
@@ -50,12 +51,12 @@ Per creare un endpoint di input dell’istanza, aggiungere l’elemento figlio *
 </Endpoints>
 ```
 
-## Endpoint interno
-Gli endpoint interni sono disponibili per la comunicazione da istanza a istanza. La porta è facoltativa e se omessa, viene assegnata una porta dinamica all'endpoint. Può essere utilizzato un intervallo di porte. Esiste un limite di cinque endpoint interni per ogni ruolo.
+## <a name="internal-endpoint"></a>Internal endpoint
+Internal endpoints are available for instance-to-instance communication. The port is optional and if omitted, a dynamic port is assigned to the endpoint. A port range can be used. There is a limit of five internal endpoints per role.
 
-L'endpoint interno può utilizzare i seguenti protocolli: **http, https, tcp, udp**.
+The internal endpoint can use the following protocols: **http, tcp, udp, any**.
 
-Per creare un endpoint di input interno, aggiungere l’elemento figlio **InternalEndpoint** all’elemento **Endpoints** del ruolo di lavoro o del ruolo web.
+To create an internal input endpoint, add the **InternalEndpoint** child element to the **Endpoints** element of either a web or worker role.
 
 ```xml
 <Endpoints>
@@ -63,7 +64,7 @@ Per creare un endpoint di input interno, aggiungere l’elemento figlio **Intern
 </Endpoints> 
 ```
 
-È possibile inoltre utilizzare un intervallo di porte.
+You can also use a port range.
 
 ```xml
 <Endpoints>
@@ -74,9 +75,9 @@ Per creare un endpoint di input interno, aggiungere l’elemento figlio **Intern
 ```
 
 
-## Ruoli di lavoro a confronto con Ruoli Web
+## <a name="worker-roles-vs.-web-roles"></a>Worker roles vs. Web roles
 
-Esiste una piccola differenza tra gli endpoint quando si lavora con i ruoli di lavoro e i ruoli web. Il ruolo web deve disporre almeno di un singolo endpoint di input che utilizzi il protocollo **HTTP**.
+There is one minor difference with endpoints when working with both worker and web roles. The web role must have at minimum a single input endpoint using the **HTTP** protocol.
 
 
 ```xml
@@ -86,26 +87,26 @@ Esiste una piccola differenza tra gli endpoint quando si lavora con i ruoli di l
 </Endpoints>
 ```
 
-## Uso di .NET SDK per accedere ad un endpoint
-La libreria gestita di Azure fornisce metodi per la comunicazione di istanze del ruolo in fase di esecuzione. Dal codice eseguito all'interno di un'istanza del ruolo, è possibile recuperare informazioni sull'esistenza di altre istanze del ruolo e sui relativi endpoint, nonché le informazioni sull'istanza del ruolo corrente.
+## <a name="using-the-.net-sdk-to-access-an-endpoint"></a>Using the .NET SDK to access an endpoint
+The Azure Managed Library provides methods for role instances to communicate at runtime. From code running within a role instance, you can retrieve information about the existence of other role instances and their endpoints, as well as information about the current role instance.
 
-> [AZURE.NOTE] È possibile recuperare solo le informazioni sulle istanze dei ruoli che sono in esecuzione nel servizio cloud e che definiscono almeno un endpoint interno. Non è possibile ottenere dati sulle istanze dei ruoli in esecuzione in un altro servizio.
+> [AZURE.NOTE] You can only retrieve information about role instances that are running in your cloud service and that define at least one internal endpoint. You cannot obtain data about role instances running in a different service.
 
-È possibile utilizzare la proprietà [Istanze](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) per recuperare le istanze di un ruolo. Per prima cosa utilizzare la [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) per restituire un riferimento all'istanza del ruolo corrente, e poi utilizzare la proprietà [Ruolo](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) per restituire un riferimento al ruolo stesso.
+You can use the [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) property to retrieve instances of a role. First use the [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) to return a reference to the current role instance, and then use the [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) property to return a reference to the role itself.
 
-Quando ci si connette a un'istanza del ruolo a livello di programmazione tramite il SDK di .NET, è relativamente semplice accedere alle informazioni relative all’endpoint. Ad esempio, dopo essersi connessi a un ambiente di ruolo specifico, è possibile ottenere la porta di un endpoint specifico con il seguente codice:
+When you connect to a role instance programmatically through the .NET SDK, it's relatively easy to access the endpoint information. For example, after you've already connected to a specific role environment, you can get the port of a specific endpoint with this code:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-La proprietà **Istanze** restituisce una raccolta di oggetti **RoleInstance**. Tale raccolta contiene sempre l'istanza corrente. Se il ruolo non definisce un endpoint interno, la raccolta include l'istanza corrente ma non altre istanze. Il numero di istanze del ruolo nella raccolta sarà sempre 1 nel caso in cui non sia stato definito alcun endpoint interno per il ruolo. Se il ruolo definisce un endpoint interno, le relative istanze sono individuabili in fase di esecuzione e il numero di istanze nella raccolta corrisponderà al numero di istanze specificato per il ruolo nel file di configurazione del servizio.
+The **Instances** property returns a collection of **RoleInstance** objects. This collection always contains the current instance. If the role does not define an internal endpoint, the collection includes the current instance but no other instances. The number of role instances in the collection will always be 1 in the case where no internal endpoint is defined for the role. If the role defines an internal endpoint, its instances are discoverable at runtime, and the number of instances in the collection will correspond to the number of instances specified for the role in the service configuration file.
 
-> [AZURE.NOTE] La libreria gestita di Azure non rappresenta un mezzo per determinare lo stato di altre istanze del ruolo, ma è possibile implementare tali valutazioni manualmente se il servizio necessita di tale funzionalità. È possibile utilizzare la [Diagnostica di Azure](cloud-services-dotnet-diagnostics.md) per ottenere informazioni sull'esecuzione di istanze del ruolo.
+> [AZURE.NOTE] The Azure Managed Library does not provide a means of determining the health of other role instances, but you can implement such health assessments yourself if your service needs this functionality. You can use [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) to obtain information about running role instances.
 
-Per determinare il numero di porta per un endpoint interno in un'istanza del ruolo, è possibile utilizzare la proprietà [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) per restituire un oggetto Dictionary che contenga i nomi degli endpoint e i corrispondenti indirizzi IP e porte. La proprietà [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) restituisce l'indirizzo IP e la porta per un endpoint specificato. La proprietà **PublicIPEndpoint** restituisce la porta per un endpoint con carico bilanciato. La parte relativa all’indirizzo IP della proprietà **PublicIPEndpoint** non viene utilizzata.
+To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) property returns the IP address and port for a specified endpoint. The **PublicIPEndpoint** property returns the port for a load balanced endpoint. The IP address portion of the **PublicIPEndpoint** property is not used.
 
-Di seguito è riportato un esempio che consente di eseguire l’iterazione delle istanze del ruolo.
+Here is an example that iterates role instances.
 
 ```csharp
 foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Instances)
@@ -118,9 +119,9 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Di seguito è riportato un esempio di un ruolo di lavoro che ottiene l'endpoint esposto tramite la definizione del servizio e avvia l'ascolto per le connessioni.
+Here is an example of a worker role that gets the endpoint exposed through the service definition and starts listening for connections.
 
-> [AZURE.WARNING] Questo codice funziona solo per un servizio distribuito. Durante l'esecuzione nell'emulatore di calcolo di Azure, gli elementi di configurazione del servizio che creano endpoint porte dirette (elementi **InstanceInputEndpoint**) vengono ignorati.
+> [AZURE.WARNING] This code will only work for a deployed service. When running in the Azure Compute Emulator, service configuration elements that create direct port endpoints (**InstanceInputEndpoint** elements) are ignored.
 
 ```csharp
 using System;
@@ -206,12 +207,12 @@ namespace WorkerRole1
 }
 ```
 
-## Regole di traffico di rete per controllare la comunicazione di ruolo
-Dopo aver definito gli endpoint interni, è possibile aggiungere regole del traffico di rete (in base agli endpoint che sono stati creati) per controllare il modo in cui le istanze del ruolo possono comunicare tra loro. Nel diagramma seguente vengono illustrati alcuni scenari comuni relativi al controllo della comunicazione del ruolo:
+## <a name="network-traffic-rules-to-control-role-communication"></a>Network traffic rules to control role communication
+After you define internal endpoints, you can add network traffic rules (based on the endpoints that you created) to control how role instances can communicate with each other. The following diagram shows some common scenarios for controlling role communication:
 
-![Scenari di regole del traffico di rete](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scenari di regole del traffico di rete")
+![Network Traffic Rules Scenarios](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
 
-Il seguente esempio di codice mostra le definizioni di ruolo per i ruoli illustrati nel diagramma precedente. Ogni definizione di ruolo include almeno un endpoint interno definito:
+The following code example shows role definitions for the roles shown in the previous diagram. Each role definition includes at least one internal endpoint defined:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -242,12 +243,12 @@ Il seguente esempio di codice mostra le definizioni di ruolo per i ruoli illustr
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE] La restrizione della comunicazione tra ruoli può verificarsi con endpoint interni di porte fisse o assegnate automaticamente.
+> [AZURE.NOTE] Restriction of communication between roles can occur with internal endpoints of both fixed and automatically assigned ports.
 
-Per impostazione predefinita, dopo aver definito un endpoint interno, la comunicazione può avvenire tra qualsiasi ruolo e l’endpoint interno di un ruolo senza restrizioni. Per limitare la comunicazione, è necessario aggiungere un elemento **NetworkTrafficRules** per l’elemento **ServiceDefinition** nel file di definizione del servizio.
+By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a **NetworkTrafficRules** element to the **ServiceDefinition** element in the service definition file.
 
-### Scenario 1
-Consentire solo il traffico di rete da **WebRole1** a **WorkerRole1**.
+### <a name="scenario-1"></a>Scenario 1
+Only allow network traffic from **WebRole1** to **WorkerRole1**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -265,8 +266,8 @@ Consentire solo il traffico di rete da **WebRole1** a **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### Scenario 2
-Consente solo il traffico di rete da **WebRole1** a **WorkerRole1** e **WorkerRole2**.
+### <a name="scenario-2"></a>Scenario 2
+Only allows network traffic from **WebRole1** to **WorkerRole1** and **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -284,8 +285,8 @@ Consente solo il traffico di rete da **WebRole1** a **WorkerRole1** e **WorkerRo
 </ServiceDefinition>
 ```
 
-### Scenario 3
-Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, e da **WorkerRole1** a **WorkerRole2**.
+### <a name="scenario-3"></a>Scenario 3
+Only allows network traffic from **WebRole1** to **WorkerRole1**, and **WorkerRole1** to **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -313,8 +314,8 @@ Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, e da **Work
 </ServiceDefinition>
 ```
 
-### Scenario 4
-Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, da **WebRole1** a **WorkerRole2**, e da **WorkerRole1** a **WorkerRole2**.
+### <a name="scenario-4"></a>Scenario 4
+Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** to **WorkerRole2**, and **WorkerRole1** to **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -354,9 +355,12 @@ Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, da **WebRol
 </ServiceDefinition>
 ```
 
-Un riferimento allo schema XML per gli elementi utilizzati in precedenza è reperibile[qui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+An XML schema reference for the elements used above can be found [here](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## Passaggi successivi
-Ulteriori informazioni sul [modello](cloud-services-model-and-package.md) del servizio Cloud.
+## <a name="next-steps"></a>Next steps
+Read more about the Cloud Service [model](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

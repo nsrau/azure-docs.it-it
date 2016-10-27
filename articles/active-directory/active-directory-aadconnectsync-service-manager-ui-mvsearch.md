@@ -1,36 +1,41 @@
 <properties
-	pageTitle="Servizio di sincronizzazione Azure AD Connect: interfaccia utente di Synchronization Service Manager | Microsoft Azure"
-	description="Comprendere la scheda Ricerca metaverse in Synchronization Service Manager di Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Azure"
+    description="Understand the Metaverse Search tab in the Synchronization Service Manager for Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/07/2016"
+    ms.author="billmath"/>
 
 
-# Servizio di sincronizzazione Azure AD Connect: Synchronization Service Manager
 
-[Operazioni](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connettori](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Finestra di progettazione metaverse](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Ricerca metaverse](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+# <a name="azure-ad-connect-sync:-synchronization-service-manager"></a>Azure AD Connect sync: Synchronization Service Manager
+
+[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 --- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
-La scheda Metaverse Search (Ricerca metaverse) è utile per la risoluzione dei problemi relativi ai dati. Nella parte superiore è possibile creare una query con una combinazione di attributi. Quando si è soddisfatti della query, fare clic su **Search** (Cerca). Il risultato sarà visualizzato nella griglia inferiore. È possibile scegliere quali colonne visualizzare tramite **Column Settings** (Impostazioni colonne).
+The metaverse search tab is useful for troubleshooting data-related problems. In the top half, you can create a query based on a combination of attributes. When you are satisfied with your query, click **Search**. The result is visible in the bottom grid. You can select which columns should be visible with **Column Settings**.
 
-Nei risultati della ricerca selezionare un oggetto e **Properties** (Proprietà) per visualizzare le [proprietà dell'oggetto metaverse](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
+In the search results, select an object and **Properties** to see the [metaverse object properties](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
 
-## Passaggi successivi
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Next steps
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

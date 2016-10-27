@@ -1,177 +1,179 @@
 <properties 
-	pageTitle="Introduzione a Ricerca di Azure | Microsoft Azure | DocumentDB | Servizio di ricerca cloud" 
-	description="Informazioni sulla creazione del primo indice di Ricerca di Azure con questa procedura dettagliata e i dati di esempio di DocumentDB. Questo esercizio senza codice basato sul portale usa l'importazione guidata dati." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="jhubbard" 
-	editor=""
+    pageTitle="Get started with Azure Search | Microsoft Azure | DocumentDB | Cloud search service" 
+    description="Learn how to create your first Azure Search index using this tutorial walkthrough and DocumentDB sample data. This portal-based, code-free exercise uses the Import Data wizard." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="jhubbard" 
+    editor=""
     tags="azure-portal"/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="hero-article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="10/03/2016" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="na" 
+    ms.workload="search" 
+    ms.topic="hero-article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="10/03/2016" 
+    ms.author="heidist"/>
 
-# Introduzione a Ricerca di Azure nel portale
 
-Questa introduzione senza codice permette di iniziare a usare Ricerca di Microsoft Azure con funzionalità incorporate direttamente nel portale.
+# <a name="get-started-with-azure-search-in-the-portal"></a>Get started with Azure Search in the portal
 
-L'esercitazione presuppone un [database di Azure DocumentDB di esempio](#apdx-sampledata) semplice da creare usando i dati e le istruzioni, ma è anche possibile adattare questi passaggi ai dati esistenti in DocumentDB o nel database SQL.
+This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
 
-> [AZURE.NOTE] Questa esercitazione introduttiva richiede una [sottoscrizione di Azure](/pricing/free-trial/?WT.mc_id=A261C142F) e un [servizio Ricerca di Azure](search-create-service-portal.md).
+The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
+
+> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](/pricing/free-trial/?WT.mc_id=A261C142F) and an [Azure Search service](search-create-service-portal.md). 
  
-## Trovare il servizio
+## <a name="find-your-service"></a>Find your service
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Aprire il dashboard relativo al servizio Ricerca di Azure. Di seguito alcuni modi per trovare il dashboard.
-	- Nell'indice fare clic su **Servizi di ricerca**. L'indice elenca tutti i servizi di cui è stato effettuato il provisioning nella sottoscrizione. Se è stato definito un servizio di ricerca, nell'elenco verrà visualizzato **Servizi di ricerca**.
-	- Nell'indice fare clic su **Esplora** e quindi digitare "ricerca" nella casella di ricerca per generare un elenco di tutti i servizi di ricerca creati nelle proprie sottoscrizioni.
+2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
+    - In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you see **Search services** in the list.
+    - In the Jumpbar, click **Browse** and then type "search" in the search box to produce a list of all search services created in your subscriptions.
 
-## Verificare lo spazio
+## <a name="check-for-space"></a>Check for space
 
-Molti clienti iniziano con il servizio gratuito. Questa versione è limitata a tre indici, tre origini dati e tre gli indicizzatori. Assicurarsi di avere spazio per gli elementi aggiuntivi prima di iniziare, perché ne verrà creato uno per ogni oggetto.
+Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This walkthrough creates one of each object.
 
-## Creare un indice e caricare i dati
+## <a name="create-an-index-and-load-data"></a>Create an index and load data
 
-Le query di ricerca scorrono un *indice* contenente dati ricercabili, metadati e costrutti usati per l'ottimizzazione di determinati comportamenti di ricerca. Come primo passaggio viene definito e popolato un indice.
+Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, define and populate an index.
 
-Per creare un indice si possono usare diversi modi. Se i dati si trovano in un archivio in cui Ricerca di Azure può eseguire una ricerca per indicizzazione, ad esempio un database SQL di Azure, SQL Server in una macchina virtuale di Azure o DocumentDB, è possibile creare e popolare un indice in tutta semplicità con un *indicizzatore*.
+There are several ways to create an index. If your data is in a store that Azure Search can crawl - such as Azure SQL Database, SQL Server on an Azure VM, or DocumentDB - you can create and populate an index very easily using an *indexer*.
 
-Per mantenere questa attività basata sul portale, si usano dati di DocumentDB sui quali è possibile effettuare una ricerca per indicizzazione con un indicizzatore mediante l'**importazione guidata dati**.
+To keep this task portal-based, we use data from DocumentDB that can be crawled using an indexer via the **Import data** wizard. 
 
-Prima di continuare, creare un [database di DocumentDB di esempio](#apdx-sampledata) da usare con l'esercitazione e quindi tornare a questa sezione per completare la procedura seguente.
+Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to use with this tutorial, and then return to this section to complete the steps below.
 
 <a id="defineDS"></a>
-#### Passaggio 1: Definire l'origine dati
+#### <a name="step-1:-define-the-data-source"></a>Step 1: Define the data source
 
-1. Nel dashboard del servizio Ricerca di Azure fare clic su **Importa dati** nella barra dei comandi per avviare una procedura guidata che crea e popola un indice.
+1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
 
     ![][7]
 
-2. Nella procedura guidata fare clic su **Origine dati** > **DocumentDB** > **Nome** e digitare un nome per l'origine dati. Un'origine dati è un oggetto connessione in Ricerca di Azure che può essere usato con altri indicizzatori. Una volta creata, diventa disponibile come "origine dati esistente" nel servizio.
+2. In the wizard, click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
 
-3. Scegliere l'account DocumentDB esistente, nonché il database e la raccolta. Se si usano i dati di esempio messi a disposizione, la definizione dell'origine dati sarà simile alla seguente:
+3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition looks like this:
 
     ![][2]
 
-Si noti che la query viene ignorata. Il motivo è che questa volta non viene implementato il rilevamento delle modifiche nel set di dati. Se il set di dati include un campo che tiene traccia del momento in cui un record viene aggiornato, è possibile configurare un indicizzatore di Ricerca di Azure per usare il rilevamento delle modifiche per aggiornamenti selettivi dell'indice.
+Notice that we are skipping the query. This is because we're not implementing change tracking in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
 
-Fare clic su **OK** per completare questo passaggio della procedura guidata.
+Click **OK** to complete this step of the wizard.
 
-#### Passaggio 2: Definire l'indice
+#### <a name="step-2:-define-the-index"></a>Step 2: Define the index
 
-Sempre nella procedura guidata fare clic su **Indice** e osservare l'area di progettazione usata per creare un indice di Ricerca di Azure. Un indice richiede come minimo un nome e una raccolta di campi, con un campo contrassegnato come chiave del documento. Poiché si usa un set di dati di DocumentDB, i campi vengono rilevati automaticamente dalla procedura guidata e l'indice viene precaricato con campi e assegnazioni dei tipi di dati.
+Still in the wizard, click **Index** and take a look at the design surface used to create an Azure Search index. Minimally, an index requires a name, and a fields collection, with one field marked as the document key. Because we're using a DocumentDB data set, fields are detected by the wizard automatically and the index is preloaded with fields and data type assignments. 
 
   ![][3]
 
-Anche se i campi e i tipi di dati sono configurati, è comunque necessario assegnare gli attributi. Le caselle di controllo nella parte superiore dell'elenco di campi sono *attributi dell'indice* che controllano il modo in cui viene usato il campo.
+Although the fields and data types are configured, you still need to assign attributes. The check boxes across the top of the field list are *index attributes* that control how the field is used. 
 
-- **Recuperabile** indica che viene visualizzato nell'elenco dei risultati della ricerca. Deselezionando questa casella di controllo è possibile contrassegnare i singoli campi perché siano esclusi dai risultati della ricerca, ad esempio quando vengono usati solo nelle espressioni di filtro.
-- **Filtrabile**, **Ordinabile** e **Con facet** determinano se un campo può essere usato in un filtro, un ordinamento o una struttura di esplorazione in base a facet.
-- **Ricercabile** indica che un campo è incluso nella ricerca full-text. Le stringhe sono in genere ricercabili. I campi numerici e i campi booleani sono spesso contrassegnati come non ricercabili.
+- **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example when fields used only in filter expressions. 
+- **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
+- **Searchable** means that a field is included in full text search. Strings are usually searchable. Numeric fields and Boolean fields are often marked as not searchable. 
 
-Prima di uscire da questa pagina, contrassegnare i campi nell'indice per l'uso delle opzioni seguenti, ovvero Recuperabile, Ricercabile e così via. La maggior parte dei campi è Recuperabile. Quasi tutti i campi di tipo stringa sono ricercabili. Non è necessario impostare il campo Key come ricercabile. Alcuni campi come genre, orderableOnline, rating e tags sono anche Filtrabile, Ordinabile e Con facet.
-	
-Campo | Tipo | Opzioni |
+Before you leave this page, mark the fields in your index to use the following options (Retrievable, Searchable, and so on). Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
+    
+Field | Type | Options |
 ------|------|---------|
 id | Edm.String | |
-albumTitle | Edm.String | Recuperabile, Ricercabile |
-albumUrl | Edm.String | Recuperabile, Ricercabile |
-genre | Edm.String | Recuperabile, Ricercabile, Filtrabile, Ordinabile, Con facet |
-genreDescription | Edm.String | Recuperabile, Ricercabile |
-artistName | Edm.String | Recuperabile, Ricercabile |
-orderableOnline | Edm.Boolean | Recuperabile, Filtrabile, Ordinabile, Con facet |
-tags | Collection(Edm.String) | Recuperabile, Filtrabile, Con facet |
-price | Edm.Double | Recuperabile, Filtrabile, Con facet |
+albumTitle | Edm.String | Retrievable, Searchable |
+albumUrl | Edm.String | Retrievable, Searchable |
+genre | Edm.String | Retrievable, Searchable, Filterable, Sortable, Facetable |
+genreDescription | Edm.String | Retrievable, Searchable |
+artistName | Edm.String | Retrievable, Searchable |
+orderableOnline | Edm.Boolean | Retrievable, Filterable, Sortable, Facetable |
+tags | Collection(Edm.String) | Retrievable, Filterable, Facetable |
+price | Edm.Double | Retrievable, Filterable, Facetable |
 margin | Edm.Int32 | |
-rating | Edm.Int32 | Recuperabile, Filtrabile, Ordinabile, Con facet |
-inventory | Edm.Int32 | Recuperabile |
+rating | Edm.Int32 | Retrievable, Filterable, Sortable, Facetable |
+inventory | Edm.Int32 | Retrievable |
 lastUpdated | Edm.DateTimeOffset | |
 
-Come punto di confronto, nella schermata seguente è riportata l'immagine di un indice creato in base alla specifica riportata nella tabella precedente.
+As a point of comparison, the following screenshot is an illustration of an index built to the specification in the previous table.
 
  ![][4]
 
-Fare clic su **OK** per completare questo passaggio della procedura guidata.
+Click **OK** to complete this step of the wizard.
 
-#### Passaggio 3: Definire l'indicizzatore
+#### <a name="step-3:-define-the-indexer"></a>Step 3: Define the indexer
 
-Sempre nella procedura guidata **Importa dati** fare clic su **Indicizzatore** > **Nome**, digitare un nome per l'indicizzatore e usare i valori predefiniti per tutti gli altri valori. Questo oggetto definisce un processo eseguibile. Dopo averlo creato, sarà possibile inserirlo nella pianificazione ricorrente. Per il momento usare l'opzione predefinita per avviare l'esecuzione dell'indicizzatore una volta, immediatamente, facendo clic su **OK**.
+Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer, and use defaults for all the other values. This object defines an executable process. Once you create it, you could put it on recurring schedule, but for now use the default option to run the indexer once, immediately, when you click **OK**. 
 
-Tutte le voci relative all'importazione dei dati risulteranno compilate e pronte all'uso.
+Your import data entries should be all filled in and ready to go.
 
   ![][5]
 
-Per eseguire la procedura guidata, fare clic su **OK** per avviare l'importazione e chiudere la procedura guidata.
+To run the wizard, click **OK** to start the import and close the wizard.
 
-## Verificare l'avanzamento
+## <a name="check-progress"></a>Check progress
 
-Per controllare lo stato, tornare al dashboard del servizio, scorrere verso il basso e fare doppio clic sul riquadro **Indicizzatori** per aprire l'elenco corrispondente. L'indicizzatore appena creato verrà visualizzato nell'elenco e lo stato indicherà "in corso" oppure operazione riuscita, insieme al numero di documenti indicizzati in Ricerca di Azure.
+To check progress, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
 
   ![][6]
 
-## Eseguire una query sull'indice
+## <a name="query-the-index"></a>Query the index
 
-Ora è disponibile un indice di ricerca su cui è possibile eseguire query.
+You now have a search index that's ready to query. 
 
-**Esplora ricerche** è uno strumento di query integrato nel portale. Fornisce una casella di ricerca che consente di verificare se l'input della ricerca restituisce i dati previsti.
+**Search explorer** is a query tool built into the portal. It provides a search box so that you can verify a search input returns the data you expect. 
 
-1. Fare clic su **Esplora ricerche** nella barra dei comandi.
-2. Verificare qual è l'indice attivo. Se non è quello appena creato, fare clic su **Cambia indice** nella barra dei comandi per selezionare l'indice richiesto.
-2. Lasciare vuota la casella di ricerca e quindi fare clic sul pulsante **Cerca** per eseguire una ricerca con caratteri jolly che restituisce tutti i documenti.
-3. Immettere alcune query di ricerca full-text. È possibile esaminare i risultati della ricerca con caratteri jolly per acquisire familiarità con gli artisti, gli album e i generi su cui eseguire query.
-4. Provare un'altra sintassi di query usando gli [esempi forniti alla fine di questo articolo](https://msdn.microsoft.com/library/azure/dn798927.aspx) per avere qualche spunto. Modificare quindi la query per poter usare stringhe di ricerca che è probabile trovare nell'indice.
+1. Click **Search explorer** on the command bar.
+2. Notice which index is active. If it's not the one you just created, click **Change index** on the command bar to select the one you want.
+2. Leave the search box empty and then click the **Search** button to execute a wildcard search that returns all documents.
+3. Enter a few full-text search queries. You can review the results from your wildcard search to get familiar with artists, albums, and genres to query.
+4. Try other query syntax using the [examples provided at the end of this article](https://msdn.microsoft.com/library/azure/dn798927.aspx) for ideas, modifying your query to use search strings that are likely to be found in your index.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Dopo aver eseguito una volta la procedura guidata, è possibile tornare indietro e visualizzare o modificare i singoli componenti, ovvero indice, indicizzatore oppure origine dati. Alcune modifiche, ad esempio il cambiamento del tipo di dati del campo, non sono consentite nell'indice, ma la maggior parte delle proprietà e delle impostazioni sono modificabili. Per visualizzare i singoli componenti, fare clic sul riquadro **Indice**, **Indicizzatore** oppure **Origini dati** nel dashboard per visualizzare un elenco di oggetti esistenti.
+After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable. To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects.
 
-Per informazioni sulle altre funzionalità descritte in questo articolo, visitare i collegamenti seguenti:
+To learn more about other features mentioned in this article, visit these links:
 
-- [Indicizzatori](search-indexer-overview.md)
-- [Creare l'indice, include una spiegazione dettagliata degli attributi dell'indice.](https://msdn.microsoft.com/library/azure/dn798941.aspx)
-- [Esplora ricerche](search-explorer.md)
-- [Eseguire ricerche nei documenti, include esempi di sintassi di query.](https://msdn.microsoft.com/library/azure/dn798927.aspx)
+- [Indexers](search-indexer-overview.md)
+- [Create Index (includes a detailed explanation of the index attributes)](https://msdn.microsoft.com/library/azure/dn798941.aspx)
+- [Search Explorer](search-explorer.md)
+- [Search Documents (includes examples of query syntax)](https://msdn.microsoft.com/library/azure/dn798927.aspx)
 
-È possibile provare questo stesso flusso di lavoro con la procedura guidata Imposta dati per altre origini dati, ad esempio database SQL di Azure o SQL Server in macchine virtuali di Azure.
+You can try this same workflow, using the Import data wizard for other data sources like Azure SQL Database or SQL Server on Azure virtual machines.
 
-> [AZURE.NOTE] È stato annunciato di recente il supporto di un indicizzatore per la ricerca per indicizzazione nell'archiviazione BLOB di Azure, ma la funzionalità è in anteprima e non ancora un'opzione del portale. Per provare l'indicizzatore è necessario scrivere codice. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). <a id="apdx-sampledata"></a>
+> [AZURE.NOTE] Newly announced is indexer support for crawling Azure Blob Storage, but that feature is in preview and not yet a portal option. To try that indexer, you need to write code. See [Indexing Azure Blob storage in Azure Search](search-howto-indexing-azure-blob-storage.md) for more information.
+<a id="apdx-sampledata"></a>
 
 
-## Appendice: Creare dati di esempio in DocumentDB
+## <a name="appendix:-create-sample-data-in-documentdb"></a>Appendix: Create sample data in DocumentDB
 
-Questa sezione crea un piccolo database in DocumentDB che può essere usato per completare le attività in questa esercitazione.
+This section creates a small database in DocumentDB that can be used to complete the tasks in this tutorial.
 
-Le istruzioni seguenti forniscono indicazioni generali, ma non sono esaustive. Se è necessaria altra assistenza per le attività o lo spostamento nel portale di DocumentDB, è possibile vedere la documentazione di DocumentDB. La maggior parte dei comandi necessari sono tuttavia sulla barra dei comandi del servizio nella parte superiore del dashboard o nel pannello del database.
+The following instructions give you general guidance, but are not exhaustive. If you need more help with DocumentDB portal navigation or tasks, you can refer to DocumentDB documentation, but most of the commands you need are either in the service command bar at the top of the dashboard or in the database blade. 
 
   ![][1]
 
-### Creare musicstoredb per questa esercitazione
+### <a name="create-musicstoredb-for-this-tutorial"></a>Create musicstoredb for this tutorial
 
-1. [Fare clic qui](https://github.com/HeidiSteen/azure-search-get-started-sample-data) per scaricare un file ZIP contenente i file di dati JSON del Music Store. Per questo set di dati vengono forniti 246 documenti JSON.
-2. Aggiungere DocumentDB alla sottoscrizione e quindi aprire il dashboard del servizio.
-2. Fare clic su **Aggiungi database** per creare un nuovo database con l'ID `musicstoredb`. Una volta creato, il database verrà visualizzato nel riquadro di database più in basso nella pagina.
-2. Fare clic sul nome del database per aprire il pannello corrispondente.
-3. Fare clic su **Aggiungi raccolta** per creare una raccolta con l'ID `musicstorecoll`.
-3. Fare clic su **Esplora documenti**.
-4. Fare clic su **Carica**.
-5. In **Carica documento** passare alla cartella locale che contiene i file JSON scaricati in precedenza. Selezionare i file JSON in batch non superiori a 100.
-	- 386\.json
-	- 387\.json
-	- . . .
-	- 486\.json
-6. Ripetere questo passaggio per ottenere il successivo batch di file fino a caricare l'ultimo, ovvero 669.json.
-7. Fare clic su **Esplora query** per verificare che i dati vengano caricati in base ai requisiti di caricamento di Esplora documenti.
+1. [Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. We provide 246 JSON documents for this dataset.
+2. Add DocumentDB to your subscription and then open the service dashboard.
+2. Click **Add Database** to create a new database with an id of `musicstoredb`. It shows up in the database tile further down the page after it's created.
+2. Click on the database name to open the database blade.
+3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
+3. Click **Document Explorer**.
+4. Click **Upload**.
+5. In **Upload Document**, navigate to the local folder that contains the JSON files you downloaded previously. Select JSON files in batches of 100 or fewer.
+    - 386.json
+    - 387.json
+    - . . .
+    - 486.json
+6. Repeat to get the next batch of files until you've uploaded the last one, 669.json.
+7. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
 
-Un modo semplice per eseguire questa operazione consiste nell'usare la query predefinita, ma questa può anche essere modificata in modo che selezioni i primi 300 elementi, se il set di dati contiene meno di 300 elementi.
+An easy way to do this is to use the default query, but you can also modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset).
 
-Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al documento 669. Dopo aver caricato i dati, è possibile [tornare ai passaggi di questa procedura dettagliata](#defineDS) per creare un indice tramite la procedura guidata **Importa dati**.
+You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import data wizard**.
 
 
 <!--Image references-->
@@ -183,4 +185,8 @@ Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al d
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

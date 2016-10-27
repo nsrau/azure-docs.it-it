@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Creare una rete virtuale usando un modello di Gestione risorse di Azure | Microsoft Azure"
-   description="Informazioni su come creare una rete virtuale usando un modello di Gestione risorse di Azure | Gestione risorse."
+   pageTitle="Create a virtual network using an ARM template | Microsoft Azure"
+   description="Learn how to create a virtual network using an ARM template | Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="jimdial"
    manager="carmonm"
    editor="tysonn"
-   tags="azure-resource-manager"/>  
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-network"
@@ -17,17 +17,18 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
-# Creare una rete virtuale usando un modello di Gestione risorse di Azure
+
+# <a name="create-a-virtual-network-by-using-an-arm-template"></a>Create a virtual network by using an ARM template
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] In questo documento viene illustrata la creazione di una rete virtuale usando il modello di distribuzione di gestione delle risorse. È anche possibile [creare una rete virtuale nel modello di distribuzione classica](virtual-networks-create-vnet-classic-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This document covers creating a VNet by using the Resource Manager deployment model. You can also [create a virtual network in the classic deployment model](virtual-networks-create-vnet-classic-pportal.md).
 
-Verrà illustrato come scaricare e modificare un modello di Gestione risorse di Azure esistente da GitHub e distribuire il modello da GitHub, PowerShell e dall'interfaccia della riga di comando di Azure.
+You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
-Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure direttamente da GitHub, senza alcuna modifica, ignorare il passaggio per [distribuire un modello da github](#deploy-the-arm-template-by-using-click-to-deploy).
+If you are simply deploying the ARM template directly from GitHub, without any changes, skip to [deploy a template from github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -39,4 +40,7 @@ Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure dir
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

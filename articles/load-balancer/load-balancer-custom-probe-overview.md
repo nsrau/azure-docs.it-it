@@ -1,13 +1,13 @@
 <properties
-  pageTitle="Probe personalizzati del servizio di bilanciamento del carico e monitoraggio dello stato integrità | Microsoft Azure"
-  description="Informazioni su come usare probe personalizzati per il servizio di bilanciamento del carico di Azure per monitorare le relative istanze"
+  pageTitle="Load Balancer custom probes and monitoring health status | Microsoft Azure"
+  description="Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer"
   services="load-balancer"
   documentationCenter="na"
   authors="sdwheeler"
   manager="carmonm"
   editor=""
   tags="azure-resource-manager"
-/> 
+/>
 <tags
   ms.service="load-balancer"
   ms.devlang="na"
@@ -15,79 +15,84 @@
   ms.tgt_pltfrm="na"
   ms.workload="infrastructure-services"
   ms.date="08/25/2016"
-  ms.author="sewhee" /> 
-
-# Probe del servizio di bilanciamento del carico
-
-Il servizio di bilanciamento del carico di Azure consente di monitorare l'integrità delle istanze del server tramite probe. Se un probe non risponde, il servizio di bilanciamento del carico interrompe l'invio di nuove connessioni all'istanza non integra. Le connessioni esistenti non sono interessate, mentre quelle nuove vengono inviate alle istanze integre.
-
-I ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe. I probe TCP o HTTP personalizzati devono essere configurati quando si usano macchine virtuali monitorate tramite il servizio di bilanciamento del carico.
-
-## Informazioni su conteggio e timeout dei probe
-
-Il comportamento dei probe dipende dagli elementi seguenti:
-
-- Numero di probe riusciti che consentono di etichettare un'istanza come attiva.
-- Numero di probe non riusciti che fanno sì che un'istanza sia etichettata come inattiva.
-
-Il timeout diviso per il valore di frequenza probe è uguale al parametro SuccessFailCount che determina se un'istanza si presume sia attiva o inattiva. Nel portale di Azure il timeout è impostato sul doppio del valore della frequenza.
-
-La configurazione dei probe deve essere la stessa in tutte le istanze con bilanciamento del carico per un endpoint, ovvero un set con bilanciamento del carico. Ciò significa che non è possibile avere una configurazione dei probe diversa per ogni istanza del ruolo o macchina virtuale nello stesso servizio ospitato per una combinazione di endpoint particolare. Ad esempio, ogni istanza deve avere porte locali e i timeout identici.
+  ms.author="sewhee" />
 
 
->[AZURE.IMPORTANT] Un probe del servizio di bilanciamento del carico usa l'indirizzo IP 168.63.129.16. Questo indirizzo IP pubblico facilita la comunicazione con le risorse interne della piattaforma per lo scenario Rete virtuale di Azure che prevede l'uso di un IP personale ("bring your own IP"). L'indirizzo IP pubblico virtuale 168.63.129.16 viene usato in tutte le aree e non cambia. È consigliabile consentire questo indirizzo IP in tutti i criteri firewall locali. Non deve essere considerato come un rischio per la sicurezza, perché solo la piattaforma Azure interna può generare un messaggio da questo indirizzo. In caso contrario, si avrà un comportamento imprevisto in diversi scenari, come la configurazione dello stesso intervallo di indirizzi IP 168.63.129.16 e la presenza di indirizzi IP duplicati.
+# <a name="load-balancer-probes"></a>Load Balancer probes
 
-## Informazioni sui tipi di probe
+Azure Load Balancer offers the capability to monitor the health of server instances by using probes. When a probe fails to respond, Load Balancer stops sending new connections to the unhealthy instance. The existing connections are not affected, and new connections are sent to healthy instances.
 
-### Probe dell'agente guest
+Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom probes must be configured when you use virtual machines behind Load Balancer.
 
-Questo probe è disponibile solo per i servizi cloud di Azure. Il servizio di bilanciamento del carico di Azure utilizza l'agente guest nella macchina virtuale e quindi rimane in ascolto e invia una risposta HTTP 200 OK solo quando l'istanza è nello stato Pronto, ovvero non nello stato Occupato, Riciclo in corso o Arresto.
+## <a name="understand-probe-count-and-timeout"></a>Understand probe count and timeout
 
-Per altre informazioni, vedere l'articolo relativo alla [configurazione di file di definizione del servizio (file csdef) per i probe di integrità](https://msdn.microsoft.com/library/azure/jj151530.asp) oppure l'articolo [Introduzione alla creazione del servizio di bilanciamento del carico per Internet per i servizi cloud](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
+Probe behavior depends on:
 
-### Perché un probe dell'agente guest contrassegna un'istanza come non integra
+- The number of successful probes that allow an instance to be labeled as up.
+- The number of failed probes that cause an instance to be labeled as down.
 
-Se l'agente guest non risponde con un messaggio HTTP 200 OK, il servizio di bilanciamento del carico contrassegna l'istanza che non risponde e arresta l'invio di traffico a tale istanza. Il servizio di bilanciamento del carico continua a effettuare il ping dell'istanza. Se l'agente guest risponde con un messaggio HTTP 200, il servizio di bilanciamento del carico continua a inviare il traffico a tale istanza.
+The timeout divided by the probe frequency value is equal to SuccessFailCount which determines whether an instance is assumed to be up or down. In the Azure portal, the timeout is set to two times the value of the frequency.
 
-Quando si usa un ruolo Web, il codice del sito Web in genere viene eseguito in w3wp.exe, che non è monitorato dall'infrastruttura di Azure o dall'agente guest. Gli errori in w3wp.exe, ad esempio le risposte HTTP 500, non vengono quindi segnalati all'agente guest e il servizio di bilanciamento del carico non esclude l'istanza dalla rotazione.
+The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
-### Probe HTTP personalizzato
 
-Il probe HTTP personalizzato del servizio di bilanciamento del carico esegue l'override del probe dell'agente guest predefinito e consente di creare una logica personalizzata per determinare l'integrità dell'istanza del ruolo. Per impostazione predefinita, il servizio di bilanciamento del carico esegue regolarmente probe sull'endpoint ogni 15 secondi. L'istanza viene considerata in rotazione dal servizio di bilanciamento del carico nel caso di risposta con un messaggio HTTP 200 entro il periodo di timeout, ovvero 31 secondi per impostazione predefinita.
+>[AZURE.IMPORTANT] A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you do not do this, there will be unexpected behavior in a variety of scenarios like configuring the same IP address range of 168.63.129.16 and having duplicated IP addresses.
 
-Questa impostazione può essere utile se si vuole implementare la logica personalizzata per rimuovere le istanze dalla rotazione del servizio di bilanciamento del carico. Ad esempio, è possibile decidere di rimuovere un'istanza se presenta oltre il 90% di utilizzo della CPU e restituisce uno stato diverso da 200. Nel caso di ruoli Web che usano w3wp.exe si ottiene anche il monitoraggio automatico del sito Web, perché gli errori nel codice del sito Web restituiranno uno stato diverso da 200 al probe del servizio di bilanciamento del carico.
+## <a name="learn-about-the-types-of-probes"></a>Learn about the types of probes
 
->[AZURE.NOTE] Il probe HTTP personalizzato supporta solo percorsi relativi e il protocollo HTTP. HTTPS non è supportato.
+### <a name="guest-agent-probe"></a>Guest agent probe
 
-### Perché un probe HTTP personalizzato contrassegna un'istanza come non integra
+This probe is available for Azure Cloud Services only. Load Balancer utilizes the guest agent inside the virtual machine, and then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state (that is, not in another state such as Busy, Recycling, or Stopping).
 
-- L'applicazione HTTP restituisce un codice di risposta HTTP diverso da 200, ad esempio 403, 404 o 500. Si tratta di un acknowledgment positivo per indicare che l'istanza dell'applicazione deve essere esclusa immediatamente dal servizio.
+For more information, see [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) or [Get started creating an Internet-facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
-. Il server HTTP non invia alcuna risposta dopo il periodo di timeout. A seconda del valore di timeout impostato, questo può significare che più richieste di probe non riceveranno risposta prima che il probe venga contrassegnato come non in esecuzione, vale a dire prima dell'invio di probe SuccessFailCount.
-- 	Il server chiude la connessione tramite l'invio di TCP Reset.
+### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy?"></a>What makes a guest agent probe mark an instance as unhealthy?
 
-### Probe TCP personalizzato
+If the guest agent fails to respond with HTTP 200 OK, the Load Balancer marks the instance as unresponsive and stops sending traffic to that instance. Load Balancer continues to ping the instance. If the guest agent responds with an HTTP 200, Load Balancer sends traffic to that instance again.
 
-I probe TCP avviano una connessione tramite l'esecuzione di un handshake a tre livelli con la porta definita.
+When you use a web role, the website code typically runs in w3wp.exe, which is not monitored by the Azure fabric or guest agent. This means that failures in w3wp.exe (for example, HTTP 500 responses) will not be reported to the guest agent, and Load Balancer will not take that instance out of rotation.
 
-### Perché un probe TCP personalizzato contrassegna un'istanza come non integra
+### <a name="http-custom-probe"></a>HTTP custom probe
 
-- Il server TCP non invia alcuna risposta dopo il periodo di timeout. Il probe viene contrassegnato come non in esecuzione in base alla configurazione del numero di richieste di probe non riuscite che possono rimanere senza risposta prima che il probe sia contrassegnato come non in esecuzione.
-- Il probe riceve un TCP Reset dall'istanza del ruolo.
+The custom HTTP Load Balancer probe overrides the default guest agent probe, which means that you can create your own custom logic to determine the health of the role instance. Load Balancer probes your endpoint every 15 seconds, by default. The instance is considered to be in the Load Balancer rotation if it responds with an HTTP 200 within the timeout period (31 seconds by default).
 
-Per altre informazioni sulla configurazione di un probe di integrità HTTP o di un probe TCP, vedere [Introduzione alla creazione di un servizio di bilanciamento del carico per Internet in Gestione risorse con PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
+This can be useful if you want to implement your own logic to remove instances from Load Balancer rotation. For example, you could decide to remove an instance if it is above 90% CPU and returns a non-200 status. If you have web roles that use w3wp.exe, this also means you get automatic monitoring of your website, because failures in your website code will return a non-200 status to the Load Balancer probe.
 
-## Aggiungere di nuovo le istanze integre alla rotazione del servizio di bilanciamento del carico
+>[AZURE.NOTE] The HTTP custom probe supports relative paths and HTTP protocol only. HTTPS is not supported.
 
-I probe TCP e HTTP sono considerati integri e contrassegnano come integra l'istanza del ruolo quando:
+### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy?"></a>What makes an HTTP custom probe mark an instance as unhealthy?
 
-- Il servizio di bilanciamento del carico ottiene un probe positivo al primo avvio della macchina virtuale.
-- Il numero di SuccessFailCount, descritto in precedenza, definisce il valore dei probe riusciti necessario per contrassegnare l'istanza del ruolo come integra. Se un'istanza del ruolo è stata rimossa, il numero di probe successivi riusciti deve essere uguale o maggiore del valore di SuccessFailCount per contrassegnare l'istanza del ruolo come in esecuzione.
+- The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This is a positive acknowledgment that the application instance should be taken out of service right away.
 
->[AZURE.NOTE] Se l'integrità di un'istanza del ruolo varia, il servizio di bilanciamento del carico rimane in attesa più a lungo prima di ripristinarne lo stato di integrità. Questa operazione viene eseguita tramite i criteri per la protezione dell'utente e dell'infrastruttura.
+. The HTTP server does not respond at all after the timeout period. Depending on the timeout value that is set, this might mean that multiple probe requests go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
+-   The server closes the connection via a TCP reset.
 
-## Usare Analisi dei log per il servizio di bilanciamento del carico
+### <a name="tcp-custom-probe"></a>TCP custom probe
 
-È possibile usare [Analisi dei log per il servizio di bilanciamento del carico](load-balancer-monitor-log.md) per verificare lo stato di integrità e il conteggio dei probe. Per fornire statistiche dello stato di integrità del servizio di bilanciamento del carico, è possibile usare la registrazione con Power BI o con Operational Insights.
+TCP probes initiate a connection by performing a three-way handshake with the defined port.
 
-<!---HONumber=AcomDC_0921_2016-->
+### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy?"></a>What makes a TCP custom probe mark an instance as unhealthy?
+
+- The TCP server does not respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
+- The probe receives a TCP reset from the role instance.
+
+For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
+
+## <a name="add-healthy-instances-back-into-load-balancer-rotation"></a>Add healthy instances back into Load Balancer rotation
+
+TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
+
+- Load Balancer gets a positive probe the first time the VM boots.
+- The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as running.
+
+>[AZURE.NOTE] If the health of a role instance is fluctuating, Load Balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.
+
+## <a name="use-log-analytics-for-load-balancer"></a>Use log analytics for Load Balancer
+
+You can use [log analytics for Load Balancer](load-balancer-monitor-log.md) to check on the probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about Load Balancer health status.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

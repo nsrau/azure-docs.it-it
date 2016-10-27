@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Protezione della rete nel Centro sicurezza di Azure | Microsoft Azure"
-   description="Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione della rete di Azure e garantiscano la conformità ai criteri di sicurezza."
+   pageTitle="Protecting your network in Azure Security Center  | Microsoft Azure"
+   description="This document addresses recommendations in Azure Security Center that help you protect your Azure network and stay in compliance with security policies."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
    manager="MBaldwin"
-   editor=""/>  
+   editor=""/>
 
 <tags
    ms.service="security-center"
@@ -16,33 +16,38 @@
    ms.date="08/04/2016"
    ms.author="terrylan"/>
 
-# Protezione della rete nel Centro sicurezza di Azure
 
-Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili ai tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL e applicazioni.
+# <a name="protecting-your-network-in-azure-security-center"></a>Protecting your network in Azure Security Center
 
-Questo articolo illustra le raccomandazioni applicabili alla rete. Le raccomandazioni per le risorse di rete sono incentrate sui firewall di nuova generazione, sui gruppi di sicurezza di rete, sulla configurazione delle regole di traffico in ingresso e altro ancora. Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili per le risorse di rete e gli effetti che producono se si decide di metterle in pratica.
+Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL, and applications.
 
-## Indicazioni disponibili per la rete
+This article addresses recommendations that apply to your network.  Network recommendations center around next generation firewalls, Network Security Groups, configuring inbound traffic rules, and more.  Use the table below as a reference to help you understand the available network recommendations and what each one will do if you apply it.
 
-|Raccomandazione|Descrizione|
+## <a name="available-network-recommendations"></a>Available network recommendations
+
+|Recommendation|Description|
 |-----|-----|
-|[Aggiungi un firewall di nuova generazione](security-center-add-next-generation-firewall.md)|Il Centro sicurezza di Azure consiglia di aggiungere un firewall di nuova generazione di un partner Microsoft per aumentare la protezione delle applicazioni Web.|
-|[Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Consiglia di configurare le regole del gruppo di sicurezza di rete che forzano il traffico in ingresso alla VM tramite il firewall di nuova generazione.|
-|[Abilita i gruppi di sicurezza di rete sulle subnet o sulle macchine virtuali](security-center-enable-network-security-groups.md)|Consiglia di attivare i gruppo di sicurezza di rete sulle subnet o sulle macchine virtuali.|
-|[Restrict access through Internet facing endpoint (Limita l'accesso tramite endpoint con connessione Internet)](security-center-restrict-access-through-internet-facing-endpoints.md)|Consiglia di configurare le regole del traffico in ingresso per i gruppi di sicurezza di rete.|
+|[Add a Next Generation Firewall](security-center-add-next-generation-firewall.md)|Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner in order to increase your security protections.|
+|[Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW.|
+|[Enable Network Security Groups on subnets or virtual machines](security-center-enable-network-security-groups.md)|Recommends that you enable NSGs on subnets or VMs.|
+|[Restrict access through Internet facing endpoint](security-center-restrict-access-through-internet-facing-endpoints.md)|Recommends that you configure inbound traffic rules for NSGs.|
 
-## Vedere anche
+## <a name="see-also"></a>See also
 
-Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
+To learn more about recommendations that apply to other Azure resource types, see the following:
 
-- [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
-- [Protecting your applications in Azure Security Center](security-center-application-recommendations.md) (Protezione delle applicazioni nel Centro sicurezza di Azure)
-- [Protezione del servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
+- [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
+- [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)
 
-Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+To learn more about Security Center, see the following:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-- [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

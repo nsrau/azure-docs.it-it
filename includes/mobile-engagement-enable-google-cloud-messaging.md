@@ -1,34 +1,21 @@
 
-###Creare un progetto Google Cloud Messaging con chiave API
+###<a name="create-a-google-firebase-project-with-api-key"></a>Creare un progetto Google Firebase con chiave API
 
 >[AZURE.NOTE] Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Passare a [Google Cloud Console](https://console.developers.google.com/project) ed eseguire l'accesso con le credenziali dell'account Google.
+1. Passare alla [console di Firebase](https://console.firebase.google.com/) ed eseguire l'accesso con le credenziali dell'account Google.
 
-2. Passare a **All Projects** (Tutti i progetti) e quindi fare clic su **Create Project** (Crea progetto).
+2. Fare clic sul pulsante **Create new Project** (Crea nuovo progetto) per creare un nuovo progetto. In alternativa, è possibile fare clic su **Import Google Project** (Importa progetto di Google) per importare un progetto esistente. 
 
-3. Immettere un nome in **Project name** (Nome progetto) e fare clic su **Create** (Crea)
+3. Se si è scelto di creare un nuovo progetto, specificare un **nome progetto** e scegliere un **paese/area geografica**.
 
-4. Dopo aver creato il progetto, prendere nota del valore in **Project number** (Numero progetto), che sarà un valore numerico lungo. Questo dato è disponibile nella sezione **IAM & Admin** (IAM e amministrazione) nell'area **Settings** (Impostazioni) del progetto e sarà necessario in un secondo momento.
+4. Nella pagina del progetto fare clic sull'ingranaggio delle **impostazioni** nell'angolo superiore sinistro. Nel menu fare clic su **Project settings** (Impostazioni del progetto).  
  
-	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
+5. Fare clic sulla scheda **Cloud Messaging** in alto. 
 
-5. A questo punto verrà creata una chiave per la piattaforma Google Cloud Messaging che verrà usata dalla piattaforma dell'utente per inviare notifiche ai dispositivi Android. Passare alla sezione **API Manager** (Gestione API) e fare clic su **Google Cloud Messaging** in **Mobile APIs** (API per dispositivi mobili).
+6. Prendere nota dei valori di **Server Key** (Chiave server) e **Sender ID** (ID mittente), che verranno usati più avanti nel *file manifesto Android*.  
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/gcm.png)
 
-6. Nella pagina successiva fare clic su **Enable** (Abilita). Il dashboard chiederà di creare le credenziali. Fare quindi clic sul pulsante **Go to Credentials** (Vai alle credenziali).
+<!--HONumber=Oct16_HO2-->
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 
-6. Nella pagina seguente selezionare **Google Cloud Messaging** nella prima casella a discesa e **Web server** (Server Web) nella seconda e quindi fare clic su **What credentials do I need?** (Credenziali necessarie).
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
-
-7. Nella pagina **Add credentials to your project** (Aggiungi le credenziali al progetto) fare clic su **Create API key** (Crea chiave API).
-
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
-
-8. Prendere nota del valore di **API KEY**. Questo valore della chiave dell'API verrà usato più avanti per la configurazione nella sezione relativa al push nativo. Fare clic su **Done** (Fine).
-
-<!---HONumber=AcomDC_0622_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tasti di scelta rapida per il portale di Azure | Microsoft Azure"
-   description="Questo articolo includerà sempre un elenco aggiornato dei tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida specializzati."
+   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
+   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
    services="azure-portal"
    documentationCenter=""
    authors="flanakin"
@@ -16,33 +16,39 @@
    ms.date="02/07/2016"
    ms.author="micflan"/>
 
-# Tasti di scelta rapida per il portale di Azure
 
-## Hub aperti
+# <a name="azure-portal-keyboard-shortcuts"></a>Azure portal keyboard shortcuts
 
-| Tasto di scelta rapida | Azione |
+## <a name="open-hubs"></a>Open hubs
+
+| Shortcut | Action |
 |--------|----------|
-| N | Notifiche |
-| / | Esplorazione dei servizi |
-| A | Sessioni attive |
-| B | Fatturazione |
-| C | Creazione |
+| N | Notifications |
+| / | Browse services |
+| A | Active sessions |
+| B | Billing |
+| C | Create |
 
-## Navigazione
+## <a name="navigation"></a>Navigation
 
-| Tasto di scelta rapida | Azione |
+| Shortcut | Action |
 |--------|----------|
-| H | Dashboard di avvio di Azure |
-| F | Primo pannello aperto |
-| J | Pannello precedente aperto |
-| K | Pannello successivo aperto |
-| L | Ultimo pannello aperto |
-| - | Riduzione a icona del pannello o ripristino da ingrandimento |
-| + | Ingrandimento pannello o ripristino da riduzione a icona |
-| # | Chiusura pannello corrente |
-| ¦ | Chiusura di tutti i pannelli |
-| , | Passaggio dello stato attivo sulla barra dei comandi |
-| . | Passaggio dello stato attivo sulla barra di spostamento |
-| ? | Visualizzazione dei tasti di scelta rapida |
+| H | Azure Start dashboard |
+| F | First open blade |
+| J | Previous open blade |
+| K | Next open blade |
+| L | Last open blade |
+| - | Minimize blade or restore from maximized |
+| + | Maximize blade or restore from minimized |
+| # | Close current blade |
+| ¦ | Close all blades |
+| , | Move focus to command bar |
+| . | Move focus to navigation bar |
+| ? | View keyboard shortcuts |
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

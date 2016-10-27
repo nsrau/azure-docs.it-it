@@ -1,61 +1,66 @@
 <properties
-	pageTitle="Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure | Microsoft Azure"
-	description="Questo argomento fa riferimento alle risorse create con il modello di distribuzione classica e fornisce una guida generale per la protezione di SQL Server in esecuzione nelle macchine virtuali di Azure."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
+    pageTitle="Security Considerations for SQL Server in Azure | Microsoft Azure"
+    description="This topic refers to resources created with the classic deployment model, and provides general guidance for securing SQL Server running in an Azure Virtual Machine."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
    editor=""    
    tags="azure-service-management"/>
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="06/24/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="06/24/2016"
+    ms.author="jroth" />
 
-# Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
+
+# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Security Considerations for SQL Server in Azure Virtual Machines
  
-Questo argomento include le linee guida di sicurezza generali che consentono di stabilire l'accesso sicuro alle istanze di SQL Server in una macchina virtuale di Azure. Per garantire tuttavia la migliore protezione alle istanze del database SQL Server in Azure, è consigliabile implementare le tradizionali procedure di sicurezza locali oltre alle procedure consigliate per la sicurezza in Azure.
+This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure VM. However, in order to ensure better protection to your SQL Server database instances in Azure, we recommend that you implement the traditional on-premises security practices in addition to the security best practices for Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Per altre informazioni sulle procedure di sicurezza di SQL Server, vedere: [Documento relativo alle procedure consigliate sulle attività operative e amministrative per la sicurezza di SQL Server 2008 R2](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
+For more information about the SQL Server security practices, see [SQL Server 2008 R2 Security Best Practices - Operational and Administrative Tasks](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
-Azure è conforme a molteplici normative e standard di settore che possono favorire la compilazione di una soluzione compatibile con SQL Server in esecuzione in una macchina virtuale. Per informazioni sulla conformità alle normative con Azure, vedere il [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center/).
+Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a Virtual Machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-Di seguito è riportato un elenco di consigli relativi alla sicurezza da considerare durante la configurazione e la connessione all'istanza di SQL Server in una macchina virtuale di Azure.
+Following is a list of security recommendations that should be considered when configuring and connecting to the instance of SQL Server in an Azure VM.
 
-## Considerazioni sulla gestione di account:
+## <a name="considerations-for-managing-accounts:"></a>Considerations for managing accounts:
 
-- Creare un account amministratore locale univoco non denominato **Amministratore**.
+- Create a unique local administrator account that is not named **Administrator**.
 
-- Usare password complesse per tutti gli account. Per altre informazioni sulla creazione di password complesse, vedere l'articolo [Suggerimenti per la creazione di una password complessa](http://windows.microsoft.com/it-IT/windows-vista/Tips-for-creating-a-strong-password).
+- Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Tips for creating a strong passwords](http://windows.microsoft.com/en-us/windows-vista/Tips-for-creating-a-strong-password) article .
 
-- Per impostazione predefinita, in Azure viene selezionata l'autenticazione di Windows durante l'installazione della macchina virtuale SQL Server. L'account di accesso **SA** è pertanto disabilitato e viene assegnata una password tramite il programma di installazione. È consigliabile non usare o abilitare l'account di accesso **SA**. Di seguito sono riportate strategie alternative nel caso si desiderasse usare un account di accesso SQL:
-	- Creare un account SQL con appartenenza sysadmin.
-	- Se è necessario usare un account di accesso **SA**, abilitarlo e rinominarlo, quindi assegnare una nuova password.
-	- Entrambe le opzioni indicate in precedenza richiedono una modifica della modalità di autenticazione in **Autenticazione di SQL Server e di Windows**. Per altre informazioni, vedere [Modifica della modalità di autenticazione del server](https://msdn.microsoft.com/library/ms188670.aspx).
+- By default, Azure selects Windows Authentication during SQL Server Virtual Machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should be not be used or enabled. The following are alternative strategies if a SQL Login is desired:
+    - Create a SQL account that has sysadmin membership.
+    - If you must use a **SA** login, enable the login and rename it and assign a new password.
+    - Both the options that were mentioned earlier require a change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](https://msdn.microsoft.com/library/ms188670.aspx).
 
-## Considerazioni sulla protezione delle connessioni alla macchina virtuale di Azure:
+## <a name="considerations-for-securing-connections-to-azure-virtual-machine:"></a>Considerations for Securing Connections to Azure Virtual Machine:
 
-- Per amministrare le macchine virtuali, si consideri la possibilità di usare [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) anziché le porte RDP pubbliche.
+- Consider using [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) to administer the virtual machines instead of public RDP ports.
 
-- Usare un [Gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) (NSG) per consentire o negare il traffico di rete verso la macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+- Use a [Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG) to allow or deny network traffic to your virtual machine. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-- Se si usano gli endpoint, rimuovere quelli inutilizzati dalla macchina virtuale. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](../virtual-network/virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+- If you are using endpoints, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](../virtual-network/virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
-- Abilitare un'opzione di connessione crittografata per un'istanza del motore di database di SQL Server in Macchine virtuali di Azure. Configurare l'istanza di SQL server con un certificato firmato. Per altre informazioni, vedere [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192.aspx) e [Sintassi della stringa di connessione](https://msdn.microsoft.com/library/ms254500.aspx).
+- Enable an encrypted connection option for an instance of the SQL Server Database Engine in Azure Virtual Machines. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192.aspx) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
-- Se l'accesso alle macchine virtuali verrà eseguito solo da una rete specifica, usare Windows Firewall per limitare l'accesso a determinati indirizzi IP o subnet di rete.
+- If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next Steps
 
-Se si è interessati anche alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
+If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server nella panoramica delle Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

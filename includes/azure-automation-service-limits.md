@@ -1,11 +1,13 @@
-Risorsa|Limite massimo
+Resource|Maximum Limit
 ---|---
-Numero massimo di nuovi processi che possono essere inviati ogni 30 secondi per account di Automazione (processi non pianificati)|100
-Numero massimo di processi in esecuzione simultaneamente alla stessa istanza di tempo per account di Automazione (processi non pianificati)|200
-Numero massimo di moduli che possono essere importati ogni 30 secondi per ogni account di Automazione|5
-Dimensione massima di un modulo|100 MB
-Tempo di esecuzione processo - livello gratuito|500 minuti per sottoscrizione al mese di calendario
-Quantità massima di memoria assegnata a un processo |400 MB
-Numero massimo di socket di rete consentiti per processo|1000
+Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs)|100
+Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs)|200
+Max number of modules that can be imported every 30 seconds per Automation Account|5
+Max size of a Module|100 MB
+Job Run Time - Free tier|500 minutes per subscription per calendar month
+Max amount of memory given to a job |400 MB
+Max number of network sockets allowed per job|1000
 
-<!---HONumber=AcomDC_0803_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

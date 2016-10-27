@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestire l'account di archiviazione StorSimple | Microsoft Azure"
-   description="Viene illustrato come utilizzare la pagina Configura di StorSimple Manager per aggiungere, modificare, eliminare o ruotare le chiavi di protezione per un account di archiviazione."
+   pageTitle="Manage your StorSimple storage account | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,143 +15,148 @@
    ms.date="04/29/2016"
    ms.author="v-sharos" />
 
-# Utilizzare il servizio StorSimple Manager per gestire l’account di archiviazione
 
-## Panoramica
+# <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Use the StorSimple Manager service to manage your storage account
 
-La pagina **Configura** presenta tutti i parametri di servizio globali che possono essere creati nel servizio StorSimple Manager. Questi parametri possono essere applicati a tutti i dispositivi connessi al servizio e includono:
+## <a name="overview"></a>Overview
 
-- Account di archiviazione 
-- Modelli di larghezza di banda 
-- Record di controllo di accesso 
+The **Configure** page presents all the global service parameters that can be created in the StorSimple Manager service. These parameters can be applied to all the devices connected to the service, and include:
 
-In questa esercitazione viene illustrato come utilizzare la pagina **Configura** per aggiungere, modificare o eliminare gli account di archiviazione o ruotare le chiavi di protezione per un account di archiviazione.
+- Storage accounts 
+- Bandwidth templates 
+- Access control records 
 
- ![Pagina Configura](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
 
-Gli account di archiviazione contengono le credenziali utilizzate dal dispositivo per accedere all'account di archiviazione con il provider di servizi cloud. Per gli account di archiviazione di Microsoft Azure, queste sono le credenziali, ad esempio il nome dell'account e la chiave di accesso primaria.
+ ![Configure page](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
 
-Nella pagina **Configura** tutti gli account di archiviazione creati per la sottoscrizione di fatturazione vengono visualizzati in un formato tabulare che contiene le informazioni seguenti:
+Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
-- **Nome**: il nome univoco assegnato all'account al momento della creazione.
-- **SSL abilitato**: se SSL è abilitato e la comunicazione tra dispositivo e cloud avviene tramite il canale protetto.
-- **Utilizzato da**: il numero di volumi che utilizzano l’account di archiviazione.
+On the **Configure** page, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:
 
-Le attività più comuni relative agli account di archiviazione che possono essere eseguite nella pagina **Configura** sono:
+- **Name** – The unique name assigned to the account when it was created.
+- **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
+- **Used by** – The number of volumes using the storage account.
 
-- Aggiungere un account di archiviazione 
-- Modificare un account di archiviazione 
-- Eliminare un account di archiviazione 
-- Rotazione delle chiavi degli account di archiviazione 
+The most common tasks related to storage accounts that can be performed on the **Configure** page are:
 
-## Tipi di account di archiviazione
+- Add a storage account 
+- Edit a storage account 
+- Delete a storage account 
+- Key rotation of storage accounts 
 
-Esistono tre tipi di account di archiviazione che è possibile utilizzare con il dispositivo StorSimple.
+## <a name="types-of-storage-accounts"></a>Types of storage accounts
 
-- **Account di archiviazione generati automaticamente**: come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per ulteriori informazioni sulla creazione di questo account di archiviazione, vedere il [Passaggio 1: Creare un nuovo servizio](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Distribuire il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md). 
-- **Account di archiviazione nella sottoscrizione del servizio**: sono gli account di archiviazione di Azure associati alla stessa sottoscrizione del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). 
-- **Account di archiviazione esterni alla sottoscrizione al servizio**: sono gli account di archiviazione di Azure non associati al servizio e probabilmente esistenti prima che il servizio fosse creato.
+There are three types of storage accounts that can be used with your StorSimple device.
 
-## Aggiungere un account di archiviazione
+- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
+- **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md). 
+- **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 
-È possibile aggiungere un account di archiviazione fornendo un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione (con il provider del servizio cloud specificato). È inoltre possibile scegliere di abilitare la modalità SSL (Secure Socket Layer) per creare un canale protetto per la comunicazione di rete tra il dispositivo e il cloud.
+## <a name="add-a-storage-account"></a>Add a storage account
 
-È possibile creare più account per un provider del servizio cloud specificato. Tenere presente, tuttavia, che dopo aver creato un account di archiviazione non è possibile modificare il provider di servizi cloud.
+You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider). You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
 
-Durante il salvataggio dell'account di archiviazione, il servizio tenta di comunicare con il provider di servizi cloud. Le credenziali e i dati di accesso forniti verranno autenticati in questa fase. L’account di archiviazione viene creato solo se l'autenticazione ha esito positivo. Se l'autenticazione non riesce, verrà visualizzato un messaggio di errore appropriato.
+You can create multiple accounts for a given cloud service provider. Be aware, however, that after a storage account is created, you cannot change the cloud service provider.
 
-Gli account di archiviazione di Resource Manager creati nel portale di Azure sono supportati anche con StorSimple. Gli account di archiviazione di Resource Manager non sono visualizzati nell'elenco a discesa per la selezione. Quando si cerca di creare un contenitore di volumi, solo gli account di archiviazione creati nel portale di Azure classico vengono visualizzati. Gli account di archiviazione di Resource Manager devono essere aggiunti tramite la procedura di aggiunta di account di archiviazione descritta di seguito.
+While the storage account is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied will be authenticated at this time. A storage account is created only if the authentication succeeds. If the authentication fails, then an appropriate error message will be displayed.
 
-> [AZURE.NOTE] La procedura per l'aggiunta di un account di archiviazione varia in base alla versione del software StorSimple in uso. Assicurarsi di seguire la procedura corretta per la versione di StorSimple a disposizione.
+Resource Manager storage accounts created in Azure portal are also supported with StorSimple. The Resource Manager storage accounts will not show up in the drop-down list for selection when trying to create a volume container, only the storage accounts created in the Azure classic portal will be displayed. Resource Manager storage accounts will need to be added using the procedure to add a storage account described below.
+
+> [AZURE.NOTE] The procedure for adding a storage account differs based on the StorSimple software version you are using. Be sure to follow the correct procedure for your StorSimple version.
 
 
 [AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
 [AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
-## Modificare un account di archiviazione
+## <a name="edit-a-storage-account"></a>Edit a storage account
 
-È possibile modificare un account di archiviazione utilizzato da un contenitore di volumi. Se si modifica un account di archiviazione in uso, l'unico campo disponibile per la modifica è la chiave di accesso dell'account di archiviazione. È possibile fornire la nuova chiave di accesso di archiviazione e salvare le impostazioni aggiornate.
+You can edit a storage account that is used by a volume container. If you edit a storage account that is currently in use, the only field available to modify is the access key for the storage account. You can supply the new storage access key and save the updated settings.
 
-#### Per modificare un account di archiviazione
+#### <a name="to-edit-a-storage-account"></a>To edit a storage account
 
-1. Nella pagina di destinazione del servizio, selezionare il servizio, fare doppio clic sul nome del servizio, quindi fare clic su **Configura**.
+1. On the service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. Fare clic su **Aggiungi/modifica account di archiviazione**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. Nella finestra di dialogo **Aggiungi/modifica account di archiviazione**:
+3. In the **Add/Edit Storage Accounts** dialog box:
 
-  1. Nell'elenco a discesa di **Account di archiviazione**, scegliere un account esistente da modificare. È possibile scegliere anche gli account di archiviazione generati automaticamente in fase di creazione del servizio.
-  2. Se necessario, è possibile modificare la selezione **Abilita modalità SSL**.
-  3. È possibile ruotare le chiavi di accesso dell’account di archiviazione. Vedere [Rotazione delle chiavi degli account di archiviazione](#key-rotation-of-storage-accounts) per ulteriori informazioni su come eseguire la rotazione delle chiavi.
-  4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) per salvare le impostazioni. Le impostazioni verranno aggiornate nella pagina **Configura**. Fare clic su **Salva** per salvare le impostazioni appena aggiornate.
+  1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. This could also include the storage accounts that were automatically generated when the service was first created.
+  2. If necessary, you can modify the **Enable SSL Mode** selection.
+  3. You can choose to rotate your storage account access keys. See [Key rotation of storage accounts](#key-rotation-of-storage-accounts) for more information about how to perform key rotation.
+  4. Click the check icon ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) to save the settings. The settings will be updated on the **Configure** page. Click **Save** to save the newly updated settings.
 
-     ![Modificare un account di archiviazione](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
+     ![Edit a storage account](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
   
-## Eliminare un account di archiviazione
+## <a name="delete-a-storage-account"></a>Delete a storage account
 
-> [AZURE.IMPORTANT] È possibile eliminare un account di archiviazione solo se non viene utilizzato da un contenitore di volumi. Se un account di archiviazione viene utilizzato da un contenitore di volumi, eliminare prima il contenitore di volumi e poi l'account di archiviazione associato.
+> [AZURE.IMPORTANT] You can delete a storage account only if it is not used by a volume container. If a storage account is being used by a volume container, first delete the volume container and then delete the associated storage account.
 
-#### Per eliminare un account di archiviazione
+#### <a name="to-delete-a-storage-account"></a>To delete a storage account
 
-1. Nella pagina di destinazione del servizio StorSimple Manager, selezionare il servizio, fare doppio clic sul nome del servizio, quindi fare clic su **Configura**.
+1. On the StorSimple Manager service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. Nell'elenco tabulare di account di archiviazione, passare il mouse sull'account che si desidera eliminare.
+2. In the tabular list of storage accounts, hover over the account that you wish to delete.
 
-3. Un'icona di eliminazione (**x**) verrà visualizzata nella colonna all'estrema destra di tale account di archiviazione. Fare clic sull’icona **x** per eliminare le credenziali.
+3. A delete icon (**x**) will appear in the extreme right column for that storage account. Click the **x** icon to delete the credentials.
 
-4. Quando viene richiesta la conferma, fare clic su **Sì** per continuare con l'eliminazione. L’elenco tabulare verrà aggiornato per riflettere le modifiche.
+4. When prompted for confirmation, click **Yes** to continue with the deletion. The tabular listing will be updated to reflect the changes.
 
-## Rotazione delle chiavi degli account di archiviazione
+## <a name="key-rotation-of-storage-accounts"></a>Key rotation of storage accounts
 
-Per motivi di sicurezza, la rotazione delle chiavi è spesso un requisito nei centri dati.
+For security reasons, key rotation is often a requirement in data centers. 
 
-> [AZURE.NOTE] Le seguenti informazioni per la rotazione delle chiavi e la procedura di rotazione si applicano solo agli account di archiviazione di Microsoft Azure. Se si usa un altro provider di servizi cloud, è possibile gestire le chiavi degli account di archiviazione tramite il dashboard di tale provider.
+> [AZURE.NOTE] The following key rotation information and the rotation procedure apply to Microsoft Azure storage accounts only. If you are using another cloud service provider, you can manage storage account keys through that provider's dashboard.
  
-Ogni sottoscrizione di Microsoft Azure può essere associata a uno o più account di archiviazione. L'accesso a tali account di archiviazione è controllato dalle chiavi di sottoscrizione e di accesso associate a ogni account di archiviazione.
+Each Microsoft Azure subscription can have one or more associated storage accounts. The access to these accounts is controlled by the subscription and access keys for each storage account. 
 
-Quando si crea un account di archiviazione, Microsoft Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio. La chiave in uso è la chiave *primaria* e la chiave di backup è indicata come chiave *secondaria*. Una di queste due chiavi deve essere specificata quando il dispositivo StorSimple di Microsoft Azure accede al provider di servizi di archiviazione cloud.
+When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed. Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service. The key that is currently in use is the *primary* key and the backup key is referred to as the *secondary* key. One of these two keys must be supplied when your Microsoft Azure StorSimple device accesses your cloud storage service provider.
 
-## Che cos'è la rotazione delle chiavi?
+## <a name="what-is-key-rotation?"></a>What is key rotation?
 
-In genere, le applicazioni utilizzano solo una delle chiavi per accedere ai dati. Dopo un determinato periodo di tempo, è possibile impostare alcune applicazioni perché utilizzino la seconda chiave. Dopo avere impostato le applicazioni per la chiave secondaria, è possibile ritirare la prima chiave e quindi generare una nuova chiave. Utilizzando due chiavi in questo modo le applicazioni possono accedere ai dati senza tempi di inattività.
+Typically, applications use only one of the keys to access your data. After a certain period of time, you can have your applications switch over to using the second key. After you have switched your applications to the secondary key, you can retire the first key and then generate a new key. Using the two keys this way allows your applications access to the data without incurring any downtime.
 
-Le chiavi degli account di archiviazione vengono sempre archiviate nel servizio in formato crittografato. Tuttavia, possono essere reimpostate tramite il servizio StorSimple Manager. Il servizio consente di ottenere la chiave primaria e la chiave secondaria per tutti gli account di archiviazione nella stessa sottoscrizione, inclusi gli account creati nel servizio di archiviazione e gli account di archiviazione predefiniti generati in fase di creazione del servizio StorSimple Manager. Il servizio StorSimple Manager otterrà sempre queste chiavi dal portale di Azure classico e le archivierà in modo crittografato.
+The storage account keys are always stored in the service in an encrypted form. However, these can be reset via the StorSimple Manager service. The service can get the primary key and secondary key for all the storage accounts in the same subscription, including accounts created in the Storage service as well as the default storage accounts generated when the StorSimple Manager service service was first created. The StorSimple Manager service service will always get these keys from the Azure classic portal and then store them in an encrypted manner.
 
-## Flusso di lavoro di rotazione
+## <a name="rotation-workflow"></a>Rotation workflow
 
-Un amministratore di Microsoft Azure può rigenerare oppure modificare la chiave primaria o secondaria accedendo direttamente all'account di archiviazione (tramite il servizio di archiviazione di Microsoft Azure). Il servizio StorSimple Manager non consente di visualizzare la modifica automaticamente.
+A Microsoft Azure administrator can regenerate or change the primary or secondary key by directly accessing the storage account (via the Microsoft Azure Storage service). The StorSimple Manager service does not see this change automatically.
 
-Per informare il servizio StorSimple Manager della modifica, sarà necessario accedere al servizio StorSimple Manager, accedere all'account di archiviazione e quindi sincronizzare la chiave primaria o secondaria (a seconda di quale è stata modificata). Quindi, il servizio ottiene la chiave più recente, la crittografa e la invia al dispositivo.
+To inform the StorSimple Manager service of the change, you will need to access the StorSimple Manager service, access the storage account, and then synchronize the primary or secondary key (depending on which one was changed). The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device.
 
-#### Per sincronizzare le chiavi per gli account di archiviazione nella stessa sottoscrizione del servizio (solo Azure)
+#### <a name="to-synchronize-keys-for-storage-accounts-in-the-same-subscription-as-the-service-(azure-only)"></a>To synchronize keys for storage accounts in the same subscription as the service (Azure only)
 
-1. Nella pagina **Servizi** fare clic sulla scheda **Configura**.
+1. On the **Services** page, click the **Configure** tab.
 
-2. Fare clic su **Aggiungi/modifica account di archiviazione**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. Nella finestra di dialogo procedere come segue:
+3. In the dialog box, do the following:
 
-  1. Selezionare l'account di archiviazione con la chiave che si desidera sincronizzare. Le chiavi degli account di archiviazione vengono visualizzate in forma crittografata.
-  2. Nel servizio StorSimple Manager, è necessario aggiornare la chiave precedentemente modificata nel servizio di archiviazione di Microsoft Azure. Se la chiave di accesso primaria è stata modificata (rigenerata), fare clic su **Sincronizza chiave primaria**. Se è stata modificata la chiave secondaria, fare clic su **Sincronizza chiave secondaria**.
+  1. Select the storage account with the key that you want to synchronize. The storage account keys are encrypted when they are displayed.
+  2. In the StorSimple Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. If the primary access key was changed (regenerated), click **synchronize primary key**. If the secondary key was changed, click **synchronize secondary key**.
 
-    ![sincronizzare le chiavi](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
+    ![synchronize keys](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 
-#### Per sincronizzare le chiavi per gli account di archiviazione esterni alla sottoscrizione del servizio
+#### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>To synchronize keys for storage accounts outside of the service subscription
 
-1. Nella pagina **Servizi** fare clic sulla scheda **Configura**.
+1. On the **Services** page, click the **Configure** tab.
 
-2. Fare clic su **Aggiungi/modifica account di archiviazione**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. Nella finestra di dialogo procedere come segue:
+3. In the dialog box, do the following:
 
-  1. Selezionare l'account di archiviazione con la chiave di accesso che si desidera aggiornare.
-  2. Sarà necessario aggiornare la chiave di accesso di archiviazione nel servizio StorSimple Manager. In questo caso, è possibile visualizzare la chiave di accesso di archiviazione. Immettere la nuova chiave nella casella **Chiave di accesso dell'account di archiviazione**. 
-  3. Salvare le modifiche. La chiave di accesso dell’account di archiviazione appare aggiornata.
+  1. Select the storage account with the access key that you want to update.
+  2. You will need to update the storage access key in the StorSimple Manager service. In this case, you can see the storage access key. Enter the new key in the **Storage Account Access Key**y box. 
+  3. Save your changes. Your storage account access key should now be updated.
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
-- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn more about [StorSimple security](storsimple-security.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

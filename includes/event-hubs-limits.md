@@ -1,14 +1,17 @@
-Nella tabella seguente sono elencate le quote e i limiti specifici di Hub eventi di Azure. Per altre informazioni sugli hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/). Per informazioni sui prezzi e altre quote del bus di servizio, vedere la panoramica [Prezzi di Azure](https://azure.microsoft.com/pricing/details/service-bus/).
+The following table lists quotas and limits specific to Azure Event Hubs. For more information about Event Hubs, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) overview.
 
-| Limite | Scope | Tipo | Comportamento in caso di superamento | Valore |
+| Limit                                            | Scope       | Type   | Behavior when exceeded                                                                                                 | Value    |
 |--------------------------------------------------|-------------|--------|------------------------------------------------------------------------------------------------------------------------|----------|
-| Numero di hub eventi per ogni spazio dei nomi | Spazio dei nomi | Static | Le successive richieste per la creazione di un nuovo spazio dei nomi verranno rifiutate. | 10 |
-| Numero di partizioni per Hub eventi | Entità | Statico | - | 32 |
-| Numero di gruppi di consumer per Hub eventi | Entità | Statico | - | 20 |
-| Numero di connessioni AMQP per spazio dei nomi | Spazio dei nomi | Statico | Le successive richieste di connessioni aggiuntive verranno rifiutate e verrà restituita un'eccezione dal codice chiamante. | 5.000 |
-| Dimensioni massime evento | A livello di sistema | Statico | - | 256 KB |
-| Numero di ricevitori fuori dal periodo per gruppo di consumer | Entità | Statico | - | 5 |
-| Periodo di memorizzazione massimo dei dati degli eventi | Entità | Statico | - | 1-7 giorni |
-| Massimo unità elaborate | Spazio dei nomi | Statico | Se si supera il limite di unità elaborate, i dati verranno limitati e verrà generata un'eccezione **ServerBusyException**. È possibile richiedere un numero maggiore di unità elaborate per un livello Standard compilando una segnalazione. Le unità elaborate aggiuntive sono disponibili in blocchi da 20 in base a un acquisto con impegno. | 20 |
+| Number of Event Hubs per namespace               | Namespace   | Static | Subsequent requests for creation of a new namespace will be rejected.                                                  | 10       |
+| Number of partitions per Event Hub               | Entity      | Static |  -                                                                                                                      | 32       |
+| Number of consumer groups per Event Hub          | Entity      | Static |  -                                                                                                                      | 20       |
+| Number of AMQP connections per namespace         | Namespace   | Static | Subsequent requests for additional connections will be rejected and an exception will be received by the calling code. | 5,000    |
+| Maximum event size                               | System-wide | Static |  -                                                                                                                      | 256KB    |
+| Number of non-epoch receivers per consumer group | Entity      | Static |  -                                                                                                                      | 5        |
+| Maximum retention period of event data           | Entity      | Static |  -                                                                                                                      | 1-7 days |
+| Maximum throughput units           | Namespace      | Static | Exceeding the throughput unit limit will cause your data to be throttled and generate a **ServerBusyException**. You can request a larger number of throughput units for a Standard tier by filing a support ticket. Additional throughput units are available in blocks of twenty on a committed purchase basis.                                                                                                                       | 20 |
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

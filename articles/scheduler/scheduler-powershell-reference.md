@@ -1,10 +1,10 @@
 <properties
- pageTitle="Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione"
- description="Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione"
+ pageTitle="Scheduler PowerShell Cmdlets Reference"
+ description="Scheduler PowerShell Cmdlets Reference"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,37 +13,38 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
-# Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione
 
-La tabella seguente include descrizioni e collegamenti alla pagina di riferimento per ciascuno dei cmdlet principali nell'Utilità di pianificazione di Azure.
+# <a name="scheduler-powershell-cmdlets-reference"></a>Scheduler PowerShell Cmdlets Reference
 
-Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+The following table describes and links to the reference page of each of the major cmdlets in Azure Scheduler.
 
-Per altre informazioni sui [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356(v=azure.200).aspx) vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
 
-|Cmdlet|Descrizione del cmdlet|
+For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+
+|Cmdlet|Cmdlet Description|
 |---|---|
-[Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133(v=azure.200).aspx) |Disabilita una raccolta di processi. 
-[Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135(v=azure.200).aspx) |Abilita una raccolta di processi.
-[Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125(v=azure.200).aspx) |Ottiene processi dell'Utilità di pianificazione.
-[Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132(v=azure.200).aspx) |Ottiene raccolte di processi.
-[Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126(v=azure.200).aspx) |Ottiene la cronologia processi.
-[New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136(v=azure.200).aspx) |Crea un processo HTTP.
-[New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141(v=azure.200).aspx) |Crea una raccolta di processi.
-[New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134(v=azure.200).aspx) |Crea un processo di coda del bus di servizio.
-[New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142(v=azure.200).aspx) |Crea un processo di argomento del bus di servizio.
-[New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127(v=azure.200).aspx) |Crea un processo di coda di archiviazione. 
-[Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140(v=azure.200).aspx) |Elimina un processo dell'Utilità di pianificazione.  
-[Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131(v=azure.200).aspx) |Rimuove una raccolta di processi. 
-[Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130(v=azure.200).aspx) |Modifica un processo HTTP dell'Utilità di pianificazione.
-[Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129(v=azure.200).aspx) |Modifica una raccolta di processi. 
-[Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143(v=azure.200).aspx) |Modifica un processo di coda del bus di servizio.  
-[Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137(v=azure.200).aspx) |Modifica un processo di argomento del bus di servizio. 
-[Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128(v=azure.200).aspx) |Modifica un processo di coda di archiviazione.   
+[Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133\(v=azure.200\).aspx) |Disables a job collection. 
+[Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135\(v=azure.200\).aspx) |Enables a job collection.
+[Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125\(v=azure.200\).aspx) |Gets Scheduler jobs.
+[Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132\(v=azure.200\).aspx) |Gets job collections.
+[Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126\(v=azure.200\).aspx) |Gets job history.
+[New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136\(v=azure.200\).aspx) |Creates an HTTP job.
+[New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141\(v=azure.200\).aspx) |Creates a job collection.
+[New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134\(v=azure.200\).aspx) |Creates a service bus queue job.
+[New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142\(v=azure.200\).aspx) |Creates a service bus topic job.
+[New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127\(v=azure.200\).aspx) |Creates a storage queue job. 
+[Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140\(v=azure.200\).aspx) |Removes a Scheduler job.  
+[Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131\(v=azure.200\).aspx) |Removes a job collection. 
+[Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130\(v=azure.200\).aspx) |Modifies a Scheduler HTTP job.
+[Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129\(v=azure.200\).aspx) |Modifies a job collection. 
+[Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143\(v=azure.200\).aspx) |Modifies a service bus queue job.  
+[Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Modifies a service bus topic job. 
+[Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Modifies a storage queue job.   
 
-Per informazioni più dettagliate, è possibile eseguire i cmdlet seguenti:
+For more detailed information, you can run any of the following cmdlets: 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -55,23 +56,27 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## Vedere anche
+## <a name="see-also"></a>See Also
 
 
- [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

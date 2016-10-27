@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Aggiungere ritardo nelle app per la logica | Microsoft Azure"
-	description="Panoramica delle azioni di ritardo e ritardo fino a e di come usarle con un'app per la logica di Azure."
-	services=""
-	documentationCenter=""
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>  
+    pageTitle="Add a delay in logic apps | Microsoft Azure"
+    description="Overview of the delay and delay-until actions, and how to use them with an Azure logic app."
+    services=""
+    documentationCenter=""
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,63 +17,70 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
-# Introduzione alle azioni si ritardo e ritardo fino a
 
-Le azioni di ritardo e "ritardo fino a" consentono di completare scenari di flusso di lavoro.
+# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Get started with the delay and delay-until actions
 
-Ad esempio, è possibile:
+By using the delay and "delay-until" actions, you can complete workflow scenarios.
 
-- Attendere fino a un determinato giorno della settimana per inviare un aggiornamento di stato tramite posta elettronica.
-- Ritardare il flusso di lavoro fino a quando una chiamata HTTP viene completata prima di riprendere e recuperare i risultati.
+For example, you can:
 
-Per iniziare a usare un'azione di ritardo in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Wait until a weekday to send a status update over email.
+- Delay the workflow until an HTTP call has time to finish before resuming and retrieving the result.
 
-## Usare le azioni di ritardo
+To get started using the delay action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
+## <a name="use-the-delay-actions"></a>Use the delay actions
 
-Di seguito è riportata una sequenza di esempio di come usare un passaggio di ritardo in un'app per la logica:
+An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).
 
-1. Dopo aver aggiunto un trigger, fare clic su **Nuovo passaggio** per aggiungere un'azione.
-2. Cercare **ritardo** per visualizzare le azioni di ritardo. In questo esempio si selezionerà **Ritarda**.
+Here’s an example sequence of how to use a delay step in a logic app:
 
-	![Azioni di ritardo](./media/connectors-native-delay/using-action-1.png)  
+1. After adding a trigger, click **New Step** to add an action.
+2. Search for **delay** to bring up the delay actions. In this example, we will select **Delay**.
 
-3. Completare tutte le proprietà dell'azione per configurare il ritardo.
+    ![Delay actions](./media/connectors-native-delay/using-action-1.png)
 
-	![Configurazione del ritardo](./media/connectors-native-delay/using-action-2.png)  
+3. Complete any of the action properties to configure the delay.
 
-4. Fare clic su **Salva** per pubblicare e attivare l'app per la logica.
+    ![Delay config](./media/connectors-native-delay/using-action-2.png)
+
+4. Click **Save** to publish and activate the logic app.
 
 
-## Informazioni dettagliate sulle azioni
+## <a name="action-details"></a>Action details
 
-Il trigger di ricorrenza ha le proprietà seguenti che possono essere configurate.
+The recurrence trigger has the following properties that can be configured.
 
-### Azione Ritarda
+### <a name="delay-action"></a>Delay action
 
-Questa azione ritarda l'esecuzione per un determinato intervallo di tempo. Un asterisco (*) indica che è un campo obbligatorio.
+This action delays the run for a certain time interval.
+A * means that it is a required field.
 
-|Nome visualizzato|Nome proprietà|Descrizione|
+|Display name|Property name|Description|
 |---|---|---|
-|Conteggio*|count|Il numero di unità di tempo di ritardo|
-|Unità*|unit|Unità di tempo: `Second`, `Minute`, `Hour` o `Day`|
+|Count*|count|The number of time units to delay|
+|Unit*|unit|The unit of time: `Second`, `Minute`, `Hour`, or `Day`|
 <br>
 
-### Azione Ritarda fino a
+### <a name="delay-until-action"></a>Delay-until action
 
-Questa azione ritarda l'esecuzione fino a una data e ora specificate. Un asterisco (*) indica che è un campo obbligatorio.
+This action delays the run until a specified date/time.
+A * means that it is a required field.
 
-|Nome visualizzato|Nome proprietà|Descrizione|
+|Display name|Property name|Description|
 |---|---|---|
-|Anno*|timestamp|L'anno di termine del ritardo (GMT)|
-|Mese*|timestamp|Il mese di termine del ritardo (GMT)|
-|Giorno*|timestamp|Il giorno di termine del ritardo (GMT)|
-<br>  
+|Year*|timestamp|The year to delay until (GMT)|
+|Month*|timestamp|The month to delay until (GMT)|
+|Day*|timestamp|The day to delay until (GMT)|
+<br>
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l'[elenco di API](apis-list.md).
+Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

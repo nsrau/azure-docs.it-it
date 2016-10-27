@@ -1,92 +1,95 @@
 
 
 
-## Vantaggi dell'integrazione del calcolo, della rete e delle risorse di archiviazione nel modello di distribuzione Azure Resource Manager
+## <a name="advantages-of-integrating-compute,-network,-and-storage-under-the-azure-resource-manager-deployment-model"></a>Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager deployment model
 
-Il modello di distribuzione Azure Resource Manager offre la possibilità di sfruttare facilmente i modelli di applicazione predefiniti o consente di creare un modello di applicazione per distribuire e gestire le risorse di calcolo, rete e archiviazione in Azure. In questa sezione verranno esaminati i vantaggi della distribuzione delle risorse con il modello di distribuzione Azure Resource Manager.
+The Azure Resource Manager deployment model offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager deployment model.
 
--	Complessità resa più semplice: creazione, integrazione e collaborazione in applicazioni complesse che possono includere l'intera gamma di risorse di Microsoft Azure (ad esempio siti Web, database SQL, macchine virtuali o reti virtuali) da un file di modello condivisibile
--	Flessibilità di disporre distribuzioni ripetibili per amministratori di sistema, reparti di sviluppo e DevOps quando si utilizza lo stesso file di modello
--	Una stretta integrazione delle estensioni di macchina virtuale (script personalizzato, DSC, Chef, Puppet e così via) con Gestione risorse di Microsoft Azure in un file di modello consente una facile orchestrazione della configurazione interna alle macchine virtuali
--	Definizione di tag e propagazione della fatturazione di tali tag per le risorse di calcolo, rete e archiviazione
--	Gestione degli accessi semplice e precisa dell'organizzazione mediante il controllo degli accessi in base al ruolo di Microsoft Azure
--	Aggiornamento semplificato mediante modifica del modello originale e successiva distribuzione dello stesso
+-   Complexity made simple -- Build, integrate, and collaborate on complicated applications that can include the entire gamut of Azure resources (such as Websites, SQL Databases, Virtual Machines, or Virtual Networks) from a shareable template file
+-   Flexibility to have repeatable deployments for development, devOps, and system administrators when you use the same template file
+-   Deep integration of VM Extensions (Custom Scripts, DSC, Chef, Puppet, etc.) with the Azure Resource Manager in a template file allows easy orchestration of in-VM setup configuration
+-   Defining tags and the billing propagation of those tags for Compute, Network & Storage resources
+-   Simple and precise organizational resource access management using Azure Role-Based Access Control (RBAC)
+-   Simplified Upgrade/Update story by modifying the original template and then redeploying it
 
 
-## Miglioramenti delle API di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure
+## <a name="advancements-of-the-compute,-network,-and-storage-apis-under-azure-resource-manager"></a>Advancements of the Compute, Network, and Storage APIs under Azure Resource Manager
 
-Oltre ai vantaggi indicati in precedenza, esistono alcuni miglioramenti significativi delle prestazioni nelle API rilasciate:
+In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released:
 
--	Abilitazione della distribuzione di macchine virtuali di grandi dimensioni e parallele
--	Supporto per tre domini di errore nei set di disponibilità
--	Estensione di uno script personalizzato migliorato che consente di specificare gli script da un URL personalizzato accessibile pubblicamente
-- Integrazione delle macchine virtuali con l'insieme di credenziali chiave di Microsoft Azure per l'archiviazione altamente protetta e la distribuzione privata dei segreti da [moduli di protezione hardware](http://wikipedia.org/wiki/FIPS_140-2) [convalidati con FIPS](http://wikipedia.org/wiki/Hardware_security_module)
--	Fornisce i blocchi di creazione di base delle reti tramite le API per consentire ai clienti di creare applicazioni complesse che includano interfacce di rete, servizi di bilanciamento del carico e reti virtuali
--	Interfacce di rete come un nuovo oggetto consente di subire e riutilizzare una configurazione di rete complessa per macchine virtuali
--	Servizi di bilanciamento del carico come una risorsa di prima classe consente assegnazioni di indirizzi IP
--	Le API di rete virtuale granulari consentono di semplificare la gestione di reti virtuali singole
+-   Enabling massive and parallel deployment of Virtual Machines
+-   Support for 3 Fault Domains in Availability Sets
+-   Improved Custom Script extension that allows specification of scripts from any publicly accessible custom URL
+- Integration of Virtual Machines with the Azure Key Vault for highly secure storage and private deployment of secrets from [FIPS-validated](http://wikipedia.org/wiki/FIPS_140-2) [Hardware Security Modules](http://wikipedia.org/wiki/Hardware_security_module)
+-   Provides the basic building blocks of networking through APIs to enable customers to construct complicated applications that include Network Interfaces, Load Balancers, and Virtual Networks
+-   Network Interfaces as a new object allows complicated network configuration to be sustained and reused for Virtual Machines
+-   Load Balancers as a first-class resource enables IP Address assignments
+-   Granular Virtual Network APIs allow you to simplify the management of individual Virtual Networks
 
-## Differenze concettuali con l'introduzione di nuove API
+## <a name="conceptual-differences-with-the-introduction-of-new-apis"></a>Conceptual differences with the introduction of new APIs
 
-In questa sezione esamineremo alcune delle più importanti differenze concettuali tra le API basate su codice XML API disponibili oggi e le API basate su JSON API disponibili tramite Gestione risorse di Microsot Azure per calcolo, rete e archiviazione.
+In this section, we will walk through some of the most important conceptual differences between the XML based APIs available today and JSON based APIs available through the Azure Resource Manager for Compute, Network & Storage.
 
- Item | Gestione servizi di Microsoft Azure basata su XML | Provider di calcolo, rete e di archiviazione basati su JSON
+ Item | Azure Service Management (XML-based)    | Compute, Network & Storage Providers (JSON-based)
  ---|---|---
-| Servizio cloud per macchine virtuali |	Servizio cloud era un contenitore per mantenere le macchine virtuali che richiedevano disponibilità dalla piattaforma e bilanciamento del carico. | Servizio cloud non è più un oggetto richiesto per la creazione di una macchina virtuale che utilizza il nuovo modello. |
-| SET DI DISPONIBILITÀ | La disponibilità per la piattaforma era indicata mediante la configurazione dello stesso oggetto "AvailabilitySetName" nelle macchine virtuali. Il numero massimo di domini di errore era 2. | Il set di disponibilità è una risorsa esposta dal provider Microsoft.Compute. Le macchine virtuali che richiedono un'elevata disponibilità devono essere incluse nel set di disponibilità. Il numero massimo di domini di errore è ora 3. |
-| Gruppi di affinità |	I gruppi di affinità erano necessari per la creazione di reti virtuali. Tuttavia, con l'introduzione di reti virtuali regionali, tale requisito non era più necessario. |Per semplificare, non esiste il concetto di gruppi di affinità nelle API esposte tramite Gestione risorse di Microsoft Azure. |
-| Bilanciamento del carico. | La creazione di un servizio cloud fornisce un servizio di bilanciamento del carico implicito per le macchine virtuali distribuite. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'interfaccia di rete primaria delle macchine virtuali che deve essere configurata con carico bilanciato deve fare riferimento al servizio di bilanciamento del carico. I servizi di bilanciamento del carico possono essere interni o esterni. [Per ulteriori informazioni.](../articles/resource-groups-networking.md) |
-|Indirizzo IP virtuale | I servizi cloud otterranno un indirizzo predefinito (indirizzo IP virtuale) quando una macchina virtuale viene aggiunta a un servizio cloud. L'indirizzo IP virtuale è l'indirizzo associato al servizio di bilanciamento del carico implicito. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L’indirizzo IP pubblico può essere statico (riservato) o dinamico. Gli indirizzi IP pubblici possono essere assegnati a un servizio di bilanciamento del carico. Gli indirizzi IP pubblici possono essere protetti tramite gruppi di protezione. |
-|Indirizzo IP riservato|	In Microsoft Azure è possibile riservare un indirizzo IP e associarlo a un servizio cloud per assicurarsi che l'indirizzo IP sia permanente. | L’indirizzo IP pubblico può essere creato in modalità "statica" e offre le stesse funzionalità di un "indirizzo IP riservato". Gli indirizzi IP statici possono essere assegnati solo a un servizio di bilanciamento del carico al momento. |
-|Indirizzo IP pubblico per macchina virtuale | Gli indirizzi IP pubblici possono inoltre essere associati direttamente a una macchina virtuale. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L’indirizzo IP pubblico può essere statico (riservato) o dinamico. Tuttavia, al momento solo indirizzi IP pubblici dinamici possono essere assegnati a un'interfaccia di rete per ottenere un indirizzo IP pubblico per ogni macchina virtuale. |
-|Endpoint| In una macchina virtuale era necessario configurare gli endpoint di input per consentire connettività a determinate porte. Una delle modalità comuni di connessione alle macchine virtuali eseguita mediante l'impostazione di endpoint di input. | È possibile configurare le regole NAT in ingresso in servizi di bilanciamento del carico per ottenere le stesse funzionalità di abilitazione degli endpoint su porte specifiche per la connessione alle macchine virtuali. |
-|Nome DNS| Un servizio cloud otterrebbe un nome DNS univoco globale implicito. Ad esempio: `mycoffeeshop.cloudapp.net`. | I nomi DNS sono parametri facoltativi che possono essere specificati in una risorsa di indirizzo IP pubblico. Il nome di dominio completo avrà il seguente formato...`<domainlabel>.<region>.cloudapp.azure.com` |
-|Interfacce di rete | Interfacce di rete primarie e secondarie e le relative proprietà sono state definite come configurazione di rete di una macchina virtuale. | L’interfaccia di rete è una risorsa esposta dal provider Microsoft.Network. Il ciclo di vita dell'interfaccia di rete non è correlato a una macchina virtuale. |
+| Cloud Service for Virtual Machines |  Cloud Service was a container for holding the virtual machines that required Availability from the platform and Load Balancing. | Cloud Service is no longer an object required for creating a Virtual Machine using the new model. |
+| Availability Sets | Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. The maximum count of fault domains was 2. | Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
+| Affinity Groups | Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore. |To simplify, the Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
+| Load Balancing    | Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. | The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. [Read more.](../articles/resource-groups-networking.md) |
+|Virtual IP Address | Cloud Services will get a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer.   | Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. Dynamic Public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
+|Reserved IP Address|   You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky.   | Public IP Address can be created in “Static” mode and it offers the same capability as a “Reserved IP Address”. Static Public IPs can only be assigned to a Load balancer right now. |
+|Public IP Address (PIP) per VM | Public IP Addresses can also associated to a VM directly. | Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. However, only dynamic Public IPs can be assigned to a Network Interface to get a Public IP per VM right now. |
+|Endpoints| Input Endpoints needed to be configured on a Virtual Machine to be open up connectivity for certain ports. One of the common modes of connecting to virtual machines done by setting up input endpoints. | Inbound NAT Rules can be configured on Load Balancers to achieve the same capability of enabling endpoints on specific ports for connecting to the VMs. |
+|DNS Name| A cloud service would get an implicit globally unique DNS Name. For example: `mycoffeeshop.cloudapp.net`. | DNS Names are optional parameters that can be specified on a Public IP Address resource. The FQDN will be in the following format - `<domainlabel>.<region>.cloudapp.azure.com`. |
+|Network Interfaces | Primary and Secondary Network Interface and its properties were defined as network configuration of a Virtual machine. | Network Interface is a resource exposed by Microsoft.Network Provider. The lifecycle of the Network Interface is not tied to a Virtual Machine. |
 
-## Introduzione a modelli di Microsoft Azure per macchine virtuali
+## <a name="getting-started-with-azure-templates-for-virtual-machines"></a>Getting Started with Azure Templates for Virtual Machines
 
-È possibile iniziare a utilizzare i modelli di Microsoft Azure sfruttando i vari strumenti disponibili per lo sviluppo e distribuzione per la piattaforma.
+You can get started with the Azure Templates by leveraging the various tools that we have for developing and deploying to the platform.
 
-### Portale di Azure
+### <a name="azure-portal"></a>Azure portal
 
-Il portale di Azure continuerà ad avere la possibilità di distribuire macchine virtuali con il modello di distribuzione classico e macchine virtuali con il modello di distribuzione di Gestione risorse contemporaneamente. Il portale di Azure consentirà inoltre le distribuzioni del modello personalizzato.
+The Azure portal will continue to have the option to deploy Virtual Machines with the classic deployment model and Virtual Machines with the Resource Manager deployment model simultaneously. The Azure portal will also allow custom template deployments.
 
-### Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà anche i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](../articles/powershell-azure-resource-manager.md).
+Azure PowerShell will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode.  AzureResourceManager mode will now also contain the cmdlets to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/powershell-azure-resource-manager.md).
 
-### Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a>Azure CLI
 
-L’interfaccia della riga di comando di Microsoft Azure avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà inoltre i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](../articles/xplat-cli-azure-resource-manager.md).
+The Azure Command-line Interface (Azure CLI) will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode. The AzureResourceManager mode will now also contain commands to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/xplat-cli-azure-resource-manager.md).
 
-### Visual Studio
+### <a name="visual-studio"></a>Visual Studio
 
-Con l'ultima versione di Azure SDK per Visual Studio, è possibile creare e distribuire macchine virtuali e applicazioni complesse direttamente da Visual Studio. Visual Studio offre la possibilità di eseguire la distribuzione da un elenco di modelli predefinito o avviare da un modello vuoto.
+With the latest Azure SDK release for Visual Studio, you can author and deploy Virtual Machines and complex applications right from Visual Studio. Visual Studio offers the ability to deploy from a pre-built list of templates or start from an empty template.
 
-### API REST
+### <a name="rest-apis"></a>REST APIs
 
-La documentazione dettagliata sull’API REST per i provider di calcolo, rete e risorse di archiviazione è disponibile [qui](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+You can find the detailed REST API documentation for the Compute, Network & Storage Resource Providers [here](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-## Domande frequenti
+## <a name="frequently-asked-questions"></a>Frequently Asked Questions
 
-**È possibile creare una macchina virtuale con il nuovo Gestione risorse di Azure per distribuire in una rete virtuale o un account di archiviazione creati tramite API di gestione dei servizi di Azure?**
+**Can I create a Virtual Machine using the new Azure Resource Manager to deploy in a Virtual Network or Storage Account created using the Azure Service Management APIs?**
 
-La funzionalità non è supportata al momento. Non è possibile eseguire la distribuzione mediante le API della nuova funzionalità Gestione risorse di Microsoft Azure per distribuire una rete virtuale o un account di archiviazione creato utilizzando le API di gestione del servizio di Microsoft Azure.
+This is not supported at the moment. You cannot deploy using the new Azure Resource Manager APIs to deploy a Virtual Machine into a Virtual Network that was created using the Service Management APIs.
 
-**È possibile creare una macchina virtuale mediante le API della nuova funzionalità Gestione risorse di Microsoft con un’immagine utente creata mediante le API di gestione dei servizi Microsoft Azure?**
+**Can I create a Virtual Machine using the new Azure Resource Manager APIs from a user image that was created using the Azure Service Management APIs?**
 
-La funzionalità non è supportata al momento. Tuttavia, è possibile copiare i file VHD da un account di archiviazione creato mediante le API di gestione del servizio e copiarlo in un nuovo account creato mediante le nuove API di gestione risorse di Microsoft Azure.
+This is not supported at the moment. However, you can copy the VHD files from a Storage Account that was created using the Service Management APIs and copy it to a new account created using the using the new Azure Resource Manager APIs.
 
-**Quali sono le conseguenze sulla quota della mia sottoscrizione?**
+**What is the impact on the quota for my subscription?**
 
-Le quote per le macchine virtuali, reti virtuali e gli account di archiviazione creati tramite le nuove API di gestione risorse di Microsoft Azure sono separate dalle quote attualmente disponibili. Ogni sottoscrizione ottiene nuove quote per creare le risorse mediante le nuove API. Per ulteriori informazioni sulle quote aggiuntive, fare clic [qui](../articles/azure-subscription-service-limits.md).
+The quotas for the Virtual Machines, Virtual Networks, and Storage Accounts created through the new Azure Resource Manager APIs  are separate from the quotas that you currently have. Each subscription gets new quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../articles/azure-subscription-service-limits.md).
 
-**È possibile continuare a utilizzare gli script automatizzati per il provisioning di macchine virtuali, reti virtuali, account di archiviazione e altrotramite le nuove API di Gestione risorse di Microsoft Azure?**
+**Can I continue to use my automated scripts for provisioning Virtual Machines, Virtual Networks, Storage Accounts etc. through the new Azure Resource Manager APIs?**
 
-Tutti gli script e le automazioni creati continueranno a funzionare per le macchine virtuali e le reti virtuali esistenti creati con la modalità di gestione dei servizi Microsoft Azure. Tuttavia, è necessario aggiornare gli script per utilizzare il nuovo schema per la creazione delle stesse risorse tramite la nuova modalità di Gestione risorse di Microsoft Azure.
+All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode.
 
-**Dove è possibile trovare esempi di modelli di gestione risorse di Azure?**
+**Where can I find examples of Azure Resource Manager templates?**
 
-E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](https://azure.microsoft.com/documentation/templates/).
+A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

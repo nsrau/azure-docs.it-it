@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Test dell'offerta di modello di soluzione per il Marketplace | Microsoft Azure"
-   description="Informazioni su come testare l'offerta di modello di soluzione per Azure Marketplace."
+   pageTitle="Testing your solution template offer for the Marketplace | Microsoft Azure"
+   description="Understand how to test your solution template offer for the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,27 +16,32 @@
    ms.date="12/04/2015"
    ms.author="hascipio; v-divte" />
 
-# Test dell'offerta di modello di soluzione in gestione temporanea
-Per gestione temporanea si intende la distribuzione dell'offerta in un ambiente "sandbox" privato, in cui è possibile testarne e verificarne le funzionalità prima di eseguirne il push in produzione. L'offerta viene visualizzata nella gestione temporanea esattamente come verrebbe mostrata a un cliente che l'ha distribuita. L'offerta deve essere certificata per il push nella gestione temporanea.
 
-Quando l'offerta è in gestione temporanea, è possibile visualizzarla e testarla nel [portale di Azure](https://portal.azure.com/).
+# <a name="test-your-solution-template-offer-in-staging"></a>Test your solution template offer in staging
+Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer appears in staging just as it would to a customer who has deployed it. Your offer must be certified to be pushed to staging.
 
-Per il push dell'offerta in gestione temporanea e l'esecuzione del test nel [portale di Azure](https://portal.azure.com/), seguire questa procedura:
+After the offer is staged, you can view and test the offer in the [Azure Portal](https://portal.azure.com/).
 
-1.	Passare al [portale di pubblicazione](https://publish.windowsazure.com)-> scheda **Modelli di soluzione** -> la propria offerta -> **Pubblica** -> **Passa a gestione temporanea**.
-2.	Specificare l'elenco di sottoscrizioni di Azure che verrà usato per la visualizzazione in anteprima e il test dell'offerta.
-3.	Accedere al portale di anteprima di Azure usando l'ID sottoscrizione usato nel passaggio precedente.
-4.	Eseguire almeno un ciclo di test nel portale di anteprima di Azure sui punti riportati di seguito:
-  -	Assicurarsi che il contenuto di marketing venga visualizzato correttamente in Azure Marketplace.
-  -	Distribuzione end-to-end della topologia.
-  -	Eseguire test delle prestazioni e test di stress.
-  -	Assicurarsi che la topologia sia conforme alle procedure consigliate.
+Follow the steps below to push your offer to staging and test it in the [Azure Portal](https://portal.azure.com/):
 
-## Passaggi successivi
-Se si è soddisfatti dei risultati, è possibile procedere alla fase di pubblicazione dell'offerta finale, ovvero il **passaggio 4**, [Distribuzione dell'offerta in Azure Marketplace](marketplace-publishing-push-to-production.md). In caso contrario, apportare le modifiche all'offerta e richiedere nuovamente la certificazione.
+1.  Go to the [Publishing Portal](https://publish.windowsazure.com) > **Solution Templates** tab > your offer > **Publish** > **Push to Staging**.
+2.  Provide the list of Azure subscriptions that you will use to preview and test your offer.
+3.  Sign in to the Azure preview portal by using the subscription ID that you used in the previous step.
+4.  Carry out at least one round of testing in the Azure preview portal on the points mentioned below:
+  - Make sure that marketing content shows up correctly in the Azure Marketplace.
+  - End-to-end deployment of the topology.
+  - Perform performance testing and stress testing.
+  - Ensure that your topology adheres to the best practices.
 
-> [AZURE.NOTE]Per le modifiche ai contenuti marketing, la certificazione non è necessaria.
+## <a name="next-steps"></a>Next steps
+If you are satisfied with the results, then you can proceed to the final offer publishing phase, **Step 4**:  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md). Otherwise, make changes in your offer and request certification again.
 
-Per una guida a tutte le attività del server di pubblicazione, vedere [Come pubblicare un'offerta in Microsoft Azure Marketplace](marketplace-publishing-getting-started.md).
+> [AZURE.NOTE] For marketing content changes, certification is not required.
 
-<!---HONumber=AcomDC_1210_2015-->
+See [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md) for a guide to all publisher tasks.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

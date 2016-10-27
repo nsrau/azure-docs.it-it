@@ -1,24 +1,27 @@
 
 
-Per connettersi a **SharePoint Online**, è necessario indicare la propria identità (nome utente e password, credenziali smart card e così via) in SharePoint Online. Dopo l'autenticazione, è possibile usare il connettore SharePoint Online nella propria app per la logica.
+In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online connector  in your logic app. 
 
-Durante la progettazione dell'app per la logica, seguire questa procedura per accedere a SharePoint e creare la **connessione** da usare nell'app per la logica:
+While on the designer of your logic app, follow these steps to sign into SharePoint to create the **connection** for use in your logic app:
 
-1. Nella casella di ricerca digitare SharePoint e attendere che la ricerca restituisca tutti i trigger e le azioni correlati a SharePoint Online:  
-![Configurare SharePoint][1]  
-2. Selezionare il trigger **SharePoint Online - Quando un file viene creato**  
-3. Selezionare **Accedi a SharePoint Online**:  
-![Configurare SharePoint][2]  
-4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint  
-![Configurare SharePoint][3]  
-5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica. A questo punto, la connessione è stata creata. Il messaggio che appare nella parte inferiore indica che si è connessi a SharePoint.  
-![Configurare SharePoint][4]  
-6. È quindi possibile aggiungere altri trigger e azioni necessari per completare l'app per la logica.  
+1. Enter SharePoint in the search box and wait for the search to return all triggers and actions related to SharePoint Online:   
+![Configure SharePoint][1]  
+2. Select the **SharePoint Online - When a file is created** trigger  
+3. Select **Sign in to SharePoint Online**:   
+![Configure SharePoint][2]    
+4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
+![Configure SharePoint][3]     
+5. After the authentication completes you'll be redirected to your logic app. That's it, the connection has been created. Notice the message at the bottom that indicates that you are now connected to SharePoint.  
+![Configure SharePoint][4]  
+6. You can then add other triggers and actions that you need to complete your logic app.   
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
+[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 
 [3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

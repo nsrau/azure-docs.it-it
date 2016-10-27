@@ -5,3 +5,7 @@
 - [Windows Universal](active-directory-devquickstarts-windowsstore.md)
 - [Xamarin](active-directory-devquickstarts-xamarin.md)
 - [Cordova](active-directory-devquickstarts-cordova.md)
+
+<!--HONumber=Oct16_HO2-->
+
+

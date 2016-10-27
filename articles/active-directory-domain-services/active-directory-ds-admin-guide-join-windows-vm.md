@@ -1,144 +1,153 @@
 <properties
-	pageTitle="Anteprima di Servizi di dominio Active Directory di Azure: Guida all'amministrazione | Microsoft Azure"
-	description="Aggiungere una macchina virtuale Windows Server ai Servizi di dominio Azure AD"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services: Join a Windows Server VM to a managed domain | Microsoft Azure"
+    description="Join a Windows Server virtual machine to Azure AD Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/02/2016"
+    ms.author="maheshu"/>
 
-# Aggiungere una macchina virtuale Windows Server a un dominio gestito
+
+# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Join a Windows Server virtual machine to a managed domain
 
 > [AZURE.SELECTOR]
-- [Portale di Azure classico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 - [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 
 <br>
 
-Questo articolo illustra come aggiungere una macchina virtuale che esegue Windows Server 2012 R2 a un dominio gestito di Servizi di dominio Azure AD, usando il portale di Azure classico.
+This article shows you how to join a virtual machine running Windows Server 2012 R2 to an Azure AD Domain Services managed domain, using the Azure classic portal.
 
 
-## Passaggio 1: Creare la macchina virtuale Windows Server
-Seguire le istruzioni disponibili nell'esercitazione [Creare una macchina virtuale che esegue Windows nel portale di Azure classico](../virtual-machines/virtual-machines-windows-classic-tutorial.md). È importante assicurare che la macchina virtuale appena creata venga aggiunta alla stessa rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD. L'opzione 'Creazione rapida' non consente di aggiungere la macchina virtuale a una rete virtuale. Sarà quindi necessario usare l'opzione 'Da raccolta' per creare la macchina virtuale.
+## <a name="step-1:-create-the-windows-server-virtual-machine"></a>Step 1: Create the Windows Server virtual machine
+Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](../virtual-machines/virtual-machines-windows-classic-tutorial.md) tutorial. It is important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. The 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you need to use the 'From Gallery' option to create the virtual machine.
 
-Seguire questa procedura per creare una macchina virtuale Windows aggiunta alla rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD.
+Perform the following steps to create a Windows virtual machine joined to the virtual network in which you've enabled Azure AD Domain Services.
 
-1. Fare clic su **Nuovo** sulla barra dei comandi nella parte inferiore della finestra del portale di Azure classico.
+1. In the Azure classic portal, on the command bar at the bottom of the window, click **New**.
 
-2. In **Calcolo** fare clic su **Macchina virtuale**, quindi su **Da raccolta**.
+2. Under **Compute**, click **Virtual Machine**, then click **From Gallery**.
 
-3. L'opzione **Scegli un'immagine** della prima schermata consente di scegliere dall'elenco un'immagine per la macchina virtuale. Scegliere l'immagine appropriata.
+3. The first screen lets you **Choose an Image** for your virtual machine from the list of available images. Pick the appropriate image.
 
-    ![Selezionare l'immagine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
+    ![Select image](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 
-4. Nella seconda schermata è possibile scegliere un nome computer, una dimensione e il nome e la password dell'amministratore. Scegliere il livello e la dimensione necessari per eseguire l'app o il carico di lavoro. Il nome utente selezionato qui corrisponde a un utente amministratore locale del computer. Non immettere in questo campo le credenziali di un account utente di dominio.
+4. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. The user name you pick here is a local administrator user on the machine. Do not enter a domain user account's credentials here.
 
-    ![Configurare la macchina virtuale](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
+    ![Configure virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
 
-5. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Assicurarsi di selezionare la rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD dall'elenco a discesa **Area/Gruppo di affinità/Rete virtuale**. Specificare un **Nome DNS del servizio cloud** appropriato per la macchina virtuale.
+5. The third screen lets you configure resources for networking, storage, and availability. Ensure you select the virtual network in which you enabled Azure AD Domain Services from the **Region/Affinity Group/Virtual Network** dropdown. Specify a **Cloud Service DNS Name** as appropriate for the virtual machine.
 
-    ![Selezionare una rete virtuale per la macchina virtuale](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
+    ![Select virtual network for virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
 
     > [AZURE.WARNING]
-    Assicurarsi di aggiungere la macchina virtuale alla stessa rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD. La macchina virtuale potrà così "vedere" il dominio ed eseguire attività quali l'aggiunta al dominio. Se si sceglie di creare la macchina virtuale in una rete virtuale diversa, assicurarsi che la rete virtuale sia connessa alla rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD.
+    Ensure that you join the virtual machine to the same virtual network in which you've enabled Azure AD Domain Services. As a result, the virtual machine can 'see' the domain and perform tasks such as joining the domain. If you choose to create the virtual machine in a different virtual network, connect that virtual network to the virtual network in which you've enabled Azure AD Domain Services.
 
-6. La quarta schermata consente di installare l'agente di macchine virtuali e alcune delle estensioni disponibili.
+6. The fourth screen lets you install the VM Agent and configure some of the available extensions.
 
-    ![Operazione completata](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
+    ![Done](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
 
-7. Dopo la creazione della macchina virtuale, nel portale classico la nuova macchina virtuale viene elencata nel nodo **Macchine virtuali**. La macchina virtuale e il servizio cloud vengono avviati automaticamente e viene indicato lo stato **In esecuzione**.
+7. After the virtual machine is created, the classic portal lists the new virtual machine under the **Virtual Machines** node. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
-    ![Macchina virtuale attiva e in esecuzione](./media/active-directory-domain-services-admin-guide/create-windows-vm-running.png)
-
-
-## Passaggio 2: Connettersi alla macchina virtuale Windows Server usando l'account amministratore locale
-È ora possibile connettersi alla macchina virtuale Windows Server appena creata per aggiungerla al dominio. Usare le credenziali di amministratore locale specificate durante la creazione della macchina virtuale, in modo da stabilire la connessione.
-
-Seguire questa procedura per connettersi alla macchina virtuale.
-
-1. Passare al nodo **Macchine virtuali** nel portale classico. Selezionare la macchina virtuale creata nel passaggio 1 e fare clic su **Connetti** sulla barra dei comandi nella parte inferiore della finestra.
-
-    ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-
-2. Il portale classico richiederà di aprire o salvare un file con estensione rdp, usato per connettersi alla macchina virtuale. Dopo aver terminato il download, fare clic sul file per aprirlo.
-
-3. Al prompt di accesso immettere le **credenziali di amministratore locale** specificate durante la creazione della macchina virtuale, come 'localhost\\mahesh' in questo esempio.
-
-A questo punto si dovrebbe essere connessi alla macchina virtuale Windows appena creata mediante le credenziali di amministratore locale. Il passaggio successivo consiste nell'aggiungere la macchina virtuale al dominio.
+    ![Virtual machine is up and running](./media/active-directory-domain-services-admin-guide/create-windows-vm-running.png)
 
 
-## Passaggio 3: Aggiungere la macchina virtuale Windows Server al dominio gestito dai Servizi di dominio Azure AD
-Seguire questa procedura per aggiungere la macchina virtuale Windows Server al dominio gestito da Servizi di dominio Azure AD.
+## <a name="step-2:-connect-to-the-windows-server-virtual-machine-using-the-local-administrator-account"></a>Step 2: Connect to the Windows Server virtual machine using the local administrator account
+Now, we connect to the newly created Windows Server virtual machine, to join it to the domain. Use the local administrator credentials you specified when creating the virtual machine, to connect to it.
 
-1. Connettersi a Windows Server come illustrato nel passaggio 2 precedente. Dalla schermata Start aprire **Server Manager**.
+Perform the following steps to connect to the virtual machine.
 
-2. Fare clic su **Server locale** nel riquadro sinistro della finestra di Server Manager.
+1. Navigate to **Virtual Machines** node in the classic portal. Select the virtual machine you created in Step 1 and click **Connect** on the command bar at the bottom of the window.
 
-    ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
+    ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-3. Fare clic su **GRUPPO DI LAVORO** nella sezione **PROPRIETÀ**. Verrà aperta la pagina **Proprietà del sistema**. Per l'aggiunta al dominio, fare clic su **Cambia**.
+2. The classic portal prompts you to open or save a file with a '.rdp' extension, which is used to connect to the virtual machine. Click to open the file when it has finished downloading.
 
-    ![Pagina Proprietà di sistema](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
+3. At the login prompt, enter your **local administrator credentials**, which you specified while creating the virtual machine. For example, we've used 'localhost\mahesh' in this example.
 
-4. Specificare il nome di dominio del dominio gestito dai Servizi di dominio Azure AD nella casella di testo **Dominio** e fare clic su **OK**.
-
-    ![Specificare il dominio per l'aggiunta](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
-
-5. Verrà richiesta l'immissione delle credenziali per l'aggiunta al dominio. Assicurarsi di **specificare le credenziali per un utente appartenente al gruppo di amministratori dei controller di dominio di Azure AD**. Solo i membri di questo gruppo hanno i privilegi necessari per aggiungete computer al dominio gestito.
-
-    ![Specificare le credenziali per l'aggiunta a un dominio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
-
-6. È possibile specificare le credenziali in uno dei modi seguenti:
-
-    - Formato UPN: suffisso UPN per l'account utente, come configurato in Azure AD. In questo esempio il suffisso UPN dell'utente 'bob' è 'bob@domainservicespreview.onmicrosoft.com'.
-
-    - Formato SAMAccountName: è possibile specificare il nome account con il formato SAMAccountName. In questo esempio l'utente 'bob' deve immettere 'CONTOSO100\\bob'. Si noti che se più utenti hanno lo stesso prefisso UPN, ad esempio 'bob', nel tenant di Azure AD, si verificheranno problemi durante l'accesso al dominio con il formato SAMAccountName. In questi casi è possibile usare in modo affidabile il formato UPN per accedere al dominio.
-
-7. Dopo l'aggiunta al dominio verrà visualizzato il messaggio di benvenuto seguente. Riavviare la macchina virtuale per completare l'operazione di aggiunta al dominio.
-
-    ![Messaggio di benvenuto al dominio](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
+At this point, you should be logged in to the newly created Windows virtual machine using local Administrator credentials. The next step is to join the virtual machine to the domain.
 
 
-## Risoluzione dei problemi di aggiunta al dominio
-### Problemi di connettività
-Se la macchina virtuale non riesce a trovare il dominio, vedere le procedure seguenti per la risoluzione dei problemi:
+## <a name="step-3:-join-the-windows-server-virtual-machine-to-the-aad-ds-managed-domain"></a>Step 3: Join the Windows Server virtual machine to the AAD-DS managed domain
+Perform the following steps to join the Windows Server virtual machine to the AAD-DS managed domain.
 
-- Assicurarsi che la macchina virtuale sia connessa alla stessa rete virtuale in cui sono stati abilitati i Servizi di dominio. In caso contrario, la macchina virtuale non riuscirà a connettersi al dominio e quindi non potrà essere aggiunta al dominio.
+1. Connect to the Windows Server as shown in Step 2. From the Start screen, open **Server Manager**.
 
-- Se la macchina virtuale è connessa a un'altra rete virtuale, assicurarsi che tale rete virtuale sia connessa alla rete virtuale in cui sono stati abilitati i Servizi di dominio.
+2. Click **Local Server** in the left pane of the Server Manager window.
 
-- Provare a eseguire il ping del dominio usando il nome del dominio gestito, ad esempio 'ping contoso100.com'. Se non è possibile eseguire questa operazione, provare a eseguire il ping degli indirizzi IP per il dominio visualizzati nella pagina in cui sono stati abilitati i Servizi di dominio Azure AD, ad esempio 'ping 10.0.0.4'. Se si riesce a effettuare il ping dell'indirizzo IP ma non del dominio, è possibile che la configurazione del server DNS non sia valida. È possibile che gli indirizzi IP del dominio non siano stati configurati come server DNS per la rete virtuale.
+    ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-- Provare a scaricare la cache del resolver DNS sulla macchina virtuale ('ipconfig /flushdns').
+3. Click **WORKGROUP** under the **PROPERTIES** section. In the **System Properties** property page, click **Change** to join the domain.
 
-Se viene visualizzata la finestra di dialogo che richiede le credenziali per l'aggiunta al dominio, non sono presenti problemi di connettività.
+    ![System Properties page](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
+
+4. Specify the domain name of your Azure AD Domain Services managed domain in the **Domain** textbox and click **OK**.
+
+    ![Specify the domain to be joined](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
+
+5. You are prompted to enter your credentials to join the domain. Ensure that you **specify the credentials for a user belonging to the AAD DC Administrators** group. Only members of this group have privileges to join machines to the managed domain.
+
+    ![Specify credentials for domain join](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
+
+6. You can specify credentials in either of the following ways:
+
+    - UPN format: Specify the UPN suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user 'bob' is 'bob@domainservicespreview.onmicrosoft.com'.
+
+    - SAMAccountName format: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'.
+
+        > [AZURE.NOTE] **We recommend using the UPN format to specify credentials.** The SAMAccountName may be auto-generated if a user's UPN prefix is overly long (for example, 'joereallylongnameuser'). If multiple users have the same UPN prefix (for example, 'bob') in your Azure AD tenant, their SAMAccountName format may be auto-generated by the service. In these cases, the UPN format can be used reliably to log in to the domain.
+
+7. After domain join is successful, you see the following message welcoming you to the domain. Restart the virtual machine for the domain join operation to complete.
+
+    ![Welcome to the domain](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
 
-### Problemi correlati alle credenziali
-Se si verificano problemi con le credenziali e non è possibile completare l'aggiunta al dominio, seguire questa procedura.
+## <a name="troubleshooting-domain-join"></a>Troubleshooting domain join
+### <a name="connectivity-issues"></a>Connectivity issues
+If the virtual machine is unable to find the domain, refer to the following troubleshooting steps:
 
-- Assicurarsi di usare le credenziali di un account utente appartenente al gruppo di amministratori del controller di dominio di Azure AD. Gli utenti che non appartengono a questo gruppo non possono aggiungere computer al dominio gestito.
+- Ensure that the virtual machine is connected to the same virtual network as that you've enabled Domain Services in. If not, the virtual machine is unable to connect to the domain and therefore is unable to join the domain.
 
-- Assicurarsi di avere [abilitato la sincronizzazione delle password](active-directory-ds-getting-started-password-sync.md) secondo i passaggi descritti nella Guida introduttiva.
+- If the virtual machine is connected to another virtual network, ensure that this virtual network is connected to the virtual network in which you've enabled Domain Services.
 
-- Assicurarsi di usare per l'accesso il valore UPN dell'utente come configurato in Azure AD, ad esempio 'bob@domainservicespreview.onmicrosoft.com'.
+- Try to ping the domain using the domain name of the managed domain (for example, 'ping contoso100.com'). If you're unable to do so, try to ping the IP addresses for the domain displayed on the page where you enabled Azure AD Domain Services (for example, 'ping 10.0.0.4'). If you're able to ping the IP address but not the domain, DNS may be incorrectly configured. You may not have configured the IP addresses of the domain as DNS servers for the virtual network.
 
-- Assicurarsi di avere atteso per il tempo necessario per consentire il completamento della sincronizzazione delle password, come specificato nella Guida introduttiva.
+- Try flushing the DNS resolver cache on the virtual machine ('ipconfig /flushdns').
+
+If you get to the dialog box that asks for credentials to join the domain, you do not have connectivity issues.
 
 
-## Contenuti correlati
+### <a name="credentials-related-issues"></a>Credentials-related issues
+Refer to the following steps if you're having trouble with credentials and are unable to join the domain.
 
-- [Servizi di dominio Azure AD: introduzione](./active-directory-ds-getting-started.md)
+- Try using the UPN format to specify credentials. The SAMAccountName for your account may be auto-generated if there are multiple users with the same UPN prefix in your tenant or if your UPN prefix is overly long. Therefore, the SAMAccountName format for your account may be different from what you expect or use in your on-premises domain.
 
-- [Amministrare un dominio gestito di Servizi di dominio Azure AD](./active-directory-ds-admin-guide-administer-domain.md)
+- Try to use the credentials of a user account that belongs to the 'AAD DC Administrators' group to join machines to the managed domain.
 
-<!---HONumber=AcomDC_0907_2016-->
+- Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
+
+- Ensure that you use the UPN of the user as configured in Azure AD (for example, 'bob@domainservicespreview.onmicrosoft.com') to sign in.
+
+- Ensure that you have waited long enough for password synchronization to complete as specified in the Getting Started guide.
+
+
+## <a name="related-content"></a>Related Content
+
+- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+
+- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

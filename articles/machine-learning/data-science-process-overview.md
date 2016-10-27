@@ -1,103 +1,108 @@
 <properties
-	pageTitle="Informazioni sul Processo di analisi scientifica dei dati per i team | Microsoft Azure"
-	description="Il Processo di analisi scientifica dei dati per i team è un metodo sistematico della scienza dei dati per lo sviluppo di applicazioni intelligenti che sfruttano le analisi avanzate."
-	keywords="processo di analisi scientifica dei dati,team di analisi scientifica dei dati"
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun" /> 
+    pageTitle="What is Team Data Science Process?  | Microsoft Azure"
+    description="The Team Data Science Process is a systematic method for building intelligent applications that leverage advanced analytics."
+    keywords="data science process,data science teams"
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="bradsev" /> 
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="bradsev" />
 
 
-# Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)
 
-Il Processo di analisi scientifica dei dati per i team (TDSP) offre un approccio sistematico alla creazione di applicazioni intelligenti che permettono ai team di data scientist di collaborare in modo efficace per l'intero ciclo di vita delle attività necessarie per trasformare queste applicazioni in prodotti.
+# <a name="what-is-the-team-data-science-process-(tdsp)?"></a>What is the Team Data Science Process (TDSP)?
 
-In particolare, attualmente il TDSP fornisce ai team di analisi scientifica dei dati:
+The Team Data Science Process (TDSP) provides a systematic approach to building intelligent applications that enables teams of data scientists to collaborate effectively over the full lifecycle of activities needed to turn these applications into products.
 
-- **Metodologia**: illustra una sequenza di passaggi che definiscono il ciclo di vita dello sviluppo offrendo indicazioni su come definire il problema, analizzare i dati pertinenti, compilare e valutare i modelli predittivi e quindi distribuire tali modelli nelle applicazioni aziendali.
-- **Risorse**: strumenti e tecnologie, ad esempio la macchina virtuale dedicata all'analisi scientifica dei dati, per semplificare la configurazione di ambienti per le attività di analisi scientifica dei dati e istruzioni pratiche per l'adozione di nuove tecnologie.
+Specifically, the TDSP currently provides data science teams with:
 
-Di seguito è illustrato il ciclo di vita di sviluppo del processo di analisi scientifica dei dati per i team:
+- **Methodology**: It outlines a sequence of steps that define the development lifecycle providing guidance on how to define the problem, analyze relevant data, build and evaluate predictive models, and then deploy those models in enterprise applications.
+- **Resources**: Tools and technologies such as the Data Science VM to simplify setting up environments for data science activities and practical guidance for on-boarding new technologies.
 
-![Diagramma: Processo di analisi scientifica dei dati per i team](./media/data-science-process-overview/data-science-process-for-teams-diagram.png) 
+Here is the development lifecycle of the Team Data Science Process:
 
-
-Il processo è **iterativo**: la comprensione di elementi nuovi ed esistenti o perfezionati nel modello si evolve e richiede la rielaborazione di passaggi completati in precedenza nella sequenza. I processi esistenti per lo sviluppo organizzativo e la pianificazione del progetto possono essere **facilmente adattati** per l'uso con la sequenza di passaggi definita da TDSP.
-
-I passaggi del processo sono rappresentati graficamente e collegati nel [percorso di apprendimento TDSP](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), nonché descritti di seguito.
+![Diagram: Data science process for teams ](./media/data-science-process-overview/data-science-process-for-teams-diagram.png)
 
 
-## Passaggi di pianificazione e preparazione
+The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the TDSP-defined sequence of steps.
 
-## P1. Pianificazione aziendale e tecnologica
-
-Avviare un progetto di analisi definendo gli obiettivi aziendali e i problemi, specificandoli in termini di **requisiti aziendali**. Un obiettivo essenziale di questo passaggio consiste nell'identificare le variabili aziendali principali, ad esempio le previsioni di vendita o la probabilità che un ordine sia illecito, che l'analisi deve prevedere per soddisfare i requisiti. Sono quindi in genere necessarie operazioni aggiuntive di pianificazione per sviluppare una comprensione delle **origini dati** necessarie per soddisfare gli obiettivi del progetto da un punto di vista analitico. Non è ad esempio insolito scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. Per istruzioni, vedere [Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata](machine-learning-data-science-plan-your-environment.md) e [Scenari per l'analisi avanzata in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
+The steps in the process are diagrammed and linked in the [TDSP learning path](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) and described below.  
 
 
-## P2. Pianificare e preparare l'infrastruttura
+## <a name="planning-and-preparation-steps"></a>Planning and preparation steps
 
-Un ambiente di analisi per il TDSP include numerosi componenti:
+## <a name="p1.-business-and-technology-planning"></a>P1. Business and technology planning
 
-- **Aree di lavoro dati**, in cui i dati sono gestiti in modalità temporanea per l'analisi e la modellazione.
-- **Infrastruttura di elaborazione** per la pre-elaborazione, l'esplorazione e la modellazione dei dati.
-- **Infrastruttura di runtime** per rendere operativi i modelli analitici e quindi eseguire le applicazioni client intelligenti che usano i modelli.
-
-L'infrastruttura di analisi da configurare è spesso parte di un ambiente distinto dai sistemi operativi principali, ma in genere sfrutta i dati provenienti da più sistemi entro l'azienda, oltre da origini esterne all'azienda. L'infrastruttura di analisi può essere basata esclusivamente sul cloud oppure può avere una configurazione locale o una combinazione di entrambe. Per le opzioni, vedere [Configurare gli ambienti per l'analisi scientifica dei dati per l'uso nel processo di analisi scientifica dei dati per i team](machine-learning-data-science-environment-setup.md).
+Start an analytics project by defining your business goals and problems. They are specified in terms of **business requirements**. A central objective of this step is to identify the key business variables (sales forecast or the probability of an order being fraudulent, for example) that the analysis needs to predict to satisfy these requirements. Additional planning is then usually essential to develop an understanding of the **data sources** needed to address the objectives of the project from an analytical perspective. It is not uncommon, for example, to find that existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. For guidance, see [Plan your environment for the Team Data Science Process](machine-learning-data-science-plan-your-environment.md) and [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).  
 
 
-## Passaggi di analisi:  
+## <a name="p2.-plan-and-prepare-infrastructure"></a>P2. Plan and prepare infrastructure
 
-## 1\. Inserire i dati all'interno dell'apposita piattaforma
+An analytics environment for the Team Data Science Process involves several components:
 
-Il primo passaggio consiste nell'inserire i dati pertinenti provenienti da diverse origini, interne o esterne all'organizzazione, in un ambiente di analisi in cui possano essere elaborati. Il **formato** dei dati all'origine può essere diverso dal formato richiesto dalla destinazione. È quindi possibile che lo strumento di inserimento debba eseguire alcune trasformazioni di dati. Per le opzioni, vedere [Caricare i dati in ambienti di archiviazione per l'analisi](machine-learning-data-science-ingest-data.md)
+- **data workspaces** where the data is staged for analysis and modeling,
+- a **processing infrastructure** for pre-processing, exploring, and modeling the data
+- a **runtime infrastructure** to operationalize the analytical models and run the intelligent client applications that consume the models.  
 
-Oltre all'inserimento iniziale dei dati, molte applicazioni intelligenti devono aggiornare regolarmente i dati come parte di un processo di apprendimento continuativo. Per ottenere questo risultato, è possibile configurare una **pipeline di dati** o un flusso di lavoro. Ciò fa parte della fase iterativa del processo che include la ricompilazione e la rivalutazione dei modelli analitici usati dall'applicazione intelligente che distribuisce la soluzione. Vedere, ad esempio, [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md).
-
-
-## 2\. Esplorare e visualizzare i dati
-
-Il passaggio successivo consiste nell'ottenere una migliore comprensione dei dati esaminando le relative **statistiche riepilogative** e relazioni e usando tecniche quali la **visualizzazione**. In questa fase vengono anche gestiti i problemi relativi alla **qualità dei dati** e all'integrità, ad esempio valori mancanti, mancate corrispondenze tra tipi di dati e relazioni non coerenti tra i dati. Le trasformazioni di pre-elaborazione vengono usate per pulire i dati non elaborati prima di eseguire operazioni aggiuntive di analisi e modellazione. Per una descrizione, vedere [Attività per preparare i dati per operazioni avanzate con Machine Learning](machine-learning-data-science-prepare-data.md).
+The analytics infrastructure that needs to be set up is often part of an environment that is separate from core operational systems. But it typically leverages data from multiple systems within the enterprise as well as from sources external to the company. The analytics infrastructure can be purely cloud-based, or an on-premises setup, or a hybrid of the two. For options, see [Set up data science environments for use in the Team Data Science Process](machine-learning-data-science-environment-setup.md).
 
 
-## 3\. Generare e selezionare le funzionalità
+## <a name="analytics-steps:"></a>Analytics Steps:  
 
-Gli esperti di scienza dei dati, insieme agli esperti di dominio, devono identificare le funzionalità che acquisiscono le proprietà rilevanti del set di dati e che possono essere usate per prevedere in modo ottimale le variabili aziendali essenziali identificate durante la pianificazione. Queste nuove funzionalità possono essere derivate dai dati esistenti o possono richiedere la raccolta di dati aggiuntivi. Questo processo è noto come **progettazione di funzionalità** ed è uno dei passaggi principali per la creazione di un sistema di analisi predittiva efficace. Questo passaggio richiede una combinazione creativa di competenze a livello di dominio e di informazioni approfondite ottenute dal passaggio di esplorazione dei dati. Per istruzioni, vedere [Progettazione di funzionalità in Cortana Analytics Process](machine-learning-data-science-create-features.md).
+## <a name="1.-ingest-the-data-into-the-data-platform"></a>1. Ingest the data into the data platform
 
+The first step is to bring the relevant data from various sources, either from within or from outside the enterprise, into an analytics environment where the data can be processed. The **format** of the data at source may differ from the format required by the destination. So some data transformation may also have to be done by the ingestion tooling. For options, see [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md)
 
-## 4\. Creare ed eseguire la formazione dei modelli di Machine Learning
-
-Gli esperti di scienza dei dati sviluppano modelli analitici per prevedere le variabili principali identificate dai requisiti aziendali definiti nella fase di pianificazione mediante i dati puliti e trasformati in funzionalità. I sistemi di Machine Learning supportano più **algoritmi di modellazione** applicabili a una vasta gamma di casi. Per istruzioni, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
-
-Gli esperti di scienza dei dati devono scegliere il modello più appropriato per l'attività di previsione e non è raro che sia necessario combinare i risultati da più modelli per ottenere i risultati ottimali. I dati di input per la modellazione vengono in genere suddivisi casualmente in tre parti:
-
-- Set di dati di training
-- Set di dati di convalida
-- Set di dati di test
-
-I modelli vengono sviluppati tramite il **set di dati di training**. La combinazione ottimale di modelli, con parametri perfezionati, viene selezionata eseguendo i modelli e misurando gli errori di previsione per il **set di dati di convalida**. Viene infine usato il **set di dati di test** per valutare le prestazioni del modello scelto su dati indipendenti non usati per il training o la convalida del modello. Per le procedura, vedere [Come valutare le prestazioni del modello in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
+In addition to the initial ingestion of data, many intelligent applications are required to refresh the data regularly as part of an ongoing learning process. This can be done by setting up a **data pipeline** or workflow. This forms part of the iterative part of the process that includes rebuilding and re-evaluating the analytical models used by the intelligent application deploying the solution. See, for example, [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md).
 
 
-## 5\. Distribuire e usare i modelli del prodotto
+## <a name="2.-explore-and-visualize-the-data"></a>2. Explore and visualize the data
 
-Quando si ottiene un set di modelli con prestazioni ottimali, è possibile **renderli operativi** per l'utilizzo da parte di altre applicazioni. In base ai requisiti aziendali, le previsioni vengono eseguite in **tempo reale** o in **batch**. Per essere resi operativi, i modelli devono essere esposti con un'**interfaccia API aperta** che può essere facilmente usata da diverse applicazioni, ad esempio un sito Web online, fogli di calcolo, dashboard applicazioni line-of-business e back-end. Vedere, [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
+The next step is to obtain a deeper understanding of the data by investigating its **summary statistics**, relationships, and by using techniques such **visualization**. This is also where issues of **data quality** and integrity, such as missing values, data type mismatches, and inconsistent data relationships, are handled. Pre-processing transforms are used to clean up the raw data before further analytics and modeling can take place. For a description, see [Tasks to prepare data for enhanced machine learning](machine-learning-data-science-prepare-data.md).
 
 
-## Riepilogo e passaggi successivi
+## <a name="3.-generate-and-select-features"></a>3. Generate and select features
 
-Il [processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) viene modellato come sequenza di passaggi iterati che **offrono indicazioni** sulle attività necessarie per usare l'analisi avanzata al fine di sviluppare un'applicazione intelligente. Ogni passaggio fornisce anche i dettagli su come usare diverse tecnologie Microsoft per completare l'attività descritta.
+Data scientists, in collaboration with domain experts, must identify the features that capture the salient properties of the data set and that can best be used to predict the key business variables identified during planning. These new features can be derived from existing data or may require additional data to be collected. This process is known as **feature engineering** and is one of the key steps in building an effective predictive analytics system. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. For guidance, see [Feature engineering in the Team Data Science Process](machine-learning-data-science-create-features.md).
 
-Anche se TDSP non indica tipi specifici di elementi di **documentazione**, è consigliabile documentare i risultati dell'esplorazione dei dati, della modellazione e della convalida e quindi salvare il codice pertinente in modo che l'analisi possa essere iterata quando necessario. Ciò consente anche il riutilizzo delle operazioni di analisi quando si lavora su altre applicazioni che includono dati e attività di previsioni simili.
 
-Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici**. Sono elencate insieme a brevi descrizioni nell'argomento [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md).
+## <a name="4.-create-and-train-machine-learning-models"></a>4. Create and train Machine Learning models
 
-<!---HONumber=AcomDC_0921_2016-->
+Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. For guidance, see [How to choose algorithms for Azure Machine Learning](machine-learning-algorithm-choice.md).
+
+Data scientists must choose the most appropriate model for their prediction task and it is not uncommon that results from multiple models need to be combined to obtain the best results. The input data for modeling is usually divided randomly into three parts:
+
+- a training data set,
+- a validation data set
+- a testing data set
+
+The models are built using the **training data set**. The optimal combination of models (with parameters tuned) is selected by running the models and measuring the prediction errors for the **validation data set**. Finally the **test data set** is used to evaluate the performance of the chosen model on independent data that was not used to train or validate the model.  For procedures, see [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
+
+
+## <a name="5.-deploy-and-consume-the-models-in-the-product"></a>5. Deploy and consume the models in the product
+
+Once we have a set of models that perform well, they can be **operationalized** for other applications to consume. Depending on the business requirements, predictions are made either in **real time** or on a **batch** basis. To be operationalized, the models have to be exposed with an **open API interface** that is easily consumed from various applications such online website, spreadsheets, dashboards, or line of business and backend applications. See [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+
+
+## <a name="summary-and-next-steps"></a>Summary and next steps
+
+The [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/) is modeled as a sequence of iterated steps that **provide guidance** on the tasks needed to use advanced analytics to build an intelligent application. Each step also provides details on how to use various Microsoft technologies to complete the tasks described.
+
+While TDSP does not prescribe specific types of **documentation** artifacts, it is a best practice to document the results of the data exploration, modeling and evaluation, and to save the pertinent code so that the analysis can be iterated when required. This also allows reuse of the analytics work when working on other applications involving similar data and prediction tasks.
+
+Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed with thumbnail descriptions in the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) topic.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

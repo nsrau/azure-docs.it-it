@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Domande frequenti sul ritiro dell'edizione Web e Business dei database di SQL Azure | Microsoft Azure"
-   description="Informazioni sul ritiro dei database Web e Business di SQL Azure e sulle caratteristiche e funzionalità dei nuovi livelli di servizio."
+   pageTitle="Azure SQL Database Web and Business Edition sunset FAQ | Microsoft Azure"
+   description="Find out when the Azure SQL Web and Business databases will be retired and learn about the features and functionality of the new service tiers."
    services="sql-database"
    documentationCenter="na"
    authors="stevestein"
@@ -15,57 +15,62 @@
    ms.date="08/08/2016"
    ms.author="sstein" />
 
-# Domande frequenti sul ritiro dell'edizione Web e Business
 
-I database SQL di Azure Web e Business sono stati ritirati e sostituiti dai livelli Basic, Standard, Premium ed Elastic.
+# <a name="web-and-business-edition-sunset-faq"></a>Web and Business Edition sunset FAQ
 
-Per agevolare l'aggiornamento dei database Web e Business, il servizio database SQL consiglia un livello di servizio e un livello di prestazioni appropriato (piano tariffario) per ogni database, in base al carico di lavoro cronologico.
+Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases.
 
-**Per ottenere indicazioni sul piano tariffario:**
+To assist you with upgrading Web and Business databases, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database based on its historical workload.
 
-- [Eseguire l'aggiornamento a database SQL V12 tramite il portale di Azure](sql-database-upgrade-server-portal.md)
-- [Eseguire l'aggiornamento a database SQL V12 tramite PowerShell](sql-database-upgrade-server-powershell.md)
-- [Modificare il piano tariffario di un database Web o Business](sql-database-service-tier-advisor.md)
+**To get pricing tier recommendations:**
 
-
-
-## Perché i database dell'edizione Web e Business sono visualizzati come ritirati nel portale di Azure?
-
-Poiché i database dell'edizione Web e Business non saranno disponibili dopo settembre 2015, nel portale questi database verranno etichettati come ritirati. Questa etichetta fornisce inoltre un promemoria della necessità di aggiornare tutti i database Web e Business ai livelli Premium, Basic o Standard. Per informazioni dettagliate sull'aggiornamento dei database Web o Business esistenti ai nuovi livelli di servizio, vedere [Eseguire l'aggiornamento a database SQL V12 di Azure](sql-database-upgrade-server-portal.md).
-
-## Quale tra i nuovi livelli di servizio rappresenta la scelta ottimale per l'aggiornamento di un database Web o Business esistente?
-
-La selezione di un nuovo livello di servizio e di un livello di prestazioni appropriati per un database Web o Business esistente dipende dai requisiti specifici per funzionalità e prestazioni dell'applicazione.
-
-Fare riferimento alle raccomandazioni per il piano tariffario sopra indicate oppure vedere [Eseguire l'aggiornamento a database SQL V12 di Azure](sql-database-upgrade-server-portal.md) per informazioni dettagliate utili per la scelta di un nuovo livello di servizio appropriato.
-
-## Perché Microsoft sta introducendo nuovi livelli di servizio?
-
-In base ai suggerimenti dei clienti, per il database SQL di Azure sono stati introdotti nuovi livelli di servizio per consentire ai clienti di supportare più facilmente i carichi di lavoro di database relazionale. I nuovi livelli sono progettati per offrire prestazioni prevedibili su una gamma di sette livelli per esigenze di applicazioni transazionali da leggere a onerose. Inoltre, i nuovi livelli offrono una gamma di funzionalità per la continuità aziendale, un contratto di servizio che garantisce tempi di attività migliori, dimensioni dei database maggiori a un costo minore e una migliore esperienza per la fatturazione.
-
-## Dove è possibile ottenere ulteriori informazioni su nuovi livelli di servizio?
-
-Per informazioni dettagliate sui nuovi livelli di servizio e il modello di prestazioni, vedere [Livelli di servizio](sql-database-service-tiers.md). Per informazioni dettagliate sui prezzi per i nuovi livelli di servizio, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-
-## Quali caratteristiche o funzionalità non saranno disponibili nei livelli Basic, Standard e Premium?
-
-La funzionalità per le federazioni sarà ritirata con le edizioni Web e Business. I clienti con esigenze di scalabilità orizzontale per i loro database sono invitati a usare in alternativa o a eseguire la migrazione agli [strumenti per i database elastici](sql-database-elastic-scale-get-started.md) per [database SQL di Azure](sql-database-elastic-scale-get-started.md), che semplificano la creazione e la gestione di un'applicazione che usa il partizionamento orizzontale. Una libreria client .NET consente alle applicazioni di definire la modalità di mapping dei dati in partizioni e indirizza le richieste OLTP ai database appropriati. Per supportare operazioni di gestione che riconfigurano la modalità di distribuzione dei dati tra le partizioni, è incluso un modello di servizio cloud di Azure che è possibile ospitare nella sottoscrizione di Azure. Oltre agli [strumenti per database elastici](sql-database-elastic-scale-get-started.md), Microsoft continuerà a creare e pubblicare [indicazioni su modelli e procedure per il partizionamento orizzontale personalizzato](https://msdn.microsoft.com/library/azure/dn764977.aspx) in base alle esperienze e informazioni ricavate dall'analisi approfondita dell'engagement dei clienti. I nuovi clienti con esigenze di scalabilità orizzontale dovrebbero valutare gli [strumenti per database elastici](sql-database-elastic-scale-get-started.md) e/o contattare il supporto Microsoft per valutare le opzioni disponibili.
-
-Microsoft sta inoltre modificando l'esperienza di copia del database con i database Premium. Dato che la quota per i database Premium era in precedenza limitata, l'istruzione CREATE DATABASE … AS A COPY OF in T-SQL consentiva di creare un database Premium sospeso senza risorse riservate, fatturato allo stesso costo di un database Business. Considerata la maggiore disponibilità attuale della quota Premium, lo stato Premium sospeso non è più supportato. Le copie di database verranno ora create con la stessa edizione e lo stesso livello di prestazioni dell'origine e fatturate di conseguenza. I clienti possono scegliere di effettuare il downgrade dei database copiati a un livello di servizio o di prestazioni diverso per ridurre i costi. I database con stato Premium sospeso esistenti verranno convertiti all'edizione Business nell'ambito di questa versione. Si prevede che l'introduzione del [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) ridurrà la necessità di creare copie di backup dei database.
-
-## In quale modo verrà migliorata l'esperienza di fatturazione con i livelli Basic, Standard e Premium?
-
-I database SQL di Azure Basic, Standard e Premium vengono fatturati su base oraria e si ha la possibilità di aumentare o ridurre le risorse di ognuno di essi. La fatturazione è basata su una tariffa fissa associata ai livelli di servizio e di prestazioni più alti scelti per ogni ora. Inoltre, i livelli di prestazioni (ad esempio: Basic, S1 e P2) sono suddivisi nella fattura per poter individuare più facilmente il numero di giorni/ore di database addebitati in un mese per ogni livello di prestazioni. I database Web e Business continueranno a essere fatturati tramite unità database in base alle dimensioni del database. Visitare la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) per altre informazioni sui prezzi e le differenze tra i nuovi livelli di servizio.
+- [Upgrade to SQL Database V12 using the Azure portal](sql-database-upgrade-server-portal.md)
+- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
+- [Change the pricing tier of a Web or Business database](sql-database-service-tier-advisor.md)
 
 
-## Vedere anche
 
-[Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/)
+## <a name="why-does-the-azure-portal-show-my-web-and-business-edition-databases-as-retired?"></a>Why does the Azure portal show my Web and Business edition databases as Retired?
 
-[Prezzi Web e Business](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+Because Web and Business edition databases will not be available after September 2015, the portal labels Web and Business databases as Retired. The retired label also provides a reminder that any Web and Business databases should be upgraded to Standard, Basic, or Premium. For detailed information on upgrading existing Web or Business databases to the new service tiers, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-portal.md).
 
-[Livelli di servizio](sql-database-service-tiers.md)
+## <a name="which-new-service-tier-is-the-best-choice-to-upgrade-my-existing-web-or-business-database-to?"></a>Which new service tier is the best choice to upgrade my existing Web or Business database to?
 
-[Eseguire l'aggiornamento a database SQL V12 di Azure](sql-database-upgrade-server-portal.md)
+Selecting an appropriate new service tier and performance level for your existing Web or Business database depends on the specific feature and performance requirements for your application.
 
-<!---HONumber=AcomDC_0810_2016-->
+Use the pricing tier recommendations described above, or for detailed information to assist you in selecting an appropriate new service tier, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-portal.md).
+
+## <a name="why-is-microsoft-introducing-new-service-tiers?"></a>Why is Microsoft introducing new service tiers?
+
+Based on customer feedback, Azure SQL Database is introducing new service tiers to help customers more easily support relational database workloads. The new tiers are designed to deliver predictable performance across a spectrum of seven levels for light-weight to heavy-weight transactional application demands. Additionally, the new tiers offer a range of business continuity features, a stronger uptime SLA, larger database sizes for less money, and an improved billing experience.
+
+## <a name="where-can-i-learn-more-about-the-new-service-tiers?"></a>Where can I learn more about the new service tiers?
+
+For detailed information about the new service tiers and performance model, see [Service tiers](sql-database-service-tiers.md). For detailed pricing information for the new service tiers, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+
+## <a name="what-features-or-functionality-will-not-be-available-in-basic,-standard,-and-premium?"></a>What features or functionality will not be available in Basic, Standard, and Premium?
+
+The Federations feature will be retired with Web and Business editions. Customers who need to scale-out their databases are encouraged to instead use or migrate to [Elastic database tools](sql-database-elastic-scale-get-started.md) for [Azure SQL Database](sql-database-elastic-scale-get-started.md), which simplifies building and managing an application that uses sharding. A .NET client library allows applications to define how data is mapped to shards and routes OLTP requests to appropriate databases. To support management operations that reconfigure how data is distributed among shards, an Azure cloud service template is included that you can host in your own Azure subscription. In addition to [Elastic database tools](sql-database-elastic-scale-get-started.md), Microsoft will continue to create and publish [custom sharding patterns and practices guidance](https://msdn.microsoft.com/library/azure/dn764977.aspx) based on learnings from deep customer engagements. New customers who need scale out functionality should check out [Elastic database tools](sql-database-elastic-scale-get-started.md) and/or contact Microsoft Support to evaluate their options.
+
+Microsoft is also changing the database copy experience with Premium databases. Previously as premium database quota was limited, CREATE DATABASE … AS A COPY OF in T-SQL created a Suspended Premium database without reserved resources, which was charged at the same rate as a Business database. As premium quota is now more freely available, Suspended Premium is no longer supported. Database copies will now be created with the same edition and performance level as the source and will be billed accordingly. Customers can choose to downgrade copied databases to a different service tier or performance level to reduce their cost if desired. Existing Suspended Premium databases will be converted to Business edition as part of this release. It is anticipated that the introduction of [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)  will reduce the need to make backup copies of databases.
+
+## <a name="how-does-basic,-standard,-and-premium-improve-my-billing-experience?"></a>How does Basic, Standard, and Premium improve my billing experience?
+
+Basic, Standard, and Premium Azure SQL databases are billed by the hour, and you have the ability to scale each database up or down. You are billed at a fixed rate based on the highest service tier and performance level you choose for each hour. Additionally, performance levels (example: Basic, S1, and P2) are broken out in the bill to make it easier to see the number of database days/hours you incurred in a single month for each performance level. Web and Business databases continue to be billed using Database Units based on the database size. Please visit the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) to learn more about the pricing and differences between the new service tiers.
+
+
+## <a name="see-also"></a>See also
+
+[Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+
+[Web and Business Pricing](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+
+[Service tiers](sql-database-service-tiers.md)
+
+[Upgrade to Azure SQL Database V12](sql-database-upgrade-server-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

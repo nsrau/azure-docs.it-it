@@ -6,4 +6,13 @@ Il gateway VPN può usare i codici SKU seguenti:
 - Standard
 - HighPerformance
 
-<!---HONumber=AcomDC_0928_2016-->
+Nella scelta di uno SKU, considerare le limitazioni seguenti:
+
+- Se si vuole usare un tipo di VPN basato su criteri, è necessario usare lo SKU di livello Basic del gateway. Le VPN basate su criteri, precedentemente denominate routing statico, non sono supportate negli altri SKU.
+- BGP non è supportato nello SKU di livello Basic.
+- Le configurazioni con coesistenza di gateway VPN ed ExpressRoute non sono supportate nello SKU di livello Basic.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

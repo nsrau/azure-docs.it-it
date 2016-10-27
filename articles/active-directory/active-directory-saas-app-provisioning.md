@@ -16,9 +16,10 @@
     ms.date="02/09/2016"
     ms.author="asmalser-msft"/>
 
-#Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
-##Informazioni sul provisioning utenti automatizzato per app SaaS
+#<a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
+
+##<a name="what-is-automated-user-provisioning-for-saas-apps?"></a>Informazioni sul provisioning utenti automatizzato per app SaaS
 
 Azure Active Directory (Azure AD) consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), ad esempio Dropbox, Salesforce, ServiceNow e così via.
 
@@ -36,7 +37,7 @@ Azure Active Directory (Azure AD) consente di automatizzare la creazione, la man
 - Avvisi di posta elettronica facoltativi per errori di provisioning.
 - Log di report e attività per facilitare il monitoraggio e la risoluzione dei problemi.
 
-##Perché usare il provisioning automatico?
+##<a name="why-use-automated-provisioning?"></a>Perché usare il provisioning automatico?
 
 Di seguito sono riportate alcune motivazioni comuni per l'uso di questa funzionalità:
 
@@ -45,7 +46,7 @@ Di seguito sono riportate alcune motivazioni comuni per l'uso di questa funziona
 - Per importare facilmente un blocco di utenti in una determinata applicazione SaaS.
 - Per sfruttare la praticità dell'uso da parte della soluzione di provisioning degli stessi criteri di accesso alle app definiti per Single Sign-On di Azure AD.
 
-##Domande frequenti
+##<a name="frequently-asked-questions"></a>Domande frequenti
 
 **Con quale frequenza Azure AD scrive modifiche della directory nell'app SaaS?**
 
@@ -71,7 +72,7 @@ Per la maggior parte delle app SaaS il provisioning è solo in uscita, pertanto 
 
 Contattare Microsoft tramite il [forum dei commenti di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-##Come funziona il provisioning automatizzato?
+##<a name="how-does-automated-provisioning-work?"></a>Come funziona il provisioning automatizzato?
 
 Azure AD esegue il provisioning degli utenti nelle app SaaS connettendosi agli endpoint di provisioning forniti dal produttore dell'applicazione. Questi endpoint consentono ad Azure AD di creare, aggiornare e rimuovere gli utenti a livello di programmazione. Di seguito è riportata una breve panoramica dei vari passaggi eseguiti da Azure AD per automatizzare il provisioning.
 
@@ -86,7 +87,7 @@ Azure AD esegue il provisioning degli utenti nelle app SaaS connettendosi agli e
 
 Per altre informazioni sul mapping degli attributi tra Azure AD e l'app SaaS, vedere l'articolo [Personalizzazione dei mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md).
 
-##Elenco di applicazioni che supportano il provisioning utenti automatizzato
+##<a name="list-of-apps-that-support-automated-user-provisioning"></a>Elenco di applicazioni che supportano il provisioning utenti automatizzato
 
 Fare clic su un'app per visualizzare un'esercitazione sulla configurazione del provisioning automatizzato per tale app:
 
@@ -106,7 +107,7 @@ Affinché un'applicazione supporti il provisioning utenti automatizzato, deve in
 
 Per contattare il team di progettazione di Azure AD per richiedere supporto sul provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-##Articoli correlati
+##<a name="related-articles"></a>Articoli correlati
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 - [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](active-directory-saas-customizing-attribute-mappings.md)
@@ -116,4 +117,8 @@ Per contattare il team di progettazione di Azure AD per richiedere supporto sul 
 - [Notifiche relative al provisioning dell'account](active-directory-saas-account-provisioning-notifications.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

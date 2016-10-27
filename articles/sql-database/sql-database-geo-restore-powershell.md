@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Ripristinare un database SQL di Azure da un backup con ridondanza geografica (PowerShell) | Microsoft Azure"
-    description="Ripristinare un database SQL di Azure in un nuovo server da un backup con ridondanza geografica"
+    pageTitle="Restore an Azure SQL Database from a geo-redundant backup (PowerShell) | Microsoft Azure"
+    description="Restore an Azure SQL Database into a new server from a geo-redundant backup"
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -16,45 +16,50 @@
     ms.date="07/17/2016"
     ms.author="sstein"/>
 
-# Ripristinare un database SQL di Azure da un backup con ridondanza geografica tramite PowerShell
+
+# <a name="restore-an-azure-sql-database-from-a-geo-redundant-backup-by-using-powershell"></a>Restore an Azure SQL Database from a geo-redundant backup by using PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Panoramica](sql-database-recovery-using-backups.md)
-- [Ripristino geografico: portale di Azure](sql-database-geo-restore-portal.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Geo-Restore: Azure Portal](sql-database-geo-restore-portal.md)
 
-Questo articolo illustra come ripristinare un database in un nuovo server con il ripristino geografico. Questa operazione può essere eseguita tramite PowerShell.
+This article shows you how to restore your database into a new server by using geo-restore. This can be done through PowerShell.
 
-[AZURE.INCLUDE [Avviare la sessione di PowerShell](../../includes/sql-database-powershell.md)]
+[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## Eseguire il ripristino geografico del database in un database autonomo
+## <a name="geo-restore-your-database-into-a-standalone-database"></a>Geo-restore your database into a standalone database
 
-1. Ottenere il backup con ridondanza geografica del database da ripristinare usando il cmdlet [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx).
+1. Get the geo-redundant backup of your database that you want to restore by using the [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) cmdlet.
 
         $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
-2. Avviare il ripristino dal backup con ridondanza geografica usando il cmdlet [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
+2. Start the restore from the geo-redundant backup by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) cmdlet.
 
         Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "TargetResourceGroup" -ServerName "TargetServer" -TargetDatabaseName "RestoredDatabase" –ResourceId $GeoBackup.ResourceID -Edition "Standard" -RequestedServiceObjectiveName "S2"
 
 
-## Eseguire il ripristino geografico del database in un pool di database elastici
+## <a name="geo-restore-your-database-into-an-elastic-database-pool"></a>Geo-restore your database into an elastic database pool
 
-1. Ottenere il backup con ridondanza geografica del database da ripristinare usando il cmdlet [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx).
+1. Get the geo-redundant backup of your database that you want to restore by using the [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) cmdlet.
 
         $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
-2. Avviare il ripristino dal backup con ridondanza geografica usando il cmdlet [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx). Specificare il nome del pool in cui si vuole ripristinare il database.
+2. Start the restore from the geo-redundant backup by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) cmdlet. Specify the pool name you want to restore your database into.
 
         Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "TargetResourceGroup" -ServerName "TargetServer" -TargetDatabaseName "RestoredDatabase" –ResourceId $GeoBackup.ResourceID –ElasticPoolName "elasticpool01"  
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
-- Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
-- Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
-- Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md).
-- Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md).  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,11 +1,15 @@
-## Concatenamento dei servizi: passaggio attraverso la rete virtuale con peering
+## <a name="service-chaining---transit-through-peered-vnet"></a>Service Chaining - Transit through peered VNet
 
-Sebbene l'utilizzo di route del sistema faciliti il traffico automaticamente per la distribuzione, esistono casi in cui si desidera controllare il routing dei pacchetti tramite un dispositivo virtuale. In questo scenario esistono due reti virtuali in una sottoscrizione, HubVNet e VNet1, come descritto nel diagramma di seguito. Si distribuisce un'appliance virtuale di rete nella rete virtuale HubVNet. Dopo avere stabilito il peering reti virtuali tra HubVNet e VNet1, è possibile configurare route definite dall'utente e specificare l'hop successivo all'appliance virtuale di rete in HubVNet.
+Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance.
+In this scenario, there are two VNets in a subscription, HubVNet and VNet1 as described in the diagram below. You deploy Network Virtual Appliance(NVA) in VNet HubVNet. After establishing VNet peering between HubVNet and VNet1, you can set up User Defined Routes and specify the next hop to NVA in the HubVNet.
 
-![Passaggio attraverso un'appliance virtuale di rete](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
+![NVA Transit](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-> [AZURE.NOTE] Per semplicità, si supponga che tutte le reti virtuali descritte si trovino nella stessa sottoscrizione. Questo approccio funziona tuttavia anche per uno scenario con collegamenti tra sottoscrizioni.
+> [AZURE.NOTE] For the simplicity, assume all VNets here are in the same subscription. But it also works for cross-subscription scenario.
 
-La proprietà principale per abilitare il routing di transito è il parametro "Consentire traffico inoltrato". In questo modo è possibile accettare e inviare il traffico da e verso l'appliance virtuale di rete nella rete virtuale con peering.
+The key property to enable Transit routing is the "Allow Forwarded Traffic" parameter. This allows accepting and sending traffic from/to the NVA in the peered VNet.  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

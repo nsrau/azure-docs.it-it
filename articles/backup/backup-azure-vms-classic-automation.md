@@ -1,50 +1,51 @@
 <properties
-	pageTitle="Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell | Microsoft Azure"
-	description="Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="cfreeman"
-	editor=""/>  
+    pageTitle="Deploy and manage backup for Azure VMs using PowerShell | Microsoft Azure"
+    description="Learn how to deploy and manage Azure Backup using PowerShell"
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="cfreeman"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="markgal;trinadhk;jimpark" />
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/08/2016"
+    ms.author="markgal;trinadhk;jimpark" />
 
 
-# Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
+
+# <a name="deploy-and-manage-backup-for-azure-vms-using-powershell"></a>Deploy and manage backup for Azure VMs using PowerShell
 
 > [AZURE.SELECTOR]
-- [Gestione risorse](backup-azure-vms-automation.md)
-- [Classico](backup-azure-vms-classic-automation.md)
+- [Resource Manager](backup-azure-vms-automation.md)
+- [Classic](backup-azure-vms-classic-automation.md)
 
-Questo articolo descrive come usare Azure PowerShell per il backup e il ripristino delle macchine virtuali di Azure. Azure offre due diversi modelli di distribuzione per creare e utilizzare le risorse: Resouce Manager e classica. Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+This article shows you how to use Azure PowerShell for backup and recovery of Azure VMs. Azure has two different deployment models for creating and working with resources: Resouce Manager and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
-## Concetti
-
-
-Questo articolo fornisce informazioni specifiche per i cmdlet di PowerShell usati per eseguire il backup di macchine virtuali. Per informazioni introduttive sulla protezione delle macchine virtuali di Azure, vedere [Pianificare l'infrastruttura di backup delle macchine virtuali in Azure](backup-azure-vms-introduction.md).
-
-> [AZURE.NOTE] Prima di iniziare, vedere i [prerequisiti](backup-azure-vms-prepare.md) necessari per utilizzare il servizio Backup di Azure e le [limitazioni](backup-azure-vms-prepare.md#limitations) della soluzione di backup delle macchine virtuali corrente.
-
-Per un uso efficace di PowerShell, è opportuno comprendere la gerarchia degli oggetti e da dove iniziare.
-
-![Gerarchia oggetti](./media/backup-azure-vms-classic-automation/object-hierarchy.png)  
-
-I due flussi più importanti sono quelli relativi all'attivazione della protezione per una macchina virtuale e al ripristino dei dati da un punto di ripristino. Questo articolo fornisce le informazioni necessarie per acquisire familiarità con l'uso dei cmdlet di PowerShell per abilitare questi due scenari.
+## <a name="concepts"></a>Concepts
 
 
-## Installazione e registrazione
-Per iniziare:
+This article provides information specific to the PowerShell cmdlets used to back up virtual machines. For introductory information about protecting Azure VMs, please see [Plan your VM backup infrastructure in Azure](backup-azure-vms-introduction.md).
 
-1. [Scaricare la versione più recente di PowerShell](https://github.com/Azure/azure-powershell/releases) (la versione minima richiesta è: 1.0.0)
+> [AZURE.NOTE] Before you start, read the [prerequisites](backup-azure-vms-prepare.md) required to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations) of the current VM backup solution.
 
-2. Cercare i cmdlet PowerShell di Azure Backup disponibili digitando il comando seguente:
+To use PowerShell effectively, take a moment to understand the hierarchy of objects and from where to start.
+
+![Object hierarchy](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
+
+The two most important flows are enabling protection for a VM, and restoring data from a recovery point. The focus of this article is to help you become adept at working with the PowerShell cmdlets to enable these two scenarios.
+
+
+## <a name="setup-and-registration"></a>Setup and Registration
+To begin:
+
+1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
+
+2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
 ```
 PS C:\> Get-Command *azurermbackup*
@@ -77,40 +78,40 @@ Cmdlet          Unregister-AzureRmBackupContainer                  1.0.1      Az
 Cmdlet          Wait-AzureRmBackupJob                              1.0.1      AzureRM.Backup
 ```
 
-Le attività di installazione e registrazione seguenti possono essere automatizzate tramite PowerShell:
+The following setup and registration tasks can be automated with PowerShell:
 
-- Creare un insieme di credenziali per il backup
-- Registrazione delle macchine virtuali nel servizio Backup di Azure
+- Create a backup vault
+- Registering the VMs with the Azure Backup service
 
-### Creare un insieme di credenziali per il backup
+### <a name="create-a-backup-vault"></a>Create a backup vault
 
-> [AZURE.WARNING] I clienti che usano il servizio Backup di Azure per la prima volta, dovranno registrare il provider di Backup di Azure da usare con la propria sottoscrizione. A tale scopo, eseguire il comando seguente: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
 
-È possibile creare un nuovo insieme di credenziali per il backup usando il cmdlet **New-AzureRmBackupVault**. L’archivio di backup è una risorsa ARM, pertanto è necessario inserirlo all'interno di un gruppo di risorse. Eseguire i comandi seguenti in una console di Azure PowerShell con privilegi elevati:
+You can create a new backup vault using the **New-AzureRmBackupVault** cmdlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
 PS C:\> New-AzureRmResourceGroup –Name “test-rg” –Location “West US”
 PS C:\> $backupvault = New-AzureRmBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-È possibile ottenere un elenco di tutti gli insiemi di credenziali per il backup in una determinata sottoscrizione usando il cmdlet **Get-AzureRmBackupVault**.
+You can get a list of all the backup vaults in a given subscription using the **Get-AzureRmBackupVault** cmdlet.
 
-> [AZURE.NOTE] È consigliabile archiviare l'oggetto insieme di credenziali di backup in una variabile. L'oggetto insieme di credenziali è necessario come input per molti cmdlet di Azure Backup.
+> [AZURE.NOTE] It is convenient to store the backup vault object into a variable. The vault object is needed as an input for many Azure Backup cmdlets.
 
 
-### Registrazione delle macchine virtuali
-Il primo passaggio per la configurazione del backup nel servizio Backup di Azure prevede la registrazione del computer o della macchina virtuale in un insieme di credenziali del servizio Backup di Azure. Il cmdlet **Register-AzureRmBackupContainer** accetta le informazioni di input di una macchina virtuale IaaS di Azure e le registra nell'insieme di credenziali specificato. L'operazione di registrazione associa la macchina virtuale di Azure all'insieme di credenziali di backup e tiene traccia della macchina virtuale per la durata del backup.
+### <a name="registering-the-vms"></a>Registering the VMs
+The first step towards configuring backup with Azure Backup is to register your machine or VM with an Azure Backup vault. The **Register-AzureRmBackupContainer** cmdlet takes the input information of an Azure IaaS virtual machine and registers it with the specified vault. The register operation associates the Azure virtual machine with the backup vault and tracks the VM through the backup lifecycle.
 
-L'operazione di registrazione della macchina virtuale con il servizio Backup di Azure crea un oggetto contenitore di livello superiore. Un contenitore in genere contiene più elementi di cui si può eseguire il backup, ma nel caso delle macchine virtuali sarà presente un solo elemento di backup per il contenitore.
+Registering your VM with the Azure Backup service creates a top-level container object. A container typically contains multiple items that can be backed up, but in the case of VMs there will be only one backup item for the container.
 
 ```
 PS C:\> $registerjob = Register-AzureRmBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
 ```
 
-## Macchine virtuali del servizio Backup di Azure
+## <a name="backup-azure-vms"></a>Backup Azure VMs
 
-### Creare i criteri di protezione
-Non è obbligatorio creare nuovi criteri di protezione per avviare il backup delle macchine virtuali. Insieme di credenziali include 'criteri predefiniti' che possono essere usati per abilitare rapidamente la protezione e che possono essere modificati in un secondo momento per impostare i dettagli corretti. È possibile ottenere un elenco dei criteri disponibili usando il cmdlet **Get-AzureRmBackupProtectionPolicy**:
+### <a name="create-a-protection-policy"></a>Create a protection policy
+It is not mandatory to create a new protection policy to start backup of your VMs. The vault comes with a 'Default Policy' that can be used to quickly enable protection, and then edited later with the right details. You can get a list of the policies available in the vault by using the **Get-AzureRmBackupProtectionPolicy** cmdlet:
 
 ```
 PS C:\> Get-AzureRmBackupProtectionPolicy -Vault $backupvault
@@ -120,11 +121,11 @@ Name                      Type               ScheduleType       BackupTime
 DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
 ```
 
-> [AZURE.NOTE] Il fuso orario del campo BackupTime in PowerShell è UTC. Tuttavia, quando l'orario di backup viene visualizzato nel portale di Azure, il fuso orario è allineato a quello del sistema locale assieme alla differenza dall'ora UTC.
+> [AZURE.NOTE] The timezone of the BackupTime field in PowerShell is UTC. However, when the backup time is shown in the Azure portal, the timezone is aligned to your local system along with the UTC offset.
 
-I criteri di backup sono associati ai criteri di conservazione. I criteri di conservazione definiscono per quanto tempo un punto di ripristino viene mantenuto nel servizio Backup di Azure. Il cmdlet **New-AzureRmBackupRetentionPolicy** crea oggetti PowerShell che includono le informazioni relative ai criteri di conservazione. Questi oggetti di criteri di conservazione vengono usati come input per il cmdlet *New-AzureRmBackupProtectionPolicy* o direttamente con il cmdlet *Enable-AzureRmBackupProtection*.
+A backup policy is associated with at least one retention policy. The retention policy defines how long a recovery point is kept with Azure Backup. The **New-AzureRmBackupRetentionPolicy** cmdlet creates PowerShell objects that hold retention policy information. These retention policy objects are used as inputs to the *New-AzureRmBackupProtectionPolicy* cmdlet, or directly with the *Enable-AzureRmBackupProtection* cmdlet.
 
-I criteri di backup consentono di definire quando viene eseguito il backup di un elemento e con quale frequenza. Il cmdlet **New-AzureRmBackupProtectionPolicy** crea un oggetto PowerShell che contiene le informazioni relative ai criteri di backup. I criteri di backup vengono usati come input per il cmdlet *Enable-AzureRmBackupProtection*.
+A backup policy defines when and how often the backup of an item is done. The **New-AzureRmBackupProtectionPolicy** cmdlet creates a PowerShell object that holds backup policy information. The backup policy is used as an input to the *Enable-AzureRmBackupProtection* cmdlet.
 
 ```
 PS C:\> $Daily = New-AzureRmBackupRetentionPolicyObject -DailyRetention -Retention 30
@@ -135,15 +136,15 @@ Name                      Type               ScheduleType       BackupTime
 DailyBackup01             AzureVM            Daily              01-Sep-15 3:30:00 PM
 ```
 
-### Abilitare la protezione
-Per abilitare la protezione sono necessari due oggetti, l'elemento e i criteri, ed entrambi devono appartenere allo stesso insieme di credenziali. Dopo aver associato i criteri all'elemento, il flusso di lavoro di backup verrà avviato in base alla pianificazione del backup.
+### <a name="enable-protection"></a>Enable protection
+Enabling protection involves two objects - the Item and the Policy, and both need to belong to the same vault. Once the policy has been associated with the item, the backup workflow will kick in at the defined schedule.
 
 ```
 PS C:\> Get-AzureRmBackupContainer -Type AzureVM -Status Registered -Vault $backupvault | Get-AzureRmBackupItem | Enable-AzureRmBackupProtection -Policy $newpolicy
 ```
 
-### Backup iniziale
-La pianificazione del backup esegue la copia iniziale completa dell'elemento e la copia incrementale per i backup successivi. Se si vuole forzare il backup iniziale in modo che venga eseguito a una determinata ora o immediatamente, usare il cmdlet **Backup-AzureRmBackupItem**:
+### <a name="initial-backup"></a>Initial backup
+The backup schedule will take care of doing the full initial copy for the item and the incremental copy for the subsequent backups. However, if you want to force the initial backup to happen at a certain time or even immediately then use the **Backup-AzureRmBackupItem** cmdlet:
 
 ```
 PS C:\> $container = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -Name "testvm"
@@ -155,12 +156,12 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-> [AZURE.NOTE] Il fuso orario dei campi StartTime ed EndTime visualizzati in PowerShell è UTC. Tuttavia, quando le informazioni corrispondenti vengono visualizzate nel portale di Azure, il fuso orario è allineato a quello dell'orologio del sistema locale.
+> [AZURE.NOTE] The timezone of the StartTime and EndTime fields shown in PowerShell is UTC. However, when the similar information is shown in the Azure portal, the timezone is aligned to your local system clock.
 
-### Monitoraggio di un processo di backup
-La maggior parte delle operazioni a esecuzione prolungata in Azure Backup è modellata come processo. Questo consente di semplificare il monitoraggio dell'avanzamento senza dover tenere aperto continuamente il portale di Azure.
+### <a name="monitoring-a-backup-job"></a>Monitoring a backup job
+Most long-running operations in Azure Backup are modelled as a job. This makes it easy to track progress without having to keep the Azure portal open at all times.
 
-Per ottenere lo stato più recente di un processo in corso, usare il cmdlet **Get-AzureRmBackupJob**.
+To get the latest status of an in-progress job, use the **Get-AzureRmBackupJob** cmdlet.
 
 ```
 PS C:\> $joblist = Get-AzureRmBackupJob -Vault $backupvault -Status InProgress
@@ -171,28 +172,28 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-Invece di eseguire il poll dei processi per ottenere lo stato di completamento, operazione non necessaria che prevede codice aggiuntivo, è più facile usare il cmdlet **Wait-AzureRmBackupJob**. Se usato in uno script, il cmdlet sospende l'esecuzione fino al completamento del processo o fino a quando non viene raggiunto il valore di timeout specificato.
+Instead of polling these jobs for completion - which is unnecessary, additional code - it is simpler to use the **Wait-AzureRmBackupJob** cmdlet. When used in a script, the cmdlet will pause the execution until either the job completes or the specified timeout value is reached.
 
 ```
 PS C:\> Wait-AzureRmBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 
-## Ripristinare una macchina virtuale di Azure
+## <a name="restore-an-azure-vm"></a>Restore an Azure VM
 
-Per ripristinare i dati di backup, è necessario identificare l'elemento sottoposto a backup e il punto di ripristino che contiene i dati temporizzati. Queste informazioni vengono fornite al cmdlet Restore-AzureRmBackupItem per avviare un ripristino dei dati dall'insieme di credenziali all'account del cliente.
+In order to restore backup data, you need to identify the backed-up Item and the Recovery Point that holds the point-in-time data. This information is supplied to the Restore-AzureRmBackupItem cmdlet to initiate a restore of data from the vault to the customer's account.
 
-### Selezionare la macchina virtuale
+### <a name="select-the-vm"></a>Select the VM
 
-Per ottenere l'oggetto PowerShell che individua l'elemento di backup corretto, è necessario iniziare dal contenitore nell'insieme di credenziali, quindi procedere verso il basso nella gerarchia degli oggetti. Per selezionare il contenitore che rappresenta la macchina virtuale, usare il cmdlet **Get-AzureRmBackupContainer** e inviarlo tramite pipe al cmdlet **Get-AzureRmBackupItem**.
+To get the PowerShell object that identifies the right backup Item, you need to start from the Container in the vault, and work your way down object hierarchy. To select the container that represents the VM, use the **Get-AzureRmBackupContainer** cmdlet and pipe that to the **Get-AzureRmBackupItem** cmdlet.
 
 ```
 PS C:\> $backupitem = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRmBackupItem
 ```
 
-### Scegliere un punto di ripristino
+### <a name="choose-a-recovery-point"></a>Choose a recovery point
 
-A questo punto è possibile visualizzare l'elenco di tutti i punti di ripristino per l'elemento di backup usando il cmdlet **Get-AzureRmBackupRecoveryPoint** e scegliere il punto di ripristino. In genere, gli utenti selezionano il punto di ripristino *AppConsistent* più recente nell'elenco.
+You can now list all the recovery points for the backup item using the **Get-AzureRmBackupRecoveryPoint** cmdlet, and choose the recovery point to restore. Typically users pick the most recent *AppConsistent* point in the list.
 
 ```
 PS C:\> $rp =  Get-AzureRmBackupRecoveryPoint -Item $backupitem
@@ -203,13 +204,13 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 15273496567119     AppConsistent      01-Sep-15 12:27:38 PM  iaasvmcontainer;testvm;testv...
 ```
 
-La variabile ```$rp``` è una matrice di punti di ripristino per l'elemento di backup selezionato, in ordine cronologico inverso: il punto di ripristino più recente è all'indice 0. Per scegliere il punto di ripristino, usare l'indicizzazione standard della matrice di PowerShell. Ad esempio, ```$rp[0]``` selezionerà l'ultimo punto di ripristino.
+The variable ```$rp``` is an array of recovery points for the selected backup item, sorted in reverse order of time - the latest recovery point is at index 0. Use standard PowerShell array indexing to pick the recovery point. For example: ```$rp[0]``` will select the latest recovery point.
 
-### Ripristino dei dischi
+### <a name="restoring-disks"></a>Restoring disks
 
-Le operazioni di ripristino eseguite tramite il portale di Azure e tramite Azure PowerShell presentano una differenza importante. Con PowerShell, l'operazione di ripristino si arresta una volta ripristinati i dischi e le informazioni di configurazione dal punto di ripristino e non crea una macchina virtuale.
+There is a key difference between the restore operations done through the Azure portal and through Azure PowerShell. With PowerShell, the restore operation stops at restoring the disks and config information from the recovery point. It does not create a virtual machine.
 
-> [AZURE.WARNING] Il cmdlet Restore-AzureRmBackupItem non crea una macchina virtuale. Ripristina semplicemente i dischi nell'account di archiviazione specificato. L'operazione di ripristino tramite il portale di Azure prevede un comportamento diverso.
+> [AZURE.WARNING] The Restore-AzureRmBackupItem does not create a VM. It only restores the disks to the specified storage account. This is not the same behavior you will experience in the Azure portal.
 
 ```
 PS C:\> $restorejob = Restore-AzureRmBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
@@ -220,16 +221,16 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-È possibile ottenere i dettagli dell'operazione di ripristino usando il cmdlet **Get-AzureRmBackupJobDetails** al termine del processo di ripristino. La proprietà *ErrorDetails* conterrà le informazioni necessarie per ricreare la macchina virtuale.
+You can get the details of the restore operation using the **Get-AzureRmBackupJobDetails** cmdlet once the Restore job has completed. The *ErrorDetails* property will have the information needed to rebuild the VM.
 
 ```
 PS C:\> $restorejob = Get-AzureRmBackupJob -Job $restorejob
 PS C:\> $details = Get-AzureRmBackupJobDetails -Job $restorejob
 ```
 
-### Creare la macchina virtuale
+### <a name="build-the-vm"></a>Build the VM
 
-È possibile creare la macchina virtuale dai dischi ripristinati tramite i cmdlet di PowerShell per la gestione del servizio Azure precedenti, i nuovi modelli di Azure Resource Manager o il portale di Azure. Questo esempio rapido mostra come eseguire l'operazione usando i cmdlet per la gestione del servizio Azure.
+Building the VM out of the restored disks can be done using the older Azure Service Management PowerShell cmdlets, the new Azure Resource Manager templates, or even using the Azure portal. In a quick example, we will show how to get there using the Azure Service Management cmdlets.
 
 ```
  $properties  = $details.Properties
@@ -256,33 +257,33 @@ $obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([
 
  if (!($dds -eq $null))
  {
-	 foreach($d in $dds.DataVirtualHardDisk)
- 	 {
-		 $lun = 0
-		 if(!($d.Lun -eq $null))
-		 {
-	 		 $lun = $d.Lun
-		 }
-		 $name = "panbhadataDisk" + $lun
+     foreach($d in $dds.DataVirtualHardDisk)
+     {
+         $lun = 0
+         if(!($d.Lun -eq $null))
+         {
+             $lun = $d.Lun
+         }
+         $name = "panbhadataDisk" + $lun
      Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
      $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
-	}
+    }
 }
 
 New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 ```
 
-Per altre informazioni su come creare una macchina virtuale dai dischi ripristinati, vedere i cmdlet seguenti:
+For more information on how to build a VM from the restored disks, read about the following cmdlets:
 
 - [Add-AzureDisk](https://msdn.microsoft.com/library/azure/dn495252.aspx)
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-## Esempi di codice
+## <a name="code-samples"></a>Code samples
 
-### 1\. Ottenere lo stato di completamento delle sottoattività dei processi
+### <a name="1.-get-the-completion-status-of-job-sub-tasks"></a>1. Get the completion status of job sub-tasks
 
-Per monitorare lo stato di completamento delle singole sottoattività si può usare il cmdlet **Get-AzureRmBackupJobDetails**:
+To track the completion status of individual sub-tasks, you can use the **Get-AzureRmBackupJobDetails** cmdlet:
 
 ```
 PS C:\> $details = Get-AzureRmBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
@@ -294,9 +295,9 @@ Take Snapshot                                               Completed
 Transfer data to Backup vault                               InProgress
 ```
 
-### 2\. Creare un report settimanale o giornaliero dei processi di backup
+### <a name="2.-create-a-daily/weekly-report-of-backup-jobs"></a>2. Create a daily/weekly report of backup jobs
 
-In genere, gli amministratori vogliono sapere quali processi di backup sono stati eseguiti nelle ultime 24 ore e conoscerne lo stato. Inoltre, conoscere la quantità di dati trasferiti consente agli amministratori di valutare l'utilizzo mensile di dati. Lo script seguente estrae i dati non elaborati dal servizio Azure Backup e visualizza le informazioni nella console di PowerShell.
+Administrators typically want to know what backup jobs ran in the last 24 hours, the status of those backup jobs. Additionally, the amount of data transferred gives administrators a way to estimate their monthly data usage. The script below pulls the raw data from the Azure Backup service and displays the information in the PowerShell console.
 
 ```
 param(  [Parameter(Mandatory=$True,Position=1)]
@@ -339,10 +340,14 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-Se si vogliono aggiungere funzionalità per la creazione di grafici all'output del report, leggere il post [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Creazione di grafici con PowerShell) nel blog TechNet
+If you want to add charting capabilities to this report output, learn from the TechNet blog post [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-Se si preferisce usare PowerShell per interagire con le risorse di Azure, vedere l'articolo di PowerShell per la protezione di Windows Server, [Distribuire e gestire il servizio di backup per Windows Server](./backup-client-automation-classic.md). È disponibile anche un articolo di PowerShell per la gestione dei backup di DPM, [Distribuire e gestire il servizio di backup per DPM](./backup-dpm-automation-classic.md). Entrambi gli articoli prevedono due versioni: una per la distribuzione con Resource Manager, l’altra per la distribuzione classica.
+If you prefer using PowerShell to engage with your Azure resources, check out the PowerShell article for protecting Windows Server, [Deploy and Manage Backup for Windows Server](./backup-client-automation-classic.md). There is also a PowerShell article for managing DPM backups, [Deploy and Manage Backup for DPM](./backup-dpm-automation-classic.md). Both of these articles have a version for Resource Manager deployments as well as Classic deployments.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

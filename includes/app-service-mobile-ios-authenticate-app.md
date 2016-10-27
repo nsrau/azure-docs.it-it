@@ -1,6 +1,6 @@
-**Objective-C**:
+**Objective-C**: 
 
-1. In Mac aprire _QSTodoListViewController.m_ in Xcode e aggiungere il metodo seguente. Modificare _google_ in _accountmicrosoft_, _twitter_, _facebook_ o _microsoftazureactivedirectory_ se non si usa Google come provider di identità. Se si usa Facebook, [sarà necessario consentire i domini Facebook all'interno dell'app](https://developers.facebook.com/docs/ios/ios9#whitelist).
+1. On your Mac, open _QSTodoListViewController.m_ in Xcode and add the following method. Change _google_ to _microsoftaccount_, _twitter_, _facebook_, or _windowsazureactivedirectory_ if you're not using Google as your identity provider. If you use Facebook, [you will need to whitelist Facebook domains in your app](https://developers.facebook.com/docs/ios/ios9#whitelist).
 
             - (void) loginAndGetData
             {
@@ -15,15 +15,15 @@
             }
 
 
-2. Sostituire `[self refresh]` in `viewDidLoad` in _QSTodoListViewController.m_ con quanto riportato di seguito:
+2. Replace `[self refresh]` in `viewDidLoad` in _QSTodoListViewController.m_ with the following:
 
             [self loginAndGetData];
 
-3. Fare clic su _segui_ per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
+3. Press  _Run_ to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
 
 **Swift**:
 
-1. In Mac aprire _ToDoTableViewController.swift_ in Xcode e aggiungere il metodo seguente. Modificare _google_ in _accountmicrosoft_, _twitter_, _facebook_ o _microsoftazureactivedirectory_ se non si usa Google come provider di identità. Se si usa Facebook, [sarà necessario consentire i domini Facebook all'interno dell'app](https://developers.facebook.com/docs/ios/ios9#whitelist).
+1. On your Mac, open _ToDoTableViewController.swift_ in Xcode and add the following method. Change _google_ to _microsoftaccount_, _twitter_, _facebook_, or _windowsazureactivedirectory_ if you're not using Google as your identity provider. If you use Facebook, [you will need to whitelist Facebook domains in your app](https://developers.facebook.com/docs/ios/ios9#whitelist).
         
             func loginAndGetData() {
                 
@@ -38,10 +38,13 @@
             }
 
 
-2. Rimuovere le righe `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` alla fine di `viewDidLoad()` in _ToDoTableViewController.swift_. Aggiungere una chiamata a `loginAndGetData()` al posto di tali righe:
+2. Remove the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the end of `viewDidLoad()` in _ToDoTableViewController.swift_. Add a call to `loginAndGetData()` in their place:
 
             loginAndGetData()
 
-3. Fare clic su _segui_ per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
+3. Press  _Run_ to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
 
-<!---HONumber=AcomDC_0218_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

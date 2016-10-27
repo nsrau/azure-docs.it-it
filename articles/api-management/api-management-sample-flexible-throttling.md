@@ -1,34 +1,35 @@
 <properties
-	pageTitle="Limitazione avanzata delle richieste con Gestione API di Azure"
-	description="Informazioni su come creare e applicare criteri flessibili di limitazione della frequenza e della quota con Gestione API di Azure."
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+    pageTitle="Advanced request throttling with Azure API Management"
+    description="Learn how to create and apply flexible quota and rate limiting policies with Azure API Management."
+    services="api-management"
+    documentationCenter=""
+    authors="darrelmiller"
+    manager=""
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/09/2016"
-	ms.author="darrmi"/>  
+    ms.service="api-management"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="10/25/2016"
+    ms.author="darrmi"/>
 
 
-# Limitazione avanzata delle richieste con Gestione API di Azure
 
-La possibilità di limitare le richieste in ingresso è uno dei ruoli fondamentali di Gestione API di Azure. Tramite il controllo della frequenza delle richieste o del totale delle richieste o dei dati trasferiti, Gestione API consente ai provider di API di proteggere le API da abusi e di aggiungere valore a diversi livelli di prodotto API.
+# <a name="advanced-request-throttling-with-azure-api-management"></a>Advanced request throttling with Azure API Management
 
-## Limitazione basata sul prodotto
-Finora le funzionalità di limitazione della frequenza avevano come ambito una sottoscrizione specifica a un prodotto (essenzialmente una chiave), definita nel portale di pubblicazione di Gestione API. Tali funzionalità sono utili per consentire al provider di API di applicare limiti agli sviluppatori che si sono registrati per l'uso dell'API, ma non consente di limitare ad esempio i singoli utenti finali dell'API. Il singolo utente dell'applicazione dello sviluppatore può usare l'intera quota e quindi impedire ad altri clienti dello sviluppatore di usare l'applicazione. Inoltre, alcuni clienti possono generare un numero elevato di richieste, limitando l'accesso agli utenti occasionali.
+Being able to throttle incoming requests is a key role of Azure API Management. Either by controlling the rate of requests or the total requests/data transferred, API Management allows API providers to protect their APIs from abuse and create value for different API product tiers.
 
-## Limitazione basata su chiave personalizzata
-I nuovi criteri [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) offrono una soluzione molto più flessibile per il controllo del traffico. Questi nuovi criteri consentono di definire le espressioni per l'identificazione delle chiavi che verranno usate per tenere traccia dell'utilizzo del traffico. Il modo più semplice per spiegarne il funzionamento è illustrare un esempio.
+## <a name="product-based-throttling"></a>Product based throttling
+To date, the rate throttling capabilities have been limited to being scoped to a particular Product subscription (essentially a key), defined in the API Management publisher portal. This is useful for the API provider to apply limits on the developers who have signed up to use their API, however, it does not help, for example, in throttling individual end-users of the API. It is possible that for single user of the developer's application to consume the entire quota and then prevent other customers of the developer from being able to use the application. Also, several customers who might generate a high volume of requests may limit access to occasional users.
 
-## Limitazione dell'indirizzo IP
-I seguenti criteri limitano l'indirizzo IP di un singolo client a 10 chiamate al minuto, con un totale di 1.000.000 chiamate e 10.000 KB di larghezza di banda al mese.
+## <a name="custom-key-based-throttling"></a>Custom key based throttling
+The new [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) and [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) policies provide a significantly more flexible solution to traffic control. These new policies allow you to define expressions to identify the keys that will be used to track traffic usage. The way this works is easiest illustrated with an example. 
+
+## <a name="ip-address-throttling"></a>IP Address throttling
+The following policies restrict a single client IP address to only 10 calls every minute, with a total of 1,000,000 calls and 10,000 kilobytes of bandwidth per month. 
 
     <rate-limit-by-key  calls="10"
               renewal-period="60"
@@ -39,38 +40,42 @@ I seguenti criteri limitano l'indirizzo IP di un singolo client a 10 chiamate al
               renewal-period="2629800"
               counter-key="@(context.Request.IpAddress)" />
 
-Se tutti i client su Internet usassero un indirizzo IP univoco, sarebbe un metodo efficace per limitare l'utilizzo per utente. È tuttavia molto probabile che più utenti condividano un singolo indirizzo IP pubblico, in quanto accedono a Internet tramite un dispositivo NAT. Nonostante ciò, per le API che consentono l'accesso non autenticato, `IpAddress` può essere la soluzione migliore.
+If all clients on the Internet used a unique IP address, this might be an effective way of limiting usage by user. However, it is quite likely that multiple users will sharing a single public IP address due to them accessing the Internet via a NAT device. Despite this, for APIs that allow unauthenticated access the `IpAddress` might be the best option.
 
-## Limitazione dell'identità utente
-Se un utente finale viene autenticato, può essere generata una chiave per la limitazione delle richieste in base alle informazioni che identificano in modo univoco l'utente.
+## <a name="user-identity-throttling"></a>User identity throttling
+If an end user is authenticated then a throttling key can be generated based on information that uniquely identifies an that user.
 
     <rate-limit-by-key calls="10"
         renewal-period="60"
         counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
 
-In questo esempio si estrae l'intestazione dell'autorizzazione, la si converte in un oggetto `JWT` e si usa l'oggetto del token per identificare l'utente e usarlo come chiave per la limitazione della frequenza. Se l'identità dell'utente è archiviata nell'oggetto `JWT` come una delle altre attestazioni, è possibile sostituirla con quel valore.
+In this example we extract the Authorization header, convert it to `JWT` object and use the subject of the token to identify the user and use that as the rate limiting key. If the user identity is stored in the `JWT` as one of the other claims then that value could be used in its place.
 
-## Criteri combinati
-Sebbene i nuovi criteri di limitazione garantiscano maggiore controllo rispetto ai criteri di limitazione esistenti, la combinazione delle due funzionalità presenta comunque dei vantaggi. La limitazione in base alla chiave di sottoscrizione al prodotto ([Limitare la frequenza delle chiamate in base alla sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Impostare la quota di utilizzo in base alla sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)) è un'ottima soluzione per realizzare profitti da un'API tramite l'addebito in base ai livelli di utilizzo. Il controllo con granularità maggiore per impostare la limitazione per utente è complementare e impedisce che il comportamento di un utente comprometta l'esperienza di un altro utente.
+## <a name="combined-policies"></a>Combined policies
+Although the new throttling policies provide more control than the existing throttling policies, there is still value combining both capabilities. Throttling by product subscription key ([Limit call rate by subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) and [Set usage quota by subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)) is a great way to enable monetizing of an API by charging based on usage levels. The finer grained control of being able to throttle by user is complementary and prevents one user's behavior from degrading the experience of another. 
 
-## Limitazione basata su client
-Quando la chiave per la limitazione viene definita mediante un'[espressione di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx), è il provider di API a scegliere l'ambito della limitazione. Uno sviluppatore può tuttavia voler controllare la modalità di limitazione della frequenza per i propri clienti. Il provider di API può abilitare questa opzione introducendo un'intestazione personalizzata per consentire all'applicazione client dello sviluppatore di comunicare la chiave all'API.
+## <a name="client-driven-throttling"></a>Client driven throttling
+When the throttling key is defined using a [policy expression](https://msdn.microsoft.com/library/azure/dn910913.aspx), then it is the API provider that is choosing how the throttling is scoped. However, a developer might want to control how they rate limit their own customers. This could be enabled by the API provider by introducing a custom header to allow the developer's client application to communicate the key to the API.
 
     <rate-limit-by-key calls="100"
               renewal-period="60"
               counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
 
-In questo modo l'applicazione client dello sviluppatore è in grado di scegliere la modalità di creazione della chiave di limitazione della frequenza. Con un po' di astuzia, uno sviluppatore di client può creare i propri livelli di frequenza allocando set di chiavi agli utenti e ruotando l'utilizzo delle chiavi.
+This enables the developer's client application to choose how they want to create the rate limiting key. With a little bit of ingenuity a client developer could create their own rate tiers by allocating sets of keys to users and rotating the key usage.
 
-## Summary
-Gestione API di Azure offre funzionalità di limitazione della frequenza e della quota per proteggere e aggiungere valore al proprio servizio API. I nuovi criteri di limitazione con regole personalizzate di definizione dell'ambito consentono di controllare con granularità maggiore tali criteri per consentire ai clienti di creare applicazioni migliori. Gli esempi in questo articolo illustrano l'uso di questi nuovi criteri tramite la produzione di chiavi per la limitazione della frequenza con gli indirizzi IP del client, l'identità dell'utente e valori generati dal client. È tuttavia possibile usare molte altre parti del messaggio, ad esempio l'agente utente, frammenti del percorso dell'URL e la dimensione del messaggio.
+## <a name="summary"></a>Summary
+Azure API Management provides rate and quote throttling to both protect and add value to your API service. The new throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, message size.
 
-## Passaggi successivi
-È possibile inserire commenti e suggerimenti per questo argomento nel thread Disqus. Può essere utile individuare altri potenziali valori di chiave che sono utili negli scenari in uso.
+## <a name="next-steps"></a>Next steps
+Please give us your feedback in the Disqus thread for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.
 
-## Video contenente una panoramica di questi criteri
-Per altre informazioni sui criteri [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) presentati in questo articolo, guardare il video seguente.
+## <a name="watch-a-video-overview-of-these-policies"></a>Watch a video overview of these policies
+For more information on the [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) and [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) policies covered in this article, please watch the following video.
 
 > [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

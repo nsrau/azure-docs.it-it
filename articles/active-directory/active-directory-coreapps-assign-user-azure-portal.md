@@ -1,60 +1,65 @@
 <properties
-	pageTitle="Assegnare un utente o un gruppo a un'app aziendale in anteprima di Azure Active Directory | Microsoft Azure"
-	description="Come selezionare un'app aziendale a cui assegnare un utente o gruppo in anteprima di Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Assign a user or group to an enterprise app in Azure Active Directory preview | Microsoft Azure"
+    description="How to select an enterprise app to assign a user or group to it in Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="curtand"/>
 
-# Assegnare un utente o un gruppo a un'app aziendale in anteprima di Azure Active Directory
 
-È facile assegnare un utente o un gruppo alle applicazioni aziendali in anteprima di Azure Active Directory (Azure AD). [Cosa c'è nell'anteprima?](active-directory-preview-explainer.md) È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale. Nell'anteprima corrente è necessario essere amministratore globale della directory.
+# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory-preview"></a>Assign a user or group to an enterprise app in Azure Active Directory preview
 
-## Come si assegna l'accesso utente a un'app aziendale?
+It's easy to assign a user or a group to your enterprise applications in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) You must have the appropriate permissions to manage the enterprise app. In the current preview, you must be global admin for the directory.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
+## <a name="how-do-i-assign-user-access-to-an-enterprise-app?"></a>How do I assign user access to an enterprise app?
 
-2. Selezionare **Altri servizi**, immettere Azure Active Directory nella casella di testo e quindi selezionare **Invio**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-3. Nel pannello **Azure Active Directory -** *nomedirectory*, vale a dire il pannello Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
+2. Select **More services**, enter Azure Active Directory in the text box, and then select **Enter**.
 
-  ![Apertura di app aziendali](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
+3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
 
-4. Nel pannello **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Verrà visualizzato un elenco di app che è possibile gestire.
+    ![Opening Enterprise apps](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
 
-5. Nel pannello **Applicazioni aziendali - Tutte le applicazioni** selezionare un'app.
+4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
 
-6. Nel pannello ***nomeapp***, vale a dire il pannello con il nome dell'app selezionata nel titolo, selezionare **Utenti e gruppi**.
+5. On the **Enterprise applications - All applications** blade, select an app.
 
-  ![Selezione del comando Tutte le applicazioni](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
+6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Users & Groups**.
 
-7. Nel pannello ***nomeapp*** **- Assegnazione di utenti e gruppi**, selezionare il comando **Aggiungi**.
+    ![Selecting the all applications command](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
 
-8. Nel pannello **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+7. On the ***appname*** **- User & Group Assignment** blade, select the **Add** command.
 
-  ![Assegnare un utente o gruppo all'app](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
+8. On the **Add Assignment** blade, select **Users and groups**.
 
-9. Nel pannello **Utenti e gruppi**, selezionare uno o più utenti o gruppi dall'elenco e fare clic sul pulsante **Seleziona** nella parte inferiore del pannello.
+    ![Assign a user or group to the app](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
 
-10. Nel pannello **Aggiungi assegnazione** selezionare **Ruoli**. Dopodiché, nel pannello**Seleziona ruolo**, scegliere il ruolo da applicare ai gruppi o utenti selezionati, quindi fare clic su **OK** nella parte inferiore del pannello.
+9. On the **Users and groups** blade, select one or more users or groups from the list and then select the **Select** button at the bottom of the blade.
 
-11. Nel pannello **Aggiungi assegnazione**, selezionare il pulsante **Assegna** nella parte inferiore del pannello. Gli utenti o i gruppi assegnati avranno le autorizzazioni definite dal ruolo selezionato per questa app aziendale.
+10. On the **Add Assignment** blade, select **Role**. Then, on the **Select Role** blade, select a role to apply to the selected users or groups, and then select the **OK** button at the bottom of the blade.
 
-## Passaggi successivi
+11. On the **Add Assignment** blade, select the **Assign** button at the bottom of the blade. The assigned users or groups will have the permissions defined by the selected role for this enterprise app.
 
-- [Visualizzare tutti i gruppi personali](active-directory-groups-view-azure-portal.md)
-- [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](active-directory-coreapps-remove-assignment-user-azure-portal.md)
-- [Disabilitare l'accesso degli utenti per un'app aziendale](active-directory-coreapps-disable-app-azure-portal.md)
-- [Modificare il nome o il logo di un'app aziendale](active-directory-coreapps-change-app-logo-azure-portal.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0914_2016-->
+- [See all of my groups](active-directory-groups-view-azure-portal.md)
+- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

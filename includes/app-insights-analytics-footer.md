@@ -1,19 +1,22 @@
 
-## Analytics
+## <a name="analytics"></a>Analytics
 
-- [Panoramica](../articles/application-insights/app-insights-analytics.md)
-- [Presentazione dello strumento Analisi in Application Insights](../articles/application-insights/app-insights-analytics-tour.md)
- - Inizia da qui. Un'esercitazione che copre le funzionalità principali.
-- [Query](../articles/application-insights/app-insights-analytics-reference.md#queries)
- - Per compilare le query, usare gli operatori come ad esempio `where` e `count`.
-- [Aggregazione](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
- - Usata per calcolare le statistiche dei gruppi di record
-- [Valori scalari](../articles/application-insights/app-insights-analytics-reference.md#scalars)
- - Numeri, stringhe e altre espressioni usate per definire i parametri di query.
-- [Uso di Analisi in Application Insights](../articles/application-insights/app-insights-analytics-using.md)
- - Usare Analytics
-- [Informazioni di riferimento sul linguaggio](../articles/application-insights/app-insights-analytics-reference.md)
- - Riferimento di una pagina.
-- [Risoluzione dei problemi](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+- [Overview](../articles/application-insights/app-insights-analytics.md)
+- [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
+ - Start here. A tutorial covering the main features.
+- [Queries](../articles/application-insights/app-insights-analytics-reference.md#queries)
+ - Use operators such as `where` and `count` to build queries.
+- [Aggregation](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
+ - Used to compute statistics over groups of records
+- [Scalars](../articles/application-insights/app-insights-analytics-reference.md#scalars)
+ - Numbers, strings, and other expressions used to form query parameters.
+- [Using Analytics](../articles/application-insights/app-insights-analytics-using.md)
+ - Using Analytics.
+- [Language Reference](../articles/application-insights/app-insights-analytics-reference.md)
+ - One-page reference.
+- [Troubleshooting](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

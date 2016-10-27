@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestione dei ruoli nei progetti di Servizi cloud di Azure con Visual Studio | Microsoft Azure"
-   description="Informazioni su come aggiungere nuovi ruoli al progetto di servizio cloud di Azure o rimuovere quelli esistenti con Visual Studio."
+   pageTitle="Managing roles in the Azure cloud services projects with Visual Studio | Microsoft Azure"
+   description="Learn how to add new roles to your Azure cloud service project or remove existing roles from it by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,47 +15,52 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Gestione dei ruoli nei progetti di Servizi cloud di Azure con Visual Studio
 
-Dopo aver creato il progetto di servizio cloud di Azure, è possibile aggiungervi nuovi ruoli o rimuovere quelli esistenti. È possibile anche importare un progetto esistente e convertirlo in un ruolo. Ad esempio, è possibile importare un'applicazione Web ASP.NET e specificarla come ruolo Web.
+# <a name="managing-roles-in-the-azure-cloud-services-projects-with-visual-studio"></a>Managing roles in the Azure cloud services projects with Visual Studio
 
-## Aggiunta o rimozione di ruoli
+After you have created your Azure cloud service project, you can add new roles to it or remove existing roles from it. You can also import an existing project and convert it to a role. For example, you can import an ASP.NET web application and designate it as a web role.
 
-**Per aggiungere un ruolo**
+## <a name="adding-or-removing-roles"></a>Adding or removing roles
 
-In **Esplora soluzioni** aprire il menu di scelta rapida per il nodo **Ruoli** nel progetto di servizio cloud e scegliere **Aggiungi**. È possibile selezionare un ruolo Web o di lavoro esistente dalla soluzione corrente o crearne di nuovi. In alternativa, è possibile selezionare un progetto appropriato, ad esempio un progetto di applicazione Web ASP.NET, e associarlo a un progetto di ruolo.
+**To add a role**
 
-**Per rimuovere un'associazione del ruolo**
+In **Solution Explorer**, open the shortcut menu for the **Roles** node in your cloud service project and choose **Add**. You can select an existing web role or worker role from the current solution or create a new web or worker role project. Or you can select an appropriate project, such as an ASP.NET web application project, and associate it with a role project.
 
-Nel nodo **Ruoli** del progetto di servizio cloud in Esplora soluzioni aprire il menu di scelta rapida per il ruolo da rimuovere e scegliere **Rimuovi**.
+**To remove a role association**
 
-## Rimozione e aggiunta di ruoli nel servizio cloud
+In the **Roles** node of the cloud service project in Solution Explorer, open the shortcut menu for the role to remove and choose **Remove**.
 
-Se si rimuove un ruolo dal progetto di servizio cloud ma in un secondo momento si decide di aggiungere nuovamente tale ruolo al progetto, verranno aggiunti solo la dichiarazione del ruolo e gli attributi di base, ad esempio gli endpoint e le informazioni di diagnostica. Nel file ServiceDefinition.csdef o ServiceConfiguration.cscfg non vengono inclusi risorse o riferimenti aggiuntivi. Se si vuole aggiungere queste informazioni, è necessario aggiungerle nuovamente a questi file in modo manuale.
+## <a name="removing-and-adding-roles-in-your-cloud-service"></a>Removing and adding roles in your cloud service
 
-Ad esempio, è possibile rimuovere un ruolo del servizio Web e poi decidere di aggiungere di nuovo questo ruolo nella soluzione. Se si esegue questa operazione, si verificherà un errore. Per impedire questo errore, è necessario aggiungere nuovamente nel file ServiceDefinition.csdef l'elemento `<LocalResources>` mostrato nel codice XML seguente. Usare il nome del ruolo del servizio Web aggiunto di nuovo al progetto come parte dell'attributo nome per l'elemento **<LocalStorage>**. In questo esempio il nome del ruolo del servizio Web è **WCFServiceWebRole1**.
+If you remove a role from your cloud service project but later decide to add the role back to the project, only the role declaration and basic attributes, such as endpoints and diagnostics information, are added. No additional resources or references are added to the ServiceDefinition.csdef file or to the ServiceConfiguration.cscfg file. If you want to add this information, you’ll have to manually add it back into these files.
 
-	<WebRole name="WCFServiceWebRole1">
-	    <Sites>
-	      <Site name="Web">
-	        <Bindings>
-	          <Binding name="Endpoint1" endpointName="Endpoint1" />
-	        </Bindings>
-	      </Site>
-	    </Sites>
-	    <Endpoints>
-	      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
-	    </Endpoints>
-	    <Imports>
-	      <Import moduleName="Diagnostics" />
-	    </Imports>
-	   <LocalResources>
-	      <LocalStorage name="WCFServiceWebRole1.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
-	   </LocalResources>
-	</WebRole>
+For example, you might remove a web service role and later you decide to add this role back into your solution. If you do this, an error will occur. To prevent this error, you have to add the `<LocalResources>` element shown in the following XML back into the ServiceDefinition.csdef file. Use the name of the web service role that you added back into the project as part of the name attribute for the **<LocalStorage>** element. In this example the name of the web service role is **WCFServiceWebRole1**.
 
-## Passaggi successivi
+    <WebRole name="WCFServiceWebRole1">
+        <Sites>
+          <Site name="Web">
+            <Bindings>
+              <Binding name="Endpoint1" endpointName="Endpoint1" />
+            </Bindings>
+          </Site>
+        </Sites>
+        <Endpoints>
+          <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+        </Endpoints>
+        <Imports>
+          <Import moduleName="Diagnostics" />
+        </Imports>
+       <LocalResources>
+          <LocalStorage name="WCFServiceWebRole1.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
+       </LocalResources>
+    </WebRole>
 
-Per altre informazioni su come configurare i ruoli in Visual Studio, vedere [Configurare i ruoli di un servizio cloud di Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+Learn about how to configure roles in Visual Studio by reading [Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

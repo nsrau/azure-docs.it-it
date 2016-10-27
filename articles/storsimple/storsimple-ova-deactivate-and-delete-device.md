@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Disattivare ed eliminare un array virtuale StorSimple | Microsoft Azure"
-   description="Viene descritto come rimuovere un dispositivo StorSimple dal servizio disattivandolo e poi eliminandolo."
+   pageTitle="Deactivate and delete a StorSimple Virtual Array | Microsoft Azure"
+   description="Describes how to remove StorSimple device from service by  first deactivating it and then deleting it."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,90 +15,94 @@
    ms.date="06/20/2016"
    ms.author="alkohli" />
 
-# Disattivare ed eliminare un array virtuale StorSimple
 
-## Panoramica
+# <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Deactivate and delete a StorSimple Virtual Array
 
-Quando si disattiva un array virtuale StorSimple, si interrompe la connessione tra il dispositivo e il servizio StorSimple Manager corrispondente. La disattivazione è un'operazione permanente e non può essere annullata. Un dispositivo disattivato non può essere registrato di nuovo con il servizio StorSimple Manager.
+## <a name="overview"></a>Overview
 
-Può essere necessario disattivare ed eliminare un dispositivo virtuale StorSimple negli scenari seguenti:
+When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again.
+
+You may need to deactivate and delete a StorSimple virtual device in the following scenarios:
 
 
-- Il dispositivo è in linea e si prevede di eseguirne il failover. Può essere necessario eseguire questa operazione se si prevede di eseguire l'aggiornamento a un dispositivo di maggiori dimensioni. Una volta trasferiti i dati del dispositivo e completato il failover, è possibile eliminare il dispositivo.
+- Your device is online and you plan to fail over this device. You may need to do this if you are planning  to upgrade to a larger device. After the device data is transferred and the failover is complete, you can then delete the device.
 
-- Il dispositivo è offline e si prevede di eseguirne il failover. Questa situazione può verificarsi se, a causa di un'interruzione di corrente nel data center, il dispositivo principale si arresta. Si pianifica di eseguire il failover del dispositivo su un dispositivo secondario. Dopo aver trasferito i dati del dispositivo e completato il failover, è possibile eliminare il dispositivo.
+- Your device is offline and you plan to fail over this device. This may happen in the event of a disaster where due to an outage in the datacenter, your primary device is down. You plan to fail over the device to a secondary device. After the device data is transferred and the failover is complete, you can delete the device.
 
-- Si vuole rimuovere il dispositivo e quindi eliminarlo.
+- You want to decommission the device and then delete it. 
  
 
-Quando si disattiva un dispositivo, tutti i dati archiviati localmente non saranno più accessibili. È possibile recuperare solo i dati archiviati nel cloud. Se si pianifica cdi mantenere il dispositivo dopo la disattivazione, prima di effettuare tale operazione è necessario eseguire uno snapshot di tutti i dati nel cloud. In questo modo sarà possibile recuperare tutti i dati in una fase successiva.
+When you deactivate a device, any data that was stored locally will no longer be accessible. Only the data stored in the cloud can be recovered. If you plan to keep the device data after deactivation, then you should take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
 
 
-In questa esercitazione viene illustrato come:
+This tutorial explains how to:
 
-- Disattivare un dispositivo 
-- Eliminare un dispositivo disattivato
+- Deactivate a device 
+- Delete a deactivated device
 
 
-## Disattivare un dispositivo
+## <a name="deactivate-a-device"></a>Deactivate a device
 
-Per disattivare un dispositivo seguire questa procedura.
+Perform the following steps to deactivate your device.
 
-#### Per disattivare il dispositivo   
+#### <a name="to-deactivate-the-device"></a>To deactivate the device   
 
-1. Passare alla pagina **Dispositivi**. Selezionare il dispositivo da disattivare.
+1. Go to **Devices** page. Select the device that you wish to deactivate.
 
-	![Selezione del dispositivo disattivare](./media/storsimple-ova-deactivate-and-delete-device/deactivate1m.png)
+    ![Select device to deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate1m.png)
 
-3. Nella parte inferiore della pagina fare clic su **Disattiva**.
+3. At the bottom of the page, click **Deactivate**.
 
-	![Clic su Disattiva](./media/storsimple-ova-deactivate-and-delete-device/deactivate2m.png)
+    ![Click deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate2m.png)
 
-4. Verrà visualizzato un messaggio di conferma. Fare clic su **Sì** per continuare.
+4. A confirmation message will appear. Click **Yes** to continue. 
 
-	![Conferma della disattivazione](./media/storsimple-ova-deactivate-and-delete-device/deactivate3m.png)
+    ![Confirm deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate3m.png)
 
-	Si avvierà il processo di disattivazione e il suo completamento richiederà alcuni minuti.
+    The deactivate process will start and take a few minutes to complete.
 
-	![Disattivazione in corso](./media/storsimple-ova-deactivate-and-delete-device/deactivate4m.png)
+    ![Deactivate in progress](./media/storsimple-ova-deactivate-and-delete-device/deactivate4m.png)
 
-3. Dopo la disattivazione, l'elenco dei dispositivi verrà aggiornato.
+3. After deactivation, the list of the devices will be refreshed. 
 
-	![Disattivazione completata](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
+    ![Deactivate complete](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
 
-	È ora possibile eliminare il dispositivo.
+    You can now delete this device. 
 
-## Eliminare il dispositivo
+## <a name="delete-the-device"></a>Delete the device
 
-Per eliminare un dispositivo, è prima necessario disattivarlo. L’eliminazione di un dispositivo lo rimuove dall'elenco dei dispositivi connessi al servizio. Il servizio quindi non può più gestire il dispositivo eliminato. I dati associati al dispositivo rimarranno comunque nel cloud. Tenere presente che questi dati determinano un aumento dei costi.
+A device has to be first deactivated in order to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device will however remain in the cloud. Be aware that this data will then accrue charges. 
 
-Completare la procedura seguente per eliminare il dispositivo:
+Complete the following steps to delete the device:
 
-#### Per eliminare il dispositivo 
+#### <a name="to-delete-the-device"></a>To delete the device 
 
- 1. Alla pagina**dispositivi**di servizio StorSimple Manager, selezionare un dispositivo disattivato che si desidera eliminare.
+ 1. On the StorSimple Manager service **Devices** page, select a deactivated device that you wish to delete.
 
-	![Selezione del dispositivo da eliminare](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
+    ![Select device to delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
 
- 2. Nella parte inferiore della pagina fare clic su **Elimina**.
+ 2. On the bottom on the page, click **Delete**.
  
-	![Clic su Elimina](./media/storsimple-ova-deactivate-and-delete-device/deactivate6m.png)
+    ![Click delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate6m.png)
 
- 3. Verrà richiesto di confermare. Digitare il nome del dispositivo per confermarne l'eliminazione. Si noti che l'eliminazione del dispositivo non eliminerà i dati ad esso associati presenti nel cloud. Fare clic sull’icona del segno di spunta per continuare.
+ 3. You will be prompted for confirmation. Type the device name to confirm device deletion. Note that deleting the device will not delete the cloud data associated with the device. Click the check icon to continue.
  
-	![Conferma dell'eliminazione](./media/storsimple-ova-deactivate-and-delete-device/deactivate7m.png)
+    ![Confirm delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate7m.png) 
 
- 5. L'eliminazione del dispositivo può richiedere alcuni minuti.
+ 5. It may take a few minutes for the device to be deleted. 
 
-	![Eliminazione in corso](./media/storsimple-ova-deactivate-and-delete-device/deactivate8m.png)
+    ![Delete in progress](./media/storsimple-ova-deactivate-and-delete-device/deactivate8m.png)
 
- 	Dopo l'eliminazione del dispositivo, l'elenco dei dispositivi verrà aggiornato.
+    After the device is deleted, the list of devices will be refreshed.
 
-	![Eliminazione completata](./media/storsimple-ova-deactivate-and-delete-device/deactivate9m.png)
+    ![Delete complete](./media/storsimple-ova-deactivate-and-delete-device/deactivate9m.png)
 
 
-## Passaggi successivi
+## <a name="next-steps"></a>Next steps
 
-- Per ulteriori informazioni sull’utilizzo del servizio StorSimple Manager, vedere l'articolo relativo all'[uso di StorSimple Manager per amministrare l'array virtuale StorSimple](storsimple-ova-manager-service-administration.md). 
+- To learn more about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md). 
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

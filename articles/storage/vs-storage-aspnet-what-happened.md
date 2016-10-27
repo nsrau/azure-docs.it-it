@@ -1,26 +1,28 @@
 <properties
-	pageTitle="Cosa è successo a un progetto ASP.NET? | Microsoft Azure | Servizi connessi a Visual Studio"
-	description="Viene descritto cosa succede dopo l'aggiunta di archiviazione di Azure a un progetto ASP.NET utilizzando i servizi connessi a Visual Studio"
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="What happened to my ASP.NET project? | Microsoft Azure | Visual Studio connected services"
+    description="Describes what happens after adding Azure Storage to a ASP.NET project using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-what-happened"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-what-happened"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# Cosa è successo a un progetto ASP.NET (servizio connesso a Visual Studio Archiviazione di Azure)?
 
-## Aggiunta di riferimenti
+# <a name="what-happened-to-my-asp.net-project-(visual-studio-azure-storage-connected-service)?"></a>What happened to my ASP.NET project (Visual Studio Azure Storage connected service)?
 
-Il pacchetto NuGet per l'Archiviazione di Azure è stato aggiunto al progetto di Visual Studio. Il pacchetto aggiunge i riferimenti a .NET seguenti:
+## <a name="references-added"></a>References added
+
+The Azure Storage NuGet package was added to your Visual Studio project.  
+This package adds the following .NET references:
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -31,9 +33,13 @@ Il pacchetto NuGet per l'Archiviazione di Azure è stato aggiunto al progetto di
 - **System.Data**
 - **System.Spatial**
 
-##Aggiunta di stringa di connessione per l'Archiviazione di Azure
-Nel file web.config del progetto è stato creato un elemento con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
+##<a name="connection-string-for-azure-storage-added"></a>Connection string for Azure Storage added
+In the web.config file of your project, an element was created with the selected storage account's connection string and key.
 
-Per altre informazioni, vedere [ASP.NET](http://www.asp.net).
+For more information, see [ASP.NET](http://www.asp.net).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

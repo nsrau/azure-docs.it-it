@@ -1,290 +1,294 @@
 <properties
-	pageTitle="Esercitazione: Integrazione di Azure Active Directory con Allocadia | Microsoft Azure"
-	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Allocadia."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/> 
+    pageTitle="Tutorial: Azure Active Directory integration with Allocadia | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Allocadia."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="jeedes"/> 
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="jeedes"/>
 
 
-# Esercitazione: Integrazione di Azure Active Directory con Allocadia
 
-Questa esercitazione descrive come integrare Allocadia con Azure Active Directory (Azure AD).
+# <a name="tutorial:-azure-active-directory-integration-with-allocadia"></a>Tutorial: Azure Active Directory integration with Allocadia
 
-L'integrazione di Allocadia con Azure AD offre i vantaggi seguenti:
+In this tutorial, you learn how to integrate Allocadia with Azure Active Directory (Azure AD).
 
-- È possibile controllare in Azure AD chi può accedere ad Allocadia
-- È possibile abilitare gli utenti per l'accesso automatico ad Allocadia (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
+Integrating Allocadia with Azure AD provides you with the following benefits:
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to Allocadia
+- You can enable your users to automatically get signed-on to Allocadia (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Prerequisiti
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Per configurare l'integrazione di Azure AD con Allocadia, sono necessari gli elementi seguenti:
+## <a name="prerequisites"></a>Prerequisites
 
-- Sottoscrizione di Azure AD.
-- Sottoscrizione di Allocadia abilitata per l'accesso Single Sign-On.
+To configure Azure AD integration with Allocadia, you need the following items:
 
+- An Azure AD subscription
+- A Allocadia single-sign on enabled subscription
 
-> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-- Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+To test the steps in this tutorial, you should follow these recommendations:
 
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di Allocadia dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="scenario-description"></a>Scenario Description
+In this tutorial, you test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
 
+1. Adding Allocadia from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-## Aggiunta di Allocadia dalla raccolta
-Per configurare l'integrazione di Allocadia in Azure AD, è necessario aggiungere Allocadia dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Allocadia dalla raccolta, seguire questa procedura:**
+## <a name="adding-allocadia-from-the-gallery"></a>Adding Allocadia from the gallery
+To configure the integration of Allocadia into Azure AD, you need to add Allocadia from the gallery to your list of managed SaaS apps.
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+**To add Allocadia from the gallery, perform the following steps:**
 
-	![Active Directory][1] 
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+    ![Active Directory][1]
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![Applicazioni][2] 
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-4. Fare clic su **Add** nella parte inferiore della pagina.
+    ![Applications][2]
 
-	![Applicazioni][3] 
+4. Click **Add** at the bottom of the page.
 
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
+    ![Applications][3]
 
-	![Applicazioni][4]
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-6. Nella casella di ricerca digitare** Allocadia**.
+    ![Applications][4]
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_01.png)
+6. In the search box, type **Allocadia**.
 
-7. Nel riquadro dei risultati selezionare **Allocadia** e quindi fare clic su **Completa** per aggiungere l'applicazione.
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_01.png)
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_06.png)
+7. In the results pane, select **Allocadia**, and then click **Complete** to add the application.
 
-##  Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Allocadia usando un utente test di nome "Britta Simon".
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_06.png)
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Allocadia che corrisponde a un utente di Azure AD. In altre parole deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Allocadia. La relazione di collegamento viene stabilita assegnando lo stesso valore al **nome utente** in Azure AD e a **Username** in Allocadia.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Allocadia based on a test user called "Britta Simon".
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Allocadia, è necessario completare i blocchi predefiniti seguenti:
+For single sign-on to work, Azure AD needs to know what the counterpart user in Allocadia is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Allocadia needs to be established.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Allocadia.
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creazione di un utente di test di Allocadia](#creating-an-allocadia-test-user)**: per avere una controparte di Britta Simon in Allocadia collegata alla relativa rappresentazione in Azure AD.
-5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+To configure and test Azure AD single sign-on with Allocadia, you need to complete the following building blocks:
 
-### Configurazione dell'accesso Single Sign-On di Azure AD
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating an Allocadia test user](#creating-an-allocadia-test-user)** - to have a counterpart of Britta Simon in Allocadia that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale classico e viene configurato l'accesso Single Sign-On nell'applicazione Allocadia.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
 
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Allocadia application.
 
-L'applicazione Allocadia si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **Attribute (Attributo)** dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
 
-![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_07.png)
+Allocadia application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Hightail, seguire questa procedura:**
+![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_07.png) 
 
+**To configure Azure AD single sign-on with Hightail, perform the following steps:**
 
-1. Nel menu visualizzato nella parte superiore della pagina di integrazione dell'applicazione **Allocadia** del portale di Azure classico fare clic su **Attributi**.
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_80.png)
+1. In the Azure classic portal, on the **Allocadia** application integration page, in the menu on the top, click **Attributes**.
 
+    ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_80.png) 
 
-2. Nella finestra di dialogo **Attributi token SAML** seguire questa procedura per ciascuna riga della tabella:
 
-	| Nome attributo | Valore attributo |
-	| --- | --- |    
-	| firstname | user.givenname |
-    | lastname | user.surname |
-	| email | user.mail |
-	
+2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
 
-	a. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo a utente**.
+  	| Attribute Name | Attribute Value |
+  	| --- | --- |    
+  	| firstname | user.givenname |
+  	| lastname  | user.surname |
+  	| email | user.mail |
+    
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_81.png)
+    a. Click **add user attribute** to open the **Add User Attribure** dialog.
 
+    ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_81.png) 
 
-	b. Nella casella di testo **Nome attributo** digitare il nome dell'attributo indicato per quella riga.
 
-    c. Nell'elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
+    b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
 
-    d. Fare clic su **Complete**.
-	
+    c. From the **Attribute Value** list, selsect the attribute value shown for that row.
 
-3. Nel menu in alto fare clic su **Avvio rapido**.
+    d. Click **Complete**.  
+    
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_83.png)
+3. In the menu on the top, click **Quick Start**.
 
+    ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_general_83.png)  
 
-4. Nella pagina **Stabilire come si desidera che gli utenti accedano ad Allocadia** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
- 	
-	![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_03.png)
 
-5. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
+4. On the **How would you like users to sign on to Allocadia** page, select **Azure AD Single Sign-On**, and then click **Next**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_03.png) 
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_04.png) 
+5. On the **Configure App Settings** dialog page, perform the following steps:.
 
-	a. Nella casella IDENTIFICATORE digitare l'URL nel formato seguente: per l'ambiente di test usare un URL come **"https://na2standby.allocadia.com"** e per l'ambiente di produzione usare **"https://na2.allocadia.com"**
+    ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_04.png) 
 
-	b. Nella casella URL di risposta digitare l'URL nel formato seguente: per l'ambiente di test usare un modello di URL come **"https://na2standby.allocadia.com/allocadia/saml/SSO"** e per l'ambiente di produzione usare **"https://na2.allocadia.com/allocadia/saml/SSO"**
+    a. In the IDENTIFER box type the URL in the following pattern: For test environment use the URL as **"https://na2standby.allocadia.com"** and for production environment use **"https://na2.allocadia.com"**
 
+    b. In the Reply URL type the URL in the following pattern: For test environment use the URL pattern as  **"https://na2standby.allocadia.com/allocadia/saml/SSO"** and for production environment use **"https://na2.allocadia.com/allocadia/saml/SSO"**
 
-6. Nella pagina **Configura accesso Single Sign-On in Allocadia** seguire questa procedura:
 
-	![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_05.png)
+6. On the **Configure single sign-on at Allocadia** page, perform the following steps:
 
-    a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
+    ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_05.png) 
 
-    b. Fare clic su **Next**.
+    a. Click **Download metadata**, and then save the file on your computer.
 
+    b. Click **Next**.
 
-7.  Per la procedura di configurazione dell'accesso SSO per l'applicazione, contattare il team di [supporto di Allocadia](mailTo:support@allocadia.com) che fornirà l'aiuto richiesto. Si noti che è necessario inviare un messaggio di posta elettronica e allegare il file dei metadati scaricato per configurare l'accesso SSO sul lato Allocadia.
+
+7.  To get SSO configured for your application, contact [Allocadia Support](mailTo:support@allocadia.com) team and they will assist to configure SSO. Please note that you have to send email and attach downloaded metadata file to configure SSO on the Allocadia side.
  
-	> [AZURE.NOTE] Accertarsi che il team di Allocadia imposti il valore Identificatore nell'ambiente di test come **"https://na2standby.allocadia.com"** mentre per l'ambiente di produzione deve essere **"https://na2.allocadia.com"**
+    > [AZURE.NOTE] Please make sure that Allocadia team set the Identifier value in the test environment as **"https://na2standby.allocadia.com"** and for production environment, it should be: **"https://na2.allocadia.com"**
 
 
-8. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
-	
-	![Accesso Single Sign-On di Azure AD][10] 
+8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    
+    ![Azure AD Single Sign-On][10]
 
-9. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.
-  	
-	![Accesso Single Sign-On di Azure AD][11] 
+9. On the **Single sign-on confirmation** page, click **Complete**.  
+    
+    ![Azure AD Single Sign-On][11]
 
 
 
-### Creazione di un utente test di Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
 
-In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico. Nell'elenco di utenti selezionare **Britta Simon**.
+In this section, you create a test user in the classic portal called Britta Simon.
+In the Users list, select **Britta Simon**.
 
-![Creare un utente di Azure AD][20]
+![Create Azure AD User][20]
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
-	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_09.png) 
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_09.png) 
 
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto.
-	
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_03.png) 
+3. To display the list of users, in the menu on the top, click **Users**.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_03.png) 
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_04.png) 
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura:
+5. On the **Tell us about this user** dialog page, perform the following steps:
  
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_05.png) 
 
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+    a. As Type Of User, select New user in your organization.
 
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Fare clic su **Next**.
+    c. Click **Next**.
 
-6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura:
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
 
-    a. Nella casella di testo **Nome** digitare **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. Nell'elenco **Ruolo**, selezionare **Utente**.
+    d. In the **Role** list, select **User**.
 
-    e. Fare clic su **Avanti**.
+    e. Click **Next**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_07.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_07.png) 
 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Creazione di un utente test di Azure AD](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png) 
 
-    a. Prendere nota del valore visualizzato in **Nuova password**.
+    a. Write down the value of the **New Password**.
 
-    b. Fare clic su **Complete**.
-
-
-
-### Creazione di un utente di test di Allocadia
-
-In questa sezione viene creato un utente chiamato Britta Simon in Allocadia. L'applicazione Allocadia supporta il provisioning degli utenti just-in-time. Se le attestazioni sono state configurate come indicato nella precedente sezione **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**, si otterrà il provisioning degli utenti nell'applicazione.
-
-
-> [AZURE.NOTE] Nel caso si debba creare un utente manualmente o creare un batch di utenti, è necessario contattare il team di supporto di Allocadia.
-
-
-### Assegnazione dell'utente test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Allocadia.
-
-![Assegna utente][200]
-
-**Per assegnare Britta Simon ad Allocadia, seguire questa procedura:**
-
-1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
-
-	![Assegna utente][201]
-
-2. Nell'elenco delle applicazioni selezionare **Allocadia**.
-
-	![Configura accesso Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_50.png)
-
-1. Scegliere **Utenti** dal menu in alto.
-
-	![Assegna utente][203] 
-
-1. Nell'elenco di utenti selezionare **Britta Simon**.
-
-2. Fare clic su **Assegna** sulla barra degli strumenti in basso.
-
-	![Assegna utente][205] 
-
-
-### Test dell'accesso Single Sign-On
-
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso. Quando si fa clic sul riquadro Allocadia nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Allocadia.
-
-
-## Risorse aggiuntive
-
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+    b. Click **Complete**.   
 
 
 
-<!--Image references--> 
+### <a name="creating-an-allocadia-test-user"></a>Creating an Allocadia test user
+
+In this section, you create a user called Britta Simon in Allocadia. Allocadia application support just in time user provisioning. If you have configured the claims as stated above in **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** section then it will provision the users in the application. 
+
+
+> [AZURE.NOTE] If you need to create a user manually or batch of users, you need to contact the Allocadia support team.
+
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Allocadia.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Allocadia, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **Allocadia**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_50.png) 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
+
+
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+When you click the Allocadia tile in the Access Panel, you should get automatically signed-on to your Allocadia application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_02.png
@@ -302,4 +306,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 [204]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
